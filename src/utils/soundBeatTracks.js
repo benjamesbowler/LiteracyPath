@@ -6,6 +6,7 @@ import {
 } from "../data/learnGamesData.js";
 import { segmentWord } from "./graphemeSegments.js";
 import { starRubric } from "./starRubric.js";
+import { hasWordAudio } from "./questAudio.js";
 
 const WORLDS = { easy: "meadow", medium: "dino", hard: "moonwood" };
 const BASE_BPM = { easy: 82, medium: 94, hard: 108 };
@@ -13,14 +14,14 @@ const BASE_BPM = { easy: 82, medium: 94, hard: 108 };
 // children can actually land the taps; shrinks only a little as levels rise.
 const BASE_WINDOW = { easy: 460, medium: 410, hard: 360 };
 
-function rotate(values, amount) {
-  if (!values.length) return [];
-  const offset = ((amount % values.length) + values.length) % values.length;
-  return [...values.slice(offset), ...values.slice(0, offset)];
+// Partition the reviewed bank across one continuous performance. Every item
+// appears once; longer sets add musical phrases without slowing the beat.
+function section(values, index, count) {
+  return values.slice(Math.floor(index * values.length / count), Math.floor((index + 1) * values.length / count));
 }
 
 function syllableItems(parts) {
-  return parts.map(beats => ({
+  return parts.filter(beats => hasWordAudio(beats.join(""))).map(beats => ({
     unit: "syllables",
     word: beats.join(""),
     beats,
@@ -45,26 +46,27 @@ function sentenceItem(sentence) {
 
 function levelItems(difficulty, levelIndex) {
   if (difficulty === "hard" && levelIndex >= 6) {
-    return [sentenceItem(SENTENCES.level3[levelIndex - 6])];
+    const sentences = SENTENCES.level3.map(sentenceItem).filter(item => item.beats.every(hasWordAudio));
+    return section(sentences, levelIndex - 6, 4);
   }
 
   if (difficulty === "easy") {
     // x represents /k/ + /s/: the one-spelling/one-beat display cannot teach
     // that as one phoneme. Keep these words in spelling games, not this mode.
     const soundWords = CVC_WORDS.easy.filter(word => !word.includes("x"));
-    return rotate(soundWords, levelIndex * 3).slice(0, 3).map(wordItem);
+    return section(soundWords, levelIndex, 10).map(wordItem);
   }
 
   if (difficulty === "medium") {
-    const words = rotate(CVC_WORDS.medium, levelIndex * 2).slice(0, 2).map(wordItem);
+    const words = section(CVC_WORDS.medium, levelIndex, 10).map(wordItem);
     const syllables = syllableItems(SYLLABLE_WORDS.two);
-    return [...words, syllables[levelIndex % syllables.length]];
+    return [...words, ...section(syllables, levelIndex, 10)];
   }
 
   const vowelTeamWords = Object.values(VOWEL_TEAM_WORDS).flat();
-  const words = rotate(vowelTeamWords, levelIndex * 2).slice(0, 2).map(wordItem);
-  const syllables = syllableItems(SYLLABLE_WORDS.three);
-  return [...words, syllables[levelIndex % syllables.length]];
+  const words = section(vowelTeamWords, levelIndex, 6).map(wordItem);
+  const syllables = syllableItems([...SYLLABLE_WORDS.two, ...SYLLABLE_WORDS.three]);
+  return [...words, ...section(syllables, levelIndex, 6)];
 }
 
 export function soundBeatLevel(difficulty = "easy", levelIndex = 0) {
@@ -77,8 +79,8 @@ export function soundBeatLevel(difficulty = "easy", levelIndex = 0) {
     bpm: BASE_BPM[safeDifficulty] + level * 3,
     mode: safeDifficulty === "hard" && level >= 6 ? "sentence" : (safeDifficulty === "medium" || safeDifficulty === "hard" ? "mixed" : "sounds"),
     hitWindowMs: Math.max(300, BASE_WINDOW[safeDifficulty] - level * 6),
-    // Minimum seconds of play before a stop/countdown: the engine groups
-    // consecutive levels into one continuous round until this floor is met.
+    // Keep the accompaniment tempo stable across short sections. This does
+    // not lock input or impose a waiting period.
     minPlaySeconds: 60,
     items: levelItems(safeDifficulty, level).map((item, index) => {
       const phrases = [[0, 1, 2, 3], [0, 2, 1, 3], [3, 2, 1, 0], [0, 1, 0, 2, 3], [1, 2, 0, 3]];

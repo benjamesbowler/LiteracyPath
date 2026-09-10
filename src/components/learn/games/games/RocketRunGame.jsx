@@ -360,7 +360,7 @@ function startGame(THREE, mount, opts) {
     '<div data-rr="reticle" style="position:absolute;left:50%;top:58%;width:72px;height:28px;transform:translate(-50%,-50%);opacity:.38;border-left:2px solid #7ff0ff;border-right:2px solid #7ff0ff;border-radius:50%;box-shadow:0 0 18px rgba(127,240,255,.42)"></div>' +
     '<div data-rr="banner" style="position:absolute;top:80px;left:14px;max-width:calc(100% - 28px);padding:6px 10px;border-radius:9px;background:rgba(4,14,32,.82);text-align:left;pointer-events:none;font-weight:700;font-size:clamp(14px,2vw,18px);line-height:1.3;color:#eaf2ff;text-shadow:0 2px 8px rgba(0,0,0,.5);opacity:0;transition:opacity .3s ease,transform .3s ease;transform:translateX(-40px)"></div>' +
     '<div data-rr="countdown" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;pointer-events:none;background:radial-gradient(120% 90% at 50% 42%,rgba(10,16,40,.6),rgba(6,9,24,.25))"></div>' +
-    '<div data-rr="overlay" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;background:radial-gradient(120% 90% at 50% 25%,rgba(30,44,96,.72),rgba(6,9,24,.94));pointer-events:auto"></div>';
+    '<div data-rr="overlay" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;background:radial-gradient(120% 90% at 50% 25%,rgba(30,44,96,.72),rgba(6,9,24,.94));pointer-events:auto;overflow:auto;padding:8px;box-sizing:border-box"></div>';
   mount.appendChild(hud);
   const el = key => hud.querySelector('[data-rr="' + key + '"]');
   let bannerT = 0;
@@ -1438,11 +1438,15 @@ function startGame(THREE, mount, opts) {
     const confettiColors = [0xffd34e, 0x59ffe0, 0xff7a9c, 0x8affc0];
     for (let i = 0; i < 6; i += 1) burst({ x: (Math.random() - 0.5) * 6, y: 1 + Math.random() * 3, z: 3 }, confettiColors[i % 4]);
     const overlay = showOverlay(
-      '<div style="display:grid;gap:14px;justify-items:center">' +
-      '<div style="font-size:2rem;font-weight:800">You caught the comet!</div>' +
+      '<div style="display:grid;gap:6px;justify-items:center;max-width:100%;max-height:100%;overflow:auto;padding:4px;box-sizing:border-box">' +
+      '<div style="font-size:clamp(1.2rem,4vw,2rem);font-weight:800">You caught the comet!</div>' +
       '<div data-rr="rstars" style="font-size:2.3rem;letter-spacing:8px;min-height:2.5rem">✩✩✩</div>' +
       '<div style="font-size:1.15rem;opacity:.9">Score <b data-rr="rscore">0</b></div>' +
-      '<button type="button" data-rr="done" style="' + overlayButtonStyle + ';margin-top:4px">Back to Arcade</button>' +
+      '<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;width:100%;max-width:520px">' +
+      '<button type="button" data-rr="next" style="' + overlayButtonStyle + ';padding:10px 12px;font-size:.95rem;letter-spacing:0;text-transform:none;flex:1 1 130px">Next level</button>' +
+      '<button type="button" data-rr="replay" style="' + overlayButtonStyle + ';padding:10px 12px;font-size:.95rem;letter-spacing:0;text-transform:none;flex:1 1 130px">Replay level</button>' +
+      '<button type="button" data-rr="done" style="' + overlayButtonStyle + ';padding:10px 12px;font-size:.95rem;letter-spacing:0;text-transform:none;flex:1 1 130px">Back to Arcade</button>' +
+      '</div>' +
       '</div>'
     );
     // Stars pop in one at a time, each with a chime; score counts up over ~800ms.
@@ -1464,7 +1468,13 @@ function startGame(THREE, mount, opts) {
     };
     requestAnimationFrame(countUp);
     const done = overlay.querySelector('[data-rr="done"]');
-    isolateRocketRunCompletion(hud, overlay, done);
+    const next = overlay.querySelector('[data-rr="next"]');
+    const replay = overlay.querySelector('[data-rr="replay"]');
+    next.hidden = !opts.onRequestNextLevel;
+    replay.hidden = !opts.onRequestReplay;
+    next.addEventListener("click", () => opts.onRequestNextLevel?.());
+    replay.addEventListener("click", () => opts.onRequestReplay?.());
+    isolateRocketRunCompletion(hud, overlay, opts.onRequestNextLevel ? next : done);
     if (done) done.addEventListener("click", () => {
       if (opts.onExit) opts.onExit();
       else {
@@ -1763,7 +1773,7 @@ function startGame(THREE, mount, opts) {
   return { teardown, pause, resume };
 }
 
-export default function RocketRunGame({ difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, onExit, isSoundEnabled = true }) {
+export default function RocketRunGame({ difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, onExit, onRequestNextLevel, onRequestReplay, isSoundEnabled = true }) {
   const mountRef = useRef(null);
   const [status, setStatus] = useState("loading");
   const soundRef = useRef(isSoundEnabled);
@@ -1779,7 +1789,7 @@ export default function RocketRunGame({ difficulty = "easy", startLevel = 0, onS
       .then(THREE => {
         if (cancelled || !mountRef.current || !THREE) return;
         try {
-          api = startGame(THREE, mountRef.current, { difficulty, startLevel, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onExit, getSound: () => soundRef.current });
+          api = startGame(THREE, mountRef.current, { difficulty, startLevel, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onExit, onRequestNextLevel, onRequestReplay, getSound: () => soundRef.current });
           if (onEngineReady) onEngineReady(api);
           setStatus("playing");
         } catch (err) {

@@ -11,7 +11,7 @@ import {
   startSoundBeatMusic,
   getGameAudioTime
 } from "../../../../utils/audio/gameSfx.js";
-import { speak, speakPhoneme, speakWord, wordAudioDuration, preloadWordAudio } from "../../../../utils/learnGamesAudio.js";
+import { hasRecordedSpeech, speak, speakPhoneme, speakWord, wordAudioDuration, preloadWordAudio } from "../../../../utils/learnGamesAudio.js";
 import { soundBeatLadder, soundBeatMercyPolicy, soundBeatStars } from "../../../../utils/soundBeatTracks.js";
 import {
   TWO_PI,
@@ -31,6 +31,8 @@ import {
   createScoreReporter,
   createFrameLoop
 } from "../shared/canvasUtils.js";
+
+import { speakSoundBeatSentence } from "../../../../utils/audio/soundBeatSpeech.js";
 
 const CONFIG = {
   "sound-beat": {
@@ -740,7 +742,7 @@ function startPs1ArcadeGame(mount, options) {
     let playback;
     if (note === "blend" || (item.unit === "syllables" && (state.beatIndex === 0 || manual))) {
       voiceUntil = rhythmClock.now() + (/\s/.test(item.word) ? item.word.split(/\s+/).reduce((sum, word) => sum + wordAudioDuration(word), 0) : wordAudioDuration(item.word)) + 0.15;
-      playback = /\s/.test(item.word) ? speak(item.say, options) : speakWord(item.word, options);
+      playback = item.unit === "words" ? speakSoundBeatSentence(item, options, { hasRecordedSpeech, speak, speakWord }) : speakWord(item.word, options);
     } else if (item.unit === "sounds") playback = speakPhoneme(note, options);
     else if (item.unit === "words") playback = speakWord(note, options);
     void Promise.resolve(playback).finally(() => {

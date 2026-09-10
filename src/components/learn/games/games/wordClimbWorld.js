@@ -24,7 +24,8 @@ export function createClimbWorld(session, startStep = 0, random = Math.random) {
 }
 
 export function reachableClimbPlatforms(world) {
-  return world.platforms.filter(p => p.row === world.step + 1);
+  if(world.journey&&world.journey.phase!=="word")return [];
+  return world.platforms.filter(p => p.row === world.step + 1 && (!world.journey||p.kind==="word"));
 }
 
 function launch(world, target, recovering = false) {

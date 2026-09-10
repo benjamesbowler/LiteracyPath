@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 export function usePlayClock(paused) {
   const [time, setTime] = useState(0);
@@ -18,9 +18,16 @@ export function usePlayClock(paused) {
 export function usePlaySize() {
   const ref = useRef(null);
   const [size, setSize] = useState({ width: 640, height: 320 });
-  useEffect(() => {
+  useLayoutEffect(() => {
     const node = ref.current;
     if (!node) return undefined;
+    // Measure before the first playable frame. A deferred first resize used
+    // to move freshly focused targets from the default board to the real one.
+    const style = getComputedStyle(node);
+    setSize({
+      width: node.clientWidth - parseFloat(style.paddingLeft || 0) - parseFloat(style.paddingRight || 0),
+      height: node.clientHeight - parseFloat(style.paddingTop || 0) - parseFloat(style.paddingBottom || 0)
+    });
     const observer = new ResizeObserver(([entry]) => setSize({ width: entry.contentRect.width, height: entry.contentRect.height }));
     observer.observe(node);
     return () => observer.disconnect();

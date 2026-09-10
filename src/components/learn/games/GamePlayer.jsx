@@ -81,7 +81,7 @@ class GameErrorBoundary extends Component {
 
 export function GamePlayer({
   game,
-  difficulty,
+  difficulty: initialDifficulty,
   soundEnabled,
   musicEnabled = false,
   progressScopeKey,
@@ -90,6 +90,8 @@ export function GamePlayer({
   onMusicEnabledChange,
   onProgressChange
 }) {
+  const [difficulty, setDifficulty] = useState(initialDifficulty);
+  const [runIndex, setRunIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [showQuit, setShowQuit] = useState(false);
   const [showGuide, setShowGuide] = useState(false);
@@ -97,9 +99,8 @@ export function GamePlayer({
   const [completionResult, setCompletionResult] = useState(null);
   const [saveRecovery, setSaveRecovery] = useState(false);
   const [progressStatus, setProgressStatus] = useState({ current: 0, total: 1 });
-  // Resume: check for a saved checkpoint once, on open. difficulty is fixed for a
-  // GamePlayer's lifetime (chosen in the arcade before entry), so a lazy initial
-  // read is correct and avoids a blank first frame. resumePoint set => show the
+  // Resume the initially selected course. Continuing after completion can move
+  // to another difficulty without leaving the game. resumePoint set => show the
   // Continue / Start-over prompt and hold the game until the child chooses.
   const [resumePoint, setResumePoint] = useState(() => loadGameCheckpoint(progressScopeKey, game.id, difficulty));
   const [startLevel, setStartLevel] = useState(() => (loadGameCheckpoint(progressScopeKey, game.id, difficulty) ? null : 0));
@@ -379,6 +380,30 @@ export function GamePlayer({
     setCompleted(false);
     setCompletionResult(null);
     setScore(0);
+    setProgressStatus({ current: 0, total: 1 });
+    announcedMilestoneRef.current = 0;
+    setScoreAnnouncement("");
+    return true;
+  }
+
+  function startAnotherRun(advance) {
+    // A failed/pending receipt must be recovered before replacing its engine.
+    if (pendingResultRef.current || !savedResultRef.current) return false;
+    const nextDifficulty = advance
+      ? ({ easy: "medium", medium: "hard", hard: "hard" }[difficulty] || difficulty)
+      : difficulty;
+    cancelSpeech();
+    cancelGameSfx();
+    engineRef.current?.pause?.();
+    engineRef.current = null;
+    handleSessionStart();
+    setDifficulty(nextDifficulty);
+    const checkpoint = advance && nextDifficulty !== difficulty
+      ? loadGameCheckpoint(progressScopeKey, game.id, nextDifficulty) : null;
+    setResumePoint(checkpoint);
+    setStartLevel(checkpoint ? null : 0);
+    setRunIndex(index => index + 1);
+    return true;
   }
 
   // Stable identity + no-op on identical values. A fresh callback every
@@ -506,7 +531,9 @@ export function GamePlayer({
           >
             {startLevel !== null && (
               <GameComponent
+                key={`${game.id}:${difficulty}:${runIndex}`}
                 difficulty={difficulty}
+                sessionSeed={runIndex}
                 startLevel={startLevel}
                 progressScopeKey={progressScopeKey}
                 onScoreUpdate={setScore}
@@ -514,6 +541,8 @@ export function GamePlayer({
                 onComplete={handleComplete}
                 onResultReady={handleEarlyResultReady}
                 onSessionStart={handleSessionStart}
+                onRequestNextLevel={() => startAnotherRun(true)}
+                onRequestReplay={() => startAnotherRun(false)}
                 completionPresentedByPlayer={hasPremiumCompletionOverlay}
                 onCheckpoint={handleCheckpoint}
                 onEngineReady={api => {
@@ -539,7 +568,7 @@ export function GamePlayer({
         >
           <div>
             <h2>Welcome back</h2>
-            <p>You reached level {resumePoint.level + 1}{resumePoint.totalLevels ? ` of ${resumePoint.totalLevels}` : ""}. Pick up where you left off?</p>
+            <p>You reached checkpoint {resumePoint.level + 1}{resumePoint.totalLevels ? ` of ${resumePoint.totalLevels}` : ""}. Pick up where you left off?</p>
             <div>
               <button type="button" ref={resumeActionRef} onClick={continueGame}>Continue</button>
               <button type="button" className="danger" onClick={restartGame}>Start over</button>
@@ -639,7 +668,11 @@ export function GamePlayer({
               <strong>{completionResult.words}</strong>
               <span>{premiumProfile.rewardLabel}</span>
             </div>
-            <button type="button" className="primary" ref={completionActionRef} onClick={closePlayer}>Back to Arcade</button>
+            <div className="lg-completion-actions">
+              <button type="button" className="primary" ref={completionActionRef} onClick={() => startAnotherRun(true)}>Next level</button>
+              <button type="button" onClick={() => startAnotherRun(false)}>Replay level</button>
+              <button type="button" onClick={closePlayer}>Back to Arcade</button>
+            </div>
           </div>
         </div>
       )}

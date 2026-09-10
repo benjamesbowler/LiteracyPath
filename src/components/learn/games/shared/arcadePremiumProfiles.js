@@ -26,12 +26,13 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
     rewardLabel: "words spelled"
   }),
   "word-climb": Object.freeze({
+    completionPresentation: "engine",
     version: "2.0",
-    mission: "Choose every word that starts with the shown sound.",
+    mission: "Climb through Moonwood to the lantern lookout.",
     objective: "Identify the printed word whose beginning sound matches the target phoneme.",
-    action: "Read three leaf words, then choose the matching word to climb.",
-    controls: Object.freeze(["Choose: Tab, then Enter or Space", "Touch: tap a word leaf"]),
-    retry: "A wrong leaf names its real beginning sound while the target and all choices stay visible.",
+    action: "Hold up to climb. Steer around branches, collect lanterns, then jump to a word that starts with the target sound.",
+    controls: Object.freeze(["Up or W: climb; Left/Right or A/D: steer", "At a word station: Left/Right choose; Space/Enter jump", "Touch: hold the arrows to climb; tap a word ledge to jump"]),
+    retry: "Hear the beginning sound again. A safety vine returns you to your last safe ledge.",
     completionTitle: "Canopy reached",
     rewardLabel: "words climbed"
   }),

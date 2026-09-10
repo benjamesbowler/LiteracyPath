@@ -77,19 +77,20 @@ for (const difficulty of ['easy', 'medium', 'hard']) for (const [game, mode, tot
     });
   }
   await expect(page.getByRole('button', {
-    name: 'Play again',
+    name: 'Replay level',
     exact: true
   })).toBeVisible({
     timeout: 15000
   });
   if (game === "word-rescue" && difficulty === "easy") {
-    const replay = page.getByRole("button", { name: "Play again", exact: true });
-    await expect(replay).toBeFocused();
+    const replay = page.getByRole("button", { name: "Replay level", exact: true });
+    const next = page.getByRole("button", { name: "Next level", exact: true });
+    await expect(next).toBeFocused();
     await expect(page.locator(".lg-game-player-header")).toHaveAttribute("inert", "");
     await page.keyboard.press("Tab");
     await expect(replay).toBeFocused();
     await page.keyboard.press("Shift+Tab");
-    await expect(replay).toBeFocused();
+    await expect(next).toBeFocused();
   }
   await page.screenshot({
     path: `${out}/${game}-${difficulty}-complete.png`

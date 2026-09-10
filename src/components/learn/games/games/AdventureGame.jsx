@@ -20,7 +20,7 @@ import {
 // Static card (no animated intro) so prefers-reduced-motion is respected;
 // light panel matches the lg-game-complete card these games already use.
 
-function Complete({ title, stars, score, onRestart }) {
+function Complete({ title, stars, score, onRestart, onNextLevel }) {
   return (
     <div className="lg-game-complete">
       <ConfettiCelebration show={stars > 0} />
@@ -29,12 +29,15 @@ function Complete({ title, stars, score, onRestart }) {
       <ProgressStars stars={stars} size="lg" />
       <p>{score} points</p>
       {stars > 0 && <p className="kid-coins-earned">+{stars * 7} coins for your Hollow!</p>}
-      <button type="button" className="lg-game-primary" onClick={onRestart}>Play again</button>
+      <div className="lg-completion-actions">
+        {onNextLevel && <button type="button" className="lg-game-primary" onClick={onNextLevel}>Next level</button>}
+        <button type="button" className="lg-game-primary" onClick={onRestart}>Replay level</button>
+      </div>
     </div>
   );
 }
 
-export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onResultReady, onSessionStart, onCheckpoint, onEngineReady, isSoundEnabled = true, progressScopeKey = "default" }) {
+export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onResultReady, onSessionStart, onRequestNextLevel, onRequestReplay, onCheckpoint, onEngineReady, isSoundEnabled = true, progressScopeKey = "default" }) {
   const [version, setVersion] = useState(0);
   const sessionKey = adventureSessionKey(progressScopeKey, mode, difficulty);
   const [saved] = useState(() => {
@@ -244,7 +247,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
     responseEvidenceRef.current.assistedRetries.push(Object.freeze({ ...retry, practiceOnly: true, independent: false, audioDelivery: "not_measured", supportUsed: Object.freeze([...(retry.supportUsed || [])]) }));
   }
 
-  if (completed) return <Complete title={title} stars={stars} score={score} onRestart={restart} />;
+  if (completed) return <Complete title={title} stars={stars} score={score} onRestart={onRequestReplay || restart} onNextLevel={onRequestNextLevel} />;
 
   if (mode === "rescue") {
     const state = {

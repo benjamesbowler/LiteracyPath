@@ -198,6 +198,8 @@ export default function SentenceExpressGame({
   onComplete = () => {},
   onQuit = () => {},
   onReplay,
+  onRequestNextLevel,
+  onRequestReplay,
   // GamePlayer pauses on tab-hide and while its quit dialog is open.
   onEngineReady,
   // The arcade shell (GamePlayer) has its own close button; hide ours there
@@ -566,6 +568,7 @@ export default function SentenceExpressGame({
 
   function replayLine() {
     if (paused.current || !finished) return;
+    if (onRequestReplay) { onRequestReplay(); return; }
     onReplay?.();
     saveExpressSnapshot(sessionKey, null);
     setLevelIndex(0); setTrainIndex(0); setQueue([]);
@@ -754,9 +757,10 @@ export default function SentenceExpressGame({
             <span>Express departures <b>{express} of {level.trains.length}</b></span>
             <span>Delays <b>{mistakes ? `+${mistakes} min` : "none"}</b></span>
           </div>
-          <button ref={ticketButton} type="button" className="sx-golden" onClick={finished ? replayLine : nextLevel}>
-            {finished ? "Play again" : levelIndex + 1 < LEVELS_PER_LINE ? "NEXT DEPARTURE ->" : "FINISH THE LINE"}
+          <button ref={ticketButton} type="button" className="sx-golden" onClick={finished ? (onRequestNextLevel || replayLine) : nextLevel}>
+            {finished ? (onRequestNextLevel ? "Next level" : "Play again") : levelIndex + 1 < LEVELS_PER_LINE ? "NEXT DEPARTURE ->" : "FINISH THE LINE"}
           </button>
+          {finished && onRequestNextLevel && <button type="button" className="sx-golden" onClick={replayLine}>Replay level</button>}
         </section>
       )}
     </div>

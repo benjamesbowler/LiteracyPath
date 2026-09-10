@@ -29,7 +29,9 @@ export default function SentenceExpressArcade({
   onEngineReady,
   isSoundEnabled,
   progressScopeKey = "default",
-  onSessionStart
+  onSessionStart,
+  onRequestNextLevel,
+  onRequestReplay
 }) {
   const start = Math.max(0, Math.min(LEVELS_PER_LINE - 1, Number(startLevel) || 0));
   const key = expressSessionKey(progressScopeKey, difficulty);
@@ -48,6 +50,8 @@ export default function SentenceExpressArcade({
       isSoundEnabled={isSoundEnabled}
       showQuit={false}
       onEngineReady={onEngineReady}
+      onRequestNextLevel={onRequestNextLevel}
+      onRequestReplay={onRequestReplay}
       onReplay={() => {
         runRef.current = { score: 0, starSum: 0, levelsDone: 0, words: 0, baseStart: 0 };
         saveExpressSnapshot(`${key}:run`, null);

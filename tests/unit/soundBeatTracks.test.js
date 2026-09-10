@@ -84,3 +84,45 @@ test("sound beats exclude multi-phoneme x and resolve every played phoneme", asy
     }
   }
 });
+
+
+test("full rhythm performances use varied reviewed phrases for several minutes at normal tempo", async () => {
+  const { nextPhraseBeat } = await import("../../src/utils/audio/rhythmClock.js");
+  for (const difficulty of ["easy", "medium", "hard"]) {
+    let now = 0.1, origin = now, bpm;
+    for (const level of soundBeatLadder(difficulty)) {
+      if (!bpm || now - origin >= level.minPlaySeconds) { origin = now; bpm = level.bpm; }
+      for (const item of level.items) {
+        now = nextPhraseBeat(now, origin, 60 / bpm, 1.05) + item.beats.length * 60 / bpm;
+      }
+    }
+    assert.ok(now - 0.1 >= 120, `${difficulty}: ${now - 0.1}s at perfect beat centers`);
+  }
+});
+
+test("every phrase resolves to recorded word cues, including sentence beats", async () => {
+  const { hasWordAudio } = await import("../../src/utils/questAudio.js");
+  for (const difficulty of ["easy", "medium", "hard"]) {
+    for (const item of soundBeatLadder(difficulty).flatMap(level => level.items)) {
+      for (const word of item.unit === "words" ? item.beats : [item.word]) assert.ok(hasWordAudio(word), word);
+    }
+  }
+});
+
+
+test("sentence blends use a full recording or ordered cancellable word recordings", async () => {
+  const { speakSoundBeatSentence } = await import("../../src/utils/audio/soundBeatSpeech.js");
+  const item = {say: "The cat sat.", beats: ["The", "cat", "sat"]};
+  const heard = [];
+  const dependencies = {hasRecordedSpeech: () => true, speak: async text => heard.push(text), speakWord: async word => heard.push(word)};
+  await speakSoundBeatSentence(item, {}, dependencies);
+  assert.deepEqual(heard, [item.say]);
+  heard.length = 0; dependencies.hasRecordedSpeech = () => false;
+  await speakSoundBeatSentence(item, {}, dependencies);
+  assert.deepEqual(heard, item.beats);
+  heard.length = 0;
+  const controller = new AbortController();
+  dependencies.speakWord = async word => { heard.push(word); controller.abort(); };
+  await speakSoundBeatSentence(item, {signal: controller.signal}, dependencies);
+  assert.deepEqual(heard, ["The"]);
+});

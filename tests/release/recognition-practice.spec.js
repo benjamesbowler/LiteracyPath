@@ -117,9 +117,17 @@ test('keyboard target stays still and a replay saves a separate completion exact
    await expect(page.locator('.pp-progress')).toHaveText(`${round+1}/6`);
   }
   await expect.poll(async()=>(await result(page,'pop-the-word'))?.plays).toBe(run+1);
-  if(!run){await page.getByRole('button',{name:'Play again',exact:true}).click();await expect(page.locator('.pp-progress')).toHaveText('0/6');}
+  await page.setViewportSize({width:568,height:320});
+  await page.locator('.lg-game-complete').evaluate(async element => { await Promise.all(element.getAnimations().map(animation => animation.finished.catch(() => {}))); });
+  for(const name of ['Next level','Replay level']) {
+   const action=page.getByRole('button',{name,exact:true});await expect(action).toBeVisible();
+   const b=await action.boundingBox();expect(b.height).toBeGreaterThanOrEqual(56);expect(b.y).toBeGreaterThanOrEqual(0);expect(b.y+b.height).toBeLessThanOrEqual(320);
+  }
+  await page.screenshot({path:test.info().outputPath(`completion-${run}.png`)});
+  if(!run){await page.setViewportSize({width:1280,height:900});await page.getByRole('button',{name:'Replay level',exact:true}).click();await expect(page.locator('.pp-progress')).toHaveText('0/6');}
  }
  const saved=await result(page,'pop-the-word');expect(saved.practiceRecord.completions).toHaveLength(2);expect(saved.practiceRecord.completions.every(c=>c.steps.every(s=>s.independent===false))).toBe(true);
+ await page.getByRole('button',{name:'Next level',exact:true}).click();await expect(page.locator('.pp-progress')).toHaveText('0/8');
 });
 test('all six games restore their generated identity and physical work without awarding it twice',async({page})=>{
  test.setTimeout(150000);

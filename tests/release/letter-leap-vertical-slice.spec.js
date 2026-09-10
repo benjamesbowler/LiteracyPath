@@ -9,30 +9,17 @@ async function pressPointerControl(page, control) {
   await page.mouse.up();
 }
 
-test("Letter Leap onboarding explains the goal and a one-finger leap", async ({ page }) => {
+test("Letter Leap starts immediately and keeps optional guidance out of the play lane", async ({ page }) => {
   await page.goto("/preview/game-overlay.html?game=letter-leap&sound=0&music=0");
-
-  const instructions = page.getByRole("dialog", { name: "Letter Leap instructions", exact: true });
-  await expect(instructions).toBeVisible();
-  await expect(instructions).toHaveAttribute("aria-modal", "true");
-  await expect(page.getByText("Look at the picture. Collect each letter in order to spell the word.", { exact: true })).toBeVisible();
-  await expect(page.getByText(/On touch, LEAP moves safely past letters; tap an arrow to choose/)).toBeVisible();
-  const start = page.getByRole("button", { name: "Start leaping", exact: true });
-  const startBox = await start.boundingBox();
-  expect(startBox?.width).toBeGreaterThanOrEqual(56);
-  expect(startBox?.height).toBeGreaterThanOrEqual(56);
-  await expect(start).toBeFocused();
-  await page.keyboard.press("Shift+Tab");
-  await expect(start).toBeFocused();
-  await page.keyboard.press("Tab");
-  await expect(start).toBeFocused();
-  expect(await page.getByRole("button", { name: "Leap right", exact: true }).evaluate(element => element.closest("[inert]") !== null)).toBe(true);
-  await page.keyboard.press("Enter");
-  await expect(instructions).toBeHidden();
-  const moveLeft = page.getByRole("button", { name: "Move left", exact: true });
-  await moveLeft.focus();
-  await page.keyboard.press("Space");
-  await expect(page.getByRole("button", { name: "Leap left", exact: true })).toBeVisible();
+  await expect(page.getByRole("dialog", { name: "Letter Leap instructions", exact: true })).toHaveCount(0);
+  const jump = page.locator('[data-ll="jump"]');
+  await expect(jump).toBeVisible();
+  expect(await jump.evaluate(element => element.closest("[inert]") !== null)).toBe(false);
+  await page.waitForFunction(() => document.querySelector('.letter-leap')?.__letterLeapSnapshot?.().running);
+  await page.getByRole('button', { name: 'Open Letter Leap mission guide', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Keep playing', exact: true })).toBeFocused();
+  await page.getByRole('button', { name: 'Keep playing', exact: true }).click();
+  expect(await jump.evaluate(element => element.closest("[inert]") !== null)).toBe(false);
 });
 
 test("Letter Leap production-word replay is reachable, sized for children, and follows sound state", async ({ page }) => {

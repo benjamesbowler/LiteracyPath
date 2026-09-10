@@ -41,7 +41,7 @@ function starScore(correct, total, wrongs) {
   return correct > 0 ? 1 : 0;
 }
 
-function GameComplete({ title, stars, score, onRestart }) {
+function GameComplete({ title, stars, score, onRestart, onNextLevel }) {
   return (
     <div className="lg-game-complete">
       <ConfettiCelebration show={stars > 0} />
@@ -50,9 +50,12 @@ function GameComplete({ title, stars, score, onRestart }) {
       <ProgressStars stars={stars} size="lg" />
       <p>{score} points</p>
       {stars > 0 && <p className="kid-coins-earned">+{stars * 7} coins for your Hollow!</p>}
-      <button type="button" className="lg-game-primary" onClick={onRestart}>
-        Play again
-      </button>
+      <div className="lg-completion-actions">
+        {onNextLevel && <button type="button" className="lg-game-primary" onClick={onNextLevel}>Next level</button>}
+        <button type="button" className="lg-game-primary" onClick={onRestart}>
+          Replay level
+        </button>
+      </div>
     </div>
   );
 }
@@ -67,6 +70,8 @@ export function ArcadePracticeGame({
   onComplete,
   onResultReady,
   onSessionStart,
+  onRequestNextLevel,
+  onRequestReplay,
   onCheckpoint,
   onEngineReady,
   isSoundEnabled = true,
@@ -308,7 +313,7 @@ export function ArcadePracticeGame({
   }
 
   if (completed) {
-    return <GameComplete title={title} stars={stars} score={score} onRestart={restart} />;
+    return <GameComplete title={title} stars={stars} score={score} onRestart={onRequestReplay || restart} onNextLevel={onRequestNextLevel} />;
   }
 
   let stage;

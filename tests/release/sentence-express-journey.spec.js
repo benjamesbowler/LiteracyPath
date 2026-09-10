@@ -56,11 +56,12 @@ for (const [difficulty, level] of [['easy', 6], ['medium', 4], ['hard', 9], ['ha
   await page.getByRole('button', { name: level === 9 ? 'FINISH THE LINE' : /NEXT DEPARTURE/ }).click();
   if (level === 9) {
     await expect.poll(() => page.evaluate(scope => JSON.parse(localStorage.getItem(scope)).games['sentence-express'].plays, scope)).toBe(1);
-    const replay = page.getByRole('button',{name:'Play again',exact:true});
-    await expect(replay).toBeFocused();
+    const replay = page.getByRole('button',{name:'Replay level',exact:true});
+    const next = page.getByRole('button',{name:'Next level',exact:true});
+    await expect(next).toBeFocused();
     await expect(page.locator('.lg-game-player-header')).toHaveAttribute('inert','');
     await page.keyboard.press('Tab');await expect(replay).toBeFocused();
-    await page.keyboard.press('Shift+Tab');await expect(replay).toBeFocused();
+    await page.keyboard.press('Shift+Tab');await expect(next).toBeFocused();
     await replay.click();
     await expect(page.locator('.sx-stage')).toHaveAttribute('data-train-id','hard-l0-t0');
     await expect(page.locator('.sx-clock')).toContainText('ON TIME');
@@ -119,7 +120,7 @@ test('the complete easy railway reaches all ten stations, keeps totals through r
  await expect.poll(()=>page.evaluate(scope=>JSON.parse(localStorage.getItem(scope)).games['sentence-express'].plays,scope)).toBe(1);
  const result=await page.evaluate(scope=>JSON.parse(localStorage.getItem(scope)).games['sentence-express'],scope);
  expect(result.highScore).toBe(450);
- await page.getByRole('button',{name:'Play again',exact:true}).click();
+ await page.getByRole('button',{name:'Replay level',exact:true}).click();
  await expect(page.locator('.sx-stage')).toHaveAttribute('data-train-id','easy-l0-t0');
  await expect(page.locator('.sx-train .sx-ghostbox')).toHaveCount(3);
 });

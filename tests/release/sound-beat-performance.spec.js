@@ -15,6 +15,7 @@ for (const difficulty of ['easy', 'medium', 'hard']) {
     await exposeEngine(page);
     await page.goto(`/preview/game-overlay.html?game=sound-beat&difficulty=${difficulty}&sound=0&music=0`);
     await page.waitForFunction(() => window.__beatTest);
+    const startedAt = (await page.evaluate(() => window.__beatTest.debugSnapshot())).clockTime;
     let completed = false;
     const stages = new Set();
     for (let i = 0; i < 400; i++) {
@@ -29,8 +30,17 @@ for (const difficulty of ['easy', 'medium', 'hard']) {
     }
     expect(completed).toBe(true);
     expect(stages.size).toBe(10);
+    const playedSeconds = (await page.evaluate(() => window.__beatTest.debugSnapshot())).clockTime - startedAt;
+    expect(playedSeconds).toBeGreaterThanOrEqual(120);
+    await test.info().attach('performance-duration', { body: JSON.stringify({ difficulty, playedSeconds, timing: 'virtual clock, real timed pad inputs' }), contentType: 'application/json' });
     await page.clock.fastForward(2500);
     await expect(page.getByRole('alertdialog', { name: 'Sound Beat complete', exact: true })).toBeVisible();
+    await page.setViewportSize({width:568,height:320});
+    for (const name of ['Next level','Replay level','Back to Arcade']) {
+      const action=page.getByRole('button',{name,exact:true}); const box=await action.boundingBox();
+      expect(box.height).toBeGreaterThanOrEqual(56);expect(box.y).toBeGreaterThanOrEqual(0);expect(box.y+box.height).toBeLessThanOrEqual(320);
+    }
+    await page.screenshot({path:test.info().outputPath('completion.png')});
   });
 }
 

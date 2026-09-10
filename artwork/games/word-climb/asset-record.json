@@ -1,0 +1,47 @@
+{
+  "character": "Pip",
+  "canon": "STORY_BIBLE_PART_2_CANON.md \u00a73 MOON-PIP",
+  "reference": "/game-assets/sound-seekers/v3/cast/moonwood/pip-hero.webp",
+  "sourceSnapshotSha256": "ee12f4192b8930476b11a4158ed1a157843be3d830f7ade585ca7dc82efc30e9",
+  "editable": "artwork/games/word-climb/pip-climber.blend",
+  "runtime": "/game-assets/word-climb/pip-climber.glb",
+  "sha256": "6f4f7f99835b2fbc95ed706173c43d1e9dc2977f1220fd54a762944a9b09c5d7",
+  "bytes": 705880,
+  "clips": [
+    "rest",
+    "climb",
+    "jump",
+    "land",
+    "grip",
+    "recover",
+    "summit"
+  ],
+  "bones": [
+    "hips",
+    "chest",
+    "thigh.L",
+    "thigh.R",
+    "neck",
+    "upperarm.L",
+    "upperarm.R",
+    "shin.L",
+    "shin.R",
+    "head",
+    "forearm.L",
+    "forearm.R",
+    "foot.L",
+    "foot.R",
+    "hand.L",
+    "hand.R"
+  ],
+  "geometry": "Original in-project semantic Pip mesh; vehicle removed; independent authored climbing contacts",
+  "approval": "Direct local in-game review completed at desktop, portrait and short landscape, including physical landing and summit; no human, physical-device or hosted production approval claimed",
+  "source": "artwork/games/word-climb/build_climber.py",
+  "worldSource": "src/components/learn/games/games/wordClimbSceneKit.js",
+  "reviewEvidence": [
+    ".artifacts/word-climb-production/first-landing-easy.png",
+    ".artifacts/word-climb-production/family-medium.png",
+    ".artifacts/word-climb-production/family-hard.png",
+    ".artifacts/word-climb-production/completion-568.png"
+  ]
+}

@@ -148,6 +148,49 @@ function setup(t, gameId = "rhyme-pop") {
 
 const evidence = () => ({ firstResponses: [{ target: "cat", response: "dog", correct: false, support: "print" }], assistedRetries: [{ target: "cat", response: "hat", correct: true }] });
 
+for (const game of GAME_LIST) {
+  test(`${game.id}: next level and replay keep playing with separate saved runs`, t => {
+    const h = setup(t, game.id);
+    h.engine().onComplete(2, 80, 4, evidence());
+    h.flush();
+    assert.equal(h.engine().onRequestNextLevel(), true);
+    h.flush();
+    assert.equal(h.engine().difficulty, "medium");
+    assert.equal(h.engine().sessionSeed, 1);
+    assert.equal(h.closed, 0);
+    h.engine().onComplete(3, 120, 6, evidence());
+    h.flush();
+    assert.equal(h.read().plays, 2);
+    assert.equal(h.engine().onRequestReplay(), true);
+    h.flush();
+    assert.equal(h.engine().difficulty, "medium");
+    assert.equal(h.engine().sessionSeed, 2);
+    assert.equal(h.closed, 0);
+    h.engine().onComplete(3, 130, 6, evidence());
+    h.flush();
+    assert.equal(h.read().plays, 3);
+  });
+}
+
+test("next/replay cannot replace a failed result and advancing preserves another course checkpoint", t => {
+  const h = setup(t);
+  progress.saveGameCheckpoint(scope, "rhyme-pop", "medium", 3, 10);
+  h.reject(name => name === key);
+  h.engine().onComplete(2, 80, 4, evidence());
+  h.flush();
+  assert.equal(h.engine().onRequestNextLevel(), false);
+  assert.equal(h.engine().onRequestReplay(), false);
+  assert.equal(h.engine().sessionSeed, 0);
+  h.reject(() => false);
+  h.click(/try saving again/i);
+  h.click(/Next level/);
+  assert.equal(h.read().plays, 1);
+  assert.deepEqual(h.read().checkpoints.medium, { level: 3, totalLevels: 10 });
+  h.click(/^Continue$/);
+  assert.equal(h.engine().startLevel, 3);
+  assert.equal(h.engine().difficulty, "medium");
+});
+
 test("result and matching checkpoint cleanup share one atomic write; old callers retain checkpoints", t => {
   const h = setup(t);
   h.seedCheckpoint();
@@ -414,7 +457,7 @@ for (const game of GAME_LIST) {
     assert.equal(h.read().practiceRecord.completions.length, 1);
     assert.equal(h.read().highScore, 80);
     assert.equal(h.read().checkpoints.easy, undefined);
-    assert.equal(h.dialogs().length, premiumProfileForGame(game.id) && !["rocket-run", "sentence-express"].includes(game.id) ? 1 : 0);
+    assert.equal(h.dialogs().length, premiumProfileForGame(game.id) && !["rocket-run", "sentence-express", "word-climb"].includes(game.id) ? 1 : 0);
     assert.equal(h.missions.length, 1);
     callbacks.onSessionStart();
     assert.ok(callbacks.onResultReady(3, 100, 5, evidence()));

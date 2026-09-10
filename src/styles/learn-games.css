@@ -830,6 +830,25 @@
   text-align: center;
 }
 
+.lg-completion-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.lg-completion-actions > button {
+  flex: 1 1 130px;
+  min-height: 56px;
+}
+
+.lg-game-complete > .pp-hero {
+  position: static;
+  display: block;
+  max-height: 120px;
+}
+
 .lg-game-complete img {
   width: min(34vw, 180px);
 }
@@ -2786,6 +2805,27 @@
   .lg-premium-complete > div {
     gap: 6px;
   }
+
+  .lg-game-complete {
+    width: min(100%, 540px);
+    grid-template-columns: auto 1fr;
+    gap: 4px 10px;
+    padding: 8px 12px;
+  }
+
+  .lg-game-complete > :is(.kid-cheer, .pp-hero) {
+    grid-column: 1;
+    grid-row: 1 / 5;
+    width: 64px;
+    height: 64px;
+  }
+
+  .lg-game-complete > :is(h2, p, .lg-progress-stars) { grid-column: 2; }
+  .lg-game-complete h2 { font-size: 1.05rem; }
+  .lg-game-complete p { margin: 0; font-size: .85rem; }
+  .lg-game-complete .lg-progress-stars span { font-size: 1.35rem; }
+  .lg-game-complete .lg-completion-actions { grid-column: 1 / -1; }
+  .lg-game-complete .lg-completion-actions > button { padding: 8px; }
 
   .lg-premium-complete .lg-progress-stars span {
     font-size: 1.65rem;
