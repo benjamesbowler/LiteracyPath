@@ -123,7 +123,7 @@ const LEVELS = {
       prompt: "Catch opposites of noisy",
       cue: "Opposite: noisy",
       target: "noisy",
-      correctWords: ["quiet", "silent", "calm"],
+      correctWords: ["quiet", "silent"],
       distractors: ["loud", "busy", "shout", "bright", "quick", "hot", "rough", "giant", "wet", "sharp"]
     },
     {
@@ -197,7 +197,7 @@ const LEVELS = {
       prompt: "Catch words that mean ancient",
       cue: "Meaning: ancient",
       target: "ancient",
-      correctWords: ["old", "aged", "historic"],
+      correctWords: ["old", "aged"],
       distractors: ["new", "young", "fresh", "quick", "soft", "bright", "tiny", "loud", "empty", "sharp"]
     },
     {

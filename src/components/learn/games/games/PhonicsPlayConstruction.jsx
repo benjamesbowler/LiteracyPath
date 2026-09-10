@@ -12,6 +12,8 @@ export function BuildGame({ state, round, setRound, correct, setCorrect, addScor
   const [placed, setPlaced] = useState(() => resume?.placed || Array(target.units.length).fill(null));
   const [wrong, setWrong] = useState(resume?.wrong || null);
   const [done, setDone] = useState(resume?.done || false);
+  const [usedObject, setUsedObject] = useState(resume?.usedObject ?? Boolean(resume?.done));
+  const usedObjectRef = useRef(usedObject);
   const placedRef = useRef(placed);
   const solvedRef = useRef(resume?.done || false);
   const attempts = useRef(resume?.attempts || 0);
@@ -38,15 +40,20 @@ export function BuildGame({ state, round, setRound, correct, setCorrect, addScor
     if (!next.every(Boolean)) return;
     solvedRef.current = true; setDone(true); addScore(25); setCorrect(correct + 1);
     if (attempts.current) recordAssistedRetry({ game: 'building-workshop', round, target: target.word, attempts: attempts.current, supportUsed: ['specific_grapheme_feedback', 'preserved_correct_pieces'] });
-    onDiscover({ id: `build-${round}`, word: target.word });
     if (isSoundEnabled) void speakWord(target.word);
-    schedule(() => round + 1 >= totalRounds ? finish(correct + 1) : setRound(round + 1), 1800);
   }
+  function useObject() {
+    if (paused || !done || usedObjectRef.current) return;
+    usedObjectRef.current = true; setUsedObject(true);
+    onDiscover({ id: `build-${round}`, word: target.word });
+    schedule(() => round + 1 >= totalRounds ? finish(correct) : setRound(round + 1), 450);
+  }
+  const objectDrag = usePiecePlacement(useObject, paused || !done || usedObject);
   const drag = usePiecePlacement(place, paused || done);
-  useStageSnapshot(() => ({ placed, wrong, done, tiles, attempts: attempts.current }), onSnapshot);
-  useResumeTransition(resume?.done, () => round + 1 >= totalRounds ? finish(correct) : setRound(round + 1), schedule, 800);
+  useStageSnapshot(() => ({ placed, wrong, done, usedObject, tiles, attempts: attempts.current }), onSnapshot);
+  useResumeTransition(resume?.usedObject ?? resume?.done, () => round + 1 >= totalRounds ? finish(correct) : setRound(round + 1), schedule, 450);
   const used = new Set(placed.filter(Boolean).map(piece => piece.id));
-  return <PhonicsPlayScene mode="build" cue={target.word} prompt={done ? `${target.word} — built!` : 'Put the sounds together'} isSoundEnabled={isSoundEnabled} progress={correct} total={totalRounds} discovered={discovered} paused={paused}>
+  return <PhonicsPlayScene mode="build" cue={target.word} prompt={done ? (usedObject ? target.useResult : `Put the ${target.word} to work`) : 'Put the sounds together'} isSoundEnabled={isSoundEnabled} progress={correct} total={totalRounds} discovered={discovered} paused={paused}>
     <div className={`pp-workshop-world${done ? ' is-built' : ''}`}>
       <PlayHero difficulty={difficulty} className={done ? 'pp-hero-cheer' : ''} />
       <div className="pp-blueprint"><WordPicture word={target.word} label={target.label} /></div>
@@ -57,14 +64,19 @@ export function BuildGame({ state, round, setRound, correct, setCorrect, addScor
             else if (placed[index]) { const next = [...placedRef.current]; next[index] = null; placedRef.current = next; setPlaced(next); }
           }}>{placed[index]?.grapheme || <span aria-hidden="true">{index + 1}</span>}</button>)}
         </div>
-        {done && <div className="pp-object-payoff"><WorkshopObjectAction target={target} active /></div>}
+        {done && <div className="pp-object-payoff"><WorkshopObjectAction target={target} active={usedObject} /></div>}
       </div>
       {wrong && <p className="pp-local-feedback" role="status">{wrong.grapheme} does not fit sound {wrong.index + 1}. Try another piece.</p>}
     </div>
-    <div className="pp-piece-bank" aria-label="Sound pieces">
+    {done ? <div className="pp-piece-bank pp-object-placement" aria-label="Use your creation">
+      <button type="button" className="pp-piece pp-built-object" disabled={paused || usedObject} {...objectDrag.pieceProps({id:target.id,label:target.word})} aria-label={`Pick up ${target.word}`}><WordPicture word={target.word} /><span>{target.word}</span></button>
+      <span aria-hidden="true">→</span>
+      <button type="button" className="pp-piece" data-piece-slot="100" disabled={paused || usedObject} onClick={() => objectDrag.placeSelected(100)} aria-label={`Place ${target.word} at ${target.destination}`}>{target.destination}</button>
+    </div> : <div className="pp-piece-bank" aria-label="Sound pieces">
       {tiles.map(piece => <button type="button" className="pp-piece" key={piece.id} data-tile-id={piece.id} disabled={paused || done || used.has(piece.id)} {...drag.pieceProps(piece)}>{piece.grapheme}</button>)}
     </div>
-    {drag.ghost}
+    }
+    {drag.ghost}{objectDrag.ghost}
   </PhonicsPlayScene>;
 }
 
@@ -78,7 +90,8 @@ export function FamilyGame({ state, round, setRound, correct, setCorrect, addSco
   const advancing = useRef(resume?.finished || false);
   const options = useMemo(() => resume?.options || shuffled([...new Set(mission.familyWords.map(word => word.slice(0, -mission.rime.length)))])
     .map((grapheme, index) => ({ id: `onset-${index}`, grapheme })), [mission, resume]);
-  const nextTarget = built.includes(mission.word) ? mission.familyWords.find(word => !built.includes(word)) : mission.word;
+  const targets = mission.targets || [mission.word, ...mission.familyWords.filter(word => word !== mission.word)].slice(0, 3);
+  const nextTarget = targets.find(word => !built.includes(word));
   useEffect(() => { if (isSoundEnabled && nextTarget && hasRecordedSpeech(nextTarget)) void speakWord(nextTarget); }, [isSoundEnabled, nextTarget]);
   function join(piece) {
     if (paused || advancing.current) return;
@@ -92,7 +105,7 @@ export function FamilyGame({ state, round, setRound, correct, setCorrect, addSco
     addScore(12);
     if (attempts.current) recordAssistedRetry({ game: 'blend-family', round: `${round}:${built.length}`, target: word, attempts: attempts.current, supportUsed: ['rime_contrast', 'reversible_onset'] });
     attempts.current = 0;
-    if (nextBuilt.length >= Math.min(3, mission.familyWords.length)) {
+    if (nextBuilt.length >= targets.length) {
       advancing.current = true; setFinished(true); setCorrect(correct + 1);
       schedule(() => round + 1 >= state.total ? finish(correct + 1) : setRound(round + 1), 1600);
     }

@@ -79,7 +79,7 @@ test('memory hides face-down answers and announces keyboard revealed and matched
  const word=await cards.first().locator('.pp-card-front').textContent();await cards.first().focus();await page.keyboard.press('Enter');await expect(cards.first()).toHaveAccessibleName(`Revealed card 1 of 6: ${word}`);await expect(cards.first().locator('.pp-card-front')).toHaveAttribute('aria-hidden','false');const second=ids.findIndex((id,i)=>i>0&&id===ids[0]);await cards.nth(second).focus();await page.keyboard.press('Enter');await expect(cards.first()).toHaveAccessibleName(`Matched card 1 of 6: ${word}`);await expect(cards.nth(second)).toHaveAccessibleName(`Matched card ${second+1} of 6: ${word}`);
 });
 test('Pop stores its directly popped word and keyboard focus steadies the target',async({page})=>{
- await open(page,'pop-the-word');const word=(await page.locator('.pp-prompt').textContent()).replace('Pop ','');const target=page.locator('.pp-word-balloon').getByText(word,{exact:true});await target.focus();const before=await target.boundingBox();await page.waitForTimeout(200);expect(await target.boundingBox()).toEqual(before);await page.keyboard.press('Enter');await expect(page.locator('.pp-collected').first()).toContainText(word);await expect(page.locator('.pp-progress')).toHaveText('1/6');
+ await open(page,'pop-the-word');const word=(await page.locator('.pp-prompt').textContent()).replace('Pop ','');const target=page.locator('.pp-word-balloon').getByText(word,{exact:true});await target.focus();const before=await target.boundingBox();await page.waitForTimeout(200);expect(await target.boundingBox()).toEqual(before);await page.keyboard.press('Enter');await expect(page.locator('.pp-collected').first()).toContainText(word);await expect(page.locator('.pp-progress')).toHaveText('1/48');
 });
 test('Factory states its print task and physically returns a wrong parcel before a correct diversion',async({page})=>{
  test.setTimeout(45000);await open(page,'sound-sort-factory');await expect(page.locator('.aw-objective')).toContainText('Match the first letters');const parcel=page.locator('[data-aw="parcel"]');await expect(parcel).toBeEnabled();const word=(await parcel.locator('strong').innerText()).trim(),bins=await page.locator('[data-aw="chute"]').evaluateAll(es=>es.map(e=>e.dataset.bin));const correct=bins.findIndex(bin=>word.toLowerCase().startsWith(bin.toLowerCase()));expect(correct).toBeGreaterThanOrEqual(0);await page.locator('[data-aw="chute"]').nth(correct===0?1:0).click();await expect(page.locator('.aw-stage')).toHaveAttribute('data-belt-phase','returning');await expect(page.locator('.aw-stage')).toHaveAttribute('data-belt-phase','ready');await expect(parcel.locator('strong')).toHaveText(word);await page.locator('[data-aw="chute"]').nth(correct).click();await expect(page.locator('.aw-stage')).toHaveAttribute('data-aw-index','1');
@@ -97,4 +97,69 @@ test('a failed primary and fallback picture stops retrying and leaves readable p
   await page.waitForTimeout(500);
   expect(imageRequests).toBe(settled);
   await expect(page.locator('.pp-piece-bank button').first()).toBeEnabled();
+});
+
+// Longer-outing regression cases: existing six physical Phonics modes.
+const scope='fullscreen-overlay-preview';
+async function saved(page,mode){return page.evaluate(({scope,mode})=>JSON.parse(localStorage.getItem(`literacy-guide-phonics-play:${scope}:${mode}:easy`)),{scope,mode});}
+const games={build:'cvc-word-builder',memory:'sight-word-memory',family:'blend-and-build',target:'pop-the-word',sentence:'word-hopscotch',quiz:'reading-race'};
+async function piece(page,label,slot){await page.locator('.pp-piece-bank button').filter({hasText:new RegExp(`^${label.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}$`)}).first().click();await page.locator(`[data-piece-slot="${slot}"]`).click();}
+for(const [mode,game]of Object.entries(games))test(`${mode} completes its longer unique outing and preserves shared continuation`,async({page})=>{
+ test.setTimeout(180000);page.setDefaultTimeout(10000);await page.setViewportSize(mode==='build'?{width:568,height:320}:mode==='family'?{width:390,height:844}:{width:1024,height:768});
+ const source=await(await page.request.get('/src/components/learn/games/games/ArcadePracticeGame.jsx')).text();expect(source).toMatch(/easy:\s*48/);
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(`/preview/game-overlay.html?game=${game}&sound=0&music=0`);await expect(page.locator(`[data-phonics-mode="${mode}"]`)).toBeVisible();
+ await expect.poll(async()=>Boolean(await saved(page,mode))).toBe(true);
+ const initial=await saved(page,mode);const state=initial.gameState;let actions=0;
+ if(mode==='build'){
+  expect(state.rounds).toHaveLength(10);
+  for(let r=0;r<state.rounds.length;r++){
+   const target=state.rounds[r];
+   for(let i=0;i<target.units.length;i++){await piece(page,target.units[i].grapheme,i);actions++;}
+   await expect(page.getByRole('button',{name:`Pick up ${target.word}`,exact:true})).toBeVisible();
+   if(r===0){
+    await page.reload();if(await page.getByRole('button',{name:'Continue',exact:true}).isVisible())await page.getByRole('button',{name:'Continue',exact:true}).click();
+    await expect(page.getByRole('button',{name:`Pick up ${target.word}`,exact:true})).toBeVisible();
+    await page.screenshot({path:'.artifacts/phonics-outings/build-use-568.png'});
+    let imageRequests=0;
+    await page.route('**/*',route=>{if(route.request().resourceType()==='image'){imageRequests++;return route.abort();}return route.continue();});
+    await page.reload();if(await page.getByRole('button',{name:'Continue',exact:true}).isVisible())await page.getByRole('button',{name:'Continue',exact:true}).click();
+    await expect(page.locator('.lg-object-actor text')).toHaveText(target.word);
+    const settled=imageRequests;await page.waitForTimeout(400);expect(imageRequests).toBe(settled);
+    await page.unroute('**/*');
+   }
+   await page.getByRole('button',{name:`Pick up ${target.word}`,exact:true}).click();await page.getByRole('button',{name:`Place ${target.word} at ${target.destination}`,exact:true}).click();
+   if(r+1<state.rounds.length)await expect.poll(async()=>(await saved(page,mode)).round).toBe(r+1);
+  }
+ }else if(mode==='memory'){
+  expect(state.cards).toHaveLength(48);
+  for(let board=0;board<state.boards.length;board++){
+   await expect(page.locator('.pp-memory-table')).toHaveAttribute('data-table',String(board));
+   for(const id of new Set(state.boards[board].map(c=>c.pairId))){const cards=page.locator(`[data-pair-id="${id}"]`);await cards.nth(0).click();await cards.nth(1).click();actions++;}
+  }
+ }else if(mode==='family'){
+  expect(state.missions).toHaveLength(10);
+  for(let r=0;r<state.missions.length;r++){
+   const mission=state.missions[r];
+   for(const word of mission.targets){await expect(page.locator('.pp-prompt')).toHaveText(`Build ${word}`);await piece(page,word.slice(0,-mission.rime.length),0);actions++;}
+   if(r+1<state.missions.length)await expect.poll(async()=>(await saved(page,mode)).round).toBe(r+1);
+  }
+ }else if(mode==='target'){
+  expect(state.words).toHaveLength(48);expect(new Set(state.words).size).toBe(48);
+  for(let r=0;r<state.words.length;r++){await expect(page.locator('.pp-prompt')).toHaveText(`Pop ${state.words[r]}`);await page.locator('.pp-word-balloon').getByText(state.words[r],{exact:true}).click();actions++;if(r+1<state.words.length)await expect.poll(async()=>(await saved(page,mode)).round).toBe(r+1);}
+ }else if(mode==='sentence'){
+  expect(state.sentences).toHaveLength(9);
+  for(let r=0;r<state.sentences.length;r++){
+   for(const word of state.sentences[r].replace(/[.?!]/g,'').split(/\s+/)){await page.locator('.pp-hop-stone:not(:disabled)').getByText(word,{exact:true}).click();actions++;}
+   if(r+1<state.sentences.length)await expect.poll(async()=>(await saved(page,mode)).round).toBe(r+1);
+  }
+ }else{
+  expect(state.fixes).toHaveLength(12);
+  for(let r=0;r<state.fixes.length;r++){await piece(page,state.fixes[r].answer,0);actions++;if(r+1<state.fixes.length)await expect.poll(async()=>(await saved(page,mode)).round).toBe(r+1);}
+ }
+ await expect(page.getByRole('button',{name:'Next level',exact:true})).toBeVisible();
+ const before=await page.evaluate(({scope,game})=>JSON.parse(localStorage.getItem(`literacy-guide-learn-games:${scope}`)).games[game],{scope,game});expect(before.plays).toBe(1);
+ await page.getByRole('button',{name:'Next level',exact:true}).click();await expect(page.locator(`[data-phonics-mode="${mode}"]`)).toBeVisible();
+ const after=await page.evaluate(({scope,game})=>JSON.parse(localStorage.getItem(`literacy-guide-learn-games:${scope}`)).games[game],{scope,game});expect(after.plays).toBe(1);expect(after.checkpoints.medium.level).toBe(0);
+ expect(errors).toEqual([]);console.log(`${mode}: ${actions} literacy constructions/recognitions; one saved outing and actual Next`);
 });

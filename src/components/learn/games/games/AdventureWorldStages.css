@@ -3,10 +3,10 @@
 .aw-stage button:disabled { cursor:default; }
 .aw-stage button:focus-visible { outline:4px solid #f8c752; outline-offset:3px; }
 .aw-objective { display:flex; align-items:center; gap:12px; padding:4px 12px; background:#f3f3ddeb; border-bottom:2px solid #6b876b55; z-index:20; }
-.aw-objective>strong { flex:1; display:flex; align-items:center; gap:8px; font-size:clamp(16px,2.2vw,23px); margin:0; }
+.aw-objective>strong { flex:1; min-width:0; display:flex; align-items:center; gap:8px; font-size:clamp(16px,2.2vw,23px); margin:0; }
 .aw-objective strong b { color:#704557; }
 .aw-objective strong img { width:56px; height:56px; object-fit:contain; background:#fff; border-radius:10px; }
-.aw-objective>button { width:56px; height:56px; border:2px solid #547760; border-radius:18px; background:#ddecba; font-size:27px; }
+.aw-objective>button { flex:0 0 56px; width:56px; height:56px; border:2px solid #547760; border-radius:18px; background:#ddecba; font-size:27px; }
 .aw-objective>button:disabled { opacity:.5; }
 .aw-landscape { position:relative; min-height:0; overflow:clip; background:url('/game-assets/sound-seekers/v3/backdrops/bg-meadow-farm.webp') center center / cover no-repeat; }
 .aw-rescue .aw-landscape { background-image:url('/game-assets/sound-seekers/v3/backdrops/bg-meadow-pond.webp'); }
@@ -74,3 +74,5 @@
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .aw-stage button { transition: filter 120ms ease-out; }
 }
+
+.aw-objective>span { max-width:90px; font-size:12px; line-height:1.3; text-align:right; }

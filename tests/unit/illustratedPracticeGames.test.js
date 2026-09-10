@@ -130,15 +130,23 @@ test("G08 object cards keep reviewed bat and bed meanings aligned across fallbac
   assert.equal(bed.fallbackImage, bed.image);
 });
 
-test("G08 Blend missions are short, named and reviewed onset/rime constructions", () => {
+test("Blend outings cover distinct concrete objects in every reviewed family", () => {
   for (const tier of ["easy", "medium", "hard"]) {
     const missions = buildBlendMissions(tier);
-    assert.ok(missions.length >= 4 && missions.length <= 6);
+    assert.equal(missions.length, 10);
+    assert.ok(missions.flatMap(mission => mission.targets).length >= 27);
     assert.equal(new Set(missions.map(mission => mission.word)).size, missions.length);
     for (const mission of missions) {
       assert.ok(mission.familyId.startsWith("-"));
       assert.equal(`${mission.onset}${mission.rime}`, mission.word);
       assert.ok(mission.familyWords.includes(mission.word));
+      assert.equal(new Set(mission.targets).size, mission.targets.length);
+      assert.ok(mission.targets.every(word => mission.familyWords.includes(word)));
+      for (const word of mission.targets) {
+        const asset = getChildWordAsset(word);
+        assert.ok(existsSync(path.join(ROOT, "public", asset.image)));
+        assert.ok(existsSync(path.join(ROOT, "public", asset.audio)));
+      }
       assert.equal(mission.units.map(unit => unit.grapheme).join(""), mission.word);
     }
   }

@@ -21,7 +21,6 @@ import {
   panel,
   drawCover,
   drawFallback,
-  drawScreenGrade,
   createGameCanvas,
   sizeCanvasToMount,
   prefersReducedMotion,
@@ -72,7 +71,7 @@ function drawHud(ctx, state, config, w, h) {
   const rightW = Math.min(330, w * 0.42);
   panel(ctx, w - rightW - 16, 14, rightW, 62, "rgba(7,10,24,.74)", "rgba(255,255,255,.24)");
   text(ctx, `${state.score} pts`, w - rightW + 12, 36, 21, "#fff");
-  text(ctx, `Level ${state.stage + 1} of 10`, w - 28, 36, 18, config.accent2, "right");
+  text(ctx, `Parade ${state.stage + 1} of ${state.level.totalLevels}`, w - 28, 36, 18, config.accent2, "right");
   text(ctx, `Combo x${Math.max(1, state.combo)}`, w - 28, 61, 14, "#ffeaa0", "right", 800);
 
   const progressX = 22;
@@ -702,7 +701,8 @@ function drawLowPolyPal(ctx, x, y, scale, config, now) {
 function startRhymePopArcadeGame(mount, options) {
   const config = CONFIG[options.kind] || CONFIG["rhyme-pop"];
   const ladder = config.ladder(options.difficulty);
-  const total = totalUnits(options.kind, ladder);
+  const startAt = clamp(Number(options.startLevel) || 0, 0, ladder.length - 1);
+  const total = totalUnits(options.kind, ladder.slice(startAt));
   const image = new Image();
   image.src = config.bg;
   const helperImage = new Image();
@@ -721,7 +721,7 @@ function startRhymePopArcadeGame(mount, options) {
   }
 
   const state = {
-    stage: clamp(Number(options.startLevel) || 0, 0, 9),
+    stage: startAt,
     level: null,
     tasks: [],
     taskIndex: 0,
@@ -850,12 +850,11 @@ function startRhymePopArcadeGame(mount, options) {
   }
 
   function scheduleRhymeAdvance(task) {
-    state.roundClearLabel = `${titleWord(task.targetWord)} family clear`;
-    state.roundClearT = 1.35;
-    state.roundPendingAdvance = true;
-    state.shots = [];
-    state.bubbles = [];
-    setRhymeCoach("");
+    const completedFamily = task.targetWord;
+    // The next parade is already playable while the previous family receives
+    // a small local acknowledgement; no blank result screen between families.
+    nextTask();
+    if (!state.ended) setRhymeCoach(`${titleWord(completedFamily)} family complete`);
   }
 
   function rhymeBubbleShape(bubble, index, total) {
@@ -944,6 +943,15 @@ function startRhymePopArcadeGame(mount, options) {
     // bubbles snapped every balloon back to the grid on each pop (the "reset"/
     // jump). Existing balloons keep drifting from where they were.
     const shaped = rhymeBubbleShape(bubble, Math.min(removedIndex, task.level.visibleBalloons - 1), task.level.visibleBalloons);
+    // Fresh words ride a visible wind route into the shooting field. Existing
+    // balloons keep their position; the player can fire throughout the parade.
+    const fromRight = (state.stage + shaped.id) % 2 === 1;
+    shaped.entering = true;
+    shaped.route = state.level.act || 0;
+    shaped.routeY = shaped.y;
+    shaped.travel = 0;
+    shaped.x = fromRight ? w - shaped.r - 12 : shaped.r + 12;
+    shaped.vx = (fromRight ? -1 : 1) * w * .075;
     state.bubbles.splice(Math.min(removedIndex, state.bubbles.length), 0, shaped);
   }
 
@@ -1100,12 +1108,13 @@ function startRhymePopArcadeGame(mount, options) {
 
     if (options.kind !== "rhyme-pop" || state.paused || state.ended || state.countdown > 0) return;
     const direction = laneDirectionForKey(event.key);
-    if (direction && state.bubbles.length) {
+    const visibleBubbles = state.bubbles.filter(bubble => bubble.x > bubble.r && bubble.x < w - bubble.r);
+    if (direction && visibleBubbles.length) {
       event.preventDefault();
-      const foundIndex = state.bubbles.findIndex(bubble => bubble.id === state.keyboardBubbleId);
+      const foundIndex = visibleBubbles.findIndex(bubble => bubble.id === state.keyboardBubbleId);
       const currentIndex = foundIndex >= 0 ? foundIndex : (direction > 0 ? -1 : 0);
-      const nextIndex = (currentIndex + direction + state.bubbles.length) % state.bubbles.length;
-      const bubble = state.bubbles[nextIndex];
+      const nextIndex = (currentIndex + direction + visibleBubbles.length) % visibleBubbles.length;
+      const bubble = visibleBubbles[nextIndex];
       state.keyboardBubbleId = bubble.id;
       state.pointer = { x: bubble.hitX || bubble.x, y: bubble.hitY || bubble.y };
       return;
@@ -1120,8 +1129,21 @@ function startRhymePopArcadeGame(mount, options) {
     if (!state.currentTask || state.countdown > 0 || state.roundPendingAdvance) return;
     for (const bubble of state.bubbles) {
       bubble.x += bubble.vx * dt;
+      if (bubble.routeY != null) {
+        bubble.travel += Math.abs(bubble.vx) * dt;
+        const turn = bubble.travel / Math.max(1, w) * Math.PI * 2;
+        const route = bubble.route || 0;
+        const offset = route === 0 ? -Math.sin(turn * .5) * .055
+          : route === 1 ? Math.sin(turn + bubble.phase) * .045
+            : Math.sin(turn * .7 + bubble.phase) * .065;
+        bubble.y = clamp(bubble.routeY + offset * h, h * .17, h * .56);
+      }
       const minX = w * 0.14 + bubble.r;
       const maxX = w * 0.86 - bubble.r;
+      if (bubble.entering) {
+        if (bubble.x >= minX && bubble.x <= maxX) bubble.entering = false;
+        continue;
+      }
       if (bubble.x < minX || bubble.x > maxX) {
         bubble.x = clamp(bubble.x, minX, maxX);
         bubble.vx *= -1;
@@ -1141,11 +1163,7 @@ function startRhymePopArcadeGame(mount, options) {
       else if (shot.x > rightWall) { shot.x = rightWall; shot.vx = -Math.abs(shot.vx); }
       // Hit whatever the shot actually touches FIRST — a wrong balloon in the
       // way gets popped (a miss), so obstacles matter and there is no auto-aim.
-      // Easy mode lets shots pass through distractors so a drifting wrong
-      // balloon can't turn good aim into a mistake.
-      const easyAim = state.level?.difficulty === "easy";
       const hit = state.bubbles.find(bubble => {
-        if (easyAim && bubble.kind !== "rhyme") return false;
         const center = rhymeBubbleCenter(bubble, state.time);
         return Math.hypot(shot.x - center.x, shot.y - center.y) <= bubble.r + shot.r * 0.85;
       });
@@ -1199,7 +1217,11 @@ function startRhymePopArcadeGame(mount, options) {
     ctx.save();
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     if (!drawCover(ctx, image, w, h)) drawFallback(ctx, w, h, config, state.time);
-    drawScreenGrade(ctx, w, h);
+    const vignette = ctx.createRadialGradient(w * .5, h * .45, h * .25, w * .5, h * .5, h * .9);
+    vignette.addColorStop(0, "rgba(2,6,18,0)");
+    vignette.addColorStop(1, "rgba(2,6,18,.3)");
+    ctx.fillStyle = vignette;
+    ctx.fillRect(0, 0, w, h);
     drawRhymePop(ctx, state, config, w, h);
     drawHud(ctx, state, config, w, h);
     drawCountdown(ctx, state, config, w, h);
@@ -1242,6 +1264,7 @@ function startRhymePopArcadeGame(mount, options) {
         score: state.score,
         combo: state.combo,
         taskIndex: state.taskIndex,
+        elapsedSeconds: state.time,
         countdown: state.countdown,
         countdownTarget: state.countdownTarget,
         onboarding: state.onboarding,
@@ -1256,7 +1279,9 @@ function startRhymePopArcadeGame(mount, options) {
           rime: bubble.rime,
           x: bubble.hitX || bubble.x,
           y: bubble.hitY || bubble.y,
-          r: bubble.r
+          r: bubble.r,
+          entering: !!bubble.entering,
+          route: bubble.route ?? (state.level.act || 0)
         })),
         shots: state.shots?.length || 0,
         judgement: state.judgement,

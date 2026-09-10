@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getChildWordAsset } from "../../../../data/childAssets.js";
 
 // The same scene exists before and after Use. Only the object and its affected
@@ -6,8 +6,17 @@ import { getChildWordAsset } from "../../../../data/childAssets.js";
 // settled result immediately. Existing reviewed images are rendered unchanged.
 export function WorkshopObjectAction({ target, active }) {
   const asset = getChildWordAsset(target.word);
-  const [failed, setFailed] = useState("");
-  const image = failed === asset?.image ? asset?.fallbackImage : asset?.image;
+  const [failed, setFailed] = useState([]);
+  const image = [asset?.image, asset?.fallbackImage].find(candidate => candidate && !failed.includes(candidate));
+  // SVG <image> error delivery differs between browsers; the image loader
+  // gives the same URL a dependable failure path without retrying it forever.
+  useEffect(() => {
+    if (!image) return;
+    const loader = new Image();
+    loader.onerror = () => setFailed(previous => [...new Set([...previous, image])]);
+    loader.src = image;
+    return () => { loader.onerror = null; };
+  }, [image]);
   const action = target.action;
   const water = ["float", "hop"].includes(action);
   const paper = ["write", "blow"].includes(action);
@@ -42,7 +51,7 @@ export function WorkshopObjectAction({ target, active }) {
       {action === "post" && <g><path d="M173 96h199v90H173Z" fill="#fffef9" stroke="#859ba1" strokeWidth="3" /><path d="m173 96 98 62 101-62m-199 90 73-51m126 51-73-51" fill="none" stroke="#c6d2d5" strokeWidth="2" /></g>}
       {action === "comb" && <g stroke="#936744" strokeWidth="9" strokeLinecap="round" fill="none"><path className="lg-object-tangles" d="M217 87c-45 53 57 29 3 86m24-86c43 49-60 23 0 86m26-86c-41 55 53 30 3 86m23-86c43 49-45 37 0 86" /><path className="lg-object-smooth" d="M217 87q-7 45 0 86m27-86q-6 45 0 86m26-86q5 45 3 86m23-86q7 45 0 86" /></g>}
       <g className="lg-object-actor" data-object={target.word}>
-        {image && failed !== image ? <image href={image} x="16" y="44" width="118" height="118" preserveAspectRatio="xMidYMid meet" onError={() => setFailed(image)} /> : <g><rect x="16" y="62" width="118" height="78" rx="12" fill="#fff" stroke="#8c7865" strokeWidth="3" /><text x="75" y="108" textAnchor="middle" fill="#433c35" fontSize="22">{target.word}</text></g>}
+        {image ? <image href={image} x="16" y="44" width="118" height="118" preserveAspectRatio="xMidYMid meet" onError={() => setFailed(previous => [...new Set([...previous, image])])} /> : <g><rect x="16" y="62" width="118" height="78" rx="12" fill="#fff" stroke="#8c7865" strokeWidth="3" /><text x="75" y="108" textAnchor="middle" fill="#433c35" fontSize="22">{target.word}</text></g>}
       </g>
     </svg>
   </div>;

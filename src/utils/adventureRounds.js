@@ -3,6 +3,7 @@
 // round can be play-tested by unit tests.
 import { CVC_WORDS, SIGHT_WORDS } from "../data/learnGamesData.js";
 import { LETTER_EXAMPLES } from "../data/elSkillsBlockCycles.js";
+import { hasWordAudio } from "./questAudio.js";
 import { hasKnownBadWordAudio } from "../data/knownBadWordAudio.js";
 import { buildGrowingGardenRounds } from "./buildingGrowingRounds.js";
 export { GARDEN_FLOWERS } from "./buildingGrowingRounds.js";
@@ -49,7 +50,9 @@ export function buildRescueRounds(difficulty = "easy") {
         ? [...SIGHT_WORDS.level2, ...CVC_WORDS.medium]
         : [...SIGHT_WORDS.level1, ...CVC_WORDS.easy]
   );
-  const words = shuffle(pool).slice(0, 6);
+  // A complete rescue trail keeps movement speed unchanged and crosses 36
+  // distinct word bridges before reaching the friend.
+  const words = shuffle(pool.filter(hasWordAudio)).slice(0, 36);
   return words.map(word => ({
     word,
     choices: shuffle([word, ...pickRescueFoils(word, pool)])
@@ -59,33 +62,39 @@ export function buildRescueRounds(difficulty = "easy") {
 // ── Sound Sort Factory: two bins, words ride the conveyor ─────────────────
 // Contrast pairs are chosen so membership is decidable from SPELLING alone
 // (starts-with the bin's grapheme), so every item has exactly one right bin.
+// One shift per contrast covers the reviewed single-letter bank. Later tiers
+// add initial digraph contrasts before revisiting single letters in fresh pairs.
+// x is excluded because its usual /ks/ model is not a word-initial sound.
+const SINGLE_LETTER_PAIRS = [["a", "e"], ["i", "o"], ["u", "y"], ["s", "m"], ["t", "b"], ["c", "f"], ["p", "n"], ["g", "h"], ["r", "l"], ["d", "w"], ["v", "z"], ["j", "k"]];
 const SORT_PAIRS = {
-  easy: [["s", "m"], ["t", "b"], ["c", "f"]],
-  medium: [["sh", "ch"], ["s", "sh"], ["t", "th"]],
-  hard: [["ch", "th"], ["sh", "th"], ["b", "d"]]
+  easy: SINGLE_LETTER_PAIRS,
+  medium: [["sh", "ch"], ["s", "sh"], ["t", "th"], ["c", "ch"], ["w", "wh"], ...SINGLE_LETTER_PAIRS],
+  hard: [["sh", "th"], ["ch", "th"], ["b", "d"], ["wh", "w"], ["ch", "c"], ["sh", "s"], ["th", "t"], ...SINGLE_LETTER_PAIRS]
 };
 
 export function buildSortRounds(difficulty = "easy") {
   const pairs = SORT_PAIRS[difficulty] || SORT_PAIRS.easy;
-  const [keyA, keyB] = shuffle(pairs)[0];
-  const wordsFor = key => cleanPool(LETTER_EXAMPLES[key] || []).filter(w => w.startsWith(key));
-  let a = wordsFor(keyA);
-  let b = wordsFor(keyB);
-  // In s-vs-sh style rounds (one grapheme is a prefix of the other) membership
-  // is decided by the LONGEST matching bin: "ship" -> sh, "sun" -> s. So only
-  // the SHORTER bin must drop words that also start with the longer grapheme -
-  // the longer bin (sh/th) keeps its words instead of being emptied out.
-  const longer = keyA.length >= keyB.length ? keyA : keyB;
-  const shorter = keyA.length >= keyB.length ? keyB : keyA;
-  if (longer !== shorter && longer.startsWith(shorter)) {
-    const strip = list => list.filter(w => !w.startsWith(longer));
-    if (shorter === keyA) a = strip(a); else b = strip(b);
-  }
-  const items = shuffle([
-    ...shuffle(a).slice(0, 4).map(word => ({ word, bin: keyA })),
-    ...shuffle(b).slice(0, 4).map(word => ({ word, bin: keyB }))
-  ]);
-  return { binA: keyA, binB: keyB, items };
+  const shifts = shuffle(pairs).map(([keyA, keyB], shift) => {
+    const wordsFor = key => cleanPool(LETTER_EXAMPLES[key] || []).filter(w => w.startsWith(key) && hasWordAudio(w));
+    let a = wordsFor(keyA);
+    let b = wordsFor(keyB);
+    // In s-vs-sh style rounds (one grapheme is a prefix of the other) membership
+    // is decided by the LONGEST matching bin: "ship" -> sh, "sun" -> s. So only
+    // the SHORTER bin must drop words that also start with the longer grapheme -
+    // the longer bin (sh/th) keeps its words instead of being emptied out.
+    const longer = keyA.length >= keyB.length ? keyA : keyB;
+    const shorter = keyA.length >= keyB.length ? keyB : keyA;
+    if (longer !== shorter && longer.startsWith(shorter)) {
+      const strip = list => list.filter(w => !w.startsWith(longer));
+      if (shorter === keyA) a = strip(a); else b = strip(b);
+    }
+    const items = shuffle([
+      ...shuffle(a).slice(0, 4).map(word => ({ word, bin: keyA })),
+      ...shuffle(b).slice(0, 4).map(word => ({ word, bin: keyB }))
+    ]);
+    return { binA: keyA, binB: keyB, items: items.map(item => ({ ...item, binA: keyA, binB: keyB, shift })) };
+  });
+  return { binA: shifts[0].binA, binB: shifts[0].binB, items: shifts.flatMap(shift => shift.items), shifts: shifts.length };
 }
 
 // ── Letter Garden: change one known word, grow a labeled plant ─────────────

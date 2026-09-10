@@ -77,9 +77,8 @@ export function ArcadePracticeGame({
   isSoundEnabled = true,
   progressScopeKey = "default"
 }) {
-  const totalRounds = difficulty === "hard" ? 10 : difficulty === "medium" ? 8 : 6;
+  const plannedRounds = mode === "target" ? ({easy:48, medium:54, hard:60}[difficulty] || 48) : mode === "quiz" ? (SENTENCE_FIX[difficulty] || SENTENCE_FIX.easy).length : 10;
   const sentenceTier = difficulty === "hard" ? "level3" : difficulty === "medium" ? "level2" : "level1";
-  const initialRoundCount = mode === "memory" ? (difficulty === "easy" ? 1 : 2) : mode === "sentence" ? Math.min(totalRounds, SENTENCES[sentenceTier].length - 1) : mode === "family" ? (difficulty === "hard" ? 6 : difficulty === "medium" ? 5 : 4) : totalRounds;
 
   const sessionKey = phonicsSessionKey(progressScopeKey, mode, difficulty);
   const [saved] = useState(() => {
@@ -87,12 +86,15 @@ export function ArcadePracticeGame({
     const checkpoint = loadLearnGamesProgress(progressScopeKey).games?.[gameId]?.checkpoints?.[difficulty];
     return checkpoint ? loadPhonicsSession(sessionKey, Number(startLevel) || 0) : null;
   });
+  // A saved short outing keeps its original generated length and receipt.
+  const totalRounds = saved?.gameState?.rounds?.length || saved?.gameState?.words?.length || plannedRounds;
+  const initialRoundCount = saved ? (saved.gameState.boards?.length || saved.gameState.total || saved.gameState.sentences?.length || saved.gameState.fixes?.length || totalRounds) : mode === "memory" ? ({easy:8,medium:7,hard:6}[difficulty] || 8) : mode === "sentence" ? SENTENCES[sentenceTier].length - 1 : mode === "family" ? 10 : totalRounds;
   const stageSnapshotRef = useRef(saved?.stage || null);
   const saveStateRef = useRef(null);
   const [score, setScore] = useState(saved?.score || 0);
   // Honor the resume contract: startLevel is a 0-based round index from GamePlayer.
   const [round, setRound] = useState(() => Math.max(0, Math.min(Number(startLevel) || 0, initialRoundCount - 1)));
-  const [correct, setCorrect] = useState(() => saved?.correct ?? (mode === "memory" ? round * (difficulty === "hard" ? 5 : 3) : round));
+  const [correct, setCorrect] = useState(() => saved?.correct ?? (mode === "memory" ? round * (difficulty === "hard" ? 5 : difficulty === "medium" ? 4 : 3) : round));
   const [completed, setCompleted] = useState(false);
   const [stars, setStars] = useState(0);
   const [version, setVersion] = useState(0);

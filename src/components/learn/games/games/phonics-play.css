@@ -156,3 +156,29 @@
 @container (max-height: 380px) { .pp-collection { display: none; } }
 
 .pp-slot.is-drop-target, .pp-repair-socket.is-drop-target { outline: 5px solid #79ad65; outline-offset: 3px; background: #e4f4bb; }
+
+/* Completed workshop pieces remain manipulable: place the object in its use
+   scene instead of waiting through a fixed celebration before the next build. */
+.pp-object-placement { justify-content: center; }
+.pp-object-placement .pp-piece { font-size: 20px !important; }
+.pp-built-object { display: flex; align-items: center; gap: 8px; }
+.pp-built-object .pp-word-picture { width: 40px; height: 40px; }
+.pp-workshop-world.is-built .pp-blueprint,
+.pp-workshop-world.is-built .pp-slot-row { display: none; }
+.pp-workshop-world.is-built .pp-workbench { inset: 6px 12%; padding: 0; background: none; border: none; box-shadow: none; }
+.pp-workshop-world.is-built .pp-object-payoff { position: relative; left: auto; bottom: auto; transform: none; width: 100%; height: 100%; box-shadow: none; }
+.pp-workshop-world.is-built .pp-object-payoff .lg-object-scene,
+.pp-workshop-world.is-built .pp-object-payoff svg { height: 100%; max-height: none; }
+.pp-collection { justify-content: flex-start; overflow-x: auto; }
+
+.pp-table-1 { background: radial-gradient(ellipse, #68588370, transparent 75%); }
+.pp-table-2 { background: radial-gradient(ellipse, #90734d70, transparent 75%); }
+.pp-festival-1 { background: linear-gradient(#d7e9f330, #c8dce766); }
+.pp-festival-2 { background: linear-gradient(#e7cde433, #eadbc666); }
+.pp-hop-region-1 .pp-hop-river { background-color: #648e96; }
+.pp-hop-region-2 .pp-hop-river { background-color: #788ab3; }
+.pp-district-1 .pp-neighbourhood { filter: hue-rotate(18deg); }
+.pp-district-2 .pp-neighbourhood { filter: hue-rotate(-18deg); }
+
+.pp-family-town { justify-content: flex-start; overflow-x: auto; padding-bottom: 8px; }
+.pp-family-house { flex: 0 0 auto; }

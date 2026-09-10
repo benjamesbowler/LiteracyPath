@@ -50,8 +50,8 @@ export function MatchGame({ state, round = 0, setRound, isSoundEnabled, correct,
       else { resultReady(correct); finish(correct); }
     } else { selectedRef.current = []; setSelected([]); }
   }, schedule, 800);
-  return <PhonicsPlayScene mode="memory" prompt="Find the matching words" isSoundEnabled={isSoundEnabled} progress={correct} total={total} discovered={discovered} paused={paused}>
-    <div className="pp-memory-table" data-card-count={cards.length}>
+  return <PhonicsPlayScene mode="memory" prompt={`Table ${boardIndex + 1} of ${state.boards.length} · Find the matching words`} isSoundEnabled={isSoundEnabled} progress={correct} total={total} discovered={discovered} paused={paused}>
+    <div className={`pp-memory-table pp-table-${boardIndex % 3}`} data-table={boardIndex} data-card-count={cards.length}>
       {cards.map((card, index) => {
         const matched = matchedIds.includes(card.id);
         const visible = matched || selected.some(item => item.id === card.id);
@@ -81,7 +81,7 @@ export function TargetGame({ state, round, setRound, correct, setCorrect, addSco
   const [wrong, setWrong] = useState(resume?.wrong || '');
   const solved = useRef(resume?.popped || Boolean(resume?.answer)), attempts = useRef(resume?.attempts || 0);
   const { canHear, replay } = useRecordedPracticeCue(target, isSoundEnabled && !paused);
-  const positions = wordTargetLayout(size.width, size.height, options, time);
+  const positions = wordTargetLayout(size.width, size.height, options, time, Math.floor(round / 8));
   function pop(word) {
     if (paused || solved.current) return;
     recordFirstResponse({ ...practiceEvidence('high_frequency_word_recognition', [canHear ? 'recorded_word_cue' : 'printed_target']), game: 'pop-the-word', round, target, response: word, correct: word === target });
@@ -94,7 +94,7 @@ export function TargetGame({ state, round, setRound, correct, setCorrect, addSco
   useStageSnapshot(() => ({ options, still, popped, wrong, attempts: attempts.current }), onSnapshot);
   useResumeTransition(resume?.popped, () => round + 1 >= totalRounds ? finish(correct) : setRound(round + 1), schedule, 500);
   return <PhonicsPlayScene mode="target" prompt={canHear ? 'Pop the word you hear' : `Pop ${target}`} cue={target} onReplay={replay} canHearCue={canHear} isSoundEnabled={isSoundEnabled} progress={correct} total={totalRounds} discovered={discovered} paused={paused} tools={<button className="pp-tool" type="button" aria-pressed={still} onClick={() => setStill(value => !value)}>{still ? 'Move' : 'Still'}</button>}>
-    <div className="pp-target-field" ref={fieldRef}>
+    <div className={`pp-target-field pp-festival-${Math.floor(round / 8) % 3}`} data-formation={Math.floor(round / 8)} ref={fieldRef}>
       {positions.map(item => <button type="button" className={`pp-word-balloon${popped && item.word === target ? ' is-popped' : ''}${wrong === item.word ? ' is-wrong' : ''}`} key={item.word} data-word={item.word} disabled={paused || popped} onFocus={() => setKeyboardFocus(true)} onBlur={() => setKeyboardFocus(false)} onClick={() => pop(item.word)} style={{ left: item.x, top: item.y, width: item.width, height: item.height, fontSize: item.fontSize }}>{item.word}</button>)}
       {wrong && <p className="pp-local-feedback" role="status">That says {wrong}. {canHear ? 'Hear the target again.' : `Find ${target}.`}</p>}
     </div>
@@ -143,7 +143,7 @@ export function SentenceGame({ state, round, setRound, correct, setCorrect, addS
   useStageSnapshot(() => ({ hero, index, wrong, attempts: attempts.current }), onSnapshot);
   useResumeTransition(resume?.index === tiles.length, () => round + 1 >= state.sentences.length ? finish(correct) : setRound(round + 1), schedule, 700);
   return <PhonicsPlayScene mode="sentence" prompt={canHear ? (tiles.slice(0, index).map(tile => tile.word).join(' ') || 'Hop to build the sentence') : sentence} cue={sentence} onReplay={replay} canHearCue={canHear} isSoundEnabled={isSoundEnabled} progress={correct} total={state.sentences.length} discovered={discovered} paused={paused}>
-    <div className="pp-hop-world" ref={worldRef}>
+    <div className={`pp-hop-world pp-hop-region-${Math.floor(round / 3) % 3}`} data-region={Math.floor(round / 3)} ref={worldRef}>
       <div className="pp-hop-river" aria-hidden="true" />
       <div className="pp-hop-course" style={{ transform: `translate(${-camera}px, ${cameraLift}px)` }}>
         {routes.flat(2).filter(stone => stone.x > camera - 140 && stone.x < camera + size.width + 180).map(stone => <button type="button" key={stone.id} className={`pp-hop-stone${stone.accepted && (stone.sentenceIndex < round || (stone.sentenceIndex === round && stone.index < index)) ? ' is-reached' : ''}`} data-stone-id={stone.id} data-world-x={stone.x} disabled={paused || Boolean(jump) || stone.sentenceIndex !== round || stone.index !== index} onClick={() => choose(stone)} style={{ left: stone.x, top: stone.y * size.height }}>{stone.word}</button>)}
@@ -188,7 +188,7 @@ export function FixGame({ state, round, setRound, correct, setCorrect, addScore,
           const oldRepair = discovered.find(item => item.id === `repair-${station}`);
           const repaired = station < round || Boolean(answer);
           const parts = viewed.display.split('___');
-          return <div key={station} className={`pp-repair-station${repaired ? ' is-repaired' : ''}`} style={{ left: station * stationWidth, width: repairSize.width }} aria-hidden={station !== viewIndex}>
+          return <div key={station} className={`pp-repair-station pp-district-${station % 3}${repaired ? ' is-repaired' : ''}`} style={{ left: station * stationWidth, width: repairSize.width }} aria-hidden={station !== viewIndex}>
             <div className="pp-neighbourhood"><span className="pp-shop-window" /><div className="pp-gate"><span /><span /></div><span className="pp-street-lamp" /></div>
             <div className="pp-repair-sign" data-sign-index={station}>
               {station < round ? <span>{oldRepair?.sentence || completeRepairDisplay(viewed.display, viewed.answer)}</span> : parts.map((part, index) => <span key={index}>{part}{index < parts.length - 1 && <button type="button" className={`pp-repair-socket${drag.overSlot === 0 ? ' is-drop-target' : ''}${wrong ? ' is-wrong' : ''}`} data-piece-slot="0" disabled={paused || Boolean(answer) || station !== viewIndex} onClick={() => drag.placeSelected(0)} aria-label="Place the repair here">{answer || wrong || '…'}</button>}</span>)}

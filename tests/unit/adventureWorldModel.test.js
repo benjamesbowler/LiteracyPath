@@ -112,3 +112,37 @@ test('saved adventures are learner/mode/difficulty scoped and only match the par
     assert.equal(loadAdventureSession(key,2),null);
   } finally { if (original === undefined) delete globalThis.localStorage; else globalThis.localStorage = original; }
 });
+
+// Measure the complete extended trail through the same fixed-step movement
+// model; a longer timeout or slower rendering cannot satisfy this assertion.
+test('36-bridge rescue remains a multi-minute physical route at full walking speed', () => {
+  const w = createCarryWorld('rescue', 0, 36);
+  const reach = x => {
+    requestCarryAction(w, { type: 'approach', x });
+    let frames = 0;
+    while (w.target && frames++ < 1000) advanceCarryWorld(w, 1 / 60);
+    assert.equal(w.target, null);
+  };
+  for (let index = 0; index < w.total; index++) {
+    w.index = index;
+    reach(carryRackX(w, index, index % 3));
+    reach(carryStationX(w, index));
+    w.solved++;
+  }
+  while (!w.rescued) advanceCarryWorld(w, 1 / 60);
+  assert.ok(w.time >= 120, `Only ${w.time} seconds of actual movement`);
+  assert.ok(w.time < 150, 'No slow movement or artificial waiting was introduced');
+});
+
+test('the full garden is a multi-minute route without slowing movement', () => {
+  const w = createCarryWorld('garden', 0, 26);
+  for (let index = 0; index < w.total; index++) {
+    for (const x of [carryRackX(w, index, index % 3), carryStationX(w, index)]) {
+      requestCarryAction(w, { type: 'approach', x });
+      let frames = 0;
+      while (w.target && frames++ < 1000) advanceCarryWorld(w, 1 / 60);
+      assert.equal(w.target, null);
+    }
+  }
+  assert.ok(w.time >= 130 && w.time < 160, `Normal movement took ${w.time}s`);
+});

@@ -1,0 +1,5 @@
+.gg-world-choice { position:absolute; white-space:nowrap; transform:translate(-50%,-50%); min-width:64px; min-height:56px; max-width:150px; padding:6px 12px; border:2px solid #a7894e; border-radius:12px; background:linear-gradient(#fff9df,#e4d6a6); color:#223d3c; box-shadow:0 4px 0 #7a6c48,0 6px 14px #15303444; font-family:var(--kid-font-display,Fredoka,sans-serif); font-weight:800; font-size:clamp(18px,2.7vw,28px); line-height:1.1; z-index:4; cursor:pointer; touch-action:manipulation; }
+.gg-world-choice:focus-visible { outline:4px solid #21adcd; outline-offset:3px; }
+.gg-world-choice[data-offscreen=true]::before { content:'↗ '; font-size:.7em; }
+@media(hover:hover) { .gg-world-choice:hover { filter:brightness(1.1); } }
+@media(max-height:450px) { .gg-world-choice { padding:4px 8px; font-size:18px; min-width:56px; } }

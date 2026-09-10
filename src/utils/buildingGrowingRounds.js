@@ -49,7 +49,13 @@ const GARDEN_TRANSFORMS = [
   { sourceWord: "map", word: "mat", flower: "berry bush", plantName: "Berry bush" },
   { sourceWord: "bug", word: "jug", flower: "bluebell", plantName: "Bluebell" },
   { sourceWord: "pen", word: "hen", flower: "rose", plantName: "Rose" },
-  { sourceWord: "fox", word: "box", flower: "poppy", plantName: "Poppy" }
+  { sourceWord: "fox", word: "box", flower: "poppy", plantName: "Poppy" },
+  { sourceWord: "fan", word: "pan", flower: "sunflower", plantName: "Sunflower" },
+  { sourceWord: "mop", word: "top", flower: "daisy", plantName: "Daisy" },
+  { sourceWord: "van", word: "can", flower: "berry bush", plantName: "Berry bush" },
+  { sourceWord: "pot", word: "dot", flower: "bluebell", plantName: "Bluebell" },
+  { sourceWord: "hat", word: "rat", flower: "rose", plantName: "Rose" },
+  { sourceWord: "net", word: "jet", flower: "poppy", plantName: "Poppy" }
 ];
 
 function cleanCvcPool(difficulty = "easy") {
@@ -81,10 +87,21 @@ export function buildCvcWorkshopRounds(difficulty = "easy", count = 6) {
   }));
 }
 
+// Concrete objects from the existing reviewed family bank. Abstract qualities
+// and verbs are not used as ambiguous pictured town-building targets.
+const FAMILY_OBJECTS = {
+  "-AT": ["cat", "hat", "bat", "mat", "rat"], "-AN": ["can", "pan", "man", "fan"],
+  "-IG": ["pig", "wig", "fig"], "-OP": ["top", "mop"], "-UN": ["sun", "bun"],
+  "-EN": ["pen", "hen", "den"], "-ET": ["net", "jet", "vet"],
+  "-OT": ["pot", "dot", "cot"], "-UG": ["bug", "mug", "rug", "jug"],
+  "-IN": ["pin", "fin", "bin", "tin", "chin"]
+};
 export function buildBlendMissions(difficulty = "easy") {
-  const count = difficulty === "hard" ? 6 : difficulty === "medium" ? 5 : 4;
-  return shuffle(BLEND_TARGETS).slice(0, count).map(([familyId, word], index) => {
-    const familyWords = WORD_FAMILIES[familyId] || [];
+  return shuffle(BLEND_TARGETS).map(([familyId, word], index) => {
+    const familyWords = FAMILY_OBJECTS[familyId].filter(candidate =>
+      (WORD_FAMILIES[familyId] || []).includes(candidate) && (difficulty === "hard" || candidate !== "chin"));
+    const limit = difficulty === "easy" ? 3 : difficulty === "medium" ? 4 : familyWords.length;
+    const targets = [word, ...shuffle(familyWords.filter(candidate => candidate !== word))].slice(0, limit);
     const onset = word.slice(0, word.length - (familyId.length - 1));
     return {
       id: `blend-${index}-${word}`,
@@ -93,6 +110,7 @@ export function buildBlendMissions(difficulty = "easy") {
       onset,
       rime: familyId.slice(1).toLowerCase(),
       familyWords,
+      targets,
       label: OBJECT_LABELS[word] || getChildWordAsset(word)?.alt || word,
       units: segmentWord(word).map((grapheme, unitIndex) => ({ id: `${word}-${index}-${unitIndex}`, grapheme, phoneme: grapheme, index: unitIndex }))
     };
@@ -102,9 +120,12 @@ export function buildBlendMissions(difficulty = "easy") {
 export const GARDEN_FLOWERS = Object.freeze(GARDEN_TRANSFORMS.map(round => round.flower));
 
 export function buildGrowingGardenRounds() {
-  const count = 5;
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  return shuffle(GARDEN_TRANSFORMS).slice(0, count).map((round, index) => {
+  // Use the same reviewed contrast in both directions, separated into two
+  // passes so the reverse is not the immediately following answer.
+  const forward = shuffle(GARDEN_TRANSFORMS);
+  const reverse = forward.map(round => ({...round, sourceWord:round.word, word:round.sourceWord}));
+  return [...forward, ...reverse].map((round, index) => {
     const decoys = shuffle([...alphabet].filter(letter => !round.word.includes(letter))).slice(0, 3);
     return {
       ...round,

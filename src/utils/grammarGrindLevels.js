@@ -2,14 +2,14 @@ import { starRubric } from "./starRubric.js";
 
 const level = (word, segments, options, cue) => ({
   type: "spelling",
-  prompt: "Listen. Collect the sounds in order.",
+  prompt: "Listen. Collect the spelling parts in order.",
   sentence: segments.map(() => "_").join("  "),
   audioWord: word,
   segments,
   correct: word,
   options,
   cue,
-  focus: segments.length === 1 ? "Whole-word spelling" : `Build ${segments.length} sound parts`,
+  focus: segments.length === 1 ? "Whole-word spelling" : `Build ${segments.length} spelling parts`,
   teaching: cue,
   success: `${segments.join(" + ")} spells ${word}.`,
   wrongHint: `Blend ${segments.join(" + ")} and look for ${word}.`

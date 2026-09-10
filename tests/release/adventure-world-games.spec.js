@@ -1,12 +1,16 @@
 import { test, expect } from '@playwright/test';
 import fs from 'node:fs';
+import { buildSortRounds } from '../../src/utils/adventureRounds.js';
 test.describe.configure({
   mode: 'parallel'
 });
 test.use({
-  hasTouch: true
+  hasTouch: true,
+  actionTimeout: 10000
 });
 const out = '.artifacts/adventure-world-repair';
+const simulatedClock = process.env.LP_ADVENTURE_CLOCK === '1';
+const advanceTime = (page, ms) => simulatedClock ? page.clock.runFor(ms) : page.waitForTimeout(ms);
 async function open(page, game, difficulty) {
   await page.goto(`/preview/game-overlay.html?game=${game}&difficulty=${difficulty}&sound=0&music=0`);
   await expect(page.locator('.aw-stage')).toBeVisible();
@@ -17,12 +21,12 @@ async function reachable(page, button) {
     const b = await button.boundingBox();
     const r = await page.locator('[data-aw="world"]').boundingBox();
     if (b && b.x >= r.x + 8 && b.x + b.width <= r.x + r.width - 8) {
-      await page.waitForTimeout(180);
+      await advanceTime(page, 180);
       return;
     }
     await stage.focus();
     await page.keyboard.down(b && b.x < r.x ? 'ArrowLeft' : 'ArrowRight');
-    await page.waitForTimeout(250);
+    await advanceTime(page, 250);
     await page.keyboard.up('ArrowLeft');
     await page.keyboard.up('ArrowRight');
   }
@@ -32,21 +36,34 @@ async function carry(page, value) {
   const pickup = page.locator(`[data-aw="pickup"][data-value="${value}"]`);
   await reachable(page, pickup);
   await pickup.click();
+  if (simulatedClock) await page.clock.runFor(3000);
   await expect(page.locator('.aw-stage')).toHaveAttribute('data-carry', value);
   await page.getByRole('button', {
     name: /Carry (plank to bridge|seed to bed)/
   }).click();
+  if (simulatedClock) {
+    const mode = await page.locator(".aw-stage").getAttribute("data-aw-mode");
+    await page.clock.runFor(mode === "garden" ? 5500 : 4500);
+  }
+  if (!await page.locator(".aw-stage").count()) {
+    await expect(page.getByRole("button", { name: "Replay level", exact: true })).toBeVisible();
+    return;
+  }
   await expect(page.locator('.aw-stage')).toHaveAttribute('data-carry', '', {
     timeout: 15000
   });
 }
-for (const difficulty of ['easy', 'medium', 'hard']) for (const [game, mode, total] of [['word-rescue', 'rescue', 6], ['sound-sort-factory', 'sort', 8], ['letter-garden', 'garden', 5]]) test(`${game} ${difficulty} entire playable route`, async ({
+for (const difficulty of ['easy', 'medium', 'hard']) for (const [game, mode, total] of [['word-rescue', 'rescue', 36], ['sound-sort-factory', 'sort', buildSortRounds(difficulty).items.length], ['letter-garden', 'garden', 26]]) test(`${game} ${difficulty} entire playable route`, async ({
   page
 }) => {
-  test.setTimeout(180000);
+  test.setTimeout(300000);
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
   await open(page, game, difficulty);
+  if (simulatedClock) {
+    await page.clock.install();
+    await page.clock.pauseAt(new Date(Date.now() + 1000));
+  }
   fs.mkdirSync(out, {
     recursive: true
   });
@@ -60,12 +77,13 @@ for (const difficulty of ['easy', 'medium', 'hard']) for (const [game, mode, tot
       const bins = await page.locator('[data-aw="chute"]').evaluateAll(ns => ns.map(n => n.dataset.bin));
       const correct = bins.filter(b => word.startsWith(b)).sort((a, b) => b.length - a.length)[0];
       await page.locator(`[data-bin="${correct}"]`).click();
+      if (simulatedClock) await page.clock.runFor(2600);
     } else {
       let value;
       if (mode === 'rescue') value = await page.locator('[data-aw="target"]').innerText();else {
         const target = (await page.locator('.aw-objective strong img').getAttribute('alt').catch(() => null)) || (await page.locator('.aw-objective strong b').innerText());
         const source = await page.locator('.aw-objective strong>span').innerText();
-        value = [...target.replace(/^a /i, '').toLowerCase()].find((c, j) => c !== source[j]);
+        value = [...target.replace(/^(?:a|the) /i, '').toLowerCase()].find((c, j) => c !== source[j]);
       }
       await carry(page, value, i);
     }
@@ -216,7 +234,7 @@ test('garden wrong seed leaves stable letters and reload resumes exact beds, tar
   await open(page, 'letter-garden', 'easy');
   const letter = async () => {
     const source = await page.locator('.aw-objective strong>span').innerText();
-    const target = (await page.locator('.aw-objective img').getAttribute('alt')).replace(/^a /i, '').toLowerCase();
+    const target = (await page.locator('.aw-objective img').getAttribute('alt')).replace(/^(?:a|the) /i, '').toLowerCase();
     return [...target].find((c, i) => c !== source[i]);
   };
   await carry(page, await letter());

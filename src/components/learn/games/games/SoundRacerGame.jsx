@@ -11,7 +11,8 @@ import {
   playWhoosh,
   playStarChime
 } from "../../../../utils/audio/gameSfx";
-import { soundRacerLadder, buildTrack, buildSoundRacerEvidenceResult, worldObstacles } from "../../../../utils/soundRacerTracks.js";
+import { soundRacerLadder, buildSoundRacerEvidenceResult, worldObstacles } from "../../../../utils/soundRacerTracks.js";
+import { buildSoundRacerRace } from "../../../../utils/soundRacerRace.js";
 import { worldForGameDifficulty, LEVELS_PER_DIFFICULTY } from "../../../../utils/curriculumLadder.js";
 import { hasRecordedSpeech, speakPhoneme, speakWord, preloadWordAudio } from "../../../../utils/learnGamesAudio.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
@@ -397,7 +398,7 @@ function startGame(THREE, mount, opts) {
     '<div data-sr-panel="status" style="position:absolute;top:16px;right:16px;text-align:right;background:rgba(7,10,22,.62);border:1px solid rgba(255,255,255,.16);padding:9px 12px;min-width:160px;clip-path:polygon(12px 0,100% 0,100% 100%,0 100%,0 12px)">' +
       '<div data-sr="timer" style="font-size:1.15rem;font-weight:900;font-variant-numeric:tabular-nums">0:00.00</div>' +
       '<div data-sr="words" style="font-size:.98rem;opacity:.9">0 / 0 words</div>' +
-      '<div data-sr="checkpoint" style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#b7f7df;opacity:.82;margin-top:3px">Checkpoint 1 / 4 · Lap 1 / 1</div>' +
+      '<div data-sr="checkpoint" style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#b7f7df;opacity:.82;margin-top:3px">Sector 1 / 3 · Lap 1 / 3</div>' +
       '<div data-sr="shield" style="font-size:1.05rem;letter-spacing:2px;margin-top:2px">◆◆◆</div>' +
       '<div style="height:9px;background:rgba(255,255,255,.12);overflow:hidden;margin-top:7px"><i data-sr="speed" style="display:block;height:100%;width:0%;background:#7cf0b6;transition:width .18s ease"></i></div></div>' +
     '<div data-sr="left-zone" aria-hidden="true" style="position:absolute;left:0;top:84px;bottom:0;width:42%;pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none"></div>' +
@@ -502,7 +503,8 @@ function startGame(THREE, mount, opts) {
   // Bests are per-student (scoped by the signed-in session), not per-device:
   // two siblings on one iPad must not share ghost times.
   const bestScope = opts.progressScopeKey || "default";
-  const legacyBestKey = index => `lp:sound-racer-best:${bestScope}:${difficulty}:${index}`;
+  const bestRaceKey = `${difficulty}:three-lap-v1`;
+  const legacyBestKey = index => `lp:sound-racer-best:${bestScope}:${bestRaceKey}:${index}`;
 
   function material(color, opts = {}) {
     const config = {
@@ -1914,9 +1916,9 @@ function startGame(THREE, mount, opts) {
       sceneryGroup.add(particle);
     }
 
-    for (let i = 1; i < track.checkpoints.length - 1; i += 1) {
+    for (let i = 1; i < track.circuitCheckpoints.length - 1; i += 1) {
       const gantry = makeTrackGantry(i + 1);
-      const point = sampleCircuitPath(track.path, track.checkpoints[i]);
+      const point = sampleCircuitPath(track.path, track.circuitCheckpoints[i]);
       gantry.position.set(point.x, point.y, point.z);
       gantry.rotation.y = -point.heading;
       gantry.userData.trackBound = true;
@@ -2036,13 +2038,13 @@ function startGame(THREE, mount, opts) {
   }
 
   function getBest(index) {
-    const synced = getLearnGameBestSplit(bestScope, "sound-racer", difficulty, index);
+    const synced = getLearnGameBestSplit(bestScope, "sound-racer", bestRaceKey, index);
     if (synced) return synced;
     try {
       const raw = window.localStorage.getItem(legacyBestKey(index));
       const legacy = raw ? JSON.parse(raw) : null;
       if (legacy && typeof legacy === "object") {
-        saveLearnGameBestSplit(bestScope, "sound-racer", difficulty, index, legacy);
+        saveLearnGameBestSplit(bestScope, "sound-racer", bestRaceKey, index, legacy);
         return legacy;
       }
     } catch {
@@ -2052,7 +2054,7 @@ function startGame(THREE, mount, opts) {
   }
 
   function setBest(index, data) {
-    saveLearnGameBestSplit(bestScope, "sound-racer", difficulty, index, data);
+    saveLearnGameBestSplit(bestScope, "sound-racer", bestRaceKey, index, data);
   }
 
   function startLevel() {
@@ -2060,7 +2062,7 @@ function startGame(THREE, mount, opts) {
     overlayCueTimer = null;
     currentMap = mapForLevel(world, levelIdx);
     const target = ladder[levelIdx % ladder.length];
-    track = buildTrack(target, { difficulty, seed: levelIdx });
+    track = buildSoundRacerRace(target, { difficulty, seed: levelIdx });
     resetSceneForMap();
     gateObjects = track.gates.map(makeGateObject);
     playerZ = 0;
@@ -2153,10 +2155,12 @@ function startGame(THREE, mount, opts) {
     const replayAvailable = opts.getSound ? opts.getSound() : opts.isSoundEnabled !== false;
     if (timerEl) timerEl.textContent = formatTime(timeMs);
     if (wordsEl) wordsEl.textContent = `${wordsCorrect} / ${track.needed} words`;
-    const lapLabel = playerZ >= track.totalLength && wordsCorrect >= track.needed
+    const lapLabel = playerZ >= track.raceLength && wordsCorrect >= track.needed
       ? "Finished"
-      : `Lap ${Math.floor(Math.max(0, playerZ) / track.totalLength) + 1}`;
-    if (checkpointEl) checkpointEl.textContent = `Checkpoint ${Math.min(checkpointIndex + 1, (track.checkpoints?.length || 1))} / ${track.checkpoints?.length || 1} · ${lapLabel}`;
+      : `Lap ${Math.min(track.laps, Math.floor(Math.max(0, playerZ) / track.totalLength) + 1)} / ${track.laps}`;
+    if (checkpointEl) checkpointEl.textContent = playerZ >= track.raceLength && wordsCorrect < track.needed
+      ? "Finish your word gates"
+      : `Sector ${Math.min(3, checkpointIndex % 3 + 1)} / 3 · ${lapLabel}`;
     if (shieldEl) shieldEl.textContent = "◆".repeat(Math.max(0, shield)) + "◇".repeat(Math.max(0, 3 - shield));
     if (hearTargetEl) {
       hearTargetEl.hidden = !replayAvailable;
@@ -2334,6 +2338,14 @@ function startGame(THREE, mount, opts) {
       wordsWrong: mistakes
     }).stars;
     sfx(playCelebrationFanfare);
+    // The shared result surface already provides Next level and Replay level.
+    // Completing the cup must reach it without a second Done confirmation.
+    if (opts.onComplete && !completionSent) {
+      completionSent = true;
+      opts.onProgressUpdate?.(levelCount, levelCount);
+      opts.onComplete(stars, score, correct);
+      return;
+    }
     overlayCueTimer = queueRecordedCue(getLedaInstructionAudioPath("Great job"), 1100);
     opts.onProgressUpdate?.(levelCount, levelCount);
     const overlay = showOverlay(
@@ -2526,11 +2538,11 @@ function startGame(THREE, mount, opts) {
       }
     }
     const hasPendingCorrect = gateObjects.some(obj => obj.correct && !obj.resolved);
-    if (playerZ >= track.totalLength - 2 && wordsCorrect < track.needed && !hasPendingCorrect) {
+    if (playerZ >= track.raceLength - 2 && wordsCorrect < track.needed && !hasPendingCorrect) {
       const missed = gateObjects.find(obj => obj.correct && obj.resolved && !caughtCorrectWords.has(obj.word))?.word;
       queueCatchUp(missed || track.gates.find(gate => gate.correct)?.word, 2);
     }
-    if (playerZ >= track.totalLength && checkpointIndex === track.checkpoints.length - 1 && wordsCorrect >= track.needed) completeLevel();
+    if (playerZ >= track.raceLength && checkpointIndex === track.checkpoints.length - 1 && wordsCorrect >= track.needed) completeLevel();
   }
 
   function updateShip(dt) {
@@ -2656,6 +2668,9 @@ function startGame(THREE, mount, opts) {
       while (checkpointIndex < (track.checkpoints?.length || 1) - 1 && playerZ >= track.checkpoints[checkpointIndex + 1]) {
         checkpointIndex += 1;
         sfx(playStarChime);
+        if (checkpointIndex % 3 === 0 && checkpointIndex < track.checkpoints.length - 1) {
+          showBanner(checkpointIndex === 6 ? "Final lap — keep racing!" : "Lap 2 — fresh word gates!");
+        }
       }
       updateGates(dt);
       updateHud();
@@ -2701,7 +2716,9 @@ function startGame(THREE, mount, opts) {
     frames: frameCount, tier: qualityTier, renderCalls: renderer.info.render.calls, triangles: renderer.info.render.triangles,
     geometries: renderer.info.memory.geometries, textures: renderer.info.memory.textures,
     kart: racerKart?.snapshot(), scenery: racerScenery?.root.userData,
-    progress: kart?.progress, speed: kart?.speed, steering: kart?.steering, running, paused
+    progress: kart?.progress, speed: kart?.speed, steering: kart?.steering, running, paused,
+    timeMs, raceLength: track?.raceLength, laps: track?.laps, checkpointIndex,
+    nextGates: gateObjects.filter(gate => !gate.resolved && gate.z >= playerZ - 2).sort((a, b) => a.z - b.z).slice(0, 4).map(({ z, lane, word, correct, catchup }) => ({ z, lane, word, correct, catchup }))
   }) });
   startLevel();
   const loop = createFrameLoop(tick);

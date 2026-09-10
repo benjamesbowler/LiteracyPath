@@ -135,6 +135,18 @@ function CarryStage({
       world.target = null;
     }
   }, [state.paused, world]);
+  useEffect(() => {
+    const release = event => {
+      if (["ArrowLeft", "ArrowRight", "a", "A", "d", "D"].includes(event.key)) world.input = 0;
+    };
+    const blur = () => { world.input = 0; world.target = null; };
+    window.addEventListener("keyup", release);
+    window.addEventListener("blur", blur);
+    return () => {
+      window.removeEventListener("keyup", release);
+      window.removeEventListener("blur", blur);
+    };
+  }, [world]);
   const move = dir => {
     if (!state.paused) {
       world.input = dir;
@@ -261,6 +273,8 @@ export function FactoryWorldStage({
   isSoundEnabled
 }) {
   const item = sort.items[state.index] || sort.items.at(-1);
+  const binA = item.binA || sort.binA;
+  const binB = item.binB || sort.binB;
   const [manual, setManual] = useState(Boolean(state.worldSnapshot?.factoryManual));
   const worldRef = useRef(null);
   if (!worldRef.current || worldRef.current.index !== state.index) worldRef.current = {
@@ -326,7 +340,7 @@ export function FactoryWorldStage({
     }
   }, [state.paused, world]);
   const choose = side => {
-    if (!state.paused) divertConveyor(world, side === 0 ? sort.binA : sort.binB, side);
+    if (!state.paused) divertConveyor(world, side === 0 ? binA : binB, side);
   };
   const dragTo = e => {
     if (!drag.current) return;
@@ -344,7 +358,7 @@ export function FactoryWorldStage({
     drag.current = null;
   };
   return <section className="aw-stage aw-factory" data-aw-mode="sort" data-aw-index={state.index} data-belt-phase={world.phase}>
-    <header className="aw-objective"><strong>Match the first letters</strong><span>{state.index}/{sort.items.length}</span><button type="button" disabled={!canHear} onClick={replay} aria-label="Hear word">♪</button></header>
+    <header className="aw-objective"><strong>Match the first letters</strong><span>{item.shift !== undefined ? `Shift ${item.shift + 1}/${sort.shifts} · ` : ""}{state.index}/{sort.items.length}</span><button type="button" disabled={!canHear} onClick={replay} aria-label="Hear word">♪</button></header>
     <div className="aw-machine" ref={host}>
       <div className="aw-factory-window" /><div className="aw-machine-gears" aria-hidden="true">⚙</div>
       <div className="aw-conveyor"><div className="aw-rollers" style={{
@@ -355,7 +369,7 @@ export function FactoryWorldStage({
         left: "9%",
         bottom: "25%"
       }} />
-      {[sort.binA, sort.binB].map((bin, i) => <button type="button" key={bin} className="aw-chute" data-aw="chute" data-bin={bin} style={{
+      {[binA, binB].map((bin, i) => <button type="button" key={bin} className="aw-chute" data-aw="chute" data-bin={bin} style={{
         left: `${i ? 76 : 24}%`
       }} disabled={state.paused || !["feeding", "ready", "dragging"].includes(world.phase)} onClick={() => choose(i)} aria-label={`Divert to ${bin} chute`}><strong>{bin}</strong><span className="aw-chute-mouth" /></button>)}
       {!state.arrivalReady && <button type="button" className="aw-parcel" data-aw="parcel" style={{
@@ -380,7 +394,7 @@ export function FactoryWorldStage({
           world.y = 260;
         }
       }}><strong>{item.word}</strong></button>}
-      <div className="aw-output" aria-label={`${state.index} parcels sorted`}>{sort.items.slice(0, state.index).map((output, i) => <span key={i}>{output.word}</span>)}</div>
+      <div className="aw-output" aria-label={`${state.index} parcels sorted`}>{sort.items.slice(Math.max(0, state.index - 8), state.index).map((output, i) => <span key={i}>{output.word}</span>)}</div>
     </div>
     <footer className="aw-controls"><button type="button" aria-pressed={manual} onClick={() => {
         setManual(v => !v);

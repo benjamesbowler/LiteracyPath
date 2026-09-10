@@ -1,0 +1,49 @@
+{
+  "id": "spell-skater",
+  "version": 1,
+  "identity": "Original human skater; brown skin, dark hair, yellow cap, teal shirt, navy shorts, white shoes and yellow board, retaining the pre-upgrade character palette.",
+  "provenance": {
+    "creator": "LiteracyPath project authored geometry",
+    "externalGeometry": false,
+    "externalTextures": false,
+    "authoringTool": "Blender 5.2.0 LTS",
+    "editableSource": "artwork/games/spell-skate/spell-skater.blend",
+    "rebuildScript": "artwork/games/spell-skate/build_skater.py"
+  },
+  "runtime": {
+    "url": "/game-assets/spell-skate/spell-skater.glb",
+    "semanticBones": 21,
+    "clips": [
+      "coast",
+      "push",
+      "turn_left",
+      "turn_right",
+      "crouch",
+      "jump",
+      "land",
+      "grind",
+      "stumble",
+      "recover"
+    ],
+    "fallback": "The same GLB bytes embedded in a dynamically imported recovery module.",
+    "lifecycle": "Each parsed skinned instance owns animation mixer and resources; disposal also handles late load completion."
+  },
+  "files": [
+    {
+      "path": "artwork/games/spell-skate/build_skater.py",
+      "bytes": 14071,
+      "sha256": "b586e689684c79e2d1f7136ecea8a0653b52860bd7afe2cbbaee689ead29940f"
+    },
+    {
+      "path": "artwork/games/spell-skate/spell-skater.blend",
+      "bytes": 817241,
+      "sha256": "205e8c644deea8fbfef7d29dda6913e96e5f5c6bf117d556d4f13932fe2851a4"
+    },
+    {
+      "path": "public/game-assets/spell-skate/spell-skater.glb",
+      "bytes": 1067456,
+      "sha256": "5846ca9d0fe7b2b3d824b9bb71e1dfbc9d2241a55e8a33ad11040b302df9fa73"
+    }
+  ],
+  "reviewStatus": "Local authored-model visual review, three full ten-word outings, touch/input/save/fallback/lifecycle checks and isolated native bowl/rail contact boundaries passed. Full waypoint-driver obstacle journeys did not pass; no hosted gameplay or physical-device evidence claimed."
+}

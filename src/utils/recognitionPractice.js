@@ -55,15 +55,14 @@ export function hfwOptions(target, pool, random = Math.random) {
 const COLLECTION_OBJECTS = ["cat", "bat", "fan", "hat", "tree", "flag", "frog", "lamp", "fish", "train"];
 
 export function memoryBoards(difficulty = "easy", random = Math.random) {
-  const count = difficulty === "hard" ? 10 : difficulty === "medium" ? 6 : 3;
+  const count = difficulty === "hard" ? 30 : difficulty === "medium" ? 28 : 24;
   const words = shuffled(sightWordPool(difficulty), random).slice(0, count);
-  const boardCount = Math.ceil(words.length / 5);
-  const perBoard = Math.ceil(words.length / boardCount);
+  const perBoard = difficulty === "hard" ? 5 : difficulty === "medium" ? 4 : 3;
   const boards = [];
   for (let start = 0; start < words.length; start += perBoard) {
     const cards = words.slice(start, start + perBoard).flatMap((word, offset) => {
       const pairId = `pair-${start + offset}`;
-      const object = COLLECTION_OBJECTS[start + offset];
+      const object = COLLECTION_OBJECTS[(start + offset) % COLLECTION_OBJECTS.length];
       return ["a", "b"].map(side => ({ id: `${pairId}-${side}`, pairId, word, object }));
     });
     boards.push(shuffled(cards, random));

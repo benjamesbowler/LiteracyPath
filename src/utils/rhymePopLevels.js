@@ -87,13 +87,21 @@ function rotate(values, amount) {
 
 export function rhymePopLevel(difficulty = "easy", levelIndex = 0) {
   const safeDifficulty = WORLDS[difficulty] ? difficulty : "easy";
-  const level = Math.max(0, Math.min(9, Number(levelIndex) || 0));
+  const familyCount = safeDifficulty === "easy" ? 8 : 10;
+  const level = Math.max(0, Math.min(familyCount * 3 - 1, Number(levelIndex) || 0));
+  const act = Math.floor(level / familyCount);
+  const familyIndex = level % familyCount;
   // Easy stays on simple CVC families; the harder -ight/-air families are
   // gated to medium/hard, and each tier walks the families in a different
   // order so difficulty is more than a speed bump.
   const pool = RHYME_GROUPS.filter(group => safeDifficulty !== "easy" || !group.harder);
   const offset = safeDifficulty === "hard" ? 7 : safeDifficulty === "medium" ? 4 : 0;
-  const group = pool[(level + offset) % pool.length];
+  const group = pool[(familyIndex + offset) % pool.length];
+  // Each act generalises the same sound family from a different anchor word.
+  // The former anchor joins the choices; no identical prompt is repeated.
+  const familyWords = [group.targetWord, ...group.rhymingWords];
+  const targetWord = familyWords[act];
+  const rhymingWords = familyWords.filter(word => word !== targetWord);
   // Hard mixes near-rime foils into the distractor pool (same onset, same
   // final consonant, or spelling look-alikes) so kids must really listen.
   const nearRimes = safeDifficulty === "hard" ? group.nearRimes || [] : [];
@@ -105,13 +113,15 @@ export function rhymePopLevel(difficulty = "easy", levelIndex = 0) {
     difficulty: safeDifficulty,
     level,
     world: WORLDS[safeDifficulty],
-    targetWord: group.targetWord,
+    targetWord,
+    act,
+    totalLevels: familyCount * 3,
     rime: group.rime,
-    rhymingWords: rotate(group.rhymingWords, level),
+    rhymingWords: rotate(rhymingWords, level),
     distractors: rotate(distractors, level * 3),
     visibleBalloons: safeDifficulty === "easy" ? 5 : safeDifficulty === "medium" ? 6 : 7,
     correctVisible: safeDifficulty === "easy" ? 3 : 2,
-    dropRate: 0.16 + level * 0.03 + (safeDifficulty === "hard" ? 0.1 : safeDifficulty === "medium" ? 0.05 : 0),
+    dropRate: 0.16 + familyIndex * 0.03 + (safeDifficulty === "hard" ? 0.1 : safeDifficulty === "medium" ? 0.05 : 0),
     // Minimum seconds before a stop/countdown; the engine groups levels into
     // one continuous round until this floor is met.
     minPlaySeconds: 60
@@ -119,7 +129,7 @@ export function rhymePopLevel(difficulty = "easy", levelIndex = 0) {
 }
 
 export function rhymePopLadder(difficulty = "easy") {
-  return Array.from({ length: 10 }, (_, index) => rhymePopLevel(difficulty, index));
+  return Array.from({ length: difficulty === "easy" || !WORLDS[difficulty] ? 24 : 30 }, (_, index) => rhymePopLevel(difficulty, index));
 }
 
 export function rhymePopStars({ correct, total, mistakes } = {}) {

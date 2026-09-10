@@ -1,4 +1,5 @@
 import "../shared/arcadeMissionHud.css";
+import "./SpellSkateWorld.css";
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import {
@@ -22,11 +23,14 @@ import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget
 import { createRenderer, createScene, createPerspectiveCamera, attachResize, createFrameLoop, attachContextLossGuard, detectQualityTier, applyQualityTier, shadowMapForTier, particleCountForTier, QUALITY_TIERS, disposeRenderer, disposeObject } from "../shared/threeShell.js";
 import { createArcadePremiumRenderPipeline } from "../shared/arcadePremiumRender.js";
 
+import { createSpellSkater } from "./spellSkaterAsset.js";
+import { createSkateRampGeometry, createSkateBowlGeometry, createSkateDeckGeometry, createSkateParkDressing, sampleSkateSurface, skateSurfaceTilt, skateObstacleAt, planSkateRoute, skateFrameSteps, nextSkateQuality, skateSteering, skateMotion, chooseSkateDestination } from "./spellSkatePark.js";
+
 const THEMES = {
   easy: {
     name: "Meadow Skate School",
     sky: "#8fded4",
-    fog: "#d9f2c1",
+    fog: "#dcebe5",
     ground: "#6da85c",
     ground2: "#8fc76d",
     accent: "#ffd45c",
@@ -81,29 +85,11 @@ function clamp(value, min, max) {
   return Math.max(min, Math.min(max, value));
 }
 
-function wrapAngle(value) {
-  let angle = value;
-  while (angle > Math.PI) angle -= Math.PI * 2;
-  while (angle < -Math.PI) angle += Math.PI * 2;
-  return angle;
-}
-
 function seeded(seed) {
   let s = seed >>> 0;
   return () => {
     s = (s * 1664525 + 1013904223) >>> 0;
     return s / 4294967296;
-  };
-}
-
-function localPoint(px, pz, zone) {
-  const dx = px - zone.x;
-  const dz = pz - zone.z;
-  const c = Math.cos(-zone.rot);
-  const s = Math.sin(-zone.rot);
-  return {
-    x: dx * c - dz * s,
-    z: dx * s + dz * c
   };
 }
 
@@ -131,46 +117,6 @@ function makeMat(color, options = {}) {
     envMapIntensity: options.envMapIntensity ?? 0.86,
     dithering: true
   });
-}
-
-function makeRampGeometry(width, depth, height) {
-  const hw = width / 2;
-  const hd = depth / 2;
-  const positions = new Float32Array([
-    -hw, 0, -hd, hw, 0, -hd, -hw, height, hd,
-    hw, 0, -hd, hw, height, hd, -hw, height, hd,
-    -hw, 0, hd, -hw, height, hd, hw, 0, hd,
-    hw, 0, hd, -hw, height, hd, hw, height, hd,
-    -hw, 0, -hd, -hw, height, hd, -hw, 0, hd,
-    hw, 0, -hd, hw, 0, hd, hw, height, hd,
-    -hw, 0, -hd, -hw, 0, hd, hw, 0, -hd,
-    hw, 0, -hd, -hw, 0, hd, hw, 0, hd
-  ]);
-  const geometry = new THREE.BufferGeometry();
-  geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-  geometry.computeVertexNormals();
-  return geometry;
-}
-
-function makeQuarterPipeGeometry(width, radius, segments = 14) {
-  const hw = width / 2;
-  const positions = [];
-  for (let i = 0; i < segments; i += 1) {
-    const a = (i / segments) * Math.PI * 0.5;
-    const b = ((i + 1) / segments) * Math.PI * 0.5;
-    const ya = Math.sin(a) * radius;
-    const za = -Math.cos(a) * radius;
-    const yb = Math.sin(b) * radius;
-    const zb = -Math.cos(b) * radius;
-    positions.push(
-      -hw, ya, za, hw, ya, za, -hw, yb, zb,
-      hw, ya, za, hw, yb, zb, -hw, yb, zb
-    );
-  }
-  const geometry = new THREE.BufferGeometry();
-  geometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
-  geometry.computeVertexNormals();
-  return geometry;
 }
 
 function makeSkyTexture(theme, difficulty) {
@@ -284,58 +230,15 @@ function makeGroundTexture(theme) {
   canvas.width = 512;
   canvas.height = 512;
   const ctx = canvas.getContext("2d");
-  const base = ctx.createLinearGradient(0, 0, 512, 512);
-  base.addColorStop(0, theme.ground);
-  base.addColorStop(0.52, theme.ground2);
-  base.addColorStop(1, theme.ground);
-  ctx.fillStyle = base;
+  ctx.fillStyle = theme.ground;
   ctx.fillRect(0, 0, 512, 512);
-  ctx.fillStyle = "rgba(255,255,255,.045)";
-  for (let y = 0; y < 512; y += 64) {
-    for (let x = 0; x < 512; x += 64) {
-      if ((x + y) % 128 === 0) ctx.fillRect(x, y, 64, 64);
-    }
+  const rand = seeded(481);
+  for (let i = 0; i < 4200; i += 1) {
+    const x = rand() * 512, y = rand() * 512;
+    ctx.strokeStyle = i % 2 ? "rgba(244,245,184,.08)" : "rgba(15,65,46,.10)";
+    ctx.lineWidth = .5 + rand();
+    ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+rand()*3-1.5,y-2-rand()*4); ctx.stroke();
   }
-  ctx.strokeStyle = "rgba(255,255,255,.13)";
-  ctx.lineWidth = 2;
-  for (let i = 0; i <= 512; i += 64) {
-    ctx.beginPath();
-    ctx.moveTo(i, 0);
-    ctx.lineTo(i, 512);
-    ctx.moveTo(0, i);
-    ctx.lineTo(512, i);
-    ctx.stroke();
-  }
-  ctx.strokeStyle = "rgba(0,0,0,.18)";
-  ctx.lineWidth = 5;
-  for (let i = 0; i < 22; i += 1) {
-    const x = (i * 73) % 512;
-    const y = (i * 139) % 512;
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-    ctx.lineTo((x + 24 + i * 7) % 512, y + 18);
-    ctx.lineTo((x + 46 + i * 5) % 512, y + 26);
-    ctx.stroke();
-  }
-  ctx.strokeStyle = theme.gate || theme.accent2;
-  ctx.lineWidth = 8;
-  ctx.beginPath();
-  ctx.arc(256, 256, 122, 0, Math.PI * 2);
-  ctx.stroke();
-  ctx.strokeStyle = "rgba(255,255,255,.34)";
-  ctx.lineWidth = 4;
-  for (let i = 0; i < 4; i += 1) {
-    ctx.beginPath();
-    ctx.moveTo(256, 72 + i * 96);
-    ctx.lineTo(282, 98 + i * 96);
-    ctx.lineTo(256, 124 + i * 96);
-    ctx.stroke();
-  }
-  ctx.fillStyle = "rgba(255,255,255,.2)";
-  ctx.font = "900 36px Arial, sans-serif";
-  ctx.textAlign = "center";
-  ctx.fillText("SPELL", 256, 240);
-  ctx.fillText("& SKATE", 256, 290);
   const texture = new THREE.CanvasTexture(canvas);
   texture.colorSpace = THREE.SRGBColorSpace;
   texture.wrapS = THREE.RepeatWrapping;
@@ -345,100 +248,6 @@ function makeGroundTexture(theme) {
   texture.minFilter = THREE.LinearMipmapLinearFilter;
   texture.generateMipmaps = true;
   return texture;
-}
-
-function makeSkater(theme) {
-  const group = new THREE.Group();
-  const skin = makeMat("#c8793e", { roughness: 0.72 });
-  const shirt = makeMat(theme.accent2, { roughness: 0.62, emissive: theme.accent2, emissiveIntensity: 0.04 });
-  const shorts = makeMat("#253b66");
-  const boardMat = makeMat("#ffcf4d", { roughness: 0.5, metalness: 0.06 });
-  const dark = makeMat("#161923", { roughness: 0.8 });
-  const shoe = makeMat("#f6f7ff", { roughness: 0.62 });
-
-  const board = new THREE.Mesh(new THREE.BoxGeometry(1.55, 0.14, 4.15), boardMat);
-  board.position.y = 0.25;
-  board.castShadow = true;
-  group.add(board);
-
-  const nose = new THREE.Mesh(new THREE.BoxGeometry(1.48, 0.12, 0.54), boardMat);
-  nose.position.set(0, 0.33, 2.18);
-  nose.rotation.x = -0.35;
-  group.add(nose);
-  const tail = nose.clone();
-  tail.position.z = -2.18;
-  tail.rotation.x = 0.35;
-  group.add(tail);
-
-  const wheelGeo = new THREE.CylinderGeometry(0.24, 0.24, 0.28, 8);
-  for (const x of [-0.72, 0.72]) {
-    for (const z of [-1.35, 1.35]) {
-      const wheel = new THREE.Mesh(wheelGeo, dark);
-      wheel.rotation.z = Math.PI / 2;
-      wheel.position.set(x, 0.06, z);
-      wheel.castShadow = true;
-      group.add(wheel);
-    }
-  }
-
-  const hips = new THREE.Mesh(new THREE.BoxGeometry(0.95, 0.62, 0.62), shorts);
-  hips.position.y = 1.08;
-  hips.castShadow = true;
-  group.add(hips);
-
-  const body = new THREE.Mesh(new THREE.BoxGeometry(1.08, 1.24, 0.62), shirt);
-  body.position.y = 1.9;
-  body.castShadow = true;
-  group.add(body);
-
-  const head = new THREE.Mesh(new THREE.DodecahedronGeometry(0.52, 1), skin);
-  head.position.y = 2.82;
-  head.castShadow = true;
-  group.add(head);
-
-  const hair = new THREE.Mesh(new THREE.DodecahedronGeometry(0.56, 0), makeMat("#382012"));
-  hair.scale.set(1.08, 0.42, 0.88);
-  hair.position.set(0, 3.12, -0.04);
-  hair.castShadow = true;
-  group.add(hair);
-
-  const cap = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.14, 0.72), makeMat(theme.accent));
-  cap.position.set(0, 3.2, 0.1);
-  cap.castShadow = true;
-  group.add(cap);
-
-  const limbGeo = new THREE.CylinderGeometry(0.16, 0.18, 0.9, 8);
-  const armL = new THREE.Mesh(limbGeo, skin);
-  armL.position.set(-0.74, 1.85, 0.16);
-  armL.rotation.z = -0.62;
-  armL.castShadow = true;
-  group.add(armL);
-  const armR = armL.clone();
-  armR.position.x = 0.74;
-  armR.rotation.z = 0.62;
-  group.add(armR);
-
-  const legL = new THREE.Mesh(limbGeo, skin);
-  legL.position.set(-0.34, 0.75, 0.6);
-  legL.rotation.x = 0.75;
-  legL.castShadow = true;
-  group.add(legL);
-  const legR = legL.clone();
-  legR.position.set(0.34, 0.75, -0.48);
-  legR.rotation.x = -0.58;
-  group.add(legR);
-
-  const footL = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.18, 0.72), shoe);
-  footL.position.set(-0.38, 0.46, 0.98);
-  footL.rotation.x = 0.12;
-  footL.castShadow = true;
-  group.add(footL);
-  const footR = footL.clone();
-  footR.position.set(0.38, 0.46, -0.92);
-  group.add(footR);
-
-  group.userData = { board, body, head, armL, armR, legL, legR };
-  return group;
 }
 
 function startGame(mount, opts) {
@@ -466,7 +275,7 @@ function startGame(mount, opts) {
     retryWithoutAntialias: false,
     pixelRatioCap: QUALITY_TIERS[qualityTier].pixelRatioCap,
     srgbOutput: true,
-    toneMappingExposure: 0.76,
+    toneMappingExposure: 1.1,
     shadowMap: shadowMapForTier(qualityTier, "pcf")
   });
   applyQualityTier(renderer, qualityTier);
@@ -477,9 +286,9 @@ function startGame(mount, opts) {
   scene.background = new THREE.Color(theme.sky);
   const camera = createPerspectiveCamera(THREE, { fov: 60, aspect: 1, near: 0.1, far: 360 });
 
-  const hemi = new THREE.HemisphereLight("#ffffff", theme.ground, 0.7);
+  const hemi = new THREE.HemisphereLight("#ffffff", theme.ground, 1.3);
   scene.add(hemi);
-  const sun = new THREE.DirectionalLight("#fff7e2", 1.1);
+  const sun = new THREE.DirectionalLight("#fff7e2", 2.1);
   sun.position.set(-44, 82, 38);
   sun.castShadow = qualityTier !== "low";
   sun.shadow.mapSize.set(1024, 1024);
@@ -528,7 +337,7 @@ function startGame(mount, opts) {
   scene.add(root);
   const skyDome = new THREE.Mesh(
     new THREE.SphereGeometry(230, 32, 16),
-    new THREE.MeshBasicMaterial({ map: makeSkyTexture(theme, difficulty), side: THREE.BackSide, depthWrite: false })
+    new THREE.MeshBasicMaterial({ map: makeSkyTexture(theme, difficulty), side: THREE.BackSide, depthWrite: false, fog: false })
   );
   root.add(skyDome);
   const park = new THREE.Group();
@@ -616,11 +425,12 @@ function startGame(mount, opts) {
   }
 
   const rampZones = [];
+  const rampAccents = [];
   const railZones = [];
   const platformZones = [];
 
   function addRamp(x, z, rot, width, depth, height) {
-    const mesh = new THREE.Mesh(makeRampGeometry(width, depth, height), shared.ramp);
+    const mesh = new THREE.Mesh(createSkateRampGeometry(width, depth, height), shared.ramp);
     mesh.position.set(x, 0.02, z);
     mesh.rotation.y = rot;
     mesh.castShadow = true;
@@ -629,6 +439,8 @@ function startGame(mount, opts) {
     const stripe = new THREE.Mesh(new THREE.BoxGeometry(width * 0.92, 0.08, 0.42), shared.rampSide);
     stripe.position.set(x, height + 0.06, z + Math.cos(rot) * (depth * 0.43));
     stripe.rotation.y = rot;
+    stripe.material = shared.rampSide.clone();
+    rampAccents.push(stripe.material);
     park.add(stripe);
     rampZones.push({ x, z, rot, width, depth, height, cooldown: 0 });
   }
@@ -657,7 +469,7 @@ function startGame(mount, opts) {
     const group = new THREE.Group();
     group.position.set(x, 0.03, z);
     group.rotation.y = rot;
-    const pipe = new THREE.Mesh(makeQuarterPipeGeometry(width, radius), shared.ramp);
+    const pipe = new THREE.Mesh(createSkateRampGeometry(width, radius, radius, "quarter"), shared.ramp);
     pipe.castShadow = true;
     pipe.receiveShadow = true;
     group.add(pipe);
@@ -670,7 +482,7 @@ function startGame(mount, opts) {
     glow.position.set(0, 0.2, -radius + 0.55);
     group.add(glow);
     park.add(group);
-    rampZones.push({ x, z, rot, width, depth: radius * 1.4, height: radius, cooldown: 0 });
+    rampZones.push({ x, z, rot, width, depth: radius, height: radius, kind: "quarter", cooldown: 0 });
   }
 
   function addLightPylon(x, z, rot) {
@@ -708,7 +520,7 @@ function startGame(mount, opts) {
     const group = new THREE.Group();
     group.position.set(x, height / 2, z);
     group.rotation.y = rot;
-    const deck = new THREE.Mesh(new THREE.BoxGeometry(width, height, depth), shared.ramp);
+    const deck = new THREE.Mesh(createSkateDeckGeometry(width, depth, height), shared.ramp);
     deck.castShadow = true;
     deck.receiveShadow = true;
     group.add(deck);
@@ -751,13 +563,13 @@ function startGame(mount, opts) {
 
   if (difficulty === "easy") {
     // Keep the route open. Two distant side ramps make it feel like a skate
-    // park without blocking the phoneme line or inviting six-button play.
-    addRamp(-34, -30, Math.PI * 0.08, 15, 18, 3.2);
+    // park without blocking the spelling route.
+    addRamp(-51, -14, Math.PI, 12, 18, 3.6);
     addRamp(35, -64, -Math.PI * 0.12, 15, 18, 3.2);
     addSkillSign(-31, 28, Math.PI * 0.04, "LISTEN");
     addSkillSign(31, -8, -Math.PI * 0.04, "BUILD");
   } else {
-    addRamp(-42, -34, Math.PI * 0.16, 18, 21, 4.8);
+    addRamp(-51, -14, Math.PI, 12, 18, 3.6);
     addRamp(38, 32, Math.PI * 1.18, 20, 22, 5.2);
     addRamp(-2, 56, Math.PI, 32, 18, 4.1);
     addRamp(44, -46, -Math.PI * 0.38, 16, 18, 3.8);
@@ -778,50 +590,36 @@ function startGame(mount, opts) {
     addSkillSign(52, -54, -Math.PI * 0.72, "FOCUS");
   }
 
-  function addDecor() {
-    const rand = seeded(difficulty === "hard" ? 90 : difficulty === "medium" ? 45 : 18);
-    const decoMat = makeMat(difficulty === "hard" ? "#1a265c" : difficulty === "medium" ? "#6b3d28" : "#77b95d");
-    for (let i = 0; i < 26; i += 1) {
-      const angle = (i / 26) * Math.PI * 2;
-      const radius = 94 + rand() * 22;
-      const x = Math.sin(angle) * radius;
-      const z = Math.cos(angle) * radius;
-      if (difficulty === "medium" && i % 4 === 0) {
-        const volcano = new THREE.Mesh(new THREE.ConeGeometry(8 + rand() * 7, 22 + rand() * 16, 6), decoMat);
-        volcano.position.set(x, 10, z);
-        volcano.castShadow = true;
-        park.add(volcano);
-        const glow = new THREE.Mesh(new THREE.ConeGeometry(3.2, 7, 6), makeMat("#ff5f38", { emissive: "#ff5f38", emissiveIntensity: 0.45 }));
-        glow.position.set(x, 25, z);
-        park.add(glow);
-      } else if (difficulty === "hard") {
-        const tower = new THREE.Mesh(new THREE.BoxGeometry(5 + rand() * 8, 22 + rand() * 34, 5 + rand() * 7), decoMat);
-        tower.position.set(x, tower.geometry.parameters.height / 2, z);
-        tower.castShadow = true;
-        park.add(tower);
-      } else {
-        const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 1.2, 7, 7), makeMat("#6a3f24"));
-        trunk.position.set(x, 3.5, z);
-        const crown = new THREE.Mesh(new THREE.ConeGeometry(4.6 + rand() * 2, 11 + rand() * 4, 7), decoMat);
-        crown.position.set(x, 12, z);
-        trunk.castShadow = true;
-        crown.castShadow = true;
-        park.add(trunk, crown);
-      }
-    }
-  }
-  addDecor();
-
-  const skater = makeSkater(theme);
+  const bowl = new THREE.Mesh(createSkateBowlGeometry(16, 3.6), shared.ramp);
+  bowl.position.set(-51, 0, -39);
+  bowl.castShadow = true; bowl.receiveShadow = true;
+  park.add(bowl);
+  rampZones.push({x:-51,z:-39,rot:0,width:32,depth:32,radius:16,height:3.6,kind:"bowl"});
+  const dressing = createSkateParkDressing(theme, difficulty);
+  const parkObstacles = dressing.userData.obstacles;
+  park.add(dressing);
+  const skaterAsset = createSpellSkater();
+  const skater = skaterAsset.root;
   if (difficulty === "easy") skater.scale.setScalar(1.25);
   scene.add(skater);
+  const shadowCanvas = document.createElement("canvas");
+  shadowCanvas.width = shadowCanvas.height = 64;
+  const shadowContext = shadowCanvas.getContext("2d");
+  const shadowGradient = shadowContext.createRadialGradient(32,32,3,32,32,30);
+  shadowGradient.addColorStop(0,"rgba(20,31,33,.48)");
+  shadowGradient.addColorStop(1,"rgba(20,31,33,0)");
+  shadowContext.fillStyle = shadowGradient; shadowContext.fillRect(0,0,64,64);
+  const contactShadow = new THREE.Mesh(new THREE.PlaneGeometry(3.8,6.1), new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(shadowCanvas),transparent:true,depthWrite:false}));
+  contactShadow.rotation.x = -Math.PI / 2;
+  scene.add(contactShadow);
+
 
   const overlay = document.createElement("div");
   overlay.classList.add("gg-game-hud");
   overlay.style.cssText = "position:absolute;inset:0;pointer-events:none;z-index:5;font-family:var(--kid-font-display,Fredoka,Arial,sans-serif);color:#fff";
   overlay.innerHTML =
     '<div data-gg-panel="left" style="position:absolute;top:14px;left:16px;min-width:220px;background:linear-gradient(135deg,rgba(6,10,28,.9),rgba(20,32,70,.72));border:1px solid rgba(125,242,255,.32);padding:12px 16px;clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%);box-shadow:0 12px 34px rgba(0,0,0,.32)">' +
-      '<div data-gg="level" style="font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#9bf4ff;font-weight:900">Level 1</div>' +
+      '<div data-gg="level" style="font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#9bf4ff;font-weight:900">Word 1</div>' +
       '<div data-gg="score" style="font-size:1.42rem;font-weight:950;line-height:1.08">0 pts</div>' +
       '<div data-gg="combo" style="font-size:.82rem;color:#ffe17a;font-weight:900">Combo x1</div>' +
     '</div>' +
@@ -835,11 +633,11 @@ function startGame(mount, opts) {
     '<div data-gg-panel="right" style="position:absolute;top:14px;right:16px;text-align:right;background:linear-gradient(135deg,rgba(6,10,28,.9),rgba(20,32,70,.72));border:1px solid rgba(125,242,255,.32);padding:12px 16px;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 100%,12px 100%);box-shadow:0 12px 34px rgba(0,0,0,.32)">' +
       '<div data-gg="world" style="font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;color:#9bf4ff;font-weight:900"></div>' +
       '<div data-gg="speed" style="font-size:1.22rem;font-weight:950">0 kmh</div>' +
-      '<div data-gg="trick" style="font-size:.82rem;color:#ffe17a;font-weight:900">Find the next sound</div>' +
+      '<div data-gg="trick" style="font-size:.82rem;color:#ffe17a;font-weight:900">Find the next spelling part</div>' +
       '<div style="margin-top:7px;width:142px;height:8px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.2);margin-left:auto;overflow:hidden"><div data-gg="boostbar" style="height:100%;width:42%;background:linear-gradient(90deg,#7df2ff,#ffe17a)"></div></div>' +
       '<div data-gg="style" style="margin-top:4px;font-size:.72rem;color:#d9f2ff;font-weight:900;text-transform:uppercase;letter-spacing:.08em">Style ready</div>' +
     '</div>' +
-    '<div data-gg="banner" style="position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);text-align:center;font-size:clamp(2.2rem,8vw,6.8rem);font-weight:950;text-shadow:0 10px 30px rgba(0,0,0,.62),0 0 18px rgba(125,242,255,.4);display:none"></div>' +
+    '<div data-gg="banner" style="position:absolute;left:50%;bottom:100px;transform:translateX(-50%);max-width:75%;padding:7px 14px;border-radius:12px;background:rgba(12,39,47,.9);text-align:center;font-size:1.1rem;font-weight:800;display:none"></div>' +
     '<div data-gg-controls="left" style="position:absolute;bottom:18px;left:18px;display:flex;gap:10px;pointer-events:auto">' +
       '<button data-gg-btn="push" aria-label="Move forward" style="width:76px;height:64px;border:1px solid rgba(125,242,255,.52);background:linear-gradient(160deg,#7df2ff,#38bdf8);color:#07101d;font-size:.82rem;font-weight:950;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.3)">↑<br>FORWARD</button>' +
       '<button data-gg-btn="brake" aria-label="Move back" style="width:76px;height:64px;border:1px solid rgba(255,255,255,.3);background:rgba(6,10,28,.76);color:#fff;font-size:.82rem;font-weight:950;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.3)">↓<br>BACK</button>' +
@@ -853,7 +651,7 @@ function startGame(mount, opts) {
     (difficulty === "easy"
       ? '<div data-gg-guide style="position:absolute;right:18px;bottom:102px;width:min(190px,23vw);display:grid;justify-items:center;filter:drop-shadow(0 12px 18px rgba(29,73,57,.28))">' +
           '<img src="/images/pals/meadow-point.webp" alt="" style="display:block;width:100%;max-height:150px;object-fit:contain;object-position:center bottom">' +
-          '<div style="margin-top:-13px;padding:6px 12px;border-radius:999px;background:rgba(255,250,226,.94);border:2px solid rgba(66,153,119,.45);color:#214d3e;font-size:.76rem;font-weight:950;box-shadow:0 7px 18px rgba(29,73,57,.16)">Follow the glowing sound</div>' +
+          '<div style="margin-top:-13px;padding:6px 12px;border-radius:999px;background:rgba(255,250,226,.94);border:2px solid rgba(66,153,119,.45);color:#214d3e;font-size:.76rem;font-weight:950;box-shadow:0 7px 18px rgba(29,73,57,.16)">Explore and build the word</div>' +
         '</div>'
       : '');
   const rightPanel = overlay.querySelector('[data-gg-panel="right"]');
@@ -1034,8 +832,15 @@ function startGame(mount, opts) {
     grindT: 0,
     trick: 0,
     railLock: 0,
-    rampLock: 0
+    rampLock: 0,
+    landTime: 0,
+    recoverTime: 0,
+    surfacePitch: 0,
+    surfaceRoll: 0,
+    motorRecoveries: 0
   };
+  let assistRoute = [];
+  const assistTravelLog=[];
   const gates = [];
   const pickups = [];
   const lineNodes = [];
@@ -1056,6 +861,7 @@ function startGame(mount, opts) {
   function clearGates() {
     while (gates.length) {
       const gate = gates.pop();
+      gate.button?.remove();
       gatesRoot.remove(gate.group);
       disposeObject(gate.group);
     }
@@ -1072,9 +878,66 @@ function startGame(mount, opts) {
   function clearLineNodes() {
     while (lineNodes.length) {
       const node = lineNodes.pop();
+      node.button?.remove();
       lineRoot.remove(node.group);
       disposeObject(node.group);
     }
+  }
+
+  function safeLearningPosition(index, seedOffset = 0) {
+    return chooseSkateDestination(player.pos,player.yaw,index,seedOffset,[...lineNodes,...gates].map(item=>item.group.position),rampZones,platformZones,parkObstacles);
+  }
+
+  function choiceButton(label, position, kind) {
+    const button=document.createElement("button");
+    button.type="button";button.className="gg-world-choice";button.textContent=label;
+    button.dataset.skateChoice=kind;button.dataset.value=label;
+    button.setAttribute("aria-label",`${kind === "gate" ? "Skate through" : "Skate to"} ${label}`);
+    button.style.width=`${Math.max(64,Math.min(150,label.length*17+24))}px`;
+    button.addEventListener("click",()=>{
+      if(paused||completed)return;
+      mount.dataset.skateDestination=label;
+      // Destination steering must not collect a different answer on the way.
+      // These are navigation exclusions only: manual skating still contacts all choices.
+      const others=(kind === "gate" ? gates : lineNodes)
+        .filter(item=>item.button!==button && Math.hypot(player.pos.x-item.group.position.x,player.pos.z-item.group.position.z)>item.radius+2)
+        .map(item=>({x:item.group.position.x,z:item.group.position.z,radius:Math.max(.5,item.radius-2)}));
+      assistRoute=planSkateRoute(player.pos,position,rampZones,platformZones,[...parkObstacles,...others]);
+      assistTravelLog.push({start:{x:player.pos.x,z:player.pos.z,yaw:player.yaw,speed:Math.max(0,player.speed)},target:{...position},route:assistRoute.map(point=>({...point})),radius:kind==="gate"?(difficulty==="easy"?4.2:4.8):4.2,maxSpeed:MAX_SPEED[difficulty]});
+      mount.dataset.skateTravelLog=JSON.stringify(assistTravelLog);
+    });
+    button.addEventListener("keydown",event=>{const key={ArrowLeft:"left",ArrowRight:"right",ArrowUp:"push",ArrowDown:"brake"}[event.key];if(key){event.preventDefault();setKey(key,true);}});
+    mount.appendChild(button);return button;
+  }
+
+  function updateWorldChoices() {
+    const choices=lineReady?gates:lineNodes,width=mount.clientWidth,height=mount.clientHeight;
+    const choiceRowY=Math.min(height<500?110:145,height-125);
+    const cameraForward=new THREE.Vector3();camera.getWorldDirection(cameraForward);
+    for(const item of [...lineNodes,...gates]) {
+      const visible=choices.includes(item)&&!completed;
+      item.button.hidden=!visible;item.button.disabled=paused||!visible;
+      if(!visible)continue;
+      item.button.style.width=`${Math.min(Math.max(64,Math.min(150,item.button.textContent.length*17+24)),width/choices.length-12)}px`;
+      const point=item.group.position.clone();point.y+=3.8;
+      const inFront=point.clone().sub(camera.position).dot(cameraForward)>0;
+      point.project(camera);
+      const x=(point.x*.5+.5)*width,y=(-point.y*.5+.5)*height;
+      const offscreen=!inFront||x<45||x>width-45||y<105||y>height-115;
+      item.button.dataset.offscreen=String(offscreen);
+      item.button.style.left=`${offscreen?(choices.indexOf(item)+.5)*width/choices.length:clamp(x,75,width-75)}px`;
+      item.button.style.top=`${offscreen?choiceRowY:clamp(y,110,height-115)}px`;
+      item.button.dataset.worldX=item.group.position.x.toFixed(2);item.button.dataset.worldZ=item.group.position.z.toFixed(2);
+    }
+    // Near-collinear destinations must never produce overlapping touch targets.
+    const overlap=choices.some((a,i)=>choices.slice(i+1).some(b=>
+      Math.abs(parseFloat(a.button.style.left)-parseFloat(b.button.style.left))<(parseFloat(a.button.style.width)+parseFloat(b.button.style.width))/2+10 &&
+      Math.abs(parseFloat(a.button.style.top)-parseFloat(b.button.style.top))<66));
+    if(overlap) choices.forEach((item,index)=>{
+      item.button.dataset.offscreen="true";
+      item.button.style.left=`${(index+.5)*width/choices.length}px`;
+      item.button.style.top=`${choiceRowY}px`;
+    });
   }
 
   function createLineNode(label, index, position, coach, correctChoice) {
@@ -1096,22 +959,8 @@ function startGame(mount, opts) {
     arrow.position.y = 2.25;
     arrow.rotation.y = Math.PI * 0.25;
     group.add(arrow);
-    const texture = makeTextTexture(label, theme, {
-      width: 384,
-      height: 128,
-      size: 52,
-      border: theme.token || theme.accent,
-      bg: "rgba(4,8,22,.82)"
-    });
-    const sign = new THREE.Mesh(
-      new THREE.PlaneGeometry(4.2, 1.35),
-      new THREE.MeshBasicMaterial({ map: texture, transparent: true, depthWrite: false, side: THREE.DoubleSide })
-    );
-    sign.position.y = 3.8;
-    sign.userData.billboard = true;
-    group.add(sign);
     lineRoot.add(group);
-    lineNodes.push({ group, ring, ringMat, arrow, sign, index, label, coach, radius: 4.2, correct: label === correctChoice });
+    lineNodes.push({ button:choiceButton(label,position,"part"), group, ring, ringMat, arrow, index, label, coach, radius: 4.2, correct: label === correctChoice });
   }
 
   function rebuildLineChoices() {
@@ -1119,14 +968,11 @@ function startGame(mount, opts) {
     const expected = level.segments[lineStep];
     if (!expected) return;
     const choices = grammarGrindSegmentChoices(level, ladder, lineStep, levelIndex);
-    const rand = seeded((levelIndex + 1) * 7703 + (lineStep + 1) * 991);
     choices.forEach((segment, index) => {
-      const angle = (Math.PI * 2 * index) / choices.length + rand() * 0.48 + lineStep * 0.61;
-      const radius = 28 + rand() * 34;
       createLineNode(
         segment,
         index,
-        { x: Math.sin(angle) * radius, z: Math.cos(angle) * radius },
+        safeLearningPosition(index, lineStep + levelIndex),
         lineStep === level.segments.length - 1
           ? `${expected} completes ${level.audioWord}. Now choose the built word.`
           : `Good. Now find ${level.segments[lineStep + 1]}.`,
@@ -1221,21 +1067,6 @@ function startGame(mount, opts) {
     beam.rotation.x = Math.PI;
     group.add(beam);
 
-    const labelTexture = makeTextTexture(choice, theme, {
-      fg: "#ffffff",
-      border: gateColor,
-      bg: "rgba(4,8,22,.94)",
-      size: choice.length > 10 ? 64 : (easyGate ? 92 : 108)
-    });
-    const label = new THREE.Mesh(
-      new THREE.PlaneGeometry(easyGate ? 9.1 : 11.1, easyGate ? 3.35 : 3.9),
-      new THREE.MeshBasicMaterial({ map: labelTexture, transparent: true, depthWrite: false, side: THREE.DoubleSide })
-    );
-    label.position.set(0, 5.65, 0.34);
-    label.renderOrder = 3;
-    label.userData.billboard = true;
-    group.add(label);
-
     const ringRadius = easyGate ? 3.9 : 4.6;
     const ring = new THREE.Mesh(new THREE.TorusGeometry(ringRadius, 0.08, 8, 36), gateMat);
     ring.position.set(0, 4.5, -0.03);
@@ -1246,67 +1077,63 @@ function startGame(mount, opts) {
     marker.position.set(0, 10.55, 0);
     group.add(marker);
 
-    group.userData = { choice, index, correct: isCorrect, cooldown: 0, label, marker, beam };
+    group.userData = { choice, index, correct: isCorrect, cooldown: 0, marker, beam };
     gatesRoot.add(group);
-    gates.push({ group, choice, correct: isCorrect, pos: group.position, radius: easyGate ? 4.2 : 4.8, cooldown: 0 });
+    gates.push({ button:choiceButton(choice,position,"gate"), group, choice, correct: isCorrect, pos: group.position, radius: easyGate ? 4.2 : 4.8, cooldown: 0 });
   }
 
   function placeGates() {
     clearGates();
     const rand = seeded(levelIndex * 401 + (difficulty === "hard" ? 900 : difficulty === "medium" ? 500 : 100));
-    const baseAngles = [Math.PI * 0.12, Math.PI * 0.78, Math.PI * 1.43];
     const options = [...level.options];
     for (let i = 0; i < options.length; i += 1) {
       const swap = i + Math.floor(rand() * (options.length - i));
       [options[i], options[swap]] = [options[swap], options[i]];
     }
     options.forEach((choice, index) => {
-      const angle = baseAngles[index % baseAngles.length] + rand() * 0.36 - 0.18 + levelIndex * 0.17;
-      const radius = (difficulty === "easy" ? 34 : 43) + rand() * (difficulty === "easy" ? 18 : 22);
-      createGate(choice, index, { x: Math.sin(angle) * radius, z: Math.cos(angle) * radius }, level.correct);
+      createGate(choice, index, safeLearningPosition(index, levelIndex), level.correct);
     });
   }
 
+  function setHudText(node,value) { if(node.textContent !== String(value)) node.textContent=String(value); }
   function updateHud() {
     const canHearLevel = getSound() && levelSpeechParts().some(part => hasRecordedSpeech(part));
     el.hear.style.display = canHearLevel ? "" : "none";
     el.hear.disabled = !canHearLevel;
-    el.level.textContent = `Level ${levelIndex + 1}/${ladder.length}`;
-    el.score.textContent = `${Math.max(0, Math.round(score))} pts`;
-    el.combo.textContent = `Combo x${combo}`;
+    setHudText(el.level, `${theme.name.split(" ")[0]} · Word ${levelIndex + 1}/${ladder.length}`);
+    setHudText(el.score, `${Math.max(0, Math.round(score))} pts`);
+    setHudText(el.combo, `Combo x${combo}`);
     const nextSegment = difficulty === "easy" ? level.segments?.[lineStep] : null;
-    el.prompt.textContent = difficulty === "easy"
+    setHudText(el.prompt, completed ? "Park complete" : difficulty === "easy"
       ? lineReady
         ? `Choose ${level.audioWord}`
-        : `Collect ${nextSegment || "the next sound"} next`
-      : level.prompt;
-    el.sentence.textContent = difficulty === "easy"
-      ? level.segments.map((segment, index) => (index < lineStep ? segment : "_")).join("  ")
-      : level.sentence;
-    el.cue.textContent = level.focus || level.cue;
+        : nextSegment ? `Collect ${nextSegment} next` : "Word built"
+      : lineReady ? `Skate through ${level.audioWord}` : `Build ${level.audioWord}`);
+    setHudText(el.sentence, level.segments.map((segment, index) => (index < lineStep ? segment : "_")).join("  "));
+    setHudText(el.cue, level.focus || level.cue);
     overlay.dataset.correction = String(correctionTimer > 0);
-    el.coach.textContent = correctionTimer > 0 ? coachText : "";
-    el.hear.textContent = "♪";
+    setHudText(el.coach, correctionTimer > 0 ? coachText : "");
+    setHudText(el.hear, "♪");
     el.hear.setAttribute("aria-label", level.audioWord ? `Hear ${level.audioWord} again` : "Hear the word again");
-    el.world.textContent = theme.name;
-    el.speed.textContent = `${Math.round(Math.abs(player.speed) * 3.2)} kmh`;
-    el.trick.textContent = player.grind > 0 ? "Grinding rail" : player.air > 0.2 ? "Air trick" : message || (lineReady ? "Choose the built word" : "Find the next sound");
+    setHudText(el.world, theme.name);
+    setHudText(el.speed, `${Math.round(Math.abs(player.speed) * 3.2)} kmh`);
+    setHudText(el.trick, player.grind > 0 ? "Grinding rail" : player.air > 0.2 ? "Air trick" : message || (lineReady ? "Choose the built word" : "Find the next spelling part"));
     el.boostbar.style.width = `${Math.round(clamp(boost, 0, BOOST_MAX))}%`;
     el.boostbar.style.filter = boostFlash > 0 ? "brightness(1.75)" : "";
-    el.style.textContent = lineReady
+    setHudText(el.style, lineReady
       ? `${level.audioWord} is ready`
       : lineStep < level.segments.length
-        ? `Sound ${lineStep + 1} of ${level.segments.length}`
+        ? `Part ${lineStep + 1} of ${level.segments.length}`
         : styleWindow > 0
           ? `Style bank ${Math.round(styleScore)}`
-          : "Collect sounds and skate";
+          : "Build words and skate");
     if (phase === "countdown") {
       el.banner.style.display = "block";
-      el.banner.textContent = phaseTimer > 2.35 ? "LISTEN" : phaseTimer > 1.55 ? "3" : phaseTimer > 0.8 ? "2" : phaseTimer > 0.2 ? "1" : "GO";
-    } else if (messageTimer > 0) {
+      setHudText(el.banner, phaseTimer > 2.35 ? "LISTEN" : phaseTimer > 1.55 ? "3" : phaseTimer > 0.8 ? "2" : phaseTimer > 0.2 ? "1" : "GO");
+    } else if (messageTimer > 0 && message) {
       el.banner.style.display = "block";
-      el.banner.textContent = message;
-      el.banner.style.fontSize = "clamp(1.7rem,4.4vw,3.8rem)";
+      setHudText(el.banner, message);
+      el.banner.style.fontSize = "clamp(1rem,2vw,1.3rem)";
     } else {
       el.banner.style.display = "none";
       el.banner.style.fontSize = "";
@@ -1333,15 +1160,15 @@ function startGame(mount, opts) {
     playPart(0);
   }
 
-  function loadLevel(index, introMessage = "Collect the sounds", introCoach = null) {
+  function loadLevel(index, introMessage = "Collect the spelling parts", introCoach = null) {
     levelIndex = clamp(index, 0, ladder.length - 1);
     level = ladder[levelIndex];
     levelMisses = 0;
     placeGates();
     placePickups();
     placeLineNodes();
-    if (difficulty === "easy") {
-      // Reset to a predictable centre between words, but leave every movement
+    if (difficulty === "easy" && index === startAt) {
+      // Initialise the run once; completed words never teleport the skater. Leave movement
       // under the child's control and scatter every new choice around them.
       player.pos.set(0, 0, 24);
       player.yaw = Math.PI;
@@ -1350,7 +1177,7 @@ function startGame(mount, opts) {
       player.air = 0;
       player.onGround = true;
     }
-    message = index === startAt && introMessage === "Collect the sounds" ? "" : introMessage;
+    message = index === startAt && introMessage === "Collect the spelling parts" ? "" : introMessage;
     correctionTimer = 0;
     coachText = introCoach || level.teaching || level.cue;
     messageTimer = 1.25;
@@ -1384,7 +1211,7 @@ function startGame(mount, opts) {
     lastScoreSent = rounded;
     lastScoreSentAt = now;
     scoreDirty = false;
-    opts.onScoreUpdate?.(score);
+    opts.onScoreUpdate?.(rounded);
   }
 
   function awardStyle(amount, label) {
@@ -1450,7 +1277,10 @@ function startGame(mount, opts) {
     if (phase !== "playing" || !lineReady || gateCooldown > 0 || gate.cooldown > 0) return;
     gate.cooldown = 1.4;
     if (grammarGrindIsCorrect(gate.choice, level)) {
+      if (assistRoute.length) player.speed = 0;
+      assistRoute = [];
       correct += 1;
+      rampAccents.forEach((material, i) => { if (i <= correct % Math.max(1, rampAccents.length)) { material.emissive.set(theme.accent); material.emissiveIntensity = .3 + correct * .025; } });
       combo = clamp(combo + 1, 1, 9);
       comboTimer = 6;
       const styleBonus = styleWindow > 0 ? Math.round((70 + styleScore) * combo) : 0;
@@ -1470,6 +1300,8 @@ function startGame(mount, opts) {
       if (levelIndex >= ladder.length - 1) finishGame();
       else loadLevel(levelIndex + 1, message, ladder[levelIndex + 1]?.teaching);
     } else {
+      if(assistRoute.length) player.speed=0;
+      assistRoute=[];
       mistakes += 1;
       levelMisses += 1;
       combo = 1;
@@ -1489,7 +1321,7 @@ function startGame(mount, opts) {
     if (!player.onGround || player.stun > 0) return;
     player.vy = 11 + Math.min(4, Math.abs(player.speed) * 0.14);
     player.onGround = false;
-    player.air = 0.02;
+    player.air += 0.02;
     player.airTime = 0;
     player.trick = 0.8;
     sfx(playWhoosh);
@@ -1497,32 +1329,8 @@ function startGame(mount, opts) {
 
   function updateRamps(dt) {
     player.rampLock = Math.max(0, player.rampLock - dt);
-    rampZones.forEach(zone => {
-      zone.cooldown = Math.max(0, zone.cooldown - dt);
-      const p = localPoint(player.pos.x, player.pos.z, zone);
-      if (
-        Math.abs(p.x) < zone.width / 2 &&
-        Math.abs(p.z) < zone.depth / 2 &&
-        player.onGround &&
-        zone.cooldown <= 0 &&
-        player.rampLock <= 0 &&
-        Math.abs(player.speed) > 8
-      ) {
-        const forward = Math.cos(wrapAngle(player.yaw - zone.rot));
-        if (forward > 0.25 || p.z > zone.depth * 0.2) {
-          player.vy = 10.5 + zone.height * 0.55 + Math.min(5, Math.abs(player.speed) * 0.1);
-          player.onGround = false;
-          player.air = 0.02;
-          player.airTime = 0;
-          player.trick = 1;
-          player.rampLock = 1.2;
-          zone.cooldown = 1.4;
-          combo = clamp(combo + 1, 1, 9);
-          awardStyle(28, "Air +28");
-          sfx(playWhoosh);
-        }
-      }
-    });
+    // Surface following is handled before jump/landing integration. Launches
+    // happen only after leaving a real elevated lip, never upon rectangle entry.
   }
 
   function updateRails(dt) {
@@ -1533,8 +1341,10 @@ function startGame(mount, opts) {
       player.grindT = clamp(player.grindT + (dt * Math.max(0.12, Math.abs(player.speed))) / rail.length, 0, 1);
       const x = rail.ax + (rail.bx - rail.ax) * player.grindT;
       const z = rail.az + (rail.bz - rail.az) * player.grindT;
-      player.pos.set(x, 1.04, z);
-      player.air = 1.04;
+      // The deck underside meets the 1.30 m rail crown at either actor scale.
+      const railContactHeight = 1.30 - .44 * skater.scale.y - .005;
+      player.pos.set(x, 0, z);
+      player.air = railContactHeight;
       player.vy = 0;
       player.onGround = false;
       addScore(dt * 18 * combo);
@@ -1552,6 +1362,8 @@ function startGame(mount, opts) {
       if (hit.distance < 2.8 && player.air < 4.2) {
         player.grind = 0.95;
         player.grindRail = rail;
+        player.yaw = Math.atan2(rail.bx - rail.ax, rail.bz - rail.az);
+        player.speed = Math.abs(player.speed);
         player.grindT = hit.t;
         player.airTime = 0;
         combo = clamp(combo + 1, 1, 9);
@@ -1563,44 +1375,59 @@ function startGame(mount, opts) {
   }
 
   function updatePlayer(dt) {
-    const turn = (keys.left ? 1 : 0) - (keys.right ? 1 : 0);
-    const push = keys.push ? 1 : 0;
-    const brake = keys.brake ? 1 : 0;
+    let turn = (keys.left ? 1 : 0) - (keys.right ? 1 : 0);
+    let push = keys.push ? 1 : 0;
+    let brake = keys.brake ? 1 : 0;
+    let assistSpeedLimit=14;
+    if(assistRoute.length) {
+      const steering=skateSteering(player.pos,player.yaw,assistRoute);
+      turn=steering.turn;push=steering.push;brake=steering.brake;assistSpeedLimit=steering.limit;
+      player.speed=assistRoute.length?Math.max(0,player.speed):0;
+    }
     const boostActive = keys.boost && boost > 1 && phase === "playing" && player.stun <= 0 && player.grind <= 0;
+    const wasStunned = player.stun > 0;
     player.stun = Math.max(0, player.stun - dt);
-    if (phase === "playing" && player.stun <= 0 && player.grind <= 0) {
-      const speedFactor = clamp(Math.abs(player.speed) / MAX_SPEED[difficulty], 0.22, 1);
-      const drift = brake > 0 && Math.abs(player.speed) > 8 ? 1.4 : 1;
-      player.yaw += turn * dt * (1.65 + speedFactor * 1.1) * drift * (player.speed >= 0 ? 1 : -1);
-      player.speed += push * dt * 24;
-      if (boostActive) {
-        player.speed += dt * (player.speed >= 0 ? 32 : 18);
-        boost = clamp(boost - dt * 34, 0, BOOST_MAX);
-        boostFlash = 0.16;
-      } else if (Math.abs(player.speed) > 6 && player.onGround) {
-        boost = clamp(boost + dt * 2.5, 0, BOOST_MAX);
-      }
-      player.speed -= brake * dt * 28;
+    player.landTime = Math.max(0, player.landTime - dt);
+    player.recoverTime = Math.max(0, player.recoverTime - dt);
+    if (wasStunned && player.stun === 0) player.recoverTime = .65;
+    const moving=phase === "playing" && player.stun <= 0 && player.grind <= 0;
+    const wasFast=Math.abs(player.speed)>6;
+    const topSpeed=(assistRoute.length?assistSpeedLimit:MAX_SPEED[difficulty])+(boostActive?8:0);
+    const motion=skateMotion(player,{turn,push,brake,active:moving,boost:boostActive,maxSpeed:MAX_SPEED[difficulty],minSpeed:assistRoute.length?0:-MAX_SPEED[difficulty]*.45,topSpeed},dt);
+    player.yaw=motion.yaw;player.speed=motion.speed;
+    if(moving){
+      if(boostActive){boost=clamp(boost-dt*34,0,BOOST_MAX);boostFlash=.16;}
+      else if(wasFast && player.onGround)boost=clamp(boost+dt*2.5,0,BOOST_MAX);
     }
     boostFlash = Math.max(0, boostFlash - dt);
     styleWindow = Math.max(0, styleWindow - dt);
     if (styleWindow <= 0) styleScore = Math.max(0, styleScore - dt * 24);
-    player.speed *= player.onGround ? Math.pow(0.945, dt * 8) : Math.pow(0.984, dt * 8);
-    const topSpeed = MAX_SPEED[difficulty] + (boostActive ? 8 : 0);
-    player.speed = clamp(player.speed, -MAX_SPEED[difficulty] * 0.45, topSpeed);
     handleJump();
 
+    const previousPosition = player.pos.clone();
+    const previousHeight = player.air;
     if (player.grind <= 0) {
       const dir = new THREE.Vector3(Math.sin(player.yaw), 0, Math.cos(player.yaw));
       player.pos.addScaledVector(dir, player.speed * dt);
     }
-    let surfaceHeight = 0;
-    for (const platform of platformZones) {
-      const p = localPoint(player.pos.x, player.pos.z, platform);
-      if (Math.abs(p.x) < platform.width / 2 && Math.abs(p.z) < platform.depth / 2) {
-        surfaceHeight = Math.max(surfaceHeight, platform.height);
-      }
+    let surface = sampleSkateSurface(player.pos.x, player.pos.z, rampZones, platformZones);
+    if (player.onGround && (skateObstacleAt(player.pos.x,player.pos.z,parkObstacles) || surface.height - previousHeight > Math.max(.5, Math.abs(player.speed) * dt * .9))) {
+      player.pos.copy(previousPosition);
+      player.speed *= -.18;
+      player.stun = .25;
+      player.motorRecoveries += 1;
+      surface = sampleSkateSurface(player.pos.x, player.pos.z, rampZones, platformZones);
     }
+    const surfaceHeight = surface.height;
+    if (player.onGround && previousHeight - surfaceHeight > .4) {
+      player.onGround = false;
+      player.vy = Math.max(0, Math.abs(player.speed) * Math.sin(-player.surfacePitch) * .55);
+      player.airTime = 0;
+    }
+    const tilt = skateSurfaceTilt(player.pos.x, player.pos.z, player.yaw, rampZones, platformZones);
+    const blend = 1 - Math.exp(-12 * dt);
+    player.surfacePitch += ((player.onGround ? tilt.pitch : 0) - player.surfacePitch) * blend;
+    player.surfaceRoll += ((player.onGround ? tilt.roll : 0) - player.surfaceRoll) * blend;
 
     if (!player.onGround && player.grind <= 0) {
       player.vy -= 24 * dt;
@@ -1610,6 +1437,7 @@ function startGame(mount, opts) {
         player.air = surfaceHeight;
         player.vy = 0;
         player.onGround = true;
+        player.landTime = .42;
         player.trick = 0;
         // Style is earned by real air (speed-boosted jumps, ramp launches) -
         // a stationary hop (~0.92s) stays below the threshold, so TRICK-spam
@@ -1656,7 +1484,9 @@ function startGame(mount, opts) {
       });
       const dx = gate.pos.x - player.pos.x;
       const dz = gate.pos.z - player.pos.z;
-      if (Math.hypot(dx, dz) < gate.radius && player.air < 4.8) handleGate(gate);
+      const inside = Math.hypot(dx,dz)<gate.radius && player.air<4.8;
+      if(!inside) gate.contactLock=false;
+      if(inside && !gate.contactLock){gate.contactLock=true;handleGate(gate);}
     });
   }
 
@@ -1694,17 +1524,20 @@ function startGame(mount, opts) {
       node.group.visible = !lineReady;
       node.ringMat.opacity = 0.52 + Math.sin(time * 4.4 + node.index) * 0.12;
       node.group.scale.setScalar(0.94 + Math.sin(time * 3.6 + node.index) * 0.04);
-      node.sign.visible = true;
       node.arrow.visible = true;
       node.arrow.rotation.y += dt * 2.4;
       node.arrow.position.y = 2.25 + Math.sin(time * 3 + node.index) * 0.35;
-      if (node.sign.userData.billboard) node.sign.lookAt(camera.position);
       if (lineReady || lineChoiceCooldown > 0) return;
       const dx = node.group.position.x - player.pos.x;
       const dz = node.group.position.z - player.pos.z;
-      if (Math.hypot(dx, dz) < node.radius && player.air < 4.8) {
+      const inside = Math.hypot(dx,dz)<node.radius && player.air<4.8;
+      if(!inside) node.contactLock=false;
+      if(inside && !node.contactLock) {
+        node.contactLock=true;
         lineChoiceCooldown = 0.7;
         if (!node.correct) {
+          if(assistRoute.length) player.speed=0;
+          assistRoute=[];
           mistakes += 1;
           combo = 1;
           message = `${node.label} is not next`;
@@ -1714,6 +1547,8 @@ function startGame(mount, opts) {
           sfx(playSoftBuzz);
           break;
         }
+        if (assistRoute.length) player.speed = 0;
+        assistRoute = [];
         lineStep += 1;
         coachText = node.coach;
         awardStyle(18 + lineStep * 8, `${node.label} found`);
@@ -1721,6 +1556,7 @@ function startGame(mount, opts) {
         sfx(playPopSound);
         if (lineStep >= level.segments.length) {
           lineReady = true;
+          placeGates();
           lineReadyDelay = 0.8;
           clearLineNodes();
           coachText = `${level.segments.join(" + ")} spells ${level.audioWord}. Find and skate through ${level.audioWord}.`;
@@ -1775,35 +1611,34 @@ function startGame(mount, opts) {
     }
   }
 
-  function updateSkater(time) {
-    skater.position.set(player.pos.x, 0.25 + player.air, player.pos.z);
-    skater.rotation.y = player.yaw;
-    const lean = clamp(player.speed / MAX_SPEED[difficulty], -0.5, 0.9);
-    skater.rotation.z = ((keys.left ? 0.12 : 0) - (keys.right ? 0.12 : 0)) - lean * 0.08;
-    skater.rotation.x = player.air > 0 ? Math.sin(time * 9) * 0.08 : 0;
-    const model = skater.userData;
-    if (model.board) model.board.rotation.z = Math.sin(time * 13) * (player.grind > 0 ? 0.18 : 0.04);
-    if (model.body) model.body.rotation.x = player.trick > 0 ? Math.sin(time * 11) * 0.22 : -lean * 0.18;
-    if (model.armL) model.armL.rotation.z = -0.62 + Math.sin(time * 8) * 0.18 + (player.air > 0 ? -0.35 : 0);
-    if (model.armR) model.armR.rotation.z = 0.62 - Math.sin(time * 8) * 0.18 + (player.air > 0 ? 0.35 : 0);
-    if (model.legL) model.legL.rotation.x = 0.75 + Math.sin(time * 10) * (keys.push ? 0.2 : 0.05);
-    if (model.legR) model.legR.rotation.x = -0.58 - Math.sin(time * 10) * (keys.push ? 0.2 : 0.05);
+  function updateSkater(dt) {
+    skater.position.set(player.pos.x, .005 + player.air, player.pos.z);
+    skater.rotation.order = "YXZ";
+    skater.rotation.set(player.surfacePitch, player.yaw, player.surfaceRoll);
+    skaterAsset.update(dt, player, { ...keys, push: keys.push || assistRoute.length > 0 });
+    const contactHeight = sampleSkateSurface(player.pos.x,player.pos.z,rampZones,platformZones).height;
+    contactShadow.position.set(player.pos.x,contactHeight+.03,player.pos.z);
+    contactShadow.rotation.z = -player.yaw;
+    contactShadow.material.opacity = Math.max(.18, .9 - Math.max(0,player.air-contactHeight)*.14);
+
   }
 
   function updateCamera(dt) {
     const followDistance = difficulty === "easy" ? 11.5 : 17;
     const followHeight = difficulty === "easy" ? 6.8 : 8.6;
     const sideOffset = difficulty === "easy" ? 1.7 : 3.2;
+    const groundHeight = sampleSkateSurface(player.pos.x, player.pos.z, rampZones, platformZones).height;
+    const airborneHeight = Math.max(0, player.air - groundHeight);
     const behind = new THREE.Vector3(
       -Math.sin(player.yaw) * followDistance,
-      followHeight + player.air * 0.22,
+      followHeight + groundHeight + airborneHeight * .3,
       -Math.cos(player.yaw) * followDistance
     );
     const side = new THREE.Vector3(Math.cos(player.yaw) * sideOffset, 0, -Math.sin(player.yaw) * sideOffset);
     const targetPos = player.pos.clone().add(behind).add(side);
     camera.position.lerp(targetPos, clamp(dt * 4.4, 0, 1));
     const look = player.pos.clone();
-    look.y = 2.4 + player.air * 0.28;
+    look.y = 2.4 + groundHeight + airborneHeight * .6;
     camera.lookAt(look);
   }
 
@@ -1813,7 +1648,7 @@ function startGame(mount, opts) {
       phaseTimer -= dt;
       if (phaseTimer <= 0) {
         phase = "playing";
-        message = "Find the first sound";
+        message = "Find the first spelling part";
         messageTimer = 1.2;
       }
     }
@@ -1828,19 +1663,51 @@ function startGame(mount, opts) {
     updateLineNodes(dt, time);
     updateTrails(dt, time);
     updateParticles(dt);
-    updateSkater(time);
+    updateSkater(dt);
     updateCamera(dt);
-    flushScore();
-    updateHud();
   }
 
   premiumRender.resize(mount.clientWidth || 960, mount.clientHeight || 560);
 
+  let frameBudgetSeconds=0,frameBudgetCount=0,lastDiagnosticTime=0,activeSimulationSeconds=0;
   function render(now) {
     const time = now * 0.001;
-    const dt = Math.min(0.04, (now - lastTime || 16) / 1000);
+    const rawDelta = Math.max(.001,(now-lastTime || 16)/1000);
+    const dt = Math.min(.12,rawDelta);
     lastTime = now;
-    update(dt, time);
+    if(!paused && !completed){
+      activeSimulationSeconds+=dt;
+      frameBudgetSeconds+=rawDelta;frameBudgetCount++;
+      if(frameBudgetSeconds>=2 && frameBudgetCount>=5){
+        const average=frameBudgetSeconds/frameBudgetCount;
+        mount.dataset.skaterMeanFrameMs=(average*1000).toFixed(1);
+        const next=nextSkateQuality(qualityTier,average);
+        if(next!==qualityTier){qualityTier=next;applyQualityTier(renderer,next);premiumRender.setTier(next);particleScale=QUALITY_TIERS[next].particleScale;premiumRender.resize(mount.clientWidth||960,mount.clientHeight||560);}
+        frameBudgetSeconds=0;frameBudgetCount=0;
+      }
+    }
+    for(const step of skateFrameSteps(dt)) update(step,time);
+    flushScore();
+    updateHud();
+    if(now-lastDiagnosticTime>=100){
+      lastDiagnosticTime=now;
+    mount.dataset.skaterAsset = skater.userData.assetState;
+    mount.dataset.skaterState = skater.userData.animationState;
+    mount.dataset.skaterGrounded = String(player.onGround);
+    mount.dataset.skaterHeight = player.air.toFixed(3);
+    mount.dataset.skaterSpeed = player.speed.toFixed(2);
+    mount.dataset.skaterActiveSeconds = activeSimulationSeconds.toFixed(2);
+    mount.dataset.skaterHeading = player.yaw.toFixed(4);
+    mount.dataset.skaterPosition = `${player.pos.x.toFixed(2)},${player.pos.z.toFixed(2)}`;
+    mount.dataset.motorRecoveries = String(player.motorRecoveries);
+    mount.dataset.skateLevel = String(levelIndex);
+    mount.dataset.spellingStep = String(lineStep);
+    mount.dataset.languageMistakes = String(mistakes);
+    mount.dataset.skateAssist = String(assistRoute.length>0);
+      mount.dataset.skaterFrameMs=(rawDelta*1000).toFixed(1);
+      mount.dataset.skaterQuality=qualityTier;
+    }
+    updateWorldChoices();
     const renderedTier = premiumRender.render(dt);
     if (renderedTier !== qualityTier) {
       qualityTier = renderedTier;
@@ -1851,6 +1718,7 @@ function startGame(mount, opts) {
   const loop = createFrameLoop(render);
 
   function setKey(key, value) {
+    if(value) assistRoute = [];
     if (key === "jump" && value && !keys.jump) keys.jumpPressed = true;
     keys[key] = value;
   }
@@ -1921,6 +1789,7 @@ function startGame(mount, opts) {
   const api = {
     pause() {
       paused = true;
+      Object.keys(keys).forEach(key=>{keys[key]=false;});
       speechToken += 1;
     },
     resume() {
@@ -1939,6 +1808,8 @@ function startGame(mount, opts) {
       clearPickups();
       clearLineNodes();
       disposeObject(root);
+      disposeObject(contactShadow);
+      skaterAsset.dispose();
       disposeObject(skater);
       particlesRoot.children.slice().forEach(child => {
         particlesRoot.remove(child);

@@ -1,9 +1,12 @@
 import {test,expect} from '@playwright/test';
 import fs from 'node:fs';
-import {buildTrack} from '../../src/utils/soundRacerTracks.js';
+import {buildSoundRacerRace as buildTrack} from '../../src/utils/soundRacerRace.js';
+import {soundRacerLadder} from '../../src/utils/soundRacerTracks.js';
+
+test.use({trace:'off'});
 import {sampleCircuitPath,offsetCircuitPoint,angleDelta} from '../../src/utils/soundRacerPhysics.js';
 
-test('Sound Racer steering drives a real full circuit and catches words', async({page},testInfo)=>{
+test('Sound Racer steering drives a real three-lap race and catches fresh words', async({page},testInfo)=>{
   test.setTimeout(900000);
   // Cap startup rendering while assets arrive. Playwright clock.install
   // subsequently owns RAF at about60Hz; report actual frame counters below.
@@ -14,18 +17,21 @@ test('Sound Racer steering drives a real full circuit and catches words', async(
   const errors=[];page.on('pageerror',error=>errors.push(error.message));
   await page.setViewportSize({width:960,height:600});
   await page.emulateMedia({reducedMotion:'reduce'});
+  await page.addInitScript(() => localStorage.setItem('literacy-guide-learn-games:fullscreen-overlay-preview', JSON.stringify({games:{'sound-racer':{checkpoints:{easy:{level:9,totalLevels:10}}}}})));
   await page.goto('/preview/game-overlay.html?game=sound-racer&sound=0&music=0');
+  await page.getByRole('button',{name:'Continue',exact:true}).click();
   const hud=page.locator('[data-sound-racer-position]');
   await expect(hud).toBeVisible({timeout:45000});
   await expect(hud).toHaveAttribute('data-sound-racer-asset','ready',{timeout:30000});
   await page.clock.install();
-  const track=buildTrack('b',{difficulty:'easy',seed:0});
+  const track=buildTrack(soundRacerLadder('easy')[9],{difficulty:'easy',seed:9});
   let held='',left=0,right=0,lastProgress=0;
-  for(let i=0;i<950;i++) {
+  for(let i=0;i<3200;i++) {
     const state=JSON.parse(await hud.getAttribute('data-sound-racer-position'));
     if(i%100===0) fs.writeFileSync(testInfo.outputPath('route-progress.json'),JSON.stringify({iterations:i,simulatedSeconds:i/10,state,render:await page.locator('.sound-racer').evaluate(node=>node.racerInspection)},null,2));
-    if(state.progress>=track.totalLength) {lastProgress=state.progress;break;}
-    const gate=track.gates.find(gate=>gate.z>state.progress+1);
+    if(state.progress>=track.raceLength && state.wordsCorrect>=track.needed) {lastProgress=state.progress;break;}
+    const inspection=await page.locator('.sound-racer').evaluate(node=>node.racerInspection);
+    const gate=inspection.nextGates.find(gate=>gate.z>state.progress+1);
     const lookDistance=6;
     let lateral=0;
     if(gate && gate.z-state.progress<22) lateral=gate.correct ? [-3.15,0,3.15][gate.lane] : gate.lane===1 ? 2.9 : 0;
@@ -39,23 +45,23 @@ test('Sound Racer steering drives a real full circuit and catches words', async(
     }
     if(desired==='ArrowLeft')left++;if(desired==='ArrowRight')right++;
     await page.clock.runFor(100);
-    if(i===220 || i===450)await page.screenshot({path:testInfo.outputPath(`corner-${i}.png`)});
+    if(i===220 || i===900 || i===1500)await page.screenshot({path:testInfo.outputPath(`corner-${i}.png`)});
     lastProgress=state.progress;
   }
   if(held)await page.keyboard.up(held);
-  expect(lastProgress).toBeGreaterThanOrEqual(track.totalLength);
+  expect(lastProgress).toBeGreaterThanOrEqual(track.raceLength);
   expect(left).toBeGreaterThan(20);expect(right).toBeGreaterThan(20);
-  await expect(page.locator('[data-sr="words"]')).toHaveText('10 / 10 words');
-  await expect(page.getByText('Track cleared',{exact:true})).toBeVisible();
+  await expect(page.locator('[data-sr="words"]')).toHaveText(`${track.needed} / ${track.needed} words`);
+  await expect(page.getByRole('button',{name:'Next level',exact:true})).toBeVisible();
   expect(errors).toEqual([]);
   fs.writeFileSync(testInfo.outputPath('finished-route.json'),JSON.stringify({state:JSON.parse(await hud.getAttribute('data-sound-racer-position')),render:await page.locator('.sound-racer').evaluate(node=>node.racerInspection)},null,2));
   await testInfo.attach('race-render-metrics',{body:JSON.stringify(await page.locator('.sound-racer').evaluate(node=>node.racerInspection)),contentType:'application/json'});
   await testInfo.attach('race-result',{body:await hud.getAttribute('data-sound-racer-position'),contentType:'application/json'});
   await page.screenshot({path:testInfo.outputPath('full-circuit.png')});
-  await page.getByRole('button',{name:'Go to the next map'}).click();
+  await page.getByRole('button',{name:'Next level',exact:true}).click();
   await page.clock.runFor(400);
-  await expect(page.locator('[data-sr="words"]')).toHaveText('0 / 10 words');
-  await expect(page.locator('[data-sr="target"]')).not.toHaveText('b');
+  await expect(page.locator('[data-sr="words"]')).toHaveText(`0 / ${buildTrack(soundRacerLadder('medium')[0],{difficulty:'medium',seed:0}).needed} words`);
+  await expect(page.locator('[data-sr="target"]')).not.toHaveText(soundRacerLadder('easy')[9]);
 });
 
 test('Sound Racer pointer steering changes heading, releases, pauses and recovers',async({page})=>{

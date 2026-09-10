@@ -10,13 +10,16 @@ import {
   pickRescueFoils
 } from "../../src/utils/adventureRounds.js";
 
+import { hasWordAudio } from "../../src/utils/questAudio.js";
+
 const tiers = ["easy", "medium", "hard"];
 
 test("Word Rescue: every round is winnable with the target among 3 choices", () => {
   for (const tier of tiers) {
     for (let i = 0; i < 5; i += 1) {
       const rounds = buildRescueRounds(tier);
-      assert.equal(rounds.length, 6, `${tier}: expected 6 planks`);
+      assert.equal(rounds.length, 36, `${tier}: expected 36 distinct planks`);
+      assert.equal(new Set(rounds.map(round => round.word)).size, rounds.length);
       for (const r of rounds) {
         assert.ok(r.choices.includes(r.word), `${tier}: "${r.word}" missing from choices`);
         assert.equal(new Set(r.choices).size, r.choices.length, `${tier}: duplicate choices`);
@@ -72,16 +75,21 @@ test("Sound Sort: every item belongs to exactly one bin, decidable by spelling",
       assert.ok(sort.items.length >= 4, `${tier}: too few items`);
       // Both bins must actually receive words - a sort with an empty bin is a
       // broken game (the child sees two bins but everything goes in one).
-      const inA = sort.items.filter(it => it.bin === sort.binA).length;
-      const inB = sort.items.filter(it => it.bin === sort.binB).length;
-      assert.ok(inA > 0 && inB > 0,
-        `${tier}: "${sort.binA}"/"${sort.binB}" round has an empty bin (A=${inA}, B=${inB})`);
+      assert.equal(sort.shifts, { easy: 12, medium: 17, hard: 19 }[tier]);
+      assert.ok(sort.items.length >= 80);
+      for (let shift = 0; shift < sort.shifts; shift++) {
+        const items = sort.items.filter(item => item.shift === shift);
+        assert.ok(items.some(item => item.bin === item.binA));
+        assert.ok(items.some(item => item.bin === item.binB));
+        assert.equal(new Set(items.map(item => item.word)).size, items.length);
+      }
       for (const item of sort.items) {
-        assert.ok([sort.binA, sort.binB].includes(item.bin));
+        assert.ok(hasWordAudio(item.word), `${item.word}: missing recorded model`);
+        assert.ok([item.binA, item.binB].includes(item.bin));
         assert.ok(item.word.startsWith(item.bin), `${tier}: "${item.word}" does not start with its bin "${item.bin}"`);
         // Decidability = longest match wins. A word may only sit in the shorter
         // bin if it does NOT also start with the longer (more specific) bin.
-        const other = item.bin === sort.binA ? sort.binB : sort.binA;
+        const other = item.bin === item.binA ? item.binB : item.binA;
         if (other.length > item.bin.length) {
           assert.ok(!item.word.startsWith(other),
             `${tier}: "${item.word}" in bin "${item.bin}" also starts with longer bin "${other}"`);
@@ -95,7 +103,8 @@ test("Letter Garden: banks always contain every needed letter exactly once each"
   for (const tier of tiers) {
     for (let i = 0; i < 5; i += 1) {
       const rounds = buildGardenRounds(tier);
-      assert.equal(rounds.length, 5, `${tier}: expected 5 flowers`);
+      assert.equal(rounds.length, GARDEN_FLOWERS.length * 2, `${tier}: every reviewed flower belongs to the outing`);
+      assert.equal(new Set(rounds.map(round => round.word)).size, rounds.length);
       for (const r of rounds) {
         assert.ok(r.sourceWord, `${tier}: every round starts from a known word`);
         assert.notEqual(r.sourceWord, r.word, `${tier}: garden must transform the known word`);
@@ -126,8 +135,8 @@ test("restarting an adventure creates a versioned round set for the active mode"
 
   assert.equal(first.version, 0);
   assert.equal(restarted.version, 1);
-  assert.equal(first.garden.length, 5);
-  assert.equal(restarted.garden.length, 5);
+  assert.equal(first.garden.length, GARDEN_FLOWERS.length * 2);
+  assert.equal(restarted.garden.length, GARDEN_FLOWERS.length * 2);
   assert.deepEqual(first.rescue, []);
   assert.equal(first.sort, null);
 });

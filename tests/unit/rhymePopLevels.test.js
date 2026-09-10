@@ -5,9 +5,9 @@ import {
   rhymePopStars
 } from "../../src/utils/rhymePopLevels.js";
 
-test("rhymePopLadder returns 10 levels for every difficulty", () => {
+test("rhymePopLadder returns three distinct-anchor festival acts for every difficulty", () => {
   for (const difficulty of ["easy", "medium", "hard"]) {
-    assert.equal(rhymePopLadder(difficulty).length, 10);
+    assert.equal(rhymePopLadder(difficulty).length, difficulty === "easy" ? 24 : 30);
   }
 });
 
@@ -64,3 +64,14 @@ test("rhymePopStars follows the shared star rubric", () => {
   assert.equal(rhymePopStars({ correct: 5, total: 6, mistakes: 2 }), 2);
   assert.equal(rhymePopStars({ correct: 2, total: 6, mistakes: 6 }), 1);
 });
+
+ test("each festival changes its anchor and wind route with recorded anchor speech", async () => {
+ const {getLedaWordAudioPath}=await import("../../src/data/ledaProductionAudio.js");
+ const {existsSync}=await import("node:fs");
+ for(const difficulty of ["easy","medium","hard"]) {
+ const levels=rhymePopLadder(difficulty);
+ assert.equal(new Set(levels.map(level=>level.targetWord)).size,levels.length);
+ assert.deepEqual([...new Set(levels.map(level=>level.act))],[0,1,2]);
+ for(const level of levels) { const path=getLedaWordAudioPath(level.targetWord); assert.ok(path && existsSync(`public${path}`),level.targetWord); }
+ }
+ });
