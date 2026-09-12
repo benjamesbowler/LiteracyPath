@@ -12,6 +12,112 @@ function deepFreeze(value) {
  * Add a brief here before substantially changing another flagship game.
  */
 export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
+  "sound-seekers": {
+  "schemaVersion": 1,
+  "gameId": "sound-seekers",
+  "version": "campaign-1",
+  "audience": "Beginning readers through sentence readers exploring with the canonical Pals.",
+  "experiencePromise": "Explore a living third-person countryside, meet friends and enter connected side-view platform adventures to restore each place.",
+  "learning": {
+    "targetConstruct": "The mission curriculum defines taught phonemes, decoding, encoding and sentence reading.",
+    "childGoal": "Help a friend restore their place.",
+    "integratedAction": "Choose, carry, sort and place the requested sound or reading object in a physical scene.",
+    "nonTargetDemands": "Walking, looking, jumping, finding a route and operating traversal levers.",
+    "evidenceEvent": "Only existing campaign challenge outcomes emit formative attempts with their support context.",
+    "movementCreatesEvidence": false
+  },
+  "loop": {
+    "onboard": "Choose a canonical Pal; follow the path toward a friend.",
+    "perceive": "Approach a resident and hear or read their problem; the mission keeps its current target visible.",
+    "act": "Move through the world, enter an adventure and act on the requested literacy object.",
+    "feedback": "The selected object responds immediately; successful learning repairs the task and opens the motor route.",
+    "retry": "Specific feedback retains the target. Falls return to the room checkpoint without undoing learning.",
+    "complete": "Return to the same place; completed main missions install the authored restoration and unlock onward travel."
+  },
+  "prompt": {
+    "visible": "A short nearby-action cue in the landscape; existing mission target and specific feedback in platform rooms.",
+    "spoken": "Existing recorded campaign instruction and target audio.",
+    "replay": "Existing Hear control repeats the current cue; sound-off support is explicitly marked."
+  },
+  "controls": {
+    "keyboard": [
+      "Arrows or WASD move relative to the camera; Q/C orbit; Space jumps; E/Enter interacts.",
+      "Platform rooms use left/right and Space."
+    ],
+    "touch": [
+      "Hold the 56px direction controls; tap Jump or Use.",
+      "Drag to orbit or use the camera buttons; select a destination for motor assistance."
+    ],
+    "minimumTargetCssPixels": 56,
+    "pointerReleaseEvents": [
+      "pointerup",
+      "pointercancel",
+      "lostpointercapture"
+    ]
+  },
+  "difficulty": {
+    "curriculumBeforePressure": true,
+    "ladder": "Thirty places retain the existing curriculum prerequisites and authored missions; motor routes do not increase literacy pressure."
+  },
+  "gameFeel": {
+    "movement": "Acceleration and collision use bounded substeps; camera-relative walking, damped camera and jump arcs share one player state.",
+    "forgiveness": [
+      "No lives or timed literacy answers",
+      "Physical route assistance",
+      "Completed learning survives a missed jump",
+      "Pause releases held input"
+    ],
+    "camera": "Third-person orbit and distance control; side-view camera follows the active platform room.",
+    "successFeedback": "Physical repair, specific text and existing sound effects.",
+    "errorFeedback": "Current task feedback identifies the selected contrast without punishing movement."
+  },
+  "world": {
+    "artDirection": "Textured modeled landscapes, wind-blown grass, cast shadows, atmospheric mountains and canonical illustrated Pal animation form an intentional storybook 2.5D hybrid inspired by Breath of the Wild exploration.",
+    "route": "One authored geometry owns paths, tree trunks, water, crossings and navigation for every place; each landmark retains its mission-specific restoration.",
+    "character": "Eight canonical Pal walk atlases and original resident art; no substitute stock hero.",
+    "assetFallback": "A missing essential image/model or lost WebGL context pauses entry and offers Retry; no primitive hero substitute."
+  },
+  "state": {
+    "pauseResume": "Pause, dialogs and hidden tabs release movement and stop progression; resuming resets the frame clock.",
+    "checkpoint": "Existing mission checkpoints and evidence persist; landscape position, opened bridge and discovered nook survive scene transitions in memory only.",
+    "completion": "Existing main/optional campaign completion and restoration remain the source of onward travel."
+  },
+  "accessibility": {
+    "reducedMotion": "Disable wind/water drift and camera interpolation while preserving movement and immediate feedback.",
+    "soundOff": "Existing text support and supported-practice markers preserve the distinction from independent listening evidence.",
+    "nonColourCue": "Named residents, distinct props, action labels and visible bridge geometry.",
+    "semanticFallback": "Choose nearby exposes named physical destinations; motor assistance follows the same collision route and does not choose literacy answers."
+  },
+  "performance": {
+    "lowPowerFallback": "Simplified backgrounds cap DPR at 1, disable shadows and reduce grass while keeping all solid objects and learning controls.",
+    "inputSafety": "Pointer capture loss, pointer cancel, key release, blur and scene disposal clear movement; navigation is frame-rate independent.",
+    "assetFailure": "Retry rebuilds the scene; asynchronous loads and graphics resources are disposed across scene transitions."
+  },
+  "privacy": {
+    "dataWritten": [
+      "Existing campaign progress and checkpoints only"
+    ],
+    "network": [
+      "Existing same-origin assets and existing progress sync only"
+    ],
+    "newIdentifier": false,
+    "newExternalService": false
+  },
+  "validation": {
+    "unit": [
+      "tests/unit/soundSeekersExploration.test.js",
+      "tests/unit/soundSeekersCampaignScene.test.js",
+      "tests/unit/soundSeekersCampaignRestoration.test.js"
+    ],
+    "browser": [
+      "tests/release/sound-seekers-route-isolation.spec.js"
+    ],
+    "physicalDevice": {
+      "status": "unknown",
+      "note": "Direct desktop/tablet browser play is separate from physical iPad evidence; no physical device claim."
+    }
+  }
+},
   "letter-leap": {
     schemaVersion: GAME_VERTICAL_SLICE_BRIEF_SCHEMA_VERSION,
     gameId: "letter-leap",

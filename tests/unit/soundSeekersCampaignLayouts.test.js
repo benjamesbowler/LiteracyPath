@@ -11,25 +11,16 @@ const settle = state => {
   return events;
 };
 
-test('every authored stage has concrete hub geometry, canonical backdrop and reachable raised meet points', () => {
+test('every stage owns the top-down hub geometry and its authored restoration', () => {
   assert.equal(CAMPAIGN_STAGE_LAYOUTS.length, 30);
   assert.equal(new Set(CAMPAIGN_STAGE_LAYOUTS.map(p => p.landmark)).size, 30);
   for (const stage of CAMPAIGN_STAGES) {
-    const layout = getCampaignHubLayout(stage.id);
-    assert.equal(layout.missionNodes.length, 7);
-    assert.deepEqual(layout.missionNodes.map(n => n.id), [...stage.missionIds, ...stage.optionalMissionIds]);
-    assert.ok(existsSync(new URL(`../../public${layout.backdrop}`, import.meta.url)), layout.backdrop);
-    const state = createPlatformState({ ...layout, tuning: { jumpSpeed: 630 } });
-    assert.equal(settle(state).filter(e => e.type === 'recover').length, 0);
-    for (const node of layout.missionNodes) {
-      assert.ok([...layout.solids, ...layout.platforms].some(r => node.x >= r.x && node.x <= r.x + r.width && Math.abs(r.y - node.y) < 1), `${stage.id} ${node.id} needs supporting terrain`);
-    }
-    for (const platform of layout.platforms) {
-      const previous = [...layout.solids, ...layout.platforms].filter(p => p.id !== platform.id && p.y > platform.y);
-      const jumpHeight = state.tuning.jumpSpeed ** 2 / (2 * state.tuning.gravity);
-      assert.ok(previous.some(p => p.y - platform.y <= jumpHeight && platform.x - (p.x + p.width) < 120), `${platform.id} needs a jumpable approach`);
-    }
-    assert.equal(layout.repairFootprint.repairId, stage.repairId);
+    const layout=getCampaignHubLayout(stage.id);
+    assert.equal(layout.coordinateSystem,'top-down-x-right-y-down');
+    assert.deepEqual(layout.nodes.map(n=>n.id),[...stage.missionIds,...stage.optionalMissionIds]);
+    assert.ok(existsSync(new URL(`../../public${layout.backdrop}`,import.meta.url)));
+    assert.equal(layout.repairFootprint.repairId,stage.repairId);
+    assert.ok(layout.bridges.some(b=>b.shortcut));
   }
 });
 

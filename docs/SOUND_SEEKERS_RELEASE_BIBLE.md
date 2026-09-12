@@ -345,3 +345,71 @@ encounter and its mission. This is public trial play, not an authenticated
 learner save check. Direct viewing exposed underlying floating Back navigation
 overlapping Map; the route portal now establishes its own fullscreen stacking
 layer above the inert app shell. Its route check, lint and rebuilt bundle pass.
+
+## Exploration and platform interaction contract
+
+The child-facing direction is Breath-of-the-Wild-inspired exploration: a
+third-person textured 3D landscape connects side-view platform adventures.
+The deliberate hybrid retains canonical illustrated Pal animation in the modeled
+world, rather than replacing the cast with stock 3D characters.
+`v3/content/explorationLayout.js` owns overworld geometry through
+`getCampaignHubLayout`; `v3/engine/exploration.js` owns collision and accessible
+route finding, `v3/render/explorationScene.js` owns interaction and camera controls, and
+`v3/render/explorationLandscape.js` owns Three.js presentation. The production
+brief is the `sound-seekers` record in `arcadeVerticalSliceBriefs.js`.
+The former side-view hub corridor has been removed from the renderer.
+
+All thirty places retain their canonical residents, seven missions, explicit
+curriculum prerequisites and authored restoration. Streams block movement except
+at physical crossings; operating a lever opens a real shortcut. Hidden picnic
+nooks offer a return to camp. Exploring a place is free; starting a learning
+mission remains governed by its existing prerequisites. Completing main missions
+continues to restore the corresponding authored landmark from saved progress.
+
+`v3/engine/campaignTraversal.js` adds crossing and climbing sequences between
+learning areas. A lever changes the collision surfaces; stepping platforms can
+be crossed directly or through the same motor-assist path. These interactions
+never emit literacy actions. A completed learning area remains completed after
+a missed jump. Existing mission snapshots, formative attempts, support markers,
+audio and sync contracts are retained. Overworld position, lever and discovery
+state persist across local scene transitions in memory; these cosmetic fields
+are not uploaded or presented as learning evidence.
+
+Controls: arrows/WASD explore relative to the camera; drag, Q/C or the camera
+buttons turn the view, and wheel adjusts distance. Left/right and Space move/jump in side-view
+missions; E/Enter uses a nearby object. Pointer-ground movement and semantic
+object selection follow actual terrain. Touch uses 56px direction controls and
+separate jump/action controls, with capture loss and blur releasing input.
+
+The art target is detailed illustrated game scenery consistent with the Pals.
+Simple vector environment drawings are not accepted final art. Material textures
+must follow collision geometry; opaque prop sheets, fake checkerboard alpha and
+flat scene wallpaper are not usable sprite replacements. The same geometry owns visible bridge decks, river blocking, tree trunks and
+assisted routes. Reduced effects retain every solid object, disable shadows and
+reduce grass density and pixel ratio. Failed essential assets or a lost WebGL
+context offer Retry. Current authored
+materials live under `public/game-assets/sound-seekers/campaign/environment/`.
+
+Verification owners: `soundSeekersExploration.test.js`,
+`soundSeekersCampaignScene.test.js`, `soundSeekersCampaignLayouts.test.js`,
+`platformPhysics.test.js`, campaign persistence/evidence checks and direct browser
+play. Physical-device and observed campaign-duration claims require that exact
+additional evidence; neither is implied by the new traversal sequences.
+
+The landscape uses the existing Quaternius nature trees, bushes and flowers,
+and KayKit medieval tent and gate models. Their exact runtime paths are exported
+by `EXPLORATION_MODELS`; dependency existence is checked by the exploration tests.
+They retain the CC0 notices in the shared library. The environment material
+atlas was generated for this game; its grass, path, water and soil tiles are
+applied to geometry rather than used as a full-screen scene image.
+
+Local verification for the exploration cutover: 148 focused campaign, navigation
+and platform checks, scoped lint, production build and repository hygiene pass.
+Direct browser play exercised a platform crossing, mission return, an opened
+river bridge, the hidden nook/camp shortcut and recovery after forced WebGL
+context loss. All three worlds were viewed; phone controls were checked for
+intersections and a tablet viewport exercised reduced effects. This is local
+browser evidence, not hosted sync, physical-iPad or observed-duration evidence.
+The broader premium-game suite has two pre-existing Word Climb/Rocket Run
+source-anchor failures, reproduced against its unmodified baseline; the new
+Sound Seekers brief has its own passing structural check.

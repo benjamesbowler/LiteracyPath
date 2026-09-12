@@ -73,12 +73,13 @@ test("every live arcade game has an individual premium mission and recovery prof
 test("every substantial vertical slice is complete, traceable to checks, and honest about hardware validation", () => {
   assert.deepEqual(
     Object.keys(ARCADE_VERTICAL_SLICE_BRIEFS).sort(),
-    ["letter-leap", "sound-beat", "sound-racer", "word-bridge", "word-climb"]
+    ["letter-leap", "sound-beat", "sound-racer", "sound-seekers", "word-bridge", "word-climb"]
   );
   for (const [gameId, brief] of Object.entries(ARCADE_VERTICAL_SLICE_BRIEFS)) {
     assert.equal(brief.gameId, gameId);
     assert.deepEqual(validateGameVerticalSliceBrief(brief), [], `${gameId} brief is incomplete`);
-    assert.equal(brief.version, ARCADE_PREMIUM_PROFILES[brief.gameId].version);
+    if(gameId === "sound-seekers") assert.equal(brief.version, "campaign-1");
+    else assert.equal(brief.version, ARCADE_PREMIUM_PROFILES[brief.gameId].version);
     for (const file of [...brief.validation.unit, ...brief.validation.browser]) {
       assert.equal(existsSync(file), true, `${file} is named by ${gameId} but does not exist`);
     }

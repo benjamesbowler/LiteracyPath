@@ -280,3 +280,12 @@ measured twenty-hour claim. Human
 listening, physical-device play, observed learner comprehension and measured
 playthrough duration remain distinct evidence; no approval or readiness claim
 is inferred from technical checks.
+
+## Sound Seekers exploration cutover
+
+The former side-view hub corridor is replaced by the current third-person
+landscape controller and renderer. Side-view mission rooms retain their
+curriculum and gain motor-only crossing routes. `campaignLayouts.js` remains
+the geometry authority; the release Bible and machine-readable game brief
+describe the intentional modeled-world / illustrated-Pal presentation.
+No learner progress fields or hosted schema were introduced.

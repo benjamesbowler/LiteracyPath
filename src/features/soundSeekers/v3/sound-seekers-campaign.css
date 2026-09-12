@@ -8,3 +8,13 @@
 .ss-campaign-panel>.ss-panel-close{position:sticky;top:0;float:right;z-index:1;font-size:28px;padding:0;width:56px;margin:0 0 8px 8px}
 
 .ss-campaign-access{max-width:90%;flex-wrap:wrap;justify-content:center}
+
+.ss-campaign-controls .ss-exploration-pad{display:grid;grid-template-columns:56px 56px 56px;grid-template-rows:56px 56px 56px;gap:8px}.ss-exploration-pad [aria-label="Move up"]{grid-area:1/2}.ss-exploration-pad [aria-label="Move left"]{grid-area:2/1}.ss-exploration-pad [aria-label="Move right"]{grid-area:2/3}.ss-exploration-pad [aria-label="Move down"]{grid-area:3/2}.ss-campaign-controls .ss-exploration-pad button{width:56px;height:56px;min-height:56px}
+
+.ss-campaign[data-presentation="landscape"] .ss-campaign-top>div{background:rgba(23,45,42,.8);color:#fff3d4;border:1px solid #e8d8ac55;border-radius:12px;padding:10px 18px;box-shadow:0 3px 15px #142b2620}
+.ss-campaign[data-presentation="landscape"] .ss-campaign-controls button,.ss-campaign[data-presentation="landscape"] .ss-campaign-access button{background:rgba(25,47,43,.75);color:#fff6dc;border:1px solid #f4e9c977;box-shadow:0 2px 10px #10261a33;backdrop-filter:blur(6px);border-radius:50%;font-family:system-ui,sans-serif;font-size:25px}
+.ss-campaign[data-presentation="landscape"] .ss-campaign-controls [aria-label="Jump"],.ss-campaign[data-presentation="landscape"] .ss-campaign-controls [aria-label="Interact with nearby object"]{font-size:18px}
+.ss-campaign[data-presentation="landscape"] .ss-campaign-access button{font-size:18px;border-radius:14px}
+.ss-campaign[data-presentation="landscape"] .ss-campaign-access [aria-label^="Turn camera"]{font-size:30px;min-width:56px}
+.ss-campaign[data-presentation="landscape"] .ss-campaign-prompt{font-size:17px;top:90px;background:rgba(23,45,42,.65);color:#fff6dc;padding:7px 16px;box-shadow:none;border-radius:12px}
+@media(max-width:650px){.ss-campaign[data-presentation="landscape"] .ss-campaign-access{bottom:calc(214px + env(safe-area-inset-bottom))}.ss-campaign[data-presentation="landscape"] .ss-campaign-line{bottom:calc(280px + env(safe-area-inset-bottom))}}

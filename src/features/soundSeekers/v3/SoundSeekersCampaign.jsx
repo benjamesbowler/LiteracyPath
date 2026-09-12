@@ -30,6 +30,7 @@ export default function SoundSeekersCampaign({ progressScopeKey, isSoundEnabled 
   const [progress, setProgress] = useState(initial.progress);
   const progressRef = useRef(progress);
   const lastSaveResultRef=useRef(initial);
+  const hubPositionsRef=useRef({});
   const playClockRef=useRef(null),helpRef=useRef(false),blockedRef=useRef(false);
   const [saveStatus, setSaveStatus] = useState(initial);
   const [stageId, setStageId] = useState(() => {
@@ -41,6 +42,7 @@ export default function SoundSeekersCampaign({ progressScopeKey, isSoundEnabled 
   const [encounter, setEncounter] = useState(null);
   const [encounterError,setEncounterError]=useState('');
   const [line, setLine] = useState('');
+  const [worldHint,setWorldHint]=useState('');
   const [sound, setSound] = useState(()=>isSoundEnabled&&normalizeAudioPreferences(initial.progress?.audioPreferences).soundEnabled);
   const [music, setMusic] = useActivityMusic(progressScopeKey);
   const soundscapeRef=useRef(null);
@@ -192,23 +194,23 @@ export default function SoundSeekersCampaign({ progressScopeKey, isSoundEnabled 
     }
     controllerRef.current = c;
     const currentStage = getCampaignStage(stageId) || CAMPAIGN_STAGES[0];
-    const scene = createCampaignWorldScene({stage:currentStage,missions:[...currentStage.missionIds,...currentStage.optionalMissionIds].map(getCampaignMission),mission:selected,
+    const scene = createCampaignWorldScene({canvas:canvasRef.current,onHint:setWorldHint,onFailure:()=>{setFailedImages(["3D landscape"]);sceneRef.current?.release();},stage:currentStage,missions:[...currentStage.missionIds,...currentStage.optionalMissionIds].map(getCampaignMission),mission:selected,
       beats:c?.beats.map(publicBeat),beatIndex:c?.index,beatState:c?.state,heroId:p.hero,progress:p,
-      position:selected ? p.campaign.checkpoints[selected.id]?.position : null,reducedMotion,simplifiedBackgrounds:Boolean(accessibilitySettings.simplifiedBackgrounds),
+      position:selected ? p.campaign.checkpoints[selected.id]?.position : hubPositionsRef.current[currentStage.id],reducedMotion,simplifiedBackgrounds:Boolean(accessibilitySettings.simplifiedBackgrounds||accessibilitySettings.simplifiedScene),
       isAvailable:id=>isCampaignMissionUnlocked(progressRef.current,id,CATALOG),
       nextStage:CAMPAIGN_STAGES[CAMPAIGN_STAGES.findIndex(s=>s.id===currentStage.id)+1],onTravel:id=>actionsRef.current.travel(id),
-      onSound:kind=>soundscapeRef.current?.effect(kind),onMission:m=>actionsRef.current.meet(m),onAction:a=>actionsRef.current.action(a),onAdvance:()=>actionsRef.current.advance(),onHear:hear,onSavePosition:position=>actionsRef.current.position(position)});
+      onSound:kind=>soundscapeRef.current?.effect(kind),onMission:m=>actionsRef.current.meet(m),onAction:a=>actionsRef.current.action(a),onAdvance:()=>actionsRef.current.advance(),onHear:hear,onSavePosition:position=>{if(selected)actionsRef.current.position(position);else hubPositionsRef.current[currentStage.id]=position;}});
     sceneRef.current = scene; refreshHud(); let sceneReady=false;setLoadingImages(true);
     const assetPaths=[...new Set(scene.assets().filter(Boolean))];
-    void preload(assetPaths).then(images=>{if(sceneRef.current!==scene)return;const failed=assetPaths.filter((_,index)=>!images[index]);setFailedImages(failed);sceneReady=!failed.length;setLoadingImages(false);if(sceneReady&&c&&c.beats[c.index].mechanic!==MECHANICS.SIGNPOST)void hear(cues(c.beats[c.index],c.state));});
+    void Promise.all([preload(assetPaths),scene.ready||Promise.resolve()]).then(([images])=>{if(sceneRef.current!==scene)return;const failed=assetPaths.filter((_,index)=>!images[index]);setFailedImages(failed);sceneReady=!failed.length;setLoadingImages(false);if(sceneReady&&c&&c.beats[c.index].mechanic!==MECHANICS.SIGNPOST)void hear(cues(c.beats[c.index],c.state));}).catch(error=>{if(sceneRef.current!==scene)return;console.error('[Sound Seekers] Landscape could not load',error);setLoadingImages(false);setFailedImages(['3D landscape']);});
     playClockRef.current=c?{attemptId:c.attemptId,clock:createCampaignPlayClock(p.campaign.checkpoints[selected.id].playTime,performance.now())}:null;
-    const canvas = canvasRef.current, context = canvas.getContext('2d');
+    const canvas = canvasRef.current, context = selected ? canvas.getContext('2d') : null;
     let frame, last = performance.now(), live = true;
     function draw(now) {
       if (!live) return;
       const box = canvas.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1,2);
-      if (canvas.width !== Math.round(box.width*dpr) || canvas.height !== Math.round(box.height*dpr)) {canvas.width=Math.round(box.width*dpr);canvas.height=Math.round(box.height*dpr);}
-      context.setTransform(dpr,0,0,dpr,0,0);
+      if (context && (canvas.width !== Math.round(box.width*dpr) || canvas.height !== Math.round(box.height*dpr))) {canvas.width=Math.round(box.width*dpr);canvas.height=Math.round(box.height*dpr);}
+      context?.setTransform(dpr,0,0,dpr,0,0);
       if(playClockRef.current&&c?.attemptId===playClockRef.current.attemptId)playClockRef.current.clock=advanceCampaignPlayClock(playClockRef.current.clock,{nowMs:now,activity:scene.consumeActivity({includeMotion:!pausedRef.current&&!document.hidden&&sceneReady}),paused:pausedRef.current,hidden:document.hidden,loading:!sceneReady||blockedRef.current,helpOpen:helpRef.current});
       if (sceneReady && !pausedRef.current && !document.hidden) scene.update(Math.min((now-last)/1000,.05));
       last=now; scene.draw(context,box.width,box.height); frame=requestAnimationFrame(draw);
@@ -224,7 +226,7 @@ export default function SoundSeekersCampaign({ progressScopeKey, isSoundEnabled 
     };
     window.addEventListener('keydown',key);window.addEventListener('keyup',key);window.addEventListener('blur',release);document.addEventListener('visibilitychange',visibility);
     return ()=>{live=false;cancelAnimationFrame(frame);scene.dispose();audioRef.current?.stop();window.removeEventListener('keydown',key);window.removeEventListener('keyup',key);window.removeEventListener('blur',release);document.removeEventListener('visibilitychange',visibility);if(sceneRef.current===scene)sceneRef.current=null;};
-  }, [stageId,missionId,progress?.hero,reducedMotion,accessibilitySettings.simplifiedBackgrounds,hear,refreshHud,sceneEpoch]);
+  }, [stageId,missionId,progress?.hero,reducedMotion,accessibilitySettings.simplifiedBackgrounds,accessibilitySettings.simplifiedScene,hear,refreshHud,sceneEpoch]);
 
   function begin(m) {
     try {
@@ -253,14 +255,14 @@ export default function SoundSeekersCampaign({ progressScopeKey, isSoundEnabled 
   function toggleMusic(){setMusic(!music);}
   const move = (name,value) => sceneRef.current?.setInput(name,value);
   if(!progress)return <div style={soundSeekersCampaignCssVariables()} className="ss-campaign ss-error" role="alert"><p>{saveStatus.error?.message}</p><button onClick={onExit}>Back</button></div>;
-  return <main style={soundSeekersCampaignCssVariables()} className="ss-campaign" data-sound-seekers-game aria-label="Sound Seekers adventure" tabIndex={-1}>
-    <canvas style={failedImages.length?{visibility:'hidden'}:undefined} inert={paused || undefined} ref={canvasRef} aria-label={`${stage.name}. Move with arrow keys, jump with Space, meet or choose with E.`} tabIndex={0} onPointerDown={event=>{if(paused)return;const r=event.currentTarget.getBoundingClientRect();sceneRef.current?.pointerDown(event.clientX-r.left,event.clientY-r.top);event.currentTarget.focus();}} />
+  return <main style={soundSeekersCampaignCssVariables()} className="ss-campaign" data-presentation={mission?"platform":"landscape"} data-sound-seekers-game aria-label="Sound Seekers adventure" tabIndex={-1}>
+    <canvas key={`${mission?"platform":"landscape"}:${sceneEpoch}`} style={failedImages.length?{visibility:'hidden'}:undefined} inert={paused || undefined} ref={canvasRef} aria-label={`${stage.name}. ${mission ? "Move left and right, jump with Space" : "Explore with arrow keys. Drag to look around or use Q and C"}, interact with E.`} tabIndex={0} onPointerDown={event=>{if(paused)return;const r=event.currentTarget.getBoundingClientRect();if(!mission)event.currentTarget.setPointerCapture(event.pointerId);sceneRef.current?.pointerDown(event.clientX-r.left,event.clientY-r.top);event.currentTarget.focus();}} />
     <header inert={paused || undefined} className="ss-campaign-top"><button onClick={()=>setDialog('map')} aria-label="World map">Map</button><div><strong>{mission?'Sound Seekers':stage.name}</strong><small>{mission&&hud.beat?.act?`${hud.beat.act.title} · ${hud.beat.act.index+1}/${hud.beat.act.total}`:CAMPAIGN_WORLDS.find(w=>w.id===stage.worldId)?.name}</small></div><button onClick={()=>setDialog('pause')} aria-label="Pause adventure">Ⅱ</button></header>
     {!paused&&!mission&&stageComplete&&<aside className="ss-stage-complete" aria-label="Land restored"><strong>{campaignComplete?'Three lands, so many friends!':`${stage.name} is ready!`}</strong><span>{campaignComplete?'You helped the Pals. Explore your favourite places again.':'There are still friends to meet here. Your next path is open too.'}</span>{nextStage&&<button onClick={()=>{actionsRef.current.travel(nextStage.id);}}>Explore {nextStage.name} →</button>}{campaignComplete&&<button onClick={()=>setDialog('map')}>Visit our friends</button>}</aside>}
-    {!paused&&<><div className="ss-campaign-prompt"><span>{hud.beat?.view.direction==='letter-to-sound'?hud.beat.view.target.grapheme:hud.beat?.prompt.text||'Explore. Meet a friend.'}</span>{mission&&<button onClick={hearInstruction} aria-label="Hear instruction">Hear</button>}</div>
-    <div className="ss-campaign-line" role="status" aria-live="polite">{line}</div>
-    <nav className="ss-campaign-controls" aria-label="Movement"><div><MovementButton name="left" label="Move left" onMove={move}>←</MovementButton><MovementButton name="right" label="Move right" onMove={move}>→</MovementButton></div><div><button onClick={()=>{sceneRef.current?.key('KeyE',true);canvasRef.current?.focus();}} aria-label="Interact with nearby object">{hud.beat?.view.direction==='letter-to-sound'?'Choose':'Help'}</button><MovementButton name="jump" label="Jump" onMove={move}>↑</MovementButton></div></nav>
-    <div className="ss-campaign-access"><button onClick={()=>setDialog('actions')}>Choose nearby</button>{mission&&<button onClick={()=>actionsRef.current.action({type:'REQUEST_MODEL'})}>Show me</button>}{mission&&!sound&&<button onClick={()=>actionsRef.current.action({type:'REQUEST_TEXT_SUPPORT'})}>Text help</button>}{hud.beatState?.placed?.length>0&&!hud.beatState.done&&<button onClick={()=>actionsRef.current.action({type:'REMOVE_LAST'})}>Undo last</button>}</div></>}
+    {!paused&&<><div className="ss-campaign-prompt"><span>{hud.beat?.view.direction==='letter-to-sound'?hud.beat.view.target.grapheme:hud.beat?.prompt.text||'Explore the land. Meet a friend.'}</span>{mission&&<button onClick={hearInstruction} aria-label="Hear instruction">Hear</button>}</div>
+    <div className="ss-campaign-line" role="status" aria-live="polite">{mission?line:worldHint}</div>
+    <nav className="ss-campaign-controls" aria-label="Movement"><div className={mission?undefined:"ss-exploration-pad"}>{!mission&&<MovementButton name="up" label="Move up" onMove={move}>↑</MovementButton>}<MovementButton name="left" label="Move left" onMove={move}>←</MovementButton><MovementButton name="right" label="Move right" onMove={move}>→</MovementButton>{!mission&&<MovementButton name="down" label="Move down" onMove={move}>↓</MovementButton>}</div><div><button onClick={()=>{sceneRef.current?.key('KeyE',true);canvasRef.current?.focus();}} aria-label="Interact with nearby object">{hud.beat?.view.direction==='letter-to-sound'?'Choose':'Use'}</button><MovementButton name="jump" label="Jump" onMove={move}>Jump</MovementButton></div></nav>
+    <div className="ss-campaign-access">{!mission&&<><MovementButton name="lookLeft" label="Turn camera left" onMove={move}>‹</MovementButton><MovementButton name="lookRight" label="Turn camera right" onMove={move}>›</MovementButton></>}<button onClick={()=>{refreshHud();setDialog('actions');}}>Choose nearby</button>{mission&&<button onClick={()=>actionsRef.current.action({type:'REQUEST_MODEL'})}>Show me</button>}{mission&&!sound&&<button onClick={()=>actionsRef.current.action({type:'REQUEST_TEXT_SUPPORT'})}>Text help</button>}{hud.beatState?.placed?.length>0&&!hud.beatState.done&&<button onClick={()=>actionsRef.current.action({type:'REMOVE_LAST'})}>Undo last</button>}</div></>}
     {audioFailed&&mission&&!paused&&<div className="ss-audio-notice" role="status">Sound is unavailable. <button onClick={()=>{setSound(true);soundRef.current=true;hearInstruction();}}>Try sound</button><button onClick={()=>{setAudioFailed(false);actionsRef.current.action({type:'REQUEST_TEXT_SUPPORT'});}}>Use text help</button></div>}
     {!saveStatus.ok&&saveStatus.status!=='sync-failed'&&<div className="ss-save-notice" role="alert">{saveStatus.error?.message}</div>}
     {loadingImages&&!failedImages.length&&!dialog&&!encounter&&<div className="ss-campaign-prompt" role="status">Opening the path…</div>}
@@ -276,7 +278,7 @@ export default function SoundSeekersCampaign({ progressScopeKey, isSoundEnabled 
 }
 
 function MovementButton({name,label,onMove,children}) {
-  return <button aria-label={label} onPointerDown={event=>{event.preventDefault();event.currentTarget.setPointerCapture(event.pointerId);onMove(name,true);}} onPointerUp={()=>onMove(name,false)} onPointerCancel={()=>onMove(name,false)} onLostPointerCapture={()=>onMove(name,false)}>{children}</button>;
+  return <button aria-label={label} onKeyDown={event=>{if(["Space","Enter"].includes(event.code)){event.preventDefault();onMove(name,true);}}} onKeyUp={event=>{if(["Space","Enter"].includes(event.code)){event.preventDefault();onMove(name,false);}}} onBlur={()=>onMove(name,false)} onPointerDown={event=>{event.preventDefault();event.currentTarget.setPointerCapture(event.pointerId);onMove(name,true);}} onPointerUp={()=>onMove(name,false)} onPointerCancel={()=>onMove(name,false)} onLostPointerCapture={()=>onMove(name,false)}>{children}</button>;
 }
 
 function HeroPortrait({id}) {

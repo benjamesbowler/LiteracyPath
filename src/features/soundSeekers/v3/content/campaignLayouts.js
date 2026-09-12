@@ -1,3 +1,5 @@
+import { buildExplorationLayout } from './explorationLayout.js';
+import { addCampaignTraversal } from '../engine/campaignTraversal.js';
 // Authored place composition plus reusable physical action kits. Geometry is in
 // world pixels, +y down, and feeds platformPhysics directly. A layout does not
 // assert that its art, action controller or educational content has been tested.
@@ -54,25 +56,14 @@ const placeById = new Map(CAMPAIGN_STAGE_LAYOUTS.map(layout => [layout.stageId, 
 const platform = (id, x, y, width) => ({ id, x, y, width, height: 28 });
 const object = (id, kind, x, y, extra = {}) => ({ id, kind, x, y, ...extra });
 const floor = (id, x, width, y = GROUND) => ({ id, x, y, width, height: 340 });
-const branchPlatforms = (prefix, x, destinationY, width = 230) => {
-  const count = Math.ceil((GROUND - destinationY) / 110);
-  return Array.from({ length: count }, (_, i) => platform(`${prefix}-${i}`, x - 190 * (count - i - 1), GROUND - (i + 1) * (GROUND - destinationY) / count, width));
-};
-
 export function getCampaignHubLayout(stageId) {
   const stage = getCampaignStage(stageId), place = placeById.get(stageId);
   if (!stage || !place) return null;
-  const allIds = [...stage.missionIds, ...stage.optionalMissionIds];
-  const platforms = place.missionMeetPoints.slice(5).flatMap((point, i) => branchPlatforms(`side-${i}`, point.x - 110, point.y));
-  return {
-    id: `${stageId}/hub`, stageId, coordinateSystem: 'x-right-y-down-feet',
-    bounds: { left: 0, right: place.width, top: -100, bottom: 1050 },
-    spawn: { x: 130, y: GROUND }, solids: [floor('hub-ground', 0, place.width)], platforms,
-    hazards: [], camera: { vertical: false }, backdropKey: place.backdropKey, backdrop: BACKDROPS[place.backdropKey],
-    missionNodes: allIds.map((id, i) => ({ id, ...place.missionMeetPoints[i] })),
-    objects: [object('camp', 'camp-marker', 140, GROUND), object('landmark', place.landmark, place.repairX, GROUND)],
-    repairFootprint: { repairId: stage.repairId, x: place.repairX, y: GROUND - 190, width: place.bridgeWidth + 160, height: 190, before: `unresolved-${place.landmark}`, after: `restored-${place.landmark}` },
-    shortcut: { id: `${stageId}-camp-shortcut`, unlockOnVisit: true, from: { x: place.width - 160, y: GROUND }, to: { x: 130, y: GROUND } }
+  const layout = buildExplorationLayout(stage, place);
+  return { ...layout, id: `${stageId}/hub`, coordinateSystem: 'top-down-x-right-y-down',
+    backdrop: BACKDROPS[place.backdropKey], missionNodes: layout.nodes,
+    objects: [{id:'landmark',...layout.landmark}],
+    repairFootprint: {repairId:stage.repairId,x:layout.landmark.x,y:layout.landmark.y-190,width:520,height:190}
   };
 }
 
@@ -80,7 +71,7 @@ function baseRoom(mission, place, index, familyId, x, y) {
   const w = place.roomWidth;
   const anchorX = x + 310;
   return {
-    id: `${mission.id}/room-${index}`, familyId, originX: x, groundY: y, width: w,
+    id: `${mission.id}/room-${index}`, familyId, originX: x, groundY: y, width: w, activityWidth: w,
     spawn: { x: x + 100, y }, exit: { x: x + w - 95, y },
     solids: [floor(`floor-${index}`, x, w, y)], platforms: [], hazards: [], repairPlatforms: [],
     // Choice indices carry no answer information. A controller positions the
@@ -191,8 +182,11 @@ export function getCampaignLayout(missionId, { beatCount = 1, beatFamilies = [] 
     if (!kits[familyId]) throw new Error(`No physical action kit for ${familyId}`);
     const room = baseRoom(mission, place, index, familyId, x, y);
     kits[familyId](room, place);
+    // Interleave substantial routes with the learning areas, varying the
+    // physical task across missions without changing curricular demand.
+    if (index % 3 === 0 && familyId !== "tree-rescue") addCampaignTraversal(room, Number(mission.id.split("-").at(-1)) + index / 3);
     rooms.push(room);
-    x += place.roomWidth;
+    x += room.width;
     y = room.exit.y;
   }
   const platforms = rooms.flatMap(room => room.platforms);
@@ -220,7 +214,7 @@ export function getCampaignChoiceAnchors(room, count) {
   if (!room || !Number.isInteger(count) || count < 1) return [];
   const columns = Math.min(5, count);
   const spacing = room.familyId === 'rescue-bridge' ? 120 : 150;
-  const first = room.familyId === 'tree-rescue' ? room.originX + 770 : room.familyId === 'rescue-bridge' ? room.originX + 120 : room.originX + (room.width - (columns - 1) * spacing) / 2;
+  const first = room.familyId === 'tree-rescue' ? room.originX + 770 : room.familyId === 'rescue-bridge' ? room.originX + 120 : room.originX + ((room.activityWidth || room.width) - (columns - 1) * spacing) / 2;
   const groundY = room.familyId === 'tree-rescue' ? room.exit.y : room.groundY;
   return Array.from({ length: count }, (_, index) => ({
     x: first + index % columns * spacing,
