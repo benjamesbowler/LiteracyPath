@@ -225,7 +225,9 @@
     "check:teacher-gate-live": "node tools/db/checkTeacherGateDrift.mjs",
     "check:teacher-email-confirmation": "node tools/db/verifyTeacherEmailConfirmation.mjs",
     "check:gate-migration-resilience": "node tools/db/verifyGateMigrationOnPartialDatabase.mjs",
-    "sync": "bash tools/sync.sh"
+    "sync": "bash tools/sync.sh",
+    "check:agent-instructions": "node tools/checkAgentInstructions.mjs",
+    "verify:task": "node tools/agentVerification.mjs"
   },
   "dependencies": {
     "@fontsource/andika": "^5.3.0",

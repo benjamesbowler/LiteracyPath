@@ -1,0 +1,42 @@
+name: Agent instruction contracts
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - AGENTS.md
+      - .agents/**
+      - docs/**
+      - tools/**
+      - tests/**
+      - src/data/boundaries/client.js
+      - src/policy/studentDeviceMatrix.js
+      - package.json
+      - .github/workflows/**
+  pull_request:
+    paths:
+      - AGENTS.md
+      - .agents/**
+      - docs/**
+      - tools/**
+      - tests/**
+      - src/data/boundaries/client.js
+      - src/policy/studentDeviceMatrix.js
+      - package.json
+      - .github/workflows/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  instructions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: 22
+      # Both tools use Node built-ins; no install, secrets or database required.
+      - run: npm run verify:task -- instructions

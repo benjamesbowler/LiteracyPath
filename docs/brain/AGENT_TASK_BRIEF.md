@@ -1,35 +1,15 @@
-# Agent task brief
+# Task brief
 
-Copy this brief for a delegated lane or any task that crosses more than one
-project surface. Keep it short and link to the authoritative source instead of
-including a transcript.
+Use the parts needed for this task. Link sources instead of pasting policies.
 
-## Scope
+```text
+Outcome: <the finished behavior or artifact>
+Scope: <affected surface/files and any meaningful exclusions>
+Accept when: <observable criteria, including the requested environment>
+Context: <only necessary source links, inputs and known constraints>
+Verify: <relevant gate profiles plus direct checks the outcome needs>
+```
 
-- **Outcome:**
-- **Lane:** research/planning | implementation | verification/release
-- **Owner:**
-- **Files or surfaces in scope:**
-- **Explicit non-goals:**
-
-## Evidence
-
-- **Current authoritative sources:**
-- **Acceptance criteria:**
-- **Focused checks to run:**
-- **Privacy, child-safety, or hosted-state risks:**
-
-## Handoff
-
-- **Changed files:**
-- **Checks and results:**
-- **Remaining blockers (unmet acceptance criteria; task is not complete):**
-- **Items explicitly deferred by the user:**
-- **Parent decision required:** yes | no
-
-## Rules
-
-The lane may not broaden scope, modify unrelated files, change production or
-Supabase authority, install an unreviewed remote service, or merge its own work.
-It may not turn an unmet acceptance criterion into optional follow-up or present
-an intermediate artifact as the finished requested product.
+For a delegated task, add ownership, permitted side effects and a handoff
+containing changed files, actual checks/results and unresolved criteria. The
+parent owns integration and release. A brief cannot grant new permissions.

@@ -37,6 +37,16 @@ the retired feature tables, excludes retired progress from child hydration, and
 rejects new Reading Passport or Story Crew progress writes. This source migration
 is a pending hosted operation until the linked project is explicitly rechecked.
 
+## Selective agent guidance — 12 September 2026
+
+Repository instructions now use a compact root contract and six domain skills.
+The 14 imported style/prompt presets, their generated Stitch design example and
+unused installer lockfile were removed after reference checks; their provenance
+remains in Git. Task briefs are outcome/acceptance templates, and the mandatory
+three-lane process is superseded. Product standards and runtime behavior remain
+unchanged. [Agent workflow](engineering/AGENT_WORKFLOW.md) and
+[task gates](verification/TASK_GATES.md) are the current operating references.
+
 ## Current authoritative sources
 
 ### Skills assessment

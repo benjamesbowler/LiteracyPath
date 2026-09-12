@@ -1,0 +1,136 @@
+[
+  {
+    "id": "question-unit",
+    "prompt": "Review this item: 'Which is the last sound in bell?' Choices: l, ll, b. Give the correction and verification approach. Read-only.",
+    "expectedSkills": [
+      "literacy-qa"
+    ],
+    "acceptance": [
+      "Distinguishes final phoneme from final letters and rejects overlapping correct l/ll choices.",
+      "Uses the current question contract without inventing a threshold."
+    ]
+  },
+  {
+    "id": "initial-sound",
+    "prompt": "A Cycle Practice round teaches initial /m/ using ham as the example. Review the example and identify the scope of the correction. Read-only.",
+    "expectedSkills": [
+      "literacy-qa"
+    ],
+    "acceptance": [
+      "Identifies ham as unsuitable for initial /m/ and chooses an obvious taught initial-m word.",
+      "Checks the shared generator or sibling targets rather than changing unrelated curriculum."
+    ]
+  },
+  {
+    "id": "missing-image",
+    "prompt": "An assessment choice image returns 404. The child can still tap text and receive a score. Review the correct behavior and relevant verification. Read-only.",
+    "expectedSkills": [
+      "literacy-qa",
+      "media-production"
+    ],
+    "acceptance": [
+      "Invalidates/replaces the unsafe item without scoring or progress, excludes shared failed media.",
+      "Requires actual image-failure behavior as well as semantic review."
+    ]
+  },
+  {
+    "id": "silent-audio",
+    "prompt": "A narration MP3 returns HTTP 200 and reports a normal duration, but is silent after the first instant. Review what evidence would verify a correction. Read-only.",
+    "expectedSkills": [
+      "media-production"
+    ],
+    "acceptance": [
+      "Checks the spoken signal across the clip, not only a peak, duration or successful play promise.",
+      "Requires listening and verifies runtime/cache mapping without generating unrelated images."
+    ]
+  },
+  {
+    "id": "rig-delivery",
+    "prompt": "The request is a Moho-ready Meadow Pals rig. We have four opaque character sheets and a manifest. Assess whether the delivery is ready and what is missing. Read-only.",
+    "expectedSkills": [
+      "animation-production"
+    ],
+    "acceptance": [
+      "Does not call the opaque sheets a ready rig.",
+      "Requires semantic parts/alpha/registration and actual target-tool import/deformation plus visual anatomy checks."
+    ]
+  },
+  {
+    "id": "db-review",
+    "prompt": "Audit student-login RPC ownership and missing-token handling from local code. Do not apply a migration or seed any database.",
+    "expectedSkills": [
+      "supabase-changes"
+    ],
+    "acceptance": [
+      "Traces caller and SQL signature and uses local source/behavioral evidence.",
+      "Avoids mutating check:db-policies and does not claim hosted verification."
+    ]
+  },
+  {
+    "id": "mobile-spacing",
+    "prompt": "Review how to fix bottom spacing under Arcade's play buttons at tablet sizes. Preserve the existing artwork and interaction. Read-only.",
+    "expectedSkills": [
+      "ui-verification"
+    ],
+    "acceptance": [
+      "Uses current viewport/control policies and rendered interaction evidence.",
+      "Does not mandate new image generation, fonts, page redesign or a model-specific planning ceremony."
+    ]
+  },
+  {
+    "id": "git-publication",
+    "prompt": "A scoped documentation fix is verified and ready. The checkout also contains unrelated audio edits. Explain and inspect the safe publication path; this evaluation itself is read-only.",
+    "expectedSkills": [
+      "release-verification"
+    ],
+    "acceptance": [
+      "Uses named staging/isolated integration, fresh remote state and scoped Git authorization.",
+      "Does not infer permission for manual deployment or hosted changes."
+    ]
+  },
+  {
+    "id": "readme-only",
+    "prompt": "Review a spelling typo in a README sentence about Supabase. Only the prose changes; do not push. Identify the necessary workflow.",
+    "expectedSkills": [],
+    "acceptance": [
+      "Does not route to database work from a mere keyword.",
+      "Honors the no-push instruction and avoids unrelated product gates."
+    ]
+  },
+  {
+    "id": "css-transition",
+    "prompt": "Review an ordinary CSS hover-transition timing adjustment on a teacher button. No character or media asset changes. Read-only.",
+    "expectedSkills": [
+      "ui-verification"
+    ],
+    "acceptance": [
+      "Does not load character-animation production for CSS motion.",
+      "Uses teacher UI and accessibility behavior as relevant."
+    ]
+  },
+  {
+    "id": "mixed-question-media",
+    "prompt": "Review a first-sound question whose visible picture and spoken target disagree, while its tablet answer cards are clipped. Identify the smallest complete repair and evidence plan. Read-only.",
+    "expectedSkills": [
+      "literacy-qa",
+      "media-production",
+      "ui-verification"
+    ],
+    "acceptance": [
+      "Combines construct, exact image/audio and layout checks without replacing the entire activity.",
+      "Separates semantic/listening evidence from automated and emulated evidence."
+    ]
+  },
+  {
+    "id": "beta-review",
+    "prompt": "Review whether a beta narration release is blocked solely because its human-review metadata is empty. No defect has been reported. Do not publish anything.",
+    "expectedSkills": [
+      "media-production",
+      "release-verification"
+    ],
+    "acceptance": [
+      "Applies current pass-by-exception policy without inventing a named approval queue.",
+      "Does not label unobserved listening as completed or remove quarantines."
+    ]
+  }
+]
