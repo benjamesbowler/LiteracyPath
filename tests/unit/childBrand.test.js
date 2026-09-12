@@ -163,13 +163,12 @@ test("the child home keeps all seven destinations behind one policy-selected act
     /const height = Number\(job\.height \|\| args\.height \|\| width \|\| 0\);[\s\S]*?pipe\.resize\(width, height, \{ fit: "cover" \}\)/,
     "the shared image generator must honour the card job's explicit aspect ratio"
   );
-  // The spec's Home geometry: a 232px hero over the daily stops over the
-  // doorways, which take whatever height is left. The hero owning a fixed
-  // 232px is what keeps it the loudest thing on the screen at every state.
+  // Let the hero reserve its full content and padding before the daily stops
+  // and doorways take the remaining height.
   assert.match(
     homeStyles,
-    /\.kg-stage \.kg-home\s*\{[\s\S]*?grid-template-rows:\s*232px auto minmax\(0, 1fr\);/,
-    "the hero must keep its fixed 232px row above the stops and the doorways"
+    /\.kg-stage \.kg-home\s*\{[\s\S]*?grid-template-rows:\s*max-content auto minmax\(0, 1fr\);/,
+    "the hero must fit its controls and padding above the stops and doorways"
   );
   // Six equal doorways by default; the count follows what is actually rendered
   // so a reduced-choice child gets fewer, bigger doors instead of empty tracks.

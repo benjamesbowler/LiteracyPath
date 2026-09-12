@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { createRoot } from "react-dom/client";
+import "./styles/fonts.js";
 import "./index.css";
 import "./App.css";
+import "./styles/parent-auth.css";
 import { ParentAreaPage } from "./components/family/ParentAreaPage.jsx";
 import { FamilyReportDialog } from "./components/family/FamilyReportDialog.jsx";
 import { FAMILY_COPY } from "./copy/familyCopy.js";

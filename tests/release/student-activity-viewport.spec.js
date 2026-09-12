@@ -5,6 +5,41 @@ import { CHILD_SURFACE_ROUTES } from "../../src/policy/childSurfaceRules.js";
 
 const IPAD_LANDSCAPE = { width: 1024, height: 768 };
 
+test("narrow game controls keep full labels and separate movement from steering", async ({ page }) => {
+  for (const width of [390, 320]) {
+    for (const game of ["star-gallery", "grammar-grind"]) {
+      await page.setViewportSize({ width, height: 844 });
+      await page.emulateMedia({ reducedMotion: "reduce" });
+      await page.goto(`/preview/game-overlay.html?game=${game}`);
+      const forward = page.getByRole("button", { name: "Move forward", exact: true });
+      await expect(forward).toBeVisible();
+      await page.evaluate(() => document.fonts.ready);
+      const layout = await page.evaluate(() => {
+        const controls = [...document.querySelectorAll(
+          '.sg-game-hud [data-role="move-controls"] button, .sg-game-hud [data-role="steer-controls"] button, .gg-game-hud [data-gg-controls] button'
+        )].filter(button => button.getClientRects().length > 0);
+        const bounds = controls.map(button => button.getBoundingClientRect());
+        const overlap = (a, b) => Math.min(a.right, b.right) > Math.max(a.left, b.left)
+          && Math.min(a.bottom, b.bottom) > Math.max(a.top, b.top);
+        const collisions = bounds.flatMap((a, index) => bounds.slice(index + 1).filter(b => overlap(a, b)));
+        const button = controls.find(control => control.getAttribute("aria-label") === "Move forward");
+        const frame = button.getBoundingClientRect();
+        const label = [...button.childNodes].find(node => node.nodeType === Node.TEXT_NODE && node.textContent.includes("FORWARD"));
+        const range = document.createRange();
+        range.selectNodeContents(label);
+        const text = range.getBoundingClientRect();
+        const status = document.querySelector('.sg-game-hud [data-role="status"]');
+        return {
+          labelFits: text.left >= frame.left + 3 && text.right <= frame.right - 3,
+          collisions: collisions.length,
+          statusOverlaps: status ? bounds.some(rect => overlap(rect, status.getBoundingClientRect())) : false
+        };
+      });
+      expect(layout, `${game} at ${width}px`).toEqual({ labelFits: true, collisions: 0, statusOverlaps: false });
+    }
+  }
+});
+
 const QUEST_STATIONS = [
   ["cycle-1", "letters"],
   ["cycle-1", "sounds"],
@@ -158,11 +193,13 @@ test("every logged-in child destination fits an iPad without hidden controls", a
     await page.goto(`/preview/child-surfaces.html?surface=${route.id}`, {
       waitUntil: "domcontentloaded"
     });
-    const surface = page.locator(`[data-child-surface="${route.id}"]`);
+    const surface = page.locator(route.id === "sound-seekers"
+      ? "[data-sound-seekers-route-portal]"
+      : `[data-child-surface="${route.id}"]`);
     await expect(surface).toBeVisible();
     const contentRow = page.locator(".kg-main");
     await boundedGeometry(
-      await contentRow.count() ? contentRow.first() : surface,
+      route.id !== "sound-seekers" && await contentRow.count() ? contentRow.first() : surface,
       `${route.id} destination`
     );
   }

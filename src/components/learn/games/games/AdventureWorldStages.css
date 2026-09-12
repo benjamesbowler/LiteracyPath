@@ -30,7 +30,7 @@
 .aw-river i:nth-child(3) { top:80%; }
 .aw-built-plank { position:absolute; bottom:24%; height:25px; border:2px dashed #cbd3b2; border-radius:3px; text-align:center; color:transparent; z-index:4; }
 .aw-built-plank.is-built { background:repeating-linear-gradient(90deg,#d0a369 0 25px,#74563b 25px 28px); border:2px solid #71523c; color:#3b2c25; box-shadow:0 8px 0 #4f4234; font-size:14px; }
-.aw-controls { position:relative; z-index:20; display:flex; gap:10px; align-items:center; padding:4px 10px; background:#edf0dbe8; border-top:1px solid #69856a44; }
+.aw-controls { position:relative; z-index:20; display:flex; gap:10px; align-items:center; padding:8px 10px; background:#edf0dbe8; border-top:1px solid #69856a44; }
 .aw-controls>div { display:flex; gap:8px; }
 .aw-controls button { min-height:56px; min-width:56px; padding:7px 12px; border:2px solid #4f755d; border-radius:15px; background:linear-gradient(#e9eab8,#c4d492); font-size:18px; color:#294b3b; box-shadow:0 3px 0 #698354; }
 .aw-controls p { flex:1; margin:0; font-size:clamp(12px,1.6vw,17px); line-height:1.2; }
@@ -64,7 +64,7 @@
 .aw-output span { padding:2px 7px; background:#d7c591; border:1px solid #837448; border-radius:4px; font-size:12px; color:#344737; }
 @keyframes aw-walk { from { transform:translateY(0) rotate(-3deg) scaleX(var(--aw-facing,1)); } to { transform:translateY(-5px) rotate(3deg) scaleX(var(--aw-facing,1)); } }
 @keyframes aw-grow { from { transform:translateX(-50%) scale(.22); } to { transform:translateX(-50%) scale(1); } }
-@media(max-width:520px) { .aw-objective { gap:6px; padding:4px 7px; } .aw-controls { gap:5px; padding:4px 6px; } .aw-controls>div { gap:4px; } .aw-controls button { padding:6px; font-size:14px; } .aw-controls p { font-size:11px; } .aw-garden-bed { width:190px; } .aw-plant { width:105px; height:150px; } .aw-parcel { min-width:92px; } }
+@media(max-width:520px) { .aw-objective { gap:6px; padding:4px 7px; } .aw-controls { gap:5px; padding:8px 6px; } .aw-controls>div { gap:4px; } .aw-controls button { padding:6px; font-size:14px; } .aw-controls p { font-size:11px; } .aw-garden-bed { width:190px; } .aw-plant { width:105px; height:150px; } .aw-parcel { min-width:92px; } }
 @media(max-height:450px) { .aw-stage { grid-template-rows:60px minmax(0,1fr) 60px; } .aw-character { width:50px; height:60px; } .aw-pickup { bottom:35%; height:56px; } .aw-pickup.is-seed { height:64px; } .aw-station { bottom:32%; min-height:56px; } .aw-garden-bed { bottom:6%; height:80%; } .aw-plant { height:90px; width:80px; } .aw-objective>strong { font-size:16px; } .aw-chute { min-height:56px; top:60%; } .aw-parcel { height:56px; } .aw-output { display:none; } }
 @media(prefers-reduced-motion:reduce) { .aw-character.is-moving>img,.aw-plant.is-grown { animation:none; } }
 

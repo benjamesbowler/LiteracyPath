@@ -21,9 +21,9 @@
 
 /* ── The screen grid ──────────────────────────────────────────────────────────
  * .kg-screen--home already carries the spec's 16px 24px padding. Rows are
- * 232px (hero) / auto (today's stops) / the rest (doorways), gap 13.
+ * content-sized hero / today's stops / the rest (doorways), gap 13.
  *
- * ROWS ARE FIXED, COLUMNS ARE NOT. The canvas is 834 design px tall on every
+ * The canvas is 834 design px tall on every
  * device (src/utils/kidsStage.js) and as wide as the viewport affords, so this
  * screen's vertical budget is a constant it must live inside — that is the
  * whole reason "no scrolling" is checkable here — while every horizontal track
@@ -33,7 +33,45 @@
 .kg-stage .kg-home {
   display: grid;
   gap: var(--kg-space-13);
-  grid-template-rows: 232px auto minmax(0, 1fr);
+  grid-template-rows: max-content auto minmax(0, 1fr);
+}
+
+/* The optional mission needs its own track. On wide screens it shares the
+   middle row with today's stops, leaving the doorway artwork room to breathe. */
+.kg-stage .kg-home:has(> .transfer-card) {
+  grid-template-rows: max-content auto auto minmax(0, 1fr);
+}
+
+@media (min-width: 901px) {
+  .kg-stage .kg-home:has(> .transfer-card) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: max-content auto minmax(0, 1fr);
+  }
+
+  .kg-stage .kg-home:has(> .transfer-card) > .kg-home-hero,
+  .kg-stage .kg-home:has(> .transfer-card) > .kg-home-explore {
+    grid-column: 1 / -1;
+  }
+
+  .kg-stage .kg-home:has(> .transfer-card) > .kg-home-stops {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .kg-stage .kg-home:has(> .transfer-card) .kg-home-stops-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .kg-stage .kg-home > .transfer-card {
+    gap: 12px;
+    padding: 14px 18px;
+  }
+
+  .kg-stage .kg-home > .transfer-card p {
+    margin-block: 6px;
+  }
 }
 
 /* Home music is a quiet header utility, not a second call to action. It uses
@@ -129,7 +167,7 @@
 .kg-stage .kg-home-hero-body {
   position: relative;
   z-index: 3;
-  height: 100%;
+  min-height: 100%;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 250px;
   align-items: center;

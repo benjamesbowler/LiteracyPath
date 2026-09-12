@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 
+import "./styles/fonts.js";
 import "./index.css";
 import "./App.css";
 import "./styles/ui-quality-pass.css";

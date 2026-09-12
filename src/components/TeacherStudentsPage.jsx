@@ -1106,7 +1106,8 @@ export function TeacherStudentsPage({
   ].join(" ");
   const rosterGridStyle = {
     "--teacher-roster-grid-template": rosterGridTemplate,
-    "--teacher-roster-grid-min-width": `${640 + visibleRosterColumns.length * 150}px`
+    // Include the six column minima, gaps, row padding and selection border.
+    "--teacher-roster-grid-min-width": `${680 + visibleRosterColumns.length * 150}px`
   };
 
   // The roster summary is not a complete inventory of every record linked to a
@@ -2236,9 +2237,10 @@ export function TeacherStudentsPage({
           <TeacherDataTable
             className="dashboard-table teacher-roster-table teacher-roster-grid"
             label={`${selectedClass.name} students`}
+            style={rosterGridStyle}
           >
               <thead role="rowgroup">
-                <tr role="row" style={rosterGridStyle}>
+                <tr role="row">
                   <th scope="col" role="columnheader" aria-label="Student">
                     <span className="teacher-roster-head-student">
                       <input
@@ -2276,7 +2278,6 @@ export function TeacherStudentsPage({
                   <Fragment key={row.id}>
                   <tr
                     role="row"
-                    style={rosterGridStyle}
                     className={`${loginReady ? "login-ready" : "login-missing"}${resultsAvailable ? "" : " results-incomplete"}${selected ? " is-selected" : ""}`}
                     data-results-status={resultsAvailable ? "complete" : "incomplete"}
                     data-selected={selected ? "true" : undefined}

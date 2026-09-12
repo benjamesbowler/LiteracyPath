@@ -1302,7 +1302,7 @@
   display: flex;
   min-width: 0;
   min-height: var(--kg-physical-hit);
-  padding-block: 0;
+  padding-block: 8px;
 }
 
 .kg-stage .student-surface-arcade .lg-arcade-highscores,

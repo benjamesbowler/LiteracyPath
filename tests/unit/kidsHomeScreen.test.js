@@ -173,8 +173,8 @@ test("reduced-choice mode and the grown-ups menu both survive the re-layout", ()
   assert.match(code, /aria-label=\{logoutAriaLabel\}/);
 });
 
-test("the home layout keeps the spec's vertical geometry and assumes no fixed width", () => {
-  assert.match(css, /grid-template-rows:\s*232px auto minmax\(0, 1fr\);/);
+test("the home reserves the hero's full content height and assumes no fixed width", () => {
+  assert.match(css, /grid-template-rows:\s*max-content auto minmax\(0, 1fr\);/);
   assert.match(css, /gap:\s*var\(--kg-space-13\);/);
   assert.match(css, /border-radius:\s*var\(--kg-radius-hero\);/);
   assert.match(css, /grid-template-columns:\s*minmax\(0, 1fr\) 250px;/);

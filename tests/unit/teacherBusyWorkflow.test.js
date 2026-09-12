@@ -73,7 +73,7 @@ test("Students defaults to a scannable roster and opens one layer at a time", as
   assert.match(students, /const ROSTER_PAGE_SIZE = 10;/);
   assert.match(
     students,
-    /"--teacher-roster-grid-min-width": `\$\{640 \+ visibleRosterColumns\.length \* 150\}px`/
+    /"--teacher-roster-grid-min-width": `\$\{680 \+ visibleRosterColumns\.length \* 150\}px`/
   );
   assert.match(students, /className="teacher-roster-pagination"/);
   assert.match(students, /teacher-students-secondary teacher-students-overview/);

@@ -326,7 +326,7 @@ function Surface() {
 export function ChildSurfacesPreview() {
   return (
     <div
-      className="app student-mode-app no-sidebar lp-skin-sage"
+      className={`app student-mode-app no-sidebar lp-skin-sage${SURFACE_ID === "student-login" ? " student-login-app-shell" : ""}`}
       data-preview-surface={SURFACE_ID}
     >
       <Surface />

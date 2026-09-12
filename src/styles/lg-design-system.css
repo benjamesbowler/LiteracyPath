@@ -160,6 +160,16 @@ body {
   width: 0;
 }
 
+.lg-sidebar.collapsed .lg-sb-top {
+  justify-content: center;
+  gap: 0;
+  padding-inline: 4px;
+}
+
+.lg-sidebar.collapsed .lg-sb-logo-mark {
+  display: none;
+}
+
 /* Reporting and dashboard fixes */
 .lg-app-shell .teacher-dashboard-page .teacher-dashboard-controls {
   display: grid;
@@ -433,7 +443,9 @@ body {
 }
 
 .lg-sb-item-label {
+  min-width: 0;
   overflow: hidden;
+  text-overflow: ellipsis;
   opacity: 1;
   transition: opacity 0.15s ease;
   font-size: 13px;

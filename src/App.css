@@ -17482,6 +17482,11 @@ select:focus {
     flex-direction: column;
   }
 
+  .admin-header > .admin-page-heading {
+    flex-basis: auto;
+    width: 100%;
+  }
+
   .admin-controls {
     display: grid;
     grid-template-columns: 1fr;

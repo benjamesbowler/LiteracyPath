@@ -60,6 +60,7 @@
 
 .pa-topbar-inner {
   min-height: 72px;
+  padding-block: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -167,6 +168,7 @@
 .pa-child-select select,
 .pa-language-select select {
   min-height: 42px;
+  margin: 0;
   appearance: none;
   border: 0;
   outline: 0;

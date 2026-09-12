@@ -27,6 +27,40 @@ const INTERACTIVE_SELECTOR = [
   '[tabindex]:not([tabindex="-1"])'
 ].join(",");
 
+test("Home keeps a balanced inset around its banner actions at every layout size", async ({ page }) => {
+  for (const [width, height] of [[1366, 768], [1024, 768], [834, 1194], [390, 844], [320, 568], [568, 320]]) {
+    await page.setViewportSize({ width, height });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto("/preview/child-surfaces.html?surface=student-home");
+    await page.evaluate(() => document.fonts.ready);
+    const inset = await page.locator(".kg-home-hero").evaluate(hero => {
+      const frame = hero.getBoundingClientRect();
+      const copy = hero.querySelector(".kg-home-hero-copy").getBoundingClientRect();
+      const actions = hero.querySelector(".kg-home-hero-actions").getBoundingClientRect();
+      return { top: copy.top - frame.top, bottom: frame.bottom - actions.bottom };
+    });
+    expect(inset.bottom, `${width}x${height}: banner actions have bottom padding`).toBeGreaterThanOrEqual(8);
+    expect(Math.abs(inset.top - inset.bottom), `${width}x${height}: balanced banner padding`).toBeLessThan(1);
+  }
+});
+
+test("the optional Home mission leaves the progress row and doorways separate", async ({ page }) => {
+  for (const [width, height] of [[1366, 768], [1024, 768], [834, 1194]]) {
+    await page.setViewportSize({ width, height });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto("/preview/student-home-preview.html?scenario=transfer");
+    await expect(page.locator(".transfer-card")).toBeVisible();
+    await page.evaluate(() => document.fonts.ready);
+    const panels = await page.locator(".kg-home").evaluate(home => {
+      const bounds = selector => home.querySelector(selector).getBoundingClientRect().toJSON();
+      return { hero: bounds(".kg-home-hero"), mission: bounds(".transfer-card"), stops: bounds(".kg-home-stops"), explore: bounds(".kg-home-explore") };
+    });
+    expect(panels.mission.top - panels.hero.bottom).toBeGreaterThanOrEqual(6);
+    expect(panels.explore.top - Math.max(panels.mission.bottom, panels.stops.bottom)).toBeGreaterThanOrEqual(6);
+    expect(panels.explore.height).toBeGreaterThan(56);
+  }
+});
+
 async function auditRenderedViewport(page, {
   allowDocumentScroll = false,
   allowedVerticalScroll = [],
@@ -149,7 +183,10 @@ test("every child destination is visible or reachable in a compact MacBook brows
 
   for (const route of CHILD_SURFACE_ROUTES) {
     await page.goto(`/preview/child-surfaces.html?surface=${route.id}`, { waitUntil: "networkidle" });
-    await expect(page.locator(`[data-child-surface="${route.id}"]`)).toBeVisible();
+    const surface = page.locator(route.id === "sound-seekers"
+      ? "[data-sound-seekers-route-portal]"
+      : `[data-child-surface="${route.id}"]`);
+    await expect(surface).toBeVisible();
     await auditRenderedViewport(page, {
       allowDocumentScroll: route.id === "student-login",
       state: `child ${route.id}`

@@ -58,6 +58,7 @@ export function TeacherFilterBar({
 export function TeacherDataTable({
   className = "",
   label,
+  style,
   children
 }) {
   return (
@@ -67,7 +68,7 @@ export function TeacherDataTable({
       aria-label={label}
       tabIndex={0}
     >
-      <table className={className}>{children}</table>
+      <table className={className} style={style}>{children}</table>
     </div>
   );
 }

@@ -316,6 +316,10 @@
   content: "→";
 }
 
+.pals-entry .student-entry-card > .pals-cta {
+  margin-top: auto;
+}
+
 .pals-entry .student-entry-card:hover .pals-cta {
   background: var(--lp-color-primary-strong, #084e4a);
 }

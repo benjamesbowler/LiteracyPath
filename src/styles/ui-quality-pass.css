@@ -27,6 +27,77 @@
   max-height: 100%;
 }
 
+/* Teacher discussion is a separate row, just like the child's Buddy Reader
+   offer. Reserving that row prevents it from taking the book's flexible space
+   and disappearing behind an oversized illustration on a tablet. */
+.guided-reading-reader-open .guided-reader-card:has(> .guided-reading-discussion) {
+  grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+}
+
+.guided-reader-card > .guided-reading-discussion {
+  min-height: 58px;
+  max-height: min(36dvh, 320px);
+  margin: 0 0 8px;
+  overflow: auto;
+}
+
+/* Keep complete words and useful padding when the view-control group has
+   four actions. It may wrap; individual controls must not collapse to slivers. */
+.guided-reader-secondary-controls {
+  flex-wrap: wrap;
+}
+
+.guided-page-controls .lp-button {
+  overflow-wrap: normal;
+}
+
+.student-guided-reading-page .guided-reader-shell .guided-page-controls .lp-button {
+  min-height: var(--kg-physical-hit, 56px) !important;
+}
+
+@media (min-width: 701px) {
+  .guided-page-controls .guided-reader-secondary-controls .lp-button {
+    flex: 1 0 auto;
+    padding-inline: 12px;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1200px) {
+  .guided-reader-card .guided-reader-header {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .guided-reader-card .guided-page-controls {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .guided-reader-secondary-controls {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .guided-page-controls > .guided-auto-advance-toggle {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 900px) {
+  .guided-reading-reader-open .guided-page-layout {
+    grid-template-rows: minmax(0, var(--guided-image-track, 45fr)) minmax(0, var(--guided-text-track, 55fr));
+  }
+
+  .guided-reading-reader-open .guided-page-reading {
+    grid-template-rows: minmax(0, 1fr) auto auto auto auto;
+    min-height: 0;
+  }
+
+  .guided-reading-reader-open .guided-page-text-frame {
+    min-height: 0;
+  }
+}
+
 /* Keep the subject of this particular cover inside its landscape crop. */
 .kg-stage img[alt="Nan and Bob get Sick cover"] {
   object-position: 12% center;
@@ -2197,9 +2268,9 @@
   }
 
   .kg-stage .student-surface-arcade .lg-arcade-bottomband {
-    height: var(--kg-physical-hit);
-    min-height: var(--kg-physical-hit) !important;
-    padding: 0 12px !important;
+    height: auto;
+    min-height: calc(var(--kg-physical-hit) + 22px) !important;
+    padding: 8px 12px !important;
     box-sizing: border-box !important;
   }
 
