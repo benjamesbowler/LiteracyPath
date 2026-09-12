@@ -1,16 +1,14 @@
 export const ADVENTURE_MECHANIC_IDS = Object.freeze([
   "letterPair",
-  "soundGate",
+  "soundChoice",
   "sceneHunt",
-  "wordWindow",
-  "soundBoxes",
-  "wordMachine",
-  "poemSpotlight",
-  "letterTrace",
-  "patternSort",
-  "wordChain",
-  "phraseFlow",
-  "heartWord"
+  "wordMemory",
+  "letterGrid",
+  "missingLetter",
+  "rhymePair",
+  "rhymeOdd",
+  "compoundPicture",
+  "pictureSearch"
 ]);
 
 const MULTI_LETTER_GRAPHEMES = Object.freeze([

@@ -2,13 +2,13 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { stationsForCycle, sharesSound, onsetGrapheme } from "../../src/components/elQuest/elQuestEngine.js";
 import {
-  buildWordMachineOutcome,
-  createWordMachineState,
-  machinePiecesForRound,
-  reduceWordMachine
-} from "../../src/components/elQuest/mechanics/wordMechanicState.js";
+  chooseSimpleAnswer,
+  collectTarget,
+  createCollection,
+  createMemory,
+  flipMemoryCard
+} from "../../src/components/elQuest/mechanics/simpleMechanicState.js";
 import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
-import { strokesForChar } from "../../src/data/letterStrokes.js";
 import { CVC_WORDS, RHYMING_PAIRS, SIGHT_WORDS, WORD_FAMILIES, SENTENCE_FIX, SENTENCES } from "../../src/data/learnGamesData.js";
 
 const cycles = elSkillsBlockCycles.filter(c => c.cycleNumber);
@@ -24,71 +24,47 @@ test("every quest round in every cycle is winnable and well-formed", () => {
         assert.ok(rounds.length > 0, `${cycle.id}/${station.id} built no rounds`);
         for (const round of rounds) {
           const where = `${cycle.id}/${station.id}/${round.mechanicId}`;
-          if (round.mechanicId === "soundBoxes" || round.mechanicId === "heartWord") {
-            assert.match(round.word, /^[a-z]{2,6}$/, `${where} bad build word "${round.word}"`);
-            assert.equal(round.graphemes.join(""), round.word, `${where} grapheme boxes do not rebuild the word`);
-            continue;
-          }
-          if (round.mechanicId === "letterTrace") {
-            for (const ch of String(round.letter)) {
-              assert.ok(strokesForChar(ch), `${where} no strokes for "${ch}"`);
+          if (["letterGrid", "sceneHunt", "pictureSearch"].includes(round.mechanicId)) {
+            const items = round.cells || round.objects;
+            assert.ok(items.length >= 3, `${where} needs a searchable set`);
+            assert.ok(items.some(item => !item.matches), `${where} has no distractor`);
+            const targets = items.filter(item => item.matches);
+            assert.ok(targets.length > 0, `${where} has no target to find`);
+            let state = createCollection();
+            let outcome;
+            for (const item of targets) {
+              ({ state, outcome } = collectTarget(state, round, String(item.id ?? item.word)));
             }
+            assert.equal(state.complete, true, `${where} cannot finish its collection`);
+            assert.equal(outcome?.correct, true, `${where} never records the finished collection`);
             continue;
           }
-          if (round.mechanicId === "patternSort") {
-            const fits = (round.items || []).filter(item => item.fits);
-            const decoys = (round.items || []).filter(item => !item.fits);
-            assert.ok(fits.length >= 2 && decoys.length >= 1, `${where} unsortable pattern round`);
-            continue;
-          }
-          if (round.mechanicId === "wordChain") {
-            assert.ok(round.choices.includes(round.answer), `${where} chain answer missing from choices`);
-            continue;
-          }
-          if (round.mechanicId === "phraseFlow") {
-            assert.ok(round.phraseChunks.length >= 2, `${where} has no phrase trail`);
-            continue;
-          }
-          if (round.mechanicId === "poemSpotlight") {
-            const token = round.tokens[round.targetToken.lineIndex]?.[round.targetToken.tokenIndex];
-            assert.equal(token?.normalized, round.answer, `${where} poem target is not in the poem`);
-            continue;
-          }
-          if (round.mechanicId === "coverClue") {
-            assert.ok(round.covers.length >= 2, `${where} needs a book rack`);
-            assert.equal(round.covers.filter(cover => cover.matches).length, 1, `${where} needs one matching cover`);
-            continue;
-          }
-          if (round.mechanicId === "wordMachine") {
-            const pieces = machinePiecesForRound(round);
-            assert.ok(pieces.length > 0, `${where} has no operation pieces`);
-            let state = createWordMachineState(round);
-            const chosen = ["substituteOnset", "removeOnset"].includes(round.operation)
-              ? [pieces.find(piece => piece.projectedWord === round.afterWord)]
-              : round.operation === "joinCompound"
-                ? pieces
-                  .filter(piece => Number.isInteger(piece.semanticIndex))
-                  .sort((left, right) => left.semanticIndex - right.semanticIndex)
-                : pieces;
-            assert.ok(chosen.every(Boolean), `${where} has no path to ${round.afterWord}`);
-            for (const piece of chosen) {
-              state = reduceWordMachine(state, { type: "SELECT_PIECE", pieceId: piece.id }, round);
+          if (round.mechanicId === "wordMemory") {
+            assert.ok(round.cards.length >= 4, `${where} needs at least two pairs`);
+            const pairs = new Map();
+            for (const card of round.cards) {
+              pairs.set(card.word, [...(pairs.get(card.word) || []), card.id]);
             }
-            state = reduceWordMachine(state, { type: "COMMIT" }, round);
-            assert.equal(buildWordMachineOutcome(round, state)?.correct, true, `${where} cannot make ${round.afterWord}`);
+            let state = createMemory();
+            let outcome;
+            for (const [word, cardIds] of pairs) {
+              assert.equal(cardIds.length, 2, `${where} has an unmatched ${word} card`);
+              for (const id of cardIds) ({ state, outcome } = flipMemoryCard(state, round, id));
+            }
+            assert.equal(state.complete, true, `${where} cannot finish its pairs`);
+            assert.equal(outcome?.correct, true, `${where} never records the completed game`);
             continue;
           }
-          if (round.mechanicId === "sceneHunt") {
-            assert.ok(round.objects.length >= 3, `${where} needs at least three picture objects`);
-            assert.ok(round.objects.some(object => object.matches), `${where} has no object to find`);
-            continue;
-          }
-          // Generic choice rounds: answer present, no duplicate choices,
-          // at least 2 choices so it is a real question.
+          assert.ok(["letterPair", "soundChoice", "missingLetter", "rhymePair", "rhymeOdd", "compoundPicture"].includes(round.mechanicId),
+            `${where} uses an unsupported mechanic`);
           assert.ok(Array.isArray(round.choices) && round.choices.length >= 2, `${where} too few choices`);
-          assert.ok(round.choices.includes(round.answer), `${where} answer "${round.answer}" not in choices ${round.choices}`);
-          assert.equal(new Set(round.choices).size, round.choices.length, `${where} duplicate choices ${round.choices}`);
-          if (round.prompt) assert.ok(!String(round.prompt).includes('""'), `${where} empty word in prompt: ${round.prompt}`);
+          assert.equal(new Set(round.choices).size, round.choices.length, `${where} duplicate choices`);
+          const answer = round.mechanicId === "missingLetter" ? round.missingGrapheme : round.answer;
+          for (const target of Array.isArray(answer) ? answer : [answer]) {
+            assert.ok(round.choices.includes(target), `${where} answer "${target}" is missing from choices`);
+          }
+          assert.equal(chooseSimpleAnswer(round, answer).correct, true, `${where} cannot accept its answer`);
+          if (round.prompt) assert.ok(!String(round.prompt).includes('""'), `${where} empty word in prompt`);
         }
       }
     }
@@ -147,77 +123,34 @@ test("sentence-fix rounds have exactly one marked fix that exists in options", (
   }
 });
 
-// ── Curriculum-order rules locked in as tests ─────────────────────────────
-import { LETTER_EXAMPLES } from "../../src/data/elSkillsBlockCycles.js";
-
-function taughtSinglesThrough(n) {
-  const taught = new Set();
-  for (const c of cycles) {
-    if (c.cycleNumber > n) continue;
-    for (const item of c.focusLetters || []) {
-      const raw = (item.spelling || "").toLowerCase();
-      for (const part of raw.split(/[\s/,+]+/)) {
-        if (/^[a-z]$/.test(part)) taught.add(part);
-      }
-    }
-  }
-  return taught;
-}
-
-test("word build prefers taught-letter words whenever enough exist", () => {
+test("missing-letter rounds rebuild their pictured word with one direct choice", () => {
+  let checked = 0;
   for (const cycle of cycles) {
-    const taught = taughtSinglesThrough(cycle.cycleNumber);
-    const station = stationsForCycle(cycle).find(s => s.id === "build");
-    if (!station?.build) continue;
-    // Recreate the engine's own precondition: were >=2 taught-only,
-    // audio-backed candidates available? Only then is the rule binding
-    // (otherwise the engine's documented fallback keeps the station alive).
-    const focusParts = (cycle.focusLetters || []).flatMap(item =>
-      String(item.spelling || "").toLowerCase().split(/[\s/,+]+/).filter(x => /^[a-z]{1,3}$/.test(x)));
-    const pool = focusParts.flatMap(part => (LETTER_EXAMPLES[part] || []).slice(0, 4))
-      .filter(w => /^[a-z]{2,5}$/.test(w));
-    const taughtOnly = pool.filter(w => [...w].every(l => taught.has(l)));
-    if (taughtOnly.length < 2) continue;
-    for (let i = 0; i < 3; i += 1) {
-      for (const round of station.build(cycle)) {
-        const untaught = [...round.word].filter(l => !taught.has(l));
-        assert.equal(untaught.length, 0,
-          `cycle ${cycle.cycleNumber} builds "${round.word}" using untaught: ${untaught}`);
+    for (const station of stationsForCycle(cycle)) {
+      for (const round of station.build?.(cycle) || []) {
+        if (round.mechanicId !== "missingLetter") continue;
+        const where = `${cycle.id}/${station.id}`;
+        assert.match(round.word, /^[a-z]{3}$/, `${where} must use a CVC word`);
+        assert.ok([0, 2].includes(round.missingIndex), `${where} must practise the start or end sound`);
+        assert.equal(round.graphemes.join(""), round.word);
+        assert.equal(round.missingGrapheme, round.graphemes[round.missingIndex]);
+        assert.equal(chooseSimpleAnswer(round, round.missingGrapheme).correct, true);
+        const wrong = round.choices.find(choice => choice !== round.missingGrapheme);
+        assert.equal(chooseSimpleAnswer(round, wrong).correct, false);
+        checked += 1;
       }
     }
   }
+  assert.ok(checked > 0, "the active curriculum must include CVC completion");
 });
 
-// ── Answer-integrity rules: every round has EXACTLY ONE correct answer ─────
-// (These would fail before the phonics-correctness fixes: onset swaps without
-// an exact target, c/k and w/wh homophones sharing a sound, and Sound Hunt
-// offering non-initial example words like "six"/"teeth".)
-
-test("Word Play onset swaps cue one target and mark one operation piece correct", () => {
+test("Sound Match never marks an equivalent spelling wrong", () => {
   for (const cycle of cycles) {
     for (const station of stationsForCycle(cycle)) {
       if (!station.build) continue;
       for (let pass = 0; pass < 8; pass += 1) {
         for (const round of station.build(cycle)) {
-          if (round.operation !== "substituteOnset") continue;
-          assert.match(round.prompt, new RegExp(`make [“"]?${round.afterWord}[”"]?`, "i"));
-          assert.equal(round.onsetPieces.filter(piece => piece.matches).length, 1);
-          for (const piece of round.onsetPieces) {
-            assert.equal(piece.matches, piece.projectedWord === round.afterWord);
-          }
-        }
-      }
-    }
-  }
-});
-
-test("Sound Gate never marks an equivalent spelling wrong", () => {
-  for (const cycle of cycles) {
-    for (const station of stationsForCycle(cycle)) {
-      if (!station.build) continue;
-      for (let pass = 0; pass < 8; pass += 1) {
-        for (const round of station.build(cycle)) {
-          if (round.type !== "sound" || round.choiceStyle !== "letter") continue;
+          if (round.mechanicId !== "soundChoice") continue;
           const rejectedEquivalents = round.choices.filter(choice => (
             sharesSound(choice, round.targetGrapheme)
             && !round.acceptedAnswers.includes(choice)
@@ -230,13 +163,13 @@ test("Sound Gate never marks an equivalent spelling wrong", () => {
   }
 });
 
-test("Sound Hunt and Sound Sort label every picture by their declared rule", () => {
+test("sound-picture games label every picture by their declared rule", () => {
   for (const cycle of cycles) {
     for (const station of stationsForCycle(cycle)) {
       if (!station.build) continue;
       for (let pass = 0; pass < 8; pass += 1) {
         for (const round of station.build(cycle)) {
-          if (round.type !== "hunt") continue;
+          if (!["sceneHunt", "pictureSearch"].includes(round.mechanicId)) continue;
           const expected = round.objects.filter(object => round.variant === "soundSort"
             ? object.word.endsWith(round.targetGrapheme)
             : sharesSound(onsetGrapheme(object.word), round.targetGrapheme));

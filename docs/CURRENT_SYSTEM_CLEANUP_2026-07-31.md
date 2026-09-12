@@ -239,6 +239,18 @@ controls and Cycle-only Adventure CSS are removed. Shared Adventure code remains
 active for Adventure Map. The current contract is
 [Cycle Practice](product/CYCLE_PRACTICE.md).
 
+## Adventure Map simple games
+
+The [Adventure Map contract](product/ADVENTURE_MAP.md) replaces the retired
+distinct-mechanics plan and spec. Sound-gate, word-window, word-machine,
+multi-step poetry/fluency and tracing renderers and their exclusive state/tests
+and styles are removed after checking references. Shared letter-writing
+utilities remain active for other surfaces. Ten direct matching, phonics,
+rhyming and picture-search games now supply the existing teacher station IDs.
+Silent and superseded Adventure instruction files are removed and replaced by
+audible recordings with new filenames; shared word/phoneme audio is retained.
+All removed tracked files remain recoverable in Git history.
+
 ## Arcade engine restoration
 
 The original Arcade engines are the active runtime. Superseded select/confirm engine modules and their exclusive tests were removed; Git retains recovery history. Shared result-save protection, current classroom code and music preferences are preserved. The Game Design Bible requires gameplay preservation.

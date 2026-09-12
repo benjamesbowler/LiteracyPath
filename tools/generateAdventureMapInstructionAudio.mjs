@@ -19,12 +19,19 @@ const languageCode = "en-US";
 const endpoint = "https://texttospeech.googleapis.com/v1/text:synthesize";
 const projectId = process.env.GOOGLE_CLOUD_PROJECT || "project-3c66c1c8-cc9e-4d6d-bdf";
 const dryRun = process.argv.includes("--dry-run");
+const checkOnly = process.argv.includes("--check");
+// Match the existing production-audio audibility floor. Successful decoding or
+// a resolved play() promise is insufficient: a silent MP3 passes both checks.
+const peakFloorDb = -40;
+const normalizationVersion = "end-fade-v2";
 const wait = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
 const hash = value => createHash("sha256").update(value).digest("hex").slice(0, 10);
 const slug = value => String(value).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 74);
 
 function outputFor(text) {
-  const fileName = `${slug(text)}-${hash(`${voice}|instruction|${text}`)}.mp3`;
+  // A changed audio process gets a new URL so a cached silent recording cannot
+  // survive the repair on a classroom device.
+  const fileName = `${slug(text)}-${hash(`${voice}|instruction|${normalizationVersion}|${text}`)}.mp3`;
   const publicDir = "/audio/production/en-US/instruction";
   return {
     absoluteDir: path.join(root, "public", publicDir),
@@ -66,21 +73,49 @@ async function synthesize(token, text) {
 function normalizeMp3(wavPath, mp3Path) {
   const result = spawnSync("ffmpeg", [
     "-y", "-hide_banner", "-loglevel", "error", "-i", wavPath,
-    "-af", "highpass=f=60,loudnorm=I=-24:TP=-2:LRA=7,afade=t=in:st=0:d=0.015,afade=t=out:st=0:d=0.025",
+    // Fade the END of the recording. An out-fade at st=0 erased every word
+    // after the first 25ms in the previous instruction files.
+    "-af", "highpass=f=60,loudnorm=I=-24:TP=-2:LRA=7,afade=t=in:st=0:d=0.015,areverse,afade=t=in:st=0:d=0.025,areverse",
     "-ar", "44100", "-ac", "1", "-codec:a", "libmp3lame", "-b:a", "128k", mp3Path
   ], { encoding: "utf8" });
   if (result.status !== 0) throw new Error(result.stderr || "ffmpeg normalization failed");
 }
 
+function inspectAudio(publicPath) {
+  if (!publicPath) return { audible: false, peakDb: Number.NEGATIVE_INFINITY };
+  const decoded = spawnSync("ffmpeg", [
+    "-hide_banner", "-nostats", "-i", path.join(root, "public", publicPath.replace(/^\//, "")),
+    "-af", "volumedetect", "-f", "null", "-"
+  ], { encoding: "utf8" });
+  if (decoded.error?.code === "ENOENT") throw new Error("ffmpeg is required to verify recorded instructions.");
+  const peakMatch = decoded.stderr?.match(/max_volume:\s*(-?(?:\d+(?:\.\d+)?|inf)) dB/i);
+  const peakDb = peakMatch ? Number(peakMatch[1]) : Number.NEGATIVE_INFINITY;
+  return { audible: decoded.status === 0 && Number.isFinite(peakDb) && peakDb > peakFloorDb, peakDb };
+}
+
 const rows = ADVENTURE_MAP_AUDIO_TEXTS.map(text => {
-  const existing = ADVENTURE_MAP_INSTRUCTION_AUDIO[normalizeLedaAudioText(text)] || getLedaInstructionAudioPath(text);
+  const mappedPath = ADVENTURE_MAP_INSTRUCTION_AUDIO[normalizeLedaAudioText(text)] || getLedaInstructionAudioPath(text);
+  const signal = inspectAudio(mappedPath);
+  const existing = signal.audible ? mappedPath : "";
   return {
     text,
     normalized: normalizeLedaAudioText(text),
     output: existing ? { publicPath: existing } : outputFor(text),
-    existing: Boolean(existing)
+    existing: Boolean(existing),
+    mappedPath,
+    signal
   };
 });
+
+if (checkOnly) {
+  const failed = rows.filter(row => !row.existing);
+  if (failed.length) {
+    failed.forEach(row => console.error(`INAUDIBLE ${row.signal.peakDb} dB: ${row.text} -> ${row.mappedPath || "missing recording"}`));
+    process.exit(1);
+  }
+  console.log(`Adventure Map instruction audio: all ${rows.length} recordings decode above ${peakFloorDb} dB peak.`);
+  process.exit(0);
+}
 
 console.log(`Adventure Map instructions: ${rows.length} (${rows.filter(row => !row.existing).length} new)`);
 if (dryRun) {
@@ -91,7 +126,7 @@ if (dryRun) {
 const generatedRows = rows.filter(row => !row.existing);
 const rowsToSynthesize = [];
 for (const row of generatedRows) {
-  if (!(await fs.stat(row.output.absolutePath).catch(() => null))) rowsToSynthesize.push(row);
+  if (!inspectAudio(row.output.publicPath).audible) rowsToSynthesize.push(row);
 }
 const token = rowsToSynthesize.length
   ? execFileSync("gcloud", ["auth", "application-default", "print-access-token"], { encoding: "utf8" }).trim()
@@ -101,9 +136,16 @@ for (let index = 0; index < generatedRows.length; index += 1) {
   await fs.mkdir(row.output.absoluteDir, { recursive: true });
   if (rowsToSynthesize.includes(row)) {
     const wavPath = row.output.absolutePath.replace(/\.mp3$/, ".wav");
-    await fs.writeFile(wavPath, await synthesize(token, row.text));
-    normalizeMp3(wavPath, row.output.absolutePath);
-    await fs.unlink(wavPath);
+    try {
+      await fs.writeFile(wavPath, await synthesize(token, row.text));
+      normalizeMp3(wavPath, row.output.absolutePath);
+      if (!inspectAudio(row.output.publicPath).audible) {
+        await fs.unlink(row.output.absolutePath);
+        throw new Error(`Generated instruction is inaudible: ${row.text}`);
+      }
+    } finally {
+      await fs.unlink(wavPath).catch(() => {});
+    }
     await wait(220);
   }
   console.log(`[${index + 1}/${generatedRows.length}] ${row.output.publicPath}`);

@@ -41,20 +41,19 @@ export function pressLetter(current, round, selected, supportLevel = 0) {
   };
 }
 
-export function createSoundGateState() {
-  return { selected: "", committed: false, gateOpen: false };
+export function createSoundChoiceState() {
+  return { selected: "", committed: false };
 }
 
-export function selectSoundMagnet(current, selected) {
+export function selectSoundChoice(current, selected) {
   return {
     ...current,
     selected: String(selected || ""),
-    committed: false,
-    gateOpen: false
+    committed: false
   };
 }
 
-export function commitSoundGate(current, round, supportLevel = 0) {
+export function commitSoundChoice(current, round, supportLevel = 0) {
   const response = String(current?.selected || "");
   const accepted = Array.isArray(round?.acceptedAnswers)
     ? round.acceptedAnswers.map(String)
@@ -65,13 +64,13 @@ export function commitSoundGate(current, round, supportLevel = 0) {
     ? "the ending sound family you heard"
     : "the sound you heard";
   return {
-    state: { ...current, committed: true, gateOpen: correct },
+    state: { ...current, committed: correct },
     outcome: {
       correct,
       selected: response,
       feedback: correct
-        ? `${response} spells ${contrast}. The sound gate opens.`
-        : `${response} does not spell ${contrast}. Listen again and choose another magnet.`,
+        ? `${response} spells ${contrast}.`
+        : `${response} does not spell ${contrast}. Listen again and choose another letter.`,
       evidence: evidenceFor(
         round,
         round?.targetGrapheme || round?.answer,
@@ -79,74 +78,5 @@ export function commitSoundGate(current, round, supportLevel = 0) {
         supportLevel
       )
     }
-  };
-}
-
-export function createSceneHuntState() {
-  return {
-    selectedItems: [],
-    // Picture names are part of the task cue, not a hidden support toggle.
-    labelsVisible: true,
-    checked: false,
-    complete: false
-  };
-}
-
-export function toggleSceneHuntItem(current, word) {
-  const item = String(word || "");
-  const selectedItems = current.selectedItems.includes(item)
-    ? current.selectedItems.filter(selected => selected !== item)
-    : [...current.selectedItems, item];
-  return { ...current, selectedItems, checked: false, complete: false };
-}
-
-export function showSceneHuntLabels(current) {
-  return { ...current, labelsVisible: true };
-}
-
-export function sceneHuntSupportLevel(baseSupportLevel) {
-  // Names are always available now, so showing them is not an extra support
-  // event that should inflate the evidence level.
-  return normalizedSupportLevel(baseSupportLevel);
-}
-
-function sameItemSet(left, right) {
-  const leftSet = new Set(left);
-  const rightSet = new Set(right);
-  return leftSet.size === rightSet.size
-    && [...leftSet].every(item => rightSet.has(item));
-}
-
-export function commitSceneHunt(current, round, supportLevel = 0) {
-  const selectedItems = [...new Set(current?.selectedItems || [])];
-  const targetItems = (round?.objects || [])
-    .filter(object => object.matches === true)
-    .map(object => String(object.word || ""));
-  const correct = sameItemSet(selectedItems, targetItems);
-  const ending = round?.construct === "ending_grapheme_pattern_discrimination";
-  const relation = ending
-    ? "ends with the target pattern"
-    : "starts with the target sound";
-  const selectedDescription = selectedItems.length
-    ? selectedItems.join(", ")
-    : "no pictures";
-  const effectiveSupport = sceneHuntSupportLevel(supportLevel, current);
-  const outcome = {
-    correct,
-    selected: selectedItems,
-    selectedItems,
-    feedback: correct
-      ? `You tagged every word that ${relation}.`
-      : `You tagged ${selectedDescription}. Listen again and tag every word that ${relation}.`,
-    evidence: evidenceFor(
-      round,
-      round?.targetGrapheme,
-      selectedItems,
-      effectiveSupport
-    )
-  };
-  return {
-    state: { ...current, checked: true, complete: correct },
-    outcome
   };
 }

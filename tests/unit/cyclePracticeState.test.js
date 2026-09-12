@@ -31,6 +31,15 @@ test('support and missing required audio are unscored with original and actual c
   assert.deepEqual(summarizeCycleRecords([supported,failed,good]),{totalQuestions:3,scoredQuestions:1,correctCount:1,supportedCount:1,mediaFailedCount:1,scorePercent:100,status:'incomplete'});
   assert.equal(cycleQuestionRecord(r,{correct:true},{attempts:1}).responseStatus,'supported');
 });
+test('retired audio games retain their stored media evidence requirements', () => {
+  for (const mechanicId of ['soundGate', 'soundBoxes', 'wordMachine', 'wordChain', 'phraseFlow']) {
+    const failed = cycleQuestionRecord({ id: `historical-${mechanicId}`, mechanicId, audioRequired: false },
+      { correct: true }, { mode: 'assessment', audioDelivery: 'unavailable' });
+    assert.equal(failed.responseStatus, 'media_failed', mechanicId);
+    assert.equal(failed.isCorrect, null, mechanicId);
+    assert.equal(failed.audioRequired, true, mechanicId);
+  }
+});
 test('all 27 cycles generate stable resumable plans and changing passes cover fresh pool items', () => {
   let changed=0;
   for(const cycle of elSkillsBlockCycles.filter(c=>c.cycleNumber)) {

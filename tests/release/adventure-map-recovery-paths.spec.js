@@ -1,10 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 const INITIAL_SEED = {
-  phraseFlow: "adventure:cycle-25:speed:initial-v3",
-  heartWord: "adventure:cycle-25:spell:initial-v3",
-  letterPress: "adventure:cycle-1:letters:initial-v3",
-  wordWindow: "adventure:cycle-1:quick:initial-v3"
+  letterPress: "adventure:cycle-1:letters:initial-v3"
 };
 
 async function installAudioRecorder(page) {
@@ -64,111 +61,7 @@ async function openMechanic(page, { cycle, station, mechanic, stage, seed }) {
   return round;
 }
 
-async function playedAudio(page) {
-  return page.evaluate(() => window.__adventurePlayedAudio || []);
-}
-
-async function pausedAudio(page) {
-  return page.evaluate(() => window.__adventurePausedAudio || []);
-}
-
-async function prepareLongAudio(page) {
-  await page.evaluate(() => {
-    window.__adventurePlayedAudio = [];
-    window.__adventurePausedAudio = [];
-    window.__adventureAudioEndMs = 5_000;
-  });
-}
-
-test("Phrase Flow recovers through its visible model when instruction replay interrupts model audio", async ({ page }) => {
-  await installAudioRecorder(page);
-  const round = await openMechanic(page, {
-    cycle: "cycle-25",
-    station: "speed",
-    mechanic: "phraseFlow",
-    stage: "phrase-flow",
-    seed: INITIAL_SEED.phraseFlow
-  });
-  const stage = round.locator('[data-mechanic-stage="phrase-flow"]');
-
-  await expect(round.getByRole("heading", { name: "1 of 2" })).toBeVisible();
-  await stage.getByRole("button", { name: "After “say”", exact: true }).click();
-  const model = stage.locator(".sbq-phrase-model");
-  await expect(model).toBeVisible();
-  await expect(model).toHaveAttribute("data-model-playback", "idle");
-
-  // Let the short mocked entry instruction finish before isolating the model.
-  await page.waitForTimeout(450);
-  await prepareLongAudio(page);
-  await model.getByRole("button", { name: "Play and follow the phrase model" }).click();
-  await expect(model).toHaveAttribute("data-model-playback", "playing");
-  await expect.poll(() => playedAudio(page)).not.toEqual([]);
-  const [modelPath] = await playedAudio(page);
-
-  await round.getByRole("button", { name: "Hear instructions again" }).click();
-  await expect.poll(() => pausedAudio(page)).toContain(modelPath);
-  await expect(model).toHaveAttribute("data-model-playback", "unavailable");
-
-  const visibleFallback = model.getByRole("button", { name: "I followed the visible model" });
-  await expect(visibleFallback).toBeVisible();
-  await expect(visibleFallback).toBeEnabled();
-  await visibleFallback.click();
-
-  const echo = stage.getByRole("button", { name: "I echo-read the phrase" });
-  await expect(echo).toBeVisible();
-  await echo.click();
-  await expect(round.getByRole("heading", { name: "2 of 2" })).toBeVisible();
-});
-
-test("Heart Word keeps the correct prefix, reveals the first difference, and can be repaired with returned tiles", async ({ page }) => {
-  await installAudioRecorder(page);
-  const round = await openMechanic(page, {
-    cycle: "cycle-25",
-    station: "spell",
-    mechanic: "heartWord",
-    stage: "heart-word-studio",
-    seed: INITIAL_SEED.heartWord
-  });
-  const stage = round.locator('[data-mechanic-stage="heart-word-studio"]');
-  const modelUnits = stage.locator('.sbq-heart-model > span');
-
-  await expect(round.getByRole("heading", { name: "1 of 3" })).toBeVisible();
-  await expect(modelUnits).toHaveText(["a", "g", "a", "i", "n"]);
-  await stage.getByRole("button", { name: "Hide the word and spell it" }).click();
-
-  // Use every tile exactly once, but make only the first grapheme correct:
-  // a-a-g-n-i rather than a-g-a-i-n.
-  for (const tileId of [0, 2, 1, 4, 3]) {
-    await stage.locator(`[data-heart-tile-id="${tileId}"]`).click();
-  }
-  const slots = stage.locator('.sbq-heart-slots > span');
-  await expect(slots.locator('span[aria-hidden="true"]')).toHaveText(["a", "a", "g", "n", "i"]);
-  await stage.getByRole("button", { name: "Reveal and check" }).click();
-
-  await expect(stage).toHaveAttribute("data-phase", "repair");
-  await expect(stage.getByText("You chose a. Repair this spot with g.", { exact: true })).toBeVisible();
-  await expect(slots.nth(0).locator('span[aria-hidden="true"]')).toHaveText("a");
-  await expect(slots.nth(1)).toHaveClass(/is-first-difference/);
-  await expect(slots.nth(1).locator('span[aria-hidden="true"]')).toHaveText("g");
-
-  const retainedPrefixTile = stage.locator('[data-heart-tile-id="0"]');
-  const revealedRepairTile = stage.locator('[data-heart-tile-id="1"]');
-  await expect(retainedPrefixTile).toBeDisabled();
-  await expect(revealedRepairTile).toBeEnabled();
-  await expect(stage.locator('[data-heart-tile-id="2"]')).toBeEnabled();
-
-  await revealedRepairTile.click();
-  await expect(stage).toHaveAttribute("data-phase", "spell");
-  for (const tileId of [2, 3, 4]) {
-    await stage.locator(`[data-heart-tile-id="${tileId}"]`).click();
-  }
-  await stage.getByRole("button", { name: "Reveal and check" }).click();
-
-  await expect(round.getByRole("heading", { name: "2 of 3" })).toBeVisible();
-  await expect(stage.locator('.sbq-heart-model > span')).toHaveText(["d", "a", "y"]);
-});
-
-test("three wrong Letter Press commits show escalating feedback before a correct retry advances", async ({ page }) => {
+test("wrong letter answers keep the goal visible before a third-miss model and correct retry", async ({ page }) => {
   await installAudioRecorder(page);
   const round = await openMechanic(page, {
     cycle: "cycle-1",
@@ -182,20 +75,14 @@ test("three wrong Letter Press commits show escalating feedback before a correct
   const feedback = frame.locator(".adventure-round-frame__feedback");
   const wrongChoice = stage.getByRole("button", { name: "m", exact: true });
   const correctChoice = stage.getByRole("button", { name: "a", exact: true });
-  const messages = [];
 
   await expect(round.getByRole("heading", { name: "1 of 4" })).toBeVisible();
   for (let attempt = 1; attempt <= 3; attempt += 1) {
-    const previousMessage = messages.at(-1) || "Your turn.";
     await wrongChoice.click();
     await expect(frame).toHaveAttribute("data-feedback-tone", "retry");
     await expect(round.getByRole("heading", { name: "1 of 4" })).toBeVisible();
-    await expect.poll(async () => (await feedback.textContent())?.trim()).not.toBe(previousMessage);
-
-    const message = (await feedback.textContent())?.trim();
-    expect(message, `wrong attempt ${attempt} needs visible controller feedback`).toBeTruthy();
-    messages.push(message);
-    expect(new Set(messages).size, `wrong attempt ${attempt} needs new feedback`).toBe(messages.length);
+    await expect(feedback).toContainText("Find");
+    if (attempt < 3) await expect(frame.locator('[data-correction-model="true"]')).toHaveCount(0);
 
     // The controller owns a short retry lock while feedback and coaching play.
     await expect(wrongChoice).toBeEnabled();
@@ -210,65 +97,33 @@ test("three wrong Letter Press commits show escalating feedback before a correct
   await expect(round.getByRole("heading", { name: "2 of 4" })).toBeVisible();
 });
 
-test("a tall phone mechanic brings its shared third-miss correction model fully into view", async ({
-  page
-}, testInfo) => {
-  test.skip(testInfo.project.name !== "mobile", "This gate covers the phone stage scroller.");
+test("a phone brings the third-miss letter model fully into view and supports another answer", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile", "This check covers the phone stage scroller.");
   await page.setViewportSize({ width: 390, height: 844 });
   await page.emulateMedia({ reducedMotion: "reduce" });
+  await installAudioRecorder(page);
   const round = await openMechanic(page, {
-    cycle: "cycle-1",
-    station: "quick",
-    mechanic: "wordWindow",
-    stage: "word-window",
-    seed: INITIAL_SEED.wordWindow
+    cycle: "cycle-1", station: "letters", mechanic: "letterPair",
+    stage: "letter-press", seed: INITIAL_SEED.letterPress
   });
-  const mechanic = round.locator('[data-mechanic-stage="word-window"]');
-  const studyWord = String(await mechanic.locator(".adventure-word-window__study-word").textContent()).trim();
-
-  await mechanic.getByRole("button", { name: "Close study window" }).click();
-  const choices = mechanic.locator("[data-word-choice]");
-  const wrongIndex = await choices.evaluateAll((buttons, target) => (
-    buttons.findIndex(button => button.getAttribute("data-word-choice") !== target)
-  ), studyWord);
-  expect(wrongIndex, "Word Window needs a visible non-target choice").toBeGreaterThanOrEqual(0);
-
+  const stage = round.locator('[data-mechanic-stage="letter-press"]');
+  const wrong = stage.getByRole("button", { name: "m", exact: true });
   for (let attempt = 1; attempt <= 3; attempt += 1) {
-    await choices.nth(wrongIndex).click();
-    await mechanic.getByRole("button", { name: "Reveal and compare" }).click();
-    await expect(mechanic).toHaveAttribute("data-window-phase", "revealed");
-    if (attempt < 3) {
-      await mechanic.getByRole("button", { name: "Try the word again" }).click();
-      await expect(mechanic).toHaveAttribute("data-window-phase", "choose");
-    }
+    await wrong.click();
+    await expect(round.locator(".adventure-round-frame")).toHaveAttribute("data-feedback-tone", "retry");
+    await expect(wrong).toBeEnabled();
   }
-
   const model = round.locator('.adventure-round-frame__correction-model[data-correction-model="true"]');
   await expect(model).toHaveAttribute("data-correction-model-key", "0:3");
   await expect(model).toBeFocused();
-  const geometry = await model.evaluate(element => {
-    const stage = element.closest(".adventure-round-frame__stage");
-    const modelRect = element.getBoundingClientRect();
-    const stageRect = stage?.getBoundingClientRect();
-    if (!stageRect) return null;
-    const intersectionWidth = Math.max(
-      0,
-      Math.min(modelRect.right, stageRect.right) - Math.max(modelRect.left, stageRect.left)
-    );
-    const intersectionHeight = Math.max(
-      0,
-      Math.min(modelRect.bottom, stageRect.bottom) - Math.max(modelRect.top, stageRect.top)
-    );
-    return {
-      intersectionWidth,
-      intersectionHeight,
-      modelWidth: modelRect.width,
-      modelHeight: modelRect.height
-    };
-  });
-  expect(geometry).toBeTruthy();
-  expect(geometry.intersectionWidth).toBeGreaterThanOrEqual(geometry.modelWidth - 1);
-  expect(geometry.intersectionHeight).toBeGreaterThanOrEqual(geometry.modelHeight - 1);
+  expect(await model.evaluate(element => {
+    const stage = element.closest(".adventure-round-frame__stage")?.getBoundingClientRect();
+    const rect = element.getBoundingClientRect();
+    return Boolean(stage && rect.left >= stage.left - 1 && rect.right <= stage.right + 1
+      && rect.top >= stage.top - 1 && rect.bottom <= stage.bottom + 1);
+  })).toBe(true);
+  await stage.getByRole("button", { name: "a", exact: true }).click();
+  await expect(round.getByRole("heading", { name: "2 of 4" })).toBeVisible();
 });
 
 test("corrupt local Adventure progress offers an explicit Adventure-only fresh start", async ({ page }) => {

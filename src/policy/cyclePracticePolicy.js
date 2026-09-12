@@ -7,8 +7,14 @@ export const CYCLE_PRACTICE_MINIMUM_SECONDS = 1800;
 // Product activity policy: credit only foreground intervals bracketed by real
 // learner input; a gap over one minute is idle and earns no active time.
 export const CYCLE_ACTIVITY_GAP_MS = 60_000;
-const AUDIO_REQUIRED = new Set(["soundGate", "sceneHunt", "soundBoxes", "wordMachine", "wordChain", "phraseFlow"]);
-export function requiresCycleAudio(round) { return round?.audioRequired === true || AUDIO_REQUIRED.has(round?.mechanicId); }
+const AUDIO_REQUIRED = new Set(["soundChoice", "sceneHunt", "missingLetter", "rhymePair", "rhymeOdd", "compoundPicture", "pictureSearch"]);
+// Stored question records keep their original evidence meaning after a game
+// is retired. These IDs classify old records only; they do not enable play.
+const HISTORICAL_AUDIO_REQUIRED = new Set(["soundGate", "soundBoxes", "wordMachine", "wordChain", "phraseFlow"]);
+export function requiresCycleAudio(round) {
+  return round?.audioRequired === true || AUDIO_REQUIRED.has(round?.mechanicId)
+    || HISTORICAL_AUDIO_REQUIRED.has(round?.mechanicId);
+}
 
 export function cycleQuestionRecord(round, outcome, { mode, attempts = 0, audioDelivery = "pending", recordedAt = new Date().toISOString() } = {}) {
   const audioRequired = requiresCycleAudio(round);

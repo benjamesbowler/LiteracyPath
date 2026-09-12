@@ -175,12 +175,13 @@ function auditElQuest() {
       for (const [index, round] of rounds.entries()) {
         total += 1;
         const id = `el-${cycle.cycleNumber}-${station.id}-${index + 1}`;
-        const isConstructed = ["build", "trace", "pattern"].includes(round.type);
+        const isConstructed = ["wordMemory", "letterGrid", "rhymePair", "pictureSearch"].includes(round.mechanicId)
+          || (round.mechanicId === "sceneHunt" && round.objects?.filter(object => object.matches).length > 1);
         const item = {
           ...round,
           id,
           choices: elRoundChoices(round),
-          answer: round.answer || (isConstructed ? "" : round.answer)
+          answer: round.mechanicId === "missingLetter" ? round.missingGrapheme : round.answer
         };
         record(surface, id, auditQuestionAgainstPolicy(item, {
           ageBand: cycle.cycleNumber <= 12 ? "A" : "B",
@@ -188,7 +189,10 @@ function auditElQuest() {
           requireSpoken: true,
           hasSurfaceSpeaker: true,
           constructedResponse: isConstructed,
-          skipPromptLimit: round.type === "play"
+          // Oral odd-one-out is the requested construct, with an explicit
+          // rhyming pair and one pictured outlier; it is not a trick stem.
+          allowNegativeStem: round.mechanicId === "rhymeOdd",
+          caseSensitiveOptions: round.mechanicId === "letterPair"
         }), { cycle: cycle.cycleNumber, station: station.id, roundType: round.type });
         if (["letter", "sound", "hunt", "quick", "build", "play", "chain", "speed", "trace"].includes(round.type)
           && !round.audio && !round.speechFallback) {

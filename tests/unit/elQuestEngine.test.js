@@ -104,34 +104,25 @@ test("starsForAccuracy applies the 3/2/1/0 thresholds", () => {
   assert.equal(starsForAccuracy(0, 0, 0), 0);   // no questions
 });
 
-// Regression guard for the unpassable build-round bug: every Word Build word
-// must be a clean 2-5 letter word so the letter boxes always match.
-test("Word Build rounds only use clean 2-5 letter words", () => {
+test("Cycle 1 practises taught letters before CVC words are possible", () => {
   const rounds = buildStationRounds(cycle1, "build");
-  assert.ok(Array.isArray(rounds));
-  for (const round of rounds) {
-    assert.match(round.word, /^[a-z]{2,5}$/, `bad build word: "${round.word}"`);
-  }
+  assert.ok(rounds.length > 0);
+  assert.ok(rounds.every(round => round.mechanicId === "letterGrid"));
+  assert.ok(rounds.every(round => round.cells.every(cell => /^[aAmM]$/u.test(cell.letter))));
 });
 
-test("Letter Trace teaches uppercase and lowercase as separate rounds", () => {
-  const rounds = buildStationRounds(cycle1, "trace");
-
-  assert.deepEqual(
-    rounds.map(round => round.letter),
-    ["A", "a", "M", "m"]
-  );
-  assert.ok(
-    rounds.every(round => round.letter.length === 1),
-    "a child should never have to follow two letter formations on one canvas"
-  );
-
-  const cycle15 = elSkillsBlockCycles.find(cycle => cycle.id === "cycle-15");
-  assert.deepEqual(
-    buildStationRounds(cycle15, "trace").map(round => round.letter),
-    ["sh", "ch", "th"],
-    "a multi-letter grapheme stays together because it represents one sound"
-  );
+test("missing CVC rounds offer the first and last letter without printing the answer", () => {
+  const cycle2 = elSkillsBlockCycles.find(cycle => cycle.cycleNumber === 2);
+  const rounds = buildStationRounds(cycle2, "build");
+  assert.ok(rounds.length > 0);
+  assert.deepEqual(new Set(rounds.map(round => round.missingPosition)), new Set(["start", "end"]));
+  for (const round of rounds) {
+    assert.match(round.word, /^[^aeiou][aeiou][^aeiou]$/u);
+    assert.equal(round.choices.includes(round.missingGrapheme), true);
+    assert.equal(round.graphemes[round.missingIndex], round.missingGrapheme);
+    assert.equal(round.display.includes("_"), true);
+    assert.equal(round.display.replaceAll(" ", "").includes(round.word), false);
+  }
 });
 
 test("every STATION has an id and a title", () => {

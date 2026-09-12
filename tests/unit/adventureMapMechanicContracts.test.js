@@ -1,283 +1,174 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {
-  buildStationRounds,
-  sharesSound,
-  stationsForCycle
-} from "../../src/components/elQuest/elQuestEngine.js";
-import {
-  ADVENTURE_MECHANIC_IDS
-} from "../../src/components/elQuest/adventureRoundModel.js";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { buildStationRounds, sharesSound, stationsForCycle, taughtGraphemesThrough, onsetGrapheme, adventureWordsRhyme, ADVENTURE_WORD_BUILD_INVENTORY } from "../../src/components/elQuest/elQuestEngine.js";
+import { ADVENTURE_MECHANIC_IDS } from "../../src/components/elQuest/adventureRoundModel.js";
 import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
+import { requiresCycleAudio } from "../../src/policy/cyclePracticePolicy.js";
 
-for (const cycle of elSkillsBlockCycles.filter(item => item.cycleNumber)) {
-  test(`cycle ${cycle.cycleNumber} exposes typed, truthful rounds`, () => {
-    for (const station of stationsForCycle(cycle)) {
-      const rounds = buildStationRounds(cycle, station.id);
-      assert.ok(rounds.length > 0, `${station.id} is empty`);
-      for (const round of rounds) {
-        assert.ok(
-          ADVENTURE_MECHANIC_IDS.includes(round.mechanicId),
-          `${station.id} emitted unknown mechanic ${round.mechanicId}`
-        );
-        assert.equal(typeof round.construct, "string");
-        assert.ok(
-          station.mechanicIds.includes(round.mechanicId),
-          `${station.id} emitted undeclared mechanic ${round.mechanicId}`
-        );
-      }
-    }
-  });
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
+const cycles = elSkillsBlockCycles.filter(cycle => cycle.cycleNumber);
+const generated = cycles.flatMap(cycle => stationsForCycle(cycle).filter(station => station.id !== "check").flatMap(station =>
+  buildStationRounds(cycle, station.id, { seed: `contract:${cycle.id}:${station.id}` }).map(round => ({ cycle, station, round }))));
+
+function assertMedia(item, context) {
+  assert.ok(item.image && fs.existsSync(path.join(root, "public", item.image)), `${context} has no image: ${item.word || item.image}`);
+  assert.ok(item.audio && fs.existsSync(path.join(root, "public", item.audio)), `${context} has no word audio: ${item.word}`);
 }
 
-function roundsForMechanic(mechanicId) {
-  const rounds = [];
-  for (const cycle of elSkillsBlockCycles.filter(item => item.cycleNumber)) {
-    for (const station of stationsForCycle(cycle).filter(item => item.id !== "check")) {
-      rounds.push(...buildStationRounds(cycle, station.id)
-        .filter(round => round.mechanicId === mechanicId)
-        .map(round => ({ cycle, station, round })));
+test("all 27 cycles expose the ten active child games without retired gate content", () => {
+  assert.deepEqual([...new Set(generated.map(item => item.round.mechanicId))].sort(), [...ADVENTURE_MECHANIC_IDS].sort());
+  for (const { cycle, station, round } of generated) {
+    assert.ok(station.mechanicIds.includes(round.mechanicId), `${cycle.id}/${station.id}/${round.mechanicId}`);
+    assert.ok(round.construct && round.roundKey && round.recoverable);
+    assert.ok(round.prompt.split(/\s+/u).length <= 12, round.prompt);
+    assert.doesNotMatch(round.prompt, /gate|magnet|grapheme|onset|study.*hide|poetry|load|tag|confirm/iu);
+  }
+});
+
+test("letter matches and grids only use taught code, with real distractors", () => {
+  for (const { cycle, round } of generated.filter(item => ["letterPair", "letterGrid", "soundChoice"].includes(item.round.mechanicId))) {
+    const taught = taughtGraphemesThrough(cycle.cycleNumber);
+    const choices = round.cells?.map(cell => cell.letter) || round.choices;
+    for (const choice of choices) assert.ok(taught.includes(choice.toLowerCase()), `${cycle.id}: untaught ${choice}`);
+    if (round.mechanicId === "letterGrid") {
+      assert.equal(round.cells.length, 12);
+      assert.ok(round.cells.some(cell => cell.matches) && round.cells.some(cell => !cell.matches));
+      assert.equal(new Set(round.cells.map(cell => cell.id)).size, round.cells.length);
+      for (const cell of round.cells) assert.equal(cell.matches, round.targetLetters.includes(cell.letter.toLowerCase()));
+      assert.deepEqual(round.answer, round.cells.filter(cell => cell.matches).map(cell => cell.id));
+      for (const target of round.targetLetters) assert.ok([target, target.toUpperCase()].every(letter => round.cells.some(cell => cell.letter === letter)));
+    } else {
+      assert.equal(new Set(round.choices).size, round.choices.length);
+      assert.ok(round.choices.includes(round.answer));
     }
   }
-  return rounds;
-}
+  const second = buildStationRounds(cycles[1], "trace", { seed: "mixed-am" });
+  assert.ok(second.some(round => round.targetLetters.length === 2 && round.targetLetters.includes("a") && round.targetLetters.includes("m")));
+});
 
-function patternTransferFits(round) {
-  const word = String(round.transferWord || "").toLowerCase();
-  if (round.targetGrapheme) return word.includes(round.targetGrapheme.toLowerCase());
-  if (round.patternLabel === "start with sh") return word.startsWith("sh");
-  if (round.patternLabel === "have -ng") return word.includes("ng");
-  if (round.patternLabel === "end with -ll") return word.endsWith("ll");
-  throw new Error(`Missing independent transfer check for ${round.patternLabel}`);
-}
+test("sound choices never mark an equivalent sound as wrong", () => {
+  for (const { round } of generated.filter(item => item.round.mechanicId === "soundChoice")) {
+    assert.ok(round.audio && requiresCycleAudio(round));
+    for (const choice of round.choices) assert.equal(round.acceptedAnswers.includes(choice), sharesSound(choice, round.targetGrapheme));
+  }
+});
 
-test("each mechanic receives the explicit data its component needs", () => {
-  for (const mechanicId of ADVENTURE_MECHANIC_IDS) {
-    const entries = roundsForMechanic(mechanicId);
-    assert.ok(entries.length > 0, `${mechanicId} has no generated coverage`);
-    for (const { cycle, station, round } of entries) {
-      const where = `cycle ${cycle.cycleNumber}/${station.id}/${mechanicId}`;
-      if (mechanicId === "letterPair") {
-        assert.ok(round.targetGrapheme && round.modelForm && round.partnerForm, where);
-      } else if (mechanicId === "soundGate") {
-        assert.ok(round.targetGrapheme, where);
-        assert.ok(round.acceptedAnswers?.length > 0, where);
-        assert.ok(round.acceptedAnswers.every(answer => round.choices.includes(answer)), where);
-      } else if (mechanicId === "sceneHunt") {
-        assert.ok(round.targetGrapheme, where);
-        assert.ok(round.objects?.length >= 3, where);
-        assert.ok(round.objects.every(object => typeof object.matches === "boolean"), where);
-      } else if (mechanicId === "wordWindow") {
-        assert.ok(round.studyWord && round.choices.includes(round.studyWord), where);
-      } else if (mechanicId === "soundBoxes") {
-        assert.ok(round.word && round.graphemes?.length > 0, where);
-        assert.equal(round.graphemes.join(""), round.word, where);
-      } else if (mechanicId === "wordMachine") {
-        assert.ok(["substituteOnset", "removeOnset", "joinCompound"].includes(round.operation), where);
-        assert.ok(round.beforeGraphemes?.length > 0 && round.afterGraphemes?.length > 0, where);
-      } else if (mechanicId === "poemSpotlight") {
-        assert.ok(round.lines?.length > 0 && round.tokens?.length === round.lines.length, where);
-        assert.ok(Number.isInteger(round.targetToken?.lineIndex), where);
-        assert.ok(Number.isInteger(round.targetToken?.tokenIndex), where);
-      } else if (mechanicId === "letterTrace") {
-        assert.ok(round.letter, where);
-      } else if (mechanicId === "patternSort") {
-        assert.ok(round.items?.some(item => item.fits), where);
-        assert.ok(round.items?.some(item => !item.fits), where);
-      } else if (mechanicId === "wordChain") {
-        assert.ok(round.fromGraphemes?.length > 0 && round.toGraphemes?.length > 0, where);
-        assert.ok(Number.isInteger(round.changeIndex), where);
-      } else if (mechanicId === "phraseFlow") {
-        assert.ok(round.phraseChunks?.length >= 2, where);
-        assert.ok(round.trailWords?.length >= 4, where);
-        assert.equal(round.displayTrailWords?.length, round.trailWords.length, where);
-        assert.ok(round.boundaryChoices?.every(choice => /^After “[^”]+”$/u.test(choice.label)), where);
-      } else if (mechanicId === "heartWord") {
-        assert.ok(round.word && round.graphemes?.join("") === round.word, where);
+test("initial-sound pictures use genuine onsets and complete accessible media", () => {
+  for (const { cycle, round } of generated.filter(item => ["sceneHunt", "pictureSearch"].includes(item.round.mechanicId))) {
+    for (const object of round.objects) {
+      assertMedia(object, `${cycle.id}/${round.mechanicId}`);
+      assert.equal(object.matches, sharesSound(onsetGrapheme(object.word), round.targetGrapheme));
+    }
+    assert.ok(round.objects.some(item => !item.matches));
+    if (round.mechanicId === "sceneHunt") assert.equal(round.objects.filter(item => item.matches).length, 1);
+    else {
+      assert.ok(round.objects.length >= 8);
+      assert.ok(round.objects.filter(item => item.matches).length >= 2);
+      assert.equal(new Set(round.objects.map(item => item.word)).size, round.objects.length);
+      assert.ok(round.objects.every(item => item.x >= 8 && item.x <= 92 && item.y >= 8 && item.y <= 92));
+      assert.ok(fs.existsSync(path.join(root, "public", round.sceneBackground)));
+    }
+  }
+  const first = buildStationRounds(cycles[0], "hunt", { seed: "m-onset" });
+  assert.ok(first.filter(round => round.targetGrapheme === "m").every(round => round.objects.filter(item => item.matches).every(item => item.word.startsWith("m"))));
+  for (const cycleNumber of [10, 13]) {
+    const cycle = cycles.find(item => item.cycleNumber === cycleNumber);
+    for (let pass = 0; pass < 16; pass += 1) {
+      for (const station of ["hunt", "search"]) {
+        const rounds = buildStationRounds(cycle, station, { seed: `kw-decoys:${pass}` }).filter(round => sharesSound(round.targetGrapheme, "k"));
+        assert.ok(rounds.length > 0);
+        assert.ok(rounds.every(round => round.objects.every(item => onsetGrapheme(item.word) !== "qu")), "queen/quilt cannot be wrong /k/ choices");
       }
     }
   }
 });
 
-test("equivalent spellings are accepted together or absent from Sound Gate choices", () => {
-  const cycle24 = elSkillsBlockCycles.find(item => item.cycleNumber === 24);
-  for (let pass = 0; pass < 200; pass += 1) {
-    for (const round of buildStationRounds(cycle24, "sounds")) {
-      for (const choice of round.choices) {
-        if (!round.acceptedAnswers.includes(choice)) {
-          assert.equal(
-            sharesSound(choice, round.targetGrapheme),
-            false,
-            `${choice} cannot be marked wrong for the ${round.targetGrapheme} sound`
-          );
-        }
-      }
+test("word memory has opaque card IDs and two copies of each taught sight word", () => {
+  for (const { cycle, round } of generated.filter(item => item.round.mechanicId === "wordMemory")) {
+    const taught = new Set(cycles.filter(item => item.cycleNumber <= cycle.cycleNumber).flatMap(item => item.highFrequencyWords || []).map(word => word.toLowerCase()));
+    assert.ok(round.cards.length >= 4 && round.cards.length <= 8);
+    assert.equal(new Set(round.cards.map(card => card.id)).size, round.cards.length);
+    assert.ok(round.cards.every(card => /^card-\d+-\d+$/u.test(card.id)));
+    for (const word of round.words) {
+      assert.ok(taught.has(word.toLowerCase()), `${cycle.id}: untaught sight word ${word}`);
+      if (word.toLowerCase() === "i") assert.equal(word, "I", "the pronoun must keep its standard uppercase form");
+      assert.equal(round.cards.filter(card => card.word === word).length, 2);
     }
+    assert.equal(round.construct, "high_frequency_word_matching");
+    assert.equal(round.evidenceScope, "visual_word_matching_practice");
   }
+  const first = buildStationRounds(cycles[0], "quick", { seed: "pronoun-I" });
+  assert.ok(first.every(round => round.cards.filter(card => card.word === "I").length === 2));
+});
 
-  for (const cycleNumber of [13, 14, 21, 24]) {
-    const cycle = elSkillsBlockCycles.find(item => item.cycleNumber === cycleNumber);
-    for (const round of buildStationRounds(cycle, "sounds")) {
-      const equivalentChoices = round.choices.filter(choice => sharesSound(choice, round.targetGrapheme));
-      assert.ok(equivalentChoices.every(choice => round.acceptedAnswers.includes(choice)));
+test("missing-letter rounds are authored CVCs using only cycle-taught letters", () => {
+  const inventory = new Map(ADVENTURE_WORD_BUILD_INVENTORY.map(item => [item.word, item]));
+  for (const word of ["sat", "man", "fin", "dad", "lot", "gum", "gap", "vet"]) {
+    assert.equal(inventory.has(word), false, `${word} has labelled or ambiguous target artwork`);
+  }
+  for (const { cycle, round } of generated.filter(item => item.round.mechanicId === "missingLetter")) {
+    const entry = inventory.get(round.word);
+    assert.ok(entry && entry.authorizedFromCycle <= cycle.cycleNumber);
+    assert.match(round.word, /^[^aeioux][aeiou][^aeioux]$/u);
+    assert.ok(round.graphemes.every(letter => taughtGraphemesThrough(cycle.cycleNumber).includes(letter)));
+    assert.equal(round.answer, round.word);
+    assert.equal(round.image, entry.image, "missing words must use their reviewed text-free image");
+    assert.equal(round.graphemes[round.missingIndex], round.missingGrapheme);
+    assert.ok([0, 2].includes(round.missingIndex));
+    assert.equal(round.choices.filter(letter => sharesSound(letter, round.missingGrapheme)).length, 1);
+    assertMedia(round, `${cycle.id}/missingLetter`);
+  }
+  assert.equal(generated.some(({ cycle, round }) => cycle.cycleNumber === 1 && round.mechanicId === "missingLetter"), false);
+  const firstCvc = buildStationRounds(cycles[1], "build", { seed: "text-free-mat" });
+  assert.deepEqual(firstCvc.map(round => round.word), ["mat", "mat"]);
+  assert.deepEqual(firstCvc.map(round => round.missingIndex), [0, 2]);
+  assert.ok(firstCvc.every(round => round.image === "/media/initial-sounds/images/m/mat.webp"));
+});
+
+test("three spoken rhyme choices contain exactly one defensible pair", () => {
+  for (const { round } of generated.filter(item => ["rhymePair", "rhymeOdd"].includes(item.round.mechanicId))) {
+    assert.equal(round.choices.length, 3);
+    const pairs = round.choices.flatMap((word, index) => round.choices.slice(index + 1).filter(other => adventureWordsRhyme(word, other)).map(other => [word, other]));
+    assert.equal(pairs.length, 1);
+    assert.deepEqual(new Set(pairs[0]), new Set(round.rhymingWords));
+    if (round.mechanicId === "rhymePair") assert.deepEqual(new Set(round.answer), new Set(pairs[0]));
+    else {
+      assert.equal(pairs[0].includes(round.answer), false);
+      assert.match(round.prompt, /NOT/u);
     }
+    round.objects.forEach(item => assertMedia(item, round.mechanicId));
+    assert.equal(requiresCycleAudio(round), true);
   }
 });
 
-test("printed prompts do not leak text targets or imply timed fluency", () => {
-  for (const { round } of roundsForMechanic("wordChain")) {
-    assert.ok(!round.prompt.toLowerCase().includes(round.toWord.toLowerCase()));
-  }
-  for (const { round } of roundsForMechanic("poemSpotlight")) {
-    assert.match(round.prompt, new RegExp(`Find the word “${round.answer}” in the poem\\.`));
-  }
-  for (const { round } of roundsForMechanic("phraseFlow")) {
-    assert.equal("timerMs" in round, false);
-    assert.equal("timeLimit" in round, false);
-    assert.ok(!/fast|speed|timer/i.test(round.prompt));
+test("compound pictures have real parts and three illustrated spoken answer choices", () => {
+  for (const { round } of generated.filter(item => item.round.mechanicId === "compoundPicture")) {
+    assert.equal(round.parts.length, 2);
+    assert.equal(round.parts.map(part => part.word).join(""), round.answer);
+    assert.equal(round.choices.length, 3);
+    assert.equal(new Set(round.choices).size, 3);
+    [...round.parts, ...round.objects].forEach(item => assertMedia(item, "compoundPicture"));
+    assert.equal(round.objects.filter(item => item.matches).length, 1);
+    assert.equal(requiresCycleAudio(round), true);
   }
 });
 
-test("stable slots are truthfully renamed and unknown stations fail closed", () => {
-  const cycle9 = elSkillsBlockCycles.find(item => item.cycleNumber === 9);
-  const cycle15 = elSkillsBlockCycles.find(item => item.cycleNumber === 15);
-  const cycle16 = elSkillsBlockCycles.find(item => item.cycleNumber === 16);
-  const cycle22 = elSkillsBlockCycles.find(item => item.cycleNumber === 22);
-  const cycle24 = elSkillsBlockCycles.find(item => item.cycleNumber === 24);
-  const cycle25 = elSkillsBlockCycles.find(item => item.cycleNumber === 25);
-  assert.equal(stationsForCycle(cycle9).find(item => item.id === "trace")?.title, "Letter & Code Trace");
-  assert.equal(stationsForCycle(cycle15).find(item => item.id === "letters")?.title, "Code Spot");
-  assert.equal(stationsForCycle(cycle15).find(item => item.id === "trace")?.title, "Code Trace");
-  assert.equal(stationsForCycle(cycle16).find(item => item.id === "sounds")?.title, "Sound & Ending Gate");
-  assert.equal(stationsForCycle(cycle22).find(item => item.id === "hunt")?.title, "Sound Sort");
-  assert.equal(stationsForCycle(cycle24).find(item => item.id === "sounds")?.title, "Ending Sound Gate");
-  assert.equal(stationsForCycle(cycle25).find(item => item.id === "speed")?.title, "Phrase Flow");
-  assert.equal(stationsForCycle(cycle25).find(item => item.id === "spell")?.title, "Heart Word Studio");
-  assert.throws(() => buildStationRounds(cycle15, "missing"), /unknown or ineligible/);
-});
-
-test("multi-letter ending rounds declare an ending construct", () => {
-  const cycle16 = elSkillsBlockCycles.find(item => item.cycleNumber === 16);
-  const allRounds = buildStationRounds(cycle16, "sounds")
-    .filter(round => round.targetGrapheme === "all");
-
-  assert.ok(allRounds.length > 0);
-  assert.ok(allRounds.every(round => round.construct === "heard_ending_sound_family_mapping"));
-});
-
-test("Sound Sort mixes matching pictures with decoys under the seeded run", () => {
-  for (const cycleNumber of [22, 23]) {
-    const cycle = elSkillsBlockCycles.find(item => item.cycleNumber === cycleNumber);
-    const layouts = new Set();
-    const matchingPositions = new Set();
-    let sawDecoyBeforeMatch = false;
-
-    for (let seed = 1; seed <= 24; seed += 1) {
-      const seedText = `sound-sort-order-${cycleNumber}-${seed}`;
-      const [round] = buildStationRounds(cycle, "hunt", { seed: seedText });
-      const [repeat] = buildStationRounds(cycle, "hunt", { seed: seedText });
-      assert.deepEqual(repeat, round, `cycle ${cycleNumber}, seed ${seed} must reproduce its layout`);
-
-      const layout = round.objects.map(object => object.matches);
-      layouts.add(layout.map(matches => matches ? "target" : "decoy").join("|"));
-      layout.forEach((matches, index) => {
-        if (matches) matchingPositions.add(index);
-      });
-      sawDecoyBeforeMatch ||= layout.some((matches, index) => (
-        !matches && layout.slice(index + 1).some(Boolean)
-      ));
+test("each new attempt rebuilds choice objects and varies correct positions", () => {
+  for (const [cycleNumber, station] of [[1, "letters"], [1, "sounds"], [1, "hunt"], [2, "build"], [1, "poem"]]) {
+    const cycle = cycles.find(item => item.cycleNumber === cycleNumber);
+    const positions = new Set();
+    for (let pass = 0; pass < 12; pass += 1) {
+      const [round] = buildStationRounds(cycle, station, { seed: `positions:${pass}` });
+      positions.add(round.choices.indexOf(round.missingGrapheme || round.answer));
     }
-
-    assert.ok(layouts.size > 1, `cycle ${cycleNumber} must vary the picture layout across seeds`);
-    assert.ok(matchingPositions.size > 2, `cycle ${cycleNumber} targets must not stay in a fixed prefix`);
-    assert.equal(sawDecoyBeforeMatch, true, `cycle ${cycleNumber} must mix a decoy before a target`);
+    assert.ok(positions.size > 1, `${cycleNumber}/${station} has a fixed answer slot`);
   }
-});
-
-test("every Pattern Sort round declares a novel transfer and its expected bin", () => {
-  for (const { cycle, station, round } of roundsForMechanic("patternSort")) {
-    const where = `cycle ${cycle.cycleNumber}/${station.id}`;
-    assert.equal(round.bins?.length, 2, `${where} needs two labelled bins`);
-    assert.ok(round.bins.every(bin => bin.id && bin.label), `${where} has an unlabelled bin`);
-    assert.match(round.prompt, /put each word.*bin/i, `${where} prompt does not name its tile-to-bin action`);
-    assert.doesNotMatch(round.prompt, /tap all/i, `${where} retains the superseded multi-select prompt`);
-    assert.ok(round.transferWord, `${where} has no transfer word`);
-    assert.equal(
-      round.items.some(item => item.word === round.transferWord),
-      false,
-      `${where} reuses its transfer word in the sort`
-    );
-    assert.equal(typeof round.transferFits, "boolean", `${where} does not declare transfer class`);
-    assert.equal(
-      round.transferFits,
-      patternTransferFits(round),
-      `${where} transfer class is not true for ${round.transferWord}`
-    );
-    assert.equal(
-      round.transferBinId,
-      round.transferFits ? "fits" : "not",
-      `${where} does not declare the expected transfer bin`
-    );
-    assert.ok(round.bins.some(bin => bin.id === round.transferBinId), `${where} expected bin is absent`);
-  }
-});
-
-test("generated Pattern Sort rounds expose both transfer classes and both correct-bin positions", () => {
-  const transferClasses = new Set();
-  const correctBinPositions = new Set();
-  for (let pass = 0; pass < 100; pass += 1) {
-    for (const { round } of roundsForMechanic("patternSort")) {
-      transferClasses.add(round.transferFits);
-      correctBinPositions.add(round.bins.findIndex(bin => bin.id === round.transferBinId));
-    }
-  }
-  assert.deepEqual(transferClasses, new Set([true, false]));
-  assert.deepEqual(correctBinPositions, new Set([0, 1]));
-});
-
-test("high-frequency words alone never authorize a Pattern Power family", () => {
-  const authorizedLabels = new Set([
-    "start with sh",
-    "have -ng",
-    "end with -ll"
-  ]);
-
-  for (const cycleNumber of [25, 26, 27]) {
-    const cycle = elSkillsBlockCycles.find(item => item.cycleNumber === cycleNumber);
-    const rounds = buildStationRounds(cycle, "pattern");
-    assert.ok(rounds.length > 0, `cycle ${cycleNumber} lost all taught-pattern review`);
-    for (const round of rounds) {
-      assert.ok(
-        authorizedLabels.has(round.patternLabel),
-        `cycle ${cycleNumber} authorized ${round.patternLabel} from HFW membership alone`
-      );
-    }
-  }
-});
-
-test("Code Spot uses taught-print sort words and a novel authorized transfer", () => {
-  const cycle15 = elSkillsBlockCycles.find(item => item.cycleNumber === 15);
-  for (let pass = 0; pass < 100; pass += 1) {
-    const shRound = buildStationRounds(cycle15, "letters")
-      .find(round => round.targetGrapheme === "sh");
-    assert.ok(shRound, "cycle 15 needs an authorized sh Code Spot round");
-    assert.equal(
-      [...shRound.items.map(item => item.word), shRound.transferWord].includes("shell"),
-      false,
-      "shell contains the untaught ll spelling in cycle 15"
-    );
-  }
-
-  for (const cycleNumber of [23, 24]) {
-    const cycle = elSkillsBlockCycles.find(item => item.cycleNumber === cycleNumber);
-    for (let pass = 0; pass < 20; pass += 1) {
-      for (const round of buildStationRounds(cycle, "letters")) {
-        assert.equal(
-          round.items.some(item => item.word === round.transferWord),
-          false,
-          `cycle ${cycleNumber}/${round.targetGrapheme} repeats ${round.transferWord}`
-        );
-      }
-    }
-  }
+  const first = buildStationRounds(cycles[0], "search", { seed: "fresh" });
+  const replay = buildStationRounds(cycles[0], "search", { seed: "fresh" });
+  assert.deepEqual(first, replay);
+  assert.notEqual(first[0].objects, replay[0].objects);
+  assert.notEqual(first[0].objects[0], replay[0].objects[0]);
 });

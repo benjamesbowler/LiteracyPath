@@ -73,8 +73,10 @@ test("Cycle 1 code does not run ahead of the fixed EL sequence", () => {
   assert.ok(letterAndSoundRounds.every(round => (
     round.choices.every(choice => ["a", "m"].includes(String(choice).toLowerCase()))
   )));
-  const buildRounds = buildStationRounds(cycle, "build").filter(round => round.type === "build");
-  assert.deepEqual([...new Set(buildRounds.map(round => round.word))], ["am"]);
+  const buildRounds = buildStationRounds(cycle, "build");
+  assert.ok(buildRounds.length > 0);
+  assert.ok(buildRounds.every(round => round.mechanicId === "letterGrid"));
+  assert.ok(buildRounds.every(round => round.cells.every(cell => ["a", "m"].includes(cell.letter.toLowerCase()))));
 });
 
 test("high-frequency words run beside phonics instead of waiting for its letters", () => {
@@ -83,7 +85,7 @@ test("high-frequency words run beside phonics instead of waiting for its letters
   assert.equal(code.graphemes.has("e"), false);
   assert.equal(code.highFrequencyWords.has("are"), true);
 
-  const quickWords = buildStationRounds(cycle, "quick").map(round => round.answer);
+  const quickWords = buildStationRounds(cycle, "quick").flatMap(round => round.words);
   assert.ok(quickWords.includes("are"), "Cycle 10 must still teach its own HFW 'are'");
 
   const buildWords = buildStationRounds(cycle, "build").map(round => round.word);

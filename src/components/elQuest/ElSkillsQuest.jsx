@@ -32,7 +32,7 @@ import {
   buildStationRounds,
   wordAudioPath
 } from "./elQuestEngine.js";
-import { resolveAdventureRoundAudio } from "./adventureRoundAudio.js";
+import { resolveAdventureRoundAudio, withAdventureAudioEvidence } from "./adventureRoundAudio.js";
 import {
   correctionModelForOutcome,
   createAdventureRun,
@@ -130,37 +130,34 @@ function playCue(round) {
 function targetReplayLabelFor(round) {
   switch (round?.mechanicId) {
     case "letterPair":
+    case "letterGrid":
       return "Hear the letter name";
-    case "soundGate":
+    case "soundChoice":
       return "Hear the sound";
     case "sceneHunt":
+    case "pictureSearch":
       return "Hear the target sound";
-    case "poemSpotlight":
-      return "Hear the target word";
-    case "soundBoxes":
-    case "wordWindow":
-    case "wordMachine":
-    case "wordChain":
-    case "heartWord":
+    case "missingLetter":
       return "Hear the word";
-    case "letterTrace":
-      return "Hear the letter";
+    case "rhymePair":
+    case "rhymeOdd":
+    case "compoundPicture":
+      return "Hear the pictures";
     default:
       return "Hear the target";
   }
 }
 
 function playRoundInstruction(round, {
-  includeContent = false,
   onDelivery,
+  onTargetDelivery,
   onStarted,
   onUnavailable
 } = {}) {
   const resolved = resolveAdventureRoundAudio(round);
   const sequence = [
     resolved.instructionAudio,
-    ...resolved.targetAudio,
-    ...(includeContent && resolved.contentAudio ? [resolved.contentAudio] : [])
+    ...resolved.targetAudio
   ].filter(Boolean);
   if (sequence.length) {
     playCueSequence(sequence, {
@@ -169,6 +166,11 @@ function playRoundInstruction(round, {
       playImmediately: true,
       gapMs: 180,
       onDelivery,
+      onItemDelivery: event => {
+        const itemIndex = Number(String(event.id).split(":").at(-1)) - 1;
+        const src = sequence[itemIndex];
+        if (resolved.targetAudio.includes(src)) onTargetDelivery?.(src, event);
+      },
       onStarted,
       onUnavailable
     });
@@ -268,6 +270,8 @@ export function ElSkillsQuest({
   const cueTimerRef = useRef(null);
   const transitionTimerRef = useRef(null);
   const playedInstructionKeyRef = useRef("");
+  const instructionNeedsGestureRef = useRef(false);
+  const deliveredTargetAudioRef = useRef({ round: null, sources: new Set() });
   const [roundAudioStatus, setRoundAudioStatus] = useState("ready");
 
   const activeCycle = cycleLock.locked
@@ -288,6 +292,29 @@ export function ElSkillsQuest({
     else if (type === "failed" || type === "unavailable") setRoundAudioStatus("unavailable");
     else if (type === "completed" || type === "interrupted") setRoundAudioStatus("ready");
   }, []);
+
+  const playInstruction = useCallback(currentRound => {
+    instructionNeedsGestureRef.current = false;
+    if (document.hidden) {
+      instructionNeedsGestureRef.current = true;
+      return;
+    }
+    if (deliveredTargetAudioRef.current.round !== currentRound) {
+      deliveredTargetAudioRef.current = { round: currentRound, sources: new Set() };
+    }
+    playRoundInstruction(currentRound, {
+      onDelivery: handleRoundAudioDelivery,
+      onTargetDelivery: (src, event) => {
+        if (event.type === "completed" && deliveredTargetAudioRef.current.round === currentRound) {
+          deliveredTargetAudioRef.current.sources.add(src);
+        }
+      },
+      onUnavailable: () => {
+        instructionNeedsGestureRef.current = true;
+        handleRoundAudioDelivery({ type: "unavailable" });
+      }
+    });
+  }, [handleRoundAudioDelivery]);
 
   const cancelPendingTransition = useCallback(() => {
     if (transitionTimerRef.current === null) return;
@@ -359,10 +386,7 @@ export function ElSkillsQuest({
         cueTimerRef.current = null;
         if (progressWritesBlockedRef.current) return;
         playedInstructionKeyRef.current = instructionKey;
-        playRoundInstruction(round, {
-          includeContent: round.mechanicId === "poemSpotlight" && roundIndex === 0,
-          onDelivery: handleRoundAudioDelivery
-        });
+        playInstruction(round);
       }, 120);
     }
     // Warm the next round's directions and learning cue so both begin without
@@ -378,7 +402,37 @@ export function ElSkillsQuest({
       if (cueTimerRef.current !== null) window.clearTimeout(cueTimerRef.current);
       cueTimerRef.current = null;
     };
-  }, [celebration, handleRoundAudioDelivery, round, roundAudio, rounds, roundIndex, stationId]);
+  }, [celebration, playInstruction, round, roundAudio, rounds, roundIndex, stationId]);
+
+  useEffect(() => {
+    if (!stationId || celebration || !round) return undefined;
+    const recover = event => {
+      if (!instructionNeedsGestureRef.current || progressWritesBlockedRef.current) return;
+      // Retry within a real game gesture when a browser denied autoplay. The
+      // answer still runs normally; there is no listening gate or extra step.
+      if (!event.target?.closest?.('[data-quest-view="round"]')) return;
+      if (event.target.closest('[data-instruction-audio]')) return;
+      playInstruction(round);
+    };
+    const recoverVisibility = () => {
+      if (document.hidden) {
+        if (cueTimerRef.current !== null) window.clearTimeout(cueTimerRef.current);
+        cueTimerRef.current = null;
+        stopCueAudio();
+      } else if (!progressWritesBlockedRef.current) {
+        playedInstructionKeyRef.current = `${stationId}:${roundIndex}:${roundAudio?.instructionAudio || "silent"}`;
+        playInstruction(round);
+      }
+    };
+    window.addEventListener("pointerdown", recover);
+    window.addEventListener("keydown", recover);
+    document.addEventListener("visibilitychange", recoverVisibility);
+    return () => {
+      window.removeEventListener("pointerdown", recover);
+      window.removeEventListener("keydown", recover);
+      document.removeEventListener("visibilitychange", recoverVisibility);
+    };
+  }, [celebration, playInstruction, round, roundAudio, roundIndex, stationId]);
 
   useEffect(() => () => {
     cancelPendingTransition();
@@ -424,12 +478,9 @@ export function ElSkillsQuest({
       playedInstructionKeyRef.current = `${id}:0:${firstAudio.instructionAudio}`;
       // This runs inside the station-button tap, which keeps iPad Safari's
       // media permission attached to the child's trusted gesture.
-      playRoundInstruction(firstRound, {
-        includeContent: firstRound.mechanicId === "poemSpotlight",
-        onDelivery: handleRoundAudioDelivery
-      });
+      playInstruction(firstRound);
     }
-  }, [cancelPendingTransition, handleRoundAudioDelivery]);
+  }, [cancelPendingTransition, playInstruction]);
 
   function finishStation(finalRun) {
     if (progressWritesBlockedRef.current) return;
@@ -527,7 +578,11 @@ export function ElSkillsQuest({
       ? runStateRef.current
       : createAdventureRun(rounds.length);
     const attempt = (currentRun.attempts?.[roundIndex] || 0) + 1;
-    const committedOutcome = { ...outcome, roundIndex };
+    const committedOutcome = withAdventureAudioEvidence(
+      round,
+      { ...outcome, roundIndex },
+      deliveredTargetAudioRef.current.round === round ? deliveredTargetAudioRef.current.sources : []
+    );
     const nextRun = recordAdventureOutcome(currentRun, committedOutcome);
     runStateRef.current = nextRun;
     setRunState(nextRun);
@@ -549,6 +604,7 @@ export function ElSkillsQuest({
         setSparkle(false);
         if (roundIndex + 1 >= rounds.length) finishStation(nextRun);
         else {
+          stopCueAudio();
           answerLockRef.current = false;
           setInteractionLocked(false);
           setRoundSupportLevel(0);
@@ -567,7 +623,7 @@ export function ElSkillsQuest({
         transitionTimerRef.current = null;
         if (progressWritesBlockedRef.current) return;
         if (roundAudio?.targetAudio?.length) {
-          playCueSequence(roundAudio.targetAudio, { gapMs: 150 });
+          replayTarget();
         } else {
           playCue(round);
         }
@@ -602,26 +658,14 @@ export function ElSkillsQuest({
   function replayTarget(options = {}) {
     if (roundAudio?.targetAudio?.length) {
       playCueSequence(roundAudio.targetAudio, {
+        playImmediately: true,
         gapMs: 150,
-        onDelivery: event => {
-          handleRoundAudioDelivery(event);
-          options.onDelivery?.(event);
+        onItemDelivery: event => {
+          const itemIndex = Number(String(event.id).split(":").at(-1)) - 1;
+          if (event.type === "completed" && deliveredTargetAudioRef.current.round === round) {
+            deliveredTargetAudioRef.current.sources.add(roundAudio.targetAudio[itemIndex]);
+          }
         },
-        onUnavailable: event => {
-          handleRoundAudioDelivery({ ...event, type: "failed" });
-          options.onUnavailable?.(event);
-        }
-      });
-    } else {
-      handleRoundAudioDelivery({ type: "unavailable" });
-      options.onUnavailable?.({ type: "unavailable" });
-    }
-  }
-
-  function replayContent(options = {}) {
-    if (roundAudio?.contentAudio) {
-      playCueAudio(roundAudio.contentAudio, {
-        ...options,
         onDelivery: event => {
           handleRoundAudioDelivery(event);
           options.onDelivery?.(event);
@@ -638,9 +682,7 @@ export function ElSkillsQuest({
   }
 
   function replayFromMechanic(options = {}) {
-    if (round?.mechanicId === "phraseFlow") {
-      replayContent(options);
-    } else if (roundAudio?.targetAudio?.length) {
+    if (roundAudio?.targetAudio?.length) {
       replayTarget(options);
     } else {
       playRoundInstruction(round, {
@@ -1227,21 +1269,15 @@ export function ElSkillsQuest({
           sparkle={sparkle}
           disabled={interactionLocked}
           hasTargetAudio={Boolean(roundAudio?.targetAudio?.length)}
-          hasContentAudio={Boolean(roundAudio?.contentAudio)}
           audioStatus={roundAudioStatus}
           targetReplayLabel={targetReplayLabelFor(round)}
-          contentReplayLabel={round.mechanicId === "phraseFlow" ? "Hear the phrase" : "Hear the poem"}
           onReplayInstruction={() => {
             setRoundSupportLevel(level => level + 1);
-            playRoundInstruction(round, { onDelivery: handleRoundAudioDelivery });
+            playInstruction(round);
           }}
           onReplayTarget={() => {
             setRoundSupportLevel(level => level + 1);
             replayTarget();
-          }}
-          onReplayContent={() => {
-            setRoundSupportLevel(level => level + 1);
-            replayContent();
           }}
           onStageInteraction={acknowledgeRetryInteraction}
           onShakeEnd={() => setShaking(false)}
@@ -1261,7 +1297,13 @@ export function ElSkillsQuest({
               if (audio) {
                 playCueAudio(audio, {
                   volume: 0.9,
-                  onDelivery: handleRoundAudioDelivery,
+                  playImmediately: true,
+                  onDelivery: event => {
+                    handleRoundAudioDelivery(event);
+                    if (event.type === "completed" && deliveredTargetAudioRef.current.round === round) {
+                      deliveredTargetAudioRef.current.sources.add(audio);
+                    }
+                  },
                   onUnavailable: () => handleRoundAudioDelivery({ type: "failed" })
                 });
               } else {

@@ -47,6 +47,13 @@ installed, reviewed, and trusted on 2026-08-03.
 
 ## Current beta release state
 
+- Adventure Map uses the [simple-game contract](../product/ADVENTURE_MAP.md):
+  direct letter/sound matching, hidden word pairs, CVC first/final completion,
+  rhyming, compounds, letter grids and picture searches across all 27 cycles.
+  The old sound gate and multi-step word/poetry mechanics are retired. Silent
+  recorded directions were traced to a fade-out starting at time zero; the
+  generator and recordings are corrected with new cache-safe asset filenames.
+
 - Letter and Word Workshop practice retain immutable v3 completion events through local storage, queue coalescing and hydration. Trace, Listen, Match, Hear, Build and Magic use larger learning objects, recoverable recorded audio and explicit supported continuation. Magic preserves the intended target and first deliberate response separately from its modeled example. Completion describes supported practice/exposure, not mastery; Workshop sequencing names the actual authored grapheme prerequisites. The `check:phonics-learning` release check exercises media, response evidence, audio recovery and trusted-touch browser interaction. See [Learning Policy](../design/LEARNING_POLICY.md).
 
 - Sound Racer and Reel & Read use their restored real-time engines. The prior held-fork confirmation and nominated-fish descriptions are superseded. Current reported defects and requested upgrades are tracked in the [complete upgrade plan](../design/GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md); restoration does not establish that these later requests have been delivered.

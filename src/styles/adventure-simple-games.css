@@ -1,0 +1,251 @@
+/* Quiet, tactile learning objects. All targets share the actual touch floor. */
+.skills-block-quest .am-simple {
+  --am-ink: #213e33;
+  --am-edge: #b99250;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 1.6vh, 20px);
+  width: 100%;
+  min-height: 0;
+  color: var(--am-ink);
+  font-family: var(--lp-font-reading);
+}
+
+.skills-block-quest .am-simple button { touch-action: manipulation; cursor: pointer; }
+.skills-block-quest .am-simple button:disabled { cursor: default; }
+.skills-block-quest .am-simple button:focus-visible { outline: 4px solid #155ecc; outline-offset: 4px; }
+.skills-block-quest .am-simple button:not(:disabled):active { transform: translateY(3px); }
+.skills-block-quest .am-simple img { display: block; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+
+.skills-block-quest .am-simple-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+  min-height: 28px;
+  font: 800 clamp(16px, 1.5vw, 20px)/1.2 var(--lp-font-ui);
+}
+
+.skills-block-quest .am-simple-target-letters { display: flex; justify-content: center; gap: 16px; }
+.skills-block-quest .am-simple-target-letters > span {
+  display: block;
+  padding: 6px 24px;
+  border: 2px solid #b6914c;
+  border-radius: 16px;
+  background: #fff5cd;
+  font: 800 clamp(28px, 4vw, 42px)/1.15 var(--lp-font-reading);
+  white-space: nowrap;
+}
+.skills-block-quest .am-letter-grid__cells {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(56px, 1fr));
+  gap: 12px;
+  width: min(620px, 100%);
+}
+.skills-block-quest .am-letter-grid__cells button, .skills-block-quest .am-simple-letter-choices button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: max(56px, var(--kg-physical-hit, 56px));
+  min-height: max(70px, var(--kg-physical-hit, 56px));
+  border: 2px solid var(--am-edge);
+  border-radius: 18px;
+  background: #fffdf1;
+  color: var(--am-ink);
+  box-shadow: 0 5px 0 #b08c50;
+  font: 800 clamp(32px, 4vw, 52px)/1 var(--lp-font-reading);
+}
+.skills-block-quest .am-letter-grid__cells button > svg { position: absolute; right: 8px; top: 8px; width: 22px; }
+.skills-block-quest .am-simple [data-find-state="found"], .skills-block-quest .am-word-memory__card[data-card-state="matched"] {
+  border-color: #277149;
+  background: #e4f3cf;
+  color: #23553a;
+  box-shadow: 0 3px 0 #277149;
+  opacity: 1;
+}
+.skills-block-quest .am-simple [data-find-state="retry"] { border-style: dashed; border-color: #b35536; }
+
+.skills-block-quest .am-word-memory__cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(90px, 1fr));
+  gap: 16px;
+  width: min(560px, 100%);
+}
+.skills-block-quest .am-word-memory__card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 144px;
+  min-height: max(124px, var(--kg-physical-hit, 56px));
+  border: 3px solid #5d806c;
+  border-radius: 20px;
+  background: #427861;
+  color: #fff3bd;
+  box-shadow: 0 6px 0 #2b5845, inset 0 0 0 5px #427861, inset 0 0 0 7px #86a58c;
+  font: 800 clamp(24px, 4vw, 44px)/1.1 var(--lp-font-reading);
+  transition: transform 160ms, background-color 160ms;
+}
+.skills-block-quest .am-word-memory__card[data-card-state="open"] { background: #fff9df; color: var(--am-ink); box-shadow: 0 6px 0 #b99250; border-color: #b99250; }
+.skills-block-quest .am-simple-found { position: absolute; top: 10px; right: 10px; width: 26px; height: 26px; padding: 3px; border-radius: 50%; background: #235f3d; color: white; }
+
+.skills-block-quest .am-simple-picture-card { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.skills-block-quest .am-simple-picture-choice {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  min-width: max(56px, var(--kg-physical-hit, 56px));
+  min-height: 130px;
+  padding: 12px;
+  border: 2px solid #c4ad77;
+  border-radius: 22px;
+  background: #fffef4;
+  box-shadow: 0 5px 0 #b49b67;
+  color: var(--am-ink);
+  font: 800 clamp(20px, 2.4vw, 30px)/1.1 var(--lp-font-reading);
+}
+.skills-block-quest .am-simple-picture-choice > img { height: clamp(86px, 14vh, 160px); }
+.skills-block-quest .am-simple-picture-choice[aria-pressed="true"] { border-color: #286340; box-shadow: 0 0 0 3px #398553, 0 5px 0 #286340; }
+.skills-block-quest .am-simple-picture-choice[data-answer-state="selected"] { border-color: #a37416; background: #fff3c2; box-shadow: 0 0 0 3px #d1ab5e, 0 5px 0 #a37416; }
+.skills-block-quest .am-simple-picture-choice[data-answer-state="retry"] { border: 3px dashed #a85534; box-shadow: 0 4px 0 #b57757; }
+.skills-block-quest .am-simple-selected, .skills-block-quest .am-simple-miss { position: absolute; top: 10px; right: 10px; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: #a37416; color: white; font: 800 18px/1 var(--lp-font-ui); }
+.skills-block-quest .am-simple-miss { background: #a85534; padding: 3px; }
+.skills-block-quest .am-simple-hear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: max(56px, var(--kg-physical-hit, 56px));
+  min-height: max(56px, var(--kg-physical-hit, 56px));
+  padding: 6px 12px;
+  border: 2px solid #b6c8a9;
+  border-radius: 14px;
+  background: #f5fae8;
+  color: #345c3e;
+  font: 800 16px/1 var(--lp-font-ui);
+}
+.skills-block-quest .am-picture-target { display: flex; align-items: center; justify-content: center; gap: 16px; }
+.skills-block-quest .am-picture-target > span { font: 750 18px/1.2 var(--lp-font-ui); }
+.skills-block-quest .am-picture-target > strong { font: 800 40px/1 var(--lp-font-reading); }
+.skills-block-quest .am-picture-target .am-simple-count { margin-left: 18px; }
+.skills-block-quest .am-picture-sounds__choices, .skills-block-quest .am-picture-words__choices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  width: min(800px, 100%);
+}
+.skills-block-quest .am-picture-sounds__choices:has(> :nth-child(4)) { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+.skills-block-quest .am-missing-letter__model { display: flex; align-items: center; justify-content: center; gap: clamp(24px, 5vw, 60px); }
+.skills-block-quest .am-missing-letter__picture { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.skills-block-quest .am-missing-letter__picture > img { width: clamp(120px, 17vw, 220px); height: clamp(100px, 20vh, 200px); }
+.skills-block-quest .am-missing-letter__picture .am-simple-hear { width: 100%; }
+.skills-block-quest .am-missing-letter__word { display: flex; gap: 10px; }
+.skills-block-quest .am-missing-letter__word > span {
+  display: grid;
+  place-items: center;
+  width: clamp(66px, 10vw, 126px);
+  height: clamp(94px, 14vh, 150px);
+  border-bottom: 5px solid #b99250;
+  border-radius: 10px;
+  background: #fffdf1;
+  font: 800 clamp(44px, 7vw, 76px)/1 var(--lp-font-reading);
+}
+.skills-block-quest .am-missing-letter__word [data-letter-slot="missing"] { border: 3px dashed #846a33; background: #fff1b5; }
+.skills-block-quest .am-missing-letter__word [data-answer-state="correct"] { border-style: solid; border-color: #2b7247; background: #e4f3cf; }
+.skills-block-quest .am-missing-letter__word [data-answer-state="retry"] { border-color: #b35536; }
+.skills-block-quest .am-simple-letter-choices { display: flex; gap: 18px; width: min(460px, 100%); }
+.skills-block-quest .am-simple-letter-choices > button { flex: 1; min-height: 86px; }
+
+.skills-block-quest .am-compound-pictures__parts { display: flex; align-items: center; gap: 52px; }
+.skills-block-quest .am-compound-pictures__part { position: relative; }
+.skills-block-quest .am-compound-pictures__part > div { display: flex; align-items: center; gap: 10px; }
+.skills-block-quest .am-compound-pictures__part img { width: clamp(90px, 12vw, 130px); height: clamp(70px, 12vh, 120px); }
+.skills-block-quest .am-compound-pictures__part .am-simple-hear { width: 56px; padding: 0; }
+.skills-block-quest .am-compound-pictures__part .am-simple-hear span { display: none; }
+.skills-block-quest .am-compound-plus { position: absolute; left: -40px; top: 50%; transform: translateY(-50%); font-size: 36px; font-weight: 800; }
+.skills-block-quest .am-compound-pictures .am-simple-picture-choice > img { height: clamp(70px, 11vh, 110px); }
+.skills-block-quest .am-simple-reset { display: grid; place-items: center; min-width: 56px; min-height: 56px; border: 2px solid #c4ad77; border-radius: 50%; background: #fff9dc; color: #36563f; }
+
+.skills-block-quest .am-picture-search { height: 100%; }
+.skills-block-quest .am-picture-search__scene {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  min-height: 290px;
+  overflow: hidden;
+  border: 2px solid #8caa75;
+  border-radius: 22px;
+  background-color: #c5ddb0;
+  background-size: cover;
+  background-position: center;
+}
+.skills-block-quest .am-picture-search__object { position: absolute; display: flex; align-items: center; gap: 8px; width: clamp(148px, 22%, 230px); transform: translate(-50%, -50%); }
+.skills-block-quest .am-picture-search__object .am-simple-picture-choice { flex: 1; height: clamp(80px, 13vh, 120px); min-height: max(56px, var(--kg-physical-hit, 56px)); padding: 3px; border-radius: 14px; background: rgba(255, 254, 238, 0.96); }
+.skills-block-quest .am-picture-search__object .am-simple-picture-choice img { height: 100%; }
+.skills-block-quest .am-picture-search__object .am-simple-hear { flex: 0 0 max(56px, var(--kg-physical-hit, 56px)); width: max(56px, var(--kg-physical-hit, 56px)); padding: 0; margin: 0; background: #fffef4; }
+.skills-block-quest .am-picture-search__object .am-simple-hear span { display: none; }
+
+.skills-block-quest [data-adventure-round-frame]:has(.am-simple) .adventure-round-frame__stage { background: #fbf5df; }
+.skills-block-quest [data-adventure-round-frame="pictureSearch"] .adventure-round-frame__stage { padding: 12px; }
+.skills-block-quest [data-adventure-round-frame]:has(.am-simple) .adventure-round-frame__plaque { width: 100%; }
+
+@media (max-height: 720px) {
+  .skills-block-quest .am-simple { gap: 8px; }
+  .skills-block-quest .am-word-memory__card { height: 132px; min-height: 104px; }
+  .skills-block-quest .am-letter-grid__cells { gap: 10px; }
+  .skills-block-quest .am-letter-grid__cells button { min-height: 62px; }
+  .skills-block-quest .am-simple-picture-choice > img { height: 94px; }
+  .skills-block-quest .am-missing-letter__picture > img { height: 106px; }
+  .skills-block-quest .am-missing-letter__word > span { height: 98px; }
+}
+
+@media (max-width: 620px) {
+  .skills-block-quest .am-simple-picture-card { gap: 8px; }
+  .skills-block-quest .am-picture-sounds__choices, .skills-block-quest .am-picture-words__choices { gap: 10px; }
+  .skills-block-quest .am-simple-picture-choice { padding: 6px; border-radius: 14px; min-height: 116px; }
+  .skills-block-quest .am-simple-picture-choice > img { height: 80px; }
+  .skills-block-quest .am-simple-picture-choice > span { font-size: 19px; }
+  .skills-block-quest .am-simple-hear { padding: 4px; gap: 3px; }
+  .skills-block-quest .am-simple-hear > span { display: none; }
+  .skills-block-quest .am-word-memory__cards { gap: 12px; grid-template-columns: repeat(2, minmax(90px, 1fr)); }
+  .skills-block-quest .am-word-memory__card { height: 92px; min-height: 92px; }
+  .skills-block-quest .am-letter-grid__cells { gap: 10px; }
+  .skills-block-quest .am-picture-sounds__choices:has(> :nth-child(4)) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .skills-block-quest .am-missing-letter__model { flex-direction: column; gap: 12px; }
+  .skills-block-quest .am-missing-letter__picture { flex-direction: row; }
+  .skills-block-quest .am-missing-letter__picture > img { width: 108px; height: 90px; }
+  .skills-block-quest .am-missing-letter__picture .am-simple-hear { width: 56px; }
+  .skills-block-quest .am-missing-letter__word > span { height: 82px; }
+  .skills-block-quest .am-compound-pictures__parts { gap: 38px; }
+  .skills-block-quest .am-compound-pictures__part > div { flex-direction: column; gap: 2px; }
+  .skills-block-quest .am-compound-plus { left: -28px; font-size: 30px; }
+  .skills-block-quest .am-compound-pictures__part img { width: 76px; height: 72px; }
+  .skills-block-quest .am-picture-target { gap: 8px; }
+  .skills-block-quest .am-picture-target > span { font-size: 16px; }
+  .skills-block-quest .am-picture-target .am-simple-count { margin-left: 0; }
+  /* Let the scene grow inside the stage's scroll area. A fixed 100% height
+     centers overflowing rows above the scroll origin on short phones. */
+  .skills-block-quest .am-picture-search { height: auto; min-height: 100%; justify-content: flex-start; }
+  .skills-block-quest .am-picture-search__object { width: 94px; flex-direction: column; gap: 8px; }
+  .skills-block-quest .am-picture-search__object .am-simple-picture-choice { flex: none; height: 64px; }
+  .skills-block-quest .am-picture-search__object .am-simple-hear { flex: none; }
+  .skills-block-quest .am-picture-search__scene { min-height: 448px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills-block-quest .am-simple *, .skills-block-quest .am-simple *::before, .skills-block-quest .am-simple *::after { animation: none !important; transition: none !important; }
+}
+.skills-block-quest .am-simple[data-reduced-motion="true"] * { animation: none !important; transition: none !important; }
+
+.skills-block-quest .am-word-memory__cards:has(> :nth-child(5)) { grid-template-columns: repeat(3, minmax(90px, 1fr)); width: min(760px, 100%); }
+.skills-block-quest .am-word-memory__cards:has(> :nth-child(7)) { grid-template-columns: repeat(4, minmax(90px, 1fr)); width: min(920px, 100%); }
+@media (max-width: 620px) {
+  .skills-block-quest .am-word-memory__cards:has(> :nth-child(5)) { grid-template-columns: repeat(2, minmax(90px, 1fr)); }
+}

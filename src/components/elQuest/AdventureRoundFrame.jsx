@@ -126,7 +126,7 @@ export function AdventureRoundFrame({
               onClick={() => { triggerTactileFeedback(); onReplayInstruction?.(); }}
             >
               <SpeakerIcon />
-              Hear what to do
+              <span>Listen</span>
             </button>
             {hasTargetAudio && (
               <button
@@ -157,7 +157,7 @@ export function AdventureRoundFrame({
               aria-live="polite"
             >
               {audioStatus === "playing" && "Playing audio"}
-              {audioStatus === "unavailable" && "Audio is unavailable here. Read the words on screen."}
+              {audioStatus === "unavailable" && "Tap Listen to try again."}
             </span>
           </div>
         </aside>}

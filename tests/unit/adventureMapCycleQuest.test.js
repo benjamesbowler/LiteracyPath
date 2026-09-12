@@ -81,3 +81,20 @@ test("a recorded run seed reproduces the same rounds and arrangement", () => {
     assert.deepEqual(replay, first, `cycle ${cycleNumber}`);
   }
 });
+
+test("opening the map preserves play randomness and seeded arrangements", () => {
+  const originalRandom = Math.random;
+  try {
+    Math.random = () => { throw new Error("Station listing must not consume play randomness"); };
+    for (const cycleNumber of [1, 2, 15, 25, 27]) {
+      const cycle = { ...cycles.find(item => item.cycleNumber === cycleNumber) };
+      const first = buildStationRounds(cycle, "check", { seed: "menu-independent" });
+      const stations = stationsForCycle(cycle);
+      stations[0].mechanicIds.length = 0;
+      assert.ok(stationsForCycle(cycle)[0].mechanicIds.length, "a caller cannot change cached map eligibility");
+      assert.deepEqual(buildStationRounds(cycle, "check", { seed: "menu-independent" }), first);
+    }
+  } finally {
+    Math.random = originalRandom;
+  }
+});
