@@ -9,7 +9,7 @@ import { CAMPAIGN_VERSION, CAMPAIGN_WORLDS, CAMPAIGN_STAGES, CAMPAIGN_MISSIONS, 
 import { CAMPAIGN_STAGE_NARRATION,CAMPAIGN_FAMILY_NARRATION,CAMPAIGN_MISSION_NARRATION } from './content/campaignNarration.js';
 import { getCampaignHubLayout } from './content/campaignLayouts.js';
 import { CAMPAIGN_HELP_LINES } from './content/campaignLanguage.js';
-import { refreshCampaignTeaching, buildCampaignMission, createCampaignBeatState, resolveCampaignAction } from './engine/campaignChallenges.js';
+import { refreshCampaignTeaching, buildCampaignMission, createCampaignBeatState, resolveCampaignAction, campaignTextSupport } from './engine/campaignChallenges.js';
 import { publicBeat, MECHANICS } from './engine/challenges.js';
 import { recordTaught } from './engine/progress.js';
 import { beginCampaignMission, restartCampaignMission, updateCampaignCheckpoint, recordCampaignEvidence, completeCampaignMission, isCampaignStageUnlocked, isCampaignMissionUnlocked } from './engine/campaignProgress.js';
@@ -46,6 +46,7 @@ export default function SoundSeekersCampaign({ progressScopeKey, isSoundEnabled 
   const [encounterError,setEncounterError]=useState('');
   const [line, setLine] = useState('');
   const [worldHint,setWorldHint]=useState('');
+  const [navigation,setNavigation]=useState({quest:null,interaction:null});
   const [showButtons,setShowButtons]=useState(false),[inputDevice,setInputDevice]=useState('keyboard');
   const [sound, setSound] = useState(()=>isSoundEnabled&&normalizeAudioPreferences(initial.progress?.audioPreferences).soundEnabled);
   const [music, setMusic] = useActivityMusic(progressScopeKey);
@@ -131,6 +132,23 @@ export default function SoundSeekersCampaign({ progressScopeKey, isSoundEnabled 
     if(dialog==='pause'&&c)persist(updateCampaignCheckpoint(progressRef.current,c.missionId,{attemptId:c.attemptId,playTime:readPlayTime(c),position:sceneRef.current?.snapshot()},Date.now()),{forceSync:true});
   },[dialog,persist,readPlayTime]);
 
+  const begin=useCallback(m => {
+    try {
+      let p=progressRef.current;
+      const old=p.campaign.checkpoints[m.id];
+      if (!old || old.completed) {
+        const built=buildCampaignMission(m,p,{replayOrdinal:old?(old.replayOrdinal||0)+1:0});
+        const missionStage=getCampaignStage(m.stageId);
+        const visibleWords=new Set([missionStage.name,missionStage.problem,...built.beats.map(beat=>beat.act?.title||''),...[...missionStage.missionIds,...missionStage.optionalMissionIds].map(id=>getCampaignMission(id).title)].join(' ').toLowerCase().match(/[a-z]+/g)||[]);
+        built.beats=built.beats.map(beat=>beat.key?.word&&visibleWords.has(beat.key.word.toLowerCase())?{...beat,supportContext:{...beat.supportContext,mode:'supported-practice',reason:'printed-story-context'}}:beat);
+        const cp={attemptId:attemptId(),challenges:built.beats,beatState:createCampaignBeatState(built.beats[0])};
+        p=(old?.completed?restartCampaignMission:beginCampaignMission)(p,m.id,cp,CATALOG,Date.now());
+      } else p=beginCampaignMission(p,m.id,null,CATALOG,Date.now());
+      persist(p);setEncounterError('');setEncounter(null);setMissionId(m.id);setAudioFailed(false);setLine('');
+
+    } catch(error) {setEncounter(m);setEncounterError('This path could not open. Try this friend again.');console.error('[Sound Seekers] Mission could not open',error);}
+  },[persist]);
+
   useEffect(() => { actionsRef.current = {
     teach(targetId) {
       const c = controllerRef.current;
@@ -157,8 +175,10 @@ export default function SoundSeekersCampaign({ progressScopeKey, isSoundEnabled 
       if(!live||live.attemptId!==c.attemptId||live.beats[live.index]?.id!==beat.id)return;
       sceneRef.current?.setState(live.state,live.index);sceneRef.current?.applyOutcome(outcome);refreshHud();
       if(['progress','complete'].includes(outcome.type))soundscapeRef.current?.effect(nextState.done?'correct':'place');
-      if (outcome.line) setLine(outcome.line);
+      if (action.type === 'REQUEST_TEXT_SUPPORT') setLine('');
+      else if (outcome.line) setLine(outcome.line);
       else if (nextState.done) setLine('Ready! Follow the path.');
+      else setLine('');
       if (outcome.type === 'incorrect' || beat.mechanic===MECHANICS.SOUND_SORT&&!nextState.done) void hear(cues(beat,c.state));
     },
     advance() {
@@ -178,13 +198,13 @@ export default function SoundSeekersCampaign({ progressScopeKey, isSoundEnabled 
       }
     },
     travel(id){audioRef.current?.stop();const p=progressRef.current;persist({...p,campaign:{...p.campaign,currentStageId:id,visitedStageIds:[...p.campaign.visitedStageIds.filter(stage=>stage!==id),id]},updatedAt:Date.now()});setAudioFailed(false);setLine('');setStageId(id);},
-    meet(m) {setEncounterError('');setEncounter(m);sceneRef.current?.release();if(soundRef.current)void audioRef.current?.play([CAMPAIGN_STAGE_NARRATION[m.stageId]?.audio,(CAMPAIGN_MISSION_NARRATION[m.id]||CAMPAIGN_FAMILY_NARRATION[m.familyId])?.audio].filter(Boolean));},
+    meet:begin,
     position(position) {
       const c = controllerRef.current;
       if (!c || pausedRef.current) return;
       persist(updateCampaignCheckpoint(progressRef.current,c.missionId,{attemptId:c.attemptId,playTime:readPlayTime(c),position},Date.now()),{positionOnly:true});
     }
-  }; }, [hear,persist,refreshHud,readPlayTime]);
+  }; }, [hear,persist,refreshHud,readPlayTime,begin]);
 
   useEffect(() => {
     if (!progressRef.current || !canvasRef.current) return undefined;
@@ -210,7 +230,7 @@ export default function SoundSeekersCampaign({ progressScopeKey, isSoundEnabled 
     playClockRef.current=c?{attemptId:c.attemptId,clock:createCampaignPlayClock(p.campaign.checkpoints[selected.id].playTime,performance.now())}:null;
     const canvas = canvasRef.current, context = selected ? canvas.getContext('2d') : null;
     const gamepad=createAdventureGamepad({onInput:(key,value)=>{setInputDevice('gamepad');scene.setInput(key,value);},onInteract:()=>scene.key('KeyE',true),onPause:()=>setDialog(d=>d==='pause'?null:d||'pause'),onRelease:()=>scene.release()});
-    let frame, last = performance.now(), live = true;
+    let frame, last = performance.now(), live = true, lastNavigation=0,navigationKey='';
     function draw(now) {
       if (!live) return;
       gamepad.poll(navigator.getGamepads?.()||[],pausedRef.current||!sceneReady||document.hidden);
@@ -219,6 +239,7 @@ export default function SoundSeekersCampaign({ progressScopeKey, isSoundEnabled 
       context?.setTransform(dpr,0,0,dpr,0,0);
       if(playClockRef.current&&c?.attemptId===playClockRef.current.attemptId)playClockRef.current.clock=advanceCampaignPlayClock(playClockRef.current.clock,{nowMs:now,activity:scene.consumeActivity({includeMotion:!pausedRef.current&&!document.hidden&&sceneReady}),paused:pausedRef.current,hidden:document.hidden,loading:!sceneReady||blockedRef.current,helpOpen:helpRef.current});
       if (sceneReady && !pausedRef.current && !document.hidden) scene.update(Math.min((now-last)/1000,.05));
+      if(now-lastNavigation>120){lastNavigation=now;const next={quest:scene.getNavigation?.()||null,interaction:scene.getInteraction?.()||null},key=JSON.stringify(next);if(key!==navigationKey){navigationKey=key;setNavigation(next);}}
       last=now; scene.draw(context,box.width,box.height); frame=requestAnimationFrame(draw);
     }
     frame=requestAnimationFrame(draw);
@@ -226,6 +247,7 @@ export default function SoundSeekersCampaign({ progressScopeKey, isSoundEnabled 
     const visibility=()=>{release();if(document.hidden)audioRef.current?.stop();};
     const key=event=>{
       if (event.code==='Escape' && event.type==='keydown') {setDialog(d=>d?null:'pause');release();return;}
+      if (event.type==='keyup') {if(scene.key(event.code,false))event.preventDefault();return;}
       if (event.repeat && ['Enter','KeyE'].includes(event.code))return;
       if (!sceneReady || pausedRef.current || event.target.closest('button,input,select,textarea')) return;
       if (scene.key(event.code,event.type==='keydown')){setInputDevice('keyboard');event.preventDefault();}
@@ -234,21 +256,6 @@ export default function SoundSeekersCampaign({ progressScopeKey, isSoundEnabled 
     return ()=>{live=false;cancelAnimationFrame(frame);gamepad.release();scene.dispose();audioRef.current?.stop();window.removeEventListener('keydown',key);window.removeEventListener('keyup',key);window.removeEventListener('blur',release);document.removeEventListener('visibilitychange',visibility);if(sceneRef.current===scene)sceneRef.current=null;};
   }, [stageId,missionId,progress?.hero,reducedMotion,accessibilitySettings.simplifiedBackgrounds,accessibilitySettings.simplifiedScene,hear,refreshHud,sceneEpoch]);
 
-  function begin(m) {
-    try {
-      let p=progressRef.current;
-      const old=p.campaign.checkpoints[m.id];
-      if (!old || old.completed) {
-        const built=buildCampaignMission(m,p,{replayOrdinal:old?(old.replayOrdinal||0)+1:0});
-        const visibleWords=new Set([stage.name,stage.problem,...built.beats.map(beat=>beat.act?.title||''),...[...stage.missionIds,...stage.optionalMissionIds].map(id=>getCampaignMission(id).title)].join(' ').toLowerCase().match(/[a-z]+/g)||[]);
-        built.beats=built.beats.map(beat=>beat.key?.word&&visibleWords.has(beat.key.word.toLowerCase())?{...beat,supportContext:{...beat.supportContext,mode:'supported-practice',reason:'printed-story-context'}}:beat);
-        const cp={attemptId:attemptId(),challenges:built.beats,beatState:createCampaignBeatState(built.beats[0])};
-        p=(old?.completed?restartCampaignMission:beginCampaignMission)(p,m.id,cp,CATALOG,Date.now());
-      } else p=beginCampaignMission(p,m.id,null,CATALOG,Date.now());
-      persist(p);setEncounterError('');setEncounter(null);setMissionId(m.id);setAudioFailed(false);setLine('');
-
-    } catch(error) {setEncounterError('This path could not open. Try this friend again.');console.error('[Sound Seekers] Mission could not open',error);}
-  }
   const chooseHero = useCallback(id => {persist({...progressRef.current,hero:id,heroChosen:true,updatedAt:Date.now()});setDialog(null);}, [persist]);
   const leaveMission=useCallback(() => {setAudioFailed(false);setLine('');audioRef.current?.stop();sceneRef.current?.release();if(missionId){const c=controllerRef.current;const p=c?updateCampaignCheckpoint(progressRef.current,c.missionId,{attemptId:c.attemptId,playTime:readPlayTime(c),position:sceneRef.current?.snapshot()},Date.now()):progressRef.current;persist({...p,campaign:{...p.campaign,activeMissionId:null},updatedAt:Date.now()},{forceSync:true});}setMissionId(null);setDialog(null);},[missionId,persist,readPlayTime]);
   function hearInstruction(){
@@ -261,15 +268,20 @@ export default function SoundSeekersCampaign({ progressScopeKey, isSoundEnabled 
   function toggleSound() {const enabled=!sound;setSound(enabled);soundRef.current=enabled;setAudioFailed(false);if(!enabled)audioRef.current?.stop();persist({...progressRef.current,audioPreferences:{...progressRef.current.audioPreferences,...normalizeAudioPreferences(progressRef.current.audioPreferences),soundEnabled:enabled},updatedAt:Date.now()});}
   function toggleMusic(){setMusic(!music);}
   const move = (name,value) => {if(value)setInputDevice('touch');sceneRef.current?.setInput(name,value);};
+  const checkpoint=progress?.campaign?.checkpoints[missionId],supportedBeat=checkpoint?.challenges[checkpoint.beatIndex];
+  const supportLine=supportedBeat&&checkpoint.beatState.supportUsed?.some(kind=>['text-support','visual-introduction'].includes(kind))?campaignTextSupport(supportedBeat,checkpoint.beatState):'';
+  const replayMissions=[...stage.missionIds,...stage.optionalMissionIds].filter(id=>progress?.campaign?.completedMissions[id]).map(getCampaignMission);
   if(!progress)return <div style={soundSeekersCampaignCssVariables()} className="ss-campaign ss-error" role="alert"><p>{saveStatus.error?.message}</p><button onClick={onExit}>Back</button></div>;
-  return <main style={soundSeekersCampaignCssVariables()} className="ss-campaign" data-presentation={mission?(hud.navigationMode==="depth"?"maze":"platform"):"landscape"} data-buttons={showButtons||undefined} data-input-device={inputDevice} data-sound-seekers-game aria-label="Sound Seekers adventure" tabIndex={-1}>
+  return <main style={soundSeekersCampaignCssVariables()} className="ss-campaign" data-presentation={mission?(hud.navigationMode==="depth"?"maze":"platform"):"landscape"} data-buttons={showButtons||undefined} data-input-device={inputDevice} data-reduced-motion={reducedMotion||undefined} data-runtime-status={hardBlocked?'error':loadingImages?'loading':'ready'} data-sound-seekers-game aria-label="Sound Seekers adventure" tabIndex={-1}>
     <canvas key={`${mission?"platform":"landscape"}:${sceneEpoch}`} style={failedImages.length?{visibility:'hidden'}:undefined} inert={paused || undefined} ref={canvasRef} aria-label={`${stage.name}. ${mission ? (hud.navigationMode==="depth"?"Explore the maze with arrow keys":"Move left and right, jump with Space") : "Explore with arrow keys. Drag to look around or use Q and C"}, interact with E.`} tabIndex={0} onPointerDown={event=>{if(paused)return;const r=event.currentTarget.getBoundingClientRect();if(!mission)event.currentTarget.setPointerCapture(event.pointerId);sceneRef.current?.pointerDown(event.clientX-r.left,event.clientY-r.top);event.currentTarget.focus();}} />
     <header inert={paused || undefined} className="ss-campaign-top"><button onClick={()=>setDialog('map')} aria-label="World map">Map</button><div><strong>{mission?mission.title:stage.name}</strong><small>{mission?`${hud.area?.name||'Adventure'} · ${(hud.index||0)+1}/${hud.total||1}`:CAMPAIGN_WORLDS.find(w=>w.id===stage.worldId)?.name}</small></div><button onClick={()=>setDialog('pause')} aria-label="Pause adventure">Ⅱ</button></header>
     {!paused&&!mission&&stageComplete&&<aside className="ss-stage-complete" aria-label="Land restored"><strong>{campaignComplete?'Three lands, so many friends!':`${stage.name} is ready!`}</strong><span>{campaignComplete?'You helped the Pals. Explore your favourite places again.':'There are still friends to meet here. Your next path is open too.'}</span>{nextStage&&<button onClick={()=>{actionsRef.current.travel(nextStage.id);}}>Explore {nextStage.name} →</button>}{campaignComplete&&<button onClick={()=>setDialog('map')}>Visit our friends</button>}</aside>}
-    {!paused&&<><div className="ss-campaign-prompt"><span>{hud.beat?.view.direction==='letter-to-sound'?hud.beat.view.target.grapheme:hud.beat?.prompt.text||'Explore the land. Meet a friend.'}</span>{mission&&<button onClick={hearInstruction} aria-label="Hear instruction">{sound?'Hear':'Turn sound on'}</button>}</div>
-    <div className="ss-campaign-line" role="status" aria-live="polite">{mission?line:worldHint}</div>
+    {!paused&&<>{(mission||!navigation.quest)&&<div className="ss-campaign-prompt"><span>{hud.beat?.view.direction==='letter-to-sound'?hud.beat.view.target.grapheme:hud.beat?.prompt.text||(navigation.quest?'Find a friend. Choose your adventure.':'Explore the paths and hidden places.')}</span>{mission&&<button onClick={hearInstruction} aria-label="Hear instruction">{sound?'Hear':'Turn sound on'}</button>}</div>}
+    {!mission&&navigation.quest&&<div className="ss-adventure-objective" aria-label="Next adventure"><span className="ss-compass-arrow" style={{transform:`rotate(${navigation.quest.bearing}deg)`}} aria-hidden="true">↑</span><div><small>{navigation.quest.optional?'Another adventure':'Next adventure'}</small><strong>{navigation.quest.label}</strong><span>{navigation.quest.near?'Here · Use to enter':'Follow the trail'}</span></div></div>}
+    {navigation.interaction&&<button className="ss-context-action" onClick={()=>{sceneRef.current?.key('KeyE',true);canvasRef.current?.focus();}}><kbd>{inputDevice==='gamepad'?'Use':'E'}</kbd><span>{navigation.interaction.label}</span></button>}
+    <div className="ss-campaign-line" role="status" aria-live="polite">{mission?(line||supportLine):worldHint}</div>
     <nav className="ss-campaign-controls" aria-label="Movement"><AdventureStick onMove={move} depth={!mission||hud.navigationMode==="depth"}/><div className={mission&&hud.navigationMode!=="depth"?undefined:"ss-exploration-pad"}>{(!mission||hud.navigationMode==="depth")&&<MovementButton name="up" label="Move up" onMove={move}>↑</MovementButton>}<MovementButton name="left" label="Move left" onMove={move}>←</MovementButton><MovementButton name="right" label="Move right" onMove={move}>→</MovementButton>{(!mission||hud.navigationMode==="depth")&&<MovementButton name="down" label="Move down" onMove={move}>↓</MovementButton>}</div><div><button onClick={()=>{sceneRef.current?.key('KeyE',true);canvasRef.current?.focus();}} aria-label="Interact with nearby object">{hud.beat?.view.direction==='letter-to-sound'?'Choose':'Use'}</button><MovementButton name="jump" label="Jump" onMove={move}>Jump</MovementButton></div></nav>
-    <div className="ss-control-guide">{inputDevice==='gamepad'?'Left stick · Move   Bottom button · Jump   Left button · Use':'WASD · Move   Space · Jump   Shift · Run   E · Use'}</div><div className="ss-campaign-access">{!mission&&<><MovementButton name="lookLeft" label="Turn camera left" onMove={move}>‹</MovementButton><MovementButton name="lookRight" label="Turn camera right" onMove={move}>›</MovementButton></>}<button onClick={()=>{refreshHud();setDialog('actions');}} aria-label="Adventure help">Help</button></div></>}
+    <div className="ss-control-guide">{inputDevice==='gamepad'?'Left stick · Move   Bottom button · Jump   Left button · Use':`WASD · Move   Space · Jump   Shift · Run   E · Use${mission?'':'   R · Camera'}`}</div><div className="ss-campaign-access">{!mission&&<><MovementButton name="lookLeft" label="Turn camera left" onMove={move}>‹</MovementButton><MovementButton name="lookRight" label="Turn camera right" onMove={move}>›</MovementButton></>}<button onClick={()=>{refreshHud();setDialog('actions');}} aria-label="Adventure help">Help</button></div></>}
     {audioFailed&&mission&&!paused&&<div className="ss-audio-notice" role="status">Sound is unavailable. <button onClick={()=>{setSound(true);soundRef.current=true;hearInstruction();}}>Try sound</button><button onClick={()=>{setAudioFailed(false);actionsRef.current.action({type:'REQUEST_TEXT_SUPPORT'});}}>Use text help</button></div>}
     {!saveStatus.ok&&saveStatus.status!=='sync-failed'&&<div className="ss-save-notice" role="alert">{saveStatus.error?.message}</div>}
     {loadingImages&&!failedImages.length&&!dialog&&!encounter&&<div className="ss-campaign-prompt" role="status">Opening the path…</div>}
@@ -279,8 +291,9 @@ export default function SoundSeekersCampaign({ progressScopeKey, isSoundEnabled 
       encounter?<><img className="ss-resident" src={CAST[encounter.residentId===progress.hero?encounter.residentAlternateId:encounter.residentId]?.sprite} alt=""/><h1>{encounter.title}</h1><p>{getCampaignStage(encounter.stageId).problem}</p><p>{CAMPAIGN_FAMILY_NARRATION[encounter.familyId]?.text}</p>{encounterError&&<p role="alert">{encounterError}</p>}<button onClick={()=>{if(soundRef.current)void audioRef.current?.play([CAMPAIGN_STAGE_NARRATION[encounter.stageId]?.audio,(CAMPAIGN_MISSION_NARRATION[encounter.id]||CAMPAIGN_FAMILY_NARRATION[encounter.familyId])?.audio].filter(Boolean));}}>Hear your friend</button><button onClick={()=>begin(encounter)}>{progress.campaign.completedMissions[encounter.id]?'Play again':progress.campaign.checkpoints[encounter.id]?'Continue helping':'Let’s help'}</button><button onClick={()=>setEncounter(null)}>Keep exploring</button></>:
       dialog==='map'?<><button className="ss-panel-close" aria-label="Close world map" onClick={()=>setDialog(null)}>×</button><h1>Our Pals lands</h1><div className="ss-worlds">{CAMPAIGN_WORLDS.map(world=><section key={world.id} className="ss-world-card"><img src={getCampaignHubLayout(world.stageIds[0]).backdrop} alt=""/><h2>{world.name}</h2>{world.stageIds.map(id=>{const s=getCampaignStage(id),unlocked=isCampaignStageUnlocked(progress,id,CATALOG);return <button key={id} aria-current={id===stage.id?'location':undefined} disabled={!unlocked} onClick={()=>{leaveMission();actionsRef.current.travel(id);}}>{progress.campaign.completedMissions[s.finaleMissionId]?'✓ ':''}{s.name}{!unlocked?' · Later':''}</button>;})}</section>)}</div><button onClick={()=>setDialog(null)}>Back to the path</button></>:
       dialog==='journey'?<><button className="ss-panel-close" aria-label="Close learning journey" onClick={()=>setDialog('pause')}>×</button><h1>Our learning journey</h1><p>Letters and sounds, word patterns, then longer words and stories. Play at your own pace.</p><p>Planned main adventure: about {Math.round((campaignPacingPlan().mainMissionMinutes+campaignPacingPlan().explorationMinutes)/60)} hours, with extra side quests.</p><p>EL-linked practice supports the cycles; it does not replace a Cycle Check.</p>{CAMPAIGN_WORLDS.map(world=><section key={world.id}><h2>{world.name}</h2>{world.stageIds.map(id=>{const s=getCampaignStage(id),j=learningJourneyForStage(id);return <p key={id}><strong>{s.name}</strong><br/>{[j.cycles.length?`EL cycle practice: ${j.cycles.join(', ')}`:'',...j.extensions].filter(Boolean).join(' · ')}</p>;})}</section>)}<button onClick={()=>setDialog('pause')}>Back</button></>:
+      dialog==='replay'?<><h1>Play again</h1><p>Return to an adventure in {stage.name}.</p>{replayMissions.map(m=><button key={m.id} onClick={()=>{setDialog(null);begin(m);}}>{m.title}</button>)}<button onClick={()=>setDialog('pause')}>Back</button></>:
       dialog==='actions'?<><h1>Along the path</h1>{hud.beatState?.placed?.length>0&&!hud.beatState.done&&<button onClick={()=>{pausedRef.current=false;setDialog(null);actionsRef.current.action({type:'REMOVE_LAST'});}}>Undo last</button>}<p>Pick a place to walk to.</p>{mission&&<div className="ss-help-actions"><button onClick={()=>{pausedRef.current=false;setDialog(null);actionsRef.current.action({type:'REQUEST_MODEL'});}}>Show me</button><button onClick={()=>{pausedRef.current=false;setDialog(null);actionsRef.current.action({type:'REQUEST_TEXT_SUPPORT'});}}>Text help</button></div>}{hud.objects.map((o,i)=><div className="ss-action-option" key={o.id}><button onClick={()=>{pausedRef.current=false;setDialog(null);sceneRef.current?.activate(o.id);}}>{hud.beatState?.revealedId===o.id?'→ ':''}{o.label||`Sound ${i+1}`}{hud.beatState?.revealedId===o.id?' · Try this':''}</button>{o.audio&&<button aria-label={`Hear ${o.label||`sound ${i+1}`}`} onClick={()=>void hear([o.audio],{kind:'option'})}>Hear</button>}</div>)}{hud.beat?.view.direction==='letter-to-sound'&&<button onClick={()=>{pausedRef.current=false;setDialog(null);sceneRef.current?.confirm();}}>Choose this sound</button>}<button onClick={()=>setDialog(null)}>Back</button></>:
-      <><h1>Take a breather</h1><p>Move with arrows or the left stick. Space or the bottom controller button jumps. E or the left button uses an object. Shift or the right button runs.</p><button onClick={()=>setDialog(null)}>Keep playing</button><button onClick={toggleSound}>Sound {sound?'on':'off'}</button><button onClick={toggleMusic}>Music {music?'on':'off'}</button><button onClick={()=>setDialog('hero')}>Change Pal</button><button onClick={()=>setShowButtons(v=>!v)}>{showButtons?'Use automatic controls':'Show direction buttons'}</button><button onClick={()=>setDialog('journey')}>Learning journey</button>{mission&&<button onClick={leaveMission}>Back to this land</button>}<button onClick={()=>void hear([CAMPAIGN_HELP_LINES.welcome.audio])}>Hear how to play</button><button onClick={leaveGame}>Save and leave</button><p>{!saveStatus.ok&&saveStatus.status!=='sync-failed'?'Your latest progress could not be saved. Keep this adventure open.':saveStatus.status==='queued'?'Saved on this device. Sync queued.':'Saved on this device.'}</p></>}
+      <><h1>Take a breather</h1><p>Move with arrows or the left stick. Space or the bottom controller button jumps. E or the left button uses an object. Shift or the right button runs.</p><button onClick={()=>setDialog(null)}>Keep playing</button><button onClick={toggleSound}>Sound {sound?'on':'off'}</button><button onClick={toggleMusic}>Music {music?'on':'off'}</button><button onClick={()=>setDialog('hero')}>Change Pal</button><button onClick={()=>setShowButtons(v=>!v)}>{showButtons?'Use automatic controls':'Show direction buttons'}</button><button onClick={()=>setDialog('journey')}>Learning journey</button>{!mission&&replayMissions.length>0&&<button onClick={()=>setDialog('replay')}>Play an activity again</button>}{mission&&<button onClick={leaveMission}>Back to this land</button>}<button onClick={()=>void hear([CAMPAIGN_HELP_LINES.welcome.audio])}>Hear how to play</button><button onClick={leaveGame}>Save and leave</button><p>{!saveStatus.ok&&saveStatus.status!=='sync-failed'?'Your latest progress could not be saved. Keep this adventure open.':saveStatus.status==='queued'?'Saved on this device. Sync queued.':'Saved on this device.'}</p></>}
     </section></div>}
   </main>;
 }

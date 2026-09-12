@@ -11,6 +11,7 @@ import { createCampaignPreviewProgress } from "./features/soundSeekers/preview/c
 import { campaignStorageKey } from "./features/soundSeekers/v3/campaignStorage.js";
 import { CAMPAIGN_STAGES } from "./features/soundSeekers/v3/content/campaign.js";
 import { localProgressStorageKeysForArea } from "./utils/progressKeys.js";
+import { readSoundSeekersPreviewReadiness } from "./features/soundSeekers/preview/previewReadiness.js";
 
 const ALLOWED_PARAMS = new Set([
   "fixture", "stop", "phase", "power", "scope", "reset", "resume", "sound",
@@ -127,21 +128,9 @@ function publishReadiness() {
     });
     return;
   }
-  const game = document.querySelector('[data-sound-seekers-game="v2"]');
-  const currentPhaseId = game?.getAttribute("data-phase-id") || null;
-  const view = game?.getAttribute("data-view") || null;
-  const stageStatus = game?.querySelector("[data-sound-seekers-stage]")
-    ?.getAttribute("data-runtime-status") || null;
-  const routeReady = Boolean(game && view)
-    && (!fixture || Boolean(currentPhaseId))
-    && stageStatus !== "loading";
-  const status = routeReady ? "ready" : "loading";
-  window.__questReady = routeReady;
-  window.__soundSeekersPreview = previewSnapshot(status, {
-    currentPhaseId,
-    view,
-    stageStatus
-  });
+  const runtime=readSoundSeekersPreviewReadiness(document,{hasFixture:Boolean(fixture)});
+  window.__questReady = runtime.status !== "loading";
+  window.__soundSeekersPreview = previewSnapshot(runtime.status,runtime);
 }
 
 function scheduleReadiness() {
@@ -165,7 +154,7 @@ readinessObserver.observe(document.documentElement, {
   subtree: true,
   childList: true,
   attributes: true,
-  attributeFilter: ["data-phase-id", "data-view", "data-runtime-status"]
+  attributeFilter: ["data-phase-id", "data-view", "data-runtime-status", "data-presentation", "data-sound-seekers-game"]
 });
 
 const rootElement = document.getElementById("root");

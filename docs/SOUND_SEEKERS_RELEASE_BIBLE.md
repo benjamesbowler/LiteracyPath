@@ -27,8 +27,11 @@ mounts `v3/SoundSeekersCampaign.jsx`. Its owners are:
 - `v3/engine/campaignProgress.js` and `v3/campaignStorage.js`: campaign
   progression, formative evidence, checkpoints and learner-scoped storage.
 - `v3/engine/campaignAudio.js`, `v3/render/campaignProps.js`,
-  `v3/render/campaignHeroes.js` and `v3/sound-seekers-campaign.css`:
-  narration delivery, visible objects, canonical Pal animation and interface.
+  `v3/render/campaignHeroes.js`, `v3/render/heroMotion.js`,
+  `v3/content/heroActions.json` and `v3/sound-seekers-campaign.css`:
+  narration delivery, visible objects, canonical Pal pose animation and interface.
+- `v3/engine/adventureNavigation.js`: available quest guidance and resident
+  identity selection, independent of learning answers.
 
 Paths above are relative to `src/features/soundSeekers/`. The former
 `SoundSeekersV3.jsx` presentation, its map/encounter renderers, director,
@@ -68,63 +71,14 @@ confidence. Add meaningful authored content if the campaign is materially
 short. Waiting, forced grinding or blocking a fast learner cannot establish
 the advertised duration. Automated completion does not validate twenty hours.
 
-### Pre-expansion pacing review — not measured playtime
+### Pacing evidence
 
-Before the three-act expansion, a sequential first-configuration build on
-10 September 2026 produced 1,425
-main-campaign beats: 103 signposts, 12 sound choices, 149 word-construction
-beats, 25 sorting beats, 90 sentence beats and 1,046 oral/reading/story beats.
-There are 1,322 keyed beats and 1,975 counted tile/item action units. Repeated
-pickup/delivery phases share scenarios, so neither count represents an equal
-number of independent educational situations.
-
-The authored main-room spawn-to-exit horizontal spans total about 1.98 million
-world pixels. At the current maximum movement speed of 340 pixels/second that
-is about 97 minutes of unobstructed horizontal travel, before stops, jumps,
-return paths and motor assistance. This is geometry arithmetic, not a simulated
-or observed playthrough. Prompt occurrences found in the campaign audio manifest
-sum to 36.9 minutes; 522 additional canonical cue occurrences are outside that
-subtotal. Instructions can overlap movement, and optional audio replay varies.
-
-A reasonable **initial expert estimate is roughly 6–12 hours for the present
-pre-expansion main content**, with substantial learner variation. The estimate assumes
-approximately 4–10 seconds of response/handling beyond a short primary prompt
-for simple choices, 12–30 seconds for multi-part construction, 1.3–2 times the
-unobstructed traversal arithmetic for navigation, plus meaningful help/retry,
-encounters and hub choices. These are uncalibrated assumptions, not a promised
-range. Fast supported input can finish sooner; a learner needing substantial
-help can take longer. Those baseline counts did not justify a typical twenty-hour claim. New sections
-require a fresh count and timing review; the old range is not a claim about the
-expanded build.
-
-The review identified insufficient depth within missions. The opening finale has four
-scenarios; each of the other 29 finales then had six authored scenarios
-presented as twelve pickup/delivery beats. This does not yet deliver the plan's
-12–18 distinct decisions in a multi-family finale. Most extra room length adds
-walking rather than a new educational situation.
-
-Meaningful expansion should therefore prioritise:
-
-- Three connected finale phases: infer a plan from evidence, build or repair
-  the relevant structure, then use the resulting route to solve a fresh
-  transfer problem. Give later finales 12–18 distinct, curriculum-valid
-  situations across genuinely different actions, not duplicated pickups.
-- Two or three purposeful sections in each regular mission, with an earlier
-  choice changing the later world problem. For example, identify what the
-  chick needs, construct the appropriate crossing, and interpret a new note
-  to deliver it; retain a checkpoint between sections.
-- Context-rich listening and reading: new short messages, conflicting clues,
-  causal choices and explanation through action, with oral support clearly
-  distinguished from independent print. Teach any additional code before use.
-- Authored target-specific workshop contrasts where canonical taught words
-  permit them, and honest alternative missions where they do not. Add novel
-  uses of the same skill rather than another pass through the same word list.
-
-An authoring budget of 2–4 additional meaningful minutes per regular mission
-and 5–8 per finale would add roughly 6.5–12 hours of designed substance, but
-that is still a proposal to test, not duration evidence. Pilot representative
-stages first, then expand and retime. Optional quests, repeat play, compulsory
-waiting and redundant traversal must remain outside the main-play claim.
+Earlier pre-expansion and expanded linear-corridor distance calculations and
+their derived playtime ranges are superseded. Continuous platform sections,
+shorter teaching routes, sprint and new overworld branches change navigation
+substantially. No replacement duration estimate or measured twenty-hour result
+is established by this revision. Content counts and prompt durations remain
+inventories, not observed playtime; time must be measured in the current route.
 
 ### Three-act expansion — local implementation
 
@@ -150,26 +104,9 @@ scenario count separates correlated pickup/delivery phases and counts the
 separate classifications in sorting; it remains a content count, not observed
 independent mastery or time.
 
-The expanded room spans total 5,099,520 world pixels: approximately 250 minutes
-at maximum unobstructed horizontal movement speed. More room length is movement,
-not additional educational depth. The new semantic scenarios are the substance
-added by this expansion; walking alone cannot justify its target duration.
-
 Primary campaign prompt occurrences total about 97 minutes of verified audio;
 another 1,224 canonical cue occurrences are outside that subtotal. Optional
 choice-label replay is excluded and audio can overlap movement.
-
-A provisional expanded-main estimate is **roughly 12–24 hours**, with substantial
-learner variation. This models about 2,154 non-construction situations at 4–10
-seconds of response/handling beyond their primary prompt, 699 word/sentence
-constructions at 12–30 seconds, and navigation at 1.3–2 times the 250-minute
-unobstructed arithmetic, plus primary narration, encounters and hub choices.
-Narration/navigation overlap must be subtracted; help/retry time varies and must
-be reported separately. These are uncalibrated expert assumptions, not measured
-playtime. Audio completion and direct-input pacing checks remain separate work.
-This range makes the twenty-hour target plausible to investigate, but does not
-establish a typical twenty-hour game. Pilot fast, typical and supported learners
-across early, middle and late stages before advertising duration.
 
 ## Learning and evidence
 
@@ -191,6 +128,16 @@ legacy consumers; do not claim they govern this campaign's new evidence.
 - Replay and resumed checkpoint actions must not duplicate evidence or rewards.
 - Old saves retain their original evidence and narrative anchors. An old
   completed stop does not silently complete newly expanded missions.
+
+`campaignTextSupport(beat, state)` reconstructs requested help from the private
+authored challenge. Echo help names its target and canonical anchor (for example,
+“Find m. Map starts with /m/.”); sort help names the current word and distinguishes
+initial sounds, contained sounds and spelling patterns. Other activities retain
+their authored support scripts. The public scene never receives the answer key.
+Text support remains marked throughout that attempt, including subsequent sort
+items and older resumed states whose per-item model flag was reset. Emitted and
+stored practice events remain supported; a new beat starts its own support state.
+Visual introductions still award exposure without independent evidence.
 
 ### Workshop contract
 
@@ -363,13 +310,23 @@ The former side-view hub corridor has been removed from the renderer.
 All thirty places retain their canonical residents, seven missions, explicit
 curriculum prerequisites and authored restoration. Streams block movement except
 at physical crossings; operating a lever opens a real shortcut. Hidden picnic
-nooks offer a return to camp. Exploring a place is free; starting a learning
+nooks offer a return to camp. Authored grove, ridge, bank and switchback branches
+vary across the thirty places; jumpable logs have walkable detours, and mission
+entrances connect to the trail network. Exploring a place is free; starting a learning
 mission remains governed by its existing prerequisites. Completing main missions
 continues to restore the corresponding authored landmark from saved progress.
 
-`v3/engine/campaignTraversal.js` adds crossing and climbing sequences between
-learning areas. A lever changes the collision surfaces; stepping platforms can
-be crossed directly or through the same motor-assist path. These interactions
+The compass points toward an available main quest, or an optional quest when
+none remains. Only one visible resident represents each Pal identity; other
+available entrances remain reachable. E/Use explicitly enters a nearby mission
+without a second confirmation panel. Completed activities leave the active
+entrance roster and remain available through Pause → Play an activity again.
+
+`v3/engine/campaignTraversal.js` places crossings after completed problem groups
+and at section ends. Teaching cards have short connected rooms without crossing
+detours. Lever-operated bridge spans grow and hoist decks rise with their real
+collision surfaces, carrying a standing rider. Stepping platforms can be crossed
+directly or through the same motor-assist path. These interactions
 never emit literacy actions. A completed learning area remains completed after
 a missed jump. Existing mission snapshots, formative attempts, support markers,
 audio and sync contracts are retained. Overworld position, lever and discovery
@@ -377,10 +334,14 @@ state persist across local scene transitions in memory; these cosmetic fields
 are not uploaded or presented as learning evidence.
 
 Controls: arrows/WASD explore relative to the camera; drag, Q/C or the camera
-buttons turn the view, and wheel adjusts distance. Left/right and Space move/jump in side-view
+buttons turn the view, wheel adjusts distance and R recentres the camera. The
+orbit follows movement with damped look-ahead, clears nearby solid scenery and
+stays above terrain. Left/right and Space move/jump in side-view
 missions; E/Enter uses a nearby object. Pointer-ground movement and semantic
-object selection follow actual terrain. Touch uses 56px direction controls and
-separate jump/action controls, with capture loss and blur releasing input.
+object selection follow actual terrain. Touch uses a proportional stick and
+separate jump/action controls; optional direction buttons remain available.
+Capture loss and blur release input. Nearby contextual labels and compact Help
+keep controls subordinate to the world and current learning objects.
 
 The art target is detailed illustrated game scenery consistent with the Pals.
 Simple vector environment drawings are not accepted final art. Material textures
@@ -420,7 +381,10 @@ Sound Seekers brief has its own passing structural check.
 
 `v3/content/activityAreas.js` selects twelve named activity settings from the
 existing physical families. Learning beats use bounded areas, with a
-short transition when the next beat begins. Related maze clues share one room. Construction, aiming, climbing,
+short transition when the activity setting changes. Related platform beats keep
+one continuous route, player position, camera and completed construction; sound
+choices occupy real raised landing stones. Related maze clues share one room.
+Construction, aiming, climbing,
 delivery, sorting, routing and workshop mechanics retain their exact authored
 stimuli and challenge outcomes. A finished area exposes its onward route;
 walking against an area edge cannot skip a learning beat.
@@ -430,8 +394,11 @@ walking against an area edge cannot skip a learning beat.
 campaign configuration, 666 beats use these areas. Layout generation uses the
 mission and section identity, never its answer key. Every offered destination
 has a traversable route. Keyboard, analog movement and accessible destination
-selection share collision. Clue replay is separate from choosing; wrong answers
-retain the problem. Area-qualified maze positions survive checkpoints and continue between related
+selection share collision. Clue replay is separate from choosing. Carrying or
+inspection visibly travels to the chosen object before the original action is
+resolved; wrong choices return the item and retain the problem. Correct spatial
+deliveries remain visible at their authored placement. Area-qualified maze
+positions survive checkpoints and continue between related
 clues. A successful intermediate clue offers its next interaction at the player,
 rather than requiring a trip back to the entrance. A final clue exposes the
 entrance exit. Positions cannot transfer into a different platform area.
@@ -454,6 +421,17 @@ no vector or pixel treatment. The committed image is 1254 by 1254 with genuine
 alpha, not a drawn checkerboard. Neutral scenery uses these sprites; exact
 colour, size, count, shape, ownership and spatial contrasts remain authored
 semantic props so the new art cannot silently change a learning answer.
+
+`heroActions.json` registers 48 illustrated action poses across all eight Pals,
+supplementing their existing walking cycles: rest, blink, crouch, airborne,
+reach and cheer. `heroMotion.js` selects frames for actual movement, jump/fall,
+landing, interaction, talking and feedback states. Hero gait follows travelled
+distance; nearby residents also change poses. The two committed action sheets
+retain magenta backing, converted to transparency in cached rendering canvases
+by `campaignHeroes.js`; they are not source-alpha images. Ground registration
+keeps physics responsible for position and jump height. Reduced motion retains
+legible action poses while suppressing extra motion. Drawn frames and automated
+pose checks are distinct from finished animation-quality or hardware proof.
 
 `v3/content/campaignLearningJourney.js` provides an explicit practice crosswalk
 to the current 27 EL cycles in `src/data/elSkillsBlockCycles.js`, plus long
@@ -536,10 +514,35 @@ controller verification or measured twenty-hour play. The owner's 4/10 feedback
 remains a quality signal; no 10/10 acceptance is asserted by this update.
 
 
-Refinement validation: 52 pronunciation, teaching, corpus/import and activity
+Previous refinement validation: 52 pronunciation, teaching, corpus/import and activity
 checks passed; all six failures from a broader 668-check run were corrected,
 and the affected content/contract/scene gates passed in a 49-check rerun. Lint,
 production build, generator currency and repository hygiene pass (existing bundle
 size and hygiene warnings remain). Actual browser play reached the revised map
 introduction and advanced Tiny's first maze clue to the next clue at the same
 saved area position. No hosted or physical-device result is implied.
+
+Current adventure refinement verification (12 September): the broad Sound Seekers
+run executed 693 checks, with 691 passing and two localhost-listener checks blocked
+by the sandbox. All three matching range-server checks passed outside that
+restriction. The subsequent 36-check focused run covered challenge help, resumed
+rendering, preview readiness and presentation; all passed. The final 12-check
+presentation/preview/render rerun also passed. These overlapping runs are not an
+additive total. Scoped lint, production build and repository hygiene pass; the build retains
+its existing bundle-size warning.
+
+Direct local browser play verified drawn Speedy jump/rest poses, continuous opening
+teaching, maze incorrect-return/correct-next-clue behaviour, earned maze completion,
+explicit replay and completed-entrance removal. Supported help survived reload,
+keyboard releases cleared when focus changed, and the pointer-driven stick released
+correctly. Desktop, 1024×768, 390×844 and 700×390 browser layouts were viewed; obsolete
+phone rules that overlapped Help and clues were removed. Chompy in Sunny Hollow and
+Pip's reduced-motion Moonwood platform entry used explicitly synthetic later-stage
+fixtures. All 48 action drawings and their walk continuity were directly reviewed.
+
+Billboard padding now fits every authored pose without changing body scale or feet.
+A reproduced WebGL context-reuse upload error was corrected; four dirty-state
+construction/disposal cycles returned no graphics errors. The isolated local
+preview lacks Supabase credentials, so these checks establish local browser storage,
+not authenticated hosted saves. No physical controller/Switch, classroom listening,
+observed child-play or measured twenty-hour result is implied.

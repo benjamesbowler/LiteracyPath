@@ -86,7 +86,9 @@ function baseRoom(mission, place, index, familyId, x, y) {
 const kits = {
   'sound-steps'(room, place) {
     const { originX: x, groundY: y, width: w } = room;
-    room.platforms = [platform(`${room.id}-left-step`, x + 210, y - 90, 200), platform(`${room.id}-branch-step`, x + 510, y - 115, 240), platform(`${room.id}-return-step`, x + w - 370, y - 80, 220)];
+    // The renderer installs the public choices as the actual stepping surfaces;
+    // unrelated shelves must not overlap and mask their landing contacts.
+    room.platforms = [];
     room.objects = [object('sound-source', 'listening-stone', x + 150, y), object('route-end', place.landmark, x + w - 220, y)];
     room.choiceAnchors = room.choiceAnchors.map((p, i) => ({ ...p, y: i < 3 ? y - 90 : y }));
     // The low route stays usable for motor assistance and return travel.
@@ -170,7 +172,7 @@ const kits = {
 
 /** beatFamilies lets a finale use the actual builder family of each beat.
  * Never infer answers or learning state from geometry or room number. */
-export function getCampaignLayout(missionId, { beatCount = 1, beatFamilies = [] } = {}) {
+export function getCampaignLayout(missionId, { beatCount = 1, beatFamilies = [], beatMechanics = [], beatSections = [] } = {}) {
   const mission = getCampaignMission(missionId);
   if (!mission) return null;
   if (!Number.isInteger(beatCount) || beatCount < 1 || beatCount > 200) throw new RangeError('Layout needs a finite authored beat count between 1 and 200');
@@ -180,11 +182,17 @@ export function getCampaignLayout(missionId, { beatCount = 1, beatFamilies = [] 
   for (let index = 0; index < beatCount; index += 1) {
     const familyId = beatFamilies[index] || mission.familyId;
     if (!kits[familyId]) throw new Error(`No physical action kit for ${familyId}`);
-    const room = baseRoom(mission, place, index, familyId, x, y);
-    kits[familyId](room, place);
-    // Interleave substantial routes with the learning areas, varying the
-    // physical task across missions without changing curricular demand.
-    if (index % 3 === 0 && familyId !== "tree-rescue") addCampaignTraversal(room, Number(mission.id.split("-").at(-1)) + index / 3);
+    const teaching = beatMechanics[index] === 'sound_signpost';
+    const room = baseRoom(mission, teaching ? {...place,roomWidth:720} : place, index, familyId, x, y);
+    room.teaching=teaching;
+    if(teaching){
+      room.objects=[object('sound-source','listening-stone',x+145,y),object('route-end','grass-platform',x+590,y)];
+      room.actionContract.commitment='listen-to-teaching';
+    }else kits[familyId](room, place);
+    // Crossings punctuate completed groups. A teaching card never demands a
+    // long lever detour, and a continuous group keeps its camera and terrain.
+    const sectionEnd=index===beatCount-1 || beatFamilies[index+1]&&beatFamilies[index+1]!==familyId || beatSections[index+1]!==beatSections[index];
+    if (!teaching && familyId !== 'tree-rescue' && (sectionEnd || index%3===2)) addCampaignTraversal(room, Number(mission.id.split('-').at(-1)) + Math.floor(index/3));
     rooms.push(room);
     x += room.width;
     y = room.exit.y;
@@ -214,10 +222,10 @@ export function getCampaignChoiceAnchors(room, count) {
   if (!room || !Number.isInteger(count) || count < 1) return [];
   const columns = Math.min(5, count);
   const spacing = room.familyId === 'rescue-bridge' ? 120 : 150;
-  const first = room.familyId === 'tree-rescue' ? room.originX + 770 : room.familyId === 'rescue-bridge' ? room.originX + 120 : room.originX + ((room.activityWidth || room.width) - (columns - 1) * spacing) / 2;
+  const first = room.teaching ? room.originX+room.activityWidth/2 : room.familyId === 'tree-rescue' ? room.originX + 770 : room.familyId === 'rescue-bridge' ? room.originX + 120 : room.originX + ((room.activityWidth || room.width) - (columns - 1) * spacing) / 2;
   const groundY = room.familyId === 'tree-rescue' ? room.exit.y : room.groundY;
   return Array.from({ length: count }, (_, index) => ({
     x: first + index % columns * spacing,
-    y: groundY - Math.floor(index / columns) * 140 - (room.familyId === 'word-pop' ? 160 : 0)
+    y: groundY - Math.floor(index / columns) * 140 - (room.teaching ? 0 : room.familyId === 'word-pop' ? [145,205,170,220,155][index%5] : room.familyId==='sound-steps' ? [75,125,75,125,75][index%5] : 0)
   }));
 }

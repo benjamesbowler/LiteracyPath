@@ -17,9 +17,7 @@
 .ss-campaign[data-presentation="landscape"] .ss-campaign-access button{font-size:18px;border-radius:14px}
 .ss-campaign[data-presentation="landscape"] .ss-campaign-access [aria-label^="Turn camera"]{font-size:30px;min-width:56px}
 .ss-campaign[data-presentation="landscape"] .ss-campaign-prompt{font-size:17px;top:90px;background:var(--ss-campaign-ui-adventure-20);color:var(--ss-campaign-ui-adventure-17);padding:7px 16px;box-shadow:none;border-radius:12px}
-@media(max-width:650px){.ss-campaign[data-presentation="landscape"] .ss-campaign-access{bottom:calc(214px + env(safe-area-inset-bottom))}.ss-campaign[data-presentation="landscape"] .ss-campaign-line{bottom:calc(280px + env(safe-area-inset-bottom))}}
 .ss-campaign[data-presentation="maze"] .ss-campaign-top>div{background:var(--ss-campaign-ui-adventure-37);max-width:65%}.ss-campaign[data-presentation="maze"] .ss-campaign-prompt{max-width:80%;font-size:20px}
-@media(max-width:650px){.ss-campaign[data-presentation="maze"] .ss-campaign-access{bottom:214px}.ss-campaign[data-presentation="maze"] .ss-campaign-line{bottom:280px}.ss-campaign[data-presentation="maze"] .ss-campaign-top strong{font-size:15px}}
 
 /* Leave the adventure visible; controls adapt to the actual input device. */
 .ss-control-guide{position:absolute;bottom:22px;left:24px;color:var(--ss-campaign-ui-adventure-22);background:var(--ss-campaign-ui-adventure-23);padding:13px 18px;border:1px solid var(--ss-campaign-ui-adventure-24);border-radius:30px;font:600 13px system-ui,sans-serif;pointer-events:none;white-space:pre-wrap}
@@ -57,4 +55,22 @@
 @media(max-width:360px){
  .ss-campaign .ss-adventure-stick{transform:scale(.82);transform-origin:left bottom}
  .ss-campaign .ss-campaign-access{left:auto;right:15px;bottom:128px}
+}
+
+/* In-world guidance: one tracked adventure, one nearby action. */
+.ss-campaign .ss-adventure-objective{position:absolute;top:155px;left:22px;display:flex;align-items:center;gap:12px;max-width:270px;background:var(--ss-campaign-ui-adventure-37);color:var(--ss-campaign-ui-adventure-38);border:1px solid var(--ss-campaign-ui-adventure-14);padding:12px 16px;border-radius:12px;pointer-events:none}
+.ss-adventure-objective small,.ss-adventure-objective strong,.ss-adventure-objective div>span{display:block}.ss-adventure-objective small{font-size:11px;letter-spacing:.09em;text-transform:uppercase;opacity:.8}.ss-adventure-objective strong{font-size:15px;margin:4px 0}.ss-adventure-objective div>span{font-size:12px;opacity:.8}.ss-compass-arrow{font:500 32px Georgia,serif;display:block;transition:transform .15s linear}
+.ss-campaign .ss-context-action{position:absolute;bottom:93px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;background:var(--ss-campaign-ui-adventure-37);color:var(--ss-campaign-ui-adventure-38);border:1px solid var(--ss-campaign-ui-adventure-14);border-radius:30px;box-shadow:none;font-size:16px;max-width:75%;min-height:56px;padding:8px 18px}
+.ss-context-action kbd{display:grid;place-items:center;min-width:32px;height:32px;border:1px solid currentColor;border-radius:50%;font:700 14px system-ui}.ss-campaign .ss-context-action:active{transform:translateX(-50%) translateY(2px)}
+.ss-campaign:has(.ss-context-action) .ss-campaign-line{bottom:164px}
+@media(pointer:coarse),(max-width:700px){.ss-campaign .ss-context-action{bottom:178px;max-width:90%;font-size:14px}.ss-context-action kbd{display:none}.ss-campaign:has(.ss-context-action) .ss-campaign-line{bottom:244px}.ss-campaign .ss-adventure-objective{top:155px;left:12px;max-width:245px;padding:9px 12px}.ss-adventure-objective strong{font-size:14px}}
+@media(max-height:520px){.ss-campaign .ss-adventure-objective{top:87px;max-width:230px}.ss-campaign[data-presentation="landscape"] .ss-campaign-prompt{display:none}}
+.ss-campaign[data-reduced-motion] .ss-compass-arrow{transition:none}
+@media(prefers-reduced-motion:reduce){.ss-compass-arrow{transition:none}}
+
+@media(max-height:520px){
+ .ss-campaign .ss-context-action{bottom:22px;left:50%;max-width:42%;padding:8px 12px;font-size:13px}
+ .ss-campaign .ss-adventure-stick{transform:scale(.82);transform-origin:left bottom}
+ .ss-campaign .ss-campaign-access{left:auto;right:15px;bottom:128px}
+ .ss-campaign:has(.ss-context-action) .ss-campaign-line{bottom:91px}
 }

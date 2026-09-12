@@ -5,7 +5,7 @@ import { CAMPAIGN_LEARNING_PACKS, CAMPAIGN_LEARNING_AUDIO } from '../../src/feat
 import { unitsFor } from '../../src/features/soundSeekers/v3/engine/lexicon.js';
 import { existsSync } from 'node:fs';
 import { CAMPAIGN_MISSIONS } from '../../src/features/soundSeekers/v3/content/campaign.js';
-import { buildCampaignMission, createCampaignBeatState, resolveCampaignAction, campaignUnitTarget, CampaignContentError } from '../../src/features/soundSeekers/v3/engine/campaignChallenges.js';
+import { buildCampaignMission, createCampaignBeatState, resolveCampaignAction, campaignUnitTarget, CampaignContentError, campaignTextSupport } from '../../src/features/soundSeekers/v3/engine/campaignChallenges.js';
 import { publicBeat, MECHANICS, DOMAINS } from '../../src/features/soundSeekers/v3/engine/challenges.js';
 import { resolveAction } from '../../src/features/soundSeekers/v3/engine/authority.js';
 const mission=id=>CAMPAIGN_MISSIONS.find(m=>m.id===id);
@@ -30,6 +30,58 @@ test('sound checks have explicit listen-only options; a sound prompt never print
   if(b.domain===DOMAINS.P2G){assert.equal(b.prompt.text,'Listen. Find the letter.');assert.equal(b.view.target.soundLabel,'');}
   else {assert.ok(['a','m'].includes(b.view.target.grapheme));assert.ok(b.view.options.every(o=>o.grapheme===''&&o.audio));assert.equal(b.prompt.cues.length,0);}
  }
+});
+
+test('explicit echo text help supplies the hidden sound target using the canonical onset example',()=>{
+ const beats=buildCampaignMission(mission('meadow-01-1')).beats.filter(b=>b.mechanic===MECHANICS.ECHO_HUNT);
+ for(const beat of beats){
+  const target=beat.key.optionTargets[beat.key.optionId],before=structuredClone(beat),help=resolveCampaignAction(beat,null,{type:'REQUEST_TEXT_SUPPORT'});
+  assert.ok(help.outcome.line.includes(`/${target}/`));assert.ok(help.state.modelShown);assert.ok(help.state.supportUsed.includes('text-support'));
+  if(target==='m'){
+   assert.ok(help.outcome.line.includes('Map starts with /m/.'));assert.equal(help.outcome.line.includes('ham'),false);
+   assert.equal(help.outcome.line,beat.domain===DOMAINS.P2G?'Find m. Map starts with /m/.':'Find the /m/ sound for m. Map starts with /m/.');
+  }
+  const done=resolveCampaignAction(beat,help.state,{type:'CHOOSE',optionId:beat.key.optionId});
+  assert.equal(done.outcome.evidence.independent,false);assert.ok(done.outcome.evidence.supportUsed.includes('text-support'));
+  assert.deepEqual(beat,before);assert.equal(publicBeat(beat).key,undefined);assert.equal(publicBeat(beat).view.target.soundLabel,'');
+ }
+});
+
+test('every campaign beat has meaningful text support and sorted items describe their actual task',()=>{
+ const progress={targets:Object.fromEntries(QUEST_STOPS.flatMap(s=>s.teach.map(t=>[t.id,{taught:true}])))};
+ let count=0;const modes=new Set();
+ for(const m of CAMPAIGN_MISSIONS)for(const beat of buildCampaignMission(m,progress).beats){
+  const state=createCampaignBeatState(beat),before=structuredClone(state),line=campaignTextSupport(beat,state);
+  assert.ok(line.trim(),beat.id);assert.doesNotMatch(line,/undefined|null|Look at the choices\. Choose the one that helps your friend\./u,beat.id);
+  assert.equal(['Listen. Then help.','Listen. Find the letter.','Listen. Find the word.','Build the word.','Finish the message.'].includes(line),false,beat.id);
+  assert.equal(resolveCampaignAction(beat,state,{type:'REQUEST_TEXT_SUPPORT'}).outcome.line,line);assert.deepEqual(state,before);
+  if(beat.mechanic===MECHANICS.SOUND_SORT){
+   modes.add(beat.domain==='spelling_pattern_sort'?'pattern':beat.view.mode);
+   for(const [itemIndex,item]of beat.view.items.entries()){
+    const text=campaignTextSupport(beat,{...state,itemIndex});assert.ok(text.startsWith(`Word: ${item.word}.`));
+    if(beat.domain==='spelling_pattern_sort'){assert.ok(text.includes('Choose its letter pattern:'));for(const bin of beat.view.bins)assert.ok(text.includes(bin.grapheme));}
+    else if(beat.view.mode==='initial')assert.ok(text.includes('Choose its first sound:'));
+    else if(beat.view.mode==='contains'){assert.ok(text.includes('Choose a sound in the word:'));assert.equal(text.includes('first sound'),false);}
+    else assert.ok(text.includes('Choose the matching sound:'));
+   }
+  }
+  count++;
+ }
+ assert.ok(count>=CAMPAIGN_MISSIONS.length);assert.ok(modes.has('pattern'));assert.ok(modes.has('contains'));
+});
+
+test('sticky sort text support remains supported on every item and on an old resumed per-item state',()=>{
+ const progress={targets:Object.fromEntries(QUEST_STOPS.flatMap(s=>s.teach.map(t=>[t.id,{taught:true}])))};
+ const beat=buildCampaignMission(mission('meadow-06-3'),progress).beats.find(b=>b.mechanic===MECHANICS.SOUND_SORT);
+ let state=resolveCampaignAction(beat,null,{type:'REQUEST_TEXT_SUPPORT'}).state;
+ for(const [itemIndex,item]of beat.view.items.entries()){
+  if(itemIndex===1)state={...state,modelShown:false}; // A saved state from the former shared reducer.
+  const result=resolveCampaignAction(beat,state,{type:'PLACE',itemId:item.id,binId:beat.key.bins[item.id]});
+  assert.equal(result.outcome.evidence.independent,false);assert.equal(result.state.events.at(-1).independent,false);
+  assert.ok(result.outcome.evidence.supportUsed.includes('text-support'));assert.equal(result.state.modelShown,true);state=result.state;
+ }
+ assert.equal(state.done,true);
+ const fresh=createCampaignBeatState(beat);assert.equal(fresh.supportUsed.includes('text-support'),false);
 });
 test('mat and sat require taught code, deliver six encoding decisions, and hide print solution',()=>{
  assert.throws(()=>buildCampaignMission(mission('meadow-01-3')),e=>e instanceof CampaignContentError&&e.code==='untaught-prerequisite');

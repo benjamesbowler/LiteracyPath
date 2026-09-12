@@ -3,12 +3,12 @@ import { createMazeAdventureScene } from './mazeAdventureScene.js';
 import { activityAreaFor,usesMazeArea } from '../content/activityAreas.js';
 import { LEARNING_SPRITES,PUZZLE_SPRITES,drawPuzzleSprite } from './puzzleSprites.js';
 import { WORLD_MATERIALS,worldMaterial } from './illustratedWorldArt.js';
-import { traversalWaypoints } from '../engine/campaignTraversal.js';
+import { traversalWaypoints,openCampaignTraversal,advanceCampaignTraversal } from '../engine/campaignTraversal.js';
 import { createExplorationScene } from './explorationScene.js';
 import { SOUND_SEEKERS_CAMPAIGN_PALETTE as P } from '../../visual/visualTokens.js';
 import { createCampaignActionMotion,advanceCampaignActionMotion,resolveCampaignActionMotion,cancelCampaignActionMotion } from '../engine/campaignActionMotion.js';
 import { drawCampaignActionMotion } from './campaignActionMotion.js';
-import { HERO_ANIMATIONS, drawCampaignHero } from './campaignHeroes.js';
+import { drawCampaignHero,createCampaignHeroAnimator,getCampaignHeroAssets } from './campaignHeroes.js';
 import { drawCampaignProp,campaignRelationPlacement,drawCampaignRelationForeground } from './campaignProps.js';
 import { CAST } from '../content/cast.js';
 import { getCampaignLayout, getCampaignChoiceAnchors } from '../content/campaignLayouts.js';
@@ -48,12 +48,15 @@ function choiceObjects(beat, state) {
 /** The scene knows only the public challenge projection. All literacy choices
  * go through onAction; physics events never create learning evidence. */
 function createPlatformAdventureScene({ stage, missions = [], mission = null, beats = [], beatIndex = 0, beatState = null, heroId, onAction, onAdvance, onHear, onSound, onSavePosition, reducedMotion = false, simplifiedBackgrounds = false, position = null }) {
-  const layout = getCampaignLayout(mission.id,{beatCount:beats.length,beatFamilies:beats.map(b=>b.familyId)});
+  const layout = getCampaignLayout(mission.id,{beatCount:beats.length,beatFamilies:beats.map(b=>b.familyId),beatMechanics:beats.map(b=>b.mechanic),beatSections:beats.map(b=>b.sectionId)});
   const length = layout.bounds.right;
   const activeRoom=layout.rooms[beatIndex];
+  let areaStartIndex=beatIndex;
+  while(areaStartIndex>0&&beats[areaStartIndex-1].familyId===beats[beatIndex].familyId&&beats[areaStartIndex-1].sectionId===beats[beatIndex].sectionId&&!usesMazeArea(beats[areaStartIndex-1]))areaStartIndex--;
+  const areaStart=layout.rooms[areaStartIndex].originX;
   // Expanded routes can move an old checkpoint outside its active room. Recover
   // motor position there while keeping the saved learning beat and evidence.
-  if(position&&(position.x<activeRoom.originX-120||position.x>activeRoom.originX+activeRoom.width))position=null;
+  if(position&&(position.x<areaStart-120||position.x>activeRoom.originX+activeRoom.width))position=null;
   const player = createPlatformState({...layout,spawn:activeRoom.spawn,snapshot:position,tuning:{width:48,height:90,speed:340,jumpSpeed:630},camera:{...layout.camera,width:1100,height:700}});
   if(!layout.camera.vertical)player.camera.y=0;
   const restoredRooms = new Set();
@@ -65,9 +68,11 @@ function createPlatformAdventureScene({ stage, missions = [], mission = null, be
   if (mission) for(let n=0;n<beatIndex;n++)restoreRoom(n);
   if(beatState?.done)restoreRoom(beatIndex);
   const heroPuppet = createPuppet();
+  const heroAnimator=createCampaignHeroAnimator(heroId);
+  let animation=heroAnimator.update(0),heroAction=null,actionId=0;
   let time = 0, gaitTime=0, index = beatIndex, state = beatState, w = 1100, h = 700, scale = 1;
   let activityPending=false,route=[],motion=null,destination = null, aim = null, projectiles = [], effects = [], lastSave = 0;
-  let lastContact=null,analogSpeed=1,sprinting=false;
+  let lastContact=null,analogSpeed=1,sprinting=false,advancePending=false,feedback=null;
   let actionLock = false, disposed = false, lastPlayerSnapshot = '';
   const background = layout.backdrop;
   const area=activityAreaFor(beats[beatIndex]?.familyId||mission.familyId);
@@ -76,13 +81,14 @@ function createPlatformAdventureScene({ stage, missions = [], mission = null, be
   const origin = () => (room()?.originX || 0) + 310;
   const levelY = () => room()?.exit.y ?? GROUND;
   const exitX = () => room()?.exit.x ?? 0;
-  function openTraversal(r) {
+  function openTraversal(r,immediate=false) {
     const t=r?.traversal;if(!t)return;
-    if(!t.opened){player.platforms.push(...t.platforms);t.opened=true;}
+    openCampaignTraversal(t,player,{immediate:immediate||reducedMotion});
     if(!player.checkpoints.some(c=>c.id===t.checkpoint.id))player.checkpoints.push(t.checkpoint);
   }
-  for(let n=0;n<beatIndex;n++)openTraversal(layout.rooms[n]);
-  if(position?.x>room()?.traversal?.x+220)openTraversal(room());
+  for(let n=0;n<beatIndex;n++)openTraversal(layout.rooms[n],true);
+  if(position?.x>room()?.traversal?.x+220)openTraversal(room(),true);
+  const advance=()=>{if(advancePending)return;advancePending=true;release();onAdvance?.();};
   function availableObjects() {
     if (state?.done) return [...(room()?.traversal&&!room().traversal.opened?[room().traversal.switch]:[]),{ id: 'leave-room', x: exitX(), y: levelY(), label: index === beats.length - 1 ? 'Bring it home' : 'Follow the path', role: 'exit' }];
     const choices = choiceObjects(beat(), state);
@@ -91,12 +97,20 @@ function createPlatformAdventureScene({ stage, missions = [], mission = null, be
     if(['lantern-search','story-rescue'].includes(familyOf(mission,beat()))){const clue=room().objects.find(o=>o.id.includes('clue-one')||o.id.includes('message'));if(clue)objects.unshift({...clue,id:'inspect-clue',role:'clue',label:'Hear the clue'});}
     return objects;
   }
+  function interaction() {
+    const objects=availableObjects(),selected=objects.find(o=>o.id===aim);
+    const nearby=selected||objects.filter(o=>Math.abs(o.x-player.x)<(familyOf(mission,beat())==='word-pop'?900:160)&&Math.abs(o.y-player.y)<250).sort((a,b)=>Math.hypot(a.x-player.x,a.y-player.y)-Math.hypot(b.x-player.x,b.y-player.y))[0];
+    if(!nearby)return null;
+    const label=nearby.role==='teach'?`Hear ${nearby.label}`:nearby.role==='plank'?`Place ${nearby.label}`:nearby.role==='basket'?`Send to ${nearby.label}`:familyOf(mission,beat())==='word-pop'?`Aim at ${nearby.label}`:nearby.label;
+    return {id:nearby.id,label,role:nearby.role};
+  }
   function trigger(object) {
     activityPending=true;
     if (!object || disposed) return;
     lastContact=object.id;
+    if(!['exit','walk'].includes(object.role))heroAction={state:object.role==='teach'||object.role==='clue'?'talk':'use',life:.65,id:++actionId};
     if(object.role==='mechanism'){openTraversal(room());if(object.continueTo)approach(object.continueTo);onSound?.('place');effects.push({x:object.x,y:object.y-70,text:'A new way across!',life:2});return;}
-    if (object.role === 'exit') { release(); onAdvance?.(); return; }
+    if (object.role === 'exit') { advance(); return; }
     if(object.role==='clue'){void onHear?.(beat().prompt.cues.map(c=>c.src).filter(Boolean),{kind:'clue'});effects.push({x:object.x,y:object.y-100,text:'Listen. Then explore.',life:3});return;}
     if(object.role==='walk')return;
     if (object.role === 'teach') {
@@ -104,6 +118,7 @@ function createPlatformAdventureScene({ stage, missions = [], mission = null, be
       return;
     }
     if (actionLock || motion&&!['settled','returned','cancelled'].includes(motion.phase)) return;
+    feedback={x:object.x,y:object.y-70,id:object.id,life:.45,type:'working'};
     if (familyOf(mission, beat()) === 'word-pop') {
       onSound?.('launch');
       projectiles.push({ x: player.x, y: player.y - 65, target: { ...object }, age: 0 });
@@ -140,7 +155,7 @@ function createPlatformAdventureScene({ stage, missions = [], mission = null, be
     if (destination) {
       const waypoint=route[0]||destination;
       const dx = waypoint.x - player.x;
-      const needJump = route.length ? (player.grounded ? waypoint.y<player.y-30&&!player.input.jump : player.input.jump&&player.vy<0) : waypoint.y < player.y - 30 && !(player.grounded && player.input.jump);
+      const needJump = player.grounded ? waypoint.y<player.y-30&&!player.input.jump : player.input.jump&&player.vy<0;
       setPlatformInput(player, { left: dx < -35, right: dx > 35, jump: needJump });
       if(route.length&&Math.abs(dx)<45&&Math.abs(player.y-waypoint.y)<12&&player.grounded)route.shift();
       if (!route.length&&Math.abs(destination.x-player.x) < (familyOf(mission,beat())==='word-pop'?900:40) && Math.abs(player.y - destination.y) < (familyOf(mission,beat())==='sound-steps'?25:150)) { const target = destination; release(); trigger(target); }
@@ -148,15 +163,16 @@ function createPlatformAdventureScene({ stage, missions = [], mission = null, be
     if(familyOf(mission,beat())==='sound-steps' && !state?.done){
       for(const o of availableObjects()){
         const id=`choice-${index}-${o.id}`;
-        if(!player.platforms.some(p=>p.id===id))player.platforms.push({id,x:o.x-65,y:o.y,width:130,height:20});
+        if(!player.platforms.some(p=>p.id===id))player.platforms.push({id,x:o.x-65,y:o.y,width:130,height:0});
       }
     }
-    if(mission){player.bounds.left=room().originX;player.bounds.right=room().originX+room().width;if(state?.done&&room().traversal?.opened&&!player.checkpoints.some(c=>c.id===room().traversal.checkpoint.id))player.checkpoints.push(room().traversal.checkpoint);}
+    if(mission){player.bounds.left=areaStart;player.bounds.right=room().originX+room().width;if(state?.done&&room().traversal?.opened&&!player.checkpoints.some(c=>c.id===room().traversal.checkpoint.id))player.checkpoints.push(room().traversal.checkpoint);}
+    advanceCampaignTraversal(room().traversal,player,dt,{reducedMotion});
     const { events } = advancePlatform(player, dt);
     if(events.some(event=>event.type==='jump'))onSound?.('jump');
     if(familyOf(mission,beat())==='sound-steps' && !state?.done && player.grounded && (player.input.left||player.input.right||player.input.jump)){
       const landed=availableObjects().find(o=>Math.abs(o.x-player.x)<48&&Math.abs(o.y-player.y)<8);
-      if(landed && events.some(e=>e.type==='land') && lastContact!==landed.id)trigger(landed);
+      if(landed && (!destination||destination.id===landed.id) && events.some(e=>e.type==='land') && lastContact!==landed.id)trigger(landed);
       if(!landed)lastContact=null;
     }
     if(motion){
@@ -177,7 +193,12 @@ function createPlatformAdventureScene({ stage, missions = [], mission = null, be
     projectiles = projectiles.filter(p => !p.done && p.age < 4);
     if(!projectiles.length)actionLock=false;
     effects = effects.map(e => ({ ...e, life: e.life - dt })).filter(e => e.life > 0);
-    if (state?.done && player.x >= exitX() - 45 && Math.abs(player.y-levelY())<120) onAdvance?.();
+    if(feedback){feedback.life-=dt;if(feedback.life<=0)feedback=null;}
+    if(heroAction){heroAction.life-=dt;if(heroAction.life<=0)heroAction=null;}
+    const speed=Math.abs(player.vx),heroState=player.grounded?(speed>10?(sprinting?'run':'walk'):heroAction?.state||'idle'):(player.vy<0?'jump':'fall');
+    animation=heroAnimator.update(dt,{state:heroState,speed,actionId:heroAction?.id,reducedMotion});
+    if (state?.done && player.x >= exitX() - 45 && Math.abs(player.y-levelY())<120) advance();
+    if(disposed)return;
     if (time - lastSave > 1.5) {
       lastSave = time; const snapshot = platformSnapshot(player), key = JSON.stringify(snapshot);
       if (key !== lastPlayerSnapshot) { onSavePosition?.(snapshot); lastPlayerSnapshot = key; }
@@ -198,12 +219,22 @@ function createPlatformAdventureScene({ stage, missions = [], mission = null, be
     ctx.save(); ctx.scale(scale, scale); ctx.translate(-player.camera.x, -player.camera.y);
     const inView=r=>r.x+r.width>player.camera.x-200&&r.x<player.camera.x+w/scale+200;
     for(const r of player.solids)if(inView(r))terrain(ctx,r,stage.worldId);
-    for(const r of player.platforms)if(inView(r))terrain(ctx,r,stage.worldId);
+    for(const r of player.platforms)if(inView(r)){
+      if(r.id.includes('/traverse/'))drawPuzzleSprite(ctx,r.id.includes('span')?'bridge':'wood-platform',r.x+r.width/2,r.y+(r.id.includes('span')?24:r.width*.52),r.width);
+      else if(r.id.startsWith('choice-'))drawPuzzleSprite(ctx,'grass-platform',r.x+r.width/2,r.y+r.width*.52,r.width);
+      else terrain(ctx,r,stage.worldId);
+    }
     if(mission)for(const r of layout.rooms){const t=r.traversal;if(!t||t.x>player.camera.x+w/scale+100||t.x+t.width<player.camera.x-100)continue;
       ctx.fillStyle=worldMaterial(ctx,stage.worldId,'water')||(stage.worldId==='moonwood'?P['adventure-1']:P['adventure-2']);ctx.fillRect(t.x+210,t.y+75,490,250);
       if(t.kind!=='stepping-stones'){
         drawPuzzleSprite(ctx,'lever',t.switch.x,t.switch.y,90);
         caption(ctx,t.opened?'✓':'↔',t.switch.x,t.switch.y-125,34);
+        if(t.kind==='hoist')for(const platform of t.platforms||[]){
+          const surface=player.platforms.find(p=>p.id===platform.id),sy=surface?.y??platform.y+160;
+          ctx.strokeStyle=INK;ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(platform.x+20,t.y-290);ctx.lineTo(platform.x+20,sy);ctx.moveTo(platform.x+platform.width-20,t.y-290);ctx.lineTo(platform.x+platform.width-20,sy);ctx.stroke();
+          ctx.save();ctx.translate(platform.x+platform.width/2,t.y-270);ctx.rotate(reducedMotion?0:t.progress*Math.PI*2);drawPuzzleSprite(ctx,'wheel',0,35,70);ctx.restore();
+        }
+        if(t.kind==='drawbridge'&&!t.opened){ctx.save();ctx.translate(t.x+205,t.y);ctx.rotate(-Math.PI*.38);drawPuzzleSprite(ctx,'bridge',250,20,500);ctx.restore();}
         if(!t.opened){ctx.strokeStyle=CREAM;ctx.lineWidth=4;ctx.setLineDash([10,10]);ctx.beginPath();ctx.moveTo(t.x+215,t.y);ctx.lineTo(t.x+695,t.y);ctx.stroke();ctx.setLineDash([]);}
       }
     }
@@ -287,7 +318,7 @@ function createPlatformAdventureScene({ stage, missions = [], mission = null, be
             ctx.setLineDash([7,6]);ctx.lineWidth=3;ctx.strokeStyle=P['world-tone-20'];ctx.beginPath();ctx.ellipse(object.x+offset.x,object.y+offset.y,Math.max(20,offset.size*.55),Math.max(10,offset.size*.25),0,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);
           }else drawCampaignProp(ctx,kind,object.x,object.y,{size:125,...appearance});
           const ownerId=semantic.residentId||appearance.residentId||appearance.landmark?.residentId;
-          if(ownerId)drawPuppet(ctx,getImage(CAST[ownerId]?.sprite),{x:object.x+50,y:object.y-100,height:55,state:'idle',src:CAST[ownerId]?.sprite});
+          if(ownerId&&!drawCampaignHero(ctx,ownerId,{x:object.x+50,y:object.y-100,height:55,state:'idle',time,reducedMotion}))drawPuppet(ctx,getImage(CAST[ownerId]?.sprite),{x:object.x+50,y:object.y-100,height:55,state:'idle',src:CAST[ownerId]?.sprite});
         } else {
           const width = Math.max(112,Math.min(200,text.length*18+30));
           if(familyOf(mission,b)==='word-pop'){ctx.fillStyle=P['world-tone-21'];ctx.strokeStyle=P['world-tone-22'];ctx.lineWidth=4;ctx.beginPath();ctx.arc(object.x,object.y-62,58,0,Math.PI*2);ctx.fill();ctx.stroke();}
@@ -301,9 +332,17 @@ function createPlatformAdventureScene({ stage, missions = [], mission = null, be
     }
     if(familyOf(mission,beat())==='river-route'&&!motion)drawCampaignProp(ctx,'raft',player.x,player.y+12,{size:135});
     drawCampaignActionMotion(ctx,motion);
+    if(feedback){
+      const life=clamp(feedback.life/.8,0,1),radius=50+(1-life)*35;
+      ctx.save();ctx.globalAlpha=life;ctx.strokeStyle=feedback.type==='incorrect'?P['world-tone-26']:P['world-tone-24'];ctx.lineWidth=4;
+      ctx.beginPath();ctx.ellipse(feedback.x,feedback.y+55,radius,radius*.3,0,0,Math.PI*2);ctx.stroke();
+      if(feedback.type==='incorrect')caption(ctx,'↶',feedback.x,feedback.y-20,42);
+      else if(['complete','correct','progress'].includes(feedback.type))caption(ctx,'✓',feedback.x,feedback.y-20,38);
+      ctx.restore();
+    }
     const cast = CAST[heroId] || CAST.speedy, src = cast.heroSprite || cast.sprite;
     const heroState=familyOf(mission,beat())==='river-route'?'idle':player.grounded?(Math.abs(player.vx)>10?'walk':'idle'):(player.vy<0?'jump':'fall');
-    if(!drawCampaignHero(ctx,heroId,{x:player.x,y:player.y,height:112,facing:player.facing,time:heroState==='walk'?gaitTime:time,state:heroState,reducedMotion}))
+    if(!drawCampaignHero(ctx,heroId,{x:player.x,y:player.y,height:112,facing:player.facing,time:heroState==='walk'?gaitTime:time,state:heroState,reducedMotion,animation}))
       drawPuppet(ctx,getImage(src),{x:player.x,y:player.y,height:112,facing:player.facing,t:reducedMotion?0:time,state:heroState,puppet:heroPuppet,src});
     const carrying = !motion && !state?.done && beat()?.view.phase !== 'pickup' && beat()?.view.objectId;
     if(carrying)drawCampaignProp(ctx,carrying,player.x+42*player.facing,player.y-35,{size:48});
@@ -314,7 +353,7 @@ function createPlatformAdventureScene({ stage, missions = [], mission = null, be
   return {
     update, draw, release,
     consumeActivity({includeMotion=true}={}){const active=activityPending||includeMotion&&(player.input.left||player.input.right||player.input.jump||Boolean(destination)||Boolean(motion));activityPending=false;return Boolean(active);},
-    assets: () => {const residents=new Set([heroId,...missions.map(m=>m.residentId===heroId?m.residentAlternateId:m.residentId),...beats.flatMap(b=>(b.view.sceneObjects||[]).flatMap(o=>[o.residentId,o.appearance?.residentId,o.appearance?.landmark?.residentId]))]);return [LEARNING_SPRITES,PUZZLE_SPRITES,WORLD_MATERIALS,background,HERO_ANIMATIONS[heroId]?.src,...[...residents].flatMap(id=>[CAST[id]?.sprite,CAST[id]?.heroSprite]),...beats.flatMap(b=>[...(b.view.cards||[]).map(c=>c.anchorImage),...(b.view.items||[]).map(item=>item.image)])].filter(Boolean);},
+    assets: () => {const residents=new Set([heroId,...missions.map(m=>m.residentId===heroId?m.residentAlternateId:m.residentId),...beats.flatMap(b=>(b.view.sceneObjects||[]).flatMap(o=>[o.residentId,o.appearance?.residentId,o.appearance?.landmark?.residentId]))]);return [LEARNING_SPRITES,PUZZLE_SPRITES,WORLD_MATERIALS,background,...getCampaignHeroAssets(heroId),...[...residents].flatMap(id=>[CAST[id]?.sprite,CAST[id]?.heroSprite,...getCampaignHeroAssets(id)]),...beats.flatMap(b=>[...(b.view.cards||[]).map(c=>c.anchorImage),...(b.view.items||[]).map(item=>item.image)])].filter(Boolean);},
     setInput(name, value) { activityPending=true;if(name==='analogX'){destination=null;route=[];analogSpeed=Math.abs(value);player.tuning.speed=(sprinting?470:340)*analogSpeed;setPlatformInput(player,{left:value<-.1,right:value>.1});return;}if(name==='sprint'){sprinting=value;player.tuning.speed=(sprinting?470:340)*analogSpeed;return;}if(!['left','right','jump'].includes(name))return;if(name!=='jump'){analogSpeed=1;player.tuning.speed=sprinting?470:340;}destination = null;route=[];setPlatformInput(player, { [name]: value }); },
     key(code, down) {
       activityPending=true;analogSpeed=1;player.tuning.speed=sprinting?470:340;
@@ -322,9 +361,7 @@ function createPlatformAdventureScene({ stage, missions = [], mission = null, be
       const k = { ArrowLeft: 'left', KeyA: 'left', ArrowRight: 'right', KeyD: 'right', Space: 'jump', ArrowUp: 'jump', KeyW: 'jump' }[code];
       if (k) { destination = null;route=[]; setPlatformInput(player, { [k]: down }); return true; }
       if (down && ['Enter', 'KeyE'].includes(code)) {
-        const objects = availableObjects();
-        const nearest = objects.filter(o => Math.abs(o.x - player.x) < 180 && Math.abs(o.y - player.y) < 250).sort((a, b) => Math.abs(a.x - player.x) - Math.abs(b.x - player.x))[0];
-        trigger(aim ? objects.find(o => o.id === aim) : nearest); return true;
+        const nearby=interaction();trigger(availableObjects().find(o=>o.id===nearby?.id));return true;
       }
       return false;
     },
@@ -337,13 +374,14 @@ function createPlatformAdventureScene({ stage, missions = [], mission = null, be
     activate(id) { approach(availableObjects().find(o => o.id === id)); },
     confirm() { trigger(availableObjects().find(o => o.id === aim)); aim = null; },
     getObjects: () => availableObjects().map(({id,label,role,audio,sceneObject})=>({id,label:label||sceneObject?.label||'',role,audio})),
+    getInteraction:interaction,
     setProgress() {},
-    setState(next, nextIndex = index) { if(nextIndex!==index){for(let n=0;n<nextIndex;n++)restoreRoom(n);lastContact=null;destination=null;route=[];aim=null;projectiles=[];cancelCampaignActionMotion(motion);motion=null;} state = next; index = nextIndex; if(next?.done)restoreRoom(index);
+    setState(next, nextIndex = index) { if(nextIndex!==index){for(let n=0;n<nextIndex;n++){restoreRoom(n);openTraversal(layout.rooms[n],true);}lastContact=null;destination=null;route=[];aim=null;projectiles=[];feedback=null;advancePending=false;cancelCampaignActionMotion(motion);motion=null;} state = next; index = nextIndex; if(next?.done)restoreRoom(index);
       player.platforms=player.platforms.filter(p=>p.id!=='current-partial-bridge');
       const span=room()?.repairPlatforms?.[0];
       if(!next?.done&&familyOf(mission,beat())==='rescue-bridge'&&span&&next?.placed?.length)player.platforms.push({...span,id:'current-partial-bridge',width:span.width*next.placed.length/beat().view.slots});
       actionLock = false; },
-    applyOutcome(outcome) { activityPending=true;resolveCampaignActionMotion(motion,outcome);if (outcome.revealId) state = { ...state, revealedId: outcome.revealId };  },
+    applyOutcome(outcome) { activityPending=true;resolveCampaignActionMotion(motion,outcome);if(['complete','correct'].includes(outcome.type))heroAction={state:'celebrate',life:.7,id:++actionId};else if(outcome.type==='incorrect')heroAction={state:'sad',life:.5,id:++actionId};if(feedback)feedback={...feedback,life:reducedMotion?.3:.8,type:outcome.type};if (outcome.revealId) state = { ...state, revealedId: outcome.revealId };  },
     snapshot: () => platformSnapshot(player),
     debug: () => ({ motion:motion?{phase:motion.phase,position:{...motion.position},from:{...motion.from},to:{...motion.to},objectId:motion.objectId}:null,player: platformSnapshot(player), camera: { ...player.camera }, beatIndex: index, objects: availableObjects().map(({ id, x, y, label }) => ({ id, x, y, label })), hub:false,mode:'side',area,traversal:room()?.traversal ? {...room().traversal} : null }),
     dispose() { disposed = true; release();cancelCampaignActionMotion(motion);motion=null; projectiles = []; effects = []; }
@@ -358,11 +396,21 @@ export function createCampaignWorldScene(options) {
   return {
     update(dt){transition=Math.max(0,transition-dt);scene.update(dt);},
     draw(ctx,w,h){scene.draw(ctx,w,h);if(transition&&!options.reducedMotion){ctx.save();ctx.globalAlpha=transition/.32*.65;ctx.fillStyle=P['adventure-transition'];ctx.fillRect(0,0,w,h);ctx.restore();}},
-    setState(next,nextIndex=index){state=next;if(nextIndex!==index){const before=options.beats[index],after=options.beats[nextIndex],position=usesMazeArea(before)&&usesMazeArea(after)&&before.familyId===after.familyId&&before.sectionId===after.sectionId?scene.snapshot():null;scene.dispose();index=nextIndex;scene=make(position);transition=.32;}else scene.setState(next,index);},
+    setState(next,nextIndex=index){state=next;if(nextIndex!==index){
+      const before=options.beats[index],after=options.beats[nextIndex],sameArea=before.familyId===after.familyId&&before.sectionId===after.sectionId;
+      if(sameArea&&!usesMazeArea(before)&&!usesMazeArea(after)){
+        // Consecutive platform problems are rooms on the same physical route.
+        // Keep the player's feet, camera and completed construction in place.
+        index=nextIndex;scene.setState(next,index);
+      }else{
+        const position=sameArea&&usesMazeArea(before)&&usesMazeArea(after)?scene.snapshot():null;
+        scene.dispose();index=nextIndex;scene=make(position);transition=.32;
+      }
+    }else scene.setState(next,index);},
     getPresentation:()=>usesMazeArea(options.beats[index])?'depth':'side',
     getArea:()=>activityAreaFor(options.beats[index]?.familyId||options.mission.familyId),
-    assets:()=>[...new Set([...scene.assets(),LEARNING_SPRITES,PUZZLE_SPRITES,...Object.values(CAST).flatMap(c=>[c.sprite,c.heroSprite]),...options.beats.flatMap(b=>[...(b.view.cards||[]).map(c=>c.anchorImage),...(b.view.items||[]).map(i=>i.image)])])].filter(Boolean),
+    assets:()=>[...new Set([...scene.assets(),LEARNING_SPRITES,PUZZLE_SPRITES,...Object.values(CAST).flatMap(c=>[c.sprite,c.heroSprite]),...options.beats.flatMap(b=>[...(b.view.cards||[]).map(c=>c.anchorImage),...(b.view.items||[]).map(i=>i.image),...(b.view.sceneObjects||[]).flatMap(o=>[o.residentId,o.appearance?.residentId,o.appearance?.landmark?.residentId].flatMap(getCampaignHeroAssets))])])].filter(Boolean),
     setInput:(...args)=>scene.setInput(...args),key:(...args)=>scene.key(...args),pointerDown:(...args)=>scene.pointerDown(...args),activate:id=>scene.activate(id),confirm:()=>scene.confirm(),
-    getObjects:()=>scene.getObjects(),setProgress:p=>scene.setProgress(p),applyOutcome:o=>scene.applyOutcome(o),snapshot:()=>scene.snapshot(),release:()=>scene.release(),consumeActivity:(...args)=>scene.consumeActivity(...args),debug:()=>scene.debug(),dispose:()=>scene.dispose()
+    getObjects:()=>scene.getObjects(),getInteraction:()=>scene.getInteraction?.()||null,setProgress:p=>scene.setProgress(p),applyOutcome:o=>scene.applyOutcome(o),snapshot:()=>scene.snapshot(),release:()=>scene.release(),consumeActivity:(...args)=>scene.consumeActivity(...args),debug:()=>scene.debug(),dispose:()=>scene.dispose()
   };
 }

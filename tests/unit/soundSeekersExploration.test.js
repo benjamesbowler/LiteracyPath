@@ -6,6 +6,8 @@ import { createCampaignWorldScene } from '../../src/features/soundSeekers/v3/ren
 import { createCampaignBeatState,buildCampaignMission } from '../../src/features/soundSeekers/v3/engine/campaignChallenges.js';
 import { publicBeat } from '../../src/features/soundSeekers/v3/engine/challenges.js';
 import { createCampaignPreviewProgress } from '../../src/features/soundSeekers/preview/campaignPreview.js';
+import { QUEST_STOPS } from '../../src/data/questSequence.js';
+import { getCampaignLayout } from '../../src/features/soundSeekers/v3/content/campaignLayouts.js';
 const run=(s,n)=>{for(let i=0;i<n;i++)s.update(1/120);};
 
 test('all 30 overworlds have routes to every friend, switch, nook and exit without opening the shortcut',()=>{
@@ -34,12 +36,17 @@ test('all three motor traversal kinds are crossable with the same assist and nev
   const seen=new Set();
   for(const mission of CAMPAIGN_MISSIONS){
     if(seen.size===3)break;
-    const p={...createCampaignPreviewProgress(mission.stageId),targets:Object.fromEntries(['a','m','t','s'].map(id=>[id,{taught:true}]))},built=buildCampaignMission(mission,p),beats=built.beats.map(publicBeat),state={...createCampaignBeatState(built.beats[0]),done:true};
-    let advanced=0,actions=0;
-    const scene=createCampaignWorldScene({stage:getCampaignStage(mission.stageId),mission,beats,beatState:state,heroId:'speedy',progress:p,onAction:()=>actions++,onAdvance:()=>advanced++});
-    const traversal=scene.debug().traversal;if(!traversal||seen.has(traversal.kind)){scene.dispose();continue;}
-    scene.activate('leave-room');for(let i=0;i<12000&&!advanced;i++)scene.update(1/120);
-    assert.ok(advanced>0,`${traversal.kind}: ${JSON.stringify(scene.debug())}`);assert.equal(actions,0);seen.add(traversal.kind);scene.dispose();
+    const p={...createCampaignPreviewProgress(mission.stageId),targets:Object.fromEntries(QUEST_STOPS.flatMap(s=>s.teach.map(t=>[t.id,{taught:true}])))};
+    const built=buildCampaignMission(mission,p),beats=built.beats.map(publicBeat);
+    const layout=getCampaignLayout(mission.id,{beatCount:beats.length,beatFamilies:beats.map(b=>b.familyId),beatMechanics:beats.map(b=>b.mechanic),beatSections:beats.map(b=>b.sectionId)});
+    for(const [beatIndex,room]of layout.rooms.entries()){
+      const traversal=room.traversal;if(!traversal||seen.has(traversal.kind))continue;
+      let advanced=0,actions=0;const state={...createCampaignBeatState(built.beats[beatIndex]),done:true};
+      const scene=createCampaignWorldScene({stage:getCampaignStage(mission.stageId),mission,beats,beatIndex,beatState:state,heroId:'speedy',progress:p,onAction:()=>actions++,onAdvance:()=>advanced++});
+      if(!scene.debug().traversal){scene.dispose();continue;}
+      scene.activate('leave-room');for(let i=0;i<12000&&!advanced;i++)scene.update(1/120);
+      assert.equal(advanced,1,`${traversal.kind}: ${JSON.stringify(scene.debug())}`);assert.equal(actions,0);seen.add(traversal.kind);scene.dispose();
+    }
   }
   assert.equal(seen.size,3);
 });
@@ -72,6 +79,7 @@ test('the exploration production brief satisfies the current game contract',asyn
 test('expanded rooms recover an old motor position at the saved learning beat',()=>{
   const mission=CAMPAIGN_MISSIONS[0],progress=createCampaignPreviewProgress(mission.stageId),built=buildCampaignMission(mission,progress),beats=built.beats.map(publicBeat);
   let actions=0;
-  const scene=createCampaignWorldScene({stage:getCampaignStage(mission.stageId),mission,beats,beatIndex:2,beatState:createCampaignBeatState(built.beats[2]),heroId:'speedy',progress,position:{v:1,x:140,y:560,vx:0,vy:0,facing:1,recoveries:0,lastCheckpointId:null},onAction:()=>actions++});
-  assert.equal(scene.debug().beatIndex,2);assert.ok(scene.debug().player.x>2500);run(scene,60);assert.equal(actions,0);scene.dispose();
+  const scene=createCampaignWorldScene({stage:getCampaignStage(mission.stageId),mission,beats,beatIndex:2,beatState:createCampaignBeatState(built.beats[2]),heroId:'speedy',progress,position:{v:1,x:-140,y:560,vx:0,vy:0,facing:1,recoveries:0,lastCheckpointId:null},onAction:()=>actions++});
+  const layout=getCampaignLayout(mission.id,{beatCount:beats.length,beatFamilies:beats.map(b=>b.familyId),beatMechanics:beats.map(b=>b.mechanic),beatSections:beats.map(b=>b.sectionId)}),room=layout.rooms[2];
+  assert.equal(scene.debug().beatIndex,2);assert.equal(scene.snapshot().x,room.spawn.x);assert.equal(scene.snapshot().y,room.spawn.y);run(scene,60);assert.equal(actions,0);assert.equal(scene.snapshot().recoveries,0);scene.dispose();
 });

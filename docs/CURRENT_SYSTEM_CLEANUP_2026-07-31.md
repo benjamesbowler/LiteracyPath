@@ -274,9 +274,10 @@ Twenty-three superseded unsupported spatial-choice label clips were removed
 after exact reference checks; one changed spatial prompt was regenerated.
 A palette-only source refactor required provenance re-verification, not audio
 regeneration: original generation source hashes are preserved alongside current
-source hashes where changed. Unchanged scripts retained their generated MP3 bytes. The local pacing model
-is approximately 12–24 hours, requiring learner validation rather than a
-measured twenty-hour claim. Human
+source hashes where changed. Unchanged scripts retained their generated MP3 bytes.
+The former corridor-based pacing model is superseded by continuous platform
+sections, shorter teaching and revised exploration routes. Twenty hours remains
+unmeasured; no replacement time estimate is asserted. Human
 listening, physical-device play, observed learner comprehension and measured
 playthrough duration remain distinct evidence; no approval or readiness claim
 is inferred from technical checks.
@@ -311,3 +312,25 @@ signposts supersede earlier saved introductions without replacing scored history
 Consolidated canvas/control colours into the shared palette. Task scratch scripts,
 downloaded pronunciation lookup and transient browser logs are removed or retained
 only as ignored scoped verification evidence; no learner or user source was deleted.
+
+## Sound Seekers continuous adventure and animation — 12 September 2026
+
+Replaced per-answer platform scene resets and long teaching detours with
+continuous related rooms and crossings between completed problem groups.
+Raised choice stones, animated collision decks and maze carry/return motion
+retain the challenge authority. Overworld branches, compass guidance, camera
+recentring and one visible actor per resident identity now use the current
+navigation owners. Explicit nearby entry replaces the redundant confirmation;
+completed activities remain available through Pause replay.
+
+`heroActions.json` and `heroMotion.js` own the 48 drawn action poses alongside
+the existing walk atlases. Magenta-backed action sheets are keyed to transparent
+rendering canvases; prop atlases retain source alpha. `campaignTextSupport`
+replaces empty help lines and preserves supported evidence across sort items
+and resumed attempts. No hosted schema or alternative runtime was added.
+Superseded corridor-time claims were removed from the current release Bible;
+scoped test logs and visual evidence remain under ignored `.artifacts`. Obsolete
+phone control offsets and the legacy-only preview readiness check were replaced.
+Temporary browser snapshots and incidental regenerated audio indexes were removed
+from the change. Local browser checks passed; no new duration or physical-device
+readiness claim is implied.

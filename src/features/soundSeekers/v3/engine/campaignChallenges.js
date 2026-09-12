@@ -8,7 +8,8 @@ import { getLedaWordAudioPath } from '../../../../data/ledaProductionAudio.js';
 import { CAMPAIGN_TRANSFER_PACKS } from '../content/campaignTransferPacks.js';
 import { CAMPAIGN_SENTENCE_TRANSFER_PACKS } from '../content/campaignSentenceTransfer.js';
 import { CAMPAIGN_LANGUAGE } from '../content/campaignLanguage.js';
-import { targetInfo, targetAudio, wordAudio, unitsFor, isSoundDistinct, phonemeAudio } from './lexicon.js';
+import { targetInfo, targetAudio, wordAudio, unitsFor, isSoundDistinct, phonemeAudio, soundLabel } from './lexicon.js';
+import { INITIAL_SOUND_TARGET_IDS } from '../../content/teachTargetMetadata.js';
 import { createRng, hashSeed } from './rng.js';
 
 export class CampaignContentError extends Error {
@@ -93,17 +94,51 @@ function oralBeats(mission, ordinal, mode = 'independent-check') {
 }
 // Accessibility transcription is an explicit supported attempt, never an
 // invisible change to an independent listening/encoding item.
+// Call this with the private authored beat only. Its returned line is explicit
+// learner-requested support; answer keys never enter the scene projection.
+export function campaignTextSupport(beat,state={}) {
+  if(beat.mechanic===MECHANICS.SIGNPOST)return beat.view.cards.map(card=>`${card.grapheme}: ${targetInfo(card.targetId)?.anchorWord||card.anchorWord}.`).join(' ');
+  if(beat.mechanic===MECHANICS.ECHO_HUNT){
+    const targetId=beat.key?.optionTargets?.[beat.key?.optionId]||beat.targetIds?.[0],info=targetInfo(targetId),sound=soundLabel(targetId);
+    if(info&&sound){
+      const word=info.anchorWord,example=word?(INITIAL_SOUND_TARGET_IDS.includes(targetId)?`${word.charAt(0).toUpperCase()+word.slice(1)} starts with ${sound}.`:`Hear ${sound} in ${word}.`):'';
+      return `${beat.view.direction==='letter-to-sound'||beat.domain===DOMAINS.G2P?`Find the ${sound} sound for ${info.grapheme}.`:`Find ${info.grapheme}.`} ${example}`.trim();
+    }
+  }
+  if(beat.mechanic===MECHANICS.SOUND_SORT){
+    const items=beat.view.items||[],item=items[Math.min(state.itemIndex||0,Math.max(0,items.length-1))];
+    const labels=(beat.view.bins||[]).map(bin=>{
+      if(beat.domain==='spelling_pattern_sort')return bin.grapheme||bin.label;
+      const id=beat.key?.binTargets?.[bin.id],info=targetInfo(id),sound=bin.soundLabel||soundLabel(id)||bin.grapheme||bin.label;
+      return beat.view.mode==='read'&&info?.anchorWord?`${sound} as in ${info.anchorWord}`:sound;
+    }).filter(Boolean).join(' or ');
+    if(item?.word&&labels){
+      const task=beat.domain==='spelling_pattern_sort'?'Choose its letter pattern':beat.view.mode==='initial'?'Choose its first sound':beat.view.mode==='contains'?'Choose a sound in the word':'Choose the matching sound';
+      return `Word: ${item.word}. ${task}: ${labels}.`;
+    }
+  }
+  const authored=beat.key?.supportText||beat.key?.word||beat.view?.text||beat.view?.context||beat.prompt?.text;
+  return typeof authored==='string'&&authored.trim()?authored.trim():'Look at the choices. Choose the one that helps your friend.';
+}
 export function resolveCampaignAction(beat, state, action) {
-  const current = state || createCampaignBeatState(beat);
+  const saved = state || createCampaignBeatState(beat);
+  const current = saved.supportUsed.includes('text-support')?{...saved,modelShown:true}:saved;
   if (beat.mechanic === MECHANICS.SIGNPOST && ['REQUEST_TEXT_SUPPORT','REQUEST_MODEL'].includes(action.type) && !current.done) {
-    const line=beat.view.cards.map(card=>`${card.grapheme}: ${card.anchorWord}.`).join(' ');
+    const line=campaignTextSupport(beat,current);
     return {state:{...current,done:true,modelShown:true,supportUsed:[...new Set([...current.supportUsed,'visual-introduction'])]},outcome:{type:'complete',line,taught:beat.targetIds,exposure:'visual-supported',evidence:null}};
   }
   if (action.type === 'REQUEST_TEXT_SUPPORT' && !current.done) {
-    return {state:{...current,modelShown:true,supportUsed:[...new Set([...current.supportUsed,'text-support'])]},outcome:{type:'model',line:beat.key?.supportText || beat.key?.word || '',textSupport:true}};
+    return {state:{...current,modelShown:true,supportUsed:[...new Set([...current.supportUsed,'text-support'])]},outcome:{type:'model',line:campaignTextSupport(beat,current),textSupport:true}};
   }
   if(beat.mechanic==='sentence_build')return resolveSentence(beat,current,action);
   const result=resolveAction(beat,current,action);
+  // Sort substeps share the current supported attempt. Its next visible item
+  // must not become independent merely because the shared reducer resets the
+  // per-item model flag while explicit text support remains active.
+  if(current.supportUsed.includes('text-support')){
+    result.state={...result.state,modelShown:true};
+    if(result.outcome.evidence){result.outcome.independent=false;result.outcome.evidence={...result.outcome.evidence,independent:false,supportUsed:[...new Set([...result.outcome.evidence.supportUsed,'text-support'])]};}
+  }
   if(beat.mechanic===MECHANICS.WORD_FORGE&&result.outcome.type==='complete')result.state={...result.state,completedWord:beat.key.word};
   if(beat.view.workshop?.mode==='replace'){
     const workshop=beat.view.workshop;

@@ -1,0 +1,658 @@
+{
+  "speedy": {
+    "src": "/game-assets/sound-seekers/campaign/heroes/meadow-actions.webp",
+    "width": 1536,
+    "height": 1024,
+    "referenceHeight": 210,
+    "chromaKey": "magenta",
+    "frames": [
+      {
+        "pose": "rest",
+        "x": 27,
+        "y": 63,
+        "width": 216,
+        "height": 214,
+        "anchorX": 108,
+        "anchorY": 211,
+        "bodyHeight": 210
+      },
+      {
+        "pose": "blink",
+        "x": 276,
+        "y": 64,
+        "width": 199,
+        "height": 213,
+        "anchorX": 99.5,
+        "anchorY": 210,
+        "bodyHeight": 209
+      },
+      {
+        "pose": "crouch",
+        "x": 520,
+        "y": 114,
+        "width": 233,
+        "height": 163,
+        "anchorX": 116.5,
+        "anchorY": 160,
+        "bodyHeight": 159
+      },
+      {
+        "pose": "air",
+        "x": 789,
+        "y": 24,
+        "width": 211,
+        "height": 204,
+        "anchorX": 105.5,
+        "anchorY": 201,
+        "bodyHeight": 200
+      },
+      {
+        "pose": "reach",
+        "x": 1035,
+        "y": 76,
+        "width": 261,
+        "height": 199,
+        "anchorX": 130.5,
+        "anchorY": 196,
+        "bodyHeight": 195
+      },
+      {
+        "pose": "cheer",
+        "x": 1305,
+        "y": 5,
+        "width": 209,
+        "height": 270,
+        "anchorX": 104.5,
+        "anchorY": 267,
+        "bodyHeight": 266,
+        "cropExclusions": [
+          {
+            "x": 113,
+            "y": 269,
+            "width": 8,
+            "height": 1
+          }
+        ]
+      }
+    ],
+    "sha256": "799b70a2e0a30c3c4d665d8814d9e48e5c96520b3883a9313d4304e19d7e2e42",
+    "provenance": "Built-in image generation, referenced to this hero’s existing canonical walk atlas; six distinct action drawings. Source losslessly encoded to WebP; decoded RGB pixels verified identical. Magenta backing is removed only in the cached Canvas rendering pass; measured frames are registered to a common ground anchor.",
+    "canonicalIdentityReference": "/game-assets/sound-seekers/v3/cast/meadow/speedy-hero.webp",
+    "poseReference": "/game-assets/sound-seekers/campaign/heroes/speedy-walk.png",
+    "generation": {
+      "tool": "built-in imagegen",
+      "sourceImage": "exec-1ecb5fe6-ae6f-4c40-a937-b166c3519748.png",
+      "brief": "Extend the referenced canonical walk drawings into rest, matching closed-eye blink, grounded crouch, tucked airborne, grounded helping reach and cheerful success poses. Preserve cast anatomy, palette, face, costume and direction. Strict six-column four-row atlas. Solid magenta backing for cached game rendering."
+    }
+  },
+  "bouncy": {
+    "src": "/game-assets/sound-seekers/campaign/heroes/meadow-actions.webp",
+    "width": 1536,
+    "height": 1024,
+    "referenceHeight": 247,
+    "chromaKey": "magenta",
+    "frames": [
+      {
+        "pose": "rest",
+        "x": 44,
+        "y": 292,
+        "width": 179,
+        "height": 251,
+        "anchorX": 89.5,
+        "anchorY": 248,
+        "bodyHeight": 247
+      },
+      {
+        "pose": "blink",
+        "x": 303,
+        "y": 292,
+        "width": 178,
+        "height": 251,
+        "anchorX": 89,
+        "anchorY": 248,
+        "bodyHeight": 247
+      },
+      {
+        "pose": "crouch",
+        "x": 534,
+        "y": 325,
+        "width": 210,
+        "height": 217,
+        "anchorX": 105,
+        "anchorY": 214,
+        "bodyHeight": 213
+      },
+      {
+        "pose": "air",
+        "x": 805,
+        "y": 271,
+        "width": 191,
+        "height": 236,
+        "anchorX": 95.5,
+        "anchorY": 233,
+        "bodyHeight": 232
+      },
+      {
+        "pose": "reach",
+        "x": 1060,
+        "y": 296,
+        "width": 222,
+        "height": 247,
+        "anchorX": 111,
+        "anchorY": 244,
+        "bodyHeight": 243
+      },
+      {
+        "pose": "cheer",
+        "x": 1325,
+        "y": 273,
+        "width": 181,
+        "height": 266,
+        "anchorX": 90.5,
+        "anchorY": 263,
+        "bodyHeight": 262,
+        "cropExclusions": [
+          {
+            "x": 88,
+            "y": 263,
+            "width": 20,
+            "height": 3
+          }
+        ]
+      }
+    ],
+    "sha256": "799b70a2e0a30c3c4d665d8814d9e48e5c96520b3883a9313d4304e19d7e2e42",
+    "provenance": "Built-in image generation, referenced to this hero’s existing canonical walk atlas; six distinct action drawings. Source losslessly encoded to WebP; decoded RGB pixels verified identical. Magenta backing is removed only in the cached Canvas rendering pass; measured frames are registered to a common ground anchor.",
+    "canonicalIdentityReference": "/game-assets/sound-seekers/v3/cast/meadow/bouncy.webp",
+    "poseReference": "/game-assets/sound-seekers/campaign/heroes/bouncy-walk.png",
+    "generation": {
+      "tool": "built-in imagegen",
+      "sourceImage": "exec-1ecb5fe6-ae6f-4c40-a937-b166c3519748.png",
+      "brief": "Extend the referenced canonical walk drawings into rest, matching closed-eye blink, grounded crouch, tucked airborne, grounded helping reach and cheerful success poses. Preserve cast anatomy, palette, face, costume and direction. Strict six-column four-row atlas. Solid magenta backing for cached game rendering."
+    }
+  },
+  "woolly": {
+    "src": "/game-assets/sound-seekers/campaign/heroes/meadow-actions.webp",
+    "width": 1536,
+    "height": 1024,
+    "referenceHeight": 216,
+    "chromaKey": "magenta",
+    "frames": [
+      {
+        "pose": "rest",
+        "x": 26,
+        "y": 557,
+        "width": 224,
+        "height": 220,
+        "anchorX": 112,
+        "anchorY": 217,
+        "bodyHeight": 216
+      },
+      {
+        "pose": "blink",
+        "x": 268,
+        "y": 556,
+        "width": 233,
+        "height": 221,
+        "anchorX": 116.5,
+        "anchorY": 218,
+        "bodyHeight": 217
+      },
+      {
+        "pose": "crouch",
+        "x": 525,
+        "y": 594,
+        "width": 250,
+        "height": 183,
+        "anchorX": 125,
+        "anchorY": 180,
+        "bodyHeight": 179
+      },
+      {
+        "pose": "air",
+        "x": 788,
+        "y": 528,
+        "width": 218,
+        "height": 209,
+        "anchorX": 109,
+        "anchorY": 206,
+        "bodyHeight": 205
+      },
+      {
+        "pose": "reach",
+        "x": 1040,
+        "y": 571,
+        "width": 237,
+        "height": 204,
+        "anchorX": 118.5,
+        "anchorY": 201,
+        "bodyHeight": 200
+      },
+      {
+        "pose": "cheer",
+        "x": 1324,
+        "y": 535,
+        "width": 184,
+        "height": 239,
+        "anchorX": 92,
+        "anchorY": 236,
+        "bodyHeight": 235,
+        "cropExclusions": [
+          {
+            "x": 36,
+            "y": 0,
+            "width": 28,
+            "height": 2
+          }
+        ]
+      }
+    ],
+    "sha256": "799b70a2e0a30c3c4d665d8814d9e48e5c96520b3883a9313d4304e19d7e2e42",
+    "provenance": "Built-in image generation, referenced to this hero’s existing canonical walk atlas; six distinct action drawings. Source losslessly encoded to WebP; decoded RGB pixels verified identical. Magenta backing is removed only in the cached Canvas rendering pass; measured frames are registered to a common ground anchor.",
+    "canonicalIdentityReference": "/game-assets/sound-seekers/v3/cast/meadow/woolly.webp",
+    "poseReference": "/game-assets/sound-seekers/campaign/heroes/woolly-walk.png",
+    "generation": {
+      "tool": "built-in imagegen",
+      "sourceImage": "exec-1ecb5fe6-ae6f-4c40-a937-b166c3519748.png",
+      "brief": "Extend the referenced canonical walk drawings into rest, matching closed-eye blink, grounded crouch, tucked airborne, grounded helping reach and cheerful success poses. Preserve cast anatomy, palette, face, costume and direction. Strict six-column four-row atlas. Solid magenta backing for cached game rendering."
+    }
+  },
+  "splashy": {
+    "src": "/game-assets/sound-seekers/campaign/heroes/meadow-actions.webp",
+    "width": 1536,
+    "height": 1024,
+    "referenceHeight": 217,
+    "chromaKey": "magenta",
+    "frames": [
+      {
+        "pose": "rest",
+        "x": 48,
+        "y": 788,
+        "width": 139,
+        "height": 221,
+        "anchorX": 69.5,
+        "anchorY": 218,
+        "bodyHeight": 217
+      },
+      {
+        "pose": "blink",
+        "x": 300,
+        "y": 788,
+        "width": 144,
+        "height": 221,
+        "anchorX": 72,
+        "anchorY": 218,
+        "bodyHeight": 217
+      },
+      {
+        "pose": "crouch",
+        "x": 557,
+        "y": 813,
+        "width": 168,
+        "height": 196,
+        "anchorX": 84,
+        "anchorY": 193,
+        "bodyHeight": 192
+      },
+      {
+        "pose": "air",
+        "x": 806,
+        "y": 766,
+        "width": 191,
+        "height": 213,
+        "anchorX": 95.5,
+        "anchorY": 210,
+        "bodyHeight": 209
+      },
+      {
+        "pose": "reach",
+        "x": 1073,
+        "y": 792,
+        "width": 199,
+        "height": 217,
+        "anchorX": 99.5,
+        "anchorY": 214,
+        "bodyHeight": 213
+      },
+      {
+        "pose": "cheer",
+        "x": 1327,
+        "y": 774,
+        "width": 180,
+        "height": 235,
+        "anchorX": 90,
+        "anchorY": 232,
+        "bodyHeight": 231
+      }
+    ],
+    "sha256": "799b70a2e0a30c3c4d665d8814d9e48e5c96520b3883a9313d4304e19d7e2e42",
+    "provenance": "Built-in image generation, referenced to this hero’s existing canonical walk atlas; six distinct action drawings. Source losslessly encoded to WebP; decoded RGB pixels verified identical. Magenta backing is removed only in the cached Canvas rendering pass; measured frames are registered to a common ground anchor.",
+    "canonicalIdentityReference": "/game-assets/sound-seekers/v3/cast/meadow/splashy.webp",
+    "poseReference": "/game-assets/sound-seekers/campaign/heroes/splashy-walk.png",
+    "generation": {
+      "tool": "built-in imagegen",
+      "sourceImage": "exec-1ecb5fe6-ae6f-4c40-a937-b166c3519748.png",
+      "brief": "Extend the referenced canonical walk drawings into rest, matching closed-eye blink, grounded crouch, tucked airborne, grounded helping reach and cheerful success poses. Preserve cast anatomy, palette, face, costume and direction. Strict six-column four-row atlas. Solid magenta backing for cached game rendering."
+    }
+  },
+  "clucky": {
+    "src": "/game-assets/sound-seekers/campaign/heroes/adventure-actions.webp",
+    "width": 1536,
+    "height": 1024,
+    "referenceHeight": 248,
+    "chromaKey": "magenta",
+    "frames": [
+      {
+        "pose": "rest",
+        "x": 54,
+        "y": 8,
+        "width": 189,
+        "height": 252,
+        "anchorX": 94.5,
+        "anchorY": 249,
+        "bodyHeight": 248
+      },
+      {
+        "pose": "blink",
+        "x": 306,
+        "y": 8,
+        "width": 189,
+        "height": 251,
+        "anchorX": 94.5,
+        "anchorY": 248,
+        "bodyHeight": 247
+      },
+      {
+        "pose": "crouch",
+        "x": 558,
+        "y": 54,
+        "width": 189,
+        "height": 205,
+        "anchorX": 94.5,
+        "anchorY": 202,
+        "bodyHeight": 201
+      },
+      {
+        "pose": "air",
+        "x": 801,
+        "y": 8,
+        "width": 201,
+        "height": 232,
+        "anchorX": 100.5,
+        "anchorY": 229,
+        "bodyHeight": 228
+      },
+      {
+        "pose": "reach",
+        "x": 1037,
+        "y": 22,
+        "width": 247,
+        "height": 237,
+        "anchorX": 123.5,
+        "anchorY": 234,
+        "bodyHeight": 233
+      },
+      {
+        "pose": "cheer",
+        "x": 1303,
+        "y": 10,
+        "width": 205,
+        "height": 249,
+        "anchorX": 102.5,
+        "anchorY": 246,
+        "bodyHeight": 245
+      }
+    ],
+    "sha256": "5286c84912b9645f944d8f9ea7546ee991e0afa36572c6eafcd5bb4df1b7134c",
+    "provenance": "Built-in image generation, referenced to this hero’s existing canonical walk atlas; six distinct action drawings. Source losslessly encoded to WebP; decoded RGB pixels verified identical. Magenta backing is removed only in the cached Canvas rendering pass; measured frames are registered to a common ground anchor.",
+    "canonicalIdentityReference": "/game-assets/sound-seekers/v3/cast/meadow/clucky.webp",
+    "poseReference": "/game-assets/sound-seekers/campaign/heroes/clucky-walk.png",
+    "generation": {
+      "tool": "built-in imagegen",
+      "sourceImage": "exec-bf546b00-b077-4679-a414-2cc260b33419.png",
+      "brief": "Extend the referenced canonical walk drawings into rest, matching closed-eye blink, grounded crouch, tucked airborne, grounded helping reach and cheerful success poses. Preserve cast anatomy, palette, face, costume and direction. Strict six-column four-row atlas. Solid magenta backing for cached game rendering."
+    }
+  },
+  "muddy": {
+    "src": "/game-assets/sound-seekers/campaign/heroes/adventure-actions.webp",
+    "width": 1536,
+    "height": 1024,
+    "referenceHeight": 212,
+    "chromaKey": "magenta",
+    "frames": [
+      {
+        "pose": "rest",
+        "x": 35,
+        "y": 288,
+        "width": 223,
+        "height": 216,
+        "anchorX": 111.5,
+        "anchorY": 213,
+        "bodyHeight": 212
+      },
+      {
+        "pose": "blink",
+        "x": 287,
+        "y": 292,
+        "width": 226,
+        "height": 211,
+        "anchorX": 113,
+        "anchorY": 208,
+        "bodyHeight": 207
+      },
+      {
+        "pose": "crouch",
+        "x": 551,
+        "y": 323,
+        "width": 225,
+        "height": 181,
+        "anchorX": 112.5,
+        "anchorY": 178,
+        "bodyHeight": 177
+      },
+      {
+        "pose": "air",
+        "x": 802,
+        "y": 261,
+        "width": 198,
+        "height": 201,
+        "anchorX": 99,
+        "anchorY": 198,
+        "bodyHeight": 197
+      },
+      {
+        "pose": "reach",
+        "x": 1043,
+        "y": 299,
+        "width": 237,
+        "height": 205,
+        "anchorX": 118.5,
+        "anchorY": 202,
+        "bodyHeight": 201
+      },
+      {
+        "pose": "cheer",
+        "x": 1315,
+        "y": 259,
+        "width": 192,
+        "height": 249,
+        "anchorX": 96,
+        "anchorY": 246,
+        "bodyHeight": 245
+      }
+    ],
+    "sha256": "5286c84912b9645f944d8f9ea7546ee991e0afa36572c6eafcd5bb4df1b7134c",
+    "provenance": "Built-in image generation, referenced to this hero’s existing canonical walk atlas; six distinct action drawings. Source losslessly encoded to WebP; decoded RGB pixels verified identical. Magenta backing is removed only in the cached Canvas rendering pass; measured frames are registered to a common ground anchor.",
+    "canonicalIdentityReference": "/game-assets/sound-seekers/v3/cast/meadow/muddy.webp",
+    "poseReference": "/game-assets/sound-seekers/campaign/heroes/muddy-walk.png",
+    "generation": {
+      "tool": "built-in imagegen",
+      "sourceImage": "exec-bf546b00-b077-4679-a414-2cc260b33419.png",
+      "brief": "Extend the referenced canonical walk drawings into rest, matching closed-eye blink, grounded crouch, tucked airborne, grounded helping reach and cheerful success poses. Preserve cast anatomy, palette, face, costume and direction. Strict six-column four-row atlas. Solid magenta backing for cached game rendering."
+    }
+  },
+  "chompy": {
+    "src": "/game-assets/sound-seekers/campaign/heroes/adventure-actions.webp",
+    "width": 1536,
+    "height": 1024,
+    "referenceHeight": 240,
+    "chromaKey": "magenta",
+    "frames": [
+      {
+        "pose": "rest",
+        "x": 35,
+        "y": 516,
+        "width": 212,
+        "height": 244,
+        "anchorX": 106,
+        "anchorY": 241,
+        "bodyHeight": 240
+      },
+      {
+        "pose": "blink",
+        "x": 288,
+        "y": 518,
+        "width": 213,
+        "height": 242,
+        "anchorX": 106.5,
+        "anchorY": 239,
+        "bodyHeight": 238
+      },
+      {
+        "pose": "crouch",
+        "x": 544,
+        "y": 556,
+        "width": 243,
+        "height": 202,
+        "anchorX": 121.5,
+        "anchorY": 199,
+        "bodyHeight": 198
+      },
+      {
+        "pose": "air",
+        "x": 800,
+        "y": 500,
+        "width": 209,
+        "height": 228,
+        "anchorX": 104.5,
+        "anchorY": 225,
+        "bodyHeight": 224
+      },
+      {
+        "pose": "reach",
+        "x": 1035,
+        "y": 519,
+        "width": 233,
+        "height": 241,
+        "anchorX": 116.5,
+        "anchorY": 238,
+        "bodyHeight": 237
+      },
+      {
+        "pose": "cheer",
+        "x": 1311,
+        "y": 514,
+        "width": 193,
+        "height": 250,
+        "anchorX": 96.5,
+        "anchorY": 247,
+        "bodyHeight": 246,
+        "cropExclusions": [
+          {
+            "x": 113,
+            "y": 248,
+            "width": 7,
+            "height": 2
+          }
+        ]
+      }
+    ],
+    "sha256": "5286c84912b9645f944d8f9ea7546ee991e0afa36572c6eafcd5bb4df1b7134c",
+    "provenance": "Built-in image generation, referenced to this hero’s existing canonical walk atlas; six distinct action drawings. Source losslessly encoded to WebP; decoded RGB pixels verified identical. Magenta backing is removed only in the cached Canvas rendering pass; measured frames are registered to a common ground anchor.",
+    "canonicalIdentityReference": "/game-assets/sound-seekers/v3/cast/dino/chompy-hero.webp",
+    "poseReference": "/game-assets/sound-seekers/campaign/heroes/chompy-walk.png",
+    "generation": {
+      "tool": "built-in imagegen",
+      "sourceImage": "exec-bf546b00-b077-4679-a414-2cc260b33419.png",
+      "brief": "Extend the referenced canonical walk drawings into rest, matching closed-eye blink, grounded crouch, tucked airborne, grounded helping reach and cheerful success poses. Preserve cast anatomy, palette, face, costume and direction. Strict six-column four-row atlas. Solid magenta backing for cached game rendering."
+    }
+  },
+  "pip": {
+    "src": "/game-assets/sound-seekers/campaign/heroes/adventure-actions.webp",
+    "width": 1536,
+    "height": 1024,
+    "referenceHeight": 254,
+    "chromaKey": "magenta",
+    "frames": [
+      {
+        "pose": "rest",
+        "x": 49,
+        "y": 761,
+        "width": 180,
+        "height": 258,
+        "anchorX": 90,
+        "anchorY": 255,
+        "bodyHeight": 254
+      },
+      {
+        "pose": "blink",
+        "x": 301,
+        "y": 761,
+        "width": 178,
+        "height": 258,
+        "anchorX": 89,
+        "anchorY": 255,
+        "bodyHeight": 254
+      },
+      {
+        "pose": "crouch",
+        "x": 547,
+        "y": 791,
+        "width": 210,
+        "height": 226,
+        "anchorX": 105,
+        "anchorY": 223,
+        "bodyHeight": 222
+      },
+      {
+        "pose": "air",
+        "x": 788,
+        "y": 750,
+        "width": 207,
+        "height": 229,
+        "anchorX": 103.5,
+        "anchorY": 226,
+        "bodyHeight": 225
+      },
+      {
+        "pose": "reach",
+        "x": 1034,
+        "y": 771,
+        "width": 237,
+        "height": 249,
+        "anchorX": 118.5,
+        "anchorY": 246,
+        "bodyHeight": 245
+      },
+      {
+        "pose": "cheer",
+        "x": 1331,
+        "y": 761,
+        "width": 173,
+        "height": 255,
+        "anchorX": 86.5,
+        "anchorY": 252,
+        "bodyHeight": 251
+      }
+    ],
+    "sha256": "5286c84912b9645f944d8f9ea7546ee991e0afa36572c6eafcd5bb4df1b7134c",
+    "provenance": "Built-in image generation, referenced to this hero’s existing canonical walk atlas; six distinct action drawings. Source losslessly encoded to WebP; decoded RGB pixels verified identical. Magenta backing is removed only in the cached Canvas rendering pass; measured frames are registered to a common ground anchor.",
+    "canonicalIdentityReference": "/guided-reading/reference/characters/moonwood-cast-master.webp",
+    "poseReference": "/game-assets/sound-seekers/campaign/heroes/pip-walk.png",
+    "generation": {
+      "tool": "built-in imagegen",
+      "sourceImage": "exec-bf546b00-b077-4679-a414-2cc260b33419.png",
+      "brief": "Extend the referenced canonical walk drawings into rest, matching closed-eye blink, grounded crouch, tucked airborne, grounded helping reach and cheerful success poses. Preserve cast anatomy, palette, face, costume and direction. Strict six-column four-row atlas. Solid magenta backing for cached game rendering."
+    }
+  }
+}
