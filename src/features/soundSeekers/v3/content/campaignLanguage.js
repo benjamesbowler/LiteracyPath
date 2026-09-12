@@ -45,6 +45,9 @@ export const CAMPAIGN_LANGUAGE = Object.freeze({
 });
 
 export const CAMPAIGN_HELP_LINES = Object.freeze({
+  'letter-sound': { text: 'Listen to the sounds. Which sound does this letter make?', audio: clip('letter-sound') },
+  'read-sound-group': { text: 'Read the word. Choose its sound group.', audio: clip('read-sound-group') },
+  'read-letter-pattern': { text: 'Read the word. Choose its letter pattern.', audio: clip('read-letter-pattern') },
   welcome: { text: 'Choose a friend. Run, jump, and explore together.', audio: clip('welcome') },
   walk: { text: 'Go and see Muddy by the oak tree.', audio: clip('walk') },
   steps: { text: 'Listen. Jump onto the sound you hear.', audio: clip('steps') },

@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { QUEST_STOPS } from '../../src/data/questSequence.js';
 import { CAMPAIGN_LEARNING_PACKS, CAMPAIGN_LEARNING_AUDIO } from '../../src/features/soundSeekers/v3/content/campaignLearningPacks.js';
+import { CAMPAIGN_HELP_LINES } from '../../src/features/soundSeekers/v3/content/campaignLanguage.js';
 import { unitsFor } from '../../src/features/soundSeekers/v3/engine/lexicon.js';
 import { existsSync } from 'node:fs';
 import { CAMPAIGN_MISSIONS } from '../../src/features/soundSeekers/v3/content/campaign.js';
@@ -28,7 +29,11 @@ test('sound checks have explicit listen-only options; a sound prompt never print
  const beats=buildCampaignMission(mission('meadow-01-1')).beats.filter(b=>b.key);
  for(const b of beats){
   if(b.domain===DOMAINS.P2G){assert.equal(b.prompt.text,'Listen. Find the letter.');assert.equal(b.view.target.soundLabel,'');}
-  else {assert.ok(['a','m'].includes(b.view.target.grapheme));assert.ok(b.view.options.every(o=>o.grapheme===''&&o.audio));assert.equal(b.prompt.cues.length,0);}
+  else {
+   assert.ok(['a','m'].includes(b.view.target.grapheme));assert.ok(b.view.options.every(o=>o.grapheme===''&&o.audio));assert.equal(b.view.target.audio,'');
+   assert.deepEqual(b.prompt.cues,[{kind:'instruction',src:CAMPAIGN_HELP_LINES['letter-sound'].audio}]);
+   assert.ok(b.view.options.every(option=>option.audio!==b.prompt.cues[0].src));
+  }
  }
 });
 

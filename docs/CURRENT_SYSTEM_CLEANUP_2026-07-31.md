@@ -334,3 +334,18 @@ phone control offsets and the legacy-only preview readiness check were replaced.
 Temporary browser snapshots and incidental regenerated audio indexes were removed
 from the change. Local browser checks passed; no new duration or physical-device
 readiness claim is implied.
+
+
+## Sound Seekers pre-reader guidance — 12 September 2026
+
+Consolidated automatic instruction and replay selection into one speech plan;
+removed the signpost exclusion that left teaching silent and the separate
+next-sort narration trigger. Replaced primary text-only controls with accessible
+picture buttons and moved the detailed assistance menu under Pause. Generic
+reading-task directions and canonical morphology word pairs close silent
+content paths without disclosing answers. Three exact-script recorded clips
+and their generated path registrations are current runtime assets.
+
+No learner history, hosted data, original artwork or previous evidence was
+deleted. Generation scratch files were cleaned by the existing generator;
+scoped browser evidence and check logs remain in ignored `.artifacts`.

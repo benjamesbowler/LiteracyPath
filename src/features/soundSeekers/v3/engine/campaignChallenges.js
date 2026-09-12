@@ -7,7 +7,7 @@ import { CAMPAIGN_LEARNING_PACKS, CAMPAIGN_LEARNING_WORD_AUDIO } from '../conten
 import { getLedaWordAudioPath } from '../../../../data/ledaProductionAudio.js';
 import { CAMPAIGN_TRANSFER_PACKS } from '../content/campaignTransferPacks.js';
 import { CAMPAIGN_SENTENCE_TRANSFER_PACKS } from '../content/campaignSentenceTransfer.js';
-import { CAMPAIGN_LANGUAGE } from '../content/campaignLanguage.js';
+import { CAMPAIGN_LANGUAGE, CAMPAIGN_HELP_LINES } from '../content/campaignLanguage.js';
 import { targetInfo, targetAudio, wordAudio, unitsFor, isSoundDistinct, phonemeAudio, soundLabel } from './lexicon.js';
 import { INITIAL_SOUND_TARGET_IDS } from '../../content/teachTargetMetadata.js';
 import { createRng, hashSeed } from './rng.js';
@@ -44,7 +44,7 @@ function soundBeat(mission, targetId, pool, stopIndex, ordinal, direction, mode)
   const key = { optionId:options.find(o=>o.targetId===targetId).id, optionTargets:Object.fromEntries(options.map(o=>[o.id,o.targetId])) };
   const audio = targetAudio(targetId);
   const beat = { ...original, domain:direction==='sound-to-letter'?DOMAINS.P2G:DOMAINS.G2P,
-    prompt: { text:direction==='sound-to-letter'?'Listen. Find the letter.':`Find the sound for ${targetInfo(targetId).grapheme}.`, cues:direction==='sound-to-letter'?[{kind:'phoneme',src:audio}]:[] },
+    prompt: { text:direction==='sound-to-letter'?'Listen. Find the letter.':`Find the sound for ${targetInfo(targetId).grapheme}.`, cues:direction==='sound-to-letter'?[{kind:'phoneme',src:audio}]:[{kind:'instruction',src:CAMPAIGN_HELP_LINES['letter-sound'].audio}] },
     view: { target: { soundLabel:'', audio:direction==='sound-to-letter'?audio:'', anchorWord:'', anchorAudio:'', grapheme:direction==='letter-to-sound'?targetInfo(targetId).grapheme:'' },
       options:options.map(({id,grapheme,audio})=>({id,grapheme:direction==='sound-to-letter'?grapheme:'',audio,soundLabel:''})), direction }, key };
   return decorate(beat,mission,ordinal,mode,direction);
@@ -255,7 +255,7 @@ function sortingBeat(mission,pool,targets,allowed,stopIndex,ordinal,mode) {
   const bins=[pair.a,pair.b].map((id,i)=>({id:`bin${i}`,grapheme:targetInfo(pair.a).grapheme===targetInfo(pair.b).grapheme?`${targetInfo(id).grapheme} in ${targetInfo(id).anchorWord}`:targetInfo(id).grapheme,soundLabel:'',audio:targetAudio(id),anchorWord:targetInfo(id).anchorWord,anchorAudio:spokenWord(targetInfo(id).anchorWord)}));
   const raw=[...rng.shuffle(pair.aWords).slice(0,3).map(word=>({word,bin:'bin0'})),...rng.shuffle(pair.bWords).slice(0,3).map(word=>({word,bin:'bin1'}))];
   const items=rng.shuffle(raw).map((entry,i)=>({...entry,id:`item${i}`}));
-  return decorate({mechanic:MECHANICS.SOUND_SORT,stopId:stop.id,targetIds:[pair.a,pair.b],domain:'spelling_pattern_sort',review:false,prompt:{text:'Read the word. Find its letter pattern.',cues:[]},view:{mode:'read',bins,items:items.map(({id,word})=>({id,word,audio:spokenWord(word),image:''}))},key:{bins:Object.fromEntries(items.map(i=>[i.id,i.bin])),binTargets:{bin0:pair.a,bin1:pair.b}},seed:rng.next()},mission,ordinal,mode,'spelling_pattern_sort');
+  return decorate({mechanic:MECHANICS.SOUND_SORT,stopId:stop.id,targetIds:[pair.a,pair.b],domain:'spelling_pattern_sort',review:false,prompt:{text:'Read the word. Find its letter pattern.',cues:[{kind:'instruction',src:CAMPAIGN_HELP_LINES['read-letter-pattern'].audio}]},view:{mode:'read',bins,items:items.map(({id,word})=>({id,word,audio:spokenWord(word),image:''}))},key:{bins:Object.fromEntries(items.map(i=>[i.id,i.bin])),binTargets:{bin0:pair.a,bin1:pair.b}},seed:rng.next()},mission,ordinal,mode,'spelling_pattern_sort');
 }
 function buildExtendedMission(mission,progress,ordinal) {
   const c=mission.curriculum,anchors=c.anchorIds.map(id=>QUEST_STOPS.find(s=>s.id===id));
@@ -380,11 +380,14 @@ function workshopBeat(mission,word,sourceWords,allowed,stopIndex,ordinal,mode){
 }
 
 
-// Refresh unscored picture introductions on resume. Saved answers, attempts,
-// support and completed outcomes retain their original identity and history.
+// Refresh teaching cards and generic spoken directions on resume. Saved
+// questions, answers, attempts, support and outcomes retain their history.
 export function refreshCampaignTeaching(beats){
  return beats.map(beat=>{
-  if(beat.mechanic!==MECHANICS.SIGNPOST)return beat;
+  if(beat.mechanic!==MECHANICS.SIGNPOST){
+   const instruction=beat.view?.direction==='letter-to-sound'?'letter-sound':beat.mechanic===MECHANICS.SOUND_SORT&&beat.view?.mode==='read'?beat.domain==='spelling_pattern_sort'?'read-letter-pattern':'read-sound-group':null;
+   return instruction?{...beat,prompt:{...beat.prompt,cues:[{kind:'instruction',src:CAMPAIGN_HELP_LINES[instruction].audio}]}}:beat;
+  }
   const current=buildSignpost({stopId:beat.stopId,targetIds:beat.targetIds,index:beat.view.position});
   const cards=current.view.cards.map(card=>({...card,anchorAudio:spokenWord(card.anchorWord)||card.anchorAudio}));
   const cues=current.prompt.cues.map(cue=>cue.kind==='word'?{...cue,src:spokenWord(cue.text)||cue.src}:cue);

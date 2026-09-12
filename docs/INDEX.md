@@ -74,7 +74,7 @@ immediately. Missing review metadata is not a publication queue.
 
 ## Current product bibles
 
-- [Sound Seekers release bible](SOUND_SEEKERS_RELEASE_BIBLE.md) — three-world exploration with guided branching trails, continuous platform puzzles, clue mazes, illustrated action animation and explicit supported text help; current media, formative evidence and verification boundaries
+- [Sound Seekers release bible](SOUND_SEEKERS_RELEASE_BIBLE.md) — three-world exploration, continuous platform puzzles and illustrated animation; automatic spoken guidance, circular replay and picture controls for pre-readers; current media, formative evidence and verification boundaries
 - [Sound Seekers curriculum matrix](SOUND_SEEKERS_CURRICULUM_MECHANIC_MATRIX.md)
 - [Phoneme recording standard](audio/PHONEME_RECORDING_STANDARD.md)
 - [Shared game curriculum](GAME_CURRICULUM_FRAMEWORK_2026-07-06.md)
@@ -83,7 +83,7 @@ immediately. Missing review metadata is not a publication queue.
 
 ## Product plans
 
-- [Sound Seekers three-world adventure](design/SOUND_SEEKERS_THREE_WORLD_ADVENTURE_PLAN.md) — authorised production plan implemented locally as 30 stages, 150 main missions and 60 optional quests, including expanded learning acts and 3,820 campaign audio clips; 20-hour target remains unmeasured, with release and end-use validation still outstanding.
+- [Sound Seekers three-world adventure](design/SOUND_SEEKERS_THREE_WORLD_ADVENTURE_PLAN.md) — authorised production plan implemented locally as 30 stages, 150 main missions and 60 optional quests, including expanded learning acts and recorded campaign narration; 20-hour target remains unmeasured, with release and end-use validation still outstanding.
 - [Public free tier spec](product/FREE_TIER_SPEC.md) — email + password, two children, ~20% of the
   content, no parent reporting. Spec only; no code.
 ## Operations, research, legal and security

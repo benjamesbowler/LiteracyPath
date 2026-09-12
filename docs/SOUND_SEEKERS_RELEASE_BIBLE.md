@@ -192,9 +192,9 @@ assets while preserving progress and successful image loads.
 Every essential audio prompt must resolve a current committed clip. New
 campaign narration uses the existing Google Cloud Leda provider and exact
 scripts, with provenance in `public/audio/sound-seekers/campaign/manifest.json`.
-The authored inventory currently comprises 3,820 MP3 clips (136,482,793 bytes,
-137.881 minutes of unique recorded audio). A sequential build of all 210
-missions resolves all 4,413 referenced audio paths, including canonical words
+The authored inventory currently comprises 3,823 MP3 clips (136,640,077 bytes,
+138.041 minutes of unique recorded audio). Sequential checks of all 210
+missions resolve their referenced audio paths, including canonical words
 and tiles outside the campaign directory. Exact text, file bytes and current
 source hashes are verified; unchanged clips preserve original generation
 source hashes when their source module changes. Canonical phoneme
@@ -501,8 +501,9 @@ now prevents another m/ham introduction.
 Touch layouts use a proportional radial movement stick, with explicit release
 on pointer loss and blur. Direction buttons remain available in the pause menu.
 Desktop displays a compact keyboard or controller guide. Quest title, area and
-progress stay visible; Help contains assisted walking, model, text support and
-undo. Muted instruction replay explicitly enables sound when pressed. Palette
+progress stay visible. The primary lightbulb directly models the task; Pause's
+Choose a place retains assisted walking, text support and undo. Muted
+instruction replay explicitly enables sound when pressed. Palette
 values live in the shared visual-token authority.
 
 Browser refinement checks cover the revised teaching display, explicit sound
@@ -546,3 +547,45 @@ construction/disposal cycles returned no graphics errors. The isolated local
 preview lacks Supabase credentials, so these checks establish local browser storage,
 not authenticated hosted saves. No physical controller/Switch, classroom listening,
 observed child-play or measured twenty-hour result is implied.
+
+
+## Spoken guidance for pre-readers — 12 September 2026
+
+`campaignInstructions.js` is the shared speech-plan owner for automatic guidance,
+HUD replay and physical teaching-sign interactions. Introductions play all cards
+and recorded components in order. Morphology uses canonical base→derived word
+pairs, with no fabricated isolated suffix sound. New tasks and sorting items
+speak automatically; movement and interaction remain available during speech.
+Only completed, still-current playback earns heard/teaching evidence.
+
+Letter-to-sound and read-mode sorting have short generic recorded directions.
+They never automatically pronounce the target answer or assessed printed word.
+Saved questions and answer keys are retained while these directions and unscored
+teaching metadata refresh on resume. Three new Leda clips follow the existing
+exact-script manifest and generator; the voice and pronunciation authorities
+are unchanged.
+
+The primary HUD uses picture buttons for map, pause, replay, interact and jump.
+A circular replay control repeats the current instruction; a speaker state
+allows sound activation after a browser gesture restriction or deliberate mute.
+The lightbulb directly requests a model instead of opening a reading menu.
+The hub pairs its directional arrow with the next resident's portrait. Text
+captions and accessible labels remain available, and Pause retains adult and
+assisted-navigation controls.
+
+Pause, hidden tabs, mute and scene disposal cancel owned speech. Interrupted
+instructions retry when play resumes; finished instructions do not repeatedly
+restart on movement saves. Gesture-blocked playback is distinct from missing
+media, and an eligible first gesture retries it. Deliberate saved mute remains
+respected; the local review URL must use `sound=1` for spoken play.
+
+Verification: 305/305 checks across 42 focused files pass, including every
+current mission's nonempty recorded speech plan and answer-isolation contracts.
+Scoped lint, production build and repository hygiene pass. Direct local browser
+checks cover automatic opening teaching, pause/resume, replay interruption,
+mute/unmute, no repeats during movement saves, direct model help and the new
+letter-to-sound direction playing without answer audio. Phone 390×844 and short
+landscape 700×390 layouts were viewed. The owner's existing in-app preview was
+opened with sound enabled and its first gesture activated. These are browser
+playback and layout results, not classroom listening or observed child-play
+ratings. The isolated preview still lacks authenticated hosted-save credentials.

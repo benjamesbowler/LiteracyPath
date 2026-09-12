@@ -1,3 +1,4 @@
+import { CAMPAIGN_HELP_LINES } from '../content/campaignLanguage.js';
 import { INITIAL_SOUND_TARGET_IDS } from '../../content/teachTargetMetadata.js';
 // Sound Seekers v3 — item authoring, one builder per mechanic.
 //
@@ -60,19 +61,22 @@ function signCard(targetId) {
     grapheme: info.grapheme,
     kind: info.kind,
     soundLabel: soundLabel(targetId),
-    title: alt && example ? `${info.grapheme} in ${example}` : info.grapheme,
+    title: info.kind === "morph" ? `${info.baseWord} → ${example}` : alt && example ? `${info.grapheme} in ${example}` : info.grapheme,
     line: info.kind === "blend"
       ? `${info.grapheme} — say it quickly: ${example}.`
       : info.kind === "morph"
-        ? `${info.grapheme} — a word ending: ${example}.`
+        ? `${info.baseWord} → ${example}: ${info.meaning}.`
         : alt
           ? `${info.grapheme} can also say ${soundLabel(targetId)}, like in ${example}.`
           : `${info.grapheme} says ${soundLabel(targetId)}, like in ${example}.`,
+    baseWord: info.baseWord || "",
+    baseAudio: info.baseWord ? wordAudio(info.baseWord) : "",
+    meaning: info.meaning || "",
     anchorWord: example,
     anchorImage: example ? wordImage(example) : "",
     anchorAudio: example ? wordAudio(example) : "",
     phonemeAudio: targetAudio(targetId),
-    unitAudio: (info.units || []).map(u => ({ grapheme: u.grapheme, audio: phonemeAudio(u.soundKey, example) }))
+    unitAudio: (info.kind === "morph" ? [] : info.units || []).map(u => ({ grapheme: u.grapheme, audio: phonemeAudio(u.soundKey, example) }))
   };
 }
 
@@ -95,6 +99,7 @@ export function buildSignpost({ stopId, targetIds, ordinal = 0, index }) {
         : INITIAL_SOUND_TARGET_IDS.includes(first.targetId) ? `${first.grapheme} · ${first.anchorWord.charAt(0).toUpperCase()+first.anchorWord.slice(1)} starts with ${first.soundLabel}.` : first.kind === "morph" ? `Meet ${first.title}.` : `Meet ${first.title}. It says ${first.soundLabel}.`,
       cues: [
         first.phonemeAudio ? { kind: "phoneme", src: first.phonemeAudio } : null,
+        first.baseAudio ? { kind: "word", src: first.baseAudio, text: first.baseWord } : null,
         first.anchorAudio ? { kind: "word", src: first.anchorAudio, text: first.anchorWord } : null
       ].filter(Boolean)
     },
@@ -218,7 +223,7 @@ export function buildSoundSort({ stopId, stopIndex, stop, targetA, targetB, ordi
         : mode === "contains"
           ? `Listen. Which sound is inside: ${soundLabel(targetA)} or ${soundLabel(targetB)}?`
           : `Listen. First sound: ${soundLabel(targetA)} or ${soundLabel(targetB)}?`,
-      cues: []
+      cues: mode === "read" ? [{ kind: "instruction", src: CAMPAIGN_HELP_LINES["read-sound-group"].audio }] : []
     },
     view: {
       mode,

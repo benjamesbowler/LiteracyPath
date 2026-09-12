@@ -10,7 +10,7 @@
 // authored pronunciation record is not offered in a segment/blend item.
 
 import { QUEST_STOPS, heartWordsThrough, taughtThrough, wordsThrough } from "../../../../data/questSequence.js";
-import { SOUND_SEEKERS_TEACH_TARGETS } from "../../content/teachTargetMetadata.js";
+import { SOUND_SEEKERS_TEACH_TARGETS, MORPHOLOGY_TEACH_EXAMPLES } from "../../content/teachTargetMetadata.js";
 import { getPronunciation } from "../../content/pronunciationLexicon.js";
 import { getPreferredPhonemeAudioPath } from "../../../../data/phonemeAudioBank.js";
 import { getChildWordAsset } from "../../../../data/childAssets.js";
@@ -52,6 +52,7 @@ export function targetInfo(targetId) {
   const teach = TARGET_KIND.get(targetId);
   if (!teach) return null;
   const meta = SOUND_SEEKERS_TEACH_TARGETS[targetId] || null;
+  const morphology = teach.kind === "morph" ? MORPHOLOGY_TEACH_EXAMPLES[targetId] : null;
   const unit = meta?.units?.[0] || null;
   const soundKey = unit?.soundKey || SHORT_VOWEL_KEY[targetId] || targetId;
   return {
@@ -60,7 +61,9 @@ export function targetInfo(targetId) {
     base: teach.base || null,
     grapheme: displayGrapheme(targetId),
     soundKey,
-    anchorWord: meta?.word || fallbackAnchor(targetId),
+    anchorWord: morphology?.derived || meta?.word || fallbackAnchor(targetId),
+    baseWord: morphology?.base || "",
+    meaning: morphology?.meaning || "",
     units: meta?.units || [],
     cueKey: meta?.cueKey || null
   };

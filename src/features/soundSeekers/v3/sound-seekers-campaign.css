@@ -45,6 +45,17 @@
 .ss-campaign[data-buttons] .ss-control-guide{display:none}.ss-campaign[data-buttons] .ss-adventure-stick{display:none!important}
 
 .ss-help-actions{display:flex;gap:12px;justify-content:center;margin:12px 0 20px}
+.ss-picture-icon{display:block;width:30px;height:30px;flex:none;margin:auto}
+.ss-campaign .ss-replay{display:grid;place-items:center;flex:none;width:64px;height:64px;min-width:64px;border-radius:50%;padding:12px}
+.ss-replay[data-speaking],.ss-replay[data-needs-gesture]{outline:3px solid var(--ss-campaign-ui-focus);outline-offset:3px}
+.ss-hub-replay{position:absolute;right:22px;top:99px}
+.ss-campaign .ss-context-caption{display:none}
+.ss-campaign .ss-context-action{min-width:64px}
+.ss-campaign .ss-context-action .ss-picture-icon{width:28px;height:28px}
+.ss-campaign .ss-audio-notice{display:flex;gap:12px;align-items:center}
+.ss-campaign .ss-quest-pal{width:56px;height:64px;object-fit:contain;flex:none}
+.ss-campaign .ss-adventure-objective small,.ss-campaign .ss-adventure-objective div>span{display:none}
+.ss-campaign .ss-stick-caption{display:none}
 @media(pointer:coarse),(max-width:700px){
  .ss-campaign .ss-campaign-access{bottom:52px;left:166px;right:150px;flex-wrap:nowrap}
  .ss-campaign .ss-campaign-access button{width:62px;min-width:56px;height:62px;padding:6px}

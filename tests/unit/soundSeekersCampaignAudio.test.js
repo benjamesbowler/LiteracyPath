@@ -42,3 +42,15 @@ test('the whole teaching sequence owns the quiet interval, including gaps betwee
   assert.equal(changes.at(-1),false);
   player.dispose();
 });
+
+
+test('browser activation failure is distinguished from missing media and cancellation',async()=>{
+  class GestureAudio extends FakeAudio {play(){return Promise.reject(Object.assign(new Error('gesture required'),{name:'NotAllowedError'}));}}
+  const failures=[];const player=createCampaignAudio({AudioClass:GestureAudio,onFailure:(src,reason)=>failures.push({src,...reason})});
+  assert.equal(await player.play(['instruction']),false);
+  assert.deepEqual(failures,[{src:'instruction',needsGesture:true}]);player.dispose();
+  const network=[];const missing=createCampaignAudio({AudioClass:FakeAudio,onFailure:(src,reason)=>network.push({src,...reason})});
+  const p=missing.play(['missing']);FakeAudio.instances.at(-1).dispatchEvent(new Event('error'));
+  assert.equal(await p,false);assert.deepEqual(network,[{src:'missing',needsGesture:false}]);
+  const cancelled=missing.play(['next']);missing.stop();assert.equal(await cancelled,false);assert.equal(network.length,1);missing.dispose();
+});

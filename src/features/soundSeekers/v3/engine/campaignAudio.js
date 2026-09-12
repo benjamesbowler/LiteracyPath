@@ -27,9 +27,9 @@ export function createCampaignAudio({ AudioClass = globalThis.Audio, onFailure =
           resolve(value);
         };
         const ended = () => finish(true);
-        const failed = () => { if (ticket === generation && !disposed) onFailure(src); finish(false); };
+        const failed = error => { if (ticket === generation && !disposed) onFailure(src,{needsGesture:error?.name==='NotAllowedError'}); finish(false); };
         settle = finish; audio.addEventListener('ended', ended); audio.addEventListener('error', failed);
-        try { Promise.resolve(audio.play()).catch(failed); } catch { failed(); }
+        try { Promise.resolve(audio.play()).catch(failed); } catch (error) { failed(error); }
       });
       if (!ok) { if(ticket===generation)onSpeakingChange(false);return false; }
     }

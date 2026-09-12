@@ -61,7 +61,7 @@ test('current campaign hub exposes movement, map, pause and accessible object ac
   assert.match(html, /Hollow Tree/);
   assert.match(html, /Sunny Meadow Farm/);
   for (const label of ['World map','Pause adventure','Movement','Move left','Move right','Jump','Interact with nearby object']) assert.ok(html.includes(`aria-label="${label}"`), label);
-  assert.match(html, /aria-label="Adventure help"/);
+  assert.match(html, /aria-label="Show me"/);
   assert.match(html, /aria-label="Movement stick"/);
   assert.match(html, /role="status" aria-live="polite"/);
   assert.doesNotMatch(html, /role="dialog"/);
@@ -92,4 +92,12 @@ test('an unsupported active echo does not print its hidden target or teaching an
   const html=renderGame(progress,'contract-resume-echo-independent');
   assert.match(html,/data-presentation="platform"/);assert.equal(renderedSupportLine(html),'');
   assert.doesNotMatch(html,/Find m\.|Map starts with \/m\/|m: map\./u);
+});
+
+
+test('primary play controls use pictures and a visible audio replay without reading Hear',()=>{
+  const html=renderGame({...createProgress(),heroChosen:true},'contract-picture-controls');
+  for(const name of ['World map','Pause adventure','Show me','Jump','Interact with nearby object','Turn spoken instructions on'])assert.ok(html.includes(`aria-label="${name}"`),name);
+  assert.match(html,/data-audio-replay/);
+  assert.doesNotMatch(html,/>Hear<|>Help<|>Jump<|>Map<|>Use</);
 });
