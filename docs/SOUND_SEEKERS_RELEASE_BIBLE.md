@@ -349,7 +349,8 @@ layer above the inert app shell. Its route check, lint and rebuilt bundle pass.
 ## Exploration and platform interaction contract
 
 The child-facing direction is Breath-of-the-Wild-inspired exploration: a
-third-person textured 3D landscape connects side-view platform adventures.
+third-person textured 3D landscape connects separate side-view platform and
+2.5D clue-maze adventures.
 The deliberate hybrid retains canonical illustrated Pal animation in the modeled
 world, rather than replacing the cast with stock 3D characters.
 `v3/content/explorationLayout.js` owns overworld geometry through
@@ -413,3 +414,82 @@ browser evidence, not hosted sync, physical-iPad or observed-duration evidence.
 The broader premium-game suite has two pre-existing Word Climb/Rocket Run
 source-anchor failures, reproduced against its unmodified baseline; the new
 Sound Seekers brief has its own passing structural check.
+
+
+### Segmented activity areas and illustrated sprites
+
+`v3/content/activityAreas.js` selects twelve named activity settings from the
+existing physical families. Each learning beat enters a bounded area, with a
+short transition when the next beat begins. Construction, aiming, climbing,
+delivery, sorting, routing and workshop mechanics retain their exact authored
+stimuli and challenge outcomes. A finished area exposes its onward route;
+walking against an area edge cannot skip a learning beat.
+
+`v3/engine/mazeAdventure.js` and `v3/render/mazeAdventureScene.js` add connected
+2.5D hedge mazes to search and story-delivery challenges. In the fully taught
+campaign configuration, 666 beats use these areas. Layout generation uses the
+beat identity and a size variant, never its answer key. Every offered destination
+has a traversable route. Keyboard, analog movement and accessible destination
+selection share collision. Clue replay is separate from choosing; wrong answers
+retain the problem. Beat-qualified maze positions survive checkpoints and cannot
+be applied to the next platform area.
+
+`v3/engine/adventureControls.js` supports standard browser gamepads with stick
+dead zones, proportional movement, sprint, jump, interaction and pause. Held
+interaction cannot repeat after a dialog, and disconnect releases input. Hub
+camera damping uses elapsed time. This is browser Gamepad API support, not a
+claim of a native Nintendo Switch build or verified physical controller support.
+
+`v3/render/puzzleSprites.js` draws the generated 4-by-4 RGBA atlas at
+`public/game-assets/sound-seekers/campaign/environment/puzzle-props.png`.
+Its sixteen painted props include platforms, bridge, doorway, sign, lever,
+crate, basket, lantern, bucket, bedding, chest, hedge, wheel, ladder and workbench.
+The original transparent source is preserved; runtime alpha bounds remove cell
+padding without changing proportions. Generated on 12 September 2026 using the
+built-in image tool, with a prompt for detailed illustrated 2.5D wood, moss,
+stone and metal props, upper-left lighting, isolated transparent cells, no text,
+no vector or pixel treatment. The committed image is 1254 by 1254 with genuine
+alpha, not a drawn checkerboard. Neutral scenery uses these sprites; exact
+colour, size, count, shape, ownership and spatial contrasts remain authored
+semantic props so the new art cannot silently change a learning answer.
+
+`v3/content/campaignLearningJourney.js` provides an explicit practice crosswalk
+to the current 27 EL cycles in `src/data/elSkillsBlockCycles.js`, plus long
+vowels, vowel teams, alternative spellings and longer-word extensions. The pause
+menu exposes this journey. The links describe related sound and reading practice;
+they do not assert coverage of every EL oral-language, writing or assessment
+routine. Cycle numbers and `s1`–`s40` anchors remain different identifiers.
+The 1,200-minute main-adventure budget is shown as planned time, with optional
+quests additional and no enforced minimum playtime. Segmentation and sprint
+change traversal time; earlier corridor-distance arithmetic does not measure
+this version's duration.
+
+Local segmented-area verification: 176 focused campaign, shared learning,
+exploration, platform and new activity-area checks pass, together with scoped
+lint, production build and repository hygiene. Checks traverse every maze-bearing
+mission's first eligible choices and exits, inspect reachability for every
+authored maze beat, and cover controller edges, collision, area changes and
+checkpoint recovery. Browser play exercised wrong/correct maze responses and
+confirmed that a completed maze resumes after reload, then finished all three
+opening button mazes and returned to the landscape with optional completion
+persisted; tablet and phone views
+were directly inspected. Physical controller/iPad use, hosted learner sync and
+observed twenty-hour pacing remain separate, unestablished evidence classes.
+
+Opening button sizes and seat settings now have explicit authored appearances in
+`campaignLanguage.js`. Both area renderers use the same definitions, including
+for earlier saved scene records. Small/large buttons differ in scale; seats show
+a tree, sun or pond, and rail/tray/stool deliveries use their actual placement
+geometry. No narration, answer key or saved learning outcome changed.
+
+
+A second transparent atlas, `learning-props.png` (1312 by 1199 RGBA), supplies
+sixteen painted everyday objects: button, ribbon, seat, tree, pond, rail, stool,
+tray, towel, soap, cloth, brush, ball, cushion, hat and bag. It was generated with
+the same tool and art direction on 12 September, requesting four button holes,
+recognisable materials and isolated alpha. Explicit source rectangles follow
+its actual spacing. Neutral props and simple button-size comparisons use these
+sprites. Attribute-specific and relational host drawings retain their authored
+geometry; a generic image cannot override the requested colour, shape, count
+or placement. Both source atlases are committed intact and preloaded by the
+active scenes.

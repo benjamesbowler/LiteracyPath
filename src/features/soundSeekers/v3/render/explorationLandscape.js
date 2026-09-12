@@ -1,3 +1,5 @@
+import { LEARNING_SPRITES,PUZZLE_SPRITES,drawPuzzleSprite } from './puzzleSprites.js';
+import { activityAreaFor } from '../content/activityAreas.js';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { CAST } from '../content/cast.js';
@@ -41,7 +43,7 @@ export function createExplorationLandscape({canvas,layout,stage,heroId,nodes,com
   renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.02;renderer.shadowMap.enabled=!simplifiedBackgrounds;renderer.shadowMap.type=THREE.PCFShadowMap;
   const camera=new THREE.PerspectiveCamera(52,1,.15,400),target=new THREE.Vector3(),desired=new THREE.Vector3(),cameraPoint=new THREE.Vector3();
   const raycaster=new THREE.Raycaster(),pointer=new THREE.Vector2(),resources=new Set(),roots=[];
-  let disposed=false,terrain=null,water=null,bridge=null,lever=null,lastFrame=-1,lastWidth=0,lastHeight=0,restorationKey='',grassUniform={value:0};
+  let disposed=false,terrain=null,water=null,bridge=null,lever=null,lastFrame=-1,lastRenderTime=0,lastWidth=0,lastHeight=0,restorationKey='',grassUniform={value:0};
   const released=new Set();
   function disposeTree(root){root.traverse(o=>{for(const resource of [o.geometry,...(o.material?(Array.isArray(o.material)?o.material:[o.material]):[])]){if(!resource||released.has(resource))continue;released.add(resource);for(const v of Object.values(resource))if(v?.isTexture&&!released.has(v)){released.add(v);v.dispose();}resource.dispose();}});}
   const register=resource=>{if(disposed){resource.dispose();released.add(resource);}else resources.add(resource);return resource;};
@@ -54,7 +56,7 @@ export function createExplorationLandscape({canvas,layout,stage,heroId,nodes,com
   function sprite(texture,x,y,z,height,width=height){const mat=register(new THREE.SpriteMaterial({map:texture,transparent:true,alphaTest:.08,depthWrite:true,toneMapped:false}));const s=new THREE.Sprite(mat);s.position.set(x,y+height/2,z);s.scale.set(width,height,1);scene.add(s);return s;}
   const heroCanvas=document.createElement('canvas');heroCanvas.width=384;heroCanvas.height=384;
   const heroTexture=register(new THREE.CanvasTexture(heroCanvas));heroTexture.colorSpace=THREE.SRGBColorSpace;
-  const hero=sprite(heroTexture,0,0,0,3.2),actors=[],labels=[];
+  const hero=sprite(heroTexture,0,0,0,3.2),actors=[],labels=[],doors=[];
   const shadowTexture=canvasTexture(128,128,c=>{const g=c.createRadialGradient(64,64,3,64,64,62);g.addColorStop(0,'rgba(20,35,20,.38)');g.addColorStop(1,'rgba(20,35,20,0)');c.fillStyle=g;c.fillRect(0,0,128,128);});
   const shadow=new THREE.Mesh(register(new THREE.PlaneGeometry(2.8,2.8)),register(new THREE.MeshBasicMaterial({map:shadowTexture,transparent:true,depthWrite:false})));shadow.rotation.x=-Math.PI/2;scene.add(shadow);
   function labelTexture(text){return canvasTexture(512,96,c=>{c.fillStyle='rgba(24,43,41,.8)';c.beginPath();c.roundRect(5,5,502,86,30);c.fill();c.font='700 36px Nunito, sans-serif';c.textAlign='center';c.fillStyle='#fff4d2';c.fillText(text,256,62);});}
@@ -73,7 +75,7 @@ export function createExplorationLandscape({canvas,layout,stage,heroId,nodes,com
   const modelLoads=Object.entries(EXPLORATION_MODELS).map(async([key,path])=>{const model=await loader.loadAsync(path);if(disposed)disposeTree(model.scene);else roots.push(model.scene);return [key,model];});
   const ready=Promise.all(modelLoads).then(async entries=>{
     const models=Object.fromEntries(entries);if(disposed)return;
-    await preload(nodes.map(n=>CAST[n.mission.residentId===heroId?n.mission.residentAlternateId:n.mission.residentId]?.sprite));if(disposed)return;
+    await preload([LEARNING_SPRITES,PUZZLE_SPRITES,...nodes.map(n=>CAST[n.mission.residentId===heroId?n.mission.residentAlternateId:n.mission.residentId]?.sprite)]);if(disposed)return;
     const source=await new THREE.TextureLoader().loadAsync(WORLD_MATERIALS);register(source);if(disposed)return;
     const row={meadow:0,dino:1,moonwood:2}[stage.worldId]||0;
     const materialTexture=col=>{const t=canvasTexture(512,512,c=>{const sw=source.image.width/4,sh=source.image.height/3;c.drawImage(source.image,col*sw+2,row*sh+2,sw-4,sh-4,0,0,512,512);});t.wrapS=t.wrapT=THREE.MirroredRepeatWrapping;t.repeat.set(75,65);t.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());return t;};
@@ -120,7 +122,8 @@ export function createExplorationLandscape({canvas,layout,stage,heroId,nodes,com
     lever=new THREE.Group();const base=new THREE.Mesh(register(new THREE.CylinderGeometry(.45,.65,.35,12)),register(new THREE.MeshStandardMaterial({color:0x77877a,roughness:.95})));base.position.y=.18;lever.add(base);const arm=new THREE.Mesh(register(new THREE.CylinderGeometry(.09,.1,1.2,8)),register(new THREE.MeshStandardMaterial({color:0xb89a5f,roughness:.6})));arm.position.y=.85;arm.rotation.z=-.5;lever.add(arm);const knob=new THREE.Mesh(register(new THREE.SphereGeometry(.2,12,8)),register(new THREE.MeshStandardMaterial({color:0xc15f35,roughness:.5})));knob.position.set(.28,1.35,0);lever.add(knob);lever.position.set(layout.switch.x/S,surface.height(layout.switch.x/S,layout.switch.y/S),layout.switch.y/S);scene.add(lever);
     place(models.tent,layout.secret.x/S,layout.secret.y/S,3.5,.8);
     const portal=place(models.gate,layout.portal.x/S,layout.portal.y/S,4);portal.userData.portal=true;
-    for(const n of nodes){const id=n.mission.residentId===heroId?n.mission.residentAlternateId:n.mission.residentId,cast=CAST[id];const image=getImage(cast?.sprite);if(!image)continue;const texture=register(new THREE.Texture(image));texture.colorSpace=THREE.SRGBColorSpace;texture.needsUpdate=true;const ratio=image.naturalWidth/image.naturalHeight;const actor=sprite(texture,n.x/S,surface.height(n.x/S,n.y/S),n.y/S,2.65,2.65*ratio);actors.push({actor,id:n.id});const label=sprite(labelTexture(cast.name),n.x/S,surface.height(n.x/S,n.y/S)+3.4,n.y/S,.55,3.1);labels.push({label,id:n.id});}
+    const doorTexture=canvasTexture(384,480,c=>{drawPuzzleSprite(c,'door',192,470,345);});
+    for(const n of nodes){const door=sprite(doorTexture,(n.x+105)/S,surface.height((n.x+105)/S,n.y/S),n.y/S,4.3,3.44);doors.push({actor:door,id:n.id});const id=n.mission.residentId===heroId?n.mission.residentAlternateId:n.mission.residentId,cast=CAST[id];const image=getImage(cast?.sprite);if(!image)continue;const texture=register(new THREE.Texture(image));texture.colorSpace=THREE.SRGBColorSpace;texture.needsUpdate=true;const ratio=image.naturalWidth/image.naturalHeight;const actor=sprite(texture,n.x/S,surface.height(n.x/S,n.y/S),n.y/S,2.65,2.65*ratio);actors.push({actor,id:n.id});const label=sprite(labelTexture(activityAreaFor(n.mission.familyId).name),n.x/S,surface.height(n.x/S,n.y/S)+3.4,n.y/S,.55,3.1);labels.push({label,id:n.id});}
     // Instanced, wind-bent grass keeps the broad landscape alive at mobile scale.
     const grassGeometry=register(new THREE.BufferGeometry());grassGeometry.setAttribute('position',new THREE.Float32BufferAttribute([-.045,0,0,.045,0,0,.015,.22,0,-.025,.22,0,0,.43,.03],3));grassGeometry.setIndex([0,1,2,0,2,3,3,2,4]);grassGeometry.computeVertexNormals();
     const grassMaterial=register(new THREE.MeshStandardMaterial({color:theme.grass,side:THREE.DoubleSide,roughness:1}));
@@ -137,14 +140,14 @@ export function createExplorationLandscape({canvas,layout,stage,heroId,nodes,com
       if(width!==lastWidth||height!==lastHeight){lastWidth=width;lastHeight=height;renderer.setSize(width,height,false);camera.aspect=width/Math.max(height,1);camera.updateProjectionMatrix();}
       const x=player.x/S,z=player.y/S,ground=surface.groundHeight(x,z,player.shortcut),hop=player.jumpTime?Math.sin(player.jumpTime/.55*Math.PI)*1.5:0;
       target.set(x,ground+1.8,z);desired.set(x+Math.sin(yaw)*distance,ground+distance*.22+1.4,z+Math.cos(yaw)*distance);
-      desired.y=Math.max(desired.y,surface.height(desired.x,desired.z)+2.3);camera.position.lerp(desired,lastFrame<0||reducedMotion?1:.16);camera.lookAt(target);
+      desired.y=Math.max(desired.y,surface.height(desired.x,desired.z)+2.3);camera.position.lerp(desired,lastFrame<0||reducedMotion?1:1-Math.exp(-10*Math.min(.1,time-lastRenderTime)));lastRenderTime=time;camera.lookAt(target);
       hero.position.set(x,ground+1.6+hop,z);shadow.position.set(x,ground+.05,z);
       const frame=Math.floor(time*12);if(frame!==lastFrame){const c=heroCanvas.getContext('2d');c.clearRect(0,0,384,384);drawCampaignHero(c,heroId,{x:192,y:368,height:310,facing:(Math.abs(player.vx)+Math.abs(player.vy)>12?Math.sign(player.vx*Math.cos(yaw)-player.vy*Math.sin(yaw))||player.facing:player.facing),time:Math.hypot(player.vx,player.vy)>12?gait:time,state:hop?'jump':Math.hypot(player.vx,player.vy)>12?'walk':'idle',reducedMotion});heroTexture.needsUpdate=true;lastFrame=frame;}
       if(bridge)bridge.visible=player.shortcut;if(lever)lever.rotation.y=player.shortcut?Math.PI:0;
       if(water&&!reducedMotion)water.material.map.offset.y=time*.004;grassUniform.value=reducedMotion?0:time;
       sun.target.position.copy(target);sun.position.set(x-25,60,z+30);sun.target.updateMatrixWorld();
       for(const {label,id} of labels){const n=nodes.find(n=>n.id===id),d=Math.hypot(n.x-player.x,n.y-player.y);cameraPoint.copy(label.position).applyMatrix4(camera.matrixWorldInverse);label.visible=cameraPoint.z<-5&&d<650&&isAvailable(id)&&!completed()[id];const pixelScale=-cameraPoint.z*2*Math.tan(camera.fov*Math.PI/360)/Math.max(height,1);label.scale.set(125*pixelScale,24*pixelScale,1);}
-      for(const {actor,id} of actors){cameraPoint.copy(actor.position).applyMatrix4(camera.matrixWorldInverse);actor.visible=cameraPoint.z<-3&&isAvailable(id)&&!completed()[id];}
+      for(const {actor,id} of [...actors,...doors]){cameraPoint.copy(actor.position).applyMatrix4(camera.matrixWorldInverse);actor.visible=cameraPoint.z<-3&&isAvailable(id)&&!completed()[id];}
       restoration.visible=true;refreshRestoration();renderer.render(scene,camera);
       return {nearby,message,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles};
     },

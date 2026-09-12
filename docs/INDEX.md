@@ -74,7 +74,7 @@ immediately. Missing review metadata is not a publication queue.
 
 ## Current product bibles
 
-- [Sound Seekers release bible](SOUND_SEEKERS_RELEASE_BIBLE.md) — current three-world campaign with third-person landscapes and connected platform adventures, formative evidence, media provenance and verification boundaries
+- [Sound Seekers release bible](SOUND_SEEKERS_RELEASE_BIBLE.md) — current three-world campaign with third-person landscapes, segmented platform/maze activities and illustrated sprites, formative evidence, media provenance and verification boundaries
 - [Sound Seekers curriculum matrix](SOUND_SEEKERS_CURRICULUM_MECHANIC_MATRIX.md)
 - [Phoneme recording standard](audio/PHONEME_RECORDING_STANDARD.md)
 - [Shared game curriculum](GAME_CURRICULUM_FRAMEWORK_2026-07-06.md)

@@ -14,16 +14,17 @@ export function createExplorer(layout,saved){
   const s={...layout.spawn,vx:0,vy:0,facing:1,jumpTime:0,shortcut:Boolean(saved?.shortcut),discovered:Boolean(saved?.discovered),input:{left:false,right:false,up:false,down:false},path:[]};
   if(saved&&Number.isFinite(saved.x)&&Number.isFinite(saved.y)&&!explorationBlocked(layout,saved.x,saved.y,s)){s.x=saved.x;s.y=saved.y;}return s;
 }
-export function releaseExplorer(s){for(const k of Object.keys(s.input))s.input[k]=false;s.path=[];s.vx=0;s.vy=0;s.jumpHeld=false;}
-export function setExplorerInput(s,k,v){if(k==='jump'){if(v&&!s.jumpHeld&&s.jumpTime<=0)s.jumpTime=.55;s.jumpHeld=v;return;}if(k in s.input){s.input[k]=Boolean(v);if(v)s.path=[];}}
+export function releaseExplorer(s){for(const k of Object.keys(s.input))s.input[k]=false;s.path=[];s.vx=0;s.vy=0;s.jumpHeld=false;s.analogX=0;s.analogY=0;s.sprint=false;}
+export function setExplorerInput(s,k,v){if(k==='analogX'||k==='analogY'){s[k]=Number(v)||0;if(Math.abs(s[k])>.1)s.path=[];return;}if(k==='sprint'){s.sprint=Boolean(v);return;}if(k==='jump'){if(v&&!s.jumpHeld&&s.jumpTime<=0)s.jumpTime=.55;s.jumpHeld=v;return;}if(k in s.input){s.input[k]=Boolean(v);if(v)s.path=[];}}
 export function advanceExplorer(s,l,seconds){
   const total=clamp(Number.isFinite(seconds)?seconds:0,0,.1),steps=Math.max(1,Math.ceil(total*120)),dt=total/steps;
   for(let i=0;i<steps;i++){
     s.jumpTime=Math.max(0,s.jumpTime-dt);
     let dx=Number(s.input.right)-Number(s.input.left),dy=Number(s.input.down)-Number(s.input.up);
+    if(!dx&&!dy){dx=s.analogX||0;dy=s.analogY||0;}
     if((dx||dy)&&s.heading){const x=dx;dx=x*Math.cos(s.heading)+dy*Math.sin(s.heading);dy=-x*Math.sin(s.heading)+dy*Math.cos(s.heading);}
     if(s.path.length&&!dx&&!dy){const p=s.path[0],d=Math.hypot(p.x-s.x,p.y-s.y);if(d<7)s.path.shift();else{dx=(p.x-s.x)/d;dy=(p.y-s.y)/d;}}
-    const mag=Math.hypot(dx,dy)||1,k=1-Math.exp(-18*dt);s.vx+=(dx/mag*330-s.vx)*k;s.vy+=(dy/mag*330-s.vy)*k;
+    const mag=Math.max(1,Math.hypot(dx,dy)),k=1-Math.exp(-22*dt),speed=s.sprint?470:330;s.vx+=(dx/mag*speed-s.vx)*k;s.vy+=(dy/mag*speed-s.vy)*k;
     const options={shortcut:s.shortcut,jumping:s.jumpTime>.08};
     if(!explorationBlocked(l,s.x+s.vx*dt,s.y,options))s.x+=s.vx*dt;else s.vx=0;
     if(!explorationBlocked(l,s.x,s.y+s.vy*dt,options))s.y+=s.vy*dt;else s.vy=0;

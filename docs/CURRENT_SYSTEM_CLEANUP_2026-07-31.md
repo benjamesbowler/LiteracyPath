@@ -289,3 +289,14 @@ curriculum and gain motor-only crossing routes. `campaignLayouts.js` remains
 the geometry authority; the release Bible and machine-readable game brief
 describe the intentional modeled-world / illustrated-Pal presentation.
 No learner progress fields or hosted schema were introduced.
+
+
+## Sound Seekers segmented areas
+
+The current campaign renderer now switches between bounded platform activities
+and 2.5D clue mazes, retaining the existing challenge/evidence authority. Two transparent
+prop atlases supply illustrated scenery and everyday learning objects; semantic answer attributes
+retain their authored meanings. The release Bible describes the live controls,
+EL practice crosswalk and planned-duration boundary. Temporary browser evidence
+and integration scripts remain in ignored `.artifacts`; no alternative runtime,
+source art or learner records were removed.

@@ -1,3 +1,4 @@
+import { drawPuzzleSprite,drawLearningSprite } from './puzzleSprites.js';
 import { SOUND_SEEKERS_CAMPAIGN_PALETTE as P } from '../../visual/visualTokens.js';
 // Canvas props use exact semantic roles from the authored learning inventories.
 // x is the visual centre, y the feet. Size describes render scale; sizeVariant
@@ -221,6 +222,9 @@ export function drawCampaignProp(ctx, kind, x, y, options = {}) {
       shape,count,filled,color:resolvedColor,size:object.size,sizeVariant,relation:null,landmark:null});
     drawCampaignRelationForeground(ctx,placement,x,y);return drawn;
   }
+  if(!shape&&!filled&&!color&&!landmark&&!relation&&!colour&&!count&&['regular','small','little','large','big'].includes(sizeVariant)&&Object.keys(rest).every(k=>['kind','scenery'].includes(k))&&drawLearningSprite(ctx,role,x,y,size*({small:.68,little:.68,large:1.17,big:1.17}[sizeVariant]||1)))return true;
+  const spriteRole={sign:'sign',bucket:'bucket',basket:'basket',crate:'crate',lantern:'lantern',wheel:'wheel',ladder:'ladder',hedge:'hedge'}[role];
+  if(spriteRole&&!shape&&!filled&&!color&&!landmark&&!relation&&!colour&&!count&&sizeVariant==='regular'&&!Object.keys(rest).length&&drawPuzzleSprite(ctx,spriteRole,x,y,size))return true;
   ctx.save();ctx.translate(x,y);
   if(rest.elevation){
     // A common fixed-height post makes high/middle/low visually comparable.

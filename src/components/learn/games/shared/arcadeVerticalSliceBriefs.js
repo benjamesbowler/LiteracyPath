@@ -17,7 +17,7 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
   "gameId": "sound-seekers",
   "version": "campaign-1",
   "audience": "Beginning readers through sentence readers exploring with the canonical Pals.",
-  "experiencePromise": "Explore a living third-person countryside, meet friends and enter connected side-view platform adventures to restore each place.",
+  "experiencePromise": "Explore a living third-person countryside, meet friends and enter separate side-view platform and 2.5D clue-maze adventures to restore each place.",
   "learning": {
     "targetConstruct": "The mission curriculum defines taught phonemes, decoding, encoding and sentence reading.",
     "childGoal": "Help a friend restore their place.",
@@ -42,7 +42,7 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
   "controls": {
     "keyboard": [
       "Arrows or WASD move relative to the camera; Q/C orbit; Space jumps; E/Enter interacts.",
-      "Platform rooms use left/right and Space."
+      "Platform rooms use left/right and Space; mazes use four directions; Shift runs. Standard controllers use left-stick movement, right-stick orbit, bottom-button jump, left-button interaction and right-button sprint."
     ],
     "touch": [
       "Hold the 56px direction controls; tap Jump or Use.",
@@ -67,7 +67,7 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
       "Completed learning survives a missed jump",
       "Pause releases held input"
     ],
-    "camera": "Third-person orbit and distance control; side-view camera follows the active platform room.",
+    "camera": "Third-person orbit and distance control; side-view camera follows a bounded activity room; maze cameras keep the Pal clear of the interface.",
     "successFeedback": "Physical repair, specific text and existing sound effects.",
     "errorFeedback": "Current task feedback identifies the selected contrast without punishing movement."
   },
@@ -106,6 +106,7 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
   "validation": {
     "unit": [
       "tests/unit/soundSeekersExploration.test.js",
+      "tests/unit/soundSeekersAdventureAreas.test.js",
       "tests/unit/soundSeekersCampaignScene.test.js",
       "tests/unit/soundSeekersCampaignRestoration.test.js"
     ],

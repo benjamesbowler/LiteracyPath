@@ -1,3 +1,4 @@
+import { LEARNING_SPRITES,PUZZLE_SPRITES } from './puzzleSprites.js';
 import { createExplorationLayout,createExplorer,advanceExplorer,setExplorerInput,releaseExplorer,findExplorationPath,explorerSnapshot } from '../engine/exploration.js';
 import { CAST } from '../content/cast.js';
 import { HERO_ANIMATIONS } from './campaignHeroes.js';
@@ -12,7 +13,7 @@ export function createExplorationScene({canvas,stage,missions=[],heroId,progress
   const nodes=layout.nodes.map(n=>({...n,mission:missions.find(m=>m.id===n.id)}));
   let time=0,gait=0,disposed=false,destination=null,activity=false,lastSave=0,message='',messageTime=0,lastHint='',drag=null;
   let yaw=Number.isFinite(position?.cameraYaw)?position.cameraYaw:-Math.PI/2,distance=15;
-  const look={left:false,right:false};
+  const look={left:false,right:false,axis:0};
   const completed=()=>progress?.campaign?.completedMissions||{};
   let landscape=null,initializationError=null;
   if(canvas)try{landscape=createExplorationLandscape({canvas,layout,stage,heroId,nodes,completed,isAvailable,reducedMotion,simplifiedBackgrounds,onFailure});}catch(error){initializationError=error;}
@@ -23,7 +24,7 @@ export function createExplorationScene({canvas,stage,missions=[],heroId,progress
     ...(completed()[stage.finaleMissionId]&&nextStage?[{...layout.portal,role:'portal',label:`Explore ${nextStage.name}`}]:[])
   ];
   const snapshot=()=>({...explorerSnapshot(player),cameraYaw:yaw});
-  function release(){releaseExplorer(player);destination=null;look.left=false;look.right=false;drag=null;}
+  function release(){releaseExplorer(player);destination=null;look.left=false;look.right=false;look.axis=0;drag=null;}
   function tell(line){message=line;messageTime=3.5;}
   function trigger(o){
     if(!o||disposed)return;activity=true;release();
@@ -37,7 +38,7 @@ export function createExplorationScene({canvas,stage,missions=[],heroId,progress
   function approach(o){if(!o)return;activity=true;destination=o;player.path=findExplorationPath(layout,player,o,player);if(!player.path.length)destination=null;}
   function nearest(){return objects().filter(o=>Math.hypot(o.x-player.x,o.y-player.y)<145).sort((a,b)=>Math.hypot(a.x-player.x,a.y-player.y)-Math.hypot(b.x-player.x,b.y-player.y))[0];}
   function update(dt){
-    if(disposed)return;time+=dt;messageTime=Math.max(0,messageTime-dt);yaw+=((look.right?1:0)-(look.left?1:0))*dt*1.6;
+    if(disposed)return;time+=dt;messageTime=Math.max(0,messageTime-dt);yaw+=((look.right?1:0)-(look.left?1:0)+look.axis)*dt*1.6;
     player.heading=landscape?yaw:0;advanceExplorer(player,layout,dt);gait+=dt*Math.hypot(player.vx,player.vy)/330;
     if(destination&&Math.hypot(destination.x-player.x,destination.y-player.y)<65){const o=destination;trigger(o);}
     const close=nearest(),hint=messageTime?message:close?close.role==='friend'?`Help ${CAST[close.mission.residentId===heroId?close.mission.residentAlternateId:close.mission.residentId]?.name}`:close.label:'';
@@ -55,9 +56,9 @@ export function createExplorationScene({canvas,stage,missions=[],heroId,progress
   canvas?.addEventListener('pointermove',pointerMove);canvas?.addEventListener('pointerup',pointerUp);canvas?.addEventListener('pointercancel',pointerCancel);canvas?.addEventListener('lostpointercapture',pointerCancel);canvas?.addEventListener('wheel',wheel,{passive:false});
   return {update,release,ready:initializationError?Promise.reject(initializationError):landscape?.ready||Promise.resolve(),
     draw(_ctx,width,height){return landscape?.render({width,height,player,yaw,distance,time,gait,nearby:nearest(),message:messageTime?message:''});},
-    assets:()=>[WORLD_MATERIALS,HERO_ANIMATIONS[heroId]?.src,CAST[heroId]?.heroSprite,CAST[heroId]?.sprite,...nodes.map(n=>CAST[n.mission.residentId===heroId?n.mission.residentAlternateId:n.mission.residentId]?.sprite)].filter(Boolean),
-    setInput(k,v){activity=true;if(k==='lookLeft'||k==='lookRight'){look[k==='lookLeft'?'left':'right']=v;return;}destination=null;setExplorerInput(player,k,v);},
-    key(code,down){const k={ArrowLeft:'left',KeyA:'left',ArrowRight:'right',KeyD:'right',ArrowUp:'up',KeyW:'up',ArrowDown:'down',KeyS:'down',Space:'jump'}[code];if(k){activity=true;destination=null;setExplorerInput(player,k,down);return true;}if(['KeyQ','KeyC'].includes(code)){look[code==='KeyQ'?'left':'right']=down;return true;}if(down&&['Enter','KeyE'].includes(code)){trigger(nearest());return true;}return false;},
+    assets:()=>[LEARNING_SPRITES,PUZZLE_SPRITES,WORLD_MATERIALS,HERO_ANIMATIONS[heroId]?.src,CAST[heroId]?.heroSprite,CAST[heroId]?.sprite,...nodes.map(n=>CAST[n.mission.residentId===heroId?n.mission.residentAlternateId:n.mission.residentId]?.sprite)].filter(Boolean),
+    setInput(k,v){activity=true;if(k==='lookX'){look.axis=v;return;}if(k==='lookLeft'||k==='lookRight'){look[k==='lookLeft'?'left':'right']=v;return;}destination=null;setExplorerInput(player,k,v);},
+    key(code,down){const k={ArrowLeft:'left',KeyA:'left',ArrowRight:'right',KeyD:'right',ArrowUp:'up',KeyW:'up',ArrowDown:'down',KeyS:'down',Space:'jump',ShiftLeft:'sprint',ShiftRight:'sprint'}[code];if(k){activity=true;destination=null;setExplorerInput(player,k,down);return true;}if(['KeyQ','KeyC'].includes(code)){look[code==='KeyQ'?'left':'right']=down;return true;}if(down&&['Enter','KeyE'].includes(code)){trigger(nearest());return true;}return false;},
     pointerDown(x,y){drag={startX:x,startY:y,x,y,moved:false};},activate(id){approach(objects().find(o=>o.id===id));},confirm(){trigger(nearest());},
     getObjects:()=>objects().map(({id,label,role})=>({id,label,role})),setProgress(p){progress=p;},setState(){},applyOutcome(){},snapshot,
     consumeActivity(){const active=activity||Math.hypot(player.vx,player.vy)>10;activity=false;return active;},

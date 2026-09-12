@@ -1,9 +1,18 @@
 // Authored oral-language decisions. Scene object IDs, not labels or image
 // guesses, establish the choices. Audio is generated from these exact scripts.
 const clip = id => `/audio/sound-seekers/campaign/${id}.mp3`;
+// Exact opening-scene attributes also repair presentation of existing saves.
+export const OPENING_SCENE_APPEARANCES=Object.freeze({
+ little:{kind:'button',sizeVariant:'little'},large:{kind:'button',sizeVariant:'large'},ribbon:{kind:'ribbon'},
+ rail:{kind:'rail',relation:'on',landmark:{kind:'rail'}},tray:{kind:'tray',relation:'in',landmark:{kind:'tray'}},stool:{kind:'stool',relation:'under',landmark:{kind:'stool'}},
+ shade:{kind:'seat',scenery:[{kind:'tree',x:-28,y:0,size:155}]},
+ sun:{kind:'seat',scenery:[{kind:'sun',x:45,y:-100,size:55}]},
+ pond:{kind:'seat',scenery:[{kind:'pond',x:65,y:10,size:120}]}
+});
+export function openingSceneAppearance(object){return object?.appearance||OPENING_SCENE_APPEARANCES[object?.id]||{};}
 const placement = (id, text, objectId, locations, correctId, construct = 'oral_prepositions') => ({
   id, text, audio: clip(id), objectId, construct,
-  options: locations.map(([optionId, label]) => ({ id: optionId, label })), correctId
+  options: locations.map(([optionId, label]) => ({ id: optionId, label, appearance:OPENING_SCENE_APPEARANCES[optionId] })), correctId
 });
 const rail = [['rail', 'on the rail'], ['tray', 'in the tray'], ['stool', 'under the stool']];
 const roots = [['little', 'little button'], ['large', 'large button'], ['ribbon', 'ribbon']];

@@ -18,3 +18,5 @@
 .ss-campaign[data-presentation="landscape"] .ss-campaign-access [aria-label^="Turn camera"]{font-size:30px;min-width:56px}
 .ss-campaign[data-presentation="landscape"] .ss-campaign-prompt{font-size:17px;top:90px;background:rgba(23,45,42,.65);color:#fff6dc;padding:7px 16px;box-shadow:none;border-radius:12px}
 @media(max-width:650px){.ss-campaign[data-presentation="landscape"] .ss-campaign-access{bottom:calc(214px + env(safe-area-inset-bottom))}.ss-campaign[data-presentation="landscape"] .ss-campaign-line{bottom:calc(280px + env(safe-area-inset-bottom))}}
+.ss-campaign[data-presentation="maze"] .ss-campaign-top>div{background:#fff3d7eb;max-width:65%}.ss-campaign[data-presentation="maze"] .ss-campaign-prompt{max-width:80%;font-size:20px}
+@media(max-width:650px){.ss-campaign[data-presentation="maze"] .ss-campaign-access{bottom:214px}.ss-campaign[data-presentation="maze"] .ss-campaign-line{bottom:280px}.ss-campaign[data-presentation="maze"] .ss-campaign-top strong{font-size:15px}}
