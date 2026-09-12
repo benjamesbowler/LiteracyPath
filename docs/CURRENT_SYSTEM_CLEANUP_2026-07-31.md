@@ -349,3 +349,14 @@ and their generated path registrations are current runtime assets.
 No learner history, hosted data, original artwork or previous evidence was
 deleted. Generation scratch files were cleaned by the existing generator;
 scoped browser evidence and check logs remain in ignored `.artifacts`.
+
+
+## Sound picture and control clarification — 12 September 2026
+
+Removed blanket text-hiding rules from the Sound Seekers controls, movement
+stick and nearby guidance. Icons now supplement short labels. Consolidated
+sound-picture selection into the canonical helper, with explicit picture-cue
+support tracking. Completed teaching signs remain visible until advancement.
+No new images, duplicate word banks or narration files were added; no learner
+data or original assets were deleted. Scoped check and browser evidence lives
+in ignored `.artifacts/sound-picture-labels`.

@@ -11,6 +11,7 @@ import { CAMPAIGN_LANGUAGE, CAMPAIGN_HELP_LINES } from '../content/campaignLangu
 import { targetInfo, targetAudio, wordAudio, unitsFor, isSoundDistinct, phonemeAudio, soundLabel } from './lexicon.js';
 import { INITIAL_SOUND_TARGET_IDS } from '../../content/teachTargetMetadata.js';
 import { createRng, hashSeed } from './rng.js';
+import { soundPictureCue } from './campaignSoundPictures.js';
 
 export class CampaignContentError extends Error {
   constructor(code, missionId, detail) { super(`${missionId}: ${detail}`); this.name = 'CampaignContentError'; this.code = code; this.missionId = missionId; }
@@ -122,7 +123,11 @@ export function campaignTextSupport(beat,state={}) {
 }
 export function resolveCampaignAction(beat, state, action) {
   const saved = state || createCampaignBeatState(beat);
-  const current = saved.supportUsed.includes('text-support')?{...saved,modelShown:true}:saved;
+  const current = saved.supportUsed.some(kind=>kind==='text-support'||kind==='picture-cue')?{...saved,modelShown:true}:saved;
+  if(action.type==='PICTURE_CUE_SHOWN'){
+    if(current.done||beat.mechanic!==MECHANICS.ECHO_HUNT||!soundPictureCue(beat)||current.supportUsed.includes('picture-cue'))return {state:current,outcome:{type:'ignored'}};
+    return {state:{...current,modelShown:true,supportUsed:[...current.supportUsed,'picture-cue']},outcome:{type:'support',pictureCue:true}};
+  }
   if (beat.mechanic === MECHANICS.SIGNPOST && ['REQUEST_TEXT_SUPPORT','REQUEST_MODEL'].includes(action.type) && !current.done) {
     const line=campaignTextSupport(beat,current);
     return {state:{...current,done:true,modelShown:true,supportUsed:[...new Set([...current.supportUsed,'visual-introduction'])]},outcome:{type:'complete',line,taught:beat.targetIds,exposure:'visual-supported',evidence:null}};

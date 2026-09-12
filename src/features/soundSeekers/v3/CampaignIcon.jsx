@@ -1,5 +1,5 @@
 /** Navigation pictures are separate from the letters and words being learnt. */
-export default function CampaignIcon({name}) {
+export default function CampaignIcon({name,label}) {
   const paths={
     replay:<><path d="M19 8A8 8 0 1 0 20 15"/><path d="M19 3v5h-5"/></>,
     sound:<><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></>,
@@ -10,5 +10,5 @@ export default function CampaignIcon({name}) {
     help:<><path d="M9 18h6m-5 3h4M8 14a7 7 0 1 1 8 0l-1 2H9z"/></>,
     next:<><path d="M4 12h16m-7-7 7 7-7 7"/></>,
   };
-  return <svg className="ss-picture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]||paths.use}</svg>;
+  return <><svg className="ss-picture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]||paths.use}</svg>{label&&<span className="ss-control-label">{label}</span>}</>;
 }

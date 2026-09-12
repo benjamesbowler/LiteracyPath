@@ -45,17 +45,26 @@
 .ss-campaign[data-buttons] .ss-control-guide{display:none}.ss-campaign[data-buttons] .ss-adventure-stick{display:none!important}
 
 .ss-help-actions{display:flex;gap:12px;justify-content:center;margin:12px 0 20px}
-.ss-picture-icon{display:block;width:30px;height:30px;flex:none;margin:auto}
-.ss-campaign .ss-replay{display:grid;place-items:center;flex:none;width:64px;height:64px;min-width:64px;border-radius:50%;padding:12px}
+.ss-picture-icon{display:block;width:27px;height:27px;flex:none;margin:auto}
+.ss-control-label{display:block;font:800 12px/1.2 Nunito,system-ui,sans-serif;margin-top:2px;white-space:nowrap}
+.ss-campaign-top>button{min-width:68px;padding:6px 12px}
+.ss-campaign-controls button:has(.ss-control-label),.ss-campaign-access button:has(.ss-control-label){display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:4px}
+.ss-campaign-controls .ss-picture-icon,.ss-campaign-access .ss-picture-icon{margin:0 auto}
+.ss-campaign .ss-replay{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex:none;width:68px;height:68px;min-width:68px;border-radius:50%;padding:6px}
+.ss-sound-picture{margin:0;flex:none;width:78px;text-align:center}
+.ss-sound-picture img{display:block;width:78px;height:70px;object-fit:contain}
+.ss-sound-picture figcaption{font-size:14px;line-height:1.2;margin-top:2px}
+.ss-campaign-prompt:has(.ss-sound-picture){gap:10px;padding-left:10px}
+.ss-campaign-prompt>span{min-width:0}
+@media(max-width:650px){.ss-sound-picture{width:64px}.ss-sound-picture img{width:64px;height:64px}.ss-campaign-prompt:has(.ss-sound-picture){font-size:17px;gap:8px}}
+@media(max-height:520px){.ss-sound-picture{width:58px}.ss-sound-picture img{width:58px;height:48px}.ss-campaign-prompt:has(.ss-sound-picture){font-size:17px;max-width:88%}}
 .ss-replay[data-speaking],.ss-replay[data-needs-gesture]{outline:3px solid var(--ss-campaign-ui-focus);outline-offset:3px}
 .ss-hub-replay{position:absolute;right:22px;top:99px}
-.ss-campaign .ss-context-caption{display:none}
+.ss-campaign .ss-context-caption{display:block}
 .ss-campaign .ss-context-action{min-width:64px}
 .ss-campaign .ss-context-action .ss-picture-icon{width:28px;height:28px}
 .ss-campaign .ss-audio-notice{display:flex;gap:12px;align-items:center}
 .ss-campaign .ss-quest-pal{width:56px;height:64px;object-fit:contain;flex:none}
-.ss-campaign .ss-adventure-objective small,.ss-campaign .ss-adventure-objective div>span{display:none}
-.ss-campaign .ss-stick-caption{display:none}
 @media(pointer:coarse),(max-width:700px){
  .ss-campaign .ss-campaign-access{bottom:52px;left:166px;right:150px;flex-wrap:nowrap}
  .ss-campaign .ss-campaign-access button{width:62px;min-width:56px;height:62px;padding:6px}

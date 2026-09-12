@@ -565,7 +565,8 @@ teaching metadata refresh on resume. Three new Leda clips follow the existing
 exact-script manifest and generator; the voice and pronunciation authorities
 are unchanged.
 
-The primary HUD uses picture buttons for map, pause, replay, interact and jump.
+The primary HUD pairs picture buttons with short visible labels for Map, Pause,
+Replay, Use, Jump and Help. Audio remains automatic; text supplements it.
 A circular replay control repeats the current instruction; a speaker state
 allows sound activation after a browser gesture restriction or deliberate mute.
 The lightbulb directly requests a model instead of opening a reading menu.
@@ -589,3 +590,36 @@ landscape 700×390 layouts were viewed. The owner's existing in-app preview was
 opened with sound enabled and its first gesture activated. These are browser
 playback and layout results, not classroom listening or observed child-play
 ratings. The isolated preview still lacks authenticated hosted-save credentials.
+
+
+## Persistent sound pictures and labelled controls — 12 September 2026
+
+Teaching pictures remain in the world after their spoken introduction completes,
+until the learner actually advances. The onward exit remains available and
+replay does not create another teaching completion. Scored answer objects still
+leave when their problem completes.
+
+`campaignSoundPictures.js` selects canonical sound-anchor pictures for the
+current introduction or sound-choice task, including m→map. A compact picture
+and word caption stay with the spoken prompt, so later sound practice retains
+visual support. Only exact suitable existing word pictures are used; word-reading
+tasks do not receive a guessed image or a decoding-answer clue.
+
+A loaded picture in a scored sound round records `picture-cue` support before
+an answer. It does not reveal an answer object, award a score, finish a problem
+or mark a sound heard. Resumed support persists, and previously completed
+evidence is retained. These pictured rounds are supported formative practice.
+
+The Jump arrow and Use hand retain their icons plus visible labels; movement
+reads Move, replay reads Replay, and nearby actions and hub guidance retain
+their short captions. The onward signpost says Next → (Home → at the finish),
+so its arrow has a named destination. Full task directions remain visible beside
+audio replay.
+
+Verification: 167/167 focused checks passed, including sound-picture selection,
+supported evidence, resumed rendering, preserved teaching pictures and audio
+lifecycle. Scoped lint, production build and repository hygiene pass. Local
+browser checks cover visible pictures and labels at 390×844 and 700×390,
+replay after reload, no false completion from showing a picture, and a completed
+spoken introduction retaining both its pictured sign and onward exit. Existing
+physical-device, classroom listening and measured-duration boundaries remain.

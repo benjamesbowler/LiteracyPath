@@ -74,7 +74,7 @@ immediately. Missing review metadata is not a publication queue.
 
 ## Current product bibles
 
-- [Sound Seekers release bible](SOUND_SEEKERS_RELEASE_BIBLE.md) — three-world exploration, continuous platform puzzles and illustrated animation; automatic spoken guidance, circular replay and picture controls for pre-readers; current media, formative evidence and verification boundaries
+- [Sound Seekers release bible](SOUND_SEEKERS_RELEASE_BIBLE.md) — three-world exploration, continuous platform puzzles and illustrated animation; automatic spoken guidance, persistent sound pictures and labelled replay/movement controls; current media, formative evidence and verification boundaries
 - [Sound Seekers curriculum matrix](SOUND_SEEKERS_CURRICULUM_MECHANIC_MATRIX.md)
 - [Phoneme recording standard](audio/PHONEME_RECORDING_STANDARD.md)
 - [Shared game curriculum](GAME_CURRICULUM_FRAMEWORK_2026-07-06.md)

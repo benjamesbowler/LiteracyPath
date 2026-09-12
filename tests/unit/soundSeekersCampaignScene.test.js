@@ -6,6 +6,7 @@ import { getCampaignLayout, getCampaignChoiceAnchors } from '../../src/features/
 import { buildCampaignMission, createCampaignBeatState, resolveCampaignAction } from '../../src/features/soundSeekers/v3/engine/campaignChallenges.js';
 import { MECHANICS, publicBeat } from '../../src/features/soundSeekers/v3/engine/challenges.js';
 import { createCampaignWorldScene } from '../../src/features/soundSeekers/v3/render/campaignWorldScene.js';
+import { loadImage, retryFailedImages } from '../../src/features/soundSeekers/v3/render/sprites.js';
 const taught={targets:Object.fromEntries(['a','m','t','s'].map(id=>[id,{taught:true}]))};
 const run=(scene,n)=>{for(let i=0;i<n;i++)scene.update(1/120);};
 const position=(x,y)=>({v:1,x,y,vx:0,vy:0,facing:1,recoveries:0,lastCheckpointId:null});
@@ -41,6 +42,25 @@ test('listening to a grapheme-to-sound option never commits it; deliberate confi
  const actions=[],heard=[];const scene=make(mission.id,[beat],{onAction:a=>actions.push(a),onHear:(sources,meta)=>heard.push({sources,meta})});
  const option=scene.getObjects()[0];scene.activate(option.id);assert.equal(heard.length,1);assert.equal(actions.length,0);run(scene,20);assert.equal(actions.length,0);
  scene.confirm();assert.equal(actions.length,1);assert.equal(actions[0].optionId,option.id);scene.dispose();
+});
+test('finished teaching retains its picture and replay beside the onward path until the next beat',async()=>{
+ const mission=getCampaignMission('meadow-01-1'),pack=buildCampaignMission(mission),teach=pack.beats.find(b=>b.mechanic===MECHANICS.SIGNPOST),choice=pack.beats.find(b=>b.key);
+ const imagePaths=teach.view.cards.map(card=>card.anchorImage),previousImage=globalThis.Image;
+ try{
+  globalThis.Image=class {set src(value){this.source=value;this.width=this.naturalWidth=200;this.height=this.naturalHeight=200;this.onload();}};
+  retryFailedImages(imagePaths);await Promise.all(imagePaths.map(loadImage));
+ }finally{if(previousImage===undefined)delete globalThis.Image;else globalThis.Image=previousImage;}
+ const heard=[],actions=[];let advances=0;
+ const scene=make(mission.id,[teach,choice],{onHear:(sources,meta)=>heard.push({sources,meta}),onAction:action=>actions.push(action),onAdvance:()=>advances++});
+ const before=scene.getObjects().filter(object=>object.role==='teach');assert.equal(before.length,teach.view.cards.length);
+ scene.setState({...createCampaignBeatState(teach),done:true,cardsHeard:teach.targetIds});
+ const after=scene.getObjects();assert.deepEqual(after.filter(object=>object.role==='teach'),before);assert.ok(after.some(object=>object.role==='exit'));
+ const draw=recorder(),images=[];draw.ctx.drawImage=image=>images.push(image.source);scene.draw(draw.ctx,1100,730);
+ for(const path of imagePaths)assert.ok(images.includes(path),`Missing completed teaching picture: ${path}`);
+ scene.activate(before[0].id);run(scene,1200);assert.equal(heard.length,1);assert.equal(heard[0].meta.kind,'teach');assert.equal(actions.length,0);assert.equal(advances,0);
+ scene.activate('leave-room');run(scene,3600);assert.equal(advances,1);run(scene,200);assert.equal(advances,1);assert.equal(actions.length,0);
+ scene.setState(createCampaignBeatState(choice),1);assert.ok(scene.getObjects().every(object=>object.role!=='teach'));
+ scene.setState({...createCampaignBeatState(choice),done:true});assert.ok(scene.getObjects().every(object=>object.role!=='choice'));scene.dispose();
 });
 test('forward checkpoint reconciliation reconstructs every previous bridge in the live scene',()=>{
  const mission=getCampaignMission('meadow-01-3'),word=buildCampaignMission(mission,taught).beats[0];

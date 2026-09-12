@@ -90,12 +90,15 @@ function createPlatformAdventureScene({ stage, missions = [], mission = null, be
   if(position?.x>room()?.traversal?.x+220)openTraversal(room(),true);
   const advance=()=>{if(advancePending)return;advancePending=true;release();onAdvance?.();};
   function availableObjects() {
-    if (state?.done) return [...(room()?.traversal&&!room().traversal.opened?[room().traversal.switch]:[]),{ id: 'leave-room', x: exitX(), y: levelY(), label: index === beats.length - 1 ? 'Bring it home' : 'Follow the path', role: 'exit' }];
+    const onward = state?.done ? [...(room()?.traversal&&!room().traversal.opened?[room().traversal.switch]:[]),{ id: 'leave-room', x: exitX(), y: levelY(), label: index === beats.length - 1 ? 'Bring it home' : 'Follow the path', role: 'exit' }] : [];
+    // Finishing narration opens the path; the teaching picture remains available
+    // to look at and replay until the learner actually enters the next room.
+    if (state?.done && beat()?.mechanic !== MECHANICS.SIGNPOST) return onward;
     const choices = choiceObjects(beat(), state);
     const anchors = getCampaignChoiceAnchors(room(),beat()?.view.tiles?.length || choices.length);
     const objects=choices.map((c,i)=>({...c,...anchors[c.slotIndex??i]}));
     if(['lantern-search','story-rescue'].includes(familyOf(mission,beat()))){const clue=room().objects.find(o=>o.id.includes('clue-one')||o.id.includes('message'));if(clue)objects.unshift({...clue,id:'inspect-clue',role:'clue',label:'Hear the clue'});}
-    return objects;
+    return [...objects, ...onward];
   }
   function interaction() {
     const objects=availableObjects(),selected=objects.find(o=>o.id===aim);
@@ -304,7 +307,7 @@ function createPlatformAdventureScene({ stage, missions = [], mission = null, be
         if(object.role==='mechanism')continue;
         if(object.role==='clue'){drawCampaignProp(ctx,'lantern',object.x,object.y,{size:110,filled:true});board(ctx,object.x-95,object.y-170,190,48);caption(ctx,'Hear the clue',object.x,object.y-145,18);continue;}
         if (object.role === 'exit') {
-          ctx.fillStyle = P['world-tone-18']; ctx.fillRect(object.x - 6, object.y - 180, 12, 180); board(ctx, object.x - 105, object.y - 175, 210, 58, P['world-tone-19']); caption(ctx, '→', object.x, object.y - 147, 40); continue;
+          ctx.fillStyle = P['world-tone-18']; ctx.fillRect(object.x - 6, object.y - 180, 12, 180); board(ctx, object.x - 105, object.y - 175, 210, 58, P['world-tone-19']); caption(ctx, index === beats.length - 1 ? 'Home →' : 'Next →', object.x, object.y - 147, 28); continue;
         }
         if(object.role==='destination' && object.sceneObject) {
           const semantic=object.sceneObject || object;

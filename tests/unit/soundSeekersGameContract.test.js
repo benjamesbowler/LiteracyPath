@@ -86,18 +86,22 @@ test('resumed supported echo renders the target and canonical example on its ini
   assert.doesNotMatch(html,/role="dialog"/);
 });
 
-test('an unsupported active echo does not print its hidden target or teaching answer on initial render',()=>{
+test('sound practice shows the canonical picture while leaving evidence untouched until it loads',()=>{
   const progress=resumedSupportFixture(MECHANICS.ECHO_HUNT,false),state=progress.campaign.checkpoints['meadow-01-1'].beatState;
   assert.equal(state.modelShown,false);assert.deepEqual(state.supportUsed,[]);
   const html=renderGame(progress,'contract-resume-echo-independent');
   assert.match(html,/data-presentation="platform"/);assert.equal(renderedSupportLine(html),'');
-  assert.doesNotMatch(html,/Find m\.|Map starts with \/m\/|m: map\./u);
+  assert.match(html,/aria-label="Sound picture clue"/);
+  assert.match(html,/alt="map"/);
+  assert.match(html,/images\/child-mode\/cvc\/map.webp/);
+  assert.match(html,/>map<\/figcaption>/);
+  assert.deepEqual(state.supportUsed,[], 'rendering alone must not fabricate viewed-image evidence');
 });
 
 
-test('primary play controls use pictures and a visible audio replay without reading Hear',()=>{
+test('primary play controls pair pictures with useful visible labels and spoken replay',()=>{
   const html=renderGame({...createProgress(),heroChosen:true},'contract-picture-controls');
   for(const name of ['World map','Pause adventure','Show me','Jump','Interact with nearby object','Turn spoken instructions on'])assert.ok(html.includes(`aria-label="${name}"`),name);
   assert.match(html,/data-audio-replay/);
-  assert.doesNotMatch(html,/>Hear<|>Help<|>Jump<|>Map<|>Use</);
+  for(const label of ['Map','Pause','Use','Jump','Help','Sound on'])assert.ok(html.includes(`>${label}</span>`),label);
 });
