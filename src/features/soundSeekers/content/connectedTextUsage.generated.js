@@ -6246,6 +6246,17 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
+    "wordId": "map",
+    "uses": [
+      {
+        "sceneId": "scene-s33",
+        "stopId": "s33",
+        "surface": "prompt",
+        "ordinal": 4
+      }
+    ]
+  },
+  {
     "wordId": "mat",
     "uses": [
       {
@@ -9227,6 +9238,17 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
+    "wordId": "sun",
+    "uses": [
+      {
+        "sceneId": "meaning:light",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 13
+      }
+    ]
+  },
+  {
     "wordId": "swing",
     "uses": [
       {
@@ -10714,6 +10736,23 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 17
+      }
+    ]
+  },
+  {
+    "wordId": "top",
+    "uses": [
+      {
+        "sceneId": "meaning:cup",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 11
+      },
+      {
+        "sceneId": "meaning:drum",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 13
       }
     ]
   },

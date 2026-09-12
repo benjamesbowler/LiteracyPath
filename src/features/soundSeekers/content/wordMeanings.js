@@ -1404,6 +1404,18 @@ export const WORD_MEANINGS = Object.freeze({
       "id": "meaning-action-do"
     }
   },
+  "dog-meaning": {
+    "id": "dog-meaning",
+    "word": "dog",
+    "sense": "A friendly animal often kept as a pet.",
+    "actionCue": "Point to or mime an example of “dog,” then use it in a short sentence.",
+    "partOfSpeech": "noun",
+    "ageBand": "5-8",
+    "reference": {
+      "kind": "action",
+      "id": "meaning-action-dog"
+    }
+  },
   "dogs-meaning": {
     "id": "dogs-meaning",
     "word": "dogs",
@@ -1534,6 +1546,18 @@ export const WORD_MEANINGS = Object.freeze({
     "reference": {
       "kind": "action",
       "id": "meaning-action-echo"
+    }
+  },
+  "egg-meaning": {
+    "id": "egg-meaning",
+    "word": "egg",
+    "sense": "An oval object laid by a bird.",
+    "actionCue": "Point to or mime an example of “egg,” then use it in a short sentence.",
+    "partOfSpeech": "noun",
+    "ageBand": "5-8",
+    "reference": {
+      "kind": "action",
+      "id": "meaning-action-egg"
     }
   },
   "endure-meaning": {
@@ -2628,6 +2652,18 @@ export const WORD_MEANINGS = Object.freeze({
       "id": "meaning-action-in"
     }
   },
+  "insect-meaning": {
+    "id": "insect-meaning",
+    "word": "insect",
+    "sense": "A small animal with six legs.",
+    "actionCue": "Point to or mime an example of “insect,” then use it in a short sentence.",
+    "partOfSpeech": "noun",
+    "ageBand": "5-8",
+    "reference": {
+      "kind": "action",
+      "id": "meaning-action-insect"
+    }
+  },
   "is-meaning": {
     "id": "is-meaning",
     "word": "is",
@@ -3264,6 +3300,18 @@ export const WORD_MEANINGS = Object.freeze({
       "id": "meaning-action-many"
     }
   },
+  "map-meaning": {
+    "id": "map-meaning",
+    "word": "map",
+    "sense": "A drawing that shows where places are.",
+    "actionCue": "Point to or mime an example of “map,” then use it in a short sentence.",
+    "partOfSpeech": "noun",
+    "ageBand": "5-8",
+    "reference": {
+      "kind": "action",
+      "id": "meaning-action-map"
+    }
+  },
   "mat-meaning": {
     "id": "mat-meaning",
     "word": "mat",
@@ -3720,6 +3768,18 @@ export const WORD_MEANINGS = Object.freeze({
       "id": "meaning-action-over"
     }
   },
+  "ox-meaning": {
+    "id": "ox-meaning",
+    "word": "ox",
+    "sense": "A large farm animal that can pull heavy loads.",
+    "actionCue": "Point to or mime an example of “ox,” then use it in a short sentence.",
+    "partOfSpeech": "noun",
+    "ageBand": "5-8",
+    "reference": {
+      "kind": "action",
+      "id": "meaning-action-ox"
+    }
+  },
   "paint-meaning": {
     "id": "paint-meaning",
     "word": "paint",
@@ -4066,6 +4126,18 @@ export const WORD_MEANINGS = Object.freeze({
     "reference": {
       "kind": "action",
       "id": "meaning-action-puzzle"
+    }
+  },
+  "queen-meaning": {
+    "id": "queen-meaning",
+    "word": "queen",
+    "sense": "A woman who rules a kingdom.",
+    "actionCue": "Point to or mime an example of “queen,” then use it in a short sentence.",
+    "partOfSpeech": "noun",
+    "ageBand": "5-8",
+    "reference": {
+      "kind": "action",
+      "id": "meaning-action-queen"
     }
   },
   "quest-meaning": {
@@ -5304,6 +5376,18 @@ export const WORD_MEANINGS = Object.freeze({
       "id": "meaning-action-such"
     }
   },
+  "sun-meaning": {
+    "id": "sun-meaning",
+    "word": "sun",
+    "sense": "The star that gives Earth daylight and warmth.",
+    "actionCue": "Point to or mime an example of “sun,” then use it in a short sentence.",
+    "partOfSpeech": "noun",
+    "ageBand": "5-8",
+    "reference": {
+      "kind": "action",
+      "id": "meaning-action-sun"
+    }
+  },
   "sunny-meaning": {
     "id": "sunny-meaning",
     "word": "sunny",
@@ -5724,6 +5808,18 @@ export const WORD_MEANINGS = Object.freeze({
       "id": "meaning-action-took"
     }
   },
+  "top-meaning": {
+    "id": "top-meaning",
+    "word": "top",
+    "sense": "A toy that spins on a point.",
+    "actionCue": "Point to or mime an example of “top,” then use it in a short sentence.",
+    "partOfSpeech": "noun",
+    "ageBand": "5-8",
+    "reference": {
+      "kind": "action",
+      "id": "meaning-action-top"
+    }
+  },
   "town-meaning": {
     "id": "town-meaning",
     "word": "town",
@@ -5866,6 +5962,18 @@ export const WORD_MEANINGS = Object.freeze({
     "reference": {
       "kind": "action",
       "id": "meaning-action-turn"
+    }
+  },
+  "umbrella-meaning": {
+    "id": "umbrella-meaning",
+    "word": "umbrella",
+    "sense": "A cover held above you to keep off rain.",
+    "actionCue": "Point to or mime an example of “umbrella,” then use it in a short sentence.",
+    "partOfSpeech": "noun",
+    "ageBand": "5-8",
+    "reference": {
+      "kind": "action",
+      "id": "meaning-action-umbrella"
     }
   },
   "up-meaning": {
@@ -6034,6 +6142,18 @@ export const WORD_MEANINGS = Object.freeze({
     "reference": {
       "kind": "action",
       "id": "meaning-action-we"
+    }
+  },
+  "web-meaning": {
+    "id": "web-meaning",
+    "word": "web",
+    "sense": "Silk threads spun by a spider.",
+    "actionCue": "Point to or mime an example of “web,” then use it in a short sentence.",
+    "partOfSpeech": "noun",
+    "ageBand": "5-8",
+    "reference": {
+      "kind": "action",
+      "id": "meaning-action-web"
     }
   },
   "went-meaning": {
@@ -6286,6 +6406,18 @@ export const WORD_MEANINGS = Object.freeze({
     "reference": {
       "kind": "action",
       "id": "meaning-action-would"
+    }
+  },
+  "yak-meaning": {
+    "id": "yak-meaning",
+    "word": "yak",
+    "sense": "A large shaggy animal with horns.",
+    "actionCue": "Point to or mime an example of “yak,” then use it in a short sentence.",
+    "partOfSpeech": "noun",
+    "ageBand": "5-8",
+    "reference": {
+      "kind": "action",
+      "id": "meaning-action-yak"
     }
   },
   "year-meaning": {

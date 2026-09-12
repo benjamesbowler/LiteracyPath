@@ -18,11 +18,11 @@ const run=(scene,seconds)=>{for(let i=0;i<seconds*60;i++)scene.update(1/60);};
 
 test('every authored maze offers reachable nonoverlapping choices without receiving the answer key',()=>{
  let count=0;
- for(const {beats} of journeys)for(const [index,beat]of beats.entries())if(usesMazeArea(beat)){
-  count++;const maze=createActivityMaze(beat.id,index%3);
+ for(const {mission,beats} of journeys)for(const beat of beats)if(usesMazeArea(beat)){
+  count++;const maze=createActivityMaze(`${mission.id}:${beat.sectionId||beat.familyId}`,0);
   assert.ok(maze.destinations.length>=beat.view.choices.length,beat.id);
   for(const destination of maze.destinations){assert.equal(mazeBlocked(maze,destination.x,destination.y),false);const path=mazePath(maze,maze.spawn,destination);assert.ok(path.length>2,beat.id);for(const p of path)assert.equal(mazeBlocked(maze,p.x,p.y),false);}
-  assert.deepEqual(createActivityMaze(beat.id,index%3).grid,maze.grid);
+  assert.deepEqual(createActivityMaze(`${mission.id}:${beat.sectionId||beat.familyId}`,0).grid,maze.grid);
  }
  assert.ok(count>600);assert.equal(new Set(CAMPAIGN_MISSIONS.map(m=>m.familyId)).size,Object.keys(ACTIVITY_AREAS).length);
 });
@@ -92,4 +92,23 @@ test('opening choices and old saved objects retain visible size and location con
  }
  assert.equal(openingSceneAppearance({id:'little'}).sizeVariant,'little');assert.equal(openingSceneAppearance({id:'large'}).sizeVariant,'large');
  assert.equal(openingSceneAppearance({id:'shade'}).scenery[0].kind,'tree');assert.equal(openingSceneAppearance({id:'pond'}).scenery[0].kind,'pond');
+});
+
+
+test('related maze clues keep the room and player position with a nearby next-clue interaction',()=>{
+ const {mission,beats}=journeys.find(j=>j.beats.filter(usesMazeArea).length>1);
+ const pair=beats.filter(usesMazeArea).slice(0,2);assert.equal(pair[0].familyId,pair[1].familyId);assert.equal(pair[0].sectionId,pair[1].sectionId);
+ let actions=0,advanced=0;const scene=sceneFor(mission,pair,{onAction:()=>actions++,onAdvance:()=>advanced++});
+ scene.activate(scene.getObjects().find(o=>o.role==='destination').id);for(let i=0;i<2400&&!actions;i++)scene.update(1/60);assert.equal(actions,1);
+ const before=scene.snapshot(),grid=scene.debug().maze.grid;
+ scene.setState({...createCampaignBeatState(pair[0]),done:true},0);const exit=scene.debug().objects[0];assert.equal(exit.label,'Next clue');assert.ok(Math.hypot(exit.x-before.x,exit.y-before.y)<1);
+ scene.key('KeyE',true);assert.equal(advanced,1);
+ scene.setState(createCampaignBeatState(pair[1]),1);assert.deepEqual(scene.debug().maze.grid,grid);assert.equal(scene.snapshot().x,before.x);assert.equal(scene.snapshot().y,before.y);scene.dispose();
+});
+
+
+test('assisted walking starts at full speed after a virtual stick release',()=>{
+ const {mission,beats}=journeys[0],scene=sceneFor(mission,[beats[0]]);
+ scene.setInput('analogX',.6);run(scene,.2);scene.setInput('analogX',0);run(scene,.3);
+ const before=scene.snapshot().x;scene.activate(scene.getObjects()[0].id);run(scene,.5);assert.ok(scene.snapshot().x>before+50);scene.dispose();
 });

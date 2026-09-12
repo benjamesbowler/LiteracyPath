@@ -419,8 +419,8 @@ Sound Seekers brief has its own passing structural check.
 ### Segmented activity areas and illustrated sprites
 
 `v3/content/activityAreas.js` selects twelve named activity settings from the
-existing physical families. Each learning beat enters a bounded area, with a
-short transition when the next beat begins. Construction, aiming, climbing,
+existing physical families. Learning beats use bounded areas, with a
+short transition when the next beat begins. Related maze clues share one room. Construction, aiming, climbing,
 delivery, sorting, routing and workshop mechanics retain their exact authored
 stimuli and challenge outcomes. A finished area exposes its onward route;
 walking against an area edge cannot skip a learning beat.
@@ -428,11 +428,13 @@ walking against an area edge cannot skip a learning beat.
 `v3/engine/mazeAdventure.js` and `v3/render/mazeAdventureScene.js` add connected
 2.5D hedge mazes to search and story-delivery challenges. In the fully taught
 campaign configuration, 666 beats use these areas. Layout generation uses the
-beat identity and a size variant, never its answer key. Every offered destination
+mission and section identity, never its answer key. Every offered destination
 has a traversable route. Keyboard, analog movement and accessible destination
 selection share collision. Clue replay is separate from choosing; wrong answers
-retain the problem. Beat-qualified maze positions survive checkpoints and cannot
-be applied to the next platform area.
+retain the problem. Area-qualified maze positions survive checkpoints and continue between related
+clues. A successful intermediate clue offers its next interaction at the player,
+rather than requiring a trip back to the entrance. A final clue exposes the
+entrance exit. Positions cannot transfer into a different platform area.
 
 `v3/engine/adventureControls.js` supports standard browser gamepads with stick
 dead zones, proportional movement, sprint, jump, interaction and pause. Held
@@ -493,3 +495,51 @@ sprites. Attribute-specific and relational host drawings retain their authored
 geometry; a generic image cannot override the requested colour, shape, count
 or placement. Both source atlases are committed intact and preloaded by the
 active scenes.
+
+
+## Initial-sound examples and control refinement — 12 September 2026
+
+For the 25 initial-sound targets (including qu), teaching anchors must start
+with both the authored grapheme and target sound. The canonical first unit,
+letter index, picture and recorded word are checked together. **m uses map**;
+t, s, d, i, o, u, e, w, qu, k, g and y also use clearer onset examples. x retains
+box as an explicit final-/ks/ exception. Ham remains a valid later decodable
+practice word, but is not the introductory example for m.
+
+Eleven missing oral picture anchors were added to the pronunciation authoring
+corpus against its pinned CMUdict reference. They are marked oral teaching only;
+this does not admit umbrella, insect or other untaught spellings into independent
+decodable practice. The generated corpus now has 542 records. Umbrella includes
+a final schwa, increasing the existing contextual-unit human-audio review ledger
+from 21 to 22 entries across the same five sound keys. The initial /u/ teaching
+uses its recorded target and whole word, not an unavailable schwa recording.
+The existing release gate remains enforced.
+
+Unscored signposts are refreshed from current teaching metadata on resume.
+Saved scored challenges, attempt identities and learning history are preserved.
+The previous anchor test accepted a target anywhere in a word; the onset test
+now prevents another m/ham introduction.
+
+Touch layouts use a proportional radial movement stick, with explicit release
+on pointer loss and blur. Direction buttons remain available in the pause menu.
+Desktop displays a compact keyboard or controller guide. Quest title, area and
+progress stay visible; Help contains assisted walking, model, text support and
+undo. Muted instruction replay explicitly enables sound when pressed. Palette
+values live in the shared visual-token authority.
+
+Browser refinement checks cover the revised teaching display, explicit sound
+activation, proportional stick movement/release, and clear phone controls.
+Synthetic scene checks cover related-clue continuity, nearby onward interaction,
+resume, keyboard takeover and assisted walking after analog release. These are
+local browser and automated observations, not child enjoyment ratings, physical
+controller verification or measured twenty-hour play. The owner's 4/10 feedback
+remains a quality signal; no 10/10 acceptance is asserted by this update.
+
+
+Refinement validation: 52 pronunciation, teaching, corpus/import and activity
+checks passed; all six failures from a broader 668-check run were corrected,
+and the affected content/contract/scene gates passed in a 49-check rerun. Lint,
+production build, generator currency and repository hygiene pass (existing bundle
+size and hygiene warnings remain). Actual browser play reached the revised map
+introduction and advanced Tiny's first maze clue to the next clue at the same
+saved area position. No hosted or physical-device result is implied.

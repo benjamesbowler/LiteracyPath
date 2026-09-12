@@ -1,3 +1,4 @@
+import { SOUND_SEEKERS_CAMPAIGN_PALETTE as P } from '../../visual/visualTokens.js';
 import { LEARNING_SPRITES,PUZZLE_SPRITES,drawPuzzleSprite } from './puzzleSprites.js';
 import { activityAreaFor } from '../content/activityAreas.js';
 import * as THREE from 'three';
@@ -15,7 +16,7 @@ export const EXPLORATION_MODELS={
   tent:`${MODEL_ROOT}decoration/props/tent.gltf`,
   gate:`${MODEL_ROOT}buildings/neutral/fence_wood_straight_gate.gltf`
 };
-const themes={meadow:{sky:0x91c6da,fog:0xa4c9be,grass:0x9abd72,sun:0xffedbb},dino:{sky:0xa8cfcc,fog:0xc3c6a0,grass:0xafb86e,sun:0xffe3ac},moonwood:{sky:0x526b94,fog:0x708598,grass:0x739b8e,sun:0xbbd7ec}};
+const themes={meadow:{sky:P['landscape-1'],fog:P['landscape-2'],grass:P['landscape-3'],sun:P['landscape-4']},dino:{sky:P['landscape-5'],fog:P['landscape-6'],grass:P['landscape-7'],sun:P['landscape-8']},moonwood:{sky:P['landscape-9'],fog:P['landscape-10'],grass:P['landscape-11'],sun:P['landscape-12']}};
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 const segmentDistance=(x,y,a,b)=>{const dx=b[0]-a[0],dy=b[1]-a[1],t=clamp(((x-a[0])*dx+(y-a[1])*dy)/(dx*dx+dy*dy||1),0,1);return Math.hypot(x-a[0]-dx*t,y-a[1]-dy*t);};
 export function createLandscapeSurface(layout){
@@ -47,7 +48,7 @@ export function createExplorationLandscape({canvas,layout,stage,heroId,nodes,com
   const released=new Set();
   function disposeTree(root){root.traverse(o=>{for(const resource of [o.geometry,...(o.material?(Array.isArray(o.material)?o.material:[o.material]):[])]){if(!resource||released.has(resource))continue;released.add(resource);for(const v of Object.values(resource))if(v?.isTexture&&!released.has(v)){released.add(v);v.dispose();}resource.dispose();}});}
   const register=resource=>{if(disposed){resource.dispose();released.add(resource);}else resources.add(resource);return resource;};
-  const hemisphere=new THREE.HemisphereLight(0xc6e9ff,0x6d733d,1.8);scene.add(hemisphere);
+  const hemisphere=new THREE.HemisphereLight(P['landscape-13'],P['landscape-14'],1.8);scene.add(hemisphere);
   const sun=new THREE.DirectionalLight(theme.sun,2.3);sun.position.set(-25,65,30);sun.castShadow=!simplifiedBackgrounds;
   sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-40,right:40,top:40,bottom:-40,near:1,far:150});sun.shadow.bias=-.0005;sun.shadow.normalBias=.08;scene.add(sun);scene.add(sun.target);
   const skyGeo=register(new THREE.SphereGeometry(280,32,16));
@@ -57,9 +58,9 @@ export function createExplorationLandscape({canvas,layout,stage,heroId,nodes,com
   const heroCanvas=document.createElement('canvas');heroCanvas.width=384;heroCanvas.height=384;
   const heroTexture=register(new THREE.CanvasTexture(heroCanvas));heroTexture.colorSpace=THREE.SRGBColorSpace;
   const hero=sprite(heroTexture,0,0,0,3.2),actors=[],labels=[],doors=[];
-  const shadowTexture=canvasTexture(128,128,c=>{const g=c.createRadialGradient(64,64,3,64,64,62);g.addColorStop(0,'rgba(20,35,20,.38)');g.addColorStop(1,'rgba(20,35,20,0)');c.fillStyle=g;c.fillRect(0,0,128,128);});
+  const shadowTexture=canvasTexture(128,128,c=>{const g=c.createRadialGradient(64,64,3,64,64,62);g.addColorStop(0,P['adventure-8']);g.addColorStop(1,P['adventure-9']);c.fillStyle=g;c.fillRect(0,0,128,128);});
   const shadow=new THREE.Mesh(register(new THREE.PlaneGeometry(2.8,2.8)),register(new THREE.MeshBasicMaterial({map:shadowTexture,transparent:true,depthWrite:false})));shadow.rotation.x=-Math.PI/2;scene.add(shadow);
-  function labelTexture(text){return canvasTexture(512,96,c=>{c.fillStyle='rgba(24,43,41,.8)';c.beginPath();c.roundRect(5,5,502,86,30);c.fill();c.font='700 36px Nunito, sans-serif';c.textAlign='center';c.fillStyle='#fff4d2';c.fillText(text,256,62);});}
+  function labelTexture(text){return canvasTexture(512,96,c=>{c.fillStyle=P['adventure-10'];c.beginPath();c.roundRect(5,5,502,86,30);c.fill();c.font='700 36px Nunito, sans-serif';c.textAlign='center';c.fillStyle=P['adventure-11'];c.fillText(text,256,62);});}
   const restorationCanvas=document.createElement('canvas');restorationCanvas.width=800;restorationCanvas.height=500;
   const restorationTexture=register(new THREE.CanvasTexture(restorationCanvas));restorationTexture.colorSpace=THREE.SRGBColorSpace;
   const restoration=sprite(restorationTexture,layout.landmark.x/S,surface.height(layout.landmark.x/S,layout.landmark.y/S),layout.landmark.y/S,5,8);
@@ -69,7 +70,7 @@ export function createExplorationLandscape({canvas,layout,stage,heroId,nodes,com
     // is modeled in the landscape instead of drawing a flat tree billboard.
     for(const prop of state.props){if(naturalProps?.has(prop.kind))continue;const {kind,x,y,...appearance}=prop;drawCampaignProp(c,kind,400+x,430+y,appearance);}
     restorationTexture.needsUpdate=true;}
-  function normalize(model,width){const root=model.scene.clone(true);const box=new THREE.Box3().setFromObject(root),size=box.getSize(new THREE.Vector3());const scale=width/Math.max(size.x,size.z,.01);root.scale.setScalar(scale);root.position.set(-((box.min.x+box.max.x)/2)*scale,-box.min.y*scale,-((box.min.z+box.max.z)/2)*scale);const group=new THREE.Group();group.add(root);root.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;if(o.material){const mats=Array.isArray(o.material)?o.material:[o.material];for(const mat of mats){mat.side=THREE.DoubleSide;if(/leave|leaf/i.test(mat.name)){mat.color.set(stage.worldId==='moonwood'?0x699797:stage.worldId==='dino'?0x92bc62:0x95b995);mat.roughness=1;}if(mat.transparent){mat.alphaTest=.4;mat.depthWrite=true;mat.transparent=false;}}}}});return group;}
+  function normalize(model,width){const root=model.scene.clone(true);const box=new THREE.Box3().setFromObject(root),size=box.getSize(new THREE.Vector3());const scale=width/Math.max(size.x,size.z,.01);root.scale.setScalar(scale);root.position.set(-((box.min.x+box.max.x)/2)*scale,-box.min.y*scale,-((box.min.z+box.max.z)/2)*scale);const group=new THREE.Group();group.add(root);root.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;if(o.material){const mats=Array.isArray(o.material)?o.material:[o.material];for(const mat of mats){mat.side=THREE.DoubleSide;if(/leave|leaf/i.test(mat.name)){mat.color.set(stage.worldId==='moonwood'?P['landscape-15']:stage.worldId==='dino'?P['landscape-16']:P['landscape-17']);mat.roughness=1;}if(mat.transparent){mat.alphaTest=.4;mat.depthWrite=true;mat.transparent=false;}}}}});return group;}
   function place(model,x,z,width,rotation=0){const group=normalize(model,width);group.position.set(x,surface.height(x,z),z);group.rotation.y=rotation;scene.add(group);return group;}
   const loader=new GLTFLoader();
   const modelLoads=Object.entries(EXPLORATION_MODELS).map(async([key,path])=>{const model=await loader.loadAsync(path);if(disposed)disposeTree(model.scene);else roots.push(model.scene);return [key,model];});
@@ -83,19 +84,19 @@ export function createExplorationLandscape({canvas,layout,stage,heroId,nodes,com
     const sizeX=layout.width/S+180,sizeZ=layout.height/S+180;
     const geometry=register(new THREE.PlaneGeometry(sizeX,sizeZ,180,160));geometry.rotateX(-Math.PI/2);geometry.translate(layout.width/S/2,0,layout.height/S/2);
     const positions=geometry.attributes.position,weights=new Float32Array(positions.count),colors=new Float32Array(positions.count*3);
-    for(let i=0;i<positions.count;i++){const x=positions.getX(i),z=positions.getZ(i);positions.setY(i,surface.height(x,z));weights[i]=1-THREE.MathUtils.smoothstep(surface.pathDistance(x*S,z*S),45,92);const color=new THREE.Color(0xf3f2da).lerp(new THREE.Color(0x839695),clamp((surface.height(x,z)-8)/35,0,.8));colors.set([color.r,color.g,color.b],i*3);}
+    for(let i=0;i<positions.count;i++){const x=positions.getX(i),z=positions.getZ(i);positions.setY(i,surface.height(x,z));weights[i]=1-THREE.MathUtils.smoothstep(surface.pathDistance(x*S,z*S),45,92);const color=new THREE.Color(P['landscape-18']).lerp(new THREE.Color(P['landscape-19']),clamp((surface.height(x,z)-8)/35,0,.8));colors.set([color.r,color.g,color.b],i*3);}
     geometry.setAttribute('pathWeight',new THREE.BufferAttribute(weights,1));geometry.setAttribute('color',new THREE.BufferAttribute(colors,3));geometry.computeVertexNormals();
     const groundMaterial=register(new THREE.MeshStandardMaterial({map:grass,vertexColors:true,roughness:1}));
     groundMaterial.onBeforeCompile=shader=>{shader.uniforms.pathTexture={value:path};shader.uniforms.groundTint={value:new THREE.Color(theme.grass)};shader.vertexShader='attribute float pathWeight; varying float vPathWeight;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvPathWeight=pathWeight;');shader.fragmentShader='uniform sampler2D pathTexture; uniform vec3 groundTint; varying float vPathWeight;\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <map_fragment>','#ifdef USE_MAP\nvec4 sampledDiffuseColor = mix(mix(vec4(groundTint,1.),texture2D(map,vMapUv),.48),texture2D(pathTexture,vMapUv),vPathWeight); diffuseColor *= sampledDiffuseColor;\n#endif');};
     terrain=new THREE.Mesh(geometry,groundMaterial);terrain.receiveShadow=true;scene.add(terrain);
-    const waterMat=register(new THREE.MeshStandardMaterial({map:waterMap,color:stage.worldId==='moonwood'?0x6b91bc:0xb1deda,transparent:true,opacity:.84,roughness:.19,metalness:.2}));waterMap.repeat.set(2,20);
+    const waterMat=register(new THREE.MeshStandardMaterial({map:waterMap,color:stage.worldId==='moonwood'?P['landscape-20']:P['landscape-21'],transparent:true,opacity:.84,roughness:.19,metalness:.2}));waterMap.repeat.set(2,20);
     water=new THREE.Mesh(register(new THREE.PlaneGeometry(layout.riverWidth/S,layout.height/S+15,1,30)),waterMat);water.rotation.x=-Math.PI/2;water.position.set((layout.riverX+layout.riverWidth/2)/S,-.1,layout.height/S/2);scene.add(water);
     const stoneMap=canvasTexture(512,512,c=>{const sw=source.image.width/4,sh=source.image.height/3;c.drawImage(source.image,sw*3+2,sh*2+2,sw-4,sh-4,0,0,512,512);});stoneMap.wrapS=stoneMap.wrapT=THREE.RepeatWrapping;
-    const stoneMaterial=register(new THREE.MeshStandardMaterial({map:stoneMap,roughness:1,color:0xb9c0aa}));
+    const stoneMaterial=register(new THREE.MeshStandardMaterial({map:stoneMap,roughness:1,color:P['landscape-22']}));
     let bark;models.tree.scene.traverse(o=>{if(o.material?.name?.includes('Bark'))bark=o.material.map;});
-    const barkMaterial=register(new THREE.MeshStandardMaterial({map:bark,color:0x9a805d,roughness:1}));
-    const deckMaterial=register(new THREE.MeshStandardMaterial({map:bark,color:0xc2ae83,roughness:.94}));
-    const ropeMaterial=register(new THREE.MeshStandardMaterial({color:0xa18b5b,roughness:1}));
+    const barkMaterial=register(new THREE.MeshStandardMaterial({map:bark,color:P['landscape-23'],roughness:1}));
+    const deckMaterial=register(new THREE.MeshStandardMaterial({map:bark,color:P['landscape-24'],roughness:.94}));
+    const ropeMaterial=register(new THREE.MeshStandardMaterial({color:P['landscape-25'],roughness:1}));
     for(const b of layout.bridges){
       const group=new THREE.Group(),w=b.width/S,d=b.height/S;
       // Deck tops and collision feet share y=.25; broad rails sit outside the
@@ -119,7 +120,7 @@ export function createExplorationLandscape({canvas,layout,stage,heroId,nodes,com
     for(const tree of layout.dressing){place(models.tree,tree.x/S,tree.y/S,tree.size,tree.rotation);if(tree.bush)place(models.bush,tree.x/S+1.7,tree.y/S+1.2,1.7);}
     for(let i=0;i<35;i++){const x=((i*419)%Math.floor(layout.width))/S,z=((i*257)%Math.floor(layout.height))/S;if(surface.pathDistance(x*S,z*S)<90||Math.abs(x*S-layout.riverX-75)<150)continue;place(models.flowers,x,z,1.3);}
     place(models.tent,layout.camp.x/S-3,layout.camp.y/S+9,3.2,-.5);
-    lever=new THREE.Group();const base=new THREE.Mesh(register(new THREE.CylinderGeometry(.45,.65,.35,12)),register(new THREE.MeshStandardMaterial({color:0x77877a,roughness:.95})));base.position.y=.18;lever.add(base);const arm=new THREE.Mesh(register(new THREE.CylinderGeometry(.09,.1,1.2,8)),register(new THREE.MeshStandardMaterial({color:0xb89a5f,roughness:.6})));arm.position.y=.85;arm.rotation.z=-.5;lever.add(arm);const knob=new THREE.Mesh(register(new THREE.SphereGeometry(.2,12,8)),register(new THREE.MeshStandardMaterial({color:0xc15f35,roughness:.5})));knob.position.set(.28,1.35,0);lever.add(knob);lever.position.set(layout.switch.x/S,surface.height(layout.switch.x/S,layout.switch.y/S),layout.switch.y/S);scene.add(lever);
+    lever=new THREE.Group();const base=new THREE.Mesh(register(new THREE.CylinderGeometry(.45,.65,.35,12)),register(new THREE.MeshStandardMaterial({color:P['landscape-26'],roughness:.95})));base.position.y=.18;lever.add(base);const arm=new THREE.Mesh(register(new THREE.CylinderGeometry(.09,.1,1.2,8)),register(new THREE.MeshStandardMaterial({color:P['landscape-27'],roughness:.6})));arm.position.y=.85;arm.rotation.z=-.5;lever.add(arm);const knob=new THREE.Mesh(register(new THREE.SphereGeometry(.2,12,8)),register(new THREE.MeshStandardMaterial({color:P['landscape-28'],roughness:.5})));knob.position.set(.28,1.35,0);lever.add(knob);lever.position.set(layout.switch.x/S,surface.height(layout.switch.x/S,layout.switch.y/S),layout.switch.y/S);scene.add(lever);
     place(models.tent,layout.secret.x/S,layout.secret.y/S,3.5,.8);
     const portal=place(models.gate,layout.portal.x/S,layout.portal.y/S,4);portal.userData.portal=true;
     const doorTexture=canvasTexture(384,480,c=>{drawPuzzleSprite(c,'door',192,470,345);});
@@ -130,7 +131,7 @@ export function createExplorationLandscape({canvas,layout,stage,heroId,nodes,com
     grassMaterial.onBeforeCompile=shader=>{shader.uniforms.windTime=grassUniform;shader.vertexShader='uniform float windTime;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\ntransformed.x += sin(windTime+instanceMatrix[3].x*.7+instanceMatrix[3].z*.4)*position.y*position.y*.18;');};
     const count=simplifiedBackgrounds?1800:6500,instanced=new THREE.InstancedMesh(grassGeometry,grassMaterial,count),dummy=new THREE.Object3D();let placed=0;
     for(let i=0;i<count*2&&placed<count;i++){const rand=n=>{const r=Math.sin(n*127.1+311.7)*43758.5453;return r-Math.floor(r);};const x=rand(i)*layout.width/S,z=rand(i+719)*layout.height/S;if(surface.pathDistance(x*S,z*S)<85||Math.abs(x*S-layout.riverX-layout.riverWidth/2)<130)continue;dummy.position.set(x,surface.height(x,z),z);dummy.rotation.y=i*2.4;dummy.scale.setScalar(.6+(i%9)*.1);dummy.updateMatrix();instanced.setMatrixAt(placed++,dummy.matrix);}instanced.count=placed;instanced.receiveShadow=true;scene.add(instanced);
-    const cloudMaterial=register(new THREE.MeshLambertMaterial({color:0xfff6df,transparent:true,opacity:.83,depthWrite:false})),cloudGeometry=register(new THREE.SphereGeometry(1,16,12));for(let i=0;i<9;i++){const group=new THREE.Group();for(let j=0;j<5;j++){const puff=new THREE.Mesh(cloudGeometry,cloudMaterial);puff.scale.set(4+j%3*2,1.5+j%2,2.5+j%3);puff.position.set(j*3,Math.sin(j)*1.2,0);group.add(puff);}group.position.set(-60+i*24,38+i%3*6,-25+i%2*90);scene.add(group);}
+    const cloudMaterial=register(new THREE.MeshLambertMaterial({color:P['landscape-29'],transparent:true,opacity:.83,depthWrite:false})),cloudGeometry=register(new THREE.SphereGeometry(1,16,12));for(let i=0;i<9;i++){const group=new THREE.Group();for(let j=0;j<5;j++){const puff=new THREE.Mesh(cloudGeometry,cloudMaterial);puff.scale.set(4+j%3*2,1.5+j%2,2.5+j%3);puff.position.set(j*3,Math.sin(j)*1.2,0);group.add(puff);}group.position.set(-60+i*24,38+i%3*6,-25+i%2*90);scene.add(group);}
     restorationKey='';refreshRestoration();
   });
   const contextLost=event=>{event.preventDefault();onFailure?.();};canvas.addEventListener('webglcontextlost',contextLost);

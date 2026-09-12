@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
+import { SOUND_SEEKERS_TEACH_TARGETS } from "../src/features/soundSeekers/content/teachTargetMetadata.js";
 import { QUEST_STOPS } from "../src/data/questSequence.js";
 import { segmentWord } from "../src/utils/questSegments.js";
 import { assertPronunciationsMatchReference } from "./soundSeekersPronunciationAudit.mjs";
@@ -86,6 +87,18 @@ const FINAL_Z = new Set(["dogs", "goes", "these", "use", "amuse", "fuse", "close
 // from the explicit curriculum maps above, then persists the result.
 // These are the contextual/irregular records that spelling alone cannot supply.
 const EXPLICIT = Object.freeze({
+  map: [["m", "m", "regular"], ["a", "short_a", "regular"], ["p", "p", "regular"]],
+  top: [["t", "t", "regular"], ["o", "short_o", "regular"], ["p", "p", "regular"]],
+  sun: [["s", "s", "regular"], ["u", "short_u", "regular"], ["n", "n", "regular"]],
+  dog: [["d", "d", "regular"], ["o", "aw", "irregular"], ["g", "g", "regular"]],
+  insect: [["i", "short_i", "regular"], ["n", "n", "regular"], ["s", "s", "regular"], ["e", "short_e", "regular"], ["c", "c", "regular"], ["t", "t", "regular"]],
+  ox: [["o", "short_o", "regular"], ["x", "x", "regular"]],
+  umbrella: [["u", "short_u", "regular"], ["m", "m", "regular"], ["b", "b", "regular"], ["r", "r", "regular"], ["e", "short_e", "regular"], ["ll", "l", "regular"], ["a", "schwa", "irregular"]],
+  egg: [["e", "short_e", "regular"], ["gg", "g", "regular"]],
+  web: [["w", "w", "regular"], ["e", "short_e", "regular"], ["b", "b", "regular"]],
+  queen: [["qu", "qu", "regular"], ["ee", "ee", "regular"], ["n", "n", "regular"]],
+  yak: [["y", "y", "regular"], ["a", "short_a", "regular"], ["k", "k", "regular"]],
+
   i: [["i", "i_e", "irregular"]],
   the: [["th", "th_voiced", "irregular"], ["e", "schwa", "irregular"]],
   is: [["i", "short_i", "regular"], ["s", "z", "irregular"]],
@@ -243,6 +256,17 @@ const FUNCTION_MEANINGS = Object.freeze({
 });
 
 const MEANING_HINTS = Object.freeze({
+  map: ["noun", "A drawing that shows where places are."],
+  top: ["noun", "A toy that spins on a point."],
+  sun: ["noun", "The star that gives Earth daylight and warmth."],
+  insect: ["noun", "A small animal with six legs."],
+  ox: ["noun", "A large farm animal that can pull heavy loads."],
+  umbrella: ["noun", "A cover held above you to keep off rain."],
+  egg: ["noun", "An oval object laid by a bird."],
+  web: ["noun", "Silk threads spun by a spider."],
+  queen: ["noun", "A woman who rules a kingdom."],
+  yak: ["noun", "A large shaggy animal with horns."],
+
   ship: ["noun", "A large boat that carries people or things across water."],
   moon: ["noun", "The round object seen in the night sky that moves around Earth."],
   cake: ["noun", "A sweet baked food often shared at a celebration."],
@@ -874,6 +898,13 @@ function buildCorpus() {
       entries.set(word, entry);
     }
   }
+  // Oral picture anchors are not additions to the independently decodable bank.
+  for(const [targetId,metadata] of Object.entries(SOUND_SEEKERS_TEACH_TARGETS)){
+    for(const {word} of [metadata,...metadata.alternates||[]])if(word&&!entries.has(word)){
+      const stop=QUEST_STOPS.find(s=>s.teach.some(t=>t.id===targetId));
+      entries.set(word,{word,taughtAt:new Set(stop?[stop.id]:[]),decodable:false,heartWord:false,connectedText:false,oralAnchor:true});
+    }
+  }
   // SS-03 names `pop` as the repeated-tile acceptance fixture even though the
   // legacy 431-word banks did not include it. Keep it explicit so the shared
   // workbench cannot silently lose duplicate physical tiles.
@@ -894,6 +925,7 @@ function buildRecords() {
       ...(entry.decodable ? ["decodable"] : []),
       ...(entry.heartWord ? ["heart-word"] : []),
       ...(entry.connectedText ? ["connected-text"] : []),
+      ...(entry.oralAnchor ? ["oral-teaching-anchor"] : []),
       ...(entry.workbenchFixture ? ["word-workbench-fixture"] : [])
     ];
     return [entry.word, {

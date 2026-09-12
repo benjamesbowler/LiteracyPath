@@ -343,3 +343,16 @@ function workshopBeat(mission,word,sourceWords,allowed,stopIndex,ordinal,mode){
  beat.prompt.text='Listen. Change the marked part.';
  return beat;
 }
+
+
+// Refresh unscored picture introductions on resume. Saved answers, attempts,
+// support and completed outcomes retain their original identity and history.
+export function refreshCampaignTeaching(beats){
+ return beats.map(beat=>{
+  if(beat.mechanic!==MECHANICS.SIGNPOST)return beat;
+  const current=buildSignpost({stopId:beat.stopId,targetIds:beat.targetIds,index:beat.view.position});
+  const cards=current.view.cards.map(card=>({...card,anchorAudio:spokenWord(card.anchorWord)||card.anchorAudio}));
+  const cues=current.prompt.cues.map(cue=>cue.kind==='word'?{...cue,src:spokenWord(cue.text)||cue.src}:cue);
+  return {...beat,view:{...beat.view,cards},prompt:{...current.prompt,cues}};
+ });
+}

@@ -288,15 +288,15 @@ test("every non-silent instruction resolves to a provenance-locked recording", (
   }
 });
 
-test("twenty-one contextual blockers stay in a five-unit human review gate", () => {
+test("twenty-two contextual blockers stay in a five-unit human review gate", () => {
   const blocked = collectPronunciationAudioBlockers(SOUND_SEEKERS_WORDS);
-  assert.equal(blocked.length, 21);
+  assert.equal(blocked.length, 22);
   assert.deepEqual([...new Set(blocked.map(item => item.soundKey))].sort(), ["ear_lax", "ed_id", "once_onset", "schwa", "ure_no_y"]);
   for (const item of blocked) {
     assert.equal(getPhonemeAudio(item.soundKey), "", `${item.word}:${item.grapheme}:${item.soundKey}`);
   }
   assert.throws(
     () => assertShippingPronunciationLexicon(SOUND_SEEKERS_WORDS, { release: true }),
-    /pronunciation release blockers \(21\)/u
+    /pronunciation release blockers \(22\)/u
   );
 });

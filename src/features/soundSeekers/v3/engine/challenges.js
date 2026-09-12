@@ -1,3 +1,4 @@
+import { INITIAL_SOUND_TARGET_IDS } from '../../content/teachTargetMetadata.js';
 // Sound Seekers v3 — item authoring, one builder per mechanic.
 //
 // Every builder returns a Beat:
@@ -91,7 +92,7 @@ export function buildSignpost({ stopId, targetIds, ordinal = 0, index }) {
     prompt: {
       text: grouped
         ? `Meet ${cards.map(c => c.grapheme).join(", ")}.`
-        : first.kind === "morph" ? `Meet ${first.title}.` : `Meet ${first.title}. It says ${first.soundLabel}.`,
+        : INITIAL_SOUND_TARGET_IDS.includes(first.targetId) ? `${first.grapheme} · ${first.anchorWord.charAt(0).toUpperCase()+first.anchorWord.slice(1)} starts with ${first.soundLabel}.` : first.kind === "morph" ? `Meet ${first.title}.` : `Meet ${first.title}. It says ${first.soundLabel}.`,
       cues: [
         first.phonemeAudio ? { kind: "phoneme", src: first.phonemeAudio } : null,
         first.anchorAudio ? { kind: "word", src: first.anchorAudio, text: first.anchorWord } : null

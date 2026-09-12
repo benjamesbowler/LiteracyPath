@@ -40,7 +40,8 @@ test('current campaign hub exposes movement, map, pause and accessible object ac
   assert.match(html, /Hollow Tree/);
   assert.match(html, /Sunny Meadow Farm/);
   for (const label of ['World map','Pause adventure','Movement','Move left','Move right','Jump','Interact with nearby object']) assert.ok(html.includes(`aria-label="${label}"`), label);
-  assert.match(html, /Choose nearby/);
+  assert.match(html, /aria-label="Adventure help"/);
+  assert.match(html, /aria-label="Movement stick"/);
   assert.match(html, /role="status" aria-live="polite"/);
   assert.doesNotMatch(html, /role="dialog"/);
   assert.doesNotMatch(html, /<canvas inert/);

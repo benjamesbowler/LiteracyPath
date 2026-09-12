@@ -119,7 +119,7 @@ function createPlatformAdventureScene({ stage, missions = [], mission = null, be
     }
   }
   function approach(object) {
-    activityPending=true;
+    activityPending=true;analogSpeed=1;player.tuning.speed=sprinting?470:340;
     if (!object) return;
     if (object.role === 'choice' && beat()?.view.direction === 'letter-to-sound') { onHear?.([object.audio], { kind: 'option' }); aim = object.id; return; }
     if(familyOf(mission,beat())==='word-pop'&&Math.abs(object.x-player.x)<1000){trigger(object);return;}
@@ -200,7 +200,7 @@ function createPlatformAdventureScene({ stage, missions = [], mission = null, be
     for(const r of player.solids)if(inView(r))terrain(ctx,r,stage.worldId);
     for(const r of player.platforms)if(inView(r))terrain(ctx,r,stage.worldId);
     if(mission)for(const r of layout.rooms){const t=r.traversal;if(!t||t.x>player.camera.x+w/scale+100||t.x+t.width<player.camera.x-100)continue;
-      ctx.fillStyle=worldMaterial(ctx,stage.worldId,'water')||(stage.worldId==='moonwood'?'#405183':'#579ca0');ctx.fillRect(t.x+210,t.y+75,490,250);
+      ctx.fillStyle=worldMaterial(ctx,stage.worldId,'water')||(stage.worldId==='moonwood'?P['adventure-1']:P['adventure-2']);ctx.fillRect(t.x+210,t.y+75,490,250);
       if(t.kind!=='stepping-stones'){
         drawPuzzleSprite(ctx,'lever',t.switch.x,t.switch.y,90);
         caption(ctx,t.opened?'✓':'↔',t.switch.x,t.switch.y-125,34);
@@ -357,8 +357,8 @@ export function createCampaignWorldScene(options) {
   scene=make(options.position);
   return {
     update(dt){transition=Math.max(0,transition-dt);scene.update(dt);},
-    draw(ctx,w,h){scene.draw(ctx,w,h);if(transition&&!options.reducedMotion){ctx.save();ctx.fillStyle=`rgba(13,31,30,${transition/.32*.65})`;ctx.fillRect(0,0,w,h);ctx.restore();}},
-    setState(next,nextIndex=index){state=next;if(nextIndex!==index){scene.dispose();index=nextIndex;scene=make(null);transition=.32;}else scene.setState(next,index);},
+    draw(ctx,w,h){scene.draw(ctx,w,h);if(transition&&!options.reducedMotion){ctx.save();ctx.globalAlpha=transition/.32*.65;ctx.fillStyle=P['adventure-transition'];ctx.fillRect(0,0,w,h);ctx.restore();}},
+    setState(next,nextIndex=index){state=next;if(nextIndex!==index){const before=options.beats[index],after=options.beats[nextIndex],position=usesMazeArea(before)&&usesMazeArea(after)&&before.familyId===after.familyId&&before.sectionId===after.sectionId?scene.snapshot():null;scene.dispose();index=nextIndex;scene=make(position);transition=.32;}else scene.setState(next,index);},
     getPresentation:()=>usesMazeArea(options.beats[index])?'depth':'side',
     getArea:()=>activityAreaFor(options.beats[index]?.familyId||options.mission.familyId),
     assets:()=>[...new Set([...scene.assets(),LEARNING_SPRITES,PUZZLE_SPRITES,...Object.values(CAST).flatMap(c=>[c.sprite,c.heroSprite]),...options.beats.flatMap(b=>[...(b.view.cards||[]).map(c=>c.anchorImage),...(b.view.items||[]).map(i=>i.image)])])].filter(Boolean),

@@ -16,3 +16,9 @@ export function createAdventureGamepad({onInput,onInteract,onPause,onRelease}){
     if(next.interact&&!previous?.interact)onInteract();previous=next;
   },release(){if(previous)onRelease();previous=null;}};
 }
+
+export function adventureStickVector(dx,dy,radius=48){
+ if(!Number.isFinite(dx)||!Number.isFinite(dy))return {x:0,y:0};
+ const length=Math.hypot(dx,dy),amount=Math.max(0,Math.min(1,(length/radius-.12)/.88));
+ return length?{x:dx/length*amount,y:dy/length*amount}:{x:0,y:0};
+}

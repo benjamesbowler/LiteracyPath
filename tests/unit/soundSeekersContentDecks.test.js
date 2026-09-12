@@ -616,14 +616,15 @@ const TASK2_ALLOWED_IMPORT_EDGES = Object.freeze([
   "evidence->audioControllerAuthority", "evidence->evidenceEligibility",
   "evidence->instructionContracts", "heartWords->evidenceEligibility",
   "heartWords->heartWordRecords", "heartWords->pronunciationLexicon",
-  "stateV2->characterCustomization", "stateV2->contentCoverage",
+  "stateV2->audioPreferences", "stateV2->characterCustomization", "stateV2->contentCoverage",
   "stateV2->contentDeckState", "stateV2->evidenceEligibility",
   "stateV2->sceneVisualSemantics"
 ]);
 
-assert.equal(TASK2_ALLOWED_IMPORT_EDGES.length, 37);
+assert.equal(TASK2_ALLOWED_IMPORT_EDGES.length, 38);
 
 const TASK2_EXTERNAL_IMPORT_TARGETS = Object.freeze({
+  audioPreferences: "src/utils/audio/audioPreferences.js",
   audioControllerAuthority: "src/features/soundSeekers/engine/audioControllerAuthority.js",
   characterCustomization: "src/features/soundSeekers/visual/characterCustomization.js",
   expeditions: "src/features/soundSeekers/content/expeditions.js",

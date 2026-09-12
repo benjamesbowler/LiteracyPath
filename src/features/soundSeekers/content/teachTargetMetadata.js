@@ -15,29 +15,29 @@ const alternate = (word, cueKey, ...units) => Object.freeze({
 
 export const SOUND_SEEKERS_TEACH_TARGETS = Object.freeze({
   a: anchor("apple", ["a", "short_a"]),
-  m: anchor("ham", ["m", "m"]),
-  t: anchor("at", ["t", "t"]),
-  s: anchor("sat", ["s", "s"]),
+  m: anchor("map", ["m", "m"]),
+  t: anchor("top", ["t", "t"]),
+  s: anchor("sun", ["s", "s"]),
   n: anchor("net", ["n", "n"]),
-  i: anchor("in", ["i", "short_i"]),
+  i: anchor("insect", ["i", "short_i"]),
   f: anchor("fish", ["f", "f"]),
-  d: anchor("bad", ["d", "d"]),
-  o: anchor("on", ["o", "short_o"]),
+  d: anchor("dog", ["d", "d"]),
+  o: anchor("ox", ["o", "short_o"]),
   l: anchor("leg", ["l", "l"]),
   r: anchor("run", ["r", "r"]),
   h: anchor("hat", ["h", "h"]),
   b: anchor("bat", ["b", "b"]),
-  w: anchor("way", ["w", "w"]),
-  qu: anchor("quit", ["qu", "qu"]),
-  u: anchor("bun", ["u", "short_u"]),
+  w: anchor("web", ["w", "w"]),
+  qu: anchor("queen", ["qu", "qu"]),
+  u: anchor("umbrella", ["u", "short_u"]),
   c: anchor("cat", ["c", "c"]),
-  g: anchor("go", ["g", "g"]),
+  g: anchor("goat", ["g", "g"]),
   p: anchor("pig", ["p", "p"]),
-  y: anchor("yes", ["y", "y"]),
+  y: anchor("yak", ["y", "y"]),
   x: anchor("box", ["x", "x"]),
-  e: anchor("bed", ["e", "short_e"]),
+  e: anchor("egg", ["e", "short_e"]),
   v: anchor("van", ["v", "v"]),
-  k: anchor("kit", ["k", "k"]),
+  k: anchor("kite", ["k", "k"]),
   j: anchor("jam", ["j", "j"]),
   z: anchor("zip", ["z", "z"]),
   ff: anchor("puff", ["ff", "f"]),
@@ -136,3 +136,7 @@ export const MORPHOLOGY_TEACH_EXAMPLES = Object.freeze({
     ])
   })
 });
+
+
+// Simple initial-sound examples. X is explicitly excluded: box teaches final /ks/.
+export const INITIAL_SOUND_TARGET_IDS=Object.freeze(['a','m','t','s','n','i','f','d','o','l','r','h','b','w','qu','u','c','g','p','y','e','v','k','j','z']);

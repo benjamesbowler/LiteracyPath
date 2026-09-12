@@ -5141,6 +5141,47 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       "connected-text"
     ]
   },
+  "dog": {
+    "id": "dog",
+    "word": "dog",
+    "pronunciation": "dog",
+    "meaningId": "dog-meaning",
+    "units": [
+      {
+        "grapheme": "d",
+        "soundKey": "d",
+        "letterIndices": [
+          0
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "o",
+        "soundKey": "aw",
+        "letterIndices": [
+          1
+        ],
+        "role": "irregular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "g",
+        "soundKey": "g",
+        "letterIndices": [
+          2
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      }
+    ],
+    "taughtAt": [
+      "s2"
+    ],
+    "tags": [
+      "oral-teaching-anchor"
+    ]
+  },
   "dogs": {
     "id": "dogs",
     "word": "dogs",
@@ -5609,6 +5650,39 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
     ],
     "tags": [
       "decodable"
+    ]
+  },
+  "egg": {
+    "id": "egg",
+    "word": "egg",
+    "pronunciation": "egg",
+    "meaningId": "egg-meaning",
+    "units": [
+      {
+        "grapheme": "e",
+        "soundKey": "short_e",
+        "letterIndices": [
+          0
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "gg",
+        "soundKey": "g",
+        "letterIndices": [
+          1,
+          2
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      }
+    ],
+    "taughtAt": [
+      "s6"
+    ],
+    "tags": [
+      "oral-teaching-anchor"
     ]
   },
   "endure": {
@@ -9563,6 +9637,74 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       "connected-text"
     ]
   },
+  "insect": {
+    "id": "insect",
+    "word": "insect",
+    "pronunciation": "insect",
+    "meaningId": "insect-meaning",
+    "units": [
+      {
+        "grapheme": "i",
+        "soundKey": "short_i",
+        "letterIndices": [
+          0
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "n",
+        "soundKey": "n",
+        "letterIndices": [
+          1
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "s",
+        "soundKey": "s",
+        "letterIndices": [
+          2
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "e",
+        "soundKey": "short_e",
+        "letterIndices": [
+          3
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "c",
+        "soundKey": "c",
+        "letterIndices": [
+          4
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "t",
+        "soundKey": "t",
+        "letterIndices": [
+          5
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      }
+    ],
+    "taughtAt": [
+      "s2"
+    ],
+    "tags": [
+      "oral-teaching-anchor"
+    ]
+  },
   "is": {
     "id": "is",
     "word": "is",
@@ -11962,6 +12104,47 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       "heart-word"
     ]
   },
+  "map": {
+    "id": "map",
+    "word": "map",
+    "pronunciation": "map",
+    "meaningId": "map-meaning",
+    "units": [
+      {
+        "grapheme": "m",
+        "soundKey": "m",
+        "letterIndices": [
+          0
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "a",
+        "soundKey": "short_a",
+        "letterIndices": [
+          1
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "p",
+        "soundKey": "p",
+        "letterIndices": [
+          2
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      }
+    ],
+    "taughtAt": [
+      "s1"
+    ],
+    "tags": [
+      "oral-teaching-anchor"
+    ]
+  },
   "mat": {
     "id": "mat",
     "word": "mat",
@@ -13494,6 +13677,38 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       "connected-text"
     ]
   },
+  "ox": {
+    "id": "ox",
+    "word": "ox",
+    "pronunciation": "ox",
+    "meaningId": "ox-meaning",
+    "units": [
+      {
+        "grapheme": "o",
+        "soundKey": "short_o",
+        "letterIndices": [
+          0
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "x",
+        "soundKey": "x",
+        "letterIndices": [
+          1
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      }
+    ],
+    "taughtAt": [
+      "s3"
+    ],
+    "tags": [
+      "oral-teaching-anchor"
+    ]
+  },
   "paint": {
     "id": "paint",
     "word": "paint",
@@ -14783,6 +14998,49 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
     "tags": [
       "decodable",
       "connected-text"
+    ]
+  },
+  "queen": {
+    "id": "queen",
+    "word": "queen",
+    "pronunciation": "queen",
+    "meaningId": "queen-meaning",
+    "units": [
+      {
+        "grapheme": "qu",
+        "soundKey": "qu",
+        "letterIndices": [
+          0,
+          1
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "ee",
+        "soundKey": "ee",
+        "letterIndices": [
+          2,
+          3
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "n",
+        "soundKey": "n",
+        "letterIndices": [
+          4
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      }
+    ],
+    "taughtAt": [
+      "s4"
+    ],
+    "tags": [
+      "oral-teaching-anchor"
     ]
   },
   "quest": {
@@ -19442,6 +19700,47 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       "decodable"
     ]
   },
+  "sun": {
+    "id": "sun",
+    "word": "sun",
+    "pronunciation": "sun",
+    "meaningId": "sun-meaning",
+    "units": [
+      {
+        "grapheme": "s",
+        "soundKey": "s",
+        "letterIndices": [
+          0
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "u",
+        "soundKey": "short_u",
+        "letterIndices": [
+          1
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "n",
+        "soundKey": "n",
+        "letterIndices": [
+          2
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      }
+    ],
+    "taughtAt": [
+      "s1"
+    ],
+    "tags": [
+      "oral-teaching-anchor"
+    ]
+  },
   "sunny": {
     "id": "sunny",
     "word": "sunny",
@@ -20914,6 +21213,47 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       "decodable"
     ]
   },
+  "top": {
+    "id": "top",
+    "word": "top",
+    "pronunciation": "top",
+    "meaningId": "top-meaning",
+    "units": [
+      {
+        "grapheme": "t",
+        "soundKey": "t",
+        "letterIndices": [
+          0
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "o",
+        "soundKey": "short_o",
+        "letterIndices": [
+          1
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "p",
+        "soundKey": "p",
+        "letterIndices": [
+          2
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      }
+    ],
+    "taughtAt": [
+      "s1"
+    ],
+    "tags": [
+      "oral-teaching-anchor"
+    ]
+  },
   "town": {
     "id": "town",
     "word": "town",
@@ -21445,6 +21785,85 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
     "tags": [
       "decodable",
       "connected-text"
+    ]
+  },
+  "umbrella": {
+    "id": "umbrella",
+    "word": "umbrella",
+    "pronunciation": "umbrella",
+    "meaningId": "umbrella-meaning",
+    "units": [
+      {
+        "grapheme": "u",
+        "soundKey": "short_u",
+        "letterIndices": [
+          0
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "m",
+        "soundKey": "m",
+        "letterIndices": [
+          1
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "b",
+        "soundKey": "b",
+        "letterIndices": [
+          2
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "r",
+        "soundKey": "r",
+        "letterIndices": [
+          3
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "e",
+        "soundKey": "short_e",
+        "letterIndices": [
+          4
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "ll",
+        "soundKey": "l",
+        "letterIndices": [
+          5,
+          6
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "a",
+        "soundKey": "schwa",
+        "letterIndices": [
+          7
+        ],
+        "role": "irregular",
+        "evidenceTargetId": null,
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+      }
+    ],
+    "taughtAt": [
+      "s4"
+    ],
+    "tags": [
+      "oral-teaching-anchor"
     ]
   },
   "up": {
@@ -22045,6 +22464,47 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
     ],
     "tags": [
       "heart-word"
+    ]
+  },
+  "web": {
+    "id": "web",
+    "word": "web",
+    "pronunciation": "web",
+    "meaningId": "web-meaning",
+    "units": [
+      {
+        "grapheme": "w",
+        "soundKey": "w",
+        "letterIndices": [
+          0
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "e",
+        "soundKey": "short_e",
+        "letterIndices": [
+          1
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "b",
+        "soundKey": "b",
+        "letterIndices": [
+          2
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      }
+    ],
+    "taughtAt": [
+      "s4"
+    ],
+    "tags": [
+      "oral-teaching-anchor"
     ]
   },
   "went": {
@@ -22922,6 +23382,47 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
     ],
     "tags": [
       "heart-word"
+    ]
+  },
+  "yak": {
+    "id": "yak",
+    "word": "yak",
+    "pronunciation": "yak",
+    "meaningId": "yak-meaning",
+    "units": [
+      {
+        "grapheme": "y",
+        "soundKey": "y",
+        "letterIndices": [
+          0
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "a",
+        "soundKey": "short_a",
+        "letterIndices": [
+          1
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      },
+      {
+        "grapheme": "k",
+        "soundKey": "k",
+        "letterIndices": [
+          2
+        ],
+        "role": "regular",
+        "evidenceTargetId": null
+      }
+    ],
+    "taughtAt": [
+      "s5"
+    ],
+    "tags": [
+      "oral-teaching-anchor"
     ]
   },
   "year": {

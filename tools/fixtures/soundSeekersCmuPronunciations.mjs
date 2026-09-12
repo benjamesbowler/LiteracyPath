@@ -19,6 +19,18 @@ export const CMU_PRONUNCIATION_PROVENANCE = Object.freeze({
   stressPolicy: "stress digits removed"
 });
 export const CMU_PRONUNCIATION_REFERENCE = Object.freeze({
+  "map": {"sourceKey": "map", "arpabet": ["M", "AE", "P"]},
+  "top": {"sourceKey": "top", "arpabet": ["T", "AA", "P"]},
+  "sun": {"sourceKey": "sun", "arpabet": ["S", "AH", "N"]},
+  "dog": {"sourceKey": "dog", "arpabet": ["D", "AO", "G"]},
+  "insect": {"sourceKey": "insect", "arpabet": ["IH", "N", "S", "EH", "K", "T"]},
+  "ox": {"sourceKey": "ox", "arpabet": ["AA", "K", "S"]},
+  "umbrella": {"sourceKey": "umbrella", "arpabet": ["AH", "M", "B", "R", "EH", "L", "AH"]},
+  "egg": {"sourceKey": "egg", "arpabet": ["EH", "G"]},
+  "web": {"sourceKey": "web", "arpabet": ["W", "EH", "B"]},
+  "queen": {"sourceKey": "queen", "arpabet": ["K", "W", "IY", "N"]},
+  "yak": {"sourceKey": "yak", "arpabet": ["Y", "AE", "K"]},
+
   "a": {
     "sourceKey": "a",
     "arpabet": [

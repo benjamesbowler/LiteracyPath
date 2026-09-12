@@ -300,3 +300,14 @@ retain their authored meanings. The release Bible describes the live controls,
 EL practice crosswalk and planned-duration boundary. Temporary browser evidence
 and integration scripts remain in ignored `.artifacts`; no alternative runtime,
 source art or learner records were removed.
+
+
+## Sound Seekers teaching and controls — 12 September 2026
+
+Replaced weak introductory sound anchors, including m/ham, with authored initial
+sound examples. Updated generated pronunciation and connected-use data from their
+single authoring sources; retained ham in legitimate decodable practice. Current
+signposts supersede earlier saved introductions without replacing scored history.
+Consolidated canvas/control colours into the shared palette. Task scratch scripts,
+downloaded pronunciation lookup and transient browser logs are removed or retained
+only as ignored scoped verification evidence; no learner or user source was deleted.
