@@ -2,8 +2,9 @@
 // level overrides. A level may be adjusted for a local shelf; its reviewed
 // reading-band and reading-mode claims must remain stable.
 import { WILLOW_STREET_BOOK_MANIFEST } from "./guidedReadingBridgeBooks.manifest.js";
+import { MISSING_SANDWICH_BOOK_ID } from "./meadowPalsScienceBooks.js";
 
-export const GUIDED_READING_BAND_PROFILES = Object.freeze(["standard", "extended"]);
+export const GUIDED_READING_BAND_PROFILES = Object.freeze(["standard", "extended", "read-aloud"]);
 export const GUIDED_READING_READING_MODES = Object.freeze([
   "decodable",
   "predictable-levelled",
@@ -37,7 +38,13 @@ const CURRENT_BOOK_IDS = Object.freeze([
 ]);
 
 export const GUIDED_READING_BOOK_METADATA = Object.freeze(Object.fromEntries(
-  CURRENT_BOOK_IDS.map(id => [id, id.startsWith("moonwood-tales-c-") ? EXTENDED : STANDARD])
+  [
+    ...CURRENT_BOOK_IDS.map(id => [id, id.startsWith("moonwood-tales-c-") ? EXTENDED : STANDARD]),
+    [MISSING_SANDWICH_BOOK_ID, Object.freeze({
+      readingBandProfile: "read-aloud",
+      readingMode: "supported-read-together"
+    })]
+  ]
 ));
 
 export function getGuidedReadingBookMetadata(bookOrId) {

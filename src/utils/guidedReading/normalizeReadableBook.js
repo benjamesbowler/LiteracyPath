@@ -74,8 +74,12 @@ function buildTitlePage(book = {}, pages = []) {
     storyPageNumber: 0,
     type: "title",
     image: coverImage,
-    text: `${title}\nby ${author}\nillustrated by ${illustrator}`,
+    text: book.titlePageText || `${title}\nby ${author}\nillustrated by ${illustrator}`,
     audio: null,
+    ...(book.narrationProfile === "meadow-science-character-dialogue" ? {
+      bookId: book.id,
+      narrationProfile: "meadow-science-title"
+    } : {}),
     title,
     author,
     illustrator

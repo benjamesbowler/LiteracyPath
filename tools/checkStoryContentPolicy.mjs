@@ -11,6 +11,7 @@ import { getGuidedReadingPageAudioPath } from "../src/utils/guidedReading/readAl
 import { storyQuests } from "../src/data/storyQuests.js";
 import { getStoryQuestLedaAudioPath } from "../src/data/storyQuestLedaAudio.js";
 import { buildGuidedReadingAudioInventory } from "./guidedReadingAudioPipelineLib.mjs";
+import { auditScienceReadAloudNarration, validateScienceReadAloudManuscript } from "./meadowPalsScienceGateLib.mjs";
 import {
   STORY_CONTENT_APPROVAL_RULE,
   STORY_CONTENT_FORMATS,
@@ -21,6 +22,7 @@ import {
 import {
   GUIDED_READING_RELEASE_READINESS,
   guidedReadingPolicyBaseline,
+  guidedReadingSharedStoryReviews,
   storyQuestPolicyReviews
 } from "../src/content/storyContentReviews.js";
 
@@ -28,6 +30,7 @@ const releaseMode = process.argv.includes("--release");
 const errors = [];
 const releaseBlocks = [];
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const sharedStoryReviewIds = new Set(guidedReadingSharedStoryReviews.map(review => review.bookId));
 
 function stableValue(value) {
   if (Array.isArray(value)) return value.map(stableValue);
@@ -48,7 +51,7 @@ function fingerprint(value) {
 
 function guidedReadingFingerprint() {
   return fingerprint({
-    books: getRuntimeGuidedReadingBooks().map(book => ({
+    books: getRuntimeGuidedReadingBooks().filter(book => !sharedStoryReviewIds.has(book.id)).map(book => ({
       id: book.id,
       title: book.title,
       level: book.level,
@@ -162,11 +165,27 @@ if (guidedReadingPolicyBaseline.releaseStatus !== GUIDED_READING_RELEASE_READINE
 }
 
 const activeBooks = getRuntimeGuidedReadingBooks();
+if (sharedStoryReviewIds.size !== guidedReadingSharedStoryReviews.length) addError("duplicate shared-story review registration");
+for (const review of guidedReadingSharedStoryReviews) {
+  const book = activeBooks.find(item => item.id === review.bookId);
+  if (!book || book.readingBandProfile !== "read-aloud") {
+    addError(`${review.bookId}: shared-story review must name a current Read Together book`);
+    continue;
+  }
+  const manuscriptSha256 = crypto.createHash("sha256").update(JSON.stringify(book.pages.map(page => page.text))).digest("hex");
+  if (review.contentStatus !== "approved" || review.manuscriptSha256 !== manuscriptSha256
+    || review.expectedPages !== book.pages.length || !review.reviewEvidence) {
+    addError(`${review.bookId}: shared-story manuscript review is missing or stale`);
+  }
+}
 for (const book of activeBooks) {
   const label = `${book.id} (${book.title})`;
-  if (!new Set(["standard", "extended"]).has(book.readingBandProfile)) {
+  if (!new Set(["standard", "extended", "read-aloud"]).has(book.readingBandProfile)) {
     addError(`${label}: unknown readingBandProfile "${book.readingBandProfile || "missing"}"`);
     continue;
+  }
+  if (book.readingBandProfile === "read-aloud") {
+    for (const error of validateScienceReadAloudManuscript(book)) addError(`${label}: ${error}`);
   }
   if (book.readingBandProfile === "extended") {
     for (const page of book.pages || []) {
@@ -182,9 +201,9 @@ for (const book of activeBooks) {
     }
   }
 }
-if (activeBooks.length !== guidedReadingPolicyBaseline.itemCount) {
+if (activeBooks.length !== guidedReadingPolicyBaseline.itemCount + sharedStoryReviewIds.size) {
   addError(
-    `guided-reading catalogue changed from ${guidedReadingPolicyBaseline.itemCount} to ${activeBooks.length} books; ` +
+    `guided-reading catalogue changed from ${guidedReadingPolicyBaseline.itemCount + sharedStoryReviewIds.size} registered books to ${activeBooks.length} books; ` +
     "add or update item review records before accepting the change"
   );
 }
@@ -192,12 +211,18 @@ if (activeBooks.length !== guidedReadingPolicyBaseline.itemCount) {
 const currentGuidedFingerprint = guidedReadingFingerprint();
 if (currentGuidedFingerprint !== guidedReadingPolicyBaseline.sourceFingerprint) {
   addError(
-    "guided-reading catalogue fingerprint changed; narrative text, media, level or membership changed without a policy-baseline update "
+    "guided-reading graded-corpus fingerprint changed; narrative text, media, level or membership changed without a policy-baseline update "
     + `(expected ${guidedReadingPolicyBaseline.sourceFingerprint}; current ${currentGuidedFingerprint})`
   );
 }
 
-const guidedAudioInventory = buildGuidedReadingAudioInventory(activeBooks, repositoryRoot);
+const guidedAudioInventory = buildGuidedReadingAudioInventory(
+  activeBooks.filter(book => book.readingBandProfile !== "read-aloud"), repositoryRoot
+);
+const scienceAudio = auditScienceReadAloudNarration(activeBooks, repositoryRoot);
+for (const failure of scienceAudio.failures) {
+  addError(`${failure.bookId}:page-${failure.pageNumber || "?"}: ${failure.reason}`);
+}
 const unflaggedGuidedPagesWithoutExactAudio = guidedAudioInventory.pages.filter(
   page => !page.narrationNeedsRebuild && !page.exactLedaAudioResolves
 );

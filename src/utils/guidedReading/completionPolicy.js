@@ -8,6 +8,7 @@ function normalizeBookType(type = "") {
 }
 
 export function getGuidedReadingProgressionBooks({ book, books = [] } = {}) {
+  if (book?.readingBandProfile === "read-aloud") return [];
   if (!book?.level) return [];
   if (book.level === "C") {
     return books.filter(candidate => (
@@ -21,6 +22,7 @@ export function getGuidedReadingProgressionBooks({ book, books = [] } = {}) {
 }
 
 export function getGuidedReadingCompletionMilestone({ book, levelBooks = [], records = {} } = {}) {
+  if (book?.readingBandProfile === "read-aloud") return null;
   // Extended Level C read-together completions are retained as reading history,
   // but C Standard is the only progression sequence.
   if (book?.level === "C" && book?.readingBandProfile === "extended") return null;

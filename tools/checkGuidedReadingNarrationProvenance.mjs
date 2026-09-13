@@ -17,6 +17,7 @@ import {
   stableStringify
 } from "./guidedReadingAudioPipelineLib.mjs";
 import { buildGuidedReadingNarrationProvenanceModule } from "./guidedReadingNarrationProvenanceLib.mjs";
+import { auditScienceReadAloudNarration } from "./meadowPalsScienceGateLib.mjs";
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const generatedModulePath = path.join(
@@ -51,8 +52,10 @@ function corpusEvidence(pages) {
   };
 }
 
-export function auditGuidedReadingNarrationProvenance({ verifySnapshot = true } = {}) {
-  const inventory = buildGuidedReadingAudioInventory(guidedReadingBooks, repositoryRoot);
+function auditLedaNarrationProvenance({ verifySnapshot = true } = {}) {
+  const inventory = buildGuidedReadingAudioInventory(
+    guidedReadingBooks.filter(book => book.readingBandProfile !== "read-aloud"), repositoryRoot
+  );
   const manifestEvidence = productionManifestEvidence();
   const corpus = corpusEvidence(inventory.pages);
   const failures = [];
@@ -164,6 +167,31 @@ export function auditGuidedReadingNarrationProvenance({ verifySnapshot = true } 
   };
 }
 
+export function auditGuidedReadingNarrationProvenance(options = {}) {
+  // Keep the reviewed Leda-only corpus and its snapshot intact. Character
+  // performances have a separate exact-text, speaker-by-speaker authority.
+  const ledaAudit = auditLedaNarrationProvenance(options);
+  const scienceAudit = auditScienceReadAloudNarration(guidedReadingBooks, repositoryRoot);
+  return {
+    ...ledaAudit,
+    activeBookCount: ledaAudit.activeBookCount + scienceAudit.activeBookCount,
+    livePageCount: ledaAudit.livePageCount + scienceAudit.pages.length,
+    exactResolvedPageCount: ledaAudit.exactResolvedPageCount + scienceAudit.pages.filter(page => page.exactNarrationResolves).length,
+    missingAudioCount: ledaAudit.missingAudioCount + scienceAudit.pages.filter(page => !page.audioExists).length,
+    wordSequenceMismatchCount: ledaAudit.wordSequenceMismatchCount + scienceAudit.pages.filter(page => !page.transcriptMatches).length,
+    pageAudioTextMismatchCount: ledaAudit.pageAudioTextMismatchCount + scienceAudit.pages.filter(page => !page.pageAudioTextMatches).length,
+    narrationNeedsRebuildCount: ledaAudit.narrationNeedsRebuildCount + scienceAudit.pages.filter(page => page.narrationNeedsRebuild).length,
+    uniqueAudioPathCount: new Set([...ledaAudit.pages, ...scienceAudit.pages].map(page => page.audioPath).filter(Boolean)).size,
+    originCounts: { ...ledaAudit.originCounts, character_dialogue_manifest: scienceAudit.pages.length },
+    pages: [...ledaAudit.pages, ...scienceAudit.pages],
+    failures: [...ledaAudit.failures, ...scienceAudit.failures],
+    ledaBookCount: ledaAudit.activeBookCount,
+    ledaPageCount: ledaAudit.livePageCount,
+    sharedReadAloudPageCount: scienceAudit.pages.length,
+    ledaAudit
+  };
+}
+
 function activeExactOverrides(audit) {
   const activeTexts = new Set(audit.pages.map(row => row.displayedText));
   return Object.fromEntries(
@@ -174,9 +202,10 @@ function activeExactOverrides(audit) {
 }
 
 export function buildNarrationProvenanceModule(audit) {
-  const exactOverrides = activeExactOverrides(audit);
+  const ledaAudit = audit.ledaAudit || audit;
+  const exactOverrides = activeExactOverrides(ledaAudit);
   return buildGuidedReadingNarrationProvenanceModule({
-    audit,
+    audit: ledaAudit,
     voice: LEDA_PRODUCTION_VOICE,
     exactOverrides
   });
@@ -186,6 +215,9 @@ function outputSummary(audit, extra = {}) {
   return {
     activeBookCount: audit.activeBookCount,
     livePageCount: audit.livePageCount,
+    ledaBookCount: audit.ledaBookCount,
+    ledaPageCount: audit.ledaPageCount,
+    sharedReadAloudPageCount: audit.sharedReadAloudPageCount,
     originCounts: audit.originCounts,
     uniqueAudioPathCount: audit.uniqueAudioPathCount,
     exactResolvedPageCount: audit.exactResolvedPageCount,

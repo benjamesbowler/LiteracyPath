@@ -6,6 +6,7 @@ import {
 } from "../../data/ledaProductionAudio.js";
 import { GUIDED_READING_LEDA_GAPS } from "../../data/generated/guidedReadingLedaGaps.generated.js";
 import { GUIDED_READING_NARRATION_PROVENANCE } from "../../data/generated/guidedReadingNarrationProvenance.generated.js";
+import { getMeadowPalsSciencePageNarration, getMeadowPalsScienceTitleNarration, getMeadowPalsScienceWordAudioPath } from "../../data/meadowPalsScienceNarration.js";
 
 export const guidedReadingReadAloudPolicy = {
   teacher_preview: true,
@@ -19,6 +20,16 @@ function readablePageText(page = {}) {
   return Array.isArray(page.text) ? page.text.join(" ") : String(page.text || "");
 }
 
+export function splitGuidedReadingSentences(text = "") {
+  return (String(text).match(/[^.!?]+[.!?]+["”’']*|[^.!?]+$/g) || [])
+    .map(sentence => sentence.trim()).filter(Boolean);
+}
+
+export function splitGuidedReadingParagraphs(text = "") {
+  return String(text).split(/\n\s*\n/).map(paragraph => splitGuidedReadingSentences(paragraph))
+    .filter(sentences => sentences.length > 0);
+}
+
 function readableWordText(value = "") {
   return String(value || "")
     .replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9%]+$/g, "")
@@ -26,6 +37,12 @@ function readableWordText(value = "") {
 }
 
 export function getGuidedReadingPageAudioPath(page = {}) {
+  if (page.narrationProfile === "meadow-science-title") {
+    return getMeadowPalsScienceTitleNarration(page)?.audioPath || "";
+  }
+  if (page.narrationProfile === "meadow-science-character-dialogue") {
+    return getMeadowPalsSciencePageNarration(page)?.audioPath || "";
+  }
   const pageText = readablePageText(page);
   const normalizedPageText = normalizeLedaAudioText(pageText);
   const currentLedaAudio = GUIDED_READING_NARRATION_PROVENANCE.exactPageAudioByText?.[pageText]
@@ -66,7 +83,8 @@ export function getGuidedReadingWordProductionAudioPath(word = {}) {
   return GUIDED_READING_LEDA_GAPS.isolated_word?.[normalizeLedaAudioText(rawText)]
     || getLedaWordAudioPath(rawText)
     || GUIDED_READING_LEDA_GAPS.isolated_word?.[normalizeLedaAudioText(readableText)]
-    || getLedaWordAudioPath(readableText);
+    || getLedaWordAudioPath(readableText)
+    || getMeadowPalsScienceWordAudioPath(readableText);
 }
 
 export function getGuidedReadingReadAloudState(book = {}, page = {}, context = "guided_support") {

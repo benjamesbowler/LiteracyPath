@@ -15,7 +15,7 @@ const FEATURE_TILES = [
     id: "library",
     image: "/images/home-sage/reading-library.webp",
     title: "Reading library",
-    text: `${PRODUCT_CATALOG_FACTS.guidedReadingBooks} levelled books across three levels, with read-aloud and tap-any-word help.`
+    text: `${PRODUCT_CATALOG_FACTS.guidedReadingBooks} books to read or share, with read-aloud and tap-any-word help.`
   },
   {
     id: "skills",
@@ -185,7 +185,7 @@ export function StudentEntryPage({ onStudent, onTeacher, onTry }) {
         </div>
 
         <dl className="lp-landing-stats" aria-label="What the platform includes">
-          <div><dt>{PRODUCT_CATALOG_FACTS.guidedReadingBooks}</dt><dd>levelled books</dd></div>
+          <div><dt>{PRODUCT_CATALOG_FACTS.guidedReadingBooks}</dt><dd>reading books</dd></div>
           <div><dt>{PRODUCT_CATALOG_FACTS.skillCycles}</dt><dd>skill cycles</dd></div>
           <div><dt>{PRODUCT_CATALOG_FACTS.learningGames}</dt><dd>learning games</dd></div>
           <div className="lp-landing-stat-note"><dt>Nicknames only</dt><dd>never surnames</dd></div>

@@ -49,8 +49,9 @@ test("the reviewed current catalogue has the exact honest mode split", () => {
   const rows = guidedReadingBooks.map(book => getGuidedReadingBookMetadata(book.id));
   assert.equal(rows.filter(row => row.readingBandProfile === "standard").length, 191);
   assert.equal(rows.filter(row => row.readingBandProfile === "extended").length, 35);
+  assert.equal(rows.filter(row => row.readingBandProfile === "read-aloud").length, 1);
   assert.equal(rows.filter(row => row.readingMode === "predictable-levelled").length, 191);
-  assert.equal(rows.filter(row => row.readingMode === "supported-read-together").length, 35);
+  assert.equal(rows.filter(row => row.readingMode === "supported-read-together").length, 36);
   assert.equal(rows.filter(row => row.readingMode === "decodable").length, 0);
 });
 

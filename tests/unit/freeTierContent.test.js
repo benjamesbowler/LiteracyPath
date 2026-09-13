@@ -57,10 +57,11 @@ test("the Level C sample represents both Standard and Extended / Read Together",
   assert.deepEqual([...sampledProfiles].sort(), ["extended", "standard"]);
 });
 
-test("each level is sampled in proportion, so no level is a token single book", () => {
+test("each graded level is sampled in proportion, so no level is a token single book", () => {
   const ids = sampleBookIds(GUIDED_READING_BOOK_INDEX);
   const byLevel = new Map();
   for (const book of GUIDED_READING_BOOK_INDEX) {
+    if (book.readingBandProfile === "read-aloud") continue;
     if (!byLevel.has(book.level)) byLevel.set(book.level, { total: 0, sampled: 0 });
     const entry = byLevel.get(book.level);
     entry.total += 1;
@@ -73,6 +74,14 @@ test("each level is sampled in proportion, so no level is a token single book", 
       `level ${level}: ${sampled}/${total} = ${(share * 100).toFixed(0)}%, outside a fair band around ${SAMPLE_SHARE * 100}%`
     );
   }
+});
+
+test("the one shared-read-aloud science book remains available in the representative sample", () => {
+  const ids = sampleBookIds(GUIDED_READING_BOOK_INDEX);
+  const sharedBooks = GUIDED_READING_BOOK_INDEX.filter(book => book.readingBandProfile === "read-aloud");
+  assert.equal(sharedBooks.length, 1);
+  assert.ok(ids.has(sharedBooks[0].id));
+  assert.equal(sharedBooks[0].level, "READ_ALOUD");
 });
 
 test("the sample is roughly a fifth, not a third and not a token", () => {

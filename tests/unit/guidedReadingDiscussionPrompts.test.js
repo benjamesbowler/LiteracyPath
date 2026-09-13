@@ -23,7 +23,7 @@ function collectKeys(value, keys = []) {
 }
 
 test("every current runtime book has one frozen oral move and one valid visual move", () => {
-  assert.equal(guidedReadingBooks.length, 226);
+  assert.equal(guidedReadingBooks.length, 227);
   assert.deepEqual(
     new Set(Object.keys(GUIDED_READING_DISCUSSION_PROMPTS)),
     new Set(guidedReadingBooks.map(book => book.id))

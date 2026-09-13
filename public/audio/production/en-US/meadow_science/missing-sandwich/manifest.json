@@ -1,0 +1,3774 @@
+{
+  "schemaVersion": 1,
+  "bookId": "meadow-pals-science-01-missing-sandwich",
+  "source": "src/data/meadowPalsScienceBooks.js",
+  "generatedAt": "2026-09-13T10:06:24.063999+00:00",
+  "voices": {
+    "narrator": {
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+      "languageCode": "en-US",
+      "source": "src/data/ledaProductionVoice.js"
+    },
+    "MEADOW-MUDDY": {
+      "voice": "Algieba",
+      "engine": "gemini-2.5-pro-tts",
+      "languageCode": "en-GB",
+      "direction": "Warm smooth male British pig character, relaxed practical kindness, reassuring and thoughtful. No grunting. About125 words per minute.",
+      "source": "../Little-Literacy-Animation/Meadow-Pals/Episodes/Bouncy-and-the-Squeak/Audio/audio-manifest.json"
+    },
+    "MEADOW-SPLASHY": {
+      "voice": "Laomedeia",
+      "engine": "gemini-2.5-pro-tts",
+      "languageCode": "en-GB",
+      "direction": "Bright upbeat female British duck character, eager and helpful, clear sunny voice with lively but natural rhythm. No quacking. About135 words per minute.",
+      "source": "../Little-Literacy-Animation/Meadow-Pals/Episodes/Bouncy-and-the-Squeak/Audio/audio-manifest.json"
+    }
+  },
+  "pages": [
+    {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "Muddy stared at Splashy's picture of a child eating a cheese sandwich.\n\n\"Sandwich in. Poop out? What a waste of a sandwich!\"\n\nSplashy opened the body book wider.\n\n\"Let's follow the food through the digestive system!\"",
+      "textSha256": "23d4fe1b0bbc7c7f536e43198496515dceaa0eebce62621d1bcc6c4df3dc1dff",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/page-01.mp3",
+      "audioSha256": "017d65f4f6023ae6541ce35c1628a97edbe0a174cbec96486594d20f69a8a0bb",
+      "durationSeconds": 15.672979,
+      "signal": {
+        "durationSeconds": 15.672979,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -3.292,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.56,
+        "truePeakDbtp": -3.29,
+        "loudnessRangeLu": 2.7
+      },
+      "segments": [
+        {
+          "id": "page-01-01",
+          "speaker": "narrator",
+          "text": "Muddy stared at Splashy's picture of a child eating a cheese sandwich.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "900ae9c5b389215237f001c47143989424ee68e0301f6d640abd43567f024912",
+          "rawAudioSha256": "4d6e635afbec405b81d37dcb791def0dbae731d9da9b235650cd0edc84e1fde3",
+          "sourceSignal": {
+            "durationSeconds": 3.52,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -4.3001,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 3.52,
+          "startSeconds": 0.15,
+          "endSeconds": 3.67
+        },
+        {
+          "id": "page-01-02",
+          "speaker": "MEADOW-MUDDY",
+          "text": "Sandwich in. Poop out? What a waste of a sandwich!",
+          "voice": "Algieba",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "8ebf8249f826852f942d3097729a082b91b58ad0f61dae0416f7e5f46a04183d",
+          "rawAudioSha256": "6a21bcf8e5276966f50fb44e29b0ab7e89a89f321fc04e7f30dd65de25cb4e23",
+          "sourceSignal": {
+            "durationSeconds": 6.131167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": -0.0003,
+            "clippedSamples": 12,
+            "longestClippedRunSamples": 2
+          },
+          "trimStartSeconds": 0.11,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 6.021167,
+          "startSeconds": 3.85,
+          "endSeconds": 9.871167
+        },
+        {
+          "id": "page-01-03",
+          "speaker": "narrator",
+          "text": "Splashy opened the body book wider.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "9c5e3dd1fd06c28951a80b6cdb1fe9ef8f0a7daef075cbc18d3908ba486cb319",
+          "rawAudioSha256": "70e82bb70e3776a345cdd28931bc2ee5cd44561e7c9b2808fc706f2ce9107ef0",
+          "sourceSignal": {
+            "durationSeconds": 2.04,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -5.191,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 2.04,
+          "startSeconds": 10.051167,
+          "endSeconds": 12.091167
+        },
+        {
+          "id": "page-01-04",
+          "speaker": "MEADOW-SPLASHY",
+          "text": "Let's follow the food through the digestive system!",
+          "voice": "Laomedeia",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "03d23cf82e309f880dcfc863d27e971b54d7c8b93701f167ba894cc6c73fda10",
+          "rawAudioSha256": "c73d3815f80473b8d719bf98001a7a11b3b243ce9f0fb983d6f481c5169c1383",
+          "sourceSignal": {
+            "durationSeconds": 3.291167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": -0.7663,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.14,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 3.151167,
+          "startSeconds": 12.271167,
+          "endSeconds": 15.422333
+        }
+      ],
+      "pageNumber": 1
+    },
+    {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "CRUNCH. CHOMP.\n\nTeeth broke the sandwich into small pieces.\n\nSaliva, or spit, made them soft and wet. Tiny helpers called enzymes started breaking down starch in the bread.\n\n\"Spit has a JOB?\" said Muddy.",
+      "textSha256": "bd47cff925d80ccbda4751457eedd4aea940b29128387a647e45b6aed5c40113",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/page-02.mp3",
+      "audioSha256": "eec700c515d9245dc4d4a439d3e47aca86ed02741c9c64e99e7b60f1fe532111",
+      "durationSeconds": 19.531167,
+      "signal": {
+        "durationSeconds": 19.531167,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -4.4497,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -23.08,
+        "truePeakDbtp": -4.45,
+        "loudnessRangeLu": 2.7
+      },
+      "segments": [
+        {
+          "id": "page-02-01",
+          "speaker": "narrator",
+          "text": "CRUNCH. CHOMP.\n\nTeeth broke the sandwich into small pieces.\n\nSaliva, or spit, made them soft and wet. Tiny helpers called enzymes started breaking down starch in the bread.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "dd4ea80a4aee4798bbc05078686a77cfc8d1f16571d9b5ade04ecdcf1a96dede",
+          "rawAudioSha256": "31adb898df43b30178a606db95dce2de75d1fd6ac09ebe2382316342ccca34da",
+          "sourceSignal": {
+            "durationSeconds": 15.6,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -4.6697,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 15.6,
+          "startSeconds": 0.15,
+          "endSeconds": 15.75
+        },
+        {
+          "id": "page-02-02",
+          "speaker": "MEADOW-MUDDY",
+          "text": "Spit has a JOB?",
+          "voice": "Algieba",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "b1bab7e75089315bfe95bb2e9ea6ed1d8dd13e0b28f2597274deec1d09ebe6d7",
+          "rawAudioSha256": "32bfccb1c15180cfc650a3f9be46a8d26dcc78956fa26d7b2c3dc832ac9f62a4",
+          "sourceSignal": {
+            "durationSeconds": 2.491167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": 0.0,
+            "clippedSamples": 12,
+            "longestClippedRunSamples": 3
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 2.491167,
+          "startSeconds": 15.93,
+          "endSeconds": 18.421167
+        },
+        {
+          "id": "page-02-03",
+          "speaker": "narrator",
+          "text": "said Muddy.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "3f5dc14ef343e83b35bfb3c38f785c4df93445aae16300c150ac259183b8100d",
+          "rawAudioSha256": "90290e898dbaf7745e39e1c1b393e624333d159cb162ffc2d4ad5a23e8fdc2b1",
+          "sourceSignal": {
+            "durationSeconds": 0.76,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -14.4696,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.76,
+          "startSeconds": 18.521167,
+          "endSeconds": 19.281167
+        }
+      ],
+      "pageNumber": 2
+    },
+    {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "GULP!\n\nThe soft mouthful entered the esophagus: a stretchy tube leading to the stomach.\n\nMuscles squeezed it along.\n\n\"A sandwich squeezer!\" said Muddy.\n\nSplashy followed the tube.\n\n\"Squeeze, squeeze... where next?\"",
+      "textSha256": "702066badcc19fc61f82e033b5b3788f659a8d014e1ddc6f331f9a1891984fb6",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/page-03.mp3",
+      "audioSha256": "09812d00326993530fe6161256856706915bf7693299e2055b5d302a38c70b5c",
+      "durationSeconds": 16.572333,
+      "signal": {
+        "durationSeconds": 16.572333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -3.3308,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.78,
+        "truePeakDbtp": -3.3,
+        "loudnessRangeLu": 2.4
+      },
+      "segments": [
+        {
+          "id": "page-03-01",
+          "speaker": "narrator",
+          "text": "GULP!\n\nThe soft mouthful entered the esophagus: a stretchy tube leading to the stomach.\n\nMuscles squeezed it along.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "5b62ce76baefe5c57a3e7f207b3ec51e745449d826cd68c6c9afc78cd2f443a7",
+          "rawAudioSha256": "aeba8b301902c01c8a7e33f8f58177d0524162ec171a5adc78bf1080eb94130e",
+          "sourceSignal": {
+            "durationSeconds": 8.08,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -6.5479,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 8.08,
+          "startSeconds": 0.15,
+          "endSeconds": 8.23
+        },
+        {
+          "id": "page-03-02",
+          "speaker": "MEADOW-MUDDY",
+          "text": "A sandwich squeezer!",
+          "voice": "Algieba",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "a6206e47fc5fa1fc03112faf753c0de729d2bdc9b7100bc348467455d999576d",
+          "rawAudioSha256": "fdd21f1e0e5fa0c4061e84571fc2ed497adce2362081fba9af0f7ddd71f836c4",
+          "sourceSignal": {
+            "durationSeconds": 2.211167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": 0.0,
+            "clippedSamples": 12,
+            "longestClippedRunSamples": 2
+          },
+          "trimStartSeconds": 0.14,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 2.071167,
+          "startSeconds": 8.41,
+          "endSeconds": 10.481167
+        },
+        {
+          "id": "page-03-03",
+          "speaker": "narrator",
+          "text": "said Muddy.\n\nSplashy followed the tube.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "9648b8c437eb405e6a03b6661650e40ef99419594d69b85b12e8a0936cd50013",
+          "rawAudioSha256": "5b5b2bc9d2f65158185c744a7238e27668da9a8e2da6a98b0f820ed3f7d2b4b5",
+          "sourceSignal": {
+            "durationSeconds": 2.72,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -2.8254,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 2.72,
+          "startSeconds": 10.581167,
+          "endSeconds": 13.301167
+        },
+        {
+          "id": "page-03-04",
+          "speaker": "MEADOW-SPLASHY",
+          "text": "Squeeze, squeeze... where next?",
+          "voice": "Laomedeia",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "def12098f0fa530d98f93c32127eb9646955c2b73b9315f8ffe6ab4d12887439",
+          "rawAudioSha256": "1668a0084753fbe7c285852daa71284a59f02e24b96897c362c44d279848ffd6",
+          "sourceSignal": {
+            "durationSeconds": 2.931167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": 0.0,
+            "clippedSamples": 4,
+            "longestClippedRunSamples": 2
+          },
+          "trimStartSeconds": 0.09,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 2.841167,
+          "startSeconds": 13.481167,
+          "endSeconds": 16.322333
+        }
+      ],
+      "pageNumber": 3
+    },
+    {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "The stomach churned the food with acid and more enzymes.\n\nSQUELCH.\n\nSoon it looked like thick soup.\n\n\"Mud soup!\" said Muddy.\n\n\"Food soup,\" said Splashy. \"And a special, slimy lining helps protect the stomach.\"",
+      "textSha256": "95118c636fc2227ff20c5f44d2750495565de57eec86fc85c9110dc4343a1ea7",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/page-04.mp3",
+      "audioSha256": "d7940acbb88072d2ba8869f56d9f05c7a4d6ce53fc65d82f861c1c58b7926d8b",
+      "durationSeconds": 19.7135,
+      "signal": {
+        "durationSeconds": 19.7135,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -4.2723,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.72,
+        "truePeakDbtp": -4.25,
+        "loudnessRangeLu": 3.0
+      },
+      "segments": [
+        {
+          "id": "page-04-01",
+          "speaker": "narrator",
+          "text": "The stomach churned the food with acid and more enzymes.\n\nSQUELCH.\n\nSoon it looked like thick soup.",
+          "synthesisText": "The stomach churned the food with acid and more enzymes.\n\nSQUELCH.\n\nSoon it looked like thick soup.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "e5e9549906414f1720109abc28a405027d98810523295839208aee834feec6b1",
+          "rawAudioSha256": "c25e5f0400dab369d7d8e503ce5537c1f2e19335964c72d2dd6e4ea84d7895f4",
+          "sourceSignal": {
+            "durationSeconds": 8.64,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -6.4426,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 8.64,
+          "startSeconds": 0.15,
+          "endSeconds": 8.79
+        },
+        {
+          "id": "page-04-02",
+          "speaker": "MEADOW-MUDDY",
+          "text": "Mud soup!",
+          "synthesisText": "Mud soup!",
+          "voice": "Algieba",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "491e452db125855a23b7f9eaae44c9813e2b599d18e109eb7bbd41e23d46260d",
+          "rawAudioSha256": "b5095c06d8fe959cc05c987022f474d3d802cd224979e7da42dde105fdbd2874",
+          "sourceSignal": {
+            "durationSeconds": 1.731167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": -0.0003,
+            "clippedSamples": 13,
+            "longestClippedRunSamples": 2
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.731167,
+          "startSeconds": 8.97,
+          "endSeconds": 10.701167
+        },
+        {
+          "id": "page-04-03",
+          "speaker": "narrator",
+          "text": "said Muddy.",
+          "synthesisText": "said Muddy.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "3f5dc14ef343e83b35bfb3c38f785c4df93445aae16300c150ac259183b8100d",
+          "rawAudioSha256": "90290e898dbaf7745e39e1c1b393e624333d159cb162ffc2d4ad5a23e8fdc2b1",
+          "sourceSignal": {
+            "durationSeconds": 0.76,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -14.4696,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.76,
+          "startSeconds": 10.801167,
+          "endSeconds": 11.561167
+        },
+        {
+          "id": "page-04-04",
+          "speaker": "MEADOW-SPLASHY",
+          "text": "Food soup,",
+          "synthesisText": "Food soup.",
+          "voice": "Laomedeia",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "9b58d1e795a6640aad977ec297aab185179419b96623572605f0d1460cba8b48",
+          "rawAudioSha256": "1d007a4f50ead321d70871178cb711a6180bfcdf8e983be2d7912d37c5bcad25",
+          "sourceSignal": {
+            "durationSeconds": 1.651167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": -0.0003,
+            "clippedSamples": 11,
+            "longestClippedRunSamples": 2
+          },
+          "trimStartSeconds": 0.08,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.571167,
+          "startSeconds": 11.741167,
+          "endSeconds": 13.312333
+        },
+        {
+          "id": "page-04-05",
+          "speaker": "narrator",
+          "text": "said Splashy.",
+          "synthesisText": "said Splashy.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "c52f710306c7d188e75fe9677de80868554b08b069d89f02b1c0f930dbdb055e",
+          "rawAudioSha256": "cc64b87360c6e20c8e00fa927aa650fd2b3781c45a22b40a166405f7e39bf88f",
+          "sourceSignal": {
+            "durationSeconds": 1.76,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -12.8391,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.76,
+          "startSeconds": 13.412333,
+          "endSeconds": 15.172333
+        },
+        {
+          "id": "page-04-06",
+          "speaker": "MEADOW-SPLASHY",
+          "text": "And a special, slimy lining helps protect the stomach.",
+          "synthesisText": "And a special, slimy lining helps protect the stomach.",
+          "voice": "Laomedeia",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "6949d58e90e1452b5b5c704ef87ca73e5dfde14d0692abccf75c7e55f7422c70",
+          "rawAudioSha256": "4e9579c2f07acf30f1d92094a22d6433a6b8c010169a41995c7be6a758959b09",
+          "sourceSignal": {
+            "durationSeconds": 4.251167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": 0.0,
+            "clippedSamples": 33,
+            "longestClippedRunSamples": 3
+          },
+          "trimStartSeconds": 0.14,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 4.111167,
+          "startSeconds": 15.352333,
+          "endSeconds": 19.4635
+        }
+      ],
+      "pageNumber": 4
+    },
+    {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "The mixture moved little by little into the small intestine.\n\nMuddy traced the long, looping tube with his nose.\n\n\"SMALL? It goes on and on!\"\n\n\"It's narrower than the large intestine,\" said Splashy.",
+      "textSha256": "3996639c64938a0506c6a1c8ccb4116f7f9b0497c942e485ce9975011d7cc83e",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/page-05.mp3",
+      "audioSha256": "12e5a611dc9ae3e9f2eb4a218716b7d63b8b83fada3c7f4432e73f19a362a642",
+      "durationSeconds": 15.682333,
+      "signal": {
+        "durationSeconds": 15.682333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -4.8185,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.82,
+        "truePeakDbtp": -4.82,
+        "loudnessRangeLu": 3.7
+      },
+      "segments": [
+        {
+          "id": "page-05-01",
+          "speaker": "narrator",
+          "text": "The mixture moved little by little into the small intestine.\n\nMuddy traced the long, looping tube with his nose.",
+          "synthesisText": "The mixture moved little by little into the small intestine.\n\nMuddy traced the long, looping tube with his nose.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "c59502fd695fd99e8d563bb42d0c84a3f13f057e0f5ecc5acf48782e6d50f4c0",
+          "rawAudioSha256": "71bcc7035b985e52e6a1bb5c4c5a2fabc7eb108dde4094705fd69c34d5c6c3de",
+          "sourceSignal": {
+            "durationSeconds": 7.6,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -7.6619,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 7.6,
+          "startSeconds": 0.15,
+          "endSeconds": 7.75
+        },
+        {
+          "id": "page-05-02",
+          "speaker": "MEADOW-MUDDY",
+          "text": "SMALL? It goes on and on!",
+          "synthesisText": "SMALL? It goes on and on!",
+          "voice": "Algieba",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "82f0d5bfe923e528cf5f021288127adcf23462c6c1338f3c186b8979d6b4d4ef",
+          "rawAudioSha256": "264a0faff2548f3c0105a4e8d59896222da1dccb77ce2c11d2b191583ab32850",
+          "sourceSignal": {
+            "durationSeconds": 3.051167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": 0.0,
+            "clippedSamples": 28,
+            "longestClippedRunSamples": 3
+          },
+          "trimStartSeconds": 0.15,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 2.901167,
+          "startSeconds": 7.93,
+          "endSeconds": 10.831167
+        },
+        {
+          "id": "page-05-03",
+          "speaker": "MEADOW-SPLASHY",
+          "text": "It's narrower than the large intestine,",
+          "synthesisText": "It's narrower than the large intestine.",
+          "voice": "Laomedeia",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "c7ff92746ec1a7cff3959b6fba0e33124b404f24f80fd8777dc174d20db89594",
+          "rawAudioSha256": "14cc7d4e0b286495234494fbcda36dac65c0685cb0ef067c57909f08a6880463",
+          "sourceSignal": {
+            "durationSeconds": 2.611167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": -0.2454,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.05,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 2.561167,
+          "startSeconds": 11.011167,
+          "endSeconds": 13.572333
+        },
+        {
+          "id": "page-05-04",
+          "speaker": "narrator",
+          "text": "said Splashy.",
+          "synthesisText": "said Splashy.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "c52f710306c7d188e75fe9677de80868554b08b069d89f02b1c0f930dbdb055e",
+          "rawAudioSha256": "cc64b87360c6e20c8e00fa927aa650fd2b3781c45a22b40a166405f7e39bf88f",
+          "sourceSignal": {
+            "durationSeconds": 1.76,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -12.8391,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.76,
+          "startSeconds": 13.672333,
+          "endSeconds": 15.432333
+        }
+      ],
+      "pageNumber": 5
+    },
+    {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "The liver made bile to help digest fats. The pancreas sent more enzymes, those tiny helpers that break down food.\n\nThe small intestine mixed the food with these digestive juices.\n\n\"All that teamwork for one sandwich!\" said Muddy.",
+      "textSha256": "a5b735d7b03508781c5d3a4953d31794a8b00a6a0572c7e75ffdc958ea4c067e",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/page-06.mp3",
+      "audioSha256": "9c91b005270586d8e722ed44cd0147205555de595b8104a6e311722a32f1aa22",
+      "durationSeconds": 17.451167,
+      "signal": {
+        "durationSeconds": 17.451167,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -4.7729,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.76,
+        "truePeakDbtp": -4.75,
+        "loudnessRangeLu": 2.7
+      },
+      "segments": [
+        {
+          "id": "page-06-01",
+          "speaker": "narrator",
+          "text": "The liver made bile to help digest fats. The pancreas sent more enzymes, those tiny helpers that break down food.\n\nThe small intestine mixed the food with these digestive juices.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "2b5939a6b6a62f2214403f5e1cfd6a12abf9a2e45f07cbdf92ac2346861fd2a6",
+          "rawAudioSha256": "00d9fe8062ed9daa659a1917cc8ba92fe8c15416bc4a8952947b12089dad951b",
+          "sourceSignal": {
+            "durationSeconds": 12.4,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -5.1847,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 12.4,
+          "startSeconds": 0.15,
+          "endSeconds": 12.55
+        },
+        {
+          "id": "page-06-02",
+          "speaker": "MEADOW-MUDDY",
+          "text": "All that teamwork for one sandwich!",
+          "voice": "Algieba",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "d45cc6b08fbbfe4a991ab6746c30576aa5ced394b1598a261cbaa933bc71b3e7",
+          "rawAudioSha256": "507321ce30254ff7d7dce7d447cd49d092c4e8477a85476714b4bc3963faa801",
+          "sourceSignal": {
+            "durationSeconds": 3.611167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": 0.0,
+            "clippedSamples": 78,
+            "longestClippedRunSamples": 3
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 3.611167,
+          "startSeconds": 12.73,
+          "endSeconds": 16.341167
+        },
+        {
+          "id": "page-06-03",
+          "speaker": "narrator",
+          "text": "said Muddy.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "3f5dc14ef343e83b35bfb3c38f785c4df93445aae16300c150ac259183b8100d",
+          "rawAudioSha256": "90290e898dbaf7745e39e1c1b393e624333d159cb162ffc2d4ad5a23e8fdc2b1",
+          "sourceSignal": {
+            "durationSeconds": 0.76,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -14.4696,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.76,
+          "startSeconds": 16.441167,
+          "endSeconds": 17.201167
+        }
+      ],
+      "pageNumber": 6
+    },
+    {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "The small intestine's bumpy inner wall absorbed nutrients. That means it took in useful parts from food.\n\nMany nutrients passed into the blood.\n\n\"Hang on!\" said Muddy. \"Lunch is leaving the tube!\"",
+      "textSha256": "9c0861188725a57fd4527ff9b0f3f8233c5e10367a0ff68a96d830215ccb9789",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/page-07.mp3",
+      "audioSha256": "18159f1b79c9945fce3d43b7301eb615e1c903d485c482dcf8ff9e845bb00772",
+      "durationSeconds": 16.202333,
+      "signal": {
+        "durationSeconds": 16.202333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -5.6547,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.68,
+        "truePeakDbtp": -5.65,
+        "loudnessRangeLu": 1.0
+      },
+      "segments": [
+        {
+          "id": "page-07-01",
+          "speaker": "narrator",
+          "text": "The small intestine's bumpy inner wall absorbed nutrients. That means it took in useful parts from food.\n\nMany nutrients passed into the blood.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "7cceaf0ec6177c9db551dc5192593ae724e563bba80d1ef69833f6bbc9db321a",
+          "rawAudioSha256": "0c1c1363af23a9eb77e621c00f0df74a053bbce8155384e3a7861e7172b1ae5e",
+          "sourceSignal": {
+            "durationSeconds": 10.6,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -8.1512,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 10.6,
+          "startSeconds": 0.15,
+          "endSeconds": 10.75
+        },
+        {
+          "id": "page-07-02",
+          "speaker": "MEADOW-MUDDY",
+          "text": "Hang on!",
+          "voice": "Algieba",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "9669b0cc7cbe54ab2a8d644166037f944f650b88d32d7e6bb87997833dd0c901",
+          "rawAudioSha256": "c1d84f057dfe00dbc8eca4d29743194420e0e5691d954da4f1a0475de675b748",
+          "sourceSignal": {
+            "durationSeconds": 1.131167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": 0.0,
+            "clippedSamples": 2,
+            "longestClippedRunSamples": 2
+          },
+          "trimStartSeconds": 0.12,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.011167,
+          "startSeconds": 10.93,
+          "endSeconds": 11.941167
+        },
+        {
+          "id": "page-07-03",
+          "speaker": "narrator",
+          "text": "said Muddy.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "3f5dc14ef343e83b35bfb3c38f785c4df93445aae16300c150ac259183b8100d",
+          "rawAudioSha256": "90290e898dbaf7745e39e1c1b393e624333d159cb162ffc2d4ad5a23e8fdc2b1",
+          "sourceSignal": {
+            "durationSeconds": 0.76,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -14.4696,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.76,
+          "startSeconds": 12.041167,
+          "endSeconds": 12.801167
+        },
+        {
+          "id": "page-07-04",
+          "speaker": "MEADOW-MUDDY",
+          "text": "Lunch is leaving the tube!",
+          "voice": "Algieba",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "3b5820da2cf7ed731e5a416f277fa9b51aa8c96873ec4617d61dd0eee3f4524d",
+          "rawAudioSha256": "861af6b3fc035f8f9d7632700e71863a0e62b413e595ad281ebfee6ae26b74ae",
+          "sourceSignal": {
+            "durationSeconds": 2.971167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": 0.0,
+            "clippedSamples": 13,
+            "longestClippedRunSamples": 2
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 2.971167,
+          "startSeconds": 12.981167,
+          "endSeconds": 15.952333
+        }
+      ],
+      "pageNumber": 7
+    },
+    {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "Blood carried nutrients around the child's body.\n\nThe body used them for energy, growing, and repairs.\n\nMuddy tapped the child's running legs.\n\n\"So lunch helps power PLAY!\"\n\nSplashy nodded.\n\n\"But there's still something in the tube...\"",
+      "textSha256": "38cc539f4ab5f367080fcf4d585962223df80d24ad120798b436110a64d9edb3",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/page-08.mp3",
+      "audioSha256": "236ad1fcd3b6f8dd7240cee9857b7aa01cafef944aa40983876256df4001992a",
+      "durationSeconds": 16.992979,
+      "signal": {
+        "durationSeconds": 16.992979,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -3.6509,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.66,
+        "truePeakDbtp": -3.64,
+        "loudnessRangeLu": 2.6
+      },
+      "segments": [
+        {
+          "id": "page-08-01",
+          "speaker": "narrator",
+          "text": "Blood carried nutrients around the child's body.\n\nThe body used them for energy, growing, and repairs.\n\nMuddy tapped the child's running legs.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "dee6bbb63856d241217400ae251a66e61cb5d011a99f5966f1f853405bfc1523",
+          "rawAudioSha256": "7384693eeba917ac6060f3758c31e79b27fc568693a71089eda8ada745efcec5",
+          "sourceSignal": {
+            "durationSeconds": 9.16,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -4.1869,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 9.16,
+          "startSeconds": 0.15,
+          "endSeconds": 9.31
+        },
+        {
+          "id": "page-08-02",
+          "speaker": "MEADOW-MUDDY",
+          "text": "So lunch helps power PLAY!",
+          "voice": "Algieba",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "5e5e443d9acf9f7868a2f166cc190ed91b3e5e59c192e46a28b8c03057d76420",
+          "rawAudioSha256": "884df55a81c1bf0273c4d21d67ccde0a7fe35bc9e5ad3cb1c0a7b7b2bfa84ae2",
+          "sourceSignal": {
+            "durationSeconds": 3.131167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": 0.0,
+            "clippedSamples": 24,
+            "longestClippedRunSamples": 2
+          },
+          "trimStartSeconds": 0.09,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 3.041167,
+          "startSeconds": 9.49,
+          "endSeconds": 12.531167
+        },
+        {
+          "id": "page-08-03",
+          "speaker": "narrator",
+          "text": "Splashy nodded.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "e25e76c082f9a45f25f6b2ff692fed77936e7df14a84d731e4fdfa6a88a0c71b",
+          "rawAudioSha256": "a79818fd9e8869eb5a327d0e0179450a81050995de8b50c79303dd8c36d4c171",
+          "sourceSignal": {
+            "durationSeconds": 1.04,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -10.6275,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.04,
+          "startSeconds": 12.711167,
+          "endSeconds": 13.751167
+        },
+        {
+          "id": "page-08-04",
+          "speaker": "MEADOW-SPLASHY",
+          "text": "But there's still something in the tube...",
+          "voice": "Laomedeia",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "9ad3a15ae11936c8c9a528e37dbd70c5d41d4c7c32c6c4589b989d2bafb44a9f",
+          "rawAudioSha256": "217f5bbe96298bb2f85a0ae56138dbb1203146ed789d6b7726e87f5a064734a2",
+          "sourceSignal": {
+            "durationSeconds": 2.811167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": -1.5606,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 2.811167,
+          "startSeconds": 13.931167,
+          "endSeconds": 16.742333
+        }
+      ],
+      "pageNumber": 8
+    },
+    {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "The leftovers entered the large intestine.\n\nIts walls absorbed more water as the leftovers moved along. The waste grew thicker and formed poop.\n\nMuddy peered closer.\n\n\"Now THAT bit looks familiar.\"",
+      "textSha256": "f4633f37d366464234c20b6086d55bd66c3a35fef3cca2984c08ca54e2c2e056",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/page-09.mp3",
+      "audioSha256": "e13a004babcfb9e3a8ba56464543c99999ab44322e45d77f41a30677da6b6c7d",
+      "durationSeconds": 16.571167,
+      "signal": {
+        "durationSeconds": 16.571167,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -4.5409,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -23.01,
+        "truePeakDbtp": -4.54,
+        "loudnessRangeLu": 2.0
+      },
+      "segments": [
+        {
+          "id": "page-09-01",
+          "speaker": "narrator",
+          "text": "The leftovers entered the large intestine.\n\nIts walls absorbed more water as the leftovers moved along. The waste grew thicker and formed poop.\n\nMuddy peered closer.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "58f35bfec2450ac3a6df57841f31ba3b30df767e48ba15e70c71281ad7a983dc",
+          "rawAudioSha256": "29f7e051ac70f746710db534e8f54debccb0f480f0e8005486cff765fd6a7e9c",
+          "sourceSignal": {
+            "durationSeconds": 12.2,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -6.9692,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 12.2,
+          "startSeconds": 0.15,
+          "endSeconds": 12.35
+        },
+        {
+          "id": "page-09-02",
+          "speaker": "MEADOW-MUDDY",
+          "text": "Now THAT bit looks familiar.",
+          "voice": "Algieba",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "ead943ad9f25a264681617c400da9d1191c70f5c2e0a373d9660337c7e6667a0",
+          "rawAudioSha256": "3302704b11124d3790408ce2198714165aef0e50f82ca011044486ba355ba4c4",
+          "sourceSignal": {
+            "durationSeconds": 3.931167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": 0.0,
+            "clippedSamples": 6,
+            "longestClippedRunSamples": 2
+          },
+          "trimStartSeconds": 0.14,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 3.791167,
+          "startSeconds": 12.53,
+          "endSeconds": 16.321167
+        }
+      ],
+      "pageNumber": 9
+    },
+    {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "Tiny living things called bacteria helped break down some leftovers.\n\nSome made gas.\n\n\"Pffft!\" said Muddy.\n\nSplashy looked up.\n\n\"What? I was doing the sound!\"\n\nInside the picture, a little gas bubble drifted along.",
+      "textSha256": "89637e1e777e5a84c54a71762fc7b25a5f54afae1a706647c3687659d11b68c9",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/page-10.mp3",
+      "audioSha256": "71ca47cea7908ce5a53b0d1e57770e777a6d07294848b7aaeecf7b0e6e9fdb9a",
+      "durationSeconds": 17.932333,
+      "signal": {
+        "durationSeconds": 17.932333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -4.4254,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.88,
+        "truePeakDbtp": -4.42,
+        "loudnessRangeLu": 3.2
+      },
+      "segments": [
+        {
+          "id": "page-10-01",
+          "speaker": "narrator",
+          "text": "Tiny living things called bacteria helped break down some leftovers.\n\nSome made gas.",
+          "synthesisText": "Tiny living things called bacteria helped break down some leftovers.\n\nSome made gas.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "0e3188cb6e77a6aa30747f3d9953cce34b720a29e3ca7d0a6ac8b65289c3b5f8",
+          "rawAudioSha256": "eeea9267f56e6cf5c9e3d02a35c46e9c7e278a116b018dfae4c40b6a0de251ec",
+          "sourceSignal": {
+            "durationSeconds": 7.16,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -9.8259,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 7.16,
+          "startSeconds": 0.15,
+          "endSeconds": 7.31
+        },
+        {
+          "id": "page-10-02",
+          "speaker": "MEADOW-MUDDY",
+          "text": "Pffft!",
+          "synthesisText": "Pffft!",
+          "voice": "Algieba",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "e23c2f1565f3f07f6483351c0332333a841f78a926791d2af4ecd4e4f905a932",
+          "rawAudioSha256": "f328a8559aa23a9db604230b06fefda2e7db249a1d35127c55cb41629b24a2bb",
+          "sourceSignal": {
+            "durationSeconds": 1.051167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": -4.487,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.12,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.931167,
+          "startSeconds": 7.49,
+          "endSeconds": 8.421167
+        },
+        {
+          "id": "page-10-03",
+          "speaker": "narrator",
+          "text": "said Muddy.\n\nSplashy looked up.",
+          "synthesisText": "said Muddy.\n\nSplashy looked up.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "254dad52e7304e753b4332fb6666e596ae338498a05bfade87ba25e03a53bd4c",
+          "rawAudioSha256": "5a2632961b080203c2a9c0bcba80312b30a94c4831e60b16552b4e6dc347397d",
+          "sourceSignal": {
+            "durationSeconds": 2.68,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -4.7687,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 2.68,
+          "startSeconds": 8.521167,
+          "endSeconds": 11.201167
+        },
+        {
+          "id": "page-10-04",
+          "speaker": "MEADOW-MUDDY",
+          "text": "What? I was doing the sound!",
+          "synthesisText": "What? I was doing the sound!",
+          "voice": "Algieba",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "af1785e766ffdea362cba33e37eb46d12e6dbe4acdddb7793b3b18b9ddc32925",
+          "rawAudioSha256": "4fe1f60fc67158d307175fec764113bb3d2b6e1ae83d246713e13e553f97ebae",
+          "sourceSignal": {
+            "durationSeconds": 3.011167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": 0.0,
+            "clippedSamples": 19,
+            "longestClippedRunSamples": 3
+          },
+          "trimStartSeconds": 0.09,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 2.921167,
+          "startSeconds": 11.381167,
+          "endSeconds": 14.302333
+        },
+        {
+          "id": "page-10-05",
+          "speaker": "narrator",
+          "text": "Inside the picture, a little gas bubble drifted along.",
+          "synthesisText": "Inside the picture, a little gas bubble drifted along.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "dfb7d3b44e6849225f933035a7039ae119531f1fbab2d0dd6f13e55e3b53baef",
+          "rawAudioSha256": "bf9783559dc618e7b181d93335c99945272d49d97d8f4a5510fa70bb43211a11",
+          "sourceSignal": {
+            "durationSeconds": 3.2,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -7.8771,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 3.2,
+          "startSeconds": 14.482333,
+          "endSeconds": 17.682333
+        }
+      ],
+      "pageNumber": 10
+    },
+    {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "The whole trip can take a day or more.\n\nPoop waits in the rectum, then leaves through an opening called the anus.\n\nPLOP.\n\nMuddy nodded.\n\n\"The exit!\"\n\nThe child washed their hands.",
+      "textSha256": "7c2a0a31e6ab595677c5db092471b1d6c6d979ec29340e1a2b58b8447c0acc74",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/page-11.mp3",
+      "audioSha256": "8c9d7c99e295998192f278cb52c6ee59caee1d5e6b9a3db865f1dabeac3b1594",
+      "durationSeconds": 13.691167,
+      "signal": {
+        "durationSeconds": 13.691167,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -4.8717,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.54,
+        "truePeakDbtp": -4.87,
+        "loudnessRangeLu": 3.3
+      },
+      "segments": [
+        {
+          "id": "page-11-01",
+          "speaker": "narrator",
+          "text": "The whole trip can take a day or more.\n\nPoop waits in the rectum, then leaves through an opening called the anus.\n\nPLOP.\n\nMuddy nodded.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "91440e10e520708f9bb31ba0609e6eb5bab6e826ca6bb2fb75da45b66a07bbcc",
+          "rawAudioSha256": "91e497df4cd281e2388f074263e06fed071f9ef710b43530ed3055b10b7cc84d",
+          "sourceSignal": {
+            "durationSeconds": 10.04,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -8.2254,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 10.04,
+          "startSeconds": 0.15,
+          "endSeconds": 10.19
+        },
+        {
+          "id": "page-11-02",
+          "speaker": "MEADOW-MUDDY",
+          "text": "The exit!",
+          "voice": "Algieba",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "f927f1904dd31baf896162bcb00d5de05d9163d3d5a6eacb97789b8dfe64d81a",
+          "rawAudioSha256": "0283a65958500c5e293a4df79cb803e4279e3356a28fac08e7bae4af90f4d3e5",
+          "sourceSignal": {
+            "durationSeconds": 1.411167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": 0.0,
+            "clippedSamples": 26,
+            "longestClippedRunSamples": 3
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.411167,
+          "startSeconds": 10.37,
+          "endSeconds": 11.781167
+        },
+        {
+          "id": "page-11-03",
+          "speaker": "narrator",
+          "text": "The child washed their hands.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "7d5326dff32ced12f1c4139292cd3e930b3e671e46720db121e93e5e34b20b53",
+          "rawAudioSha256": "b27cd73b00e4ab5a349db28238cf04697ee6168890e3d1eb4c0857c174f8f5ff",
+          "sourceSignal": {
+            "durationSeconds": 1.48,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -9.5168,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.48,
+          "startSeconds": 11.961167,
+          "endSeconds": 13.441167
+        }
+      ],
+      "pageNumber": 11
+    },
+    {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "Muddy turned back to the sandwich.\n\n\"I've solved it! The body takes useful parts. The leftovers come out as poop.\"\n\nHe leaned in for one last look.\n\nSPLAT.\n\n\"Another mystery,\" said Splashy. \"Who put a muddy noseprint on my book?\"",
+      "textSha256": "d2d9f8ab870351fde0f66ad61392d8d577bc185384f9136f3d13b90f5de83fe6",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/page-12.mp3",
+      "audioSha256": "f89212e642e67f0a167520976953fd8f90862a1bb243bf6d96740d0af2966d84",
+      "durationSeconds": 20.0135,
+      "signal": {
+        "durationSeconds": 20.0135,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -5.6536,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.8,
+        "truePeakDbtp": -5.65,
+        "loudnessRangeLu": 3.2
+      },
+      "segments": [
+        {
+          "id": "page-12-01",
+          "speaker": "narrator",
+          "text": "Muddy turned back to the sandwich.",
+          "synthesisText": "Muddy turned back to the sandwich.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "0ba13899b8dc103b70d58013d4a64d345877e6a003c45096e3328879ff7a6d15",
+          "rawAudioSha256": "b9100481a5864ce02f5f2b2e804de6e0857415b4d65906883ae0c9fc420e5211",
+          "sourceSignal": {
+            "durationSeconds": 1.76,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -7.4938,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.76,
+          "startSeconds": 0.15,
+          "endSeconds": 1.91
+        },
+        {
+          "id": "page-12-02",
+          "speaker": "MEADOW-MUDDY",
+          "text": "I've solved it! The body takes useful parts. The leftovers come out as poop.",
+          "synthesisText": "I've solved it! The body takes useful parts. The leftovers come out as poop.",
+          "voice": "Algieba",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "fc02484f8939364fca2aaa12af0e2c1b1940e314df33c927917b99619442d061",
+          "rawAudioSha256": "55e735977ff219a74614e227e609e7863a25a3d29a28e0087546d71ee57263c1",
+          "sourceSignal": {
+            "durationSeconds": 6.731167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": 0.0,
+            "clippedSamples": 55,
+            "longestClippedRunSamples": 4
+          },
+          "trimStartSeconds": 0.08,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 6.651167,
+          "startSeconds": 2.09,
+          "endSeconds": 8.741167
+        },
+        {
+          "id": "page-12-03",
+          "speaker": "narrator",
+          "text": "He leaned in for one last look.\n\nSPLAT.",
+          "synthesisText": "He leaned in for one last look.\n\nSPLAT.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "70054c08b00a27f0bf9e40eed762c791f8f24aae2e97c264d66e5ed553219bab",
+          "rawAudioSha256": "5de8fb745300845f13ae3c9cd5225f44ae4d5a7aaaaf0d8e89dcd1c7a1a8c35f",
+          "sourceSignal": {
+            "durationSeconds": 3.52,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -7.5133,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 3.52,
+          "startSeconds": 8.921167,
+          "endSeconds": 12.441167
+        },
+        {
+          "id": "page-12-04",
+          "speaker": "MEADOW-SPLASHY",
+          "text": "Another mystery,",
+          "synthesisText": "Another mystery.",
+          "voice": "Laomedeia",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "edc2c340e8bc72898cd0e70241379521b5686a428172d9c328f7570883cb8f17",
+          "rawAudioSha256": "d9680c2f1bcadf7702d539a79fb3c6bdbdef32fce0b6a3f334e3b0e0e16d6406",
+          "sourceSignal": {
+            "durationSeconds": 1.931167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": 0.0,
+            "clippedSamples": 218,
+            "longestClippedRunSamples": 3
+          },
+          "trimStartSeconds": 0.16,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.771167,
+          "startSeconds": 12.621167,
+          "endSeconds": 14.392333
+        },
+        {
+          "id": "page-12-05",
+          "speaker": "narrator",
+          "text": "said Splashy.",
+          "synthesisText": "said Splashy.",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "c52f710306c7d188e75fe9677de80868554b08b069d89f02b1c0f930dbdb055e",
+          "rawAudioSha256": "cc64b87360c6e20c8e00fa927aa650fd2b3781c45a22b40a166405f7e39bf88f",
+          "sourceSignal": {
+            "durationSeconds": 1.76,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -12.8391,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.76,
+          "startSeconds": 14.492333,
+          "endSeconds": 16.252333
+        },
+        {
+          "id": "page-12-06",
+          "speaker": "MEADOW-SPLASHY",
+          "text": "Who put a muddy noseprint on my book?",
+          "synthesisText": "Who put a muddy noseprint on my book?",
+          "voice": "Laomedeia",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "c09c5e2b36fd6a5d3dc254a3be293bb076d273b720701bf81632b3edbf8d8821",
+          "rawAudioSha256": "2b3624a9d08c11328c0072a1428aafb8d8d70e5102693815eb46aa6c34e4f992",
+          "sourceSignal": {
+            "durationSeconds": 3.331167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": -0.7877,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 3.331167,
+          "startSeconds": 16.432333,
+          "endSeconds": 19.7635
+        }
+      ],
+      "pageNumber": 12
+    }
+  ],
+  "words": {
+    "absorbed": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "absorbed",
+      "textSha256": "2f6378a857d08ce052081ac314f77184bdd0f4ad8845fb4db9bf09600092148f",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/absorbed.mp3",
+      "audioSha256": "e2d93bc7f7f51445c22ffab6d94442c786551962b5d65139a1c32500d9c58ca5",
+      "durationSeconds": 1.914333,
+      "signal": {
+        "durationSeconds": 1.914333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -7.4888,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.43,
+        "truePeakDbtp": -7.48,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-absorbed-01",
+          "speaker": "narrator",
+          "text": "absorbed",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "1cc62296855ce373d94ada2a2efe5c9fe3a6dfdb915241c7ce7914ae98d1da61",
+          "rawAudioSha256": "876023ecfcf633003d9af121cac0d0161feb4c7de75a4d058851e7ed4b5ba541",
+          "sourceSignal": {
+            "durationSeconds": 1.514333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -10.9796,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.514333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.664333
+        }
+      ],
+      "text": "absorbed",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "acid": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "acid",
+      "textSha256": "ae5eebff12dd75af2fc959fa5ef8bf7c23fb4fde38a0176be14c991d8ff2c440",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/acid.mp3",
+      "audioSha256": "c6ca9b83ffa7804942cc332b68b45a64af5bddbb6b741d84f02dfad1c9ab7b3d",
+      "durationSeconds": 1.394333,
+      "signal": {
+        "durationSeconds": 1.394333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -6.6893,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.41,
+        "truePeakDbtp": -6.69,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-acid-01",
+          "speaker": "narrator",
+          "text": "acid",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "43a297060085f47f4ea40afc98bdcc6321a8e946e47b6b0f197a40a2769c8c4a",
+          "rawAudioSha256": "fe48df9dc2d372ffe7b558962a222c78ec91ba2ed992b6e9d42d78c4a46dab1c",
+          "sourceSignal": {
+            "durationSeconds": 0.994333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -12.3115,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.994333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.144333
+        }
+      ],
+      "text": "acid",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "anus": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "anus",
+      "textSha256": "737dd1bca21d67a7c158ed425276b04581e3c2b1f209e25a7cff37d8cb333f0f",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/anus.mp3",
+      "audioSha256": "c2705397ee56a35108119cc07deb46c90bd46726ce95e87f342f1d785f74c60f",
+      "durationSeconds": 1.874333,
+      "signal": {
+        "durationSeconds": 1.874333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -8.7131,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.44,
+        "truePeakDbtp": -8.71,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-anus-01",
+          "speaker": "narrator",
+          "text": "anus",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "dddf503ebc2447fa08be6f4326feeb5ebf7681644f6bbe206fdde5d0ea2a96e6",
+          "rawAudioSha256": "a145dff759d22ec5a20e8514c99a79e39b51986026b30e9e4176ef222870d0ec",
+          "sourceSignal": {
+            "durationSeconds": 1.474333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -7.8202,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.474333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.624333
+        }
+      ],
+      "text": "anus",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "bacteria": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "bacteria",
+      "textSha256": "2ca82203124aaaaf3e64326f74b03410a125a7eb8fe6e1543e9a5a86f90447f1",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/bacteria.mp3",
+      "audioSha256": "7fd7b42a4fa89a616b1e605f9e9e166d08251784500c11e2b055d513686309e7",
+      "durationSeconds": 1.794333,
+      "signal": {
+        "durationSeconds": 1.794333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -6.5829,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.45,
+        "truePeakDbtp": -6.57,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-bacteria-01",
+          "speaker": "narrator",
+          "text": "bacteria",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "acff1735e19f69e486219e046c28461c340246e20eeda1b07e442376e6a69747",
+          "rawAudioSha256": "4b897dab33dbcc4b21a5d96807be66ff6a7bb2d278016d18df3ecca69a1d8207",
+          "sourceSignal": {
+            "durationSeconds": 1.394333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -7.9113,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.394333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.544333
+        }
+      ],
+      "text": "bacteria",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "bile": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "bile",
+      "textSha256": "bb3be5d12d4e85f6a02c454e868f16c3050a54f648a073d4c099976e5b14b8e9",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/bile.mp3",
+      "audioSha256": "2d0bd3d7018ed542368e3836d906e83fc0df788a455748efc02d64b0f7095d4a",
+      "durationSeconds": 1.514333,
+      "signal": {
+        "durationSeconds": 1.514333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -7.3117,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.43,
+        "truePeakDbtp": -7.3,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-bile-01",
+          "speaker": "narrator",
+          "text": "bile",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "108cd15d1d3a3c97ced22757b8c48009b59d7c6c2b63e0a3081766e8dd7410d0",
+          "rawAudioSha256": "6292db3aacbd574be71c7eb2bc7df368811654a5cb254120dc0fd9d07ee62a6d",
+          "sourceSignal": {
+            "durationSeconds": 1.114333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -4.1822,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.114333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.264333
+        }
+      ],
+      "text": "bile",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "blood": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "blood",
+      "textSha256": "3e8e40c0af5f5ea5a94837f090631379e090fdb2fcf0c65a65859ae051e2c794",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/blood.mp3",
+      "audioSha256": "554f935c30540f3cf28713e07ccd3a571173b4a9aff1f7a156b2e5bebe1994e2",
+      "durationSeconds": 1.114333,
+      "signal": {
+        "durationSeconds": 1.114333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -8.0911,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.43,
+        "truePeakDbtp": -8.08,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-blood-01",
+          "speaker": "narrator",
+          "text": "blood",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "74aa2a7272d6f65a7bc59c5a157b8a5a915ae39386233505c7bad653b389a4d3",
+          "rawAudioSha256": "6656f57de9e51eaa59589daae71d097e3e6b82f863aaffb89fa3ae5f8df654b1",
+          "sourceSignal": {
+            "durationSeconds": 0.714333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -6.7721,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.714333,
+          "startSeconds": 0.15,
+          "endSeconds": 0.864333
+        }
+      ],
+      "text": "blood",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "breaking": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "breaking",
+      "textSha256": "4a1acb3fdfd1fcf8f3ee197a13a0d023d72a20eb74c52d1e395041f83c939992",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/breaking.mp3",
+      "audioSha256": "d3e214e794b7d18267a6330ed056465d8e2471ea1896b14c4b74e7da8558aadf",
+      "durationSeconds": 1.674333,
+      "signal": {
+        "durationSeconds": 1.674333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -11.3017,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.43,
+        "truePeakDbtp": -11.3,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-breaking-01",
+          "speaker": "narrator",
+          "text": "breaking",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "71772f79c14bf7f85c30f9beb2c21b91953096c416b11a00537f227b555bb468",
+          "rawAudioSha256": "c37246b97ef85365d5becc2dbe1ad72535d379a39da262359609d681218faca2",
+          "sourceSignal": {
+            "durationSeconds": 1.274333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -10.6663,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.274333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.424333
+        }
+      ],
+      "text": "breaking",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "bubble": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "bubble",
+      "textSha256": "df4ac416257333cf770e5b162da9c2a06b37e428d0a4035ec3a0f114df08d231",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/bubble.mp3",
+      "audioSha256": "d6b2c3af92ef7f01dc0d97d715debef51705965a8ef176700997a6f1fa19533b",
+      "durationSeconds": 1.514333,
+      "signal": {
+        "durationSeconds": 1.514333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -6.309,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.43,
+        "truePeakDbtp": -6.31,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-bubble-01",
+          "speaker": "narrator",
+          "text": "bubble",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "d2ad9546e377bc304f7fdf32d71d1c7bb5a098a910dacc5c8c19aab1c28d0a5f",
+          "rawAudioSha256": "cf9f78894c23fade17d2e6d2f015564c246015f28aeaf391d87a24a4f5f62775",
+          "sourceSignal": {
+            "durationSeconds": 1.114333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -5.233,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.114333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.264333
+        }
+      ],
+      "text": "bubble",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "child's": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "child's",
+      "textSha256": "7dd4bbcfe9523d953a25d16f125b7f3d370e6afcd56f6668984b40f6d2e2f724",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/child-s.mp3",
+      "audioSha256": "44faeb04f95539443a55be773355783008bb69cf3a067248bee45412bf45fa53",
+      "durationSeconds": 1.714333,
+      "signal": {
+        "durationSeconds": 1.714333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -7.8693,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.48,
+        "truePeakDbtp": -7.87,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-child-s-01",
+          "speaker": "narrator",
+          "text": "child's",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "539d0095d630a1eeb7ce573cea85ef394cd1e85e863dee7da0e54bc10dae6544",
+          "rawAudioSha256": "6f3b31da90882860f3419b7fb89f122d85556d69d8290fbcead38a04dbebb6cc",
+          "sourceSignal": {
+            "durationSeconds": 1.314333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -8.1838,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.314333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.464333
+        }
+      ],
+      "text": "child's",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "chomp": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "chomp",
+      "textSha256": "16f5107edd52050d007b73ec4e548be222959b20245f38012cbb4d8e2a542e74",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/chomp.mp3",
+      "audioSha256": "9b6f146f1aca2a5f75bd08f9abe2d7c543691d7d2c1054d962903f6563a4a3ca",
+      "durationSeconds": 1.674333,
+      "signal": {
+        "durationSeconds": 1.674333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -10.2037,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.4,
+        "truePeakDbtp": -10.19,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-chomp-01",
+          "speaker": "narrator",
+          "text": "chomp",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "5feb002c41c92145ec73be653788bd5e7e83267c9f7e303a39033eb805c3ec34",
+          "rawAudioSha256": "008a9fbdd8e1c0803126c0972d7d8854fca3445d537dbbc972e5706fc706f1dc",
+          "sourceSignal": {
+            "durationSeconds": 1.274333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -11.7493,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.274333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.424333
+        }
+      ],
+      "text": "chomp",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "churned": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "churned",
+      "textSha256": "4d912ffa972c7d43202f36734c41343e84705c83588912678b59b1d6d653d608",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/churned.mp3",
+      "audioSha256": "0bbfade2673c85ee10c64149148fa1dfca99e46b364b5d98716ab61bd13880e1",
+      "durationSeconds": 1.714333,
+      "signal": {
+        "durationSeconds": 1.714333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -4.7084,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.45,
+        "truePeakDbtp": -4.69,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-churned-01",
+          "speaker": "narrator",
+          "text": "churned",
+          "synthesisText": "churned",
+          "customPronunciations": {
+            "pronunciations": [
+              {
+                "phrase": "churned",
+                "phoneticEncoding": "PHONETIC_ENCODING_IPA",
+                "pronunciation": "tʃɝnd"
+              }
+            ]
+          },
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "071c0ab0149d39dace0452fb70569549a67933bbe63ddc46c2e1a610a1d21799",
+          "rawAudioSha256": "12d495d7a39940b43ef3f5956f0563e1889d799b9f318c7384f5e88ec407c273",
+          "sourceSignal": {
+            "durationSeconds": 1.314333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -7.7974,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.314333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.464333
+        }
+      ],
+      "text": "churned",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "digest": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "digest",
+      "textSha256": "0bf474896363505e5ea5e5d6ace8ebfb13a760a409b1fb467d428fc716f9f284",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/digest.mp3",
+      "audioSha256": "83f8577a0f09035280d094187474256b1e4026c911057a79f8436a4fcd33b519",
+      "durationSeconds": 1.354333,
+      "signal": {
+        "durationSeconds": 1.354333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -5.9535,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.42,
+        "truePeakDbtp": -5.92,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-digest-01",
+          "speaker": "narrator",
+          "text": "digest",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "3bd3da8cd1a0d66a4eab5b3be4fb3af1e512348c80ec76b8605e59d7232deecd",
+          "rawAudioSha256": "8e34092ea242194f506c46b3d2b8c71c68205694ff5d15f39e594756811756bd",
+          "sourceSignal": {
+            "durationSeconds": 0.954333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -10.1882,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.954333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.104333
+        }
+      ],
+      "text": "digest",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "digestive": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "digestive",
+      "textSha256": "dafd8482824fbb2c62e8ecbbf1a6731a8198419310268914bc83c9d1c044e3c9",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/digestive.mp3",
+      "audioSha256": "30e6dc414b4312635373617e6fcb8fac66f317085392b30fbf2c064047ad3bfa",
+      "durationSeconds": 2.114333,
+      "signal": {
+        "durationSeconds": 2.114333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -6.6664,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.46,
+        "truePeakDbtp": -6.63,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-digestive-01",
+          "speaker": "narrator",
+          "text": "digestive",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "99bef077ca01eef82899ff4f3e1425aea8ebb9176839edb335f01e16c893a0b9",
+          "rawAudioSha256": "488f650cdc95984399d587dd777a303393df19c8f4c6d06a240bd63f8688212b",
+          "sourceSignal": {
+            "durationSeconds": 1.714333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -10.8317,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.714333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.864333
+        }
+      ],
+      "text": "digestive",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "energy": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "energy",
+      "textSha256": "381cfb6e1e428419d5d6b5d113be06a9023d6407ebe388791ec3d59100d87ec5",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/energy.mp3",
+      "audioSha256": "c3f46c5caeb9efa485a7f481e5f2d9790c67ac8bd86dbbea8897c0ccf6158826",
+      "durationSeconds": 1.994333,
+      "signal": {
+        "durationSeconds": 1.994333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -2.9544,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.46,
+        "truePeakDbtp": -2.94,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-energy-01",
+          "speaker": "narrator",
+          "text": "energy",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "36c9f12b0d265b262fa91bf6799bd5e5535a906748f0e2f63a5e66a8b4f02098",
+          "rawAudioSha256": "acb6f5491e6c5aae74a1e7ddac21637d70411994caf44a52c34c365918ca025a",
+          "sourceSignal": {
+            "durationSeconds": 1.594333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -9.8267,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.594333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.744333
+        }
+      ],
+      "text": "energy",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "enzymes": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "enzymes",
+      "textSha256": "3837055ebe132776a12bf738766593f3dc4e189082efc97a2d31a69d15d609e3",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/enzymes.mp3",
+      "audioSha256": "ec718a62d1eaaaf0b598532fc245382c9f5c31f8032a0c94ca678340d63e7b29",
+      "durationSeconds": 1.234333,
+      "signal": {
+        "durationSeconds": 1.234333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -6.019,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.44,
+        "truePeakDbtp": -6.02,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-enzymes-01",
+          "speaker": "narrator",
+          "text": "enzymes",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "05999cc50c7bdeb81acd70a9787bd21ad1faf9b8538a3281c10980135e35d741",
+          "rawAudioSha256": "ffecf521bc874c2fdc7682aa7f10e11552af9b10dfe7ad5bec5e5a1c5f79ba19",
+          "sourceSignal": {
+            "durationSeconds": 0.834333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -4.0022,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.834333,
+          "startSeconds": 0.15,
+          "endSeconds": 0.984333
+        }
+      ],
+      "text": "enzymes",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "esophagus": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "esophagus",
+      "textSha256": "508467d08735632203b11f71c9fb6ae1572e3414d2cdc0264313a9577e8ac83d",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/esophagus.mp3",
+      "audioSha256": "f1f92f5a3da88575d567ed900fa76dc5e68e9c509c71b0382c3f2c466449a567",
+      "durationSeconds": 2.794333,
+      "signal": {
+        "durationSeconds": 2.794333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -4.5803,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.46,
+        "truePeakDbtp": -4.57,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-esophagus-01",
+          "speaker": "narrator",
+          "text": "esophagus",
+          "synthesisText": "esophagus",
+          "customPronunciations": {
+            "pronunciations": [
+              {
+                "phrase": "esophagus",
+                "phoneticEncoding": "PHONETIC_ENCODING_IPA",
+                "pronunciation": "ɪˈsɑfəɡəs"
+              }
+            ]
+          },
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "c1a2855db9995f1ba78a0f3c1957bb8d15ab84a4543133aeae620b0bbb17b46d",
+          "rawAudioSha256": "80d647a4a48e1c4fa90e74459663a70131d6ed0efda2de1241cba8e092cd9983",
+          "sourceSignal": {
+            "durationSeconds": 2.394333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -7.9437,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 2.394333,
+          "startSeconds": 0.15,
+          "endSeconds": 2.544333
+        }
+      ],
+      "text": "esophagus",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "fats": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "fats",
+      "textSha256": "e40e994378c01bc3bfa07fdba524fd1386c6c4542c151234917f65fc119f9a80",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/fats.mp3",
+      "audioSha256": "ff6310543a634439eea3ab2a52c99a869e00008e41e57e700768e8a780afd191",
+      "durationSeconds": 1.314333,
+      "signal": {
+        "durationSeconds": 1.314333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -9.1299,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.43,
+        "truePeakDbtp": -9.1,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-fats-01",
+          "speaker": "narrator",
+          "text": "fats",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "cb56951daa3f9c79ef894186148bbd8572cd05f0c3f721b90cdbee28fbc212ae",
+          "rawAudioSha256": "b53c95cbe0ff6cdfb41d73bb0ab2438cafe2f5a1fe46b1a8effda5cd4bdfca6b",
+          "sourceSignal": {
+            "durationSeconds": 0.914333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -8.0609,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.914333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.064333
+        }
+      ],
+      "text": "fats",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "gulp": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "gulp",
+      "textSha256": "3d7a4d229da48a5168c38ae7c9481d90654c540d6e389128f5d567d76d12ff78",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/gulp.mp3",
+      "audioSha256": "86bbe32c319975c9dd8e94164059aa8bbe982cf40a46577256ded0b7f7f9d9b9",
+      "durationSeconds": 1.514333,
+      "signal": {
+        "durationSeconds": 1.514333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -6.9173,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.45,
+        "truePeakDbtp": -6.91,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-gulp-01",
+          "speaker": "narrator",
+          "text": "gulp",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "a2288e210f7e7daac3bd5d09ed5810001efec9bac7448dd51e6ec96901d42546",
+          "rawAudioSha256": "5d95e0f14dfb741c3057061ffb475a51214afa2baf18e1d7c566792f181edddc",
+          "sourceSignal": {
+            "durationSeconds": 1.114333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -5.9393,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.114333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.264333
+        }
+      ],
+      "text": "gulp",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "inner": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "inner",
+      "textSha256": "33bf6fbd7cd8379785a21e233d8e09f824e7bab459168a96312c1c882c1d7e1f",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/inner.mp3",
+      "audioSha256": "66792c92404e0deb857fcc2c88dab2bca2902a4e6d7660c3cd0cc21ea2ef2304",
+      "durationSeconds": 1.114333,
+      "signal": {
+        "durationSeconds": 1.114333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -8.0999,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.44,
+        "truePeakDbtp": -8.07,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-inner-01",
+          "speaker": "narrator",
+          "text": "inner",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "322a80827ee68e212deef850739e73f0b3a38ff5572b390790126d47d4b1c140",
+          "rawAudioSha256": "99f74b245bdddcc23d96eaaa1f16c28dc9948d4e538ed905e5dcef89e5dcae33",
+          "sourceSignal": {
+            "durationSeconds": 0.714333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -15.6611,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.714333,
+          "startSeconds": 0.15,
+          "endSeconds": 0.864333
+        }
+      ],
+      "text": "inner",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "intestine": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "intestine",
+      "textSha256": "b60edd51282489d6a78449c500547e5c6796a60ed538076981a58989091b1bd9",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/intestine.mp3",
+      "audioSha256": "4aa2522cc2b91a8e3689fad01e68587a849fa16363abd3f367b9dbeae08764e7",
+      "durationSeconds": 1.994333,
+      "signal": {
+        "durationSeconds": 1.994333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -7.7851,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.43,
+        "truePeakDbtp": -7.79,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-intestine-01",
+          "speaker": "narrator",
+          "text": "intestine",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "50c0e650ae6fe43c609beff8eb30f4eaf186a189313ec180f19986812716dc68",
+          "rawAudioSha256": "734a013f41c25805073aa91f66e0c452278e6cbf3c099aaf2321ad0857550312",
+          "sourceSignal": {
+            "durationSeconds": 1.594333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -10.0734,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.594333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.744333
+        }
+      ],
+      "text": "intestine",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "intestine's": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "intestine's",
+      "textSha256": "af32b437674cfd496751250b86ca3b46b6424e7814585121af752aea2921ec2c",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/intestine-s.mp3",
+      "audioSha256": "0366ac2bf34c749c91bf1052b6d8a3509f1533189655e11f4f35611dca9cd14f",
+      "durationSeconds": 2.394333,
+      "signal": {
+        "durationSeconds": 2.394333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -7.9981,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.44,
+        "truePeakDbtp": -7.99,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-intestine-s-01",
+          "speaker": "narrator",
+          "text": "intestine's",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "a51a2494d147ecc4d857beb5a7486f24f22bc64d7d5c63f3c3d5238d09b89f5b",
+          "rawAudioSha256": "2d1e885c1d1060504a3cb3595620714ee6e6328964c12c56b7b0a402171255ef",
+          "sourceSignal": {
+            "durationSeconds": 1.994333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -14.4151,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.994333,
+          "startSeconds": 0.15,
+          "endSeconds": 2.144333
+        }
+      ],
+      "text": "intestine's",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "juices": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "juices",
+      "textSha256": "d899f657faf8cf91bf8d7bad2d78c05df2b9cfdc20cb59da0bf40a189c79f1bb",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/juices.mp3",
+      "audioSha256": "61a3beb5932b015b8d53660c6dfe8f0a0b7af3022118066e4febcf09ce7b07ff",
+      "durationSeconds": 1.994333,
+      "signal": {
+        "durationSeconds": 1.994333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -7.9411,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.41,
+        "truePeakDbtp": -7.94,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-juices-01",
+          "speaker": "narrator",
+          "text": "juices",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "79c0a88b1273bd2cf43c5f2a230cc364e5dbf3a45f4fc6bd126c8f9015303c49",
+          "rawAudioSha256": "b12544966ff6b9a60e3f39f8d4c21d687b27cf5ac1c257bf5db85a73a25e7ceb",
+          "sourceSignal": {
+            "durationSeconds": 1.594333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -11.0078,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.594333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.744333
+        }
+      ],
+      "text": "juices",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "leftovers": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "leftovers",
+      "textSha256": "85b0a22b31b50106b03e3a1d20c752817e00cbfdf7b803b6e558f624de1fa95c",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/leftovers.mp3",
+      "audioSha256": "f103599258f802153343294926af5b84408076399421ff87c4b81c5ff0669bb2",
+      "durationSeconds": 1.474333,
+      "signal": {
+        "durationSeconds": 1.474333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -7.1134,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.43,
+        "truePeakDbtp": -7.11,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-leftovers-01",
+          "speaker": "narrator",
+          "text": "leftovers",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "bc8da34d210f7547a4a48bef784c96d8c4e368c5778c70e3340cbedc8ca304ec",
+          "rawAudioSha256": "309978e7b2e2d92aa42f7880e8444bd8c395a43659deb600280bf936da25749e",
+          "sourceSignal": {
+            "durationSeconds": 1.074333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -9.7775,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.074333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.224333
+        }
+      ],
+      "text": "leftovers",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "lining": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "lining",
+      "textSha256": "2eec533c3767f8d10182ca8f1c9366b7f405444a8b083e631e61c966aef8314d",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/lining.mp3",
+      "audioSha256": "a77cefdda4b76ba32926d316eea4ace30b3dc49267799d8f8ed0699e206c5789",
+      "durationSeconds": 1.154333,
+      "signal": {
+        "durationSeconds": 1.154333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -10.5432,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.47,
+        "truePeakDbtp": -10.54,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-lining-01",
+          "speaker": "narrator",
+          "text": "lining",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "3d876b2288e197e7a871a024c9f36d29573b0af196dcbb58c3381d431be83b78",
+          "rawAudioSha256": "84fa2b675062220070ac3a231dc09e5308449ed5737c79c149344aacddf7b14f",
+          "sourceSignal": {
+            "durationSeconds": 0.754333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -11.0408,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.754333,
+          "startSeconds": 0.15,
+          "endSeconds": 0.904333
+        }
+      ],
+      "text": "lining",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "liver": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "liver",
+      "textSha256": "ebaf48a9725795ea8b3a5e458be64fd1be59d9e8d35141a6bb698ad98c1a0641",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/liver.mp3",
+      "audioSha256": "02009bf1adf1a29f341c8d437de727836c697f3b14cfa45c05c637031defb943",
+      "durationSeconds": 1.074333,
+      "signal": {
+        "durationSeconds": 1.074333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -7.3129,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.44,
+        "truePeakDbtp": -7.31,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-liver-01",
+          "speaker": "narrator",
+          "text": "liver",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "395d0118b7b57343a89de7242c26ebbdba454fba240a072fe38be6fd66433fb0",
+          "rawAudioSha256": "dd94848c10ac0acb6a5c5cb66cc1c4693dc43801a27ba57b86e699bd032cbfb8",
+          "sourceSignal": {
+            "durationSeconds": 0.674333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -9.96,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.674333,
+          "startSeconds": 0.15,
+          "endSeconds": 0.824333
+        }
+      ],
+      "text": "liver",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "looping": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "looping",
+      "textSha256": "2327634a27d2be615ce55d05e684dbb06020ab60eb92218d80cb328af761e034",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/looping.mp3",
+      "audioSha256": "7cc3e6fb16868b936253d9f54037dbe969a78f338144af94bbdbd058e3ce7e0f",
+      "durationSeconds": 1.234333,
+      "signal": {
+        "durationSeconds": 1.234333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -8.5236,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.44,
+        "truePeakDbtp": -8.52,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-looping-01",
+          "speaker": "narrator",
+          "text": "looping",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "74ed97b66a8ff21ca46783d1fc73b6e273ff459f8852b607a45c2469adc5da7e",
+          "rawAudioSha256": "5b829eb2a3494926a639c707b471758d87a8a4188f7a969060f5e58efb9d2dc2",
+          "sourceSignal": {
+            "durationSeconds": 0.834333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -11.5366,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.834333,
+          "startSeconds": 0.15,
+          "endSeconds": 0.984333
+        }
+      ],
+      "text": "looping",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "mixed": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "mixed",
+      "textSha256": "3f8fee624f43b2a9d685353269a0ab3eac785863ab6227636db1060fba1855e0",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/mixed.mp3",
+      "audioSha256": "852eddd1cb6e641ddc7500a5b3940a0fbe2c33ac5cdcfddd050d292b131d0505",
+      "durationSeconds": 1.674333,
+      "signal": {
+        "durationSeconds": 1.674333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -7.0667,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.43,
+        "truePeakDbtp": -7.06,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-mixed-01",
+          "speaker": "narrator",
+          "text": "mixed",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "e6261c4effbe48f76253692030c925f937bbed68740f6389f7a3e268e563b215",
+          "rawAudioSha256": "4f61ed4307742ee7471c529146be184a53c6e5135856a070ebcb92bc40352987",
+          "sourceSignal": {
+            "durationSeconds": 1.274333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -11.0682,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.274333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.424333
+        }
+      ],
+      "text": "mixed",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "mouthful": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "mouthful",
+      "textSha256": "4573a079408f3bd84305b8e3d408b8120a7ff1331eea0e85e8531dcaaf1b32a6",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/mouthful.mp3",
+      "audioSha256": "e07b09ea7b210370485733e93fec1fe40948ceded0de1e68d7647a10326d7d56",
+      "durationSeconds": 1.634333,
+      "signal": {
+        "durationSeconds": 1.634333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -7.945,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.44,
+        "truePeakDbtp": -7.95,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-mouthful-01",
+          "speaker": "narrator",
+          "text": "mouthful",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "e89c80cac40088d65876d6fbec8f9e6a7b3d9bacc52dff327d7fa35b43a6983d",
+          "rawAudioSha256": "e0f2556778c0973f84f4c311b174dddda23666228f99ad33b38b067fba89d86d",
+          "sourceSignal": {
+            "durationSeconds": 1.234333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -9.5057,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.234333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.384333
+        }
+      ],
+      "text": "mouthful",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "narrower": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "narrower",
+      "textSha256": "1e587b17d941bf5d64a24a48222dfe0ba90c846b4fdc4a836013606d0cab5b1a",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/narrower.mp3",
+      "audioSha256": "562eaf04f55b54f80cf15a62fc53e021b0820b7a2446c339a24bf3819bebe876",
+      "durationSeconds": 1.234333,
+      "signal": {
+        "durationSeconds": 1.234333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -10.0438,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.42,
+        "truePeakDbtp": -10.04,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-narrower-01",
+          "speaker": "narrator",
+          "text": "narrower",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "0b4c92a7f330ac5f8bd777b4a22d31689a12adfe100cdeb65ba9417f2476db43",
+          "rawAudioSha256": "70b62d7eca50ae5c9bf6651b4a1ca3053060a6a15ff66d202825cd411289e7b7",
+          "sourceSignal": {
+            "durationSeconds": 0.834333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -6.18,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.834333,
+          "startSeconds": 0.15,
+          "endSeconds": 0.984333
+        }
+      ],
+      "text": "narrower",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "noseprint": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "noseprint",
+      "textSha256": "8a9e2a39ca4f233ebd9179bfab22b982c255d4bfdea470a07778333f4f0b0e57",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/noseprint.mp3",
+      "audioSha256": "6c69a6351a31d28ed94560ff374e97ec24b2a4c2efbbe7fcfb3dce4ab63c19c4",
+      "durationSeconds": 1.674333,
+      "signal": {
+        "durationSeconds": 1.674333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -8.4954,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.42,
+        "truePeakDbtp": -8.49,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-noseprint-01",
+          "speaker": "narrator",
+          "text": "noseprint",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "f72fa4117bf933e50056e82741ba3958d79883221cda28f6974ab1a3d0fc809d",
+          "rawAudioSha256": "db8f43e288fc6f729f99f3a0608015d337e3c922716880fe157a135eb1b1016e",
+          "sourceSignal": {
+            "durationSeconds": 1.274333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -11.6039,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.274333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.424333
+        }
+      ],
+      "text": "noseprint",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "pancreas": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "pancreas",
+      "textSha256": "621d755b345dc16a5bf46bc81a640646d9d8432179d15ad181cbb80bf38c22f3",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/pancreas.mp3",
+      "audioSha256": "0414bf9db06b9e7577c6fb157fa07322d0399e82e438cc85283f4cec6e760998",
+      "durationSeconds": 1.354333,
+      "signal": {
+        "durationSeconds": 1.354333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -6.386,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.45,
+        "truePeakDbtp": -6.38,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-pancreas-01",
+          "speaker": "narrator",
+          "text": "pancreas",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "5ade952160b8d4ab898508273cd5b73a7ec0b571e783308f99ead069ac31cda9",
+          "rawAudioSha256": "e51a72b9b9cb2165c6473f2b791a2d42d0f033c006c4dfb5489f46708886aef2",
+          "sourceSignal": {
+            "durationSeconds": 0.954333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -7.42,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.954333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.104333
+        }
+      ],
+      "text": "pancreas",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "pffft": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "pffft",
+      "textSha256": "7fd2e09b9e362ece70e60489dd8a082ea6118cbdae94a7866e9617c3deab0939",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/pffft.mp3",
+      "audioSha256": "92a19becaada452176d99c2f8299d3c9346fdd338de6dae3c0cb74cabbcf366b",
+      "durationSeconds": 1.331167,
+      "signal": {
+        "durationSeconds": 1.331167,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -9.351,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.4,
+        "truePeakDbtp": -8.94,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-pffft-01",
+          "speaker": "MEADOW-MUDDY",
+          "text": "pffft",
+          "synthesisText": "Pffft!",
+          "voice": "Algieba",
+          "engine": "gemini-2.5-pro-tts",
+          "languageCode": "en-GB",
+          "requestSha256": "e23c2f1565f3f07f6483351c0332333a841f78a926791d2af4ecd4e4f905a932",
+          "rawAudioSha256": "f328a8559aa23a9db604230b06fefda2e7db249a1d35127c55cb41629b24a2bb",
+          "sourceSignal": {
+            "durationSeconds": 1.051167,
+            "sampleRate": 48000,
+            "channels": 1,
+            "peakDbfs": -4.487,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.12,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.931167,
+          "startSeconds": 0.15,
+          "endSeconds": 1.081167
+        }
+      ],
+      "text": "pffft",
+      "voice": "Algieba",
+      "engine": "gemini-2.5-pro-tts",
+      "kind": "character-sound-replay",
+      "speaker": "MEADOW-MUDDY",
+      "reusedFrom": {
+        "pageNumber": 10,
+        "segmentId": "page-10-02",
+        "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/page-10.mp3",
+        "audioSha256": "71ca47cea7908ce5a53b0d1e57770e777a6d07294848b7aaeecf7b0e6e9fdb9a",
+        "startSeconds": 7.49,
+        "durationSeconds": 0.931167
+      },
+      "reason": "The printed onomatopoeia replays Muddy's exact clean raspberry. Leda letter-name spelling is rejected; this exception applies only to pffft."
+    },
+    "poop": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "poop",
+      "textSha256": "12e90b8e74f20fc0a7274cff9fcbae14592db12292757f1ea0d7503d30799fd2",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/poop.mp3",
+      "audioSha256": "ed84881321c55fc1075d8fe13e45a1d09446dfe256aea06059bd96f97393aff2",
+      "durationSeconds": 0.834333,
+      "signal": {
+        "durationSeconds": 0.834333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -8.1865,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.41,
+        "truePeakDbtp": -8.18,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-poop-01",
+          "speaker": "narrator",
+          "text": "poop",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "d2a616ce6f02a79e0002a9d2bb5032d41409f2b8b2f57cce0d60cf10d3a3415d",
+          "rawAudioSha256": "382cb35debbd514d06489037c2c6385c3d4024d3e409bf3e73cc95b54da3c8b3",
+          "sourceSignal": {
+            "durationSeconds": 0.434333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -12.0126,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.434333,
+          "startSeconds": 0.15,
+          "endSeconds": 0.584333
+        }
+      ],
+      "text": "poop",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "power": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "power",
+      "textSha256": "07d715edb696fb5f628f7298e5d7217ed4d2bdfc5347a1c55fee30832267f21d",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/power.mp3",
+      "audioSha256": "cc310a1b24ac6c5b31ce1bc307de53276136a027d64107098be4548062175742",
+      "durationSeconds": 1.154333,
+      "signal": {
+        "durationSeconds": 1.154333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -6.145,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.46,
+        "truePeakDbtp": -6.15,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-power-01",
+          "speaker": "narrator",
+          "text": "power",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "b37ae47f3a4b27ca68161140933008883e0b185154bb59f6bce8a0417a4744a6",
+          "rawAudioSha256": "8494abc1e6dd5c51ef0e8db08742c4fc0d6d8a34f6fb66869b94a7e5bd45e360",
+          "sourceSignal": {
+            "durationSeconds": 0.754333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -6.9869,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.754333,
+          "startSeconds": 0.15,
+          "endSeconds": 0.904333
+        }
+      ],
+      "text": "power",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "rectum": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "rectum",
+      "textSha256": "fdca9cb0db1db5978e84a4e8c8c0e8bf21e85642a0792082e1a0de2ad8685459",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/rectum.mp3",
+      "audioSha256": "7ae297af2fd6de7380381458e58869eee683d9f9757f3cd182383b1254832041",
+      "durationSeconds": 1.594333,
+      "signal": {
+        "durationSeconds": 1.594333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -3.2311,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.41,
+        "truePeakDbtp": -3.23,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-rectum-01",
+          "speaker": "narrator",
+          "text": "rectum",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "2f41ee842a7a392d00c9f35b1e9ad4945386dc59614dd09698340888bb64ec29",
+          "rawAudioSha256": "6e933b311a2fa7eb64fefbc805e384b111bc158efe542ed60ad5ce9779e9913a",
+          "sourceSignal": {
+            "durationSeconds": 1.194333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -8.3548,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.194333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.344333
+        }
+      ],
+      "text": "rectum",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "repairs": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "repairs",
+      "textSha256": "4ed0c6667e3403a8e10aa60ac6c5ed6ab21ea3a064137ccad775d81277af3b64",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/repairs.mp3",
+      "audioSha256": "41d9913644eefd15ca40e535f04787aca830c6284f904fa398eecf5159e7a0d2",
+      "durationSeconds": 2.314333,
+      "signal": {
+        "durationSeconds": 2.314333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -8.4252,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.45,
+        "truePeakDbtp": -8.4,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-repairs-01",
+          "speaker": "narrator",
+          "text": "repairs",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "900ef99c7464654d317a138ae22a278d67cab8395e5833c359f95452c8f424ec",
+          "rawAudioSha256": "aa4f1dc26294d4ca6c5f35f7ad5cfefd795e12f4a73fdac4038a91a1fc49b77a",
+          "sourceSignal": {
+            "durationSeconds": 1.914333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -15.6402,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.914333,
+          "startSeconds": 0.15,
+          "endSeconds": 2.064333
+        }
+      ],
+      "text": "repairs",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "saliva": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "saliva",
+      "textSha256": "020ffaad0678c8d6ade519ec5505ce682530a010e23865bbf9d226918b606569",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/saliva.mp3",
+      "audioSha256": "5d9790aedd02fa4278b98450e660c6671191fd702d2b6c37c2a5ee69970a772f",
+      "durationSeconds": 1.354333,
+      "signal": {
+        "durationSeconds": 1.354333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -4.6037,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.44,
+        "truePeakDbtp": -4.6,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-saliva-01",
+          "speaker": "narrator",
+          "text": "saliva",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "a33b9529fcaed3e6be1349222f15b8977f42be7e9a80db07317e0349fe004480",
+          "rawAudioSha256": "b1a494daa4c2823c4ce67de17636d1a03e6de3680e0df8e0fad163070fa5a9c3",
+          "sourceSignal": {
+            "durationSeconds": 0.954333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -9.0064,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.954333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.104333
+        }
+      ],
+      "text": "saliva",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "slimy": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "slimy",
+      "textSha256": "daf19a6fc33eb19cdb286fbe1dc3777f1e16ca806568de7afc32c6e689114f40",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/slimy.mp3",
+      "audioSha256": "39e8ed0617a49d528d57efb7cbd370300b1d3fb45d20790104386dd85ef50abc",
+      "durationSeconds": 1.394333,
+      "signal": {
+        "durationSeconds": 1.394333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -8.2542,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.49,
+        "truePeakDbtp": -8.23,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-slimy-01",
+          "speaker": "narrator",
+          "text": "slimy",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "0698e2a0c8ee65be29c49ed33c05a9e9e3e4168ad7efa9ef106667a932b23a66",
+          "rawAudioSha256": "2db62775f52f93d9b91488bd9c112c5bf58cdb2cf75758ddcc3d0b157091e927",
+          "sourceSignal": {
+            "durationSeconds": 0.994333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -8.5541,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.994333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.144333
+        }
+      ],
+      "text": "slimy",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "spit": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "spit",
+      "textSha256": "3a7647a8e327e8e462cc2262b3369a57dbd51f37136656ba9504b45de2378c92",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/spit.mp3",
+      "audioSha256": "23ce0abed68396c2d23897526cbbe091f54eedce9504f6607d1da29b7f72e49a",
+      "durationSeconds": 1.074333,
+      "signal": {
+        "durationSeconds": 1.074333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -5.1085,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.46,
+        "truePeakDbtp": -5.11,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-spit-01",
+          "speaker": "narrator",
+          "text": "spit",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "8cad145ef6434a6812d838d1b268d251f4ef9817fb8f9cd475177be0ecfbb595",
+          "rawAudioSha256": "27992bebe998d1a0bbeacebc3c23b3aa29d0e15b45779d26763c1b3bceabd174",
+          "sourceSignal": {
+            "durationSeconds": 0.674333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -9.089,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.674333,
+          "startSeconds": 0.15,
+          "endSeconds": 0.824333
+        }
+      ],
+      "text": "spit",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "splashy's": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "splashy's",
+      "textSha256": "bcf00a869eae33b9c9bc750d91995e44031ec1a85e55b4f4ff0192aebf734b02",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/splashy-s.mp3",
+      "audioSha256": "9a869e2f5488914a3a2f69cebedc6fbf5f399ea50adffbd0946dbfa4b1c6815d",
+      "durationSeconds": 1.634333,
+      "signal": {
+        "durationSeconds": 1.634333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -6.5085,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.45,
+        "truePeakDbtp": -6.49,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-splashy-s-01",
+          "speaker": "narrator",
+          "text": "splashy's",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "12c4a65b70facd50b93febd1006d367619950360e710e415ff64569b0f824e20",
+          "rawAudioSha256": "f6ca47c2e510c6645fcfbe98affe38e5ae1ff953d52f52b233f8932d98d8aab7",
+          "sourceSignal": {
+            "durationSeconds": 1.234333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -7.5196,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.234333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.384333
+        }
+      ],
+      "text": "splashy's",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "squeeze": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "squeeze",
+      "textSha256": "b11833a4396b84cb8262131881463ac91b52adbe0364da7678beedbf702a6408",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/squeeze.mp3",
+      "audioSha256": "cb427df93e492435d1bd15e71986e2aecfad9d09c6826eade5e198effc55867b",
+      "durationSeconds": 1.354333,
+      "signal": {
+        "durationSeconds": 1.354333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -10.2131,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.45,
+        "truePeakDbtp": -10.2,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-squeeze-01",
+          "speaker": "narrator",
+          "text": "squeeze",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "203741e1aafbefa00fe88876cad9f8db7639c2cc870faa627c54876e365dfc27",
+          "rawAudioSha256": "1714295ff5cf636c4f5ec76dbc613f81c781bda0d93138bfeb3a9c2ea4ca3ce1",
+          "sourceSignal": {
+            "durationSeconds": 0.954333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -10.9179,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.954333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.104333
+        }
+      ],
+      "text": "squeeze",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "squeezer": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "squeezer",
+      "textSha256": "aef010ec559c817a738f3b86554d04ff3962635d3d47020fc9a4516dba38367e",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/squeezer.mp3",
+      "audioSha256": "b62214ce7ac62143a3209f9bdd38d533e7212e4d159c4cf7957f6ae8496fe0d3",
+      "durationSeconds": 1.354333,
+      "signal": {
+        "durationSeconds": 1.354333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -7.1056,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.44,
+        "truePeakDbtp": -7.1,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-squeezer-01",
+          "speaker": "narrator",
+          "text": "squeezer",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "7e0fa4f60ed6c80694be9858a30cd88ab0047f07075ec4bd6e160ed58aa0681c",
+          "rawAudioSha256": "e178291e1e6c243192fbf56ef3939be99cc3ff9f4ce0b879ab706a50981b4586",
+          "sourceSignal": {
+            "durationSeconds": 0.954333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -10.2605,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.954333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.104333
+        }
+      ],
+      "text": "squeezer",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "squelch": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "squelch",
+      "textSha256": "42990eed6ba20fd926774cfc7d130334a6e181bc70365d317e1ff4daca605c1b",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/squelch.mp3",
+      "audioSha256": "738b52d2a56cb3620487ba36ebdcc51d920ad07c4a04a4850a3acd999555e03c",
+      "durationSeconds": 1.994333,
+      "signal": {
+        "durationSeconds": 1.994333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -3.6821,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.45,
+        "truePeakDbtp": -3.68,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-squelch-01",
+          "speaker": "narrator",
+          "text": "squelch",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "8a8129f6a62ea30dd423f6d4e79d1f26bcae4855a9471d57606dc9d7213fc52d",
+          "rawAudioSha256": "bb3d13244579ac7723587792aa27b7d6926e873007de43cac43f7efd5ecbcaac",
+          "sourceSignal": {
+            "durationSeconds": 1.594333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -6.7953,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.594333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.744333
+        }
+      ],
+      "text": "squelch",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "starch": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "starch",
+      "textSha256": "3fa9a2637744b91b15a5c0c47857b6e1351e640cfffa96183b187cadd7980d49",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/starch.mp3",
+      "audioSha256": "b1107e3fbe104338ee47c071b3765ab72e36d7581b48aa57ca694be3c829ae92",
+      "durationSeconds": 1.314333,
+      "signal": {
+        "durationSeconds": 1.314333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -6.0919,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.42,
+        "truePeakDbtp": -6.08,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-starch-01",
+          "speaker": "narrator",
+          "text": "starch",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "9cd3cbbf6a9f9c03eb4345116c836209b33145b11fbfddadff399def61a6c722",
+          "rawAudioSha256": "f56b388a7b9f9d6f38843ad62f2e1ad8da2c86af22f0452a471eeae19731d5a3",
+          "sourceSignal": {
+            "durationSeconds": 0.914333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -11.7503,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.914333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.064333
+        }
+      ],
+      "text": "starch",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "teamwork": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "teamwork",
+      "textSha256": "9d9a67a66df1a0220ff159e55c68492b5d41f7c821c58337f939f292dacf2c78",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/teamwork.mp3",
+      "audioSha256": "06802af3465cf6df7b0331c25fd6108081b264b998eeb6993816af275fcf5d4a",
+      "durationSeconds": 1.314333,
+      "signal": {
+        "durationSeconds": 1.314333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -12.2962,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.5,
+        "truePeakDbtp": -12.26,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-teamwork-01",
+          "speaker": "narrator",
+          "text": "teamwork",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "8160e8c8694dce07851b6c25f1e8743529d795b8742052e59c1dd0c83b667132",
+          "rawAudioSha256": "97b2ae3cbd64bfed3661f7dd67d0cd075d7a55a76107e6fa583824dc7cb8e51a",
+          "sourceSignal": {
+            "durationSeconds": 0.914333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -10.3805,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 0.914333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.064333
+        }
+      ],
+      "text": "teamwork",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "there's": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "there's",
+      "textSha256": "efa50f2a450e5da158b3e122e143e90cb1982c62172d25b88fe2d1f80db5b322",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/there-s.mp3",
+      "audioSha256": "77cfc785bbd018b06c4c6f1995510e59b983dea3385640db913859bc294ce87f",
+      "durationSeconds": 1.674333,
+      "signal": {
+        "durationSeconds": 1.674333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -8.4637,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.49,
+        "truePeakDbtp": -8.44,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-there-s-01",
+          "speaker": "narrator",
+          "text": "there's",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "3af39fba926600a01c9bcd8f772180d86267678f7f11436801fa29bb47fb7540",
+          "rawAudioSha256": "f373b885db27295ce592c0d4451fc26b9638541aabded6049efd26de686064b9",
+          "sourceSignal": {
+            "durationSeconds": 1.274333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -12.0423,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.274333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.424333
+        }
+      ],
+      "text": "there's",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    },
+    "waste": {
+      "bookId": "meadow-pals-science-01-missing-sandwich",
+      "displayedText": "waste",
+      "textSha256": "0bb5e9329f190a4fa67fbd493b61a9257f35585e460a8be13a50a9cdf1823636",
+      "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/words/waste.mp3",
+      "audioSha256": "aba68d153a7be33858ec33345b7c7aedb0bf2fb04cda27cce4c3c76408ef8f19",
+      "durationSeconds": 1.994333,
+      "signal": {
+        "durationSeconds": 1.994333,
+        "sampleRate": 48000,
+        "channels": 1,
+        "peakDbfs": -7.1883,
+        "clippedSamples": 0,
+        "longestClippedRunSamples": 0,
+        "integratedLufs": -22.45,
+        "truePeakDbtp": -7.19,
+        "loudnessRangeLu": 0.0
+      },
+      "segments": [
+        {
+          "id": "word-waste-01",
+          "speaker": "narrator",
+          "text": "waste",
+          "voice": "en-US-Chirp3-HD-Leda",
+          "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+          "languageCode": "en-US",
+          "requestSha256": "8d966e369ec67769293c86b2f26db324c15bcbfde4ab8d9ccba6f5bcdc7fdb23",
+          "rawAudioSha256": "349d632227ba64672dbff78e3df09562b6360e667929b8ccd7625bccd89f48ba",
+          "sourceSignal": {
+            "durationSeconds": 1.594333,
+            "sampleRate": 24000,
+            "channels": 1,
+            "peakDbfs": -11.7329,
+            "clippedSamples": 0,
+            "longestClippedRunSamples": 0
+          },
+          "trimStartSeconds": 0.0,
+          "trimEndSeconds": 0.0,
+          "durationSeconds": 1.594333,
+          "startSeconds": 0.15,
+          "endSeconds": 1.744333
+        }
+      ],
+      "text": "waste",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+    }
+  },
+  "processing": {
+    "sampleRate": 48000,
+    "channels": 1,
+    "mp3Kbps": 128,
+    "targetIntegratedLufs": -22,
+    "truePeakCeilingDbtp": -2.5,
+    "backgroundMusic": false
+  },
+  "review": {
+    "script": "Every segment reconstructs the exact manuscript in order, excluding only quotation marks and whitespace.",
+    "listening": "Not established by signal or text-hash checks.",
+    "humanApproval": "Not claimed.",
+    "signal": {
+      "filesVerified": 60,
+      "decode": "All final MP3s decoded completely at 48000 Hz mono.",
+      "finalClippedSamples": 0,
+      "pageLoudnessRangeLufs": [
+        -23.08,
+        -22.54
+      ],
+      "sourceNote": "Some original Gemini PCM takes contain isolated full-scale samples, recorded per segment. Final output has measured headroom. Audibility of original sample saturation has not been assessed by direct listening."
+    },
+    "offlineSpeechCheck": {
+      "engine": "faster-whisper",
+      "version": "1.2.1",
+      "model": "Systran/faster-whisper-tiny.en",
+      "modelSnapshot": "0d3d19a32d3338f10357c0889762bd8d64bbdeba",
+      "modelFileSha256": "1a5afae06a4db91c975c9a9d78be5cc110ee4ea022ad57d55492e4550e936b2a",
+      "offline": true,
+      "referencePrompt": null,
+      "filesTranscribed": 60,
+      "exactNormalizedMatches": 36,
+      "filesWithRecognitionDifferences": 24,
+      "reportPath": ".artifacts/digestive-system-storyboard/speech-verification.json",
+      "reportSha256": "a702b7913f5a5f9f7f2f83340b225f384ad43b8e9de5fd301691e8b697dd50f7",
+      "interpretation": "Raw differences remain visible; isolated-word context checks and targeted phrase checks distinguish recognition errors from confirmed extra speech. Names, British pronunciations, science terms and the intentional raspberry remain difficult for the tiny recognizer. No direct listening or human approval is claimed."
+    },
+    "corrections": [
+      {
+        "target": "page-04-04",
+        "action": "Replaced an invented continuation with the exact two-word Food soup phrase; terminal synthesis punctuation closes quoted fragments."
+      },
+      {
+        "target": "page-05-02",
+        "action": "Regenerated the unclear opening SMALL; final full-page offline transcription recognizes Small."
+      },
+      {
+        "target": "page-10-02",
+        "action": "Replaced an added sentence with one 0.93-second Muddy raspberry; no supplied text changed."
+      },
+      {
+        "target": "word-churned",
+        "action": "Used explicit IPA tʃɝnd; final independent isolated transcription recognizes churned."
+      },
+      {
+        "target": "word-esophagus",
+        "action": "Used explicit U.S. English IPA ɪˈsɑfəɡəs for the science word; tiny-model isolated transcription remains phonetic rather than correctly spelled."
+      },
+      {
+        "target": "word-pffft",
+        "action": "Replaced Leda letter-name spelling with the exact clean Muddy raspberry extracted from final page10. This sole word exception has truthful Algieba/Gemini provenance and a regression rejecting it for every other manuscript word."
+      }
+    ]
+  },
+  "title": {
+    "bookId": "meadow-pals-science-01-missing-sandwich",
+    "displayedText": "The Case of the Missing Sandwich. A science story with Muddy and Splashy.",
+    "textSha256": "238bb3023f87af13b9645d9a187bf725200f06c452af472f2bd3ec193fa1506e",
+    "audioPath": "/audio/production/en-US/meadow_science/missing-sandwich/cover.mp3",
+    "audioSha256": "c90c834a747af058efd561857f6998f8c6fa93d862d2dae3b9afcb9f60476ad7",
+    "durationSeconds": 4.4,
+    "signal": {
+      "durationSeconds": 4.4,
+      "sampleRate": 48000,
+      "channels": 1,
+      "peakDbfs": -5.4517,
+      "clippedSamples": 0,
+      "longestClippedRunSamples": 0,
+      "integratedLufs": -21.99,
+      "truePeakDbtp": -5.45,
+      "loudnessRangeLu": 0.9
+    },
+    "segments": [
+      {
+        "id": "cover-01",
+        "speaker": "narrator",
+        "text": "The Case of the Missing Sandwich. A science story with Muddy and Splashy.",
+        "voice": "en-US-Chirp3-HD-Leda",
+        "engine": "Google Cloud Text-to-Speech Chirp 3 HD",
+        "languageCode": "en-US",
+        "requestSha256": "55e8ffe3f8188c83c6fdb40c28eb5f5fd988a9091a562278f0e8ff3a78ba3cc7",
+        "rawAudioSha256": "5457c4e97b330a5bffeaf17995ca323aef7d3fa64639d94067b773121eac778c",
+        "sourceSignal": {
+          "durationSeconds": 4.0,
+          "sampleRate": 24000,
+          "channels": 1,
+          "peakDbfs": -8.1309,
+          "clippedSamples": 0,
+          "longestClippedRunSamples": 0
+        },
+        "trimStartSeconds": 0.0,
+        "trimEndSeconds": 0.0,
+        "durationSeconds": 4.0,
+        "startSeconds": 0.15,
+        "endSeconds": 4.15
+      }
+    ],
+    "voice": "en-US-Chirp3-HD-Leda",
+    "engine": "Google Cloud Text-to-Speech Chirp 3 HD"
+  },
+  "manuscriptSha256": "b97697df8934aad99323939f7569cff512edad205b2daabfefc91bce9ca7d858",
+  "updatedAt": "2026-09-13T10:29:37.800508+00:00"
+}

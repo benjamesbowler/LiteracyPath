@@ -17,7 +17,18 @@ const CHILD_MODE_COPY = Object.freeze({
   "supported-read-together": "Together"
 });
 
+export const SHARED_READ_ALOUD_LEVEL = "READ_ALOUD";
+
+export function isSharedReadAloudBook(book = {}) {
+  return book.level === SHARED_READ_ALOUD_LEVEL && book.readingBandProfile === "read-aloud";
+}
+
+export function guidedReadingLevelLabel(level = "") {
+  return level === SHARED_READ_ALOUD_LEVEL ? "Read Together" : `Level ${level || "?"}`;
+}
+
 export function guidedReadingBandLabel(profile, level = "") {
+  if (profile === "read-aloud") return "Read Together";
   const normalizedLevel = String(level).trim().toUpperCase();
   if (profile === "extended") {
     return normalizedLevel === "C"

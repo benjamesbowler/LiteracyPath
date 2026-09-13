@@ -263,8 +263,8 @@ export function buildBookShelves({
 
   const first = shelf(
     "just-right",
-    "Just right for you",
-    `Level ${level}`,
+    level === "READ_ALOUD" ? "Read Together" : "Just right for you",
+    level === "READ_ALOUD" ? "Listen and read with a grown-up" : `Level ${level}`,
     "rgba(111, 179, 95, .85)",
     justRightPool,
     justRightPage
@@ -280,7 +280,7 @@ export function buildBookShelves({
     shelf(
       finished.length ? "read-again" : "more-books",
       finished.length ? "Read it again" : "More to try",
-      finished.length ? "Books you finished" : `Level ${level}`,
+      finished.length ? "Books you finished" : level === "READ_ALOUD" ? "Stories to share" : `Level ${level}`,
       finished.length ? "rgba(142, 201, 232, .9)" : "rgba(191, 227, 216, .85)",
       secondPool,
       readAgainPage

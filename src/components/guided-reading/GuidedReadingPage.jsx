@@ -26,7 +26,9 @@ import {
   getGuidedReadingWordProductionAudioPath,
   getGuidedReadingBookSyncPath,
   getGuidedReadingReadAloudState,
-  getGuidedReadingPageAudioPath
+  getGuidedReadingPageAudioPath,
+  splitGuidedReadingParagraphs,
+  splitGuidedReadingSentences as sentenceParts
 } from "../../utils/guidedReading/readAloudPolicy.js";
 import {
   DECODING_SUPPORT_STAGES,
@@ -39,6 +41,7 @@ import { applyLearnerAudioIntensity } from "../../accessibility/learnerAccessibi
 import { getGuidedReadingMeasure } from "../../policy/guidedReadingMeasure.js";
 import {
   guidedReadingBandLabel,
+  guidedReadingLevelLabel,
   guidedReadingModeLabel,
   splitLevelCBooks
 } from "../../policy/guidedReadingCatalogPolicy.js";
@@ -297,7 +300,7 @@ function GuidedBookCover({ book }) {
       <div className="guided-book-generated-cover" role="img" aria-label={`${book.title} generated cover`}>
         <span>{formatGuidedReadingType(book.type)}</span>
         <strong>{book.title}</strong>
-        <small>Level {book.level}</small>
+        <small>{guidedReadingLevelLabel(book.level)}</small>
       </div>
     );
   }
@@ -329,11 +332,6 @@ function tokenizeReadingText(text = "") {
 
     return { token, index, type: "text", wordIndex: null };
   });
-}
-
-function sentenceParts(text = "") {
-  const matches = String(text || "").match(/[^.!?]+[.!?]*/g) || [];
-  return matches.map(sentence => sentence.trim()).filter(Boolean);
 }
 
 // Word search (teacher library): counts exact, case-insensitive word matches
@@ -477,7 +475,7 @@ async function fetchWholeBookSyncData(book = {}, audioPath = "") {
   }
 }
 
-const guidedReadingLevels = ["A", "B", "C", "D", "E", "F"];
+const guidedReadingLevels = ["A", "B", "C", "D", "E", "F", "READ_ALOUD"];
 
 function guidedReadingLevelRank(level) {
   const index = guidedReadingLevels.indexOf(level);
@@ -788,11 +786,17 @@ export function GuidedReadingPage({
       .filter(Boolean)
   )].slice(0, 3);
   const readingTokens = tokenizeReadingText(page?.text || "");
-  const pageSentences = sentenceParts(page?.text || "");
+  const pageParagraphs = selectedBook?.readingBandProfile === "read-aloud"
+    ? splitGuidedReadingParagraphs(page?.text || "")
+    : [sentenceParts(page?.text || "")];
+  const pageSentenceEntries = pageParagraphs.flatMap((sentences, paragraphIndex) =>
+    sentences.map(sentence => ({ sentence, paragraphIndex })));
+  const pageSentences = pageSentenceEntries.map(entry => entry.sentence);
   let sentenceWordOffset = -1;
   const sentenceTokenGroups = pageSentences.length
-    ? pageSentences.map((sentence, sentenceIndex) => ({
+    ? pageSentenceEntries.map(({ sentence, paragraphIndex }, sentenceIndex) => ({
       sentenceIndex,
+      paragraphIndex,
       tokens: tokenizeReadingText(sentence).map(item => {
         if (item.type !== "word") return item;
         sentenceWordOffset += 1;
@@ -801,8 +805,11 @@ export function GuidedReadingPage({
     }))
     : [{
       sentenceIndex: 0,
+      paragraphIndex: 0,
       tokens: readingTokens
     }];
+  const sentenceParagraphGroups = pageParagraphs.map((_, paragraphIndex) =>
+    sentenceTokenGroups.filter(group => group.paragraphIndex === paragraphIndex));
   const typeCards = ["fiction", "nonfiction"]
     .map(type => getGuidedReadingTypeStats(type, runtimeGuidedReadingBooks))
     .filter(card => card.count > 0);
@@ -2030,7 +2037,7 @@ export function GuidedReadingPage({
         {selectedLibraryLevel && (
           <>
             <span>/</span>
-          <strong>Level {selectedLibraryLevel}</strong>
+          <strong>{guidedReadingLevelLabel(selectedLibraryLevel)}</strong>
           </>
         )}
       </section>
@@ -2041,7 +2048,7 @@ export function GuidedReadingPage({
           <span>Already read</span>
           <div>
             {completedLibraryBooks.map(book => (
-              <button key={book.id} onClick={() => changeBook(book.id)} type="button" title={`${book.title} · Level ${book.level}`}>
+              <button key={book.id} onClick={() => changeBook(book.id)} type="button" title={`${book.title} · ${guidedReadingLevelLabel(book.level)}`}>
                 <GuidedBookCover book={book} />
               </button>
             ))}
@@ -2190,7 +2197,7 @@ export function GuidedReadingPage({
                           {progress.completed && <span className="guided-child-read-tick" aria-label="Already read">✓</span>}
                           <span className="guided-shelf-card-cover"><GuidedBookCover book={book} /></span>
                           <strong>{book.title}</strong>
-                          <small>Level {book.level}{progress.completedPages > 0 && !progress.completed ? ` · ${progress.completedPages}/${book.pages.length} pages` : ""}</small>
+                          <small>{guidedReadingLevelLabel(book.level)}{progress.completedPages > 0 && !progress.completed ? ` · ${progress.completedPages}/${book.pages.length} pages` : ""}</small>
                         </button>
                       );
                     })}
@@ -2234,7 +2241,7 @@ export function GuidedReadingPage({
                       </div>
                       <div className="guided-book-info">
                         <h3 className="guided-book-title">{book.title}</h3>
-                        <p className="guided-book-meta">{book.seriesTitle ? `${book.seriesTitle} \u00b7 ` : ""}{formatGuidedReadingType(book.type)} \u00b7 Level {book.level} \u00b7 {book.pages.length} pages</p>
+                        <p className="guided-book-meta">{book.seriesTitle ? `${book.seriesTitle} \u00b7 ` : ""}{formatGuidedReadingType(book.type)} \u00b7 {guidedReadingLevelLabel(book.level)} \u00b7 {book.pages.length} pages</p>
                         <button
                           className="guided-book-action"
                           onClick={() => changeBook(book.id)}
@@ -2266,7 +2273,7 @@ export function GuidedReadingPage({
                   {card.type === "nonfiction" ? "NF" : "F"}
                 </span>
                 <strong>{card.label}</strong>
-                <small>{card.count} books · Levels {card.levels.join(", ")}</small>
+                <small>{card.count} books · {card.levels.map(guidedReadingLevelLabel).join(", ")}</small>
               </button>
             ))}
           </div>
@@ -2287,7 +2294,7 @@ export function GuidedReadingPage({
                   onClick={() => setSelectedLibraryLevel(level)}
                   type="button"
                 >
-                  <strong>Level {level}</strong>
+                  <strong>{guidedReadingLevelLabel(level)}</strong>
                   <span>{books.length} books</span>
                   <small>{completedCount}/{books.length} completed</small>
                 </button>
@@ -2367,7 +2374,7 @@ export function GuidedReadingPage({
                   <button onClick={() => changeBook(item.book.id)} type="button">
                     <strong>{item.book.title}</strong>
                     <span>
-                      Level {item.book.level} · {formatGuidedReadingType(item.book.type)}
+                      {guidedReadingLevelLabel(item.book.level)} · {formatGuidedReadingType(item.book.type)}
                     </span>
                     <small>{shortReason} {item.reasons[0]}</small>
                   </button>
@@ -2406,12 +2413,13 @@ export function GuidedReadingPage({
           aria-label={`${selectedBook.title} full-screen reader`}
           data-learning-lane="language_and_meaning"
           data-reading-purpose={selectedReadingPurpose?.id || "supported"}
+          data-reading-band-profile={selectedBook.readingBandProfile}
         >
           <div className="guided-reader-card">
             <div className="guided-reader-header">
               <div>
                 <div className="guided-reader-title-row">
-                  {!isStudentMode && <p className="panel-label">{formatGuidedReadingType(selectedBook.type)} · Level {selectedBook.level}</p>}
+                  {!isStudentMode && <p className="panel-label">{formatGuidedReadingType(selectedBook.type)} · {guidedReadingLevelLabel(selectedBook.level)}</p>}
                   {!isStudentMode && !isReviewMode && (
                     <span className="guided-reading-mode-pill compact">Teacher conference</span>
                   )}
@@ -2429,10 +2437,10 @@ export function GuidedReadingPage({
                   )}
                   {isStudentMode && (
                     <>
-                      <span className="guided-child-level-badge">Level {selectedBook.level}</span>
-                      <span className="guided-reading-purpose-badge" data-reading-purpose={selectedReadingPurpose?.id}>
+                      <span className="guided-child-level-badge">{guidedReadingLevelLabel(selectedBook.level)}</span>
+                      {selectedReadingPurpose?.label !== guidedReadingLevelLabel(selectedBook.level) && <span className="guided-reading-purpose-badge" data-reading-purpose={selectedReadingPurpose?.id}>
                         {selectedReadingPurpose?.label || "Read with help"}
-                      </span>
+                      </span>}
                     </>
                   )}
                 </div>
@@ -2553,7 +2561,7 @@ export function GuidedReadingPage({
               </div>
             </div>
 
-            {isStudentMode && canReadWholeBook && !activeGroupSession && buddyStartPage === null && !isReaderFullscreen && (
+            {isStudentMode && selectedBook.readingBandProfile !== "read-aloud" && canReadWholeBook && !activeGroupSession && buddyStartPage === null && !isReaderFullscreen && (
               <section className="buddy-reader-launch" aria-label="Buddy Reader option">
                 <div>
                   <strong>Take turns with Leda</strong>
@@ -2701,7 +2709,9 @@ export function GuidedReadingPage({
                     minFontSize={readingMeasure.minFontSizePx}
                     text={`${selectedBook.id}-${pageIndex}-${page.text || ""}-${readerInteractionMode}-${readingMeasure.templateId}-${isReaderFullscreen ? "fullscreen" : "windowed"}`}
                   >
-                    {sentenceTokenGroups.map(group => (
+                    {sentenceParagraphGroups.map((paragraph, paragraphIndex) => (
+                      <p className="guided-story-paragraph" key={`paragraph-${paragraphIndex}`}>
+                      {paragraph.map(group => (
                       <span
                         className={[
                           "guided-sentence",
@@ -2744,6 +2754,8 @@ export function GuidedReadingPage({
                         })}
                         {" "}
                       </span>
+                      ))}
+                      </p>
                     ))}
                   </AutoFitReadingText>
 

@@ -16,7 +16,7 @@ function publicFile(audioPath) {
   return path.join(repositoryRoot, "public", audioPath);
 }
 
-test("every live Guided Reading page has current Leda narration", async () => {
+test("every live Guided Reading page has current approved narration", async () => {
   const missing = [];
   for (const book of guidedReadingBooks) {
     for (const page of book.pages || []) {

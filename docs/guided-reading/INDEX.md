@@ -9,9 +9,11 @@ The live book modules are the authority:
 - `src/data/guidedReadingBridgeBooks.js`
 - `src/data/guidedReadingBookMetadata.js`
 - `src/data/guidedReadingDiscussionPrompts.js`
+- `src/data/meadowPalsScienceBooks.js`
+- `src/data/meadowPalsScienceNarration.js`
 
-The current catalogue contains 226 books: 65 at Level A, 86 at Level B and 75
-at Level C. Level C is shown in two honest bands:
+The current catalogue contains 227 books: 65 at Level A, 86 at Level B, 75
+at Level C, and one science picture book under **Read Together**. Level C is shown in two honest bands:
 
 - **C Standard** for compact independent or lightly supported reading, including
   the 20-book Willow Street Readers collection;
@@ -21,6 +23,30 @@ at Level C. Level C is shown in two honest bands:
 Each shelf card also names its reading mode: **Decodable**,
 **Predictable / Levelled**, or **Supported Read-Together**. The letter level is
 not a claim that one book is all three.
+
+**The Case of the Missing Sandwich** is a twelve-page Meadow Pals science
+read-aloud for interest ages 5–7. Its `READ_ALOUD` placement appears as
+**Read Together**, has no independent A/B/C decoding claim, and does not change
+a learner's graded-reading placement or level-completion milestones. Its
+approved manuscript is fingerprinted in `src/data/meadowPalsScienceBooks.js`.
+The exact-page character manifest uses Leda for narration, Muddy's established
+Algieba voice for Muddy's dialogue, and Splashy's established Laomedeia voice
+for Splashy's dialogue. Every requested word is checked against its intended
+speaker; existing Leda-only books retain their current clearance and checks.
+The twelve distinct images and separate cover are verified against
+`public/guided-reading/science/missing-sandwich/manifest.json`.
+
+Production status on 2026-09-13: twelve page recordings, the title recording and
+47 word clips are generated. The pages total 206 seconds. All 60 files pass
+decoding, signal and hash checks; page text and ordered character assignments
+match the approved manuscript. Independent offline transcription caught and
+prompted replacement of two invented dialogue continuations. Tapping **Pffft**
+replays Muddy's exact raspberry from page 10; the other 46 new word clips use
+Leda. The adapter restricts that character-voice exception to this sound word.
+Automated speech evidence is distinct from direct human listening. The book's
+review is registered in `src/content/storyContentReviews.js`; existing reviewed
+image-conversion and cache-version metadata have been reconciled with their
+unchanged source reviews.
 
 Scored Guided Reading quizzes are retired. Finishing a book records completion,
 not comprehension. In teacher mode only, a book may expose one optional oral

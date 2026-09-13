@@ -6,6 +6,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { getRuntimeGuidedReadingBooks } from "../src/utils/guidedReading/runtimeBooks.js";
+import { loadScienceVisualReview } from "./meadowPalsScienceGateLib.mjs";
+import { MISSING_SANDWICH_BOOK_ID } from "../src/data/meadowPalsScienceBooks.js";
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const reportPath = path.join(
@@ -17,7 +19,7 @@ const failures = [];
 
 const helpRequested = process.argv.includes("--help") || process.argv.includes("-h");
 if (helpRequested) {
-  console.log("Usage: node tools/checkGuidedReadingVisualAlignment.mjs [--level A|B|C]");
+  console.log("Usage: node tools/checkGuidedReadingVisualAlignment.mjs [--level A|B|C | --book BOOK_ID]");
   process.exit(0);
 }
 
@@ -28,6 +30,13 @@ const requestedLevel = levelFlagIndex === -1
 if (levelFlagIndex !== -1 && !new Set(["A", "B", "C"]).has(requestedLevel)) {
   throw new Error(`--level must be A, B or C; received ${process.argv[levelFlagIndex + 1] || "missing"}`);
 }
+const bookFlagIndex = process.argv.indexOf("--book");
+const requestedBook = bookFlagIndex === -1 ? null : process.argv[bookFlagIndex + 1];
+if (bookFlagIndex !== -1 && (!requestedBook || requestedBook.startsWith("--"))) {
+  throw new Error("--book requires a current book ID");
+}
+if (requestedLevel && requestedBook) throw new Error("Choose either --level or --book");
+const scopedRun = Boolean(requestedLevel || requestedBook);
 
 function sha256(value) {
   return crypto.createHash("sha256").update(value).digest("hex");
@@ -53,7 +62,9 @@ function publicFile(publicPath = "") {
 }
 
 const records = new Map();
-for (const record of report.pages || []) {
+const scienceReview = loadScienceVisualReview(repositoryRoot);
+if (!scopedRun || requestedBook === MISSING_SANDWICH_BOOK_ID) failures.push(...scienceReview.failures);
+for (const record of [...(report.pages || []), ...scienceReview.pages]) {
   const key = `${record.bookId}:${record.pageNumber}`;
   if (records.has(key)) failures.push(`${key}: duplicate visual audit record`);
   records.set(key, record);
@@ -65,7 +76,9 @@ let approvedCount = 0;
 let replacementCount = 0;
 
 const allBooks = getRuntimeGuidedReadingBooks();
-const books = allBooks.filter((book) => !requestedLevel || book.level === requestedLevel);
+const books = allBooks.filter(book => (!requestedLevel || book.level === requestedLevel)
+  && (!requestedBook || book.id === requestedBook));
+if (requestedBook && books.length !== 1) failures.push(`Unknown active book ${requestedBook}`);
 
 for (const book of books) {
   for (const [index, page] of book.pages.entries()) {
@@ -107,7 +120,9 @@ for (const book of books) {
 }
 
 for (const [key, record] of records) {
-  if (requestedLevel) {
+  if (requestedBook) {
+    if (record.bookId === requestedBook && !liveKeys.has(key)) failures.push(`${key}: stale visual audit record is not an active runtime page`);
+  } else if (requestedLevel) {
     if (record.level === requestedLevel && !liveKeys.has(key)) {
       failures.push(`${key}: stale Level ${requestedLevel} visual audit record is not an active runtime page`);
     }
@@ -117,17 +132,17 @@ for (const [key, record] of records) {
 }
 
 if (report.status !== "complete") failures.push(`visual audit status is ${report.status || "missing"}, not complete`);
-if (!requestedLevel && report.scope?.activeBooksAudited !== allBooks.length) {
+if (!scopedRun && report.scope?.activeBooksAudited + 1 !== allBooks.length) {
   failures.push("visual audit book count does not match the runtime catalogue");
 }
-if (!requestedLevel && report.scope?.activePagesAudited !== pageCount) {
+if (!scopedRun && report.scope?.activePagesAudited + scienceReview.pages.length !== pageCount) {
   failures.push("visual audit page count does not match the runtime catalogue");
 }
 if (report.gateSemantics?.releaseFingerprintSha256 !== releaseFingerprint(report.pages || [])) {
   failures.push("stored visual release fingerprint does not match the audited page records");
 }
 
-console.log(`Guided Reading visual alignment gate${requestedLevel ? ` - Level ${requestedLevel}` : ""}`);
+console.log(`Guided Reading visual alignment gate${requestedLevel ? ` - Level ${requestedLevel}` : requestedBook ? ` - ${requestedBook}` : ""}`);
 console.log(`Pages: ${pageCount}; approved: ${approvedCount}; replacement open: ${replacementCount}; failures: ${failures.length}.`);
 
 if (failures.length) {
@@ -136,4 +151,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log("Every active Guided Reading page has exact-text, Story-Bible-aligned, hash-locked illustration approval.");
+console.log("Every checked Guided Reading page has exact-text, Story-Bible-aligned, hash-locked illustration approval.");

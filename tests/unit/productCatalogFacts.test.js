@@ -17,7 +17,7 @@ test("public catalogue figures match the authoritative product datasets", () => 
   const liveLearningGames = GAME_LIST.filter(game => !game.hidden);
 
   assert.equal(PRODUCT_CATALOG_FACTS.guidedReadingBooks, guidedReadingBooks.length);
-  assert.equal(PRODUCT_CATALOG_FACTS.guidedReadingBooks, 226);
+  assert.equal(PRODUCT_CATALOG_FACTS.guidedReadingBooks, 227);
   assert.equal(PRODUCT_CATALOG_FACTS.guidedReadingQuizzes, undefined);
   assert.equal(GUIDED_READING_BRIDGE_BOOKS.length, 20);
   assert.equal(

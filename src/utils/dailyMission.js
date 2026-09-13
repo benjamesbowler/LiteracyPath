@@ -217,7 +217,7 @@ function nextBook(scope, quarantinedBookIds) {
   const ordered = filterPublishedGuidedReadingBooks(
     [...GUIDED_READING_BOOK_INDEX],
     quarantinedBookIds
-  ).sort((a, b) =>
+  ).filter(book => book.readingBandProfile !== "read-aloud").sort((a, b) =>
     String(a.level).localeCompare(String(b.level)) || String(a.id).localeCompare(String(b.id))
   );
   if (!ordered.length) return null;

@@ -27,6 +27,7 @@ export function setGuidedReadingLevelOverride(bookId, level) {
 }
 
 export function applyGuidedReadingLevelOverride(book, overrides = readGuidedReadingLevelOverrides()) {
+  if (book?.readingBandProfile === "read-aloud") return book;
   const overrideLevel = overrides?.[book?.id];
   if (!GUIDED_READING_MOVE_LEVELS.includes(overrideLevel)) return book;
   return {

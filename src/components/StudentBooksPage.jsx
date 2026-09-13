@@ -46,6 +46,7 @@ import {
 import { classifyBookReadingPurpose } from "../policy/literacyExperiencePolicy.js";
 import {
   childGuidedReadingModeLabel,
+  guidedReadingLevelLabel,
   splitLevelCBooks
 } from "../policy/guidedReadingCatalogPolicy.js";
 import {
@@ -69,7 +70,7 @@ function BookCover({ book, className = "kg-book-cover", loading = "lazy", eager 
   if (!src || currentState.status === "failed") {
     return (
       <span className={`${className} kg-book-cover--fallback`} data-book-cover-state="fallback" aria-hidden="true">
-        <span className="kg-book-cover-fallback-level">{book?.level || "Book"}</span>
+        <span className="kg-book-cover-fallback-level">{book?.level ? guidedReadingLevelLabel(book.level) : "Book"}</span>
         <strong>{String(book?.title || "Book").trim().charAt(0).toUpperCase() || "B"}</strong>
         <small>Cover unavailable</small>
       </span>
@@ -82,7 +83,7 @@ function BookCover({ book, className = "kg-book-cover", loading = "lazy", eager 
       aria-hidden="true"
     >
       <span className="kg-book-cover-fallback-art">
-        <span className="kg-book-cover-fallback-level">{book?.level || "Book"}</span>
+        <span className="kg-book-cover-fallback-level">{book?.level ? guidedReadingLevelLabel(book.level) : "Book"}</span>
         <strong>{String(book?.title || "Book").trim().charAt(0).toUpperCase() || "B"}</strong>
       </span>
       <img
@@ -343,7 +344,7 @@ export function StudentBooksPage({
         books: shownLibrary,
         justRightPage: shelfPages["just-right"],
         readAgainPage: shelfPages.second
-      });
+      }).filter(shelf => shelf.total > 0);
     }
     const { standard, extended } = splitLevelCBooks(shownLibrary);
     const bandShelf = (id, title, note, books) => ({
@@ -483,17 +484,17 @@ export function StudentBooksPage({
                     setShelfPages({ "just-right": 0, second: 0, "c-standard": 0, "c-extended": 0 });
                   }}
                 >
-                  Level {entry}
+                  {guidedReadingLevelLabel(entry)}
                 </button>
               ))}
             </div>
           )}
 
-          {collections.length > 1 && !showKnowledge && (
+          {(collections.length > 1 || (shownLevel === "READ_ALOUD" && collections.length > 0)) && !showKnowledge && (
             <div
               className="kg-glass kg-collection-tray"
               role="group"
-              aria-label={`Level ${shownLevel} book collections`}
+              aria-label={`${guidedReadingLevelLabel(shownLevel)} book collections`}
             >
               <button
                 type="button"
@@ -712,7 +713,7 @@ export function StudentBooksPage({
                           loading="lazy"
                         />
                         <strong className="kg-book-title">{book.title}</strong>
-                        <small className="kg-book-purpose">{childGuidedReadingModeLabel(book)} · {purpose.shortLabel}</small>
+                        <small className="kg-book-purpose">{[...new Set([childGuidedReadingModeLabel(book), purpose.shortLabel].filter(Boolean))].join(" · ")}</small>
                       </span>
                     </button>
                   );

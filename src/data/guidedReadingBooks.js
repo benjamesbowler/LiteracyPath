@@ -7,6 +7,8 @@ import { firstFactsLevelABooks } from "./firstFactsLevelABooks.js";
 import { firstFactsActualLevelABooks } from "./firstFactsActualLevelABooks.js";
 import { firstFactsLevelCBooks } from "./firstFactsLevelCBooks.js";
 import { GUIDED_READING_BRIDGE_BOOKS } from "./guidedReadingBridgeBooks.js";
+import { MEADOW_PALS_SCIENCE_BOOKS } from "./meadowPalsScienceBooks.js";
+import { getMeadowPalsSciencePageNarration } from "./meadowPalsScienceNarration.js";
 import { enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer.js";
 import { GUIDED_READING_STORY_BIBLE_REWRITES as GUIDED_READING_CORE_REWRITES } from "../content/guidedReadingStoryBibleRewrites.js";
 import { GUIDED_READING_HUMAN_FICTION_REWRITES } from "../content/guidedReadingHumanFictionRewrites.js";
@@ -211,6 +213,14 @@ function applyGuidedReadingNarrationTruth(book = {}) {
     ...book,
     pages: (book.pages || []).map((page, index) => {
       if (page.active === false || page.qaStatus !== "approved") return page;
+
+      if (page.narrationProfile === "meadow-science-character-dialogue") {
+        return {
+          ...page,
+          pageAudioText: page.text,
+          narrationNeedsRebuild: !getMeadowPalsSciencePageNarration(page)
+        };
+      }
 
       const pageNumber = page.pageNumber || index + 1;
       const text = normalizeReadingText(page.text);
@@ -3311,7 +3321,8 @@ const activeGuidedReadingBaseBooks = [
   ...firstFactsLevelCBooks,
   ...approvedSeriesBooks,
   ...guidedReadingWorldExpansionBooks,
-  ...GUIDED_READING_BRIDGE_BOOKS
+  ...GUIDED_READING_BRIDGE_BOOKS,
+  ...MEADOW_PALS_SCIENCE_BOOKS
 ];
 
 export const guidedReadingRelevelAudit = activeGuidedReadingBaseBooks.map(book => {

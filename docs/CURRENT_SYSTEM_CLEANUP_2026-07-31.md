@@ -106,6 +106,12 @@ beta deployment gate.
 - `src/hooks/useReadingSessionHost.js`
 - `supabase/migrations/20260803120000_guided_reading_publication_gate.sql`
 - `src/data/guidedReadingPublication.js`
+- `src/data/meadowPalsScienceBooks.js` and `src/data/meadowPalsScienceNarration.js`
+
+The Meadow Pals science book uses the same library and reader with an explicit
+Read Together placement. Its approved twelve-page manuscript, separate character
+voice manifest and exact-image review extend the existing catalogue; no second
+reader, graded A/B/C claim, or alternative publication rule is introduced.
 
 Shared reading uses the existing opaque child token boundary and visible-only
 one-second polling. The frozen session page list, six reviewed RPCs, and ordinary

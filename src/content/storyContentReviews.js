@@ -1,5 +1,6 @@
 import { STORY_CONTENT_POLICY_VERSION } from "./storyContentPolicy.js";
 import { WILLOW_STREET_BOOK_MANIFEST } from "../data/guidedReadingBridgeBooks.manifest.js";
+import { MISSING_SANDWICH_BOOK_ID, MISSING_SANDWICH_MANUSCRIPT_SHA256 } from "../data/meadowPalsScienceBooks.js";
 
 export const GUIDED_READING_RELEASE_READINESS = Object.freeze({
   status: "release-blocked",
@@ -32,7 +33,10 @@ export function classifyGuidedReadingMediaFinding(bookOrId, finding) {
 export const guidedReadingPolicyBaseline = Object.freeze({
   format: "guided-reading-book",
   itemCount: 226,
-  sourceFingerprint: "293c16bbfadfbd85dc9a6016cd8793d12e8c700801f1dc56320faefeacf2f40f",
+  // Reconciled 2026-09-13: the 126 source-equivalent WebP paths from d078e2a
+  // and the already-reviewed Willow page-4 text/audio repair from e9a3e24.
+  // Reversing only those changes reproduces the prior fingerprint exactly.
+  sourceFingerprint: "884a153b511992cf82e48caa4aa1e399672595e7b52fbfd57c55c078462171b7",
   contentStatus: "approved",
   releaseStatus: GUIDED_READING_RELEASE_READINESS.status,
   policyVersion: STORY_CONTENT_POLICY_VERSION,
@@ -40,6 +44,19 @@ export const guidedReadingPolicyBaseline = Object.freeze({
   reviewer: "Editorial and source review",
   claim: "All 226 books and 2,021 pages have current manuscript, visual-file, exact-text narration, and provenance evidence. The 20 Willow Street books add 160 compact pages and 180 directly reviewed self-created images; direct human listening remains the only release-readiness hold."
 });
+
+// Additive shared-story reviews do not refresh or approve changes to the
+// existing graded corpus. Audio truth remains enforced by its separate gate.
+export const guidedReadingSharedStoryReviews = Object.freeze([Object.freeze({
+  bookId: MISSING_SANDWICH_BOOK_ID,
+  contentStatus: "approved",
+  manuscriptSha256: MISSING_SANDWICH_MANUSCRIPT_SHA256,
+  expectedPages: 12,
+  readingPlacement: "Shared reading for interest ages 5–7; no independent A/B/C decoding claim",
+  reviewEvidence: "The approved 411-word storyboard is preserved exactly in twelve pages; all twelve final page images and the cover have current direct visual-review records.",
+  visualManifest: "public/guided-reading/science/missing-sandwich/manifest.json",
+  narrationManifest: "public/audio/production/en-US/meadow_science/missing-sandwich/manifest.json"
+})]);
 
 const historicalStoryQuestPolicyReviews = Object.freeze([
   Object.freeze({
@@ -534,16 +551,19 @@ const historicalStoryQuestPolicyReviews = Object.freeze([
   })
 ]);
 
+// Reconciled 2026-09-13: the four fingerprints changed only for cache-version
+// queries added by 290f1baf5. All 19 image bytes match existing 2026-09-08
+// visual approvals; removing those queries reproduces the prior hashes.
 const currentStoryQuestReviewState = Object.freeze({
-  mw_ra_c_01_pip_stone_loud_thing: Object.freeze({ fingerprint: "6ab0b2fac097713855fa4228ec78137f2d6ba4a3ca7a3039020cedd98c9c1387", pages: 24, routes: 1329, exactAudio: 24, pendingAudio: 0, listeningPending: 0 }),
-  mw_ra_c_02_fern_wren_walking_garden: Object.freeze({ fingerprint: "7fd04693173f3e4777fefc59f4e04cd5b06fa2cd02a13496e6e1d2e3dccb21dc", pages: 23, routes: 604, exactAudio: 23, pendingAudio: 0, listeningPending: 0 }),
+  mw_ra_c_01_pip_stone_loud_thing: Object.freeze({ fingerprint: "206871889fb7dcc53c433e10a06890976fb1279c5ace1d0b723f9da94057b520", pages: 24, routes: 1329, exactAudio: 24, pendingAudio: 0, listeningPending: 0 }),
+  mw_ra_c_02_fern_wren_walking_garden: Object.freeze({ fingerprint: "35f84be8f5fe29b8791f0f6f2b36eca9fefa959e7a74ec6e2036109203c14905", pages: 23, routes: 604, exactAudio: 23, pendingAudio: 0, listeningPending: 0 }),
   mw_ra_c_03_luna_burrow_star_shell_door: Object.freeze({ fingerprint: "7c44429a15b5094dc1c16321735b1f6f953ea35a49f41622b5f6b97667fd5ace", pages: 26, routes: 704, exactAudio: 26, pendingAudio: 0, listeningPending: 0 }),
   mw_ra_c_04_dewdrop_flint_lost_glow: Object.freeze({ fingerprint: "0f12ac1a8c6eab26344ffa39184919baf2b47e420dcb32e110ac919d5c42b820", pages: 30, routes: 532, exactAudio: 30, pendingAudio: 0, listeningPending: 0 }),
   dp_ra_b_01_chompy_big_lunch_hunt: Object.freeze({ fingerprint: "e2e7674c5fa13ace426ea5e486c6684a075b4532821750efacf1a500ae3a13dd", pages: 21, routes: 133, exactAudio: 21, pendingAudio: 0, listeningPending: 0 }),
   dp_ra_b_02_sunnys_rainy_day_rescue: Object.freeze({ fingerprint: "310588331bfae8e53d291a33059b3df6202d9da4c209b3e16672ff644d5f0982", pages: 22, routes: 108, exactAudio: 22, pendingAudio: 0, listeningPending: 0 }),
   dp_ra_b_03_grumpy_almost_good_day: Object.freeze({ fingerprint: "931d8eea33bb131c6e78bb81bd3843bc88a1b7652e770d2d353b5fe3d0fa60f2", pages: 34, routes: 69, exactAudio: 34, pendingAudio: 0, listeningPending: 0 }),
-  dp_ra_b_04_bouncy_big_bounce: Object.freeze({ fingerprint: "31cb20488389a660072ff07ff59a509803fb6b1703f69be3e99aeaa1f3bd5d2d", pages: 35, routes: 67, exactAudio: 35, pendingAudio: 0, listeningPending: 0 }),
-  dp_ra_b_05_shys_snail_shade: Object.freeze({ fingerprint: "ddfc6d52127963ad33b888173ac5130572c38b161931d029aa9dacb2cbe899ae", pages: 15, routes: 32, exactAudio: 15, pendingAudio: 0, listeningPending: 0 }),
+  dp_ra_b_04_bouncy_big_bounce: Object.freeze({ fingerprint: "d28336bb91e3f89e13ebe798caad91a48df6987abc29ad1c52c76c6e3d96bbb8", pages: 35, routes: 67, exactAudio: 35, pendingAudio: 0, listeningPending: 0 }),
+  dp_ra_b_05_shys_snail_shade: Object.freeze({ fingerprint: "bb5d9f44ba9733b114bbae2cfd4356047900f0fcdaca56fcdff1bcc70d8949ec", pages: 15, routes: 32, exactAudio: 15, pendingAudio: 0, listeningPending: 0 }),
   story_quest_short_a_sam_pam_01: Object.freeze({ fingerprint: "7739fe8fc5fe57bb29bf00d4f2bf5e009d7005f4c5a70dc62cd0612e9b54dac9", pages: 10, routes: 50, exactAudio: 10, pendingAudio: 0, listeningPending: 0 }),
   mp_ra_a_01_muddy_splashy_missing_hat: Object.freeze({ fingerprint: "e45ea08ec01148f3b31dae5c78954159889f8764492f9db31dba313ba7feccd8", pages: 20, routes: 106, exactAudio: 20, pendingAudio: 0, listeningPending: 0 }),
   mp_ra_a_02_shy_cuddly_quiet_adventure: Object.freeze({ fingerprint: "53ea487ec09ad2959ef00804522d693e89c367ac1d8e90e1a7bb1129cd3d5dd0", pages: 21, routes: 86, exactAudio: 21, pendingAudio: 0, listeningPending: 0 }),
@@ -603,6 +623,7 @@ export const storyQuestPolicyReviews = Object.freeze(
 export const storyContentReviewRegistry = Object.freeze({
   policyVersion: STORY_CONTENT_POLICY_VERSION,
   guidedReadingBaseline: guidedReadingPolicyBaseline,
+  guidedReadingSharedStories: guidedReadingSharedStoryReviews,
   storyQuests: storyQuestPolicyReviews,
   futureFormats: Object.freeze({
     animation: "No active items registered",

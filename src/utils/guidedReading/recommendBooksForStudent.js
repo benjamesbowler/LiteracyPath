@@ -122,6 +122,7 @@ function resolveReadingLevel(enrichedBooks, studentProgress, readingHistory) {
   }
 
   const savedReading = enrichedBooks
+    .filter(book => GUIDED_READING_LEVELS.includes(book.level))
     .map(book => ({ book, record: readingHistory[book.id] || {} }))
     .filter(({ record }) => recordHasStarted(record))
     .sort((a, b) => (

@@ -59,6 +59,9 @@ export function normalizeGuidedReadingLevel(level) {
 }
 
 export function getGuidedReadingMeasure(level, readingBandProfile = "standard") {
+  if (level === "READ_ALOUD" && readingBandProfile === "read-aloud") {
+    return { ...LEVEL_MEASURES.C_EXTENDED, level: "READ_ALOUD", templateId: "shared-read-aloud", minFontSizePx: 18 };
+  }
   const normalizedLevel = normalizeGuidedReadingLevel(level);
   if (normalizedLevel === "C") {
     return readingBandProfile === "extended" ? LEVEL_MEASURES.C_EXTENDED : LEVEL_MEASURES.C_STANDARD;

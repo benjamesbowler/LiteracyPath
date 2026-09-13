@@ -90,6 +90,16 @@ function placementFromProgress(studentProgress = {}) {
  * supported meaning-building, with narration and decoding help.
  */
 export function classifyBookReadingPurpose(book = {}, studentProgress = {}) {
+  if (book.readingBandProfile === "read-aloud") {
+    return {
+      id: READING_PURPOSES.SUPPORTED,
+      label: "Read Together",
+      shortLabel: "Together",
+      reason: "Listen and read with a grown-up; this science story builds language and ideas.",
+      anchorCycle: null,
+      notYetIndependentWords: []
+    };
+  }
   const placement = placementFromProgress(studentProgress);
   if (!placement.anchorCycle) {
     return {

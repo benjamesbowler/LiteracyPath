@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 
 import { getRuntimeGuidedReadingBooks } from "../src/utils/guidedReading/runtimeBooks.js";
 import { getGuidedReadingPageAudioPath } from "../src/utils/guidedReading/readAloudPolicy.js";
+import { validateScienceReadAloudManuscript } from "./meadowPalsScienceGateLib.mjs";
 import {
   classifyGuidedReadingMediaFinding,
   GUIDED_READING_RELEASE_READINESS
@@ -120,7 +121,13 @@ for (const book of books) {
     if (classification.error) failures.push(classification.error);
     if (classification.releaseBlock) releaseBlocks.push(classification.releaseBlock);
   };
-  const levelRule = book.readingPageProfile === "compact-stable"
+  const sharedReadAloud = book.readingBandProfile === "read-aloud";
+  if (sharedReadAloud) {
+    for (const error of validateScienceReadAloudManuscript(book)) failures.push(`${label}: ${error}`);
+  }
+  const levelRule = sharedReadAloud
+    ? { minimumScenes: 12, maximumScenes: 12, profileLabel: "shared read-aloud" }
+    : book.readingPageProfile === "compact-stable"
     ? COMPACT_STABLE_RULE
     : BAND_PROFILE_RULES[book.readingBandProfile] || LEVEL_RULES[book.level];
   if (!levelRule) {
@@ -231,7 +238,7 @@ for (const book of books) {
     if (!skipAudio) {
       const audioPath = getGuidedReadingPageAudioPath(page);
       if (!nonEmptyFile(audioPath)) {
-        recordMediaFinding(`${pageLabel}: exact-text Leda narration is missing`);
+        recordMediaFinding(`${pageLabel}: exact-text ${sharedReadAloud ? "character narration" : "Leda narration"} is missing`);
       } else {
         exactAudioCount += 1;
       }
@@ -257,7 +264,7 @@ for (const book of books) {
 console.log(`Guided Reading Story Bible audit${requestedLevel ? ` - Level ${requestedLevel}` : ""}`);
 console.log(
   `Books: ${books.length}; reviewed: ${reviewedBookCount}; pages: ${pageCount}; `
-  + (skipAudio ? "audio checks: skipped." : `exact Leda pages: ${exactAudioCount}; `)
+  + (skipAudio ? "audio checks: skipped." : `exact narration pages: ${exactAudioCount}; `)
   + `release-blocking media findings: ${releaseBlocks.length}.`
 );
 console.log(`Failures: ${failures.length}. Visual alignment is enforced by the separate hash-locked page audit.`);
