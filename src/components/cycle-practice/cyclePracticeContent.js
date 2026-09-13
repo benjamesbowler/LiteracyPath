@@ -1,4 +1,3 @@
-import { elSkillsBlockCycles } from '../../data/elSkillsBlockCycles.js';
 import { getChildWordAsset } from '../../data/childAssets.js';
 import { findAssessmentMediaCandidates } from '../../data/assessmentMediaRegistry.js';
 import { assessmentImageStyleBlockedPaths } from '../../data/assessmentImageStyleBlocklist.js';
@@ -8,8 +7,9 @@ import { getPreferredPhonemeAudioPath } from '../../data/phonemeAudioBank.js';
 import { CYCLE_PRACTICE_MINIMUM_SECONDS } from '../../policy/cyclePracticePolicy.js';
 import { CYCLE_SOUND_WORDS, cycleSoundsEquivalent, cycleSoundPosition, cycleSoundMatches, isCyclePictureWordEligible } from '../../data/cycleSoundWords.js';
 export { CYCLE_SOUND_WORDS, cycleSoundsEquivalent, cycleSoundPosition, cycleSoundMatches } from '../../data/cycleSoundWords.js';
-import { cycleCardGraphemes, taughtCycleGraphemes, capPracticeRepetitions } from '../../utils/cyclePracticeVariation.js';
+import { cycleCardGraphemes, taughtCycleGraphemes, taughtCycleHighFrequencyWords, capPracticeRepetitions } from '../../utils/cyclePracticeVariation.js';
 import { isKnownBadAudioPath } from '../../data/knownBadWordAudio.js';
+import { CYCLE_WORD_BUILD_INVENTORY, CYCLE_WORD_BUILD_IMAGE_HOLDOUTS } from '../../data/cycleWordBuildInventory.js';
 
 // The pictured noun supplies the meaning of each short spoken context. The
 // printed high-frequency word remains visible: copying is supported exposure,
@@ -46,6 +46,8 @@ export const CYCLE_HFW_CONTEXTS = Object.freeze(Object.fromEntries([
 
 export const CYCLE_PRACTICE_EXTRA_WORDS = Object.freeze(['fizz', 'anchor', 'eggplant', 'itch', 'inchworm', 'octagon', 'underwear', 'yogurt']);
 
+// Historical script inventory keeps recorded cues available for saved work.
+// Compound deletion is not generated in active practice or Cycle Check.
 export const CYCLE_WORD_PARTS = Object.freeze([
   { word: 'rainbow', parts: ['rain', 'bow'] },
   { word: 'cupcake', parts: ['cup', 'cake'] },
@@ -64,7 +66,6 @@ const RHYME_FAMILIES = [
   ['boat', 'goat', 'coat'], ['bell', 'shell'], ['ring', 'king', 'wing'], ['duck', 'truck'],
   ['fish', 'dish'], ['chair', 'bear', 'pear'], ['bed', 'red'], ['cake', 'snake', 'lake'],
 ];
-export const CYCLE_WORD_CHANGES = Object.freeze([['cat', 'hat'], ['map', 'cap'], ['pig', 'wig'], ['dog', 'log'], ['fan', 'pan'], ['cap', 'cup'], ['pig', 'peg'], ['cot', 'cat'], ['hat', 'hot'], ['pan', 'pen'], ['ship', 'chip'], ['shop', 'chop'], ['ring', 'king'], ['sing', 'ring'], ['bank', 'tank'], ['bell', 'shell']]);
 // Spoken syllable counts are authored, not inferred from vowel letters.
 // Accent-variable camera, jaguar, strawberry, umpire and vacuum stay out.
 export const CYCLE_SYLLABLE_COUNTS = Object.freeze(Object.fromEntries([
@@ -77,6 +78,14 @@ export const CYCLE_SYLLABLE_COUNTS = Object.freeze(Object.fromEntries([
 // nouns can be heard in an early cycle without introducing their spellings.
 export const CYCLE_ORAL_BEAT_WORDS = Object.freeze('cat dog pig hat sun fish cup book ball moon duck fox egg goat horse house ship sheep shoe chair tree box car foot hand map mat net pen rat ring whale wolf king apple rabbit turtle monkey kitten pencil window tiger lion lemon carrot spider rocket zebra elephant banana butterfly kangaroo octopus tomato umbrella alligator helicopter watermelon motorcycle'.split(' '));
 const BUILD_WORDS = ['mat', 'sat', 'ant', 'tin', 'sit', 'fan', 'fin', 'man', 'mad', 'fat', 'sad', 'dad', 'dot', 'log', 'lot', 'rod', 'rat', 'hat', 'hot', 'ham', 'ram', 'bat', 'bag', 'wig', 'web', 'bud', 'bun', 'sun', 'mud', 'mug', 'cat', 'cap', 'cup', 'can', 'cot', 'dog', 'dig', 'gap', 'gum', 'pig', 'pan', 'pot', 'pin', 'pen', 'pet', 'pup', 'box', 'fox', 'six', 'egg', 'bed', 'net', 'vet', 'van', 'vest', 'jam', 'jet', 'jug', 'zip', 'ship', 'shop', 'chip', 'chin', 'chop', 'thin', 'shut', 'shed', 'shell', 'fish', 'dish', 'bath', 'ball', 'wall', 'hill', 'bell', 'doll', 'whip', 'whisk', 'sink', 'bank', 'tank', 'ring', 'king', 'wing', 'gong', 'bang', 'rung', 'cliff', 'puff', 'grass', 'dress', 'glass', 'moss', 'fizz'];
+const REVIEWED_BUILD_IMAGES = Object.fromEntries(CYCLE_WORD_BUILD_INVENTORY.map(item => [item.word, item.image]));
+const FINAL_SOUND_WORDS = Object.freeze({
+  m: ['drum', 'jam', 'ram'], t: ['cat', 'hat', 'goat', 'foot', 'mat', 'net', 'rat'],
+  s: ['mouse', 'house', 'horse', 'bus'], n: ['sun', 'moon', 'hen', 'pen', 'fan', 'rain'],
+  f: ['leaf', 'wolf'], d: ['bird', 'hand', 'bed'], b: ['web', 'tub'],
+  g: ['dog', 'pig', 'egg', 'bag'], p: ['map', 'cup', 'cap', 'sheep'],
+  k: ['duck', 'book', 'sock'], l: ['ball', 'bell', 'shell'], v: ['glove'], z: ['nose', 'cheese'],
+});
 
 // Only exact owned semantic images absent from the shared word registry live
 // here. Shared choices continue to use the current asset selection authorities.
@@ -93,7 +102,7 @@ function allowedImage(path) {
 const imageCache = new Map();
 export function cycleWordImage(word) {
   if (imageCache.has(word)) return imageCache.get(word);
-  const candidates = [getChildWordAsset(word)?.image, EXTRA_IMAGES[word], ...findAssessmentMediaCandidates({ word, mediaType: 'image', role: 'target_object' }).map(item => item.path)];
+  const candidates = [REVIEWED_BUILD_IMAGES[word], getChildWordAsset(word)?.image, EXTRA_IMAGES[word], ...findAssessmentMediaCandidates({ word, mediaType: 'image', role: 'target_object' }).map(item => item.path)];
   const path = candidates.find(allowedImage) || '';
   imageCache.set(word, path);
   return path;
@@ -197,6 +206,21 @@ export function buildCyclePracticePools(cycle, seed, check = false) {
       pools.letterTrace.push(roundBase(cycle, 'letterTrace', word, { ...common, instructionKey: 'letterTrace', grapheme, model: grapheme, answer: grapheme, checkEligible: false }));
     }
   }
+  // A small amount of final-sound listening begins with already taught
+  // consonants. The named pictures supply oral vocabulary, not untaught print.
+  // Keep it separate from the later taught ending-pattern check contract.
+  if (!check) for (const grapheme of practiceGraphemes) {
+    const soundAudio = getPreferredPhonemeAudioPath(grapheme);
+    if (!soundAudio) continue;
+    for (const word of FINAL_SOUND_WORDS[grapheme] || []) {
+      if (!picture(word) || !cycleSoundMatches(word, grapheme, 'ending')) continue;
+      const distractors = shuffled(picturePool.filter(w => !cycleSoundMatches(w, grapheme, 'ending')), `${seed}:final-pictures:${word}`).slice(0, 2);
+      if (distractors.length === 2) pools.pictureSound.push(roundBase(cycle, 'pictureSound', word, {
+        variant: 'finalSound', targetGrapheme: grapheme, soundAudio, soundPosition: 'ending', instructionKey: 'endingSound',
+        choices: [word, ...distractors].map(picture), answer: word, construct: 'ending_sound_picture_identification', checkEligible: false,
+      }));
+    }
+  }
   const families = RHYME_FAMILIES.map(words => words.filter(w => picture(w))).filter(words => words.length > 1);
   for (const family of families) for (const targetWord of family) for (const rhyme of family.filter(word => word !== targetWord)) {
     const distractors = shuffled(families.filter(other => other !== family).flat().filter(w => w !== targetWord), `${seed}:rhyme-choices:${targetWord}:${rhyme}`).slice(0, 2);
@@ -223,36 +247,34 @@ export function buildCyclePracticePools(cycle, seed, check = false) {
   }
   for (const word of BUILD_WORDS) {
     const letters = tokensFor(word, taught);
-    if (letters.length < 2 || !picture(word)) continue;
+    if (letters.length < 2 || !picture(word) || CYCLE_WORD_BUILD_IMAGE_HOLDOUTS.includes(word)) continue;
     if (check && cycle.cycleNumber >= 15 && !focus.some(g => letters.includes(g))) continue;
     const spare = shuffled(taught.filter(g => !letters.includes(g) && getPreferredPhonemeAudioPath(g)), `${seed}:build:${word}`).slice(0, 2);
     const choices = unique([...letters, ...spare]).map(value => ({ id: value, label: value, value, audio: getPreferredPhonemeAudioPath(value) }));
     pools.wordBuild.push(roundBase(cycle, 'wordBuild', word, { instructionKey: 'wordBuild', letters, graphemes: letters, choices, answer: letters }));
   }
-  if (cycle.cycleNumber >= 15) for (const [beforeWord, word] of CYCLE_WORD_CHANGES) {
-    const beforeLetters = tokensFor(beforeWord, taught), letters = tokensFor(word, taught);
-    if (!picture(beforeWord) || !picture(word) || !letters.length || beforeLetters.length !== letters.length) continue;
-    const changed = letters.flatMap((letter, index) => letter === beforeLetters[index] ? [] : [index]);
-    if (changed.length !== 1 || (check && !focus.some(g => letters.includes(g) || beforeLetters.includes(g)))) continue;
-    const changeIndex = changed[0];
-    const choices = soundChoices(letters[changeIndex], taught, `${seed}:change:${beforeWord}:${word}`);
-    pools.wordBuild.push(roundBase(cycle, 'wordBuild', word, { variant: 'wordChange', instructionKey: 'wordChange', beforeWord, beforeImage: cycleWordImage(beforeWord), beforeAudio: cycleWordAudio(beforeWord), beforeLetters, letters, graphemes: letters, changeIndex, choices, answer: letters, construct: changeIndex === 0 ? 'initial_phoneme_substitution' : 'medial_phoneme_substitution' }));
-  }
-  for (const originalWord of cycle.highFrequencyWords || []) {
+  const heardWords = taughtCycleHighFrequencyWords(cycle.cycleNumber).map(word => word.toLowerCase());
+  for (const originalWord of check ? cycle.highFrequencyWords || [] : taughtCycleHighFrequencyWords(cycle.cycleNumber)) {
     const word = originalWord.toLowerCase(), context = CYCLE_HFW_CONTEXTS[word];
     if (!context || !cycleWordImage(context.imageWord) || !cycleWordAudio(word)) continue;
     const letters = [...(word === 'i' ? 'I' : word)];
     pools.wordBuild.push(roundBase(cycle, 'wordBuild', word, { variant: 'highFrequency', instructionKey: 'copyWord', construct: 'supported_high_frequency_word_building', modelWord: originalWord, contextText: context.contextText, image: cycleWordImage(context.imageWord), imageWord: context.imageWord, letters, graphemes: letters, choices: unique(letters).map(value => ({ id: value, label: value, value, audio: cycleWordAudio(value) })), answer: letters, checkEligible: false }));
-    const heardWords = unique(elSkillsBlockCycles.filter(item => item.cycleNumber && item.cycleNumber <= cycle.cycleNumber).flatMap(item => item.highFrequencyWords.map(value => value.toLowerCase())));
     const distractors = shuffled(heardWords.filter(value => value !== word && cycleWordAudio(value)), `${seed}:heard-word:${word}`).slice(0, 2);
     if (distractors.length) pools.letterMatch.push(roundBase(cycle, 'letterMatch', word, { variant: 'wordListen', instructionKey: 'listenWord', construct: 'auditory_word_recognition', contextText: context.contextText, image: cycleWordImage(context.imageWord), imageWord: context.imageWord, answer: word, choices: [word, ...distractors].map(value => ({ id: value, value, label: value === 'i' ? 'I' : value })), checkEligible: true }));
   }
-  for (const item of CYCLE_WORD_PARTS) {
-    if (!picture(item.word) || item.parts.some(word => !picture(word))) continue;
-    const removeFirst = cycle.cycleNumber <= 2 || [5, 6, 18, 19, 20, 26, 27].includes(cycle.cycleNumber);
-    const removedWord = item.parts[removeFirst ? 0 : 1], answer = item.parts[removeFirst ? 1 : 0];
-    const choices = unique([answer, removedWord, ...shuffled(['cat', 'fish', 'sun', 'hat'].filter(w => w !== answer && w !== removedWord), `${seed}:parts:${item.word}`)]).slice(0, 3).map(picture);
-    pools.wordBuild.push(roundBase(cycle, 'wordBuild', item.word, { variant: 'wordParts', instructionKey: 'wordPart', instructionText: `Listen. ${item.word}. Take away ${removedWord}. Tap what is left.`, construct: 'compound_word_deletion', removedWord, beforeParts: item.parts, choices, answer }));
+  if (!check) {
+    const decodableWords = CYCLE_WORD_BUILD_INVENTORY.filter(item => item.authorizedFromCycle <= cycle.cycleNumber
+      && item.graphemes.every(grapheme => taught.includes(grapheme)) && picture(item.word));
+    for (const item of decodableWords) {
+      // All printed choices are taught CVC words. Hearing the word is an
+      // auditory recognition task, separate from the visible-model HFW copy.
+      const distractors = shuffled(decodableWords.filter(other => other.word !== item.word), `${seed}:heard-cvc:${item.word}`).slice(0, 2);
+      if (!distractors.length) continue;
+      pools.letterMatch.push(roundBase(cycle, 'letterMatch', item.word, {
+        variant: 'wordListen', decodableWord: true, instructionKey: 'listenWord', construct: 'auditory_word_recognition',
+        answer: item.word, choices: [item, ...distractors].map(({ word }) => ({ id: word, value: word, label: word })), checkEligible: false,
+      }));
+    }
   }
   const seen = new Set();
   for (const [mechanic, rows] of Object.entries(pools)) pools[mechanic] = rows.map(round => {
@@ -261,10 +283,10 @@ export function buildCyclePracticePools(cycle, seed, check = false) {
     const coverageTags = [`activity:${mechanic}`, `construct:${round.construct}`,
       ...(focus.includes(focusGrapheme) ? [`focus:${focusGrapheme}`] : !check && focusGrapheme ? [`review:${focusGrapheme.toLowerCase()}`] : []),
       ...(!check && round.variant === 'letterCase' ? [`case:${round.answer}`] : []),
-      ...(['highFrequency', 'wordListen'].includes(round.variant) ? [`hfw:${round.targetWord}`] : []),
+      ...(['highFrequency', 'wordListen'].includes(round.variant) && !round.decodableWord ? [`hfw:${round.targetWord}`] : []),
       ...(round.variant === 'highFrequency' ? [`hfwCopy:${round.targetWord}`] : []),
-      ...(round.variant === 'wordListen' ? [`hfwListen:${round.targetWord}`] : []),
-      ...(round.variant === 'wordChange' ? ['activity:wordChange'] : []),
+      ...(round.variant === 'wordListen' && !round.decodableWord ? [`hfwListen:${round.targetWord}`] : []),
+      ...(round.decodableWord ? ['practice:decodable-word-recognition'] : []),
     ];
     return { ...round, id: `${cycle.id}:${semanticKey}`, semanticKey, coverageTags, isCurrentFocus: focus.includes(focusGrapheme) };
   }).filter(round => { if (seen.has(round.semanticKey)) return false; seen.add(round.semanticKey); return true; });
@@ -314,8 +336,24 @@ export function buildCyclePracticePlan(cycle, seed, pass = 0, check = false) {
     for (const [mechanic, rows] of Object.entries(pools)) {
       pools[mechanic] = capPracticeRepetitions(shuffled(rows, `${stableSeed}:examples:${mechanic}:${pass}`));
     }
+    // Four spoken beat examples retain oral variety without filling most of a
+    // phonics session. A fresh pass selects different genuine examples.
+    const beats = new Set();
+    pools.soundSort = pools.soundSort.filter(round => {
+      if (round.variant !== 'syllableSort') return true;
+      if (beats.has(round.beats)) return false;
+      beats.add(round.beats);
+      return true;
+    });
+    const finalSounds = new Map();
+    pools.pictureSound = pools.pictureSound.filter(round => {
+      if (round.variant !== 'finalSound') return true;
+      const used = finalSounds.get(round.targetGrapheme) || 0;
+      finalSounds.set(round.targetGrapheme, used + 1);
+      return used < 2;
+    });
     const otherCount = Object.entries(pools).filter(([id]) => id !== 'rhymeMatch').reduce((sum, [, rows]) => sum + rows.length, 0);
-    pools.rhymeMatch = pools.rhymeMatch.slice(0, Math.floor(otherCount / 2));
+    pools.rhymeMatch = pools.rhymeMatch.slice(0, Math.max(1, Math.min(6, Math.floor(otherCount / 12))));
   }
   const authored = Object.values(pools).flat();
   const required = check ? [] : requiredCoverage(cycle, authored);
@@ -324,6 +362,8 @@ export function buildCyclePracticePlan(cycle, seed, pass = 0, check = false) {
   const openingTags = check ? [] : [
     ...cyclePracticeGraphemes(cycle).filter(g => !cycleFocusGraphemes(cycle).includes(g)).slice(0, 2).map(g => `review:${g}`),
     ...(cycle.focusLetters?.length ? cycleFocusGraphemes(cycle) : []).filter(g => g.length === 1).flatMap(g => [`case:${g}`, `case:${g.toUpperCase()}`]),
+    'construct:grapheme_phoneme_matching', 'construct:grapheme_word_building', 'practice:decodable-word-recognition',
+    ...(cycle.cycleNumber <= 4 ? heardWordOpeningTags(cycle) : []),
   ];
   const core = new Set(), coveredCoreTags = new Set(), coreWords = new Set();
   for (const tag of [...required, ...openingTags]) {
@@ -347,7 +387,7 @@ export function buildCyclePracticePlan(cycle, seed, pass = 0, check = false) {
     if (!check) for (const pool of ordered) {
       if (!pool.length) continue;
       const needsCore = core.has(pool[0].semanticKey);
-      const eligible = pool.filter(round => core.has(round.semanticKey) === needsCore && (round.variant !== 'wordListen' || modeledWords.has(round.targetWord)));
+      const eligible = pool.filter(round => core.has(round.semanticKey) === needsCore && (round.variant !== 'wordListen' || round.decodableWord || modeledWords.has(round.targetWord)));
       // Balance genuine sound targets across current and earlier learning.
       // Different activity labels must not produce net/net/net/net in a row.
       const useCount = round => soundUse.get(round.focusGrapheme || round.targetGrapheme?.toLowerCase() || round.construct) || 0;
@@ -359,11 +399,16 @@ export function buildCyclePracticePlan(cycle, seed, pass = 0, check = false) {
       }, null);
       if (best) { const index = pool.indexOf(best); pool.unshift(...pool.splice(index, 1)); }
     }
-    const available = ordered.filter(pool => pool.length && (check || pool[0].variant !== 'wordListen' || modeledWords.has(pool[0].targetWord)));
+    const available = ordered.filter(pool => pool.length && (check || pool[0].variant !== 'wordListen' || pool[0].decodableWord || modeledWords.has(pool[0].targetWord)));
     const different = available.filter(pool => pool[0].mechanicId !== previousMechanic);
     const candidates = different.length ? different : available;
-    const selected = candidates.find(pool => core.has(pool[0].semanticKey))
-      || candidates.reduce((best, pool) => check ? (pool.length > best.length ? pool : best) : ((activityUse.get(pool[0].mechanicId) || 0) < (activityUse.get(best[0].mechanicId) || 0) ? pool : best));
+    const coreCandidates = candidates.filter(pool => core.has(pool[0].semanticKey));
+    const selection = coreCandidates.length ? coreCandidates : candidates;
+    const selected = check ? selection.reduce((best, pool) => pool.length > best.length ? pool : best)
+      : selection.reduce((best, pool) => {
+        const use = candidate => (activityUse.get(candidate[0].mechanicId) || 0) / PRACTICE_ACTIVITY_WEIGHTS[candidate[0].mechanicId];
+        return use(pool) < use(best) ? pool : best;
+      });
     const next = selected.shift();
     if (next.variant === 'highFrequency') modeledWords.add(next.targetWord);
     rounds.push(next); previousMechanic = next.mechanicId;
@@ -411,15 +456,18 @@ const PLANNING_SECONDS = Object.freeze({
   pictureSound: [12, 22], letterMatch: [10, 20], rhymeMatch: [15, 25],
   wordBuild: [20, 40], soundSort: [25, 45], letterTrace: [30, 60],
 });
+const PRACTICE_ACTIVITY_WEIGHTS = Object.freeze({ pictureSound: 4, letterMatch: 5, wordBuild: 2, soundSort: 2, letterTrace: 1, rhymeMatch: 0.5 });
+function heardWordOpeningTags(cycle) {
+  return taughtCycleHighFrequencyWords(cycle.cycleNumber).flatMap(word => [`hfwCopy:${word.toLowerCase()}`, `hfwListen:${word.toLowerCase()}`]);
+}
 function requiredCoverage(cycle, rounds) {
   const tags = [
     ...Object.keys(STATIONS).map(id => `activity:${id}`),
     ...cycleFocusGraphemes(cycle).map(grapheme => `focus:${grapheme}`),
     ...(cycle.highFrequencyWords || []).flatMap(word => [`hfwCopy:${word.toLowerCase()}`, `hfwListen:${word.toLowerCase()}`]),
-    'construct:rhyme_recognition', 'construct:compound_word_deletion', 'construct:spoken_syllable_counting',
+    'construct:rhyme_recognition', 'construct:spoken_syllable_counting',
     'construct:auditory_word_recognition', 'construct:supported_high_frequency_word_building',
   ];
-  if (rounds.some(round => round.variant === 'wordChange')) tags.push('activity:wordChange');
   if (rounds.some(round => round.variant === 'letterCase')) tags.push('construct:visual_letter_identity');
   return tags;
 }

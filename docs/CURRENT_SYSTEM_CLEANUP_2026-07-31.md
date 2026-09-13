@@ -59,6 +59,16 @@ saved progress was deleted. The product contracts are
 [Cycle Practice](product/CYCLE_PRACTICE.md) and
 [Adventure Map](product/ADVENTURE_MAP.md).
 
+## Classroom cycle practice — 13 September 2026
+
+`src/data/cycleWordBuildInventory.js` now owns the reviewed CVC picture inventory
+shared by Cycle Practice and Adventure Map. The old Adventure Map export remains
+a compatible alias. Active compound-deletion and two-step word-change generators
+were removed from Cycle Practice; negative-rhyme rounds were removed from the map.
+Historical evidence IDs and compatible renderers remain for stored records.
+No learner records or irreplaceable source artwork were deleted. Scratch outputs
+and generated verification evidence live in ignored `.artifacts/classroom-readiness/`.
+
 ## Current authoritative sources
 
 ### Skills assessment

@@ -6,12 +6,8 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import {
-  getLedaInstructionAudioPath,
-  normalizeLedaAudioText
-} from "../src/data/ledaProductionAudio.js";
-import { ADVENTURE_MAP_INSTRUCTION_AUDIO } from "../src/data/generated/adventureMapInstructionAudio.generated.js";
-import { ADVENTURE_MAP_AUDIO_TEXTS } from "../src/components/elQuest/adventureRoundAudio.js";
+import { normalizeLedaAudioText } from "../src/data/ledaProductionAudio.js";
+import { ADVENTURE_MAP_AUDIO_TEXTS, resolveAdventureInstructionAudio } from "../src/components/elQuest/adventureRoundAudio.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const voice = "en-US-Chirp3-HD-Leda";
@@ -94,7 +90,7 @@ function inspectAudio(publicPath) {
 }
 
 const rows = ADVENTURE_MAP_AUDIO_TEXTS.map(text => {
-  const mappedPath = ADVENTURE_MAP_INSTRUCTION_AUDIO[normalizeLedaAudioText(text)] || getLedaInstructionAudioPath(text);
+  const mappedPath = resolveAdventureInstructionAudio(text);
   const signal = inspectAudio(mappedPath);
   const existing = signal.audible ? mappedPath : "";
   return {

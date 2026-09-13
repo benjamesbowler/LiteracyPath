@@ -15,10 +15,10 @@ import {
 // Map, Home, and the Quest all surface unreadable storage as a failed read.
 // Once JSON is readable and structurally valid, they share one epoch boundary.
 export function readElQuestLocalProgress(scopeKey) {
-  if (typeof window === "undefined") return { ok: true, value: {} };
+  if (typeof window === "undefined") return { ok: true, value: emptyElQuestProgress() };
   try {
     const raw = window.localStorage.getItem(localProgressStorageKey("el_quest", scopeKey));
-    if (raw === null) return { ok: true, value: {} };
+    if (raw === null) return { ok: true, value: emptyElQuestProgress() };
     const parsed = JSON.parse(raw);
     if (isFutureElQuestProgress(parsed)) {
       return { ok: false, reason: "unsupported_version", value: {} };

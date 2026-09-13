@@ -9,6 +9,7 @@ import {
 } from "../../src/utils/adventureMapLocalProgress.js";
 import { buildDailyMission } from "../../src/utils/dailyMission.js";
 import { worldForScope } from "../../src/utils/palWorlds.js";
+import { emptyElQuestProgress, normalizeElQuestProgress } from "../../src/utils/adventureMapProgress.js";
 
 function withLocalProgress(scope, payload, callback) {
   const previousWindow = globalThis.window;
@@ -37,6 +38,21 @@ function legacyCompletedCycles() {
     ]))
   });
 }
+
+test("a first visit supplies a current progress envelope so the first completed quest survives saving", () => {
+  withLocalProgress("new-child", null, values => {
+    const initial = readElQuestLocalProgress("new-child");
+    assert.deepEqual(initial, { ok: true, value: emptyElQuestProgress() });
+    const completed = normalizeElQuestProgress({
+      ...initial.value,
+      cycles: { "cycle-4": { stars: 3, plays: 1, lastTotal: 18 } }
+    });
+    values.set("lp-el-quest:new-child", JSON.stringify(completed));
+    assert.deepEqual(readElQuestLocalProgress("new-child").value.cycles, {
+      "cycle-4": { stars: 3, plays: 1, lastTotal: 18 }
+    });
+  });
+});
 
 test("legacy local Adventure Map progress cannot advance map, home, mission, or world before hydration", () => {
   withLocalProgress("child-1", legacyCompletedCycles(), () => {

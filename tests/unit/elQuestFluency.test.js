@@ -11,14 +11,14 @@ test("later review cycles preserve their teacher station IDs with simple games",
     const stations = stationsForCycle(cycle);
     assert.deepEqual(stations.map(station => station.id), ["pattern", "chain", "speed", "poem", "spell", "search", "check"]);
     assert.deepEqual(stations.filter(station => station.id !== "check").map(station => station.title), [
-      "Letter Find", "Missing Letters", "Rhyme Time", "Picture Words", "Word Pairs", "Picture Search"
+      "Sound and Letter Match", "Missing Letters", "Rhyme Time", "Picture Words", "Word Match", "Picture Search"
     ]);
   }
   assert.equal(isFluencyCycle(elSkillsBlockCycles.find(cycle => cycle.cycleNumber === 24)), false);
 });
 
 test("every later route offers a direct learning action with a recoverable answer", () => {
-  const expected = { pattern: ["letterGrid"], chain: ["missingLetter"], speed: ["rhymePair", "rhymeOdd"], poem: ["compoundPicture"], spell: ["wordMemory"], search: ["pictureSearch"] };
+  const expected = { pattern: ["soundChoice", "letterGrid"], chain: ["missingLetter"], speed: ["rhymePair"], poem: ["compoundPicture"], spell: ["sightWordChoice", "wordMemory"], search: ["pictureSearch"] };
   for (const cycle of cycles) {
     for (const [station, mechanics] of Object.entries(expected)) {
       const rounds = buildStationRounds(cycle, station, { seed: `review:${cycle.id}:${station}` });
@@ -34,8 +34,19 @@ test("later Cycle Quest covers the current simple games, including both word end
   for (const cycle of cycles) {
     const rounds = buildStationRounds(cycle, "check", { seed: `review-check:${cycle.id}` });
     const constructs = new Set(rounds.map(round => round.construct));
-    for (const construct of ["initial_phoneme_completion", "final_phoneme_completion", "visual_letter_search", "rhyme_matching", "rhyme_odd_one_out", "high_frequency_word_matching", "oral_compound_blending", "initial_phoneme_picture_search"]) {
+    for (const construct of ["initial_phoneme_completion", "final_phoneme_completion", "visual_letter_search", "heard_phoneme_grapheme_mapping", "heard_ending_sound_family_mapping", "auditory_word_recognition", "initial_phoneme_picture_search"]) {
       assert.ok(constructs.has(construct), `${cycle.id} missing ${construct}`);
+    }
+    assert.ok(rounds.every(round => !["rhymePair", "rhymeOdd", "compoundPicture", "wordMemory"].includes(round.mechanicId)));
+  }
+});
+
+test("later review stations retain taught sound teams and endings beyond single-letter grids", () => {
+  for (const cycle of cycles) {
+    const rounds = buildStationRounds(cycle, "pattern", { seed: `pattern-review:${cycle.id}` });
+    const targets = rounds.filter(round => round.mechanicId === "soundChoice").map(round => round.targetGrapheme);
+    for (const target of ["sh", "ch", "th", "wh", "nk", "ng", "ang", "ing", "ong", "ung", "ff", "ss", "zz", "ll"]) {
+      assert.equal(targets.filter(value => value === target).length, 1, `${cycle.id}: ${target} should have one clear sound-matching task`);
     }
   }
 });

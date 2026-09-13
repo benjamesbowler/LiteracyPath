@@ -14,6 +14,36 @@ export const INITIAL_STUDENT_FOCUS_STATE = Object.freeze({
   lastContactAt: ""
 });
 
+export const STUDENT_FOCUS_POLL_TIMEOUT_MS = 10_000;
+
+export function pollStudentFocusSession(options, {
+  controller = new AbortController(),
+  timeoutMs = STUDENT_FOCUS_POLL_TIMEOUT_MS
+} = {}) {
+  return new Promise((resolve, reject) => {
+    let timeout;
+    let settled = false;
+    const finish = (callback, value) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timeout);
+      controller.signal.removeEventListener("abort", cancel);
+      callback(value);
+    };
+    const cancel = () => finish(reject, new Error("student_focus_poll_cancelled"));
+    controller.signal.addEventListener("abort", cancel, { once: true });
+    if (controller.signal.aborted) { cancel(); return; }
+    timeout = setTimeout(() => {
+      finish(reject, new Error("student_focus_poll_timeout"));
+      controller.abort();
+    }, timeoutMs);
+    getStudentFocusSession({ ...options, signal: controller.signal }).then(
+      data => finish(resolve, data),
+      error => finish(reject, error)
+    );
+  });
+}
+
 export function focusSessionRetryDelay(failureCount) {
   return Math.min(8000, Math.max(1000, 1000 * (2 ** Math.max(0, failureCount - 1))));
 }
@@ -57,6 +87,13 @@ export function reduceStudentFocusState(state, action) {
   }
 }
 
+function reduceOwnedStudentFocusState(previous, action) {
+  return {
+    token: action.token ?? previous.token,
+    state: reduceStudentFocusState(previous.state, action)
+  };
+}
+
 export function useStudentFocusSession({
   client,
   token = "",
@@ -65,10 +102,14 @@ export function useStudentFocusSession({
   contentVersion = STUDENT_FOCUS_CONTENT_VERSION,
   contentReport = null
 }) {
-  const [state, dispatch] = useReducer(reduceStudentFocusState, INITIAL_STUDENT_FOCUS_STATE);
+  const [ownedState, dispatch] = useReducer(reduceOwnedStudentFocusState, {
+    token, state: INITIAL_STUDENT_FOCUS_STATE
+  });
+  const state = ownedState.state;
   const stateRef = useRef(state);
+  const tokenRef = useRef(token);
   const timerRef = useRef(null);
-  const pollingRef = useRef(false);
+  const requestRef = useRef(null);
   const stoppedRef = useRef(false);
   const pollRef = useRef(null);
   const wakeLockRef = useRef(null);
@@ -76,6 +117,12 @@ export function useStudentFocusSession({
   useEffect(() => {
     stateRef.current = state;
   }, [state]);
+
+  const cancelPoll = useCallback(() => {
+    const request = requestRef.current;
+    requestRef.current = null;
+    request?.controller.abort();
+  }, []);
 
   const requestWakeLock = useCallback(async () => {
     if (!stateRef.current.session || document.hidden || !navigator.wakeLock?.request) return;
@@ -87,11 +134,12 @@ export function useStudentFocusSession({
   }, []);
 
   const poll = useCallback(async () => {
-    if (stoppedRef.current || pollingRef.current || document.hidden || !enabled || !token) return;
-    pollingRef.current = true;
+    if (stoppedRef.current || requestRef.current || document.hidden || !enabled || !token) return;
+    const request = { controller: new AbortController() };
+    requestRef.current = request;
     window.clearTimeout(timerRef.current);
     try {
-      const data = await getStudentFocusSession({
+      const data = await pollStudentFocusSession({
         client,
         token,
         currentView,
@@ -100,7 +148,8 @@ export function useStudentFocusSession({
           contentReport,
           contentVersion
         )
-      });
+      }, request);
+      if (stoppedRef.current || requestRef.current !== request) return;
       if (data?.ok === false) throw new Error(data.error || "student_focus_poll_failed");
       const session = data?.session
         ? {
@@ -117,6 +166,7 @@ export function useStudentFocusSession({
         : null;
       dispatch({
         type: "session",
+        token,
         session,
         endAction: data?.end_action || "",
         endedSessionId: data?.ended_session_id || "",
@@ -125,14 +175,15 @@ export function useStudentFocusSession({
       if (session) void requestWakeLock();
       timerRef.current = window.setTimeout(() => void pollRef.current?.(), 1000);
     } catch {
+      if (stoppedRef.current || requestRef.current !== request) return;
       const failureCount = stateRef.current.failureCount + 1;
-      dispatch({ type: "failure" });
+      dispatch({ type: "failure", token });
       timerRef.current = window.setTimeout(
         () => void pollRef.current?.(),
         focusSessionRetryDelay(failureCount)
       );
     } finally {
-      pollingRef.current = false;
+      if (requestRef.current === request) requestRef.current = null;
     }
   }, [client, contentReport, contentVersion, currentView, enabled, requestWakeLock, token]);
 
@@ -142,9 +193,15 @@ export function useStudentFocusSession({
 
   useEffect(() => {
     stoppedRef.current = false;
+    if (tokenRef.current !== token || !enabled || !token) {
+      tokenRef.current = token;
+      stateRef.current = INITIAL_STUDENT_FOCUS_STATE;
+      dispatch({ type: "reset", token });
+    }
     if (enabled && token && !document.hidden) void poll();
     const wake = () => {
       window.clearTimeout(timerRef.current);
+      cancelPoll();
       if (!document.hidden) {
         void requestWakeLock();
         void poll();
@@ -155,12 +212,13 @@ export function useStudentFocusSession({
     return () => {
       stoppedRef.current = true;
       window.clearTimeout(timerRef.current);
+      cancelPoll();
       document.removeEventListener("visibilitychange", wake);
       window.removeEventListener("online", wake);
       void wakeLockRef.current?.release?.().catch(() => {});
       wakeLockRef.current = null;
     };
-  }, [enabled, poll, requestWakeLock, token]);
+  }, [cancelPoll, enabled, poll, requestWakeLock, token]);
 
   useEffect(() => {
     if (state.session) return undefined;
@@ -175,5 +233,5 @@ export function useStudentFocusSession({
     return () => window.clearTimeout(timer);
   }, [state.connection]);
 
-  return state;
+  return enabled && token && ownedState.token === token ? state : INITIAL_STUDENT_FOCUS_STATE;
 }

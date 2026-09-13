@@ -55,7 +55,7 @@ test("every quest round in every cycle is winnable and well-formed", () => {
             assert.equal(outcome?.correct, true, `${where} never records the completed game`);
             continue;
           }
-          assert.ok(["letterPair", "soundChoice", "missingLetter", "rhymePair", "rhymeOdd", "compoundPicture"].includes(round.mechanicId),
+          assert.ok(["letterPair", "soundChoice", "sightWordChoice", "missingLetter", "rhymePair", "compoundPicture"].includes(round.mechanicId),
             `${where} uses an unsupported mechanic`);
           assert.ok(Array.isArray(round.choices) && round.choices.length >= 2, `${where} too few choices`);
           assert.equal(new Set(round.choices).size, round.choices.length, `${where} duplicate choices`);

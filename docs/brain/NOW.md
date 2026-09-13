@@ -48,8 +48,12 @@ installed, reviewed, and trusted on 2026-08-03.
 ## Current beta release state
 
 - Adventure Map uses the [simple-game contract](../product/ADVENTURE_MAP.md):
-  direct letter/sound matching, hidden word pairs, CVC first/final completion,
-  rhyming, compounds, letter grids and picture searches across all 27 cycles.
+  direct heard-word and letter/sound matching, short word-pair boards, CVC
+  first/final completion, letter grids and picture searches across all 27 cycles.
+  Rhyming and pictured compounds are optional extras; the mixed Cycle Quest
+  concentrates on words and phonics. Cycles 1–4 revisit every taught word and sound.
+  First visits now start with the current progress envelope so the first
+  completed station or quest survives save normalization and reload.
   The old sound gate and multi-step word/poetry mechanics are retired. Silent
   recorded directions were traced to a fade-out starting at time zero; the
   generator and recordings are corrected with new cache-safe asset filenames.
@@ -59,6 +63,19 @@ installed, reviewed, and trusted on 2026-08-03.
 - Sound Racer and Reel & Read use their restored real-time engines. The prior held-fork confirmation and nominated-fish descriptions are superseded. Current reported defects and requested upgrades are tracked in the [complete upgrade plan](../design/GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md); restoration does not establish that these later requests have been delivered.
 
 - Cycle Practice now uses six pictured, recorded-audio activity families with automatic responses, forgiving guided tracing, and full distinct decks for all 27 cycles. Assessment requires 30 active minutes plus completed coverage of taught sounds, words and activity types. Legacy memory/gate/confirmation mechanics are removed from this surface. See [Cycle Practice](../product/CYCLE_PRACTICE.md). It uses typed independent/support/media-failure evidence, retained first responses, pause-safe active practice time, immutable retry payloads and owner-scoped teacher results. The hosted migration is `20260908122903`; local and rollback-only hosted SQL checks passed. Current contracts are in [Cycle Practice](../product/CYCLE_PRACTICE.md) and [Learning Policy](../design/LEARNING_POLICY.md). Browser emulation does not establish physical-device or human-listening evidence.
+
+- The September 13 classroom revision puts all Cycle 1–4 high-frequency-word
+  models and recognition within Cycle 4's opening coverage. Taught CVC words,
+  first sounds and some final sounds accompany limited rhyme/beat practice;
+  compound deletion, two-step word changes and poems are absent. Cycle Practice
+  safety expiry begins at 60 minutes. Student-session polling recovers from
+  stalled requests and foreground/online transitions without losing the last
+  verified assignment. The current activity revision and compatibility rules
+  are in [Cycle Practice](../product/CYCLE_PRACTICE.md). A native-audio browser
+  run completed 30 active minutes in Cycle 4, pause/reload recovery and its check.
+  All 27 Adventure Map quests completed with recorded audio and retained their
+  first earned stars through reload. Physical-iPad and authenticated classroom
+  sign-in-to-save evidence remain outstanding.
 
 - Cycle Practice touch choices now accept a released finger that drifts within
   the same button and discard cancelled or interrupted holds. Sorting shelves
@@ -95,8 +112,8 @@ installed, reviewed, and trusted on 2026-08-03.
   verified on the linked hosted project on 2026-08-31; all 83 browser RPCs were
   visible to PostgREST. The in-app lock still needs physical-iPad classroom
   verification.
-- Music defaults off outside the main menu; the A–Z song keeps its on default.
-  Game, Quest and Sound Seekers music opt-ins last only for the current visit;
+- Music defaults off on Home and in activities, including the A–Z song.
+  Home, Game, Quest and Sound Seekers music opt-ins last only for the current visit;
   saved or synced music-on settings cannot start a new activity. Spoken audio stays independent.
 - Child-facing background music is independently controllable from spoken
   teaching audio and game sounds across Home, Arcade/full-screen games, Sound

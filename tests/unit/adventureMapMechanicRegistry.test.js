@@ -35,7 +35,7 @@ test.after(async () => {
 test("only the ten current Adventure activities resolve to supported components", () => {
   assert.deepEqual([...ADVENTURE_MECHANIC_IDS].sort(), [
     "compoundPicture", "letterGrid", "letterPair", "missingLetter", "pictureSearch",
-    "rhymeOdd", "rhymePair", "sceneHunt", "soundChoice", "wordMemory"
+    "sightWordChoice", "rhymePair", "sceneHunt", "soundChoice", "wordMemory"
   ].sort());
   assert.deepEqual(
     Object.keys(registry.ADVENTURE_MECHANICS).sort(),
@@ -47,7 +47,7 @@ test("only the ten current Adventure activities resolve to supported components"
 });
 
 test("unknown and retired mechanics fail closed", () => {
-  for (const mechanicId of ["missing-mechanic", "soundGate", "wordWindow", "wordMachine", "soundBoxes", "poemSpotlight", "letterTrace", "patternSort", "phraseFlow", "heartWord", "wordChain"]) {
+  for (const mechanicId of ["missing-mechanic", "soundGate", "wordWindow", "wordMachine", "soundBoxes", "poemSpotlight", "letterTrace", "patternSort", "phraseFlow", "heartWord", "wordChain", "rhymeOdd"]) {
     const html = renderToStaticMarkup(React.createElement(AdventureMechanicRenderer, {
       round: { mechanicId }
     }));

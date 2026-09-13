@@ -3,10 +3,10 @@ export const ADVENTURE_MECHANIC_IDS = Object.freeze([
   "soundChoice",
   "sceneHunt",
   "wordMemory",
+  "sightWordChoice",
   "letterGrid",
   "missingLetter",
   "rhymePair",
-  "rhymeOdd",
   "compoundPicture",
   "pictureSearch"
 ]);

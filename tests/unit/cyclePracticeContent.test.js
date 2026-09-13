@@ -11,6 +11,8 @@ import {
   CYCLE_SOUND_WORDS, CYCLE_HFW_CONTEXTS, CYCLE_SYLLABLE_COUNTS, cyclePracticeSemanticKey, cyclePracticeReadiness,
 } from '../../src/components/cycle-practice/cyclePracticeContent.js';
 import { resolveCyclePracticeAudio } from '../../src/components/cycle-practice/cyclePracticeAudio.js';
+import { taughtCycleHighFrequencyWords } from '../../src/utils/cyclePracticeVariation.js';
+import { CYCLE_WORD_BUILD_INVENTORY, CYCLE_WORD_BUILD_IMAGE_HOLDOUTS } from '../../src/data/cycleWordBuildInventory.js';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const cycles = elSkillsBlockCycles.filter(cycle => cycle.cycleNumber);
@@ -65,7 +67,7 @@ test('beginning sounds, endings, and rimes have exactly one defensible picture a
   for (const cycle of cycles) for (let variant = 0; variant < 3; variant++) {
     const pools = buildCyclePracticePools(cycle, `ambiguity:${variant}`);
     for (const round of pools.pictureSound) {
-      const valid = round.choices.filter(choice => cycleSoundMatches(choice.value, round.targetGrapheme));
+      const valid = round.choices.filter(choice => cycleSoundMatches(choice.value, round.targetGrapheme, round.soundPosition));
       assert.deepEqual(valid.map(choice => choice.value), [round.answer], `${round.id}: ${round.choices.map(c => c.value)}`);
     }
     for (const round of pools.rhymeMatch) {
@@ -99,19 +101,14 @@ test('sound pictures expand beyond the old small examples without confusing shor
   for (const word of coverage.x) assert.ok(word.endsWith('x'));
 });
 
-test('word construction stays inside taught print and sound changes preserve every unchanged slot', () => {
+test('word construction stays inside taught print', () => {
   for (const cycle of cycles) {
     const taught = cycleTaughtGraphemes(cycle);
     for (const round of buildCyclePracticePools(cycle, 'spelling').wordBuild) {
-      if (round.variant === 'highFrequency' || round.variant === 'wordParts') continue;
+      if (round.variant === 'highFrequency') continue;
       assert.equal(round.answer.join(''), round.targetWord);
       for (const token of round.answer) assert.ok(taught.includes(token), `${cycle.id}: ${round.targetWord}: ${token}`);
       for (const choice of round.choices) assert.ok(taught.includes(choice.value), `${cycle.id}: ${choice.value}`);
-      if (round.variant === 'wordChange') {
-        assert.ok(exists(round.beforeImage));
-        const differences = round.answer.flatMap((token, index) => token === round.beforeLetters[index] ? [] : [index]);
-        assert.deepEqual(differences, [round.changeIndex]);
-      }
     }
   }
 });
@@ -130,14 +127,16 @@ test('complete semantic decks are deterministic, rotate after exhaustion, and ch
   }
 });
 
-test('every full cycle offers at least 120 true tasks and 30 minutes of planned content without a short repeat loop', () => {
+test('practice keeps complete taught-content decks with a small oral-language share and honest replay capacity', () => {
   for (const cycle of cycles) {
     const first = buildCyclePracticePlan(cycle, 'full-path');
-    assert.ok(first.rounds.length >= 120, cycle.id);
+    assert.ok(first.rounds.length >= first.blueprint.minimumCompletedTasks, `${cycle.id}: a full coverage pass precedes replay`);
     assert.equal(new Set(first.rounds.map(round => cyclePracticeSemanticKey(round))).size, first.rounds.length, `${cycle.id}: semantic uniqueness excludes rearrangements`);
     assert.equal(first.blueprint.distinctTasks, first.rounds.length);
-    assert.ok(first.blueprint.plannedMinutes[0] >= 30, cycle.id);
-    assert.ok(first.blueprint.byActivity.rhymeMatch * 3 <= first.rounds.length, `${cycle.id}: rhyme stays at or below one-third of the semantic deck`);
+    if (cycle.cycleNumber >= 3) assert.ok(first.blueprint.plannedMinutes[0] >= 30, `${cycle.id}: at least 30 minutes of planned content`);
+    assert.ok(first.blueprint.byActivity.rhymeMatch * 10 <= first.rounds.length, `${cycle.id}: rhyme remains a small part of the deck`);
+    assert.ok(first.rounds.filter(round => round.variant === 'syllableSort').length <= 4, `${cycle.id}: beats do not become filler`);
+    assert.ok(first.rounds.filter(round => ['rhymeMatch', 'letterTrace'].includes(round.mechanicId) || round.variant === 'syllableSort').length < first.rounds.length / 2, `${cycle.id}: recognition and phonics remain the majority`);
     assert.ok(first.rounds.every(round => round.semanticKey && round.coverageTags.length));
     const next = buildCyclePracticePlan(cycle, 'full-path', 1);
     const authored = new Set(Object.values(buildCyclePracticePools(cycle, 'full-inventory')).flat().map(round => round.semanticKey));
@@ -148,13 +147,29 @@ test('every full cycle offers at least 120 true tasks and 30 minutes of planned 
   }
 });
 
+test('every active cycle excludes compound deletion, two-step word changes and poems from practice, check and readiness', () => {
+  for (const cycle of cycles) for (const seed of ['simple-first-visit', 'simple-replay']) for (const check of [false, true]) {
+    const pools = Object.values(buildCyclePracticePools(cycle, seed, check)).flat();
+    const plan = buildCyclePracticePlan(cycle, seed, 0, check);
+    for (const round of [...pools, ...plan.rounds]) {
+      assert.equal(['wordParts', 'wordChange', 'poem'].includes(round.variant), false, `${cycle.id}: ${round.variant}`);
+      assert.equal(/compound|substitution|poem/u.test(round.construct), false, `${cycle.id}: ${round.construct}`);
+    }
+    if (!check) {
+      assert.equal(plan.blueprint.requiredCoverageTags.some(tag => /compound|wordChange|poem/u.test(tag)), false);
+      const records = plan.rounds.slice(0, 36).map(round => ({ semanticKey: round.semanticKey, activityCompleted: true }));
+      assert.equal(cyclePracticeReadiness(cycle, records, 1800).ready, true, `${cycle.id}: direct activities complete the existing breadth requirement`);
+    }
+  }
+});
+
 test('every practice pass models each high-frequency word before independent recognition without delaying core breadth', () => {
   for (const cycle of cycles) for (const seed of ['first-visit', 'returning-child', 'fresh-start']) for (const pass of [0, 1, 2]) {
     const { rounds } = buildCyclePracticePlan(cycle, seed, pass);
     const modeled = new Set();
     for (const round of rounds) {
       if (round.variant === 'highFrequency') modeled.add(round.targetWord);
-      if (round.variant === 'wordListen') assert.ok(modeled.has(round.targetWord), `${cycle.id}: ${seed}/${pass}: ${round.targetWord} is modeled first`);
+      if (round.variant === 'wordListen' && !round.decodableWord) assert.ok(modeled.has(round.targetWord), `${cycle.id}: ${seed}/${pass}: ${round.targetWord} is modeled first`);
     }
     for (const word of cycle.highFrequencyWords) {
       assert.ok(modeled.has(word.toLowerCase()));
@@ -166,6 +181,64 @@ test('every practice pass models each high-frequency word before independent rec
     const check = buildCyclePracticePlan(cycle, seed, pass, true).rounds;
     assert.equal(check.some(round => round.variant === 'highFrequency'), false);
     for (const word of cycle.highFrequencyWords) assert.ok(check.some(round => round.variant === 'wordListen' && round.targetWord === word.toLowerCase()));
+  }
+});
+
+test('Cycle 4 opens with cumulative HFW, taught sounds, CVC recognition and only a little rhyme', () => {
+  const cycle = cycles[3];
+  const words = taughtCycleHighFrequencyWords(4).map(word => word.toLowerCase());
+  for (const seed of ['classroom-one', 'classroom-two', 'classroom-three']) {
+    const { rounds, blueprint } = buildCyclePracticePlan(cycle, seed);
+    const opening = rounds.slice(0, 48);
+    for (const word of words) {
+      const copy = opening.findIndex(round => round.variant === 'highFrequency' && round.targetWord === word);
+      const listen = opening.findIndex(round => round.variant === 'wordListen' && round.targetWord === word);
+      assert.ok(copy >= 0 && listen > copy, `${seed}: teach then recognise ${word}`);
+    }
+    for (const target of cycleTaughtGraphemes(cycle)) assert.ok(opening.some(round => round.targetGrapheme === target), `${seed}: review ${target}`);
+    for (const construct of ['grapheme_phoneme_matching', 'grapheme_word_building', 'ending_sound_picture_identification']) assert.ok(opening.some(round => round.construct === construct), `${seed}: ${construct}`);
+    assert.ok(opening.some(round => round.decodableWord), `${seed}: heard CVC to print is available early`);
+    assert.ok(opening.filter(round => round.mechanicId === 'rhymeMatch').length <= 3, `${seed}: low rhyme frequency`);
+    assert.ok(blueprint.plannedMinutes[0] >= 30);
+  }
+});
+
+test('all cycles review taught sight words while independent checks retain the assigned word scope', () => {
+  for (const cycle of cycles) {
+    const rounds = buildCyclePracticePlan(cycle, 'cumulative-hfw').rounds;
+    const taught = taughtCycleHighFrequencyWords(cycle.cycleNumber).map(word => word.toLowerCase());
+    for (const word of taught) {
+      assert.ok(rounds.some(round => round.variant === 'highFrequency' && round.targetWord === word), `${cycle.id}: model ${word}`);
+      assert.ok(rounds.some(round => round.variant === 'wordListen' && !round.decodableWord && round.targetWord === word), `${cycle.id}: recognise ${word}`);
+    }
+    const checkWords = buildCyclePracticePlan(cycle, 'cumulative-hfw', 0, true).rounds.filter(round => round.variant === 'wordListen').map(round => round.targetWord).sort();
+    assert.deepEqual(checkWords, cycle.highFrequencyWords.map(word => word.toLowerCase()).sort(), `${cycle.id}: check the assigned HFW targets`);
+  }
+});
+
+test('new word recognition uses taught CVC print and reviewed pictures without creating HFW-copy evidence', () => {
+  const inventory = new Map(CYCLE_WORD_BUILD_INVENTORY.map(item => [item.word, item]));
+  for (const cycle of cycles) {
+    const taught = cycleTaughtGraphemes(cycle);
+    for (const round of buildCyclePracticePlan(cycle, 'heard-cvc').rounds.filter(round => round.decodableWord)) {
+      assert.equal(round.construct, 'auditory_word_recognition');
+      assert.equal(round.checkEligible, false);
+      assert.equal(round.image, inventory.get(round.targetWord).image);
+      assert.equal(round.coverageTags.some(tag => /^hfw/u.test(tag)), false);
+      assert.ok(round.choices.length >= 2);
+      assert.equal(round.choices.filter(choice => choice.value === round.answer).length, 1);
+      for (const choice of round.choices) {
+        const item = inventory.get(choice.value);
+        assert.ok(item && item.authorizedFromCycle <= cycle.cycleNumber, `${cycle.id}: ${choice.value}`);
+        assert.ok(item.graphemes.every(grapheme => taught.includes(grapheme)), `${cycle.id}: taught code for ${choice.value}`);
+      }
+    }
+    for (const check of [false, true]) for (const round of buildCyclePracticePools(cycle, 'reviewed-build-pictures', check).wordBuild) {
+      if (round.variant === 'highFrequency') continue;
+      assert.equal(CYCLE_WORD_BUILD_IMAGE_HOLDOUTS.includes(round.targetWord), false, `${cycle.id}: rejected target picture`);
+      assert.equal(CYCLE_WORD_BUILD_IMAGE_HOLDOUTS.includes(round.beforeWord), false, `${cycle.id}: rejected source picture`);
+      if (inventory.has(round.targetWord)) assert.equal(round.image, inventory.get(round.targetWord).image);
+    }
   }
 });
 
@@ -246,10 +319,10 @@ test('early cycles mix every taught sound into the opening activities with varie
   }
 });
 
-test('all 27 Cycle Check decks retain a stable contract after the basic-picture vocabulary correction', () => {
-  // Corrected vocabulary changes the available picture pool and its seeded
-  // selection. Focus, HFW, independent-response and media validity are checked
-  // above; pin the resulting deterministic deck after the picture review.
+test('all 27 Cycle Check decks retain a stable contract after direct-activity and picture corrections', () => {
+  // Reviewed CVC pictures, rejected-image exclusions and retiring multi-step
+  // activities change affected items. Focus, HFW, independent-response and
+  // media validity are checked above; pin this corrected check selection.
   const hashes = cycles.map(cycle => createHash('sha256').update(JSON.stringify(buildCyclePracticePlan(cycle, 'check-contract', 0, true).rounds)).digest('hex'));
-  assert.equal(createHash('sha256').update(hashes.join('|')).digest('hex'), 'caa392e744e7b21092f9bcb605c9bb94904f84fc830ec601cd6b3be9d13a8ad3');
+  assert.equal(createHash('sha256').update(hashes.join('|')).digest('hex'), '7cff4d0d6a62a9474376c6a4c98927c1624e9df4eeca5d3a7f27b7879e1d4185');
 });

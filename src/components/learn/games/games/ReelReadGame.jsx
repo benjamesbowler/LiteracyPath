@@ -1270,7 +1270,7 @@ function startGame(mount, opts) {
   }
 
   function onKeyDown(event) {
-    if (isInteractiveKeyTarget(event.target) && !controls.contains(event.target)) return;
+    if (isInteractiveKeyTarget(event.target) && ![btnLeft, btnRight, btnCast].some(button => button.contains(event.target))) return;
     if (paused) return;
     if (introOpen) {
       if (event.key === "Enter" || event.key === " ") {

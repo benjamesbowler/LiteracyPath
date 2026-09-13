@@ -85,7 +85,9 @@ test("every current learning construct has short, specific correction and a visi
     assert.ok(first && second && model?.instruction && model.units.length, round.mechanicId);
     assert.equal(third, model.instruction);
     for (const message of [first, second, third]) {
-      assert.doesNotMatch(message, /sound gate|magnet|study.*hide|choose.*confirm|grapheme|onset|poetry line|tag/iu);
+      // A pictured magnet is ordinary vocabulary. Ban the retired interface
+      // directions without rejecting a valid target noun in its feedback.
+      assert.doesNotMatch(message, /sound gate|magnet board|word magnet|study.*hide|choose.*confirm|grapheme|onset|poetry line|tag/iu);
       assert.ok(message.split(/\s+/u).length <= 35, `${round.mechanicId}: ${message}`);
     }
   }

@@ -74,6 +74,35 @@
   gap: 16px;
   width: min(560px, 100%);
 }
+
+.skills-block-quest .am-word-choice__words {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 28px);
+  width: min(1020px, 100%);
+}
+.skills-block-quest .am-word-choice__words:has(> :last-child:nth-child(2)) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.skills-block-quest .am-word-choice__words button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: max(56px, var(--kg-physical-hit, 56px));
+  min-height: clamp(130px, 22vh, 210px);
+  padding: 24px 12px;
+  border: 3px solid var(--am-edge);
+  border-radius: 24px;
+  background: #fffdf1;
+  color: var(--am-ink);
+  box-shadow: 0 7px 0 #b08c50;
+  font: 700 clamp(32px, 5vw, 64px)/1.1 var(--lp-font-reading);
+  transition: transform 150ms ease, background-color 150ms ease;
+}
+.skills-block-quest .am-word-choice__words [data-answer-state="correct"] { border-color: #277149; background: #e4f3cf; }
+.skills-block-quest .am-word-choice__words [data-answer-state="retry"] { border-style: dashed; border-color: #a85534; }
+@media (max-width: 620px) {
+  .skills-block-quest .am-word-choice__words { grid-template-columns: minmax(0, 1fr); width: min(420px, 100%); }
+  .skills-block-quest .am-word-choice__words button { min-height: 86px; padding: 14px; }
+}
 .skills-block-quest .am-word-memory__card {
   position: relative;
   display: grid;

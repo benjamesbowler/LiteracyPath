@@ -102,7 +102,8 @@ test("D-001: Whole Child and the formal EL workbook keep sparse Skills results p
   const workspace = buildStudentReportingWorkspaceModel({
     student,
     assessmentHistory,
-    evidenceReadState
+    evidenceReadState,
+    now: syncedAt
   });
   const report = buildStudentElAssessmentExportReport({
     assessmentHistory,
@@ -111,7 +112,8 @@ test("D-001: Whole Child and the formal EL workbook keep sparse Skills results p
     studentId: student.id,
     classId: student.classId,
     benchmarkScope: explicitScope,
-    evidenceReadState
+    evidenceReadState,
+    now: syncedAt
   });
 
   const wholeChildByConcept = new Map(
@@ -165,6 +167,7 @@ test("two repeated variants in one Skills sitting cannot become Secure in the fo
     studentId: student.id,
     classId: student.classId,
     benchmarkScope: explicitScope,
+    now: syncedAt,
     evidenceReadState: {
       completedAt: syncedAt,
       syncStatus: "complete",

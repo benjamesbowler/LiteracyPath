@@ -119,15 +119,19 @@ test("every substantial vertical slice is complete, traceable to checks, and hon
   assert.match(climbImplementation, /startLevel = 0/);
   assert.match(climbImplementation, /onCheckpoint\?\.\(Math\.min\(world.step, world.summit - 1\), world.summit\)/);
   assert.match(climbImplementation, /onEngineReady\?\.\(\{ pause, resume \}\)/);
-  assert.match(climbImplementation, /advanceClimbWorld\(world, dt/);
+  assert.match(climbImplementation, /advanceClimbJourney\(world,\s*dt,\s*input\.current\)/);
+  const climbJourney = readFileSync("src/components/learn/games/games/wordClimbJourney.js", "utf8");
+  assert.match(climbJourney, /advanceClimbWorld\(world,\s*seconds,/);
   assert.match(climbImplementation, /if \(audio\) void speakWord\(event.platform.word\)/);
   assert.match(climbImplementation, /safeSfx\(callbacks.current.isSoundEnabled, playCelebrationFanfare\)/);
   assert.match(climbImplementation, /cancelAnimationFrame\(animation\)/);
-  assert.doesNotMatch(climbImplementation, /aria-label="Word Climb complete"/);
+  assert.equal(ARCADE_PREMIUM_PROFILES["word-climb"].completionPresentation, "engine");
+  assert.match(climbImplementation, /role="alertdialog" aria-modal="true" aria-label="Word Climb complete"/);
+  assert.match(climbImplementation, /inert=\{finished \|\| undefined\}/);
 
   const playerImplementation = readFileSync("src/components/learn/games/GamePlayer.jsx", "utf8");
-  assert.match(playerImplementation, /const hasPremiumCompletionOverlay = Boolean\(completionResult && premiumProfile && game\.id !== "rocket-run"\)/);
-  assert.match(playerImplementation, /const hasBlockingOverlay = startLevel === null \|\| showQuit \|\| showGuide \|\| hasPremiumCompletionOverlay/);
+  assert.match(playerImplementation, /const hasPremiumCompletionOverlay = Boolean\(completionResult && premiumProfile && premiumProfile\.completionPresentation !== "engine"\)/);
+  assert.match(playerImplementation, /const hasBlockingOverlay = startLevel === null \|\| showQuit \|\| showGuide \|\| hasPremiumCompletionOverlay \|\| saveRecovery/);
   assert.match(playerImplementation, /const hasEngineOwnedCompletion = Boolean\(completionResult && !hasPremiumCompletionOverlay\)/);
   assert.match(playerImplementation, /querySelectorAll\("\.lg-game-player-main button:not\(\[disabled\]\)"\)/);
   assert.match(playerImplementation, /<main className="lg-game-player-main" inert=\{hasBlockingOverlay \? true : undefined\}>/);
@@ -150,7 +154,8 @@ test("Rocket Run keeps the exact target cue replayable and reinforces it after e
   assert.match(implementation, /speakWord\(candidate\.userData\.word, \{/);
   assert.match(implementation, /say\(\(\) => speakPhoneme\(roundTarget\)\)/);
   assert.match(implementation, /signal: controller.signal/);
-  assert.match(implementation, /isolateRocketRunCompletion\(hud, overlay, done\)/);
+  assert.match(implementation, /next\.hidden = !opts\.onRequestNextLevel/);
+  assert.match(implementation, /isolateRocketRunCompletion\(hud, overlay, opts\.onRequestNextLevel \? next : done\)/);
   assert.match(implementation, /isolateRocketRunActionOverlay\(hud, overlay, retry, "Retry Rocket Run round"\)/);
   assert.match(implementation, /isolateRocketRunActionOverlay\(hud, overlay, next, "Rocket Run round complete"\)/);
   assert.match(implementation, /"min-height:56px"/);

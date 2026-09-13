@@ -1,16 +1,16 @@
 import { isIndependentOutcome } from "./outcomeIndependence.js";
 
-export const CYCLE_ACTIVITY_REVISION = "cycle-play-varied-review-2026-09-13";
+export const CYCLE_ACTIVITY_REVISION = "cycle-play-classroom-recognition-2026-09-13";
 export const CYCLE_PRACTICE_VERSION = "cycle-practice-v2";
 export const CYCLE_PRACTICE_POLICY_VERSION = "cycle-practice-policy-v2";
 export const CYCLE_PRACTICE_MINIMUM_SECONDS = 1800;
 // Product activity policy: credit only foreground intervals bracketed by real
 // learner input; a gap over one minute is idle and earns no active time.
 export const CYCLE_ACTIVITY_GAP_MS = 60_000;
-const AUDIO_REQUIRED = new Set(["soundChoice", "sceneHunt", "missingLetter", "rhymePair", "rhymeOdd", "compoundPicture", "pictureSearch"]);
+const AUDIO_REQUIRED = new Set(["soundChoice", "sightWordChoice", "sceneHunt", "missingLetter", "rhymePair", "compoundPicture", "pictureSearch"]);
 // Stored question records keep their original evidence meaning after a game
 // is retired. These IDs classify old records only; they do not enable play.
-const HISTORICAL_AUDIO_REQUIRED = new Set(["soundGate", "soundBoxes", "wordMachine", "wordChain", "phraseFlow"]);
+const HISTORICAL_AUDIO_REQUIRED = new Set(["soundGate", "soundBoxes", "wordMachine", "wordChain", "phraseFlow", "rhymeOdd"]);
 export function requiresCycleAudio(round) {
   return round?.audioRequired === true || AUDIO_REQUIRED.has(round?.mechanicId)
     || HISTORICAL_AUDIO_REQUIRED.has(round?.mechanicId);

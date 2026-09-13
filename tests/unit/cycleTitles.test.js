@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
-import { cyclePickerTitle } from "../../src/utils/cycleTitles.js";
+import { cyclePickerTitle, cyclePracticeDisplayTitle } from "../../src/utils/cycleTitles.js";
 
 test("every selectable cycle has a content title", () => {
   const titles = elSkillsBlockCycles
@@ -39,4 +39,15 @@ test("every selectable cycle has a content title", () => {
     "Cycle 26: Pattern Power",
     "Cycle 27: Poem Launch"
   ]);
+});
+
+test("Cycle Practice uses game wording while formal teaching titles remain unchanged", () => {
+  for (const cycle of elSkillsBlockCycles.filter(item => Number.isInteger(item.cycleNumber))) {
+    assert.equal(cyclePracticeDisplayTitle(cycle), cycle.cycleNumber === 27
+      ? "Cycle 27: Word and sound review" : cyclePickerTitle(cycle));
+  }
+  const finalCycle = elSkillsBlockCycles.find(cycle => cycle.cycleNumber === 27);
+  assert.equal(cyclePickerTitle(finalCycle), "Cycle 27: Poem Launch");
+  assert.equal(cyclePracticeDisplayTitle({ cycleNumber: "27" }, finalCycle.title), "Cycle 27: Word and sound review");
+  assert.equal(cyclePracticeDisplayTitle({ cycleNumber: 4 }, "saved title"), "saved title");
 });

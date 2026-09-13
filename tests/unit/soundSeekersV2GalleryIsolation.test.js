@@ -569,6 +569,14 @@ function lifecycleFixture({
       assert.equal(command, "npm");
       assert.ok(args.includes("build:quest-offline-test"));
       events.push("build-spawn");
+      // A real child process keeps the event loop alive until it closes. The
+      // stalled mock needs the same reference while its unref'd watchdog runs.
+      if (buildNeverCloses) {
+        const buildHandle = setTimeout(() => {}, 1_000);
+        const releaseBuildHandle = () => clearTimeout(buildHandle);
+        child.once("close", releaseBuildHandle);
+        child.once("error", releaseBuildHandle);
+      }
       events.push(`build-detached:${String(options.detached)}`);
       assert.equal(processLike.listenerCount("SIGINT"), 1);
       assert.equal(processLike.listenerCount("SIGTERM"), 1);

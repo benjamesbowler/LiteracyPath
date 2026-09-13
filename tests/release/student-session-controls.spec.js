@@ -95,6 +95,62 @@ test("whole-class exact-space start sends one bounded assignment", async ({ page
   });
 });
 
+test("Cycle Practice reserves time for 30 minutes of practice and its check", async ({ page }) => {
+  for (const viewport of IPAD_VIEWPORTS) {
+    await page.setViewportSize({ width: viewport.width, height: viewport.height });
+    await page.goto("/preview/student-session-controls.html?target=cycle_practice", { waitUntil: "domcontentloaded" });
+    const expiry = page.getByLabel("Safety expiry");
+    await expect(expiry).toHaveValue("60");
+    await expect(expiry.locator("option")).toHaveText(["1 hour", "90 minutes", "2 hours"]);
+    await expiry.scrollIntoViewIfNeeded();
+    await expect(page.getByText("Allows 30 minutes of active practice and a short check.")).toBeVisible();
+    const geometry = await pageGeometry(page);
+    expect(geometry.dialogFitsViewport, viewport.name).toBe(true);
+    expect(geometry.documentOverflowX, viewport.name).toBeLessThanOrEqual(1);
+    expect(geometry.dialogOverflowX, viewport.name).toBeLessThanOrEqual(1);
+  }
+});
+
+test("switching from a 30-minute activity to Cycle Practice sends a 60-minute expiry", async ({ page }) => {
+  await page.setViewportSize({ width: 1024, height: 768 });
+  await page.goto("/preview/student-session-controls.html", { waitUntil: "domcontentloaded" });
+  const expiry = page.getByLabel("Safety expiry");
+  await expiry.selectOption("30");
+  await page.getByRole("button", { name: /^Cycle Practice/ }).click();
+  await expect(expiry).toHaveValue("60");
+  await expect(expiry.locator('option[value="30"]')).toHaveCount(0);
+  await page.getByRole("button", { name: /^Cycle 4 / }).click();
+  await page.getByRole("button", { name: "Start for whole class" }).click();
+  await expect.poll(() => page.evaluate(() => window.__studentSessionPreviewLastRpc)).toMatchObject({
+    name: "teacher_start_cycle_practice_session",
+    args: { p_duration_minutes: 60, p_whole_class: true, p_student_ids: [], p_assignments: { "*": { cycle_id: "cycle-4" } } }
+  });
+});
+
+test("Cycle Practice preserves a longer expiry and other activities retain 30 minutes", async ({ page }) => {
+  await page.goto("/preview/student-session-controls.html", { waitUntil: "domcontentloaded" });
+  const expiry = page.getByLabel("Safety expiry");
+  await expiry.selectOption("90");
+  await page.getByRole("button", { name: /^Cycle Practice/ }).click();
+  await expect(expiry).toHaveValue("90");
+  await page.getByRole("button", { name: /^Adventure Map/ }).click();
+  await expect(expiry).toHaveValue("90");
+  await expiry.selectOption("30");
+  await page.getByRole("button", { name: "Start for whole class" }).click();
+  await expect.poll(() => page.evaluate(() => window.__studentSessionPreviewLastRpc?.args.p_duration_minutes)).toBe(30);
+});
+
+test("Cycle 27 practice uses a word-and-sound title without changing its curriculum assignment", async ({ page }) => {
+  await page.goto("/preview/student-session-controls.html?target=cycle_practice", { waitUntil: "domcontentloaded" });
+  await page.getByRole("button", { name: /Cycle 27: Word and sound review/ }).click();
+  await expect(page.locator(".student-session-start-summary")).toContainText("Cycle 27: Word and sound review");
+  await expect(page.getByRole("dialog")).not.toContainText("Poem Launch");
+  await page.getByRole("button", { name: "Start for whole class" }).click();
+  await expect.poll(() => page.evaluate(() => window.__studentSessionPreviewLastRpc?.args.p_assignments)).toMatchObject({
+    "*": { cycle_id: "cycle-27", cycle_number: 27, cycle_title: "Cycle 27" }
+  });
+});
+
 test("a preselected small group can use each learner's current map space", async ({ page }) => {
   await page.setViewportSize({ width: 768, height: 1024 });
   await page.goto(

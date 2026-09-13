@@ -69,6 +69,24 @@ export function PictureSearchMechanic({ round, disabled, supportLevel, onCommit,
   </section>;
 }
 
+export function SightWordChoiceMechanic({ round, disabled, supportLevel, onCommit, reducedMotion }) {
+  const [selected, setSelected] = useState("");
+  const committed = useRef(false);
+  function choose(word) {
+    if (disabled || committed.current) return;
+    const outcome = chooseSimpleAnswer(round, word, supportLevel);
+    committed.current = outcome.correct;
+    setSelected(word);
+    onCommit?.(outcome);
+  }
+  return <section className="am-simple am-word-choice" data-mechanic-stage="sight-word-choice" data-reduced-motion={Boolean(reducedMotion)} aria-label="Find the word you hear">
+    <div className="am-word-choice__words" role="group" aria-label="Choose a word">{round.choices.map(word => {
+      const state = selected === word ? word === round.answer ? "correct" : "retry" : "ready";
+      return <button key={word} type="button" aria-label={`Choose ${word}`} aria-pressed={selected === word} data-answer-state={state} disabled={disabled || selected === round.answer} onClick={() => choose(word)}><span>{word}</span>{state === "correct" && <Check className="am-simple-found" weight="bold" aria-hidden="true" />}{state === "retry" && <X className="am-simple-miss" weight="bold" aria-hidden="true" />}</button>;
+    })}</div>
+  </section>;
+}
+
 export function WordMemoryMechanic({ round, disabled, supportLevel, onCommit, onRequestObjectAudio, reducedMotion }) {
   const [state, setState] = useState(createMemory);
   const current = useRef(state);
@@ -134,7 +152,7 @@ export function PictureWordChoiceMechanic({ round, disabled, supportLevel, onCom
     committed.current = outcome.correct;
     onCommit?.(outcome);
   }
-  return <section className={`am-simple am-picture-words ${compound ? "am-compound-pictures" : "am-rhymes"}`} data-mechanic-stage={compound ? "compound-picture" : pair ? "rhyme-pair" : "rhyme-odd"} data-reduced-motion={Boolean(reducedMotion)} aria-label={compound ? "Join the picture words" : pair ? "Choose two rhyming words" : "Choose the word that does not rhyme"}>
+  return <section className={`am-simple am-picture-words ${compound ? "am-compound-pictures" : "am-rhymes"}`} data-mechanic-stage={compound ? "compound-picture" : "rhyme-pair"} data-reduced-motion={Boolean(reducedMotion)} aria-label={compound ? "Join the picture words" : "Choose two rhyming words"}>
     {compound && <div className="am-compound-pictures__parts" aria-label="Two word parts">{round.parts.map((part, index) => <div className="am-compound-pictures__part" key={part.word}>{index > 0 && <span className="am-compound-plus" aria-hidden="true">+</span>}<div><Picture word={part.word} image={part.image} /><HearWord word={part.word} disabled={disabled} onRequestObjectAudio={onRequestObjectAudio} /></div></div>)}</div>}
     <div className="am-picture-words__choices" role="group" aria-label={pair ? "Pick two pictures" : "Choose a picture"}>{round.choices.map(word => <div className="am-simple-picture-card" key={word}><button className="am-simple-picture-choice" type="button" aria-label={`Choose ${word}`} aria-pressed={selected.includes(word)} data-answer-state={selected.includes(word) ? complete ? "correct" : attempted ? "retry" : "selected" : "ready"} disabled={disabled || complete} onClick={() => choose(word)}><Picture word={word} image={round.objects?.find(object => object.word === word)?.image} /><span>{word}</span>{selected.includes(word) && (complete ? <Check className="am-simple-found" weight="bold" aria-hidden="true" /> : attempted ? <X className="am-simple-miss" weight="bold" aria-hidden="true" /> : <span className="am-simple-selected" aria-hidden="true">1</span>)}</button><HearWord word={word} disabled={disabled} onRequestObjectAudio={onRequestObjectAudio} /></div>)}</div>
     {pair && <p className="am-simple-count" role="status">{selected.length === 1 ? "Choose one more." : "Find two that rhyme."}{selected.length === 1 && <button type="button" aria-label="Choose the pair again" className="am-simple-reset" disabled={disabled} onClick={() => { current.current = []; setSelected([]); }}><ArrowCounterClockwise size={22} aria-hidden="true" /></button>}</p>}

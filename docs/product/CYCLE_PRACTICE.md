@@ -6,6 +6,9 @@ cannot yet read instructions independently. Its current runtime is
 question source is `cyclePracticeContent.js` in the same directory. It no
 longer uses the Adventure Map's memory, gate, poem or confirmation mechanics.
 
+Practice pickers and live session labels call Cycle 27 "Word and sound review";
+the formal curriculum's presentation title and stored assignment stay unchanged.
+
 ## Learning through play
 
 All 27 numbered cycles use the taught sounds, patterns and words from
@@ -18,7 +21,7 @@ assigned mappings. A missing picture offers reload without recording a literacy 
 | Sound Safari | Tap a pictured object for the heard sound or ending | Picture identification for the declared first sound, final sound or ending chunk |
 | Letter Friends | Match a heard sound, letter case, or spoken word | Grapheme–phoneme matching, visual letter identity, or auditory word recognition |
 | Rhyme Picnic | Join a pictured word to a rhyming picture | Oral rhyme recognition, with picture-name replay available |
-| Word Workshop | Fill word-train cars by tapping letters; choose which letter to change, then replace it; choose the remaining pictured word part | Encoding, sound substitution, or explicitly named compound deletion |
+| Word Workshop | Fill word-train cars by tapping letters | Taught-code encoding or supported high-frequency word copying |
 | Sound Delivery | Sort three objects into persistent sound baskets, or match a spoken word to beat dots | First/final sound or ending classification and spoken syllable counting; dragging is optional |
 | Rainbow Writing | Follow a large letter trail with a finger or pointer | Supported formation practice, never independent handwriting mastery |
 
@@ -29,6 +32,13 @@ supported learning opportunities and are excluded from the independent check.
 A separate practiced task asks children to match a spoken high-frequency word
 to its printed form without a model. This checks auditory word recognition,
 not independent decoding, with a meaningful context picture.
+Practice revisits earlier high-frequency words as well as the current words.
+Cycle 4 introduces models and recognition for all eight words from Cycles 1–4
+within the first 36 activities. Clear taught CVC words also receive spoken-word
+recognition without a visible answer model. Sound Safari includes first sounds
+and a smaller amount of final-sound practice. Rhyming is capped at six tasks
+per deck, and spoken beat counting at four. Compound deletion, two-step word
+changes and poems are absent from active practice and checks.
 The child never has to hide a word, recall an interface instruction, or press a
 button to check an answer, letter, or drawing.
 
@@ -76,10 +86,12 @@ supported evidence.
 
 The existing teacher-assigned cycle, foreground active-practice clock,
 30-minute practice minimum, pause/resume, local recovery, immutable final
-payload and retry-save behavior remain in force. Cycle Check requires both at least 1,800 seconds of active
+payload and retry-save behavior remain in force. The teacher's safety expiry
+starts at 60 minutes to leave room for active practice and the short check.
+Cycle Check requires both at least 1,800 seconds of active
 practice and completed coverage of every assigned sound and high-frequency word,
-all six activity families, rhyme, word parts, syllable counting, and the cycle
-applicable letter-case and sound-change work. At least 36 distinct semantic
+all six activity families, a little rhyme and syllable counting, and the cycle
+applicable letter-case work. At least 36 distinct semantic
 tasks must be completed. Repeated IDs, changed distractors and reshuffled answers
 do not manufacture distinct tasks. Finishing the current activity then
 automatically starts Cycle Check.
@@ -94,7 +106,7 @@ succeeds. Children see a brief completion celebration; teachers retain the
 existing detailed results and support/media distinctions.
 
 The reporting protocol remains `cycle-practice-v2`; the activity revision is
-`cycle-play-varied-review-2026-09-13`. Change this revision when a future deck replacement makes
+`cycle-play-classroom-recognition-2026-09-13`. Change this revision when a future deck replacement makes
 saved indexes or question identities incompatible. Old unfinished local sessions restart against the new deck
 and retain their previous evidence locally. Frozen pending saves and completed
 results remain unchanged. Sorting resumes from its recorded object responses.
@@ -150,7 +162,8 @@ the overhaul makes no claim of measured equivalence to either platform.
 ## Varied practice and cumulative review
 
 Cycle Practice and Adventure Map use the same authored sound-picture examples
-in `src/data/cycleSoundWords.js` and taught-letter parsing in
+in `src/data/cycleSoundWords.js`, reviewed CVC pictures in
+`src/data/cycleWordBuildInventory.js`, and taught-letter parsing in
 `src/utils/cyclePracticeVariation.js`. A changed picture, distractor or answer
 position does not justify unlimited repetitions: each practice deck includes
 at most three questions for the same target in the same format. Matching big
@@ -163,8 +176,9 @@ cycle retains the previously taught targets in its eligible practice games.
 New letter forms and earlier review appear in the opening activities. Map
 letter grids include a letter on one board only, with at most three instances
 of either case to find; the first cycle no longer offers the same grid under
-two station names. Mixed Cycle Quests retain every available construct, the
-assigned targets and earlier review, adding rounds when needed for coverage.
+two station names. Mixed Cycle Quests focus on sound and word recognition,
+retaining the assigned targets and earlier review without compulsory rhyme,
+compound or memory questions.
 
 A fresh Cycle Practice session saves its own random seed. Reload continues the
 same question; a new session or completed-deck replay selects and orders fresh

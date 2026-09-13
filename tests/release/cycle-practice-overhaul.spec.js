@@ -361,37 +361,20 @@ for (const [cycleId, variant] of [["cycle-2", "highFrequency"], ["cycle-3", unde
   });
 }
 
-test("changing a word requires finding the changed sound before adding its replacement", async ({ page }) => {
-  const chosenCycle = elSkillsBlockCycles.find(row => row.cycleNumber >= 15 && buildCyclePlan(row, seed).rounds.some(round => round.variant === "wordChange"));
-  const chosenPlan = buildCyclePlan(chosenCycle, seed).rounds;
-  const practiceIndex = chosenPlan.findIndex(round => round.variant === "wordChange");
-  const round = chosenPlan[practiceIndex];
-  const storageKey = cycleStorageKey(scope, "preview", chosenCycle.id);
-  await audioDouble(page);
-  await page.addInitScript(({ storageKey, state }) => localStorage.setItem(storageKey, JSON.stringify(state)), { storageKey, state: initialState({ practiceIndex }) });
-  await page.goto(`/preview/child-surfaces.html?surface=cycle-practice&cycle=${chosenCycle.id}&motion=reduced`);
-  await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
-  await ready(page);
-  await largeLearningType(page);
-  await page.screenshot({ path: ".artifacts/cycle-overhaul-word-change.png" });
-  const records = () => page.evaluate(storageKey => JSON.parse(localStorage.getItem(storageKey)).practiceRecords, storageKey);
-  for (const [index, letter] of round.beforeLetters.entries()) {
-    await expect(page.getByRole("button", { name: `Change letter ${index + 1}: ${letter}`, exact: true })).toHaveAttribute("aria-pressed", "false");
+test("active cycles use direct questions and do not expose retired word-change or deletion controls", async ({ page }) => {
+  for (const currentCycle of elSkillsBlockCycles.filter(row => row.cycleNumber)) for (const checkMode of [false, true]) {
+    const rounds = buildCyclePlan(currentCycle, seed, 0, checkMode).rounds;
+    expect(rounds.length).toBeGreaterThan(0);
+    expect(rounds.some(round => ["wordChange", "wordParts"].includes(round.variant))).toBe(false);
   }
-  for (const button of await page.getByRole("button", { name: /^Add / }).all()) await expect(button).toBeDisabled();
-  const wrongIndex = (round.changeIndex + 1) % round.beforeLetters.length;
-  await page.getByRole("button", { name: `Change letter ${wrongIndex + 1}: ${round.beforeLetters[wrongIndex]}`, exact: true }).click();
-  expect(await records()).toHaveLength(0);
-  await page.getByRole("button", { name: `Add ${round.answer[round.changeIndex]}`, exact: true }).click();
-  await expect.poll(async () => (await records()).length).toBe(1);
-  expect((await records())[0].responseStatus).toBe("incorrect");
-  await ready(page);
+  const practiceIndex = plan.findIndex(round => round.mechanicId === "wordBuild");
+  const round = plan[practiceIndex];
+  await startAt(page, { practiceIndex });
+  await expect(page.getByRole("button", { name: /^Change letter / })).toHaveCount(0);
+  await expect(page.locator(".cycle-word-car")).toHaveCount(round.answer.length);
   await choose(page, round);
-  await expect.poll(async () => (await records()).length).toBe(2);
-  const final = (await records())[1];
-  expect(final.selected).toEqual(round.answer);
-  expect(final.construct).toMatch(/phoneme_substitution$/);
-  expect(final.responseStatus).toBe("supported");
+  await expect.poll(async () => (await saved(page)).practiceRecords.length).toBe(1);
+  expect((await saved(page)).practiceRecords[0].selected).toEqual(round.answer);
 });
 
 test("high frequency word listening keeps picture context and scores the heard word without answer-preview audio", async ({ page }) => {
@@ -417,14 +400,14 @@ test("high frequency word listening keeps picture context and scores the heard w
   expect(record.responseStatus).toBe("correct");
 });
 
-test("case matching, spoken beats, and word parts retain distinct picture-led actions", async ({ page }) => {
+test("case matching and spoken beats retain distinct picture-led actions", async ({ page }) => {
   await audioDouble(page);
   await page.addInitScript(storageKey => {
     const fixture = sessionStorage.getItem("cycle-overhaul-variant-fixture");
     if (fixture) localStorage.setItem(storageKey, fixture);
   }, key);
   await page.goto("/preview/child-surfaces.html?surface=cycle-practice&cycle=cycle-1&motion=reduced");
-  for (const variant of ["letterCase", "syllableSort", "wordParts"]) {
+  for (const variant of ["letterCase", "syllableSort"]) {
     const practiceIndex = plan.findIndex(round => round.variant === variant);
     const round = plan[practiceIndex];
     expect(round).toBeTruthy();
@@ -436,7 +419,6 @@ test("case matching, spoken beats, and word parts retain distinct picture-led ac
     await page.screenshot({ path: `.artifacts/cycle-overhaul-${variant}.png` });
     await expect.poll(() => page.locator(".cycle-activity-space img").first().evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
     if (variant === "letterCase") await expect(page.locator(".cycle-model-letter")).toHaveText(round.model);
-    if (variant === "wordParts") await expect(page.locator(".cycle-answer--picture")).toHaveCount(round.choices.length);
     if (variant === "syllableSort") await expect(page.locator("[data-cycle-bin]")).toHaveCount(round.choices.length);
     await choose(page, round);
     await expect.poll(async () => (await saved(page)).practiceIndex).toBe(practiceIndex + 1);

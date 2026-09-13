@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { cycleResultSummary, cycleDurationSummary, exportCycleSessionResultsCsv, cyclePracticeNextRows } from "../../utils/cyclePracticeReporting.js";
+import { cyclePracticeDisplayTitle } from "../../utils/cycleTitles.js";
 
 import { STUDENT_ADVENTURE_MAP_MODES } from "../../policy/studentFocusAssignments.js";
 import { STUDENT_FOCUS_END_ACTIONS } from "../../policy/studentFocusExit.js";
@@ -29,7 +30,7 @@ export function StudentSessionBar({ session, members = [], students = [], connec
       : session.target === STUDENT_FOCUS_TARGETS.ADVENTURE_MAP
         ? mapTitle
         : session.target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE
-          ? resolvedConfig.cycle_title
+          ? cyclePracticeDisplayTitle({ cycleNumber: resolvedConfig.cycle_number }, resolvedConfig.cycle_title || "")
         : "";
   const audienceLabel = (session.selection_scope || session.audience) === "whole_class"
     ? "Whole class"

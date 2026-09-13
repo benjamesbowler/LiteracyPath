@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { cycleReviewGraphemes, displayGraphemePair } from "../../utils/cyclePracticeVariation.js";
+import { cyclePracticeDisplayTitle } from "../../utils/cycleTitles.js";
 import { elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
 import { playCueAudio, playCueSequence, preloadCueAudio, stopCueAudio } from "../../utils/audio/cuePlayer.js";
 import { triggerTactileFeedback } from "../../utils/tactileFeedback.js";
@@ -139,9 +140,9 @@ function targetReplayLabelFor(round) {
     case "pictureSearch":
       return "Hear the target sound";
     case "missingLetter":
+    case "sightWordChoice":
       return "Hear the word";
     case "rhymePair":
-    case "rhymeOdd":
     case "compoundPicture":
       return "Hear the pictures";
     default:
@@ -558,7 +559,7 @@ export function ElSkillsQuest({
       const isDone = id => doneNow[id] || savedStations[id];
       const cycleStations = stationsForCycle(activeCycle);
       const practiceDone = cycleStations.filter(st => st.id !== "check" && isDone(st.id)).length;
-      const nextStation = cycleStations.find(st => st.id !== "check" && !isDone(st.id))
+      const nextStation = cycleStations.find(st => st.id !== "check" && !st.optional && !isDone(st.id))
         || (practiceDone >= 4 ? cycleStations.find(st => st.id === "check") : null);
       setCelebration({ kind: "station", total, nextStationId: nextStation?.id || null });
     }
@@ -1150,14 +1151,12 @@ export function ElSkillsQuest({
     const stationArt = [...cycleWorld.scenes, cycleWorld.banner, cycleWorld.backdrop].filter(Boolean);
     const savedStations = progress.cycles?.[activeCycle.id]?.stations || {};
     const cycleFinished = Boolean(progress.cycles?.[activeCycle.id]?.stars);
-    const stationDone = id => Boolean(sessionStations[id] || savedStations[id]);
+    const stationDone = id => Boolean(sessionStations[id] || savedStations[id] || (id === "check" && cycleFinished));
     const practiceDone = cycleStations.filter(station => station.id !== "check" && stationDone(station.id)).length;
     const checkLocked = practiceDone < 4 && !cycleFinished;
-    const nextStation = cycleStations.find(station => station.id !== "check" && !stationDone(station.id))
+    const nextStation = cycleStations.find(station => station.id !== "check" && !station.optional && !stationDone(station.id))
       || (!checkLocked ? cycleStations.find(station => station.id === "check") : null);
-    const completedCount = cycleFinished
-      ? cycleStations.length
-      : cycleStations.filter(station => station.id !== "check" && stationDone(station.id)).length;
+    const completedCount = cycleStations.filter(station => stationDone(station.id)).length;
     const completionPercent = Math.round((completedCount / Math.max(1, cycleStations.length)) * 100);
 
     return (
@@ -1172,7 +1171,7 @@ export function ElSkillsQuest({
           <header className="sbq-top sbq-cycle-head">
             <div className="sbq-cycle-heading">
               <p className="sbq-kicker">Cycle {activeCycle.cycleNumber}</p>
-              <h1 id="sbq-cycle-title">{(activeCycle.focusLetters || []).map(item => item.grapheme).join(" and ") || "Review time"}</h1>
+              <h1 id="sbq-cycle-title">{cyclePracticeDisplayTitle(activeCycle, (activeCycle.focusLetters || []).map(item => item.grapheme).join(" and ") || "Review time").replace(/^Cycle \d+: /, "")}</h1>
               <p className="sbq-sub">{activeCycle.childFriendlyGoal}</p>
               {cycleReviewGraphemes(activeCycle).length > 0 && <p className="sbq-sub" data-cycle-review="">
                 {cycleReviewGraphemes(activeCycle).length <= 6
@@ -1205,7 +1204,8 @@ export function ElSkillsQuest({
                 const state = locked ? "locked" : done ? "done" : isNext ? "next" : "open";
                 const stateCopy = locked
                   ? `Play ${4 - practiceDone} more station${4 - practiceDone === 1 ? "" : "s"} to open`
-                  : done ? "Complete, play again" : isNext ? `Start here, ${station.subtitle}` : station.subtitle;
+                  : done ? "Complete, play again" : isNext ? `Start here, ${station.subtitle}`
+                    : station.optional ? `Extra game, ${station.subtitle}` : station.subtitle;
                 return (
                   <button
                     key={station.id}
@@ -1282,7 +1282,7 @@ export function ElSkillsQuest({
           feedback={roundFeedback || "Your turn."}
           feedbackTone={feedbackTone}
           correctionModel={correctionModel}
-          announceFeedback={["letterPair", "soundGate", "sceneHunt"].includes(round.mechanicId)}
+          announceFeedback={["letterPair", "soundChoice", "sightWordChoice", "sceneHunt"].includes(round.mechanicId)}
           shaking={shaking}
           sparkle={sparkle}
           disabled={interactionLocked}

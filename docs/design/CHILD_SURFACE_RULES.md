@@ -46,21 +46,22 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
 
 ## Background audio rules
 
-- Music defaults off outside the main menu. Spoken teaching audio and game
-  sounds retain their independent settings. Music controls remain available
-  for opt-in. Older saved music-on defaults migrate to off once; subsequent
-  choices carry `musicPreferenceVersion` through saves and sync. The main
-  menu A–Z song alone keeps its music-on default.
+- Music defaults off. Spoken teaching audio and game sounds retain their
+  independent settings. Music controls remain available for opt-in. Older
+  saved activity-music defaults migrate to off once; subsequent activity
+  choices carry `musicPreferenceVersion` through saves and sync.
 
 - Child Home music is optional, non-instructional and deliberately quieter
   than activity music. Its visible header control always says whether music is
   on, off, waiting for a tap, or unavailable.
-- A saved on preference may request playback when Home opens, but browser
-  autoplay blocking must remain truthful: the control changes to **Play music**
-  and the next child interaction retries it.
+- Home opens with music off on every visit, including when an older saved
+  preference says on. Only the Home music control may start or retry its song.
+  If playback is blocked, the control says **Play music**; unrelated taps or
+  keys never start it.
 - Home music respects the learner's lower-audio-intensity setting and stops at
-  the child audio lifecycle boundary. It must never continue into a reader,
-  quest, assessment or game.
+  the child audio lifecycle boundary, page hide or unmount. Returning to Home
+  or the browser tab requires a fresh music-control tap. It must never
+  continue into a reader, quest, assessment or game.
 - Tracks live in `src/data/childHomeMusic.js`. With one registered track it
   loops; when more are registered the same player advances through the list.
 

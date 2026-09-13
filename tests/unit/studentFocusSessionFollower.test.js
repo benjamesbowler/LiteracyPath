@@ -5,6 +5,7 @@ import {
   focusSessionContentOkForPoll,
   focusSessionRetryDelay,
   INITIAL_STUDENT_FOCUS_STATE,
+  pollStudentFocusSession,
   reduceStudentFocusState
 } from "../../src/hooks/useStudentFocusSession.js";
 import { STUDENT_FOCUS_CONTENT_VERSION } from "../../src/data/studentFocusSessionCore.js";
@@ -35,6 +36,42 @@ test("focus polling preserves the last lock while an iPad reconnects", () => {
   });
   assert.equal(state.connection, "ended");
   assert.equal(state.session, null);
+});
+
+test("a stalled focus request times out and aborts the underlying transport", async () => {
+  const controller = new AbortController();
+  let receivedSignal;
+  const request = new Promise(() => {});
+  request.abortSignal = signal => { receivedSignal = signal; return request; };
+  const client = { call: () => request };
+  await assert.rejects(pollStudentFocusSession({ client, token: "synthetic-token" }, {
+    controller, timeoutMs: 10
+  }), /student_focus_poll_timeout/);
+  assert.equal(receivedSignal, controller.signal);
+  assert.equal(receivedSignal.aborted, true);
+});
+
+test("cancelling an obsolete focus request settles even when its transport never does", async () => {
+  const controller = new AbortController();
+  let calls = 0;
+  const client = { call: () => { calls += 1; return new Promise(() => {}); } };
+  const pending = pollStudentFocusSession({ client, token: "synthetic-token" }, { controller });
+  const rejected = assert.rejects(pending, /student_focus_poll_cancelled/);
+  controller.abort();
+  await rejected;
+  assert.equal(calls, 1);
+  await assert.rejects(pollStudentFocusSession({ client, token: "synthetic-token" }, { controller }), /student_focus_poll_cancelled/);
+  assert.equal(calls, 1, "an already cancelled request must not reach the client");
+});
+
+test("a completed focus read preserves its exact protocol and cancels its deadline", async () => {
+  const data = { ok: true, session: { id: "synthetic-focus", content_version: STUDENT_FOCUS_CONTENT_VERSION } };
+  const calls = [];
+  const client = { call: (name, args) => { calls.push({ name, args }); return Promise.resolve({ data, error: null }); } };
+  assert.equal(await pollStudentFocusSession({ client, token: "synthetic-token", currentView: "cycle_practice", contentOk: false }), data);
+  assert.deepEqual(calls, [{ name: "student_get_focus_session", args: {
+    p_token: "synthetic-token", p_current_view: "cycle_practice", p_content_ok: false
+  } }]);
 });
 
 test("an ended session can carry a one-time student-selection command", () => {

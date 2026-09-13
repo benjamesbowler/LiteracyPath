@@ -61,6 +61,7 @@ test("initial-sound pictures use genuine onsets and complete accessible media", 
     for (const object of round.objects) {
       assertMedia(object, `${cycle.id}/${round.mechanicId}`);
       assert.equal(object.matches, sharesSound(onsetGrapheme(object.word), round.targetGrapheme));
+      assert.ok(taughtGraphemesThrough(cycle.cycleNumber).some(target => sharesSound(target, onsetGrapheme(object.word))), `${cycle.id}: ${object.word} has an untaught picture-sound contrast`);
     }
     assert.ok(round.objects.some(item => !item.matches));
     if (round.mechanicId === "sceneHunt") assert.equal(round.objects.filter(item => item.matches).length, 1);
@@ -100,8 +101,37 @@ test("word memory has opaque card IDs and two copies of each taught sight word",
     assert.equal(round.construct, "high_frequency_word_matching");
     assert.equal(round.evidenceScope, "visual_word_matching_practice");
   }
-  const first = buildStationRounds(cycles[0], "quick", { seed: "pronoun-I" });
+  const first = buildStationRounds(cycles[0], "quick", { seed: "pronoun-I" }).filter(round => round.mechanicId === "wordMemory");
   assert.ok(first.every(round => round.cards.filter(card => card.word === "I").length === 2));
+});
+
+test("spoken sight-word recognition uses the taught strand, real audio and one unprompted printed answer", () => {
+  for (const { cycle, round } of generated.filter(item => item.round.mechanicId === "sightWordChoice")) {
+    const taught = new Set(cycles.filter(item => item.cycleNumber <= cycle.cycleNumber).flatMap(item => item.highFrequencyWords));
+    assert.ok(taught.has(round.targetWord));
+    assert.equal(round.construct, "auditory_word_recognition");
+    assert.equal(round.evidenceScope, "auditory_word_recognition_practice");
+    assert.equal(round.choices.length, cycle.cycleNumber === 1 ? 2 : 3);
+    assert.equal(new Set(round.choices.map(word => word.toLowerCase())).size, round.choices.length);
+    assert.deepEqual(round.acceptedAnswers, [round.answer]);
+    assert.equal(round.choices.filter(word => word === round.answer).length, 1);
+    assert.ok(round.choices.every(word => taught.has(word)));
+    assert.ok(round.audio && fs.existsSync(path.join(root, "public", round.audio)));
+    assert.equal(round.audioRequired, true);
+    assert.equal(round.display, undefined, "a printed model would turn recognition into copying");
+    assert.equal(round.modelForm, undefined);
+  }
+  for (const cycle of cycles) {
+    const rounds = buildStationRounds(cycle, cycle.cycleNumber < 25 ? "quick" : "spell", { seed: `word-coverage:${cycle.id}` });
+    const recognition = rounds.filter(round => round.mechanicId === "sightWordChoice");
+    const taught = new Set(cycles.filter(item => item.cycleNumber <= cycle.cycleNumber).flatMap(item => item.highFrequencyWords));
+    const targets = new Set(recognition.map(round => round.targetWord));
+    for (const word of cycle.highFrequencyWords) assert.ok(targets.has(word), `${cycle.id} missing current word ${word}`);
+    if (cycle.cycleNumber <= 4) assert.deepEqual(targets, taught, `${cycle.id} must retain every earlier sight word`);
+    for (const word of targets) assert.equal(recognition.filter(round => round.targetWord === word).length, 2);
+    assert.ok(rounds.length <= 27, "later outings keep a short word game with rotating cumulative review");
+    assert.ok(rounds.filter(round => round.mechanicId === "wordMemory").every(round => round.words.every(word => targets.has(word))));
+  }
 });
 
 test("missing-letter rounds are authored CVCs using only cycle-taught letters", () => {
@@ -142,6 +172,18 @@ test("three spoken rhyme choices contain exactly one defensible pair", () => {
     round.objects.forEach(item => assertMedia(item, round.mechanicId));
     assert.equal(requiresCycleAudio(round), true);
   }
+});
+
+test("rhyming is a short positive optional game, and no station asks an entry learner to find a negative", () => {
+  for (const cycle of cycles) {
+    const stationId = cycle.cycleNumber < 25 ? "play" : "speed";
+    const station = stationsForCycle(cycle).find(item => item.id === stationId);
+    assert.equal(station.optional, true);
+    const rounds = buildStationRounds(cycle, stationId, { seed: `short-rhyme:${cycle.id}` });
+    assert.equal(rounds.length, 3);
+    assert.ok(rounds.every(round => round.mechanicId === "rhymePair"));
+  }
+  assert.ok(generated.every(({ round }) => !/\bnot\b|\bexcept\b/iu.test(round.prompt)));
 });
 
 test("compound pictures have real parts and three illustrated spoken answer choices", () => {

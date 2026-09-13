@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { elSkillsBlockCycles } from '../../src/data/elSkillsBlockCycles.js';
 import { cycleSoundPosition, CYCLE_SOUND_WORDS, CYCLE_PICTURE_WORD_HOLDOUTS } from '../../src/data/cycleSoundWords.js';
-import { cycleCardGraphemes, taughtCycleGraphemes, practiceRepetitionKey } from '../../src/utils/cyclePracticeVariation.js';
+import { cycleCardGraphemes, taughtCycleGraphemes, taughtCycleHighFrequencyWords, practiceRepetitionKey } from '../../src/utils/cyclePracticeVariation.js';
 import { buildCyclePracticePlan, buildCyclePracticePools, cyclePracticeReadiness } from '../../src/components/cycle-practice/cyclePracticeContent.js';
 import { buildStationRounds, stationsForCycle } from '../../src/components/elQuest/elQuestEngine.js';
 
@@ -31,6 +31,17 @@ test('display pairs remain single letters, while ff and ss remain taught spellin
   assert.deepEqual(cycleCardGraphemes({ grapheme: 'Qq', spelling: 'qq' }), ['qu']);
   assert.deepEqual(cycleCardGraphemes({ spelling: 'ff ss zz ll' }), ['ff', 'ss', 'zz', 'll']);
   assert.deepEqual(taughtCycleGraphemes(2), ['a', 'm', 't', 's']);
+});
+
+test('sight-word review follows the fixed introduction sequence and deduplicates later review', () => {
+  assert.deepEqual(taughtCycleHighFrequencyWords(4), ['am', 'I', 'a', 'the', 'an', 'and', 'is', 'of']);
+  const later = taughtCycleHighFrequencyWords(27);
+  assert.equal(later.filter(word => word === 'my').length, 1);
+  for (const cycle of cycles) {
+    const taught = taughtCycleHighFrequencyWords(cycle.cycleNumber).map(word => word.toLowerCase());
+    const expected = [...new Set(cycles.filter(item => item.cycleNumber <= cycle.cycleNumber).flatMap(item => item.highFrequencyWords.map(word => word.toLowerCase())))];
+    assert.deepEqual(taught, expected, cycle.id);
+  }
 });
 
 test('all 27 practice decks cap the same target and format at three, while retaining cumulative targets', () => {
@@ -86,9 +97,12 @@ test('map levels retain every eligible earlier target with both cases and no dup
 test('S/T mixed quests always practise current targets and review A/M across varied formats', () => {
   for (let pass = 0; pass < 16; pass++) {
     const rounds = buildStationRounds(cycles[1], 'check', { seed: `quest-review:${pass}` });
-    const targets = new Set(rounds.flatMap(round => round.targetLetters || [round.targetGrapheme || round.missingGrapheme]));
+    const targets = new Set(rounds.flatMap(round => ['soundChoice', 'sceneHunt', 'pictureSearch'].includes(round.mechanicId) ? [round.targetGrapheme] : round.mechanicId === 'missingLetter' ? [round.missingGrapheme] : []));
     for (const letter of ['s', 't', 'a', 'm']) assert.ok(targets.has(letter), `pass ${pass}: ${letter}`);
-    assert.ok(new Set(rounds.map(round => round.mechanicId)).size >= 8);
+    assert.deepEqual(new Set(rounds.map(round => round.mechanicId)), new Set([
+      'letterPair', 'soundChoice', 'sceneHunt', 'sightWordChoice', 'missingLetter', 'letterGrid', 'pictureSearch'
+    ]));
+    assert.deepEqual(new Set(rounds.filter(round => round.mechanicId === 'sightWordChoice').map(round => round.targetWord)), new Set(['am', 'I', 'a', 'the']));
   }
 });
 

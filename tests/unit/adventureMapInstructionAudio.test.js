@@ -54,7 +54,7 @@ test("directions name the correct case and missing-letter position", () => {
 });
 
 test("rhyme directions speak every pictured choice without identifying the answer", () => {
-  for (const mechanicId of ["rhymePair", "rhymeOdd"]) {
+  for (const mechanicId of ["rhymePair"]) {
     const choices = ["cat", "sun", "hat"];
     const audio = resolveAdventureRoundAudio({ mechanicId, choices, answer: "sun" });
     assert.deepEqual(audio.targetAudio, choices.map(getLedaWordAudioPath));
@@ -75,12 +75,19 @@ test("compound clues name both parts and all choices; memory keeps hidden cards 
 });
 
 test("retired mechanics fail closed and cannot speak old gate instructions", () => {
-  for (const mechanicId of ["soundGate", "wordWindow", "wordMachine", "unknown"]) {
+  for (const mechanicId of ["soundGate", "wordWindow", "wordMachine", "rhymeOdd", "unknown"]) {
     const audio = resolveAdventureRoundAudio({ mechanicId, type: "sound", audio: "/target.mp3" });
     assert.equal(audio.instructionAudio, "");
     assert.deepEqual(audio.targetAudio, []);
   }
   assert.ok(ADVENTURE_MAP_AUDIO_TEXTS.includes(ADVENTURE_MAP_INSTRUCTIONS.mapEntry));
+});
+
+test("word recognition speaks one target after its exact action without previewing answer choices", () => {
+  const audio = resolveAdventureRoundAudio({ mechanicId: "sightWordChoice", word: "the", choices: ["and", "the", "is"] });
+  assert.equal(audio.instructionText, "Listen. Tap the word.");
+  assert.ok(audio.instructionAudio);
+  assert.deepEqual(audio.targetAudio, [getLedaWordAudioPath("the")]);
 });
 
 test("early correct choices still complete play without claiming unheard audio evidence", () => {

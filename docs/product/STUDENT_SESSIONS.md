@@ -36,7 +36,10 @@ into the existing synchronized Guided Reading flow.
   setup rather than creating a second reading-session system.
 
 The teacher may target the whole class or selected students and chooses an
-automatic expiry of 30, 60, 90, or 120 minutes. A whole-class launch is derived
+automatic expiry of 30, 60, 90, or 120 minutes. Cycle Practice starts at 60
+minutes so children have time for 30 minutes of active practice and a short
+check. Switching to Cycle Practice raises an existing 30-minute expiry to 60.
+A whole-class launch is derived
 atomically from the current active class roster by the database rather than
 trusting a possibly stale browser list. The live teacher bar reports assigned,
 connected, completed, unavailable-content, and reconnecting states and includes
@@ -52,6 +55,10 @@ original expiry, so an older command cannot reappear after a later ordinary end.
 - A temporary network failure keeps the last verified lock on screen and backs
   polling off to eight seconds. It does not release the student into the rest
   of the app.
+- A stalled poll is aborted after ten seconds and follows the same retry
+  sequence. Foregrounding or reconnecting cancels an obsolete read and starts
+  a fresh one. A response for a previous student's token cannot replace the
+  current assignment.
 - The client requests the screen Wake Lock API while a focus session is active;
   unsupported or denied wake locks do not break the session.
 - Student Session protocol-version mismatch fails closed on an update/help

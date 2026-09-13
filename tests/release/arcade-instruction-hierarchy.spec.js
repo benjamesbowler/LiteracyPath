@@ -137,6 +137,21 @@ test("Reel & Read keeps a persistent semantic word replay clear of its play cont
   await replay.click();
   await expect(replay).toBeVisible();
 
+  await replay.evaluate(button => {
+    window.__reelReplayKeyboard = { clicks: 0, keyDefaults: [] };
+    button.addEventListener("click", () => { window.__reelReplayKeyboard.clicks += 1; }, true);
+    window.addEventListener("keydown", event => {
+      if (event.target === button && ["Enter", " "].includes(event.key)) window.__reelReplayKeyboard.keyDefaults.push(event.defaultPrevented);
+    });
+  });
+  for (const [index, key] of ["Enter", "Space"].entries()) {
+    await replay.focus();
+    await page.keyboard.press(key);
+    await expect.poll(() => page.evaluate(() => window.__reelReplayKeyboard.clicks)).toBe(index + 1);
+  }
+  expect(await page.evaluate(() => window.__reelReplayKeyboard.keyDefaults)).toEqual([false, false]);
+  await page.screenshot({ path: ".artifacts/classroom-readiness/reel-replay-keyboard.png" });
+
   await player.getByRole("button", { name: "Turn spoken audio and game sounds off" }).click();
   await expect(replay).toBeDisabled();
   await expect(replay).toHaveText(/Sound (?:is )?off/);

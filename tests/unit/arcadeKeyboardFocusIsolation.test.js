@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import { createComputerKeyboardProvider } from "../../src/features/soundkeys/inputProviders.js";
 import { isInteractiveKeyTarget } from "../../src/utils/interactiveEventTarget.js";
+import { isPrimaryActionKey, laneDirectionForKey } from "../../src/components/learn/games/shared/premiumGameStandard.js";
 
 function interactiveTarget() {
   return { closest: () => ({ tagName: "BUTTON" }) };
@@ -97,6 +98,10 @@ const focusedMovementControlExceptions = new Map([
   [
     "SoundRacerGame.jsx:onKey",
     /const steeringControlOwnsFocus = event\.target\?\.matches\?\.\('\[data-sr="left-control"\],\[data-sr="right-control"\](?:,\[data-sr="brake-control"\])?'\);\s+if \(isInteractiveKeyTarget\(event\.target\) && !steeringControlOwnsFocus\) return;/
+  ],
+  [
+    "ReelReadGame.jsx:onKeyDown",
+    /if \(isInteractiveKeyTarget\(event\.target\) && !\[btnLeft, btnRight, btnCast\]\.some\(button => button\.contains\(event\.target\)\)\) return;/
   ]
 ]);
 
@@ -120,6 +125,37 @@ for (const [fileName, handlers] of gameHandlerContracts) {
     }
   });
 }
+
+test("Reel & Read preserves native replay keys while its own controls and canvas retain gameplay input", async () => {
+  const source = await readFile(new URL("../../src/components/learn/games/games/ReelReadGame.jsx", import.meta.url), "utf8");
+  const actionKey = new Function("isPrimaryActionKey", `${readFunction(source, "isActionKey")}; return isActionKey;`)(isPrimaryActionKey);
+  const makeHandler = new Function("isInteractiveKeyTarget", "btnLeft", "btnRight", "btnCast", "paused", "introOpen", "laneDirectionForKey", "isActionKey", "keys", "requestCast", "dismissIntro", `${readFunction(source, "onKeyDown")}; return onKeyDown;`);
+  const button = () => {
+    const element = { closest: () => element, contains: target => target === element || target?.parent === element };
+    return element;
+  };
+  const left = button(), right = button(), cast = button(), replay = button(), outside = button();
+  const canvas = gameSurfaceTarget();
+  const nestedLeft = { parent: left, closest: () => left };
+  function press(target, key, repeat = false) {
+    const keys = { left: false, right: false, cast: false };
+    let prevented = false, casts = 0;
+    const handler = makeHandler(isInteractiveKeyTarget, left, right, cast, false, false, laneDirectionForKey, actionKey, keys, () => casts++, () => {});
+    handler({ target, key, repeat, preventDefault() { prevented = true; } });
+    return { keys, prevented, casts };
+  }
+  for (const target of [replay, outside]) for (const key of ["Enter", " ", "ArrowLeft"]) {
+    assert.deepEqual(press(target, key), { keys: { left: false, right: false, cast: false }, prevented: false, casts: 0 }, `${key}: native control remains untouched`);
+  }
+  for (const target of [left, nestedLeft, canvas]) {
+    assert.deepEqual(press(target, "ArrowLeft"), { keys: { left: true, right: false, cast: false }, prevented: true, casts: 0 });
+  }
+  assert.deepEqual(press(right, "ArrowRight"), { keys: { left: false, right: true, cast: false }, prevented: true, casts: 0 });
+  for (const target of [cast, canvas]) for (const key of ["Enter", " "]) {
+    assert.deepEqual(press(target, key), { keys: { left: false, right: false, cast: true }, prevented: true, casts: 1 });
+    assert.equal(press(target, key, true).casts, 0, "held action keys do not recast");
+  }
+});
 
 test("held movement keys still release after focus moves to a control", async () => {
   const reelSource = await readFile(

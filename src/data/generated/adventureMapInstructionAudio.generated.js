@@ -12,8 +12,8 @@ export const ADVENTURE_MAP_INSTRUCTION_AUDIO = Object.freeze({
   "find the two words that rhyme": "/audio/production/en-US/instruction/find-the-two-words-that-rhyme-91ac9ea81d.mp3",
   "listen. choose the letter for this sound": "/audio/production/en-US/instruction/listen-choose-the-letter-for-this-sound-a7f335bc37.mp3",
   "listen. choose the letter team for this sound": "/audio/production/en-US/instruction/listen-choose-the-letter-team-for-this-sound-5837b282c6.mp3",
+  "listen. tap the word": "/audio/production/en-US/instruction/listen-tap-the-word-397d7924c5.mp3",
   "tap the card with the arrow to start": "/audio/production/en-US/instruction/tap-the-card-with-the-arrow-to-start-5fa39752f7.mp3",
   "turn over two cards. find the matching words": "/audio/production/en-US/instruction/turn-over-two-cards-find-the-matching-words-ab0833cbff.mp3",
-  "what word do these two pictures make": "/audio/production/en-US/instruction/what-word-do-these-two-pictures-make-fc39c21c6e.mp3",
-  "which word does not rhyme": "/audio/production/en-US/instruction/which-word-does-not-rhyme-8330dff296.mp3"
+  "what word do these two pictures make": "/audio/production/en-US/instruction/what-word-do-these-two-pictures-make-fc39c21c6e.mp3"
 });

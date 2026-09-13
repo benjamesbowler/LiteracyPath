@@ -49,7 +49,7 @@ function ChoiceActivity({ round, disabled, onCommit, onHear, onMediaFailure, sup
         <CycleButton type="button" className="cycle-picture-hear" aria-label={`Hear ${round.targetWord}`} disabled={disabled} data-audio-action="replay" onClick={() => onHear?.(round.audio, round.targetWord)}><SpeakerIcon /></CycleButton>
         {rhyme && <div className="cycle-rhyme-link" aria-hidden="true">↔</div>}
       </div>}
-    <div className="cycle-play-choices" role="group" aria-label={pictureChoice ? "Choose a picture" : "Choose a letter"}>
+    <div className="cycle-play-choices" role="group" aria-label={pictureChoice ? "Choose a picture" : round.variant === "wordListen" ? "Choose a word" : "Choose a letter"}>
       {round.choices.map(choice => <div className="cycle-choice-wrap" key={choice.id || choice.value}>
         <CycleButton type="button" className={`cycle-answer ${pictureChoice ? "cycle-answer--picture" : round.variant === "wordListen" ? "cycle-answer--word" : "cycle-answer--letter"}${supportLevel >= 2 && String(choice.value) === String(round.answer) ? " cycle-answer--hint" : ""}`} aria-label={choice.label || String(choice.value)} aria-pressed={selected === choice.value} disabled={disabled || selected !== null} onClick={() => select(choice)}>
           {pictureChoice ? <Picture src={choice.image} word={choice.label} onFailure={onMediaFailure} /> : <span>{choice.label || choice.value}</span>}

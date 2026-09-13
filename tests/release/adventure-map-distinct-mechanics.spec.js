@@ -1,5 +1,20 @@
 import { expect, test } from "@playwright/test";
-import { adventureWordsRhyme, onsetGrapheme, sharesSound } from "../../src/components/elQuest/elQuestEngine.js";
+import { adventureWordsRhyme, buildStationRounds, onsetGrapheme, sharesSound } from "../../src/components/elQuest/elQuestEngine.js";
+import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
+
+async function reachWordMemory(page) {
+  const round = await openStation(page, "cycle-1", "quick");
+  const plan = buildStationRounds(elSkillsBlockCycles.find(cycle => cycle.id === "cycle-1"), "quick", { seed: "adventure:cycle-1:quick:initial-v3" });
+  const memoryIndex = plan.findIndex(item => item.mechanicId === "wordMemory");
+  expect(memoryIndex).toBeGreaterThanOrEqual(0);
+  for (let index = 0; index < memoryIndex; index += 1) {
+    await expectRound(page, index + 1, plan.length);
+    await round.getByRole("button", { name: `Choose ${plan[index].answer}`, exact: true }).click();
+  }
+  await expectRound(page, memoryIndex + 1, plan.length);
+  await expect(round.locator('[data-mechanic-stage="word-memory"]')).toBeVisible();
+  return { round, memoryIndex };
+}
 
 async function openStation(page, cycle, station) {
   await page.emulateMedia({ reducedMotion: "reduce" });
@@ -41,17 +56,17 @@ test("letter matching advances from one keyboard answer", async ({ page }) => {
 });
 
 test("sound matching gives an immediate retry and advances without an extra gate", async ({ page }) => {
-  // Cycle 24's first authored ending-sound target is ff. Distractor positions
-  // and identities may change while the phonics objective stays the same.
   const round = await openStation(page, "cycle-24", "sounds");
+  const seed = await round.getAttribute("data-run-seed");
+  const first = buildStationRounds(elSkillsBlockCycles.find(cycle => cycle.id === "cycle-24"), "sounds", { seed })[0];
   const total = await roundTotal(page);
   const stage = round.locator('[data-mechanic-stage="sound-choice"]');
   const choices = await stage.getByRole("button").allTextContents();
-  const wrong = choices.find(choice => choice !== "ff");
+  const wrong = choices.find(choice => choice !== first.answer);
   await stage.getByRole("button", { name: wrong, exact: true }).click();
   await expect(round.locator(".adventure-round-frame")).toHaveAttribute("data-feedback-tone", "retry");
   await expectRound(page, 1, total);
-  const correct = stage.getByRole("button", { name: "ff", exact: true });
+  const correct = stage.getByRole("button", { name: first.answer, exact: true });
   await expect(correct).toBeEnabled();
   await correct.focus();
   await page.keyboard.press("Space");
@@ -73,7 +88,7 @@ test("picture sounds accepts the picture itself and automatically continues", as
 });
 
 test("hidden word cards reveal only when flipped, close a mismatch, and finish from matching pairs", async ({ page }) => {
-  let round = await openStation(page, "cycle-1", "quick");
+  let { round, memoryIndex } = await reachWordMemory(page);
   const total = await roundTotal(page);
   let stage = round.locator('[data-mechanic-stage="word-memory"]');
   const cards = stage.locator("[data-card-id]");
@@ -100,22 +115,22 @@ test("hidden word cards reveal only when flipped, close a mismatch, and finish f
   if (firstWord === secondWord) {
     // Having found the first pair, the next card must be another word.
     // Reopen the same activity to exercise a deliberate, visible mismatch.
-    round = await openStation(page, "cycle-1", "quick");
+    ({ round, memoryIndex } = await reachWordMemory(page));
     stage = round.locator('[data-mechanic-stage="word-memory"]');
     await reveal(ids[0]);
     await reveal(ids[2]);
   }
   await expect(round.locator(".adventure-round-frame")).toHaveAttribute("data-feedback-tone", "retry");
   await expect(stage.locator('[data-card-state="hidden"]')).toHaveCount(ids.length);
-  await expectRound(page, 1, total);
+  await expectRound(page, memoryIndex + 1, total);
 
   for (let attempt = 0; attempt < ids.length * 2; attempt += 1) {
     const matched = new Set(await stage.locator('[data-card-state="matched"]').evaluateAll(buttons => buttons.map(button => button.dataset.cardId)));
     const remaining = ids.filter(id => !matched.has(id));
     if (remaining.length === 2) {
       for (const id of remaining) await stage.locator(`[data-card-id="${id}"]`).click();
-      await expectRound(page, 2, total);
-      await expect(stage.locator('[data-card-state="hidden"]')).toHaveCount(ids.length);
+      if (memoryIndex + 1 < total) await expectRound(page, memoryIndex + 2, total);
+      else await expect(page.locator('[data-quest-view="round"]')).toHaveCount(0);
       return;
     }
     const knownFirst = remaining.find(id => seen.has(id) && remaining.some(other => other !== id && seen.get(other) === seen.get(id)));
@@ -186,7 +201,7 @@ test("CVC games accept the first and last letter directly and preserve the pictu
   }
 });
 
-test("rhyme games compare two pictures, then find the odd word without a confirmation step", async ({ page }) => {
+test("short rhyme games compare fresh picture pairs without a negative question or confirmation step", async ({ page }) => {
   const round = await openStation(page, "cycle-1", "play");
   const total = await roundTotal(page);
   let stage = round.locator('[data-mechanic-stage="rhyme-pair"]');
@@ -199,10 +214,12 @@ test("rhyme games compare two pictures, then find the odd word without a confirm
   await expect(round.locator(".adventure-round-frame")).toHaveAttribute("data-feedback-tone", "retry");
   for (const word of pair) await choosePicture(stage, word);
   await expectRound(page, 2, total);
-  stage = round.locator('[data-mechanic-stage="rhyme-odd"]');
-  const oddChoices = await pictureWords(stage);
-  const odd = oddChoices.find(word => !oddChoices.some(other => adventureWordsRhyme(word, other)));
-  await choosePicture(stage, odd);
+  stage = round.locator('[data-mechanic-stage="rhyme-pair"]');
+  const freshChoices = await pictureWords(stage);
+  const freshPair = freshChoices.filter(word => freshChoices.some(other => adventureWordsRhyme(word, other)));
+  expect(freshPair).toHaveLength(2);
+  expect(freshChoices).not.toEqual(words);
+  for (const word of freshPair) await choosePicture(stage, word);
   await expectRound(page, 3, total);
 });
 

@@ -16,6 +16,18 @@ export function taughtCycleGraphemes(cycleNumber) {
     .flatMap(cycle => (cycle.focusLetters || []).flatMap(cycleCardGraphemes)));
 }
 
+export function taughtCycleHighFrequencyWords(cycleNumber) {
+  const seen = new Set();
+  return elSkillsBlockCycles.filter(cycle => cycle.cycleNumber && cycle.cycleNumber <= cycleNumber)
+    .flatMap(cycle => cycle.highFrequencyWords || [])
+    .filter(word => {
+      const key = word.toLowerCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+}
+
 export function cycleReviewGraphemes(cycle) {
   const focus = unique((cycle?.focusLetters || []).flatMap(cycleCardGraphemes));
   return taughtCycleGraphemes(cycle?.cycleNumber || 1).filter(value => !focus.includes(value));

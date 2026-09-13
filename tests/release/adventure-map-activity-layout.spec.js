@@ -4,7 +4,7 @@ const ACTIVITIES = [
   ["cycle-1", "letters", "letter-press"],
   ["cycle-24", "sounds", "sound-choice"],
   ["cycle-1", "hunt", "scene-hunt"],
-  ["cycle-1", "quick", "word-memory"],
+  ["cycle-4", "quick", "sight-word-choice"],
   ["cycle-2", "trace", "letter-grid"],
   ["cycle-4", "build", "missing-letter"],
   ["cycle-1", "play", "rhyme-pair"],

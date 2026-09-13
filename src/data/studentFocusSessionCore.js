@@ -13,8 +13,10 @@ function requireClient(client) {
   return client;
 }
 
-async function callFocusRpc(client, name, args = {}) {
-  const { data, error } = await requireClient(client).call(name, args);
+async function callFocusRpc(client, name, args = {}, signal = null) {
+  let request = requireClient(client).call(name, args);
+  if (signal && typeof request?.abortSignal === "function") request = request.abortSignal(signal);
+  const { data, error } = await request;
   if (error) throw error;
   return data;
 }
@@ -71,13 +73,14 @@ export function getStudentFocusSession({
   client,
   token,
   currentView = "",
-  contentOk = true
+  contentOk = true,
+  signal = null
 }) {
   return callFocusRpc(client, "student_get_focus_session", {
     p_token: token,
     p_current_view: currentView || null,
     p_content_ok: contentOk
-  });
+  }, signal);
 }
 
 export function markStudentFocusSessionComplete({ client, token, sessionId }) {

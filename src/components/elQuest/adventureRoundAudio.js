@@ -1,4 +1,5 @@
 import { ADVENTURE_MAP_INSTRUCTION_AUDIO } from "../../data/generated/adventureMapInstructionAudio.generated.js";
+import { getCyclePracticeInstructionAudio } from "../cycle-practice/cyclePracticeAudio.js";
 import {
   getLedaInstructionAudioPath,
   getLedaProductionAudioPath,
@@ -15,20 +16,21 @@ export const ADVENTURE_MAP_INSTRUCTIONS = Object.freeze({
   soundChoiceEnding: "Choose the ending letters.",
   sceneHunt: "Find the picture that starts with this sound.",
   wordMemory: "Turn over two cards. Find the matching words.",
+  sightWordChoice: "Listen. Tap the word.",
   letterGrid: "Find all the big and small letters.",
   missingLetterStart: "Choose the first letter.",
   missingLetterEnd: "Choose the last letter.",
   rhymePair: "Find the two words that rhyme.",
-  rhymeOdd: "Which word does NOT rhyme?",
   compoundPicture: "What word do these two pictures make?",
   pictureSearch: "Find all the pictures that start with this sound."
 });
 
 export const ADVENTURE_MAP_AUDIO_TEXTS = Object.freeze(Object.values(ADVENTURE_MAP_INSTRUCTIONS));
 
-function instructionAudioFor(text) {
+export function resolveAdventureInstructionAudio(text) {
   return ADVENTURE_MAP_INSTRUCTION_AUDIO[normalizeLedaAudioText(text)]
     || getLedaInstructionAudioPath(text)
+    || getCyclePracticeInstructionAudio(text)
     || "";
 }
 
@@ -37,7 +39,7 @@ function uniqueAudio(paths = []) {
 }
 
 function result(instructionText, targetAudio = []) {
-  const instructionAudio = instructionText ? instructionAudioFor(instructionText) : "";
+  const instructionAudio = instructionText ? resolveAdventureInstructionAudio(instructionText) : "";
   const targets = uniqueAudio(targetAudio).filter(path => path !== instructionAudio);
   return {
     instructionText,
@@ -76,6 +78,8 @@ export function resolveAdventureRoundAudio(round = {}) {
       return result(ADVENTURE_MAP_INSTRUCTIONS.sceneHunt, [round.audio]);
     case "wordMemory":
       return result(ADVENTURE_MAP_INSTRUCTIONS.wordMemory);
+    case "sightWordChoice":
+      return result(ADVENTURE_MAP_INSTRUCTIONS.sightWordChoice, [round.audio || getLedaWordAudioPath(round.word)]);
     case "letterGrid":
       return result(ADVENTURE_MAP_INSTRUCTIONS.letterGrid, (round.targetLetters || []).map(letter => (
         getLedaProductionAudioPath(letter, ["letter_name"])
@@ -89,8 +93,6 @@ export function resolveAdventureRoundAudio(round = {}) {
       );
     case "rhymePair":
       return result(ADVENTURE_MAP_INSTRUCTIONS.rhymePair, pictureNames(round));
-    case "rhymeOdd":
-      return result(ADVENTURE_MAP_INSTRUCTIONS.rhymeOdd, pictureNames(round));
     case "compoundPicture":
       return result(ADVENTURE_MAP_INSTRUCTIONS.compoundPicture, [
         ...(round.parts || []).map(part => getLedaWordAudioPath(part.word)),

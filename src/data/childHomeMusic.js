@@ -2,7 +2,7 @@
 // component. Add future songs here and the Home player will move through the
 // list, returning to the first track after the last one.
 
-export const CHILD_HOME_MUSIC_DEFAULT_ENABLED = true;
+export const CHILD_HOME_MUSIC_DEFAULT_ENABLED = false;
 
 export const CHILD_HOME_MUSIC_TRACKS = Object.freeze([
   Object.freeze({
@@ -18,10 +18,6 @@ export const CHILD_HOME_MUSIC_TRACKS = Object.freeze([
     reviewStatus: "user-supplied-technical-check-complete"
   })
 ]);
-
-export function childHomeMusicPreferenceKey(scopeKey = "default") {
-  return `lp-child-home-music-enabled-v1:${encodeURIComponent(scopeKey || "default")}`;
-}
 
 export function nextChildHomeMusicTrackIndex(currentIndex, trackCount = CHILD_HOME_MUSIC_TRACKS.length) {
   const count = Math.max(0, Number(trackCount) || 0);

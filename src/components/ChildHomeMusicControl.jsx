@@ -4,30 +4,10 @@ import { applyLearnerAudioIntensity } from "../accessibility/learnerAccessibilit
 import {
   CHILD_HOME_MUSIC_DEFAULT_ENABLED,
   CHILD_HOME_MUSIC_TRACKS,
-  childHomeMusicPreferenceKey,
   nextChildHomeMusicTrackIndex
 } from "../data/childHomeMusic.js";
 import { STUDENT_RAIL_ICON_PATHS } from "../policy/studentRailPolicy.js";
 import { STOP_CHILD_AUDIO_EVENT } from "../utils/audio/childAudioLifecycle.js";
-
-function readMusicPreference(scopeKey) {
-  if (typeof window === "undefined") return CHILD_HOME_MUSIC_DEFAULT_ENABLED;
-  try {
-    const stored = window.localStorage.getItem(childHomeMusicPreferenceKey(scopeKey));
-    if (stored === null) return CHILD_HOME_MUSIC_DEFAULT_ENABLED;
-    return stored === "true";
-  } catch {
-    return CHILD_HOME_MUSIC_DEFAULT_ENABLED;
-  }
-}
-
-function saveMusicPreference(scopeKey, enabled) {
-  try {
-    window.localStorage.setItem(childHomeMusicPreferenceKey(scopeKey), String(enabled));
-  } catch {
-    // A private browsing storage failure must not make the control unusable.
-  }
-}
 
 function MusicGlyph() {
   return (
@@ -50,20 +30,22 @@ function musicControlCopy(playbackState) {
   return { label: "Music off", action: "Turn music on" };
 }
 
-export default function ChildHomeMusicControl({ scopeKey = "default" }) {
+export default function ChildHomeMusicControl() {
   const audioRef = useRef(null);
   const mountedRef = useRef(false);
   const [trackIndex, setTrackIndex] = useState(0);
-  const [preferenceEnabled, setPreferenceEnabled] = useState(
-    () => readMusicPreference(scopeKey)
-  );
-  const [playbackState, setPlaybackState] = useState(
-    () => readMusicPreference(scopeKey) ? "starting" : "off"
-  );
+  const playbackRequested = useRef(CHILD_HOME_MUSIC_DEFAULT_ENABLED);
+  const playbackAttempt = useRef(0);
+  const failedTracks = useRef(0);
+  // Consent lasts for this visit only. A saved on preference from an earlier
+  // visit must never start music on a classroom iPad.
+  const [playbackState, setPlaybackState] = useState("off");
   const track = CHILD_HOME_MUSIC_TRACKS[trackIndex] || CHILD_HOME_MUSIC_TRACKS[0];
   const targetVolume = applyLearnerAudioIntensity(track?.volume || 0);
 
   const stop = useCallback((nextState = "off") => {
+    playbackRequested.current = false;
+    playbackAttempt.current += 1;
     const audio = audioRef.current;
     if (audio) {
       audio.pause();
@@ -77,13 +59,13 @@ export default function ChildHomeMusicControl({ scopeKey = "default" }) {
   }, []);
 
   const start = useCallback(() => {
+    if (!playbackRequested.current) return Promise.resolve(false);
     const audio = audioRef.current;
     if (!audio || !track) {
-      return Promise.resolve().then(() => {
-        if (mountedRef.current) setPlaybackState("unavailable");
-        return false;
-      });
+      stop("unavailable");
+      return Promise.resolve(false);
     }
+    const attempt = ++playbackAttempt.current;
     audio.volume = targetVolume;
     let playback;
     try {
@@ -92,25 +74,35 @@ export default function ChildHomeMusicControl({ scopeKey = "default" }) {
       playback = Promise.reject(error);
     }
     return Promise.resolve(playback).then(() => {
-      if (audio.paused) {
-        if (mountedRef.current) setPlaybackState("waiting");
+      if (!mountedRef.current || !playbackRequested.current || attempt !== playbackAttempt.current) {
+        // A late play promise cannot undo an explicit stop or a route change.
+        if (!playbackRequested.current) audio.pause();
         return false;
       }
-      if (mountedRef.current) setPlaybackState("playing");
+      if (audio.paused) {
+        playbackRequested.current = false;
+        setPlaybackState("waiting");
+        return false;
+      }
+      failedTracks.current = 0;
+      setPlaybackState("playing");
       return true;
     }).catch(() => {
-      // Browsers can block autoplay until a child taps. The waiting state is
-      // truthful and the next pointer or keyboard action retries playback.
-      if (mountedRef.current) setPlaybackState("waiting");
+      if (!mountedRef.current || attempt !== playbackAttempt.current) return false;
+      playbackRequested.current = false;
+      // Only another tap on the music control may retry blocked playback.
+      setPlaybackState("waiting");
       return false;
     });
-  }, [targetVolume, track]);
+  }, [stop, targetVolume, track]);
 
   useEffect(() => {
     const audio = audioRef.current;
     mountedRef.current = true;
     return () => {
       mountedRef.current = false;
+      playbackRequested.current = false;
+      playbackAttempt.current += 1;
       if (!audio) return;
       audio.pause();
       try {
@@ -122,73 +114,55 @@ export default function ChildHomeMusicControl({ scopeKey = "default" }) {
   }, []);
 
   useEffect(() => {
-    if (preferenceEnabled) {
-      void start();
-      return;
-    }
-    const audio = audioRef.current;
-    if (!audio) return;
-    audio.pause();
-    try {
-      audio.currentTime = 0;
-    } catch {
-      // An unloaded track is already at its beginning.
-    }
-  }, [preferenceEnabled, start]);
+    // Track changes may continue a playlist the child explicitly started.
+    // Mounting Home never requests playback.
+    if (playbackRequested.current) void start();
+  }, [start]);
 
   useEffect(() => {
-    if (!preferenceEnabled || playbackState !== "waiting") return undefined;
-    const retry = event => {
-      // The control's own click handler starts or stops music. Retrying on its
-      // preceding pointerdown would turn the same tap into two opposing actions.
-      if (event.target?.closest?.("[data-child-home-music]")) return;
-      setPlaybackState("starting");
-      void start();
-    };
-    const events = ["pointerdown", "keydown", "touchstart"];
-    events.forEach(eventName => window.addEventListener(eventName, retry, { once: true }));
-    return () => events.forEach(eventName => window.removeEventListener(eventName, retry));
-  }, [playbackState, preferenceEnabled, start]);
-
-  useEffect(() => {
-    const stopForChildAudioLifecycle = () => {
-      stop(preferenceEnabled ? "waiting" : "off");
-    };
+    const stopForChildAudioLifecycle = () => stop();
+    const stopForHiddenPage = () => { if (document.hidden) stop(); };
     window.addEventListener(STOP_CHILD_AUDIO_EVENT, stopForChildAudioLifecycle);
-    return () => window.removeEventListener(STOP_CHILD_AUDIO_EVENT, stopForChildAudioLifecycle);
-  }, [preferenceEnabled, stop]);
+    window.addEventListener("pagehide", stopForChildAudioLifecycle);
+    document.addEventListener("visibilitychange", stopForHiddenPage);
+    return () => {
+      window.removeEventListener(STOP_CHILD_AUDIO_EVENT, stopForChildAudioLifecycle);
+      window.removeEventListener("pagehide", stopForChildAudioLifecycle);
+      document.removeEventListener("visibilitychange", stopForHiddenPage);
+    };
+  }, [stop]);
 
   function toggleMusic() {
     if (playbackState === "unavailable") return;
     if (playbackState === "playing" || playbackState === "starting") {
-      saveMusicPreference(scopeKey, false);
-      setPreferenceEnabled(false);
-      stop("off");
+      stop();
       return;
     }
-    saveMusicPreference(scopeKey, true);
-    setPreferenceEnabled(true);
+    playbackRequested.current = true;
+    failedTracks.current = 0;
     setPlaybackState("starting");
     void start();
   }
 
   function playNextTrack() {
-    if (CHILD_HOME_MUSIC_TRACKS.length <= 1) return;
+    if (!playbackRequested.current || CHILD_HOME_MUSIC_TRACKS.length <= 1) return;
     setPlaybackState("starting");
     setTrackIndex(index => nextChildHomeMusicTrackIndex(index));
   }
 
   function handleTrackError() {
-    if (CHILD_HOME_MUSIC_TRACKS.length > 1) {
+    if (!playbackRequested.current) return;
+    failedTracks.current += 1;
+    if (failedTracks.current < CHILD_HOME_MUSIC_TRACKS.length) {
       playNextTrack();
       return;
     }
-    setPlaybackState("unavailable");
+    stop("unavailable");
   }
 
   function handlePause() {
-    if (!mountedRef.current) return;
-    setPlaybackState(preferenceEnabled ? "waiting" : "off");
+    if (!mountedRef.current || !audioRef.current?.paused || audioRef.current.ended) return;
+    if (playbackRequested.current) stop();
   }
 
   if (!track) return null;
@@ -203,7 +177,7 @@ export default function ChildHomeMusicControl({ scopeKey = "default" }) {
         aria-pressed={playbackState === "playing" || playbackState === "starting"}
         aria-describedby="kg-home-current-track"
         data-child-home-music=""
-        data-music-enabled={preferenceEnabled ? "true" : "false"}
+        data-music-enabled={playbackState === "playing" || playbackState === "starting" ? "true" : "false"}
         data-playback-state={playbackState}
         disabled={playbackState === "unavailable"}
         onClick={toggleMusic}
@@ -217,7 +191,7 @@ export default function ChildHomeMusicControl({ scopeKey = "default" }) {
       <audio
         ref={audioRef}
         src={track.source}
-        preload="metadata"
+        preload="none"
         loop={CHILD_HOME_MUSIC_TRACKS.length === 1}
         playsInline
         aria-hidden="true"

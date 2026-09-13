@@ -8,7 +8,7 @@ const ROUTES = [
   { cycle: "cycle-1", station: "letters", mechanic: "letterPair", stage: "letter-press" },
   { cycle: "cycle-1", station: "sounds", mechanic: "soundChoice", stage: "sound-choice" },
   { cycle: "cycle-1", station: "hunt", mechanic: "sceneHunt", stage: "scene-hunt" },
-  { cycle: "cycle-1", station: "quick", mechanic: "wordMemory", stage: "word-memory" },
+  { cycle: "cycle-4", station: "quick", mechanic: "sightWordChoice", stage: "sight-word-choice" },
   { cycle: "cycle-2", station: "build", mechanic: "missingLetter", stage: "missing-letter" },
   { cycle: "cycle-1", station: "trace", mechanic: "letterGrid", stage: "letter-grid" },
   { cycle: "cycle-1", station: "play", mechanic: "rhymePair", stage: "rhyme-pair" },
@@ -92,7 +92,7 @@ test("every simple game automatically speaks its current action and replays it",
   }
 });
 
-test("the next rhyme question changes its spoken instruction automatically", async ({ page }) => {
+test("the next rhyme question keeps its simple positive instruction and speaks fresh picture names", async ({ page }) => {
   await installAudioRecorder(page);
   const route = ROUTES.find(route => route.mechanic === "rhymePair");
   const round = await openRoute(page, route);
@@ -100,11 +100,13 @@ test("the next rhyme question changes its spoken instruction automatically", asy
   const pair = words.flatMap((word, index) => words.slice(index + 1).filter(other => adventureWordsRhyme(word, other)).map(other => [word, other]))[0];
   expect(pair).toHaveLength(2);
   for (const word of pair) await round.getByRole("button", { name: `Choose ${word}`, exact: true }).click();
-  const next = page.locator('[data-quest-view="round"][data-round-type="rhymeOdd"]');
+  const next = page.locator('[data-quest-view="round"][data-round-type="rhymePair"]');
+  await expect(next.locator('.adventure-round-frame__heading h1')).toContainText("2 of");
   await expect(next).toBeVisible();
-  const expected = resolveAdventureRoundAudio({ mechanicId: "rhymeOdd" });
-  await expect(next.locator('.adventure-round-frame__instruction > p')).toHaveText("Which word does NOT rhyme?");
+  const expected = resolveAdventureRoundAudio(authoredRounds(route)[1]);
+  await expect(next.locator('.adventure-round-frame__instruction > p')).toHaveText("Find the two words that rhyme.");
   await expect.poll(() => played(page)).toContain(expected.instructionAudio);
+  await expect.poll(async () => { const heard = await played(page); return expected.targetAudio.every(src => heard.includes(src)); }).toBe(true);
 });
 
 test("a real game gesture recovers denied autoplay while the answer still works", async ({ page }) => {

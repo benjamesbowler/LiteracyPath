@@ -7,6 +7,7 @@ import {
   MissingLetterMechanic,
   PictureSearchMechanic,
   PictureWordChoiceMechanic,
+  SightWordChoiceMechanic,
   WordMemoryMechanic
 } from "./SimpleMechanics.jsx";
 
@@ -15,10 +16,10 @@ export const ADVENTURE_MECHANICS = Object.freeze({
   soundChoice: SoundChoiceMechanic,
   sceneHunt: PictureSearchMechanic,
   wordMemory: WordMemoryMechanic,
+  sightWordChoice: SightWordChoiceMechanic,
   letterGrid: LetterGridMechanic,
   missingLetter: MissingLetterMechanic,
   rhymePair: PictureWordChoiceMechanic,
-  rhymeOdd: PictureWordChoiceMechanic,
   compoundPicture: PictureWordChoiceMechanic,
   pictureSearch: PictureSearchMechanic
 });

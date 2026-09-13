@@ -36,14 +36,14 @@ export function correctionModelForOutcome(round = {}) {
       return model(`These pictures start with /${target}/.`, matchingWords(round));
     case "wordMemory":
       return model("Find two cards with the same word.", round.words);
+    case "sightWordChoice":
+      return model(`Find ${round.answer}.`, round.answer);
     case "letterGrid":
       return model("Find these big and small letters.", round.targetLetters.flatMap(letter => [letter.toUpperCase(), letter]));
     case "missingLetter":
       return model(`Choose ${round.missingGrapheme} to ${round.missingPosition === "start" ? "start" : "finish"} ${round.word}.`, round.graphemes);
     case "rhymePair":
       return model(`${rhymePair(round).join(" and ")} rhyme.`, rhymePair(round));
-    case "rhymeOdd":
-      return model(`${round.answer} does not rhyme with ${rhymePair(round).join(" and ")}.`, [round.answer]);
     case "compoundPicture":
       return model(`${round.parts.map(part => part.word).join(" and ")} make ${round.answer}.`, [...round.parts.map(part => part.word), "→", round.answer]);
     default:
@@ -69,6 +69,9 @@ export function feedbackForOutcome(round = {}, outcome = {}, attempt = 1) {
     case "wordMemory":
       return correct ? "You found the matching words."
         : `${selected} are different words. ${furtherHelp ? "Look at all the letters in each word." : "Turn over two matching words."}`;
+    case "sightWordChoice":
+      return correct ? `You found ${round.answer}.`
+        : `${selected} is a different word. ${furtherHelp ? `Find ${round.answer}.` : "Listen again."}`;
     case "letterGrid":
       return correct ? `You found big and small ${round.targetLetters.join(" and ")}.`
         : `${selected} is a different letter. Find big and small ${round.targetLetters.join(" and ")}.`;
@@ -80,9 +83,6 @@ export function feedbackForOutcome(round = {}, outcome = {}, attempt = 1) {
     case "rhymePair":
       return correct ? `${rhymePair(round).join(" and ")} rhyme.`
         : `${selected} do not rhyme. ${furtherHelp ? `Listen to ${rhymePair(round).join(" and ")}.` : "Listen to the ends of the words."}`;
-    case "rhymeOdd":
-      return correct ? `${round.answer} does not rhyme with ${rhymePair(round).join(" and ")}.`
-        : `${selected} belongs to the rhyming pair. ${furtherHelp ? `Listen to ${round.answer}.` : "Find the word with a different ending sound."}`;
     case "compoundPicture":
       return correct ? `${round.parts.map(part => part.word).join(" and ")} make ${round.answer}.`
         : `${selected} is a different word. ${furtherHelp ? `Together the pictures make ${round.answer}.` : `Say ${round.parts.map(part => part.word).join(" and ")} together.`}`;

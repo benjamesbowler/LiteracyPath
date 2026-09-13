@@ -109,6 +109,14 @@ export function cyclePickerTitle(cycle = {}) {
   return `Cycle ${cycle.cycleNumber}: ${cycleTopic(cycle)}`;
 }
 
+// Practice contains word and sound games, even when the formal teaching cycle
+// has a different classroom presentation title.
+export function cyclePracticeDisplayTitle(cycle = {}, fallbackTitle = cyclePickerTitle(cycle)) {
+  return Number(cycle?.cycleNumber) === 27
+    ? "Cycle 27: Word and sound review"
+    : fallbackTitle;
+}
+
 // The label every cycle picker shows: "Cycle 2 · Tt and Ss", never a bare
 // "Cycle 2". Assessment weeks keep their own plain-English name.
 export function cycleOptionLabel(cycle = {}) {

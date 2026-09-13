@@ -55,8 +55,8 @@ immediately. Missing review metadata is not a publication queue.
 
 ## Product design
 
-- [Cycle Practice](product/CYCLE_PRACTICE.md) — spoken, pictured games, varied replay, cumulative review, automatic feedback, forgiving tracing and teacher-assigned sessions
-- [Adventure Map games](product/ADVENTURE_MAP.md) — ten simple spoken letter, word, rhyme and picture games; automatic feedback and current audio/learning contracts
+- [Cycle Practice](product/CYCLE_PRACTICE.md) — cumulative word recognition and phonics, shared reviewed CVC pictures, varied replay, automatic feedback and teacher-assigned sessions
+- [Adventure Map games](product/ADVENTURE_MAP.md) — ten simple spoken letter, word and picture games; focused mixed quests, optional rhyme and current audio/learning contracts
 
 - [Teacher-controlled Student Sessions](product/STUDENT_SESSIONS.md) — whole-class or selected-student iPad focus sessions for targeted Skills checks, exact books and games, plus Reading Library, Letters Practice, and existing synchronized Guided Reading
 - [Student welcome guide](product/STUDENT_WELCOME_GUIDE.md) — first-login orientation, lightweight reminders, replayable Help, spoken guidance, and focus-session suppression

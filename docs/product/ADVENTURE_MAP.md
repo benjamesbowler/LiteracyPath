@@ -19,11 +19,10 @@ response targets, progress and a Stop action.
 | Letter Match | Match the upper-case letter to its lower-case partner, or the reverse. | `letterPair` |
 | Sound Match | Hear a sound and tap its letter or letter team. | `soundChoice` |
 | Picture Sounds | Tap the picture whose name begins with the target sound. | `sceneHunt` |
-| Word Pairs | Turn over hidden cards and find identical taught sight words. | `wordMemory` |
+| Word Match | Hear a taught sight word and tap its printed form, interleaved with short word-pair boards. | `sightWordChoice`, `wordMemory` |
 | Letter Find | Find every requested big and small letter in a mixed grid. | `letterGrid` |
 | Missing Letters | Complete the first or final letter of a pictured, spoken CVC word. | `missingLetter` |
 | Rhyme Time | Choose two pictured words that rhyme. | `rhymePair` |
-| Rhyme Time | Choose the pictured word that does not rhyme with the other two. | `rhymeOdd` |
 | Picture Words | Hear two pictured word parts and choose the compound word they make. | `compoundPicture` |
 | Picture Search | Find all matching initial-sound objects in a large illustrated scene. | `pictureSearch` |
 
@@ -52,9 +51,10 @@ there are no drag, timing, steering or typing requirements.
 - Rhymes are authored sound families, not guesses from final spelling. Rhyme
   and compound vocabulary is pictured and spoken; its richer vocabulary does
   not become independent decoding evidence.
-- The odd-rhyme prompt is the explicit oral comparison requested by the owner.
-  Its three pictures contain exactly one rhyming pair and one outlier. The
-  written negative is emphasized; its spoken wording has the same meaning.
+- Rhyming is an optional three-question game with positive instructions only.
+  Picture Words is also optional. Automatic station progression follows the
+  core sound, letter and word games; it does not require either side activity.
+  There are no poem or negative-rhyme questions.
 - New levels practise both cases of the new letters and retain earlier taught
   targets in eligible games. Cycle 2 introduces Tt/Ss and reviews Aa/Mm. Current
   targets and earlier review are interleaved early; a long bank does not push
@@ -69,16 +69,22 @@ there are no drag, timing, steering or typing requirements.
 - A search completes only after every matching object or letter is found.
   Wrong choices record misses; already found targets remain. A card cannot
   pair with itself and mismatches turn back over automatically.
-- Cycle Quest samples every available construct, including first and final
-  CVC completion, before repeating one, and retains assigned targets plus
-  earlier review. It adds rounds when those targets need additional coverage.
+- Cycle Quest focuses on sound and word recognition, retaining assigned targets
+  plus earlier review without compulsory rhyme, compound or memory rounds.
+  Cycles 1–4 revisit every taught high-frequency word and phonics target. Cycle 4
+  therefore includes all eight words and eight sounds; Word Match offers two
+  recognition opportunities per word interleaved with two short matching boards.
+  Later cycles retain current targets and rotating earlier words. Cycles 25–27
+  include sound teams and endings in Sound and Letter Match as well as letter grids.
   First-attempt evidence and support remain separate from eventual completion.
 - Scores and stars remain practice evidence. This surface does not set EL
   placement, formal Secure judgements or oral-reading fluency.
 
 Exact teacher cycle assignments are retained. Ordinary map progression, saved stars,
 learner identity and the classroom lock remain in the existing progress and
-session systems. There is no progress reset or new hosted data field/service.
+session systems. A first visit starts with the current progress schema so its
+first earned star and completed station survive saving and reload. There is no
+progress reset or new hosted data field/service.
 
 ## Recorded directions
 
@@ -101,7 +107,8 @@ fallback for phonemes or instructions.
 
 ## Current sources and verification
 
-- Rounds and media: `src/components/elQuest/elQuestEngine.js`.
+- Rounds and media: `src/components/elQuest/elQuestEngine.js`; shared reviewed
+  CVC pictures: `src/data/cycleWordBuildInventory.js`.
 - Shared sound examples: `src/data/cycleSoundWords.js`; taught-letter parsing
   and repetition limits: `src/utils/cyclePracticeVariation.js`.
 - Render selection: `src/components/elQuest/mechanics/adventureMechanics.jsx`.

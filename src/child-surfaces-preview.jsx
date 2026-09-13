@@ -88,7 +88,7 @@ window.localStorage.removeItem(localProgressStorageKey("phonics", PREVIEW_SCOPE)
 window.localStorage.removeItem(localProgressStorageKey("cvc", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("learn_games", PREVIEW_SCOPE));
 const FUTURE_ADVENTURE_FIXTURE = PREVIEW_PARAMS.get("futureAdventure") === "1";
-if (!FUTURE_ADVENTURE_FIXTURE) {
+if (!FUTURE_ADVENTURE_FIXTURE && PREVIEW_PARAMS.get("preserveAdventure") !== "1") {
   window.localStorage.removeItem(localProgressStorageKey("el_quest", PREVIEW_SCOPE));
 }
 window.localStorage.removeItem(localProgressStorageKey("story_quests", PREVIEW_SCOPE));

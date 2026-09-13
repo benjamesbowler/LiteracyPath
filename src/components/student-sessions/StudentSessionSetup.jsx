@@ -15,7 +15,7 @@ import {
   STUDENT_FOCUS_TARGETS
 } from "../../policy/studentFocusTargets.js";
 import { guidedReadingBandLabel, guidedReadingModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
-import { cyclePickerTitle } from "../../utils/cycleTitles.js";
+import { cyclePickerTitle, cyclePracticeDisplayTitle } from "../../utils/cycleTitles.js";
 import { TeacherDialog } from "../teacher/ui/TeacherDialog.jsx";
 
 const GUIDED_READING_TOGETHER = "guided_reading";
@@ -324,6 +324,7 @@ export function StudentSessionSetup({
     }
     if (nextTarget !== target && nextTarget === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE) {
       setCycleLoadStatus("loading");
+      setDurationMinutes(current => Math.max(60, current));
     }
     setTarget(nextTarget);
     setMessage("");
@@ -428,7 +429,7 @@ export function StudentSessionSetup({
               : ""
         : target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE
           ? cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE
-            ? cyclePickerTitle(commonCycle)
+            ? cyclePracticeDisplayTitle(commonCycle)
             : "Each student’s selected cycle"
         : "";
   const audienceLabel = audienceSelection.wholeClass
@@ -611,7 +612,7 @@ export function StudentSessionSetup({
                     type="button"
                   >
                     <span>Cycle {cycle.cycleNumber}</span>
-                    <strong>{cyclePickerTitle(cycle)}</strong>
+                    <strong>{cyclePracticeDisplayTitle(cycle)}</strong>
                   </button>
                 ))}
               </div>
@@ -638,7 +639,7 @@ export function StudentSessionSetup({
                           setMessage("");
                         }}
                       >
-                        {cycleOptions.map(cycle => <option key={cycle.id} value={cycle.id}>{cyclePickerTitle(cycle)}</option>)}
+                        {cycleOptions.map(cycle => <option key={cycle.id} value={cycle.id}>{cyclePracticeDisplayTitle(cycle)}</option>)}
                       </select>
                     </label>
                   ))}
@@ -818,12 +819,15 @@ export function StudentSessionSetup({
                   value={durationMinutes}
                   onChange={event => setDurationMinutes(Number(event.target.value))}
                 >
-                  <option value={30}>30 minutes</option>
+                  {target !== STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE && <option value={30}>30 minutes</option>}
                   <option value={60}>1 hour</option>
                   <option value={90}>90 minutes</option>
                   <option value={120}>2 hours</option>
                 </select>
               </label>
+              {target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE && (
+                <p>Allows 30 minutes of active practice and a short check.</p>
+              )}
             </div>
             <button
               className="lp-button lp-button-primary"

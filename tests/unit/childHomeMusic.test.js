@@ -5,13 +5,12 @@ import test from "node:test";
 import {
   CHILD_HOME_MUSIC_DEFAULT_ENABLED,
   CHILD_HOME_MUSIC_TRACKS,
-  childHomeMusicPreferenceKey,
   nextChildHomeMusicTrackIndex
 } from "../../src/data/childHomeMusic.js";
 
 test("child Home ships a quiet, web-ready, registered music track", () => {
   const generatedAudioPaths = readFileSync("src/data/generated/audioFilePaths.generated.js", "utf8");
-  assert.equal(CHILD_HOME_MUSIC_DEFAULT_ENABLED, true);
+  assert.equal(CHILD_HOME_MUSIC_DEFAULT_ENABLED, false);
   assert.ok(CHILD_HOME_MUSIC_TRACKS.length >= 1);
   assert.equal(new Set(CHILD_HOME_MUSIC_TRACKS.map(track => track.id)).size, CHILD_HOME_MUSIC_TRACKS.length);
 
@@ -30,11 +29,7 @@ test("child Home ships a quiet, web-ready, registered music track", () => {
   }
 });
 
-test("the music preference is per child and future tracks form a looping playlist", () => {
-  assert.equal(
-    childHomeMusicPreferenceKey("reader one"),
-    "lp-child-home-music-enabled-v1:reader%20one"
-  );
+test("opted-in future tracks form a looping playlist", () => {
   assert.equal(nextChildHomeMusicTrackIndex(0, 1), 0);
   assert.equal(nextChildHomeMusicTrackIndex(0, 3), 1);
   assert.equal(nextChildHomeMusicTrackIndex(2, 3), 0);
