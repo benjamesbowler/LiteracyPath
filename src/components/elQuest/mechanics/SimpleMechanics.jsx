@@ -56,11 +56,11 @@ export function PictureSearchMechanic({ round, disabled, supportLevel, onCommit,
   }
   return <section className={`am-simple ${scene ? "am-picture-search" : "am-picture-sounds"}`} data-mechanic-stage={scene ? "picture-search" : "scene-hunt"} data-hunt-state={state.complete ? "complete" : "searching"} data-reduced-motion={Boolean(reducedMotion)} aria-label={scene ? "Find pictures in the scene" : "Find the matching pictures"}>
     <div className="am-picture-target"><span>{round.variant === "soundSort" ? "Ends with" : "Starts with"}</span><strong>{round.targetGrapheme}</strong><FindCount found={state.found.length} total={round.objects.filter(object => object.matches).length} /></div>
-    <div className={scene ? "am-picture-search__scene" : "am-picture-sounds__choices"} role="group" aria-label="Picture words" style={scene ? { backgroundImage: `url(${round.scene})` } : undefined}>
+    <div className={scene ? "am-picture-search__scene" : "am-picture-sounds__choices"} role="group" aria-label="Picture words">
       {round.objects.map(object => {
         const id = String(object.id ?? object.word);
         const found = state.found.includes(id);
-        return <div key={id} className={scene ? "am-picture-search__object" : "am-simple-picture-card"} style={scene ? { left: `${object.x}%`, top: `${object.y}%` } : undefined}>
+        return <div key={id} className={scene ? "am-picture-search__object" : "am-simple-picture-card"}>
           <button className="am-simple-picture-choice" type="button" aria-label={`Choose ${object.word}`} aria-pressed={found} data-scene-word={object.word} data-find-state={found ? "found" : state.wrong === id ? "retry" : "ready"} disabled={disabled || found} onClick={() => find(object)}><Picture word={object.word} image={object.image} />{!scene && <span>{object.word}</span>}{found && <Check className="am-simple-found" weight="bold" aria-hidden="true" />}</button>
           <HearWord word={object.word} disabled={disabled} onRequestObjectAudio={onRequestObjectAudio} />
         </div>;

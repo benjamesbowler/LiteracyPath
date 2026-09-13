@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 import { LEDA_PRODUCTION_AUDIO_BY_ROLE } from "../src/data/generated/ledaProductionAudio.generated.js";
 import { LEDA_RUNTIME_SUPPLEMENT_AUDIO } from "../src/data/generated/ledaRuntimeSupplement.generated.js";
+import { CHILD_WORD_AUDIO_OVERRIDES } from "../src/data/childWordAudioOverrides.js";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputPath = path.join(repoRoot, "src/data/generated/ledaWordAudio.generated.js");
@@ -13,7 +14,8 @@ const oneWordSupplement = Object.fromEntries(
 const lookup = Object.freeze({
   ...(LEDA_PRODUCTION_AUDIO_BY_ROLE.letter_name || {}),
   ...(LEDA_PRODUCTION_AUDIO_BY_ROLE.isolated_word || {}),
-  ...oneWordSupplement
+  ...oneWordSupplement,
+  ...CHILD_WORD_AUDIO_OVERRIDES
 });
 
 const source = [

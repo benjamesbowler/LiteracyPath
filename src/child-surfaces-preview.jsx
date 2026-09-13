@@ -272,12 +272,13 @@ function Surface() {
           focusLocked={Boolean(focusSession)}
           lockedCycleId={focusSession?.resolved_config.cycle_id ?? null}
           headerActions={focusNotice}
-          renderQuest={({ cycleId }) => (
+          renderQuest={({ cycleId, onExit }) => (
             <PreviewShell active="map" focusLocked={Boolean(focusSession)} headerActions={focusNotice}>
               <ElSkillsQuest
                 studentName="Aaron"
                 progressScopeKey={PREVIEW_SCOPE}
                 initialCycleId={cycleId}
+                onExit={onExit}
                 lockedCycleId={focusSession?.resolved_config.cycle_id ?? null}
               />
             </PreviewShell>

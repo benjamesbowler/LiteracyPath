@@ -247,8 +247,9 @@ test('early cycles mix every taught sound into the opening activities with varie
 });
 
 test('all 27 Cycle Check decks retain a stable contract after the basic-picture vocabulary correction', () => {
-  // Picture holdouts also apply to checks. Focus, HFW, independent-response
-  // and media validity are checked above; pin the resulting deterministic deck.
+  // Corrected vocabulary changes the available picture pool and its seeded
+  // selection. Focus, HFW, independent-response and media validity are checked
+  // above; pin the resulting deterministic deck after the picture review.
   const hashes = cycles.map(cycle => createHash('sha256').update(JSON.stringify(buildCyclePracticePlan(cycle, 'check-contract', 0, true).rounds)).digest('hex'));
-  assert.equal(createHash('sha256').update(hashes.join('|')).digest('hex'), '4d40ca2dd189ba44d5a052b4c3518d4ebeca0a8ab930bc0703b3c32412d36764');
+  assert.equal(createHash('sha256').update(hashes.join('|')).digest('hex'), 'caa392e744e7b21092f9bcb605c9bb94904f84fc830ec601cd6b3be9d13a8ad3');
 });

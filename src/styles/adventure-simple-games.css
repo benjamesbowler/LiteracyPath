@@ -173,23 +173,21 @@
 .skills-block-quest .am-compound-pictures .am-simple-picture-choice > img { height: clamp(70px, 11vh, 110px); }
 .skills-block-quest .am-simple-reset { display: grid; place-items: center; min-width: 56px; min-height: 56px; border: 2px solid #c4ad77; border-radius: 50%; background: #fff9dc; color: #36563f; }
 
-.skills-block-quest .am-picture-search { height: 100%; }
+/* The vocabulary occupies a stable grid instead of small pins on a scene. */
+.skills-block-quest .am-picture-search { height: 100%; gap: 8px; }
 .skills-block-quest .am-picture-search__scene {
-  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: 10px;
   flex: 1;
+  min-height: 0;
   width: 100%;
-  min-height: 290px;
-  overflow: hidden;
-  border: 2px solid #8caa75;
-  border-radius: 22px;
-  background-color: #c5ddb0;
-  background-size: cover;
-  background-position: center;
 }
-.skills-block-quest .am-picture-search__object { position: absolute; display: flex; align-items: center; gap: 8px; width: clamp(148px, 22%, 230px); transform: translate(-50%, -50%); }
-.skills-block-quest .am-picture-search__object .am-simple-picture-choice { flex: 1; height: clamp(80px, 13vh, 120px); min-height: max(56px, var(--kg-physical-hit, 56px)); padding: 3px; border-radius: 14px; background: rgba(255, 254, 238, 0.96); }
-.skills-block-quest .am-picture-search__object .am-simple-picture-choice img { height: 100%; }
-.skills-block-quest .am-picture-search__object .am-simple-hear { flex: 0 0 max(56px, var(--kg-physical-hit, 56px)); width: max(56px, var(--kg-physical-hit, 56px)); padding: 0; margin: 0; background: #fffef4; }
+.skills-block-quest .am-picture-search__object { display: flex; align-items: center; gap: 6px; min-width: 0; min-height: 0; }
+.skills-block-quest .am-picture-search__object .am-simple-picture-choice { flex: 1; height: 100%; min-height: max(56px, var(--kg-physical-hit, 56px)); padding: 3px; border-radius: 14px; }
+.skills-block-quest .am-picture-search__object .am-simple-picture-choice img { height: 100%; min-height: 0; }
+.skills-block-quest .am-picture-search__object .am-simple-hear { flex: 0 0 max(56px, var(--kg-physical-hit, 56px)); width: max(56px, var(--kg-physical-hit, 56px)); padding: 0; margin: 0; }
 .skills-block-quest .am-picture-search__object .am-simple-hear span { display: none; }
 
 .skills-block-quest [data-adventure-round-frame]:has(.am-simple) .adventure-round-frame__stage { background: #fbf5df; }
@@ -230,13 +228,13 @@
   .skills-block-quest .am-picture-target { gap: 8px; }
   .skills-block-quest .am-picture-target > span { font-size: 16px; }
   .skills-block-quest .am-picture-target .am-simple-count { margin-left: 0; }
-  /* Let the scene grow inside the stage's scroll area. A fixed 100% height
-     centers overflowing rows above the scroll origin on short phones. */
-  .skills-block-quest .am-picture-search { height: auto; min-height: 100%; justify-content: flex-start; }
-  .skills-block-quest .am-picture-search__object { width: 94px; flex-direction: column; gap: 8px; }
-  .skills-block-quest .am-picture-search__object .am-simple-picture-choice { flex: none; height: 64px; }
+  .skills-block-quest .am-picture-search { height: auto; min-height: 100%; }
+  .skills-block-quest .am-picture-search__scene { gap: 8px; flex: 1 0 auto; grid-template-rows: repeat(3, minmax(142px, 1fr)); }
+  .skills-block-quest [data-adventure-round-frame="pictureSearch"] .adventure-round-frame__stage { overflow-y: auto; }
+  .skills-block-quest .am-picture-search__object { flex-direction: column; gap: 5px; }
+  .skills-block-quest .am-picture-search__object .am-simple-picture-choice { width: 100%; }
   .skills-block-quest .am-picture-search__object .am-simple-hear { flex: none; }
-  .skills-block-quest .am-picture-search__scene { min-height: 448px; }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -248,4 +246,28 @@
 .skills-block-quest .am-word-memory__cards:has(> :nth-child(7)) { grid-template-columns: repeat(4, minmax(90px, 1fr)); width: min(920px, 100%); }
 @media (max-width: 620px) {
   .skills-block-quest .am-word-memory__cards:has(> :nth-child(5)) { grid-template-columns: repeat(2, minmax(90px, 1fr)); }
+}
+
+/* Let the picture rows use the available stage, including tall iPad layouts. */
+.skills-block-quest .am-compound-pictures {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  height: 100%;
+  gap: 12px;
+}
+.skills-block-quest .am-compound-pictures__parts { justify-content: center; width: 100%; height: 100%; min-height: 0; gap: 48px; }
+.skills-block-quest .am-compound-pictures__part { width: min(38%, 350px); height: 100%; min-height: 0; }
+.skills-block-quest .am-compound-pictures__part > div { height: 100%; min-height: 0; flex-direction: row; }
+.skills-block-quest .am-compound-pictures__part img { flex: 1; width: 0; height: 100%; min-height: 0; }
+.skills-block-quest .am-compound-pictures__part .am-simple-hear { flex: 0 0 max(56px, var(--kg-physical-hit, 56px)); }
+.skills-block-quest .am-compound-pictures .am-picture-words__choices { width: min(1120px, 100%); height: 100%; min-height: 0; justify-self: center; }
+.skills-block-quest .am-compound-pictures .am-simple-picture-card { min-height: 0; display: grid; grid-template-rows: minmax(0, 1fr) max(56px, var(--kg-physical-hit, 56px)); gap: 6px; }
+.skills-block-quest .am-compound-pictures .am-simple-picture-choice { min-height: 0; height: 100%; padding: 6px; }
+.skills-block-quest .am-compound-pictures .am-simple-picture-choice > img { flex: 1; height: 0; min-height: 0; }
+.skills-block-quest .am-compound-pictures .am-simple-picture-choice > span { flex: none; }
+@media (max-width: 620px) {
+  .skills-block-quest .am-compound-pictures__part > div { flex-direction: column; gap: 4px; }
+  .skills-block-quest .am-compound-pictures__part img { width: 100%; height: 0; }
+  .skills-block-quest .am-compound-pictures__part .am-simple-hear { flex: none; }
 }

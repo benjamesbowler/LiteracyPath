@@ -104,7 +104,8 @@ export function wordAudio(word) {
 // Only clean, single-object pictures may stand for a word in a choice: the
 // classroom-scene vocabulary illustrations are busy and some carry the printed
 // word, which would answer the item for the child.
-const CLEAN_PICTURE = /^\/images\/(child-mode|cvc|objects|short-[aeiou])\//;
+// The objective-word collection also contains reviewed isolated objects.
+const CLEAN_PICTURE = /^\/images\/(child-mode|cvc|objects|short-[aeiou]|assessment\/objective-words)\//;
 export function wordImage(word) {
   const asset = getChildWordAsset(word);
   const candidates = [asset?.image, asset?.fallbackImage].filter(Boolean);

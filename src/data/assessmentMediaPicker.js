@@ -22,6 +22,12 @@ import {
 import { isGraphemeChoiceQuestion } from "../utils/assessmentChoiceIntent.js";
 import { getAssessmentQuestionContentKey } from "./assessmentRoundSelector.js";
 import { ASSESSMENT_ITEM_MEDIA_DECISIONS } from "../content/assessments/v3/assessmentItemMediaDecisions.generated.js";
+import { curatedChildWordImageOverrides } from "./childWordImageOverrides.js";
+
+function isCurrentObjectPicture(path, word, role) {
+  return role !== "target_object" || !curatedChildWordImageOverrides[word]
+    || path === curatedChildWordImageOverrides[word];
+}
 
 function answerValue(value) {
   if (Array.isArray(value)) return value[0] || "";
@@ -230,7 +236,7 @@ function validateExactOptionMedia(option = {}, { requireImage = false, requireAu
   if (requireImage && !imagePath) issues.push(`media option "${label}" is missing image media`);
   if (requireAudio && !audioPath) issues.push(`media option "${label}" is missing audio media`);
   if (word && imagePath) {
-    const imageRecord = getAssessmentMediaByPath(imagePath, "image");
+    const imageRecord = getAssessmentMediaByPath(imagePath, "image", word);
     if (!imageRecord?.available || imageRecord.normalizedWord !== word) {
       issues.push(`media option "${label}" image is not approved exact-target media: ${imagePath}`);
     }
@@ -278,7 +284,7 @@ function resolveVisualCardOptionImages(question = {}, {
   skillId = "",
   studentUsage = null
 } = {}) {
-  if (!isVisualCardMediaQuestion(question)) return question;
+  if (!isVisualCardMediaQuestion(question) && !isPairSelectionMediaQuestion(question)) return question;
 
   const questionId = question.approvedQuestionId || question.questionId || question.id || "";
   const imageCards = (question.imageCards || []).map(option => {
@@ -287,7 +293,7 @@ function resolveVisualCardOptionImages(question = {}, {
 
     const existingImage = mediaOptionPath(option, "image");
     const existingRecord = existingImage
-      ? getAssessmentMediaByPath(existingImage, "image")
+      ? getAssessmentMediaByPath(existingImage, "image", word)
       : null;
     const existingImageQuarantined = Boolean(existingImage && isMediaPairingQuarantined({
       area: "assessment",
@@ -297,6 +303,7 @@ function resolveVisualCardOptionImages(question = {}, {
     }));
     const existingImageUsable = Boolean(
       !existingImageQuarantined &&
+      isCurrentObjectPicture(existingImage, word, imageRole) &&
       existingRecord?.available &&
       existingRecord.normalizedWord === word
     );
@@ -535,14 +542,15 @@ export function resolveQuestionMediaDynamically(question = {}, context = {}) {
     imagePath: record.path
   }));
   const existingImage = currentImagePath(question);
-  const existingImageRecord = existingImage ? getAssessmentMediaByPath(existingImage, "image") : null;
+  const existingImageRecord = existingImage ? getAssessmentMediaByPath(existingImage, "image", targetWord) : null;
   const existingImageQuarantined = Boolean(existingImage && isMediaPairingQuarantined({
     area: "assessment",
     skillId,
     questionId,
     imagePath: existingImage
   }));
-  const existingImageUsable = Boolean(!existingImageQuarantined && existingImageRecord?.available && existingImageRecord.normalizedWord === targetWord);
+  const existingImageUsable = Boolean(!existingImageQuarantined && isCurrentObjectPicture(existingImage, targetWord, imageRole)
+    && existingImageRecord?.available && existingImageRecord.normalizedWord === targetWord);
   const existingImageUsed = Boolean(sessionUsage?.imagePaths?.has(existingImage));
   const chosenImage = imageCandidates.length
     ? pickLeastRecentlyUsedMedia({ candidates: imageCandidates, sessionUsage, studentUsage, mediaType: "image", role: imageRole })
@@ -628,7 +636,7 @@ export function validateResolvedQuestionMedia(question = {}, resolvedMedia = que
   const targetWord = inferAssessmentQuestionTargetWord(question);
   const imagePath = resolvedMedia.imagePath || currentImagePath(question);
   const audioPath = resolvedMedia.audioPath || currentAudioPath(question);
-  const imageRecord = imagePath ? getAssessmentMediaByPath(imagePath, "image") : null;
+  const imageRecord = imagePath ? getAssessmentMediaByPath(imagePath, "image", targetWord) : null;
   const audioRecord = audioPath ? getAssessmentMediaByPath(audioPath, "audio") : null;
   if (isPairSelectionMediaQuestion(question)) {
     const instructionAudioRecord = audioPath ? getAssessmentMediaByPath(audioPath, "audio") : null;

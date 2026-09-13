@@ -9,6 +9,7 @@ import {
   getPreferredPhonemeAudioPath
 } from "./phonemeAudioBank.js";
 import { LEDA_WORD_AUDIO } from "./generated/ledaWordAudio.generated.js";
+import { CHILD_WORD_AUDIO_OVERRIDES } from "./childWordAudioOverrides.js";
 
 function normalizeLedaWord(value = "") {
   return String(value || "")
@@ -25,12 +26,7 @@ function normalizeLedaWord(value = "") {
 
 function getLedaWordAudioPath(value = "") {
   const normalized = normalizeLedaWord(value);
-  const overrides = {
-    zipper: "/audio/production/en-US/isolated_word/zipper-10a58c0597.mp3",
-    vase: "/audio/production/en-US/isolated_word/vase-8d705e6355.mp3",
-    umbrella: "/audio/production/en-US/isolated_word/umbrella-5058250ea7.mp3"
-  };
-  return overrides[normalized] || LEDA_WORD_AUDIO[normalized] || "";
+  return CHILD_WORD_AUDIO_OVERRIDES[normalized] || LEDA_WORD_AUDIO[normalized] || "";
 }
 
 function isLedaProductionAudioPath(value = "") {

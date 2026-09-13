@@ -4,6 +4,7 @@ import {
   isDeprecatedAudioPath
 } from "./audioPreferenceManifest.js";
 import { childWordAssets, getChildWordAsset } from "./childAssets.js";
+import { curatedChildWordImageOverrides } from "./childWordImageOverrides.js";
 import { importedVocabularyMediaManifest } from "./importedVocabularyMediaManifest.js";
 import { vocabularyRuntime } from "./generated/vocabularyRuntime.generated.js";
 import { k3VocabularyMedia } from "./generated/k3VocabularyMediaManifest.generated.js";
@@ -205,7 +206,9 @@ function createRecord({
   const normalizedWord = normalizeAssessmentMediaWord(targetWord);
   const resolvedPath = mediaType === "audio"
     ? getApprovedAudioPath(normalizedWord, path) || path
-    : path;
+    : ["generic_word", "target_object"].includes(imageRole)
+      ? curatedChildWordImageOverrides[normalizedWord] || path
+      : path;
   const availability = makeAvailability({
     path: resolvedPath,
     mediaType,
@@ -220,6 +223,7 @@ function createRecord({
     sourcePath: path === resolvedPath ? "" : path,
     targetWord: normalizedWord,
     normalizedWord,
+    targetWords: [normalizedWord],
     phonicsPatternTags: getPhonicsPatternTags(normalizedWord, phonicsPatternTags),
     skillTags: unique(inferSkillTags(normalizedWord, skillTags)),
     level,
@@ -251,6 +255,9 @@ function mergeRecords(records = []) {
       ...prior,
       targetWord: prior.targetWord || record.targetWord,
       normalizedWord: prior.normalizedWord || record.normalizedWord,
+      targetWords: record.mediaType === "image"
+        ? unique([...(prior.targetWords || []), ...(record.targetWords || [])])
+        : prior.targetWords,
       phonicsPatternTags: unique([...(prior.phonicsPatternTags || []), ...(record.phonicsPatternTags || [])]),
       skillTags: unique([...(prior.skillTags || []), ...(record.skillTags || [])]),
       level: prior.level ?? record.level,
@@ -268,7 +275,9 @@ function mergeRecords(records = []) {
 }
 
 function recordsFromChildAssets() {
-  return Object.entries(childWordAssets).flatMap(([key, asset]) => {
+  const words = new Set([...Object.keys(childWordAssets), ...Object.keys(curatedChildWordImageOverrides)]);
+  return [...words].flatMap(key => {
+    const asset = childWordAssets[key];
     const word = normalizeAssessmentMediaWord(asset?.word || key);
     const resolvedAsset = getChildWordAsset(word) || asset;
     return [
@@ -556,10 +565,16 @@ export function getAssessmentMediaRegistry() {
     for (const record of cachedRegistry) {
       const pathKey = `${record.mediaType}:${record.path}`;
       if (!cachedRegistryByPath.has(pathKey)) cachedRegistryByPath.set(pathKey, record);
-      const wordKey = `${record.mediaType}:${record.normalizedWord}`;
-      const records = cachedRegistryByTypeAndWord.get(wordKey) || [];
-      records.push(record);
-      cachedRegistryByTypeAndWord.set(wordKey, records);
+      // One picture can correctly represent synonyms such as cash/money.
+      // Path deduplication must retain each authored word in the word index.
+      for (const word of record.targetWords) {
+        const wordKey = `${record.mediaType}:${word}`;
+        const records = cachedRegistryByTypeAndWord.get(wordKey) || [];
+        records.push(word === record.normalizedWord ? record : {
+          ...record, targetWord: word, normalizedWord: word
+        });
+        cachedRegistryByTypeAndWord.set(wordKey, records);
+      }
     }
   }
   return cachedRegistry;
@@ -567,16 +582,18 @@ export function getAssessmentMediaRegistry() {
 
 export const assessmentMediaRegistry = getAssessmentMediaRegistry();
 
-export function getAssessmentMediaByPath(path = "", mediaType = "") {
+export function getAssessmentMediaByPath(path = "", mediaType = "", word = "") {
   const normalizedPath = String(path || "").trim();
   getAssessmentMediaRegistry();
-  if (mediaType) {
-    const direct = cachedRegistryByPath.get(`${mediaType}:${normalizedPath}`);
-    return direct || null;
-  }
-  return cachedRegistryByPath.get(`image:${normalizedPath}`) ||
-    cachedRegistryByPath.get(`audio:${normalizedPath}`) ||
-    null;
+  const record = mediaType
+    ? cachedRegistryByPath.get(`${mediaType}:${normalizedPath}`)
+    : cachedRegistryByPath.get(`image:${normalizedPath}`) || cachedRegistryByPath.get(`audio:${normalizedPath}`);
+  const normalizedWord = normalizeAssessmentMediaWord(word);
+  if (!normalizedWord) return record || null;
+  if (!record?.targetWords.includes(normalizedWord)) return null;
+  return record.normalizedWord === normalizedWord ? record : {
+    ...record, normalizedWord, targetWord: normalizedWord
+  };
 }
 
 export function isAssessmentMediaApproved(path = "", mediaType = "") {
@@ -603,6 +620,11 @@ export function findAssessmentMediaCandidates({
   const seenPaths = new Set();
   return sourceRecords.filter(record => {
     if (!record.available) return false;
+    // Once an exact vocabulary picture has been corrected, a legacy scene
+    // must not re-enter an object question through variant rotation.
+    if (mediaType === "image" && role === "target_object"
+      && curatedChildWordImageOverrides[normalizedWord]
+      && record.path !== curatedChildWordImageOverrides[normalizedWord]) return false;
     if (normalizedSkillId && record.skillTags.length && !record.skillTags.includes(normalizedSkillId)) {
       if (!includeGenericFallback || !record.skillTags.some(tag => ["initial_sounds", "final_sounds", "cvc_short_vowels", "short_vowel_discrimination"].includes(tag))) {
         return false;

@@ -1211,7 +1211,14 @@ export function buildImageIndex() {
   const walk = dir => {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       const full = path.join(dir, entry.name);
-      if (entry.isDirectory()) { walk(full); continue; }
+      if (entry.isDirectory()) {
+        // Child-game vocabulary has its own visual review. Adding a picture
+        // there must not silently replace a committed, reviewed assessment
+        // stimulus through this filename search; author it explicitly instead.
+        if (full === path.join(ROOT, "public/images/child-mode/vocabulary")) continue;
+        walk(full);
+        continue;
+      }
       if (!/\.(webp|png|svg|jpg|jpeg)$/i.test(entry.name)) continue;
       const stem = entry.name.replace(/\.[a-z]+$/i, "").toLowerCase();
       const rel = path.relative(path.join(ROOT, "public"), full).split(path.sep).join("/");

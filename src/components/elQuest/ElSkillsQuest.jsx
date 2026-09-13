@@ -203,6 +203,7 @@ export function ElSkillsQuest({
   progressScopeKey = "default",
   initialCycleId = "",
   initialStationId = "",
+  onExit = null,
   lockedCycleId = null,
   onLockedCycleAvailabilityChange = null
 }) {
@@ -562,6 +563,17 @@ export function ElSkillsQuest({
       setCelebration({ kind: "station", total, nextStationId: nextStation?.id || null });
     }
     setStationId(null);
+  }
+
+  function returnToMap() {
+    cancelPendingTransition();
+    stopCueAudio();
+    setCelebration(null);
+    setStationId(null);
+    setSessionStations({});
+    if (cycleLock.locked) return;
+    if (onExit) onExit();
+    else setActiveCycleId(null);
   }
 
   function handleOutcome(outcome) {
@@ -938,6 +950,7 @@ export function ElSkillsQuest({
         data-learning-lane="practice_and_play"
         data-pal-world={worldForCycle(recommendedCycle?.cycleNumber || 1).id}
         data-child-surface="adventure-map"
+        data-quest-view="map"
       >
         <header className="sbq-top">
           <div>
@@ -1086,6 +1099,8 @@ export function ElSkillsQuest({
                   const nextId = celebration.nextStationId;
                   setCelebration(null);
                   startStation(activeCycle, nextId);
+                } else if (isCycle) {
+                  returnToMap();
                 } else {
                   setCelebration(null);
                 }
@@ -1117,11 +1132,7 @@ export function ElSkillsQuest({
               <button
                 className="sbq-ghost-button"
                 type="button"
-                onClick={() => {
-                  setCelebration(null);
-                  setActiveCycleId(null);
-                  setSessionStations({});
-                }}
+                onClick={returnToMap}
               >
                 Back to your path
               </button>
@@ -1177,7 +1188,7 @@ export function ElSkillsQuest({
                 </span>
               </div>
               {!cycleLock.locked && (
-                <button className="sbq-ghost-button" type="button" onClick={() => setActiveCycleId(null)}>
+                <button className="sbq-ghost-button" type="button" onClick={returnToMap}>
                   Map
                 </button>
               )}

@@ -6,17 +6,9 @@ import { LEDA_RUNTIME_SUPPLEMENT_AUDIO } from "./generated/ledaRuntimeSupplement
 import { STORY_QUEST_LEDA_AUDIO } from "./generated/storyQuestLedaAudio.generated.js";
 import { ASSESSMENT_LEDA_GAP_AUDIO_BY_ROLE } from "./generated/assessmentLedaGaps.generated.js";
 import { LEDA_PRODUCTION_VOICE } from "./ledaProductionVoice.js";
+import { CHILD_WORD_AUDIO_OVERRIDES } from "./childWordAudioOverrides.js";
 
 export { LEDA_PRODUCTION_AUDIO_ROLES, LEDA_PRODUCTION_VOICE };
-
-// These two isolated-word recordings were re-cut after child playback review.
-// Keep the override here, above the generated catalogue, so every child-facing
-// resolver uses the same replacement without hand-editing generated output.
-const CHILD_WORD_AUDIO_OVERRIDES = Object.freeze({
-  zipper: "/audio/production/en-US/isolated_word/zipper-10a58c0597.mp3",
-  vase: "/audio/production/en-US/isolated_word/vase-8d705e6355.mp3",
-  umbrella: "/audio/production/en-US/isolated_word/umbrella-5058250ea7.mp3"
-});
 
 export const LEDA_LANGUAGE_AUDIO_ROLES = Object.freeze([
   "supplemental",
