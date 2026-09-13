@@ -2,6 +2,7 @@ import { SOUND_SAFARI_MODELS } from "./soundSafariWords.js";
 import { getPreferredPhonemeAudioPath } from "../data/phonemeAudioBank.js";
 import { starRubric } from "./starRubric.js";
 import { hasWordAudio } from "./questAudio.js";
+import { replayWithinBands } from "./gameReplay.js";
 
 const WORLDS = { easy: "meadow", medium: "dino", hard: "moonwood" };
 export const SOUND_SAFARI_WORDS = Object.fromEntries(
@@ -44,25 +45,25 @@ function safariWord(model, seed) {
   return { word: model.word, graphemes, soundKeys, decoys };
 }
 
-export function soundSafariLevel(difficulty = "easy", levelIndex = 0) {
+export function soundSafariLevel(difficulty = "easy", levelIndex = 0, sessionSeed = 0) {
   const safeDifficulty = WORLDS[difficulty] ? difficulty : "easy";
   const level = Math.max(0, Math.min(9, Number(levelIndex) || 0));
   // Sound Safari is an audio-led segmentation game. Missing recordings are
   // never allowed to fall through to a silent, text-only task; the coverage
   // test also requires every curated bank to retain all 30 recorded words.
-  const source = SOUND_SAFARI_MODELS[safeDifficulty].filter(item => hasWordAudio(item.word));
+  const source = replayWithinBands(SOUND_SAFARI_MODELS[safeDifficulty].filter(item => hasWordAudio(item.word)), sessionSeed, item => item.units.length);
   const start = level * 3;
   return {
     difficulty: safeDifficulty,
     level,
     world: WORLDS[safeDifficulty],
     minPlaySeconds: 90,
-    words: source.slice(start, start + 3).map((word, index) => safariWord(word, level + index))
+    words: source.slice(start, start + 3).map((word, index) => safariWord(word, level + index + sessionSeed))
   };
 }
 
-export function soundSafariLadder(difficulty = "easy") {
-  return Array.from({ length: 10 }, (_, index) => soundSafariLevel(difficulty, index));
+export function soundSafariLadder(difficulty = "easy", sessionSeed = 0) {
+  return Array.from({ length: 10 }, (_, index) => soundSafariLevel(difficulty, index, sessionSeed));
 }
 
 export function soundSafariStars({ correct, total, mistakes } = {}) {

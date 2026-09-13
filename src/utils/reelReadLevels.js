@@ -1,3 +1,4 @@
+import { replayShuffle, replayWithinBands } from "./gameReplay.js";
 import { starRubric } from "./starRubric.js";
 
 const WORLDS = { easy: "meadow", medium: "dino", hard: "moonwood" };
@@ -279,10 +280,10 @@ export function reelReadIsCorrectCatch(word, level, caughtWords = []) {
   return reelReadMatches(word, level);
 }
 
-export function reelReadLevel(difficulty = "easy", levelIndex = 0) {
+export function reelReadLevel(difficulty = "easy", levelIndex = 0, sessionSeed = 0) {
   const safeDifficulty = normalizeDifficulty(difficulty);
   const level = Math.max(0, Math.min(9, Number(levelIndex) || 0));
-  const source = LEVELS[safeDifficulty][level];
+  const source = replayWithinBands(LEVELS[safeDifficulty], sessionSeed, item => item.mode)[level];
   const correctWords = uniqueTokens(source.correctWords);
   const distractors = uniqueTokens(source.distractors).filter(word => !correctWords.includes(word));
   const orderMatters = source.mode === "wordParts" || source.mode === "morphology";
@@ -292,8 +293,8 @@ export function reelReadLevel(difficulty = "easy", levelIndex = 0) {
     level,
     world: WORLDS[safeDifficulty],
     orderMatters,
-    correctWords,
-    distractors,
+    correctWords: orderMatters ? correctWords : replayShuffle(correctWords, sessionSeed ? `${sessionSeed}:${level}:correct` : 0),
+    distractors: replayShuffle(distractors, sessionSeed ? `${sessionSeed}:${level}:foils` : 0),
     visibleFish: safeDifficulty === "hard" ? 6 : 5,
     correctVisible: source.mode === "meaning" ? 3 : 2,
     fishSpeed: 58 + level * 5 + (safeDifficulty === "hard" ? 24 : safeDifficulty === "medium" ? 12 : 0),
@@ -302,8 +303,8 @@ export function reelReadLevel(difficulty = "easy", levelIndex = 0) {
   };
 }
 
-export function reelReadLadder(difficulty = "easy") {
-  return Array.from({ length: 10 }, (_, index) => reelReadLevel(difficulty, index));
+export function reelReadLadder(difficulty = "easy", sessionSeed = 0) {
+  return Array.from({ length: 10 }, (_, index) => reelReadLevel(difficulty, index, sessionSeed));
 }
 
 export function reelReadStars({ correct, total, mistakes } = {}) {

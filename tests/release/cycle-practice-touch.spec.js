@@ -11,7 +11,7 @@ const cycles = elSkillsBlockCycles.filter(cycle => cycle.cycleNumber);
 const families = ['pictureSound', 'letterMatch', 'rhymeMatch', 'wordBuild', 'soundSort', 'letterTrace'];
 test.use({ hasTouch: true, viewport: { width: 1024, height: 768 } });
 
-async function start(page, cycle, match, { duration = 8, mode = 'practice' } = {}) {
+async function start(page, cycle, match, { duration = 8, mode = 'practice', expectMediaFailure = false } = {}) {
   const rounds = buildCyclePlan(cycle, mode === 'assessment' ? `${seed}:assessment` : seed, 0, mode === 'assessment').rounds;
   const index = rounds.findIndex(match);
   expect(index).toBeGreaterThanOrEqual(0);
@@ -36,7 +36,7 @@ async function start(page, cycle, match, { duration = 8, mode = 'practice' } = {
   }, { key, index, duration, mode, revision: CYCLE_ACTIVITY_REVISION, version: CYCLE_PRACTICE_VERSION });
   page.on('pageerror', error => { throw error; });
   await page.goto(`/preview/child-surfaces.html?surface=cycle-practice&cycle=${cycle.id}&motion=reduced`, { waitUntil: 'domcontentloaded' });
-  await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
+  if (!expectMediaFailure) await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
   return { round: rounds[index], index, key, records: () => page.evaluate(({ key, mode }) => JSON.parse(localStorage.getItem(key))[`${mode}Records`], { key, mode }) };
 }
 
@@ -173,7 +173,7 @@ test('a missing picture reload does not manufacture an incorrect or supported re
   const target = buildCyclePlan(cycles[0], seed).rounds[0];
   const pattern = `**${target.image}`;
   await page.route(pattern, route => route.abort());
-  const { round, key, records } = await start(page, cycles[0], round => round.id === target.id);
+  const { round, key, records } = await start(page, cycles[0], round => round.id === target.id, { expectMediaFailure: true });
   await expect(page.getByRole('button', { name: 'Reload pictures', exact: true })).toBeVisible();
   expect(await records()).toHaveLength(0);
   await page.unroute(pattern);

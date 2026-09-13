@@ -5,10 +5,10 @@ import { getChildWordAsset } from "../data/childAssets.js";
 import { segmentWord } from "./graphemeSegments.js";
 import { WORKSHOP_OBJECTS } from "./workshopObjects.js";
 
-function shuffle(items) {
+function shuffle(items, random = Math.random) {
   const copy = [...items];
   for (let index = copy.length - 1; index > 0; index -= 1) {
-    const swapIndex = Math.floor(Math.random() * (index + 1));
+    const swapIndex = Math.floor(random() * (index + 1));
     [copy[index], copy[swapIndex]] = [copy[swapIndex], copy[index]];
   }
   return copy;
@@ -69,9 +69,15 @@ function cleanCvcPool(difficulty = "easy") {
   });
 }
 
-export function buildCvcWorkshopRounds(difficulty = "easy", count = 6) {
+export function cvcWorkshopRoundCount(difficulty = "easy") {
+  // Keep fresh pictured objects in reserve for another outing. A complete
+  // easy outing now builds 24 objects instead of exhausting the same ten.
+  return Math.min(24, Math.max(1, cleanCvcPool(difficulty).length - 4));
+}
+
+export function buildCvcWorkshopRounds(difficulty = "easy", count = 6, random = Math.random) {
   const pool = cleanCvcPool(difficulty);
-  return shuffle(pool).slice(0, count).map((word, roundIndex) => ({
+  return shuffle(pool, random).slice(0, count).map((word, roundIndex) => ({
     id: `cvc-${roundIndex}-${word}`,
     word,
     label: OBJECT_LABELS[word] || getChildWordAsset(word)?.alt || word,

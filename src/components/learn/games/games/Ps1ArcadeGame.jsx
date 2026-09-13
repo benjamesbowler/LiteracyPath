@@ -473,7 +473,7 @@ function drawBeat(ctx, state, config, w, h, now) {
 
 function startPs1ArcadeGame(mount, options) {
   const config = CONFIG[options.kind] || CONFIG["sound-beat"];
-  const ladder = config.ladder(options.difficulty);
+  const ladder = config.ladder(options.difficulty, options.sessionSeed);
   const total = totalUnits(options.kind, ladder);
   const image = new Image();
   image.src = config.bg;
@@ -569,7 +569,7 @@ function startPs1ArcadeGame(mount, options) {
     const button = document.createElement("button");
     button.type = "button";
     button.setAttribute("aria-label", `Play ${["cyan", "gold", "red", "purple"][lane]} pad (${"DFJK"[lane]})`);
-    button.style.cssText = "position:absolute;transform:translate(-50%,-50%);pointer-events:auto;background:transparent;border:0;border-radius:50%;color:transparent;touch-action:manipulation;min-width:56px;min-height:56px";
+    button.style.cssText = "position:absolute;transform:translate(-50%,-50%);pointer-events:auto;background:transparent;border:0;border-radius:50%;color:transparent;touch-action:none;min-width:56px;min-height:56px";
     button.textContent = "DFJK"[lane];
     const play = () => { if (!state.paused && !state.ended) tapBeat(lane); };
     button.addEventListener("pointerdown", event => { event.preventDefault(); event.stopPropagation(); play(); });
@@ -961,6 +961,7 @@ function startPs1ArcadeGame(mount, options) {
 export default function Ps1ArcadeGame({
   kind,
   difficulty = "easy",
+  sessionSeed = 0,
   startLevel = 0,
   onScoreUpdate,
   onProgressUpdate,
@@ -1009,6 +1010,7 @@ export default function Ps1ArcadeGame({
     const engine = startPs1ArcadeGame(mountRef.current, {
       kind,
       difficulty,
+      sessionSeed,
       startLevel,
       onScoreUpdate: score => handlersRef.current.onScoreUpdate?.(score),
       onProgressUpdate: (current, total) => handlersRef.current.onProgressUpdate?.(current, total),
@@ -1019,7 +1021,7 @@ export default function Ps1ArcadeGame({
       getMusic: () => musicRef.current
     });
     return () => engine.destroy();
-  }, [kind, difficulty, startLevel]);
+  }, [kind, difficulty, sessionSeed, startLevel]);
 
   return (
     <div

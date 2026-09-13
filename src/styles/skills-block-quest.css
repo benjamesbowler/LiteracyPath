@@ -1520,6 +1520,95 @@
   width: min(100%, 900px);
 }
 
+/* Sound-to-letter choices are the activity, so use the whole play area and
+   keep the glyphs readable at classroom distance, including short iPads. */
+.am-sound-choice {
+  display: grid;
+  place-items: center;
+  align-self: stretch;
+  padding: clamp(12px, 3vw, 32px);
+}
+
+.am-sound-choice__tiles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 4vw, 48px);
+  width: 100%;
+}
+
+.skills-block-quest .am-sound-choice__tile {
+  display: grid;
+  place-items: center;
+  width: clamp(144px, 17vw, 192px);
+  min-width: 144px !important;
+  height: clamp(144px, 17vw, 192px);
+  min-height: 144px !important;
+  padding: 12px !important;
+  border: 4px solid #76502f !important;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #fffdf0, #eed598);
+  box-shadow: 0 7px 0 #76502f, inset 0 0 0 3px #fff7da;
+  color: #243d34;
+  font: 600 clamp(4rem, 8vw, 6rem)/1 var(--lp-font-letter, var(--lp-font-reading)) !important;
+  cursor: pointer;
+}
+
+.skills-block-quest .am-sound-choice__tile[aria-pressed="true"] {
+  border-color: #355d49 !important;
+  box-shadow: 0 7px 0 #355d49, inset 0 0 0 3px #fff7da;
+}
+
+.skills-block-quest .am-sound-choice__tile:focus-visible {
+  outline: 5px solid #245f85;
+  outline-offset: 5px;
+}
+
+@media (max-width: 700px) {
+  .skills-block-quest .am-sound-choice__tile {
+    width: 112px;
+    height: 112px;
+    min-width: 112px !important;
+    min-height: 112px !important;
+  }
+}
+
+@media (max-width: 700px) and (max-height: 430px) and (orientation: landscape) {
+  .kg-stage .kg-main > .skills-block-quest[data-quest-view="round"] > .adventure-round-frame:has(.am-sound-choice, .am-letter-press) {
+    position: relative;
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    height: 100%;
+    gap: 6px;
+  }
+  .adventure-round-frame:has(.am-sound-choice, .am-letter-press) .adventure-round-frame__header {
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: 6px;
+    padding: 6px;
+  }
+  .adventure-round-frame:has(.am-sound-choice, .am-letter-press) .adventure-round-frame__eyebrow { display: none; }
+  .adventure-round-frame:has(.am-sound-choice, .am-letter-press) .adventure-round-frame__body { grid-template-rows: 72px minmax(0, 1fr); gap: 4px; }
+  .adventure-round-frame:has(.am-sound-choice, .am-letter-press) .adventure-round-frame__plaque { flex-direction: row; align-items: center; min-height: 0; padding: 4px 6px; gap: 6px; border-radius: 16px; }
+  .adventure-round-frame:has(.am-sound-choice, .am-letter-press) .adventure-round-frame__instruction p { font-size: 14px; }
+  .adventure-round-frame:has(.am-sound-choice, .am-letter-press) .adventure-round-frame__audio-actions { gap: 4px; flex-wrap: nowrap; }
+  .adventure-round-frame:has(.am-sound-choice, .am-letter-press) .adventure-round-frame__audio-actions button { padding-inline: 6px; font-size: 13px; }
+  .adventure-round-frame:has(.am-sound-choice, .am-letter-press) .adventure-round-frame__audio-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .adventure-round-frame:has(.am-sound-choice, .am-letter-press) .adventure-round-frame__stage { padding: 0 4px 7px; overflow: auto; }
+  .adventure-round-frame:has(.am-sound-choice, .am-letter-press) .adventure-round-frame__feedback { position: absolute; left: 0; bottom: 4px; width: 88px; min-width: 0; max-width: 88px; min-height: 0; padding: 4px; border: 0; border-radius: 12px; font-size: 12px; }
+  .am-sound-choice { padding: 0; }
+  .am-sound-choice__tiles { gap: 16px; flex-wrap: nowrap; }
+  .skills-block-quest .am-sound-choice__tile {
+    width: 100px;
+    height: 100px;
+    min-width: 100px !important;
+    min-height: 100px !important;
+    font-size: 3.5rem !important;
+  }
+}
+
 .am-letter-press {
   display: grid;
   grid-template-columns: minmax(260px, 1fr) minmax(260px, 1fr);
@@ -2328,4 +2417,33 @@
 
 .kg-stage .kg-main > .skills-block-quest .am-letter-press-button[aria-pressed="true"] {
   border-color: #365f40 !important;
+}
+
+
+/* Keep every case-match answer visible beside its model on narrow screens. */
+@media (max-width: 700px) {
+  .am-letter-press { gap: 14px; }
+  .am-letter-press-signs { gap: 12px; }
+  .am-code-sign-slot { min-height: 116px; padding: 8px; }
+  .am-letter-press-choices { flex-wrap: nowrap; gap: 8px; }
+  .kg-stage .kg-main > .skills-block-quest .am-letter-press-button {
+    width: 100px;
+    min-width: 100px !important;
+    min-height: 100px !important;
+    font-size: 3rem !important;
+  }
+}
+@media (max-width: 700px) and (max-height: 430px) and (orientation: landscape) {
+  .am-letter-press { grid-template-columns: 140px minmax(0, 1fr); gap: 10px; }
+  .am-letter-press-signs { flex-wrap: nowrap; gap: 8px; }
+  .am-code-sign-slot { width: 64px; min-height: 88px; padding: 3px; border-width: 4px; }
+  .am-code-sign-slot::before { top: -10px; height: 10px; }
+  .am-code-sign-slot strong { font-size: 3rem; }
+  .am-code-sign-slot span { font-size: 9px; }
+  .am-letter-press-choices { gap: 6px; }
+  .kg-stage .kg-main > .skills-block-quest .am-letter-press-button {
+    width: 72px;
+    min-width: 72px !important;
+    min-height: 88px !important;
+  }
 }

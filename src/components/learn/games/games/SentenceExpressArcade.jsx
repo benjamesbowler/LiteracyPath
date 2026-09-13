@@ -21,6 +21,7 @@ import { LEVELS_PER_LINE, buildLevel } from "../../../../utils/sentenceExpressLe
    built train, so an interrupted journey never awards its departure twice. */
 export default function SentenceExpressArcade({
   difficulty,
+  sessionSeed = 0,
   startLevel,
   onScoreUpdate,
   onProgressUpdate,
@@ -44,6 +45,7 @@ export default function SentenceExpressArcade({
   return (
     <SentenceExpressGame
       difficulty={difficulty}
+      sessionSeed={sessionSeed}
       startLevel={start}
       sessionKey={key}
       resumeEligible={resumeEligible}
@@ -67,7 +69,7 @@ export default function SentenceExpressArcade({
         run.score += (Math.max(0, Number(result?.stars) || 0) * 10) + (Math.max(0, Number(result?.express) || 0) * 5);
         // Levels are deterministic: rebuild the one just finished to count
         // the train words the child actually coupled.
-        run.words += buildLevel(difficulty, Number(result?.level) || 0)
+        run.words += buildLevel(difficulty, Number(result?.level) || 0, sessionSeed)
           .trains.reduce((sum, t) => sum + t.words.length, 0);
         saveExpressSnapshot(`${key}:run`, { levelIndex: Math.min((Number(result?.level) || 0) + 1, LEVELS_PER_LINE - 1), run });
         onScoreUpdate?.(run.score);

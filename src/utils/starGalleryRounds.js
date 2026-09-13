@@ -1,3 +1,4 @@
+import { replayShuffle } from "./gameReplay.js";
 import { getChildWordAsset } from "../data/childAssets.js";
 import { starRubric } from "./starRubric.js";
 
@@ -274,10 +275,13 @@ function repairFromTuple(tuple, level, index) {
   });
 }
 
-export function starGalleryLevel(difficulty = "easy", levelIndex = 0) {
+export function starGalleryLevel(difficulty = "easy", levelIndex = 0, sessionSeed = 0) {
   const safeDifficulty = WORLDS[difficulty] ? difficulty : "easy";
   const level = Math.max(0, Math.min(9, Number(levelIndex) || 0));
-  const repairs = LEVELS[safeDifficulty][level].map((tuple, index) => repairFromTuple(tuple, level, index));
+  const repairs = replayShuffle(LEVELS[safeDifficulty][level], sessionSeed ? `${sessionSeed}:${level}` : 0).map((tuple, index) => {
+    const repair = repairFromTuple(tuple, level, index);
+    return { ...repair, options: replayShuffle(repair.options, sessionSeed ? `${sessionSeed}:${repair.id}` : 0) };
+  });
   const world = WORLDS[safeDifficulty];
   const categories = [...new Set(repairs.map(repair => repair.category))];
   return {
@@ -297,8 +301,8 @@ export function starGalleryLevel(difficulty = "easy", levelIndex = 0) {
   };
 }
 
-export function starGalleryLadder(difficulty = "easy") {
-  return Array.from({ length: 10 }, (_, index) => starGalleryLevel(difficulty, index));
+export function starGalleryLadder(difficulty = "easy", sessionSeed = 0) {
+  return Array.from({ length: 10 }, (_, index) => starGalleryLevel(difficulty, index, sessionSeed));
 }
 
 export function starGalleryStars({ correct, total, mistakes } = {}) {

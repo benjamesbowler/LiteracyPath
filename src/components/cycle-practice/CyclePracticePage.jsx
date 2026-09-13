@@ -75,11 +75,11 @@ function CyclePracticeSession({
 }) {
   const cycleId = focusSession?.resolved_config?.cycle_id || assignedCycleId;
   const cycle = useMemo(() => cycleFromId(cycleId), [cycleId]);
-  const seed = `${progressScopeKey}:${focusSession?.id || "preview"}`;
+  const sessionSeed = `${progressScopeKey}:${focusSession?.id || "preview"}`;
   const storageKey = cycleStorageKey(progressScopeKey, focusSession?.id, cycleId);
   const [state, setState] = useState(() => {
     const initial = restoreCyclePracticeSession(readCycleState(storageKey), {
-    mode: "practice", practiceIndex: 0, pass: 0, assessmentIndex: 0,
+    mode: "practice", practiceIndex: 0, pass: 0, assessmentIndex: 0, practiceSeed: `${sessionSeed}:${createAttemptId()}`,
     assessmentRecords: [], practiceRecords: [], attempts: 0, pendingAttempt: null,
     result: null, paused: false, earnedCount: 0, startedAt: new Date().toISOString()
     });
@@ -87,6 +87,7 @@ function CyclePracticeSession({
     initial.storageUnavailable = !writeCycleState(storageKey, initial);
     return initial;
   });
+  const seed = state.practiceSeed || sessionSeed;
   const stateRef = useRef(state);
   const clockRef = useRef(null);
   if (!clockRef.current) {
@@ -120,7 +121,7 @@ function CyclePracticeSession({
   const feedbackResume = useRef(null);
   const { mode, practiceIndex, assessmentIndex, attempts, result, paused } = state;
   const practice = useMemo(() => buildCyclePlan(cycle, seed, state.pass), [cycle, seed, state.pass]);
-  const check = useMemo(() => buildCyclePlan(cycle, `${seed}:assessment`, 0, true), [cycle, seed]);
+  const check = useMemo(() => buildCyclePlan(cycle, `${sessionSeed}:assessment`, 0, true), [cycle, sessionSeed]);
   const practicePlan = practice.rounds;
   const assessmentPlan = check.rounds;
   const locked = Boolean(focusSession?.id);

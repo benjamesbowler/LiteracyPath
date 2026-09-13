@@ -16,7 +16,7 @@ test("every Arcade control keeps browser gestures from stealing iPad input", asy
     await player.locator(".lg-game-loading").waitFor({ state: "hidden", timeout: 40_000 });
 
     await expect(player.getByRole("dialog", { name: /instructions|how to play/i })).toHaveCount(0);
-    await expect(player.getByRole("button", { name: /^(tap to play|play|to the yard)/i })).toHaveCount(0);
+    await expect(player.getByRole("button", { name: /^(tap to play|play|to the yard)$/i })).toHaveCount(0);
     const controlStyles = await player.locator('button, [role="button"]').evaluateAll(controls =>
       controls.map(control => {
         const styles = getComputedStyle(control);

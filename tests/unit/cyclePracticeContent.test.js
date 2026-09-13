@@ -76,7 +76,9 @@ test('beginning sounds, endings, and rimes have exactly one defensible picture a
       assert.equal(round.choices.filter(choice => cycleSoundMatches(round.targetWord, choice.value, round.soundPosition)).length, 1, `${round.id}: only one bin can describe the heard word ending`);
     }
     for (const round of [...pools.letterMatch, ...pools.soundSort.filter(r => r.variant !== 'syllableSort')]) {
-      assert.equal(round.choices.filter(choice => cycleSoundsEquivalent(choice.value, round.answer)).length, 1, round.id);
+      const matches = choice => round.variant === 'letterCase' || round.variant === 'wordListen'
+        ? choice.value === round.answer : cycleSoundsEquivalent(choice.value, round.answer);
+      assert.equal(round.choices.filter(matches).length, 1, round.id);
     }
   }
   assert.equal(cycleSoundMatches('sun', 'ss'), false, 'first s must not be mistaken for ending s');
@@ -138,7 +140,9 @@ test('every full cycle offers at least 120 true tasks and 30 minutes of planned 
     assert.ok(first.blueprint.byActivity.rhymeMatch * 3 <= first.rounds.length, `${cycle.id}: rhyme stays at or below one-third of the semantic deck`);
     assert.ok(first.rounds.every(round => round.semanticKey && round.coverageTags.length));
     const next = buildCyclePracticePlan(cycle, 'full-path', 1);
-    assert.deepEqual(new Set(first.rounds.map(round => round.semanticKey)), new Set(next.rounds.map(round => round.semanticKey)), `${cycle.id}: changing layout cannot invent new content`);
+    const authored = new Set(Object.values(buildCyclePracticePools(cycle, 'full-inventory')).flat().map(round => round.semanticKey));
+    for (const round of [...first.rounds, ...next.rounds]) assert.ok(authored.has(round.semanticKey), `${cycle.id}: replay selects actual authored content`);
+    assert.notDeepEqual(first.rounds.map(round => round.semanticKey), next.rounds.map(round => round.semanticKey), `${cycle.id}: select and order fresh examples`);
     const traceKeys = first.rounds.filter(round => round.mechanicId === 'letterTrace').map(round => round.targetGrapheme);
     assert.equal(new Set(traceKeys).size, traceKeys.length, 'same tracing path with different pictures is one task');
   }
@@ -242,7 +246,9 @@ test('early cycles mix every taught sound into the opening activities with varie
   }
 });
 
-test('cumulative practice preserves all 27 original Cycle Check decks and evidence fields', () => {
+test('all 27 Cycle Check decks retain a stable contract after the basic-picture vocabulary correction', () => {
+  // Picture holdouts also apply to checks. Focus, HFW, independent-response
+  // and media validity are checked above; pin the resulting deterministic deck.
   const hashes = cycles.map(cycle => createHash('sha256').update(JSON.stringify(buildCyclePracticePlan(cycle, 'check-contract', 0, true).rounds)).digest('hex'));
-  assert.equal(createHash('sha256').update(hashes.join('|')).digest('hex'), '7e565e5e053b506c55b58e8f53a43795e316c6b639ae4c30e89bdc2f5d3a82be');
+  assert.equal(createHash('sha256').update(hashes.join('|')).digest('hex'), '4d40ca2dd189ba44d5a052b4c3518d4ebeca0a8ab930bc0703b3c32412d36764');
 });

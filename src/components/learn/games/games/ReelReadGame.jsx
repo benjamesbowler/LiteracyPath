@@ -180,6 +180,7 @@ function markOnboarded() {
 
 export default function ReelReadGame({
   difficulty = "easy",
+  sessionSeed = 0,
   startLevel = 0,
   onScoreUpdate,
   onProgressUpdate,
@@ -201,6 +202,7 @@ export default function ReelReadGame({
     if (!mountRef.current) return undefined;
     const api = startGame(mountRef.current, {
       difficulty,
+      sessionSeed,
       startLevel,
       onScoreUpdate,
       onProgressUpdate,
@@ -215,7 +217,7 @@ export default function ReelReadGame({
       api.teardown();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [difficulty]);
+  }, [difficulty, sessionSeed]);
 
   return (
     <div
@@ -235,7 +237,7 @@ export default function ReelReadGame({
 
 function startGame(mount, opts) {
   const difficulty = ["easy", "medium", "hard"].includes(String(opts.difficulty)) ? String(opts.difficulty) : "easy";
-  const ladder = reelReadLadder(difficulty);
+  const ladder = reelReadLadder(difficulty, opts.sessionSeed);
   const startAt = clamp(Number(opts.startLevel) || 0, 0, ladder.length - 1);
   const reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 

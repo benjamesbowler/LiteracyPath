@@ -59,7 +59,7 @@ async function startAt(page, patch = {}, options = {}) {
   await audioDouble(page, options.unavailable);
   await page.addInitScript(({ storageKey, state }) => { if (!localStorage.getItem(storageKey)) localStorage.setItem(storageKey, JSON.stringify(state)); }, { storageKey: key, state: initialState(patch) });
   await page.goto("/preview/child-surfaces.html?surface=cycle-practice&cycle=cycle-1&motion=reduced");
-  await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
+  if (!options.expectMediaFailure) await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
   if (!options.unavailable && options.waitReady !== false) await ready(page);
 }
 
@@ -119,7 +119,8 @@ async function choose(page, round, correct = true) {
 
 for (const mechanic of ["pictureSound", "letterMatch", "rhymeMatch", "wordBuild", "soundSort", "letterTrace"]) {
   test(`${mechanic} has images and automatic audio, retries locally, then advances once without a submit control`, async ({ page }) => {
-    const index = plan.findIndex(round => round.mechanicId === mechanic);
+    const index = plan.findIndex(round => round.mechanicId === mechanic && (mechanic !== 'wordBuild'
+      || round.choices.some(choice => String(choice.value) !== String(Array.isArray(round.answer) ? round.answer[0] : round.answer))));
     const round = plan[index];
     await startAt(page, { practiceIndex: index });
     await expect(page.locator(".cycle-playground")).toHaveAttribute("data-mechanic-stage", mechanic);
@@ -168,7 +169,7 @@ test("a missing tracing picture blocks practice and successfully reloads before 
   const round = plan[practiceIndex];
   const imagePattern = `**${round.image}`;
   await page.route(imagePattern, route => route.abort());
-  await startAt(page, { practiceIndex }, { waitReady: false });
+  await startAt(page, { practiceIndex }, { waitReady: false, expectMediaFailure: true });
   await expect(page.getByRole("button", { name: "Reload pictures", exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "Help me trace one part" })).toBeDisabled();
   expect((await saved(page)).practiceRecords).toHaveLength(0);
@@ -238,7 +239,7 @@ test("refreshing a partly sorted check resumes the next object without scoring t
   const firstResponse = (await saved(page)).assessmentRecords[0];
   expect(firstResponse.responseStatus).toBe("incorrect");
   await page.reload();
-  await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
+  await page.locator(".cycle-play-overlay").getByRole("button", { name: "Resume practice", exact: true }).click();
   await ready(page);
   await expect(page.getByRole("button", { name: `Pick up ${round.objects[1].word}`, exact: true })).toBeVisible();
   for (const object of round.objects.slice(1)) {

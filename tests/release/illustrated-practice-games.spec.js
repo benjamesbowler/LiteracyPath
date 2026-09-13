@@ -112,7 +112,7 @@ for(const [mode,game]of Object.entries(games))test(`${mode} completes its longer
  await expect.poll(async()=>Boolean(await saved(page,mode))).toBe(true);
  const initial=await saved(page,mode);const state=initial.gameState;let actions=0;
  if(mode==='build'){
-  expect(state.rounds).toHaveLength(10);
+  expect(state.rounds).toHaveLength(24);
   for(let r=0;r<state.rounds.length;r++){
    const target=state.rounds[r];
    for(let i=0;i<target.units.length;i++){await piece(page,target.units[i].grapheme,i);actions++;}
@@ -159,7 +159,13 @@ for(const [mode,game]of Object.entries(games))test(`${mode} completes its longer
  }
  await expect(page.getByRole('button',{name:'Next level',exact:true})).toBeVisible();
  const before=await page.evaluate(({scope,game})=>JSON.parse(localStorage.getItem(`literacy-guide-learn-games:${scope}`)).games[game],{scope,game});expect(before.plays).toBe(1);
- await page.getByRole('button',{name:'Next level',exact:true}).click();await expect(page.locator(`[data-phonics-mode="${mode}"]`)).toBeVisible();
- const after=await page.evaluate(({scope,game})=>JSON.parse(localStorage.getItem(`literacy-guide-learn-games:${scope}`)).games[game],{scope,game});expect(after.plays).toBe(1);expect(after.checkpoints.medium.level).toBe(0);
+ await page.getByRole('button',{name:mode==='build'?'Replay level':'Next level',exact:true}).click();await expect(page.locator(`[data-phonics-mode="${mode}"]`)).toBeVisible();
+ const after=await page.evaluate(({scope,game})=>JSON.parse(localStorage.getItem(`literacy-guide-learn-games:${scope}`)).games[game],{scope,game});expect(after.plays).toBe(1);expect(after.checkpoints[mode==='build'?'easy':'medium'].level).toBe(0);
+ if(mode==='build'){
+  const replay=await saved(page,mode);
+  expect(replay.gameState.rounds.map(item=>item.word)).not.toEqual(state.rounds.map(item=>item.word));
+  expect(replay.gameState.rounds).toHaveLength(24);
+  await expect(page.locator('.pp-progress')).toHaveText('0/24');
+ }
  expect(errors).toEqual([]);console.log(`${mode}: ${actions} literacy constructions/recognitions; one saved outing and actual Next`);
 });

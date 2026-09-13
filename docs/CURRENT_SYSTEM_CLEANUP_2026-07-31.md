@@ -47,6 +47,18 @@ three-lane process is superseded. Product standards and runtime behavior remain
 unchanged. [Agent workflow](engineering/AGENT_WORKFLOW.md) and
 [task gates](verification/TASK_GATES.md) are the current operating references.
 
+## Shared cycle practice resources — 13 September 2026
+
+Cycle Practice and Adventure Map now use `src/data/cycleSoundWords.js` for the
+authored sound-picture vocabulary and `src/utils/cyclePracticeVariation.js` for
+taught-letter parsing and repetition limits. The separate Adventure Map initial
+picture bank was removed; Cycle Practice retains compatible exports for its
+current callers. Cycle 1's duplicate Letter Find station was removed from the
+map menu. Source history remains recoverable through Git. No learner media or
+saved progress was deleted. The product contracts are
+[Cycle Practice](product/CYCLE_PRACTICE.md) and
+[Adventure Map](product/ADVENTURE_MAP.md).
+
 ## Current authoritative sources
 
 ### Skills assessment

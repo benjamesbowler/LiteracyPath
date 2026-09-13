@@ -13,6 +13,7 @@
 //
 // DOM-free on purpose: every level is unit-testable (see curriculumLadder.test.js).
 import { CVC_WORDS, SENTENCES } from "../data/learnGamesData.js";
+import { replayShuffle, replayWithinBands } from "./gameReplay.js";
 
 export const LEVELS_PER_DIFFICULTY = 10;
 // Moonwood: first 6 levels spell hard words, last 4 build sentences.
@@ -48,29 +49,29 @@ function chunk(list, parts) {
 }
 
 // Words for a world, hardest-last, split into ramped no-repeat level buckets.
-function wordLevels(world, levelCount) {
+function wordLevels(world, levelCount, sessionSeed) {
   const bank = (CVC_WORDS[BANK_BY_WORLD[world]] || []).slice();
   const ordered = bank
     .map(w => String(w).toLowerCase())
     .sort((a, b) => wordHardness(a) - wordHardness(b) || a.localeCompare(b));
-  return chunk(ordered, levelCount);
+  return chunk(replayWithinBands(ordered, sessionSeed, wordHardness), levelCount);
 }
 
 // Sentences for Moonwood's hard levels, split so no sentence repeats.
-function sentenceLevels(levelCount) {
-  const bank = (SENTENCES.level3 || []).slice();
+function sentenceLevels(levelCount, sessionSeed) {
+  const bank = replayShuffle(SENTENCES.level3 || [], sessionSeed);
   return chunk(bank, levelCount);
 }
 
 // The plan for one level. `mode` tells the game HOW to present the targets:
 //   "letters"  -> targets are words the child spells letter-by-letter
 //   "sentence" -> targets are sentences (arrays of words) the child orders
-export function levelPlan(gameId, difficulty, levelIndex) {
+export function levelPlan(gameId, difficulty, levelIndex, sessionSeed = 0) {
   const world = worldForGameDifficulty(difficulty);
   const level = Math.max(0, Math.min(LEVELS_PER_DIFFICULTY - 1, Number(levelIndex) || 0));
 
   if (world === "moonwood" && level >= SENTENCE_START_LEVEL) {
-    const sLevels = sentenceLevels(LEVELS_PER_DIFFICULTY - SENTENCE_START_LEVEL);
+    const sLevels = sentenceLevels(LEVELS_PER_DIFFICULTY - SENTENCE_START_LEVEL, sessionSeed);
     const bucket = sLevels[level - SENTENCE_START_LEVEL] || sLevels[sLevels.length - 1] || [];
     return {
       gameId,
@@ -84,7 +85,7 @@ export function levelPlan(gameId, difficulty, levelIndex) {
   }
 
   const wordCount = world === "moonwood" ? SENTENCE_START_LEVEL : LEVELS_PER_DIFFICULTY;
-  const wLevels = wordLevels(world, wordCount);
+  const wLevels = wordLevels(world, wordCount, sessionSeed);
   const bucket = wLevels[level] || wLevels[wLevels.length - 1] || [];
   return {
     gameId,
@@ -98,6 +99,6 @@ export function levelPlan(gameId, difficulty, levelIndex) {
 }
 
 // Convenience: the whole ramp for a difficulty (all 10 levels).
-export function difficultyLadder(gameId, difficulty) {
-  return Array.from({ length: LEVELS_PER_DIFFICULTY }, (_, i) => levelPlan(gameId, difficulty, i));
+export function difficultyLadder(gameId, difficulty, sessionSeed = 0) {
+  return Array.from({ length: LEVELS_PER_DIFFICULTY }, (_, i) => levelPlan(gameId, difficulty, i, sessionSeed));
 }

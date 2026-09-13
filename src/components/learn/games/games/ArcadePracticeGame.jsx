@@ -4,7 +4,8 @@ import { cancelSpeech } from "../../../../utils/learnGamesAudio";
 import { stopCueAudio } from "../../../../utils/audio/cuePlayer.js";
 import { memoryBoards, sentencePractice, sightWordPool } from "../../../../utils/recognitionPractice.js";
 import "../../../../styles/recognition-practice.css";
-import { buildBlendMissions, buildCvcWorkshopRounds } from "../../../../utils/buildingGrowingRounds.js";
+import { buildBlendMissions, buildCvcWorkshopRounds, cvcWorkshopRoundCount } from "../../../../utils/buildingGrowingRounds.js";
+import { gameRandom } from "../../../../utils/gameReplay.js";
 import { MatchGame, TargetGame, SentenceGame, FixGame } from "./RecognitionGameStages.jsx";
 import { hasKnownBadWordAudio } from "../../../../data/knownBadWordAudio.js";
 import { playCelebrationFanfare, playCorrectChime, playSoftBuzz } from "../../../../utils/audio/gameSfx";
@@ -64,6 +65,7 @@ export function ArcadePracticeGame({
   title,
   mode,
   difficulty = "easy",
+  sessionSeed = 0,
   startLevel = 0,
   onScoreUpdate,
   onProgressUpdate,
@@ -77,7 +79,7 @@ export function ArcadePracticeGame({
   isSoundEnabled = true,
   progressScopeKey = "default"
 }) {
-  const plannedRounds = mode === "target" ? ({easy:48, medium:54, hard:60}[difficulty] || 48) : mode === "quiz" ? (SENTENCE_FIX[difficulty] || SENTENCE_FIX.easy).length : 10;
+  const plannedRounds = mode === "build" ? cvcWorkshopRoundCount(difficulty) : mode === "target" ? ({easy:48, medium:54, hard:60}[difficulty] || 48) : mode === "quiz" ? (SENTENCE_FIX[difficulty] || SENTENCE_FIX.easy).length : 10;
   const sentenceTier = difficulty === "hard" ? "level3" : difficulty === "medium" ? "level2" : "level1";
 
   const sessionKey = phonicsSessionKey(progressScopeKey, mode, difficulty);
@@ -149,11 +151,11 @@ export function ArcadePracticeGame({
     }
 
     if (mode === "build") {
-      return withReroll({ rounds: buildCvcWorkshopRounds(difficulty, totalRounds) });
+      return withReroll({ rounds: buildCvcWorkshopRounds(difficulty, totalRounds, sessionSeed ? gameRandom(`${sessionSeed}:${version}`) : Math.random) });
     }
 
     return withReroll({ words: pickWords(difficulty, totalRounds) });
-  }, [difficulty, mode, totalRounds, version, saved]);
+  }, [difficulty, mode, totalRounds, version, saved, sessionSeed]);
 
   useLayoutEffect(() => {
     saveStateRef.current = { gameState, round, score, correct, streak, wrongs: wrongsRef.current, evidence: responseEvidenceRef.current, discoveries, stage: stageSnapshotRef.current };

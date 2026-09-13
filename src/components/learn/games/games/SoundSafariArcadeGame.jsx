@@ -1119,7 +1119,7 @@ function drawSafari(ctx, state, config, theme, images, w, h) {
 
 function startSoundSafariArcadeGame(mount, options) {
   const config = CONFIG[options.kind] || CONFIG["sound-safari"];
-  const ladder = config.ladder(options.difficulty);
+  const ladder = config.ladder(options.difficulty, options.sessionSeed);
   const images = {
     guide: loadImage(config.guide),
     net: loadImage(config.net),
@@ -1662,6 +1662,7 @@ function startSoundSafariArcadeGame(mount, options) {
 export default function SoundSafariArcadeGame({
   kind,
   difficulty = "easy",
+  sessionSeed = 0,
   startLevel = 0,
   onScoreUpdate,
   onProgressUpdate,
@@ -1699,6 +1700,7 @@ export default function SoundSafariArcadeGame({
     const engine = startSoundSafariArcadeGame(mountRef.current, {
       kind,
       difficulty,
+      sessionSeed,
       startLevel,
       onScoreUpdate: score => handlersRef.current.onScoreUpdate?.(score),
       onProgressUpdate: (current, total) => handlersRef.current.onProgressUpdate?.(current, total),
@@ -1708,7 +1710,7 @@ export default function SoundSafariArcadeGame({
       getSound: () => soundRef.current
     });
     return () => engine.destroy();
-  }, [kind, difficulty, startLevel]);
+  }, [kind, difficulty, sessionSeed, startLevel]);
 
   return (
     <div

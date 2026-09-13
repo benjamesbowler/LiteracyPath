@@ -24,7 +24,7 @@ import { reelReadLadder } from "../src/utils/reelReadLevels.js";
 import { starGalleryLadder } from "../src/utils/starGalleryRounds.js";
 import { buildLine } from "../src/utils/sentenceExpressLevels.js";
 import { grammarGrindLadder } from "../src/utils/grammarGrindLevels.js";
-import { segmentWord } from "../src/utils/graphemeSegments.js";
+import { SOUND_SAFARI_MODELS } from "../src/utils/soundSafariWords.js";
 import {
   WORKSHEET_TYPES,
   availableWorksheetTypes,
@@ -293,7 +293,7 @@ function auditArcade() {
         total += 1;
         const id = `${difficulty}-${index + 1}`;
         const correct = level.tiles.filter(tile => tile.correct).sort((a, b) => a.order - b.order);
-        const expected = Array.isArray(level.target) ? level.target.join(" ") : String(level.target).toUpperCase();
+        const expected = Array.isArray(level.target) ? `${level.target.join(" ").replace(/[.?!]$/, "")} .` : String(level.target).toUpperCase();
         const rebuilt = correct.map(tile => tile.glyph).join(Array.isArray(level.target) ? " " : "");
         check(surface, id, level.slots === correct.length && rebuilt === expected, "Q-ARCADE-WINNABLE", "Ordered correct tiles do not rebuild the displayed target.");
         check(surface, id, level.tiles.some(tile => !tile.correct), "Q-ARCADE-DISTRACTOR", "The level has no meaningful distractor tile.");
@@ -329,7 +329,8 @@ function auditArcade() {
     let total = 0;
     for (const difficulty of difficulties) {
       const levels = rhymePopLadder(difficulty);
-      check(surface, `${difficulty}-ladder`, levels.length === 10, "Q-ARCADE-LADDER", "Expected exactly 10 levels.");
+      const expectedLevels = difficulty === "easy" ? 24 : 30;
+      check(surface, `${difficulty}-ladder`, levels.length === expectedLevels && levels.every(level => level.totalLevels === expectedLevels), "Q-ARCADE-LADDER", `Expected ${expectedLevels} levels across three acts.`);
       for (const [index, level] of levels.entries()) {
         total += 1;
         const id = `${difficulty}-${index + 1}`;
@@ -360,7 +361,9 @@ function auditArcade() {
           const id = `${difficulty}-${levelIndex + 1}-${wordIndex + 1}`;
           const correct = item.graphemes.map(part => String(part).toLowerCase());
           const decoys = item.decoys.map(part => String(part).toLowerCase());
-          check(surface, id, JSON.stringify(correct) === JSON.stringify(segmentWord(item.word)), "Q-ARCADE-WINNABLE", "The ordered sound sequence does not match the target word's phoneme segmentation.");
+          const model = SOUND_SAFARI_MODELS[difficulty].find(word => word.word === item.word);
+          check(surface, id, Boolean(model) && JSON.stringify(correct) === JSON.stringify(model.units.map(unit => unit.label)), "Q-ARCADE-WINNABLE", "The ordered sound sequence does not match the target word's authored phoneme segmentation.");
+          check(surface, id, Boolean(model) && JSON.stringify(item.soundKeys) === JSON.stringify(model.units.map(unit => unit.soundKey)), "Q-TARGET-AUDIO", "The sound cues do not match the authored pronunciations.");
           check(surface, id, !decoys.some(decoy => correct.includes(decoy)), "Q-ARCADE-OVERLAP", "A decoy duplicates a required grapheme.");
           check(surface, id, new Set(decoys).size === decoys.length, "Q-ARCADE-DUPLICATE", "The decoy set contains duplicate graphemes.");
         }

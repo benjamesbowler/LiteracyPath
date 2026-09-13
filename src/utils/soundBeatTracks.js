@@ -7,6 +7,7 @@ import {
 import { segmentWord } from "./graphemeSegments.js";
 import { starRubric } from "./starRubric.js";
 import { hasWordAudio } from "./questAudio.js";
+import { replayShuffle } from "./gameReplay.js";
 
 const WORLDS = { easy: "meadow", medium: "dino", hard: "moonwood" };
 const BASE_BPM = { easy: 82, medium: 94, hard: 108 };
@@ -44,32 +45,32 @@ function sentenceItem(sentence) {
   };
 }
 
-function levelItems(difficulty, levelIndex) {
+function levelItems(difficulty, levelIndex, sessionSeed) {
   if (difficulty === "hard" && levelIndex >= 6) {
     const sentences = SENTENCES.level3.map(sentenceItem).filter(item => item.beats.every(hasWordAudio));
-    return section(sentences, levelIndex - 6, 4);
+    return section(replayShuffle(sentences, sessionSeed), levelIndex - 6, 4);
   }
 
   if (difficulty === "easy") {
     // x represents /k/ + /s/: the one-spelling/one-beat display cannot teach
     // that as one phoneme. Keep these words in spelling games, not this mode.
     const soundWords = CVC_WORDS.easy.filter(word => !word.includes("x"));
-    return section(soundWords, levelIndex, 10).map(wordItem);
+    return section(replayShuffle(soundWords, sessionSeed), levelIndex, 10).map(wordItem);
   }
 
   if (difficulty === "medium") {
-    const words = section(CVC_WORDS.medium, levelIndex, 10).map(wordItem);
-    const syllables = syllableItems(SYLLABLE_WORDS.two);
+    const words = section(replayShuffle(CVC_WORDS.medium, sessionSeed), levelIndex, 10).map(wordItem);
+    const syllables = replayShuffle(syllableItems(SYLLABLE_WORDS.two), sessionSeed);
     return [...words, ...section(syllables, levelIndex, 10)];
   }
 
   const vowelTeamWords = Object.values(VOWEL_TEAM_WORDS).flat();
-  const words = section(vowelTeamWords, levelIndex, 6).map(wordItem);
-  const syllables = syllableItems([...SYLLABLE_WORDS.two, ...SYLLABLE_WORDS.three]);
+  const words = section(replayShuffle(vowelTeamWords, sessionSeed), levelIndex, 6).map(wordItem);
+  const syllables = replayShuffle(syllableItems([...SYLLABLE_WORDS.two, ...SYLLABLE_WORDS.three]), sessionSeed);
   return [...words, ...section(syllables, levelIndex, 6)];
 }
 
-export function soundBeatLevel(difficulty = "easy", levelIndex = 0) {
+export function soundBeatLevel(difficulty = "easy", levelIndex = 0, sessionSeed = 0) {
   const safeDifficulty = WORLDS[difficulty] ? difficulty : "easy";
   const level = Math.max(0, Math.min(9, Number(levelIndex) || 0));
   return {
@@ -82,16 +83,16 @@ export function soundBeatLevel(difficulty = "easy", levelIndex = 0) {
     // Keep the accompaniment tempo stable across short sections. This does
     // not lock input or impose a waiting period.
     minPlaySeconds: 60,
-    items: levelItems(safeDifficulty, level).map((item, index) => {
+    items: levelItems(safeDifficulty, level, sessionSeed).map((item, index) => {
       const phrases = [[0, 1, 2, 3], [0, 2, 1, 3], [3, 2, 1, 0], [0, 1, 0, 2, 3], [1, 2, 0, 3]];
-      const phrase = phrases[(level + index) % phrases.length];
+      const phrase = phrases[(level + index + sessionSeed) % phrases.length];
       return { ...item, lanes: [...item.beats, "blend"].map((_, beat) => phrase[beat % phrase.length]) };
     })
   };
 }
 
-export function soundBeatLadder(difficulty = "easy") {
-  return Array.from({ length: 10 }, (_, index) => soundBeatLevel(difficulty, index));
+export function soundBeatLadder(difficulty = "easy", sessionSeed = 0) {
+  return Array.from({ length: 10 }, (_, index) => soundBeatLevel(difficulty, index, sessionSeed));
 }
 
 export function soundBeatStars({ correct, total, mistakes } = {}) {

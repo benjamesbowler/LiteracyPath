@@ -131,6 +131,12 @@ the production guide in the areas that apply to it.
 - Children can choose an avatar, route or cosmetic without changing assessment validity.
 - No streak anxiety, loot boxes, variable-ratio purchases, countdown pressure, shame, loss aversion or pay-to-progress.
 - A replay changes arrangement or application while preserving the learning objective; repeating an identical answer pattern is not replayability.
+- Each fresh game run receives new content randomness. Seeded engines retain
+  that seed in their existing per-game/difficulty checkpoint; Continue restores
+  the same unfinished content, while Replay and Start over create a fresh run.
+  Shuffle equivalent curriculum bands without scrambling ordered word parts.
+  Longer outings keep natural stopping points; do not impose waiting time to
+  manufacture an hour of play. `gameReplay.test.js` covers the full catalogue.
 - Progress is recoverable and resumable. Exiting a game does not erase earned learning evidence.
 
 ## 9. Safety, privacy and wellbeing

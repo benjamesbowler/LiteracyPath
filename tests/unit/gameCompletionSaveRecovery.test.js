@@ -8,6 +8,7 @@ import { readProgressQueueRecords } from "../../src/utils/progressQueue.js";
 import { GAME_LIST } from "../../src/data/learnGamesData.js";
 import { premiumProfileForGame } from "../../src/components/learn/games/shared/arcadePremiumProfiles.js";
 import * as surfaceNames from "../../src/utils/fullscreenOverlayNames.js";
+import { newGameSeed } from "../../src/utils/gameReplay.js";
 
 const scope = "completion-recovery";
 const key = `literacy-guide-learn-games:${scope}`;
@@ -88,6 +89,7 @@ function setup(t, gameId = "rhyme-pop") {
   const api = { pause() { paused = true; }, resume() { paused = false; } };
   const imports = {
     ...hooks, ...progress, ...surfaceNames, element,
+    useActivityMusic: () => hooks.useState(false), newGameSeed,
     Component: class {}, Suspense: "Suspense", createPortal: content => content,
     GAME_LIST, LEARN_GAMES: { [gameId]: Engine }, premiumProfileForGame,
     cancelSpeech: noop, hasRecordedSpeech: () => false, speak: noop, cancelGameSfx: noop,
@@ -151,12 +153,14 @@ const evidence = () => ({ firstResponses: [{ target: "cat", response: "dog", cor
 for (const game of GAME_LIST) {
   test(`${game.id}: next level and replay keep playing with separate saved runs`, t => {
     const h = setup(t, game.id);
+    const firstSeed = h.engine().sessionSeed;
     h.engine().onComplete(2, 80, 4, evidence());
     h.flush();
     assert.equal(h.engine().onRequestNextLevel(), true);
     h.flush();
     assert.equal(h.engine().difficulty, "medium");
-    assert.equal(h.engine().sessionSeed, 1);
+    assert.notEqual(h.engine().sessionSeed, firstSeed);
+    const secondSeed = h.engine().sessionSeed;
     assert.equal(h.closed, 0);
     h.engine().onComplete(3, 120, 6, evidence());
     h.flush();
@@ -164,7 +168,7 @@ for (const game of GAME_LIST) {
     assert.equal(h.engine().onRequestReplay(), true);
     h.flush();
     assert.equal(h.engine().difficulty, "medium");
-    assert.equal(h.engine().sessionSeed, 2);
+    assert.notEqual(h.engine().sessionSeed, secondSeed);
     assert.equal(h.closed, 0);
     h.engine().onComplete(3, 130, 6, evidence());
     h.flush();
@@ -174,13 +178,14 @@ for (const game of GAME_LIST) {
 
 test("next/replay cannot replace a failed result and advancing preserves another course checkpoint", t => {
   const h = setup(t);
+  const firstSeed = h.engine().sessionSeed;
   progress.saveGameCheckpoint(scope, "rhyme-pop", "medium", 3, 10);
   h.reject(name => name === key);
   h.engine().onComplete(2, 80, 4, evidence());
   h.flush();
   assert.equal(h.engine().onRequestNextLevel(), false);
   assert.equal(h.engine().onRequestReplay(), false);
-  assert.equal(h.engine().sessionSeed, 0);
+  assert.equal(h.engine().sessionSeed, firstSeed);
   h.reject(() => false);
   h.click(/try saving again/i);
   h.click(/Next level/);
@@ -219,7 +224,7 @@ test("failed final-action save returns false, pauses, and explicitly retries the
   assert.equal(h.recovery().props["aria-label"], "Save game progress");
   assert.equal(h.paused, true);
   assert.equal(h.read().plays || 0, 0);
-  assert.deepEqual(h.read().checkpoints.easy, { level: 2, totalLevels: 5 });
+  assert.deepEqual(h.read().checkpoints.easy, { level: 2, totalLevels: 5, sessionSeed: h.engine().sessionSeed });
   assert.equal(h.missions.length, 0);
   assert.equal(h.updates.length, 0);
   assert.equal(h.dialogs().length, 1);

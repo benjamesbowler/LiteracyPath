@@ -6,6 +6,9 @@ import { imageQaReviewBlockedPaths } from '../../data/generated/imageQaReviewBlo
 import { getCyclePracticeWordAudio } from './cyclePracticeAudio.js';
 import { getPreferredPhonemeAudioPath } from '../../data/phonemeAudioBank.js';
 import { CYCLE_PRACTICE_MINIMUM_SECONDS } from '../../policy/cyclePracticePolicy.js';
+import { CYCLE_SOUND_WORDS, cycleSoundsEquivalent, cycleSoundPosition, cycleSoundMatches, isCyclePictureWordEligible } from '../../data/cycleSoundWords.js';
+export { CYCLE_SOUND_WORDS, cycleSoundsEquivalent, cycleSoundPosition, cycleSoundMatches } from '../../data/cycleSoundWords.js';
+import { cycleCardGraphemes, taughtCycleGraphemes, capPracticeRepetitions } from '../../utils/cyclePracticeVariation.js';
 import { isKnownBadAudioPath } from '../../data/knownBadWordAudio.js';
 
 // The pictured noun supplies the meaning of each short spoken context. The
@@ -53,49 +56,7 @@ export const CYCLE_WORD_PARTS = Object.freeze([
   { word: 'mailbox', parts: ['mail', 'box'] },
 ]);
 
-// Explicit speech-sound membership. Do not derive sounds from first letters:
-// elephant is short e, eagle is not; x is /ks/ at the end of fox; who is /h/.
-// These are curriculum examples, not an alternate image or audio catalogue.
-export const CYCLE_SOUND_WORDS = Object.freeze({
-  a: ['apple', 'ant', 'alligator', 'astronaut', 'ambulance', 'ax', 'anchor'],
-  b: ['ball', 'bat', 'bag', 'book', 'bear', 'bell', 'banana', 'basket', 'butterfly', 'bicycle', 'beaver'],
-  c: ['cat', 'cap', 'cup', 'can', 'cow', 'cake', 'car', 'carrot', 'caterpillar', 'camera'],
-  d: ['dog', 'duck', 'desk', 'doll', 'door', 'dinosaur', 'dolphin', 'donkey', 'drum'],
-  e: ['egg', 'elephant', 'elbow', 'envelope', 'engine', 'eggplant', 'exit'],
-  f: ['fan', 'fish', 'fox', 'fig', 'frog', 'flower', 'feather', 'foot', 'flag', 'flamingo'],
-  g: ['goat', 'gum', 'gift', 'gate', 'gorilla', 'goose', 'girl', 'guitar', 'grapes', 'glove'],
-  h: ['hat', 'hen', 'house', 'horse', 'hand', 'hippo', 'helicopter', 'hedgehog', 'hamburger'],
-  i: ['igloo', 'insect', 'ink', 'itch', 'inchworm', 'instrument'],
-  j: ['jam', 'jet', 'jug', 'jacket', 'jellyfish', 'jaguar', 'juice', 'jellybean'],
-  k: ['kite', 'kangaroo', 'key', 'king', 'kitten', 'koala', 'kettle', 'kiwi', 'kayak'],
-  l: ['log', 'leaf', 'lamp', 'lion', 'lemon', 'ladybug', 'ladder', 'lobster', 'lollipop', 'lantern'],
-  m: ['moon', 'mouse', 'map', 'mat', 'milk', 'monkey', 'mushroom', 'magnet', 'mountain', 'muffin', 'motorcycle'],
-  n: ['net', 'nest', 'nose', 'nail', 'necklace', 'notebook', 'newspaper', 'noodle', 'nurse', 'narwhal'],
-  o: ['ox', 'octopus', 'otter', 'ostrich', 'octagon'],
-  p: ['pig', 'pan', 'pot', 'pen', 'pencil', 'penguin', 'pear', 'peach', 'parrot', 'pumpkin', 'panda'],
-  qu: ['queen', 'quilt', 'quail', 'quicksand', 'quiver'],
-  r: ['rabbit', 'rug', 'rain', 'ring', 'rat', 'raccoon', 'robot', 'rocket', 'rainbow', 'reindeer'],
-  s: ['sun', 'sock', 'seal', 'sand', 'soup', 'snake', 'spoon', 'spider', 'strawberry', 'sandwich'],
-  t: ['top', 'tent', 'turtle', 'tiger', 'table', 'tooth', 'tree', 'truck', 'tub', 'tomato'],
-  u: ['umbrella', 'uncle', 'umpire', 'underwear', 'urchin'],
-  v: ['van', 'vest', 'vase', 'vine', 'violin', 'volcano', 'vulture', 'vacuum', 'vegetable'],
-  w: ['web', 'wig', 'watch', 'window', 'wagon', 'watermelon', 'wolf', 'worm', 'walrus', 'waffle'],
-  x: ['box', 'fox', 'six', 'wax', 'ax'],
-  y: ['yak', 'yarn', 'yo-yo', 'yogurt', 'yolk', 'yacht'],
-  z: ['zebra', 'zipper', 'zucchini', 'zoo', 'zero', 'zip'],
-  sh: ['ship', 'sheep', 'shark', 'shell', 'shoe', 'shovel', 'shirt', 'shrimp'],
-  ch: ['chip', 'chair', 'cheese', 'chin', 'chicken', 'cherry', 'chick', 'chest'],
-  th: ['thumb', 'thimble', 'thorn', 'three'],
-  wh: ['whale', 'wheel', 'whisk', 'whistle'],
-  all: ['ball', 'wall', 'fall', 'hall'], nk: ['sink', 'bank', 'tank', 'trunk', 'skunk'],
-  ng: ['ring', 'king', 'wing', 'gong', 'spring', 'string'],
-  ang: ['bang', 'rang'], ing: ['ring', 'king', 'wing', 'spring', 'string'],
-  ong: ['gong', 'song', 'long'], ung: ['rung'],
-  ff: ['cliff', 'puff'], ss: ['grass', 'dress', 'glass', 'moss'], zz: ['fizz'], ll: ['bell', 'hill', 'shell', 'doll'],
-});
-const ENDINGS = new Set(['x', 'all', 'nk', 'ng', 'ang', 'ing', 'ong', 'ung', 'ff', 'ss', 'zz', 'll']);
 const ENDING_PARTS = new Set(['all', 'nk', 'ang', 'ing', 'ong', 'ung']);
-const EQUIVALENT = [['c', 'k'], ['w', 'wh'], ['f', 'ff'], ['s', 'ss'], ['z', 'zz'], ['l', 'll']];
 const REVIEW_PATTERNS = ['sh', 'ch', 'th', 'wh', 'all', 'nk', 'ng', 'ff', 'ss', 'zz', 'll'];
 const RHYME_FAMILIES = [
   ['cat', 'hat', 'bat', 'rat', 'mat'], ['map', 'cap', 'tap'], ['dog', 'log', 'frog'],
@@ -142,26 +103,9 @@ export function cycleWordAudio(word) {
   return path && !isKnownBadAudioPath(path) ? path : '';
 }
 function picture(word) {
+  if (!isCyclePictureWordEligible(word)) return null;
   const image = cycleWordImage(word), audio = cycleWordAudio(word);
   return image && audio ? { id: word, label: word, value: word, image, audio } : null;
-}
-export function cycleSoundsEquivalent(a, b) { return a === b || EQUIVALENT.some(group => group.includes(a) && group.includes(b)); }
-export function cycleSoundPosition(grapheme) { return ENDINGS.has(grapheme) ? 'ending' : 'first'; }
-const INITIAL_SOUND_SETS = new Map(Object.entries(CYCLE_SOUND_WORDS).filter(([key]) => !ENDINGS.has(key)).map(([key, words]) => [key, new Set(words)]));
-const FINAL_SOUND_OVERRIDES = Object.freeze({
-  apple: 'l', bicycle: 'l', turtle: 'l', table: 'l', noodle: 'l', whale: 'l', eagle: 'l',
-  mouse: 's', house: 's', juice: 's', necklace: 's', grapes: 's', goose: 's', horse: 's',
-  cheese: 'z', nose: 'z', vase: 'z', giraffe: 'f',
-  six: 'x', fox: 'x', box: 'x', wax: 'x', ax: 'x',
-});
-export function cycleSoundMatches(word, grapheme, position = cycleSoundPosition(grapheme)) {
-  if (position === 'first') {
-    if (INITIAL_SOUND_SETS.get(grapheme)?.has(word)) return true;
-    return EQUIVALENT.some(group => group.includes(grapheme) && group.some(key => INITIAL_SOUND_SETS.get(key)?.has(word)));
-  }
-  if (['all', 'nk', 'ng', 'ang', 'ing', 'ong', 'ung'].includes(grapheme)) return word.endsWith(grapheme);
-  const phoneme = FINAL_SOUND_OVERRIDES[word] || (word.endsWith('ng') ? 'ng' : word.endsWith('sh') ? 'sh' : word.endsWith('ch') ? 'ch' : word.endsWith('th') ? 'th' : word.at(-1));
-  return cycleSoundsEquivalent(phoneme, grapheme);
 }
 function randomFor(seed) {
   let hash = 2166136261;
@@ -174,13 +118,9 @@ function shuffled(items, seed) {
   return result;
 }
 const unique = values => [...new Set(values)];
-function cardSpellings(card) {
-  if (/^([A-Z])\1$/i.test(card.grapheme || '') && /^[A-Z][a-z]$/.test(card.grapheme)) return [card.grapheme[0].toLowerCase() === 'q' ? 'qu' : card.grapheme[0].toLowerCase()];
-  return String(card.spelling || card.grapheme || '').toLowerCase().split(/[\s/,+]+/).filter(g => Object.hasOwn(CYCLE_SOUND_WORDS, g));
-}
+function cardSpellings(card) { return cycleCardGraphemes(card).filter(g => Object.hasOwn(CYCLE_SOUND_WORDS, g)); }
 export function cycleTaughtGraphemes(cycle) {
-  const through = cycle?.cycleNumber || 1;
-  return unique(elSkillsBlockCycles.filter(c => c.cycleNumber && c.cycleNumber <= through).flatMap(c => c.focusLetters.flatMap(cardSpellings)));
+  return taughtCycleGraphemes(cycle?.cycleNumber || 1).filter(g => Object.hasOwn(CYCLE_SOUND_WORDS, g));
 }
 export function cyclePracticeGraphemes(cycle) {
   const focus = cycleFocusGraphemes(cycle);
@@ -231,7 +171,7 @@ export function buildCyclePracticePools(cycle, seed, check = false) {
   for (const grapheme of practiceGraphemes) {
     const soundAudio = getPreferredPhonemeAudioPath(grapheme), position = cycleSoundPosition(grapheme);
     if (!soundAudio) continue;
-    for (const word of (check ? coverage[grapheme] || [] : shuffled(coverage[grapheme] || [], `${cycle.id}:word-examples:${grapheme}`))) {
+    for (const word of (check ? coverage[grapheme] || [] : shuffled(coverage[grapheme] || [], `${seed}:word-examples:${grapheme}`))) {
       const common = { targetGrapheme: grapheme, soundAudio, soundPosition: position };
       const endingPart = ENDING_PARTS.has(grapheme);
       const distractors = shuffled(picturePool.filter(w => !cycleSoundMatches(w, grapheme)), `${seed}:pictures:${word}`).slice(0, 2);
@@ -241,7 +181,7 @@ export function buildCyclePracticePools(cycle, seed, check = false) {
         pools.letterMatch.push(roundBase(cycle, 'letterMatch', word, { ...common, instructionKey: endingPart ? 'letterEndingPart' : position === 'ending' ? 'endingLetterSound' : 'letterSound', choices, answer: grapheme, construct: endingPart ? 'grapheme_pattern_matching' : 'grapheme_phoneme_matching' }));
         const binCandidates = taught.filter(g => g === grapheme || (
           !cycleSoundMatches(word, g, position)
-          && (position !== 'first' || !ENDINGS.has(g))
+          && (position !== 'first' || cycleSoundPosition(g) === 'first')
           && picturePool.some(w => cycleSoundMatches(w, g, position) && !cycleSoundMatches(w, grapheme, position))
         ));
         const bins = soundChoices(grapheme, binCandidates, `${cycle.id}:bins:${word}`, 2);
@@ -269,14 +209,16 @@ export function buildCyclePracticePools(cycle, seed, check = false) {
   }
   for (const grapheme of practiceGraphemes.filter(g => g.length === 1)) {
     const words = coverage[grapheme] || [];
-    const word = check ? words[0] : shuffled(words, `${cycle.id}:case-example:${grapheme}`)[0];
-    if (!word) continue;
-    for (const upperModel of [true, false]) {
+    const examples = check ? words : shuffled(words, `${seed}:case-example:${grapheme}`);
+    if (!examples.length) continue;
+    for (const [index, upperModel] of [true, false].entries()) {
+      const word = check ? words[0] : examples[index % examples.length];
       const model = upperModel ? grapheme.toUpperCase() : grapheme;
       const answer = upperModel ? grapheme : grapheme.toUpperCase();
-      const alternatives = taught.filter(g => g.length === 1 && g !== grapheme).slice(0, 2);
+      const alternatives = (check ? taught : shuffled(taught, `${seed}:case-decoys:${grapheme}`)).filter(g => g.length === 1 && g !== grapheme).slice(0, 2);
       pools.letterMatch.push(roundBase(cycle, 'letterMatch', word, { variant: 'letterCase', instructionKey: 'letterCase', targetGrapheme: grapheme, model, answer, construct: 'visual_letter_identity', choices: [grapheme, ...alternatives].map(g => { const value = upperModel ? g : g.toUpperCase(); return { id: value, label: value, value }; }) }));
     }
+    const word = check ? words[0] : examples[2 % examples.length];
     pools.letterTrace.push(roundBase(cycle, 'letterTrace', word, { targetGrapheme: grapheme.toUpperCase(), focusGrapheme: grapheme, instructionKey: 'letterTrace', grapheme: grapheme.toUpperCase(), model: grapheme.toUpperCase(), answer: grapheme.toUpperCase(), checkEligible: false }));
   }
   for (const word of BUILD_WORDS) {
@@ -317,7 +259,8 @@ export function buildCyclePracticePools(cycle, seed, check = false) {
     const semanticKey = cyclePracticeSemanticKey(round);
     const focusGrapheme = round.focusGrapheme || round.targetGrapheme;
     const coverageTags = [`activity:${mechanic}`, `construct:${round.construct}`,
-      ...(focus.includes(focusGrapheme) ? [`focus:${focusGrapheme}`] : []),
+      ...(focus.includes(focusGrapheme) ? [`focus:${focusGrapheme}`] : !check && focusGrapheme ? [`review:${focusGrapheme.toLowerCase()}`] : []),
+      ...(!check && round.variant === 'letterCase' ? [`case:${round.answer}`] : []),
       ...(['highFrequency', 'wordListen'].includes(round.variant) ? [`hfw:${round.targetWord}`] : []),
       ...(round.variant === 'highFrequency' ? [`hfwCopy:${round.targetWord}`] : []),
       ...(round.variant === 'wordListen' ? [`hfwListen:${round.targetWord}`] : []),
@@ -365,10 +308,25 @@ export function buildCyclePracticePlan(cycle, seed, pass = 0, check = false) {
   if (!cycle?.cycleNumber) return { rounds: [], unavailable: ['Cycle content'] };
   const stableSeed = `${seed}:${cycle.id}`;
   const pools = buildCyclePracticePools(cycle, `${stableSeed}:pass:${pass}`, check);
+  if (!check) {
+    // A new picture is useful context, but it does not buy unlimited repeats
+    // of the same sound and action. Select fresh examples from the full bank.
+    for (const [mechanic, rows] of Object.entries(pools)) {
+      pools[mechanic] = capPracticeRepetitions(shuffled(rows, `${stableSeed}:examples:${mechanic}:${pass}`));
+    }
+    const otherCount = Object.entries(pools).filter(([id]) => id !== 'rhymeMatch').reduce((sum, [, rows]) => sum + rows.length, 0);
+    pools.rhymeMatch = pools.rhymeMatch.slice(0, Math.floor(otherCount / 2));
+  }
   const authored = Object.values(pools).flat();
   const required = check ? [] : requiredCoverage(cycle, authored);
+  // Bring earlier learning into the opening activities, not just the distant
+  // end of a long bank. Current upper/lower forms also receive an early turn.
+  const openingTags = check ? [] : [
+    ...cyclePracticeGraphemes(cycle).filter(g => !cycleFocusGraphemes(cycle).includes(g)).slice(0, 2).map(g => `review:${g}`),
+    ...(cycle.focusLetters?.length ? cycleFocusGraphemes(cycle) : []).filter(g => g.length === 1).flatMap(g => [`case:${g}`, `case:${g.toUpperCase()}`]),
+  ];
   const core = new Set(), coveredCoreTags = new Set(), coreWords = new Set();
-  for (const tag of required) {
+  for (const tag of [...required, ...openingTags]) {
     if (coveredCoreTags.has(tag)) continue;
     const matches = authored.filter(round => round.coverageTags.includes(tag) && !core.has(round.semanticKey));
     const candidate = matches.find(round => !coreWords.has(round.imageWord || round.targetWord)) || matches[0];
@@ -470,7 +428,7 @@ const SESSION_BLUEPRINT_CACHE = new Map();
 const SESSION_TASK_COVERAGE = new Map();
 export function cyclePracticeSessionBlueprint(cycle, suppliedRounds) {
   if (!suppliedRounds && SESSION_BLUEPRINT_CACHE.has(cycle.id)) return SESSION_BLUEPRINT_CACHE.get(cycle.id);
-  const rounds = suppliedRounds || Object.values(buildCyclePracticePools(cycle, 'session-blueprint')).flat();
+  const rounds = suppliedRounds || buildCyclePracticePlan(cycle, 'session-blueprint').rounds;
   const seconds = rounds.reduce(([minimum, maximum], round) => {
     const allowance = round.variant === 'syllableSort' ? [15, 25] : PLANNING_SECONDS[round.mechanicId];
     return [minimum + allowance[0], maximum + allowance[1]];
@@ -495,8 +453,13 @@ export function cyclePracticeSessionBlueprint(cycle, suppliedRounds) {
     plannedMinutes: [Math.floor(seconds[0] / 60), Math.ceil(seconds[1] / 60)],
     planningBasis: 'Pacing allowances include the recorded instruction, naming pictures, thinking, the learning action and feedback. These are planning estimates, not measured child timings or enforced waits. A full distinct deck is available; earlier taught content is spaced review. Replays begin only after the complete deck.',
   };
-  SESSION_BLUEPRINT_CACHE.set(cycle.id, blueprint);
-  SESSION_TASK_COVERAGE.set(cycle.id, new Map(rounds.map(round => [round.semanticKey, round.coverageTags])));
+  if (!suppliedRounds) SESSION_BLUEPRINT_CACHE.set(cycle.id, blueprint);
+  // A different replay selects different examples. Previously completed
+  // authored tasks must remain valid when the current selection changes.
+  if (!SESSION_TASK_COVERAGE.has(cycle.id)) {
+    const inventory = Object.values(buildCyclePracticePools(cycle, 'session-blueprint')).flat();
+    SESSION_TASK_COVERAGE.set(cycle.id, new Map(inventory.map(round => [round.semanticKey, round.coverageTags])));
+  }
   return blueprint;
 }
 
@@ -513,7 +476,7 @@ export function cyclePracticeReadiness(cycle, records = [], activeSeconds = 0) {
   const coverageReady = semanticKeys.size >= blueprint.minimumCompletedTasks && !missingCategories.length;
   return {
     ready: timeReady && coverageReady, timeReady, coverageReady,
-    completedTasks: semanticKeys.size, totalTasks: blueprint.distinctTasks,
+    completedTasks: semanticKeys.size, totalTasks: authoredCoverage.size,
     minimumCompletedTasks: blueprint.minimumCompletedTasks,
     missingCategories,
     missingFocus: missingCategories.filter(tag => tag.startsWith('focus:')).map(tag => tag.slice(6)),

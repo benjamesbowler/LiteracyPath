@@ -3,12 +3,15 @@
 // is stored PER game AND difficulty (easy/medium/hard are different ladders), and
 // only a level > 0 counts as resumable (level 0 = start, nothing to resume).
 
-export function applyCheckpoint(games = {}, gameId, difficulty, level, totalLevels) {
+export function applyCheckpoint(games = {}, gameId, difficulty, level, totalLevels, sessionSeed) {
   const key = String(difficulty || "");
   const prev = games[gameId] || {};
   const checkpoints = {
     ...(prev.checkpoints || {}),
-    [key]: { level: Math.max(0, Number(level) || 0), totalLevels: Math.max(0, Number(totalLevels) || 0) }
+    [key]: {
+      level: Math.max(0, Number(level) || 0), totalLevels: Math.max(0, Number(totalLevels) || 0),
+      ...(Number.isInteger(sessionSeed) && sessionSeed >= 0 ? { sessionSeed } : {})
+    }
   };
   return { ...games, [gameId]: { ...prev, checkpoints } };
 }
@@ -29,5 +32,8 @@ export function readCheckpoint(games = {}, gameId, difficulty) {
     : null;
   const level = cp ? Number(cp.level) || 0 : 0;
   if (level <= 0) return null;
-  return { level, totalLevels: Math.max(0, Number(cp.totalLevels) || 0) };
+  return {
+    level, totalLevels: Math.max(0, Number(cp.totalLevels) || 0),
+    ...(Number.isInteger(cp.sessionSeed) && cp.sessionSeed >= 0 ? { sessionSeed: cp.sessionSeed } : {})
+  };
 }

@@ -1207,7 +1207,7 @@ function createHud() {
 
 function createStarGalleryEngine(mount, options) {
   const config = CONFIG[options.kind] || CONFIG["star-gallery"];
-  const ladder = config.ladder(options.difficulty);
+  const ladder = config.ladder(options.difficulty, options.sessionSeed);
   const total = ladder.reduce((sum, level) => sum + level.items.length, 0);
   const previousPosition = mount.style.position;
   if (!previousPosition) mount.style.position = "relative";
@@ -2238,6 +2238,7 @@ function createStarGalleryEngine(mount, options) {
 export default function StarGalleryArcadeGame({
   kind,
   difficulty = "easy",
+  sessionSeed = 0,
   startLevel = 0,
   onScoreUpdate,
   onProgressUpdate,
@@ -2276,6 +2277,7 @@ export default function StarGalleryArcadeGame({
     const engine = createStarGalleryEngine(mountRef.current, {
       kind,
       difficulty,
+      sessionSeed,
       startLevel,
       debugGlobalName,
       getSound: () => soundRef.current,
@@ -2286,7 +2288,7 @@ export default function StarGalleryArcadeGame({
       onEngineReady: api => handlersRef.current.onEngineReady?.(api)
     });
     return () => engine.destroy();
-  }, [kind, difficulty, startLevel, debugGlobalName]);
+  }, [kind, difficulty, sessionSeed, startLevel, debugGlobalName]);
 
   return (
     <div

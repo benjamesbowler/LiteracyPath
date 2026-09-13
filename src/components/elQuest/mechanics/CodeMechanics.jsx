@@ -113,7 +113,7 @@ export function SoundChoiceMechanic({
       aria-label="Choose the matching sound"
     >
 
-      <div className="am-sound-choice__tiles" aria-label="Spelling choices">
+      <div className="am-sound-choice__tiles" role="group" aria-label="Spelling choices">
         {round.choices.map(choice => (
           <button
             key={choice}

@@ -194,6 +194,7 @@ export default function SentenceExpressGame({
   startLevel = 0,
   sessionKey,
   resumeEligible = false,
+  sessionSeed = 0,
   isSoundEnabled = true,
   onComplete = () => {},
   onQuit = () => {},
@@ -209,7 +210,7 @@ export default function SentenceExpressGame({
   const [saved] = useState(() => resumeEligible ? loadExpressSnapshot(sessionKey, startLevel) : null);
   const world = WORLD_BY_DIFFICULTY[difficulty] || "meadow";
   const [levelIndex, setLevelIndex] = useState(Math.max(0, Math.min(LEVELS_PER_LINE - 1, startLevel)));
-  const level = useMemo(() => buildLevel(difficulty, levelIndex), [difficulty, levelIndex]);
+  const level = useMemo(() => buildLevel(difficulty, levelIndex, sessionSeed), [difficulty, levelIndex, sessionSeed]);
   const [trainIndex, setTrainIndex] = useState(saved?.trainIndex || 0);
   const [queue, setQueue] = useState(() => (saved?.queue || []).map(id => level.trains.find(t => t.id === id)).filter(Boolean)); // catch-up: failed trains re-run once
   const train = queue.length && trainIndex >= level.trains.length

@@ -107,12 +107,12 @@ function getWordDecoys(targetWords, world, seed) {
  * @param {string|string[]} opts.target - word ("frog") or sentence (["The","cat","sat"])
  * @returns {Object} level descriptor
  */
-export function buildLevel({ world, cycle, mode, target }) {
+export function buildLevel({ world, cycle, mode, target, sessionSeed = 0 }) {
   const isSentence = Array.isArray(target);
   const units = isSentence ? target.map(String).flatMap(word => word.match(/[^.?!]+|[.?!]/g) || []) : wordBridgeUnits(target);
   if (isSentence && !/[.?!]$/.test(units.at(-1) || "")) units.push(".");
   const targetStr = isSentence ? target.join(" ") : String(target);
-  const seed = hashString(targetStr + (cycle || 0));
+  const seed = hashString(targetStr + (cycle || 0) + (sessionSeed ? `:${sessionSeed}` : ""));
 
   const correctTiles = isSentence
     ? buildWordTiles(units)
@@ -155,8 +155,8 @@ export function buildLevel({ world, cycle, mode, target }) {
  * @param {string} difficulty - "easy" | "medium" | "hard"
  * @returns {Object[]} 10 levels
  */
-export function wordBridgeLadder(difficulty) {
-  const plans = difficultyLadder("word-bridge", difficulty);
+export function wordBridgeLadder(difficulty, sessionSeed = 0) {
+  const plans = difficultyLadder("word-bridge", difficulty, sessionSeed);
   return plans.map((plan, i) => {
     const target = plan.mode === "sentence"
       ? (plan.targets[0] || ["the", "cat"])
@@ -164,6 +164,7 @@ export function wordBridgeLadder(difficulty) {
     return buildLevel({
       world: plan.world,
       cycle: i,
+      sessionSeed,
       mode: "bridge",
       target
     });

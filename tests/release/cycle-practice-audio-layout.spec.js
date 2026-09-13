@@ -1,10 +1,14 @@
 import { expect, test } from "@playwright/test";
 import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
-import { buildCyclePlan } from "../../src/components/cycle-practice/cyclePracticeState.js";
+import { buildCyclePlan, cycleStorageKey } from "../../src/components/cycle-practice/cyclePracticeState.js";
 import { resolveCyclePracticeAudio } from "../../src/components/cycle-practice/cyclePracticeAudio.js";
 
 const cycle = elSkillsBlockCycles.find(row => row.id === "cycle-1");
-const plan = buildCyclePlan(cycle, "child-surface-preview:preview").rounds;
+async function livePlan(page) {
+  const key = cycleStorageKey('child-surface-preview', 'preview', cycle.id);
+  const state = await page.evaluate(key => JSON.parse(localStorage.getItem(key)), key);
+  return buildCyclePlan(cycle, state.practiceSeed || 'child-surface-preview:preview', state.pass).rounds;
+}
 
 async function installAudioSpy(page) {
   await page.addInitScript(() => {
@@ -59,6 +63,7 @@ test("Cycle Practice warms the next activities and automatically speaks the inst
   await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
   await expect(page.locator(".cycle-listen-button")).toHaveAttribute("data-audio-state", "ready");
   await expect(page.locator(".cycle-playground")).toHaveAttribute("data-mechanic-stage", "pictureSound");
+  const plan = await livePlan(page);
   const resolved = resolveCyclePracticeAudio(plan[0]);
   const played = await page.evaluate(() => window.__cyclePracticePlayedAudio);
   expect(played.slice(-resolved.sequence.length)).toEqual(resolved.sequence);
@@ -80,6 +85,7 @@ test("Cycle Practice uses large picture targets and an individual recorded-name 
 
   await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
   await expect(page.locator(".cycle-listen-button")).toHaveAttribute("data-audio-state", "ready");
+  const plan = await livePlan(page);
   const cards = page.locator(".cycle-answer--picture");
   await expect(cards).toHaveCount(plan[0].choices.length);
   for (const [index, choice] of plan[0].choices.entries()) {

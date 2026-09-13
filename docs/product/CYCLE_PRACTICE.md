@@ -94,7 +94,7 @@ succeeds. Children see a brief completion celebration; teachers retain the
 existing detailed results and support/media distinctions.
 
 The reporting protocol remains `cycle-practice-v2`; the activity revision is
-`cycle-play-cumulative-2026-09`. Change this revision when a future deck replacement makes
+`cycle-play-varied-review-2026-09-13`. Change this revision when a future deck replacement makes
 saved indexes or question identities incompatible. Old unfinished local sessions restart against the new deck
 and retain their previous evidence locally. Frozen pending saves and completed
 results remain unchanged. Sorting resumes from its recorded object responses.
@@ -146,3 +146,32 @@ the overhaul makes no claim of measured equivalence to either platform.
 - Direct visual and real recorded-audio delivery are checked in the running
   activity. Human listening quality, physical-iPad play and observed independent
   child play remain separate evidence; browser checks do not establish them.
+
+## Varied practice and cumulative review
+
+Cycle Practice and Adventure Map use the same authored sound-picture examples
+in `src/data/cycleSoundWords.js` and taught-letter parsing in
+`src/utils/cyclePracticeVariation.js`. A changed picture, distractor or answer
+position does not justify unlimited repetitions: each practice deck includes
+at most three questions for the same target in the same format. Matching big
+and small letters, hearing a sound, finding a picture, sorting, and tracing
+remain distinct learning actions. A case-match direction appears once per
+deck; retries after an error remain available as supported teaching.
+
+The S/T cycle includes both Ss and Tt and revisits Aa and Mm. Every subsequent
+cycle retains the previously taught targets in its eligible practice games.
+New letter forms and earlier review appear in the opening activities. Map
+letter grids include a letter on one board only, with at most three instances
+of either case to find; the first cycle no longer offers the same grid under
+two station names. Mixed Cycle Quests retain every available construct, the
+assigned targets and earlier review, adding rounds when needed for coverage.
+
+A fresh Cycle Practice session saves its own random seed. Reload continues the
+same question; a new session or completed-deck replay selects and orders fresh
+examples. The full authored inventory remains the authority for completed
+coverage, so selecting a different replay cannot erase earlier work. Both
+practice and Cycle Check exclude the programme's rejected basic picture labels
+(olive, otter, quiz, uncle, vet, yak and yarn). Check selection is deterministic
+for its seed and retains focus coverage, independent HFW recognition and the
+existing evidence contract. Practice planning allowances are estimates, not
+measured child playtime.

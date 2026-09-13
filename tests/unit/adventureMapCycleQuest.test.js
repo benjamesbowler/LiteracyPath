@@ -29,11 +29,10 @@ test("Cycle Quest samples every eligible construct before any repeat", () => {
       : new Set(blueprint.manifest.slice(0, firstRepeat));
 
     assert.ok(blueprint.rounds.length > 0, `cycle ${cycle.cycleNumber}`);
-    assert.equal(
-      blueprint.rounds.length,
-      Math.max(10, available.size),
-      `cycle ${cycle.cycleNumber}`
-    );
+    assert.ok(blueprint.rounds.length >= Math.max(10, available.size), `cycle ${cycle.cycleNumber}: retain each construct`);
+    assert.ok(blueprint.rounds.length <= Math.max(10, available.size + blueprint.requiredGraphemes.length), 'extra rounds must serve target coverage');
+    const targets = new Set(blueprint.rounds.flatMap(round => round.targetLetters || [round.targetGrapheme || round.missingGrapheme].filter(Boolean)));
+    for (const target of blueprint.requiredGraphemes) assert.ok(targets.has(target), `${cycle.id}: retain focus and review ${target}`);
     assert.ok(
       blueprint.rounds.every(isCycleQuestEligibleRound),
       `cycle ${cycle.cycleNumber} included a support-only round`

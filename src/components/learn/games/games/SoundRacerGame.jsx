@@ -2062,7 +2062,7 @@ function startGame(THREE, mount, opts) {
     overlayCueTimer = null;
     currentMap = mapForLevel(world, levelIdx);
     const target = ladder[levelIdx % ladder.length];
-    track = buildSoundRacerRace(target, { difficulty, seed: levelIdx });
+    track = buildSoundRacerRace(target, { difficulty, seed: opts.sessionSeed ? `${opts.sessionSeed}:${levelIdx}` : levelIdx });
     resetSceneForMap();
     gateObjects = track.gates.map(makeGateObject);
     playerZ = 0;
@@ -2794,6 +2794,7 @@ function startGame(THREE, mount, opts) {
 
 export default function SoundRacerGame({
   difficulty = "easy",
+  sessionSeed = 0,
   startLevel = 0,
   progressScopeKey = "default",
   onScoreUpdate,
@@ -2825,6 +2826,7 @@ export default function SoundRacerGame({
         try {
           const startedApi = startGame(THREE, mountRef.current, {
             difficulty,
+            sessionSeed,
             startLevel,
             progressScopeKey,
             onScoreUpdate,
@@ -2853,7 +2855,7 @@ export default function SoundRacerGame({
       try { api.teardown(); } catch { /* ignore */ }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [difficulty]);
+  }, [difficulty, sessionSeed]);
 
   return (
     <div

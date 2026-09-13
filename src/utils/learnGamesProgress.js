@@ -159,9 +159,9 @@ export function loadGameCheckpoint(progressScopeKey = DEFAULT_SCOPE, gameId, dif
   return readCheckpoint(loadLearnGamesProgress(progressScopeKey).games, gameId, difficulty);
 }
 
-export function saveGameCheckpoint(progressScopeKey = DEFAULT_SCOPE, gameId, difficulty, level = 0, totalLevels = 0) {
+export function saveGameCheckpoint(progressScopeKey = DEFAULT_SCOPE, gameId, difficulty, level = 0, totalLevels = 0, sessionSeed) {
   const current = loadLearnGamesProgress(progressScopeKey);
-  const next = { ...current, games: applyCheckpoint(current.games, gameId, difficulty, level, totalLevels) };
+  const next = { ...current, games: applyCheckpoint(current.games, gameId, difficulty, level, totalLevels, sessionSeed) };
   saveLearnGamesProgress(progressScopeKey, next);
   return next;
 }

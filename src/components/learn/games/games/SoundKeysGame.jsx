@@ -12,7 +12,7 @@ const ALL_KEYS = [...SOUNDKEY_PROFILES.cvc, ...SOUNDKEY_PROFILES.digraphs];
 const DEFAULT_MAPPING = Object.fromEntries(ALL_KEYS.map((token, index) => [String(48 + index), token]));
 const BANDS = ["Meadow duet", "Hollow trio", "Moonwood ensemble"];
 
-export default function SoundKeysGame({ difficulty = "easy", seed = 0, startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
+export default function SoundKeysGame({ difficulty = "easy", sessionSeed = 0, seed = sessionSeed, startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
   const rounds = useMemo(() => buildSoundKeySession(difficulty, seed, ROUNDS), [difficulty, seed]);
   const [round, setRound] = useState(() => Math.max(0, Math.min(Number(startLevel) || 0, ROUNDS - 1)));
   const [tokens, setTokens] = useState([]);

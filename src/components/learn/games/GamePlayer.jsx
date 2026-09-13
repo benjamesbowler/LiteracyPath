@@ -1,4 +1,5 @@
 import { useActivityMusic } from "../../../utils/audio/useActivityMusic.js";
+import { newGameSeed } from "../../../utils/gameReplay.js";
 import { Component, Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { GAME_LIST } from "../../../data/learnGamesData";
@@ -11,6 +12,7 @@ import {
   queueLearnGamesProgress,
   setActiveLearnGamesProgressScope,
   loadGameCheckpoint,
+  loadLearnGamesProgress,
   saveGameCheckpoint,
   clearGameCheckpoint
 } from "../../../utils/learnGamesProgress";
@@ -92,6 +94,11 @@ export function GamePlayer({
   const [musicEnabled, onMusicEnabledChange] = useActivityMusic(`${progressScopeKey}:${game.id}`);
   const [difficulty, setDifficulty] = useState(initialDifficulty);
   const [runIndex, setRunIndex] = useState(0);
+  const [sessionSeed, setSessionSeed] = useState(() => {
+    const checkpoint = loadLearnGamesProgress(progressScopeKey).games?.[game.id]?.checkpoints?.[initialDifficulty];
+    if (!checkpoint) return newGameSeed();
+    return Number.isInteger(checkpoint.sessionSeed) && checkpoint.sessionSeed >= 0 ? checkpoint.sessionSeed : 0;
+  });
   const [score, setScore] = useState(0);
   const [showQuit, setShowQuit] = useState(false);
   const [showGuide, setShowGuide] = useState(false);
@@ -401,6 +408,7 @@ export function GamePlayer({
     const checkpoint = advance && nextDifficulty !== difficulty
       ? loadGameCheckpoint(progressScopeKey, game.id, nextDifficulty) : null;
     setResumePoint(checkpoint);
+    setSessionSeed(previous => checkpoint ? checkpoint.sessionSeed ?? 0 : newGameSeed(previous));
     setStartLevel(checkpoint ? null : 0);
     setRunIndex(index => index + 1);
     return true;
@@ -412,8 +420,8 @@ export function GamePlayer({
   // froze games and reshuffled answer options every frame.
   const handleCheckpoint = useCallback((level, total) => {
     if (pendingResultRef.current || savedResultRef.current) return;
-    saveGameCheckpoint(progressScopeKey, game.id, difficulty, level, total);
-  }, [progressScopeKey, game.id, difficulty]);
+    saveGameCheckpoint(progressScopeKey, game.id, difficulty, level, total, sessionSeed);
+  }, [progressScopeKey, game.id, difficulty, sessionSeed]);
 
   function continueGame() {
     setStartLevel(resumePoint ? resumePoint.level : 0);
@@ -422,6 +430,7 @@ export function GamePlayer({
 
   function restartGame() {
     clearGameCheckpoint(progressScopeKey, game.id, difficulty);
+    setSessionSeed(previous => newGameSeed(previous));
     setStartLevel(0);
     setResumePoint(null);
   }
@@ -533,7 +542,7 @@ export function GamePlayer({
               <GameComponent
                 key={`${game.id}:${difficulty}:${runIndex}`}
                 difficulty={difficulty}
-                sessionSeed={runIndex}
+                sessionSeed={sessionSeed}
                 startLevel={startLevel}
                 progressScopeKey={progressScopeKey}
                 onScoreUpdate={setScore}

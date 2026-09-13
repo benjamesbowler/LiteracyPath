@@ -1,6 +1,6 @@
 # Adventure Map games
 
-Current product contract, 12 September 2026. Scope: the child Adventure Map,
+Current product contract, 13 September 2026. Scope: the child Adventure Map,
 its practice stations and Cycle Quest across all 27 cycles. This implements the
 product owner's requested simple, spoken, picture-supported games and replaces
 the retired distinct-mechanics design and implementation plan.
@@ -37,8 +37,12 @@ there are no drag, timing, steering or typing requirements.
 ## Curriculum and evidence
 
 - Printed phonics choices and CVC words use code taught by the selected cycle.
-  Cycle 1 uses Letter Find in the build slot because it cannot yet spell a CVC
-  word. CVC pictures are pinned to reviewed, text-free artwork so they do not
+  Cycle 1 offers Letter Find once and omits Missing Letters until a CVC word
+  is taught. Older Cycle 1 `build` links still open Letter Find. The shared
+  picture pool retains the programme's exclusions for ambiguous or unsuitable
+  basic picture labels; the existing spoken, illustrated yawn example keeps Y
+  picture review available alongside yo-yo. CVC pictures are pinned to reviewed,
+  text-free artwork so they do not
   print the answer. A containing letter does not establish a word's initial
   sound; a consonant cluster containing the target sound cannot be a wrong
   initial-sound choice.
@@ -51,7 +55,14 @@ there are no drag, timing, steering or typing requirements.
 - The odd-rhyme prompt is the explicit oral comparison requested by the owner.
   Its three pictures contain exactly one rhyming pair and one outlier. The
   written negative is emphasized; its spoken wording has the same meaning.
-- Choices and card positions are shuffled under a recorded run seed. Hidden
+- New levels practise both cases of the new letters and retain earlier taught
+  targets in eligible games. Cycle 2 introduces Tt/Ss and reviews Aa/Mm. Current
+  targets and earlier review are interleaved early; a long bank does not push
+  new letters to the end. Letter Match asks for each case once per outing.
+  Each letter occurs on one search grid, at most three times in either case.
+- Choices, examples, rhyme families and compound targets vary under a recorded
+  run seed. The same target and activity format appears at most three times
+  per outing. Changed pictures or answer slots do not bypass that limit. Hidden
   cards have opaque identifiers and do not expose their word in the accessible
   name until turned over. Opening the station menu does not consume the play
   seed or repeatedly build all of the games.
@@ -59,13 +70,13 @@ there are no drag, timing, steering or typing requirements.
   Wrong choices record misses; already found targets remain. A card cannot
   pair with itself and mismatches turn back over automatically.
 - Cycle Quest samples every available construct, including first and final
-  CVC completion, before repeating one. First-attempt evidence and support
-  remain separate from eventual completion.
+  CVC completion, before repeating one, and retains assigned targets plus
+  earlier review. It adds rounds when those targets need additional coverage.
+  First-attempt evidence and support remain separate from eventual completion.
 - Scores and stars remain practice evidence. This surface does not set EL
   placement, formal Secure judgements or oral-reading fluency.
 
-Existing teacher station identifiers and exact cycle assignments are retained,
-but resolve to the current simple game. Ordinary map progression, saved stars,
+Exact teacher cycle assignments are retained. Ordinary map progression, saved stars,
 learner identity and the classroom lock remain in the existing progress and
 session systems. There is no progress reset or new hosted data field/service.
 
@@ -91,6 +102,8 @@ fallback for phonemes or instructions.
 ## Current sources and verification
 
 - Rounds and media: `src/components/elQuest/elQuestEngine.js`.
+- Shared sound examples: `src/data/cycleSoundWords.js`; taught-letter parsing
+  and repetition limits: `src/utils/cyclePracticeVariation.js`.
 - Render selection: `src/components/elQuest/mechanics/adventureMechanics.jsx`.
 - Responses: `CodeMechanics.jsx`, `SimpleMechanics.jsx` and their pure state modules.
 - Evidence/coaching: `src/components/elQuest/adventureRunState.js`.
@@ -98,7 +111,8 @@ fallback for phonemes or instructions.
 - Unit coverage: Adventure Map code, simple-state, registry, curriculum, instruction
   audio, Cycle Quest, run state, progress and focus-lock suites.
 - Browser coverage: Adventure Map distinct mechanics, recovery, simple layouts,
-  spoken instructions and session-lock suites.
+  spoken instructions, cumulative review/replay, responsive letter choices and
+  session-lock suites.
 
 Automated rules, actual browser play, visual review, native audio signal/playback,
 hosted delivery, human listening, physical-device use and child observation are

@@ -1,3 +1,4 @@
+import { replayShuffle } from "./gameReplay.js";
 // SENTENCE EXPRESS - pure level engine (no DOM, no React).
 //
 // A "train" is one sentence with generated FAULTS the child must fix in the
@@ -147,14 +148,14 @@ function pickContentIndex(words, rand, exclude = -1) {
   return candidates[Math.floor(rand() * candidates.length)].i;
 }
 
-export function buildTrain(difficulty, level, trainIndex) {
-  const bank = BANK[difficulty] || BANK.easy;
+export function buildTrain(difficulty, level, trainIndex, sessionSeed = 0) {
+  const bank = replayShuffle(BANK[difficulty] || BANK.easy, sessionSeed);
   // Rotate through the bank so no sentence repeats anywhere in a line:
   // level L train T -> bank[(L * TRAINS_PER_LEVEL + T)].
   const pick = bank[(level * TRAINS_PER_LEVEL + trainIndex) % bank.length];
   const [text, endMark] = pick;
   const words = text.split(" ");
-  const rand = mulberry32(seedFrom(`${difficulty}:${level}:${trainIndex}:${text}`));
+  const rand = mulberry32(seedFrom(`${difficulty}:${level}:${trainIndex}:${text}${sessionSeed ? `:${sessionSeed}` : ""}`));
   const faults = faultsForLevel(difficulty, level);
 
   const train = {
@@ -208,8 +209,8 @@ export function buildTrain(difficulty, level, trainIndex) {
   return train;
 }
 
-export function buildLevel(difficulty, level) {
-  const trains = Array.from({ length: TRAINS_PER_LEVEL }, (_u, t) => buildTrain(difficulty, level, t));
+export function buildLevel(difficulty, level, sessionSeed = 0) {
+  const trains = Array.from({ length: TRAINS_PER_LEVEL }, (_u, t) => buildTrain(difficulty, level, t, sessionSeed));
   return {
     difficulty,
     level,
@@ -221,8 +222,8 @@ export function buildLevel(difficulty, level) {
   };
 }
 
-export function buildLine(difficulty) {
-  return Array.from({ length: LEVELS_PER_LINE }, (_u, l) => buildLevel(difficulty, l));
+export function buildLine(difficulty, sessionSeed = 0) {
+  return Array.from({ length: LEVELS_PER_LINE }, (_u, l) => buildLevel(difficulty, l, sessionSeed));
 }
 
 // Every word the engine can show (for the audio-coverage test).

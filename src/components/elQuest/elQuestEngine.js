@@ -11,6 +11,9 @@ import { hasKnownBadWordAudio, isKnownBadAudioPath } from "../../data/knownBadWo
 import { getPreferredPhonemeAudioPath } from "../../data/phonemeAudioBank.js";
 import { getLedaProductionAudioPath, getLedaWordAudioPath } from "../../data/ledaProductionAudio.js";
 
+import { CYCLE_SOUND_WORDS, cycleSoundPosition, isCyclePictureWordEligible } from "../../data/cycleSoundWords.js";
+import { cycleCardGraphemes, taughtCycleGraphemes, capPracticeRepetitions } from "../../utils/cyclePracticeVariation.js";
+
 export { ADVENTURE_MECHANIC_IDS } from "./adventureRoundModel.js";
 
 const SAME_SOUND_GROUPS = [
@@ -111,38 +114,31 @@ export function adventureWordImage(word) {
   return image;
 }
 function picturedWord(word) {
+  if (!isCyclePictureWordEligible(word)) return null;
   const image = adventureWordImage(word);
   const audio = wordAudioPath(word);
   return image && audio ? { word, image, audio } : null;
 }
 
-export function taughtGraphemesThrough(cycleNumber) {
-  return unique(elSkillsBlockCycles
-    .filter(cycle => cycle.cycleNumber && cycle.cycleNumber <= cycleNumber)
-    .flatMap(cycle => (cycle.focusLetters || []).flatMap(item => (
-      String(item.spelling || "").toLowerCase().split(/[\s/,+]+/u).filter(part => /^[a-z]{1,3}$/u.test(part))
-    ))));
-}
+export const taughtGraphemesThrough = taughtCycleGraphemes;
 function focusSpellings(cycle) {
-  const own = (cycle?.focusLetters || []).flatMap(item => (
-    String(item.spelling || "").toLowerCase().split(/[\s/,+]+/u).filter(part => /^[a-z]{1,3}$/u.test(part))
-  ));
-  if (own.length) return unique(own);
   const taught = taughtGraphemesThrough(cycle?.cycleNumber || 1);
-  const review = (cycle?.reviewLetters || []).flatMap(item => {
-    const raw = String(typeof item === "string" ? item : item?.grapheme || item?.spelling || "");
-    // Aa/Ff are upper/lower display pairs, not the aa/ff spelling patterns.
-    const normalized = /^[A-Z][a-z]$/u.test(raw) && raw[0].toLowerCase() === raw[1]
-      ? raw[1] : raw.toLowerCase();
-    return normalized.split(/[\s/,+]+/u).map(part => part === "q" && taught.includes("qu") ? "qu" : part)
-      .filter(part => taught.includes(part));
-  });
-  return unique(review.length ? review : taught);
+  const own = unique((cycle?.focusLetters || []).flatMap(cycleCardGraphemes)).filter(value => taught.includes(value));
+  if (own.length) return own;
+  const review = unique((cycle?.reviewLetters || []).flatMap(cycleCardGraphemes)).filter(value => taught.includes(value));
+  return review.length ? review : taught;
 }
-function letterFocus(cycle) {
-  const singles = focusSpellings(cycle).filter(value => value.length === 1);
-  return (singles.length ? singles : shuffleItems(taughtGraphemesThrough(cycle.cycleNumber).filter(value => value.length === 1))).slice(0, 4);
+function practiceTargets(cycle, eligible = () => true) {
+  const focus = shuffleItems(focusSpellings(cycle).filter(eligible));
+  const review = shuffleItems(taughtGraphemesThrough(cycle.cycleNumber).filter(value => eligible(value) && !focus.includes(value)));
+  const targets = [];
+  for (let index = 0; index < Math.max(focus.length, review.length); index += 1) {
+    if (focus[index]) targets.push(focus[index]);
+    if (review[index]) targets.push(review[index]);
+  }
+  return targets;
 }
+function letterFocus(cycle) { return practiceTargets(cycle, value => value.length === 1); }
 function sightWordForm(word) {
   const lower = String(word || "").trim().toLowerCase();
   return lower === "i" ? "I" : lower;
@@ -158,7 +154,8 @@ function round(cycle, mechanicId, key, data) {
 
 function buildLetterRounds(cycle) {
   const taught = taughtGraphemesThrough(cycle.cycleNumber).filter(value => value.length === 1);
-  return letterFocus(cycle).flatMap(letter => [false, true].map(chooseUpper => {
+  const targets = letterFocus(cycle);
+  return [false, true].flatMap(chooseUpper => targets.map(letter => {
     const modelForm = chooseUpper ? letter : letter.toUpperCase();
     const partnerForm = chooseUpper ? letter.toUpperCase() : letter;
     const prompt = chooseUpper ? "Find the big letter." : "Find the small letter.";
@@ -179,7 +176,8 @@ const PATTERN_EXAMPLES = Object.freeze({
 });
 function buildSoundRounds(cycle) {
   const taught = taughtGraphemesThrough(cycle.cycleNumber);
-  return focusSpellings(cycle).flatMap(target => [0, 1].flatMap(pass => {
+  const targets = practiceTargets(cycle);
+  return [0, 1].flatMap(pass => targets.flatMap(target => {
     const phoneme = graphemeAudioPath(target);
     const cueWord = (LETTER_EXAMPLES[target] || PATTERN_EXAMPLES[target] || []).find(word => wordAudioPath(word)) || "";
     const audio = phoneme || wordAudioPath(cueWord);
@@ -200,29 +198,16 @@ function buildSoundRounds(cycle) {
   }));
 }
 
-// These familiar nouns have one pictured referent and a genuine initial sound.
-// Oral labels are available on every object; the spelling is not the task.
-const INITIAL_PICTURE_WORDS = Object.freeze({
-  a: ["apple", "ant", "alligator"], m: ["map", "moon", "mouse", "mat"],
-  t: ["top", "tent", "turtle"], s: ["sun", "sock", "seal"], n: ["net", "nest", "nose"],
-  i: ["igloo", "insect", "ink"], f: ["fan", "fish", "fig", "fox"], d: ["dog", "desk", "duck"],
-  o: ["orange", "ox", "octopus"], l: ["log", "leaf", "lamp"], r: ["rug", "rabbit", "rain"],
-  h: ["hat", "hen", "house"], b: ["bear", "ball", "bat", "book", "bag", "bell"],
-  w: ["web", "wig", "wolf"], qu: ["queen", "quilt"], u: ["umbrella"],
-  c: ["cat", "cap", "cup", "can"], g: ["goat", "gift"], p: ["pan", "pig", "pot"],
-  y: ["yo-yo"], e: ["egg", "elephant"], v: ["van", "vest", "vase"],
-  k: ["kit", "kid", "kite"], j: ["jam", "jet", "jug"], z: ["zip", "zebra"],
-  sh: ["ship", "sheep", "shark", "shell"], ch: ["chair", "cheese", "chick"],
-  th: ["thumb", "thorn"], wh: ["whale", "wheel", "whisk"]
-});
+// Cycle Practice and Adventure Map share the authored phoneme examples.
+// In particular, short vowels never inherit a picture just from its spelling.
+const INITIAL_PICTURE_WORDS = Object.freeze(Object.fromEntries(Object.entries(CYCLE_SOUND_WORDS)
+  .filter(([target]) => cycleSoundPosition(target) === "first")));
 function initialPicturePool(target) {
   return (INITIAL_PICTURE_WORDS[target] || []).filter(word => sharesSound(onsetGrapheme(word), target)).map(picturedWord).filter(Boolean);
 }
 function huntTargets(cycle, minimum = 1) {
   const valid = target => graphemeAudioPath(target) && initialPicturePool(target).length >= minimum;
-  const focus = focusSpellings(cycle).filter(valid);
-  // An ending-only lesson still has an honest initial-sound review game.
-  return (focus.length ? focus : shuffleItems(taughtGraphemesThrough(cycle.cycleNumber).filter(valid))).slice(0, 4);
+  return practiceTargets(cycle, valid);
 }
 const pictureDecoyPool = () => unique(Object.values(INITIAL_PICTURE_WORDS).flat()).map(picturedWord).filter(Boolean);
 function isInitialSoundDecoy(word, target) {
@@ -333,12 +318,14 @@ function buildMissingLetterRounds(cycle) {
 
 function buildGridRounds(cycle) {
   const taught = taughtGraphemesThrough(cycle.cycleNumber).filter(value => value.length === 1);
-  const focus = letterFocus(cycle);
-  const targetSets = focus.slice(0, 3).map(letter => [letter]);
-  if (taught.length > 2) targetSets.push(focus.length > 1 ? focus.slice(0, 2) : shuffleItems(taught).slice(0, 2));
-  if (taught.length > 2 && taught.includes("a") && taught.includes("m")
-    && !targetSets.some(targets => targets.length === 2 && targets.includes("a") && targets.includes("m"))) {
-    targetSets.push(["a", "m"]);
+  const focus = shuffleItems(focusSpellings(cycle).filter(letter => letter.length === 1));
+  const review = shuffleItems(taught.filter(letter => !focus.includes(letter)));
+  // Each letter appears on one board only. A child finds at most three of
+  // either case, rather than finding A again on several near-identical grids.
+  const targetSets = [];
+  const groupSize = taught.length > 2 ? 2 : 1;
+  for (const group of [focus, review]) {
+    for (let index = 0; index < group.length; index += groupSize) targetSets.push(group.slice(index, index + groupSize));
   }
   return targetSets.map((targetLetters, pass) => {
     const decoys = taught.filter(letter => !targetLetters.includes(letter));
@@ -369,8 +356,7 @@ export function adventureWordsRhyme(left, right) {
 }
 function buildRhymeRounds(cycle) {
   const families = ADVENTURE_RHYME_FAMILIES.map(words => words.filter(word => picturedWord(word))).filter(words => words.length >= 2);
-  const start = ((cycle.cycleNumber - 1) * 2) % families.length;
-  const selected = [...families.slice(start), ...families.slice(0, start)].slice(0, 3);
+  const selected = shuffleItems(families).slice(0, 3);
   const pool = unique(families.flat());
   return selected.flatMap((family, pass) => {
     const pair = shuffleItems(family).slice(0, 2);
@@ -399,8 +385,7 @@ export const ADVENTURE_COMPOUNDS = Object.freeze([
 ].map(item => Object.freeze(item)));
 function buildCompoundRounds(cycle) {
   const compounds = ADVENTURE_COMPOUNDS.filter(item => picturedWord(item.word) && item.parts.every(part => picturedWord(part)));
-  const start = (cycle.cycleNumber - 1) % compounds.length;
-  return [...compounds.slice(start), ...compounds.slice(0, start)].slice(0, 3).map(item => {
+  return shuffleItems(compounds).slice(0, 3).map(item => {
     const choices = shuffleItems([item.word, ...shuffleItems(compounds.filter(other => other.word !== item.word)).slice(0, 2).map(other => other.word)]);
     return round(cycle, "compoundPicture", item.word, {
       type: "compound", construct: "oral_compound_blending", prompt: "What word do these two pictures make?", instruction: "What word do these two pictures make?",
@@ -416,7 +401,7 @@ const SEARCH_POSITIONS = Object.freeze([
   [17, 20], [50, 20], [82, 20], [17, 50], [50, 50], [82, 50], [17, 80], [50, 80], [82, 80]
 ]);
 function buildPictureSearchRounds(cycle) {
-  const targets = huntTargets(cycle, 2).slice(0, 3);
+  const targets = huntTargets(cycle, 2);
   const world = cycle.cycleNumber <= 9 ? "meadow" : cycle.cycleNumber <= 18 ? "dino" : "moonwood";
   return targets.map((target, pass) => {
     const matches = shuffleItems(initialPicturePool(target)).slice(0, 3);
@@ -468,9 +453,7 @@ export function stationsForCycle(cycle) {
     // a player's round randomness or rebuild every game on each render.
     const definitions = withShuffleSeed(`availability:${cycle.id}:${cycle.cycleNumber}`, () => {
       const templates = isFluencyCycle(cycle) ? FLUENCY_STATIONS : STANDARD_STATIONS;
-      return templates.map(template => template.id === "build" && cycle.cycleNumber === 1
-        ? { ...STANDARD_STATIONS[7], id: "build", icon: "build" } : template)
-        .filter(definition => definition.build(cycle).length > 0);
+      return templates.filter(definition => definition.build(cycle).length > 0);
     });
     const mechanicIds = unique(definitions.flatMap(station => station.mechanicIds));
     if (mechanicIds.length) definitions.push({ id: "check", title: "Cycle Quest", subtitle: "Play a mix of your games", icon: "check", mechanicIds, build: null });
@@ -489,12 +472,30 @@ function createCycleQuestBlueprint(cycle, limit = 10) {
   }
   // A cycle covers each available learning action before repeating one. Every
   // returned shape has a direct response, supported retry and honest evidence.
-  const firstPass = [...byConstruct.values()].map(rounds => rounds[0]);
+  const targetsOf = item => item.targetLetters || [item.targetGrapheme || item.missingGrapheme].filter(Boolean);
+  const availableTargets = new Set(candidates.flatMap(targetsOf));
+  const assigned = cycle.focusLetters?.length ? cycle.focusLetters : cycle.reviewLetters || [];
+  const focus = unique(assigned.flatMap(cycleCardGraphemes)).filter(value => availableTargets.has(value));
+  const review = taughtGraphemesThrough(cycle.cycleNumber).filter(value => !focus.includes(value) && availableTargets.has(value));
+  const wanted = unique([...focus, ...review.slice(0, 2), ...shuffleItems(review.slice(2)).slice(0, 2)]);
+  const covered = new Set();
+  const gain = item => targetsOf(item).filter(target => wanted.includes(target) && !covered.has(target)).length;
+  const firstPass = [...byConstruct.values()].map(rows => {
+    const chosen = shuffleItems(rows).reduce((best, item) => gain(item) > gain(best) ? item : best);
+    targetsOf(chosen).forEach(target => covered.add(target));
+    return chosen;
+  });
+  for (const target of wanted.filter(value => !covered.has(value))) {
+    if (covered.has(target)) continue;
+    const extra = shuffleItems(candidates).find(item => targetsOf(item).includes(target) && !firstPass.includes(item));
+    if (extra) { firstPass.push(extra); targetsOf(extra).forEach(value => covered.add(value)); }
+  }
   const selected = new Set(firstPass);
-  const remaining = shuffleItems(candidates.filter(candidate => !selected.has(candidate)));
-  const rounds = [...firstPass, ...remaining].slice(0, Math.max(requested, byConstruct.size));
+  const keys = new Set(firstPass.map(item => item.roundKey));
+  const remaining = shuffleItems(candidates.filter(candidate => !selected.has(candidate) && !keys.has(candidate.roundKey)));
+  const rounds = capPracticeRepetitions([...firstPass, ...remaining]).slice(0, Math.max(requested, firstPass.length));
   if (!rounds.length) throw new Error(`Adventure Map Cycle Quest has no truthful rounds for cycle ${cycle?.cycleNumber || "unknown"}.`);
-  return { rounds, manifest: rounds.map(item => item.construct) };
+  return { rounds, manifest: rounds.map(item => item.construct), requiredGraphemes: wanted };
 }
 export function buildCycleQuestBlueprint(cycle, limit = 10, options = {}) {
   return withShuffleSeed(options.seed, () => createCycleQuestBlueprint(cycle, limit));
@@ -502,14 +503,35 @@ export function buildCycleQuestBlueprint(cycle, limit = 10, options = {}) {
 export function isCycleQuestEligibleRound(round) {
   return Boolean(round?.construct && round?.mechanicId && round?.recoverable !== false);
 }
+function spaceStationRounds(rounds, cycle) {
+  // Hear and find the rhyming pair before its odd-one-out question. The
+  // families and pictures vary; this useful teaching order stays intact.
+  if (rounds.some(item => item.mechanicId === 'rhymePair')) return capPracticeRepetitions(rounds);
+  const focus = focusSpellings(cycle);
+  const isFocus = item => (item.targetLetters || [item.targetGrapheme]).some(target => focus.includes(target));
+  const remaining = capPracticeRepetitions(shuffleItems(rounds));
+  const focusQueue = remaining.filter(isFocus);
+  const reviewQueue = remaining.filter(item => !isFocus(item));
+  const ordered = [];
+  while (focusQueue.length || reviewQueue.length) {
+    const previous = ordered.at(-1);
+    const preferred = ordered.length % 2 === 0 ? focusQueue : reviewQueue;
+    const queue = preferred.length ? preferred : focusQueue.length ? focusQueue : reviewQueue;
+    const index = queue.findIndex(item => !previous?.targetGrapheme || item.targetGrapheme !== previous.targetGrapheme);
+    ordered.push(...queue.splice(Math.max(0, index), 1));
+  }
+  return ordered;
+}
 export function buildStationRounds(cycle, stationId, options = {}) {
   if (stationId === "check") return buildCycleQuestBlueprint(cycle, 10, options).rounds;
   return withShuffleSeed(options.seed, () => {
-    const station = stationsForCycle(cycle).find(item => item.id === stationId);
+    // Retain old Cycle 1 links without offering the same grid twice in its menu.
+    const currentId = cycle.cycleNumber === 1 && stationId === 'build' ? 'trace' : stationId;
+    const station = stationsForCycle(cycle).find(item => item.id === currentId);
     if (!station?.build) throw new Error(`Adventure Map station "${stationId}" is unknown or ineligible for cycle ${cycle?.cycleNumber || "unknown"}.`);
     const rounds = station.build(cycle);
     if (!rounds.length) throw new Error(`Adventure Map station "${stationId}" has no truthful rounds for cycle ${cycle?.cycleNumber || "unknown"}.`);
-    return rounds;
+    return station.mechanicIds.includes("missingLetter") ? rounds : spaceStationRounds(rounds, cycle);
   });
 }
 export function starsForAccuracy(correct, total, wrongs) {

@@ -203,7 +203,7 @@ function startGame(mount, opts) {
   const world = worldForGameDifficulty(opts.difficulty);
   const theme = WORLD_THEME[world] || WORLD_THEME.meadow;
   mount.dataset.world = world;
-  const ladder = difficultyLadder("letter-leap", opts.difficulty);
+  const ladder = difficultyLadder("letter-leap", opts.difficulty, opts.sessionSeed);
   const sfx = fn => { try { if (opts.getSound && opts.getSound()) fn(); } catch { /* audio optional */ } };
   const reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 
@@ -1418,7 +1418,8 @@ function startGame(mount, opts) {
   return { teardown, pause, resume, refreshSoundState: renderWord };
 }
 
-export default function LetterLeapGame({ difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
+export default function LetterLeapGame({ difficulty = "easy", sessionSeed = 0,
+  startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
   const mountRef = useRef(null);
   const engineRef = useRef(null);
   const soundRef = useRef(isSoundEnabled);
@@ -1435,6 +1436,7 @@ export default function LetterLeapGame({ difficulty = "easy", startLevel = 0, on
     if (!mountRef.current) return undefined;
     const api = startGame(mountRef.current, {
       difficulty,
+      sessionSeed,
       startLevel,
       onScoreUpdate,
       onProgressUpdate,
@@ -1449,7 +1451,7 @@ export default function LetterLeapGame({ difficulty = "easy", startLevel = 0, on
       try { api.teardown(); } catch { /* ignore */ }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [difficulty]);
+  }, [difficulty, sessionSeed]);
   return (
     <div
       className="letter-leap"

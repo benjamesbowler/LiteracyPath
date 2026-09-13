@@ -1,3 +1,4 @@
+import { replayShuffle, replayWithinBands } from "./gameReplay.js";
 import { starRubric } from "./starRubric.js";
 
 const level = (word, segments, options, cue) => ({
@@ -58,14 +59,14 @@ const LEVELS = Object.freeze({ easy: EASY, medium: MEDIUM, hard: HARD });
 
 export const GRAMMAR_GRIND_LEVELS_PER_DIFFICULTY = 10;
 
-export function grammarGrindLadder(difficulty = "easy") {
+export function grammarGrindLadder(difficulty = "easy", sessionSeed = 0) {
   const key = Object.hasOwn(LEVELS, difficulty) ? difficulty : "easy";
-  return LEVELS[key].map((item, index) => ({
+  return replayWithinBands(LEVELS[key], sessionSeed, item => Math.floor(LEVELS[key].indexOf(item) / 3)).map((item, index) => ({
     ...item,
     level: index,
     difficulty: key,
     segments: [...item.segments],
-    options: [...item.options]
+    options: replayShuffle(item.options, sessionSeed ? `${sessionSeed}:${index}` : 0)
   }));
 }
 

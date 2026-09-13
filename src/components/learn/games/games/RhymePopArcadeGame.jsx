@@ -700,7 +700,7 @@ function drawLowPolyPal(ctx, x, y, scale, config, now) {
 
 function startRhymePopArcadeGame(mount, options) {
   const config = CONFIG[options.kind] || CONFIG["rhyme-pop"];
-  const ladder = config.ladder(options.difficulty);
+  const ladder = config.ladder(options.difficulty, options.sessionSeed);
   const startAt = clamp(Number(options.startLevel) || 0, 0, ladder.length - 1);
   const total = totalUnits(options.kind, ladder.slice(startAt));
   const image = new Image();
@@ -924,7 +924,7 @@ function startRhymePopArcadeGame(mount, options) {
     // aren't always on the same side / same spots.
     const kinds = shuffleSeeded(
       Array.from({ length: total }, (_, i) => (i < correctCount ? "rhyme" : "distractor")),
-      state.stage * 101 + state.taskIndex * 17 + 7
+      (options.sessionSeed || 0) + state.stage * 101 + state.taskIndex * 17 + 7
     );
     state.bubbles = [];
     for (let index = 0; index < total; index += 1) {
@@ -1306,6 +1306,7 @@ function startRhymePopArcadeGame(mount, options) {
 export default function RhymePopArcadeGame({
   kind,
   difficulty = "easy",
+  sessionSeed = 0,
   startLevel = 0,
   onScoreUpdate,
   onProgressUpdate,
@@ -1348,6 +1349,7 @@ export default function RhymePopArcadeGame({
     const engine = startRhymePopArcadeGame(mountRef.current, {
       kind,
       difficulty,
+      sessionSeed,
       startLevel,
       onScoreUpdate: score => handlersRef.current.onScoreUpdate?.(score),
       onProgressUpdate: (current, total) => handlersRef.current.onProgressUpdate?.(current, total),
@@ -1357,7 +1359,7 @@ export default function RhymePopArcadeGame({
       getSound: () => soundRef.current
     });
     return () => engine.destroy();
-  }, [kind, difficulty, startLevel]);
+  }, [kind, difficulty, sessionSeed, startLevel]);
 
   return (
     <div

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { cycleReviewGraphemes, displayGraphemePair } from "../../utils/cyclePracticeVariation.js";
 import { elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
 import { playCueAudio, playCueSequence, preloadCueAudio, stopCueAudio } from "../../utils/audio/cuePlayer.js";
 import { triggerTactileFeedback } from "../../utils/tactileFeedback.js";
@@ -239,8 +240,9 @@ export function ElSkillsQuest({
     : cycleLock.locked
     ? cycleLock.cycle
     : playableCycles.find(cycle => cycle.id === initialCycleId) || null;
+  const resolvedInitialStationId = initialCycle?.cycleNumber === 1 && initialStationId === 'build' ? 'trace' : initialStationId;
   const initialStation = initialCycle
-    ? stationsForCycle(initialCycle).find(station => station.id === initialStationId)
+    ? stationsForCycle(initialCycle).find(station => station.id === resolvedInitialStationId)
     : null;
   const initialRunSeed = initialCycle && initialStation
     ? `adventure:${initialCycle.id}:${initialStation.id}:initial-v3`
@@ -1161,6 +1163,11 @@ export function ElSkillsQuest({
               <p className="sbq-kicker">Cycle {activeCycle.cycleNumber}</p>
               <h1 id="sbq-cycle-title">{(activeCycle.focusLetters || []).map(item => item.grapheme).join(" and ") || "Review time"}</h1>
               <p className="sbq-sub">{activeCycle.childFriendlyGoal}</p>
+              {cycleReviewGraphemes(activeCycle).length > 0 && <p className="sbq-sub" data-cycle-review="">
+                {cycleReviewGraphemes(activeCycle).length <= 6
+                  ? `Review: ${cycleReviewGraphemes(activeCycle).map(displayGraphemePair).join(", ")}`
+                  : "Plus earlier letters and sounds"}
+              </p>}
             </div>
             <div className="sbq-cycle-head-actions">
               <div className="sbq-cycle-progress" aria-label={`${completedCount} of ${cycleStations.length} stations complete`}>

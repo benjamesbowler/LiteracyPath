@@ -252,7 +252,7 @@ function makeGroundTexture(theme) {
 
 function startGame(mount, opts) {
   const difficulty = ["easy", "medium", "hard"].includes(String(opts.difficulty)) ? String(opts.difficulty) : "easy";
-  const ladder = grammarGrindLadder(difficulty);
+  const ladder = grammarGrindLadder(difficulty, opts.sessionSeed);
   const theme = THEMES[difficulty] || THEMES.easy;
   const startAt = clamp(Number(opts.startLevel) || 0, 0, ladder.length - 1);
   const getSound = () => opts.getSound?.() !== false;
@@ -967,7 +967,7 @@ function startGame(mount, opts) {
     clearLineNodes();
     const expected = level.segments[lineStep];
     if (!expected) return;
-    const choices = grammarGrindSegmentChoices(level, ladder, lineStep, levelIndex);
+    const choices = grammarGrindSegmentChoices(level, ladder, lineStep, levelIndex + (opts.sessionSeed || 0));
     choices.forEach((segment, index) => {
       createLineNode(
         segment,
@@ -1836,6 +1836,7 @@ function startGame(mount, opts) {
 
 export default function GrammarGrindGame({
   difficulty = "easy",
+  sessionSeed = 0,
   startLevel = 0,
   onScoreUpdate,
   onProgressUpdate,
@@ -1855,6 +1856,7 @@ export default function GrammarGrindGame({
     if (!mountRef.current) return undefined;
     const engine = startGame(mountRef.current, {
       difficulty,
+      sessionSeed,
       startLevel,
       onScoreUpdate,
       onProgressUpdate,
@@ -1865,7 +1867,7 @@ export default function GrammarGrindGame({
     onEngineReady?.(engine);
     return () => engine.teardown();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [difficulty]);
+  }, [difficulty, sessionSeed]);
 
   return (
     <div

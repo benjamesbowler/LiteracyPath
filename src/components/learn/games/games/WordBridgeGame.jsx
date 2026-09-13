@@ -204,6 +204,7 @@ function liquidWaveY(x, baseY, amp, freq, phase) {
 
 export default function WordBridgeGame({
   difficulty = "easy",
+  sessionSeed = 0,
   startLevel = 0,
   onScoreUpdate,
   onProgressUpdate,
@@ -225,6 +226,7 @@ export default function WordBridgeGame({
     try {
       api = startGame(mountRef.current, {
         difficulty,
+        sessionSeed,
         startLevel,
         onScoreUpdate,
         onProgressUpdate,
@@ -244,7 +246,7 @@ export default function WordBridgeGame({
       }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [difficulty]);
+  }, [difficulty, sessionSeed]);
 
   return (
     <div
@@ -266,7 +268,7 @@ function startGame(mount, opts) {
   const difficulty = String(opts.difficulty || "easy").toLowerCase();
   const world = worldForGameDifficulty(difficulty);
   const theme = WORLD_THEME[world] || WORLD_THEME.meadow;
-  const ladder = wordBridgeLadder(difficulty);
+  const ladder = wordBridgeLadder(difficulty, opts.sessionSeed);
   const reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const sfx = fn => {
     try {
