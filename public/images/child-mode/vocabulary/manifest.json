@@ -1,0 +1,486 @@
+{
+  "created": "2026-09-13",
+  "generatedBy": "OpenAI image generation",
+  "purpose": "Clear child vocabulary pictures with the named object or action large in the frame.",
+  "processing": "Single images or atlas cells extracted and encoded as 512px WebP. No meaning-changing edits.",
+  "review": "All output files visually inspected by the assistant; rain and foot also checked in the running compound-word activity. This is not a human classroom observation.",
+  "files": [
+    {
+      "word": "bank",
+      "file": "bank.webp",
+      "sha256": "00a0dd3bb92219ba553e02ff1dc1294501ae90ecc078a701005fee6c7a7a94e9",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-52552e49-8c0c-4768-947d-d47b600758c1.png"
+    },
+    {
+      "word": "beard",
+      "file": "beard.webp",
+      "sha256": "5ee130026755bbdfc7a09642c7564da4b0b25f4e9ee3adec3d7f2730ed4c1539",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-db7e6a2d-7060-493d-ae32-dd32ca658344.png"
+    },
+    {
+      "word": "black",
+      "file": "black.webp",
+      "sha256": "f54ab028642c4bd4378dc6ed4caabfda8e2209f79282c982e75d7f12b8c1b441",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-da3efa11-528f-4cdf-8292-ab35a4a106b9.png"
+    },
+    {
+      "word": "blue",
+      "file": "blue.webp",
+      "sha256": "9f7fa9e329923ebb73187718d00aec1623b87d569bdbfc0220fe5af17c1e645b",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-da3efa11-528f-4cdf-8292-ab35a4a106b9.png"
+    },
+    {
+      "word": "brain",
+      "file": "brain.webp",
+      "sha256": "bceaa0bdf41c5d428cc010e5a3d6a84183480056d5ffd5f01dc87b75c930da53",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-db7e6a2d-7060-493d-ae32-dd32ca658344.png"
+    },
+    {
+      "word": "brushes",
+      "file": "brushes.webp",
+      "sha256": "c77da264f7579d210ccda7769f2002fbb7007c9cabccc84e477ce997fb8ebc0b",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-52552e49-8c0c-4768-947d-d47b600758c1.png"
+    },
+    {
+      "word": "cats",
+      "file": "cats.webp",
+      "sha256": "d9a41bd9a91f5d52b6d8f2b1dd2d38bfaa1f532aaf59eb0bce14f77ef116821f",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-52552e49-8c0c-4768-947d-d47b600758c1.png"
+    },
+    {
+      "word": "core",
+      "file": "core.webp",
+      "sha256": "d1c3941186bd4cb045596430b004a20ca71c32765443becea4f83c8ec56725b0",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-52552e49-8c0c-4768-947d-d47b600758c1.png"
+    },
+    {
+      "word": "cream",
+      "file": "cream.webp",
+      "sha256": "e23ecb34cd6a4fbb94b3b7fd35ae0f697cd9455b689a4aa0d94be6f2b16631f6",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-52552e49-8c0c-4768-947d-d47b600758c1.png"
+    },
+    {
+      "word": "cut",
+      "file": "cut.webp",
+      "sha256": "89be6dc80db24d544e224a152ab26251ea0611608b2e6c45ace8152c00832fd9",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-6e311d96-8fce-4a0c-921a-2739d6313848.png"
+    },
+    {
+      "word": "dogs",
+      "file": "dogs.webp",
+      "sha256": "6b9ce9f697e36a9d84460b01b96d3020e46769331cf08be40e07d7458714dd3a",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-bcafc6eb-e06e-419c-b24e-f70fe003146c.png"
+    },
+    {
+      "word": "dug",
+      "file": "dug.webp",
+      "sha256": "b45fec3c5a48d9f9148060ac81d4fb38b1747d47038c57fe70f9369bca6b4137",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-6e311d96-8fce-4a0c-921a-2739d6313848.png"
+    },
+    {
+      "word": "face",
+      "file": "face.webp",
+      "sha256": "0d1d246deefe9fd257c79c19a9cfe75b4721f48237c6cae05e1b35cbed1e1df1",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-db7e6a2d-7060-493d-ae32-dd32ca658344.png"
+    },
+    {
+      "word": "fin",
+      "file": "fin.webp",
+      "sha256": "1416ccb88565be94b24fa7c9a265528ca60f0596df8a86b139c941ed4af86770",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-6e311d96-8fce-4a0c-921a-2739d6313848.png"
+    },
+    {
+      "word": "fist",
+      "file": "fist.webp",
+      "sha256": "8f47e1db78aaa762880cd27f18f2f5acdf0946c0d0cfbee405158207f5752466",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-db7e6a2d-7060-493d-ae32-dd32ca658344.png"
+    },
+    {
+      "word": "foil",
+      "file": "foil.webp",
+      "sha256": "75ef1c9912541065257732111d549e7edd87fac856d9c77a284ae006b41a7ce9",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-5568642f-6c31-42d7-8586-2d257baf2f6c.png"
+    },
+    {
+      "word": "foot",
+      "file": "foot.webp",
+      "sha256": "9076e045939311a5d37cb581f5ac87ae6da0a4fed58a862ef74998b039776b87",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "sourceImageId": "exec-622c5259-48c0-4088-ae34-2bf84eca2e65.png"
+    },
+    {
+      "word": "four",
+      "file": "four.webp",
+      "sha256": "4d435e350718d06c1b7d95cf5a9a931b561dbc7b110c5f6abdc5b410e1d31ec4",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-da3efa11-528f-4cdf-8292-ab35a4a106b9.png"
+    },
+    {
+      "word": "gum",
+      "file": "gum.webp",
+      "sha256": "0d2ca2d2939a56f94933f0fc1cf99eba3077a06d65d2ebdaf2df30e65a29b18e",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-6e311d96-8fce-4a0c-921a-2739d6313848.png"
+    },
+    {
+      "word": "hair",
+      "file": "hair.webp",
+      "sha256": "1e8bd71b3869efb93606858af1d4d6a877bf93288a349d2da4e80d54c3bde562",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-db7e6a2d-7060-493d-ae32-dd32ca658344.png"
+    },
+    {
+      "word": "hang",
+      "file": "hang.webp",
+      "sha256": "b9fea02827da804edaaa751b386152d706713dbe29d68afeee50faf035465598",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-6e311d96-8fce-4a0c-921a-2739d6313848.png"
+    },
+    {
+      "word": "jay",
+      "file": "jay.webp",
+      "sha256": "2425be31b7f49e817939b2a0153cf892cd5507f3bf97e0f5670a2bd2fddfd87d",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-52552e49-8c0c-4768-947d-d47b600758c1.png"
+    },
+    {
+      "word": "kiwi",
+      "file": "kiwi.webp",
+      "sha256": "ff128987a53d52e78aa00a9464be65b7d79b9f260885d9ccfd0756971d16a4b2",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-6e311d96-8fce-4a0c-921a-2739d6313848.png"
+    },
+    {
+      "word": "line",
+      "file": "line.webp",
+      "sha256": "6564add4e0502b01c2dc20cad2b976e92c0e2d1055bd603ce15346ec414f0fd7",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-bcafc6eb-e06e-419c-b24e-f70fe003146c.png"
+    },
+    {
+      "word": "money",
+      "file": "money.webp",
+      "sha256": "3a24c02a59a44da0196e37e8fe914387d2181adddd363e0addeb24ba1f5087d0",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-5568642f-6c31-42d7-8586-2d257baf2f6c.png"
+    },
+    {
+      "word": "mouth",
+      "file": "mouth.webp",
+      "sha256": "9fc40af77cad125e3385c3cb6bc6dc9d1375645eacea959e8c3f9440e2566f1a",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-db7e6a2d-7060-493d-ae32-dd32ca658344.png"
+    },
+    {
+      "word": "nine",
+      "file": "nine.webp",
+      "sha256": "9fa4b7ff8cc053cb5b429b43caa3bf51a76d52531c331fd441d371590ed515e2",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-da3efa11-528f-4cdf-8292-ab35a4a106b9.png"
+    },
+    {
+      "word": "oar",
+      "file": "oar.webp",
+      "sha256": "dab5445f098d5ab6c865394cefde72726615daf3cb3133d8fc9f13fb8800ca7e",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-db7e6a2d-7060-493d-ae32-dd32ca658344.png"
+    },
+    {
+      "word": "potato",
+      "file": "potato.webp",
+      "sha256": "8332ed8d61764c3448cfea80350ff42652b20142deaa85c1be18bdcab68901ee",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-5568642f-6c31-42d7-8586-2d257baf2f6c.png"
+    },
+    {
+      "word": "rain",
+      "file": "rain.webp",
+      "sha256": "6b186cb6dad74b0573fd29e85821b0fb34144144643fa0db439b1f54ed3bf071",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "sourceImageId": "exec-0a044c22-0edd-48f9-9f4f-53e44255652a.png"
+    },
+    {
+      "word": "rainbow",
+      "file": "rainbow.webp",
+      "sha256": "362d44fd79f6658cc66e5e540d36a2cb42b6f15feb93f9a0e0770f63961adf9a",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-bcafc6eb-e06e-419c-b24e-f70fe003146c.png"
+    },
+    {
+      "word": "rang",
+      "file": "rang.webp",
+      "sha256": "b8fc1009cb4649b52c52358576f13ed698521156ffbf5bed844078d8af2060ca",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-6e311d96-8fce-4a0c-921a-2739d6313848.png"
+    },
+    {
+      "word": "red",
+      "file": "red.webp",
+      "sha256": "256bb8b9bd52af27d504fc26e8e64842fd3017b809293ef24f1556887b19ddd2",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-da3efa11-528f-4cdf-8292-ab35a4a106b9.png"
+    },
+    {
+      "word": "rice",
+      "file": "rice.webp",
+      "sha256": "d8cd55bc1e41fb03153f3059dbef016804a19c1704fefb82a4bdf5ca8c73a5b5",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-5568642f-6c31-42d7-8586-2d257baf2f6c.png"
+    },
+    {
+      "word": "seven",
+      "file": "seven.webp",
+      "sha256": "eed460ad79eabff1c82052235222c21b5e334942f76f57001aa2b4b00a1ecf03",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-da3efa11-528f-4cdf-8292-ab35a4a106b9.png"
+    },
+    {
+      "word": "sink",
+      "file": "sink.webp",
+      "sha256": "dd2ec3f5c22c85ada0ba06318bf357c3fea945bc5671f6244225e08ab2d98cb0",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-6e311d96-8fce-4a0c-921a-2739d6313848.png"
+    },
+    {
+      "word": "six",
+      "file": "six.webp",
+      "sha256": "5ac4b818b2880aa7fcee285c88fc0937c7e3852bee062f9a9914c2ab3ff2c7cc",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-da3efa11-528f-4cdf-8292-ab35a4a106b9.png"
+    },
+    {
+      "word": "soup",
+      "file": "soup.webp",
+      "sha256": "2982d31eb0bac7bda6ba7f02225a664bfc4ec5c48f6648cb88745bb2dc9b960b",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-5568642f-6c31-42d7-8586-2d257baf2f6c.png"
+    },
+    {
+      "word": "spit",
+      "file": "spit.webp",
+      "sha256": "cd6775eae964a5e335f4e356da34de7dcdcb54d0e35b933a3f6ed15c1b6d0b0d",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-bcafc6eb-e06e-419c-b24e-f70fe003146c.png"
+    },
+    {
+      "word": "spot",
+      "file": "spot.webp",
+      "sha256": "3048ed08887410ec8ae7d74ef780c5387215a41edcf2f1ef76eaec4a3c7d7acd",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-bcafc6eb-e06e-419c-b24e-f70fe003146c.png"
+    },
+    {
+      "word": "straw",
+      "file": "straw.webp",
+      "sha256": "4f39906eb08cbc2822421a1fc4e752f9ba19eba174750a86adf4d70d25777768",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-5568642f-6c31-42d7-8586-2d257baf2f6c.png"
+    },
+    {
+      "word": "string",
+      "file": "string.webp",
+      "sha256": "c7be1386ce9f35c5c9eb93e7948218dbc5f2cc20d29168afc3724c456753f1aa",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-6e311d96-8fce-4a0c-921a-2739d6313848.png"
+    },
+    {
+      "word": "tablet",
+      "file": "tablet.webp",
+      "sha256": "bd025ac05a9988a49970f67e0c2e4b99f20c190234f13eac95043f7c75fc17b9",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-52552e49-8c0c-4768-947d-d47b600758c1.png"
+    },
+    {
+      "word": "tea",
+      "file": "tea.webp",
+      "sha256": "25749a8018986ed917fb33096782247460288afdb00571ceea547232c98f4f88",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-5568642f-6c31-42d7-8586-2d257baf2f6c.png"
+    },
+    {
+      "word": "toast",
+      "file": "toast.webp",
+      "sha256": "293e6a686cafc3eeba3aa99e191c804ac55639ea4277ea8bfa62fca2e4074ba1",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-5568642f-6c31-42d7-8586-2d257baf2f6c.png"
+    },
+    {
+      "word": "tool",
+      "file": "tool.webp",
+      "sha256": "55f4122635ba08a9aef46fe756f1dee284ae22191e74b1c1a2dfcb34ab937e39",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-52552e49-8c0c-4768-947d-d47b600758c1.png"
+    },
+    {
+      "word": "torch",
+      "file": "torch.webp",
+      "sha256": "586391c0f5f0513a8dce4059fd1cd4857012bfcc6d84b028bdc8197c3138129c",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-52552e49-8c0c-4768-947d-d47b600758c1.png"
+    },
+    {
+      "word": "trip",
+      "file": "trip.webp",
+      "sha256": "e8878ca756d0a4ce010c9b542c675d99b3e63c033be6d8af70a87eb05ad00618",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-bcafc6eb-e06e-419c-b24e-f70fe003146c.png"
+    },
+    {
+      "word": "two",
+      "file": "two.webp",
+      "sha256": "f3e56655c7aa7d8d5f958f569ef4368b6bd2f9284196bd55ce50748e6492a5e4",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-da3efa11-528f-4cdf-8292-ab35a4a106b9.png"
+    },
+    {
+      "word": "wax",
+      "file": "wax.webp",
+      "sha256": "c7263c3656ae9dbea023b13210a6e5e1bb86c0f3b70b2418a3b3f75ba5d0d5dd",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-db7e6a2d-7060-493d-ae32-dd32ca658344.png"
+    },
+    {
+      "word": "white",
+      "file": "white.webp",
+      "sha256": "366555dcba3ef0f58cee565d56ca8a615c555d42de9a08ae232c57fe45ee6409",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-da3efa11-528f-4cdf-8292-ab35a4a106b9.png"
+    },
+    {
+      "word": "wood",
+      "file": "wood.webp",
+      "sha256": "21f43f532cb671f6ec5e401491df6a76803c4ae732a9389c1f04ff80a9cfeedc",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-db7e6a2d-7060-493d-ae32-dd32ca658344.png"
+    },
+    {
+      "word": "wool",
+      "file": "wool.webp",
+      "sha256": "74a9f9855a755a2ba988aa02bc684cab469bdbc55391571907ab8564de8c8d17",
+      "width": 512,
+      "height": 512,
+      "alpha": false,
+      "sourceImageId": "exec-5568642f-6c31-42d7-8586-2d257baf2f6c.png"
+    }
+  ]
+}
