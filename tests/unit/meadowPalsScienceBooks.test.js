@@ -13,8 +13,19 @@ import { expectedScienceSpeakerWords, getMeadowPalsSciencePageNarration, getMead
 import { validateScienceReadAloudManuscript } from "../../tools/meadowPalsScienceGateLib.mjs";
 import { recommendBooksForStudent } from "../../src/utils/guidedReading/recommendBooksForStudent.js";
 import { splitGuidedReadingParagraphs, splitGuidedReadingSentences } from "../../src/utils/guidedReading/readAloudPolicy.js";
+import { getGuidedReadingWordProductionAudioPath } from "../../src/utils/guidedReading/readAloudPolicy.js";
+import { AUDIO_GUIDED_READING_PATHS } from "../../src/data/generated/audioGuidedReadingPaths.generated.js";
 
 const source = MEADOW_PALS_SCIENCE_BOOKS[0];
+
+test("the reader's shipped audio inventory admits every science word recording", () => {
+  for (const page of source.pages) {
+    for (const word of page.words) {
+      const audioPath = getGuidedReadingWordProductionAudioPath(word);
+      assert.ok(audioPath && AUDIO_GUIDED_READING_PATHS.has(audioPath), `${word.text}: ${audioPath}`);
+    }
+  }
+});
 
 test("the approved science manuscript has twelve unchanged pages in the Meadow Pals library", () => {
   const book = getRuntimeGuidedReadingBooks().find(item => item.id === source.id);

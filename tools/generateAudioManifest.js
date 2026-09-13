@@ -76,7 +76,9 @@ const guidedReadingDirectories = new Set([
   "/audio/production/en-US/guided_page",
   "/audio/production/en-US/supplemental",
   "/audio/production/en-US/isolated_word",
-  "/audio/production/en-US/letter_name"
+  "/audio/production/en-US/letter_name",
+  "/audio/production/en-US/meadow_science/missing-sandwich",
+  "/audio/production/en-US/meadow_science/missing-sandwich/words"
 ]);
 // Quest and arcade audio can resolve instructional, story, supplemental and
 // word clips through the shared Leda resolver, so keep the complete lookup in

@@ -13,8 +13,7 @@ async function openStory(page) {
   await expect(page.getByRole("heading", { name: book.title, exact: true })).toBeVisible();
 }
 
-test("Meadow Pals plays the real character recordings through all twelve pages", async ({ page }) => {
-  test.setTimeout(360_000);
+async function observeNativeAudio(page) {
   // Observe native media events without replacing play(), decoding or timing.
   await page.addInitScript(() => {
     const NativeAudio = window.Audio;
@@ -34,6 +33,11 @@ test("Meadow Pals plays the real character recordings through all twelve pages",
     };
     window.Audio.prototype = NativeAudio.prototype;
   });
+}
+
+test("Meadow Pals plays the real character recordings through all twelve pages", async ({ page }) => {
+  test.setTimeout(360_000);
+  await observeNativeAudio(page);
   await openStory(page);
   await page.getByRole("button", { name: "Read whole book", exact: true }).click();
   await expect.poll(() => page.evaluate(() => window.__scienceAudioEvents.some(event =>
@@ -54,8 +58,23 @@ test("Meadow Pals plays the real character recordings through all twelve pages",
     && event.src.includes(audioRoot))).toEqual([]);
   await expect(page.getByLabel("Reading progress")).toContainText("12 of 12");
   await expect(page.locator(".guided-page-text")).toHaveText(normalized(book.pages[11].text));
-  await page.getByRole("button", { name: "Previous page", exact: true }).click();
-  await page.getByRole("button", { name: "Previous page", exact: true }).click();
+});
+
+test("science word replay uses its new recordings and the exact Muddy sound", async ({ page }) => {
+  test.setTimeout(60_000);
+  await observeNativeAudio(page);
+  await openStory(page);
+  await page.getByRole("button", { name: "Read page", exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.__scienceAudioEvents.some(event =>
+    event.type === "playing" && event.src.endsWith("/missing-sandwich/page-01.mp3")))).toBe(true);
+  await page.getByRole("button", { name: "Stop reading", exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.__scienceAudioElements.every(audio => audio.paused))).toBe(true);
+  await page.getByRole("button", { name: "Get reading help for digestive", exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.__scienceAudioEvents.some(event =>
+    event.type === "ended" && event.src.endsWith("/missing-sandwich/words/digestive.mp3")))).toBe(true);
+  for (let index = 0; index < 9; index += 1) {
+    await page.getByRole("button", { name: "Next page", exact: true }).click();
+  }
   await page.getByRole("button", { name: "Get reading help for Pffft", exact: true }).click();
   await expect.poll(() => page.evaluate(() => window.__scienceAudioEvents.some(event =>
     event.type === "ended" && event.src.includes("/missing-sandwich/words/pffft")))).toBe(true);
