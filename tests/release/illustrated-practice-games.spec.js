@@ -74,9 +74,9 @@ test('Garden pause cancels its cue and deliberate replay starts only one recorde
  await page.addInitScript(()=>{window.wordPlays=[];const original=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(...args){if(this.src.includes('/audio/production/'))window.wordPlays.push(this.src);return original.apply(this,args);};});await open(page,'letter-garden',1);const replay=page.getByRole('button',{name:'Hear target word',exact:true});await expect(replay).toBeEnabled();await page.getByRole('button',{name:'Close Letter Garden',exact:true}).click();await expect(page.getByRole('alertdialog')).toBeVisible();await page.evaluate(()=>{window.wordPlays=[];});await page.waitForTimeout(900);expect(await page.evaluate(()=>window.wordPlays)).toEqual([]);await page.getByRole('button',{name:'Keep playing',exact:true}).click();await page.waitForTimeout(150);await page.evaluate(()=>{window.wordPlays=[];});await replay.click();await page.waitForTimeout(200);expect(await page.evaluate(()=>window.wordPlays)).toHaveLength(1);
 });
 test('memory hides face-down answers and announces keyboard revealed and matched cards',async({page})=>{
- await open(page,'sight-word-memory');const cards=page.locator('.pp-memory-card');await expect(cards).toHaveCount(6);const ids=await cards.evaluateAll(es=>es.map(e=>e.dataset.pairId));
- for(let i=0;i<6;i++){await expect(cards.nth(i)).toHaveAccessibleName(`Hidden card ${i+1} of 6`);await expect(cards.nth(i).locator('.pp-card-front')).toHaveAttribute('aria-hidden','true');}
- const word=await cards.first().locator('.pp-card-front').textContent();await cards.first().focus();await page.keyboard.press('Enter');await expect(cards.first()).toHaveAccessibleName(`Revealed card 1 of 6: ${word}`);await expect(cards.first().locator('.pp-card-front')).toHaveAttribute('aria-hidden','false');const second=ids.findIndex((id,i)=>i>0&&id===ids[0]);await cards.nth(second).focus();await page.keyboard.press('Enter');await expect(cards.first()).toHaveAccessibleName(`Matched card 1 of 6: ${word}`);await expect(cards.nth(second)).toHaveAccessibleName(`Matched card ${second+1} of 6: ${word}`);
+ await open(page,'sight-word-memory');const cards=page.locator('.pp-memory-card');await expect(cards).toHaveCount(8);const ids=await cards.evaluateAll(es=>es.map(e=>e.dataset.pairId));
+ for(let i=0;i<6;i++){await expect(cards.nth(i)).toHaveAccessibleName(`Hidden card ${i+1} of 8`);await expect(cards.nth(i).locator('.pp-card-front')).toHaveAttribute('aria-hidden','true');}
+ const word=await cards.first().locator('.pp-card-front').textContent();await cards.first().focus();await page.keyboard.press('Enter');await expect(cards.first()).toHaveAccessibleName(`Revealed card 1 of 8: ${word}`);await expect(cards.first().locator('.pp-card-front')).toHaveAttribute('aria-hidden','false');const second=ids.findIndex((id,i)=>i>0&&id===ids[0]);await cards.nth(second).focus();await page.keyboard.press('Enter');await expect(cards.first()).toHaveAccessibleName(`Matched card 1 of 8: ${word}`);await expect(cards.nth(second)).toHaveAccessibleName(`Matched card ${second+1} of 8: ${word}`);
 });
 test('Pop stores its directly popped word and keyboard focus steadies the target',async({page})=>{
  await open(page,'pop-the-word');const word=(await page.locator('.pp-prompt').textContent()).replace('Pop ','');const target=page.locator('.pp-word-balloon').getByText(word,{exact:true});await target.focus();const before=await target.boundingBox();await page.waitForTimeout(200);expect(await target.boundingBox()).toEqual(before);await page.keyboard.press('Enter');await expect(page.locator('.pp-collected').first()).toContainText(word);await expect(page.locator('.pp-progress')).toHaveText('1/48');
@@ -132,7 +132,7 @@ for(const [mode,game]of Object.entries(games))test(`${mode} completes its longer
    if(r+1<state.rounds.length)await expect.poll(async()=>(await saved(page,mode)).round).toBe(r+1);
   }
  }else if(mode==='memory'){
-  expect(state.cards).toHaveLength(48);
+  expect(state.cards).toHaveLength(64);
   for(let board=0;board<state.boards.length;board++){
    await expect(page.locator('.pp-memory-table')).toHaveAttribute('data-table',String(board));
    for(const id of new Set(state.boards[board].map(c=>c.pairId))){const cards=page.locator(`[data-pair-id="${id}"]`);await cards.nth(0).click();await cards.nth(1).click();actions++;}

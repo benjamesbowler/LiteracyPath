@@ -55,7 +55,7 @@ export function MatchGame({ state, round = 0, setRound, isSoundEnabled, correct,
       {cards.map((card, index) => {
         const matched = matchedIds.includes(card.id);
         const visible = matched || selected.some(item => item.id === card.id);
-        return <button type="button" key={card.id} data-pair-id={card.pairId} data-card-id={card.id} disabled={paused || matched} className={`pp-memory-card${visible ? ' is-revealed' : ''}${matched ? ' is-matched' : ''}`} aria-label={`${matched ? 'Matched' : visible ? 'Revealed' : 'Hidden'} card ${index + 1} of ${cards.length}${visible ? `: ${card.word}` : ''}`} onClick={() => choose(card)}>
+        return <button type="button" key={card.id} data-pair-id={card.pairId} data-card-id={card.id} style={{ '--word-fit-units': Math.max(1, card.word.length * 0.55) }} disabled={paused || matched} className={`pp-memory-card${visible ? ' is-revealed' : ''}${matched ? ' is-matched' : ''}`} aria-label={`${matched ? 'Matched' : visible ? 'Revealed' : 'Hidden'} card ${index + 1} of ${cards.length}${visible ? `: ${card.word}` : ''}`} onClick={() => choose(card)}>
           <span className="pp-card-turn"><span className="pp-card-back" aria-hidden="true">✦</span><span className="pp-card-front" aria-hidden={!visible}>{card.word}</span></span>
         </button>;
       })}

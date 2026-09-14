@@ -1,5 +1,6 @@
 import { SENTENCES, SIGHT_WORDS } from "../data/learnGamesData.js";
 import { hasKnownBadWordAudio } from "../data/knownBadWordAudio.js";
+import { WORD_MATCH_PAIRS, WORD_MATCH_VERSION, wordMatchBoardWords, normalizeWordMatchBoard } from './wordMatchProgression.js';
 
 export function shuffled(items, random = Math.random) {
   const result = [...items];
@@ -54,20 +55,20 @@ export function hfwOptions(target, pool, random = Math.random) {
 
 const COLLECTION_OBJECTS = ["cat", "bat", "fan", "hat", "tree", "flag", "frog", "lamp", "fish", "train"];
 
-export function memoryBoards(difficulty = "easy", random = Math.random) {
-  const count = difficulty === "hard" ? 30 : difficulty === "medium" ? 28 : 24;
-  const words = shuffled(sightWordPool(difficulty), random).slice(0, count);
-  const perBoard = difficulty === "hard" ? 5 : difficulty === "medium" ? 4 : 3;
+export function memoryBoards(difficulty = "easy", random = Math.random, startBoard = 0) {
+  const count = difficulty === "hard" ? 6 : difficulty === "medium" ? 7 : 8;
+  const firstBoard = normalizeWordMatchBoard(startBoard);
   const boards = [];
-  for (let start = 0; start < words.length; start += perBoard) {
-    const cards = words.slice(start, start + perBoard).flatMap((word, offset) => {
-      const pairId = `pair-${start + offset}`;
-      const object = COLLECTION_OBJECTS[(start + offset) % COLLECTION_OBJECTS.length];
-      return ["a", "b"].map(side => ({ id: `${pairId}-${side}`, pairId, word, object }));
+  for (let boardOffset = 0; boardOffset < count; boardOffset += 1) {
+    const board = firstBoard + boardOffset;
+    const cards = wordMatchBoardWords(board).flatMap(({ word, cycle }, offset) => {
+      const pairId = `${WORD_MATCH_VERSION}:${board}:${offset}`;
+      const object = COLLECTION_OBJECTS[(board * WORD_MATCH_PAIRS + offset) % COLLECTION_OBJECTS.length];
+      return ["a", "b"].map(side => ({ id: `${pairId}-${side}`, pairId, word, cycle, object }));
     });
     boards.push(shuffled(cards, random));
   }
-  return { boards, cards: boards.flat() };
+  return { boards, cards: boards.flat(), startBoard: firstBoard, curriculumVersion: WORD_MATCH_VERSION };
 }
 
 export function sentencePractice(difficulty = "easy", limit = 6, random = Math.random) {

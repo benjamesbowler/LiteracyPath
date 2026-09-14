@@ -50,6 +50,7 @@ import {
   readElQuestLocalProgress
 } from "../utils/adventureMapLocalProgress.js";
 import { PAL_WORLDS } from "../utils/palWorlds.js";
+import { completedWordMatchCycles } from "../utils/wordMatchProgression.js";
 import { playCueAudio, stopCueAudio } from "../utils/audio/cuePlayer.js";
 import { ADVENTURE_MAP_INSTRUCTIONS } from "./elQuest/adventureRoundAudio.js";
 import { ADVENTURE_MAP_INSTRUCTION_AUDIO } from "../data/generated/adventureMapInstructionAudio.generated.js";
@@ -150,6 +151,7 @@ export function StudentAdventureMapPage({
   renderQuest
 }) {
   const [openCycleId, setOpenCycleId] = useState("");
+  const [openStationId, setOpenStationId] = useState("");
   const [speechStatus, setSpeechStatus] = useState("");
   const [recoveryStatus, setRecoveryStatus] = useState("");
   const [, setHydrationRevision] = useState(0);
@@ -188,6 +190,9 @@ export function StudentAdventureMapPage({
     lockedCycleId
   });
   const mapCycles = cycleLock.locked ? exactAssignmentCycles : availableCycles;
+  const moreWordMatch = !cycleLock.locked
+    && mapCycles.some(cycle => cycle.id === 'cycle-27')
+    && completedWordMatchCycles({ cycles: read.cycles });
 
   useEffect(() => {
     if (!cycleLock.locked) return;
@@ -226,6 +231,9 @@ export function StudentAdventureMapPage({
     points: mapPoints,
     activeCycleId: cycleLock.locked ? cycleLock.cycleId : null
   });
+  const mapCards = moreWordMatch
+    ? [{ id: 'more-word-match', name: 'More Word Match', number: '✓', state: 'next' }, ...scene.cards]
+    : scene.cards;
 
   // The pal stands on a MARKER, not on a fact: scene.next is the child's next
   // stop whether or not the admin has placed a coordinate for it, and a stop
@@ -250,9 +258,9 @@ export function StudentAdventureMapPage({
     ? "We could not open your map right now."
     : scene.next
       ? `Your pal is waiting at ${scene.next.name}.`
-      : "Every stop here is done.";
+      : moreWordMatch ? "Keep matching new words." : "Every stop here is done.";
 
-  const mapAudio = read.ok && scene.next && !openCycleId
+  const mapAudio = read.ok && (scene.next || moreWordMatch) && !openCycleId
     ? ADVENTURE_MAP_INSTRUCTION_AUDIO[normalizeLedaAudioText(ADVENTURE_MAP_INSTRUCTIONS.mapEntry)]
     : "";
   const hear = useCallback(() => {
@@ -302,7 +310,7 @@ export function StudentAdventureMapPage({
 
   const primaryReason = cycleLock.locked
     ? "Your teacher chose this map space."
-    : "This is your next unfinished stop.";
+    : moreWordMatch ? "Match four pairs of new words." : "This is your next unfinished stop.";
 
   function recoverUnreadableProgress() {
     if (!clearElQuestLocalProgress(progressScopeKey)) {
@@ -318,7 +326,10 @@ export function StudentAdventureMapPage({
     && renderQuest
     && (!cycleLock.locked || openCycleId === cycleLock.cycleId)
   ) {
-    return renderQuest({ cycleId: openCycleId, onExit: () => setOpenCycleId("") });
+    return renderQuest({ cycleId: openCycleId, stationId: openStationId, onExit: () => {
+      setOpenCycleId("");
+      setOpenStationId("");
+    } });
   }
 
   // A broken or newer record is a full-screen state, not an empty-looking map.
@@ -530,17 +541,23 @@ export function StudentAdventureMapPage({
         </section>
 
         <div className="kg-map-cards" data-child-choices="">
-          {scene.cards.map(stop => {
+          {mapCards.map(stop => {
             const isNext = stop.state === "next";
+            const isMoreWords = stop.id === 'more-word-match';
             const Tag = isNext ? "button" : "article";
             return (
               <Tag
                 key={stop.id}
                 {...(isNext ? { type: "button" } : {})}
                 className={`kg-glass kg-map-card kg-map-card--${stop.state}`}
-                onClick={isNext ? () => setOpenCycleId(stop.id) : undefined}
+                onClick={isNext ? () => {
+                  setOpenStationId(isMoreWords ? 'spell' : '');
+                  if (isMoreWords) setOpenCycleId('cycle-27');
+                  else setOpenCycleId(stop.id);
+                } : undefined}
+                aria-label={isMoreWords ? 'More Word Match' : undefined}
                 aria-disabled={!isNext || undefined}
-                data-cycle-id={stop.id}
+                data-cycle-id={isMoreWords ? undefined : stop.id}
                 data-node-state={stop.state}
                 data-child-emphasis={stop.state === "next" ? "primary" : "choice"}
                 {...(stop.state === "next" ? { "data-child-primary": "" } : {})}

@@ -1524,13 +1524,14 @@ export function AppSurface({ surface }) {
                 session={activeStudentFocus}
               />
             ) : null}
-            renderQuest={({ cycleId, onExit }) => withStudentRail("map", (
+            renderQuest={({ cycleId, stationId, onExit }) => withStudentRail("map", (
               <Suspense fallback={<LazyPageFallback label="Loading Skills Quest..." />}>
                 <ElSkillsQuest
                   key={`${studentId}:${isAdventureMapFocus ? activeStudentFocus.id : cycleId}`}
                   studentName={studentName || "Reader"}
                   progressScopeKey={studentId || studentName || "default"}
                   initialCycleId={cycleId}
+                  initialStationId={stationId}
                   lockedCycleId={assignedAdventureCycleId}
                   onLockedCycleAvailabilityChange={reportExactStudentFocusContent}
                   onExit={onExit}

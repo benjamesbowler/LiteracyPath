@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { cycleReviewGraphemes, displayGraphemePair } from "../../utils/cyclePracticeVariation.js";
 import { cyclePracticeDisplayTitle } from "../../utils/cycleTitles.js";
 import { elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
+import { adventureWordMatchOptions, completedWordMatchCycles } from '../../utils/wordMatchProgression.js';
 import { playCueAudio, playCueSequence, preloadCueAudio, stopCueAudio } from "../../utils/audio/cuePlayer.js";
 import { triggerTactileFeedback } from "../../utils/tactileFeedback.js";
 import { playCorrectChime, playSoftBuzz, playCelebrationFanfare, playStarChime } from "../../utils/audio/gameSfx.js";
@@ -226,9 +227,11 @@ export function ElSkillsQuest({
     initialProgressRead.ok ? initialProgressRead.value : normalizeElQuestProgress(null)
   ));
   const progressRef = useRef(progress);
+  const cyclesComplete = completedWordMatchCycles(progress);
   const recommendedCycle = useMemo(() => (
-    playableCycles.find(cycle => !(progress.cycles?.[cycle.id]?.stars > 0)) || playableCycles[0]
-  ), [playableCycles, progress]);
+    playableCycles.find(cycle => !(progress.cycles?.[cycle.id]?.stars > 0))
+      || (cyclesComplete ? playableCycles.at(-1) : playableCycles[0])
+  ), [playableCycles, progress, cyclesComplete]);
 
   const cycleLock = useMemo(() => resolveAdventureMapCycleLock({
     // A teacher assignment is an exact classroom target, not ordinary map
@@ -253,7 +256,7 @@ export function ElSkillsQuest({
   const [stationId, setStationId] = useState(initialStation?.id || null);
   const [rounds, setRounds] = useState(() => (
     initialCycle && initialStation
-      ? buildStationRounds(initialCycle, initialStation.id, { seed: initialRunSeed })
+      ? buildStationRounds(initialCycle, initialStation.id, { seed: initialRunSeed, ...(!cycleLock.locked ? adventureWordMatchOptions(progress) : {}) })
       : []
   ));
   const [runSeed, setRunSeed] = useState(initialRunSeed);
@@ -460,7 +463,7 @@ export function ElSkillsQuest({
     cueTimerRef.current = null;
     stopCueAudio();
     const nextSeed = createRunSeed(cycle.id, id);
-    const nextRounds = buildStationRounds(cycle, id, { seed: nextSeed });
+    const nextRounds = buildStationRounds(cycle, id, { seed: nextSeed, ...(!cycleLock.locked ? adventureWordMatchOptions(progressRef.current) : {}) });
     const freshRun = createAdventureRun(nextRounds.length);
     setStationId(id);
     setRounds(nextRounds);
@@ -484,7 +487,7 @@ export function ElSkillsQuest({
       // media permission attached to the child's trusted gesture.
       playInstruction(firstRound);
     }
-  }, [cancelPendingTransition, playInstruction]);
+  }, [cancelPendingTransition, playInstruction, cycleLock.locked]);
 
   function finishStation(finalRun) {
     if (progressWritesBlockedRef.current) return;
@@ -547,7 +550,8 @@ export function ElSkillsQuest({
           ...currentProgress.cycles,
           [activeCycle.id]: {
             ...(currentProgress.cycles?.[activeCycle.id] || {}),
-            stations: savedStations
+            stations: savedStations,
+            ...(rounds.at(-1)?.wordMatchNextBoard ? { wordMatchNextBoard: rounds.at(-1).wordMatchNextBoard } : {})
           }
         }
       };
@@ -559,7 +563,8 @@ export function ElSkillsQuest({
       const isDone = id => doneNow[id] || savedStations[id];
       const cycleStations = stationsForCycle(activeCycle);
       const practiceDone = cycleStations.filter(st => st.id !== "check" && isDone(st.id)).length;
-      const nextStation = cycleStations.find(st => st.id !== "check" && !st.optional && !isDone(st.id))
+      const nextStation = rounds.at(-1)?.wordMatchNextBoard ? cycleStations.find(st => st.id === 'spell')
+        : cycleStations.find(st => st.id !== "check" && !st.optional && !isDone(st.id))
         || (practiceDone >= 4 ? cycleStations.find(st => st.id === "check") : null);
       setCelebration({ kind: "station", total, nextStationId: nextStation?.id || null });
     }
@@ -957,7 +962,7 @@ export function ElSkillsQuest({
           <div>
             <p className="sbq-kicker">Adventure Map</p>
             <h1 data-child-title="">Your sound and word path</h1>
-            <p className="sbq-sub" data-child-instruction="">Follow “you are here” to start.</p>
+            <p className="sbq-sub" data-child-instruction="">{cyclesComplete ? 'Keep matching more words at your last stop.' : 'Follow “you are here” to start.'}</p>
             <p className="sbq-map-progress" data-child-progress="">
               {completedCycles} of {playableCycles.length} stops complete
             </p>
@@ -1014,8 +1019,12 @@ export function ElSkillsQuest({
                           ref={el => { stopRefs.current[cycle.id] = el; }}
                           className={`sbq-stop${cycleProgress?.stars ? " done" : ""}${isRecommended ? " next" : ""}`}
                           style={{ left: `${x}%`, top: `${y}%` }}
-                          onClick={isRecommended ? () => { if (panRef.current.moved) return; openCycle(cycle); } : undefined}
-                          aria-label={`${landmarks[index] || `Cycle ${cycle.cycleNumber}`}${isRecommended ? " - you are here" : ""}`}
+                          onClick={isRecommended ? () => {
+                            if (panRef.current.moved) return;
+                            openCycle(cycle);
+                            if (cyclesComplete) startStation(cycle, 'spell');
+                          } : undefined}
+                          aria-label={cyclesComplete && isRecommended ? 'More Word Match' : `${landmarks[index] || `Cycle ${cycle.cycleNumber}`}${isRecommended ? " - you are here" : ""}`}
                           data-child-primary={isRecommended ? "" : undefined}
                           data-child-emphasis={isRecommended ? "primary" : "choice"}
                           data-tip-position={y < 18 ? "right" : "above"}
@@ -1030,7 +1039,7 @@ export function ElSkillsQuest({
                             </span>
                             {isRecommended && (
                               <>
-                                <span className="sbq-stop-next" data-child-emphasis-cue="">Go next</span>
+                                <span className="sbq-stop-next" data-child-emphasis-cue="">{cyclesComplete ? 'More Word Match' : 'Go next'}</span>
                                 <ChildRecommendationExplanation
                                   className="sbq-stop-reason"
                                   reason="This is your next map stop."
@@ -1100,6 +1109,9 @@ export function ElSkillsQuest({
                   const nextId = celebration.nextStationId;
                   setCelebration(null);
                   startStation(activeCycle, nextId);
+                } else if (isCycle && cyclesComplete && !cycleLock.locked) {
+                  setCelebration(null);
+                  startStation(activeCycle, 'spell');
                 } else if (isCycle) {
                   returnToMap();
                 } else {
@@ -1108,7 +1120,7 @@ export function ElSkillsQuest({
               }}
             >
               {isCycle
-                ? cycleLock.locked ? "Back to this cycle" : "Back to the map"
+                ? cycleLock.locked ? "Back to this cycle" : cyclesComplete ? 'More Word Match' : "Back to the map"
                 : celebration.nextStationId ? "Next station!" : "Keep going"}
             </button>
             {!isCycle && (

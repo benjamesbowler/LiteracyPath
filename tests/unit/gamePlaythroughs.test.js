@@ -40,7 +40,7 @@ test("every quest round in every cycle is winnable and well-formed", () => {
             continue;
           }
           if (round.mechanicId === "wordMemory") {
-            assert.ok(round.cards.length >= 4, `${where} needs at least two pairs`);
+            assert.equal(round.cards.length, 8, `${where} needs four pairs`);
             const pairs = new Map();
             for (const card of round.cards) {
               pairs.set(card.word, [...(pairs.get(card.word) || []), card.id]);
@@ -48,7 +48,7 @@ test("every quest round in every cycle is winnable and well-formed", () => {
             let state = createMemory();
             let outcome;
             for (const [word, cardIds] of pairs) {
-              assert.equal(cardIds.length, 2, `${where} has an unmatched ${word} card`);
+              assert.equal(cardIds.length % 2, 0, `${where} has an unmatched ${word} card`);
               for (const id of cardIds) ({ state, outcome } = flipMemoryCard(state, round, id));
             }
             assert.equal(state.complete, true, `${where} cannot finish its pairs`);

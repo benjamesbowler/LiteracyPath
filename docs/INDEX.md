@@ -65,6 +65,7 @@ immediately. Missing review metadata is not a publication queue.
 - [Child surface rules](design/CHILD_SURFACE_RULES.md)
 - [Complete game upgrade plan](design/GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md) — all 22 games plus Sound Seekers; gameplay, graphics, learning, reported defects and per-game acceptance
 - [Game design bible](design/GAME_DESIGN_BIBLE.md) — preserves original Arcade gameplay, including Sound Beat rhythm; instruction playback never blocks activity input
+- [Word Match progression](design/GAME_DESIGN_BIBLE.md#word-match-progression) — cycle-ordered matching, four-pair boards and frequency-ordered continuation
 - [Game visual and playability production guide](design/GAME_VISUAL_PLAYABILITY_PRODUCTION_GUIDE.md) — agent workflow for authored visual, asset, audio, performance and evidence quality
 - [Meadow Pals animation production bible](design/ANIMATION_PRODUCTION_BIBLE.md)
 - [Student emphasis budget](design/STUDENT_EMPHASIS_BUDGET.md)

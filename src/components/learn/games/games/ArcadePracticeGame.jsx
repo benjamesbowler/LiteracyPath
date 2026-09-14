@@ -3,6 +3,7 @@ import { CVC_WORDS, SENTENCE_FIX, SENTENCES } from "../../../../data/learnGamesD
 import { cancelSpeech } from "../../../../utils/learnGamesAudio";
 import { stopCueAudio } from "../../../../utils/audio/cuePlayer.js";
 import { memoryBoards, sentencePractice, sightWordPool } from "../../../../utils/recognitionPractice.js";
+import { WORD_MATCH_PAIRS, WORD_MATCH_VERSION, nextWordMatchBoard } from '../../../../utils/wordMatchProgression.js';
 import "../../../../styles/recognition-practice.css";
 import { buildBlendMissions, buildCvcWorkshopRounds, cvcWorkshopRoundCount } from "../../../../utils/buildingGrowingRounds.js";
 import { gameRandom } from "../../../../utils/gameReplay.js";
@@ -67,6 +68,7 @@ export function ArcadePracticeGame({
   difficulty = "easy",
   sessionSeed = 0,
   startLevel = 0,
+  memoryStartBoard,
   onScoreUpdate,
   onProgressUpdate,
   onComplete,
@@ -86,8 +88,11 @@ export function ArcadePracticeGame({
   const [saved] = useState(() => {
     const gameId = { build: "cvc-word-builder", memory: "sight-word-memory", family: "blend-and-build", target: "pop-the-word", sentence: "word-hopscotch", quiz: "reading-race" }[mode];
     const checkpoint = loadLearnGamesProgress(progressScopeKey).games?.[gameId]?.checkpoints?.[difficulty];
-    return checkpoint ? loadPhonicsSession(sessionKey, Number(startLevel) || 0) : null;
+    const session = checkpoint ? loadPhonicsSession(sessionKey, Number(startLevel) || 0) : null;
+    if (mode === 'memory' && session?.gameState?.curriculumVersion !== WORD_MATCH_VERSION) return null;
+    return session;
   });
+  const [firstMemoryBoard] = useState(() => memoryStartBoard ?? nextWordMatchBoard(loadLearnGamesProgress(progressScopeKey)));
   // A saved short outing keeps its original generated length and receipt.
   const totalRounds = saved?.gameState?.rounds?.length || saved?.gameState?.words?.length || plannedRounds;
   const initialRoundCount = saved ? (saved.gameState.boards?.length || saved.gameState.total || saved.gameState.sentences?.length || saved.gameState.fixes?.length || totalRounds) : mode === "memory" ? ({easy:8,medium:7,hard:6}[difficulty] || 8) : mode === "sentence" ? SENTENCES[sentenceTier].length - 1 : mode === "family" ? 10 : totalRounds;
@@ -95,8 +100,8 @@ export function ArcadePracticeGame({
   const saveStateRef = useRef(null);
   const [score, setScore] = useState(saved?.score || 0);
   // Honor the resume contract: startLevel is a 0-based round index from GamePlayer.
-  const [round, setRound] = useState(() => Math.max(0, Math.min(Number(startLevel) || 0, initialRoundCount - 1)));
-  const [correct, setCorrect] = useState(() => saved?.correct ?? (mode === "memory" ? round * (difficulty === "hard" ? 5 : difficulty === "medium" ? 4 : 3) : round));
+  const [round, setRound] = useState(() => mode === 'memory' && !saved ? 0 : Math.max(0, Math.min(Number(startLevel) || 0, initialRoundCount - 1)));
+  const [correct, setCorrect] = useState(() => saved?.correct ?? (mode === "memory" ? round * WORD_MATCH_PAIRS : round));
   const [completed, setCompleted] = useState(false);
   const [stars, setStars] = useState(0);
   const [version, setVersion] = useState(0);
@@ -131,7 +136,7 @@ export function ArcadePracticeGame({
     // Restart increments version purely to re-roll random word/order choices.
     const withReroll = value => ({ ...value, rerollKey: version });
 
-    if (mode === "memory") return withReroll(memoryBoards(difficulty));
+    if (mode === "memory") return withReroll(memoryBoards(difficulty, sessionSeed ? gameRandom(`${sessionSeed}:${version}`) : Math.random, firstMemoryBoard));
 
     if (mode === "family") {
       const missions = buildBlendMissions(difficulty);
@@ -155,7 +160,7 @@ export function ArcadePracticeGame({
     }
 
     return withReroll({ words: pickWords(difficulty, totalRounds) });
-  }, [difficulty, mode, totalRounds, version, saved, sessionSeed]);
+  }, [difficulty, mode, totalRounds, version, saved, sessionSeed, firstMemoryBoard]);
 
   useLayoutEffect(() => {
     saveStateRef.current = { gameState, round, score, correct, streak, wrongs: wrongsRef.current, evidence: responseEvidenceRef.current, discoveries, stage: stageSnapshotRef.current };

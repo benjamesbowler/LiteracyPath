@@ -80,9 +80,8 @@
 }
 @media (prefers-reduced-motion: reduce) { .pp-play *, .pp-play *::before, .pp-play *::after { animation: none !important; transition-duration: 0s !important; } }
 .pp-memory-table { flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: minmax(56px, 1fr); gap: 12px; margin: 18px auto; width: min(760px, 90%); padding: 18px; border: 5px solid #ba8d5d; border-radius: 28px; background: radial-gradient(ellipse, #688b67, #365d49); box-shadow: 0 9px 0 #654733, inset 0 0 26px #17372d99; }
-.pp-memory-table[data-card-count="10"] { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .pp-memory-table[data-card-count="8"] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.pp-memory-card { min-height: 56px; min-width: 56px; position: relative; padding: 0; border: 0; border-radius: 15px; background: transparent; perspective: 800px; color: #263d36; }
+.pp-memory-card { min-height: 56px; min-width: 56px; position: relative; padding: 0; border: 0; border-radius: 15px; background: transparent; perspective: 800px; color: #263d36; container-type: inline-size; }
 .pp-card-turn { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .26s ease-out; }
 .pp-memory-card.is-revealed .pp-card-turn { transform: rotateY(180deg); }
 .pp-card-back, .pp-card-front { position: absolute; inset: 0; display: grid; place-items: center; border: 3px solid #e9d5a8; border-radius: 15px; backface-visibility: hidden; box-shadow: 0 5px 0 #1c3c30, inset 0 0 0 3px #fff7df66; padding: 5px; }
@@ -137,7 +136,7 @@
   .pp-quiz .pp-prompt { font-size: 14px; max-width: 85%; }
 }
 @media (max-width: 500px) and (min-height: 500px) {
-  .pp-memory-table[data-card-count="10"], .pp-memory-table[data-card-count="8"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pp-memory-table[data-card-count="8"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pp-memory-table { width: 92%; gap: 9px; padding: 11px; }
   .pp-card-front { font-size: 24px; }
   .pp-repair-sign { max-width: 95%; font-size: 21px; padding: 10px; }
@@ -182,3 +181,8 @@
 
 .pp-family-town { justify-content: flex-start; overflow-x: auto; padding-bottom: 8px; }
 .pp-family-house { flex: 0 0 auto; }
+
+/* Keep later high-frequency words whole and inside their matching cards. */
+.pp-memory-card .pp-card-front {
+  font-size: min(30px, calc((100cqw - 12px) / var(--word-fit-units, 1)));
+}

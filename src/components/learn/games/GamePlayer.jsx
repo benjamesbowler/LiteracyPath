@@ -1,5 +1,6 @@
 import { useActivityMusic } from "../../../utils/audio/useActivityMusic.js";
 import { newGameSeed } from "../../../utils/gameReplay.js";
+import { nextWordMatchBoard, replayWordMatchBoard } from '../../../utils/wordMatchProgression.js';
 import { Component, Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { GAME_LIST } from "../../../data/learnGamesData";
@@ -94,6 +95,8 @@ export function GamePlayer({
   const [musicEnabled, onMusicEnabledChange] = useActivityMusic(`${progressScopeKey}:${game.id}`);
   const [difficulty, setDifficulty] = useState(initialDifficulty);
   const [runIndex, setRunIndex] = useState(0);
+  const [memoryStartBoard, setMemoryStartBoard] = useState(() => game.id === 'sight-word-memory'
+    ? nextWordMatchBoard(loadLearnGamesProgress(progressScopeKey)) : 0);
   const [sessionSeed, setSessionSeed] = useState(() => {
     const checkpoint = loadLearnGamesProgress(progressScopeKey).games?.[game.id]?.checkpoints?.[initialDifficulty];
     if (!checkpoint) return newGameSeed();
@@ -396,6 +399,10 @@ export function GamePlayer({
   function startAnotherRun(advance) {
     // A failed/pending receipt must be recovered before replacing its engine.
     if (pendingResultRef.current || !savedResultRef.current) return false;
+    if (game.id === 'sight-word-memory') {
+      setMemoryStartBoard(advance ? nextWordMatchBoard(loadLearnGamesProgress(progressScopeKey))
+        : replayWordMatchBoard(savedResultRef.current.evidence, memoryStartBoard));
+    }
     const nextDifficulty = advance
       ? ({ easy: "medium", medium: "hard", hard: "hard" }[difficulty] || difficulty)
       : difficulty;
@@ -544,6 +551,7 @@ export function GamePlayer({
                 difficulty={difficulty}
                 sessionSeed={sessionSeed}
                 startLevel={startLevel}
+                memoryStartBoard={memoryStartBoard}
                 progressScopeKey={progressScopeKey}
                 onScoreUpdate={setScore}
                 onProgressUpdate={handleProgressUpdate}

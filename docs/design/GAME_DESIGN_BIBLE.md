@@ -139,6 +139,28 @@ the production guide in the areas that apply to it.
   manufacture an hour of play. `gameReplay.test.js` covers the full catalogue.
 - Progress is recoverable and resumable. Exiting a game does not erase earned learning evidence.
 
+### Word Match progression
+
+Sight Word Memory in Phonics/Arcade introduces high-frequency words in the
+fixed 27-cycle order, then the remaining reviewed words in Fry frequency
+order. `wordMatchProgression.js` derives the sequence from the current cycle
+and HFW banks; `fryWordFrequency.js` supplies frequency ranks only. Every
+board has eight cards (four pairs). Card positions shuffle on replay, while
+the words keep their curriculum position. Completed practice receipts advance
+the sequence across outings and difficulty changes; replay does not advance it.
+
+Adventure Map Word Match keeps current and earlier taught words in cycle
+order, with eight cards in every board. Cycle 1 repeats its two taught words
+to make four pairs. Once all 27 cycles are complete, More Word Match at the
+last stop continues through the frequency sequence. Teacher-assigned exact
+cycles retain their cycle vocabulary. `wordMatchNextBoard` is a forward-only
+practice cursor in the existing cycle progress record; it adds no identity,
+personal information, service or data destination. Pair matching remains
+supported visual-word practice, never an assessment or phonics-mastery claim.
+
+`wordMatchProgression.test.js` and `word-match-cycles.spec.js` exercise the
+sequence, continuation, four-pair boards, replay and saved progress.
+
 ## 9. Safety, privacy and wellbeing
 
 - No ads, behavioural profiling, geolocation, public leaderboards, open chat or child free-text sharing.

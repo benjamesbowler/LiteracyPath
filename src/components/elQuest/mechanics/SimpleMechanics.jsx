@@ -111,7 +111,7 @@ export function WordMemoryMechanic({ round, disabled, supportLevel, onCommit, on
     <div className="am-word-memory__cards" role="group" aria-label="Hidden word cards">{round.cards.map((card, index) => {
       const matched = state.matched.includes(card.id);
       const faceUp = matched || state.open.includes(card.id);
-      return <button key={card.id} className="am-word-memory__card" type="button" data-card-id={card.id} data-card-state={matched ? "matched" : faceUp ? "open" : "hidden"} disabled={disabled || matched || state.mismatch} aria-label={faceUp ? `${card.word}, card ${index + 1}${matched ? ", matched" : ""}` : `Turn over card ${index + 1}`} onClick={() => flip(card.id)}>{faceUp ? <span>{card.word}</span> : <Star size={42} weight="duotone" aria-hidden="true" />}{matched && <Check weight="bold" className="am-simple-found" aria-hidden="true" />}</button>;
+      return <button key={card.id} className="am-word-memory__card" type="button" style={{ '--word-fit-units': Math.max(1, card.word.length * 0.55) }} data-card-id={card.id} data-card-state={matched ? "matched" : faceUp ? "open" : "hidden"} disabled={disabled || matched || state.mismatch} aria-label={faceUp ? `${card.word}, card ${index + 1}${matched ? ", matched" : ""}` : `Turn over card ${index + 1}`} onClick={() => flip(card.id)}>{faceUp ? <span>{card.word}</span> : <Star size={42} weight="duotone" aria-hidden="true" />}{matched && <Check weight="bold" className="am-simple-found" aria-hidden="true" />}</button>;
     })}</div>
     <FindCount found={state.matched.length / 2} total={round.cards.length / 2} label="pairs" />
   </section>;

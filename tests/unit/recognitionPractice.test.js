@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { hfwOptions, memoryBoards, sentencePractice, sentenceTiles, sightWordPool } from '../../src/utils/recognitionPractice.js';
 import { SENTENCES, SIGHT_WORDS } from '../../src/data/learnGamesData.js';
 
-for (const [difficulty, level, pairs] of [['easy', 'level1', 24], ['medium', 'level2', 28], ['hard', 'level3', 30]]) {
+for (const [difficulty, level, pairs] of [['easy', 'level1', 32], ['medium', 'level2', 28], ['hard', 'level3', 24]]) {
   test(`${difficulty} memory keeps every pair exactly twice in bounded boards`, () => {
     const {boards, cards} = memoryBoards(difficulty);
     assert.equal(cards.length, pairs * 2);
@@ -11,10 +11,10 @@ for (const [difficulty, level, pairs] of [['easy', 'level1', 24], ['medium', 'le
     assert.equal(new Set(cards.map(c => c.word)).size, pairs);
     assert.ok(cards.every(c => c.object));
     for (const board of boards) {
-      assert.ok(board.length <= 10);
+      assert.equal(board.length, 8);
       for (const card of board) {
         assert.equal(board.filter(c => c.pairId === card.pairId).length, 2);
-        assert.ok(SIGHT_WORDS[level].includes(card.word));
+        assert.ok(card.cycle >= 1 && card.cycle <= 27);
       }
     }
   });

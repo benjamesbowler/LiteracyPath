@@ -1,5 +1,14 @@
 # Current system cleanup — 31 July 2026
 
+## Word Match source alignment — 14 September 2026
+
+Word Match uses the current cycle/HFW banks through
+`src/utils/wordMatchProgression.js`; `src/data/fryWordFrequency.js` provides
+the sourced frequency order after Cycle 27. The old random difficulty-pool
+selection and variable board size were removed from the matching generator.
+Other recognition games retain their existing pools. No learner records or
+source media were removed.
+
 ## Outcome
 
 The repository now uses the current application as its authority. Duplicate assessment

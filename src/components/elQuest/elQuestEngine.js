@@ -11,6 +11,7 @@ import { AUDIO_QUEST_PATHS } from "../../data/generated/audioQuestPaths.generate
 import { hasKnownBadWordAudio, isKnownBadAudioPath } from "../../data/knownBadWordAudio.js";
 import { getPreferredPhonemeAudioPath } from "../../data/phonemeAudioBank.js";
 import { getLedaProductionAudioPath, getLedaWordAudioPath } from "../../data/ledaProductionAudio.js";
+import { WORD_MATCH_PAIRS, wordMatchBoardWords } from '../../utils/wordMatchProgression.js';
 
 import { CYCLE_SOUND_WORDS, cycleSoundPosition, isCyclePictureWordEligible } from "../../data/cycleSoundWords.js";
 import { cycleCardGraphemes, taughtCycleGraphemes, taughtCycleHighFrequencyWords, capPracticeRepetitions } from "../../utils/cyclePracticeVariation.js";
@@ -239,7 +240,8 @@ function practiceSightWords(cycle) {
   const own = (cycle.highFrequencyWords || []).map(sightWordForm).filter(word => taught.includes(word));
   // Early outings revisit every taught sight word. Later ones mix the current
   // words with fresh earlier review instead of presenting an ever-longer deck.
-  return unique([...shuffleItems(own), ...shuffleItems(taught)]).slice(0, 12);
+  return unique([...own, ...shuffleItems(taught)]).slice(0, 12)
+    .sort((left, right) => taught.indexOf(left) - taught.indexOf(right));
 }
 function sightWordFoilRank(candidate, word) {
   const left = candidate.toLowerCase(), right = word.toLowerCase();
@@ -263,8 +265,8 @@ function buildSightWordRounds(cycle, targets) {
   }));
 }
 function buildMemoryRounds(cycle, targets) {
-  const pairCount = Math.min(cycle.cycleNumber <= 3 ? 3 : 4, targets.length);
-  if (pairCount < 2) return [];
+  const pairCount = WORD_MATCH_PAIRS;
+  if (targets.length < 2) return [];
   const boardCount = Math.min(3, Math.ceil(targets.length / pairCount));
   return Array.from({ length: boardCount }, (_, pass) => {
     const words = Array.from({ length: pairCount }, (_, index) => targets[(pass * pairCount + index) % targets.length]);
@@ -277,7 +279,15 @@ function buildMemoryRounds(cycle, targets) {
     });
   });
 }
-function buildWordRounds(cycle) {
+function buildWordRounds(cycle, options = {}) {
+  if (cycle.cycleNumber === 27 && Number.isInteger(options.wordMatchStartBoard)) {
+    return Array.from({ length: 3 }, (_, offset) => {
+      const board = options.wordMatchStartBoard + offset;
+      const words = wordMatchBoardWords(board).map(item => item.word);
+      return { ...buildMemoryRounds(cycle, words)[0], roundKey: `${cycle.id}:wordMemory:extension:${board}`,
+        wordMatchNextBoard: board + 1 };
+    });
+  }
   const targets = practiceSightWords(cycle);
   return [...buildSightWordRounds(cycle, targets), ...buildMemoryRounds(cycle, targets)];
 }
@@ -570,9 +580,9 @@ export function buildStationRounds(cycle, stationId, options = {}) {
     const currentId = cycle.cycleNumber === 1 && stationId === 'build' ? 'trace' : stationId;
     const station = stationsForCycle(cycle).find(item => item.id === currentId);
     if (!station?.build) throw new Error(`Adventure Map station "${stationId}" is unknown or ineligible for cycle ${cycle?.cycleNumber || "unknown"}.`);
-    const rounds = station.build(cycle);
+    const rounds = station.mechanicIds.includes('wordMemory') ? station.build(cycle, options) : station.build(cycle);
     if (!rounds.length) throw new Error(`Adventure Map station "${stationId}" has no truthful rounds for cycle ${cycle?.cycleNumber || "unknown"}.`);
-    return station.mechanicIds.includes("missingLetter") ? rounds : spaceStationRounds(rounds, cycle);
+    return station.mechanicIds.some(id => ['missingLetter', 'wordMemory'].includes(id)) ? rounds : spaceStationRounds(rounds, cycle);
   });
 }
 export function starsForAccuracy(correct, total, wrongs) {

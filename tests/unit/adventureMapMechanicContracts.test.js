@@ -87,22 +87,22 @@ test("initial-sound pictures use genuine onsets and complete accessible media", 
   }
 });
 
-test("word memory has opaque card IDs and two copies of each taught sight word", () => {
+test("word memory has eight opaque cards and four pairs of taught sight words", () => {
   for (const { cycle, round } of generated.filter(item => item.round.mechanicId === "wordMemory")) {
     const taught = new Set(cycles.filter(item => item.cycleNumber <= cycle.cycleNumber).flatMap(item => item.highFrequencyWords || []).map(word => word.toLowerCase()));
-    assert.ok(round.cards.length >= 4 && round.cards.length <= 8);
+    assert.equal(round.cards.length, 8);
     assert.equal(new Set(round.cards.map(card => card.id)).size, round.cards.length);
     assert.ok(round.cards.every(card => /^card-\d+-\d+$/u.test(card.id)));
     for (const word of round.words) {
       assert.ok(taught.has(word.toLowerCase()), `${cycle.id}: untaught sight word ${word}`);
       if (word.toLowerCase() === "i") assert.equal(word, "I", "the pronoun must keep its standard uppercase form");
-      assert.equal(round.cards.filter(card => card.word === word).length, 2);
+      assert.equal(round.cards.filter(card => card.word === word).length, cycle.cycleNumber === 1 ? 4 : 2);
     }
     assert.equal(round.construct, "high_frequency_word_matching");
     assert.equal(round.evidenceScope, "visual_word_matching_practice");
   }
   const first = buildStationRounds(cycles[0], "quick", { seed: "pronoun-I" }).filter(round => round.mechanicId === "wordMemory");
-  assert.ok(first.every(round => round.cards.filter(card => card.word === "I").length === 2));
+  assert.ok(first.every(round => round.cards.filter(card => card.word === "I").length === 4));
 });
 
 test("spoken sight-word recognition uses the taught strand, real audio and one unprompted printed answer", () => {
