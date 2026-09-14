@@ -1,0 +1,1830 @@
+{
+  "schemaVersion": 1,
+  "title": "Sound Seekers Lantern Wood demo media",
+  "createdAt": "2026-09-14T05:31:34.073Z",
+  "sourceRevision": "21588dafe94fec199ac9d35752b216acb3ce1035",
+  "sourceScope": "Only referenced committed LiteracyPath assets copied. Existing rights and release records remain authoritative; no external asset download.",
+  "narrationDisclosure": "New general directions use the existing Leda production speech service. Phonemes and words reuse the current recorded bank. Audio is AI-generated where its original production source records that fact.",
+  "evidenceBoundary": "Direct source-image inspection is agent evidence. File decoding and signal checks are automated evidence. No human listening, physical iPad or child observation is asserted.",
+  "assets": [
+    {
+      "role": "picture",
+      "id": "map",
+      "source": "public/images/child-mode/cvc/map.webp",
+      "destination": "assets/pictures/map.webp",
+      "sha256": "f49d4cbb2e2df3d661d31cad8b715ab5d5348bd52b5bcb6c987e27ed052137cc",
+      "bytes": 68980,
+      "transform": "none; byte-for-byte repository copy",
+      "meaning": "map",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "visualInspection": "2026-09-14: displayed source inspected by agent; exact object, readable silhouette, no printed answer; not human observation",
+      "fileEvidence": {
+        "decoded": true,
+        "width": 768,
+        "height": 768
+      }
+    },
+    {
+      "role": "whole-word",
+      "id": "word:map",
+      "source": "public/audio/production/en-US/isolated_word/map-1febcbc483.mp3",
+      "destination": "assets/audio/word-map.mp3",
+      "sha256": "fa32ac6afcb97ce668fe2a373ae346d8fea4046a2bdc777a12c40aa5fc9a4e4c",
+      "bytes": 5421,
+      "transform": "none; byte-for-byte repository copy",
+      "text": "map",
+      "sourceAuthority": "src/data/ledaProductionAudio.js:getLedaWordAudioPath",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.804,
+        "peak": 0.3375,
+        "rmsDb": -23.72,
+        "speechSegment": {
+          "startSeconds": 0.12,
+          "endSeconds": 0.804,
+          "activeWindowFraction": 0.686
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "picture",
+      "id": "sun",
+      "source": "public/images/child-mode/cvc/sun.webp",
+      "destination": "assets/pictures/sun.webp",
+      "sha256": "d4685da33aed02915608170623c04a57273550536822e29d036e06dfbdad3c64",
+      "bytes": 6934,
+      "transform": "none; byte-for-byte repository copy",
+      "meaning": "sun",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "visualInspection": "2026-09-14: displayed source inspected by agent; exact object, readable silhouette, no printed answer; not human observation",
+      "fileEvidence": {
+        "decoded": true,
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "role": "whole-word",
+      "id": "word:sun",
+      "source": "public/audio/production/en-US/supplemental/sun-986667ed8b.mp3",
+      "destination": "assets/audio/word-sun.mp3",
+      "sha256": "9e5f4f2bc80cf12438d7e324a8d7cc1750a32c28b5ed2360fa8ba0c0217146e6",
+      "bytes": 3261,
+      "transform": "none; byte-for-byte repository copy",
+      "text": "sun",
+      "sourceAuthority": "src/data/ledaProductionAudio.js:getLedaWordAudioPath",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.48,
+        "peak": 0.2751,
+        "rmsDb": -26.5,
+        "speechSegment": {
+          "startSeconds": 0,
+          "endSeconds": 0.46,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "picture",
+      "id": "mug",
+      "source": "public/images/child-mode/cvc/mug.webp",
+      "destination": "assets/pictures/mug.webp",
+      "sha256": "912b0481770d3905cdf11286e0085898fd9aaa83e7b5fc81869f8cefdb0c6d01",
+      "bytes": 17992,
+      "transform": "none; byte-for-byte repository copy",
+      "meaning": "mug",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "visualInspection": "2026-09-14: displayed source inspected by agent; exact object, readable silhouette, no printed answer; not human observation",
+      "fileEvidence": {
+        "decoded": true,
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "role": "whole-word",
+      "id": "word:mug",
+      "source": "public/audio/production/en-US/isolated_word/mug-056f8accc6.mp3",
+      "destination": "assets/audio/word-mug.mp3",
+      "sha256": "32419ded4bec043889cafdab36fe9e6ce119dcd85722ae1d3daf86ea5d62c2a3",
+      "bytes": 3837,
+      "transform": "none; byte-for-byte repository copy",
+      "text": "mug",
+      "sourceAuthority": "src/data/ledaProductionAudio.js:getLedaWordAudioPath",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.534,
+        "peak": 0.3936,
+        "rmsDb": -19.95,
+        "speechSegment": {
+          "startSeconds": 0.1,
+          "endSeconds": 0.534,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "picture",
+      "id": "sock",
+      "source": "public/media/initial-sounds/images/s/sock.webp",
+      "destination": "assets/pictures/sock.webp",
+      "sha256": "d3372e672f420b3a36b1a0c278c81e7d9fb5152b3af26ea6c7860b669f8c16c7",
+      "bytes": 45724,
+      "transform": "none; byte-for-byte repository copy",
+      "meaning": "sock",
+      "sourceAuthority": "Existing committed picture selected after direct visual inspection for exact object and clean readable treatment",
+      "visualInspection": "2026-09-14: displayed source inspected by agent; exact object, readable silhouette, no printed answer; not human observation",
+      "fileEvidence": {
+        "decoded": true,
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "role": "whole-word",
+      "id": "word:sock",
+      "source": "public/audio/production/en-US/isolated_word/sock-c00268dd15.mp3",
+      "destination": "assets/audio/word-sock.mp3",
+      "sha256": "f20e686ded9a368bfb162c3f80470880fd1caad00685fe4e26583128bc81bcee",
+      "bytes": 5421,
+      "transform": "none; byte-for-byte repository copy",
+      "text": "sock",
+      "sourceAuthority": "src/data/ledaProductionAudio.js:getLedaWordAudioPath",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.804,
+        "peak": 0.2683,
+        "rmsDb": -28.94,
+        "speechSegment": {
+          "startSeconds": 0,
+          "endSeconds": 0.64,
+          "activeWindowFraction": 0.781
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "picture",
+      "id": "moon",
+      "source": "public/media/initial-sounds/images/m/moon.webp",
+      "destination": "assets/pictures/moon.webp",
+      "sha256": "89057d8864ea8c4be77888b453f47ca68c60395c57114854d8c11d7d903fcd01",
+      "bytes": 40066,
+      "transform": "none; byte-for-byte repository copy",
+      "meaning": "moon",
+      "sourceAuthority": "Existing committed picture selected after direct visual inspection for exact object and clean readable treatment",
+      "visualInspection": "2026-09-14: displayed source inspected by agent; exact object, readable silhouette, no printed answer; not human observation",
+      "fileEvidence": {
+        "decoded": true,
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "role": "whole-word",
+      "id": "word:moon",
+      "source": "public/audio/production/en-US/isolated_word/moon-cf266742cd.mp3",
+      "destination": "assets/audio/word-moon.mp3",
+      "sha256": "81151c24e910b95fcd94b031e4254b8b611ca5fcc179239e794e6c1a5fa9760e",
+      "bytes": 3549,
+      "transform": "none; byte-for-byte repository copy",
+      "text": "moon",
+      "sourceAuthority": "src/data/ledaProductionAudio.js:getLedaWordAudioPath",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.482,
+        "peak": 0.3797,
+        "rmsDb": -18.73,
+        "speechSegment": {
+          "startSeconds": 0,
+          "endSeconds": 0.48,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "picture",
+      "id": "soap",
+      "source": "public/media/initial-sounds/images/s/soap.webp",
+      "destination": "assets/pictures/soap.webp",
+      "sha256": "203bc08de20f0fc91ebda4311883dd152c51f51558609c4829e082262a1712ff",
+      "bytes": 13008,
+      "transform": "none; byte-for-byte repository copy",
+      "meaning": "soap",
+      "sourceAuthority": "Existing committed picture selected after direct visual inspection for exact object and clean readable treatment",
+      "visualInspection": "2026-09-14: displayed source inspected by agent; exact object, readable silhouette, no printed answer; not human observation",
+      "fileEvidence": {
+        "decoded": true,
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "role": "whole-word",
+      "id": "word:soap",
+      "source": "public/audio/production/en-US/isolated_word/soap-6cbbe574c7.mp3",
+      "destination": "assets/audio/word-soap.mp3",
+      "sha256": "f9204950036528fcd00272375931318a1e41bcefaf3777cf78a434bc1a24397d",
+      "bytes": 5133,
+      "transform": "none; byte-for-byte repository copy",
+      "text": "soap",
+      "sourceAuthority": "src/data/ledaProductionAudio.js:getLedaWordAudioPath",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.75,
+        "peak": 0.1793,
+        "rmsDb": -28.45,
+        "speechSegment": {
+          "startSeconds": 0.02,
+          "endSeconds": 0.72,
+          "activeWindowFraction": 0.771
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "picture",
+      "id": "cat",
+      "source": "public/images/child-mode/cvc/cat.webp",
+      "destination": "assets/pictures/cat.webp",
+      "sha256": "bd51a3b68d16c660a0406222ae9cf566a802122db9cfdf1df111f2d77f0cd801",
+      "bytes": 40952,
+      "transform": "none; byte-for-byte repository copy",
+      "meaning": "cat",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "visualInspection": "2026-09-14: displayed source inspected by agent; exact object, readable silhouette, no printed answer; not human observation",
+      "fileEvidence": {
+        "decoded": true,
+        "width": 768,
+        "height": 768
+      }
+    },
+    {
+      "role": "whole-word",
+      "id": "word:cat",
+      "source": "public/audio/production/en-US/isolated_word/cat-fcdf851282.mp3",
+      "destination": "assets/audio/word-cat.mp3",
+      "sha256": "24be1df7c165a4f04db171c47540ee9fa2dd6094920a025df60325a71bbef227",
+      "bytes": 2829,
+      "transform": "none; byte-for-byte repository copy",
+      "text": "cat",
+      "sourceAuthority": "src/data/ledaProductionAudio.js:getLedaWordAudioPath",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.372,
+        "peak": 0.295,
+        "rmsDb": -25.55,
+        "speechSegment": {
+          "startSeconds": 0.04,
+          "endSeconds": 0.36,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "picture",
+      "id": "bag",
+      "source": "public/images/child-mode/cvc/bag.webp",
+      "destination": "assets/pictures/bag.webp",
+      "sha256": "fd8191ae1455e61975b8f3828c5b25022840b16a8648d7a4689b910b6fdf8ac1",
+      "bytes": 18660,
+      "transform": "none; byte-for-byte repository copy",
+      "meaning": "bag",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "visualInspection": "2026-09-14: displayed source inspected by agent; exact object, readable silhouette, no printed answer; not human observation",
+      "fileEvidence": {
+        "decoded": true,
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "role": "whole-word",
+      "id": "word:bag",
+      "source": "public/audio/production/en-US/isolated_word/bag-4da0660ea3.mp3",
+      "destination": "assets/audio/word-bag.mp3",
+      "sha256": "47386502b252c2137c0d072729d83e1a7c1ccf7f805dfd0c2ca71386e6ffdfa7",
+      "bytes": 4413,
+      "transform": "none; byte-for-byte repository copy",
+      "text": "bag",
+      "sourceAuthority": "src/data/ledaProductionAudio.js:getLedaWordAudioPath",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.642,
+        "peak": 0.3196,
+        "rmsDb": -24.5,
+        "speechSegment": {
+          "startSeconds": 0.04,
+          "endSeconds": 0.54,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "picture",
+      "id": "dog",
+      "source": "public/images/child-mode/cvc/dog.webp",
+      "destination": "assets/pictures/dog.webp",
+      "sha256": "5c66f6579a2d45e4c6657d84181e3b18fbc62cd326211e370851b654ed59a8b7",
+      "bytes": 33974,
+      "transform": "none; byte-for-byte repository copy",
+      "meaning": "dog",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "visualInspection": "2026-09-14: displayed source inspected by agent; exact object, readable silhouette, no printed answer; not human observation",
+      "fileEvidence": {
+        "decoded": true,
+        "width": 768,
+        "height": 768
+      }
+    },
+    {
+      "role": "whole-word",
+      "id": "word:dog",
+      "source": "public/audio/production/en-US/isolated_word/dog-22c13fd222.mp3",
+      "destination": "assets/audio/word-dog.mp3",
+      "sha256": "b9b722445639684a53063188e6b5957d9348ca790de401841e6e1ff5bcb18180",
+      "bytes": 4125,
+      "transform": "none; byte-for-byte repository copy",
+      "text": "dog",
+      "sourceAuthority": "src/data/ledaProductionAudio.js:getLedaWordAudioPath",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.588,
+        "peak": 0.2241,
+        "rmsDb": -29.16,
+        "speechSegment": {
+          "startSeconds": 0,
+          "endSeconds": 0.588,
+          "activeWindowFraction": 0.9
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "picture",
+      "id": "pig",
+      "source": "public/images/child-mode/short-i/pig.png",
+      "destination": "assets/pictures/pig.png",
+      "sha256": "85d96768983779c71c07a2bf4fca79b50345eb9d7d4f6429ef0e6795d3ab49d2",
+      "bytes": 64644,
+      "transform": "none; byte-for-byte repository copy",
+      "meaning": "pig",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "visualInspection": "2026-09-14: displayed source inspected by agent; exact object, readable silhouette, no printed answer; not human observation",
+      "fileEvidence": {
+        "decoded": true,
+        "width": 768,
+        "height": 768
+      }
+    },
+    {
+      "role": "whole-word",
+      "id": "word:pig",
+      "source": "public/audio/production/en-US/isolated_word/pig-5ad48cfa90.mp3",
+      "destination": "assets/audio/word-pig.mp3",
+      "sha256": "d3dd502d0330d71f79e6dd76a3a7a3a3a875829681baff266658eebd71aaaa9f",
+      "bytes": 7725,
+      "transform": "none; byte-for-byte repository copy",
+      "text": "pig",
+      "sourceAuthority": "src/data/ledaProductionAudio.js:getLedaWordAudioPath",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 1.182,
+        "peak": 0.1868,
+        "rmsDb": -30.31,
+        "speechSegment": {
+          "startSeconds": 0.7,
+          "endSeconds": 1.18,
+          "activeWindowFraction": 0.917
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "picture",
+      "id": "pot",
+      "source": "public/images/child-mode/cvc/pot.webp",
+      "destination": "assets/pictures/pot.webp",
+      "sha256": "2a61eebd49eab4a6f225ef0adb0376a05d4f976baaa7a220a3be855c11fb636a",
+      "bytes": 22930,
+      "transform": "none; byte-for-byte repository copy",
+      "meaning": "pot",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "visualInspection": "2026-09-14: displayed source inspected by agent; exact object, readable silhouette, no printed answer; not human observation",
+      "fileEvidence": {
+        "decoded": true,
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "role": "whole-word",
+      "id": "word:pot",
+      "source": "public/audio/production/en-US/isolated_word/pot-219afba4c6.mp3",
+      "destination": "assets/audio/word-pot.mp3",
+      "sha256": "1922570c7e959d13aeb19960a5caf2d8a3380eb01cd0a16c69e364da237c11fb",
+      "bytes": 6717,
+      "transform": "none; byte-for-byte repository copy",
+      "text": "pot",
+      "sourceAuthority": "src/data/ledaProductionAudio.js:getLedaWordAudioPath",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 1.02,
+        "peak": 0.3201,
+        "rmsDb": -28,
+        "speechSegment": {
+          "startSeconds": 0.4,
+          "endSeconds": 0.92,
+          "activeWindowFraction": 0.731
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "picture",
+      "id": "log",
+      "source": "public/images/child-mode/cvc/log.webp",
+      "destination": "assets/pictures/log.webp",
+      "sha256": "3d21f979cb6b7256a5abb06bafabedfa996ed86959332766d833f19266103e66",
+      "bytes": 20768,
+      "transform": "none; byte-for-byte repository copy",
+      "meaning": "log",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "visualInspection": "2026-09-14: displayed source inspected by agent; exact object, readable silhouette, no printed answer; not human observation",
+      "fileEvidence": {
+        "decoded": true,
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "role": "whole-word",
+      "id": "word:log",
+      "source": "public/audio/production/en-US/isolated_word/log-67036abd5d.mp3",
+      "destination": "assets/audio/word-log.mp3",
+      "sha256": "a99e0f63d4ca0e91ce7db4f15916db0ebb94b64609e79bf4e8fc1ae66397b221",
+      "bytes": 9309,
+      "transform": "none; byte-for-byte repository copy",
+      "text": "log",
+      "sourceAuthority": "src/data/ledaProductionAudio.js:getLedaWordAudioPath",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 1.452,
+        "peak": 0.4058,
+        "rmsDb": -25.95,
+        "speechSegment": {
+          "startSeconds": 0.74,
+          "endSeconds": 1.24,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "picture",
+      "id": "bed",
+      "source": "public/images/child-mode/cvc/bed.webp",
+      "destination": "assets/pictures/bed.webp",
+      "sha256": "3c18b77adb71ef8da7f34bcf181118b3e55c646c53bc6e2de2e41636f430239f",
+      "bytes": 61574,
+      "transform": "none; byte-for-byte repository copy",
+      "meaning": "bed",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "visualInspection": "2026-09-14: displayed source inspected by agent; exact object, readable silhouette, no printed answer; not human observation",
+      "fileEvidence": {
+        "decoded": true,
+        "width": 1254,
+        "height": 1254
+      }
+    },
+    {
+      "role": "whole-word",
+      "id": "word:bed",
+      "source": "public/audio/production/en-US/isolated_word/bed-bfb9a0ca24.mp3",
+      "destination": "assets/audio/word-bed.mp3",
+      "sha256": "62d22c2fbb92ddbc0886ef5b37f498a625a8b9bbc9a5d18d1c41819ce826de4b",
+      "bytes": 8733,
+      "transform": "none; byte-for-byte repository copy",
+      "text": "bed",
+      "sourceAuthority": "src/data/ledaProductionAudio.js:getLedaWordAudioPath",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 1.346,
+        "peak": 0.4023,
+        "rmsDb": -26.27,
+        "speechSegment": {
+          "startSeconds": 0.4,
+          "endSeconds": 0.88,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "picture",
+      "id": "net",
+      "source": "public/images/assessment/objective-words/net.webp",
+      "destination": "assets/pictures/net.webp",
+      "sha256": "26bbab10e8b2e0ce06d5ca92ca39f88639f71f4688f739e0dd7b0f22263e1626",
+      "bytes": 40662,
+      "transform": "none; byte-for-byte repository copy",
+      "meaning": "net",
+      "sourceAuthority": "Existing committed picture selected after direct visual inspection for exact object and clean readable treatment",
+      "visualInspection": "2026-09-14: displayed source inspected by agent; exact object, readable silhouette, no printed answer; not human observation",
+      "fileEvidence": {
+        "decoded": true,
+        "width": 768,
+        "height": 768
+      }
+    },
+    {
+      "role": "whole-word",
+      "id": "word:net",
+      "source": "public/audio/production/en-US/isolated_word/net-9aa24b16f4.mp3",
+      "destination": "assets/audio/word-net.mp3",
+      "sha256": "e8eaee367f84392741837d5262864728abb464dcb65d51dca3318fb373ccb465",
+      "bytes": 2829,
+      "transform": "none; byte-for-byte repository copy",
+      "text": "net",
+      "sourceAuthority": "src/data/ledaProductionAudio.js:getLedaWordAudioPath",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.372,
+        "peak": 0.1897,
+        "rmsDb": -28.82,
+        "speechSegment": {
+          "startSeconds": 0,
+          "endSeconds": 0.28,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "picture",
+      "id": "pen",
+      "source": "public/images/assessment/objective-words/pen.webp",
+      "destination": "assets/pictures/pen.webp",
+      "sha256": "60985708cdff39f68f870b60c911e4e608bee0203777e7868835d3acd224829a",
+      "bytes": 21498,
+      "transform": "none; byte-for-byte repository copy",
+      "meaning": "pen",
+      "sourceAuthority": "Existing committed picture selected after direct visual inspection for exact object and clean readable treatment",
+      "visualInspection": "2026-09-14: displayed source inspected by agent; exact object, readable silhouette, no printed answer; not human observation",
+      "fileEvidence": {
+        "decoded": true,
+        "width": 768,
+        "height": 768
+      }
+    },
+    {
+      "role": "whole-word",
+      "id": "word:pen",
+      "source": "public/audio/production/en-US/isolated_word/pen-9b6de9aaf0.mp3",
+      "destination": "assets/audio/word-pen.mp3",
+      "sha256": "d358a85be0c8beeb50b2c18976645c616ee382b6f2f6230e74490cf41a679073",
+      "bytes": 9021,
+      "transform": "none; byte-for-byte repository copy",
+      "text": "pen",
+      "sourceAuthority": "src/data/ledaProductionAudio.js:getLedaWordAudioPath",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 1.398,
+        "peak": 0.2454,
+        "rmsDb": -32.22,
+        "speechSegment": {
+          "startSeconds": 0.4,
+          "endSeconds": 0.94,
+          "activeWindowFraction": 0.926
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "picture",
+      "id": "bug",
+      "source": "public/images/child-mode/cvc/bug.webp",
+      "destination": "assets/pictures/bug.webp",
+      "sha256": "a1f73a862bc136be75dab71cd6805f4a7514b978c8bb1d53f52d7b82ff69c75b",
+      "bytes": 23610,
+      "transform": "none; byte-for-byte repository copy",
+      "meaning": "bug",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "visualInspection": "2026-09-14: displayed source inspected by agent; exact object, readable silhouette, no printed answer; not human observation",
+      "fileEvidence": {
+        "decoded": true,
+        "width": 768,
+        "height": 768
+      }
+    },
+    {
+      "role": "whole-word",
+      "id": "word:bug",
+      "source": "public/audio/production/en-US/isolated_word/bug-55a02ff860.mp3",
+      "destination": "assets/audio/word-bug.mp3",
+      "sha256": "c818085b1e97c3f14525bdad4ff79bcb8579252272338a7a3a862c178fe685aa",
+      "bytes": 9309,
+      "transform": "none; byte-for-byte repository copy",
+      "text": "bug",
+      "sourceAuthority": "src/data/ledaProductionAudio.js:getLedaWordAudioPath",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 1.452,
+        "peak": 0.315,
+        "rmsDb": -25.45,
+        "speechSegment": {
+          "startSeconds": 0.7,
+          "endSeconds": 1.32,
+          "activeWindowFraction": 0.903
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "picture",
+      "id": "cup",
+      "source": "public/images/assessment/objective-words/cup.webp",
+      "destination": "assets/pictures/cup.webp",
+      "sha256": "3518e5049eb90be0ef12dba751e7a42787e0365c72ee05cbe61fa01384319c1b",
+      "bytes": 30388,
+      "transform": "none; byte-for-byte repository copy",
+      "meaning": "cup",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "visualInspection": "2026-09-14: displayed source inspected by agent; exact object, readable silhouette, no printed answer; not human observation",
+      "fileEvidence": {
+        "decoded": true,
+        "width": 768,
+        "height": 768
+      }
+    },
+    {
+      "role": "whole-word",
+      "id": "word:cup",
+      "source": "public/audio/production/en-US/isolated_word/cup-9da8aac3a3.mp3",
+      "destination": "assets/audio/word-cup.mp3",
+      "sha256": "29f8438170f01393f67aae171702e828eb8aaa2cae8eb7370911435e8fe46437",
+      "bytes": 2829,
+      "transform": "none; byte-for-byte repository copy",
+      "text": "cup",
+      "sourceAuthority": "src/data/ledaProductionAudio.js:getLedaWordAudioPath",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.372,
+        "peak": 0.4591,
+        "rmsDb": -21.08,
+        "speechSegment": {
+          "startSeconds": 0.02,
+          "endSeconds": 0.26,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "picture",
+      "id": "van",
+      "source": "public/images/child-mode/initial-sounds/van.webp",
+      "destination": "assets/pictures/van.webp",
+      "sha256": "a7bcdf3101ae2e3dc90aefbe6f11310cc99a8ed496103fa34c43b4672a6fe951",
+      "bytes": 24986,
+      "transform": "none; byte-for-byte repository copy",
+      "meaning": "van",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "visualInspection": "2026-09-14: displayed source inspected by agent; exact object, readable silhouette, no printed answer; not human observation",
+      "fileEvidence": {
+        "decoded": true,
+        "width": 768,
+        "height": 768
+      }
+    },
+    {
+      "role": "whole-word",
+      "id": "word:van",
+      "source": "public/audio/production/en-US/isolated_word/van-81002e64c7.mp3",
+      "destination": "assets/audio/word-van.mp3",
+      "sha256": "2d674a1d2237141a19747348763f9a68879e77772318586b91eceab8123e2b1f",
+      "bytes": 8301,
+      "transform": "none; byte-for-byte repository copy",
+      "text": "van",
+      "sourceAuthority": "src/data/ledaProductionAudio.js:getLedaWordAudioPath",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 1.29,
+        "peak": 0.1645,
+        "rmsDb": -34.67,
+        "speechSegment": {
+          "startSeconds": 0.32,
+          "endSeconds": 1,
+          "activeWindowFraction": 0.941
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "isolated-phoneme",
+      "id": "phoneme:a",
+      "source": "public/audio/phonemes/short_a.mp3",
+      "destination": "assets/audio/phoneme-a.mp3",
+      "sha256": "49c4eab4d5098415700beef92ffbf4ff5773477d653d8bb4fb09e7b3518dd613",
+      "bytes": 5997,
+      "transform": "none; byte-for-byte repository copy",
+      "grapheme": "a",
+      "sourceAuthority": "src/data/phonemeAudioBank.js:getPreferredPhonemeAudioPath",
+      "review": "Inherited current approved/runtime bank; no new phoneme synthesis, clipping, transformation, browser speech or approval claim",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.66,
+        "peak": 0.468,
+        "rmsDb": -27.47,
+        "speechSegment": {
+          "startSeconds": 0.04,
+          "endSeconds": 0.2,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "isolated-phoneme",
+      "id": "phoneme:b",
+      "source": "public/audio/phonemes/reviewed/b.mp3",
+      "destination": "assets/audio/phoneme-b.mp3",
+      "sha256": "5a9f73a814eb853687bf08d441d4e21eb91ae92f3464d541a5ed43a70d270167",
+      "bytes": 18861,
+      "transform": "none; byte-for-byte repository copy",
+      "grapheme": "b",
+      "sourceAuthority": "src/data/phonemeAudioBank.js:getPreferredPhonemeAudioPath",
+      "review": "Inherited current approved/runtime bank; no new phoneme synthesis, clipping, transformation, browser speech or approval claim",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 1.12,
+        "peak": 0.3476,
+        "rmsDb": -27.64,
+        "speechSegment": {
+          "startSeconds": 0.66,
+          "endSeconds": 0.96,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "isolated-phoneme",
+      "id": "phoneme:c",
+      "source": "public/audio/phonemes/c.mp3",
+      "destination": "assets/audio/phoneme-c.mp3",
+      "sha256": "85983a0512320fe52e39e8401357db1088a2fe8dbbd31e11c50332c06d90327a",
+      "bytes": 5613,
+      "transform": "none; byte-for-byte repository copy",
+      "grapheme": "c",
+      "sourceAuthority": "src/data/phonemeAudioBank.js:getPreferredPhonemeAudioPath",
+      "review": "Inherited current approved/runtime bank; no new phoneme synthesis, clipping, transformation, browser speech or approval claim",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.62,
+        "peak": 0.3424,
+        "rmsDb": -27.45,
+        "speechSegment": {
+          "startSeconds": 0.06,
+          "endSeconds": 0.26,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "isolated-phoneme",
+      "id": "phoneme:d",
+      "source": "public/audio/phonemes/d.mp3",
+      "destination": "assets/audio/phoneme-d.mp3",
+      "sha256": "53959844bd2fd1bed576e66a6e1b4a296ecd5233f3a21193d523f87551ee8b83",
+      "bytes": 9261,
+      "transform": "none; byte-for-byte repository copy",
+      "grapheme": "d",
+      "sourceAuthority": "src/data/phonemeAudioBank.js:getPreferredPhonemeAudioPath",
+      "review": "Inherited current approved/runtime bank; no new phoneme synthesis, clipping, transformation, browser speech or approval claim",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 1.062,
+        "peak": 0.3043,
+        "rmsDb": -27.47,
+        "speechSegment": {
+          "startSeconds": 0.64,
+          "endSeconds": 1.06,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "isolated-phoneme",
+      "id": "phoneme:e",
+      "source": "public/audio/phonemes/reviewed/short-e.mp3",
+      "destination": "assets/audio/phoneme-e.mp3",
+      "sha256": "6dcd21b97d333d9b9b0770b1a122a41683b8cf714622099532245348a182b149",
+      "bytes": 7341,
+      "transform": "none; byte-for-byte repository copy",
+      "grapheme": "e",
+      "sourceAuthority": "src/data/phonemeAudioBank.js:getPreferredPhonemeAudioPath",
+      "review": "Inherited current approved/runtime bank; no new phoneme synthesis, clipping, transformation, browser speech or approval claim",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.4,
+        "peak": 0.3322,
+        "rmsDb": -24.02,
+        "speechSegment": {
+          "startSeconds": 0.06,
+          "endSeconds": 0.4,
+          "activeWindowFraction": 0.941
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "isolated-phoneme",
+      "id": "phoneme:g",
+      "source": "public/audio/phonemes/g.mp3",
+      "destination": "assets/audio/phoneme-g.mp3",
+      "sha256": "7db3ba5d2a41469f812ce4432ffc3394640e251efef214421be0ed9ac574856c",
+      "bytes": 5613,
+      "transform": "none; byte-for-byte repository copy",
+      "grapheme": "g",
+      "sourceAuthority": "src/data/phonemeAudioBank.js:getPreferredPhonemeAudioPath",
+      "review": "Inherited current approved/runtime bank; no new phoneme synthesis, clipping, transformation, browser speech or approval claim",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.62,
+        "peak": 0.3032,
+        "rmsDb": -27.4,
+        "speechSegment": {
+          "startSeconds": 0.06,
+          "endSeconds": 0.32,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "isolated-phoneme",
+      "id": "phoneme:i",
+      "source": "public/audio/phonemes/short_i.mp3",
+      "destination": "assets/audio/phoneme-i.mp3",
+      "sha256": "71daf77634b38f7f0f6c140a9d9a78fe3b134b4f71c0cf797e2dd2cc009523ed",
+      "bytes": 5613,
+      "transform": "none; byte-for-byte repository copy",
+      "grapheme": "i",
+      "sourceAuthority": "src/data/phonemeAudioBank.js:getPreferredPhonemeAudioPath",
+      "review": "Inherited current approved/runtime bank; no new phoneme synthesis, clipping, transformation, browser speech or approval claim",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.62,
+        "peak": 0.238,
+        "rmsDb": -27.48,
+        "speechSegment": {
+          "startSeconds": 0.04,
+          "endSeconds": 0.18,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "isolated-phoneme",
+      "id": "phoneme:l",
+      "source": "public/audio/phonemes/l.mp3",
+      "destination": "assets/audio/phoneme-l.mp3",
+      "sha256": "18e94a94a8afa2abc8c1962c4212cbb2b472d4b0a23d582ea929e6fba4685f17",
+      "bytes": 5613,
+      "transform": "none; byte-for-byte repository copy",
+      "grapheme": "l",
+      "sourceAuthority": "src/data/phonemeAudioBank.js:getPreferredPhonemeAudioPath",
+      "review": "Inherited current approved/runtime bank; no new phoneme synthesis, clipping, transformation, browser speech or approval claim",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.62,
+        "peak": 0.1681,
+        "rmsDb": -27.48,
+        "speechSegment": {
+          "startSeconds": 0.08,
+          "endSeconds": 0.38,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "isolated-phoneme",
+      "id": "phoneme:m",
+      "source": "public/audio/phonemes/m.mp3",
+      "destination": "assets/audio/phoneme-m.mp3",
+      "sha256": "1d4f068de5cb19b47102858336e27978c6a285856b8d3baea440d2955e7eb62b",
+      "bytes": 5613,
+      "transform": "none; byte-for-byte repository copy",
+      "grapheme": "m",
+      "sourceAuthority": "src/data/phonemeAudioBank.js:getPreferredPhonemeAudioPath",
+      "review": "Inherited current approved/runtime bank; no new phoneme synthesis, clipping, transformation, browser speech or approval claim",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.62,
+        "peak": 0.2087,
+        "rmsDb": -27.42,
+        "speechSegment": {
+          "startSeconds": 0.04,
+          "endSeconds": 0.38,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "isolated-phoneme",
+      "id": "phoneme:n",
+      "source": "public/audio/phonemes/n.mp3",
+      "destination": "assets/audio/phoneme-n.mp3",
+      "sha256": "3c5f7e4b31ad7302354c9577357094352b21b09815c3bf9bc5df0cf835bfc123",
+      "bytes": 5613,
+      "transform": "none; byte-for-byte repository copy",
+      "grapheme": "n",
+      "sourceAuthority": "src/data/phonemeAudioBank.js:getPreferredPhonemeAudioPath",
+      "review": "Inherited current approved/runtime bank; no new phoneme synthesis, clipping, transformation, browser speech or approval claim",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.62,
+        "peak": 0.2189,
+        "rmsDb": -27.4,
+        "speechSegment": {
+          "startSeconds": 0.04,
+          "endSeconds": 0.38,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "isolated-phoneme",
+      "id": "phoneme:o",
+      "source": "public/audio/phonemes/short_o.mp3",
+      "destination": "assets/audio/phoneme-o.mp3",
+      "sha256": "1056abd6025a9276989bd8c299785071bbb4d7a1a156a88aaaa94668fc661efe",
+      "bytes": 6381,
+      "transform": "none; byte-for-byte repository copy",
+      "grapheme": "o",
+      "sourceAuthority": "src/data/phonemeAudioBank.js:getPreferredPhonemeAudioPath",
+      "review": "Inherited current approved/runtime bank; no new phoneme synthesis, clipping, transformation, browser speech or approval claim",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.72,
+        "peak": 0.4004,
+        "rmsDb": -27.48,
+        "speechSegment": {
+          "startSeconds": 0.04,
+          "endSeconds": 0.18,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "isolated-phoneme",
+      "id": "phoneme:p",
+      "source": "public/audio/phonemes/p.mp3",
+      "destination": "assets/audio/phoneme-p.mp3",
+      "sha256": "f1a3d38114534ac36bb645918d9fa5deb7136ecf7b1f4e8d9f5f7da72d96e384",
+      "bytes": 5613,
+      "transform": "none; byte-for-byte repository copy",
+      "grapheme": "p",
+      "sourceAuthority": "src/data/phonemeAudioBank.js:getPreferredPhonemeAudioPath",
+      "review": "Inherited current approved/runtime bank; no new phoneme synthesis, clipping, transformation, browser speech or approval claim",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.62,
+        "peak": 0.2584,
+        "rmsDb": -27.45,
+        "speechSegment": {
+          "startSeconds": 0.04,
+          "endSeconds": 0.32,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "isolated-phoneme",
+      "id": "phoneme:s",
+      "source": "public/audio/phonemes/s.mp3",
+      "destination": "assets/audio/phoneme-s.mp3",
+      "sha256": "89c03b7dfa914dc0be08d500dcf0f4834e6fb226dd8447132b1a1b1528b2cde3",
+      "bytes": 6381,
+      "transform": "none; byte-for-byte repository copy",
+      "grapheme": "s",
+      "sourceAuthority": "src/data/phonemeAudioBank.js:getPreferredPhonemeAudioPath",
+      "review": "Inherited current approved/runtime bank; no new phoneme synthesis, clipping, transformation, browser speech or approval claim",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.72,
+        "peak": 0.4151,
+        "rmsDb": -28.03,
+        "speechSegment": {
+          "startSeconds": 0.04,
+          "endSeconds": 0.22,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "isolated-phoneme",
+      "id": "phoneme:t",
+      "source": "public/audio/phonemes/t.mp3",
+      "destination": "assets/audio/phoneme-t.mp3",
+      "sha256": "308d1378f05ba946963c922f104c31b6673e614c89a2dee99654417ee169f7aa",
+      "bytes": 5997,
+      "transform": "none; byte-for-byte repository copy",
+      "grapheme": "t",
+      "sourceAuthority": "src/data/phonemeAudioBank.js:getPreferredPhonemeAudioPath",
+      "review": "Inherited current approved/runtime bank; no new phoneme synthesis, clipping, transformation, browser speech or approval claim",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.66,
+        "peak": 0.4864,
+        "rmsDb": -27.37,
+        "speechSegment": {
+          "startSeconds": 0.04,
+          "endSeconds": 0.24,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "isolated-phoneme",
+      "id": "phoneme:u",
+      "source": "public/audio/phonemes/short_u.mp3",
+      "destination": "assets/audio/phoneme-u.mp3",
+      "sha256": "5fc43ada32618d18b7c2e424c1cf8c5abaebad3a9b5fb4828c6c9cdc1588d49f",
+      "bytes": 5613,
+      "transform": "none; byte-for-byte repository copy",
+      "grapheme": "u",
+      "sourceAuthority": "src/data/phonemeAudioBank.js:getPreferredPhonemeAudioPath",
+      "review": "Inherited current approved/runtime bank; no new phoneme synthesis, clipping, transformation, browser speech or approval claim",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.62,
+        "peak": 0.3886,
+        "rmsDb": -27.4,
+        "speechSegment": {
+          "startSeconds": 0.04,
+          "endSeconds": 0.2,
+          "activeWindowFraction": 1
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "isolated-phoneme",
+      "id": "phoneme:v",
+      "source": "public/audio/phonemes/v.mp3",
+      "destination": "assets/audio/phoneme-v.mp3",
+      "sha256": "7b269412151e7bea28f974d932ff8db09bb90255cb105a4eea4b35a2cddbea6c",
+      "bytes": 9069,
+      "transform": "none; byte-for-byte repository copy",
+      "grapheme": "v",
+      "sourceAuthority": "src/data/phonemeAudioBank.js:getPreferredPhonemeAudioPath",
+      "review": "Inherited current approved/runtime bank; no new phoneme synthesis, clipping, transformation, browser speech or approval claim",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 1.046,
+        "peak": 0.4035,
+        "rmsDb": -27.44,
+        "speechSegment": {
+          "startSeconds": 0.08,
+          "endSeconds": 1.046,
+          "activeWindowFraction": 0.531
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "general-instruction",
+      "id": "intro",
+      "text": "The lantern tree has gone dark! Follow the path. Help three forest friends bring back its light.",
+      "destination": "assets/audio/intro.mp3",
+      "bytes": 26688,
+      "sha256": "26af48ab54a58d03f31a2514d97f4263973ad4a91868fa1e33dd6ddef0e778cb",
+      "source": "Original demo script in demos/sound-seekers/src/content.js:NARRATION",
+      "sourceAuthority": "Existing tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "languageCode": "en-US",
+      "speakingRate": 0.94,
+      "generatedAt": "2026-09-14T05:32:09.357Z",
+      "review": "New exact-script general narration. Does not synthesize isolated phonemes. Automated decoding/signal evidence and human listening are separate.",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 6.672,
+        "peak": 0.4733,
+        "rmsDb": -24.36,
+        "speechSegment": {
+          "startSeconds": 0.1,
+          "endSeconds": 6.58,
+          "activeWindowFraction": 0.806
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "general-instruction",
+      "id": "picnic",
+      "text": "Help pack the sound basket. Listen to the sound. Tap a picture that starts with it.",
+      "destination": "assets/audio/picnic.mp3",
+      "bytes": 24096,
+      "sha256": "89f8b890d201bb0c873cd07f3e70dfc88abc6d59e9b6e87df7206412e2093cca",
+      "source": "Original demo script in demos/sound-seekers/src/content.js:NARRATION",
+      "sourceAuthority": "Existing tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "languageCode": "en-US",
+      "speakingRate": 0.94,
+      "generatedAt": "2026-09-14T05:32:10.583Z",
+      "review": "New exact-script general narration. Does not synthesize isolated phonemes. Automated decoding/signal evidence and human listening are separate.",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 6.024,
+        "peak": 0.3665,
+        "rmsDb": -28.83,
+        "speechSegment": {
+          "startSeconds": 0.06,
+          "endSeconds": 6,
+          "activeWindowFraction": 0.623
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "general-instruction",
+      "id": "brook",
+      "text": "The bridge is missing its stones. Listen to the word. Tap the missing first letter.",
+      "destination": "assets/audio/brook.mp3",
+      "bytes": 26400,
+      "sha256": "c7d09db508ba38aec9a23f3a012143e578014c857c6ced83fe79a245adf34ad6",
+      "source": "Original demo script in demos/sound-seekers/src/content.js:NARRATION",
+      "sourceAuthority": "Existing tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "languageCode": "en-US",
+      "speakingRate": 0.94,
+      "generatedAt": "2026-09-14T05:32:11.871Z",
+      "review": "New exact-script general narration. Does not synthesize isolated phonemes. Automated decoding/signal evidence and human listening are separate.",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 6.6,
+        "peak": 0.3164,
+        "rmsDb": -26.39,
+        "speechSegment": {
+          "startSeconds": 0.08,
+          "endSeconds": 6.48,
+          "activeWindowFraction": 0.734
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "general-instruction",
+      "id": "lanterns",
+      "text": "The lantern flowers are sleeping. Listen to the word. Tap the sound seeds in order.",
+      "destination": "assets/audio/lanterns.mp3",
+      "bytes": 27360,
+      "sha256": "84820be0647338308f9c503c235e0234d5516ea28c14b95d4c0a9a0ca1587dc1",
+      "source": "Original demo script in demos/sound-seekers/src/content.js:NARRATION",
+      "sourceAuthority": "Existing tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "languageCode": "en-US",
+      "speakingRate": 0.94,
+      "generatedAt": "2026-09-14T05:32:13.232Z",
+      "review": "New exact-script general narration. Does not synthesize isolated phonemes. Automated decoding/signal evidence and human listening are separate.",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 6.84,
+        "peak": 0.3313,
+        "rmsDb": -25.99,
+        "speechSegment": {
+          "startSeconds": 0.08,
+          "endSeconds": 6.7,
+          "activeWindowFraction": 0.807
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "general-instruction",
+      "id": "finish",
+      "text": "You did it! The lantern tree is glowing again. You helped every friend. Let's explore!",
+      "destination": "assets/audio/finish.mp3",
+      "bytes": 22944,
+      "sha256": "f88d77fb00037e4d29910545e440756f60df41828ff13e719c2cad622523aa98",
+      "source": "Original demo script in demos/sound-seekers/src/content.js:NARRATION",
+      "sourceAuthority": "Existing tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "languageCode": "en-US",
+      "speakingRate": 0.94,
+      "generatedAt": "2026-09-14T05:32:14.552Z",
+      "review": "New exact-script general narration. Does not synthesize isolated phonemes. Automated decoding/signal evidence and human listening are separate.",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 5.736,
+        "peak": 0.7968,
+        "rmsDb": -23.94,
+        "speechSegment": {
+          "startSeconds": 0.08,
+          "endSeconds": 5.72,
+          "activeWindowFraction": 0.809
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "general-instruction",
+      "id": "picnic-complete",
+      "text": "The sound basket is full! Follow the path to the brook.",
+      "destination": "assets/audio/picnic-complete.mp3",
+      "bytes": 16416,
+      "sha256": "22f7d424b9ff2baf1855e2a5f7cef0509936edb78b2dbd096792846e518e7295",
+      "source": "Original demo script in demos/sound-seekers/src/content.js:NARRATION",
+      "sourceAuthority": "Existing tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "languageCode": "en-US",
+      "speakingRate": 0.94,
+      "generatedAt": "2026-09-14T05:32:15.512Z",
+      "review": "New exact-script general narration. Does not synthesize isolated phonemes. Automated decoding/signal evidence and human listening are separate.",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 4.104,
+        "peak": 0.3528,
+        "rmsDb": -26.08,
+        "speechSegment": {
+          "startSeconds": 0.46,
+          "endSeconds": 3.98,
+          "activeWindowFraction": 0.722
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "general-instruction",
+      "id": "brook-complete",
+      "text": "The bridge is ready! Cross over to the lantern flowers.",
+      "destination": "assets/audio/brook-complete.mp3",
+      "bytes": 14592,
+      "sha256": "fedb10898f9c77673c423e07e67f6d2a7a88be56aeb39fa29851a67aaca17826",
+      "source": "Original demo script in demos/sound-seekers/src/content.js:NARRATION",
+      "sourceAuthority": "Existing tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "languageCode": "en-US",
+      "speakingRate": 0.94,
+      "generatedAt": "2026-09-14T05:32:16.369Z",
+      "review": "New exact-script general narration. Does not synthesize isolated phonemes. Automated decoding/signal evidence and human listening are separate.",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 3.648,
+        "peak": 0.5124,
+        "rmsDb": -24.38,
+        "speechSegment": {
+          "startSeconds": 0.1,
+          "endSeconds": 3.58,
+          "activeWindowFraction": 0.822
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "general-instruction",
+      "id": "lanterns-complete",
+      "text": "All six flowers are glowing! Follow the lights back to the lantern tree.",
+      "destination": "assets/audio/lanterns-complete.mp3",
+      "bytes": 17568,
+      "sha256": "c5af8e3e904e83359bd15d2767b974dbe9e47d172ba1e401526aa1805aefcb12",
+      "source": "Original demo script in demos/sound-seekers/src/content.js:NARRATION",
+      "sourceAuthority": "Existing tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "languageCode": "en-US",
+      "speakingRate": 0.94,
+      "generatedAt": "2026-09-14T05:32:17.328Z",
+      "review": "New exact-script general narration. Does not synthesize isolated phonemes. Automated decoding/signal evidence and human listening are separate.",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 4.392,
+        "peak": 0.4418,
+        "rmsDb": -24.25,
+        "speechSegment": {
+          "startSeconds": 0.1,
+          "endSeconds": 4.3,
+          "activeWindowFraction": 0.852
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "general-instruction",
+      "id": "listen-sound",
+      "text": "Listen to the sound. Tap a picture that starts with it.",
+      "destination": "assets/audio/listen-sound.mp3",
+      "bytes": 15264,
+      "sha256": "d69190cf3ce317e11c84ad62a9bd2188192ec096b9691cc55ba51fe4c445549c",
+      "source": "Original demo script in demos/sound-seekers/src/content.js:NARRATION",
+      "sourceAuthority": "Existing tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "languageCode": "en-US",
+      "speakingRate": 0.94,
+      "generatedAt": "2026-09-14T05:32:18.233Z",
+      "review": "New exact-script general narration. Does not synthesize isolated phonemes. Automated decoding/signal evidence and human listening are separate.",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 3.816,
+        "peak": 0.3839,
+        "rmsDb": -28.59,
+        "speechSegment": {
+          "startSeconds": 0.08,
+          "endSeconds": 3.8,
+          "activeWindowFraction": 0.667
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "general-instruction",
+      "id": "first-letter",
+      "text": "Listen to the word. Tap its missing first letter.",
+      "destination": "assets/audio/first-letter.mp3",
+      "bytes": 14112,
+      "sha256": "ea539c5583bcdc978a63e605c30d5d05149126d5c9f1fea2cd58399983454a61",
+      "source": "Original demo script in demos/sound-seekers/src/content.js:NARRATION",
+      "sourceAuthority": "Existing tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "languageCode": "en-US",
+      "speakingRate": 0.94,
+      "generatedAt": "2026-09-14T05:32:19.052Z",
+      "review": "New exact-script general narration. Does not synthesize isolated phonemes. Automated decoding/signal evidence and human listening are separate.",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 3.528,
+        "peak": 0.4531,
+        "rmsDb": -24.16,
+        "speechSegment": {
+          "startSeconds": 0.06,
+          "endSeconds": 3.52,
+          "activeWindowFraction": 0.769
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "general-instruction",
+      "id": "build-word",
+      "text": "Listen to the word. Tap the sounds in order.",
+      "destination": "assets/audio/build-word.mp3",
+      "bytes": 16896,
+      "sha256": "503672c083d8397a6c36750d4bc9b5f6d2647b5557d12215a287082a9ae5e51f",
+      "source": "Original demo script in demos/sound-seekers/src/content.js:NARRATION",
+      "sourceAuthority": "Existing tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "languageCode": "en-US",
+      "speakingRate": 0.94,
+      "generatedAt": "2026-09-14T05:32:20.051Z",
+      "review": "New exact-script general narration. Does not synthesize isolated phonemes. Automated decoding/signal evidence and human listening are separate.",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 4.224,
+        "peak": 0.3431,
+        "rmsDb": -26.24,
+        "speechSegment": {
+          "startSeconds": 0.08,
+          "endSeconds": 3.98,
+          "activeWindowFraction": 0.605
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "general-instruction",
+      "id": "wrong",
+      "text": "Try again. Listen closely.",
+      "destination": "assets/audio/wrong.mp3",
+      "bytes": 9504,
+      "sha256": "e4849726f7e57c433c275ca583d176a6601e2af9a762eb0d20acf93d1fca2ff4",
+      "source": "Original demo script in demos/sound-seekers/src/content.js:NARRATION",
+      "sourceAuthority": "Existing tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "languageCode": "en-US",
+      "speakingRate": 0.94,
+      "generatedAt": "2026-09-14T05:32:20.743Z",
+      "review": "New exact-script general narration. Does not synthesize isolated phonemes. Automated decoding/signal evidence and human listening are separate.",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 2.376,
+        "peak": 0.4807,
+        "rmsDb": -24.37,
+        "speechSegment": {
+          "startSeconds": 0.08,
+          "endSeconds": 2.32,
+          "activeWindowFraction": 0.911
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "general-instruction",
+      "id": "different-sound",
+      "text": "That one starts with a different sound. Listen again.",
+      "destination": "assets/audio/different-sound.mp3",
+      "bytes": 12000,
+      "sha256": "c075725193f6aaf025ce72fff771696c6308511905f4248f8456c3d067032a27",
+      "source": "Original demo script in demos/sound-seekers/src/content.js:NARRATION",
+      "sourceAuthority": "Existing tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "languageCode": "en-US",
+      "speakingRate": 0.94,
+      "generatedAt": "2026-09-14T05:32:21.531Z",
+      "review": "New exact-script general narration. Does not synthesize isolated phonemes. Automated decoding/signal evidence and human listening are separate.",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 3,
+        "peak": 0.3515,
+        "rmsDb": -23.47,
+        "speechSegment": {
+          "startSeconds": 0.22,
+          "endSeconds": 2.92,
+          "activeWindowFraction": 0.837
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "general-instruction",
+      "id": "next-sound",
+      "text": "Listen for the next sound.",
+      "destination": "assets/audio/next-sound.mp3",
+      "bytes": 5568,
+      "sha256": "57a1a9eb4d0e060c8c0870c0b4f2179e74a035aa40d870a85b9c47754ac044dc",
+      "source": "Original demo script in demos/sound-seekers/src/content.js:NARRATION",
+      "sourceAuthority": "Existing tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "languageCode": "en-US",
+      "speakingRate": 0.94,
+      "generatedAt": "2026-09-14T05:32:22.070Z",
+      "review": "New exact-script general narration. Does not synthesize isolated phonemes. Automated decoding/signal evidence and human listening are separate.",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 1.392,
+        "peak": 0.3667,
+        "rmsDb": -25,
+        "speechSegment": {
+          "startSeconds": 0.06,
+          "endSeconds": 1.38,
+          "activeWindowFraction": 0.985
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "general-instruction",
+      "id": "starts-with",
+      "text": "starts with",
+      "destination": "assets/audio/starts-with.mp3",
+      "bytes": 4128,
+      "sha256": "3c23910adebaea6aca20a58ce826c90fa575f6ecfcf233c16346728792af23e5",
+      "source": "Original demo script in demos/sound-seekers/src/content.js:NARRATION",
+      "sourceAuthority": "Existing tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "languageCode": "en-US",
+      "speakingRate": 0.94,
+      "generatedAt": "2026-09-14T05:32:22.593Z",
+      "review": "New exact-script general narration. Does not synthesize isolated phonemes. Automated decoding/signal evidence and human listening are separate.",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 1.032,
+        "peak": 0.2796,
+        "rmsDb": -26.48,
+        "speechSegment": {
+          "startSeconds": 0.06,
+          "endSeconds": 0.98,
+          "activeWindowFraction": 0.826
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "general-instruction",
+      "id": "first-sound-is",
+      "text": "The first sound is",
+      "destination": "assets/audio/first-sound-is.mp3",
+      "bytes": 6912,
+      "sha256": "8a659caf18fe4f1f9ae3a50a6f8647081019c7eebcd35e5663db93753557fa46",
+      "source": "Original demo script in demos/sound-seekers/src/content.js:NARRATION",
+      "sourceAuthority": "Existing tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "languageCode": "en-US",
+      "speakingRate": 0.94,
+      "generatedAt": "2026-09-14T05:32:23.200Z",
+      "review": "New exact-script general narration. Does not synthesize isolated phonemes. Automated decoding/signal evidence and human listening are separate.",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 1.728,
+        "peak": 0.3353,
+        "rmsDb": -26.22,
+        "speechSegment": {
+          "startSeconds": 0.28,
+          "endSeconds": 1.72,
+          "activeWindowFraction": 0.819
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "general-instruction",
+      "id": "you-built",
+      "text": "You built",
+      "destination": "assets/audio/you-built.mp3",
+      "bytes": 2976,
+      "sha256": "25affdb4bdfae509495236687efb3a892021ca3534d463b245982c8de32ce4c1",
+      "source": "Original demo script in demos/sound-seekers/src/content.js:NARRATION",
+      "sourceAuthority": "Existing tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "languageCode": "en-US",
+      "speakingRate": 0.94,
+      "generatedAt": "2026-09-14T05:32:23.722Z",
+      "review": "New exact-script general narration. Does not synthesize isolated phonemes. Automated decoding/signal evidence and human listening are separate.",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.744,
+        "peak": 0.3739,
+        "rmsDb": -21.86,
+        "speechSegment": {
+          "startSeconds": 0.04,
+          "endSeconds": 0.74,
+          "activeWindowFraction": 0.743
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    },
+    {
+      "role": "general-instruction",
+      "id": "correct",
+      "text": "You found it!",
+      "destination": "assets/audio/correct.mp3",
+      "bytes": 3264,
+      "sha256": "3f623e2c7f3fc19d34f03e0bce058982125265677073ab1d85b88ff5276afab7",
+      "source": "Original demo script in demos/sound-seekers/src/content.js:NARRATION",
+      "sourceAuthority": "Existing tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "languageCode": "en-US",
+      "speakingRate": 0.94,
+      "generatedAt": "2026-09-14T05:32:24.194Z",
+      "review": "New exact-script general narration. Does not synthesize isolated phonemes. Automated decoding/signal evidence and human listening are separate.",
+      "fileEvidence": {
+        "decoded": true,
+        "sampleRate": 24000,
+        "mono": true,
+        "durationSeconds": 0.816,
+        "peak": 0.3628,
+        "rmsDb": -19.98,
+        "speechSegment": {
+          "startSeconds": 0.04,
+          "endSeconds": 0.8,
+          "activeWindowFraction": 0.947
+        },
+        "clippedSamples": 0,
+        "method": "FFmpeg decode; 20 ms RMS windows. Signal evidence only, not phonics or human listening approval."
+      }
+    }
+  ],
+  "narrationScripts": {
+    "intro": "The lantern tree has gone dark! Follow the path. Help three forest friends bring back its light.",
+    "picnic": "Help pack the sound basket. Listen to the sound. Tap a picture that starts with it.",
+    "brook": "The bridge is missing its stones. Listen to the word. Tap the missing first letter.",
+    "lanterns": "The lantern flowers are sleeping. Listen to the word. Tap the sound seeds in order.",
+    "finish": "You did it! The lantern tree is glowing again. You helped every friend. Let's explore!",
+    "picnic-complete": "The sound basket is full! Follow the path to the brook.",
+    "brook-complete": "The bridge is ready! Cross over to the lantern flowers.",
+    "lanterns-complete": "All six flowers are glowing! Follow the lights back to the lantern tree.",
+    "listen-sound": "Listen to the sound. Tap a picture that starts with it.",
+    "first-letter": "Listen to the word. Tap its missing first letter.",
+    "build-word": "Listen to the word. Tap the sounds in order.",
+    "wrong": "Try again. Listen closely.",
+    "different-sound": "That one starts with a different sound. Listen again.",
+    "next-sound": "Listen for the next sound.",
+    "starts-with": "starts with",
+    "first-sound-is": "The first sound is",
+    "you-built": "You built",
+    "correct": "You found it!"
+  },
+  "verification": {
+    "checkedAt": "2026-09-14T05:36:02.045Z",
+    "content": "18 unique pictured targets, 3 missions x 6 rounds; every onset item has exactly one valid choice, all bridge/garden targets are CVC, all speech paths and file hashes verified",
+    "files": {
+      "pictures": 18,
+      "audio": 52,
+      "decoded": true,
+      "totalAudioSeconds": 93.36,
+      "maxPeak": 0.7968,
+      "minimumActiveSpeechWindowFraction": 0.531
+    },
+    "humanListening": "UNKNOWN; no person has listened in this task",
+    "physicalDevice": "UNKNOWN; no physical iPad observation",
+    "childObservation": "UNKNOWN; no child play observation",
+    "lifecycle": {
+      "result": "PASS",
+      "checkedAt": "2026-09-14T05:37:57.284Z",
+      "method": "Injected Web Audio/fetch lifecycle exercise using Node assertions; source duration kept finite; did not exercise physical device",
+      "checks": [
+        "gesture restriction returns false",
+        "full multi-clip sequence resolves true",
+        "new replay cancels prior run",
+        "stale completion cannot end a newer run",
+        "mute interrupts active sound and prevents new sound",
+        "unmute leaves replay available",
+        "unknown cue returns false",
+        "preload makes no sound",
+        "effect nodes disconnect on stop",
+        "dispose cancels and closes context",
+        "cancellation settles while fetch is pending",
+        "404 media returns false and is retryable"
+      ]
+    },
+    "cleanup": "Removed the copied phoneme-k.mp3 after verifying every authored sound, choice and feedback uses c for /k/. It is recoverable byte-for-byte from public/audio/phonemes/k.mp3. No scratch files, failed speech outputs, API tokens, intermediate WAVs or caches remain in the demo."
+  }
+}
