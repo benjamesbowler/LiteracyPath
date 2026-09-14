@@ -31,6 +31,9 @@ function groundTexture(){
   const texture=new THREE.DataTexture(data,size,size);texture.wrapS=texture.wrapT=THREE.RepeatWrapping;texture.repeat.set(70,70);texture.magFilter=THREE.LinearFilter;texture.minFilter=THREE.LinearMipmapLinearFilter;texture.generateMipmaps=true;texture.needsUpdate=true;texture.colorSpace=THREE.SRGBColorSpace;return texture;
 }
 export async function createWorld(host, callbacks, settings={}) {
+  const landmarks=settings.landmarks||LANDMARKS, roads=settings.roads||[PATH];
+  const walkStage=()=>settings.chapter?(restored.brook===3?2:0):mission;
+  let restored={picnic:0,brook:0,garden:0,parcels:0,tree:0}, decor=null;
   let disposed=false,paused=true,phase='title',mission=0,reduce=!!settings.reduced,low=!!settings.low;
   const renderer=createRenderer(THREE,{pixelRatioCap:low?1:1.6,toneMappingExposure:1.13,shadowMap:true,powerPreference:'high-performance'});
   renderer.shadowMap.type=THREE.PCFSoftShadowMap;
@@ -42,7 +45,7 @@ export async function createWorld(host, callbacks, settings={}) {
   const sun=new THREE.DirectionalLight('#ffe3ab',2.3);sun.position.set(-18,33,12);sun.castShadow=!low;sun.shadow.mapSize.set(low?512:2048,low?512:2048);sun.shadow.camera.left=-37;sun.shadow.camera.right=37;sun.shadow.camera.top=37;sun.shadow.camera.bottom=-37;sun.shadow.camera.far=90;sun.shadow.normalBias=.04;sun.shadow.bias=-.00012;scene.add(sun);
   const fill=new THREE.DirectionalLight('#afdbeb',.65);fill.position.set(20,10,-30);scene.add(fill);
   const ground=mesh(terrain(),material('#ffffff',{vertexColors:true,map:groundTexture()}));ground.castShadow=false;scene.add(ground);
-  const road=mesh(ribbon(PATH,3.7,.025),material('#ddcaa0'));road.castShadow=false;scene.add(road);
+  for(const points of roads){const road=mesh(ribbon(points,3.7,.025),material('#ddcaa0'));road.castShadow=false;scene.add(road);}
   const spur=mesh(ribbon([[1,17],[9,15],[16,14],[20,9]],2,.023),material('#cfc49c'));spur.castShadow=false;scene.add(spur);
   const waterPoints=Array.from({length:30},(_,i)=>{const x=-65+i*4.5;return [x,riverZ(x)];});
   const shore=mesh(ribbon(waterPoints,4.1,.034),material('#d2c8a0'));shore.castShadow=false;scene.add(shore);
@@ -53,7 +56,7 @@ export async function createWorld(host, callbacks, settings={}) {
   const stones=[];
   for(let i=0;i<6;i++){const s=mesh(new THREE.SphereGeometry(1,18,12),stoneMat,0,.22,-1.75+i*.7);s.scale.set(1.48,.24,.55);bridge.add(s);stones.push(s);}
   const circleG=new THREE.CircleGeometry(1,64);const gladeMat=material('#dbcb9b');
-  for(const [i,l] of LANDMARKS.entries()){const disc=mesh(circleG,gladeMat,l.x,.035,l.z);disc.rotation.x=-Math.PI/2;disc.scale.setScalar(i===3?4.5:3.8);disc.castShadow=false;scene.add(disc);}
+  for(const [i,l] of landmarks.entries()){const disc=mesh(circleG,gladeMat,l.x,.035,l.z);disc.rotation.x=-Math.PI/2;disc.scale.setScalar((!settings.chapter&&i===3)?4.5:3.3);disc.castShadow=false;scene.add(disc);}
   const garden=new THREE.Group();garden.position.set(-11,0,-20);scene.add(garden);const gardenFlowers=[];
   const basket=new THREE.Group();basket.position.set(-12.2,.18,6.4);scene.add(basket);const basketMat=material('#bc955c');
   const bowl=mesh(new THREE.LatheGeometry([new THREE.Vector2(0,0),new THREE.Vector2(.35,.04),new THREE.Vector2(.6,.15),new THREE.Vector2(.72,.7),new THREE.Vector2(.68,.74),new THREE.Vector2(.57,.2),new THREE.Vector2(0,.13)],40),basketMat);basket.add(bowl);
@@ -65,7 +68,7 @@ export async function createWorld(host, callbacks, settings={}) {
   const greens=[],flowers=[];let randomSeed=4242;
   const rand=()=>{randomSeed=(Math.imul(randomSeed,1664525)+1013904223)>>>0;return randomSeed/4294967296;};
   for(let i=0;i<260;i++){const x=rand()*58-29,z=rand()*67-38;if(Math.abs(z-riverZ(x))<2.7)continue;
-    const near=PATH.some(p=>Math.hypot(p[0]-x,p[1]-z)<2.8);if(near)continue;
+    const near=roads.some(road=>road.some(p=>Math.hypot(p[0]-x,p[1]-z)<2.8));if(near)continue;
     const g=new THREE.SphereGeometry(.12+rand()*.12,6,5);g.scale(.5,2.5,.4);g.rotateZ(rand()-.5);g.translate(x,.2,z);greens.push(g);
     if(i%3===0){const f=petals();f.translate(x,0,z);flowers.push(f);}
   }
@@ -77,26 +80,27 @@ export async function createWorld(host, callbacks, settings={}) {
   const marker=new THREE.Group();scene.add(marker);const ring=mesh(new THREE.TorusGeometry(1,.045,8,64),material('#fff0b2',{emissive:'#deb147',emissiveIntensity:.3}));ring.rotation.x=Math.PI/2;ring.position.y=.13;marker.add(ring);
   const motes=new THREE.Group();scene.add(motes);for(let i=0;i<20;i++){const m=mesh(new THREE.SphereGeometry(.06,6,5),goldMat);m.visible=false;motes.add(m);}
   const clickRing=mesh(new THREE.TorusGeometry(.35,.025,6,24),rippleMat);clickRing.rotation.x=Math.PI/2;clickRing.position.y=.16;clickRing.visible=false;scene.add(clickRing);
-  const loader=new GLTFLoader();let hero,heroBody,mixer,actions={},actionName='',lanternTree;const treeClones=[],obstacles=[],residentMixers=[];
+  const loader=new GLTFLoader();let hero,heroBody,mixer,actions={},actionName='',lanternTree;const treeClones=[],obstacles=[],residentMixers=[],residents={};
   async function load(path) {const gltf=await loader.loadAsync(`/assets/${path}`);if(disposed){disposeObject(gltf.scene);throw new Error('Scene closed');}gltf.scene.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;if(o.material)o.material.roughness=Math.max(.65,o.material.roughness??.8);}});return gltf;}
   try {
     const [bouncy,tree,cottage,lantern,mushroom,rock]=await Promise.all([load('characters/bouncy.glb'),load('forest/tree.glb'),load('forest/cottage.glb'),load('forest/lantern-tree.glb'),load('forest/mushrooms.glb'),load('forest/rock.glb')]);
     hero=new THREE.Group();heroBody=bouncy.scene;heroBody.scale.setScalar(1.13);hero.add(heroBody);scene.add(hero);mixer=new THREE.AnimationMixer(heroBody);for(const c of bouncy.animations)actions[c.name]=mixer.clipAction(c);
-    TREE_SPOTS.forEach(([x,z,s],i)=>{const t=tree.scene.clone(true);t.position.set(x,0,z);t.scale.setScalar(s);t.rotation.y=i*1.83;scene.add(t);treeClones.push(t);if(x>-26&&x<26&&z>-35&&z<24)obstacles.push({x,z,r:.65*s});});
+    TREE_SPOTS.forEach(([x,z,s],i)=>{if(settings.chapter&&x===15&&z===-20){x=18;z=-18;}const t=tree.scene.clone(true);t.position.set(x,0,z);t.scale.setScalar(s);t.rotation.y=i*1.83;scene.add(t);treeClones.push(t);if(x>-26&&x<26&&z>-35&&z<24)obstacles.push({x,z,r:.65*s});});
     const home=cottage.scene;home.position.set(-14,0,2.3);home.rotation.y=.2;scene.add(home);obstacles.push({x:-14,z:2.3,r:2.3});
     lanternTree=lantern.scene;lanternTree.position.set(1,0,-34);scene.add(lanternTree);obstacles.push({x:1,z:-34,r:1.8});
-    [[-19,12,.8],[16,10,.8],[-4,-18,1],[17,-27,1.2],[-18,-24,.9]].forEach(([x,z,s],i)=>{const m=mushroom.scene.clone(true);m.position.set(x,0,z);m.scale.setScalar(s);m.rotation.y=i*1.9;scene.add(m);});
+    [[-19,12,.8],[16,10,.8],[-4,-18,1],[17,-27,1.2],[-18,-24,.9]].forEach(([x,z,s],i)=>{const m=mushroom.scene.clone(true);if(settings.chapter&&x===-18&&z===-24){x=-21;z=-22;}m.position.set(x,0,z);m.scale.setScalar(s);m.rotation.y=i*1.9;scene.add(m);});
     [[-23,17,1],[-20,-1,1],[20,0,.6],[20,-18,1.3],[-18,-28,.9],[11,-30,.7],[-4,6,.65]].forEach(([x,z,s])=>{const r=rock.scene.clone(true);r.position.set(x,0,z);r.scale.setScalar(s);scene.add(r);obstacles.push({x,z,r:.7*s});});
     for(const resident of [{file:'woolly',x:-14.6,z:7.6,scale:1},{file:'splashy',x:12.4,z:-.8,scale:1},{file:'clucky',x:-13.7,z:-18.7,scale:1}]){
-      const model=await load(`characters/${resident.file}.glb`);model.scene.position.set(resident.x,0,resident.z);model.scene.scale.setScalar(resident.scale);model.scene.rotation.y=.4;scene.add(model.scene);const rm=new THREE.AnimationMixer(model.scene);const idle=model.animations.find(a=>a.name==='Idle');if(idle)rm.clipAction(idle).play();residentMixers.push(rm);
+      const model=await load(`characters/${resident.file}.glb`);model.scene.position.set(resident.x,0,resident.z);model.scene.userData.home={x:resident.x,z:resident.z};model.scene.scale.setScalar(resident.scale);model.scene.rotation.y=.4;scene.add(model.scene);residents[resident.file]=model.scene;const rm=new THREE.AnimationMixer(model.scene);const idle=model.animations.find(a=>a.name==='Idle');if(idle)rm.clipAction(idle).play();residentMixers.push(rm);
     }
+    decor=settings.decorate?.(scene);
     callbacks.ready?.();
   }catch(error){if(!disposed)callbacks.failure?.(error);}
   const player={...START,vx:0,vz:0};const input={x:0,z:0,run:false};let destination=null,routeQueue=[],frame=0,last=0,acc=0,t=0,snapshotTime=0,burstTime=0,collected=[],glow=0,frameAverage=16.7;
   const look=new V(0,1,4),camTarget=new V(),lookTarget=new V();
   function setAnimation(name){if(name===actionName)return;const next=actions[name]||Object.values(actions).find(a=>a.getClip().name.toLowerCase().includes(name.toLowerCase()));if(!next)return;const previous=actions[actionName];next.reset().fadeIn(.18).play();previous?.fadeOut(.18);actionName=name;}
   const ray=new THREE.Raycaster(),pointer=new THREE.Vector2(),plane=new THREE.Plane(new V(0,1,0),0),hit=new V();
-  function onGround(event){if(paused||phase!=='explore')return;const box=renderer.domElement.getBoundingClientRect();pointer.set((event.clientX-box.left)/box.width*2-1,-(event.clientY-box.top)/box.height*2+1);ray.setFromCamera(pointer,camera);if(ray.ray.intersectPlane(plane,hit)&&canWalk(hit.x,hit.z,mission,obstacles)){routeQueue=[];destination={x:hit.x,z:hit.z};clickRing.position.set(hit.x,.16,hit.z);clickRing.visible=true;renderer.domElement.focus({preventScroll:true});}}
+  function onGround(event){if(paused||phase!=='explore')return;const box=renderer.domElement.getBoundingClientRect();pointer.set((event.clientX-box.left)/box.width*2-1,-(event.clientY-box.top)/box.height*2+1);ray.setFromCamera(pointer,camera);if(ray.ray.intersectPlane(plane,hit)&&canWalk(hit.x,hit.z,walkStage(),obstacles)){routeQueue=[];destination={x:hit.x,z:hit.z};clickRing.position.set(hit.x,.16,hit.z);clickRing.visible=true;renderer.domElement.focus({preventScroll:true});}}
   renderer.domElement.addEventListener('pointerdown',onGround);
   function lost(event){event.preventDefault();callbacks.failure?.(new Error('Graphics paused. Your journey is saved.'));}
   renderer.domElement.addEventListener('webglcontextlost',lost);
@@ -110,15 +114,15 @@ export async function createWorld(host, callbacks, settings={}) {
       else if(dx||dz){destination=null;routeQueue=[];clickRing.visible=false;}
       // Camera-relative keyboard axes; tap-to-walk already uses world space.
       const move=destination?{x:dx,z:dz,run:input.run}:{x:dx*.857+dz*.514,z:-dx*.514+dz*.857,run:input.run};
-      acc+=dt;while(acc>=1/60){movePlayer(player,move,1/60,mission,obstacles);acc-=1/60;}
+      acc+=dt;while(acc>=1/60){movePlayer(player,move,1/60,walkStage(),obstacles);acc-=1/60;}
       for(let i=0;i<FIREFLIES.length;i++)if(!collected.includes(i)&&Math.hypot(player.x-FIREFLIES[i].x,player.z-FIREFLIES[i].z)<1.35){collected.push(i);callbacks.collect?.(i);burstTime=t;}
     }else acc=0;
     if(hero){hero.position.set(player.x,.02,player.z);const speed=Math.hypot(player.vx,player.vz);if(speed>.2&&!paused&&phase==='explore'){const angle=Math.atan2(player.vx,player.vz);hero.rotation.y+=Math.atan2(Math.sin(angle-hero.rotation.y),Math.cos(angle-hero.rotation.y))*Math.min(1,dt*12);}setAnimation(phase==='complete'||phase==='reward'?'Celebrate':speed>.3&&!paused&&phase==='explore'?'Walk':'Idle');if(!paused||phase==='title'){mixer.timeScale=actionName==='Walk'?Math.max(.75,speed/4):1;mixer.update(dt);residentMixers.forEach(m=>m.update(dt));}}
-    const target=LANDMARKS[Math.min(mission,3)];marker.position.set(target.x,0,target.z);marker.visible=phase==='explore';ring.scale.setScalar(reduce?1:1+Math.sin(t*2)*.06);
-    for(let i=0;i<stones.length;i++)stones[i].visible=mission>=2||i===0||i===5;
-    packedTokens.forEach(token=>{token.visible=mission>=1;});
-    gardenFlowers.forEach((g,i)=>{g.scale.y=mission>=3?1:.35;g.rotation.y=reduce?0:Math.sin(t+i)*.04;});
-    if(lanternTree){const wanted=phase==='complete'?1:mission/3*.35;glow+=Math.min(1,dt*1.5)*(wanted-glow);lanternTree.traverse(o=>{if(o.isMesh&&o.name.startsWith('Lantern_')&&o.material.emissive)o.material.emissiveIntensity=.08+glow*3;});}
+    const target=landmarks[Math.min(mission,landmarks.length-1)];marker.position.set(target.x,0,target.z);marker.visible=phase==='explore';ring.scale.setScalar(reduce?1:1+Math.sin(t*2)*.06);
+    for(let i=0;i<stones.length;i++)stones[i].visible=(settings.chapter?restored.brook===3||restored.brook>=1&&i<3||restored.brook>=2&&i<5:mission>=2)||i===0||i===5;
+    packedTokens.forEach(token=>{token.visible=settings.chapter?restored.picnic>=1:mission>=1;});
+    gardenFlowers.forEach((g,i)=>{g.scale.y=settings.chapter?(.35+Math.min(3,restored.garden)*.217):(mission>=3?1:.35);g.rotation.y=reduce?0:Math.sin(t+i)*.04;});
+    if(lanternTree){const wanted=phase==='complete'?1:settings.chapter?([restored.picnic,restored.brook,restored.garden].filter(n=>n===3).length/3*.35+restored.tree*.12):mission/3*.35;glow+=Math.min(1,dt*1.5)*(wanted-glow);lanternTree.traverse(o=>{if(o.isMesh&&o.name.startsWith('Lantern_')&&o.material.emissive)o.material.emissiveIntensity=.08+glow*3;});}
     lightOrbs.forEach((o,i)=>{o.visible=!collected.includes(i);o.position.y=1.3+(reduce?0:Math.sin(t*2+i)*.22);});
     if(!reduce&&!paused){dust.rotation.y=Math.sin(t*.03)*.04;ripples.forEach((r,i)=>r.scale.setScalar(.85+Math.sin(t+i)*.2));}
     dust.visible=!low;
@@ -135,10 +139,10 @@ export async function createWorld(host, callbacks, settings={}) {
   }
   frame=requestAnimationFrame(update);
   return {
-    setState(state){phase=state.phase;paused=state.paused;mission=state.mission;collected=[...state.fireflies];reduce=state.reduced;low=state.low;sun.castShadow=!low;renderer.setPixelRatio(Math.min(devicePixelRatio,low?1:1.6));if(paused){input.x=input.z=0;player.vx=player.vz=0;destination=null;}},
-    restore(position){player.x=position.x;player.z=position.z;player.vx=player.vz=0;},
+    setState(state){restored=state.repairs||restored;decor?.update(restored);if(settings.chapter){const active=landmarks[Math.min(state.mission,landmarks.length-1)];for(const [id,model] of Object.entries(residents)){const follows=id==='woolly'&&['picnic','parcels'].includes(active.projectId)||id==='splashy'&&active.projectId==='brook'||id==='clucky'&&active.projectId==='garden';if(state.phase==='complete'){const i=['woolly','splashy','clucky'].indexOf(id);model.position.set(-2+i*3,0,-29);model.rotation.y=.3;}else if(follows){model.position.set(active.x-2.3,0,active.z-1.3);model.rotation.y=.4;}else{const home=model.userData.home;model.position.set(home.x,0,home.z);model.rotation.y=.4;}}}phase=state.phase;paused=state.paused;mission=state.mission;collected=[...state.fireflies];reduce=state.reduced;low=state.low;sun.castShadow=!low;renderer.setPixelRatio(Math.min(devicePixelRatio,low?1:1.6));if(paused){input.x=input.z=0;player.vx=player.vz=0;destination=null;}},
+    restore(position){player.x=position.x;player.z=position.z;player.vx=player.vz=0;input.x=input.z=0;destination=null;routeQueue=[];clickRing.visible=false;acc=0;},
     move(x,z){input.x=x;input.z=z;},
-    guide(){const goal=LANDMARKS[Math.min(mission,3)];const index=PATH.reduce((best,p,i)=>Math.hypot(p[0]-player.x,p[1]-player.z)<Math.hypot(PATH[best][0]-player.x,PATH[best][1]-player.z)?i:best,0);const goalIndex=PATH.findIndex(p=>Math.hypot(p[0]-goal.x,p[1]-goal.z)<1);const points=index<=goalIndex?PATH.slice(index,goalIndex+1):PATH.slice(goalIndex,index+1).reverse();routeQueue=points.map(p=>({x:p[0],z:p[1]}));destination=routeQueue.shift()||{x:goal.x,z:goal.z};},
+    guide(){const goal=landmarks[Math.min(mission,landmarks.length-1)];if(settings.route){routeQueue=settings.route(player,goal,walkStage(),obstacles);destination=routeQueue.shift()||null;return;}const index=PATH.reduce((best,p,i)=>Math.hypot(p[0]-player.x,p[1]-player.z)<Math.hypot(PATH[best][0]-player.x,PATH[best][1]-player.z)?i:best,0);const goalIndex=PATH.findIndex(p=>Math.hypot(p[0]-goal.x,p[1]-goal.z)<1);const points=index<=goalIndex?PATH.slice(index,goalIndex+1):PATH.slice(goalIndex,index+1).reverse();routeQueue=points.map(p=>({x:p[0],z:p[1]}));destination=routeQueue.shift()||{x:goal.x,z:goal.z};},
     burst(){burstTime=t;},
     dispose(){disposed=true;cancelAnimationFrame(frame);observer.disconnect();renderer.domElement.removeEventListener('pointerdown',onGround);renderer.domElement.removeEventListener('webglcontextlost',lost);mixer?.stopAllAction();residentMixers.forEach(m=>m.stopAllAction());disposeObject(scene);disposeRenderer(renderer,{forceContextLoss:true});},
   };

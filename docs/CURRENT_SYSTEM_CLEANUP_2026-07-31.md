@@ -435,3 +435,22 @@ completion evidence remains intact. Local resume checkpoints are covered by
 the existing learner cleanup keys. Scoped check and rendered evidence is kept
 under ignored `.artifacts/learn-letters`; task-created failed check output is
 disposable. No learner history or source artwork was deleted.
+
+
+## Sound Seekers woodland chapter — 15 September 2026
+
+Added the separately playable `demos/sound-seekers/chapter.html` chapter and its
+current scope authority, `CHAPTER_ONE.md`. The approved five-minute `index.html`
+remains an active design comparison. Both entries share the existing Blender
+cast, forest models, audio owner and movement renderer; their content, local
+save keys and generated build folders are distinct. The classroom runtime and
+hosted learner data remain outside this change.
+
+Selected existing word pictures and recordings are retained with exact source
+paths and hashes; new recorded chapter narration has its generation script and
+provenance manifest. The audio owner now refetches failed downloads on replay,
+and a fresh journey clears old walking destinations and resident positions.
+Temporary media-generation files and packaged failure-check moves were cleaned
+up. Required media review and playthrough evidence remains in ignored
+`.artifacts/`; no original artwork or learner history was deleted. The chapter's
+30–40-minute duration remains an authoring target pending child-paced play.

@@ -79,6 +79,7 @@ immediately. Missing review metadata is not a publication queue.
 
 - [Sound Seekers release bible](SOUND_SEEKERS_RELEASE_BIBLE.md) — three-world exploration, continuous platform puzzles and illustrated animation; automatic spoken guidance, persistent sound pictures and labelled replay/movement controls; current media, formative evidence and verification boundaries
 - [Sound Seekers curriculum matrix](SOUND_SEEKERS_CURRICULUM_MECHANIC_MATRIX.md)
+- [Sound Seekers 3D woodland chapter](../demos/sound-seekers/CHAPTER_ONE.md) — standalone review chapter preserving the approved storybook demo; five projects, five interaction families and 120 contextual rounds. Its 30–40-minute target awaits child-paced observation; the classroom route and full campaign remain separate.
 - [Phoneme recording standard](audio/PHONEME_RECORDING_STANDARD.md)
 - [Shared game curriculum](GAME_CURRICULUM_FRAMEWORK_2026-07-06.md)
 - [Sound Seekers world blueprint](SOUND_SEEKERS_WORLD_V2_BLUEPRINT.md) — retained v2 design/compatibility reference; the release bible defines the current child route

@@ -1,0 +1,3180 @@
+{
+  "schemaVersion": 1,
+  "title": "The Lost Little Lights chapter one media",
+  "disclosure": "New narrative speech is AI-generated with the existing Leda service. Phonemes and selected whole words retain their recorded-bank provenance.",
+  "evidenceBoundary": "Signal checks are mechanical evidence. Visual and listening findings are recorded separately; no human listening or physical device approval is inferred.",
+  "assets": [
+    {
+      "id": "chapter-build",
+      "role": "narration",
+      "text": "Listen to the word. Plant its sounds in order.",
+      "path": "assets/audio/chapter/chapter-build.mp3",
+      "sha256": "003398daca075f5586a32158802f45008d173679f02927a1e44c51f3c76b2fcd",
+      "bytes": 72351,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:04.548Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 4.464,
+        "meanVolumeDb": -25.7,
+        "peakDb": -9.8
+      }
+    },
+    {
+      "id": "chapter-different",
+      "role": "narration",
+      "text": "That is a different sound. Listen again.",
+      "path": "assets/audio/chapter/chapter-different.mp3",
+      "sha256": "3af264ebf857e2eb5fd520167a77c70bb7262c5bb270aeece0f06fe56cc875d3",
+      "bytes": 46437,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:05.653Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.832,
+        "meanVolumeDb": -26.6,
+        "peakDb": -9
+      }
+    },
+    {
+      "id": "chapter-finish",
+      "role": "narration",
+      "text": "The woodland is glowing again! The picnic is ready, the bridge is mended, and every parcel is home. You helped all the Pals. What a lovely place to come back to!",
+      "path": "assets/audio/chapter/chapter-finish.mp3",
+      "sha256": "bcb6997f2c58dc18e1bc1033f9274d94d5085b9d09345121af4a58e9d0c90bfc",
+      "bytes": 206097,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:02.290Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 12.816,
+        "meanVolumeDb": -23.6,
+        "peakDb": -6.3
+      }
+    },
+    {
+      "id": "chapter-gap",
+      "role": "narration",
+      "text": "Listen to the word. Tap its missing letter.",
+      "path": "assets/audio/chapter/chapter-gap.mp3",
+      "sha256": "0ebea93936337c57062fbf093b58157d901996c627204c347b0e9cfe3eaa57ca",
+      "bytes": 46437,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:03.235Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.832,
+        "meanVolumeDb": -27.1,
+        "peakDb": -7.8
+      }
+    },
+    {
+      "id": "chapter-map",
+      "role": "narration",
+      "text": "Choose a place to help. A leaf means the path is open. A tick means you have finished.",
+      "path": "assets/audio/chapter/chapter-map.mp3",
+      "sha256": "17b99c60f3444165c00fb4ed2ad4eea0a0ec960d3256769dbd93be40215f3547",
+      "bytes": 132955,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:07.116Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 8.232,
+        "meanVolumeDb": -27.4,
+        "peakDb": -9.9
+      }
+    },
+    {
+      "id": "chapter-next",
+      "role": "narration",
+      "text": "Listen for the next sound.",
+      "path": "assets/audio/chapter/chapter-next.mp3",
+      "sha256": "3595819670c49eecaf3c427755a7fb0c3771548a3672e48240326575b3dae34e",
+      "bytes": 23449,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:05.305Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.392,
+        "meanVolumeDb": -25.2,
+        "peakDb": -9.4
+      }
+    },
+    {
+      "id": "chapter-onset",
+      "role": "narration",
+      "text": "Listen to the first sound. Choose a picture that starts with it.",
+      "path": "assets/audio/chapter/chapter-onset.mp3",
+      "sha256": "5aaa33423971886f60c5c3ffe9bbf494062a48a380907c4bc1247834b912a6b4",
+      "bytes": 76948,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:03.454Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 4.752,
+        "meanVolumeDb": -27.7,
+        "peakDb": -10.2
+      }
+    },
+    {
+      "id": "chapter-sort",
+      "role": "narration",
+      "text": "Listen to the word. Choose its first sound basket.",
+      "path": "assets/audio/chapter/chapter-sort.mp3",
+      "sha256": "1751cf36077e448e91cbcf3add29d29b95866abcce428f215065f35915b1f36f",
+      "bytes": 61484,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:04.732Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 3.768,
+        "meanVolumeDb": -26.4,
+        "peakDb": -11.3
+      }
+    },
+    {
+      "id": "chapter-visit",
+      "role": "narration",
+      "text": "This part is finished. Follow the path to the next little job.",
+      "path": "assets/audio/chapter/chapter-visit.mp3",
+      "sha256": "1ba34476488a0f2c85068fae3b263cfc2a2dedff99576091a8f79184afd29182",
+      "bytes": 73186,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:06.833Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 4.512,
+        "meanVolumeDb": -25.2,
+        "peakDb": -3.9
+      }
+    },
+    {
+      "id": "chapter-welcome",
+      "role": "narration",
+      "text": "The little lights are missing, and the Pals are getting ready for a woodland picnic. Explore the paths. Help Woolly or Splashy first.",
+      "path": "assets/audio/chapter/chapter-welcome.mp3",
+      "sha256": "74557cce102e1b049e6eae685804e2514b866e493838d4a0f682bda86adca7a7",
+      "bytes": 160540,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:01.997Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 9.96,
+        "meanVolumeDb": -28.3,
+        "peakDb": -11
+      }
+    },
+    {
+      "id": "done-brook-build",
+      "role": "narration",
+      "text": "The pieces fit! Bring the picture parcels to the right side of the bridge.",
+      "path": "assets/audio/chapter/done-brook-build.mp3",
+      "sha256": "cbe24ba4d97443d23da950c26125a67e64fff1f33073f6c00eb657a714186645",
+      "bytes": 71515,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:14.009Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 4.392,
+        "meanVolumeDb": -26.2,
+        "peakDb": -10.4
+      }
+    },
+    {
+      "id": "done-brook-sort",
+      "role": "narration",
+      "text": "The bridge is mended! Cross the brook to find the garden and the parcel clearing.",
+      "path": "assets/audio/chapter/done-brook-sort.mp3",
+      "sha256": "b4165fe2d399b49aec15fb9443ddf1919e054c0a1cb7a40eb9f2a4177aed47a3",
+      "bytes": 68589,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:15.345Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 4.224,
+        "meanVolumeDb": -23.5,
+        "peakDb": -4
+      }
+    },
+    {
+      "id": "done-brook-stones",
+      "role": "narration",
+      "text": "The first stones are ready. There are more bridge pieces by the tool mat.",
+      "path": "assets/audio/chapter/done-brook-stones.mp3",
+      "sha256": "d3d836459ebabbccc2eef2d97c6268df3df4e7e5d7f053f2304a2730a23591bc",
+      "bytes": 79874,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:12.879Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 4.92,
+        "meanVolumeDb": -24.6,
+        "peakDb": -8.1
+      }
+    },
+    {
+      "id": "done-garden-grow",
+      "role": "narration",
+      "text": "The flowers are waking. Clucky needs her tools at the potting corner.",
+      "path": "assets/audio/chapter/done-garden-grow.mp3",
+      "sha256": "248621544a908f1e4d2d9bd270cc0fc2c20efd1a20403cd10a595d74c9ea7b96",
+      "bytes": 65245,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:16.875Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 4.008,
+        "meanVolumeDb": -25.6,
+        "peakDb": -9.6
+      }
+    },
+    {
+      "id": "done-garden-place",
+      "role": "narration",
+      "text": "The tools are ready. The last seed parcels are beside the flower bed.",
+      "path": "assets/audio/chapter/done-garden-place.mp3",
+      "sha256": "c6efdbbb8cb32accc6a28bb5574e8a41151370f9d6a4a8e977415e04153390fa",
+      "bytes": 72351,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:18.080Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 4.464,
+        "meanVolumeDb": -24.8,
+        "peakDb": -4.8
+      }
+    },
+    {
+      "id": "done-garden-sort",
+      "role": "narration",
+      "text": "Look at the garden glow! Clucky has found the third little light.",
+      "path": "assets/audio/chapter/done-garden-sort.mp3",
+      "sha256": "31435ab8097f1fdaa33a43711e8badb22a1212177669d11cf1115d39a0c13c1c",
+      "bytes": 69843,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:19.394Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 4.296,
+        "meanVolumeDb": -24.1,
+        "peakDb": -4.4
+      }
+    },
+    {
+      "id": "done-parcels-label",
+      "role": "narration",
+      "text": "The labels are fixed. The parcels need sorting beside the old stone.",
+      "path": "assets/audio/chapter/done-parcels-label.mp3",
+      "sha256": "fa2c707261b605dca38b9be7887ee769a52764b029d720d6877908cb7d81d186",
+      "bytes": 88233,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:20.802Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 5.448,
+        "meanVolumeDb": -26.6,
+        "peakDb": -8.2
+      }
+    },
+    {
+      "id": "done-parcels-place",
+      "role": "narration",
+      "text": "Every delivery is ready. The new path leads back to the great lantern tree.",
+      "path": "assets/audio/chapter/done-parcels-place.mp3",
+      "sha256": "b5c0945e8cc4e50c8baed807a3bb73fef3cb432a5c0da8576eb738884b21d236",
+      "bytes": 79874,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:23.372Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 4.92,
+        "meanVolumeDb": -27.3,
+        "peakDb": -9.8
+      }
+    },
+    {
+      "id": "done-parcels-sort",
+      "role": "narration",
+      "text": "The parcels are in their groups. Set them down in the little store.",
+      "path": "assets/audio/chapter/done-parcels-sort.mp3",
+      "sha256": "38fbbabb25c14e2ca1aa3a6342d7689870e1fcee0f4681266a0e3bb361afe670",
+      "bytes": 76948,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:22.021Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 4.752,
+        "meanVolumeDb": -26.8,
+        "peakDb": -11
+      }
+    },
+    {
+      "id": "done-picnic-find",
+      "role": "narration",
+      "text": "The first basket is packed. Woolly needs help sorting the parcels beside the mushrooms.",
+      "path": "assets/audio/chapter/done-picnic-find.mp3",
+      "sha256": "021fc8ad1a1dc8229569495256a7f2c841cb291d3c3b3acd8b1fa2a90f711e66",
+      "bytes": 95756,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:08.628Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 5.905,
+        "meanVolumeDb": -24.3,
+        "peakDb": -7.9
+      }
+    },
+    {
+      "id": "done-picnic-place",
+      "role": "narration",
+      "text": "A lovely picnic corner! Woolly has found the first little light.",
+      "path": "assets/audio/chapter/done-picnic-place.mp3",
+      "sha256": "cdf72457fa61412fb457bccdd09b0178ea158502b6d4175d87093af943271059",
+      "bytes": 67753,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:11.348Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 4.176,
+        "meanVolumeDb": -24.3,
+        "peakDb": -7.8
+      }
+    },
+    {
+      "id": "done-picnic-sort",
+      "role": "narration",
+      "text": "The parcels are sorted. Follow the little path to set out the picnic things.",
+      "path": "assets/audio/chapter/done-picnic-sort.mp3",
+      "sha256": "a2a3ea1b7f6bc9b3ceb69521a8ffff4dfdcff47ce58cbe2b561cc1585962118a",
+      "bytes": 95756,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:10.162Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 5.905,
+        "meanVolumeDb": -25.9,
+        "peakDb": -8.7
+      }
+    },
+    {
+      "id": "done-tree-labels",
+      "role": "narration",
+      "text": "Every sign is ready. Bring the sounds back to the great lantern tree.",
+      "path": "assets/audio/chapter/done-tree-labels.mp3",
+      "sha256": "b6d7a28a5739cd62896dbd8bab67dcff41a6d9dbf739e83d2cfb08c4472e140b",
+      "bytes": 87397,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:26.315Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 5.4,
+        "meanVolumeDb": -25.9,
+        "peakDb": -9.6
+      }
+    },
+    {
+      "id": "done-tree-light",
+      "role": "narration",
+      "text": "You did it! The lights are home, the paths are open, and the woodland picnic can begin.",
+      "path": "assets/audio/chapter/done-tree-light.mp3",
+      "sha256": "926b3a526431a60d47cc6b91e21c0b10d0737ddd3cf4046dc754a8cea771103a",
+      "bytes": 91995,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:27.643Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 5.688,
+        "meanVolumeDb": -23.6,
+        "peakDb": -4.9
+      }
+    },
+    {
+      "id": "done-tree-signs",
+      "role": "narration",
+      "text": "The trail is marked. Finish the last sign labels at the little clearing.",
+      "path": "assets/audio/chapter/done-tree-signs.mp3",
+      "sha256": "b1f9c888c6581818a30ec12a6fb31dc754584e26e5fd69ad58785917ee2ed6b1",
+      "bytes": 87397,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:24.833Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 5.4,
+        "meanVolumeDb": -27,
+        "peakDb": -9.5
+      }
+    },
+    {
+      "id": "picture:bag",
+      "role": "picture",
+      "word": "bag",
+      "source": "public/images/child-mode/cvc/bag.webp",
+      "path": "assets/pictures/bag.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "fd8191ae1455e61975b8f3828c5b25022840b16a8648d7a4689b910b6fdf8ac1",
+      "bytes": 18660
+    },
+    {
+      "id": "picture:bat",
+      "role": "picture",
+      "word": "bat",
+      "source": "public/images/child-mode/cvc/bat.webp",
+      "path": "assets/pictures/bat.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "2128342ac766d8c51aa16f4860f64bcd3e598ad9e9e64b60d6e56ca2482dcf9e",
+      "bytes": 28110
+    },
+    {
+      "id": "picture:bed",
+      "role": "picture",
+      "word": "bed",
+      "source": "public/images/child-mode/cvc/bed.webp",
+      "path": "assets/pictures/bed.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "3c18b77adb71ef8da7f34bcf181118b3e55c646c53bc6e2de2e41636f430239f",
+      "bytes": 61574
+    },
+    {
+      "id": "picture:bug",
+      "role": "picture",
+      "word": "bug",
+      "source": "public/images/child-mode/cvc/bug.webp",
+      "path": "assets/pictures/bug.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "a1f73a862bc136be75dab71cd6805f4a7514b978c8bb1d53f52d7b82ff69c75b",
+      "bytes": 23610
+    },
+    {
+      "id": "picture:bun",
+      "role": "picture",
+      "word": "bun",
+      "source": "public/images/child-mode/short-u/bun.webp",
+      "path": "assets/pictures/bun.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "79b9d878c3747b0e46a350f9fd09a3b34eda919661b5f0a04fc73815c32d4083",
+      "bytes": 29594
+    },
+    {
+      "id": "picture:can",
+      "role": "picture",
+      "word": "can",
+      "source": "public/media/vocabulary/images/can.webp",
+      "path": "assets/pictures/can.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "1292d96ca358e6861557185ff821ad4976d388ecfcd49b8554552d6aca833381",
+      "bytes": 43762
+    },
+    {
+      "id": "picture:cap",
+      "role": "picture",
+      "word": "cap",
+      "source": "public/images/child-mode/cvc/cap.webp",
+      "path": "assets/pictures/cap.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "26fc8da551e59626238cb745d58f73424fc27382b7752308d4a617580a59f6d5",
+      "bytes": 46902
+    },
+    {
+      "id": "picture:cat",
+      "role": "picture",
+      "word": "cat",
+      "source": "public/images/child-mode/cvc/cat.webp",
+      "path": "assets/pictures/cat.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "bd51a3b68d16c660a0406222ae9cf566a802122db9cfdf1df111f2d77f0cd801",
+      "bytes": 40952
+    },
+    {
+      "id": "picture:cup",
+      "role": "picture",
+      "word": "cup",
+      "source": "public/images/assessment/objective-words/cup.webp",
+      "path": "assets/pictures/cup.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "3518e5049eb90be0ef12dba751e7a42787e0365c72ee05cbe61fa01384319c1b",
+      "bytes": 30388
+    },
+    {
+      "id": "picture:dog",
+      "role": "picture",
+      "word": "dog",
+      "source": "public/images/child-mode/cvc/dog.webp",
+      "path": "assets/pictures/dog.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "5c66f6579a2d45e4c6657d84181e3b18fbc62cd326211e370851b654ed59a8b7",
+      "bytes": 33974
+    },
+    {
+      "id": "picture:log",
+      "role": "picture",
+      "word": "log",
+      "source": "public/images/child-mode/cvc/log.webp",
+      "path": "assets/pictures/log.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "3d21f979cb6b7256a5abb06bafabedfa996ed86959332766d833f19266103e66",
+      "bytes": 20768
+    },
+    {
+      "id": "picture:map",
+      "role": "picture",
+      "word": "map",
+      "source": "public/images/child-mode/cvc/map.webp",
+      "path": "assets/pictures/map.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "f49d4cbb2e2df3d661d31cad8b715ab5d5348bd52b5bcb6c987e27ed052137cc",
+      "bytes": 68980
+    },
+    {
+      "id": "picture:mat",
+      "role": "picture",
+      "word": "mat",
+      "source": "public/media/initial-sounds/images/m/mat.webp",
+      "path": "assets/pictures/mat.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "26e569b73278d4799e5fc3243ba502bfd297a88b0878d3a30199f59c9d0b639f",
+      "bytes": 39554
+    },
+    {
+      "id": "picture:moon",
+      "role": "picture",
+      "word": "moon",
+      "source": "public/media/initial-sounds/images/m/moon.webp",
+      "path": "assets/pictures/moon.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "89057d8864ea8c4be77888b453f47ca68c60395c57114854d8c11d7d903fcd01",
+      "bytes": 40066
+    },
+    {
+      "id": "picture:mug",
+      "role": "picture",
+      "word": "mug",
+      "source": "public/images/child-mode/cvc/mug.webp",
+      "path": "assets/pictures/mug.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "912b0481770d3905cdf11286e0085898fd9aaa83e7b5fc81869f8cefdb0c6d01",
+      "bytes": 17992
+    },
+    {
+      "id": "picture:net",
+      "role": "picture",
+      "word": "net",
+      "source": "public/images/assessment/objective-words/net.webp",
+      "path": "assets/pictures/net.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "26bbab10e8b2e0ce06d5ca92ca39f88639f71f4688f739e0dd7b0f22263e1626",
+      "bytes": 40662
+    },
+    {
+      "id": "picture:pan",
+      "role": "picture",
+      "word": "pan",
+      "source": "public/images/child-mode/cvc/pan.webp",
+      "path": "assets/pictures/pan.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "817f59088aecda17a296edb8bc5eeff0eb44577db52a4cba7c612ffc5a60c0f8",
+      "bytes": 15670
+    },
+    {
+      "id": "picture:pen",
+      "role": "picture",
+      "word": "pen",
+      "source": "public/images/assessment/objective-words/pen.webp",
+      "path": "assets/pictures/pen.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "60985708cdff39f68f870b60c911e4e608bee0203777e7868835d3acd224829a",
+      "bytes": 21498
+    },
+    {
+      "id": "picture:pig",
+      "role": "picture",
+      "word": "pig",
+      "source": "public/images/child-mode/short-i/pig.png",
+      "path": "assets/pictures/pig.png",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "85d96768983779c71c07a2bf4fca79b50345eb9d7d4f6429ef0e6795d3ab49d2",
+      "bytes": 64644
+    },
+    {
+      "id": "picture:pin",
+      "role": "picture",
+      "word": "pin",
+      "source": "public/images/child-mode/minimal-pairs/pin.png",
+      "path": "assets/pictures/pin.png",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "901199be4949d07ec819b2b7a91bcc98fae4da98e4a73a18b068439afa8c5d1d",
+      "bytes": 114557
+    },
+    {
+      "id": "picture:pot",
+      "role": "picture",
+      "word": "pot",
+      "source": "public/images/child-mode/cvc/pot.webp",
+      "path": "assets/pictures/pot.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "2a61eebd49eab4a6f225ef0adb0376a05d4f976baaa7a220a3be855c11fb636a",
+      "bytes": 22930
+    },
+    {
+      "id": "picture:pup",
+      "role": "picture",
+      "word": "pup",
+      "source": "public/images/assessment/rhyming/variants/pup/pup-02.webp",
+      "path": "assets/pictures/pup.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "19c0ba1ac52410a8a5a8238efac98e8ea9bfa568ecd125269ae327eb2dea3219",
+      "bytes": 136796
+    },
+    {
+      "id": "picture:sit",
+      "role": "picture",
+      "word": "sit",
+      "source": "public/images/child-mode/short-i/sit.png",
+      "path": "assets/pictures/sit.png",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "205ed03d40f3ec36eb0f20001d068fccdd87337041c11e5705a9785018a4e770",
+      "bytes": 62345
+    },
+    {
+      "id": "picture:soap",
+      "role": "picture",
+      "word": "soap",
+      "source": "public/media/initial-sounds/images/s/soap.webp",
+      "path": "assets/pictures/soap.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "203bc08de20f0fc91ebda4311883dd152c51f51558609c4829e082262a1712ff",
+      "bytes": 13008
+    },
+    {
+      "id": "picture:sock",
+      "role": "picture",
+      "word": "sock",
+      "source": "public/media/initial-sounds/images/s/sock.webp",
+      "path": "assets/pictures/sock.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "d3372e672f420b3a36b1a0c278c81e7d9fb5152b3af26ea6c7860b669f8c16c7",
+      "bytes": 45724
+    },
+    {
+      "id": "picture:sun",
+      "role": "picture",
+      "word": "sun",
+      "source": "public/images/child-mode/cvc/sun.webp",
+      "path": "assets/pictures/sun.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "d4685da33aed02915608170623c04a57273550536822e29d036e06dfbdad3c64",
+      "bytes": 6934
+    },
+    {
+      "id": "picture:tin",
+      "role": "picture",
+      "word": "tin",
+      "source": "public/media/vocabulary/images/tin.webp",
+      "path": "assets/pictures/tin.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "1af5e3d270f4e8e52fc467d7e43b17740259487289945f4547e2ddd9f2c67b3d",
+      "bytes": 111386
+    },
+    {
+      "id": "picture:van",
+      "role": "picture",
+      "word": "van",
+      "source": "public/images/child-mode/initial-sounds/van.webp",
+      "path": "assets/pictures/van.webp",
+      "sourceAuthority": "src/data/cycleWordBuildInventory.js",
+      "sha256": "a7bcdf3101ae2e3dc90aefbe6f11310cc99a8ed496103fa34c43b4672a6fe951",
+      "bytes": 24986
+    },
+    {
+      "id": "place-name-basket",
+      "role": "narration",
+      "text": "in the basket.",
+      "path": "assets/audio/chapter/place-name-basket.mp3",
+      "sha256": "6aec005bb73b976a49aaaa2d9dda30b242bb0fc70eef74b371bf60192818641b",
+      "bytes": 19688,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:28.526Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.152,
+        "meanVolumeDb": -24.2,
+        "peakDb": -11.3
+      }
+    },
+    {
+      "id": "place-name-mat",
+      "role": "narration",
+      "text": "on the mat.",
+      "path": "assets/audio/chapter/place-name-mat.mp3",
+      "sha256": "2fc1c797139b9b62bbb5946ce515de2f327afb32dfc312a3da07b93183c8a733",
+      "bytes": 23449,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:28.357Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.392,
+        "meanVolumeDb": -29.5,
+        "peakDb": -12.7
+      }
+    },
+    {
+      "id": "place-name-table",
+      "role": "narration",
+      "text": "under the table.",
+      "path": "assets/audio/chapter/place-name-table.mp3",
+      "sha256": "549500ff7a0b4e45ca7256d9180a6b1b347497803c9320d0cd1fdd07929b2427",
+      "bytes": 31808,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:29.202Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.92,
+        "meanVolumeDb": -30.2,
+        "peakDb": -13.9
+      }
+    },
+    {
+      "id": "place-retry-basket",
+      "role": "narration",
+      "text": "That's in the basket. Listen to where it belongs.",
+      "path": "assets/audio/chapter/place-retry-basket.mp3",
+      "sha256": "d873d1d21349c5f6a2c1e4819c5441bb2fb8032f401a6088c6385a3a66de838e",
+      "bytes": 57722,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:30.245Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 3.528,
+        "meanVolumeDb": -25,
+        "peakDb": -8.5
+      }
+    },
+    {
+      "id": "place-retry-mat",
+      "role": "narration",
+      "text": "That's on the mat. Listen to where it belongs.",
+      "path": "assets/audio/chapter/place-retry-mat.mp3",
+      "sha256": "f1807da38f33a48e2df0365b050d1d2534458a8fed14c568ac1ce53aebb301a7",
+      "bytes": 43511,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:29.421Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.664,
+        "meanVolumeDb": -23.2,
+        "peakDb": -9.6
+      }
+    },
+    {
+      "id": "place-retry-table",
+      "role": "narration",
+      "text": "That's under the table. Listen to where it belongs.",
+      "path": "assets/audio/chapter/place-retry-table.mp3",
+      "sha256": "7b2eded96e7de3fb9354eaf8093d78a573d6b83fe97ad6a67e7c065f5dfdda5e",
+      "bytes": 51035,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:30.435Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 3.12,
+        "meanVolumeDb": -24.1,
+        "peakDb": -6.9
+      }
+    },
+    {
+      "id": "placed-bag-basket",
+      "role": "narration",
+      "text": "The bag is in the basket.",
+      "path": "assets/audio/chapter/placed-bag-basket.mp3",
+      "sha256": "f0376f9d063aa022d7a5bfdcb37a3d6dc5843041f9fa451524f2e9b5add3441e",
+      "bytes": 31808,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:44.597Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.92,
+        "meanVolumeDb": -23.9,
+        "peakDb": -9.9
+      }
+    },
+    {
+      "id": "placed-bag-mat",
+      "role": "narration",
+      "text": "The bag is on the mat.",
+      "path": "assets/audio/chapter/placed-bag-mat.mp3",
+      "sha256": "00938363b945c078f5e2fa7b444c758c643839592da65f03c50e3f831c909532",
+      "bytes": 38914,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:43.325Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.376,
+        "meanVolumeDb": -21.5,
+        "peakDb": -4.4
+      }
+    },
+    {
+      "id": "placed-bag-table",
+      "role": "narration",
+      "text": "The bag is under the table.",
+      "path": "assets/audio/chapter/placed-bag-table.mp3",
+      "sha256": "6c21f7580b70133c7def579e48622ae8073a6eee60c510ddd4e9b712f0f9b453",
+      "bytes": 24285,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:45.979Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.44,
+        "meanVolumeDb": -26,
+        "peakDb": -10.5
+      }
+    },
+    {
+      "id": "placed-bun-basket",
+      "role": "narration",
+      "text": "The bun is in the basket.",
+      "path": "assets/audio/chapter/placed-bun-basket.mp3",
+      "sha256": "627732d76dfb0d8814895fa350768fdc666bd16edd5e6039b2f19c8019abbfb3",
+      "bytes": 31808,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:09.105Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.92,
+        "meanVolumeDb": -21.2,
+        "peakDb": -5.5
+      }
+    },
+    {
+      "id": "placed-bun-mat",
+      "role": "narration",
+      "text": "The bun is on the mat.",
+      "path": "assets/audio/chapter/placed-bun-mat.mp3",
+      "sha256": "d49a6ed2d35f7c69be378142edfde7b34ebebd8d8807d7971e21e65c48a40dbe",
+      "bytes": 21359,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:07.919Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.272,
+        "meanVolumeDb": -22.6,
+        "peakDb": -9.4
+      }
+    },
+    {
+      "id": "placed-bun-table",
+      "role": "narration",
+      "text": "The bun is under the table.",
+      "path": "assets/audio/chapter/placed-bun-table.mp3",
+      "sha256": "bc20b29771a7166dd8a17ec1d6f710948855f1ddfc567e0326741311f48c0e4f",
+      "bytes": 25957,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:10.349Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.56,
+        "meanVolumeDb": -22.4,
+        "peakDb": -6.6
+      }
+    },
+    {
+      "id": "placed-can-basket",
+      "role": "narration",
+      "text": "The can is in the basket.",
+      "path": "assets/audio/chapter/placed-can-basket.mp3",
+      "sha256": "960616a16c802ef4895eeac5c43a6356c0e7b50f099c1ca2aa0329a5af59b200",
+      "bytes": 30555,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:51.487Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.848,
+        "meanVolumeDb": -24.4,
+        "peakDb": -10.1
+      }
+    },
+    {
+      "id": "placed-can-mat",
+      "role": "narration",
+      "text": "The can is on the mat.",
+      "path": "assets/audio/chapter/placed-can-mat.mp3",
+      "sha256": "12f3f71678ceaf3c2006dd2afb03defb04425679fbf48d9e027c9915aace85f0",
+      "bytes": 28883,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:50.279Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.728,
+        "meanVolumeDb": -22.5,
+        "peakDb": -11.1
+      }
+    },
+    {
+      "id": "placed-can-table",
+      "role": "narration",
+      "text": "The can is under the table.",
+      "path": "assets/audio/chapter/placed-can-table.mp3",
+      "sha256": "84afd879f230566a7ffb515a96841a3a214d7dde02aa7fd543dbb8b979ab21b8",
+      "bytes": 28883,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:52.601Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.728,
+        "meanVolumeDb": -24.9,
+        "peakDb": -11.9
+      }
+    },
+    {
+      "id": "placed-cap-basket",
+      "role": "narration",
+      "text": "The cap is in the basket.",
+      "path": "assets/audio/chapter/placed-cap-basket.mp3",
+      "sha256": "5c3a475ba54327cdc55b19c83097fa5c30618de38c134876cb00128483b6fc61",
+      "bytes": 25957,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:40.505Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.56,
+        "meanVolumeDb": -24.1,
+        "peakDb": -7.3
+      }
+    },
+    {
+      "id": "placed-cap-mat",
+      "role": "narration",
+      "text": "The cap is on the mat.",
+      "path": "assets/audio/chapter/placed-cap-mat.mp3",
+      "sha256": "bc88fe3afe8048ff9ef187895d5bfa5e63fce78947ba63ad1b5ada686769b895",
+      "bytes": 28883,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:38.329Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.728,
+        "meanVolumeDb": -21.6,
+        "peakDb": -7.5
+      }
+    },
+    {
+      "id": "placed-cap-table",
+      "role": "narration",
+      "text": "The cap is under the table.",
+      "path": "assets/audio/chapter/placed-cap-table.mp3",
+      "sha256": "eab0791f9b542d57895a660668d5e21b5be5f8778626036aad70b64f06783a93",
+      "bytes": 25957,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:41.601Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.56,
+        "meanVolumeDb": -25.7,
+        "peakDb": -9.8
+      }
+    },
+    {
+      "id": "placed-cup-basket",
+      "role": "narration",
+      "text": "The cup is in the basket.",
+      "path": "assets/audio/chapter/placed-cup-basket.mp3",
+      "sha256": "9ff4bc928fcd79c8ada5c51242b7d735a74934906f6d22a87832f68c122d96d8",
+      "bytes": 28883,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:32.120Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.728,
+        "meanVolumeDb": -25,
+        "peakDb": -10
+      }
+    },
+    {
+      "id": "placed-cup-mat",
+      "role": "narration",
+      "text": "The cup is on the mat.",
+      "path": "assets/audio/chapter/placed-cup-mat.mp3",
+      "sha256": "843eb72890a6c1bdd6de017665e7732b3324b0048182677e29d7b0694efbf869",
+      "bytes": 29719,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:31.270Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.8,
+        "meanVolumeDb": -25.4,
+        "peakDb": -9.1
+      }
+    },
+    {
+      "id": "placed-cup-table",
+      "role": "narration",
+      "text": "The cup is under the table.",
+      "path": "assets/audio/chapter/placed-cup-table.mp3",
+      "sha256": "d1608b59c6314a9660156205f074d305b7e1ae2e42ca834d6a10d16edfe8263e",
+      "bytes": 43511,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:33.018Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.664,
+        "meanVolumeDb": -27.9,
+        "peakDb": -10
+      }
+    },
+    {
+      "id": "placed-map-basket",
+      "role": "narration",
+      "text": "The map is in the basket.",
+      "path": "assets/audio/chapter/placed-map-basket.mp3",
+      "sha256": "ef6bae4a7901b402a7d1ac4e24c7dd64e19820cb592a248e6471b4437897bacf",
+      "bytes": 22195,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:58.403Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.32,
+        "meanVolumeDb": -23,
+        "peakDb": -10.8
+      }
+    },
+    {
+      "id": "placed-map-mat",
+      "role": "narration",
+      "text": "The map is on the mat.",
+      "path": "assets/audio/chapter/placed-map-mat.mp3",
+      "sha256": "0b191e278ec9754d162c8715fe936ba4af917a31e4f2b9575445393bdf0e8b29",
+      "bytes": 38914,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:57.317Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.376,
+        "meanVolumeDb": -24.9,
+        "peakDb": -9.1
+      }
+    },
+    {
+      "id": "placed-map-table",
+      "role": "narration",
+      "text": "The map is under the table.",
+      "path": "assets/audio/chapter/placed-map-table.mp3",
+      "sha256": "03700c2973d8fcddc80b09e872157f81a2d057168e3d86dac2efa02728abc58b",
+      "bytes": 36406,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:59.727Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.208,
+        "meanVolumeDb": -24.1,
+        "peakDb": -5.4
+      }
+    },
+    {
+      "id": "placed-mug-basket",
+      "role": "narration",
+      "text": "The mug is in the basket.",
+      "path": "assets/audio/chapter/placed-mug-basket.mp3",
+      "sha256": "bab926772513fd0e617bdec24296f7857a28c8f2576c4f980d4031ef3372b609",
+      "bytes": 28883,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:35.340Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.728,
+        "meanVolumeDb": -23.3,
+        "peakDb": -9.5
+      }
+    },
+    {
+      "id": "placed-mug-mat",
+      "role": "narration",
+      "text": "The mug is on the mat.",
+      "path": "assets/audio/chapter/placed-mug-mat.mp3",
+      "sha256": "875aa1d1ac1c8a2ddcff43c583a40e46a96359f8a17128a1d0068aa1dc4de9a3",
+      "bytes": 19688,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:33.884Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.152,
+        "meanVolumeDb": -19.8,
+        "peakDb": -8.4
+      }
+    },
+    {
+      "id": "placed-mug-table",
+      "role": "narration",
+      "text": "The mug is under the table.",
+      "path": "assets/audio/chapter/placed-mug-table.mp3",
+      "sha256": "aee4b1198d1b1062ed7cfedcdf1ceb37c0ec06f59c4e3435a900c97f5642bf68",
+      "bytes": 38078,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:36.807Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.304,
+        "meanVolumeDb": -23.3,
+        "peakDb": -9.4
+      }
+    },
+    {
+      "id": "placed-net-basket",
+      "role": "narration",
+      "text": "The net is in the basket.",
+      "path": "assets/audio/chapter/placed-net-basket.mp3",
+      "sha256": "53aafafee0826e98d61918e7978a2025ee1c94515d7f7e4c831012a2c6fdaa57",
+      "bytes": 38914,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:06.126Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.376,
+        "meanVolumeDb": -21.8,
+        "peakDb": -7.8
+      }
+    },
+    {
+      "id": "placed-net-mat",
+      "role": "narration",
+      "text": "The net is on the mat.",
+      "path": "assets/audio/chapter/placed-net-mat.mp3",
+      "sha256": "71b53bcd81bf067ec6f1e9fda1b3be0be9118509f5fa4d324cc7998d4bc8527e",
+      "bytes": 39750,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:04.894Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.424,
+        "meanVolumeDb": -26.3,
+        "peakDb": -9.3
+      }
+    },
+    {
+      "id": "placed-net-table",
+      "role": "narration",
+      "text": "The net is under the table.",
+      "path": "assets/audio/chapter/placed-net-table.mp3",
+      "sha256": "eb1687e32a040005daac3125c5baa99194383ca1728a0a697ed9f1a011caa475",
+      "bytes": 25957,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:07.045Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.56,
+        "meanVolumeDb": -20.9,
+        "peakDb": -8.3
+      }
+    },
+    {
+      "id": "placed-pan-basket",
+      "role": "narration",
+      "text": "The pan is in the basket.",
+      "path": "assets/audio/chapter/placed-pan-basket.mp3",
+      "sha256": "cad6c91eb483316174c6e181c79c80f3932514fa4b5663098ed632eeff54c04d",
+      "bytes": 33480,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:54.993Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.016,
+        "meanVolumeDb": -24.6,
+        "peakDb": -9.6
+      }
+    },
+    {
+      "id": "placed-pan-mat",
+      "role": "narration",
+      "text": "The pan is on the mat.",
+      "path": "assets/audio/chapter/placed-pan-mat.mp3",
+      "sha256": "df86fa7544c040039ab4f45ecab3ddb7a4907c7d5fe7c3e68b2e95752aae74a9",
+      "bytes": 33480,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:53.886Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.016,
+        "meanVolumeDb": -27.2,
+        "peakDb": -10.6
+      }
+    },
+    {
+      "id": "placed-pan-table",
+      "role": "narration",
+      "text": "The pan is under the table.",
+      "path": "assets/audio/chapter/placed-pan-table.mp3",
+      "sha256": "05d9762c5de7412398b53d90ea79743032cfb0b73ac4da70c4af38542123f7bc",
+      "bytes": 32644,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:56.186Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.968,
+        "meanVolumeDb": -27.3,
+        "peakDb": -12.2
+      }
+    },
+    {
+      "id": "placed-pen-basket",
+      "role": "narration",
+      "text": "The pen is in the basket.",
+      "path": "assets/audio/chapter/placed-pen-basket.mp3",
+      "sha256": "5886eaf0a0e12177aa312b9c663bddd383a85193fd09c53d20e5f3467d4cd83a",
+      "bytes": 28883,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:02.320Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.728,
+        "meanVolumeDb": -22.5,
+        "peakDb": -8.1
+      }
+    },
+    {
+      "id": "placed-pen-mat",
+      "role": "narration",
+      "text": "The pen is on the mat.",
+      "path": "assets/audio/chapter/placed-pen-mat.mp3",
+      "sha256": "ff4071e6a81e6f1b8f26d1368cd9e4868f270e9616713e7ae90db2f1ec42ab90",
+      "bytes": 38914,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:01.046Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.376,
+        "meanVolumeDb": -29.3,
+        "peakDb": -12
+      }
+    },
+    {
+      "id": "placed-pen-table",
+      "role": "narration",
+      "text": "The pen is under the table.",
+      "path": "assets/audio/chapter/placed-pen-table.mp3",
+      "sha256": "7e1123537d3dba41eefab14a4c3220945ad19f349a5b33027fd5f59fceb30721",
+      "bytes": 34316,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:03.557Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.088,
+        "meanVolumeDb": -25.5,
+        "peakDb": -11
+      }
+    },
+    {
+      "id": "placed-pot-basket",
+      "role": "narration",
+      "text": "The pot is in the basket.",
+      "path": "assets/audio/chapter/placed-pot-basket.mp3",
+      "sha256": "734268cf3af788908a5006f078666f83f38b5f66a5d47acf851bf909f979e470",
+      "bytes": 25957,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:12.634Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.56,
+        "meanVolumeDb": -22.2,
+        "peakDb": -6.6
+      }
+    },
+    {
+      "id": "placed-pot-mat",
+      "role": "narration",
+      "text": "The pot is on the mat.",
+      "path": "assets/audio/chapter/placed-pot-mat.mp3",
+      "sha256": "fc79429aafd1cb5575ba29ff6353bc0e3de9267808315613d0ae9db36e15380d",
+      "bytes": 30555,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:11.463Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.848,
+        "meanVolumeDb": -23.6,
+        "peakDb": -7.2
+      }
+    },
+    {
+      "id": "placed-pot-table",
+      "role": "narration",
+      "text": "The pot is under the table.",
+      "path": "assets/audio/chapter/placed-pot-table.mp3",
+      "sha256": "0b680810f2e4b798fde8b76c41491fc148b29da80e79b66d2a3dd7e51da829e9",
+      "bytes": 38914,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:13.939Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.376,
+        "meanVolumeDb": -24.8,
+        "peakDb": -8.8
+      }
+    },
+    {
+      "id": "placed-tin-basket",
+      "role": "narration",
+      "text": "The tin is in the basket.",
+      "path": "assets/audio/chapter/placed-tin-basket.mp3",
+      "sha256": "43e993f5f42f821b63b95645d5577db858ce019984beda6c567089a95f31eaec",
+      "bytes": 33480,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:48.096Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.016,
+        "meanVolumeDb": -23.6,
+        "peakDb": -10
+      }
+    },
+    {
+      "id": "placed-tin-mat",
+      "role": "narration",
+      "text": "The tin is on the mat.",
+      "path": "assets/audio/chapter/placed-tin-mat.mp3",
+      "sha256": "713db7e6b2edbd79f4d04d6132d55d5c831d5a6565916b98480658603e7f8950",
+      "bytes": 23449,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:46.953Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.392,
+        "meanVolumeDb": -22.4,
+        "peakDb": -10.6
+      }
+    },
+    {
+      "id": "placed-tin-table",
+      "role": "narration",
+      "text": "The tin is under the table.",
+      "path": "assets/audio/chapter/placed-tin-table.mp3",
+      "sha256": "d6a01b0515dc7910289788f5ab51116aee92c91ed47c55633d5dcf43d2214779",
+      "bytes": 25957,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:49.280Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.56,
+        "meanVolumeDb": -23.8,
+        "peakDb": -11
+      }
+    },
+    {
+      "id": "put-bag-basket",
+      "role": "narration",
+      "text": "Put the bag in the basket.",
+      "path": "assets/audio/chapter/put-bag-basket.mp3",
+      "sha256": "a694a1efffa6816d0ae3f3d13d3446a22eeef2f63b75fc707253303afbf13782",
+      "bytes": 28883,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:44.142Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.728,
+        "meanVolumeDb": -24.3,
+        "peakDb": -10
+      }
+    },
+    {
+      "id": "put-bag-mat",
+      "role": "narration",
+      "text": "Put the bag on the mat.",
+      "path": "assets/audio/chapter/put-bag-mat.mp3",
+      "sha256": "1cb2c8973639ca4177bfd8a519d91b9e18db90190fea2fd5372f8c1a6289a667",
+      "bytes": 29719,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:42.840Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.8,
+        "meanVolumeDb": -22.2,
+        "peakDb": -7.4
+      }
+    },
+    {
+      "id": "put-bag-table",
+      "role": "narration",
+      "text": "Put the bag under the table.",
+      "path": "assets/audio/chapter/put-bag-table.mp3",
+      "sha256": "8e901657753d5d506431f611ce9546278b6c6d1fdcf01346bc1b649fbe9c9ea4",
+      "bytes": 23449,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:45.595Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.392,
+        "meanVolumeDb": -22.6,
+        "peakDb": -9.7
+      }
+    },
+    {
+      "id": "put-bun-basket",
+      "role": "narration",
+      "text": "Put the bun in the basket.",
+      "path": "assets/audio/chapter/put-bun-basket.mp3",
+      "sha256": "ad484ff73e2496e1a78bbbb7698a16d7fbb767e0c4f00a2cad22b96762fa7fe7",
+      "bytes": 34316,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:08.704Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.088,
+        "meanVolumeDb": -25.8,
+        "peakDb": -10.6
+      }
+    },
+    {
+      "id": "put-bun-mat",
+      "role": "narration",
+      "text": "Put the bun on the mat.",
+      "path": "assets/audio/chapter/put-bun-mat.mp3",
+      "sha256": "06a073ffd666dffa6d2cc519d968d5da46c485686d2de9bd8cdc670bb91ca618",
+      "bytes": 28047,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:07.573Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.68,
+        "meanVolumeDb": -26.9,
+        "peakDb": -10.9
+      }
+    },
+    {
+      "id": "put-bun-table",
+      "role": "narration",
+      "text": "Put the bun under the table.",
+      "path": "assets/audio/chapter/put-bun-table.mp3",
+      "sha256": "b62ce9c0868da0f32f21b1a0925e2acd908106d0d52caf2280d131c5b2953fde",
+      "bytes": 25957,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:09.959Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.56,
+        "meanVolumeDb": -22.5,
+        "peakDb": -9.6
+      }
+    },
+    {
+      "id": "put-can-basket",
+      "role": "narration",
+      "text": "Put the can in the basket.",
+      "path": "assets/audio/chapter/put-can-basket.mp3",
+      "sha256": "f395616a8a723bbcd3da89165f523e393d4b7394ab6996b0138c831af2f1ddf7",
+      "bytes": 24285,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:50.825Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.44,
+        "meanVolumeDb": -22.9,
+        "peakDb": -10.2
+      }
+    },
+    {
+      "id": "put-can-mat",
+      "role": "narration",
+      "text": "Put the can on the mat.",
+      "path": "assets/audio/chapter/put-can-mat.mp3",
+      "sha256": "91cba67dcb6035a9b6096fdbe0bca0764c721dde3e306465cf1ec90962f069ca",
+      "bytes": 19688,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:49.686Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.152,
+        "meanVolumeDb": -23.9,
+        "peakDb": -12.2
+      }
+    },
+    {
+      "id": "put-can-table",
+      "role": "narration",
+      "text": "Put the can under the table.",
+      "path": "assets/audio/chapter/put-can-table.mp3",
+      "sha256": "dd8bdc1cfd9e0648ee24ebb99d260ccdfdde2579266039e0e5263bc554c71967",
+      "bytes": 28883,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:52.093Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.728,
+        "meanVolumeDb": -25.7,
+        "peakDb": -11
+      }
+    },
+    {
+      "id": "put-cap-basket",
+      "role": "narration",
+      "text": "Put the cap in the basket.",
+      "path": "assets/audio/chapter/put-cap-basket.mp3",
+      "sha256": "e317a7610c817a89658f6a1bfd72e978cd64517f863c102ae50a1b6db966aa4e",
+      "bytes": 21359,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:39.216Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.272,
+        "meanVolumeDb": -24.2,
+        "peakDb": -8.8
+      }
+    },
+    {
+      "id": "put-cap-mat",
+      "role": "narration",
+      "text": "Put the cap on the mat.",
+      "path": "assets/audio/chapter/put-cap-mat.mp3",
+      "sha256": "0414cb9a0ab3d16b8de43592e5248aa41fd372c9ccd56306d9c5e293444427f4",
+      "bytes": 37242,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:37.610Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.256,
+        "meanVolumeDb": -27.2,
+        "peakDb": -8.9
+      }
+    },
+    {
+      "id": "put-cap-table",
+      "role": "narration",
+      "text": "Put the cap under the table.",
+      "path": "assets/audio/chapter/put-cap-table.mp3",
+      "sha256": "2f1a23ea51a3905829a976b727ca2bf42e783983f5534825478f66a2b06dd11d",
+      "bytes": 36406,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:41.070Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.208,
+        "meanVolumeDb": -25.2,
+        "peakDb": -7.5
+      }
+    },
+    {
+      "id": "put-cup-basket",
+      "role": "narration",
+      "text": "Put the cup in the basket.",
+      "path": "assets/audio/chapter/put-cup-basket.mp3",
+      "sha256": "b2d06f935a3f20a313a66fd93df412e80b5295c457e47bc45698f36c9b247351",
+      "bytes": 25957,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:31.941Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.56,
+        "meanVolumeDb": -26.4,
+        "peakDb": -10.8
+      }
+    },
+    {
+      "id": "put-cup-mat",
+      "role": "narration",
+      "text": "Put the cup on the mat.",
+      "path": "assets/audio/chapter/put-cup-mat.mp3",
+      "sha256": "ea44ff2d1076d2fd5041d36f3184e7c0b7c06135baea63ab5570397e88ba89a9",
+      "bytes": 28883,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:31.100Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.728,
+        "meanVolumeDb": -24.9,
+        "peakDb": -8.7
+      }
+    },
+    {
+      "id": "put-cup-table",
+      "role": "narration",
+      "text": "Put the cup under the table.",
+      "path": "assets/audio/chapter/put-cup-table.mp3",
+      "sha256": "a25024e3842fd0aae6de12a8d47e4b3e61e29cd72741d933880d49c87ad6212b",
+      "bytes": 23449,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:32.694Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.392,
+        "meanVolumeDb": -22.2,
+        "peakDb": -8.1
+      }
+    },
+    {
+      "id": "put-map-basket",
+      "role": "narration",
+      "text": "Put the map in the basket.",
+      "path": "assets/audio/chapter/put-map-basket.mp3",
+      "sha256": "d3f73531eedb152f5b65c5ea0c5e2d993633aef600ed30f7f63012c7791ee4c5",
+      "bytes": 43093,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:57.977Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.616,
+        "meanVolumeDb": -26.6,
+        "peakDb": -10.3
+      }
+    },
+    {
+      "id": "put-map-mat",
+      "role": "narration",
+      "text": "Put the map on the mat.",
+      "path": "assets/audio/chapter/put-map-mat.mp3",
+      "sha256": "04ebe852327026281707540b42036d17a4af21df13ea607fd9624668197da519",
+      "bytes": 21359,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:56.839Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.272,
+        "meanVolumeDb": -23.6,
+        "peakDb": -10.2
+      }
+    },
+    {
+      "id": "put-map-table",
+      "role": "narration",
+      "text": "Put the map under the table.",
+      "path": "assets/audio/chapter/put-map-table.mp3",
+      "sha256": "f38cbf2038c4217c7800de1e0b297d9d43b74e8a8305526987114a73167852d8",
+      "bytes": 31808,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:59.088Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.92,
+        "meanVolumeDb": -24.9,
+        "peakDb": -9.8
+      }
+    },
+    {
+      "id": "put-mug-basket",
+      "role": "narration",
+      "text": "Put the mug in the basket.",
+      "path": "assets/audio/chapter/put-mug-basket.mp3",
+      "sha256": "0897ba46979842b9ba3bc1d27717db6601a46f179eebbf390afc4ee76f85cf61",
+      "bytes": 31808,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:34.744Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.92,
+        "meanVolumeDb": -24.4,
+        "peakDb": -10.8
+      }
+    },
+    {
+      "id": "put-mug-mat",
+      "role": "narration",
+      "text": "Put the mug on the mat.",
+      "path": "assets/audio/chapter/put-mug-mat.mp3",
+      "sha256": "6ac2cf4aa3c74f9756d316f2972a61493d4cd14065336e9fa2bc91664e9ebf95",
+      "bytes": 19688,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:33.434Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.152,
+        "meanVolumeDb": -22.1,
+        "peakDb": -10
+      }
+    },
+    {
+      "id": "put-mug-table",
+      "role": "narration",
+      "text": "Put the mug under the table.",
+      "path": "assets/audio/chapter/put-mug-table.mp3",
+      "sha256": "0c587a7a33306bf03a48326818f32680e603c5f6572cf9fe22f89cf77731a318",
+      "bytes": 37242,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:35.856Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.256,
+        "meanVolumeDb": -25.8,
+        "peakDb": -11.1
+      }
+    },
+    {
+      "id": "put-net-basket",
+      "role": "narration",
+      "text": "Put the net in the basket.",
+      "path": "assets/audio/chapter/put-net-basket.mp3",
+      "sha256": "0dab90ab4d77c582a18d988434068db12e8ed6cb1d8cbc4ebd034210ff237314",
+      "bytes": 31808,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:05.411Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.92,
+        "meanVolumeDb": -25.7,
+        "peakDb": -11.3
+      }
+    },
+    {
+      "id": "put-net-mat",
+      "role": "narration",
+      "text": "Put the net on the mat.",
+      "path": "assets/audio/chapter/put-net-mat.mp3",
+      "sha256": "1c6c38fc3ae3e660df3e7aa49feeb4aaeb768483f6dadd6aaa8202cea97821a2",
+      "bytes": 29719,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:03.942Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.8,
+        "meanVolumeDb": -25.2,
+        "peakDb": -9.5
+      }
+    },
+    {
+      "id": "put-net-table",
+      "role": "narration",
+      "text": "Put the net under the table.",
+      "path": "assets/audio/chapter/put-net-table.mp3",
+      "sha256": "0caa5fb918e5a15053da123990c4f29a727e425d22205333fd38553f50d17c4f",
+      "bytes": 28883,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:06.559Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.728,
+        "meanVolumeDb": -24,
+        "peakDb": -8.1
+      }
+    },
+    {
+      "id": "put-pan-basket",
+      "role": "narration",
+      "text": "Put the pan in the basket.",
+      "path": "assets/audio/chapter/put-pan-basket.mp3",
+      "sha256": "f720b5ae87e9349069c8bebf712266587b6b7c11223f72a94120f17892069593",
+      "bytes": 36406,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:54.531Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.208,
+        "meanVolumeDb": -27.6,
+        "peakDb": -12
+      }
+    },
+    {
+      "id": "put-pan-mat",
+      "role": "narration",
+      "text": "Put the pan on the mat.",
+      "path": "assets/audio/chapter/put-pan-mat.mp3",
+      "sha256": "f8e446092e440c68223fbe8b397d5ee0fb0e28012ab78b86b29f2a360035507c",
+      "bytes": 28883,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:53.384Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.728,
+        "meanVolumeDb": -22.6,
+        "peakDb": -10
+      }
+    },
+    {
+      "id": "put-pan-table",
+      "role": "narration",
+      "text": "Put the pan under the table.",
+      "path": "assets/audio/chapter/put-pan-table.mp3",
+      "sha256": "5bbfbf419e334ada3d90e38429361daef26b53f2f46f606b04fc5fd74c940b7a",
+      "bytes": 41839,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:55.770Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.544,
+        "meanVolumeDb": -25.5,
+        "peakDb": -9.6
+      }
+    },
+    {
+      "id": "put-pen-basket",
+      "role": "narration",
+      "text": "Put the pen in the basket.",
+      "path": "assets/audio/chapter/put-pen-basket.mp3",
+      "sha256": "5888ea02d79318f44ac868bceef1177cf44dbf85650c6d1cbfa28d2436e43317",
+      "bytes": 28883,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:01.665Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.728,
+        "meanVolumeDb": -28.3,
+        "peakDb": -10.8
+      }
+    },
+    {
+      "id": "put-pen-mat",
+      "role": "narration",
+      "text": "Put the pen on the mat.",
+      "path": "assets/audio/chapter/put-pen-mat.mp3",
+      "sha256": "477685829d4cb5febc5f1a9cde26110775a9bb76646af6273eee89be96e6cd7c",
+      "bytes": 28883,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:00.443Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.728,
+        "meanVolumeDb": -28.3,
+        "peakDb": -11.3
+      }
+    },
+    {
+      "id": "put-pen-table",
+      "role": "narration",
+      "text": "Put the pen under the table.",
+      "path": "assets/audio/chapter/put-pen-table.mp3",
+      "sha256": "a62142e7717158fb5ebb0982e69b9d59300d09063cb653f989942d4e64dc9d5c",
+      "bytes": 35152,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:02.949Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.136,
+        "meanVolumeDb": -25.4,
+        "peakDb": -8.8
+      }
+    },
+    {
+      "id": "put-pot-basket",
+      "role": "narration",
+      "text": "Put the pot in the basket.",
+      "path": "assets/audio/chapter/put-pot-basket.mp3",
+      "sha256": "769aacfbe4aa8783e741ca63f31bbc1ad482ba467efeaaae9ed4a2382f1567b8",
+      "bytes": 38078,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:12.215Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.304,
+        "meanVolumeDb": -23.5,
+        "peakDb": -5.5
+      }
+    },
+    {
+      "id": "put-pot-mat",
+      "role": "narration",
+      "text": "Put the pot on the mat.",
+      "path": "assets/audio/chapter/put-pot-mat.mp3",
+      "sha256": "514c83c14a26477cab90a4828ed4d8aaf841522f41ca93df0e59fb2985355b77",
+      "bytes": 43093,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:11.112Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.616,
+        "meanVolumeDb": -26.8,
+        "peakDb": -9.4
+      }
+    },
+    {
+      "id": "put-pot-table",
+      "role": "narration",
+      "text": "Put the pot under the table.",
+      "path": "assets/audio/chapter/put-pot-table.mp3",
+      "sha256": "0444b7a21a17ecf02c7ef513305608d7820b2ef8553e4fbcd42bdbfbd4de1c8a",
+      "bytes": 38914,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:49:13.417Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 2.376,
+        "meanVolumeDb": -25,
+        "peakDb": -8
+      }
+    },
+    {
+      "id": "put-tin-basket",
+      "role": "narration",
+      "text": "Put the tin in the basket.",
+      "path": "assets/audio/chapter/put-tin-basket.mp3",
+      "sha256": "67616c1c3b3523a8c5ad56b4d2a11b4b43a2f57aec22c1debfc56f131ad5f6c7",
+      "bytes": 19688,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:47.688Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.152,
+        "meanVolumeDb": -26.4,
+        "peakDb": -13.1
+      }
+    },
+    {
+      "id": "put-tin-mat",
+      "role": "narration",
+      "text": "Put the tin on the mat.",
+      "path": "assets/audio/chapter/put-tin-mat.mp3",
+      "sha256": "8bc2dd1b2b20326cec49c20bedc4ba3b3871c653ec4002b6b4cd95f76a45f5a4",
+      "bytes": 22195,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:46.593Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.32,
+        "meanVolumeDb": -23.8,
+        "peakDb": -11.1
+      }
+    },
+    {
+      "id": "put-tin-table",
+      "role": "narration",
+      "text": "Put the tin under the table.",
+      "path": "assets/audio/chapter/put-tin-table.mp3",
+      "sha256": "e68db3e470b3e41807a909fac6349034d057cfbcd5fad11d12a311594916d4c6",
+      "bytes": 28047,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:48.722Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 1.68,
+        "meanVolumeDb": -27.3,
+        "peakDb": -12.2
+      }
+    },
+    {
+      "id": "story-brook-build",
+      "role": "narration",
+      "text": "Build each word, one sound at a time. Every word makes another piece of the crossing.",
+      "path": "assets/audio/chapter/story-brook-build.mp3",
+      "sha256": "852ad72b6764cb398a2654fbf6414aa70764870a06bd4b6340281e87795149b1",
+      "bytes": 101190,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:14.218Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 6.264,
+        "meanVolumeDb": -24.2,
+        "peakDb": -6.5
+      }
+    },
+    {
+      "id": "story-brook-sort",
+      "role": "narration",
+      "text": "Sort the last bridge parcels by their first sound. Then Splashy can finish the crossing.",
+      "path": "assets/audio/chapter/story-brook-sort.mp3",
+      "sha256": "f74cdacecb6fbbbbdba00adbbe9a8816911f70a77e42b2c4adfb34905700b337",
+      "bytes": 98682,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:15.533Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 6.096,
+        "meanVolumeDb": -28.3,
+        "peakDb": -10.2
+      }
+    },
+    {
+      "id": "story-brook-stones",
+      "role": "narration",
+      "text": "Splashy cannot cross the brook. Find the first letters to uncover the missing stones.",
+      "path": "assets/audio/chapter/story-brook-stones.mp3",
+      "sha256": "042eadcdcbc5b734de2646fb24de8f095cfab2fd0a089aa1846212eb32de4f4c",
+      "bytes": 85725,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:12.676Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 5.28,
+        "meanVolumeDb": -27.1,
+        "peakDb": -6.1
+      }
+    },
+    {
+      "id": "story-garden-grow",
+      "role": "narration",
+      "text": "Clucky has found sleepy lantern flowers. Plant the sounds in order to wake them.",
+      "path": "assets/audio/chapter/story-garden-grow.mp3",
+      "sha256": "3d3c19802735ab397a62515f3df827db0c0ea5fec94829e680b14f52f792ff93",
+      "bytes": 85725,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:16.603Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 5.28,
+        "meanVolumeDb": -25.4,
+        "peakDb": -6
+      }
+    },
+    {
+      "id": "story-garden-place",
+      "role": "narration",
+      "text": "Help Clucky put her garden things where she needs them. Listen to each little job.",
+      "path": "assets/audio/chapter/story-garden-place.mp3",
+      "sha256": "c2a8c86ab379947f095617da34a8becedc59ea131af06f491c8747f3faf88673",
+      "bytes": 94920,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:17.901Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 5.856,
+        "meanVolumeDb": -24.6,
+        "peakDb": -3.3
+      }
+    },
+    {
+      "id": "story-garden-sort",
+      "role": "narration",
+      "text": "Sort the picture seeds into their sound baskets. The whole garden will glow.",
+      "path": "assets/audio/chapter/story-garden-sort.mp3",
+      "sha256": "78fecba28f85de685bb7ec82886577292bee063205f167a0ba74370957fbaea1",
+      "bytes": 76530,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:19.165Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 4.704,
+        "meanVolumeDb": -26.5,
+        "peakDb": -8.9
+      }
+    },
+    {
+      "id": "story-parcels-label",
+      "role": "narration",
+      "text": "The picnic parcels have lost their middle letters. Listen to each word and finish its label.",
+      "path": "assets/audio/chapter/story-parcels-label.mp3",
+      "sha256": "8e031922ee7e01e28ddca0db576e1ddd447ff4de347e783250b8c6274ef2e20f",
+      "bytes": 105787,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:20.619Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 6.552,
+        "meanVolumeDb": -27.1,
+        "peakDb": -8.3
+      }
+    },
+    {
+      "id": "story-parcels-place",
+      "role": "narration",
+      "text": "Listen and put each delivery in its place. Everything will be ready for the gathering.",
+      "path": "assets/audio/chapter/story-parcels-place.mp3",
+      "sha256": "140c81467885b4b1c149b82163815d7e7a8d97eac91ef7e4465581ecedbf6022",
+      "bytes": 81546,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:23.170Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 5.04,
+        "meanVolumeDb": -26.4,
+        "peakDb": -7.4
+      }
+    },
+    {
+      "id": "story-parcels-sort",
+      "role": "narration",
+      "text": "Send each picture parcel to the basket with its first sound.",
+      "path": "assets/audio/chapter/story-parcels-sort.mp3",
+      "sha256": "8a5e96ec6e4134fccc8d9ff8de33178942ed7a5a9bc82909a25a5e9ff70d162e",
+      "bytes": 61484,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:21.775Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 3.768,
+        "meanVolumeDb": -26.2,
+        "peakDb": -8.6
+      }
+    },
+    {
+      "id": "story-picnic-find",
+      "role": "narration",
+      "text": "Woolly has picture tokens for the picnic games. Find the ones with the sound you hear.",
+      "path": "assets/audio/chapter/story-picnic-find.mp3",
+      "sha256": "b15a6b01822f11765ff458d5c6c8973270ad7c3e0b4eda311a73ab8a7174c853",
+      "bytes": 110385,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:08.443Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 6.84,
+        "meanVolumeDb": -26.5,
+        "peakDb": -7.2
+      }
+    },
+    {
+      "id": "story-picnic-place",
+      "role": "narration",
+      "text": "The picnic needs a tidy corner. Listen to where each thing belongs.",
+      "path": "assets/audio/chapter/story-picnic-place.mp3",
+      "sha256": "d2bfa4ab00acba107f5095c5557e89b9f06bc52166a0ddf2293d85014d4e91df",
+      "bytes": 88233,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:11.569Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 5.448,
+        "meanVolumeDb": -27,
+        "peakDb": -9.8
+      }
+    },
+    {
+      "id": "story-picnic-sort",
+      "role": "narration",
+      "text": "These picture parcels are muddled. Listen, then send each parcel to its sound basket.",
+      "path": "assets/audio/chapter/story-picnic-sort.mp3",
+      "sha256": "599bf1a08db6f0afdd1573aeb59ea6b7f80b4af8005ee34e1f781a4724f510f4",
+      "bytes": 111221,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:09.979Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 6.888,
+        "meanVolumeDb": -24.5,
+        "peakDb": -4.9
+      }
+    },
+    {
+      "id": "story-tree-labels",
+      "role": "narration",
+      "text": "Some sign labels are missing their last letter. Listen to the whole word and finish it.",
+      "path": "assets/audio/chapter/story-tree-labels.mp3",
+      "sha256": "3e8e9ff72a3480250daccaa3a4c8772162aed7e3a7957c54bc09c5341f120bfb",
+      "bytes": 103279,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:26.084Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 6.384,
+        "meanVolumeDb": -25.2,
+        "peakDb": -7.3
+      }
+    },
+    {
+      "id": "story-tree-light",
+      "role": "narration",
+      "text": "Build the last words. The three little lights will shine together in the lantern tree.",
+      "path": "assets/audio/chapter/story-tree-light.mp3",
+      "sha256": "1dfffbd0b6bd2c12f82fb74348a26ba6767d06c1843431e81377e3023645c862",
+      "bytes": 125431,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:27.836Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 7.776,
+        "meanVolumeDb": -25.9,
+        "peakDb": -9.6
+      }
+    },
+    {
+      "id": "story-tree-signs",
+      "role": "narration",
+      "text": "The Pals are coming to the tree. Choose sound pictures to mark the gathering trail.",
+      "path": "assets/audio/chapter/story-tree-signs.mp3",
+      "sha256": "7620c1027787bd4256c9192e08be62cbda52a5e5eb251bac6af86b65364c9f27",
+      "bytes": 105787,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "sourceAuthority": "tools/generateSoundSeekersCampaignAudio.mjs production configuration",
+      "generatedAt": "2026-09-14T07:48:24.643Z",
+      "signal": {
+        "codec": "mp3",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000,
+        "durationSeconds": 6.552,
+        "meanVolumeDb": -26.1,
+        "peakDb": -8.7
+      }
+    },
+    {
+      "id": "word:bag",
+      "role": "word",
+      "word": "bag",
+      "source": "public/audio/production/en-US/isolated_word/bag-4da0660ea3.mp3",
+      "path": "assets/audio/word-bag.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "47386502b252c2137c0d072729d83e1a7c1ccf7f805dfd0c2ca71386e6ffdfa7",
+      "bytes": 4413,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 0.642333,
+        "peak": 0.3196474313735962,
+        "rmsDb": -24.502099138991518,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:bat",
+      "role": "word",
+      "word": "bat",
+      "source": "public/audio/production/en-US/isolated_word/bat-5cafdfa265.mp3",
+      "path": "assets/audio/word-bat.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "361700e7a12f8973f23ae03bfadf2621ce2c9e70ded3a11cbb4db13d9cd57b07",
+      "bytes": 8301,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 1.290333,
+        "peak": 0.37391456961631775,
+        "rmsDb": -27.084210802442037,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:bed",
+      "role": "word",
+      "word": "bed",
+      "source": "public/audio/production/en-US/isolated_word/bed-bfb9a0ca24.mp3",
+      "path": "assets/audio/word-bed.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "62d22c2fbb92ddbc0886ef5b37f498a625a8b9bbc9a5d18d1c41819ce826de4b",
+      "bytes": 8733,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 1.345958,
+        "peak": 0.4022977352142334,
+        "rmsDb": -26.269804421024666,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:bug",
+      "role": "word",
+      "word": "bug",
+      "source": "public/audio/production/en-US/isolated_word/bug-55a02ff860.mp3",
+      "path": "assets/audio/word-bug.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "c818085b1e97c3f14525bdad4ff79bcb8579252272338a7a3a862c178fe685aa",
+      "bytes": 9309,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 1.452333,
+        "peak": 0.31499922275543213,
+        "rmsDb": -25.447883852294243,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:bun",
+      "role": "word",
+      "word": "bun",
+      "source": "public/audio/production/en-US/isolated_word/bun-10fbfc151b.mp3",
+      "path": "assets/audio/word-bun.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "f528e8acad9f1f65d9bdbe3e59754a157a5d85b2fc567087027b021eaa1327bd",
+      "bytes": 8013,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 1.236333,
+        "peak": 0.21487638354301453,
+        "rmsDb": -32.866834920169104,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:can",
+      "role": "word",
+      "word": "can",
+      "source": "public/audio/production/en-US/isolated_word/can-dc8654be91.mp3",
+      "path": "assets/audio/word-can.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "185c6848fd29263de56fe851557877d5316a6e86e185eb08bae4c328515d51d5",
+      "bytes": 5133,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 0.750333,
+        "peak": 0.26382869482040405,
+        "rmsDb": -22.817453387975036,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:cap",
+      "role": "word",
+      "word": "cap",
+      "source": "public/audio/production/en-US/isolated_word/cap-086821856a.mp3",
+      "path": "assets/audio/word-cap.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "67481ffbdfe823d74f8dfc182e18fdbf56c417618ebe3223dbc5963931f19ed8",
+      "bytes": 8013,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 1.236333,
+        "peak": 0.24303609132766724,
+        "rmsDb": -34.98769888638375,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:cat",
+      "role": "word",
+      "word": "cat",
+      "source": "public/audio/production/en-US/isolated_word/cat-fcdf851282.mp3",
+      "path": "assets/audio/word-cat.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "24be1df7c165a4f04db171c47540ee9fa2dd6094920a025df60325a71bbef227",
+      "bytes": 2829,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 0.372333,
+        "peak": 0.29502439498901367,
+        "rmsDb": -25.546183427218008,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:cup",
+      "role": "word",
+      "word": "cup",
+      "source": "public/audio/production/en-US/isolated_word/cup-9da8aac3a3.mp3",
+      "path": "assets/audio/word-cup.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "29f8438170f01393f67aae171702e828eb8aaa2cae8eb7370911435e8fe46437",
+      "bytes": 2829,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 0.372333,
+        "peak": 0.45909416675567627,
+        "rmsDb": -21.079312800442118,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:dog",
+      "role": "word",
+      "word": "dog",
+      "source": "public/audio/production/en-US/isolated_word/dog-22c13fd222.mp3",
+      "path": "assets/audio/word-dog.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "b9b722445639684a53063188e6b5957d9348ca790de401841e6e1ff5bcb18180",
+      "bytes": 4125,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 0.588333,
+        "peak": 0.22412854433059692,
+        "rmsDb": -29.161796890674033,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:log",
+      "role": "word",
+      "word": "log",
+      "source": "public/audio/production/en-US/isolated_word/log-67036abd5d.mp3",
+      "path": "assets/audio/word-log.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "a99e0f63d4ca0e91ce7db4f15916db0ebb94b64609e79bf4e8fc1ae66397b221",
+      "bytes": 9309,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 1.452333,
+        "peak": 0.4057609736919403,
+        "rmsDb": -25.946801104513845,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:map",
+      "role": "word",
+      "word": "map",
+      "source": "public/audio/production/en-US/isolated_word/map-1febcbc483.mp3",
+      "path": "assets/audio/word-map.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "fa32ac6afcb97ce668fe2a373ae346d8fea4046a2bdc777a12c40aa5fc9a4e4c",
+      "bytes": 5421,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 0.804333,
+        "peak": 0.33747902512550354,
+        "rmsDb": -23.71748928111252,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:mat",
+      "role": "word",
+      "word": "mat",
+      "source": "public/audio/production/en-US/isolated_word/mat-faaaac327f.mp3",
+      "path": "assets/audio/word-mat.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "e41dccd9afe5fc72ed6ff3de37440bedf7fd2efc67a0d44eceda2b2c014b5db7",
+      "bytes": 5421,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 0.804333,
+        "peak": 0.3946816921234131,
+        "rmsDb": -22.680577679423678,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:moon",
+      "role": "word",
+      "word": "moon",
+      "source": "public/audio/production/en-US/isolated_word/moon-cf266742cd.mp3",
+      "path": "assets/audio/word-moon.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "81151c24e910b95fcd94b031e4254b8b611ca5fcc179239e794e6c1a5fa9760e",
+      "bytes": 3549,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 0.481958,
+        "peak": 0.3797198534011841,
+        "rmsDb": -18.730260416695664,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:mug",
+      "role": "word",
+      "word": "mug",
+      "source": "public/audio/production/en-US/isolated_word/mug-056f8accc6.mp3",
+      "path": "assets/audio/word-mug.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "32419ded4bec043889cafdab36fe9e6ce119dcd85722ae1d3daf86ea5d62c2a3",
+      "bytes": 3837,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 0.534333,
+        "peak": 0.39357563853263855,
+        "rmsDb": -19.95187862029801,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:net",
+      "role": "word",
+      "word": "net",
+      "source": "public/audio/production/en-US/isolated_word/net-9aa24b16f4.mp3",
+      "path": "assets/audio/word-net.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "e8eaee367f84392741837d5262864728abb464dcb65d51dca3318fb373ccb465",
+      "bytes": 2829,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 0.372333,
+        "peak": 0.18969205021858215,
+        "rmsDb": -28.824289521005085,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:pan",
+      "role": "word",
+      "word": "pan",
+      "source": "public/audio/production/en-US/isolated_word/pan-0dce08705d.mp3",
+      "path": "assets/audio/word-pan.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "183eea81176e451ca24fe5d753320d2a2f204500b63357310bcdd0b5788c59fa",
+      "bytes": 4413,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 0.642333,
+        "peak": 0.2027234435081482,
+        "rmsDb": -25.049086554865283,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:pen",
+      "role": "word",
+      "word": "pen",
+      "source": "public/audio/production/en-US/isolated_word/pen-9b6de9aaf0.mp3",
+      "path": "assets/audio/word-pen.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "d358a85be0c8beeb50b2c18976645c616ee382b6f2f6230e74490cf41a679073",
+      "bytes": 9021,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 1.398333,
+        "peak": 0.2453898787498474,
+        "rmsDb": -32.21752888888454,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:pig",
+      "role": "word",
+      "word": "pig",
+      "source": "public/audio/production/en-US/isolated_word/pig-5ad48cfa90.mp3",
+      "path": "assets/audio/word-pig.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "d3dd502d0330d71f79e6dd76a3a7a3a3a875829681baff266658eebd71aaaa9f",
+      "bytes": 7725,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 1.182333,
+        "peak": 0.18679240345954895,
+        "rmsDb": -30.30668101292003,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:pin",
+      "role": "word",
+      "word": "pin",
+      "source": "public/audio/production/en-US/isolated_word/pin-4ab29fc75d.mp3",
+      "path": "assets/audio/word-pin.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "4edfc332282e3974b58207be2719990289a18413db3326c762147606f3920e60",
+      "bytes": 7725,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 1.182333,
+        "peak": 0.2712973654270172,
+        "rmsDb": -28.543481845942658,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:pot",
+      "role": "word",
+      "word": "pot",
+      "source": "public/audio/production/en-US/isolated_word/pot-219afba4c6.mp3",
+      "path": "assets/audio/word-pot.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "1922570c7e959d13aeb19960a5caf2d8a3380eb01cd0a16c69e364da237c11fb",
+      "bytes": 6717,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 1.020333,
+        "peak": 0.3200724124908447,
+        "rmsDb": -27.996397338678733,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:pup",
+      "role": "word",
+      "word": "pup",
+      "source": "public/audio/production/en-US/isolated_word/pup-7b0658a5ad.mp3",
+      "path": "assets/audio/word-pup.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "2f0ec3561ccf95786d02ce78d36bc40dc0d3042864ef29d08903e437df8e2c3d",
+      "bytes": 2829,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 0.372333,
+        "peak": 0.3925206959247589,
+        "rmsDb": -21.992842828666284,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:sit",
+      "role": "word",
+      "word": "sit",
+      "source": "public/audio/production/en-US/isolated_word/sit-fe69e87c44.mp3",
+      "path": "assets/audio/word-sit.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "b87f546d88b5c474becbaaeabd4dcabc0c4e74fd438bf26caab2ff05084b427c",
+      "bytes": 7725,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 1.182333,
+        "peak": 0.14799931645393372,
+        "rmsDb": -35.95783851035583,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:soap",
+      "role": "word",
+      "word": "soap",
+      "source": "public/audio/production/en-US/isolated_word/soap-6cbbe574c7.mp3",
+      "path": "assets/audio/word-soap.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "f9204950036528fcd00272375931318a1e41bcefaf3777cf78a434bc1a24397d",
+      "bytes": 5133,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 0.750333,
+        "peak": 0.1793062537908554,
+        "rmsDb": -28.445340241433463,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:sock",
+      "role": "word",
+      "word": "sock",
+      "source": "public/audio/production/en-US/isolated_word/sock-c00268dd15.mp3",
+      "path": "assets/audio/word-sock.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "f20e686ded9a368bfb162c3f80470880fd1caad00685fe4e26583128bc81bcee",
+      "bytes": 5421,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 0.804333,
+        "peak": 0.2683432698249817,
+        "rmsDb": -28.941773935662304,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:sun",
+      "role": "word",
+      "word": "sun",
+      "source": "public/audio/production/en-US/supplemental/sun-986667ed8b.mp3",
+      "path": "assets/audio/word-sun.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "9e5f4f2bc80cf12438d7e324a8d7cc1750a32c28b5ed2360fa8ba0c0217146e6",
+      "bytes": 3261,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "48000",
+        "channels": 1,
+        "durationSeconds": 0.48,
+        "peak": 0.2751053273677826,
+        "rmsDb": -26.49507943122451,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:tin",
+      "role": "word",
+      "word": "tin",
+      "source": "public/audio/production/en-US/isolated_word/tin-7a4f7e9ba9.mp3",
+      "path": "assets/audio/word-tin.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "ce23ab620edf206f78354d65d7bdb1e381bbe351520b8ce1b8f40e215bfaf2f5",
+      "bytes": 5133,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 0.750333,
+        "peak": 0.26207831501960754,
+        "rmsDb": -28.942776520593505,
+        "decoded": true
+      }
+    },
+    {
+      "id": "word:van",
+      "role": "word",
+      "word": "van",
+      "source": "public/audio/production/en-US/isolated_word/van-81002e64c7.mp3",
+      "path": "assets/audio/word-van.mp3",
+      "sourceAuthority": "src/data/ledaProductionAudio.js",
+      "sha256": "2d674a1d2237141a19747348763f9a68879e77772318586b91eceab8123e2b1f",
+      "bytes": 8301,
+      "signal": {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1,
+        "durationSeconds": 1.290333,
+        "peak": 0.16454941034317017,
+        "rmsDb": -34.66731419801836,
+        "decoded": true
+      }
+    }
+  ]
+}

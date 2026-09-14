@@ -14,6 +14,7 @@ export const AUDIO = Object.freeze({
  * No browser speech is used for either words or phonemes.
  */
 export function createAudio({
+  catalog = AUDIO,
   AudioContextClass = globalThis.AudioContext || globalThis.webkitAudioContext,
   fetcher = globalThis.fetch?.bind(globalThis),
   onError = () => {},
@@ -28,6 +29,7 @@ export function createAudio({
   let disposed = false;
   let muted = false;
   const decoded = new Map();
+  const failed = new Set();
   const requests = new Set();
   const effects = new Map();
 
@@ -72,7 +74,7 @@ export function createAudio({
 
   function resolvePath(keyOrPath) {
     if (typeof keyOrPath !== 'string') return '';
-    return AUDIO[keyOrPath] || (/^\/assets\/audio\/[a-z0-9-]+\.mp3$/.test(keyOrPath) ? keyOrPath : '');
+    return catalog[keyOrPath] || (/^\/assets\/audio\/[a-z0-9-]+\.mp3$/.test(keyOrPath) ? keyOrPath : '');
   }
 
   function load(path) {
@@ -84,12 +86,15 @@ export function createAudio({
       requests.add(controller);
       const timeout = setTimeout(() => controller.abort(), 15000);
       try {
-        const response = await fetcher(path, { signal: controller.signal, cache: 'force-cache' });
+        // A failed response may itself be cached (including an HTML fallback).
+        // A deliberate replay must fetch the restored recording again.
+        const response = await fetcher(path, { signal: controller.signal, cache: failed.has(path) ? 'reload' : 'force-cache' });
         if (!response.ok) throw new Error(`Audio request failed: ${response.status}`);
         const bytes = await response.arrayBuffer();
         if (disposed) throw new Error('Audio player disposed.');
         const buffer = await audioContext.decodeAudioData(bytes);
         if (!(buffer.duration > 0) || !buffer.length) throw new Error('Audio file has no decodable signal.');
+        failed.delete(path);
         return buffer;
       } finally {
         clearTimeout(timeout);
@@ -97,7 +102,7 @@ export function createAudio({
       }
     })();
     decoded.set(path, pending);
-    pending.catch(() => { if (decoded.get(path) === pending) decoded.delete(path); });
+    pending.catch(() => { failed.add(path); if (decoded.get(path) === pending) decoded.delete(path); });
     return pending;
   }
 
@@ -197,7 +202,7 @@ export function createAudio({
   }
 
   // Optional warmup: no sound, no evidence of hearing, and no input gate.
-  async function preload(keys = Object.keys(AUDIO)) {
+  async function preload(keys = Object.keys(catalog)) {
     if (disposed) return false;
     const paths = [...new Set(keys.map(resolvePath).filter(Boolean))];
     const results = await Promise.allSettled(paths.map(load));
@@ -254,6 +259,7 @@ export function createAudio({
       for (const controller of requests) controller.abort();
       requests.clear();
       decoded.clear();
+      failed.clear();
       voiceGain?.disconnect();
       effectsGain?.disconnect();
       if (context && context.state !== 'closed') context.close().catch(() => {});
