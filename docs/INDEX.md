@@ -55,6 +55,7 @@ immediately. Missing review metadata is not a publication queue.
 
 ## Product design
 
+- [Learn Letters](product/LEARN_LETTERS.md) — five saved rounds per letter, uppercase and lowercase tracing, varied picture/sound practice and cumulative review
 - [Cycle Practice](product/CYCLE_PRACTICE.md) — cumulative word recognition and phonics, shared reviewed CVC pictures, varied replay, automatic feedback and teacher-assigned sessions
 - [Adventure Map games](product/ADVENTURE_MAP.md) — ten simple spoken letter, word and picture games; focused mixed quests, optional rhyme and current audio/learning contracts
 

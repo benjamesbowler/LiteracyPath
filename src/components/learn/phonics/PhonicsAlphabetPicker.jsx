@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { getAllLetters, getAvailableLetters } from "../../../data/phonicsLessons";
 import { ChildRecommendationExplanation } from "../../recommendations/RecommendationExplanation.jsx";
+import { LETTER_PRACTICE_ROUND_COUNT } from "../../../policy/letterPractice.js";
 
 function letterAccessibleName(letter, status, recommended) {
   const states = recommended ? ["Start here"] : [];
@@ -12,7 +13,7 @@ function letterAccessibleName(letter, status, recommended) {
   return [`Letter ${letter}`, ...states].join(", ");
 }
 
-export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
+export function PhonicsAlphabetPicker({ progress = {}, rounds = {}, onSelectLetter }) {
   const letters = useMemo(() => getAllLetters(), []);
   const availableLetters = useMemo(() => new Set(getAvailableLetters()), []);
   const completedCount = Object.values(progress).filter(status => status === "completed").length;
@@ -35,7 +36,7 @@ export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
     <div className="phonics-picker">
       <h1 data-child-title="">Choose a letter</h1>
 
-      <p data-child-instruction="">Tap a letter to hear its sound.</p>
+      <p data-child-instruction="">Choose a letter. Collect five rounds of practice.</p>
       {recommendedLetter && (
         <p className="phonics-recommendation-reason">
           <strong>Why this one?</strong>{" "}
@@ -63,6 +64,7 @@ export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
               disabled={!isClickable}
               className={`phonics-letter-card ${status}${isRecommended ? " recommended" : ""}`}
               aria-label={letterAccessibleName(letter, status, isRecommended)}
+              aria-description={`${rounds[letter]?.completedCount || 0} of ${LETTER_PRACTICE_ROUND_COUNT} rounds`}
               type="button"
               data-child-primary={isRecommended ? "" : undefined}
               data-child-emphasis={isRecommended ? "primary" : "choice"}
@@ -71,6 +73,7 @@ export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
               {isRecommended && (
                 <span className="phonics-letter-next" data-child-emphasis-cue="">Start here</span>
               )}
+              <span className="phonics-letter-rounds" aria-hidden="true">{rounds[letter]?.completedCount || 0}/{LETTER_PRACTICE_ROUND_COUNT}</span>
               <span className="phonics-letter-status" aria-hidden="true">
                 {status === "completed" && "✓"}
                 {status === "inprogress" && <span className="phonics-status-pulse" />}
@@ -88,7 +91,7 @@ export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
       </div>
 
       <div className="phonics-picker-progress" data-child-progress="">
-        <span>{completedCount} of {totalLetters} letters practised</span>
+        <span>{completedCount} of {totalLetters} letters · {Object.values(rounds).reduce((sum, round) => sum + round.completedCount, 0)} of {totalLetters * LETTER_PRACTICE_ROUND_COUNT} rounds</span>
         <span className="phonics-picker-stars" aria-hidden="true">
           {Array.from({ length: 3 }).map((_, index) => (
             <span key={index}>{index < Math.floor((completedCount / totalLetters) * 3) ? "★" : "☆"}</span>

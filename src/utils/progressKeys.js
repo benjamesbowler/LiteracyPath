@@ -56,6 +56,7 @@ export function localProgressStorageKeyForRow(area, key, scopeKey) {
 export function localProgressStorageKeysForArea(area, scopeKey) {
   const base = localProgressStorageKey(area, scopeKey);
   if (!base) return [];
+  if (area === "phonics_letters") return [base, `${base}:practice-session-v1`];
   return area === "phonics_quest" ? [base, `${base}:v3`, localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey), `${localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey)}:position-v1`, `${localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey)}:live-v1`] : [base];
 }
 

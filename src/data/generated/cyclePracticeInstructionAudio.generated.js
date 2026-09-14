@@ -57,6 +57,7 @@ export const CYCLE_PRACTICE_INSTRUCTION_AUDIO = Object.freeze({
   "listen. tap the letters that make this ending": "/audio/production/en-US/instruction/listen-tap-the-letters-that-make-this-ending-044111c36e.mp3",
   "listen. tap the letters that make this sound": "/audio/production/en-US/instruction/listen-tap-the-letters-that-make-this-sound-36b0c28f67.mp3",
   "listen. tap the letters to build the word": "/audio/production/en-US/instruction/listen-tap-the-letters-to-build-the-word-9e6471e37a.mp3",
+  "listen. tap the picture": "/audio/production/en-US/instruction/listen-tap-the-picture-540f8d13c8.mp3",
   "listen. tap the picture that ends with this sound": "/audio/production/en-US/instruction/listen-tap-the-picture-that-ends-with-this-sound-33dd0ce884.mp3",
   "listen. tap the picture that rhymes with this word": "/audio/production/en-US/instruction/listen-tap-the-picture-that-rhymes-with-this-word-638e785986.mp3",
   "listen. tap the picture that starts with this sound": "/audio/production/en-US/instruction/listen-tap-the-picture-that-starts-with-this-sound-231acf53cb.mp3",
@@ -1445,6 +1446,18 @@ export const CYCLE_PRACTICE_AUDIO_METADATA = Object.freeze({
     "reused": false,
     "sha256": "91904b08975a89636e87123ace85452e9f73698f39917ddf80d60fd6377c0be5",
     "durationSeconds": 3.531338,
+    "humanListening": "unknown"
+  },
+  "listen. tap the picture": {
+    "text": "Listen. Tap the picture.",
+    "role": "instruction",
+    "audio": "/audio/production/en-US/instruction/listen-tap-the-picture-540f8d13c8.mp3",
+    "voice": "en-US-Chirp3-HD-Leda",
+    "provider": "Google Cloud Text-to-Speech",
+    "aiGenerated": true,
+    "reused": false,
+    "sha256": "446abfc433839a623c1599b5d4eeaf67358d6a0c7a1a3a7a26521e43f0dd7db7",
+    "durationSeconds": 1.965329,
     "humanListening": "unknown"
   },
   "listen. tap the picture that ends with this sound": {

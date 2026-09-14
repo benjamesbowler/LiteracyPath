@@ -410,3 +410,19 @@ support tracking. Completed teaching signs remain visible until advancement.
 No new images, duplicate word banks or narration files were added; no learner
 data or original assets were deleted. Scoped check and browser evidence lives
 in ignored `.artifacts/sound-picture-labels`.
+
+## Learn Letters five-round programme — 14 September 2026
+
+Replaced the single-round letter completion view with five rounds driven by
+`src/policy/letterPractice.js`. The existing lesson words, pictures, sound
+recordings and shared uppercase/lowercase stroke bank remain the source inputs;
+no duplicate media bank or alternate cloud progress store was created. Added
+one recorded picture-choice direction through the current audio generator.
+The generated path indexes include that recording. Incidental changes to
+unrelated generated word recordings were excluded.
+
+Old completed letters retain one round of credit, and current immutable
+completion evidence remains intact. Local resume checkpoints are covered by
+the existing learner cleanup keys. Scoped check and rendered evidence is kept
+under ignored `.artifacts/learn-letters`; task-created failed check output is
+disposable. No learner history or source artwork was deleted.

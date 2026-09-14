@@ -6,6 +6,7 @@ export const CYCLE_PRACTICE_INSTRUCTIONS = Object.freeze({
   letterSound: "Listen. Tap the letters that make this sound.",
   letterCase: "Tap the matching letter.",
   listenWord: "Listen. Tap the word.",
+  listenPicture: "Listen. Tap the picture.",
   endingLetterSound: "Listen. Tap the letters that make this sound.",
   letterEndingPart: "Listen. Tap the letters that make this ending.",
   rhymeMatch: "Listen. Tap the picture that rhymes with this word.",

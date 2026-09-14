@@ -1,6 +1,8 @@
 import { Suspense, useEffect, useState } from "react";
 import { loadCvcProgress, saveCvcProgress, recordCvcCompletion } from "../../../utils/cvcProgress";
-import { loadPhonicsProgress, savePhonicsProgress, recordPhonicsCompletion } from "../../../utils/phonicsProgress";
+import { loadPhonicsProgress, loadPhonicsProgressRecords, savePhonicsProgress, recordPhonicsCompletion } from "../../../utils/phonicsProgress";
+import { getLetterPracticeProgress } from "../../../utils/letterPracticeProgress.js";
+import { mergePracticeProgressRecords } from "../../../utils/practiceCompletionRecords.js";
 import { cvcWordFamilies } from "../../../data/cvcWordFamilies";
 import { PhonicsAlphabetPicker } from "./PhonicsAlphabetPicker";
 import { CvcLearningFlow } from "./cvc/CvcLearningFlow";
@@ -70,9 +72,12 @@ function PhonicsLearnContent({
     exactGameLock ? "games" : initialIsland || getInitialIsland()
   ));
   const [progress, setProgress] = useState(() => loadPhonicsProgress(progressScopeKey));
+  const [letterRecords, setLetterRecords] = useState(() => loadPhonicsProgressRecords(progressScopeKey));
   const [cvcProgress, setCvcProgress] = useState(() => loadCvcProgress(progressScopeKey));
 
-  const completedLettersCount = Object.values(progress).filter(status => status === "completed").length;
+  const letterPractice = Object.fromEntries(Object.entries(letterRecords).map(([letter, record]) => [letter, getLetterPracticeProgress(record)]));
+  const practiceStatuses = Object.fromEntries(Object.entries(letterPractice).map(([letter, practice]) => [letter, practice.status]));
+  const completedLettersCount = Object.values(letterPractice).filter(practice => practice.complete).length;
   const completedWordFamiliesCount = Object.values(cvcProgress).filter(status => status === "completed").length;
   const wordsUnlocked = cvcWordFamilies.some(family => getWorkshopPrerequisites(family, progress).eligible);
   const nextStepText = "Choose letters to practise, or see which letters each word nest needs.";
@@ -81,6 +86,7 @@ function PhonicsLearnContent({
     function handleHydrated(event) {
       if (event.detail?.studentId !== progressScopeKey) return;
       setProgress(loadPhonicsProgress(progressScopeKey));
+      setLetterRecords(loadPhonicsProgressRecords(progressScopeKey));
       setCvcProgress(loadCvcProgress(progressScopeKey));
     }
 
@@ -95,6 +101,7 @@ function PhonicsLearnContent({
     };
     setProgress(updated);
     savePhonicsProgress(progressScopeKey, updated);
+    setLetterRecords(previous => ({ ...previous, [letter]: mergePracticeProgressRecords(previous[letter], updated[letter]) }));
     setActiveLetter(letter);
   }
 
@@ -111,7 +118,10 @@ function PhonicsLearnContent({
 
   function handleLetterComplete(letter, completion) {
     const result = recordPhonicsCompletion(progressScopeKey, letter, completion);
-    if (result.localSaved || result.queued) setProgress(previous => ({ ...previous, [letter]: "completed" }));
+    if (result.localSaved || result.queued) {
+      setProgress(previous => ({ ...previous, [letter]: "completed" }));
+      setLetterRecords(previous => ({ ...previous, [letter]: mergePracticeProgressRecords(previous[letter], { v: 3, status: "completed", completions: [completion] }) }));
+    }
     return result;
   }
 
@@ -138,6 +148,9 @@ function PhonicsLearnContent({
         key={`${progressScopeKey}:${activeLetter}`}
         letter={activeLetter}
         initialStep={initialStep}
+        progressScopeKey={progressScopeKey}
+        progressRecord={letterRecords[activeLetter]}
+        reviewLetters={Object.keys(progress).filter(letter => progress[letter] === "completed")}
         onBack={handleBack}
         onComplete={completion => handleLetterComplete(activeLetter, completion)}
         onExit={handleBack}
@@ -181,7 +194,7 @@ function PhonicsLearnContent({
         <div>
           <span className="phonics-practice-kicker">Phonics</span>
           <h2>{lockedToLetters ? "Letters and Sounds" : "Letters, Sounds, Words"}</h2>
-          <p>{lockedToLetters ? "Choose a letter and practise its sound." : nextStepText}</p>
+          <p>{lockedToLetters ? "Five rounds for every letter. Your place is saved." : nextStepText}</p>
         </div>
         <div className="phonics-practice-stats" aria-label="Quest totals">
           <span><strong>{completedLettersCount} of 26</strong> letters</span>
@@ -226,7 +239,8 @@ function PhonicsLearnContent({
         />
       ) : (
         <PhonicsAlphabetPicker
-          progress={progress}
+          progress={practiceStatuses}
+          rounds={letterPractice}
           onSelectLetter={handleSelectLetter}
         />
       )}

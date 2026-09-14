@@ -2,6 +2,7 @@ import {
   SOUND_SEEKERS_TRAIL_COUNT,
   isSoundSeekersTrailId
 } from "../data/soundSeekersContract.js";
+import { getLetterPracticeProgress } from "../utils/letterPracticeProgress.js";
 
 /**
  * Canonical learning-policy owner.
@@ -502,9 +503,9 @@ export function buildStudentHomeCardState(activityId, progress = {}) {
 
   if (activityId === "phonics-learning") {
     const rows = Object.values(progress.phonics || {});
-    const completed = rows.filter(value => (
-      value === "completed" || value?.status === "completed"
-    )).length;
+    const letterRounds = rows.map(getLetterPracticeProgress);
+    const completed = letterRounds.filter(value => value.complete).length;
+    const completedRounds = letterRounds.reduce((sum, value) => sum + value.completedCount, 0);
     const started = rows.filter(value => {
       const status = typeof value === "string" ? value : value?.status;
       return status === "completed" || status === "inprogress";
@@ -513,6 +514,8 @@ export function buildStudentHomeCardState(activityId, progress = {}) {
       started > 0 ? "Continue" : "New",
       completed > 0
         ? `${pluralized(completed, "letter")} complete`
+        : completedRounds > 0
+          ? `${pluralized(completedRounds, "round")} complete`
         : started > 0
           ? `${pluralized(started, "letter")} started`
           : ""

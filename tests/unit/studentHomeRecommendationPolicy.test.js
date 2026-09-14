@@ -236,7 +236,7 @@ test("reading, arcade, phonics, story, and Hollow progress use completion counts
     }
   };
 
-  assert.equal(buildStudentHomeCardState("phonics-learning", progress).progressText, "1 letter complete");
+  assert.equal(buildStudentHomeCardState("phonics-learning", progress).progressText, "1 round complete");
   assert.equal(buildStudentHomeCardState("arcade", progress).progressText, "1 game tried");
   assert.equal(buildStudentHomeCardState("story-quests", progress).progressText, "1 story complete");
   assert.equal(buildStudentHomeCardState("reading-library", progress).progressText, "1 book read");

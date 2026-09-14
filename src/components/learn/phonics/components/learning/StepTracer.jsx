@@ -408,7 +408,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
     >
       <div className="phonics-step-heading">
         <h2>Trace the Letter</h2>
-        <p>Start at the dot. Trace the big {lesson.letter}.</p>
+        <p>Start at the dot. Trace {lesson.letter}.</p>
       </div>
 
       <div className="phonics-trace-wrap">

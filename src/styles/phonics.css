@@ -1530,3 +1530,89 @@
     grid-template-columns: repeat(9, minmax(0, 1fr));
   }
 }
+
+/* Five short saved rounds per letter, within the existing child stage. */
+.phonics-letter-rounds {
+  position: absolute;
+  top: 6px;
+  left: 7px;
+  color: #46615d;
+  font: 700 0.68rem/1 var(--phonics-font-body);
+}
+.phonics-round-progress { display: grid; gap: 6px; justify-items: center; min-width: 0; }
+.phonics-round-label { color: #355750; font: 700 clamp(0.65rem, 1.2vw, 0.9rem)/1.25 var(--phonics-font-body); text-align: center; }
+.phonics-practice-question { width: 100%; height: 100%; min-height: 0; display: flex; flex-direction: column; gap: 10px; }
+.phonics-practice-question-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.phonics-practice-question-heading h2 { margin: 0; font-size: clamp(1rem, 2.2vw, 1.65rem); }
+.phonics-practice-question-heading p { margin: 0; white-space: nowrap; color: #355750; font-weight: 700; }
+.phonics-practice-stimulus { display: flex; align-items: center; justify-content: center; gap: 24px; min-height: 90px; flex: 0 1 140px; }
+.phonics-practice-letter-model { font: 700 clamp(64px, 9vw, 100px)/1 var(--phonics-font-letter); color: #214f49; }
+.phonics-practice-word-model { display: flex; align-items: center; gap: 12px; font: 700 clamp(24px, 4vw, 42px)/1.2 var(--phonics-font-letter); }
+.phonics-practice-word-model .phonics-img-frame { width: 90px; height: 90px; }
+.phonics-practice-audio { display: grid; justify-items: center; gap: 5px; }
+.phonics-practice-audio > button:first-child { min-width: 130px; min-height: 56px; display: flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 18px; background: #176c60; color: white; padding: 10px 16px; font: 700 1rem var(--phonics-font-body); cursor: pointer; }
+.phonics-practice-audio svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; }
+.phonics-practice-audio p { margin: 0; max-width: 220px; font-size: 0.8rem; text-align: center; }
+.phonics-practice-help { min-height: 44px; border: 0; background: none; text-decoration: underline; color: #315d55; font: 600 0.9rem var(--phonics-font-body); cursor: pointer; }
+.phonics-practice-options { flex: 1; min-height: 90px; max-height: 240px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.phonics-practice-option { position: relative; min-width: 56px; min-height: 56px; border: 3px solid #cbded7; border-radius: 24px; background: #fffefa; padding: 12px; display: flex; align-items: center; justify-content: center; color: #224d44; touch-action: manipulation; cursor: pointer; }
+.phonics-practice-option.has-letter { font: 700 clamp(48px, 9vw, 96px)/1 var(--phonics-font-letter); }
+.phonics-practice-option .phonics-img-frame { width: 100%; height: 100%; min-height: 0; overflow: hidden; }
+.phonics-practice-option .phonics-img-frame img, .phonics-practice-word-model .phonics-img-frame img { width: 100%; height: 100%; max-width: 100%; max-height: 100%; object-fit: contain; }
+.phonics-practice-option.is-correct { border-color: #267945; background: #e0f4de; }
+.phonics-practice-option.is-incorrect { border-color: #b66b24; }
+.phonics-practice-option:focus-visible, .phonics-practice-audio button:focus-visible { outline: 4px solid #176c60; outline-offset: 3px; }
+.phonics-practice-choice-mark { position: absolute; top: 5px; right: 10px; font: 800 24px var(--phonics-font-body); }
+.phonics-practice-feedback { min-height: 24px; margin: 0; text-align: center; color: #315a4c; font-weight: 700; }
+@media (max-width: 600px) {
+  .phonics-practice-stimulus { gap: 10px; flex: 0 0 auto; }
+  .phonics-practice-options { gap: 8px; }
+  .phonics-practice-option { padding: 6px; border-radius: 15px; }
+  .phonics-practice-word-model { flex-direction: column; gap: 2px; }
+  .phonics-practice-word-model .phonics-img-frame { width: 60px; height: 60px; }
+  .phonics-round-label { max-width: 220px; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .phonics-practice-question { gap: 5px; }
+  .phonics-practice-stimulus { min-height: 56px; flex-basis: 65px; }
+  .phonics-practice-options { min-height: 56px; }
+  .phonics-practice-letter-model { font-size: 52px; }
+  .phonics-practice-word-model .phonics-img-frame { width: 50px; height: 50px; }
+  .phonics-practice-question-heading h2 { font-size: 1rem; }
+}
+.phonics-practice-option.has-picture { flex-direction: column; gap: 4px; }
+.phonics-practice-option.has-picture .phonics-img-frame { flex: 1; height: 0; }
+.phonics-practice-option small { font: 700 clamp(12px, 1.6vw, 19px)/1.2 var(--phonics-font-body); }
+@media (max-height: 500px) and (orientation: landscape) {
+  .phonics-learning-flow[data-letter-round] .phonics-flow-header { grid-template-columns: auto minmax(0, 1fr); }
+  .phonics-learning-flow[data-letter-round] .phonics-flow-header > div { grid-column: 2; }
+  .phonics-learning-flow .phonics-round-progress .phonics-progress-bar { display: none; }
+  .phonics-learning-flow .phonics-practice-question { display: grid; grid-template-columns: 210px minmax(0, 1fr); grid-template-rows: auto minmax(56px, 1fr) auto; gap: 4px 10px; }
+  .phonics-practice-question-heading, .phonics-practice-feedback { grid-column: 1; }
+  .phonics-practice-question-heading { gap: 6px; }
+  .phonics-practice-question-heading h2 { font-size: 0.9rem; }
+  .phonics-practice-question-heading p { font-size: 0.75rem; }
+  .phonics-learning-flow .phonics-practice-stimulus { grid-column: 1; min-height: 0; margin: 0; flex-direction: row; gap: 4px; }
+  .phonics-learning-flow .phonics-practice-options { height: 100%; min-height: 56px; }
+  .phonics-practice-options { grid-column: 2; grid-row: 1 / 4; }
+  .phonics-practice-word-model .phonics-img-frame { display: none; }
+  .phonics-practice-word-model { font-size: 24px; }
+  .phonics-practice-letter-model { font-size: 34px; }
+  .phonics-practice-audio { display: flex; gap: 4px; }
+  .phonics-practice-audio > button:first-child { min-width: 110px; padding: 6px; font-size: 0.8rem; }
+  .phonics-practice-help { min-width: 60px; font-size: 0.8rem; }
+  .phonics-practice-audio > p { display: none; }
+  .phonics-practice-feedback { min-height: 18px; font-size: 0.7rem; }
+}
+@media (max-width: 600px) {
+  .kg-stage .student-surface-phonics .phonics-learning-flow[data-letter-round] {
+    height: calc(var(--kg-visible-height, 100dvh) - var(--kg-header-height) - var(--kg-tabbar-height) - 20px);
+    min-height: 0;
+  }
+  .phonics-learning-flow[data-letter-round] .phonics-flow-header { grid-template-columns: auto minmax(0, 1fr); }
+  .phonics-learning-flow[data-letter-round] .phonics-flow-header > div { grid-column: 2; }
+  .phonics-learning-flow .phonics-round-progress .phonics-progress-bar { min-width: 0; width: 100%; }
+  .phonics-round-progress .phonics-progress-step { min-width: 0; flex: 1; gap: 3px; }
+  .phonics-round-progress .phonics-progress-segment { min-width: 8px; width: auto; flex: 1; }
+  .phonics-learning-flow[data-letter-round] .phonics-back-button { padding-inline: 10px; font-size: 0.8rem; }
+}
