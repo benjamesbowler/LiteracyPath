@@ -201,3 +201,29 @@ test('lowercase tracing requires the complete shape and accepts pointer strokes'
   await expect(page.getByRole('button',{name:'Next Step',exact:true})).toBeVisible();
   await page.screenshot({path:'.artifacts/learn-letters/lowercase-b-traced.png'});
 });
+
+for(const viewport of [{width:1280,height:720},{width:1024,height:768},{width:320,height:568},{width:568,height:320}]) {
+  test(`tracing instructions and controls stay separate at ${viewport.width}x${viewport.height}`,async({page})=>{
+    await page.setViewportSize(viewport);
+    await page.emulateMedia({reducedMotion:'reduce'});
+    await page.addInitScript(key=>localStorage.setItem(key,JSON.stringify({A:'completed'})),progressKey);
+    await page.goto(route);await openLetter(page);
+    await expect(page.locator('.phonics-step-tracer')).toHaveCSS('opacity','1');
+    const pad=await page.locator('.phonics-trace-pad').boundingBox();
+    const heading=await page.locator('.phonics-step-heading').boundingBox();
+    const status=await page.locator('.phonics-step-status').boundingBox();
+    const tabs=await page.locator('.kg-tabbar').boundingBox();
+    await page.screenshot({path:`.artifacts/learn-letters/tracing-fit-${viewport.width}x${viewport.height}.png`});
+    expect(Math.abs(pad.width-pad.height)).toBeLessThan(1);
+    expect(pad.width).toBeGreaterThanOrEqual(80);
+    expect(pad.y+pad.height).toBeLessThanOrEqual(tabs.y);
+    if(viewport.height>500) {
+      expect(pad.y).toBeGreaterThanOrEqual(heading.y+heading.height);
+      expect(pad.y+pad.height).toBeLessThanOrEqual(status.y);
+    } else expect(pad.x).toBeGreaterThanOrEqual(heading.x+heading.width);
+    for(const button of await page.locator('.phonics-step-actions button').all()) {
+      const box=await button.boundingBox();
+      expect(box.y+box.height).toBeLessThanOrEqual(tabs.y);
+    }
+  });
+}

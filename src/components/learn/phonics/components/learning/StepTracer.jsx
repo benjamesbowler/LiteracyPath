@@ -411,107 +411,109 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
         <p>Start at the dot. Trace {lesson.letter}.</p>
       </div>
 
-      <div className="phonics-trace-wrap">
-        <svg className="phonics-trace-ring" viewBox="0 0 368 368" aria-hidden="true">
-          <circle cx="184" cy="184" r="170" fill="none" stroke="#E0E0E0" strokeWidth="6" />
-          <circle
-            cx="184"
-            cy="184"
-            r="170"
-            fill="none"
-            stroke="#FFD93D"
-            strokeWidth="6"
-            strokeLinecap="round"
-            strokeDasharray={`${2 * Math.PI * 170}`}
-            strokeDashoffset={2 * Math.PI * 170 * (1 - progress / 100)}
-            transform="rotate(-90 184 184)"
-            style={{ transition: "stroke-dashoffset 0.15s ease-out" }}
-          />
-        </svg>
-
-        <div
-          className={`phonics-trace-pad ${demoDone && !demoActive ? "" : "demo-active"}`}
-          aria-label={`Trace the letter ${lesson.letter}. Start at the numbered dot and follow the arrow.`}
-          data-learning-object="letter-trace"
-          onPointerDown={onPointerDown}
-          onPointerMove={onPointerMove}
-          onPointerUp={finishPointer}
-          onPointerCancel={finishPointer}
-          onLostPointerCapture={onLostPointerCapture}
-        >
-          <svg ref={svgRef} viewBox="0 0 400 400" className="phonics-trace-svg">
-            <path
-              d={tracePath}
+      <div className="phonics-trace-area">
+        <div className="phonics-trace-wrap">
+          <svg className="phonics-trace-ring" viewBox="0 0 368 368" aria-hidden="true">
+            <circle cx="184" cy="184" r="170" fill="none" stroke="#E0E0E0" strokeWidth="6" />
+            <circle
+              cx="184"
+              cy="184"
+              r="170"
               fill="none"
-              stroke="#D0D8E0"
-              strokeWidth="16"
+              stroke="#FFD93D"
+              strokeWidth="6"
               strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeDasharray="14 10"
+              strokeDasharray={`${2 * Math.PI * 170}`}
+              strokeDashoffset={2 * Math.PI * 170 * (1 - progress / 100)}
+              transform="rotate(-90 184 184)"
+              style={{ transition: "stroke-dashoffset 0.15s ease-out" }}
             />
-            <g className="phonics-trace-demo-layer" aria-hidden="true">
-              {renderStrokes.map((stroke, index) => (
-                <path
-                  key={`demo-${stroke.pathData}-${index}`}
-                  d={stroke.pathData}
-                  fill="none"
-                  stroke="#4D96FF"
-                  strokeWidth="18"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeDasharray={stroke.length}
-                  strokeDashoffset={
-                    index < demoStrokeIndex
-                      ? 0
-                      : index === demoStrokeIndex
-                        ? stroke.length * (1 - demoStrokeProgress)
-                        : stroke.length
-                  }
-                />
-              ))}
-              {demoActive && demoMarker && (
-                <circle className="phonics-trace-demo-marker" cx={demoMarker.x} cy={demoMarker.y} r="15" />
-              )}
-            </g>
-            <g className="phonics-trace-hints" aria-hidden="true">
-              {renderStrokes.map((stroke, index) => {
-                const { start, arrowStart, angle } = getHintGeometry(stroke);
-                const faded = (strokeCoverages[index] || 0) >= 80;
-                return (
-                  <g className={faded ? "is-faded" : ""} key={`hint-${stroke.pathData}-${index}`}>
-                    <circle cx={start.x} cy={start.y} r="17" />
-                    <text x={start.x} y={start.y + 6}>{index + 1}</text>
-                    <path
-                      d="M -12 -8 L 12 0 L -12 8 Z"
-                      transform={`translate(${arrowStart.x} ${arrowStart.y}) rotate(${angle})`}
-                    />
-                  </g>
-                );
-              })}
-            </g>
           </svg>
 
-          <canvas
-            ref={canvasRef}
-            width={400}
-            height={400}
-            className="phonics-trace-canvas"
-          />
-
-          <AnimatePresence>
-            {isComplete && (
-              <motion.div
-                className="phonics-complete-flash"
-                initial={{ opacity: 0.6 }}
-                animate={{ opacity: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
+          <div
+            className={`phonics-trace-pad ${demoDone && !demoActive ? "" : "demo-active"}`}
+            aria-label={`Trace the letter ${lesson.letter}. Start at the numbered dot and follow the arrow.`}
+            data-learning-object="letter-trace"
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerUp={finishPointer}
+            onPointerCancel={finishPointer}
+            onLostPointerCapture={onLostPointerCapture}
+          >
+            <svg ref={svgRef} viewBox="0 0 400 400" className="phonics-trace-svg">
+              <path
+                d={tracePath}
+                fill="none"
+                stroke="#D0D8E0"
+                strokeWidth="16"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeDasharray="14 10"
               />
-            )}
-          </AnimatePresence>
-        </div>
-      </div>
+              <g className="phonics-trace-demo-layer" aria-hidden="true">
+                {renderStrokes.map((stroke, index) => (
+                  <path
+                    key={`demo-${stroke.pathData}-${index}`}
+                    d={stroke.pathData}
+                    fill="none"
+                    stroke="#4D96FF"
+                    strokeWidth="18"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeDasharray={stroke.length}
+                    strokeDashoffset={
+                      index < demoStrokeIndex
+                        ? 0
+                        : index === demoStrokeIndex
+                          ? stroke.length * (1 - demoStrokeProgress)
+                          : stroke.length
+                    }
+                  />
+                ))}
+                {demoActive && demoMarker && (
+                  <circle className="phonics-trace-demo-marker" cx={demoMarker.x} cy={demoMarker.y} r="15" />
+                )}
+              </g>
+              <g className="phonics-trace-hints" aria-hidden="true">
+                {renderStrokes.map((stroke, index) => {
+                  const { start, arrowStart, angle } = getHintGeometry(stroke);
+                  const faded = (strokeCoverages[index] || 0) >= 80;
+                  return (
+                    <g className={faded ? "is-faded" : ""} key={`hint-${stroke.pathData}-${index}`}>
+                      <circle cx={start.x} cy={start.y} r="17" />
+                      <text x={start.x} y={start.y + 6}>{index + 1}</text>
+                      <path
+                        d="M -12 -8 L 12 0 L -12 8 Z"
+                        transform={`translate(${arrowStart.x} ${arrowStart.y}) rotate(${angle})`}
+                      />
+                    </g>
+                  );
+                })}
+              </g>
+            </svg>
 
+            <canvas
+              ref={canvasRef}
+              width={400}
+              height={400}
+              className="phonics-trace-canvas"
+            />
+
+            <AnimatePresence>
+              {isComplete && (
+                <motion.div
+                  className="phonics-complete-flash"
+                  initial={{ opacity: 0.6 }}
+                  animate={{ opacity: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                />
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
+
+      </div>
       <div className="phonics-step-status">
         <AnimatePresence mode="wait">
           {isComplete ? (
