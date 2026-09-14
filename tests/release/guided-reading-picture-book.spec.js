@@ -137,6 +137,27 @@ test("student picture-book transport keeps teacher discussion private and record
   expect(await page.evaluate(bookId => window.__guidedReadingPreviewRecords[bookId].completed, MISSING_SANDWICH_BOOK_ID)).toBe(true);
 });
 
+test("fullscreen stays usable when the browser declines the native request", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.__readerFullscreenRequests = 0;
+    HTMLElement.prototype.requestFullscreen = () => {
+      window.__readerFullscreenRequests += 1;
+      return Promise.reject(new Error("Native fullscreen unavailable"));
+    };
+  });
+  await page.goto(`${bookUrl}&mode=class`);
+  const reader = page.locator(".guided-reader-shell");
+  await reader.getByLabel("More reader controls").click();
+  await reader.getByRole("button", { name: "Full screen", exact: true }).click();
+  await expect(reader).toHaveClass(/fullscreen/);
+  await reader.getByRole("button", { name: "Next page", exact: true }).click();
+  await expect(reader.getByRole("status", { name: "Reading progress" })).toHaveText("Page 2 of 12");
+  await reader.getByRole("button", { name: "Exit", exact: true }).click();
+  await expect(reader).not.toHaveClass(/fullscreen/);
+  await expect(reader).toBeVisible();
+  expect(await page.evaluate(() => window.__readerFullscreenRequests)).toBe(1);
+});
+
 test("transport keeps pause, resume and stop available throughout full-book playback", async ({ page }) => {
   test.setTimeout(90_000);
   await page.setViewportSize({ width: 568, height: 320 });

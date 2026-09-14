@@ -1256,10 +1256,12 @@ export function GuidedReadingPage({
     try {
       if (getBrowserFullscreenElement(document) === shell) {
         await exitBrowserFullscreen(document);
-      } else if (shell.requestFullscreen || shell.webkitRequestFullscreen) {
-        await requestBrowserFullscreen(shell);
-      } else {
-        setIsReaderFullscreen(value => !value);
+      } else if (isReaderFullscreen) {
+        setIsReaderFullscreen(false);
+      } else if (!(await requestBrowserFullscreen(shell))) {
+        // The helper returns false when a browser declines native fullscreen.
+        // Keep the same focused reader available within the browser viewport.
+        setIsReaderFullscreen(true);
       }
     } catch (error) {
       console.warn("Guided Reading fullscreen toggle unavailable.", error);
