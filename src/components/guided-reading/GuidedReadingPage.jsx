@@ -78,6 +78,7 @@ import { nextReadingWordMark } from "../../hooks/readingSessionMarkTarget.js";
 import { STOP_CHILD_AUDIO_EVENT } from "../../utils/audio/childAudioLifecycle.js";
 import { AUDIO_GUIDED_READING_PATHS } from "../../data/generated/audioGuidedReadingPaths.generated.js";
 import { BuddyReaderBar } from "./BuddyReaderBar.jsx";
+import GuidedReadingTransport from "./GuidedReadingTransport.jsx";
 import BookDiscussionPanel from "./BookDiscussionPanel.jsx";
 import { appendBuddyTurn, buildBuddyReaderPlan, summarizeBuddyReader } from "../../utils/guidedReading/buddyReader.js";
 import { getGuidedReadingDiscussion } from "../../data/guidedReadingDiscussionPrompts.js";
@@ -180,7 +181,9 @@ function AutoFitReadingText({
         content.scrollWidth > frame.clientWidth + 1;
 
       content.style.fontSize = `${fittedSize}px`;
-      content.style.overflowY = stillOverflowing ? "auto" : "hidden";
+      // A late font or Safari layout adjustment must never make the last
+      // words unreachable. Auto adds no scrollbar while the page fits.
+      content.style.overflowY = "auto";
       setIsOverflowing(stillOverflowing);
       fitCompleted = true;
       setFitReady(true);
@@ -614,7 +617,12 @@ export function GuidedReadingPage({
   const selectedDiscussion = !isStudentMode && selectedBook
     ? selectedBook.discussion || getGuidedReadingDiscussion(selectedBook.id)
     : null;
-  const readingMeasure = getGuidedReadingMeasure(selectedBook?.level, selectedBook?.readingBandProfile);
+  const isPictureBookReader = !activeGroupSession && (
+    isReaderFullscreen || isClassMode || (isStudentMode && selectedBook?.readingBandProfile === "read-aloud")
+  );
+  const readingMeasure = getGuidedReadingMeasure(
+    selectedBook?.level, selectedBook?.readingBandProfile, isPictureBookReader ? "picture-book" : "standard"
+  );
   const record = guidedReadingRecords[selectedBook?.id] || {
     bookId: selectedBook?.id,
     title: selectedBook?.title,
@@ -2406,6 +2414,7 @@ export function GuidedReadingPage({
         <section
           className={[
             "guided-reader-shell",
+            isPictureBookReader ? "picture-book" : "",
             teacherNotesOpen ? "notes-open" : "",
             isReaderFullscreen ? "fullscreen" : ""
           ].filter(Boolean).join(" ")}
@@ -2416,7 +2425,43 @@ export function GuidedReadingPage({
           data-reading-band-profile={selectedBook.readingBandProfile}
         >
           <div className="guided-reader-card">
-            <div className="guided-reader-header">
+            {isPictureBookReader ? (
+              <GuidedReadingTransport
+                title={selectedBook.title}
+                pageIndex={pageIndex}
+                pageCount={selectedBook.pages.length}
+                readerCopy={readerCopy}
+                audio={{
+                  enabled: readAloudControlsEnabled,
+                  pageAvailable: Boolean(currentPageAudioPath),
+                  bookAvailable: canReadWholeBook,
+                  playing: isPageAudioPlaying,
+                  wholeBook: isWholeBookReading,
+                  loading: isReadAloudLoading,
+                  paused: isReadAloudPaused,
+                  onPage: togglePageAudio,
+                  onBook: isWholeBookReading ? stopPageAudio : startWholeBookReadAloud,
+                  onPause: toggleReadAloudPause
+                }}
+                onPrevious={goToPreviousPage}
+                onNext={goToNextPage}
+                onFinish={completeBook}
+                isReviewMode={isReviewMode}
+                isFullscreen={isReaderFullscreen}
+                onToggleFullscreen={toggleReaderFullscreen}
+                onClose={closeReader}
+                lineFocusEnabled={lineFocusEnabled}
+                onToggleLineFocus={() => {
+                  setLineFocusEnabled(value => !value);
+                  setFocusedSentenceIndex(0);
+                }}
+                discussion={selectedDiscussion}
+                onGoToPage={pageNumber => {
+                  const nextPageIndex = selectedBook.pages.findIndex(item => item.pageNumber === pageNumber);
+                  if (nextPageIndex >= 0) setPageIndex(nextPageIndex);
+                }}
+              />
+            ) : <div className="guided-reader-header">
               <div>
                 <div className="guided-reader-title-row">
                   {!isStudentMode && <p className="panel-label">{formatGuidedReadingType(selectedBook.type)} · {guidedReadingLevelLabel(selectedBook.level)}</p>}
@@ -2559,9 +2604,9 @@ export function GuidedReadingPage({
                   )}
                 </div>
               </div>
-            </div>
+            </div>}
 
-            {isStudentMode && selectedBook.readingBandProfile !== "read-aloud" && canReadWholeBook && !activeGroupSession && buddyStartPage === null && !isReaderFullscreen && (
+            {isStudentMode && selectedBook.readingBandProfile !== "read-aloud" && canReadWholeBook && !activeGroupSession && buddyStartPage === null && !isPictureBookReader && (
               <section className="buddy-reader-launch" aria-label="Buddy Reader option">
                 <div>
                   <strong>Take turns with Leda</strong>
@@ -2598,7 +2643,7 @@ export function GuidedReadingPage({
                 }}
               />
             )}
-            {!isStudentMode && !isReviewMode && buddySummary.totalTurns > 0 && (
+            {!isStudentMode && !isReviewMode && !isPictureBookReader && buddySummary.totalTurns > 0 && (
               <section className="buddy-reader-teacher-summary" aria-label="Buddy Reader evidence">
                 <strong>Buddy Reader evidence</strong>
                 <span>{buddySummary.childTurns} student turns · {buddySummary.ledaTurns} Leda turns</span>
@@ -2606,13 +2651,13 @@ export function GuidedReadingPage({
               </section>
             )}
 
-            {isReaderFullscreen && (
+            {isReaderFullscreen && !isPictureBookReader && (
               <p className="guided-fullscreen-info guided-page-status" role="status" aria-live="polite" aria-label="Reading progress">
                 Page {pageIndex + 1} of {selectedBook.pages.length}
               </p>
             )}
 
-            {(!isReaderFullscreen || !isStudentMode) && <div className={isStudentMode ? "guided-reader-modebar student" : "guided-reader-modebar"} aria-label="Guided reading mode">
+            {!isPictureBookReader && (!isReaderFullscreen || !isStudentMode) && <div className={isStudentMode ? "guided-reader-modebar student" : "guided-reader-modebar"} aria-label="Guided reading mode">
               {isStudentMode ? (
                 <div className="guided-student-mode-note">
                   <strong>{selectedReadingPurpose?.label || "Read with help"}</strong>
@@ -2658,7 +2703,7 @@ export function GuidedReadingPage({
               )}
             </div>}
 
-            {!isStudentMode && (
+            {!isStudentMode && !isPictureBookReader && (
               <BookDiscussionPanel
                 discussion={selectedDiscussion}
                 onGoToPage={pageNumber => {
@@ -2865,7 +2910,7 @@ export function GuidedReadingPage({
               </section>
             )}
 
-            {!isReaderFullscreen && <div className="guided-reader-actions">
+            {!isReaderFullscreen && !isPictureBookReader && <div className="guided-reader-actions">
               <button
                 className="lp-button lp-button-secondary"
                 disabled={pageIndex === 0}

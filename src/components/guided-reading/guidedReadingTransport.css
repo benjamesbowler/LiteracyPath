@@ -1,0 +1,297 @@
+/* Whole-class, read-together and full-screen reading share one compact
+   transport. Conference and synchronized marking keep their teaching tools. */
+.guided-reading-reader-open:has(.guided-reader-shell.picture-book) {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  grid-template-rows: minmax(0, 1fr);
+  background: #fffdf8;
+}
+
+.guided-reading-reader-open .guided-reader-shell.picture-book {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+  background: #fffdf8;
+}
+
+.guided-reading-reader-open .guided-reader-shell.picture-book.fullscreen {
+  height: 100dvh;
+}
+
+.guided-reading-reader-open .guided-reader-shell.picture-book .guided-reader-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
+  background: #fffdf8;
+}
+
+.guided-transport {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 4px 12px;
+  border-bottom: 1px solid #e5e5df;
+  background: #ffffff;
+  color: #233431;
+}
+
+.guided-transport-book {
+  flex: 1 1 auto;
+  min-width: 80px;
+}
+
+.guided-transport-book strong {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.guided-transport-book p {
+  margin: 0;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.guided-transport .guided-read-aloud-controls,
+.guided-transport .guided-page-pagination,
+.guided-transport .guided-reader-secondary-controls {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+  gap: 4px;
+}
+
+.guided-reader-shell.picture-book .guided-transport .lp-button,
+.guided-reader-shell.picture-book .guided-transport-options > summary {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: auto;
+  min-width: var(--kg-physical-hit, 56px);
+  min-height: var(--kg-physical-hit, 56px) !important;
+  margin: 0;
+  padding: 6px 10px;
+  border: 1px solid #dbe4e0;
+  border-radius: 8px;
+  box-shadow: none;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.guided-transport-options > summary {
+  list-style: none;
+  background: #fff;
+}
+
+.guided-transport-options > summary::-webkit-details-marker {
+  display: none;
+}
+
+.guided-transport-options > summary::after {
+  content: none;
+}
+
+.guided-transport-options:not([open]) > .guided-transport-options-panel {
+  display: none;
+}
+
+.guided-transport svg {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+}
+
+.guided-transport :is(button, summary):focus-visible {
+  outline: 3px solid #0f766e;
+  outline-offset: 2px;
+}
+
+.guided-transport-options-panel {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: 10px;
+  width: min(540px, calc(100vw - 16px));
+  max-height: calc(100dvh - 145px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 14px;
+  border: 1px solid #dbe4e0;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 12px 36px #172e2426;
+}
+
+.guided-transport-options-panel > p {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 14px;
+}
+
+.guided-transport-options-panel .guided-reading-discussion {
+  width: 100%;
+  margin: 0;
+}
+
+.guided-transport-options-panel .guided-reading-discussion-content {
+  grid-template-columns: 1fr;
+}
+
+.guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-layout {
+  flex: 1 1 0;
+  grid-template-columns: minmax(0, var(--guided-image-track)) minmax(260px, var(--guided-text-track));
+  grid-template-rows: minmax(0, 1fr);
+  gap: 0;
+  height: auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-image-card {
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+  border: 0;
+  border-radius: 0;
+  background: #fffdf8;
+  box-shadow: none;
+}
+
+.guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-image {
+  object-fit: contain;
+  object-position: center top;
+  border-radius: 4px;
+  background: transparent;
+}
+
+.guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-reading {
+  min-width: 0;
+  min-height: 0;
+  grid-template-rows: minmax(0, 1fr) auto auto;
+  overflow: hidden;
+  padding: 10px 12px;
+  gap: 4px;
+}
+
+.guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-text-frame {
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-text {
+  padding: 0 4px;
+  font-weight: 500;
+  overscroll-behavior: contain;
+}
+
+@media (max-width: 1200px) {
+  .guided-transport-book strong {
+    display: none;
+  }
+  .guided-transport .guided-transport-label {
+    display: none;
+  }
+}
+
+@media (orientation: portrait) {
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, min(56.25vw, 58dvh)) minmax(0, 1fr);
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-reading {
+    padding: 8px 18px;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-text {
+    max-inline-size: 100%;
+  }
+}
+
+/* On a squarer tablet, a full-width illustration above a short text band
+   renders more of the original artwork than a narrow side-by-side page. */
+@media (min-width: 700px) and (orientation: landscape) and (max-aspect-ratio: 3/2) {
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 65fr) minmax(0, 35fr);
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-reading {
+    padding: 8px 18px;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-text {
+    max-inline-size: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .guided-transport {
+    gap: 4px;
+    padding-inline: 4px;
+  }
+  .guided-transport-book {
+    min-width: 78px;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-reading {
+    padding: 6px;
+  }
+}
+
+@media (max-width: 600px) and (orientation: landscape) {
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-layout {
+    grid-template-columns: minmax(0, 60fr) minmax(0, 40fr);
+  }
+}
+
+@media (max-width: 480px) and (orientation: portrait) {
+  .guided-transport {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .guided-transport-book {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .guided-transport .guided-read-aloud-controls {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .guided-transport .guided-page-pagination {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .guided-transport .guided-reader-secondary-controls {
+    grid-column: 2;
+    grid-row: 2;
+    justify-content: end;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book .guided-page-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 45fr) minmax(0, 55fr);
+  }
+}

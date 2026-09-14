@@ -54,6 +54,16 @@ prompt and one optional visual prompt with private listen-for/look-for guidance.
 These prompts are unscored discussion support and never appear in the child
 reader.
 
+Whole-class books, child science read-alouds and full-screen reading use the
+compact picture-book presentation. The illustration and medium-sized text fill
+the reading area below one top transport bar, which contains narration,
+pause/resume, page navigation and Exit. The last forward action becomes
+**Finish book**. **More** holds line focus and the teacher's optional discussion
+support in a dismissible overlay, without reducing the book's space. Pictures
+retain their full composition; squarer tablets place the illustration above
+the text. Small screens keep longer text scrollable. Teacher conferences and
+synchronized marking retain their dedicated teaching controls.
+
 The Willow Street release authorities are:
 
 - `docs/guided-reading/WILLOW_STREET_CONTENT_BIBLE.md`

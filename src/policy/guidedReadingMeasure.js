@@ -58,13 +58,20 @@ export function normalizeGuidedReadingLevel(level) {
   return ["A", "B", "C"].includes(normalized) ? normalized : "A";
 }
 
-export function getGuidedReadingMeasure(level, readingBandProfile = "standard") {
+export function getGuidedReadingMeasure(level, readingBandProfile = "standard", presentation = "standard") {
+  let measure;
   if (level === "READ_ALOUD" && readingBandProfile === "read-aloud") {
-    return { ...LEVEL_MEASURES.C_EXTENDED, level: "READ_ALOUD", templateId: "shared-read-aloud", minFontSizePx: 18 };
+    measure = { ...LEVEL_MEASURES.C_EXTENDED, level: "READ_ALOUD", templateId: "shared-read-aloud", minFontSizePx: 18 };
+  } else {
+    const normalizedLevel = normalizeGuidedReadingLevel(level);
+    measure = normalizedLevel === "C"
+      ? readingBandProfile === "extended" ? LEVEL_MEASURES.C_EXTENDED : LEVEL_MEASURES.C_STANDARD
+      : LEVEL_MEASURES[normalizedLevel];
   }
-  const normalizedLevel = normalizeGuidedReadingLevel(level);
-  if (normalizedLevel === "C") {
-    return readingBandProfile === "extended" ? LEVEL_MEASURES.C_EXTENDED : LEVEL_MEASURES.C_STANDARD;
-  }
-  return LEVEL_MEASURES[normalizedLevel];
+  return presentation === "picture-book" ? {
+    ...measure,
+    maxFontSizePx: 24,
+    imageFraction: 70,
+    textFraction: 30
+  } : measure;
 }

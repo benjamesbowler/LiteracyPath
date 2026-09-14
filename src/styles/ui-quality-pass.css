@@ -702,64 +702,6 @@
 /* Phones receive a native responsive layout. Scaling the 1024px tablet canvas
    made every label and hit target roughly 40% of its intended size. */
 @media (max-width: 700px) {
-  /* A shared picture book reserves a visible part of the phone for both art
-     and text. Its read-aloud badge already supplies the duplicated mode note. */
-  .student-guided-reading-page .guided-reader-shell:not(.fullscreen)[data-reading-band-profile="read-aloud"] .guided-reader-card {
-    grid-template-rows: auto minmax(0, 1fr) auto;
-  }
-
-  .student-guided-reading-page .guided-reader-shell[data-reading-band-profile="read-aloud"] .guided-reader-modebar {
-    display: none;
-  }
-
-  .student-guided-reading-page .guided-reader-shell[data-reading-band-profile="read-aloud"] .guided-reader-secondary-controls {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .student-guided-reading-page .guided-reader-shell.fullscreen[data-reading-band-profile="read-aloud"] .guided-page-controls {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .student-guided-reading-page .guided-reader-shell.fullscreen[data-reading-band-profile="read-aloud"] .guided-page-pagination,
-  .student-guided-reading-page .guided-reader-shell.fullscreen[data-reading-band-profile="read-aloud"] .guided-reader-secondary-controls {
-    display: grid;
-    grid-row: 2;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .student-guided-reading-page .guided-reader-shell.fullscreen[data-reading-band-profile="read-aloud"] .guided-page-pagination {
-    grid-column: 1;
-  }
-
-  .student-guided-reading-page .guided-reader-shell.fullscreen[data-reading-band-profile="read-aloud"] .guided-reader-secondary-controls {
-    grid-column: 2;
-  }
-
-  .student-guided-reading-page .guided-reader-shell.fullscreen[data-reading-band-profile="read-aloud"] .guided-page-controls .lp-button {
-    white-space: nowrap;
-    padding-inline: 3px;
-  }
-
-  .student-guided-reading-page .guided-reader-shell[data-reading-band-profile="read-aloud"] .guided-page-layout {
-    grid-template-rows: minmax(110px, 0.85fr) minmax(170px, 1.15fr);
-    overflow-y: auto;
-    overscroll-behavior: contain;
-  }
-
-  .student-guided-reading-page .guided-reader-shell.fullscreen[data-reading-band-profile="read-aloud"] .guided-page-layout {
-    grid-template-rows: minmax(150px, 0.65fr) minmax(220px, 1.35fr);
-  }
-
-  .student-guided-reading-page .guided-reader-shell[data-reading-band-profile="read-aloud"] .guided-page-reading {
-    grid-template-rows: minmax(0, 1fr) auto;
-    min-height: 170px;
-    overflow: visible;
-  }
-
-  .student-guided-reading-page .guided-reader-shell[data-reading-band-profile="read-aloud"] .guided-page-text-frame {
-    min-height: 0;
-  }
-
   .lg-sb-toggle,
   .lg-sb-item {
     min-width: 44px;
