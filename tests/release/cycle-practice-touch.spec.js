@@ -21,17 +21,18 @@ async function start(page, cycle, match, { duration = 8, mode = 'practice', expe
       pass: 0, assessmentRecords: [], practiceRecords: [], attempts: 0, earnedCount: 0, paused: false,
       pendingAttempt: null, result: null, attemptId: 'cycle-touch-audit', startedAt: '2026-09-09T01:00:00Z',
       clock: { activePracticeSeconds: 0, sessionElapsedSeconds: 0, checkSeconds: 0 } }));
-    window.__touchAudio = { duration, played: [] };
+    window.__touchAudio = { duration, played: [], loads: [], created: 0, active: new Set() };
     window.Audio = class extends EventTarget {
-      constructor() { super(); this.src = ''; this.currentTime = 0; this.volume = 1; this.readyState = 4; this.paused = true; }
-      load() { this.dispatchEvent(new Event('canplay')); }
+      constructor() { super(); this.id = ++window.__touchAudio.created; this.src = ''; this.currentTime = 0; this.volume = 1; this.readyState = 4; this.paused = true; }
+      load() { window.__touchAudio.loads.push({ id: this.id, src: this.src }); this.dispatchEvent(new Event('canplay')); }
       play() {
         this.paused = false;
+        window.__touchAudio.active.add(this.id);
         window.__touchAudio.played.push(this.src);
-        this.timer = setTimeout(() => { this.paused = true; this.dispatchEvent(new Event('ended')); }, window.__touchAudio.duration);
+        this.timer = setTimeout(() => { this.paused = true; window.__touchAudio.active.delete(this.id); this.dispatchEvent(new Event('ended')); }, window.__touchAudio.duration);
         return Promise.resolve();
       }
-      pause() { clearTimeout(this.timer); this.paused = true; }
+      pause() { clearTimeout(this.timer); this.paused = true; window.__touchAudio.active.delete(this.id); }
     };
   }, { key, index, duration, mode, revision: CYCLE_ACTIVITY_REVISION, version: CYCLE_PRACTICE_VERSION });
   page.on('pageerror', error => { throw error; });
@@ -229,6 +230,61 @@ test('stalled teaching audio never blocks the playfield or fabricates delivery',
   await answer(page, round);
   await expect.poll(async () => (await records()).length).toBe(1);
   expect((await records())[0].audioDelivery).not.toBe('delivered');
+});
+
+test('feedback that never finishes releases the next activity promptly with honest audio evidence', async ({ page }) => {
+  const { round, records } = await start(page, cycles[0], round => round.mechanicId === 'pictureSound', { duration: 60000 });
+  await answer(page, round);
+  await expect.poll(async () => (await records()).length).toBe(1);
+  await expect(page.locator('.cycle-activity-space')).not.toHaveAttribute('inert', { timeout: 1200 });
+  await expect(page.locator('.cycle-playground')).toHaveAttribute('data-feedback', 'ready');
+  expect((await records())[0].audioDelivery).not.toBe('delivered');
+});
+
+test('replay interrupts and restarts a speaking instruction immediately', async ({ page }) => {
+  await start(page, cycles[0], round => round.mechanicId === 'pictureSound', { duration: 60000 });
+  const replay = page.getByRole('button', { name: 'Hear what to do', exact: true });
+  await expect(replay).toHaveAttribute('data-audio-state', 'playing');
+  const before = await page.evaluate(() => window.__touchAudio.played.length);
+  await expect(replay).toBeEnabled();
+  await replay.tap();
+  await expect.poll(() => page.evaluate(() => window.__touchAudio.played.length)).toBeGreaterThan(before);
+  await expect(page.locator('.cycle-answer').first()).toBeEnabled();
+});
+
+test('a native touch click without a pointer sequence is retained as an accessible fallback', async ({ page }) => {
+  await start(page, cycles[2], round => round.variant === 'highFrequency' && round.targetWord === 'and');
+  await ready(page);
+  await page.getByRole('button', { name: 'Add a', exact: true }).evaluate(button => {
+    button.dispatchEvent(new PointerEvent('click', { bubbles: true, pointerType: 'touch', detail: 1 }));
+  });
+  await expect(page.locator('.cycle-word-car').first()).toHaveAttribute('aria-label', 'Letter 1: a');
+});
+
+test('thirty rapid replay taps keep one voice, reuse loaded audio and leave answers responsive', async ({ page }) => {
+  const { round, records } = await start(page, cycles[0], round => round.mechanicId === 'pictureSound', { duration: 60000 });
+  const replay = page.getByRole('button', { name: 'Hear what to do', exact: true });
+  await expect(replay).toHaveAttribute('data-audio-state', 'playing');
+  const before = await page.evaluate(() => ({ created: window.__touchAudio.created, played: window.__touchAudio.played.length }));
+  for (let tap = 0; tap < 30; tap += 1) await replay.tap();
+  expect(await page.evaluate(() => ({ created: window.__touchAudio.created, played: window.__touchAudio.played.length, active: window.__touchAudio.active.size }))).toEqual({ ...before, played: before.played + 30, active: 1 });
+  await answer(page, round);
+  await expect.poll(async () => (await records()).length).toBe(1);
+  await expect(page.locator('.cycle-activity-space')).not.toHaveAttribute('inert', { timeout: 1200 });
+});
+
+test('a retry reuses warmed recordings instead of recreating the entire audio window', async ({ page }) => {
+  const { round, records } = await start(page, cycles[0], round => round.mechanicId === 'pictureSound');
+  await ready(page);
+  const before = await page.evaluate(() => window.__touchAudio.loads.filter(load => load.src));
+  const wrong = round.choices.find(choice => String(choice.value) !== String(round.answer));
+  await page.getByRole('button', { name: wrong.label || String(wrong.value), exact: true }).tap();
+  await expect.poll(async () => (await records()).length).toBe(1);
+  await ready(page);
+  const after = await page.evaluate(() => window.__touchAudio.loads.filter(load => load.src));
+  for (const warmed of before) {
+    expect(after.filter(load => load.src === warmed.src).map(load => load.id), warmed.src).toEqual([warmed.id]);
+  }
 });
 
 test('WebKit touch unlocks the real recorded instruction and records a delivered-audio word response', async ({ page, browserName }) => {

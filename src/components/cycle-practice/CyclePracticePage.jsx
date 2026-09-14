@@ -119,6 +119,8 @@ function CyclePracticeSession({
   const audioDelivery = useRef("pending");
   const audioDeliveryOwner = useRef("");
   const feedbackResume = useRef(null);
+  const feedbackVoice = useRef(null);
+  const audioWindowRelease = useRef(null);
   const { mode, practiceIndex, assessmentIndex, attempts, result, paused } = state;
   const practice = useMemo(() => buildCyclePlan(cycle, seed, state.pass), [cycle, seed, state.pass]);
   const check = useMemo(() => buildCyclePlan(cycle, `${sessionSeed}:assessment`, 0, true), [cycle, sessionSeed]);
@@ -169,6 +171,9 @@ function CyclePracticeSession({
     audioDeliveryOwner.current = "";
     audioDelivery.current = "pending";
   }
+  function cancelFeedbackVoice() {
+    feedbackVoice.current?.finish();
+  }
 
   function persist(next) {
     const snapshot = { ...next, clock: { ...clockRef.current.values } };
@@ -197,7 +202,7 @@ function CyclePracticeSession({
     const visibility = () => {
       tick(); clockRef.current.resetInput();
       if (document.visibilityState === "hidden") {
-        clearTimeout(advanceTimer.current); invalidateTeaching(); stopCueAudio();
+        clearTimeout(advanceTimer.current); invalidateTeaching(); cancelFeedbackVoice(); stopCueAudio();
         // A final answer is frozen before its feedback finishes. Its save still
         // needs the retained continuation when the child returns to this tab.
         if (!stateRef.current.result && (!stateRef.current.pendingAttempt || feedbackResume.current)) update({ paused: true });
@@ -210,7 +215,8 @@ function CyclePracticeSession({
     return () => {
       tick(); save(); clearInterval(timer); clearTimeout(advanceTimer.current);
       document.removeEventListener("visibilitychange", visibility); window.removeEventListener("pagehide", save);
-      clearTimeout(audioWatchdog.current); audioEpoch.current += 1; stopCueAudio();
+      clearTimeout(audioWatchdog.current); audioEpoch.current += 1; cancelFeedbackVoice(); stopCueAudio();
+      audioWindowRelease.current?.(); audioWindowRelease.current = null;
     };
     // These long-lived listeners read mutable session values through stateRef.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -231,6 +237,7 @@ function CyclePracticeSession({
     const owner = teachingOwner;
     audioDeliveryOwner.current = owner;
     audioDelivery.current = "pending";
+    cancelFeedbackVoice();
     stopCueAudio();
     const resolved = roundAudio(teachingRound);
     const sequence = targetsOnly ? (resolved.targetAudio.length ? resolved.targetAudio : [resolved.contentAudio].filter(Boolean)) : playbackAudioSequence(teachingRound, includeContent);
@@ -268,20 +275,44 @@ function CyclePracticeSession({
     });
   }
   useEffect(() => {
-    if (!currentRound || result || state.pendingAttempt || paused || answerPending) return undefined;
+    // Retain the new window before releasing the old one, so shared current /
+    // next recordings keep their decoded elements across answers and retries.
     const plan = mode === "assessment" ? assessmentPlan : practicePlan;
     const index = mode === "assessment" ? assessmentIndex : practiceIndex;
-    const sources = [...new Set(plan.slice(index, index + 3).flatMap(r => roundAudioSources(r)))];
+    const sources = result || state.pendingAttempt ? [] : [...new Set(plan.slice(index, index + 3).flatMap(r => roundAudioSources(r)))];
     const release = retainCueAudioSources(sources);
-    const essentials = [...new Set(roundAudioSources(currentRound, false))];
+    audioWindowRelease.current?.();
+    audioWindowRelease.current = release;
+    const essentials = sources.length ? [...new Set(roundAudioSources(plan[index], false))] : [];
     let cancelled = false;
     Promise.allSettled(essentials.map(src => preloadCueAudio(src))).then(() => {
       if (!cancelled) sources.filter(src => !essentials.includes(src)).forEach(src => { void preloadCueAudio(src); });
     });
+    return () => { cancelled = true; };
+    // Retention is released on replacement or session cleanup, not on feedback.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mode, practicePlan, assessmentPlan, practiceIndex, assessmentIndex, Boolean(result), Boolean(state.pendingAttempt)]);
+  useEffect(() => {
+    if (!currentRound || result || state.pendingAttempt || paused || answerPending) return undefined;
     audioDelivery.current = "pending";
     audioDeliveryOwner.current = "";
-    const startTimer = setTimeout(() => playRoundAudio(mode === "practice"), 0);
-    return () => { cancelled = true; clearTimeout(startTimer); invalidateTeaching(); stopCueAudio(); release(); };
+    const epoch = audioEpoch.current;
+    let cancelled = false;
+    let startTimer;
+    const start = () => {
+      if (cancelled || epoch !== audioEpoch.current) return;
+      startTimer = setTimeout(() => {
+        if (!cancelled && epoch === audioEpoch.current) playRoundAudio(mode === "practice");
+      }, 0);
+    };
+    // The next playfield is already usable. Let feedback finish naturally;
+    // a fresh answer or replay can interrupt it without queuing more voices.
+    if (feedbackVoice.current) feedbackVoice.current.done.then(start);
+    else start();
+    return () => {
+      cancelled = true; clearTimeout(startTimer); invalidateTeaching();
+      if (!feedbackVoice.current) stopCueAudio();
+    };
     // roundKey includes retries so every callback belongs to one mounted mechanic.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [teachingOwner, paused, answerPending, Boolean(result), Boolean(state.pendingAttempt)]);
@@ -295,33 +326,38 @@ function CyclePracticeSession({
   function replayInstruction(includeContent = false, callbacks = {}) {
     playRoundAudio(includeContent, { ...callbacks, playImmediately: true });
   }
-  function playObjectAudio(word) {
-    const path = getCyclePracticeWordAudio(word);
-    if (path) playCueAudio(path, { playImmediately: true });
-  }
   function resetFeedback() {
     setFeedback(""); setFeedbackTone("ready"); setFeedbackRound(null); setFeedbackKey(""); setFeedbackActivityKey("");
   }
   function playFeedbackThen(key, round, done, selectedAudio = "") {
     const sequence = [getCyclePracticeFeedbackAudio(key), selectedAudio, key === "correct" ? round.audio : ""].filter(Boolean);
     feedbackResume.current = done;
-    let finished = false;
-    let epoch;
-    const complete = () => {
-      if (finished || epoch !== audioEpoch.current) return;
-      finished = true;
-      clearTimeout(advanceTimer.current);
-      advanceTimer.current = setTimeout(() => { feedbackResume.current = null; done(); }, 300);
+    cancelFeedbackVoice();
+    let resolve;
+    const voice = { done: new Promise(complete => { resolve = complete; }), finished: false };
+    voice.finish = () => {
+      if (voice.finished) return;
+      voice.finished = true;
+      clearTimeout(voice.startTimer); clearTimeout(voice.watchdog);
+      if (feedbackVoice.current === voice) feedbackVoice.current = null;
+      resolve();
     };
+    feedbackVoice.current = voice;
+    // A short visual acknowledgement protects against double answers. Audio
+    // duration, network delays and missing ended events never extend this lock.
+    advanceTimer.current = setTimeout(() => { feedbackResume.current = null; done(); }, 450);
     // Wait for React's instruction cleanup before starting the feedback voice.
-    advanceTimer.current = setTimeout(() => {
-      epoch = ++audioEpoch.current;
-      if (!sequence.length) { advanceTimer.current = setTimeout(() => { feedbackResume.current = null; done(); }, 900); return; }
-      advanceTimer.current = setTimeout(complete, 7000);
+    voice.startTimer = setTimeout(() => {
+      if (voice.finished) return;
+      if (!sequence.length) { voice.finish(); return; }
+      voice.watchdog = setTimeout(() => {
+        if (feedbackVoice.current !== voice) return;
+        voice.finish(); stopCueAudio();
+      }, 7000);
       playCueSequence(sequence, {
-        gapMs: 100,
-        onDelivery: event => { if (["completed", "failed", "unavailable"].includes(event.type)) complete(); },
-        onUnavailable: complete,
+        gapMs: 40,
+        onDelivery: event => { if (["completed", "failed", "unavailable", "interrupted"].includes(event.type)) voice.finish(); },
+        onUnavailable: voice.finish,
       });
     }, 0);
   }
@@ -338,6 +374,7 @@ function CyclePracticeSession({
       activityCompleted: Boolean(outcome.correct && !outcome.partial)
     } }, { mode, attempts: current.attempts, audioDelivery: audioDelivery.current });
     invalidateTeaching();
+    cancelFeedbackVoice();
     stopCueAudio();
     setAnswerPending(true);
     setFeedbackRound(currentRound); setFeedbackKey(roundKey); setFeedbackActivityKey(roundRunKey);
@@ -418,7 +455,7 @@ function CyclePracticeSession({
   }
   function togglePause() {
     clockRef.current.tick(performance.now(), stateRef.current.mode, document.visibilityState !== "hidden", stateRef.current.paused);
-    clockRef.current.resetInput(); clearTimeout(advanceTimer.current); invalidateTeaching(); stopCueAudio();
+    clockRef.current.resetInput(); clearTimeout(advanceTimer.current); invalidateTeaching(); cancelFeedbackVoice(); stopCueAudio();
     const resuming = stateRef.current.paused;
     if (!resuming) {
       // Keep both the displayed answer and its continuation while paused.
@@ -488,12 +525,18 @@ function CyclePracticeSession({
   const listening = !frozen && !soundBlocked && !mediaFailed && !teachingReady;
   const hearChoice = (path, word) => {
     activity();
+    const resumeTeaching = audioDelivery.current !== "delivered";
+    if (resumeTeaching) invalidateTeaching();
+    const epoch = audioEpoch.current;
+    cancelFeedbackVoice();
     const owner = audioDeliveryOwner.current;
-    if (path) playCueAudio(path, { playImmediately: true, onUnavailable: () => {
-      if (owner !== audioDeliveryOwner.current) return;
+    const source = path || getCyclePracticeWordAudio(word);
+    if (source) playCueAudio(source, { playImmediately: true, onEnded: () => {
+      if (resumeTeaching && epoch === audioEpoch.current) playRoundAudio(mode === "practice");
+    }, onUnavailable: () => {
+      if (epoch !== audioEpoch.current || owner !== audioDeliveryOwner.current) return;
       setAudioStatus("unavailable"); audioDelivery.current = "unavailable";
     } });
-    else if (word) playObjectAudio(word);
   };
   const traceRetry = () => {
     const path = getCyclePracticeFeedbackAudio("traceRetry");
@@ -515,7 +558,7 @@ function CyclePracticeSession({
   };
   const instructionRow = <div className="cycle-instruction-row">
     <div><span className="cycle-activity-name">{shownRound.stationTitle}</span><p data-child-instruction="">{currentAudio.instructionText}</p></div>
-    <CycleButton type="button" className="cycle-listen-button" data-child-primary="" data-audio-action="replay" data-audio-state={audioStatus === "ready" && !teachingReady ? "pending" : audioStatus} aria-label="Hear what to do" disabled={frozen || audioStatus === "playing"} onClick={() => { triggerTactileFeedback(16); replayInstruction(true); }}><SpeakerIcon /><span>{listening ? "Listening…" : "Listen"}</span></CycleButton>
+    <CycleButton type="button" className="cycle-listen-button" data-child-primary="" data-audio-action="replay" data-audio-state={audioStatus === "ready" && !teachingReady ? "pending" : audioStatus} aria-label="Hear what to do" disabled={frozen} onClick={() => { triggerTactileFeedback(16); replayInstruction(true); }}><SpeakerIcon /><span>{listening ? "Listening…" : "Listen"}</span></CycleButton>
   </div>;
 
   return (

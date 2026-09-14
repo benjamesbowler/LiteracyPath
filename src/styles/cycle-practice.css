@@ -32,6 +32,7 @@
 .cycle-practice-page button:focus-visible { outline: 4px solid #173b58; outline-offset: 5px; }
 .cycle-practice-page button:disabled { cursor: default; }
 .cycle-practice-page button:not(:disabled):active { transform: none; filter: brightness(.97); }
+.cycle-practice-page button[data-pressed="true"] { outline: 3px solid #147da2; outline-offset: -3px; }
 .cycle-practice-topbar { display: flex; align-items: center; justify-content: space-between; flex: 0 0 auto; min-height: 68px; gap: 16px; padding: 6px 14px; border-radius: 20px; background: #fffef8; box-shadow: 0 3px 0 #d5e9e9; z-index: 2; }
 .cycle-practice-topbar__identity { display: flex; gap: 12px; align-items: center; }
 .cycle-brand-mark { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 16px; color: #174d57; background: var(--cycle-yellow); transform: rotate(-7deg); }
