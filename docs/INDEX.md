@@ -80,7 +80,7 @@ immediately. Missing review metadata is not a publication queue.
 
 - [Sound Seekers release bible](SOUND_SEEKERS_RELEASE_BIBLE.md) — three-world exploration, continuous platform puzzles and illustrated animation; automatic spoken guidance, persistent sound pictures and labelled replay/movement controls; current media, formative evidence and verification boundaries
 - [Sound Seekers curriculum matrix](SOUND_SEEKERS_CURRICULUM_MECHANIC_MATRIX.md)
-- [Sound Seekers 3D woodland chapter](../demos/sound-seekers/CHAPTER_ONE.md) — standalone review chapter preserving the approved storybook demo; five projects, five interaction families and 120 contextual rounds. Its 30–40-minute target awaits child-paced observation; the classroom route and full campaign remain separate.
+- [Sound Seekers 3D woodland chapter](../demos/sound-seekers/CHAPTER_ONE.md) — current live Sound Seekers chapter preserving the approved storybook direction; five projects, five interaction families and 120 contextual rounds. Its 30–40-minute target awaits child-paced observation; learner saves are device-local and the full 20-hour game remains later work.
 - [Phoneme recording standard](audio/PHONEME_RECORDING_STANDARD.md)
 - [Shared game curriculum](GAME_CURRICULUM_FRAMEWORK_2026-07-06.md)
 - [Sound Seekers world blueprint](SOUND_SEEKERS_WORLD_V2_BLUEPRINT.md) — retained v2 design/compatibility reference; the release bible defines the current child route
@@ -88,7 +88,7 @@ immediately. Missing review metadata is not a publication queue.
 
 ## Product plans
 
-- [Sound Seekers three-world adventure](design/SOUND_SEEKERS_THREE_WORLD_ADVENTURE_PLAN.md) — authorised production plan implemented locally as 30 stages, 150 main missions and 60 optional quests, including expanded learning acts and recorded campaign narration; 20-hour target remains unmeasured, with release and end-use validation still outstanding.
+- [Sound Seekers three-world adventure](design/SOUND_SEEKERS_THREE_WORLD_ADVENTURE_PLAN.md) — retained campaign plan and reusable content from the previous game; the woodland chapter is the current direction. See also the [preserved campaign reference](SOUND_SEEKERS_CAMPAIGN_REFERENCE.md).
 - [Public free tier spec](product/FREE_TIER_SPEC.md) — email + password, two children, ~20% of the
   content, no parent reporting. Spec only; no code.
 ## Operations, research, legal and security

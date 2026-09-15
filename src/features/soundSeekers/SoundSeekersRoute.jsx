@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import SoundSeekersCampaign from "./v3/SoundSeekersCampaign.jsx";
+import WoodlandChapter from "./WoodlandChapter.jsx";
 
 const EMPTY_ACCESSIBILITY_SETTINGS = Object.freeze({});
 const FOCUSABLE_SELECTOR = [
@@ -25,7 +25,7 @@ function visibleFocusTargets(host) {
 }
 
 function focusRouteSurface(host) {
-  const surface = host.querySelector("[data-sound-seekers-game][aria-label], .ss3 button, .ss3 h1");
+  const surface = host.querySelector("[data-sound-seekers-game][aria-label]");
   if (surface && typeof surface.focus === "function") {
     surface.focus({ preventScroll: true });
   }
@@ -59,6 +59,7 @@ function restoreSibling(snapshot) {
 export default function SoundSeekersRoute({
   progressScopeKey,
   isSoundEnabled = true,
+  ephemeral = false,
   onExit,
   initialFixtureId = null,
   accessibilitySettings = EMPTY_ACCESSIBILITY_SETTINGS
@@ -98,6 +99,10 @@ export default function SoundSeekersRoute({
       if (event.defaultPrevented || event.key !== "Tab" || !host.isConnected) return;
       const targets = visibleFocusTargets(host);
       const active = ownerDocument.activeElement;
+      // The chapter's modal owns its own Tab cycle. Moving focus here first
+      // would make its handler process the same keystroke a second time.
+      const modal = active?.closest('[role="dialog"][aria-modal="true"]');
+      if (modal && host.contains(modal)) return;
       if (!targets.length) {
         event.preventDefault();
         focusRouteSurface(host);
@@ -142,21 +147,21 @@ export default function SoundSeekersRoute({
   useEffect(() => {
     if (!portalHost?.isConnected) return;
     focusRouteSurface(portalHost);
-  }, [portalHost]);
+  }, [portalHost, progressScopeKey]);
 
   const leave = useCallback(() => {
     onExit();
   }, [onExit]);
 
-  // One keyed campaign owns this learner’s active scene and save lifecycle.
+  // One keyed woodland chapter owns this learner's scene and local save.
   const game = (
-    <SoundSeekersCampaign
+    <WoodlandChapter
       key={progressScopeKey}
       progressScopeKey={progressScopeKey}
       isSoundEnabled={isSoundEnabled}
+      ephemeral={ephemeral}
       onExit={leave}
       accessibilitySettings={accessibilitySettings}
-      initialStopId={initialFixtureId && /^s\d+$/.test(initialFixtureId) ? initialFixtureId : null}
     />
   );
   return portalHost ? createPortal(game, portalHost) : null;

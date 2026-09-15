@@ -40,6 +40,7 @@ test("A3.1 child previews load the production self-hosted child typefaces", asyn
 
 for (const route of CHILD_SURFACE_ROUTES) {
   test(`A3.1 ${route.label} renders the complete child-surface contract`, async ({ page }) => {
+    if (route.id === "sound-seekers") test.slow(); // Real 3D assets in software GL.
     const pageErrors = [];
     page.on("pageerror", error => pageErrors.push(error.message));
     await page.emulateMedia({ reducedMotion: "reduce" });

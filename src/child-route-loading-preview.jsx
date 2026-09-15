@@ -24,13 +24,12 @@ const SURFACES = Object.freeze({
   "sound-seekers": {
     label: "Loading Sound Seekers...",
     load: async () => {
-      const module = await import("./components/quest/QuestRoot.jsx");
+      const module = await import("./features/soundSeekers/SoundSeekersRoute.jsx");
       return {
         default: () => (
           <module.default
-            disableAdaptiveQuality
             isSoundEnabled={false}
-            previewForce2d
+            onExit={() => { window.location.hash = "home"; }}
             progressScopeKey={PREVIEW_SCOPE}
           />
         )

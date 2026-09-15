@@ -5,9 +5,11 @@ accepted the proposed next build, one complete 30–40-minute chapter. Preserve
 its rounded storybook woodland, canonical Blender cast, calm camera, direct
 controls and large tactile activities.
 
-This chapter is separately playable at chapter.html. The original index.html
-is retained as the approved comparison. The classroom Sound Seekers route is
-outside this chapter's scope.
+On 15 September 2026 the owner explicitly requested this chapter replace the
+classroom Sound Seekers game and be pushed live. `SoundSeekersRoute.jsx` now
+mounts this chapter through `WoodlandChapter.jsx`; the original `index.html`
+and standalone `chapter.html` remain review entries. The [release Bible](../../docs/SOUND_SEEKERS_RELEASE_BIBLE.md)
+owns app integration, scoped saves and preservation of the previous game.
 
 Current checkpoint, 15 September 2026: the complete chapter implementation is
 pushed in commit `45ec44c04`. Both a development and packaged browser playthrough
@@ -41,8 +43,10 @@ This is supported practice for approximately ages 5–7 who already know the
 included single-letter correspondences and short vowels (the selected CVC bank
 contains content introduced through cycle 12). It is not a first introduction
 to all of those sounds and does not confer assessment mastery. Oral labels and
-directions support vocabulary. The standalone chapter stores anonymous local
-progress only and does not invent teacher evidence.
+directions support vocabulary. The standalone preview has an anonymous local
+save; the app has independent device-local saves for each learner, included in
+privacy cleanup and teacher resets. Neither writes assessment or teacher
+evidence, and neither imports the previous campaign's progress.
 
 The 30–40-minute target is an authoring estimate: 120 rounds at roughly
 12–16 seconds of child-paced listening, response and feedback, plus 6–8

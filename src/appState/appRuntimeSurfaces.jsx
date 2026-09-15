@@ -5,10 +5,6 @@ import { loadFinishedReportPageModule } from "./appRuntimeServices.js";
 
 // dynamic mastery system
 
-// Sound Seekers: a whole mode, lazy so a child who never opens it doesn't pay
-// for it on first load. Default export, unlike the named-export pages below.
-export const QuestRoot = lazyWithRetry(() => import("../components/quest/QuestRoot.jsx"));
-
 // Whole student modes: lazy so their engines (elQuest, the Hollow/rewards
 // surface) drop out of the initial App bundle and only load when a child opens
 // them.

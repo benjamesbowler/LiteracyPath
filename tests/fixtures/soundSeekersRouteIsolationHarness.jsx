@@ -2,7 +2,6 @@ import React, { StrictMode, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 
 import SoundSeekersRoute from "../../src/features/soundSeekers/SoundSeekersRoute.jsx";
-import "../../src/features/soundSeekers/sound-seekers.css";
 
 function RouteIsolationHarness() {
   const [mounted, setMounted] = useState(false);
@@ -31,7 +30,7 @@ function RouteIsolationHarness() {
       onExit={() => setMounted(false)}
       accessibilitySettings={{ reducedMotion: true }}
     />
-  ) : <p data-route-closed="">Sound Seekers is closed.</p>;
+  ) : <><p data-route-closed="">Sound Seekers is closed.</p><label>Learner <select value={scopeKey} onChange={event => setScopeKey(event.target.value)}><option value="route-isolation-a">Learner A</option><option value="route-isolation-b">Learner B</option></select></label></>;
 }
 
 createRoot(document.getElementById("root")).render(

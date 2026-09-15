@@ -4,13 +4,16 @@ const HARNESS = "/tests/fixtures/soundSeekersRouteIsolationHarness.html";
 const PORTAL = "[data-sound-seekers-route-portal]";
 
 async function openRoute(page) {
+  // These interaction assertions render real Blender assets under software GL.
+  test.slow();
   await page.goto(HARNESS);
   await expect(page.locator("html")).toHaveAttribute("data-route-harness-ready", "true");
   const opener = page.getByRole("button", { name: "Open Sound Seekers" });
   await opener.focus();
   await opener.click();
   await expect(page.locator(PORTAL)).toHaveCount(1);
-  await expect(page.getByRole("region", { name: "Sound Seekers reading adventure" })).toBeFocused();
+  await expect(page.getByRole("main", { name: "Sound Seekers woodland adventure" })).toBeFocused();
+  await expect(page.getByRole("button", { name: "Let’s explore", exact: true })).toBeEnabled();
   return opener;
 }
 
@@ -62,7 +65,7 @@ test("real route owns one isolated fullscreen host and restores exact page state
   }))).toEqual({ sameHost: true, keydownListeners: 1 });
   expect(originalPortal).toBe("");
 
-  await page.getByRole("button", { name: "Leave trail" }).click();
+  await page.getByRole("button", { name: "Back to home" }).click();
   await expect(page.locator(PORTAL)).toHaveCount(0);
   await expect(opener).toBeFocused();
   expect(await page.evaluate(() => ({
@@ -101,7 +104,7 @@ test("route traps forward and reverse Tab while nested sheets retain their own f
   expect(count).toBeGreaterThan(2);
   const first = tabOrder.first();
   const last = tabOrder.last();
-  const routeSurface = page.getByRole("region", { name: "Sound Seekers reading adventure" });
+  const routeSurface = page.getByRole("main", { name: "Sound Seekers woodland adventure" });
 
   await page.keyboard.press("Shift+Tab");
   await expect(last).toBeFocused();
@@ -116,12 +119,13 @@ test("route traps forward and reverse Tab while nested sheets retain their own f
   await page.keyboard.press("Shift+Tab");
   await expect(last).toBeFocused();
 
-  const settingsOpener = page.getByRole("button", { name: "Game settings" });
+  await page.getByRole("button", { name: "Let’s explore" }).click();
+  const settingsOpener = page.getByRole("button", { name: "Pause adventure" });
   await settingsOpener.focus();
   await settingsOpener.click();
-  const dialog = page.getByRole("dialog", { name: "Game settings" });
-  const close = page.getByRole("button", { name: "Close game settings" });
-  const save = page.getByRole("button", { name: "Save and return" });
+  const dialog = page.getByRole("dialog", { name: "Adventure paused" });
+  const close = page.getByRole("button", { name: "Keep exploring" });
+  const save = page.getByRole("button", { name: "Save and leave" });
   await expect(dialog).toBeVisible();
   await expect(close).toBeFocused();
   await page.keyboard.press("Shift+Tab");

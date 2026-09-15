@@ -2093,48 +2093,37 @@ for (const profile of [
   { id: "tablet landscape", width: 1024, height: 768 },
   { id: "laptop", width: 1280, height: 900 }
 ]) {
-test(`A3.6 Sound Seekers v3 creator remains reachable at ${profile.id}`, async ({ page }) => {
+test(`A3.6 Sound Seekers woodland entrance remains reachable at ${profile.id}`, async ({ page }) => {
+  test.slow(); // Real 3D assets use the headless software renderer.
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: profile.width, height: profile.height });
   await page.goto("/preview/child-surfaces.html?surface=sound-seekers");
   const surface = page.locator('[data-child-surface="sound-seekers"]');
-  const creator = surface.getByRole("dialog", { name: "Who will you be?" });
-  await expect(creator).toBeVisible();
-  await expectVisibleImagesReady(page, `Sound Seekers v3 creator at ${profile.id}`);
-  await page.evaluate(() => document.fonts?.ready);
-  const heroCards = creator.locator(".ss3__hero-card");
-  await expect(heroCards).toHaveCount(3);
-  for (let index = 0; index < await heroCards.count(); index += 1) {
-    const box = await heroCards.nth(index).boundingBox();
-    expect(box?.width || 0, `${profile.id} hero card ${index} is wide enough`).toBeGreaterThanOrEqual(56);
-    expect(box?.height || 0, `${profile.id} hero card ${index} is tall enough`).toBeGreaterThanOrEqual(56);
-  }
-  await expect(creator.locator("[data-child-instruction]")).toBeVisible();
-  await expect(creator.locator("[data-child-progress]")).toBeVisible();
-  await expectPrimaryActionInInitialPane(surface, `Sound Seekers v3 creator at ${profile.id}`);
+  await expect(surface.getByRole("heading", { name: "The lost little lights." })).toBeVisible();
+  await expect(surface.getByRole("button", { name: "Let’s explore" })).toBeEnabled();
+  await expect(surface.locator("[data-child-instruction]")).toBeVisible();
+  await expect(surface.locator("[data-child-progress]")).toBeVisible();
+  await expectPrimaryActionInInitialPane(surface, `Sound Seekers woodland at ${profile.id}`);
+  await expectMinimumTargets(surface, `Sound Seekers woodland at ${profile.id}`);
+  await expectNoHorizontalOverflow(page, `Sound Seekers woodland at ${profile.id}`);
 });
 }
 
-test("A3.6 Sound Seekers v3 modal focus stays inside the active dialog", async ({ page }) => {
+test("A3.6 Sound Seekers woodland pause keeps focus inside its active dialog", async ({ page }) => {
+  test.slow(); // Retain every focus assertion while software GL renders.
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 1024, height: 768 });
   await page.goto("/preview/child-surfaces.html?surface=sound-seekers");
-
-  const creator = page.getByRole("dialog", { name: "Who will you be?" });
-  await expect(creator.locator(".ss3__hero-card[aria-pressed=\"true\"]")).toBeFocused();
-  await creator.getByRole("button", { name: "Start the trail ▶", exact: true }).click();
-  await expect(creator).toHaveCount(0);
-
-  const pause = page.getByRole("button", { name: "Pause", exact: true });
+  await page.getByRole("button", { name: "Let’s explore", exact: true }).click();
+  const pause = page.getByRole("button", { name: "Pause adventure", exact: true });
   await pause.click();
-  const dialog = page.getByRole("dialog", { name: "Paused", exact: true });
-  await expect(dialog.getByRole("button", { name: "Keep playing ▶", exact: true })).toBeFocused();
-  await page.keyboard.press("Tab");
-  await expect(dialog.getByRole("button", { name: "Leave Sound Seekers", exact: true })).toBeFocused();
-  await page.keyboard.press("Tab");
-  expect(await dialog.evaluate(element => element.contains(document.activeElement))).toBe(true);
+  const dialog = page.getByRole("dialog", { name: "Adventure paused", exact: true });
+  const resume = dialog.getByRole("button", { name: "Keep exploring", exact: true });
+  await expect(resume).toBeFocused();
   await page.keyboard.press("Shift+Tab");
-  expect(await dialog.evaluate(element => element.contains(document.activeElement))).toBe(true);
+  await expect(dialog.getByRole("button", { name: "Save and leave", exact: true })).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(resume).toBeFocused();
   await page.keyboard.press("Escape");
   await expect(pause).toBeFocused();
 });

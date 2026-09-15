@@ -1539,7 +1539,7 @@ export function AppSurface({ surface }) {
         </PageBoundary>
       )}
 
-      {/* SOUND SEEKERS owns one campaign map and one v2 educational-game loop.
+      {/* SOUND SEEKERS opens the approved 3D woodland chapter.
           It remains lazy so unrelated student routes do not load its game engine. */}
       {appView === APP_VIEWS.PHONICS_QUEST && nameSaved && (
         <PageBoundary resetKey={`phonics-quest-${childProgressScopeKey}`}>
@@ -1553,6 +1553,7 @@ export function AppSurface({ surface }) {
               <Suspense fallback={<LazyPageFallback label="Loading Sound Seekers..." />}>
                 <SoundSeekersRoute
                   progressScopeKey={childProgressScopeKey}
+                  ephemeral={Boolean(trySession)}
                   accessibilitySettings={{
                     reducedMotion: learnerAccessibility.reducedEffects,
                     simplifiedScene: learnerAccessibility.simplifiedBackgrounds,

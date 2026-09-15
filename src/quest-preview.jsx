@@ -3,7 +3,8 @@ import { StrictMode, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles/fonts.js";
 import "./index.css";
-import SoundSeekersRoute from "./features/soundSeekers/SoundSeekersRoute.jsx";
+// Retained campaign review entry. This source is excluded from the live build.
+import SoundSeekersCampaign from "./features/soundSeekers/v3/SoundSeekersCampaign.jsx";
 import {
   resolveSoundSeekersPreviewFixture
 } from "./features/soundSeekers/preview/previewFixtures.js";
@@ -79,10 +80,10 @@ function Preview() {
     );
   }
   return (
-    <SoundSeekersRoute
+    <SoundSeekersCampaign
       progressScopeKey={scope}
       isSoundEnabled={soundEnabled}
-      initialFixtureId={fixture?.id || null}
+      initialStopId={fixture?.stopId || null}
       accessibilitySettings={{
         reducedMotion: params.get("profile") === "reduced-motion",
         simplifiedScene: params.get("profile") === "simplified",

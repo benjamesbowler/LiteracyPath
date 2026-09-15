@@ -520,3 +520,22 @@ The scoped before/after audit remains under ignored `.artifacts/poems-response`.
 In the same sampled plans, 267 distinct pictures total 13,112,278 bytes, down from
 26,522,162, with no selected PNGs or decode errors. Desktop measurements and
 browser/iPad emulation evidence do not imply a physical-classroom iPad test.
+
+## Sound Seekers woodland live replacement — 15 September 2026
+
+The owner requested the new small 3D chapter replace the live game while
+preserving the previous game for reuse. The app route now mounts the woodland
+chapter; the unused lazy QuestRoot export was removed so its historical
+playable engine leaves the live bundle. Vite rejects accidental reintroduction
+of those old entries into normal builds. The previous campaign renderer,
+content, media, source tests and learner records are intentionally retained,
+with the pre-cutover Bible in `SOUND_SEEKERS_CAMPAIGN_REFERENCE.md`. The source
+checkpoint is also recoverable at `bd240cf3f`. No original art or learner data
+was deleted. Campaign preview HTML remains local-only in the normal build.
+
+The new chapter uses hashed media URLs, scoped styles and learner-specific
+local checkpoints. The standalone chapter no longer copies a duplicate
+unhashed media directory; Vite emits the required assets. Generated build and
+verification files stay under ignored output directories. The live route,
+chapter specification, documentation index and compact project handoffs now
+identify one current presentation authority.

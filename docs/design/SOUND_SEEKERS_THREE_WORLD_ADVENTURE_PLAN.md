@@ -1,6 +1,9 @@
 # Sound Seekers: the three-world adventure
 
-Status: proposed product and production plan, 10 September 2026. Requested deliverable: a detailed plan, not an implementation or runtime cutover. This proposal does not activate a new curriculum, evidence policy or save format. The current route and product bibles remain authoritative until implementation adopts and reconciles the replacement.
+Status: retained 10 September campaign proposal. The owner replaced its live
+presentation with the approved 3D woodland chapter on 15 September 2026. Keep
+its useful content ideas; it is not the current visual/runtime authority. See
+the [release Bible](../SOUND_SEEKERS_RELEASE_BIBLE.md) and the [woodland chapter](../../demos/sound-seekers/CHAPTER_ONE.md).
 
 ## 1. The game we should make
 

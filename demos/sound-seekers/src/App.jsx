@@ -375,7 +375,7 @@ export default function App() {
     else delay(release, 90 - elapsed);
   }
   const fallback=gentle||!!error;
-  return <main className={`game ${reduced?'reduced':''} ${fallback?'gentle':''}`} data-phase={phase} data-mission={p.mission} data-round={p.round} data-seconds={p.seconds} data-child-surface="sound-seekers-demo">
+  return <main className={`sound-seekers-woodland game ${reduced?'reduced':''} ${fallback?'gentle':''}`} data-phase={phase} data-mission={p.mission} data-round={p.round} data-seconds={p.seconds} data-child-surface="sound-seekers-demo">
     <div className="world" ref={host}/>
     {fallback&&<div className="gentle-scene" aria-hidden="true"><svg viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice"><path d="M0 0h1000v700H0Z" fill="#81946c"/><path d="M-50 620Q600 620 500 380T850-50" fill="none" stroke="#d2c497" strokeWidth="100"/><path d="M-50 340q600 130 1100-80" fill="none" stroke="#73babb" strokeWidth="90"/><path d="M540 390 535 290" stroke="#ecdfb8" strokeWidth="80"/></svg></div>}
     <div className="vignette"/>

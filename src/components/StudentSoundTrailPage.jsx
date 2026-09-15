@@ -1,6 +1,5 @@
-// Sound Seekers opens directly on the v3 Story Trail. This component remains the
-// small navigation boundary supplied by AppSurface; the game owns its map,
-// expedition, journal, creator, rewards, settings, and safe-save lifecycle.
+// The woodland chapter owns its map, mini games and saves. This boundary
+// returns the child to their existing home when they leave the adventure.
 
 export function StudentSoundTrailPage({ renderQuest, onHome, onNavigate }) {
   if (!renderQuest) return null;

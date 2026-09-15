@@ -53,11 +53,20 @@ export function localProgressStorageKeyForRow(area, key, scopeKey) {
   return base && area === "phonics_quest" && key === "sound_seekers_v3" ? `${base}:v3:campaign-v1` : base;
 }
 
+// The woodland chapter is device-local practice, with its own format. Never
+// read anonymous demo saves or overwrite the retained campaign/cloud record.
+export function woodlandChapterStorageKey(scopeKey) {
+  if (typeof scopeKey !== "string" || !scopeKey.trim()) {
+    throw new TypeError("A woodland learner scope is required");
+  }
+  return `lp-sound-seekers-woodland-v1:${encodeURIComponent(scopeKey)}`;
+}
+
 export function localProgressStorageKeysForArea(area, scopeKey) {
   const base = localProgressStorageKey(area, scopeKey);
   if (!base) return [];
   if (area === "phonics_letters") return [base, `${base}:practice-session-v1`];
-  return area === "phonics_quest" ? [base, `${base}:v3`, localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey), `${localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey)}:position-v1`, `${localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey)}:live-v1`] : [base];
+  return area === "phonics_quest" ? [base, `${base}:v3`, localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey), `${localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey)}:position-v1`, `${localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey)}:live-v1`, woodlandChapterStorageKey(scopeKey || "default")] : [base];
 }
 
 // Every localStorage key that holds progress for one student.

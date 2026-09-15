@@ -23,6 +23,17 @@ function bundleAnalysisPlugin() {
     generateBundle(_, bundle) {
       const outputChunks = Object.values(bundle)
         .filter(item => item.type === 'chunk')
+      // Keep the owner's retained campaigns available to local reference
+      // previews, but fail a live build if a playable legacy entry returns.
+      if (!releaseQuestPreview) {
+        for (const chunk of outputChunks) {
+          for (const [id, moduleInfo] of Object.entries(chunk.modules || {})) {
+            if (moduleInfo.renderedLength > 0 && /\/(SoundSeekersCampaign|QuestRoot|QuestPixelWorld)\.jsx$/.test(id)) {
+              this.error(`Retained Sound Seekers runtime entered the live build: ${id}`)
+            }
+          }
+        }
+      }
       const metadata = outputChunks
         .map(chunk => ({
           fileName: chunk.fileName,

@@ -2,7 +2,9 @@
 
 A separately runnable 3D adventure with two reviewable entries: the approved
 five-minute design demo at `index.html`, and the expanded woodland chapter at
-`chapter.html`. The existing classroom game is not replaced by these entries.
+`chapter.html`. The same chapter now replaces the classroom Sound Seekers
+entry through the app adapter. See the [release Bible](../../docs/SOUND_SEEKERS_RELEASE_BIBLE.md)
+for learner saves and the preserved earlier game.
 
 The [woodland chapter](CHAPTER_ONE.md) contains five projects, 15 visits and 120
 contextual rounds across five interactions. It adds sound-parcel sorting and

@@ -1,3 +1,4 @@
+import { woodlandChapterStorageKey } from "./utils/progressKeys.js";
 import { useState } from "react";
 import { createRoot } from "react-dom/client";
 
@@ -84,6 +85,7 @@ const previewLeaderboardClient = PREVIEW_LEADERBOARD_AVAILABLE ? {
 
 setCompanion(PREVIEW_SCOPE, COMPANIONS[0].id);
 window.localStorage.removeItem(localProgressStorageKey("phonics_quest", PREVIEW_SCOPE));
+window.localStorage.removeItem(woodlandChapterStorageKey(PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("phonics", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("cvc", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("learn_games", PREVIEW_SCOPE));
