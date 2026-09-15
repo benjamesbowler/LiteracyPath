@@ -454,3 +454,7 @@ Temporary media-generation files and packaged failure-check moves were cleaned
 up. Required media review and playthrough evidence remains in ignored
 `.artifacts/`; no original artwork or learner history was deleted. The chapter's
 30–40-minute duration remains an authoring target pending child-paced play.
+Current project briefs now identify the approved woodland direction and its
+checkpoint separately from the older classroom campaign, so future work does
+not treat the older renderer as the new design authority. No runtime or media
+files were changed in this checkpoint-note update.

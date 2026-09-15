@@ -9,6 +9,19 @@ This chapter is separately playable at chapter.html. The original index.html
 is retained as the approved comparison. The classroom Sound Seekers route is
 outside this chapter's scope.
 
+Current checkpoint, 15 September 2026: the complete chapter implementation is
+pushed in commit `45ec44c04`. Both a development and packaged browser playthrough
+reached all 120 rounds and the homecoming. Replay, branching, saved partial
+words, muted play and failed-media recovery were exercised; the 29 chapter and
+original-demo checks pass. Source Blender files and media provenance are kept
+with the implementation. The original five-minute demo remains available.
+
+The full 20-hour game is still the later production goal. This checkpoint is
+one implemented chapter, with the 30–40-minute authoring target still awaiting
+observed child play. Human listening and physical iPad checks remain open.
+The next expansion should preserve this approved visual direction and first
+use play feedback to establish the content and pacing needed for the campaign.
+
 Five projects each contain three visits and eight different rounds per visit:
 120 authored round slots and five interaction families. The picnic and brook
 are available together; finishing the bridge opens the garden and parcel
