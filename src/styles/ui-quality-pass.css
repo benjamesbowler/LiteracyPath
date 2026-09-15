@@ -219,7 +219,6 @@
 
 .kg-stage .kg-main > .skills-block-quest .sbq-round-prompt,
 .kg-stage .kg-main > .skills-block-quest .sbq-round-support,
-.kg-stage .kg-main > .skills-block-quest .sbq-poem-title,
 .kg-stage .kg-main > .skills-block-quest .sbq-trace-message {
   flex: 0 0 auto;
 }
@@ -326,81 +325,6 @@
   max-width: min(92%, 860px);
   min-height: 0;
   padding: 8px 16px;
-}
-
-.kg-stage .kg-main > .skills-block-quest .sbq-round-display.sbq-poem {
-  line-height: 1.35;
-}
-
-/* Poem Spotlight keeps every word in its authored line while preserving the
-   physical 56px target floor. The old shrink-to-fit poem made long lines wrap
-   into stacks of large generic buttons, which pushed later lines outside the
-   clipped round card at classroom browser heights. */
-.kg-stage .kg-main > .skills-block-quest .sbq-poem-spotlight {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  grid-template-rows: auto minmax(0, 1fr);
-  align-items: center;
-  gap: 1px 8px;
-  width: min(100%, 860px);
-  min-height: 0;
-}
-
-.kg-stage .kg-main > .skills-block-quest[data-round-type="poem"] > .sbq-round-card {
-  gap: 4px;
-}
-
-.kg-stage .kg-main > .skills-block-quest .sbq-poem-spotlight .sbq-poem-title {
-  grid-column: 1;
-  grid-row: 1;
-  margin: 0;
-}
-
-.kg-stage .kg-main > .skills-block-quest .sbq-poem-spotlight .sbq-round-display.sbq-poem {
-  grid-column: 1 / -1;
-  grid-row: 2;
-  display: grid;
-  gap: 1px;
-  width: 100%;
-  max-width: none;
-  padding: 0 10px;
-}
-
-.kg-stage .kg-main > .skills-block-quest .sbq-poem-spotlight > .sbq-trace-message {
-  grid-column: 2;
-  grid-row: 1;
-  min-height: 0;
-  margin: 0;
-  font-size: 0.92rem;
-  line-height: 1.15;
-  text-align: right;
-}
-
-.kg-stage .kg-main > .skills-block-quest .sbq-poem-line {
-  display: grid;
-  grid-template-columns: 42px minmax(0, 1fr);
-  align-items: stretch;
-  gap: 6px;
-  min-height: var(--kg-physical-hit, 56px);
-  margin: 0;
-}
-
-.kg-stage .kg-main > .skills-block-quest .sbq-poem-line-words {
-  display: flex;
-  align-content: flex-start;
-  align-items: stretch;
-  flex-wrap: wrap;
-  gap: 3px;
-  min-width: 0;
-}
-
-.kg-stage .kg-main > .skills-block-quest .sbq-poem-token {
-  min-width: var(--kg-physical-hit, 56px);
-  min-height: var(--kg-physical-hit, 56px);
-  margin: 0;
-  padding: 2px 6px;
-  border-radius: 12px;
-  line-height: 1.05;
 }
 
 /* Cover Clue replaced the former single-cover Story Stop, so it needs a
@@ -940,14 +864,6 @@
   .kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-answer-grid button {
     width: 100%;
     min-width: 0 !important;
-  }
-
-  /* The stage is the phone's one deliberate vertical scroll route. Let the
-     complete authored poem flow inside it instead of nesting another scroller
-     around the line-number gutters and partially hiding a word at each edge. */
-  .kg-stage .kg-main > .skills-block-quest .sbq-poem-spotlight .sbq-round-display.sbq-poem {
-    max-height: none;
-    overflow: visible;
   }
 
   .kg-stage .kg-main > .skills-block-quest .sbq-trace {

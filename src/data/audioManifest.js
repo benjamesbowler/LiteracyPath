@@ -2332,15 +2332,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "0f87820e5848c144": {
-    "text": "poems should stay unread",
-    "normalizedText": "poems should stay unread",
-    "path": "/audio/0f87820e5848c144.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
   "0f8c9449d3d33fb7": {
     "text": "walked inside",
     "normalizedText": "walked inside",
@@ -7736,15 +7727,6 @@ export const audioManifest = {
     "text": "pput",
     "normalizedText": "pput",
     "path": "/audio/3299dace05131f73.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
-  "32adc7495c6eb164": {
-    "text": "she should avoid poems",
-    "normalizedText": "she should avoid poems",
-    "path": "/audio/32adc7495c6eb164.mp3",
     "kinds": [
       "choice"
     ],
@@ -16317,15 +16299,6 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 16
-  },
-  "6cd1b49b6dc24a48": {
-    "text": "hands shake because poems are long",
-    "normalizedText": "hands shake because poems are long",
-    "path": "/audio/6cd1b49b6dc24a48.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
   },
   "6ce5df941b5ca697": {
     "text": "She was playing and exploring in the sand.",
@@ -27496,15 +27469,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "bad4824488d6e217": {
-    "text": "the poem was aloud",
-    "normalizedText": "the poem was aloud",
-    "path": "/audio/bad4824488d6e217.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
   "bad634f05e7986e4": {
     "text": "libraries",
     "normalizedText": "libraries",
@@ -37775,15 +37739,6 @@ export const audioManifest = {
     ],
     "useCount": 4
   },
-  "fe68c6029c58d48a": {
-    "text": "poems are scary forever",
-    "normalizedText": "poems are scary forever",
-    "path": "/audio/fe68c6029c58d48a.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
   "fe6b5dc9a2b285ee": {
     "text": "purpel",
     "normalizedText": "purpel",
@@ -38235,7 +38190,6 @@ export const audioTextIndex = {
   "bedtime": "0f5adece47ede93e",
   "what did sara see after the rain stopped?": "0f6d2918722f5866",
   "how does she paint the picture?": "0f78b2c4630c7389",
-  "poems should stay unread": "0f87820e5848c144",
   "walked inside": "0f8c9449d3d33fb7",
   "before he plays": "0f99be28898879a7",
   "horses": "0fa13e9c53b81b1c",
@@ -38836,7 +38790,6 @@ export const audioTextIndex = {
   "why did jason study hard?": "32722299102a0993",
   "look at the picture. where is the duck?": "32797cfdff4f9035",
   "pput": "3299dace05131f73",
-  "she should avoid poems": "32adc7495c6eb164",
   "bus": "32c70cebf110eedb",
   "the plate was white": "32ddd59c25c237b4",
   "what can you infer about the weather before and after the rain stopped?": "32e6f56ee9912dd4",
@@ -39789,7 +39742,6 @@ export const audioTextIndex = {
   "which clue shows noah made a sacrifice?": "6c7490d321a0d160",
   "the books were cold": "6c9ea5a12b0fb09d",
   "thin": "6ca0fa2674cdc58a",
-  "hands shake because poems are long": "6cd1b49b6dc24a48",
   "she was playing and exploring in the sand.": "6ce5df941b5ca697",
   "baby": "6cf34755b9de3322",
   "she was upset about losing her books.": "6cf95e7eb3dcc586",
@@ -41031,7 +40983,6 @@ export const audioTextIndex = {
   "nepo": "bab43c6982891a56",
   "snacks": "bab69910f7dc80c2",
   "hanging it from a branch": "bac037ae1195bf40",
-  "the poem was aloud": "bad4824488d6e217",
   "libraries": "bad634f05e7986e4",
   "thunder": "badcfa3c62742b3b",
   "rad": "bade5d26b78d94e5",
@@ -42173,7 +42124,6 @@ export const audioTextIndex = {
   "what dentists do": "fe36bcdb1319389a",
   "the markers were bright": "fe4fbfa383633f32",
   "which word shows more than one apple?": "fe5918289ae6606b",
-  "poems are scary forever": "fe68c6029c58d48a",
   "purpel": "fe6b5dc9a2b285ee",
   "every morning": "fe78bc27eaeb1b77",
   "how often does sally visit the library?": "fea2fb67f913d0d1",
@@ -42198,11 +42148,11 @@ export const audioTextIndex = {
 };
 
 export const audioManifestStats = {
-  "entries": 4220,
+  "entries": 4214,
   "questionsScanned": 1682,
   "collectedUses": {
     "prompt": 1682,
-    "choice": 6585,
+    "choice": 6580,
     "spokenPrompt": 296,
     "audioText": 0,
     "passage": 0

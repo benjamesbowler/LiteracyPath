@@ -1,7 +1,7 @@
 # LiteracyPath Question Design Bible
 
 **Policy version:** `2026-08-01.1`
-**Applies to:** assessments, Story Quest questions, EL Quest stations, arcade literacy tasks, worksheets, future poems/animations with scored questions, and teacher-authored question generators. Scored Guided Reading quizzes are retired; optional teacher discussion support is not a scored question system and is outside this policy gate.
+**Applies to:** assessments, Story Quest questions, EL Quest stations, arcade literacy tasks, worksheets, animations with scored questions, and teacher-authored question generators. Scored Guided Reading quizzes are retired; optional teacher discussion support is not a scored question system and is outside this policy gate.
 **Permanent gate:** `npm run check:question-design-policy`
 
 This is the canonical standard for writing and reviewing LiteracyPath questions for learners aged 4–12. It supersedes any older rule that conflicts with it. A question is not publishable because it looks plausible or because an adult can infer the intended answer. It is publishable only when it measures the intended literacy construct, has one defensible answer, removes avoidable language and access barriers, and passes the evidence checks in this document.

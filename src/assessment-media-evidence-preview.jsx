@@ -15,6 +15,7 @@ const BROKEN_SOURCE = "/images/assessment/does-not-exist-a3-10.webp";
 const PREVIEW_PARAMS = new URLSearchParams(window.location.search);
 const IS_COMPACT_VISUAL_GRID = PREVIEW_PARAMS.get("scenario") === "compact-visual-grid";
 const IS_LOCKED_ASSESSMENT = PREVIEW_PARAMS.get("locked") === "1";
+const IS_RESPONSE_LATENCY = PREVIEW_PARAMS.get("scenario") === "response-latency";
 const REQUESTED_SKILL = PREVIEW_PARAMS.get("skill") || "";
 const REQUESTED_ITEM_ID = PREVIEW_PARAMS.get("item") || "";
 
@@ -156,12 +157,36 @@ const CANDIDATES = [
 export function AssessmentMediaEvidencePreview({ inspectedQuestion = null }) {
   const [round, setRound] = useState(() => IS_COMPACT_VISUAL_GRID
     ? [COMPACT_VISUAL_GRID_QUESTION]
-    : inspectedQuestion ? [inspectedQuestion] : [FAILED_QUESTION, SAFE_QUESTION]);
+    : inspectedQuestion ? [inspectedQuestion]
+    : IS_RESPONSE_LATENCY ? [SAFE_QUESTION, SAFE_REFILL] : [FAILED_QUESTION, SAFE_QUESTION]);
   const [currentQuestion, setCurrentQuestion] = useState(() => IS_COMPACT_VISUAL_GRID
     ? COMPACT_VISUAL_GRID_QUESTION
-    : inspectedQuestion || FAILED_QUESTION);
+    : inspectedQuestion || (IS_RESPONSE_LATENCY ? SAFE_QUESTION : FAILED_QUESTION));
   const [failureCount, setFailureCount] = useState(0);
+  const [feedback, setFeedback] = useState(null);
+  const [savingAnswer, setSavingAnswer] = useState(false);
+  const [answerCount, setAnswerCount] = useState(0);
+  const answerInFlightRef = useRef(false);
   const handledQuestionIds = useRef(new Set());
+
+  async function previewAnswer(choice) {
+    if (!IS_RESPONSE_LATENCY || answerInFlightRef.current) return;
+    answerInFlightRef.current = true;
+    setSavingAnswer(true);
+    // The browser regression holds this preview-only response to exercise the
+    // production renderer's pending-save state independently of credentials.
+    await fetch("/__preview_assessment_answer__");
+    setAnswerCount(count => count + 1);
+    setCurrentQuestion(null);
+    setFeedback({ isCorrect: choice === currentQuestion.answer, explanation: "" });
+    setSavingAnswer(false);
+  }
+
+  function previewNextQuestion() {
+    if (!IS_RESPONSE_LATENCY) return;
+    answerInFlightRef.current = false;
+    setCurrentQuestion(SAFE_REFILL);
+  }
 
   function handleEvidenceImageError({ questionId, src }) {
     if (handledQuestionIds.current.has(questionId)) return;
@@ -186,24 +211,25 @@ export function AssessmentMediaEvidencePreview({ inspectedQuestion = null }) {
       data-preview-surface="assessment-media-evidence"
       data-preview-scenario={IS_COMPACT_VISUAL_GRID ? "compact-visual-grid" : inspectedQuestion ? "generated-v3-item" : "media-evidence"}
       data-failure-count={failureCount}
+      data-answer-count={answerCount}
       data-round-question-ids={round.map(question => question.id).join(",")}
     >
       <AssessmentPage
         currentQuestion={currentQuestion}
-        feedback={null}
+        feedback={feedback}
         studentName={IS_COMPACT_VISUAL_GRID || inspectedQuestion ? "Teacher Ben" : "Aaron"}
         currentSkillIndex={0}
         currentStage={{
           id: currentQuestion?.skillId || "initial_sounds",
           label: currentQuestion?.skillName || "Initial Sounds"
         }}
-        setFeedback={() => {}}
-        pickQuestion={() => {}}
-        roundAnswers={[]}
+        setFeedback={setFeedback}
+        pickQuestion={previewNextQuestion}
+        roundAnswers={Array(answerCount).fill(true)}
         roundLength={IS_COMPACT_VISUAL_GRID ? 10 : inspectedQuestion ? 1 : 2}
         roundProgress={IS_COMPACT_VISUAL_GRID ? 10 : inspectedQuestion ? 100 : 0}
         shouldShowImage={() => false}
-        answerQuestion={() => {}}
+        answerQuestion={previewAnswer}
         speakText={() => {}}
         message=""
         endAssessment={() => {}}
@@ -215,7 +241,8 @@ export function AssessmentMediaEvidencePreview({ inspectedQuestion = null }) {
           : []}
         onChangeSkillLevel={IS_COMPACT_VISUAL_GRID || inspectedQuestion ? () => {} : null}
         onEvidenceImageError={IS_COMPACT_VISUAL_GRID || inspectedQuestion ? null : handleEvidenceImageError}
-        independentAssessment={IS_LOCKED_ASSESSMENT}
+        independentAssessment={IS_LOCKED_ASSESSMENT || IS_RESPONSE_LATENCY}
+        isAssessmentTransitioning={savingAnswer}
         sessionNotice={IS_LOCKED_ASSESSMENT ? (
           <StudentSessionNotice
             placement="inline"

@@ -12,7 +12,7 @@ const ROUTES = [
   { cycle: "cycle-2", station: "build", mechanic: "missingLetter", stage: "missing-letter" },
   { cycle: "cycle-1", station: "trace", mechanic: "letterGrid", stage: "letter-grid" },
   { cycle: "cycle-1", station: "play", mechanic: "rhymePair", stage: "rhyme-pair" },
-  { cycle: "cycle-1", station: "poem", mechanic: "compoundPicture", stage: "compound-picture" },
+  { cycle: "cycle-1", station: "compound", mechanic: "compoundPicture", stage: "compound-picture" },
   { cycle: "cycle-1", station: "search", mechanic: "pictureSearch", stage: "picture-search" }
 ];
 

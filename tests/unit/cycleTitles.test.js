@@ -37,7 +37,7 @@ test("every selectable cycle has a content title", () => {
     "Cycle 24: fizzle letters",
     "Cycle 25: Review and wrap-up",
     "Cycle 26: Pattern Power",
-    "Cycle 27: Poem Launch"
+    "Cycle 27: Word and sound review"
   ]);
 });
 
@@ -47,7 +47,7 @@ test("Cycle Practice uses game wording while formal teaching titles remain uncha
       ? "Cycle 27: Word and sound review" : cyclePickerTitle(cycle));
   }
   const finalCycle = elSkillsBlockCycles.find(cycle => cycle.cycleNumber === 27);
-  assert.equal(cyclePickerTitle(finalCycle), "Cycle 27: Poem Launch");
+  assert.equal(cyclePickerTitle(finalCycle), "Cycle 27: Word and sound review");
   assert.equal(cyclePracticeDisplayTitle({ cycleNumber: "27" }, finalCycle.title), "Cycle 27: Word and sound review");
   assert.equal(cyclePracticeDisplayTitle({ cycleNumber: 4 }, "saved title"), "saved title");
 });

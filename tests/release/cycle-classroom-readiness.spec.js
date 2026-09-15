@@ -80,7 +80,7 @@ test('completed quests retain honest optional-station progress and Cycle 27 has 
   }, progress);
   await expect(page.locator('.sbq-cycle-progress')).toHaveAttribute('aria-label', '5 of 10 stations complete');
   await expect(page.locator('[data-station-id="check"]')).toHaveAttribute('data-station-state', 'done');
-  for (const id of ['play', 'poem']) {
+  for (const id of ['play', 'compound']) {
     await expect(page.locator(`[data-station-id="${id}"]`)).toHaveAttribute('data-station-state', 'open');
     await expect(page.locator(`[data-station-id="${id}"]`)).toContainText('Extra game');
   }

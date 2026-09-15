@@ -36,6 +36,19 @@ test("v2 Adventure Map progress survives normalisation", () => {
   assert.deepEqual(normalizeElQuestProgress(current), current);
 });
 
+test("retired station IDs retain completion under Picture Words without resetting progress", () => {
+  const current = { schemaVersion: 2, progressEpoch: 2, cycles: {
+    "cycle-4": { stars: 3, plays: 4, stations: { poem: true, compound: false, letters: true } }
+  } };
+  const normalized = normalizeElQuestProgress(current);
+  assert.deepEqual(normalized.cycles["cycle-4"], {
+    stars: 3, plays: 4, stations: { compound: true, letters: true }
+  });
+  assert.equal(current.cycles["cycle-4"].stations.poem, true, "input remains unchanged");
+  assert.deepEqual(mergeElQuestProgress(normalized, current), normalized);
+  assert.deepEqual(mergeElQuestProgress(current, null), normalized);
+});
+
 test("current Adventure Map progress requires canonical cycle and station record objects", () => {
   const valid = {
     schemaVersion: 2,

@@ -6,8 +6,8 @@ cannot yet read instructions independently. Its current runtime is
 question source is `cyclePracticeContent.js` in the same directory. It no
 longer uses the Adventure Map's memory, gate, poem or confirmation mechanics.
 
-Practice pickers and live session labels call Cycle 27 "Word and sound review";
-the formal curriculum's presentation title and stored assignment stay unchanged.
+All cycle pickers, presentations and live session labels call Cycle 27
+"Word and sound review". Its stored cycle assignment remains cycle-27.
 
 ## Learning through play
 

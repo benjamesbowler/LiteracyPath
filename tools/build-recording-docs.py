@@ -87,23 +87,11 @@ lex = read("src/data/vocabularyMediaLexicon.js")
 for w in re.findall(r'"word":\s*"([^"]+)"', lex): words.add(w.strip().lower())
 # the three short whole words from the sounds script
 for w in ["am","ax","of"]: words.add(w)
-# poem find-words
-poems_src = read("src/data/elCyclePoems.js")
-for arr in re.findall(r"findWords:\s*\[([^\]]*)\]", poems_src):
-    for w in qwords(arr): words.add(w.strip().lower())
-
 # NOTE: blocklisted words are INCLUDED - in this app the blocklist means the
 # current recording is defective and NEEDS re-recording (they are priority items).
 words = sorted(w for w in words if w and re.fullmatch(r"[a-z][a-z'\- ]*", w))
 
-# ---- SENTENCES (poem lines) ----
-sentences = []
-for lines_block in re.findall(r"lines:\s*\[((?:[^\[\]]|\\.)*)\]", poems_src):
-    for s in re.findall(r'"((?:[^"\\]|\\.)*)"', lines_block):
-        s = s.replace('\\"', '"').replace("\\\\", "\\").strip()
-        if s: sentences.append(s)
-
-# ---------- assemble files (~10 total; sounds & sentences never mixed) ----------
+# ---------- assemble files (sounds and words stay separate) ----------
 def chunk(lst, n):
     k, out, i = -(-len(lst)//n), [], 0
     for _ in range(n):
@@ -115,8 +103,6 @@ files.append(("sounds-01", "SOUNDS & LETTER NAMES",
     LETTER_SOUNDS + DIGRAPH_SOUNDS + LETTER_NAMES))
 for i, part in enumerate(chunk(words, 6), 1):
     files.append((f"words-{i:02d}", f"WORDS (part {i})", part))
-for i, part in enumerate(chunk(sentences, 3), 1):
-    files.append((f"sentences-{i:02d}", f"SENTENCES (part {i})", part))
 
 # ---------- write the master Word document ----------
 INSTR = [
@@ -135,7 +121,7 @@ def heading(doc, text, size=15, color=(20,24,60)):
 doc = Document()
 t = doc.add_paragraph(); tr = t.add_run("LiteracyPath — Voice Recording Script")
 tr.bold = True; tr.font.size = Pt(22)
-doc.add_paragraph("Everything the app needs recorded, split into files. Sounds, words and sentences are in separate files so nothing gets mixed up.")
+doc.add_paragraph("Everything the app needs recorded, split into files. Sounds and words are in separate files so nothing gets mixed up.")
 heading(doc, "How to record")
 for i, s in enumerate(INSTR, 1):
     doc.add_paragraph(s, style="List Number")
@@ -170,7 +156,6 @@ with open(OUT / "recording_manifest.csv", "w", newline="", encoding="utf-8") as 
 # ---------- report ----------
 print("Blocklisted words INCLUDED as priority re-records:", sorted(BLOCK))
 print("Unique WORDS:", len(words))
-print("SENTENCES:", len(sentences))
 print("SOUNDS+NAMES:", len(files[0][2]))
 print("Files:", len(files), "| total items:", total)
 for name, label, items in files: print(f"  {name}.mp3  {label:22} {len(items):4} items")

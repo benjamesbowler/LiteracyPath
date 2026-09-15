@@ -95,7 +95,7 @@ export function cycleTopic(cycle = {}) {
   }
 
   if (!isFluencyCycle(cycle) && letters.length) return `${letters[0]} families`;
-  // Fluency cycles name their own focus ("Pattern Power", "Poem Launch").
+  // Fluency cycles name their own focus ("Pattern Power", "Word and sound review").
   // Without this they all collapse to one shared phase label.
   if (letters.length) return letters.join(" and ");
   return humanizePhase(cycle.phase);

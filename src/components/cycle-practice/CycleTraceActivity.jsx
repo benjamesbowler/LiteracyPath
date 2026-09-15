@@ -1,4 +1,4 @@
-import CycleButton from "./CycleButton.jsx";
+import ActivityButton from "../ActivityButton.jsx";
 import { useEffect, useRef, useState } from "react";
 import { ArrowCounterClockwise, Eye, HandTap, PencilLine, Sparkle } from "@phosphor-icons/react";
 import { CYCLE_TRACE_RULES, createCycleTraceModel, cycleTraceCompletion, evaluateCycleTrace } from "./cycleTraceRules.js";
@@ -245,9 +245,9 @@ function TraceRound({ round, grapheme, disabled = false, onCommit, supportLevel 
         </div>
       </div>
       <div className="cycle-trace__tools" role="group" aria-label="Tracing tools">
-        <CycleButton type="button" disabled={disabled || isDone} onClick={reset} aria-label="Erase and start again"><ArrowCounterClockwise weight="bold" /><span>Again</span></CycleButton>
-        <CycleButton type="button" disabled={disabled || isDone} onClick={showModel} aria-label="Show me the letter trail"><Eye weight="fill" /><span>Show me</span></CycleButton>
-        <CycleButton type="button" disabled={disabled || isDone} onClick={helpTrace} aria-label="Help me trace one part"><HandTap weight="fill" /><span>Help me</span></CycleButton>
+        <ActivityButton type="button" disabled={disabled || isDone} onClick={reset} aria-label="Erase and start again"><ArrowCounterClockwise weight="bold" /><span>Again</span></ActivityButton>
+        <ActivityButton type="button" disabled={disabled || isDone} onClick={showModel} aria-label="Show me the letter trail"><Eye weight="fill" /><span>Show me</span></ActivityButton>
+        <ActivityButton type="button" disabled={disabled || isDone} onClick={helpTrace} aria-label="Help me trace one part"><HandTap weight="fill" /><span>Help me</span></ActivityButton>
       </div>
     </section>
   );

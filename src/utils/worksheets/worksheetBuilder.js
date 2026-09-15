@@ -5,12 +5,11 @@
 // Output is a self-contained printable HTML document (browser "Save as PDF").
 //
 // Every exercise is built from THE CYCLE'S OWN content - its focus letters,
-// its example words, its sight words, its poem and its spelling patterns - and
+// its example words, its sight words and its spelling patterns - and
 // only ever tests against material taught by that point in the curriculum,
 // so no two cycles print the same worksheet.
 import { elSkillsBlockCycles, LETTER_EXAMPLES } from "../../data/elSkillsBlockCycles.js";
 import { cycleOptionLabel } from "../cycleTitles.js";
-import { EL_CYCLE_POEMS } from "../../data/elCyclePoems.js";
 import { getChildWordAsset } from "../../data/childAssets.js";
 import { openHtmlDocument } from "../openHtmlDocument.js";
 
@@ -18,7 +17,7 @@ export const WORKSHEET_TYPES = [
   { id: "letterFormation", label: "Letter formation", category: "practice", format: "Write", blurb: "Trace and write the cycle's focus letters, then hunt for them." },
   { id: "wordBuilding", label: "Word building", category: "practice", format: "Write", blurb: "Read, complete and build words made from the cycle's sounds." },
   { id: "sightWords", label: "Sight words", category: "practice", format: "Write", blurb: "Trace, find and use the cycle's high-frequency words in real sentences." },
-  { id: "patternFluency", label: "Pattern and fluency", category: "practice", format: "Read", blurb: "Sort this cycle's spelling patterns, chain words and read the poem (cycles 25-27)." },
+  { id: "patternFluency", label: "Pattern and fluency", category: "practice", format: "Read", blurb: "Sort this cycle's spelling patterns, chain words and practise word reading (cycles 25-27)." },
   { id: "wordSearch", label: "Word search", category: "puzzles", format: "Puzzle", blurb: "Find cycle words in a print-friendly grid, then read and write them." },
   { id: "letterColouring", label: "Colour the letters", category: "colouring", format: "Colour", blurb: "Colour, trace and spot the cycle's focus letters or graphemes." },
   { id: "sightWordColouring", label: "Colour the sight words", category: "colouring", format: "Colour", blurb: "Use colour, dots and stripes to notice and remember high-frequency words." },
@@ -781,11 +780,11 @@ function patternDetectiveBlock(patterns, page) {
     </div>`;
 }
 
-function poemFluencyBlock(poem, page) {
-  if (!poem) return "";
-  return `<div class="ws-block" data-task-kind="poem-fluency" data-task-id="poem-fluency-${page}" data-answer="${esc(poem.findWords.join("|"))}">
-      <div class="ws-block-title small ws-instruction">Read the poem 3 times. Circle these words: <b>${poem.findWords.map(w => esc(w)).join(", ")}</b></div>
-      <div class="ws-poem">${esc(poem.lines.join("\n"))}</div>
+function wordFluencyBlock(patterns, page) {
+  const words = rotate([...new Set(patterns.flatMap(pattern => pattern.yes))], page).slice(0, 8);
+  return `<div class="ws-block" data-task-kind="word-fluency" data-task-id="word-fluency-${page}" data-answer="${esc(words.join("|"))}">
+      <div class="ws-block-title small ws-instruction">Read each word. Read the row again smoothly.</div>
+      <div class="ws-wordstrip">${words.map(word => `<span class="ws-chip">${esc(word)}</span>`).join("")}</div>
       <div class="ws-read-checks" aria-label="three reading checks"><span>Read 1 □</span><span>Read 2 □</span><span>Read 3 □</span></div>
     </div>`;
 }
@@ -793,7 +792,6 @@ function poemFluencyBlock(poem, page) {
 function patternFluencyPage(cycle, page) {
   const patterns = CYCLE_PATTERNS[cycle.cycleNumber] || CYCLE_PATTERNS[27];
   const chains = CYCLE_CHAINS[cycle.cycleNumber] || CYCLE_CHAINS[27];
-  const poem = EL_CYCLE_POEMS.find(p => p.cycle === cycle.cycleNumber);
   const firstWords = rotate([...patterns[0].yes.slice(0, 4), ...patterns[0].no], page);
   const secondWords = rotate([...patterns[1].yes.slice(0, 4), ...patterns[1].no], page + 1);
   switch (page % 6) {
@@ -808,7 +806,7 @@ function patternFluencyPage(cycle, page) {
     case 4:
       return `${patternDetectiveBlock(patterns, page)}${patternCompareBlock(patterns.slice().reverse(), page)}`;
     default:
-      return `${poemFluencyBlock(poem, page)}${patternDetectiveBlock(patterns, page)}`;
+      return `${wordFluencyBlock(patterns, page)}${patternDetectiveBlock(patterns, page)}`;
   }
 }
 
@@ -1176,8 +1174,7 @@ const WS_STYLES = `
   .ws-cut-grid,
   .ws-matching-cards,
   .ws-mini-book,
-  .ws-roll-board,
-  .ws-poem { font-family: var(--ws-school-font); }
+  .ws-roll-board { font-family: var(--ws-school-font); }
   .ws-trace-row { display: flex; gap: 26px; font-size: 52px; line-height: 1; margin-bottom: 6px; }
   .ws-trace { color: #aeb8c2; }
   .ws-write { display: grid; gap: 14px; }
@@ -1211,7 +1208,6 @@ const WS_STYLES = `
   .ws-grid span { border: 1.5px solid #94a3b8; border-radius: 8px; padding: 8px 0; }
   .ws-sentence { font-size: 21px; margin: 10px 0; }
   .ws-sentence-copy { margin-bottom: 12px; font-size: 19px; }
-  .ws-poem { white-space: pre-wrap; font-size: 19px; line-height: 1.6; border: 2px solid #94a3b8; border-radius: 10px; padding: 12px 16px; }
   .ws-wordstrip, .ws-chain { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
   .ws-chip { border: 2px solid #0C6B65; border-radius: 10px; padding: 6px 14px; font-size: 21px; }
   .ws-chip.blank { min-width: 70px; border-style: dashed; }

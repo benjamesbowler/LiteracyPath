@@ -1,3 +1,4 @@
+import ActivityButton from "../ActivityButton.jsx";
 import { useState } from "react";
 import { SpeakerHigh } from "@phosphor-icons/react";
 
@@ -67,7 +68,7 @@ export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText
   return (
     <div className="ixl-template-panel hfw-letter-build-panel">
       {sentenceAudioText && (
-        <button
+        <ActivityButton
           className="assessment-audio-button mini-audio-button hfw-sentence-audio-button"
           disabled={isPlayingSentence}
           onClick={playSentence}
@@ -75,7 +76,7 @@ export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText
           aria-label={isPlayingSentence ? "Sentence playing" : "Listen to sentence"}
         >
           {isPlayingSentence ? <span className="audio-loading-dot" aria-hidden="true" /> : <SpeakerHigh size={20} weight="bold" aria-hidden="true" />}
-        </button>
+        </ActivityButton>
       )}
 
       <div
@@ -88,7 +89,7 @@ export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText
           {Array.from({ length: targetLength }, (_, index) => {
             const selected = selectedTiles[index];
             return selected ? (
-              <button
+              <ActivityButton
                 className="sound-order-selected-tile hfw-letter-slot filled"
                 key={`${selected.tile}-${selected.index}`}
                 onClick={() => removeTile(index)}
@@ -96,7 +97,7 @@ export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText
                 aria-label={`Remove ${selected.tile}`}
               >
                 {selected.tile}
-              </button>
+              </ActivityButton>
             ) : (
               <span
                 className="sound-order-empty-slot hfw-letter-slot"
@@ -113,7 +114,7 @@ export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText
         {tiles.map((tile, index) => {
           const disabled = selectedIndexes.has(index) || selectedTiles.length >= targetLength;
           return (
-            <button
+            <ActivityButton
               className="sound-order-tile"
               disabled={disabled}
               draggable={!disabled}
@@ -124,27 +125,27 @@ export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText
               aria-label={`Add ${tile}`}
             >
               {tile}
-            </button>
+            </ActivityButton>
           );
         })}
       </div>
 
       <div className="button-row ixl-template-actions">
-        <button
+        <ActivityButton
           className="reset-button"
           onClick={() => setSelectedTiles([])}
           type="button"
         >
           Reset
-        </button>
-        <button
+        </ActivityButton>
+        <ActivityButton
           className="main-button"
           disabled={builtWord.length !== targetLength}
           onClick={() => answerQuestion(builtWord)}
           type="button"
         >
           Submit
-        </button>
+        </ActivityButton>
       </div>
     </div>
   );

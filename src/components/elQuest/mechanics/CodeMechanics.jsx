@@ -1,3 +1,4 @@
+import ActivityButton from '../../ActivityButton.jsx';
 import { useState } from "react";
 import {
   commitSoundChoice,
@@ -66,7 +67,7 @@ export function LetterPressMechanic({
       </div>
       <div className="am-letter-press-choices" aria-label="Choose the matching letter">
         {round.choices.map(choice => (
-          <button
+          <ActivityButton
             key={choice}
             type="button"
             className="am-letter-press-button"
@@ -76,7 +77,7 @@ export function LetterPressMechanic({
             onClick={() => handlePress(choice)}
           >
             {choice}
-          </button>
+          </ActivityButton>
         ))}
       </div>
     </section>
@@ -115,7 +116,7 @@ export function SoundChoiceMechanic({
 
       <div className="am-sound-choice__tiles" role="group" aria-label="Spelling choices">
         {round.choices.map(choice => (
-          <button
+          <ActivityButton
             key={choice}
             type="button"
             className="am-sound-choice__tile"
@@ -125,7 +126,7 @@ export function SoundChoiceMechanic({
             onClick={() => handleSelect(choice)}
           >
             {choice}
-          </button>
+          </ActivityButton>
         ))}
       </div>
     </section>

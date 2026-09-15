@@ -1,3 +1,4 @@
+import ActivityButton from '../ActivityButton.jsx';
 import { useEffect, useRef } from "react";
 import { triggerTactileFeedback } from "../../utils/tactileFeedback.js";
 
@@ -30,7 +31,7 @@ export function AdventureRoundFrame({
   hasContentAudio = false,
   audioStatus = "ready",
   targetReplayLabel = "Hear the target",
-  contentReplayLabel = "Hear the poem",
+  contentReplayLabel = "Hear the text",
   onReplayInstruction,
   onReplayTarget,
   onReplayContent,
@@ -100,13 +101,13 @@ export function AdventureRoundFrame({
         >
           <span style={{ width: `${progress}%` }} />
         </div>
-        <button
+        <ActivityButton
           className="adventure-round-frame__stop"
           type="button"
           onClick={onStop}
         >
           Stop
-        </button>
+        </ActivityButton>
       </header>}
 
       <div className={`adventure-round-frame__body${compact ? " adventure-round-frame__body--compact" : ""}`}>
@@ -117,7 +118,7 @@ export function AdventureRoundFrame({
             {supportText && <small className="adventure-round-frame__support">{supportText}</small>}
           </div>
           <div className="adventure-round-frame__audio-actions">
-            <button
+            <ActivityButton
               type="button"
               aria-label="Hear instructions again"
               data-instruction-audio={instructionAudio}
@@ -127,9 +128,9 @@ export function AdventureRoundFrame({
             >
               <SpeakerIcon />
               <span>Listen</span>
-            </button>
+            </ActivityButton>
             {hasTargetAudio && (
-              <button
+              <ActivityButton
                 type="button"
                 data-audio-state={audioStatus}
                 disabled={disabled}
@@ -137,10 +138,10 @@ export function AdventureRoundFrame({
               >
                 <SpeakerIcon />
                 {targetReplayLabel}
-              </button>
+              </ActivityButton>
             )}
             {hasContentAudio && (
-              <button
+              <ActivityButton
                 type="button"
                 data-audio-state={audioStatus}
                 disabled={disabled}
@@ -148,7 +149,7 @@ export function AdventureRoundFrame({
               >
                 <SpeakerIcon />
                 {contentReplayLabel}
-              </button>
+              </ActivityButton>
             )}
             <span
               className="adventure-round-frame__audio-status"

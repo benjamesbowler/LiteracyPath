@@ -107,7 +107,7 @@ test('S/T mixed quests always practise current targets and review A/M across var
 });
 
 test('replay changes actual sound pictures, rhyme families and compound targets, not just answer slots', () => {
-  for (const station of ['hunt', 'play', 'poem']) {
+  for (const station of ['hunt', 'play', 'compound']) {
     const selections = new Set();
     for (let pass = 0; pass < 12; pass++) {
       const rounds = buildStationRounds(cycles[0], station, { seed: `new-examples:${pass}` });

@@ -5697,16 +5697,16 @@ export const questions = [
   "passage": "The book fair filled the hall for one whole day. Tables sagged under picture books and joke books. A signing corner had an author with a fountain pen. Tokens from the summer reading club counted double, and the librarian wore a bright book-print dress.",
   "cell": "which_is_not",
   "choices": [
-   "a poetry competition was judged",
+   "the fair sold out of tickets early",
    "an author signed books",
    "reading tokens counted double",
    "the librarian wore her book dress"
   ],
   "answerOptions": [
    {
-    "value": "a poetry competition was judged",
-    "label": "a poetry competition was judged",
-    "text": "a poetry competition was judged"
+    "value": "the fair sold out of tickets early",
+    "label": "the fair sold out of tickets early",
+    "text": "the fair sold out of tickets early"
    },
    {
     "value": "an author signed books",
@@ -5724,8 +5724,8 @@ export const questions = [
     "text": "the librarian wore her book dress"
    }
   ],
-  "answer": "a poetry competition was judged",
-  "correctAnswer": "a poetry competition was judged",
+  "answer": "the fair sold out of tickets early",
+  "correctAnswer": "the fair sold out of tickets early",
   "distractorRationales": {
    "the librarian wore her book dress": "D-DETAIL-AS-MAIN",
    "an author signed books": "D-DETAIL-AS-MAIN",

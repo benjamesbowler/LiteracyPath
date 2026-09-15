@@ -474,6 +474,8 @@ function requiredCoverage(cycle, rounds) {
 
 const SESSION_BLUEPRINT_CACHE = new Map();
 const SESSION_TASK_COVERAGE = new Map();
+const SESSION_REQUIRED_COVERAGE = new Map();
+const MINIMUM_COMPLETED_TASKS = 36;
 export function cyclePracticeSessionBlueprint(cycle, suppliedRounds) {
   if (!suppliedRounds && SESSION_BLUEPRINT_CACHE.has(cycle.id)) return SESSION_BLUEPRINT_CACHE.get(cycle.id);
   const rounds = suppliedRounds || buildCyclePracticePlan(cycle, 'session-blueprint').rounds;
@@ -496,7 +498,7 @@ export function cyclePracticeSessionBlueprint(cycle, suppliedRounds) {
     reviewGraphemes: cyclePracticeGraphemes(cycle).filter(g => !cycleFocusGraphemes(cycle).includes(g)),
     highFrequencyWords: (cycle.highFrequencyWords || []).map(word => word.toLowerCase()),
     requiredCoverageTags: requiredCoverage(cycle, rounds),
-    minimumCompletedTasks: 36,
+    minimumCompletedTasks: MINIMUM_COMPLETED_TASKS,
     minimumActiveSeconds: CYCLE_PRACTICE_MINIMUM_SECONDS,
     plannedMinutes: [Math.floor(seconds[0] / 60), Math.ceil(seconds[1] / 60)],
     planningBasis: 'Pacing allowances include the recorded instruction, naming pictures, thinking, the learning action and feedback. These are planning estimates, not measured child timings or enforced waits. A full distinct deck is available; earlier taught content is spaced review. Replays begin only after the complete deck.',
@@ -507,25 +509,29 @@ export function cyclePracticeSessionBlueprint(cycle, suppliedRounds) {
   if (!SESSION_TASK_COVERAGE.has(cycle.id)) {
     const inventory = Object.values(buildCyclePracticePools(cycle, 'session-blueprint')).flat();
     SESSION_TASK_COVERAGE.set(cycle.id, new Map(inventory.map(round => [round.semanticKey, round.coverageTags])));
+    SESSION_REQUIRED_COVERAGE.set(cycle.id, requiredCoverage(cycle, inventory));
   }
   return blueprint;
 }
 
 export function cyclePracticeReadiness(cycle, records = [], activeSeconds = 0) {
-  const blueprint = cyclePracticeSessionBlueprint(cycle);
+  // The initial plan already prepared the complete authored coverage. Reuse
+  // it when an answer finishes, instead of building another practice/check
+  // plan synchronously in the child's feedback callback.
+  if (!SESSION_TASK_COVERAGE.has(cycle.id)) cyclePracticeSessionBlueprint(cycle);
   const completed = records.filter(record => record.activityCompleted === true || record.evidence?.activityCompleted === true);
   const authoredCoverage = SESSION_TASK_COVERAGE.get(cycle.id);
   const semanticKeys = new Set(completed.map(record => record.semanticKey || record.evidence?.semanticKey).filter(key => authoredCoverage.has(key)));
   // Recovered evidence cannot invent a completed category by supplying tags.
   // The current authored task is the authority for what the action practised.
   const covered = new Set([...semanticKeys].flatMap(key => authoredCoverage.get(key)));
-  const missingCategories = blueprint.requiredCoverageTags.filter(tag => !covered.has(tag));
-  const timeReady = Number.isFinite(Number(activeSeconds)) && Number(activeSeconds) >= blueprint.minimumActiveSeconds;
-  const coverageReady = semanticKeys.size >= blueprint.minimumCompletedTasks && !missingCategories.length;
+  const missingCategories = SESSION_REQUIRED_COVERAGE.get(cycle.id).filter(tag => !covered.has(tag));
+  const timeReady = Number.isFinite(Number(activeSeconds)) && Number(activeSeconds) >= CYCLE_PRACTICE_MINIMUM_SECONDS;
+  const coverageReady = semanticKeys.size >= MINIMUM_COMPLETED_TASKS && !missingCategories.length;
   return {
     ready: timeReady && coverageReady, timeReady, coverageReady,
     completedTasks: semanticKeys.size, totalTasks: authoredCoverage.size,
-    minimumCompletedTasks: blueprint.minimumCompletedTasks,
+    minimumCompletedTasks: MINIMUM_COMPLETED_TASKS,
     missingCategories,
     missingFocus: missingCategories.filter(tag => tag.startsWith('focus:')).map(tag => tag.slice(6)),
     missingHighFrequencyWords: unique(missingCategories.filter(tag => /^hfw(?:Copy|Listen):/.test(tag)).map(tag => tag.split(':')[1])),

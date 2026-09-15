@@ -17,6 +17,7 @@
 .skills-block-quest .am-simple button:disabled { cursor: default; }
 .skills-block-quest .am-simple button:focus-visible { outline: 4px solid #155ecc; outline-offset: 4px; }
 .skills-block-quest .am-simple button:not(:disabled):active { transform: translateY(3px); }
+.skills-block-quest button[data-pressed="true"] { outline: 3px solid #147da2; outline-offset: -3px; }
 .skills-block-quest .am-simple img { display: block; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
 
 .skills-block-quest .am-simple-count {

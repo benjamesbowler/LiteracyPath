@@ -66,7 +66,7 @@ test("every word-audio resolver and compound part uses the corrected ribbon bow"
   const cycle = elSkillsBlockCycles.find(item => item.id === "cycle-1");
   let rainbows = 0;
   for (let seed = 0; seed < 12; seed += 1) {
-    for (const round of buildStationRounds(cycle, "poem", { seed: `clarity:${seed}` })) {
+    for (const round of buildStationRounds(cycle, "compound", { seed: `clarity:${seed}` })) {
       if (round.answer !== "rainbow") continue;
       rainbows += 1;
       assert.equal(round.parts.find(part => part.word === "bow").audio, corrected);

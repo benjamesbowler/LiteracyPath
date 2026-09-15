@@ -92,11 +92,11 @@ export function worldForCycle(cycleNumber) {
   return PAL_WORLDS.meadow;
 }
 
-// Theme used by the poems + Present deck. This MUST match the quest map's
+// Theme used by the Present deck. This MUST match the quest map's
 // 9-cycle land bands (worldForCycle) so a child standing in Dinosaur Valley
-// never gets a Meadow poem: the poem, the deck and the map stop all belong
+// never gets a Meadow deck: the deck and the map stop both belong
 // to the same land. (Previously this rotated every 3 cycles, which put 18 of
-// the 27 poems/decks in the wrong land.)
+// the 27 decks in the wrong land.)
 export function themeWorldForCycle(cycleNumber) {
   return worldForCycle(Math.max(1, Number(cycleNumber) || 1));
 }

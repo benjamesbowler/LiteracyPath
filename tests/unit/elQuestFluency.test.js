@@ -9,7 +9,7 @@ test("later review cycles preserve their teacher station IDs with simple games",
   for (const cycle of cycles) {
     assert.equal(isFluencyCycle(cycle), true);
     const stations = stationsForCycle(cycle);
-    assert.deepEqual(stations.map(station => station.id), ["pattern", "chain", "speed", "poem", "spell", "search", "check"]);
+    assert.deepEqual(stations.map(station => station.id), ["pattern", "chain", "speed", "compound", "spell", "search", "check"]);
     assert.deepEqual(stations.filter(station => station.id !== "check").map(station => station.title), [
       "Sound and Letter Match", "Missing Letters", "Rhyme Time", "Picture Words", "Word Match", "Picture Search"
     ]);
@@ -18,7 +18,7 @@ test("later review cycles preserve their teacher station IDs with simple games",
 });
 
 test("every later route offers a direct learning action with a recoverable answer", () => {
-  const expected = { pattern: ["soundChoice", "letterGrid"], chain: ["missingLetter"], speed: ["rhymePair"], poem: ["compoundPicture"], spell: ["sightWordChoice", "wordMemory"], search: ["pictureSearch"] };
+  const expected = { pattern: ["soundChoice", "letterGrid"], chain: ["missingLetter"], speed: ["rhymePair"], compound: ["compoundPicture"], spell: ["sightWordChoice", "wordMemory"], search: ["pictureSearch"] };
   for (const cycle of cycles) {
     for (const [station, mechanics] of Object.entries(expected)) {
       const rounds = buildStationRounds(cycle, station, { seed: `review:${cycle.id}:${station}` });

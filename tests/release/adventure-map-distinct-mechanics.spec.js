@@ -224,7 +224,7 @@ test("short rhyme games compare fresh picture pairs without a negative question 
 });
 
 test("two compound pictures lead directly to their combined picture", async ({ page }) => {
-  const round = await openStation(page, "cycle-1", "poem");
+  const round = await openStation(page, "cycle-1", "compound");
   const total = await roundTotal(page);
   const stage = round.locator('[data-mechanic-stage="compound-picture"]');
   await expect(stage.locator(".am-compound-pictures__parts img")).toHaveCount(2);

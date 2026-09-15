@@ -401,7 +401,7 @@ export function StudentHomePage({
   },[taughtTargetKeys,transferProgress]);
 
   useEffect(() => {
-    warmStudentAssets(worldForScope(progressScopeKey));
+    return warmStudentAssets(worldForScope(progressScopeKey));
   }, [progressScopeKey]);
 
   useEffect(() => {

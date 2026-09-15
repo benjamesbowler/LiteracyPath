@@ -1,5 +1,16 @@
 const imagePreloadCache = new Map();
 const audioMetadataPreloadCache = new Map();
+// Keep a short decoded picture window, not every activity from a long session.
+const MAX_WARMED_IMAGES = 48;
+
+function trimImages() {
+  for (const [src, entry] of imagePreloadCache) {
+    if (imagePreloadCache.size <= MAX_WARMED_IMAGES) break;
+    if (!entry.settled) continue;
+    imagePreloadCache.delete(src);
+    entry.image.src = "";
+  }
+}
 
 export function normalizeMediaUrl(src = "") {
   if (typeof src !== "string") return "";
@@ -8,26 +19,53 @@ export function normalizeMediaUrl(src = "") {
   return normalized;
 }
 
-export function preloadImage(src) {
+export function preloadImage(src, { timeoutMs = 8000, priority = "auto" } = {}) {
   const normalized = normalizeMediaUrl(src);
   if (!normalized || typeof Image === "undefined") {
     return Promise.resolve(false);
   }
 
   if (imagePreloadCache.has(normalized)) {
-    return imagePreloadCache.get(normalized);
+    const entry = imagePreloadCache.get(normalized);
+    imagePreloadCache.delete(normalized);
+    imagePreloadCache.set(normalized, entry);
+    if (priority === "high") entry.image.fetchPriority = "high";
+    return entry.promise;
   }
 
-  const promise = new Promise(resolve => {
-    const image = new Image();
-    if ("decoding" in image) image.decoding = "async";
-    image.onload = () => resolve(true);
-    image.onerror = () => resolve(false);
-    image.src = normalized;
+  const image = new Image();
+  image.decoding = "async";
+  image.fetchPriority = priority;
+  const entry = { image, settled: false, promise: null };
+  imagePreloadCache.set(normalized, entry);
+  entry.promise = new Promise(resolve => {
+    let timer;
+    const finish = ok => {
+      if (entry.settled) return;
+      entry.settled = true;
+      clearTimeout(timer);
+      image.onload = null;
+      image.onerror = null;
+      if (!ok) {
+        if (imagePreloadCache.get(normalized) === entry) imagePreloadCache.delete(normalized);
+        image.src = "";
+      }
+      resolve(ok);
+      trimImages();
+    };
+    image.onload = () => {
+      // Decode ahead of the next tap; keep the loaded image usable on browsers
+      // that reject decode() after a successful onload.
+      if (typeof image.decode === "function") {
+        Promise.resolve().then(() => image.decode()).then(() => finish(true), () => finish(true));
+      } else finish(true);
+    };
+    image.onerror = () => finish(false);
+    timer = setTimeout(() => finish(false), timeoutMs);
+    try { image.src = normalized; } catch { finish(false); }
   });
-
-  imagePreloadCache.set(normalized, promise);
-  return promise;
+  trimImages();
+  return entry.promise;
 }
 
 export function preloadAudioMetadata(src) {

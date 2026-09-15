@@ -4,7 +4,6 @@ import { makeChildFacingTextSafe } from "../utils/childFacingText.js";
 export const EL_LEARN_SECTION_IDS = [
   "overview",
   "letterLearning",
-  "poemAndChant",
   "phonemicAwareness",
   "rhyming",
   "highFrequencyWords",
@@ -17,7 +16,6 @@ export const EL_LEARN_SECTION_IDS = [
 export const EL_LEARN_SECTION_LABELS = {
   overview: "Cycle Overview",
   letterLearning: "Letter & Sound Learning",
-  poemAndChant: "Poem / Chant / Oral Language",
   phonemicAwareness: "Phonemic Awareness",
   rhyming: "Rhyming / Word Play",
   highFrequencyWords: "High-Frequency Words",
@@ -183,9 +181,9 @@ const CYCLE_SEEDS = [
   { cycleNumber: 24, phase: "patterns", focusLetters: [["FSZL / fizzle letters", "/f/ /s/ /z/ /l/", "ff ss zz ll", "Monday"]], highFrequencyWords: ["off", "which"], phonemicAwareness: ["Review deletion skills with multisyllabic words", "Review substitution skills in CVC words with onset and rime"], friday: "Cycle Check" },
   { cycleNumber: 25, phase: "microphase-wrap-up", focusLetters: [], highFrequencyWords: ["again", "day", "say"], phonemicAwareness: ["Review deletion skills with multisyllabic words", "Substitute rime in CVC words"], friday: "Microphase Assessment and Wrap-up" },
   { cycleNumber: 26, phase: "pattern-power", focusLetters: [["Pattern Power", "read patterns", "pattern", "Monday"]], highFrequencyWords: ["by", "my", "why", "try"], phonemicAwareness: ["Delete the first part of compound words"], routines: ["Pattern Power", "Fluency and Chaining", "What Says and Spelling to Complement Reading", "Interactive Writing"], friday: "Cycle 26 Check" },
-  { cycleNumber: 27, phase: "pattern-power", focusLetters: [["Poem Launch", "oral fluency", "pattern", "Monday"]], highFrequencyWords: ["first", "friend", "half"], phonemicAwareness: ["Delete the first part of compound words"], routines: ["Poem Launch and Pattern Power", "Fluency and Chaining", "Spelling to Complement Reading", "Interactive Editing"], friday: "Cycle Practice" },
+  { cycleNumber: 27, phase: "pattern-power", focusLetters: [["Word and sound review", "word fluency", "pattern", "Monday"]], highFrequencyWords: ["first", "friend", "half"], phonemicAwareness: ["Delete the first part of compound words"], routines: ["Word and Sound Review", "Fluency and Chaining", "Spelling to Complement Reading", "Interactive Editing"], friday: "Cycle Practice" },
   { id: "eoy-assessment", title: "EOY Assessment", type: "assessment", phase: "benchmark", focusLetters: [], highFrequencyWords: [], phonemicAwareness: ["Letter Identification", "Benchmark Assessment EOY"], routines: ["NWEA MAP EOY", "Kindergarten Writing Benchmarks", "Goal: students reach Cycle 25 or above"], friday: "End-of-year benchmark" },
-  { id: "celebrate-learning", title: "Celebrate Learning", type: "celebration", phase: "celebration", focusLetters: [], highFrequencyWords: [], phonemicAwareness: ["Review favorite sounds, words, poems, and reading routines"], routines: ["Share reading growth", "Celebrate learning routines"], friday: "Celebration and review" }
+  { id: "celebrate-learning", title: "Celebrate Learning", type: "celebration", phase: "celebration", focusLetters: [], highFrequencyWords: [], phonemicAwareness: ["Review favorite sounds, words, and reading routines"], routines: ["Share reading growth", "Celebrate learning routines"], friday: "Celebration and review" }
 ];
 
 const PRIORITY_CYCLE_CONTENT = {
@@ -206,27 +204,6 @@ const PRIORITY_CYCLE_CONTENT = {
         teacherScript: "M says /m/. Say /m/ like moon. Show the Mm card, then match it to mouse and map.",
         formation: ["Use the Mm stroke model image.", "Write Mm on the practice line after the model."]
       }
-    },
-    poem: {
-      title: "Ant and Mouse",
-      rhythm: "Clap on A lines. March softly on M lines.",
-      teacherTip: "Keep Aa and Mm separate. Teach am and I as high-frequency words after the sound cards.",
-      lines: [
-        "A, a, apple,",
-        "A, a, ant.",
-        "M, m, mouse,",
-        "M, m, moon.",
-        "I am me.",
-        "I am here.",
-        "A and M,",
-        "we can hear."
-      ],
-      callAndResponse: [
-        { teacher: "What sound does A make?", students: "/ă/ /ă/ /ă/!" },
-        { teacher: "What sound does M make?", students: "/m/ /m/ /m/!" },
-        { teacher: "Read this word: am.", students: "am!" },
-        { teacher: "Read this word: I.", students: "I!" }
-      ]
     },
     hfwSentences: { am: "I am here.", I: "I am me." },
     games: [
@@ -356,27 +333,6 @@ const PRIORITY_CYCLE_CONTENT = {
         articulation: "Round your lips like a tiny circle for /w/.",
         teacherScript: "W says /w/. Make your lips round: /w/. Say wolf, watch, watermelon, wave."
       }
-    },
-    poem: {
-      title: "Bear and Wave",
-      rhythm: "Clap twice on B lines. Swoop hands on W lines.",
-      teacherTip: "Keep the B/W sound sort oral and visual. The word chain is teacher-led because it uses review letters.",
-      lines: [
-        "B, b, bear,",
-        "B, b, ball.",
-        "W, w, wolf,",
-        "Watch it walk.",
-        "Bear has a book.",
-        "Wolf has a watch.",
-        "I can read not.",
-        "I can read that."
-      ],
-      callAndResponse: [
-        { teacher: "What sound does B make?", students: "/b/ /b/ /b/!" },
-        { teacher: "What sound does W make?", students: "/w/ /w/ /w/!" },
-        { teacher: "Read this word: not.", students: "not!" },
-        { teacher: "Read this word: that.", students: "that!" }
-      ]
     },
     hfwSentences: { not: "That is not a ball.", that: "That is a book." },
     games: [
@@ -525,27 +481,6 @@ const PRIORITY_CYCLE_CONTENT = {
         teacherScript: "th is two letters that work together. Say /th/. Read thumb, three, teeth, thin."
       }
     },
-    poem: {
-      title: "Three Sound Friends",
-      rhythm: "Whisper sh, crunch ch with one clap, and give thumbs up for th.",
-      teacherTip: "Keep pattern sorting visual. Treat good and look as HFW practice after the pattern cards.",
-      lines: [
-        "Sh, sh, sheep,",
-        "quiet in the shop.",
-        "Ch, ch, chip,",
-        "crunch, crunch, stop.",
-        "Th, th, three,",
-        "thumbs up, look!",
-        "Good sounds today,",
-        "in our reading book."
-      ],
-      callAndResponse: [
-        { teacher: "When you see sh, what do you say?", students: "/sh/!" },
-        { teacher: "When you see ch, what do you say?", students: "/ch/!" },
-        { teacher: "When you see th, what do you say?", students: "/th/!" },
-        { teacher: "Read our words: good, look.", students: "good, look!" }
-      ]
-    },
     hfwSentences: { good: "This is a good book.", look: "Look at the ship." },
     games: [
       {
@@ -691,27 +626,6 @@ const PRIORITY_CYCLE_CONTENT = {
         articulation: "Say /ung/ as one rime chunk.",
         teacherScript: "Read the rime ung. Add a first sound to build sung, hung, rung."
       }
-    },
-    poem: {
-      title: "The King Can Sing",
-      rhythm: "Tap the rime chunk each time you hear -ing or -ong.",
-      teacherTip: "Teach rime families as chunks. Children build words with teacher support and read only and other as HFW.",
-      lines: [
-        "Ring, ring, ring,",
-        "the king can sing.",
-        "Sing, sing, sing,",
-        "hear the bells ring.",
-        "Bang, bang, bang,",
-        "long, long song.",
-        "Only one king,",
-        "sings all day long."
-      ],
-      callAndResponse: [
-        { teacher: "What two letters end ring?", students: "ng!" },
-        { teacher: "Build r + ing.", students: "ring!" },
-        { teacher: "Build s + ong.", students: "song!" },
-        { teacher: "Read our words: only, other.", students: "only, other!" }
-      ]
     },
     hfwSentences: { only: "Only one king can sing.", other: "The other bell can ring." },
     games: [
@@ -900,55 +814,6 @@ function makeDailyFlow(seed, focusLetters) {
   ].filter((item, index, arr) =>
     arr.findIndex(other => other.day === item.day && other.focus === item.focus) === index
   );
-}
-
-function makePoem(seed, focusLetters) {
-  if (seed.cycleNumber === 1) {
-    return {
-      title: "Ant and Mouse",
-      rhythm: "Clap on each bold sound. March softly for the M lines.",
-      teacherTip: "Keep Aa and Mm separate. The word am is a high-frequency word, not the main phonics focus.",
-      lines: [
-        "A, a, apple,",
-        "A, a, ant.",
-        "M, m, mouse,",
-        "March, march, march!",
-        "I am an ant.",
-        "I am a mouse.",
-        "A and M",
-        "come to our house!"
-      ],
-      callAndResponse: [
-        { teacher: "What sound does A make?", students: "/ă/ /ă/ /ă/!" },
-        { teacher: "What sound does M make?", students: "/m/ /m/ /m/!" },
-        { teacher: "Read this word: am.", students: "am!" },
-        { teacher: "Read this word: I.", students: "I!" }
-      ]
-    };
-  }
-  const sounds = focusLetters.map(card => card.spelling).filter(Boolean).slice(0, 3);
-  const hfw = seed.highFrequencyWords || [];
-  const firstCard = focusLetters[0];
-  const secondCard = focusLetters[1];
-  const firstExamples = firstCard ? (LETTER_EXAMPLES[letterKey(firstCard)] || []).slice(0, 2) : [];
-  const secondExamples = secondCard ? (LETTER_EXAMPLES[letterKey(secondCard)] || []).slice(0, 2) : [];
-  return {
-    title: `${seed.title} Sound Chant`,
-    rhythm: "Clap, tap knees, then echo. Keep each line short and bouncy.",
-    teacherTip: "Teach the focus spelling first. Treat high-frequency words as separate quick-read practice.",
-    lines: [
-      firstCard ? `${firstCard.grapheme} says ${firstCard.sound}.` : "Listen, clap, and say it.",
-      firstExamples.length ? `${firstExamples.join(", ")} - hear it now!` : "Find the sound and say it now!",
-      secondCard ? `${secondCard.grapheme} says ${secondCard.sound}.` : "Read it, tap it, try it now.",
-      secondExamples.length ? `${secondExamples.join(", ")} - take a bow!` : "Trace it, write it, take a bow!",
-      hfw.length ? `Quick words: ${hfw.slice(0, 3).join(", ")}.` : "Quick words, quick eyes.",
-      "We can read. We can write!"
-    ],
-    callAndResponse: [
-      { teacher: "What sound do we hear?", students: sounds.join(" and ") || "our review sounds" },
-      { teacher: "What do readers do?", students: "Say it, tap it, read it, write it!" }
-    ]
-  };
 }
 
 function makePhonemicAwareness(seed) {
@@ -1225,8 +1090,8 @@ function applyPriorityCycleContent(cycle) {
     childFriendlyGoal: content.childFriendlyGoal,
     teacherGoal: content.teacherGoal,
     routines: cycle.cycleNumber === 1
-      ? ["Sound Cards", "Poem / Chant", "Sound Safari", "Letter Sort", "HFW Flash", "Beat Builder", "Writing Mission"]
-      : ["Sound Cards", "Poem / Chant", "Pattern Sort", "HFW Flash", "Beat Builder", "Chaining", "Writing Mission"],
+      ? ["Sound Cards", "Sound Safari", "Letter Sort", "HFW Flash", "Beat Builder", "Writing Mission"]
+      : ["Sound Cards", "Pattern Sort", "HFW Flash", "Beat Builder", "Chaining", "Writing Mission"],
     sections: {
       ...cycle.sections,
       overview: {
@@ -1240,7 +1105,6 @@ function applyPriorityCycleContent(cycle) {
       letterLearning: {
         cards: letterCards
       },
-      poemAndChant: content.poem,
       phonemicAwareness: {
         ...cycle.sections.phonemicAwareness,
         practiceItems: content.phonemicAwarenessItems || cycle.sections.phonemicAwareness.practiceItems
@@ -1286,7 +1150,6 @@ function applyPriorityCycleContent(cycle) {
       content.title,
       content.childFriendlyGoal,
       content.teacherGoal,
-      content.poem?.title,
       ...(content.worksheetTasks || []),
       ...(content.vocabularyMat?.groups || []).flatMap(group => group.words)
     ].filter(Boolean).join(" ").toLowerCase()
@@ -1307,7 +1170,6 @@ function buildSections(seed, focusLetters) {
     letterLearning: {
       cards: focusLetters.map(makeLetterCard)
     },
-    poemAndChant: makePoem(seed, focusLetters),
     phonemicAwareness: makePhonemicAwareness(seed),
     rhyming: makeRhyming(seed),
     highFrequencyWords: {

@@ -167,8 +167,8 @@ Before release, argue for every alternative as if it were correct. Add context o
 - Pattern labels state the visible unit precisely, such as “end with -ay” or “contain ng.”
 - Sorts include genuine yes/no examples and do not rely on colour alone.
 - Word chains change only the declared number of letters at each step and show enough boxes for each answer.
-- Poems and passages include the words the child is asked to find.
-- A repeated-reading page gives a readable text and separate marks for each read; it does not duplicate the same poem on every page.
+- Poems and poem-related questions are excluded from every worksheet type.
+- Repeated reading uses taught words and separate marks for each read. The final pattern-and-fluency page practises the cycle's own word patterns.
 
 ### Word searches, colouring, crafts and print games
 

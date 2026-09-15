@@ -217,7 +217,7 @@ test("printable child copy never exposes slash or IPA sound notation", () => {
 test("letter and word models use the school-style single-storey font stack", () => {
   const { html } = buildWorksheetDocument({ cycleId: "cycle-1", type: "letterFormation", pages: 6 });
   assert.match(html, /--ws-school-font:\s*"Comic Sans MS", "Chalkboard SE", "Chalkboard", "Comic Neue", cursive/);
-  assert.match(html, /\.ws-school-model,[\s\S]*?\.ws-poem\s*\{\s*font-family:\s*var\(--ws-school-font\)/);
+  assert.match(html, /\.ws-school-model,[\s\S]*?\.ws-roll-board\s*\{\s*font-family:\s*var\(--ws-school-font\)/);
   assert.match(html, /class="ws-trace ws-school-model">Aa<\/span>/);
   assert.doesNotMatch(html, /class="ws-sound">\s*\//);
 });
@@ -323,7 +323,8 @@ test("fluency worksheets drill that cycle's own pattern", () => {
   assert.ok(c26.includes("end with y"), "cycle 26 sorts -y words (by/my/why/try)");
   assert.ok(c27.includes("end with -ck"), "cycle 27 reviews -ck words");
   for (const [n, html] of [[25, c25], [26, c26], [27, c27]]) {
-    assert.ok(html.includes("Circle these words"), `cycle ${n} has the poem find-words task`);
+    assert.ok(html.includes('data-task-kind="word-fluency"'), `cycle ${n} has taught-word reading practice`);
+    assert.doesNotMatch(html, /poem|poetry/i);
   }
 });
 

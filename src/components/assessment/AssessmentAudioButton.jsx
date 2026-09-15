@@ -1,3 +1,4 @@
+import ActivityButton from "../ActivityButton.jsx";
 import { useEffect, useRef, useState } from "react";
 import { SpeakerHigh, SpeakerSlash } from "@phosphor-icons/react";
 import {
@@ -42,7 +43,7 @@ export function AssessmentAudioButton({
     }
     if (!showDisabled) return null;
     return (
-      <button
+      <ActivityButton
         className={`assessment-audio-button ${className}`}
         aria-label={`${label} unavailable`}
         title="Audio is not available yet."
@@ -50,7 +51,7 @@ export function AssessmentAudioButton({
         disabled
       >
         <SpeakerSlash size={20} weight="bold" aria-hidden="true" />
-      </button>
+      </ActivityButton>
     );
   }
 
@@ -75,7 +76,7 @@ export function AssessmentAudioButton({
   const isPlaying = audioState === "playing";
 
   return (
-    <button
+    <ActivityButton
       className={[
         "assessment-audio-button",
         className,
@@ -88,6 +89,6 @@ export function AssessmentAudioButton({
       type="button"
     >
       {isLoading ? <span className="audio-loading-dot" aria-hidden="true" /> : <SpeakerHigh size={20} weight="bold" aria-hidden="true" />}
-    </button>
+    </ActivityButton>
   );
 }

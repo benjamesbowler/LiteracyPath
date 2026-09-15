@@ -1,12 +1,13 @@
 import { preloadCueAudio } from "./audio/cuePlayer.js";
-
-const imagePreloadCache = new Map();
+import { preloadImage } from "./preloadMedia.js";
+export { preloadImage } from "./preloadMedia.js";
 
 export const PRELOAD_IMAGE_FIELDS = [
   "imageUrl",
   "imagePath",
   "image",
   "imageSrc",
+  "beforeImage",
   "picture",
   "pictureUrl",
   "picturePath",
@@ -67,7 +68,9 @@ export const PRELOAD_NESTED_COLLECTION_FIELDS = [
   "soundTiles",
   "letterTiles",
   "tiles",
-  "options"
+  "options",
+  "objects",
+  "parts"
 ];
 
 function isPreloadDebugEnabled() {
@@ -144,38 +147,8 @@ export function collectQuestionMedia(question) {
   };
 }
 
-export function preloadImage(src) {
-  const normalized = normalizeSrc(src);
-  if (!normalized || typeof Image === "undefined") {
-    debugPreload("image skipped", { src: normalized || src, reason: "Image API unavailable or empty src" });
-    return Promise.resolve(false);
-  }
-
-  if (imagePreloadCache.has(normalized)) {
-    debugPreload("image cache hit", { src: normalized });
-    return imagePreloadCache.get(normalized);
-  }
-
-  const promise = new Promise(resolve => {
-    const image = new Image();
-    image.decoding = "async";
-    image.onload = () => {
-      debugPreload("image loaded", {
-        src: normalized,
-        naturalWidth: image.naturalWidth,
-        naturalHeight: image.naturalHeight
-      });
-      resolve(true);
-    };
-    image.onerror = () => {
-      debugPreload("image failed", { src: normalized });
-      resolve(false);
-    };
-    image.src = normalized;
-  });
-
-  imagePreloadCache.set(normalized, promise);
-  return promise;
+export function preloadQuestionImages(question, options = {}) {
+  return Promise.allSettled(collectQuestionMedia(question).images.map(src => preloadImage(src, options)));
 }
 
 export function preloadAudio(src) {

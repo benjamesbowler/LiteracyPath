@@ -1,3 +1,4 @@
+import ActivityButton from '../../ActivityButton.jsx';
 import { useEffect, useRef, useState } from "react";
 import { SpeakerHigh, Check, X, ArrowCounterClockwise, Star } from "@phosphor-icons/react";
 import { resolveScenePicture } from "./codeMechanicState.js";
@@ -12,7 +13,7 @@ function Picture({ word, image, className = "" }) {
 }
 
 function HearWord({ word, disabled, onRequestObjectAudio }) {
-  return <button className="am-simple-hear" type="button" disabled={disabled} aria-label={`Hear ${word}`} onClick={() => onRequestObjectAudio?.(word)}><SpeakerHigh size={22} weight="fill" aria-hidden="true" /><span>Hear</span></button>;
+  return <ActivityButton className="am-simple-hear" type="button" disabled={disabled} aria-label={`Hear ${word}`} onClick={() => onRequestObjectAudio?.(word)}><SpeakerHigh size={22} weight="fill" aria-hidden="true" /><span>Hear</span></ActivityButton>;
 }
 
 function FindCount({ found, total, label = "found" }) {
@@ -35,7 +36,7 @@ export function LetterGridMechanic({ round, disabled, supportLevel, onCommit, re
     <div className="am-simple-target-letters" aria-label="Letters to find">{round.targetLetters.map(letter => <span key={letter}>{letter.toUpperCase()} {letter.toLowerCase()}</span>)}</div>
     <div className="am-letter-grid__cells" role="group" aria-label="Letter grid">{round.cells.map(cell => {
       const found = state.found.includes(cell.id);
-      return <button key={cell.id} type="button" data-cell-id={cell.id} data-find-state={found ? "found" : state.wrong === cell.id ? "retry" : "ready"} aria-label={`${cell.letter}, letter ${round.cells.indexOf(cell) + 1}`} aria-pressed={found} disabled={disabled || found} onClick={() => find(cell.id)}><span>{cell.letter}</span>{found && <Check weight="bold" aria-hidden="true" />}</button>;
+      return <ActivityButton key={cell.id} type="button" data-cell-id={cell.id} data-find-state={found ? "found" : state.wrong === cell.id ? "retry" : "ready"} aria-label={`${cell.letter}, letter ${round.cells.indexOf(cell) + 1}`} aria-pressed={found} disabled={disabled || found} onClick={() => find(cell.id)}><span>{cell.letter}</span>{found && <Check weight="bold" aria-hidden="true" />}</ActivityButton>;
     })}</div>
     <FindCount found={state.found.length} total={round.cells.filter(cell => cell.matches).length} />
   </section>;
@@ -61,7 +62,7 @@ export function PictureSearchMechanic({ round, disabled, supportLevel, onCommit,
         const id = String(object.id ?? object.word);
         const found = state.found.includes(id);
         return <div key={id} className={scene ? "am-picture-search__object" : "am-simple-picture-card"}>
-          <button className="am-simple-picture-choice" type="button" aria-label={`Choose ${object.word}`} aria-pressed={found} data-scene-word={object.word} data-find-state={found ? "found" : state.wrong === id ? "retry" : "ready"} disabled={disabled || found} onClick={() => find(object)}><Picture word={object.word} image={object.image} />{!scene && <span>{object.word}</span>}{found && <Check className="am-simple-found" weight="bold" aria-hidden="true" />}</button>
+          <ActivityButton className="am-simple-picture-choice" type="button" aria-label={`Choose ${object.word}`} aria-pressed={found} data-scene-word={object.word} data-find-state={found ? "found" : state.wrong === id ? "retry" : "ready"} disabled={disabled || found} onClick={() => find(object)}><Picture word={object.word} image={object.image} />{!scene && <span>{object.word}</span>}{found && <Check className="am-simple-found" weight="bold" aria-hidden="true" />}</ActivityButton>
           <HearWord word={object.word} disabled={disabled} onRequestObjectAudio={onRequestObjectAudio} />
         </div>;
       })}
@@ -82,7 +83,7 @@ export function SightWordChoiceMechanic({ round, disabled, supportLevel, onCommi
   return <section className="am-simple am-word-choice" data-mechanic-stage="sight-word-choice" data-reduced-motion={Boolean(reducedMotion)} aria-label="Find the word you hear">
     <div className="am-word-choice__words" role="group" aria-label="Choose a word">{round.choices.map(word => {
       const state = selected === word ? word === round.answer ? "correct" : "retry" : "ready";
-      return <button key={word} type="button" aria-label={`Choose ${word}`} aria-pressed={selected === word} data-answer-state={state} disabled={disabled || selected === round.answer} onClick={() => choose(word)}><span>{word}</span>{state === "correct" && <Check className="am-simple-found" weight="bold" aria-hidden="true" />}{state === "retry" && <X className="am-simple-miss" weight="bold" aria-hidden="true" />}</button>;
+      return <ActivityButton key={word} type="button" aria-label={`Choose ${word}`} aria-pressed={selected === word} data-answer-state={state} disabled={disabled || selected === round.answer} onClick={() => choose(word)}><span>{word}</span>{state === "correct" && <Check className="am-simple-found" weight="bold" aria-hidden="true" />}{state === "retry" && <X className="am-simple-miss" weight="bold" aria-hidden="true" />}</ActivityButton>;
     })}</div>
   </section>;
 }
@@ -111,7 +112,7 @@ export function WordMemoryMechanic({ round, disabled, supportLevel, onCommit, on
     <div className="am-word-memory__cards" role="group" aria-label="Hidden word cards">{round.cards.map((card, index) => {
       const matched = state.matched.includes(card.id);
       const faceUp = matched || state.open.includes(card.id);
-      return <button key={card.id} className="am-word-memory__card" type="button" style={{ '--word-fit-units': Math.max(1, card.word.length * 0.55) }} data-card-id={card.id} data-card-state={matched ? "matched" : faceUp ? "open" : "hidden"} disabled={disabled || matched || state.mismatch} aria-label={faceUp ? `${card.word}, card ${index + 1}${matched ? ", matched" : ""}` : `Turn over card ${index + 1}`} onClick={() => flip(card.id)}>{faceUp ? <span>{card.word}</span> : <Star size={42} weight="duotone" aria-hidden="true" />}{matched && <Check weight="bold" className="am-simple-found" aria-hidden="true" />}</button>;
+      return <ActivityButton key={card.id} className="am-word-memory__card" type="button" style={{ '--word-fit-units': Math.max(1, card.word.length * 0.55) }} data-card-id={card.id} data-card-state={matched ? "matched" : faceUp ? "open" : "hidden"} disabled={disabled || matched || state.mismatch} aria-label={faceUp ? `${card.word}, card ${index + 1}${matched ? ", matched" : ""}` : `Turn over card ${index + 1}`} onClick={() => flip(card.id)}>{faceUp ? <span>{card.word}</span> : <Star size={42} weight="duotone" aria-hidden="true" />}{matched && <Check weight="bold" className="am-simple-found" aria-hidden="true" />}</ActivityButton>;
     })}</div>
     <FindCount found={state.matched.length / 2} total={round.cards.length / 2} label="pairs" />
   </section>;
@@ -129,7 +130,7 @@ export function MissingLetterMechanic({ round, disabled, supportLevel, onCommit,
   }
   return <section className="am-simple am-missing-letter" data-mechanic-stage="missing-letter" data-missing-position={round.missingPosition} data-reduced-motion={Boolean(reducedMotion)} aria-label={`Find the ${round.missingPosition === "start" ? "first" : "last"} sound`}>
     <div className="am-missing-letter__model"><div className="am-missing-letter__picture"><Picture word={round.word} image={round.image} /><HearWord word={round.word} disabled={disabled} onRequestObjectAudio={onRequestObjectAudio} /></div><div className="am-missing-letter__word" aria-label="Word with a missing letter">{(round.graphemes || [...round.word]).map((letter, index) => <span key={index} data-letter-slot={index === round.missingIndex ? "missing" : "given"} data-answer-state={index === round.missingIndex && selected ? selected === round.missingGrapheme ? "correct" : "retry" : "ready"}>{index === round.missingIndex ? selected || "?" : letter}</span>)}</div></div>
-    <div className="am-simple-letter-choices" role="group" aria-label="Choose the missing letter">{round.choices.map(choice => <button key={choice} type="button" aria-pressed={selected === choice} disabled={disabled || selected === round.missingGrapheme} onClick={() => choose(choice)}>{choice}</button>)}</div>
+    <div className="am-simple-letter-choices" role="group" aria-label="Choose the missing letter">{round.choices.map(choice => <ActivityButton key={choice} type="button" aria-pressed={selected === choice} disabled={disabled || selected === round.missingGrapheme} onClick={() => choose(choice)}>{choice}</ActivityButton>)}</div>
   </section>;
 }
 
@@ -154,7 +155,7 @@ export function PictureWordChoiceMechanic({ round, disabled, supportLevel, onCom
   }
   return <section className={`am-simple am-picture-words ${compound ? "am-compound-pictures" : "am-rhymes"}`} data-mechanic-stage={compound ? "compound-picture" : "rhyme-pair"} data-reduced-motion={Boolean(reducedMotion)} aria-label={compound ? "Join the picture words" : "Choose two rhyming words"}>
     {compound && <div className="am-compound-pictures__parts" aria-label="Two word parts">{round.parts.map((part, index) => <div className="am-compound-pictures__part" key={part.word}>{index > 0 && <span className="am-compound-plus" aria-hidden="true">+</span>}<div><Picture word={part.word} image={part.image} /><HearWord word={part.word} disabled={disabled} onRequestObjectAudio={onRequestObjectAudio} /></div></div>)}</div>}
-    <div className="am-picture-words__choices" role="group" aria-label={pair ? "Pick two pictures" : "Choose a picture"}>{round.choices.map(word => <div className="am-simple-picture-card" key={word}><button className="am-simple-picture-choice" type="button" aria-label={`Choose ${word}`} aria-pressed={selected.includes(word)} data-answer-state={selected.includes(word) ? complete ? "correct" : attempted ? "retry" : "selected" : "ready"} disabled={disabled || complete} onClick={() => choose(word)}><Picture word={word} image={round.objects?.find(object => object.word === word)?.image} /><span>{word}</span>{selected.includes(word) && (complete ? <Check className="am-simple-found" weight="bold" aria-hidden="true" /> : attempted ? <X className="am-simple-miss" weight="bold" aria-hidden="true" /> : <span className="am-simple-selected" aria-hidden="true">1</span>)}</button><HearWord word={word} disabled={disabled} onRequestObjectAudio={onRequestObjectAudio} /></div>)}</div>
-    {pair && <p className="am-simple-count" role="status">{selected.length === 1 ? "Choose one more." : "Find two that rhyme."}{selected.length === 1 && <button type="button" aria-label="Choose the pair again" className="am-simple-reset" disabled={disabled} onClick={() => { current.current = []; setSelected([]); }}><ArrowCounterClockwise size={22} aria-hidden="true" /></button>}</p>}
+    <div className="am-picture-words__choices" role="group" aria-label={pair ? "Pick two pictures" : "Choose a picture"}>{round.choices.map(word => <div className="am-simple-picture-card" key={word}><ActivityButton className="am-simple-picture-choice" type="button" aria-label={`Choose ${word}`} aria-pressed={selected.includes(word)} data-answer-state={selected.includes(word) ? complete ? "correct" : attempted ? "retry" : "selected" : "ready"} disabled={disabled || complete} onClick={() => choose(word)}><Picture word={word} image={round.objects?.find(object => object.word === word)?.image} /><span>{word}</span>{selected.includes(word) && (complete ? <Check className="am-simple-found" weight="bold" aria-hidden="true" /> : attempted ? <X className="am-simple-miss" weight="bold" aria-hidden="true" /> : <span className="am-simple-selected" aria-hidden="true">1</span>)}</ActivityButton><HearWord word={word} disabled={disabled} onRequestObjectAudio={onRequestObjectAudio} /></div>)}</div>
+    {pair && <p className="am-simple-count" role="status">{selected.length === 1 ? "Choose one more." : "Find two that rhyme."}{selected.length === 1 && <ActivityButton type="button" aria-label="Choose the pair again" className="am-simple-reset" disabled={disabled} onClick={() => { current.current = []; setSelected([]); }}><ArrowCounterClockwise size={22} aria-hidden="true" /></ActivityButton>}</p>}
   </section>;
 }

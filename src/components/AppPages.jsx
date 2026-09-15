@@ -24,6 +24,7 @@ import { getTargetObjectImage } from "../utils/earlySkills/isRuntimeEligibleEarl
 import { isHfwSpellingQuestion } from "../data/isHfwSpellingQuestion.js";
 import { submitQuestionReport } from "../data/questionFlagStore.js";
 import { AssessmentAudioButton } from "./assessment/AssessmentAudioButton.jsx";
+import ActivityButton from "./ActivityButton.jsx";
 import { HfwLetterBuildPanel } from "./assessment/HfwLetterBuildPanel.jsx";
 import { MetricFigure } from "./MetricDefinition.jsx";
 import { RouteLoadingFallback } from "./RouteLoadingFallback.jsx";
@@ -263,14 +264,14 @@ function FixSentenceQuestion({ currentQuestion, answerQuestion, speakText }) {
           <span className="sentence-placeholder">Tap words to build the sentence</span>
         ) : (
           selectedTiles.map((item, index) => (
-            <button
+            <ActivityButton
               className="sentence-tile selected"
               key={`${item.tile}-${item.index}`}
               onClick={() => removeTile(index)}
               type="button"
             >
               {item.tile}
-            </button>
+            </ActivityButton>
           ))
         )}
       </div>
@@ -286,34 +287,34 @@ function FixSentenceQuestion({ currentQuestion, answerQuestion, speakText }) {
               className="choice-audio"
               showDisabled
             />
-            <button
+            <ActivityButton
               className="sentence-tile"
               onClick={() => addTile(item)}
               type="button"
             >
               {item.tile}
-            </button>
+            </ActivityButton>
           </span>
         ))}
       </div>
 
       <div className="fix-sentence-actions">
-        <button
+        <ActivityButton
           className="reset-button"
           onClick={() => setSelectedTiles([])}
           type="button"
         >
           Reset
-        </button>
+        </ActivityButton>
 
-        <button
+        <ActivityButton
           className="main-button"
           disabled={selectedTiles.length === 0}
           onClick={() => answerQuestion(builtSentence)}
           type="button"
         >
           Submit
-        </button>
+        </ActivityButton>
       </div>
     </div>
   );
@@ -394,7 +395,7 @@ function PairSelectionQuestion({
               ].filter(Boolean).join(" ")}
               key={value}
             >
-              <button
+              <ActivityButton
                 className={isFinalSoundsPair ? "initial-sound-image-button final-sounds-pair-image-button" : "initial-sound-image-button"}
                 onClick={() => toggleWord(value)}
                 aria-pressed={selected}
@@ -410,7 +411,7 @@ function PairSelectionQuestion({
                   onEvidenceImageError={onEvidenceImageError}
                 />
                 {!currentQuestion.hideWrittenLabels && <strong>{label}</strong>}
-              </button>
+              </ActivityButton>
 
               {showCardAudio && (
                 <AssessmentAudioButton
@@ -427,14 +428,14 @@ function PairSelectionQuestion({
         })}
       </div>
 
-      <button
+      <ActivityButton
         className={isFinalSoundsPair ? "main-button initial-sound-submit final-sounds-pair-submit" : "main-button initial-sound-submit"}
         disabled={selectedWords.length !== 2}
         onClick={() => answerQuestion(selectedWords)}
         type="button"
       >
         Submit
-      </button>
+      </ActivityButton>
     </div>
   );
 }
@@ -486,7 +487,7 @@ function VisualCardChoiceQuestion({
               ].filter(Boolean).join(" ")}
               key={card.id || value}
             >
-              <button
+              <ActivityButton
                 className="visual-assessment-card-button"
                 onClick={() => isMultiSelect ? toggleValue(value) : answerQuestion(value)}
                 aria-label={isMultiSelect ? `Select ${label}` : `Choose ${label}`}
@@ -504,7 +505,7 @@ function VisualCardChoiceQuestion({
                   />
                 )}
                 {!currentQuestion.hideWrittenLabels && <strong>{label}</strong>}
-              </button>
+              </ActivityButton>
 
               {showCardAudio && (
                 <AssessmentAudioButton
@@ -522,14 +523,14 @@ function VisualCardChoiceQuestion({
       </div>
 
       {isMultiSelect && (
-        <button
+        <ActivityButton
           className="main-button initial-sound-submit"
           disabled={selectedValues.length !== requiredSelections}
           onClick={() => answerQuestion(selectedValues)}
           type="button"
         >
           Submit {selectedValues.length}/{requiredSelections}
-        </button>
+        </ActivityButton>
       )}
     </div>
   );
@@ -586,7 +587,7 @@ function PictureSequenceOrderQuestion({
           const selectedIndex = orderedValues.indexOf(card.value);
           return (
             <article className={selectedIndex >= 0 ? "visual-assessment-card selected" : "visual-assessment-card"} key={card.id || card.value}>
-              <button
+              <ActivityButton
                 className="visual-assessment-card-button"
                 onClick={() => choose(card)}
                 aria-label={selectedIndex >= 0 ? `Remove step ${selectedIndex + 1}: ${card.label}` : `Add ${card.label} next`}
@@ -604,7 +605,7 @@ function PictureSequenceOrderQuestion({
                 {!currentQuestion.hideWrittenLabels && (
                   <strong>{selectedIndex >= 0 ? `${selectedIndex + 1}. ${card.label}` : card.label}</strong>
                 )}
-              </button>
+              </ActivityButton>
               <AssessmentAudioButton
                 text={card.label}
                 audioPath={getApprovedAudioPath(card.label, card.audioPath || "")}
@@ -619,17 +620,17 @@ function PictureSequenceOrderQuestion({
       </div>
 
       <div className="button-row">
-        <button className="reset-button" onClick={() => setOrderedValues([])} type="button">
+        <ActivityButton className="reset-button" onClick={() => setOrderedValues([])} type="button">
           Start again
-        </button>
-        <button
+        </ActivityButton>
+        <ActivityButton
           className="main-button"
           disabled={orderedValues.length !== sourceCards.length}
           onClick={() => answerQuestion(orderedValues.join(" → "))}
           type="button"
         >
           Put in order
-        </button>
+        </ActivityButton>
       </div>
     </div>
   );
@@ -690,7 +691,7 @@ function GrammarSentenceFitQuestion({ currentQuestion, answerQuestion, speakText
               className={selected ? "ixl-answer-card selected" : "ixl-answer-card"}
               key={`${option.value}-${index}`}
             >
-              <button
+              <ActivityButton
                 className="ixl-answer-button"
                 draggable
                 onClick={() => selectOption(option)}
@@ -698,7 +699,7 @@ function GrammarSentenceFitQuestion({ currentQuestion, answerQuestion, speakText
                 type="button"
               >
                 <strong>{option.label}</strong>
-              </button>
+              </ActivityButton>
 
               <AssessmentAudioButton
                 text={option.label}
@@ -714,21 +715,21 @@ function GrammarSentenceFitQuestion({ currentQuestion, answerQuestion, speakText
       </div>
 
       <div className="button-row ixl-template-actions">
-        <button
+        <ActivityButton
           className="reset-button"
           onClick={() => setSelectedOption(null)}
           type="button"
         >
           Reset
-        </button>
-        <button
+        </ActivityButton>
+        <ActivityButton
           className="main-button"
           disabled={!selectedOption}
           onClick={() => answerQuestion(selectedOption.value)}
           type="button"
         >
           Submit
-        </button>
+        </ActivityButton>
       </div>
     </div>
   );
@@ -820,7 +821,7 @@ function IxlStyleTemplateQuestion({
             </span>
           ) : (
             selectedTiles.map((item, index) => (
-              <button
+              <ActivityButton
                 className="sound-order-selected-tile"
                 key={`${item.tile.answerValue}-${item.index}`}
                 onClick={() => removeTile(index)}
@@ -828,7 +829,7 @@ function IxlStyleTemplateQuestion({
                 aria-label={`Remove ${item.tile.label}`}
               >
                 {item.tile.display}
-              </button>
+              </ActivityButton>
             ))
           )}
           {isHfwLetterBuild && selectedTiles.length < targetLength && (
@@ -842,7 +843,7 @@ function IxlStyleTemplateQuestion({
           {tiles.map((tile, index) => {
             const descriptor = normalizeSoundTile(tile);
             return (
-              <button
+              <ActivityButton
                 className="sound-order-tile"
                 disabled={selectedIndexes.has(index)}
                 key={`${descriptor.answerValue}-${descriptor.label}-${index}`}
@@ -851,27 +852,27 @@ function IxlStyleTemplateQuestion({
                 aria-label={`Add ${descriptor.label}`}
               >
                 {descriptor.display}
-              </button>
+              </ActivityButton>
             );
           })}
         </div>
 
         <div className="button-row ixl-template-actions">
-          <button
+          <ActivityButton
             className="reset-button"
             onClick={() => setSelectedTiles([])}
             type="button"
           >
             Reset
-          </button>
-          <button
+          </ActivityButton>
+          <ActivityButton
             className="main-button"
             disabled={builtWord.length !== targetLength}
             onClick={() => answerQuestion(builtWord)}
             type="button"
           >
             Submit
-          </button>
+          </ActivityButton>
         </div>
       </div>
     );
@@ -903,7 +904,7 @@ function IxlStyleTemplateQuestion({
               ].filter(Boolean).join(" ")}
               key={`${value}-${index}`}
             >
-              <button
+              <ActivityButton
                 className={[
                   isGraphemeChoiceItem ? "ixl-answer-button grapheme-text-tile final-sound-text-tile final-sound-grapheme-option" : "ixl-answer-button",
                   isShortVowelWordChoiceItem ? "short-vowel-ixl-answer-button" : ""
@@ -922,7 +923,7 @@ function IxlStyleTemplateQuestion({
                   />
                 )}
                 <strong>{label}</strong>
-              </button>
+              </ActivityButton>
 
               {showOptionAudio && (
                 <AssessmentAudioButton
@@ -2682,7 +2683,7 @@ export function AssessmentPage({
 
   useEffect(() => {
     if (!feedback) return undefined;
-    const delay = independentAssessment ? 900 : feedback.isCorrect ? 1800 : 3200;
+    const delay = independentAssessment ? 250 : feedback.isCorrect ? 1800 : 3200;
     const timer = window.setTimeout(() => {
       const actions = feedbackAdvanceRef.current;
       actions.setFeedback(null);
@@ -2742,7 +2743,11 @@ export function AssessmentPage({
 
       <div className="assessment-progress">
         <div className="progress-label">
-          Question {Math.min(roundAnswers.length + 1, roundLength)} of {roundLength}
+          {currentQuestion && isAssessmentTransitioning ? (
+            <span className="assessment-save-status" role="status">Saving answer…</span>
+          ) : (
+            <>Question {Math.min(roundAnswers.length + 1, roundLength)} of {roundLength}</>
+          )}
         </div>
 
         <div className="progress-bar">
@@ -3021,6 +3026,8 @@ export function AssessmentPage({
             ].filter(Boolean).join(" ")}
             key={currentQuestion.id}
             data-assessment-question-id={currentQuestion.id}
+            aria-busy={isAssessmentTransitioning}
+            inert={isAssessmentTransitioning}
             initial={{ scale: 0.96 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0.96 }}
@@ -3121,7 +3128,7 @@ export function AssessmentPage({
                         showDisabled
                       />
                     )}
-                    <button
+                    <ActivityButton
                       className={choiceButtonClassName}
                       onClick={() => answerQuestion(choice.value)}
                       type="button"
@@ -3138,7 +3145,7 @@ export function AssessmentPage({
                         />
                       )}
                       <span>{choice.label}</span>
-                    </button>
+                    </ActivityButton>
                   </div>
                   );
                 })}

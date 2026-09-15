@@ -1,4 +1,4 @@
-import CycleButton from "./CycleButton.jsx";
+import ActivityButton from "../ActivityButton.jsx";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import { elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
@@ -8,6 +8,7 @@ import { CycleActivityRenderer, CycleIcon } from "./CycleActivityRenderer.jsx";
 import { SpeakerIcon } from "../elQuest/AdventureRoundFrame.jsx";
 import { playCueAudio, playCueSequence, preloadCueAudio, stopCueAudio, retainCueAudioSources } from "../../utils/audio/cuePlayer.js";
 import { triggerTactileFeedback } from "../../utils/tactileFeedback.js";
+import { preloadQuestionImages } from "../../utils/preloadQuestionMedia.js";
 
 import "../../styles/cycle-practice.css";
 
@@ -46,6 +47,9 @@ export function preloadCyclePracticeAudio({ cycleId = "cycle-1", progressScopeKe
   if (!currentRound) return Promise.resolve(false);
 
   const windowRounds = plan.slice(0, 3);
+  windowRounds.forEach((round, index) => {
+    void preloadQuestionImages(round, { priority: index === 0 ? "high" : "low" });
+  });
   const currentSources = [...new Set(
     roundAudioSources(currentRound, false)
   )];
@@ -260,7 +264,7 @@ function CyclePracticeSession({
     };
     watch();
     playCueSequence(sequence, {
-      gapMs: 40, playImmediately: callbacks.playImmediately,
+      gapMs: 40, playImmediately: true,
       onItemDelivery: event => { if (!terminal && epoch === audioEpoch.current && ["loading", "started", "completed"].includes(event.type)) watch(); },
       onStarted: event => { if (epoch === audioEpoch.current && owner === audioDeliveryOwner.current) callbacks.onStarted?.(event); },
       onDelivery: event => {
@@ -279,7 +283,11 @@ function CyclePracticeSession({
     // next recordings keep their decoded elements across answers and retries.
     const plan = mode === "assessment" ? assessmentPlan : practicePlan;
     const index = mode === "assessment" ? assessmentIndex : practiceIndex;
-    const sources = result || state.pendingAttempt ? [] : [...new Set(plan.slice(index, index + 3).flatMap(r => roundAudioSources(r)))];
+    const windowRounds = result || state.pendingAttempt ? [] : plan.slice(index, index + 3);
+    windowRounds.forEach((round, windowIndex) => {
+      void preloadQuestionImages(round, { priority: windowIndex === 0 ? "high" : "low" });
+    });
+    const sources = [...new Set(windowRounds.flatMap(r => roundAudioSources(r)))];
     const release = retainCueAudioSources(sources);
     audioWindowRelease.current?.();
     audioWindowRelease.current = release;
@@ -487,7 +495,7 @@ function CyclePracticeSession({
           <div className="cycle-complete-stars" aria-hidden="true">{[0, 1, 2].map(i => <CycleIcon name="star" key={i} />)}</div>
           <h1 id="cycle-practice-complete-title">All done!</h1>
           <p>{result.savedToTeacher ? "Your work is saved." : "Great practice!"}</p>
-          {locked ? <p>Time for your teacher.</p> : <CycleButton className="cycle-play-button" aria-label="Back to learning" onClick={onExit} type="button"><CycleIcon name="home" /></CycleButton>}
+          {locked ? <p>Time for your teacher.</p> : <ActivityButton className="cycle-play-button" aria-label="Back to learning" onClick={onExit} type="button"><CycleIcon name="home" /></ActivityButton>}
           {storageFailed && <p role="alert">Keep this page open.</p>}
         </section>
       </main>
@@ -500,7 +508,7 @@ function CyclePracticeSession({
         <img className="cycle-complete-guide" src="/images/companions/pip.webp" alt="Pip waits with your work" />
         <h1>{answerPending ? "Saving…" : "Let's save your work"}</h1>
         <p role="status">{answerPending ? "One moment." : "Your answers are kept here."}</p>
-        <CycleButton type="button" className="cycle-play-button" aria-label="Retry save" disabled={answerPending} onClick={() => saveAttempt()}><CycleIcon name="retry" /></CycleButton>
+        <ActivityButton type="button" className="cycle-play-button" aria-label="Retry save" disabled={answerPending} onClick={() => saveAttempt()}><CycleIcon name="retry" /></ActivityButton>
         {storageFailed && <p role="alert">Keep this page open.</p>}
       </section>
     </main>
@@ -558,7 +566,7 @@ function CyclePracticeSession({
   };
   const instructionRow = <div className="cycle-instruction-row">
     <div><span className="cycle-activity-name">{shownRound.stationTitle}</span><p data-child-instruction="">{currentAudio.instructionText}</p></div>
-    <CycleButton type="button" className="cycle-listen-button" data-child-primary="" data-audio-action="replay" data-audio-state={audioStatus === "ready" && !teachingReady ? "pending" : audioStatus} aria-label="Hear what to do" disabled={frozen} onClick={() => { triggerTactileFeedback(16); replayInstruction(true); }}><SpeakerIcon /><span>{listening ? "Listening…" : "Listen"}</span></CycleButton>
+    <ActivityButton type="button" className="cycle-listen-button" data-child-primary="" data-audio-action="replay" data-audio-state={audioStatus === "ready" && !teachingReady ? "pending" : audioStatus} aria-label="Hear what to do" disabled={frozen} onClick={() => { triggerTactileFeedback(16); replayInstruction(true); }}><SpeakerIcon /><span>{listening ? "Listening…" : "Listen"}</span></ActivityButton>
   </div>;
 
   return (
@@ -576,8 +584,8 @@ function CyclePracticeSession({
         {compact && instructionRow}
         <div className="cycle-practice-topbar__actions">
           {headerActions}
-          <CycleButton type="button" className="cycle-icon-button" aria-label={paused ? "Resume practice" : "Pause practice"} onClick={togglePause}><CycleIcon name={paused ? "play" : "pause"} /></CycleButton>
-          {!locked && <CycleButton type="button" className="cycle-icon-button" aria-label="Back to learning" onClick={onExit}><CycleIcon name="home" /></CycleButton>}
+          <ActivityButton type="button" className="cycle-icon-button" aria-label={paused ? "Resume practice" : "Pause practice"} onClick={togglePause}><CycleIcon name={paused ? "play" : "pause"} /></ActivityButton>
+          {!locked && <ActivityButton type="button" className="cycle-icon-button" aria-label="Back to learning" onClick={onExit}><CycleIcon name="home" /></ActivityButton>}
         </div>
       </header>
       <section className={`cycle-playground cycle-playground--${shownRound.mechanicId}`} data-mechanic-stage={shownRound.mechanicId} data-child-choices="" aria-label={shownRound.stationTitle} data-feedback={feedbackTone}>
@@ -602,8 +610,8 @@ function CyclePracticeSession({
             <img src="/images/companions/pip.webp" alt="Pip, your Little Literacy Guide" />
             <h2>{paused ? "Take a little break" : "Let's load the pictures"}</h2>
             {paused && <p>{formatClock(elapsedSeconds)} of {formatClock(CYCLE_PRACTICE_MINIMUM_SECONDS)} active practice</p>}
-            <CycleButton type="button" className="cycle-play-button" aria-label={paused ? "Resume practice" : "Reload pictures"}
-              onClick={paused ? togglePause : () => { setMediaFailed(false); setMediaRevision(value => value + 1); }}><CycleIcon name={mediaFailed ? "retry" : "play"} /></CycleButton>
+            <ActivityButton type="button" className="cycle-play-button" aria-label={paused ? "Resume practice" : "Reload pictures"}
+              onClick={paused ? togglePause : () => { setMediaFailed(false); setMediaRevision(value => value + 1); }}><CycleIcon name={mediaFailed ? "retry" : "play"} /></ActivityButton>
           </div>
         </div>}
       </section>

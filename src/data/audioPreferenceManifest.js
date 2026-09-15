@@ -30,7 +30,7 @@ function getLedaWordAudioPath(value = "") {
 }
 
 function isLedaProductionAudioPath(value = "") {
-  return /^\/audio\/production\/en-US\/(?:supplemental|isolated_word|letter_name|assessment_prompt|assessment_passage|instruction|guided_page|story_page|poem|report)\//u.test(
+  return /^\/audio\/production\/en-US\/(?:supplemental|isolated_word|letter_name|assessment_prompt|assessment_passage|instruction|guided_page|story_page|report)\//u.test(
     String(value || "")
   );
 }

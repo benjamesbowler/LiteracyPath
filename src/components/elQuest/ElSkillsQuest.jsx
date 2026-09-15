@@ -3,7 +3,8 @@ import { cycleReviewGraphemes, displayGraphemePair } from "../../utils/cyclePrac
 import { cyclePracticeDisplayTitle } from "../../utils/cycleTitles.js";
 import { elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
 import { adventureWordMatchOptions, completedWordMatchCycles } from '../../utils/wordMatchProgression.js';
-import { playCueAudio, playCueSequence, preloadCueAudio, stopCueAudio } from "../../utils/audio/cuePlayer.js";
+import { playCueAudio, playCueSequence, preloadCueAudio, retainCueAudioSources, stopCueAudio } from "../../utils/audio/cuePlayer.js";
+import { collectQuestionMedia, preloadQuestionImages } from "../../utils/preloadQuestionMedia.js";
 import { triggerTactileFeedback } from "../../utils/tactileFeedback.js";
 import { playCorrectChime, playSoftBuzz, playCelebrationFanfare, playStarChime } from "../../utils/audio/gameSfx.js";
 import { queueProgressSave } from "../../utils/progressSync.js";
@@ -32,6 +33,7 @@ import { resolveAdventureMapCycleLock } from "../../policy/childTrailPolicy.js";
 import { filterSample } from "../../policy/freeTierContent.js";
 import {
   stationsForCycle,
+  normalizeAdventureStationId,
   buildStationRounds,
   wordAudioPath
 } from "./elQuestEngine.js";
@@ -245,7 +247,7 @@ export function ElSkillsQuest({
     : cycleLock.locked
     ? cycleLock.cycle
     : playableCycles.find(cycle => cycle.id === initialCycleId) || null;
-  const resolvedInitialStationId = initialCycle?.cycleNumber === 1 && initialStationId === 'build' ? 'trace' : initialStationId;
+  const resolvedInitialStationId = initialCycle?.cycleNumber === 1 && initialStationId === 'build' ? 'trace' : normalizeAdventureStationId(initialStationId);
   const initialStation = initialCycle
     ? stationsForCycle(initialCycle).find(station => station.id === resolvedInitialStationId)
     : null;
@@ -276,6 +278,7 @@ export function ElSkillsQuest({
   const [mapZoom] = useState(1);
   const cueTimerRef = useRef(null);
   const transitionTimerRef = useRef(null);
+  const mediaWindowReleaseRef = useRef(null);
   const playedInstructionKeyRef = useRef("");
   const instructionNeedsGestureRef = useRef(false);
   const deliveredTargetAudioRef = useRef({ round: null, sources: new Set() });
@@ -396,20 +399,27 @@ export function ElSkillsQuest({
         playInstruction(round);
       }, 120);
     }
-    // Warm the next round's directions and learning cue so both begin without
-    // a blank pause on a classroom connection.
-    const next = rounds[roundIndex + 1];
-    if (next) {
-      const nextAudio = resolveAdventureRoundAudio(next);
-      [nextAudio.instructionAudio, ...nextAudio.targetAudio, nextAudio.contentAudio]
-        .filter(Boolean)
-        .forEach(src => { void preloadCueAudio(src); });
-    }
     return () => {
       if (cueTimerRef.current !== null) window.clearTimeout(cueTimerRef.current);
       cueTimerRef.current = null;
     };
   }, [celebration, playInstruction, round, roundAudio, rounds, roundIndex, stationId]);
+
+  useEffect(() => {
+    const windowRounds = stationId && !celebration ? rounds.slice(roundIndex, roundIndex + 3) : [];
+    const sources = [...new Set(windowRounds.flatMap((item, index) => {
+      void preloadQuestionImages(item, { priority: index === 0 ? "high" : "low" });
+      const resolved = resolveAdventureRoundAudio(item);
+      return [resolved.instructionAudio, ...resolved.targetAudio, ...collectQuestionMedia(item).audio,
+        ...(item.cards || []).map(card => wordAudioPath(card.word))].filter(Boolean);
+    }))];
+    // Acquire the overlapping window first so an upcoming cue is not evicted
+    // and loaded again at the very moment it becomes the current question.
+    const release = retainCueAudioSources(sources);
+    mediaWindowReleaseRef.current?.();
+    mediaWindowReleaseRef.current = release;
+    sources.forEach(src => { void preloadCueAudio(src); });
+  }, [celebration, rounds, roundIndex, stationId]);
 
   useEffect(() => {
     if (!stationId || celebration || !round) return undefined;
@@ -445,6 +455,7 @@ export function ElSkillsQuest({
     cancelPendingTransition();
     if (cueTimerRef.current !== null) window.clearTimeout(cueTimerRef.current);
     stopCueAudio();
+    mediaWindowReleaseRef.current?.();
   }, [cancelPendingTransition]);
 
   function openCycle(cycle) {
@@ -458,6 +469,7 @@ export function ElSkillsQuest({
 
   const startStation = useCallback((cycle, id) => {
     if (progressWritesBlockedRef.current) return;
+    id = normalizeAdventureStationId(id);
     cancelPendingTransition();
     if (cueTimerRef.current !== null) window.clearTimeout(cueTimerRef.current);
     cueTimerRef.current = null;
@@ -634,7 +646,7 @@ export function ElSkillsQuest({
           setFeedbackTone("ready");
           setRoundIndex(index => index + 1);
         }
-      }, reducedMotion ? 240 : 650);
+      }, reducedMotion ? 200 : 350);
     } else {
       setFeedbackTone("retry");
       playSoftBuzz();
@@ -649,7 +661,7 @@ export function ElSkillsQuest({
         }
         answerLockRef.current = false;
         setInteractionLocked(false);
-      }, reducedMotion ? 240 : 700);
+      }, 250);
     }
   }
 

@@ -76,7 +76,7 @@ test("assessment-week titles and slides never expose year-window abbreviations",
   }
 });
 
-test("a letter cycle deck has letter, writing, sight and poem slides", () => {
+test("a letter cycle deck has letter, writing and sight-word slides", () => {
   const { html, slideCount } = buildCyclePresentation("cycle-2");
   assert.ok(html.startsWith("<!doctype html>"));
   assert.ok(slideCount >= 8);
@@ -291,7 +291,7 @@ test("teaching decks carry the everyone-together call-and-response slide", () =>
     assert.ok(html.includes("Everyone together"), `${id} labels it for the class`);
   }
   // Different days pick different call-and-response lines where the cycle has
-  // more than one - Monday and Tuesday must not chant the same prompt.
+  // more than one - Monday and Tuesday must not repeat the same prompt.
   const monday = buildCyclePresentation("cycle-2", { day: "monday" }).html;
   const tuesday = buildCyclePresentation("cycle-2", { day: "tuesday" }).html;
   const prompt = html => /p-h1-invert">([^<]+)</.exec(html)?.[1] || "";
@@ -338,10 +338,10 @@ test("day decks filter to that day's teaching", () => {
   assert.ok(fridayCheck.includes("p-sound-review"), "Cycle Check Friday quizzes sounds");
   assert.ok(!fridayCheck.includes("p-writing"), "Cycle Check Friday has no writing demo");
   assert.ok(!fridayCheck.includes("p-poem-slide"), "Cycle Check Friday has no new teaching");
-  // Cycle 4's Friday is "Cycle Practice": mixed replay including the poem.
+  // Cycle 4's Friday is "Cycle Practice": mixed sound and word review.
   const fridayPractice = buildCyclePresentation("cycle-4", { day: "friday" }).html;
   assert.ok(fridayPractice.includes("p-letter-slide"), "Cycle Practice Friday replays the sounds");
-  assert.ok(fridayPractice.includes("p-poem-slide"), "Cycle Practice Friday replays the poem");
+  assert.ok(fridayPractice.includes("p-word-apply"), "Cycle Practice Friday applies a taught word");
 
   // Cycle 11 teaches a third grapheme on Wednesday - the Wednesday deck carries it.
   const c11Wed = buildCyclePresentation("cycle-11", { day: "wednesday" }).html;
@@ -411,7 +411,7 @@ test("the picker summary line is built from the cycle's own data", () => {
   assert.ok(summary.includes("Cycle 4"), "names the cycle");
   assert.ok(summary.includes("Ff") && summary.includes("Dd"), "names the graphemes");
   assert.ok(summary.includes("2 sight words"), "counts the sight words");
-  assert.ok(summary.includes("poem:"), "names the poem");
+  assert.doesNotMatch(summary, /poem|poetry/i);
 });
 
 
@@ -436,7 +436,7 @@ test("warm-ups vary across the week and spelling answers stay hidden until reque
   assert.notDeepEqual(keys(monday), keys(thursday));
   assert.match(thursday, /p-answer \{ visibility: hidden/);
   assert.match(thursday, /Say the word. Stretch it. Write it./);
-  assert.match(thursday, /Tiny can rest in the/);
+  assert.match(thursday, /Say a sentence with/);
   assert.match(buildCyclePresentation("cycle-1", { day: "tuesday" }).html, /class="p-sight">I</);
 });
 
@@ -455,6 +455,7 @@ test("pattern lessons practise their own spellings and shared writing reveals a 
     assert.ok(html.includes(`data-pattern-word="${word}"`), `cycle ${cycle} reads ${word}`);
   }
   const html = buildCyclePresentation("cycle-15", { day: "thursday" }).html;
-  assert.match(html, /Honky dreams about a ship\./);
-  assert.doesNotMatch(html, /Honky dreams about a a ship/);
+  assert.match(html, /Say a sentence with look\./);
+  assert.match(html, /Look at the ship\./);
+  assert.doesNotMatch(html, /Honky dreams|poem|poetry/i);
 });

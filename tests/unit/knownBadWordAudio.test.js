@@ -21,7 +21,7 @@ test("good words still resolve to real recordings", () => {
 
 test("no quest round of ANY type ever plays a blocklisted audio clip", () => {
   // Stronger than the per-resolver checks: whatever a station puts in
-  // round.audio (grapheme cue, word cue, letter name, poem narration) must
+  // round.audio (grapheme cue, word cue, letter name, story narration) must
   // never be a clip the ear-check has rejected. A wrong sound teaches a wrong
   // sound - worse than silence, so "" is allowed but a blocklisted path is not.
   const cycles = elSkillsBlockCycles.filter(c => c.cycleNumber);

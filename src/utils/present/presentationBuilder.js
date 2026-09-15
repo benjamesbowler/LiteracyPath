@@ -19,7 +19,7 @@
 //     rail can never drift from what the deck actually contains.
 //  3. ORGANIC THEME. Cream ground, terracotta accent, sage second voice,
 //     Caprasimo for chrome. Andika is kept for every glyph a CHILD decodes
-//     (graphemes, sight words, chips, poem body) - a display face must never
+//     (graphemes, sight words and chips) - a display face must never
 //     be the letterform a five-year-old is learning to copy.
 //
 // New slide behaviour (all handled by public/present/deck.js):
@@ -27,11 +27,8 @@
 //   data-timer     - warm-ups get a thinking-time ring
 //   data-teacher   - the articulation tip renders as a quiet bottom strip
 import { elSkillsBlockCycles, LETTER_EXAMPLES } from "../../data/elSkillsBlockCycles.js";
-import { EL_CYCLE_POEMS } from "../../data/elCyclePoems.js";
-import { cyclePoemImagePath } from "../../data/elCyclePoemImages.js";
 import { graphemeAudioPath, wordAudioPath } from "../../components/elQuest/elQuestEngine.js";
 import { getChildWordAsset } from "../../data/childAssets.js";
-import { getLedaInstructionAudioPath } from "../../data/ledaProductionAudio.js";
 import { guidedReadingBooks } from "../../data/guidedReadingBooks.js";
 import { themeWorldForCycle } from "../../utils/palWorlds.js";
 import { LETTER_STROKES, LETTER_GUIDES } from "../../data/letterStrokes.js";
@@ -139,7 +136,6 @@ export const PRESENTATION_SECTIONS = [
   "Blending",
   "Words",
   "Together",
-  "Poem",
   "Books",
   "This week"
 ];
@@ -404,11 +400,9 @@ function railTitle(cycle) {
 function coverBlurb(cycle) {
   const letters = focusCards(cycle).map(displayGrapheme);
   const hfw = (cycle.highFrequencyWords || []).map(w => String(w).toLowerCase());
-  const poem = EL_CYCLE_POEMS.find(p => p.cycle === cycle.cycleNumber);
   const bits = [];
   if (letters.length) bits.push(letters.length === 1 ? "one new sound" : `${letters.length} sounds`);
   if (hfw.length) bits.push(hfw.length === 1 ? "one focus word" : `${hfw.length} focus words`);
-  if (poem) bits.push("a poem");
   if (!bits.length) return "Everything we are practising this week.";
   const last = bits.pop();
   return `${bits.length ? `${bits.join(", ")} and ${last}` : last}, all together.`;
@@ -568,7 +562,10 @@ function blendSlides(cycle, world, offset = 0) {
 // "Everyone together": the cycle's own call-and-response, given a slide of its
 // own so the teacher has a planned whole-class beat instead of improvising one.
 function callResponseSlide(cycle, world, index = 0) {
-  const items = cycle?.sections?.poemAndChant?.callAndResponse || [];
+  const items = [
+    ...focusCards(cycle).map(card => ({ teacher: `What sound does ${displayGrapheme(card)} make?`, students: card.sound || card.spelling })),
+    ...(cycle.highFrequencyWords || []).map(word => ({ teacher: `Read this word: ${word}.`, students: word }))
+  ];
   if (!items.length) return "";
   const item = items[index % items.length];
   if (!item?.teacher || !item?.students) return "";
@@ -810,29 +807,6 @@ function goalsSlide(cycle, world) {
   { cls: "p-goal-slide", section: "Warm-up", char: "think" });
 }
 
-function poemSlide(cycle, world, day = "") {
-  const poem = EL_CYCLE_POEMS.find(p => p.cycle === cycle.cycleNumber);
-  if (!poem) return "";
-  const audio = getLedaInstructionAudioPath(poem.lines.join("\n"));
-  const pics = (poem.findWords || []).map(word => {
-    const asset = getChildWordAsset(word) || {};
-    return asset.image ? `<img src="${esc(assetUrl(asset.image))}" alt="${esc(word)}" data-hide-on-error="self"/>` : "";
-  }).filter(Boolean).slice(0, 3).join("");
-  const poemImg = assetUrl(cyclePoemImagePath(cycle.cycleNumber));
-  return slide(world, `
-    <div class="p-two-col p-two-col-poem">
-      <img class="p-poem-hero washed" src="${esc(poemImg)}" alt="" data-hide-on-error="self"/>
-      <div class="p-col-right">
-        <p class="p-kicker">Our poem</p>
-        <h2 class="p-poem-title">${esc(poem.title)}</h2>
-        <div class="p-poem">${esc(poem.lines.join("\n"))}</div>
-        ${audioButton(audio, "Listen to the poem")}
-        ${pics ? `<div class="p-poem-pics">${pics}</div>` : ""}
-      </div>
-    </div>`,
-  { cls: "p-poem-slide", section: "Poem", audio, teacher: day ? POEM_ROUTINES[day] : "Teacher-supported listening and reading; this poem is not an independent decoding check." });
-}
-
 function patternSlide(cycle, world) {
   const sort = CYCLE_PATTERN_SORTS[cycle.cycleNumber] || CYCLE_PATTERN_SORTS[27];
   return slide(world, `
@@ -895,50 +869,8 @@ export function presentationCycleSummary(cycleId) {
     if (label && !warmups.includes(label)) warmups.push(label);
   }
   if (warmups.length) parts.push(`${warmups.join(" + ")} warm-ups`);
-  const poem = EL_CYCLE_POEMS.find(p => p.cycle === cycle.cycleNumber);
-  if (poem) parts.push(`poem: ${poem.title}`);
   return parts.join(" · ");
 }
-
-// Teacher-supported language work uses the existing poem, with a different
-// purpose each day. These are teaching adaptations, not official EL lessons.
-const POEM_ROUTINES = {
-  monday: "Read aloud, explain the picture, then echo two lines with actions. Children listen; they need not decode the poem.",
-  tuesday: "Echo-read in short phrases. Point once per spoken word in the first line; notice the spaces. Swap leader and echo.",
-  wednesday: "Read aloud, then ask the poem question. Partners answer and point to the line or picture that helped.",
-  thursday: "Say the response before writing. Teacher scribes untaught words; children contribute known letters or high-frequency words.",
-  friday: "Perform the familiar poem in two groups, then retell it. Support the reading; listen for clearer language and phrasing."
-};
-
-const POEM_QUESTIONS = [
-  ["What does Muddy take up the hill?", "a map", "Muddy takes a ___.", "Muddy takes a map."],
-  ["Where does Bouncy hop?", "to the tent", "Bouncy hops to the ___.", "Bouncy hops to the tent."],
-  ["Why might Clucky build a cosy nest?", "Tiny needs a rest.", "Tiny can rest in the ___.", "Tiny can rest in the nest."],
-  ["What is the dog doing by the barn?", "napping", "The dog is ___.", "The dog is napping."],
-  ["How does Clucky help when it is dark?", "She lights the lamp.", "Clucky lights the ___.", "Clucky lights the lamp."],
-  ["Why do the friends run home?", "It is late.", "They run home because ___.", "They run home because it is late."],
-  ["Why does Muddy invite the pals inside?", "It is warm and time for bed.", "Come into the ___.", "Come into the barn."],
-  ["What happens after Woolly rolls the ball?", "It bounces off the wall.", "The ball bounces off the ___.", "The ball bounces off the wall."],
-  ["Where does Muddy land?", "in the mud", "Muddy lands in the ___.", "Muddy lands in the mud."],
-  ["What does Chompy find?", "a cap", "Chompy finds a ___.", "Chompy finds a cap."],
-  ["Which animals appear while Zippy counts?", "a pig and a fox", "I heard about a ___ and a ___.", "I heard about a pig and a fox."],
-  ["Why does Wiggly go to the vet?", "He bumped his leg.", "Wiggly needs help because ___.", "Wiggly needs help because he bumped his leg."],
-  ["What does Honky use to pour?", "a jug", "Honky pours from a ___.", "Honky pours from a jug."],
-  ["What are friends invited to do?", "play", "Come and ___ with me.", "Come and play with me."],
-  ["What does Honky dream about?", "a ship", "Honky dreams about a ___.", "Honky dreams about a ship."],
-  ["How do the pals include everyone?", "They share the ball and invite everyone.", "We can share the ___.", "We can share the ball."],
-  ["What do Cheeky and friends like?", "the leafy path and valley hike", "They like the ___.", "They like the leafy path."],
-  ["Where is the frog swimming?", "Fossil Creek", "The frog swims in ___.", "The frog swims in Fossil Creek."],
-  ["What does Pip splash in?", "puddle mud", "Pip splashes in the ___.", "Pip splashes in the mud."],
-  ["How should the friends carry the egg?", "gently", "Carry the egg ___.", "Carry the egg gently."],
-  ["What does Luna count?", "the stars", "Luna counts the ___.", "Luna counts the stars."],
-  ["What happens to the berries?", "They float and do not sink.", "The berries ___.", "The berries float."],
-  ["What do the friends do together?", "sing, hum and sway", "Together we can ___.", "Together we can sing."],
-  ["Where does Fern flutter?", "by the Crystal Stream", "Fern flutters by the ___.", "Fern flutters by the Crystal Stream."],
-  ["What do Pip and Luna do?", "read and play", "We can ___ and ___.", "We can read and play."],
-  ["Where does Fern fly?", "high, near the clouds", "Fern flies ___.", "Fern flies high."],
-  ["How do the friends share the berry?", "They have half each.", "Each friend has ___.", "Each friend has half."]
-];
 
 function cardsAvailableOn(cycle, day) {
   const dayIndex = Object.keys(DAY_LABELS).indexOf(day);
@@ -965,7 +897,7 @@ export function presentationDayPlan(cycleId, day = "monday") {
       { id: "listen", label: "Listen and warm up", minutes: 2, guidance: "Model one oral example. Everyone tries the next; hear a few individual voices." },
       { id: "code", label: newCards.length && !isFluencyCycle(cycle) ? `Say and form ${focus}` : "Retrieve sounds and read", minutes: 4, guidance: "Model, practise together, then ask children to try without the model. Correct and retry." },
       { id: "words", label: "Read, spell and use words", minutes: 3, guidance: `Practise ${cycle.highFrequencyWords.join(", ")}. Read the sentence aloud; children use the focus word in speech.` },
-      { id: "apply", label: key === "thursday" ? "Listen, write and check" : key === "friday" ? "Apply familiar learning" : "Poem and language", minutes: 4, guidance: key === "thursday" ? "Dictate a taught word or spelling, compare and repair, then co-write a response to the familiar poem." : key === "friday" && /check/i.test(cycle.friday || "") ? "Listen and write, then explain an idea from the familiar poem. Administer the separate Cycle Check individually when required." : POEM_ROUTINES[key] },
+      { id: "apply", label: key === "thursday" ? "Listen, write and check" : "Use sounds and words", minutes: 4, guidance: "Say a sentence using a taught word. Listen and write a taught sound or word, compare with the model, and repair. Teacher scribes untaught spellings when the class writes a sentence together." },
       { id: "recap", label: "Show what you know", minutes: 2, guidance: "All children respond first. Sample individual responses, note support needed, and choose tomorrow's reteach." }
     ]
   };
@@ -987,17 +919,17 @@ function wordRecallSlide(cycle, world, word) {
   });
 }
 
-function poemTalkSlide(cycle, world, day) {
-  const item = POEM_QUESTIONS[cycle.cycleNumber - 1];
-  if (!item) return "";
-  const [question, answer, frame, model] = item;
+function wordApplySlide(cycle, world, day) {
+  const index = Math.max(0, Object.keys(DAY_LABELS).indexOf(day));
+  const words = cycle.highFrequencyWords || [];
+  const word = words[index % words.length];
+  if (!word) return "";
+  const model = hfwSentence(cycle, word);
   return responseSlide(world, {
     title: day === "thursday" ? "Say it · help me write it" : "Tell your partner",
-    prompt: day === "thursday" ? frame : question, answer: day === "thursday" ? model : answer,
-    section: "Poem", cls: "p-poem-talk",
-    teacher: day === "thursday"
-      ? "Rehearse a whole sentence. Scribe it on the board; invite known spellings, add spaces and punctuation, then reread together."
-      : "Ask aloud after reading the poem. Give partners thinking time. Accept a phrase or gesture, expand it into a sentence, and ask what helped them answer."
+    prompt: `Say a sentence with ${word}.`, answer: model || word,
+    section: "Words", cls: "p-word-apply", audio: wordAudio(word),
+    teacher: "Accept any meaningful sentence using the word. Model the example if needed; it is one possible sentence, not a scored answer. Scribe untaught spellings when writing together, then reread."
   });
 }
 
@@ -1082,9 +1014,8 @@ function assembleDailySlides(cycle, world, day) {
     : [soundReviewSlide(cards, world), ...(check ? dailyReadingSlides(cycle, world, day) : day === "friday" ? [...cards.slice(0, 2).map(card => letterSoundSlide(card, cycle, world)), ...dailyReadingSlides(cycle, world, day)] : dailyReadingSlides(cycle, world, day))]);
   if (!fluency && !check) groups[1].push(soundHuntSlide(cycle, world, day));
   groups.push([...chosenWords.map(word => sightWordSlide(word, cycle, world)), wordRecallSlide(cycle, world, chosenWords[chosenWords.length - 1])]);
-  groups.push(check ? [dictationSlide(cycle, world, day), poemTalkSlide(cycle, world, day)]
-    : day === "thursday" ? [dictationSlide(cycle, world, day), poemTalkSlide(cycle, world, day)]
-    : [poemSlide(cycle, world, day), index < 2 ? callResponseSlide(cycle, world, index) : poemTalkSlide(cycle, world, day)]);
+  groups.push([check || day === "thursday" || index >= 2 ? dictationSlide(cycle, world, day)
+    : callResponseSlide(cycle, world, index), wordApplySlide(cycle, world, day)]);
   groups.push([recapSlide(cycle, world, day)]);
   let elapsed = 0;
   return groups.flatMap((group, i) => {
@@ -1119,7 +1050,6 @@ function assembleSlides(cycle, world, day) {
   }
 
   const goal = goalsSlide(cycle, world);
-  const poem = poemSlide(cycle, world);
   const books = booksSlide(cycle, world);
   const blend = fluency ? [] : blendSlides(cycle, world);
 
@@ -1134,7 +1064,7 @@ function assembleSlides(cycle, world, day) {
     push(callResponseSlide(cycle, world, 0));
     pushAll(hfwSlides());
     pushAll(paSlides(cycle, world));
-    push(poem, books, endSlide(cycle, world));
+    push(books, endSlide(cycle, world));
   } else {
     // Daily lessons have activity budgets, not a slide-count estimate.
     return assembleDailySlides(cycle, world, day);
@@ -1335,7 +1265,6 @@ const DECK_CSS = `
     gap: 80px; align-items: center; }
   .p-two-col-wide { grid-template-columns: 1fr 520px; }
   .p-two-col-narrow { grid-template-columns: 380px 1fr; }
-  .p-two-col-poem { grid-template-columns: 660px 1fr; gap: 72px; }
   .p-col-left { display: flex; flex-direction: column; align-items: flex-start; gap: 32px; }
   .p-col-left-text { gap: 28px; }
   .p-col-right { display: flex; flex-direction: column; align-items: flex-start;
@@ -1381,7 +1310,7 @@ const DECK_CSS = `
   .p-sound-hunt .p-word img { width: 180px; height: 180px; }
   .p-sound-hunt .p-h2 { font-size: 60px; }
   .p-pacing { position: absolute; top: 104px; right: 104px; margin: 0; font-size: 26px; color: var(--n-700); background: var(--surface); padding: 8px 16px; border-radius: 16px; }
-  .p-application .p-response, .p-poem-talk .p-response { font-size: 62px; max-width: 1200px; }
+  .p-application .p-response, .p-word-apply .p-response { font-size: 62px; max-width: 1200px; }
   .p-answer { visibility: hidden; opacity: 0; transition: opacity .35s ease; }
   .slide.revealed .p-answer { visibility: visible; opacity: 1; }
   .p-tag-sage { font-size: var(--t-kicker); font-weight: 700; color: var(--sage-700); }
@@ -1458,14 +1387,8 @@ const DECK_CSS = `
   .p-pencil circle { fill: var(--accent-300); stroke: var(--accent-700); stroke-width: 2.5; }
   .p-pencil path { fill: var(--accent-200); stroke: var(--accent-700); stroke-width: 2.5; stroke-linejoin: round; }
 
-  /* ── Poem and books ─────────────────────────────────────────────────────── */
-  .washed { filter: saturate(.6) contrast(.85) brightness(1.1) opacity(.94); }
-  .p-poem-hero { width: 100%; height: auto; max-height: 720px; object-fit: contain; border-radius: 36px; box-shadow: var(--shadow-lg); }
-  .p-poem-title { margin: 0; font-family: ${FONT_DISPLAY}; font-weight: 400; font-size: 80px; line-height: 1.1; }
-  .p-poem { white-space: pre-wrap; font-family: ${FONT_LETTER}; font-size: 50px; line-height: 1.55; }
-  .p-poem-pics { display: flex; gap: 24px; }
-  .p-poem-pics img { width: 140px; height: 140px; object-fit: contain; background: var(--surface);
-    border-radius: 24px; padding: 12px; box-shadow: var(--shadow-md); }
+  /* ── Books ────────────────────────────────────────────────────────────── */
+
   .p-books { display: grid; grid-template-columns: repeat(2, 1fr); gap: 56px; }
   .p-book { margin: 0; display: flex; flex-direction: column; gap: 24px; }
   .p-book-cover { width: 100%; height: 440px; object-fit: cover; border-radius: var(--radius);

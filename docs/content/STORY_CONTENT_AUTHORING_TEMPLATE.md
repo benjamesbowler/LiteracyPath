@@ -4,7 +4,7 @@ Use U.S. English spelling in every child-facing title, page, prompt, label and c
 Preserve original spelling only inside attributed research quotations.
 
 **Policy:** `2026-08-03.2`
-**Applies to:** guided-reading books, Story Quests, animations, poems, songs, audio
+**Applies to:** guided-reading books, Story Quests, animations, songs, audio
 stories, comics and plays.
 
 This is the required working file for a new or materially changed narrative item. It is

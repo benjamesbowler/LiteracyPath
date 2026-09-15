@@ -1,4 +1,4 @@
-import CycleButton from "./CycleButton.jsx";
+import ActivityButton from "../ActivityButton.jsx";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { SpeakerIcon } from "../elQuest/AdventureRoundFrame.jsx";
@@ -25,7 +25,7 @@ function Picture({ src, word, onFailure, className = "" }) {
 }
 
 function HearPicture({ choice, disabled, onHear }) {
-  return <CycleButton type="button" className="cycle-picture-hear" aria-label={`Hear ${choice.label || choice.value}`} disabled={disabled} data-audio-action="replay" onClick={() => onHear?.(choice.audio, choice.label || choice.value)}><SpeakerIcon /></CycleButton>;
+  return <ActivityButton type="button" className="cycle-picture-hear" aria-label={`Hear ${choice.label || choice.value}`} disabled={disabled} data-audio-action="replay" onClick={() => onHear?.(choice.audio, choice.label || choice.value)}><SpeakerIcon /></ActivityButton>;
 }
 
 function ChoiceActivity({ round, disabled, onCommit, onHear, onMediaFailure, supportLevel }) {
@@ -46,15 +46,15 @@ function ChoiceActivity({ round, disabled, onCommit, onHear, onMediaFailure, sup
       <div className={`cycle-picture-model${rhyme ? " cycle-picture-model--rhyme" : ""}`}>
         <Picture src={round.image} word={round.imageWord || round.targetWord} onFailure={onMediaFailure} />
         {round.mechanicId === "letterMatch" && round.variant !== "wordListen" && <span className="cycle-model-letter" aria-hidden="true">{round.variant === "letterCase" ? round.model : "?"}</span>}
-        <CycleButton type="button" className="cycle-picture-hear" aria-label={`Hear ${round.targetWord}`} disabled={disabled} data-audio-action="replay" onClick={() => onHear?.(round.audio, round.targetWord)}><SpeakerIcon /></CycleButton>
+        <ActivityButton type="button" className="cycle-picture-hear" aria-label={`Hear ${round.targetWord}`} disabled={disabled} data-audio-action="replay" onClick={() => onHear?.(round.audio, round.targetWord)}><SpeakerIcon /></ActivityButton>
         {rhyme && <div className="cycle-rhyme-link" aria-hidden="true">↔</div>}
       </div>}
     <div className="cycle-play-choices" role="group" aria-label={pictureChoice ? "Choose a picture" : round.variant === "wordListen" ? "Choose a word" : "Choose a letter"}>
       {round.choices.map(choice => <div className="cycle-choice-wrap" key={choice.id || choice.value}>
-        <CycleButton type="button" className={`cycle-answer ${pictureChoice ? "cycle-answer--picture" : round.variant === "wordListen" ? "cycle-answer--word" : "cycle-answer--letter"}${supportLevel >= 2 && String(choice.value) === String(round.answer) ? " cycle-answer--hint" : ""}`} aria-label={choice.label || String(choice.value)} aria-pressed={selected === choice.value} disabled={disabled || selected !== null} onClick={() => select(choice)}>
+        <ActivityButton type="button" className={`cycle-answer ${pictureChoice ? "cycle-answer--picture" : round.variant === "wordListen" ? "cycle-answer--word" : "cycle-answer--letter"}${supportLevel >= 2 && String(choice.value) === String(round.answer) ? " cycle-answer--hint" : ""}`} aria-label={choice.label || String(choice.value)} aria-pressed={selected === choice.value} disabled={disabled || selected !== null} onClick={() => select(choice)}>
           {pictureChoice ? <Picture src={choice.image} word={choice.label} onFailure={onMediaFailure} /> : <span>{choice.label || choice.value}</span>}
           <span className="cycle-choice-marker" aria-hidden="true">{selected === choice.value ? "●" : ""}</span>
-        </CycleButton>
+        </ActivityButton>
         {pictureChoice && <HearPicture choice={choice} disabled={disabled} onHear={onHear} />}
       </div>)}
     </div>
@@ -100,14 +100,14 @@ function WordBuild({ round, disabled, feedbackPending, onCommit, onHear, onMedia
       {changing && <CycleIcon name="arrow" className="cycle-change-arrow" />}
       <Picture src={round.image} word={round.imageWord || round.targetWord} onFailure={onMediaFailure} />
       {model && <strong className="cycle-copy-model" aria-label={`Word model ${model}`}>{model}</strong>}
-      <CycleButton type="button" className="cycle-picture-hear" aria-label={`Hear ${round.targetWord}`} disabled={disabled} data-audio-action="replay" onClick={() => onHear?.(round.audio, round.targetWord)}><SpeakerIcon /></CycleButton>
+      <ActivityButton type="button" className="cycle-picture-hear" aria-label={`Hear ${round.targetWord}`} disabled={disabled} data-audio-action="replay" onClick={() => onHear?.(round.audio, round.targetWord)}><SpeakerIcon /></ActivityButton>
     </div>
     <div className="cycle-word-train" role="group" aria-label="Word you are building">
       <div className="cycle-train-engine" aria-hidden="true"><span /><i /><b /><em /></div>
-      {expected.map((_, index) => <div key={index} className={`cycle-word-car${index === nextIndex ? " cycle-word-car--next" : ""}${built[index] ? " cycle-word-car--filled" : ""}`} aria-label={`Letter ${index + 1}: ${built[index] || "empty"}`}><span>{changing ? <CycleButton type="button" className={`cycle-change-letter${supportLevel >= 2 && index === round.changeIndex ? " cycle-answer--hint" : ""}`} aria-label={`Change letter ${index + 1}: ${built[index]}`} aria-pressed={changeSlot === index} disabled={disabled || miss !== null} onClick={() => { setChangeSlot(index); onStep?.(); }}>{built[index]}</CycleButton> : built[index] || ""}</span><i /><i /></div>)}
+      {expected.map((_, index) => <div key={index} className={`cycle-word-car${index === nextIndex ? " cycle-word-car--next" : ""}${built[index] ? " cycle-word-car--filled" : ""}`} aria-label={`Letter ${index + 1}: ${built[index] || "empty"}`}><span>{changing ? <ActivityButton type="button" className={`cycle-change-letter${supportLevel >= 2 && index === round.changeIndex ? " cycle-answer--hint" : ""}`} aria-label={`Change letter ${index + 1}: ${built[index]}`} aria-pressed={changeSlot === index} disabled={disabled || miss !== null} onClick={() => { setChangeSlot(index); onStep?.(); }}>{built[index]}</ActivityButton> : built[index] || ""}</span><i /><i /></div>)}
     </div>
     <div className="cycle-letter-bank" role="group" aria-label="Letters to build the word">
-      {round.choices.map(choice => <CycleButton type="button" key={choice.id || choice.value} className={`cycle-letter-block${supportLevel >= 2 && String(choice.value) === String(expected[changing ? round.changeIndex : nextIndex]) ? " cycle-answer--hint" : ""}`} disabled={disabled || miss !== null || (changing && changeSlot === null)} onClick={() => place(choice)} aria-label={`Add ${choice.label || choice.value}`}><span>{choice.label || choice.value}</span></CycleButton>)}
+      {round.choices.map(choice => <ActivityButton type="button" key={choice.id || choice.value} className={`cycle-letter-block${supportLevel >= 2 && String(choice.value) === String(expected[changing ? round.changeIndex : nextIndex]) ? " cycle-answer--hint" : ""}`} disabled={disabled || miss !== null || (changing && changeSlot === null)} onClick={() => place(choice)} aria-label={`Add ${choice.label || choice.value}`}><span>{choice.label || choice.value}</span></ActivityButton>)}
     </div>
   </div>;
 }
@@ -206,18 +206,18 @@ function SoundSort({ round, disabled, feedbackPending, assessment, onCommit, onH
           onPointerMove={move} onPointerUp={release} onPointerCancel={cancelDrag} onLostPointerCapture={cancelDrag}>
           <Picture src={object.image} word={object.word} onFailure={onMediaFailure} />
         </button>
-        <CycleButton type="button" className="cycle-picture-hear" data-audio-action="replay" aria-label={`Hear ${object.word}`} disabled={disabled} onClick={() => onHear?.(object.audio, object.word)}><SpeakerIcon /></CycleButton>
+        <ActivityButton type="button" className="cycle-picture-hear" data-audio-action="replay" aria-label={`Hear ${object.word}`} disabled={disabled} onClick={() => onHear?.(object.audio, object.word)}><SpeakerIcon /></ActivityButton>
       </div>
     </div>
     <div className="cycle-sort-arrow" aria-hidden="true">↓</div>
     <div className="cycle-sort-bins" role="group" aria-label={round.variant === "syllableSort" ? "Word beats" : "Sound baskets"}>
       {round.choices.map(choice => <div className="cycle-sort-bin-wrap" key={choice.id || choice.value}>
         <div className="cycle-sort-bin-actions">
-        <CycleButton type="button" className={`cycle-sort-bin${hoveredBin === String(choice.value) ? " cycle-sort-bin--hovered" : ""}${supportLevel >= 2 && String(choice.value) === String(object.answer) ? " cycle-answer--hint" : ""}`} aria-label={`Put ${object.word} in ${choice.label || choice.value}`} aria-pressed={selected === choice.value} data-cycle-bin={String(choice.value)} disabled={disabled || selected !== null} onClick={() => send(choice)}>
+        <ActivityButton type="button" className={`cycle-sort-bin${hoveredBin === String(choice.value) ? " cycle-sort-bin--hovered" : ""}${supportLevel >= 2 && String(choice.value) === String(object.answer) ? " cycle-answer--hint" : ""}`} aria-label={`Put ${object.word} in ${choice.label || choice.value}`} aria-pressed={selected === choice.value} data-cycle-bin={String(choice.value)} disabled={disabled || selected !== null} onClick={() => send(choice)}>
           <span className="cycle-basket-handle" />
           <strong>{choice.beats ? <span className="cycle-beat-dots" aria-label={`${choice.beats} beats`}>{Array.from({ length: choice.beats }, (_, i) => <i key={i} />)}</span> : choice.label || choice.value}</strong>
           <span className="cycle-basket-weave" />
-        </CycleButton>
+        </ActivityButton>
         <HearPicture choice={choice} disabled={disabled} onHear={onHear} />
         </div>
         {round.objects && <div className="cycle-sorted-pictures" aria-label={`Pictures with ${choice.label || choice.value}`}>

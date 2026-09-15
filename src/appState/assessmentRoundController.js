@@ -34,6 +34,10 @@ import {
 } from "../data/studentFocusSessionCore.js";
 import { STUDENT_FOCUS_TARGETS } from "../policy/studentFocusTargets.js";
 
+// Factories are recreated on render. The existing answer-history owner keeps
+// pending summary writes ordered without adding a required caller dependency.
+const assessmentSummarySaves = new WeakMap();
+
 export function createAssessmentRoundController(context) {
   const {
     allQuestionsRef, answerHistory, answerHistoryRef, answerInFlightRef,
@@ -52,6 +56,11 @@ export function createAssessmentRoundController(context) {
     studentFocusSession = null, studentSessionToken = "", studentSessionTeacherId = "",
     onStudentFocusAssessmentComplete = null,
   } = context;
+  if (!assessmentSummarySaves.has(answerHistoryRef)) {
+    assessmentSummarySaves.set(answerHistoryRef, { current: Promise.resolve() });
+  }
+  const assessmentSummarySaveRef = assessmentSummarySaves.get(answerHistoryRef);
+  const focusSessionId = String(studentFocusSession?.id || "");
   const independentFocusAssessment = Boolean(
     studentFocusSession?.id
     && studentFocusSession.target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT
@@ -1138,7 +1147,7 @@ export function createAssessmentRoundController(context) {
         const data = await saveStudentFocusItemMastery({
           client: supabase,
           token: studentSessionToken,
-          sessionId: studentFocusSession.id,
+          sessionId: focusSessionId,
           itemMastery: {
             skill_id: row.skillId,
             item_key: row.itemKey,
@@ -1227,7 +1236,16 @@ export function createAssessmentRoundController(context) {
       ...prev,
       [key]: nextRow
     }));
-    const persistence = await saveItemMasteryToSupabase(nextRow);
+    // This summary is derived from the durable answer. Keep its writes ordered
+    // across renders without making the learner wait for a second network
+    // round trip before the next question. Compute local evidence above first,
+    // so a later answer to the same item sees the updated counters immediately.
+    const savePromise = assessmentSummarySaveRef.current
+      .catch(() => {})
+      .then(() => saveItemMasteryToSupabase(nextRow))
+      .catch(error => ({ error, row: nextRow }));
+    assessmentSummarySaveRef.current = savePromise;
+    const persistence = await savePromise;
     return {
       row: nextRow,
       durable: !persistence?.error || isMissingItemMasteryTableError(persistence.error),
@@ -1805,10 +1823,10 @@ export function createAssessmentRoundController(context) {
       setTotalAnswered(n => n + 1);
       answerPersistence = await saveAnswerToSupabase(answerRecord);
       if (answerPersistence?.durable) {
-        await updateItemMastery(
+        void updateItemMastery(
           { ...answeredQuestion, source: "assessment" },
           isCorrect
-        );
+        ).catch(error => console.error("Assessment item mastery summary failed:", error));
       }
     }
 
@@ -1885,6 +1903,10 @@ export function createAssessmentRoundController(context) {
     }
 
     if (nextRound.length >= ROUND_LENGTH) {
+      // The final focus-session RPC closes the session to further evidence
+      // writes. Drain its ordered summaries at completion, while ordinary
+      // between-question interaction remains independent of their latency.
+      await assessmentSummarySaveRef.current;
       const score = nextRound.filter(Boolean).length;
       const accuracyPassed = score >= PASS_SCORE;
       const nextRoundCorrectItemKeys = nextRoundItemKeys.filter((key, index) => nextRound[index] && key);

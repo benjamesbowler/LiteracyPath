@@ -358,7 +358,7 @@ export default {
     it("which_is_not", 2, 2, 5,
       "The book fair filled the hall for one whole day. Tables sagged under picture books and joke books. A signing corner had an author with a fountain pen. Tokens from the summer reading club counted double, and the librarian wore a bright book-print dress.",
       "Which of these did NOT happen at the fair?",
-      [K("a poetry competition was judged"), P("an author signed books","D-DETAIL-AS-MAIN"), P("reading tokens counted double","D-DETAIL-AS-MAIN"), P("the librarian wore her book dress","D-DETAIL-AS-MAIN")]),
+      [K("the fair sold out of tickets early"), P("an author signed books","D-DETAIL-AS-MAIN"), P("reading tokens counted double","D-DETAIL-AS-MAIN"), P("the librarian wore her book dress","D-DETAIL-AS-MAIN")]),
     it("which_is_not", 2, 2, 6,
       "When the lights went out on the street, the neighbors made their own evening. Candles appeared in glass jars on doorsteps. Mr. Okoye carried his guitar outside and played requests. The food truck, which used its own gas, kept serving meals.",
       "Which of these is NOT part of the story?",

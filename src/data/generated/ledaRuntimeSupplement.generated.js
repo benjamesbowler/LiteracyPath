@@ -4436,7 +4436,6 @@ export const LEDA_RUNTIME_SUPPLEMENT_AUDIO = Object.freeze({
   "jars of screws": "/audio/production/en-US/supplemental/jars-of-screws-e3924ea0b2.mp3",
   "a radio by the door": "/audio/production/en-US/supplemental/a-radio-by-the-door-1389646e0e.mp3",
   "a box of old paintbrushes": "/audio/production/en-US/supplemental/a-box-of-old-paintbrushes-ac4d2cf936.mp3",
-  "a poetry competition was judged": "/audio/production/en-US/supplemental/a-poetry-competition-was-judged-6c52ba2d6a.mp3",
   "an author signed books": "/audio/production/en-US/supplemental/an-author-signed-books-a4a8a85c68.mp3",
   "reading tokens counted double": "/audio/production/en-US/supplemental/reading-tokens-counted-double-a40e458f38.mp3",
   "the librarian wore her book dress": "/audio/production/en-US/supplemental/the-librarian-wore-her-book-dress-3239eeae10.mp3",

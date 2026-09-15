@@ -704,7 +704,6 @@ export default function App() {
     void loadRuntimeQuestionsForSkill(stage.id).catch(error => {
       console.warn("Could not preload assessment skill bank.", { skillId: stage.id, error });
     });
-    void loadFinishedReportPageModule();
   }
 
   const preloadCurrentAssessmentShell = useEffectEvent(() => {
@@ -2790,7 +2789,6 @@ export default function App() {
     assessmentActiveRef.current = true;
     setAssessmentTransitioning(true);
     setMessage("Loading review questions...");
-    void loadFinishedReportPageModule();
     const attemptedStageIds = [
       ...new Set(
         answerHistoryRef.current

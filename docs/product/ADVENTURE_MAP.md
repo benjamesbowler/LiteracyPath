@@ -54,7 +54,9 @@ there are no drag, timing, steering or typing requirements.
 - Rhyming is an optional three-question game with positive instructions only.
   Picture Words is also optional. Automatic station progression follows the
   core sound, letter and word games; it does not require either side activity.
-  There are no poem or negative-rhyme questions.
+  There are no poem or negative-rhyme questions. Picture Words uses the current
+  `compound` station ID; old `poem` links open that same compound-word game.
+  Saved completion under the old ID is retained without restoring poem content.
 - New levels practise both cases of the new letters and retain earlier taught
   targets in eligible games. Cycle 2 introduces Tt/Ss and reviews Aa/Mm. Current
   targets and earlier review are interleaved early; a long bank does not push

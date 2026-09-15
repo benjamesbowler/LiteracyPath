@@ -26,7 +26,7 @@ function wordAsset({
 function childModeWordAsset({ word, folder, audio = true, alt = "" }) {
   return wordAsset({
     word,
-    image: `/images/child-mode/${folder}/${word}.png`,
+    image: curatedChildWordImageOverrides[word] || `/images/child-mode/${folder}/${word}.webp`,
     audio: audio ? `/audio/child-mode/words/${word}.mp3` : "",
     alt: alt || `Picture for ${word}`
   });

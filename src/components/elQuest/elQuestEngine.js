@@ -12,6 +12,9 @@ import { hasKnownBadWordAudio, isKnownBadAudioPath } from "../../data/knownBadWo
 import { getPreferredPhonemeAudioPath } from "../../data/phonemeAudioBank.js";
 import { getLedaProductionAudioPath, getLedaWordAudioPath } from "../../data/ledaProductionAudio.js";
 import { WORD_MATCH_PAIRS, wordMatchBoardWords } from '../../utils/wordMatchProgression.js';
+import { normalizeAdventureStationId } from '../../utils/adventureStationIds.js';
+
+export { normalizeAdventureStationId };
 
 import { CYCLE_SOUND_WORDS, cycleSoundPosition, isCyclePictureWordEligible } from "../../data/cycleSoundWords.js";
 import { cycleCardGraphemes, taughtCycleGraphemes, taughtCycleHighFrequencyWords, capPracticeRepetitions } from "../../utils/cyclePracticeVariation.js";
@@ -431,7 +434,7 @@ const STANDARD_STATIONS = [
   { id: "quick", title: "Word Match", subtitle: "Hear, find and pair words", icon: "quick", mechanicIds: ["sightWordChoice", "wordMemory"], build: buildWordRounds },
   { id: "build", title: "Missing Letters", subtitle: "Start or finish the word", icon: "build", mechanicIds: ["missingLetter"], build: buildMissingLetterRounds },
   { id: "play", title: "Rhyme Time", subtitle: "Listen for rhyming words", icon: "play", optional: true, mechanicIds: ["rhymePair"], build: buildRhymeRounds },
-  { id: "poem", title: "Picture Words", subtitle: "Two pictures make one word", icon: "poem", optional: true, mechanicIds: ["compoundPicture"], build: buildCompoundRounds },
+  { id: "compound", title: "Picture Words", subtitle: "Two pictures make one word", icon: "build", optional: true, mechanicIds: ["compoundPicture"], build: buildCompoundRounds },
   { id: "trace", title: "Letter Find", subtitle: "Find letters in the grid", icon: "trace", mechanicIds: ["letterGrid"], build: buildGridRounds },
   { id: "search", title: "Picture Search", subtitle: "Find sounds in a big picture", icon: "hunt", mechanicIds: ["pictureSearch"], build: buildPictureSearchRounds }
 ];
@@ -577,7 +580,7 @@ export function buildStationRounds(cycle, stationId, options = {}) {
   if (stationId === "check") return buildCycleQuestBlueprint(cycle, 10, options).rounds;
   return withShuffleSeed(options.seed, () => {
     // Retain old Cycle 1 links without offering the same grid twice in its menu.
-    const currentId = cycle.cycleNumber === 1 && stationId === 'build' ? 'trace' : stationId;
+    const currentId = cycle.cycleNumber === 1 && stationId === 'build' ? 'trace' : normalizeAdventureStationId(stationId);
     const station = stationsForCycle(cycle).find(item => item.id === currentId);
     if (!station?.build) throw new Error(`Adventure Map station "${stationId}" is unknown or ineligible for cycle ${cycle?.cycleNumber || "unknown"}.`);
     const rounds = station.mechanicIds.includes('wordMemory') ? station.build(cycle, options) : station.build(cycle);

@@ -1,3 +1,5 @@
+import { normalizeAdventureStationId } from "./adventureStationIds.js";
+
 export const EL_QUEST_SCHEMA_VERSION = 2;
 export const EL_QUEST_PROGRESS_EPOCH = 2;
 
@@ -43,7 +45,22 @@ export function normalizeElQuestProgress(value) {
     Number(source.schemaVersion) > EL_QUEST_SCHEMA_VERSION
     || Number(source.progressEpoch) > EL_QUEST_PROGRESS_EPOCH
   ) return source;
-  if (isCurrentElQuestProgress(source)) return { cycles: {}, ...source };
+  if (isCurrentElQuestProgress(source)) {
+    const hasLegacyStation = cycle => Object.keys(cycle.stations || {}).some(id => normalizeAdventureStationId(id) !== id);
+    if (!Object.values(source.cycles).some(hasLegacyStation)) return { cycles: {}, ...source };
+    return {
+      ...source,
+      cycles: Object.fromEntries(Object.entries(source.cycles).map(([cycleId, cycle]) => {
+        if (!hasLegacyStation(cycle)) return [cycleId, cycle];
+        const stations = {};
+        for (const [id, completion] of Object.entries(cycle.stations)) {
+          const currentId = normalizeAdventureStationId(id);
+          stations[currentId] = mergeForward(stations[currentId], completion);
+        }
+        return [cycleId, { ...cycle, stations }];
+      }))
+    };
+  }
   return {
     ...source,
     ...emptyElQuestProgress()
@@ -153,8 +170,8 @@ export function mergeElQuestProgress(existing, incoming) {
     return incoming;
   }
 
-  if (isCurrentElQuestProgress(existing) && !isCurrentElQuestProgress(incoming)) return existing;
-  if (!isCurrentElQuestProgress(existing) && isCurrentElQuestProgress(incoming)) return incoming;
+  if (isCurrentElQuestProgress(existing) && !isCurrentElQuestProgress(incoming)) return normalizeElQuestProgress(existing);
+  if (!isCurrentElQuestProgress(existing) && isCurrentElQuestProgress(incoming)) return normalizeElQuestProgress(incoming);
 
   const local = normalizeElQuestProgress(existing);
   const cloud = normalizeElQuestProgress(incoming);

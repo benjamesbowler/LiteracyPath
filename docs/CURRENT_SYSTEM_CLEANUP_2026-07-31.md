@@ -458,3 +458,65 @@ Current project briefs now identify the approved woodland direction and its
 checkpoint separately from the older classroom campaign, so future work does
 not treat the older renderer as the new design authority. No runtime or media
 files were changed in this checkpoint-note update.
+
+
+## Poems and related questions removed — 15 September 2026
+
+Removed the 27-cycle poem collection, four priority-cycle stanzas, the fallback
+chant generator, poem lesson sections, all Present verse/question slides, and
+the worksheet poem-reading task. Present now applies taught words in spoken
+sentences and shared writing; pattern worksheets read their own taught words.
+Cycle 27 is called Word and sound review everywhere. The unused imported
+learn-deck catalogue and retired poem renderer styles/tests were removed.
+
+Picture Words remains optional compound-word practice under `compound`. Legacy
+`poem` links and saved completion map to that current game without resetting
+stars or formal assessment history. The published Key Details book-fair item
+uses an existing exact non-poetry answer recording; its authoring source and
+generated bank passed the current publication gate.
+
+Deleted 27 poem-only illustrations and 31 obsolete poem/question recordings
+after checking current source and media-review references. Removed the obsolete
+Leda poem role and five stale legacy audio entries whose files were already
+absent, then regenerated audio path indexes. These tracked assets and sources
+remain recoverable through Git. Generic vocabulary, official WIDA descriptors,
+and the unrelated benchmark prose passage mentioning a collection of poems
+remain: none presents a poem or asks a poem-related question.
+
+Regression coverage spans every station and practice/check plan in all 27
+cycles, all 135 daily and 27 whole-cycle Present decks, all available six-page
+worksheet recipes, all 30 published assessment banks, selected assessment
+rounds, and legacy links/completion. Scoped evidence and the exact retirement
+manifest remain in ignored `.artifacts/poem-removal`. Browser/device and hosted
+verification belong to the integrated release evidence. No learner data,
+immutable migration or unrelated source material was deleted.
+
+## Child activity response and media loading — 15 September 2026
+
+Assessments retain the durable answer save, acknowledge pending saves immediately,
+and queue derived mastery summaries without delaying each following question.
+The final round drains those ordered summaries before closing its session. Shared
+activity buttons now accept a finger release with small movement while rejecting
+cancelled/outside releases and duplicate browser clicks. Independent assessment
+and Adventure Map feedback waits are shorter; supported assessment teaching
+feedback and required audio evidence are preserved.
+
+Cycles and Adventure Map keep the current and next two activities' pictures and
+exact playback elements warm. Image warmup has a bounded recent cache and retries
+failed or stalled loads. Cycle readiness reuses the authored coverage prepared by
+the initial plan, retaining the 36-task breadth and 30-minute active-practice
+requirements. Home warms only the active backdrop and cancels deferred work when
+leaving, removing the permanent all-game/companion image retention.
+
+The shared child picture resolver and nine word-building entries now use WebP.
+Nineteen new derivatives preserve their original dimensions and artwork; existing
+curated overrides and image quarantines retain priority. Original PNGs remain as
+compatibility URLs for
+child sessions opened on the previous deployment, and where required by review,
+provenance or migration-alias records. New child activity requests use WebP. No
+unrelated media, learner data or hosted state changed.
+
+The scoped before/after audit remains under ignored `.artifacts/poems-response`.
+In the same sampled plans, 267 distinct pictures total 13,112,278 bytes, down from
+26,522,162, with no selected PNGs or decode errors. Desktop measurements and
+browser/iPad emulation evidence do not imply a physical-classroom iPad test.

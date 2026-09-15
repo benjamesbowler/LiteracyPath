@@ -199,7 +199,7 @@ test("compound pictures have real parts and three illustrated spoken answer choi
 });
 
 test("each new attempt rebuilds choice objects and varies correct positions", () => {
-  for (const [cycleNumber, station] of [[1, "letters"], [1, "sounds"], [1, "hunt"], [2, "build"], [1, "poem"]]) {
+  for (const [cycleNumber, station] of [[1, "letters"], [1, "sounds"], [1, "hunt"], [2, "build"], [1, "compound"]]) {
     const cycle = cycles.find(item => item.cycleNumber === cycleNumber);
     const positions = new Set();
     for (let pass = 0; pass < 12; pass += 1) {

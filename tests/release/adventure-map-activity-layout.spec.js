@@ -8,7 +8,7 @@ const ACTIVITIES = [
   ["cycle-2", "trace", "letter-grid"],
   ["cycle-4", "build", "missing-letter"],
   ["cycle-1", "play", "rhyme-pair"],
-  ["cycle-1", "poem", "compound-picture"],
+  ["cycle-1", "compound", "compound-picture"],
   ["cycle-1", "search", "picture-search"]
 ];
 

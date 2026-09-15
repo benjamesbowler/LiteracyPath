@@ -15157,20 +15157,6 @@ select:focus {
   font-weight: 750;
 }
 
-.learn-poem {
-  padding: 16px;
-  border: 2px solid #fed7aa;
-  border-radius: 24px;
-  background:
-    linear-gradient(90deg, rgba(251, 146, 60, 0.08) 0 50%, transparent 50% 100%),
-    #fff7ed;
-  background-size: 26px 100%;
-  color: #7c2d12;
-  font-family: var(--lp-font-reading);
-  font-size: clamp(1.2rem, 3vw, 1.75rem);
-  font-weight: 700;
-  line-height: 1.35;
-}
 
 .learn-call-response,
 .learn-tip-grid,
@@ -16258,27 +16244,9 @@ select:focus {
   font-weight: 750;
 }
 
-.deck-poem {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2px 14px;
-  width: min(100%, 920px);
-  padding: 8px 10px;
-  font-size: clamp(0.95rem, 1.6vw, 1.28rem);
-  line-height: 1.15;
-  text-align: left;
-}
 
-.chant-slide {
-  gap: 7px;
-  padding: 12px;
-}
 
-.deck-poem p {
-  margin: 0;
-}
 
-.chant-slide .learn-slide-tip,
 .video-slide .learn-slide-tip,
 .guided-reading-slide .learn-slide-tip {
   font-size: clamp(0.9rem, 1.55vw, 1.1rem);

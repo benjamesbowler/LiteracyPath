@@ -323,6 +323,8 @@ test('all 27 Cycle Check decks retain a stable contract after direct-activity an
   // Reviewed CVC pictures, rejected-image exclusions and retiring multi-step
   // activities change affected items. Focus, HFW, independent-response and
   // media validity are checked above; pin this corrected check selection.
+  // The image-compression revision changes only PNG URLs to equivalent WebP
+  // files; all 27 decks retain the same questions, choices and answers.
   const hashes = cycles.map(cycle => createHash('sha256').update(JSON.stringify(buildCyclePracticePlan(cycle, 'check-contract', 0, true).rounds)).digest('hex'));
-  assert.equal(createHash('sha256').update(hashes.join('|')).digest('hex'), '7cff4d0d6a62a9474376c6a4c98927c1624e9df4eeca5d3a7f27b7879e1d4185');
+  assert.equal(createHash('sha256').update(hashes.join('|')).digest('hex'), '64e2ed69331fed43aaec2d762e8c8b36f466ce0dacfdb3aa799fcc6c80ac7264');
 });

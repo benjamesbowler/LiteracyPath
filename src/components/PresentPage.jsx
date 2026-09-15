@@ -9,7 +9,6 @@ import {
   PRESENTATION_DAYS,
   presentationDayPlan
 } from "../utils/present/presentationBuilder.js";
-import { EL_CYCLE_POEMS } from "../data/elCyclePoems.js";
 import "../styles/worksheets.css";
 import "../styles/present.css";
 
@@ -23,7 +22,7 @@ const SLIDE_LABELS = {
   "p-sound-hunt": "Sound hunt",
   "p-word-recall": "Spell from memory",
   "p-application": "Dictation",
-  "p-poem-talk": "Talk and apply",
+  "p-word-apply": "Use a word",
   "p-exit-check": "Quick check",
   "p-goal-slide": "Goal",
   "p-letter-slide": "Sound",
@@ -33,7 +32,6 @@ const SLIDE_LABELS = {
   "p-sight-slide": "Word practice",
   "p-phoneme": "Warm-up",
   "p-together": "Together",
-  "p-poem-slide": "Poem",
   "p-books-slide": "Books",
   "p-routines-slide": "This week",
   "p-close": "Close"
@@ -146,8 +144,6 @@ export function PresentPage({
     if (graphemes.length) rows.push(["Sounds", graphemes.join(" · ")]);
     if ((cycle.highFrequencyWords || []).length) rows.push(["High-frequency words", cycle.highFrequencyWords.join(" · ")]);
     if ((cycle.phonemicAwareness || []).length) rows.push(["Warm-ups", cycle.phonemicAwareness.join(" · ")]);
-    const poem = EL_CYCLE_POEMS.find(p => p.cycle === cycle.cycleNumber);
-    if (poem) rows.push(["Poem", poem.title]);
     const rec = cycle.guidedReadingRecommendations || {};
     const books = [rec.fiction, rec.nonfiction].filter(Boolean).map(b => b.title);
     if (books.length) rows.push(["Books", books.join(" · ")]);
