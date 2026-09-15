@@ -2,7 +2,7 @@
 // level overrides. A level may be adjusted for a local shelf; its reviewed
 // reading-band and reading-mode claims must remain stable.
 import { WILLOW_STREET_BOOK_MANIFEST } from "./guidedReadingBridgeBooks.manifest.js";
-import { MISSING_SANDWICH_BOOK_ID } from "./meadowPalsScienceBooks.js";
+import { MISSING_SANDWICH_BOOK_ID } from "./meadowPalsScienceIdentity.js";
 
 export const GUIDED_READING_BAND_PROFILES = Object.freeze(["standard", "extended", "read-aloud"]);
 export const GUIDED_READING_READING_MODES = Object.freeze([

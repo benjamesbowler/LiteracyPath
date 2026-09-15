@@ -19,6 +19,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 
 import { STUDENT_RAIL_DESTINATIONS } from "../../src/policy/studentRailPolicy.js";
+import { STUDENT_HOME_ACTIVITY_TITLES } from "../../src/copy/studentNavigationCopy.js";
 import { PAL_WORLDS } from "../../src/utils/palWorlds.js";
 
 const source = readFileSync("src/components/StudentHomePage.jsx", "utf8");
@@ -111,7 +112,7 @@ test("a progress read that failed never renders as an empty-data claim", () => {
 test("every rail destination is still reachable from the home screen", () => {
   // Six doorways cover six of the seven; Sound Seekers is the hero and also the
   // Sounds tab. Nothing was culled — the redesign is a re-layout.
-  const doorways = [...code.matchAll(/\{ id: "([a-z-]+)", title: "/g)].map(match => match[1]);
+  const doorways = [...code.matchAll(/\{ id: "([a-z-]+)", title: /g)].map(match => match[1]);
   assert.deepEqual(doorways, ["map", "books", "stories", "arcade", "phonics", "hollow"]);
   const reachable = new Set([...doorways, "sounds"]);
   for (const destination of STUDENT_RAIL_DESTINATIONS) {
@@ -125,16 +126,21 @@ test("every rail destination is still reachable from the home screen", () => {
 });
 
 test("the doorways carry the spec's titles, notes, tints and art", () => {
-  for (const [title, note, tint, art] of [
-    ["Adventure Map", "Win stars", "--kg-tint-map", "adventure-map"],
-    ["Books", "Real books", "--kg-tint-books", "reading-library"],
-    ["Story Quests", "You choose", "--kg-tint-stories", "story-quests"],
-    ["Arcade", null, "--kg-tint-arcade", "arcade"],
-    ["Letters", "Sounds and writing", "--kg-tint-letters", "phonics"],
-    ["My Hollow", "Make it yours", "--kg-tint-hollow", "my-hollow"]
+  for (const [id, activityId, title, note, tint, art] of [
+    ["map", "adventure-map", "Adventure Map", "Win stars", "--kg-tint-map", "adventure-map"],
+    ["books", "reading-library", "Books", "Real books", "--kg-tint-books", "reading-library"],
+    ["stories", "story-quests", "Story Quests", "You choose", "--kg-tint-stories", "story-quests"],
+    ["arcade", "arcade", "Arcade", null, "--kg-tint-arcade", "arcade"],
+    ["phonics", "phonics-learning", "Letters", "Sounds and writing", "--kg-tint-letters", "phonics"],
+    ["hollow", "my-hollow", "My Hollow", "Make it yours", "--kg-tint-hollow", "my-hollow"]
   ]) {
-    const row = code.match(new RegExp(`title: "${title}", note: [^\\n]*`));
+    const row = code.match(new RegExp(`\\{ id: "${id}", title: [^\\n]*`));
     assert.ok(row, `the ${title} doorway is missing`);
+    assert.equal(STUDENT_HOME_ACTIVITY_TITLES[activityId], title);
+    const titleReference = activityId.includes("-")
+      ? `STUDENT_HOME_ACTIVITY_TITLES["${activityId}"]`
+      : `STUDENT_HOME_ACTIVITY_TITLES.${activityId}`;
+    assert.ok(row[0].includes(`title: ${titleReference},`), `${title} must use its canonical spoken title`);
     if (note) assert.ok(row[0].includes(`"${note}"`), `${title}'s note is not the spec's`);
     assert.ok(row[0].includes(tint), `${title} does not use ${tint}`);
     assert.ok(row[0].includes(`/images/home-sage/${art}.webp`), `${title} has the wrong art`);

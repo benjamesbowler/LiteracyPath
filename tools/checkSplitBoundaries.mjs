@@ -18,6 +18,14 @@ const elBenchmarkCoreModules = [
   "/src/data/elBenchmarkSession.js",
   "/src/utils/elBenchmarkAssessmentScoring.js"
 ];
+const deferredStartupContentModules = [
+  "/src/data/generated/ledaProductionAudio.generated.js",
+  "/src/data/generated/assessmentLedaGaps.generated.js",
+  "/src/data/guidedReadingBooks.js",
+  "/src/features/soundSeekers/content/expeditions.js",
+  "/src/features/soundSeekers/content/pronunciationRecords.js",
+  "/src/features/soundSeekers/content/wordMeanings.js"
+];
 
 function runBuild() {
   return new Promise(resolve => {
@@ -72,6 +80,32 @@ for (const moduleSuffix of lazyBankModules) {
 }
 
 const chunkByFileName = new Map(analysis.chunks.map(chunk => [chunk.fileName, chunk]));
+function staticChunkGraph(root) {
+  const files = new Set();
+  function visit(chunk) {
+    if (!chunk || files.has(chunk.fileName)) return;
+    files.add(chunk.fileName);
+    for (const file of chunk.imports || []) visit(chunkByFileName.get(file));
+  }
+  visit(root);
+  return files;
+}
+
+// Check actual emitted dependencies as well as source imports. A tiny constant
+// imported from a book module can be grouped with an entire catalogue by the
+// bundler, making an otherwise lazy activity eager again.
+for (const suffix of ["/src/App.jsx", "/src/components/AppSurface.jsx", "/src/components/StudentHomePage.jsx"]) {
+  const roots = analysis.chunks.filter(chunk => chunk.modules.some(module => normalizedModuleId(module).endsWith(suffix)));
+  if (!roots.length) failures.push(`${suffix}: absent from build`);
+  for (const root of roots) {
+    const reachable = staticChunkGraph(root);
+    for (const moduleSuffix of deferredStartupContentModules) {
+      const leaked = analysis.chunks.filter(chunk => reachable.has(chunk.fileName)
+        && chunk.modules.some(module => normalizedModuleId(module).endsWith(moduleSuffix)));
+      if (leaked.length) failures.push(`${suffix}: eagerly loads ${moduleSuffix} (${leaked.map(chunk => chunk.fileName).join(", ")})`);
+    }
+  }
+}
 const entryChunk = analysis.chunks.find(chunk => chunk.isEntry);
 if (!entryChunk) {
   failures.push("main entry chunk: absent from build analysis");
@@ -121,6 +155,7 @@ if (failures.length) {
 console.log(
   `Split boundaries verified: ${lazyBankModules.length} representative assessment banks are dynamic, `
   + `full audit barrels stay out of the browser, `
+  + "startup and Home defer complete audio, reading and expedition catalogues, "
   + "the EL benchmark engine is outside the main-entry static graph, "
   + "and zero ineffective dynamic imports were reported."
 );

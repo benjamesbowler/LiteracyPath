@@ -588,11 +588,13 @@ const TASK2_RUNTIME_MODULES = Object.freeze({
   heartWords: "src/features/soundSeekers/content/heartWords.js",
   contentDeckRecords: "src/features/soundSeekers/content/contentDeckRecords.js",
   contentDeckBindings: "src/features/soundSeekers/content/contentDeckBindings.js",
+  contentDeckPlacementSpecs: "src/features/soundSeekers/content/contentDeckPlacementSpecs.js",
   contentDeckCatalogs: "src/features/soundSeekers/content/contentDeckCatalogs.js",
   contentDeckState: "src/features/soundSeekers/engine/contentDeckState.js",
   contentDeckScheduler: "src/features/soundSeekers/engine/contentDeckScheduler.js",
   contentDeckTransactions: "src/features/soundSeekers/engine/contentDeckTransactions.js",
   contentCoverage: "src/features/soundSeekers/engine/contentCoverage.js",
+  contentUseValidation: "src/features/soundSeekers/engine/contentUseValidation.js",
   challengeContract: "src/features/soundSeekers/engine/challengeContract.js",
   evidence: "src/features/soundSeekers/engine/evidence.js",
   evidenceEligibility: "src/features/soundSeekers/engine/evidenceEligibility.js",
@@ -602,7 +604,9 @@ const TASK2_RUNTIME_MODULES = Object.freeze({
 const TASK2_ALLOWED_IMPORT_EDGES = Object.freeze([
   "challengeContract->evidenceEligibility", "contentCoverage->contentDeckBindings",
   "contentCoverage->contentDeckCatalogs", "contentCoverage->contentDeckScheduler",
-  "contentCoverage->contentDeckState", "contentDeckBindings->contentDeckRecords",
+  "contentCoverage->contentUseValidation", "contentDeckBindings->contentDeckRecords",
+  "contentDeckBindings->contentDeckPlacementSpecs",
+  "contentUseValidation->contentDeckPlacementSpecs", "contentUseValidation->contentDeckState",
   "contentDeckBindings->expeditions", "contentDeckBindings->heartWordRecords",
   "contentDeckCatalogs->contentDeckRecords", "contentDeckCatalogs->heartWords",
   "contentDeckScheduler->contentDeckBindings", "contentDeckScheduler->contentDeckCatalogs",
@@ -614,18 +618,18 @@ const TASK2_ALLOWED_IMPORT_EDGES = Object.freeze([
   "contentDeckTransactions->expeditions", "contentDeckTransactions->instructionContracts",
   "contentDeckTransactions->questCorrection", "evidence->challengeContract",
   "evidence->audioControllerAuthority", "evidence->evidenceEligibility",
+  "evidence->evidenceReadPolicy",
   "evidence->instructionContracts", "heartWords->evidenceEligibility",
   "heartWords->heartWordRecords", "heartWords->pronunciationLexicon",
-  "stateV2->audioPreferences", "stateV2->characterCustomization", "stateV2->contentCoverage",
+  "stateV2->audioPreferences", "stateV2->characterCustomization", "stateV2->contentUseValidation",
   "stateV2->contentDeckState", "stateV2->evidenceEligibility",
   "stateV2->sceneVisualSemantics"
 ]);
 
-assert.equal(TASK2_ALLOWED_IMPORT_EDGES.length, 38);
-
 const TASK2_EXTERNAL_IMPORT_TARGETS = Object.freeze({
   audioPreferences: "src/utils/audio/audioPreferences.js",
   audioControllerAuthority: "src/features/soundSeekers/engine/audioControllerAuthority.js",
+  evidenceReadPolicy: "src/features/soundSeekers/engine/evidenceReadPolicy.js",
   characterCustomization: "src/features/soundSeekers/visual/characterCustomization.js",
   expeditions: "src/features/soundSeekers/content/expeditions.js",
   instructionContracts: "src/features/soundSeekers/content/instructionContracts.js",

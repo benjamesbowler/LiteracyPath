@@ -29,7 +29,6 @@ import {
   PageBoundary,
   PageErrorFallback,
   PhonicsLearnPage,
-  preloadCyclePracticePage,
   PresentPage,
   ResetStudentProgressDialog,
   Sidebar,
@@ -70,7 +69,7 @@ import { useStudentFocusSessionHost } from "../hooks/useStudentFocusSessionHost.
 import { endReadingSession } from "../data/readingSessionCore.js";
 import { lazyWithRetry } from "../utils/lazyWithRetry.js";
 import { STUDENT_FOCUS_TARGETS } from "../policy/studentFocusTargets.js";
-import { StudentSessionSetup } from "./student-sessions/StudentSessionSetup.jsx";
+import { StudentSessionSetupDialog } from "./student-sessions/StudentSessionSetupDialog.jsx";
 import { StudentSessionBar } from "./student-sessions/StudentSessionBar.jsx";
 import { StudentSessionNotice } from "./student-sessions/StudentSessionNotice.jsx";
 import {
@@ -414,26 +413,6 @@ export function AppSurface({ surface }) {
       // localStorage unavailable - the in-session choice still applies.
     }
   }
-
-  const cyclePracticeWarmupId = sessionMode === "student"
-    && studentFocus?.session?.target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE
-    ? String(studentFocus.session.resolved_config?.cycle_id || "").trim()
-    : teacherCycleId;
-
-  useEffect(() => {
-    if (sessionMode !== "student" || !nameSaved || !studentId) return undefined;
-    let cancelled = false;
-    void preloadCyclePracticePage()
-      .then(module => {
-        if (cancelled) return;
-        return module.preloadCyclePracticeAudio?.({
-          cycleId: cyclePracticeWarmupId || "cycle-1",
-          progressScopeKey: studentId
-        });
-      })
-      .catch(() => {});
-    return () => { cancelled = true; };
-  }, [cyclePracticeWarmupId, nameSaved, sessionMode, studentId]);
 
   const confirmedElPlacement = useMemo(() => resolveConfirmedElPlacement({
     assessmentHistory,
@@ -2376,7 +2355,7 @@ export function AppSurface({ surface }) {
       /></Suspense>}
 
       {studentSessionSetupOpen && sessionMode !== "student" && (
-        <StudentSessionSetup
+        <StudentSessionSetupDialog
           assessmentHistory={assessmentHistory}
           assessmentHistoryLoading={assessmentArchiveLoading}
           assessmentHistoryReady={assessmentArchiveReady}

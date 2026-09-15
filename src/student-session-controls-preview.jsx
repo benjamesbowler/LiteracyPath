@@ -6,7 +6,7 @@ import "./index.css";
 import "./App.css";
 import "./styles/student-sessions.css";
 import { StudentSessionBar } from "./components/student-sessions/StudentSessionBar.jsx";
-import { StudentSessionSetup } from "./components/student-sessions/StudentSessionSetup.jsx";
+import { StudentSessionSetupDialog } from "./components/student-sessions/StudentSessionSetupDialog.jsx";
 import { STUDENT_FOCUS_TARGETS } from "./policy/studentFocusTargets.js";
 
 const STUDENTS = [
@@ -68,6 +68,7 @@ const client = {
 };
 
 export function StudentSessionControlsPreview() {
+  const [setupOpen, setSetupOpen] = useState(PREVIEW_PARAMS.get("lazy") !== "1");
   const startsActive = PREVIEW_PARAMS.get("active") === "1";
   const [session, setSession] = useState(startsActive ? {
     ...ACTIVE_SESSION, ...(PREVIEW_PARAMS.get("cycleResults") === "1" ? { target: STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE } : {})
@@ -107,7 +108,10 @@ export function StudentSessionControlsPreview() {
 
   return (
     <main className="app" data-preview-surface="student-session-setup">
-      <StudentSessionSetup
+      {PREVIEW_PARAMS.get("lazy") === "1" && (
+        <button type="button" onClick={() => setSetupOpen(true)}>Open student session</button>
+      )}
+      {setupOpen && <StudentSessionSetupDialog
         assessmentHistory={[]}
         assessmentHistoryReady
         classDashboard={CLASS_DASHBOARD}
@@ -116,11 +120,11 @@ export function StudentSessionControlsPreview() {
         client={client}
         initialTarget={PREVIEW_TARGET}
         initialStudentIds={PRESELECTED_STUDENT_IDS}
-        onClose={() => {}}
+        onClose={() => setSetupOpen(false)}
         onStarted={nextSession => setSession(nextSession)}
         skillTree={[{ id: "initial_sounds", label: "Initial Sounds" }]}
         students={STUDENTS}
-      />
+      />}
     </main>
   );
 }

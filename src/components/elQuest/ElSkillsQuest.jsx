@@ -3,8 +3,8 @@ import { cycleReviewGraphemes, displayGraphemePair } from "../../utils/cyclePrac
 import { cyclePracticeDisplayTitle } from "../../utils/cycleTitles.js";
 import { elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
 import { adventureWordMatchOptions, completedWordMatchCycles } from '../../utils/wordMatchProgression.js';
-import { playCueAudio, playCueSequence, preloadCueAudio, retainCueAudioSources, stopCueAudio } from "../../utils/audio/cuePlayer.js";
-import { collectQuestionMedia, preloadQuestionImages } from "../../utils/preloadQuestionMedia.js";
+import { playCueAudio, playCueSequence, retainCueAudioSources, stopCueAudio } from "../../utils/audio/cuePlayer.js";
+import { collectQuestionMedia, preloadQuestionMediaBatch } from "../../utils/preloadQuestionMedia.js";
 import { triggerTactileFeedback } from "../../utils/tactileFeedback.js";
 import { playCorrectChime, playSoftBuzz, playCelebrationFanfare, playStarChime } from "../../utils/audio/gameSfx.js";
 import { queueProgressSave } from "../../utils/progressSync.js";
@@ -407,18 +407,21 @@ export function ElSkillsQuest({
 
   useEffect(() => {
     const windowRounds = stationId && !celebration ? rounds.slice(roundIndex, roundIndex + 3) : [];
-    const sources = [...new Set(windowRounds.flatMap((item, index) => {
-      void preloadQuestionImages(item, { priority: index === 0 ? "high" : "low" });
+    const resolveMedia = item => {
+      const media = collectQuestionMedia(item);
       const resolved = resolveAdventureRoundAudio(item);
-      return [resolved.instructionAudio, ...resolved.targetAudio, ...collectQuestionMedia(item).audio,
-        ...(item.cards || []).map(card => wordAudioPath(card.word))].filter(Boolean);
-    }))];
+      return { ...media, audio: [...new Set([resolved.instructionAudio, ...resolved.targetAudio, ...media.audio,
+        ...(item.cards || []).map(card => wordAudioPath(card.word))].filter(Boolean))] };
+    };
+    const sources = [...new Set(windowRounds.flatMap(item => resolveMedia(item).audio))];
     // Acquire the overlapping window first so an upcoming cue is not evicted
     // and loaded again at the very moment it becomes the current question.
     const release = retainCueAudioSources(sources);
     mediaWindowReleaseRef.current?.();
     mediaWindowReleaseRef.current = release;
-    sources.forEach(src => { void preloadCueAudio(src); });
+    const controller = new AbortController();
+    void preloadQuestionMediaBatch(windowRounds, { signal: controller.signal, resolveMedia });
+    return () => controller.abort();
   }, [celebration, rounds, roundIndex, stationId]);
 
   useEffect(() => {

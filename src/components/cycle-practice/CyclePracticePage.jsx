@@ -25,8 +25,6 @@ function cycleFromId(cycleId) {
   return elSkillsBlockCycles.find(cycle => cycle.id === cycleId && Number.isInteger(cycle.cycleNumber)) || null;
 }
 
-function buildCyclePracticePlan(cycle, seed) { return buildCyclePlan(cycle, seed).rounds; }
-
 function formatClock(seconds) {
   const safe = Math.max(0, Math.floor(Number(seconds) || 0));
   return `${String(Math.floor(safe / 60)).padStart(2, "0")}:${String(safe % 60).padStart(2, "0")}`;
@@ -38,32 +36,6 @@ function roundAudioSources(round, includeObjectAudio = true) {
   return [...new Set([...(resolved.sequence || []), ...(includeObjectAudio ? resolved.choiceAudio || [] : [])].filter(Boolean))];
 }
 function playbackAudioSequence(round) { return roundAudio(round).sequence || []; }
-
-// eslint-disable-next-line react-refresh/only-export-components
-export function preloadCyclePracticeAudio({ cycleId = "cycle-1", progressScopeKey = "default" } = {}) {
-  const cycle = cycleFromId(cycleId);
-  const plan = buildCyclePracticePlan(cycle, `${progressScopeKey}:preview`);
-  const currentRound = plan[0];
-  if (!currentRound) return Promise.resolve(false);
-
-  const windowRounds = plan.slice(0, 3);
-  windowRounds.forEach((round, index) => {
-    void preloadQuestionImages(round, { priority: index === 0 ? "high" : "low" });
-  });
-  const currentSources = [...new Set(
-    roundAudioSources(currentRound, false)
-  )];
-  const deferredSources = [...new Set(
-    windowRounds
-      .flatMap(round => roundAudioSources(round))
-      .filter(src => !currentSources.includes(src))
-  )];
-
-  return Promise.allSettled(currentSources.map(src => preloadCueAudio(src))).then(() => {
-    deferredSources.forEach(src => { void preloadCueAudio(src); });
-    return true;
-  });
-}
 
 function CyclePracticeSession({
   studentName = "Reader",
@@ -284,17 +256,19 @@ function CyclePracticeSession({
     const plan = mode === "assessment" ? assessmentPlan : practicePlan;
     const index = mode === "assessment" ? assessmentIndex : practiceIndex;
     const windowRounds = result || state.pendingAttempt ? [] : plan.slice(index, index + 3);
-    windowRounds.forEach((round, windowIndex) => {
-      void preloadQuestionImages(round, { priority: windowIndex === 0 ? "high" : "low" });
-    });
+    const currentPictures = windowRounds.length
+      ? preloadQuestionImages(windowRounds[0], { priority: "high" })
+      : Promise.resolve([]);
     const sources = [...new Set(windowRounds.flatMap(r => roundAudioSources(r)))];
     const release = retainCueAudioSources(sources);
     audioWindowRelease.current?.();
     audioWindowRelease.current = release;
     const essentials = sources.length ? [...new Set(roundAudioSources(plan[index], false))] : [];
     let cancelled = false;
-    Promise.allSettled(essentials.map(src => preloadCueAudio(src))).then(() => {
-      if (!cancelled) sources.filter(src => !essentials.includes(src)).forEach(src => { void preloadCueAudio(src); });
+    Promise.allSettled([currentPictures, ...essentials.map(src => preloadCueAudio(src))]).then(() => {
+      if (cancelled) return;
+      windowRounds.slice(1).forEach(round => { void preloadQuestionImages(round, { priority: "low" }); });
+      sources.filter(src => !essentials.includes(src)).forEach(src => { void preloadCueAudio(src); });
     });
     return () => { cancelled = true; };
     // Retention is released on replacement or session cleanup, not on feedback.

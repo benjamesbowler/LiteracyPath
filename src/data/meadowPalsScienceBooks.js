@@ -1,6 +1,7 @@
 // Approved twelve-page science manuscript. Shared reading is an interest-age
 // placement, with no independent A/B/C decoding claim.
-export const MISSING_SANDWICH_BOOK_ID = "meadow-pals-science-01-missing-sandwich";
+import { MISSING_SANDWICH_BOOK_ID } from "./meadowPalsScienceIdentity.js";
+export { MISSING_SANDWICH_BOOK_ID } from "./meadowPalsScienceIdentity.js";
 export const MISSING_SANDWICH_MANUSCRIPT_SHA256 = "b97697df8934aad99323939f7569cff512edad205b2daabfefc91bce9ca7d858";
 
 const scenes = [

@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import assert from "node:assert/strict";
 import test from "node:test";
 import { storyQuests } from "../../src/data/storyQuests.js";
-import { selectActiveStudentTab } from "../../src/policy/studentRailPolicy.js";
+import { STUDENT_RAIL_DESTINATIONS, selectActiveStudentTab } from "../../src/policy/studentRailPolicy.js";
 import {
   buildStoryQuestResumeHistory,
   isStoryQuestTeacherPreviewScope,
@@ -135,7 +135,9 @@ test("Story Quest reader reserves one viewport without nested story-text scrolli
 });
 
 test("Story Quests appears in both child navigation sources with a real story icon", () => {
-  assert.match(studentRailPolicySource, /id: "stories", label: "Story Quests", icon: "story"/);
+  assert.deepEqual(STUDENT_RAIL_DESTINATIONS.find(item => item.id === "stories"), {
+    id: "stories", label: "Story Quests", icon: "story", tab: "books"
+  });
   assert.match(studentHomeSource, /stories:\s*onOpenStoryQuests/);
   assert.match(studentRailPolicySource, /story:\s*"[^"\n]+"/);
   assert.match(studentRailSource, /<StudentRailNav/);

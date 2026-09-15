@@ -1,3 +1,4 @@
+import { CONTENT_DECK_PLACEMENT_SPECS } from "./contentDeckPlacementSpecs.js";
 import { CONTENT_DECK_RECORDS } from "./contentDeckRecords.js";
 import {
   SOUND_SEEKERS_EXPEDITIONS,
@@ -63,18 +64,10 @@ export function getContentDeckActionBindings(category, contentInstanceId) {
     binding.category === category && binding.contentInstanceId === contentInstanceId));
 }
 
-const PLACEMENT_SPECS = Object.freeze([
-  ["s16-alternative", "alternatives", "alternative-slot-s16", ["y_ie", "y_ee"], "contrast-sort-place-sound", "contrast_sort", "place_sound_token", "grapheme_to_phoneme", true],
-  ["s28-alternative", "alternatives", "alternative-slot-s28", ["oo_short"], "contrast-sort-place-sound", "contrast_sort", "place_sound_token", "grapheme_to_phoneme", true],
-  ["s29-alternative", "alternatives", "alternative-slot-s29", ["ow_ou"], "contrast-sort-place-sound", "contrast_sort", "place_sound_token", "grapheme_to_phoneme", true],
-  ["s37-alternative", "alternatives", "alternative-slot-s37", ["c_s", "g_j", "ch_k", "ea_e"], "contrast-sort-place-sound", "contrast_sort", "place_sound_token", "grapheme_to_phoneme", true],
-  ["s38-morphology", "morphology", "morphology-slot-s38", [], "morphology-teach", "word_forge", "introduce_word_ending", null, false]
-]);
-
-export const CONTENT_DECK_PLACEMENTS = Object.freeze(PLACEMENT_SPECS.map(([
+export const CONTENT_DECK_PLACEMENTS = Object.freeze(CONTENT_DECK_PLACEMENT_SPECS.map(({
   placementId, category, slotId, challengeTargetIds, instructionId, powerId,
   expectedAction, recordsDomain, masteryCredit
-]) => {
+}) => {
   const stopId = placementId.slice(0, placementId.indexOf("-"));
   const contentBinding = getContentDeckOwnerBinding(category, slotId);
   return Object.freeze({

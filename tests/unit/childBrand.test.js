@@ -6,6 +6,7 @@ import path from "node:path";
 import sharp from "sharp";
 import { CHILD_BRAND } from "../../src/data/childBrand.js";
 import { TEACHER_BRAND } from "../../src/data/teacherBrand.js";
+import { STUDENT_HOME_ACTIVITY_TITLES } from "../../src/copy/studentNavigationCopy.js";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 
@@ -123,8 +124,9 @@ test("the child home keeps all seven destinations behind one policy-selected act
   assert.equal((activitiesSource.match(/\n {6}id: "/g) || []).length, 7);
   assert.match(
     activitiesSource,
-    /id: "my-hollow"[\s\S]*?onClick: onOpenRewards[\s\S]*?art: "\/images\/home-sage\/my-hollow\.webp"[\s\S]*?title: "My Hollow"/
+    /id: "my-hollow"[\s\S]*?onClick: onOpenRewards[\s\S]*?art: "\/images\/home-sage\/my-hollow\.webp"[\s\S]*?title: STUDENT_HOME_ACTIVITY_TITLES\["my-hollow"\]/
   );
+  assert.equal(STUDENT_HOME_ACTIVITY_TITLES["my-hollow"], "My Hollow");
   assert.match(
     appSource,
     /onOpenRewards=\{\(\) => \{[\s\S]*?setAppView\(APP_VIEWS\.STUDENT_REWARDS\);[\s\S]*?appView === APP_VIEWS\.STUDENT_REWARDS[\s\S]*?<HollowPage/,

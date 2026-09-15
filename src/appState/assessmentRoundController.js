@@ -18,7 +18,7 @@ import { buildSkillMasterySummaryRows } from "../data/skillMasterySummary.js";
 import { isGenericInstructionAudioPath } from "../utils/assessmentAudioPolicy.js";
 import { APP_VIEWS } from "./appViews.js";
 import { getAssessmentAttemptType } from "./assessmentSessionHelpers.js";
-import { preloadQuestionMediaBatch } from "../utils/preloadQuestionMedia.js";
+import { preloadQuestionMediaWindow } from "../utils/preloadQuestionMedia.js";
 import { speakWithBrowser as speakWithBrowserFallback } from "../utils/audio/speakWithBrowser.js";
 import { playCueAudio } from "../utils/audio/cuePlayer.js";
 import { insertWithRetry } from "../utils/insertQueue.js";
@@ -854,7 +854,7 @@ export function createAssessmentRoundController(context) {
   }
 
   function preloadAssessmentQuestionWindow(questions = []) {
-    void preloadQuestionMediaBatch(questions.filter(Boolean).slice(0, 3), {
+    void preloadQuestionMediaWindow(allQuestionsRef, questions.filter(Boolean).slice(0, 3), {
       source: "assessment-candidate-window"
     });
   }

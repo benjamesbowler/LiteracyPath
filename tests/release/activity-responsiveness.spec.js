@@ -83,6 +83,48 @@ test('Adventure Map preloads the next question pictures before the next tap', as
   await expect.poll(() => futurePictures.filter(src => requests.has(new URL(src, 'https://local.test').pathname)), { timeout: 4000 }).toEqual(futurePictures);
 });
 
+for (const stopEarly of [false, true]) {
+  test(`Adventure current pictures get the network first${stopEarly ? ' and Stop cancels the future window' : ''}`, async ({ page }) => {
+    const cycle = elSkillsBlockCycles.find(item => item.id === 'cycle-11');
+    const rounds = buildStationRounds(cycle, 'search', { seed: 'adventure:cycle-11:search:initial-v3' });
+    const currentPictures = collectQuestionMedia(rounds[0]).images;
+    const futurePictures = [...new Set(rounds.slice(1, 3).flatMap(item => collectQuestionMedia(item).images))]
+      .filter(src => !currentPictures.includes(src));
+    expect(futurePictures.length).toBeGreaterThan(0);
+    const blockedPath = new URL(currentPictures[0], 'https://local.test').pathname;
+    let release;
+    const held = new Promise(resolve => { release = resolve; });
+    const requests = new Set();
+    page.on('request', request => requests.add(new URL(request.url()).pathname));
+    await page.route(url => url.pathname === blockedPath, async route => {
+      await held;
+      await route.continue();
+    });
+    await audioRecorder(page);
+    try {
+      await page.goto('/preview/child-surfaces.html?surface=adventure-map&quest=cycle-11&station=search', { waitUntil: 'domcontentloaded' });
+      const stage = page.locator('[data-mechanic-stage="picture-search"]');
+      await expect(stage).toBeVisible();
+      await expect.poll(() => page.evaluate(() => window.__responseAudio.length)).toBeGreaterThan(0);
+      expect(requests.has(blockedPath)).toBe(true);
+      expect(futurePictures.filter(src => requests.has(new URL(src, 'https://local.test').pathname))).toEqual([]);
+      if (stopEarly) {
+        await page.getByRole('button', { name: 'Stop', exact: true }).click();
+        await expect(stage).toHaveCount(0);
+      }
+      const response = page.waitForResponse(url => new URL(url.url()).pathname === blockedPath);
+      release();
+      await (await response).finished();
+      if (stopEarly) {
+        await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+        expect(futurePictures.filter(src => requests.has(new URL(src, 'https://local.test').pathname))).toEqual([]);
+      } else {
+        await expect.poll(() => futurePictures.filter(src => requests.has(new URL(src, 'https://local.test').pathname)), { timeout: 4000 }).toEqual(futurePictures);
+      }
+    } finally { release(); }
+  });
+}
+
 test('Adventure Map accepts a slightly moving finger release once and rejects cancelled/outside releases', async ({ page, browserName }) => {
   test.skip(browserName !== 'chromium', 'Trusted moving touch uses the Chromium input protocol.');
   await audioRecorder(page);

@@ -7,8 +7,10 @@ import { STORY_QUEST_LEDA_AUDIO } from "./generated/storyQuestLedaAudio.generate
 import { ASSESSMENT_LEDA_GAP_AUDIO_BY_ROLE } from "./generated/assessmentLedaGaps.generated.js";
 import { LEDA_PRODUCTION_VOICE } from "./ledaProductionVoice.js";
 import { CHILD_WORD_AUDIO_OVERRIDES } from "./childWordAudioOverrides.js";
+import { normalizeLedaAudioText } from "./normalizeLedaAudioText.js";
 
 export { LEDA_PRODUCTION_AUDIO_ROLES, LEDA_PRODUCTION_VOICE };
+export { normalizeLedaAudioText } from "./normalizeLedaAudioText.js";
 
 export const LEDA_LANGUAGE_AUDIO_ROLES = Object.freeze([
   "supplemental",
@@ -21,19 +23,6 @@ export const LEDA_LANGUAGE_AUDIO_ROLES = Object.freeze([
   "story_page",
   "report"
 ]);
-
-export function normalizeLedaAudioText(value = "") {
-  return String(value || "")
-    .normalize("NFKC")
-    .toLowerCase()
-    .replace(/^hfw:/i, "")
-    .replace(/[’‘]/g, "'")
-    .replace(/[“”]/g, "\"")
-    .replace(/[–—]/g, "-")
-    .replace(/\s+/g, " ")
-    .replace(/[.!?]+$/g, "")
-    .trim();
-}
 
 export function getLedaProductionAudioPath(
   text = "",

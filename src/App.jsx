@@ -21,12 +21,12 @@ import { APP_VIEWS } from "./appState/appViews.js";
 import { getPersistedAppView, getRestoredAppView, elBenchmarkAssessmentHash, isFocusedAssessmentView, isSameTeacherRoute, isStudentAllowedView, restoreElBenchmarkSessionFromHash, shouldOpenDefaultTeacherRoute, teacherIntentHash } from "./appState/appViewHelpers.js";
 import { deleteElBenchmarkDraft, loadElBenchmarkDraft, resolveElBenchmarkSessionOwnership, saveElBenchmarkDraft, getGuidedReadingStorageKey as getGuidedReadingStorageKeyForSession, migrateGuidedReadingStorage, getTeacherProfileStorageKey } from "./appState/studentSessionHelpers.js";
 import { calculateAccuracy, calculateRoundCorrect } from "./appState/assessmentSessionHelpers.js";
-import { preloadQuestionMedia } from "./utils/preloadQuestionMedia.js";
+import { cancelQuestionMediaWindow, preloadQuestionMedia } from "./utils/preloadQuestionMedia.js";
 import { DYNAMIC_IMPORT_ERROR_EVENT, importWithRetry } from "./utils/lazyWithRetry.js";
 import { clearAndVerifyLocalProgressForStudent, clearProgressSyncSession, configureProgressSync, hydrateCloudProgress, queueProgressSave } from "./utils/progressSync.js";
 import { configureInsertQueueAccount, startInsertQueueFlusher } from "./utils/insertQueue.js";
 import { createAssessmentRoundController } from "./appState/assessmentRoundController.js";
-import { AppSurface, preloadCyclePracticePage } from "./appState/appRuntimeSurfaces.jsx";
+import { AppSurface } from "./appState/appRuntimeSurfaces.jsx";
 import { createStudentRosterReadState } from "./appState/studentRosterReadState.js";
 import {
   createManualAssessmentAttemptSession,
@@ -405,11 +405,6 @@ export default function App() {
   const isStudentSurfaceView = isLearnView
     || appView === APP_VIEWS.STUDENT_REWARDS
     || appView === APP_VIEWS.CYCLE_PRACTICE;
-
-  useEffect(() => {
-    if (!authReady || (entryMode !== "student" && sessionMode !== "student")) return;
-    void preloadCyclePracticePage().catch(() => {});
-  }, [authReady, entryMode, sessionMode]);
 
   useEffect(() => {
     function syncFullscreenState() {
@@ -889,8 +884,12 @@ export default function App() {
     if (!currentQuestion || !isFocusedAssessmentView(appView)) return;
     void preloadQuestionMedia(currentQuestion, {
       role: "focused-current",
-      source: "assessment-current-question-effect"
+      source: "assessment-current-question-effect",
+      priority: "high"
     });
+    // Selection may already have started the next window before React cleans
+    // up this question. Cancel only the window owned by this exact question.
+    return () => cancelQuestionMediaWindow(allQuestionsRef, currentQuestion);
   }, [appView, currentQuestion]);
 
   const {

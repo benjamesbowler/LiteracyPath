@@ -2,6 +2,8 @@ import { preloadCueAudio } from "./audio/cuePlayer.js";
 import { preloadImage } from "./preloadMedia.js";
 export { preloadImage } from "./preloadMedia.js";
 
+const questionMediaWindows = new WeakMap();
+
 export const PRELOAD_IMAGE_FIELDS = [
   "imageUrl",
   "imagePath",
@@ -169,9 +171,9 @@ export function preloadAudio(src) {
 }
 
 export function preloadQuestionMedia(question, options = {}) {
-  if (!question) return Promise.resolve([]);
+  if (!question || options.signal?.aborted) return Promise.resolve([]);
 
-  const media = collectQuestionMedia(question);
+  const media = (options.resolveMedia || collectQuestionMedia)(question);
   const questionId = question.id || question.questionId || "(unknown)";
 
   debugPreload("question media requested", {
@@ -185,7 +187,7 @@ export function preloadQuestionMedia(question, options = {}) {
   });
 
   const preloadTasks = [
-    ...media.images.map(src => ({ type: "image", src, task: preloadImage(src) })),
+    ...media.images.map(src => ({ type: "image", src, task: preloadImage(src, { priority: options.priority || "auto" }) })),
     ...media.audio.map(src => ({ type: "audio", src, task: preloadAudio(src) }))
   ];
 
@@ -207,12 +209,13 @@ export function preloadQuestionMedia(question, options = {}) {
   });
 }
 
-export function preloadQuestionMediaBatch(questions, options = {}) {
-  if (!Array.isArray(questions) || questions.length === 0) {
-    return Promise.resolve([]);
+export async function preloadQuestionMediaBatch(questions, options = {}) {
+  if (!Array.isArray(questions) || options.signal?.aborted) {
+    return [];
   }
 
   const windowQuestions = questions.filter(Boolean);
+  if (!windowQuestions.length) return [];
   debugPreload("question window requested", {
     role: options.role || "question-window",
     source: options.source || "",
@@ -223,12 +226,30 @@ export function preloadQuestionMediaBatch(questions, options = {}) {
     }))
   });
 
-  return Promise.allSettled(
-    windowQuestions
-      .map((question, index) => preloadQuestionMedia(question, {
-        ...options,
-        role: index === 0 ? "current" : `next-${index}`,
-        windowIndex: index
-      }))
-  );
+  const warm = (question, index) => preloadQuestionMedia(question, {
+    ...options,
+    role: index === 0 ? "current" : `next-${index}`,
+    windowIndex: index,
+    priority: index === 0 ? "high" : "low"
+  });
+  // A future picture/recording must not compete with the current stimulus on
+  // classroom Wi-Fi. This schedules warmup only; playback and input never wait.
+  const current = await Promise.allSettled([warm(windowQuestions[0], 0)]);
+  if (options.signal?.aborted) return current;
+  const future = await Promise.allSettled(windowQuestions.slice(1).map((question, index) => warm(question, index + 1)));
+  return [...current, ...future];
+}
+
+export function cancelQuestionMediaWindow(owner, question) {
+  const window = questionMediaWindows.get(owner);
+  if (!window || (question && window.question !== question)) return;
+  window.controller.abort();
+  questionMediaWindows.delete(owner);
+}
+
+export function preloadQuestionMediaWindow(owner, questions, options = {}) {
+  cancelQuestionMediaWindow(owner);
+  const controller = new AbortController();
+  questionMediaWindows.set(owner, { controller, question: questions.find(Boolean) });
+  return preloadQuestionMediaBatch(questions, { ...options, signal: controller.signal });
 }

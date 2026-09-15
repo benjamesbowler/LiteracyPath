@@ -6,7 +6,13 @@ import {
 import { getInstructionContract } from "../content/instructionContracts.js";
 import { consumeCompletedAudioDeliveryReceipt } from "./audioControllerAuthority.js";
 
-const AUDIO_COMPLETED = "completed";
+import {
+  AUDIO_COMPLETED,
+  isValidSessionDay,
+  localSessionDayFor,
+  normalizedEvidenceAt
+} from "./evidenceReadPolicy.js";
+export { evidenceIsIndependent, isValidSessionDay, localSessionDayFor } from "./evidenceReadPolicy.js";
 
 function finiteNonNegative(value, fallback = 0) {
   const number = Number(value);
@@ -21,39 +27,6 @@ function responseToken(response) {
 
 function eventId(event) {
   return typeof event?.id === "string" && event.id ? event.id : null;
-}
-
-function dateFor(value) {
-  if (value === null || value === undefined || value === "") return null;
-  try {
-    const date = value instanceof Date ? new Date(value.getTime()) : new Date(value);
-    return Number.isNaN(date.getTime()) ? null : date;
-  } catch {
-    return null;
-  }
-}
-
-function normalizedAt(value) {
-  const date = dateFor(value);
-  return date ? date.toISOString() : null;
-}
-
-export function isValidSessionDay(value) {
-  const match = typeof value === "string" && /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
-  if (!match) return false;
-  const [, year, month, day] = match;
-  const date = new Date(Number(year), Number(month) - 1, Number(day));
-  return date.getFullYear() === Number(year)
-    && date.getMonth() === Number(month) - 1
-    && date.getDate() === Number(day);
-}
-
-// Uses the local calendar getters deliberately. A session may also supply its
-// trusted child-local day, which wins over this device-local fallback.
-export function localSessionDayFor(at) {
-  const date = dateFor(at);
-  if (!date) return null;
-  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
 }
 
 function sessionDayFor(sessionDay, at) {
@@ -90,7 +63,7 @@ function deriveLiteracyDecision({
   if (!Number.isInteger(ordinal) || ordinal < 0) return null;
   const token = responseToken(response);
   if (token === null) return null;
-  const eventAt = normalizedAt(at);
+  const eventAt = normalizedEvidenceAt(at);
   if (!eventAt) return null;
   const resolvedSessionDay = sessionDayFor(sessionDay, eventAt);
   if (!resolvedSessionDay) return null;
@@ -181,12 +154,6 @@ export function appendEvidence(events, event) {
   const id = eventId(event);
   if (id && !ids.has(id)) result.push(event);
   return result;
-}
-
-export function evidenceIsIndependent(event) {
-  if (!event || event.evidenceKind !== "practice") return false;
-  if (finiteNonNegative(event.supportLevel) !== 0 || event.revealed === true) return false;
-  return event.audioRequired === false || event.cueDelivery === AUDIO_COMPLETED;
 }
 
 // Flat keys fit the v2 persisted count-map and retain both the target and the

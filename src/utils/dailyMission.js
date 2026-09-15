@@ -7,6 +7,7 @@ import { recordDailyChest } from "./hollowState.js";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 import { GUIDED_READING_BOOK_INDEX } from "../data/generated/guidedReadingBookIndex.generated.js";
 import { GAME_LIST } from "../data/learnGamesData.js";
+import { STUDENT_HOME_COPY } from "../copy/studentNavigationCopy.js";
 import { filterPublishedGuidedReadingBooks } from "../policy/guidedReadingApprovalPolicy.js";
 import { normalizeElQuestProgress } from "./adventureMapProgress.js";
 import {
@@ -256,13 +257,13 @@ export function buildDailyMission(scope, quarantinedBookIds) {
       why: cycle.childFriendlyGoal || "Follow your path on the map."
     },
     book: {
-      title: book?.title || "Pick a book",
+      title: book?.title || STUDENT_HOME_COPY.fallbackBookTitle,
       detail: book ? `Level ${book.level}` : "",
       why: book ? `A Level ${book.level} book picked for you today.` : "Choose any book you like.",
       bookId: book?.id || ""
     },
     game: {
-      title: game.title || "Play a game",
+      title: game.title || STUDENT_HOME_COPY.fallbackGameTitle,
       detail: game.skill || "",
       why: gamePick.why || "A fresh game for today.",
       gameId: game.id || ""

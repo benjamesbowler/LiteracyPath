@@ -9,7 +9,7 @@ import {
 import {
   normalizeSoundSeekersEvidenceEvent
 } from "./evidenceEligibility.js";
-import { validContentDeckUses } from "./contentCoverage.js";
+import { validContentDeckUses } from "./contentUseValidation.js";
 import { resolveNarrativeBranchOutcome } from "../content/sceneVisualSemantics.js";
 import { createCharacterAppearance } from "../visual/characterCustomization.js";
 

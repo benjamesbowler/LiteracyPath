@@ -38,6 +38,7 @@ import { getRuntimeGuidedReadingBooks } from "../utils/guidedReading/runtimeBook
 import { filterPublishedGuidedReadingBooks } from "../policy/guidedReadingApprovalPolicy.js";
 import { filterToEntitlement } from "../policy/freeTierContent.js";
 import { speakStudentRailLabel } from "../policy/studentRailPolicy.js";
+import { studentBookPanelAudioText } from "../copy/studentNavigationCopy.js";
 import {
   KNOWLEDGE_JOURNEYS,
   getKnowledgeJourney,
@@ -609,7 +610,7 @@ export function StudentBooksPage({
                   className="kg-speaker kg-speaker--md kg-glass kg-glass--strong kg-continue-hear"
                   aria-label="Hear this"
                   onClick={() => hear(
-                    `${resuming ? "You stopped here." : "Start here."} ${panelBook.title}.`
+                    studentBookPanelAudioText(resuming, panelBook.title)
                   )}
                 >
                   <SpeakerGlyph />

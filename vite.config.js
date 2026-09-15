@@ -128,6 +128,17 @@ export default defineConfig({
       } : {}),
       output: {
         manualChunks(id) {
+          // These import-free navigation labels/IDs are used together by both
+          // sign-in shells. Four separate tiny requests cost extra round trips
+          // on classroom Wi-Fi; keep this small group free of content banks.
+          if ([
+            '/src/appState/appViews.js',
+            '/src/policy/studentTabBar.js',
+            '/src/data/childBrand.js',
+            '/src/utils/cycleTitles.js'
+          ].some(suffix => id.endsWith(suffix))) {
+            return 'shell-navigation'
+          }
           // Precise package matches: the old '/node_modules/react' prefix also
           // captured react-confetti (and any react-*), forcing lazy-only libs
           // into the boot-critical vendor chunk.

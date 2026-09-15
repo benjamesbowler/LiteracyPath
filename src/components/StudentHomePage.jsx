@@ -52,6 +52,11 @@ import { computeTreasury } from "../utils/treasureTrail.js";
 import { computeHollow, freshSpendableCoinCount } from "../utils/hollowEconomy.js";
 import { loadHollowLedger, coinsSinceLastVisit } from "../utils/hollowState.js";
 import { CHILD_BRAND } from "../data/childBrand.js";
+import {
+  STUDENT_HOME_ACTIVITY_TITLES,
+  STUDENT_HOME_COPY,
+  homeHeroInstruction
+} from "../copy/studentNavigationCopy.js";
 import { GAME_LIST } from "../data/learnGamesData.js";
 import { filterSample } from "../policy/freeTierContent.js";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
@@ -105,12 +110,6 @@ function placeholderOnError(event) {
 
 function hideOnError(event) {
   event.currentTarget.style.display = "none";
-}
-
-function homeHeroInstruction(cardState) {
-  if (cardState?.label === "Teacher picked") return "Your teacher picked this";
-  if (cardState?.label === "Continue") return "Carry on where you stopped";
-  return "Start here";
 }
 
 function visibleDoorState(cardState) {
@@ -310,24 +309,24 @@ function heroStopLine({ activityId, progress, mission }) {
   if (activityId === "sound-seekers") {
     const index = currentStopIndex(progress.soundSeekers);
     const stop = stopAtIndex(index);
-    return stop ? `Stop ${index} — ${stop.name}` : "";
+    return stop ? STUDENT_HOME_COPY.soundStop(index, stop.name) : "";
   }
   if (activityId === "adventure-map") {
     const playable = elSkillsBlockCycles.filter(cycle => cycle.cycleNumber);
     const cycle = playable.find(
       item => !(Number(progress.adventureMap?.cycles?.[item.id]?.stars) > 0)
     ) || playable[0];
-    return cycle ? `Stop ${cycle.cycleNumber} on the map` : "";
+    return cycle ? STUDENT_HOME_COPY.mapStop(cycle.cycleNumber) : "";
   }
   if (activityId === "reading-library") {
-    return mission.book?.title ? `Your book — ${mission.book.title}` : "";
+    return mission.book?.title ? STUDENT_HOME_COPY.bookStop(mission.book.title) : "";
   }
   if (activityId === "arcade") {
-    return mission.game?.title ? `Your game — ${mission.game.title}` : "";
+    return mission.game?.title ? STUDENT_HOME_COPY.gameStop(mission.game.title) : "";
   }
-  if (activityId === "phonics-learning") return "Letters and sounds";
-  if (activityId === "story-quests") return "A story you choose";
-  if (activityId === "my-hollow") return "Your own place";
+  if (activityId === "phonics-learning") return STUDENT_HOME_COPY.phonicsStop;
+  if (activityId === "story-quests") return STUDENT_HOME_COPY.storiesStop;
+  if (activityId === "my-hollow") return STUDENT_HOME_COPY.hollowStop;
   return "";
 }
 
@@ -558,14 +557,14 @@ export function StudentHomePage({
       available: Boolean(onOpenSoundSeekers),
       onClick: onOpenSoundSeekers,
       art: "/images/home-sage/sound-seekers.webp",
-      title: "The Sound Trail"
+      title: STUDENT_HOME_ACTIVITY_TITLES["sound-seekers"]
     },
     {
       id: "phonics-learning",
       available: Boolean(onOpenPhonicsLearn),
       onClick: onOpenPhonicsLearn,
       art: "/images/home-sage/phonics.webp",
-      title: "Letters"
+      title: STUDENT_HOME_ACTIVITY_TITLES["phonics-learning"]
     },
     {
       id: "adventure-map",
@@ -573,7 +572,7 @@ export function StudentHomePage({
       available: Boolean(onOpenSkillsBlockQuest),
       onClick: onOpenSkillsBlockQuest,
       art: "/images/home-sage/adventure-map.webp",
-      title: "Adventure Map"
+      title: STUDENT_HOME_ACTIVITY_TITLES["adventure-map"]
     },
     {
       id: "arcade",
@@ -581,7 +580,7 @@ export function StudentHomePage({
       available: Boolean(onOpenArcade || onOpenPhonicsLearn),
       onClick: () => { if (!arcadeLocked) openArcade(); },
       art: "/images/home-sage/arcade.webp",
-      title: "Arcade",
+      title: STUDENT_HOME_ACTIVITY_TITLES.arcade,
       locked: arcadeLocked
     },
     {
@@ -589,7 +588,7 @@ export function StudentHomePage({
       available: Boolean(onOpenStoryQuests),
       onClick: onOpenStoryQuests,
       art: "/images/home-sage/story-quests.webp",
-      title: "Story Quests"
+      title: STUDENT_HOME_ACTIVITY_TITLES["story-quests"]
     },
     {
       id: "reading-library",
@@ -597,14 +596,14 @@ export function StudentHomePage({
       available: Boolean(onOpenGuidedReading),
       onClick: () => onOpenGuidedReading?.(""),
       art: "/images/home-sage/reading-library.webp",
-      title: "Books"
+      title: STUDENT_HOME_ACTIVITY_TITLES["reading-library"]
     },
     {
       id: "my-hollow",
       available: Boolean(onOpenRewards),
       onClick: onOpenRewards,
       art: "/images/home-sage/my-hollow.webp",
-      title: "My Hollow"
+      title: STUDENT_HOME_ACTIVITY_TITLES["my-hollow"]
     }
   ];
   const statefulActivities = activities.map(activity => ({
@@ -630,7 +629,7 @@ export function StudentHomePage({
   // storage error. Both fall back to something true; Play still works, because
   // navigating somewhere is safe whatever the read did.
   const heroStop = !homeProgress.ok
-    ? "We could not find your last stop."
+    ? STUDENT_HOME_COPY.unreadableProgress
     : primary ? heroStopLine({ activityId: primary.id, progress: homeProgress, mission }) : "";
   const playLabel = homeProgress.ok ? continuation.label : "Play";
   const heroInstruction = homeHeroInstruction(primary?.cardState);
@@ -640,12 +639,12 @@ export function StudentHomePage({
   // reduced-choice mode keeps working through the SAME policy helper the rail
   // used — a teacher setting outlives a layout.
   const doorways = [
-    { id: "map", title: "Adventure Map", note: "Win stars", icon: "map", tint: "var(--kg-tint-map)", art: "/images/home-sage/adventure-map.webp" },
-    { id: "books", title: "Books", note: "Real books", icon: "book", tint: "var(--kg-tint-books)", art: "/images/home-sage/reading-library.webp" },
-    { id: "stories", title: "Story Quests", note: "You choose", icon: "story", tint: "var(--kg-tint-stories)", art: "/images/home-sage/story-quests.webp" },
-    { id: "arcade", title: "Arcade", note: `${arcadeGameCount()} games`, icon: "arcade", tint: "var(--kg-tint-arcade)", art: "/images/home-sage/arcade.webp" },
-    { id: "phonics", title: "Letters", note: "Sounds and writing", icon: "phonics", tint: "var(--kg-tint-letters)", art: "/images/home-sage/phonics.webp" },
-    { id: "hollow", title: "My Hollow", note: "Make it yours", icon: "hollow", tint: "var(--kg-tint-hollow)", art: "/images/home-sage/my-hollow.webp" }
+    { id: "map", title: STUDENT_HOME_ACTIVITY_TITLES["adventure-map"], note: "Win stars", icon: "map", tint: "var(--kg-tint-map)", art: "/images/home-sage/adventure-map.webp" },
+    { id: "books", title: STUDENT_HOME_ACTIVITY_TITLES["reading-library"], note: "Real books", icon: "book", tint: "var(--kg-tint-books)", art: "/images/home-sage/reading-library.webp" },
+    { id: "stories", title: STUDENT_HOME_ACTIVITY_TITLES["story-quests"], note: "You choose", icon: "story", tint: "var(--kg-tint-stories)", art: "/images/home-sage/story-quests.webp" },
+    { id: "arcade", title: STUDENT_HOME_ACTIVITY_TITLES.arcade, note: `${arcadeGameCount()} games`, icon: "arcade", tint: "var(--kg-tint-arcade)", art: "/images/home-sage/arcade.webp" },
+    { id: "phonics", title: STUDENT_HOME_ACTIVITY_TITLES["phonics-learning"], note: "Sounds and writing", icon: "phonics", tint: "var(--kg-tint-letters)", art: "/images/home-sage/phonics.webp" },
+    { id: "hollow", title: STUDENT_HOME_ACTIVITY_TITLES["my-hollow"], note: "Make it yours", icon: "hollow", tint: "var(--kg-tint-hollow)", art: "/images/home-sage/my-hollow.webp" }
   ].map(door => ({
     ...door,
     go: door.id === "arcade" && arcadeLocked ? () => {} : railActions[door.id],
@@ -986,13 +985,13 @@ export function StudentHomePage({
         {/* c. OR GO ANYWHERE YOU LIKE — six equal, quiet doorways. */}
         <section className="kg-home-explore" aria-labelledby="kg-home-explore-title">
           <div className="kg-home-explore-head">
-            <h2 className="kg-section-title" id="kg-home-explore-title">Or go anywhere you like</h2>
+            <h2 className="kg-section-title" id="kg-home-explore-title">{STUDENT_HOME_COPY.explore}</h2>
             <button
               type="button"
               className="kg-speaker kg-glass kg-home-explore-hear"
               aria-label="Hear this"
               onClick={() => hear([
-                "Or go anywhere you like",
+                STUDENT_HOME_COPY.explore,
                 ...doors.map(door => door.title)
               ])}
             >

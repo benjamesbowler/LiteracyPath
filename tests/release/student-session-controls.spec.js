@@ -1,5 +1,52 @@
 import { expect, test } from "@playwright/test";
 
+test("session setup stays responsive and cancellable while its component is downloading", async ({ page }, testInfo) => {
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  let release;
+  let requested = 0;
+  const held = new Promise(resolve => { release = resolve; });
+  const isSetupModule = url => url.pathname === '/src/components/student-sessions/StudentSessionSetup.jsx';
+  await page.route(isSetupModule, async route => {
+    requested += 1;
+    await held;
+    await route.continue();
+  });
+  try {
+    await page.goto('/preview/student-session-controls.html?lazy=1', { waitUntil: 'domcontentloaded' });
+    const open = page.getByRole('button', { name: 'Open student session', exact: true });
+    await expect(open).toBeVisible();
+    expect(requested).toBe(0);
+    await open.click();
+    const dialog = page.getByRole('dialog', { name: 'Start student session', exact: true });
+    await expect(dialog.getByRole('status')).toHaveText('Loading session options…');
+    const cancel = dialog.getByRole('button', { name: 'Cancel', exact: true });
+    await expect(cancel).toBeFocused();
+    await page.keyboard.press('Tab');
+    await expect(cancel).toBeFocused();
+    await page.screenshot({ path: testInfo.outputPath('student-session-loading.png') });
+    await page.keyboard.press('Escape');
+    await expect(dialog).toHaveCount(0);
+    await expect(open).toBeFocused();
+    await open.click();
+    await expect(cancel).toBeFocused();
+    await cancel.click();
+    await expect(dialog).toHaveCount(0);
+    await expect(open).toBeFocused();
+    const response = page.waitForResponse(response => isSetupModule(new URL(response.url())));
+    release();
+    await (await response).finished();
+    await expect(dialog).toHaveCount(0);
+    await open.click();
+    await expect(dialog.getByRole('heading', { name: 'Control student iPads', exact: true })).toBeVisible();
+    await expect(dialog.getByRole('button', { name: 'Close', exact: true })).toBeFocused();
+    await expect(dialog.getByRole('status')).toHaveCount(0);
+    await expect(dialog.getByRole('button', { name: /^Adventure Map/ })).toBeVisible();
+    expect(requested).toBe(1);
+    expect(errors).toEqual([]);
+  } finally { release(); }
+});
+
 const IPAD_VIEWPORTS = [
   { name: "iPad landscape", width: 1024, height: 768 },
   { name: "iPad portrait", width: 768, height: 1024 },

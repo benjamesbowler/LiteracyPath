@@ -27,19 +27,10 @@
 // unchanged and still in use — reduced-choice mode is a teacher setting that
 // outlives the layout, and tap-to-hear is how a pre-reader uses either shape.
 
-import {
-  getLedaInstructionAudioPath,
-  getLedaWordAudioPath
-} from "../data/ledaProductionAudio.js";
-import { STUDENT_TAB_BAR } from "./studentTabBar.js";
-export { STUDENT_TAB_BAR } from "./studentTabBar.js";
-
-export const STUDENT_RAIL_HOME = Object.freeze({
-  id: "home",
-  label: "Home",
-  icon: "home",
-  tab: "home"
-});
+import { STUDENT_NAVIGATION_AUDIO } from "../data/generated/studentNavigationAudio.generated.js";
+import { normalizeLedaAudioText } from "../data/normalizeLedaAudioText.js";
+import { STUDENT_RAIL_HOME, STUDENT_RAIL_DESTINATIONS, STUDENT_TAB_BAR } from "./studentTabBar.js";
+export { STUDENT_RAIL_HOME, STUDENT_RAIL_DESTINATIONS, STUDENT_TAB_BAR } from "./studentTabBar.js";
 
 export const STUDENT_RAIL_ICON_PATHS = Object.freeze({
   home: "M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4v-5H9v5H5a1 1 0 0 1-1-1z",
@@ -55,16 +46,6 @@ export const STUDENT_RAIL_ICON_PATHS = Object.freeze({
   hollow: "M4 11 12 4l8 7v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z",
   person: "M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4.5 20c1.5-3.5 4.2-5 7.5-5s6 1.5 7.5 5"
 });
-
-export const STUDENT_RAIL_DESTINATIONS = Object.freeze([
-  Object.freeze({ id: "sounds", label: "Sound Seekers", icon: "sound", tab: "sounds" }),
-  Object.freeze({ id: "phonics", label: "Phonics", icon: "phonics", tab: "sounds" }),
-  Object.freeze({ id: "map", label: "Adventure Map", icon: "map", tab: "sounds" }),
-  Object.freeze({ id: "books", label: "Books", icon: "book", tab: "books" }),
-  Object.freeze({ id: "stories", label: "Story Quests", icon: "story", tab: "books" }),
-  Object.freeze({ id: "arcade", label: "Arcade", icon: "arcade", tab: "games" }),
-  Object.freeze({ id: "hollow", label: "My Hollow", icon: "hollow", tab: "hollow" })
-]);
 
 // The five tabs, left to right, exactly as the spec's table orders them. Labels
 // are one short high-frequency word each: the icon carries the meaning for a
@@ -131,7 +112,7 @@ export function speakStudentRailLabel(text = "", browserWindow = globalThis.wind
     .map(label => String(label || "").trim())
     .filter(Boolean);
   const queue = labels
-    .map(label => getLedaInstructionAudioPath(label) || getLedaWordAudioPath(label))
+    .map(label => STUDENT_NAVIGATION_AUDIO[normalizeLedaAudioText(label)])
     .filter(Boolean);
   if (!queue.length || !browserWindow?.Audio) return false;
 

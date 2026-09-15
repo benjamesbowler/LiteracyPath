@@ -2,7 +2,7 @@ import {
   evidenceIsIndependent,
   isValidSessionDay,
   localSessionDayFor
-} from "../features/soundSeekers/engine/evidence.js";
+} from "../features/soundSeekers/engine/evidenceReadPolicy.js";
 import {
   EVIDENCE_READINESS_MODES,
   describeEvidencePath
