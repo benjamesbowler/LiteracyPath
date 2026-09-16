@@ -1,3 +1,4 @@
+import { GAME_RECOVERY_URLS, loadGameRecoveryBytes } from '../../../../utils/gameRecoveryAssets.js';
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
@@ -67,9 +68,8 @@ export default function WordClimbScene({ world }) {
     };
     loader.load("/game-assets/word-climb/pip-climber.glb",install,undefined,async()=>{
       try {
-        const { CLIMBER_GLB_BASE64 }=await import("./wordClimbAssetFallback.js");
-        const bytes=Uint8Array.from(atob(CLIMBER_GLB_BASE64),c=>c.charCodeAt(0));
-        loader.parse(bytes.buffer,"",install,()=>{if(!disposed)setStatus("fallback");});
+        const bytes=await loadGameRecoveryBytes(GAME_RECOVERY_URLS.climber);
+        loader.parse(bytes,"",install,()=>{if(!disposed)setStatus("fallback");});
       }catch{if(!disposed)setStatus("fallback");}
     });
     function tick(time){

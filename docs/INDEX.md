@@ -93,6 +93,8 @@ immediately. Missing review metadata is not a publication queue.
   content, no parent reporting. Spec only; no code.
 ## Operations, research, legal and security
 
+- [Startup download checks](../tools/checkFirstLoadNetwork.mjs) and [offline cache checks](../tools/checkQuestOffline.mjs) — measured production shells, offline sign-in and on-demand Quest executable warming.
+
 - [Recovery](ops/RECOVERY_RUNBOOK.md), [retention](ops/RETENTION_RUNBOOK.md), and [data rights](ops/DATA_RIGHTS_RUNBOOK.md)
 - [Research pack](research/README.md)
 - [Legal and procurement pack](legal/README.md)

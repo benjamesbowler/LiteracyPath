@@ -4,7 +4,7 @@ import test from "node:test";
 
 import { questOfflinePlugin, serviceWorkerSource } from "../../tools/viteQuestOfflinePlugin.mjs";
 
-function createWorkerHarness({ cachedResponse = null, networkResponse }) {
+function createWorkerHarness({ cachedResponse = null, networkResponse, questAssets = [] }) {
   const listeners = new Map();
   const cacheWrites = [];
   const messages = [];
@@ -23,7 +23,7 @@ function createWorkerHarness({ cachedResponse = null, networkResponse }) {
     addEventListener(type, listener) { listeners.set(type, listener); }
   };
 
-  runInNewContext(serviceWorkerSource({ buildId: "range-test", precache: [] }), {
+  runInNewContext(serviceWorkerSource({ buildId: "range-test", precache: [], questAssets }), {
     Request,
     URL,
     caches: {
@@ -140,7 +140,8 @@ test("the offline worker warms canonical book-character art without accepting ge
   };
   const build=source=>{const emitted=[];questOfflinePlugin().generateBundle.call({emitFile:item=>emitted.push(item)}, {}, source);return JSON.parse(emitted.find(item=>item.fileName==="offline-build.json").source);};
   const current=build(bundle);
-  assert.ok(current.precache.includes("/assets/ActiveStage-new.js"));
+  assert.ok(!current.precache.includes("/assets/ActiveStage-new.js"));
+  assert.ok(current.questExecutable.assets.includes("/assets/ActiveStage-new.js"));
   assert.ok(!current.precache.some(url=>/QuestRoot|QuestPixelWorld/.test(url)));
   assert.equal(selectQuestExecutablePolicy(current.precache,current.questExecutable).mode,"v2");
   const legacy={...bundle};delete legacy["assets/SoundSeekersRoute-new.js"];delete legacy["assets/ActiveStage-new.js"];
@@ -148,3 +149,49 @@ test("the offline worker warms canonical book-character art without accepting ge
   const explicitPreview=build({...bundle,"assets/preview.js":chunk("assets/preview.js",["assets/QuestRoot-old.js"],{isEntry:true})});
   assert.throws(()=>selectQuestExecutablePolicy(explicitPreview.precache,explicitPreview.questExecutable),/legacy QuestRoot/);
  });
+
+test("activity code and styles stay deferred while Home includes its own styles", () => {
+  const chunk = (fileName, extra = {}) => ({ type: "chunk", fileName, imports: [], dynamicImports: [], code: "", ...extra });
+  const emitted = [];
+  questOfflinePlugin().generateBundle.call({ emitFile: item => emitted.push(item) }, {}, {
+    "assets/main.js": chunk("assets/main.js", { isEntry: true }),
+    "assets/home.js": chunk("assets/home.js", {
+      modules: { "/src/components/StudentHomePage.jsx": {} },
+      viteMetadata: { importedCss: new Set(["assets/home.css"]) }
+    }),
+    "assets/home.css": { type: "asset", fileName: "assets/home.css", source: "" },
+    "assets/teacher.css": { type: "asset", fileName: "assets/teacher.css", source: "" },
+    "assets/SoundSeekersRoute-now.js": chunk("assets/SoundSeekersRoute-now.js", {
+      viteMetadata: { importedCss: new Set(["assets/quest.css"]) }
+    }),
+    "assets/quest.css": { type: "asset", fileName: "assets/quest.css", source: "" }
+  });
+  const build = JSON.parse(emitted.find(item => item.fileName === "offline-build.json").source);
+  assert.ok(build.precache.includes("/assets/home.js"));
+  assert.ok(build.precache.includes("/assets/home.css"));
+  assert.ok(!build.precache.includes("/assets/teacher.css"));
+  assert.ok(!build.precache.includes("/assets/quest.css"));
+  assert.ok(build.questExecutable.assets.includes("/assets/quest.css"));
+});
+
+test("only an explicit Quest visit warms its build-matched executable pack", async () => {
+  const harness = createWorkerHarness({
+    networkResponse: () => new Response(new Uint8Array([1]), { status: 200 }),
+    questAssets: ["https://literacy.guide/assets/quest.js", "https://literacy.guide/assets/quest.css"]
+  });
+  await harness.message({ type: "LP_OFFLINE_STATUS" });
+  assert.equal(harness.cacheWrites.length, 0);
+  await harness.message({ type: "LP_WARM_QUEST_EXECUTABLE" });
+  assert.equal(harness.cacheWrites.length, 2);
+  assert.equal(harness.messages.at(-1).type, "LP_QUEST_EXECUTABLE_READY");
+  assert.equal(harness.messages.at(-1).failed, 0);
+});
+
+test("failed route warmups never report offline readiness", async () => {
+  const harness = createWorkerHarness({
+    networkResponse: () => { throw new Error("offline"); },
+    questAssets: ["https://literacy.guide/assets/quest.js"]
+  });
+  await harness.message({ type: "LP_WARM_QUEST_EXECUTABLE" });
+  assert.equal(harness.messages.at(-1).failed, 1);
+});

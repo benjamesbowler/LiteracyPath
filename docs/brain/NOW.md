@@ -1,11 +1,23 @@
 ---
 type: current-state
 status: active
-updated: 2026-09-15
+updated: 2026-09-16
 authority: orientation-only
 ---
 
 # Current state
+
+## Startup and offline loading
+
+The production installer caches sign-in and Home; Quest executable code and
+styles warm on entry, while other visited activity chunks use the runtime
+cache. The dedicated offline preview retains its complete fixture precache.
+The current implementation and checks are `tools/viteQuestOfflinePlugin.mjs`,
+`tools/checkQuestOffline.mjs` and `tools/checkFirstLoadNetwork.mjs`.
+Complete audio/reading catalogues and the animation engine stay outside the
+startup graph. Game recovery binaries are generated from canonical public
+GLBs by `tools/generateGameRecoveryAssets.mjs`; do not restore embedded base64
+model modules.
 
 ## Stable project facts
 

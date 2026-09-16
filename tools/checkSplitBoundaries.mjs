@@ -99,6 +99,11 @@ for (const suffix of ["/src/App.jsx", "/src/components/AppSurface.jsx", "/src/co
   if (!roots.length) failures.push(`${suffix}: absent from build`);
   for (const root of roots) {
     const reachable = staticChunkGraph(root);
+    for (const chunk of analysis.chunks.filter(chunk => reachable.has(chunk.fileName))) {
+      if (chunk.modules.some(module => /\/node_modules\/(framer-motion|motion-dom|motion-utils)\//.test(normalizedModuleId(module)))) {
+        failures.push(`${suffix}: eagerly loads the animation engine (${chunk.fileName})`);
+      }
+    }
     for (const moduleSuffix of deferredStartupContentModules) {
       const leaked = analysis.chunks.filter(chunk => reachable.has(chunk.fileName)
         && chunk.modules.some(module => normalizedModuleId(module).endsWith(moduleSuffix)));

@@ -304,8 +304,9 @@ test('park encounters retain substantial travel even at every boundary and the s
   }
 });
 
-test('network recovery embeds exactly the same retained authored skin',async()=>{
-  const {SPELL_SKATER_BASE64}=await import('../../src/components/learn/games/games/spellSkaterFallback.js');
+test('compressed network recovery preserves exactly the same retained authored skin',async()=>{
+  const {gunzipSync}=await import('node:zlib');
+  const recovery=await fs.readFile(new URL('../../src/assets/game-recovery/spell-skater.glb.gz',import.meta.url));
   const original=await fs.readFile(new URL('../../public/game-assets/spell-skate/spell-skater.glb',import.meta.url));
-  assert.deepEqual(Buffer.from(SPELL_SKATER_BASE64,'base64'),original);
+  assert.deepEqual(gunzipSync(recovery),original);
 });

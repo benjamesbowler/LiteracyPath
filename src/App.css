@@ -1875,6 +1875,7 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
 }
 
 .auth-hero {
+  animation: auth-hero-enter 300ms ease-out both;
   position: relative;
   width: 100%;
   display: flex;
@@ -1887,6 +1888,15 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   border-color: rgba(216, 221, 251, 0.6);
   background: linear-gradient(145deg, #f6f8ff 0%, #f0f3fe 60%, #f5f7ff 100%);
   overflow: hidden;
+}
+
+@keyframes auth-hero-enter {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-hero { animation: none; }
 }
 
 /* Decorative SVG — fills background behind content */

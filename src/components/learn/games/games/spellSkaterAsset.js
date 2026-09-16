@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { disposeObject } from '../shared/threeShell.js';
+import { GAME_RECOVERY_URLS, loadGameRecoveryBytes } from '../../../../utils/gameRecoveryAssets.js';
 export const SPELL_SKATER_URL = '/game-assets/spell-skate/spell-skater.glb';
 export const SPELL_SKATER_STATES = ['coast', 'push', 'turn_left', 'turn_right', 'crouch', 'jump', 'land', 'grind', 'stumble', 'recover'];
 export function chooseSkaterState(player, keys) {
@@ -16,7 +17,7 @@ export function chooseSkaterState(player, keys) {
   return 'coast';
 }
 
-// Every instance owns its parsed skin, geometry and materials. The embedded
+// Every instance owns its parsed skin, geometry and materials. The compressed
 // recovery copy is exported from exactly the same authored GLB, never a proxy.
 export function createSpellSkater() {
   const root = new THREE.Group();
@@ -30,11 +31,8 @@ export function createSpellSkater() {
   const actions = new Map();
   const loader = new GLTFLoader();
   const ready = loader.loadAsync(SPELL_SKATER_URL).catch(async () => {
-    const {
-      SPELL_SKATER_BASE64
-    } = await import('./spellSkaterFallback.js');
-    const bytes = Uint8Array.from(atob(SPELL_SKATER_BASE64), c => c.charCodeAt(0));
-    return loader.parseAsync(bytes.buffer, '');
+    const bytes = await loadGameRecoveryBytes(GAME_RECOVERY_URLS.skater);
+    return loader.parseAsync(bytes, '');
   }).then(gltf => {
     if (disposed) {
       disposeObject(gltf.scene);

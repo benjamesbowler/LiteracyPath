@@ -4,9 +4,6 @@ import { fileURLToPath } from "node:url";
 
 export function selectQuestExecutablePolicy(precache, executable) {
   if (!Array.isArray(precache)) throw new TypeError("offline precache is required");
-  const legacyRoutes = precache.filter(url => /\/QuestRoot-[\w-]+\.js$/u.test(url));
-  const legacyRuntimes = precache.filter(url => /\/QuestPixelWorld-[\w-]+\.js$/u.test(url));
-  const v2Routes = precache.filter(url => /\/SoundSeekersRoute-[\w-]+\.js$/u.test(url));
   if (!executable || !["legacy", "v2"].includes(executable.mode)
     || !Array.isArray(executable.roots) || !Array.isArray(executable.graph)) {
     throw new Error("offline executable graph is missing or malformed");
@@ -23,9 +20,17 @@ export function selectQuestExecutablePolicy(precache, executable) {
     return [record.url, record.imports];
   }));
   const closure = new Set();
+  if (executable.cachePolicy && !["precache", "on-demand"].includes(executable.cachePolicy)) {
+    throw new Error("offline executable cache policy is invalid");
+  }
+  const available = executable.cachePolicy === "on-demand" ? executable.assets : precache;
+  if (!Array.isArray(available)) throw new Error("offline executable assets are missing");
+  const legacyRoutes = available.filter(url => /\/QuestRoot-[\w-]+\.js$/u.test(url));
+  const legacyRuntimes = available.filter(url => /\/QuestPixelWorld-[\w-]+\.js$/u.test(url));
+  const v2Routes = available.filter(url => /\/SoundSeekersRoute-[\w-]+\.js$/u.test(url));
   const visit = url => {
     if (closure.has(url)) return;
-    if (!precache.includes(url) || !graph.has(url)) throw new Error(`offline executable closure is missing ${url}`);
+    if (!available.includes(url) || !graph.has(url)) throw new Error(`offline executable closure is missing ${url}`);
     closure.add(url);
     for (const imported of graph.get(url)) visit(imported);
   };
@@ -36,7 +41,10 @@ export function selectQuestExecutablePolicy(precache, executable) {
       || [...v2Routes].sort().join("\n") !== [...executable.roots].sort().join("\n")) {
       throw new Error("v2 offline executable graph is not rooted at SoundSeekersRoute");
     }
-    if (legacyRoutes.length || legacyRuntimes.length) throw new Error("v2 offline shell contains legacy QuestRoot/QuestPixelWorld chunks");
+    if (legacyRoutes.length || legacyRuntimes.length
+      || precache.some(url => /\/(QuestRoot|QuestPixelWorld)-[\w-]+\.js$/u.test(url))) {
+      throw new Error("v2 offline shell contains legacy QuestRoot/QuestPixelWorld chunks");
+    }
   } else {
     const expectedRoots = [...legacyRoutes, ...legacyRuntimes].sort();
     if (legacyRoutes.length !== 1 || legacyRuntimes.length !== 1
@@ -118,7 +126,7 @@ if (precache.some(url => /sound-seekers-v2-content|ContentArtGallery|galleryRepl
   fail("dev-only Sound Seekers content gallery leaked into the offline build or precache");
 }
 
-for (const url of precache) {
+for (const url of new Set([...precache, ...(build.questExecutable?.assets || [])])) {
   const filePath = path.join(outputDir, url.replace(/^\//, ""));
   if (!fs.existsSync(filePath)) fail(`precache URL does not exist in the build: ${url}`);
 }

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node tools/generateAudioManifest.js && node tools/generateLedaWordLookup.mjs && node tools/generateShellAudioPaths.mjs && node tools/generateVocabularyRuntime.mjs && node tools/generateBookIndex.js && node tools/generateSageSoft.mjs",
+    "prebuild": "node tools/generateGameRecoveryAssets.mjs && node tools/generateAudioManifest.js && node tools/generateLedaWordLookup.mjs && node tools/generateShellAudioPaths.mjs && node tools/generateVocabularyRuntime.mjs && node tools/generateBookIndex.js && node tools/generateSageSoft.mjs",
     "build": "vite build",
     "gen:image": "node tools/generateImage.mjs",
     "analyze": "ANALYZE_BUNDLE=true vite build",

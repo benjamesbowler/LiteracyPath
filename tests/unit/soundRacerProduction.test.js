@@ -81,8 +81,9 @@ test('all seated clips preserve sole/pedal and hand/steering contact and torso r
 });
 
 test('recovery payload is byte-identical to the authored kart, retaining driver and animation at asset failure', async () => {
-  const { RACER_KART_BASE64 } = await import('../../src/components/learn/games/games/soundRacerKartFallback.js');
-  assert.deepEqual(Buffer.from(RACER_KART_BASE64, 'base64'), fs.readFileSync(file));
+  const { gunzipSync } = await import('node:zlib');
+  const recovery = fs.readFileSync(new URL('../../src/assets/game-recovery/pip-kart.glb.gz', import.meta.url));
+  assert.deepEqual(gunzipSync(recovery), fs.readFileSync(file));
 });
 
 test('continuous raised kerbs close the seam and authored scenery clears every neighbouring hairpin', () => {

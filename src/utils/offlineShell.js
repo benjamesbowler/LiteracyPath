@@ -117,3 +117,10 @@ export async function warmQuestOfflineAssets(urls = [], { chapterId = "" } = {})
     target.postMessage({ type: "LP_WARM_QUEST_ASSETS", requestId, chapterId, urls: filtered });
   });
 }
+
+export async function warmQuestOfflineExecutable() {
+  if (!import.meta.env.PROD) return;
+  const registration = await registerOfflineShell();
+  const target = navigator.serviceWorker.controller || registration?.active;
+  target?.postMessage({ type: "LP_WARM_QUEST_EXECUTABLE" });
+}

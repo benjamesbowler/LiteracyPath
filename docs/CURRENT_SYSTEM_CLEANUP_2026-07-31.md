@@ -1,5 +1,15 @@
 # Current system cleanup — 31 July 2026
 
+## Startup and game recovery — 16 September 2026
+
+Removed the three base64 JavaScript model copies for Sound Racer, Spell & Skate
+and Word Climb. Their compressed recovery files are generated from the existing
+canonical public GLBs, preserving exact model bytes, skins and animation clips.
+The original model assets remain active; the removed modules are recoverable
+from Git. Production offline installation now includes only the shell and Home
+dependency graphs and their styles. Quest executable warming is tied to entry,
+and hashed activity assets continue to cache when requested.
+
 ## Word Match source alignment — 14 September 2026
 
 Word Match uses the current cycle/HFW banks through

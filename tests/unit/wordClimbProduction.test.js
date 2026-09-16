@@ -8,7 +8,7 @@ import { createClimbSceneKit } from "../../src/components/learn/games/games/word
 import { createClimbWorld, jumpToClimbPlatform, advanceClimbWorld } from "../../src/components/learn/games/games/wordClimbWorld.js";
 import { createWordClimbSession } from "../../src/utils/wordClimbLevels.js";
 import { climbSessionKey, readClimbSession, writeClimbSession, clearClimbSession } from "../../src/components/learn/games/games/wordClimbSession.js";
-import { CLIMBER_GLB_BASE64 } from "../../src/components/learn/games/games/wordClimbAssetFallback.js";
+import { gunzipSync } from "node:zlib";
 import { climbViewportMetrics } from "../../src/components/learn/games/games/wordClimbView.js";
 
 function memory(){const values=new Map();return{getItem:k=>values.get(k),setItem:(k,v)=>values.set(k,v),removeItem:k=>values.delete(k)};}
@@ -60,7 +60,7 @@ test("authored Moonwood kit has finite geometry at portrait and short-screen pro
 });
 test("canonical Pip asset has seven independent climbing clips and grounded boot contacts",async()=>{
   const bytes=fs.readFileSync(new URL("../../public/game-assets/word-climb/pip-climber.glb",import.meta.url));
-  assert.ok(Buffer.from(CLIMBER_GLB_BASE64,"base64").equals(bytes),"recovery bytes must be the exact authored character, not a second design");
+  assert.ok(gunzipSync(fs.readFileSync(new URL("../../src/assets/game-recovery/pip-climber.glb.gz",import.meta.url))).equals(bytes),"recovery bytes must be the exact authored character, not a second design");
   const gltf=await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),"");
   assert.deepEqual(gltf.animations.map(a=>a.name).sort(),["climb","grip","jump","land","recover","rest","summit"]);
   const mixer=new THREE.AnimationMixer(gltf.scene);

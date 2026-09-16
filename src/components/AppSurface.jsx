@@ -1,6 +1,5 @@
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Confetti from "react-confetti";
-import { motion } from "framer-motion";
 import logoUrl from "../assets/logo.png";
 import { supabase, isSupabaseConfigured } from "../supabaseClient.js";
 import { skillTree } from "../skillTree.js";
@@ -684,10 +683,8 @@ export function AppSurface({ surface }) {
               Reconnecting to your teacher session in the background.
             </div>
           )}
-          <motion.div
+          <div
             className="hero auth-hero"
-            initial={{ y: -12, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
           >
             {/* Decorative beam arcs — references the lighthouse without being literal */}
             <svg className="auth-hero-deco" aria-hidden="true" viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -723,7 +720,7 @@ export function AppSurface({ surface }) {
                 <li><span className="auth-hero-feature-dot" aria-hidden="true"/>Guided reading with running records</li>
               </ul>
             </div>
-          </motion.div>
+          </div>
 
           <AuthPage
             authMode={authMode}

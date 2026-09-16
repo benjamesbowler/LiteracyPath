@@ -201,6 +201,6 @@ for track in rig.animation_data.nla_tracks:track.mute=False
 bpy.ops.export_scene.gltf(filepath=os.path.join(OUT,'spell-skater.glb'),export_format='GLB',export_animations=True,export_animation_mode='NLA_TRACKS',export_skins=True,export_yup=True,export_apply=False)
 print('AUTHORED_SKATER_EXPORTED',os.path.getsize(os.path.join(OUT,'spell-skater.glb')))
 
-import base64
-with open(os.path.join(OUT,"spell-skater.glb"),"rb") as f: encoded=base64.b64encode(f.read()).decode()
-with open(os.path.join(ROOT,"src/components/learn/games/games/spellSkaterFallback.js"),"w") as f: f.write("// Generated from the authored GLB by artwork/games/spell-skate/build_skater.py.\nexport const SPELL_SKATER_BASE64 = "+repr(encoded)+";\n")
+# Keep recovery packaging in the same generator used by the application build.
+import subprocess
+subprocess.run([os.environ.get("NODE_BINARY", "node"), os.path.join(ROOT, "tools/generateGameRecoveryAssets.mjs")], check=True)

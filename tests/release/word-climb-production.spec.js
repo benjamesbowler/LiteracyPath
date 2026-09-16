@@ -31,7 +31,7 @@ test("reload preserves wrong-contact evidence and the exact generated climb",asy
   await(await destination(page)).click();await expect(game).toHaveAttribute("data-wc-progress","1");
 });
 
-test("an unavailable character URL uses the exact authored embedded asset and remains playable",async({page})=>{
+test("an unavailable character URL uses the exact authored compressed asset and remains playable",async({page})=>{
   await page.route("**/game-assets/word-climb/pip-climber.glb",route=>route.abort());await open(page);
   await(await destination(page)).click();await expect(page.locator(".word-climb")).toHaveAttribute("data-wc-progress","1");
   expect(Number(await page.locator(".wc-scene").getAttribute("data-draw-calls"))).toBeLessThan(100);

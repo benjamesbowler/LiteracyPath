@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import WoodlandChapter from "./WoodlandChapter.jsx";
+import { warmQuestOfflineExecutable } from "../../utils/offlineShell.js";
 
 const EMPTY_ACCESSIBILITY_SETTINGS = Object.freeze({});
 const FOCUSABLE_SELECTOR = [
@@ -72,6 +73,7 @@ export default function SoundSeekersRoute({
     throw new TypeError("Sound Seekers route props are invalid");
   }
   const [portalHost, setPortalHost] = useState(null);
+  useEffect(() => { void warmQuestOfflineExecutable(); }, []);
   const returnFocusRef = useRef(
     typeof document !== "undefined" && typeof document.activeElement?.focus === "function"
       ? document.activeElement

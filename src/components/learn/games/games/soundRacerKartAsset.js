@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { disposeObject } from '../shared/threeShell.js';
+import { GAME_RECOVERY_URLS, loadGameRecoveryBytes } from '../../../../utils/gameRecoveryAssets.js';
 
 export const RACER_KART_URL = '/game-assets/sound-racer/models/pip-kart.glb';
 export const RACER_DRIVER_CLIPS = ['drive', 'turn_left', 'turn_right', 'brake', 'recover', 'celebrate'];
@@ -37,10 +38,9 @@ export function createRacerKart({ world = 'meadow' } = {}) {
   const ready = loader.loadAsync(RACER_KART_URL).catch(async () => {
     // This separately loaded recovery payload is the exact same GLB export,
     // including the same driver skin and clips; never a replacement mascot.
-    const { RACER_KART_BASE64 } = await import('./soundRacerKartFallback.js');
-    const bytes = Uint8Array.from(atob(RACER_KART_BASE64), c => c.charCodeAt(0));
+    const bytes = await loadGameRecoveryBytes(GAME_RECOVERY_URLS.kart);
     root.userData.assetRecovery = true;
-    return loader.parseAsync(bytes.buffer, '');
+    return loader.parseAsync(bytes, '');
   }).then(gltf => {
     if (disposed) { disposeObject(gltf.scene); return false; }
     model = gltf.scene;

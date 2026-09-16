@@ -47,6 +47,9 @@ const forbiddenModuleFragments = Object.freeze([
   "/src/data/elBenchmarkSession.js",
   "/src/utils/elBenchmarkAssessmentScoring.js",
   "/node_modules/phaser/",
+  "/node_modules/framer-motion/",
+  "/node_modules/motion-dom/",
+  "/node_modules/motion-utils/",
   "/node_modules/three/",
   "/node_modules/xlsx/",
   "/node_modules/exceljs/",
@@ -164,6 +167,72 @@ async function captureSoundKeys(browser, origin) {
   return requests;
 }
 
+async function verifyOfflineStartup(browser, origin, forbiddenFiles) {
+  const build = JSON.parse(fs.readFileSync(path.join(distDir, "offline-build.json"), "utf8"));
+  const context = await browser.newContext({ serviceWorkers: "allow" });
+  const page = await context.newPage();
+  const failures = [];
+  try {
+    await page.goto(origin);
+    await page.getByRole("heading", { name: "Choose your space" }).waitFor();
+    await page.evaluate(() => navigator.serviceWorker.ready);
+    await page.waitForFunction(() => navigator.serviceWorker.controller);
+    const readCache = () => page.evaluate(async buildId => {
+      const cache = await caches.open(`lp-shell-${buildId}`);
+      return (await cache.keys()).map(request => new URL(request.url).pathname);
+    }, build.buildId);
+    const installed = await readCache();
+    for (const url of build.precache) {
+      if (!installed.includes(url)) failures.push(`offline installation missed ${url}`);
+    }
+    for (const url of installed) {
+      if (forbiddenFiles.has(path.basename(url))) failures.push(`offline install eagerly downloaded ${url}`);
+    }
+    if (build.questExecutable.cachePolicy !== "on-demand") failures.push("production Quest code is not deferred until a visit");
+    for (const url of build.questExecutable.roots) {
+      if (installed.includes(url)) failures.push(`offline installation eagerly downloaded Quest: ${url}`);
+    }
+
+    // The first installation must still support sign-in after losing Wi-Fi.
+    await context.setOffline(true);
+    await page.reload();
+    await page.getByRole("button", { name: "Children: Little Literacy Guides" }).click();
+    await page.getByRole("heading", { name: "Enter your class code" }).waitFor();
+    await context.setOffline(false);
+
+    // Exercise the real worker protocol, then prove the deferred executable
+    // graph imports with the network unavailable. Media readiness is separate.
+    const warm = await page.evaluate(() => new Promise((resolve, reject) => {
+      const timer = setTimeout(() => { navigator.serviceWorker.removeEventListener("message", receive); reject(new Error("Quest executable warmup timed out")); }, 30_000);
+      function receive(event) {
+        if (event.data?.type !== "LP_QUEST_EXECUTABLE_READY") return;
+        clearTimeout(timer);
+        navigator.serviceWorker.removeEventListener("message", receive);
+        resolve(event.data);
+      }
+      navigator.serviceWorker.addEventListener("message", receive);
+      navigator.serviceWorker.controller.postMessage({ type: "LP_WARM_QUEST_EXECUTABLE" });
+    }));
+    if (warm.failed || warm.buildId !== build.buildId) failures.push("Quest warmup did not preserve the complete current executable pack");
+    const warmed = await readCache();
+    for (const url of build.questExecutable.assets) {
+      if (!warmed.includes(url)) failures.push(`Quest warmup missed ${url}`);
+    }
+    await context.setOffline(true);
+    for (const url of build.questExecutable.roots) await page.evaluate(url => import(url), url);
+    return {
+      failures,
+      precacheFiles: build.precache.length,
+      precacheBytes: build.precache.reduce((total, url) => total + fs.statSync(path.join(distDir, url)).size, 0),
+      questFilesWarmedOnDemand: build.questExecutable.assets.length,
+      offlineSignIn: true,
+      offlineQuestImport: true
+    };
+  } finally {
+    await context.close();
+  }
+}
+
 if (!fs.existsSync(analysisPath)) {
   console.error("First-load network check needs an analysed production build.");
   process.exit(1);
@@ -179,7 +248,8 @@ try {
   const student = await captureShell(browser, server.origin, "student");
   const teacher = await captureShell(browser, server.origin, "teacher");
   const soundkeys = await captureSoundKeys(browser, server.origin);
-  const failures = [];
+  const offline = await verifyOfflineStartup(browser, server.origin, forbiddenFiles);
+  const failures = [...offline.failures];
   for (const [surface, requests] of Object.entries({ student, teacher })) {
     const badRequests = requests.filter(request =>
       forbiddenFiles.has(path.basename(request.path))
@@ -240,6 +310,7 @@ try {
     budgets: shellBudgets,
     forbiddenDeferredChunkCount: forbiddenFiles.size,
     failures,
+    offline,
     surfaces: { student, teacher, soundkeys }
   };
   fs.mkdirSync(artifactDir, { recursive: true });
@@ -269,6 +340,7 @@ try {
     }),
     "",
     `SoundKeys route trigger: ${soundKeysLoadedFiles.length ? soundKeysLoadedFiles.join(", ") : "none"}.`,
+    `Offline installation: ${offline.precacheFiles} shell/Home files, ${(offline.precacheBytes / 1_000_000).toFixed(2)} MB raw. Offline sign-in and on-demand Quest executable recovery passed.`,
     failures.length
       ? `Result: FAIL — ${failures.join("; ")}`
       : "Result: PASS — both production shells stay inside request and raw-byte budgets, avoid deferred chunks, and /soundkeys loads its deferred entry."
