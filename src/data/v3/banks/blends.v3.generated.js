@@ -8425,16 +8425,16 @@ export const questions = [
   "question": "Which word names the picture?",
   "spokenPrompt": "Which word names the picture?",
   "choices": [
-   "inch",
+   "into",
    "pink",
    "ink",
    "in"
   ],
   "answerOptions": [
    {
-    "value": "inch",
-    "label": "inch",
-    "text": "inch"
+    "value": "into",
+    "label": "into",
+    "text": "into"
    },
    {
     "value": "pink",
@@ -8456,7 +8456,7 @@ export const questions = [
   "correctAnswer": "ink",
   "distractorRationales": {
    "in": "D-ONSET",
-   "inch": "D-PATTERN-TRAP",
+   "into": "D-PATTERN-TRAP",
    "pink": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
@@ -8493,7 +8493,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "in is the k-dropped reduction; inch swaps the cluster",
+  "notes": "in is the k-dropped reduction; into swaps the cluster",
   "imagePath": "/images/assessment/objective-words/ink.webp",
   "imageUrl": "/images/assessment/objective-words/ink.webp",
   "targetImage": "/images/assessment/objective-words/ink.webp",

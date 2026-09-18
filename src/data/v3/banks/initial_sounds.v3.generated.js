@@ -12976,7 +12976,7 @@ export const questions = [
    ],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options",
-   "alt": "umpire"
+   "alt": "umbrella"
   },
   "requiredImageAssetKey": "umbrella",
   "stimulusMediaId": "umbrella",
@@ -13276,7 +13276,7 @@ export const questions = [
    ],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options",
-   "alt": "umpire"
+   "alt": "umbrella"
   },
   "requiredImageAssetKey": "umbrella",
   "stimulusMediaId": "umbrella",

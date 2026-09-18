@@ -8797,9 +8797,9 @@ export const questions = [
   "spokenPrompt": "Bang. Which word rhymes with bang?",
   "choices": [
    "band",
-   "hung",
+   "sung",
    "ring",
-   "hang"
+   "fang"
   ],
   "answerOptions": [
    {
@@ -8808,9 +8808,9 @@ export const questions = [
     "text": "band"
    },
    {
-    "value": "hung",
-    "label": "hung",
-    "text": "hung"
+    "value": "sung",
+    "label": "sung",
+    "text": "sung"
    },
    {
     "value": "ring",
@@ -8818,15 +8818,15 @@ export const questions = [
     "text": "ring"
    },
    {
-    "value": "hang",
-    "label": "hang",
-    "text": "hang"
+    "value": "fang",
+    "label": "fang",
+    "text": "fang"
    }
   ],
-  "answer": "hang",
-  "correctAnswer": "hang",
+  "answer": "fang",
+  "correctAnswer": "fang",
   "distractorRationales": {
-   "hung": "D-VOWEL",
+   "sung": "D-VOWEL",
    "ring": "D-RIME-NEAR",
    "band": "D-PATTERN-TRAP"
   },
@@ -8974,16 +8974,16 @@ export const questions = [
   "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
-   "hang",
+   "fang",
    "cup",
    "bang",
    "sang"
   ],
   "answerOptions": [
    {
-    "value": "hang",
-    "label": "hang",
-    "text": "hang"
+    "value": "fang",
+    "label": "fang",
+    "text": "fang"
    },
    {
     "value": "cup",
@@ -9004,7 +9004,7 @@ export const questions = [
   "answer": "cup",
   "correctAnswer": "cup",
   "distractorRationales": {
-   "hang": "D-RIME-NEAR",
+   "fang": "D-RIME-NEAR",
    "bang": "D-RIME-NEAR",
    "sang": "D-RIME-NEAR"
   },

@@ -1015,7 +1015,7 @@ export const questions = [
   "spokenPrompt": "Car. Which word has the same vowel sound?",
   "choices": [
    "hen",
-   "yard",
+   "park",
    "warm",
    "win"
   ],
@@ -1026,9 +1026,9 @@ export const questions = [
     "text": "hen"
    },
    {
-    "value": "yard",
-    "label": "yard",
-    "text": "yard"
+    "value": "park",
+    "label": "park",
+    "text": "park"
    },
    {
     "value": "warm",
@@ -1041,8 +1041,8 @@ export const questions = [
     "text": "win"
    }
   ],
-  "answer": "yard",
-  "correctAnswer": "yard",
+  "answer": "park",
+  "correctAnswer": "park",
   "distractorRationales": {
    "win": "D-VOWEL",
    "hen": "D-VOWEL",

@@ -10596,7 +10596,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     ],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-scoring-options",
-    "alt": "umpire"
+    "alt": "umbrella"
   },
   "lp3.initial_sounds.l2.A.u.v1": {
     "itemId": "lp3.initial_sounds.l2.A.u.v1",
@@ -10626,7 +10626,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     ],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-scoring-options",
-    "alt": "umpire"
+    "alt": "umbrella"
   },
   "lp3.initial_sounds.l1.A.v.v1": {
     "itemId": "lp3.initial_sounds.l1.A.v.v1",

@@ -92,7 +92,7 @@ export default {
     cps("ar", 2, 1, 5, "ar (as in car)", ["farm", "fork", "fin", "fun"], "farm",
       { fork: "D-PATTERN-TRAP", fin: "D-VOWEL", fun: "D-VOWEL" },
       "an all-f panel — only the vowel work is left"),
-    cps("ar", 2, 1, 6, "ar (as in car)", ["yard", "warm", "win", "hen"], "yard",
+    cps("ar", 2, 1, 6, "ar (as in car)", ["park", "warm", "win", "hen"], "park",
       { warm: "D-PATTERN-TRAP", win: "D-VOWEL", hen: "D-VOWEL" },
       "warm has ar without the sound; win ties the in-chunk"),
 

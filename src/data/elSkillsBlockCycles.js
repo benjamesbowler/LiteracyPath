@@ -55,15 +55,15 @@ export const LETTER_EXAMPLES = {
   v: ["van", "vest", "vase"],
   k: ["kit", "kid", "kite", "kangaroo"],
   j: ["jam", "jet", "jug", "jump"],
-  z: ["zip", "zap", "zoo", "zero"],
+  z: ["zip", "zipper", "zoo", "zero"],
   sh: ["ship", "sheep", "shop", "shark", "shell", "shut"],
   ch: ["chip", "chair", "cheese", "chin", "chop", "chat"],
-  th: ["thumb", "three", "teeth", "thin", "think", "that"],
+  th: ["thumb", "three", "teeth", "thin", "think", "three"],
   all: ["all", "ball", "fall", "call"],
   wh: ["what", "when", "who", "whisk"],
   nk: ["sink", "bank", "pink", "wink"],
-  ng: ["ring", "sing", "king", "song", "long", "hung"],
-  fszl: ["puff", "miss", "buzz", "will"],
+  ng: ["ring", "sing", "king", "song", "long", "sung"],
+  fszl: ["off", "miss", "buzz", "will"],
   pattern: ["by", "my", "try", "why"]
 };
 
@@ -687,9 +687,9 @@ const PRIORITY_CYCLE_CONTENT = {
         teacherScript: "Read the rime ong. Add a first sound to build song, long, gong."
       },
       ung: {
-        examples: ["sung", "hung", "rung"],
+        examples: ["sung", "lung", "rung"],
         articulation: "Say /ung/ as one rime chunk.",
-        teacherScript: "Read the rime ung. Add a first sound to build sung, hung, rung."
+        teacherScript: "Read the rime ung. Add a first sound to build sung, lung, rung."
       }
     },
     poem: {
@@ -735,9 +735,9 @@ const PRIORITY_CYCLE_CONTENT = {
         teacherInstruction: "Place four rime headers. Read each card and sort by the ending chunk.",
         studentAction: "Read the word with the teacher and place it under the matching rime.",
         baskets: ["ang", "ing", "ong", "ung"],
-        cards: ["bang", "sang", "rang", "ring", "sing", "king", "song", "long", "gong", "sung", "hung", "rung"],
-        targetItems: ["bang", "sang", "rang", "ring", "sing", "king", "song", "long", "gong", "sung", "hung", "rung"],
-        answer: "ang: bang, sang, rang. ing: ring, sing, king. ong: song, long, gong. ung: sung, hung, rung.",
+        cards: ["bang", "sang", "rang", "ring", "sing", "king", "song", "long", "gong", "sung", "lung", "rung"],
+        targetItems: ["bang", "sang", "rang", "ring", "sing", "king", "song", "long", "gong", "sung", "lung", "rung"],
+        answer: "ang: bang, sang, rang. ing: ring, sing, king. ong: song, long, gong. ung: sung, lung, rung.",
         supportPrompt: "Cover the first letter and read only the rime chunk first.",
         challengePrompt: "Build a new word by changing only the first sound."
       },
@@ -763,7 +763,7 @@ const PRIORITY_CYCLE_CONTENT = {
         targetItems: ["ring", "sing", "king", "song"],
         answer: "r + ing = ring. s + ing = sing. k + ing = king. s + ong = song.",
         supportPrompt: "Keep the rime card fixed and change only the first letter.",
-        challengePrompt: "Build bang, long, and hung."
+        challengePrompt: "Build bang, long, and lung."
       },
       {
         id: "word-chain",
@@ -781,16 +781,16 @@ const PRIORITY_CYCLE_CONTENT = {
     phonemicAwarenessItems: [
       { prompt: "Say ring. Change /r/ to /s/. What word?", answer: "sing" },
       { prompt: "Say bang. Change /b/ to /r/. What word?", answer: "rang" },
-      { prompt: "Say sung. Change /s/ to /h/. What word?", answer: "hung" }
+      { prompt: "Say sung. Change /s/ to /l/. What word?", answer: "lung" }
     ],
-    rhymingItems: [["ring", "sing"], ["king", "ring"], ["song", "long"], ["sung", "hung"]],
+    rhymingItems: [["ring", "sing"], ["king", "ring"], ["song", "long"], ["sung", "lung"]],
     decoding: {
       note: "Build each word by reading the rime chunk first, then adding the onset.",
       chains: [
         { start: "ing", steps: ["r + ing = ring", "s + ing = sing", "k + ing = king"] },
         { start: "ang", steps: ["b + ang = bang", "s + ang = sang", "r + ang = rang"] },
         { start: "ong", steps: ["s + ong = song", "l + ong = long", "g + ong = gong"] },
-        { start: "ung", steps: ["s + ung = sung", "h + ung = hung", "r + ung = rung"] }
+        { start: "ung", steps: ["s + ung = sung", "l + ung = lung", "r + ung = rung"] }
       ]
     },
     writing: {
@@ -803,7 +803,7 @@ const PRIORITY_CYCLE_CONTENT = {
     worksheetTasks: [
       "Use the stroke models for ng, ang, ing, ong, and ung.",
       "Build r + ing, s + ing, and k + ing.",
-      "Sort bang, sang, rang, ring, sing, king, song, long, gong, sung, hung, rung.",
+      "Sort bang, sang, rang, ring, sing, king, song, long, gong, sung, lung, rung.",
       "Circle the rime chunk in each word.",
       "Read and write only.",
       "Read and write other.",
@@ -817,7 +817,7 @@ const PRIORITY_CYCLE_CONTENT = {
         { label: "ng", outline: "ng", picturePrompts: ["ring", "sing"], handwriting: ["ng"] },
         { label: "ang", outline: "ang", picturePrompts: ["bang", "sang", "rang"], handwriting: ["ang"] },
         { label: "ing", outline: "ing", picturePrompts: ["ring", "sing", "king"], handwriting: ["ing"] },
-        { label: "ong / ung", outline: "ong  ung", picturePrompts: ["song", "long", "sung", "hung"], handwriting: ["ong", "ung"] }
+        { label: "ong / ung", outline: "ong  ung", picturePrompts: ["song", "long", "sung", "lung"], handwriting: ["ong", "ung"] }
       ]
     },
     vocabularyMat: {
@@ -826,7 +826,7 @@ const PRIORITY_CYCLE_CONTENT = {
         { label: "ang Family", words: ["bang", "sang", "rang"] },
         { label: "ing Family", words: ["ring", "sing", "king"] },
         { label: "ong Family", words: ["song", "long", "gong"] },
-        { label: "ung Family", words: ["sung", "hung", "rung"] },
+        { label: "ung Family", words: ["sung", "lung", "rung"] },
         { label: "High-Frequency Words", words: ["only", "other"] }
       ]
     }

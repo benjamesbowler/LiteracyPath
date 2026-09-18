@@ -2811,20 +2811,15 @@ export const questions = [
   "spokenPrompt": "Zip. Which printed word matches the recording?",
   "choices": [
    "zip",
-   "zap",
    "lip",
-   "lap"
+   "lap",
+   "lot"
   ],
   "answerOptions": [
    {
     "value": "zip",
     "label": "zip",
     "text": "zip"
-   },
-   {
-    "value": "zap",
-    "label": "zap",
-    "text": "zap"
    },
    {
     "value": "lip",
@@ -2835,14 +2830,19 @@ export const questions = [
     "value": "lap",
     "label": "lap",
     "text": "lap"
+   },
+   {
+    "value": "lot",
+    "label": "lot",
+    "text": "lot"
    }
   ],
   "answer": "zip",
   "correctAnswer": "zip",
   "distractorRationales": {
-   "zap": "D-VOWEL",
    "lip": "D-VISUAL-NEIGHBOR",
-   "lap": "D-VOWEL"
+   "lap": "D-VOWEL",
+   "lot": "D-VOWEL"
   },
   "mediaTier": "audio-required",
   "hadPTD": false,

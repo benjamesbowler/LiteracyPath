@@ -6,15 +6,15 @@ export const INITIAL_SOUND_LETTERS = [
 export const INITIAL_SOUND_ROUND_LENGTH = 15;
 
 const levelOneWords = {
-  a: ["ant", "apple", "ax", "arrow", "ankle", "acorn", "apron", "anchor", "album", "animal"],
+  a: ["ant", "apple", "ax", "arrow", "ankle", "acorn", "apron", "anchor", "animal", "apricot"],
   b: ["ball", "bed", "bag", "bat", "bell", "box", "bus", "bird", "boat", "book"],
   c: ["cat", "cup", "cap", "cake", "car", "cow", "corn", "coat", "candy", "candle"],
-  d: ["dog", "duck", "door", "doll", "desk", "dish", "drum", "deer", "donut", "daisy"],
+  d: ["dog", "duck", "door", "doll", "desk", "dish", "drum", "deer", "donut", "doctor"],
   e: ["egg", "elf", "elbow", "elephant", "engine", "envelope", "exit", "empty", "eagle", "ear"],
   f: ["fish", "fan", "farm", "flag", "frog", "fork", "fox", "feather", "fence", "flower"],
   g: ["goat", "gum", "gate", "gift", "girl", "goose", "grape", "green", "garden", "guitar"],
   h: ["hat", "hand", "ham", "hen", "hill", "house", "horse", "hammer", "heart", "honey"],
-  i: ["igloo", "insect", "inch", "ink", "island", "iguana", "inside", "itch", "ivy", "inchworm"],
+  i: ["igloo", "insect", "inside", "ink", "island", "iguana", "itch", "ivy", "icebox", "instructor"],
   j: ["jam", "jet", "jar", "jacket", "jump", "juice", "jelly", "jewel", "jeep", "jungle"],
   k: ["kite", "key", "king", "kid", "kettle", "kitten", "koala", "kangaroo", "kiwi", "keyboard"],
   l: ["log", "lamp", "leaf", "lion", "lock", "leg", "lemon", "ladder", "lake", "lunch"],
@@ -26,39 +26,39 @@ const levelOneWords = {
   r: ["ring", "rat", "rug", "rain", "rope", "rabbit", "rocket", "robot", "ruler", "rose"],
   s: ["sun", "sock", "sand", "seed", "soap", "seal", "star", "snake", "spoon", "shell"],
   t: ["top", "tap", "tent", "tub", "tiger", "turtle", "table", "tooth", "truck", "tree"],
-  u: ["umbrella", "up", "under", "uncle", "umpire", "underwear", "utensil", "ukulele", "upstairs", "urchin"],
+  u: ["umbrella", "up", "under", "uncle", "upstairs", "underwear", "utensil", "ukulele", "unicycle", "urchin"],
   v: ["van", "vest", "vase", "vine", "violin", "volcano", "vegetable", "valley", "vulture", "vacuum"],
   w: ["web", "wig", "window", "wagon", "water", "watch", "wheel", "whale", "worm", "wallet"],
-  y: ["yellow", "yard", "yo-yo", "yogurt"],
+  y: ["yellow", "yarn", "yo-yo", "yogurt"],
   z: ["zebra", "zipper", "zoo", "zero", "zucchini", "zigzag", "zip", "zone", "zinnia", "zookeeper"]
 };
 
 const levelTwoWords = {
   a: ["astronaut", "ambulance", "apartment", "avocado", "accordion", "airport", "apricot", "athlete", "antenna", "asteroid"],
   b: ["banana", "basket", "balloon", "butterfly", "backpack", "bicycle", "broccoli", "building", "baseball", "beaver"],
-  c: ["calculator", "camera", "caterpillar", "cucumber", "computer", "castle", "carrot", "calendar", "carousel", "coconut"],
-  d: ["dinosaur", "diamond", "dolphin", "doctor", "dragonfly", "dessert", "dictionary", "dandelion", "domino", "delivery"],
+  c: ["calculator", "camera", "caterpillar", "cucumber", "computer", "castle", "carrot", "calendar", "car", "coconut"],
+  d: ["dinosaur", "diamond", "dolphin", "doctor", "dragonfly", "dessert", "dictionary", "doll", "domino", "delivery"],
   e: ["elevator", "eraser", "exercise", "earmuffs", "earthworm", "eggplant", "electrician", "engineer", "easel", "evergreen"],
   f: ["firefighter", "flamingo", "football", "fountain", "flashlight", "fireworks", "fishing pole", "ferry", "fossil", "furniture"],
   g: ["gorilla", "giraffe", "goggles", "grocery", "garbage truck", "goldfish", "greenhouse", "gingerbread", "goalpost", "globe"],
   h: ["helicopter", "hamburger", "hospital", "hummingbird", "hairbrush", "haystack", "harmonica", "hedgehog", "hotdog", "honeybee"],
-  i: ["iceberg", "instrument", "instructor", "invitation", "inspector", "icicle", "illustration", "icebox", "inkwell", "iron"],
-  j: ["jellyfish", "jaguar", "jump rope", "jigsaw", "jewelry", "journal", "juggler", "jackhammer", "jellybean", "jetpack"],
-  k: ["kayak", "kitchen", "ketchup", "kingdom", "kiwifruit", "kindergarten", "knapsack", "karate", "kazoo", "kiosk"],
+  i: ["iceberg", "instrument", "instructor", "invitation", "inspector", "icicle", "insect", "icebox", "inside", "iron"],
+  j: ["jellyfish", "jaguar", "jump rope", "jigsaw", "jewelry", "jam", "jump", "jet", "jellybean", "jetpack"],
+  k: ["kayak", "kitchen", "ketchup", "king", "kite", "kindergarten", "knapsack", "karate", "key", "kid"],
   l: ["ladybug", "lollipop", "lemonade", "lighthouse", "lawnmower", "library", "lobster", "luggage", "laboratory", "lantern"],
   m: ["motorcycle", "magnet", "mushroom", "microphone", "mountain", "mailbox", "medicine", "mermaid", "marshmallow", "measuring cup"],
-  n: ["newspaper", "notebook", "necklace", "nightlight", "narwhal", "number", "noodles", "nurse", "navigator", "nutcracker"],
+  n: ["newspaper", "notebook", "necklace", "nose", "narwhal", "number", "noodles", "nurse", "navigator", "nutcracker"],
   o: ["octagon", "omelet", "orangutan", "overalls", "opera", "orchard", "oatmeal", "observer", "obstacle", "office"],
-  p: ["parachute", "pineapple", "penguin", "pajamas", "popsicle", "playground", "pepper", "postcard", "pretzel", "paintbrush"],
+  p: ["parachute", "pineapple", "penguin", "pajamas", "popsicle", "playground", "pepper", "postcard", "pen", "paintbrush"],
   q: ["question mark", "quicksand", "quarterback", "quilted blanket", "quail nest", "quiet room", "queen bee", "quartz", "quiver", "quickstep"],
   r: ["rainbow", "refrigerator", "raccoon", "roller skates", "rectangle", "radio", "restaurant", "robotics", "raindrop", "reindeer"],
   s: ["sandwich", "sailboat", "suitcase", "submarine", "strawberry", "snowman", "spaceship", "scooter", "sunglasses", "scarecrow"],
   t: ["telephone", "tomato", "telescope", "toothbrush", "traffic light", "trampoline", "treasure", "thermometer", "tractor", "tornado"],
-  u: ["unicycle", "uniform", "uphill", "utensils", "underground", "unpacking", "upbeat", "uplift", "umpire mask", "urban garden"],
-  v: ["volleyball", "veterinarian", "vegetable soup", "vacation", "village", "video camera", "violinist", "velvet", "vineyard", "visitor"],
-  w: ["watermelon", "wheelbarrow", "windmill", "waterfall", "woodpecker", "waffle", "weather", "wetsuit", "workshop", "wildflower"],
-  y: ["yellow jacket", "yogurt cup", "yardstick", "yo-yo string", "yearbook", "yawning child", "yodeler", "yoga mat", "yarn basket", "yucca plant"],
-  z: ["zipline", "zebra crossing", "zigzag road", "zipper pouch", "zinnia flower", "zoo gate", "zebra mask", "zoo train", "zeppelin", "zesty lemon"]
+  u: ["unicycle", "uniform", "uphill", "utensils", "underground", "under", "up", "uncle", "umbrella", "urban garden"],
+  v: ["volleyball", "vet", "vegetable soup", "vacation", "village", "video camera", "van", "velvet", "vineyard", "visitor"],
+  w: ["watermelon", "wheelbarrow", "windmill", "waterfall", "woodpecker", "waffle", "weather", "wetsuit", "workshop", "water"],
+  y: ["yacht", "yak", "yam", "yarn", "yearbook", "yellow", "yo-yo", "yolk", "yogurt", "yucca plant"],
+  z: ["zipline", "zebra crossing", "zip", "zipper", "zinnia flower", "zoo gate", "zebra mask", "zoo train", "zeppelin", "zesty lemon"]
 };
 
 const phonemeByLetter = {
@@ -73,7 +73,6 @@ const syllableOverrides = {
   astronaut: 3,
   calculator: 4,
   caterpillar: 4,
-  veterinarian: 5,
   refrigerator: 5,
   "traffic light": 3,
   "question mark": 3,
@@ -189,7 +188,7 @@ export const initialSoundCoreWords = {
     u: "underground",
     v: "volleyball",
     w: "watermelon",
-    y: "yogurt cup",
+    y: "yogurt",
     z: "zipline"
   }
 };
@@ -198,7 +197,7 @@ const tagsByWord = word => {
   const text = String(word);
   const tags = [];
   if (/\b(cat|dog|duck|fish|frog|goat|horse|lion|mouse|zebra|penguin|kangaroo|dolphin|gorilla|jaguar|quail|rabbit|turtle|panda|monkey|beaver|flamingo|hedgehog|narwhal|orangutan|woodpecker)\b/.test(text)) tags.push("animal");
-  if (/\b(apple|banana|carrot|corn|donut|egg|grape|ham|jam|lemon|milk|noodle|orange|pan|pizza|pumpkin|sandwich|tomato|watermelon|yogurt|zucchini|avocado|apricot|cucumber|coconut|oatmeal|pepper|pretzel|waffle)\b/.test(text)) tags.push("food");
+  if (/\b(apple|banana|carrot|corn|donut|egg|grape|ham|jam|lemon|milk|noodle|orange|pan|pizza|pumpkin|sandwich|tomato|watermelon|yogurt|zucchini|avocado|apricot|cucumber|coconut|oatmeal|pepper|waffle)\b/.test(text)) tags.push("food");
   if (/\b(ball|bed|bag|book|cup|desk|door|fan|hat|key|lamp|map|net|pen|pencil|quilt|ring|sock|table|umbrella|van|web|window)\b/.test(text)) tags.push("concrete");
   return tags.length ? tags : ["imageable", "concrete"];
 };
@@ -354,10 +353,6 @@ const blockedInitialSoundTargets = {
     status: "excluded_unsuitable_word",
     reason: "Urban garden is a phrase with a less clear single target object for early Initial Sounds assessment."
   },
-  "umpire-mask": {
-    status: "excluded_phrase_target",
-    reason: "Umpire mask is a niche object phrase and not a strong early Initial Sounds target."
-  },
   velvet: {
     status: "excluded_unsuitable_word",
     reason: "Velvet is texture-based and hard to image unambiguously for early Initial Sounds assessment."
@@ -424,7 +419,11 @@ export const initialSoundImageOverrides = {
   noodle: "/media/initial-sounds/images/n/noodles.webp",
   sock: "/images/child-mode/initial-sounds/sock.webp",
   star: "/images/child-mode/initial-sounds/star.webp",
-  zigzag: "/media/initial-sounds/images/z/zigzag-road.webp"
+  vet: "/images/child-mode/initial-sounds/vet.webp"
+};
+
+export const initialSoundAudioOverrides = {
+  vet: "/audio/production/en-US/isolated_word/vet-af1d1ecfde.mp3"
 };
 
 function makeInitialSoundItem(letter, targetWord, level, index) {
@@ -438,6 +437,7 @@ function makeInitialSoundItem(letter, targetWord, level, index) {
     ? INITIAL_SOUND_LETTERS.indexOf(letter) + 1
     : 100 + index;
   const imageUrl = initialSoundImageOverrides[wordKey] || `/media/initial-sounds/images/${letter}/${wordKey}.webp`;
+  const audioUrl = initialSoundAudioOverrides[wordKey] || `/media/initial-sounds/audio/${letter}/${wordKey}.mp3`;
 
   return {
     id: `fs_${letter}_${wordKey}_l${level}`,
@@ -454,8 +454,8 @@ function makeInitialSoundItem(letter, targetWord, level, index) {
     imageUrl,
     imagePath: imageUrl,
     audioKey: `${letter}/${wordKey}`,
-    audioUrl: `/media/initial-sounds/audio/${letter}/${wordKey}.mp3`,
-    audioPath: `/media/initial-sounds/audio/${letter}/${wordKey}.mp3`,
+    audioUrl,
+    audioPath: audioUrl,
     audioText: targetWord,
     correctAnswer: letter,
     answer: letter,
