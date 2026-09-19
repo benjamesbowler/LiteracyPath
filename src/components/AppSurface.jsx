@@ -128,6 +128,7 @@ export function AppSurface({ surface }) {
     ROUND_LENGTH, adminClasses, adminConfirm, adminConfirmBusy, adminDeleteClass,
     adminDeleteStudent, adminLoading, adminPendingAccounts, adminPendingAccountsWarning, adminSchools, adminSetTeacherSchool,
     adminStudents, adminTeachers, allQuestions, allowPassageAudio, answerHistory, answerQuestion, appView,
+    assessmentSaveState, retryCompletedAssessment,
     applyStudentSession, archivedStudentList, assessmentFullscreen, assessmentHistory, assessmentHistoryReadState, assessmentMode, assessmentTransitioning,
     assignQuestPractice, authDisplayName, authEmail, authLoading, authMessage, authMode,
     authPassword, authReady, authReconnecting, authSchoolName,
@@ -2259,6 +2260,8 @@ export function AppSurface({ surface }) {
             endAssessment={endAssessment}
             returnToStudentOverview={returnFromCheck}
             assessmentMode={assessmentMode}
+            assessmentSaveState={assessmentSaveState}
+            retryCompletedAssessment={retryCompletedAssessment}
             isAssessmentTransitioning={assessmentTransitioning}
             assessmentFullscreen={effectiveAssessmentFullscreen}
             toggleAssessmentFullscreen={toggleAssessmentFullscreen}

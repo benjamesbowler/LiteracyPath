@@ -22,16 +22,19 @@ function deferred() {
 
 const tick = () => new Promise(resolve => setImmediate(resolve));
 
-function answerHarness({ saveAnswer, updateSummary, roundLength = 10 } = {}) {
+function answerHarness({ saveAnswer, updateSummary, roundLength = 10, saveAttempt } = {}) {
   const stage = { id: "cvc_short_vowels", label: "CVC words" };
   const question = { id: "test-cvc-cat", skillId: stage.id, skill: stage.label, answer: "cat", question: "Listen and find the word." };
   const state = {
     feedback: null, currentQuestion: question, assessmentTransitioning: false,
     answerHistory: [], totalAnswered: 0, correctAnswered: 0, usedByStage: {},
-    roundAnswers: [], roundQuestionIds: [], roundItemKeys: [], message: "", mastery: {}
+    roundAnswers: [], roundQuestionIds: [], roundItemKeys: [], message: "", mastery: {}, assessmentSaveState: null
   };
   const calls = { answers: 0, summaries: 0, completions: 0 };
   const scope = {
+    pendingAssessmentCompletionRef: { current: null, owner: "learner-owner" },
+    assessmentCompletionOwner: "learner-owner",
+    assessmentCompletionRevision: 0,
     currentQuestion: question,
     currentStage: stage,
     skillTree: [stage],
@@ -85,9 +88,9 @@ function answerHarness({ saveAnswer, updateSummary, roundLength = 10 } = {}) {
       scope.assessmentSummarySaveRef.current = promise;
       return promise;
     },
-    persistCompletedAssessmentAttempt: async () => {
+    persistCompletedAssessmentAttempt: async (attempt, options) => {
       calls.completions += 1;
-      return { durable: true };
+      return saveAttempt ? saveAttempt(attempt, options) : { durable: true };
     }
   };
   for (const key of [
@@ -96,7 +99,11 @@ function answerHarness({ saveAnswer, updateSummary, roundLength = 10 } = {}) {
     const setter = `set${key[0].toUpperCase()}${key.slice(1)}`;
     scope[setter] = value => { state[key] = typeof value === "function" ? value(state[key]) : value; };
   }
-  return { answer: controllerFunction("answerQuestion", "function reviseLastAnswer", scope), state, scope, calls };
+  const guardStart = controller.indexOf("  function isCurrentAssessmentRun(");
+  const guardEnd = controller.indexOf("  function makeEvidenceEventId(", guardStart);
+  scope.isCurrentAssessmentRun = vm.runInNewContext(`(${controller.slice(guardStart, guardEnd).trim()})`, scope);
+  scope.retryCompletedAssessment = controllerFunction("retryCompletedAssessment", "function reviseLastAnswer", scope);
+  return { answer: controllerFunction("answerQuestion", "async function retryCompletedAssessment", scope), retry: scope.retryCompletedAssessment, state, scope, calls };
 }
 
 test("a durable answer advances while the secondary mastery network write is still pending", async () => {
@@ -237,4 +244,132 @@ test("queued summaries retain their submitting learner, token, client and sessio
   ]);
   assert.equal(calls.every(call => call.client === client), true);
   assert.deepEqual(calls.map(call => call.itemMastery.last_result), [true, false]);
+});
+
+
+test("a rejected completion keeps the whole round and retries the same evidence without replaying answers", async () => {
+  const attempts = [];
+  const network = deferred();
+  const harness = answerHarness({ roundLength: 1, saveAttempt: attempt => {
+    attempts.push(attempt);
+    return attempts.length === 1 ? null : network.promise;
+  } });
+  await harness.answer("cat");
+  assert.equal(harness.state.assessmentSaveState.status, "error");
+  assert.equal(harness.state.appView, undefined, "failure must not leave the current assessment");
+  assert.equal(harness.state.currentQuestion, null);
+  assert.deepEqual([...harness.state.roundAnswers], [true]);
+  assert.equal(harness.scope.roundQuestionIdsRef.current.length, 1);
+  assert.equal(harness.scope.answerHistoryRef.current.length, 1);
+  assert.equal(Object.keys(harness.state.mastery).length, 0);
+  const retry = harness.retry();
+  await harness.retry();
+  assert.equal(attempts.length, 2, "rapid taps cannot duplicate the completion request");
+  assert.equal(attempts[0], attempts[1], "retry must retain the exact immutable attempt");
+  assert.equal(harness.state.assessmentSaveState.status, "saving");
+  network.resolve({ durable: true });
+  await retry;
+  assert.equal(harness.calls.answers, 1);
+  assert.equal(harness.calls.summaries, 1);
+  assert.equal(harness.state.mastery.cvc_short_vowels.attempts, 1);
+  assert.equal(harness.state.appView, "checkpoint");
+  assert.equal(harness.state.assessmentSaveState, null);
+  await harness.retry();
+  assert.equal(attempts.length, 2);
+});
+
+test("late completion cannot replace a new learner or assignment", async () => {
+  const network = deferred();
+  const harness = answerHarness({ roundLength: 1, saveAttempt: () => network.promise });
+  const submitting = harness.answer("cat");
+  await tick();
+  harness.scope.pendingAssessmentCompletionRef.owner = "new-learner-owner";
+  network.resolve({ durable: true });
+  await submitting;
+  assert.equal(harness.state.appView, undefined);
+  assert.equal(Object.keys(harness.state.mastery).length, 0);
+  await harness.retry();
+  assert.equal(harness.calls.completions, 1);
+});
+
+
+test("an old answer response cannot overwrite the new learner's active round", async () => {
+  const network = deferred();
+  const harness = answerHarness({ saveAnswer: () => network.promise });
+  const submitting = harness.answer("cat");
+  await tick();
+  harness.scope.pendingAssessmentCompletionRef.owner = "new-learner-owner";
+  harness.state.currentQuestion = { id: "new-learner-question" };
+  harness.state.roundAnswers = [false];
+  harness.scope.roundQuestionIdsRef.current = ["new-learner-question"];
+  network.resolve({ durable: true });
+  await submitting;
+  assert.equal(harness.state.currentQuestion.id, "new-learner-question");
+  assert.equal(harness.state.feedback, null);
+  assert.deepEqual(harness.state.roundAnswers, [false]);
+  assert.deepEqual(harness.scope.roundQuestionIdsRef.current, ["new-learner-question"]);
+  assert.equal(harness.calls.summaries, 0);
+});
+
+test("a final answer waiting on a summary cannot complete another learner's assignment", async () => {
+  const network = deferred();
+  const harness = answerHarness({ updateSummary: () => network.promise, roundLength: 1 });
+  const submitting = harness.answer("cat");
+  await tick();
+  harness.scope.pendingAssessmentCompletionRef.owner = "new-learner-owner";
+  harness.scope.answerHistoryRef.current = [{ questionId: "new-learner-question" }];
+  harness.state.currentQuestion = { id: "new-learner-question" };
+  network.resolve({ durable: true });
+  await submitting;
+  assert.equal(harness.calls.completions, 0);
+  assert.equal(harness.state.currentQuestion.id, "new-learner-question");
+  assert.equal(harness.scope.pendingAssessmentCompletionRef.current, null);
+});
+
+
+for (const phase of ["answer", "completion"]) {
+  test(`a new assessment run or exit retires a held ${phase} save for the same learner`, async () => {
+    const network = deferred();
+    const harness = answerHarness(phase === "answer"
+      ? { saveAnswer: () => network.promise }
+      : { saveAttempt: () => network.promise, roundLength: 1 });
+    const submitting = harness.answer("cat");
+    await tick();
+    harness.scope.pendingAssessmentCompletionRef.revision = 1;
+    harness.scope.pendingAssessmentCompletionRef.current = null;
+    harness.state.currentQuestion = { id: "new-run-question" };
+    harness.state.appView = "new-destination";
+    network.resolve({ durable: true });
+    await submitting;
+    assert.equal(harness.state.currentQuestion.id, "new-run-question");
+    assert.equal(harness.state.appView, "new-destination");
+    assert.equal(Object.keys(harness.state.mastery).length, 0);
+  });
+}
+
+
+test("an assessment bank finishing after navigation cannot reopen the assessment", async () => {
+  const app = readFileSync(new URL("../../src/App.jsx", import.meta.url), "utf8");
+  const start = app.indexOf("  async function startAssessment(");
+  const end = app.indexOf("  const startStudentFocusAssessment", start);
+  const network = deferred();
+  const writes = [];
+  const scope = {
+    currentSkillIndex: 0, currentStage: { id: "initial_sounds", label: "Sounds" },
+    skillTree: [{ id: "initial_sounds", label: "Sounds" }],
+    assessmentCompletionOwner: "learner", pendingAssessmentCompletionRef: { owner: "learner" },
+    appViewNavigationRevisionRef: { current: 0 }, answerInFlightRef: { current: false },
+    ensureTeacherAssessmentEvidenceReady: () => true, resetFailedAssessmentMedia: () => {},
+    setAssessmentSaveState: () => {}, setAssessmentTransitioning: value => writes.push(["transition", value]),
+    setMessage: value => writes.push(["message", value]), preloadAssessmentShellForStage: () => {},
+    loadRuntimeQuestionsForSkill: () => network.promise, ensureAssessmentMediaPicker: async () => {},
+    console
+  };
+  const startAssessment = vm.runInNewContext(`(${app.slice(start, end).trim()})`, scope);
+  const starting = startAssessment();
+  const priorWrites = writes.length;
+  scope.appViewNavigationRevisionRef.current += 1;
+  network.resolve();
+  await starting;
+  assert.equal(writes.length, priorWrites, "retired start must not change the destination or UI state");
 });

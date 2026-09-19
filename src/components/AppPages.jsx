@@ -2652,6 +2652,8 @@ export function AssessmentPage({
   endAssessment,
   returnToStudentOverview,
   assessmentMode,
+  assessmentSaveState = null,
+  retryCompletedAssessment = null,
   isAssessmentTransitioning = false,
   assessmentFullscreen = false,
   toggleAssessmentFullscreen = null,
@@ -2887,6 +2889,28 @@ export function AssessmentPage({
     Boolean(isAssessmentTransitioning);
   const shouldShowAssessmentLoadingState =
     !currentQuestion && !hasValidAssessmentTransitionState;
+
+  if (assessmentSaveState) {
+    const saving = assessmentSaveState.status === "saving";
+    return (
+      <main className={assessmentShellClassName}>
+        {sessionNotice}
+        <div className="card assessment-card assessment-loading-card" aria-busy={saving}>
+          <h2>{saving ? "Saving your assessment…" : "Let’s save your answers"}</h2>
+          <p role={saving ? "status" : "alert"}>
+            {saving
+              ? "You have answered all the questions. Please wait while your results are saved."
+              : "Your answers are still here. Try saving again. You do not need to answer the questions again."}
+          </p>
+          <div className="button-row assessment-start-row">
+            <button className="main-button" onClick={retryCompletedAssessment} disabled={saving} type="button">
+              {saving ? "Saving…" : "Try saving again"}
+            </button>
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   if (shouldShowAssessmentLoadingState) {
     return (

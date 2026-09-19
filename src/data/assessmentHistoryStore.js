@@ -598,15 +598,30 @@ function inferQuestionMasteryKey(record = {}, attempt = {}) {
 }
 
 function makeAttemptId(record = {}) {
-  const base = [
+  const questionIds = record.questionRecords?.map(item => item.questionId).filter(Boolean) || [];
+  const identity = [
     record.teacherId || "teacher",
     record.studentId || "student",
     record.skillId || "skill",
     record.startedAt || record.completedAt || nowIso(),
-    record.questionRecords?.map(item => item.questionId).filter(Boolean).join("-") || record.totalQuestions || 0
-  ].join(":");
+    questionIds.length ? questionIds : record.totalQuestions || 0
+  ];
+  const base = identity.map(part => Array.isArray(part) ? part.join("-") : part).join(":");
 
-  return `attempt_${base.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "")}`;
+  const legacyId = `attempt_${base.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "")}`;
+  if (legacyId.length <= 200) return legacyId;
+
+  // The independent-assessment RPC admits at most 200 characters. A round's
+  // full question list regularly exceeded that limit. Hash the entire identity
+  // instead of truncating it, so different questions and retries stay distinct
+  // and deterministic. Explicit IDs bypass this generator during normalization.
+  // FNV-1a 128 is an identity fingerprint, not a credential or integrity proof.
+  let hash = 0x6c62272e07bb014262b821756295c58dn;
+  for (const byte of new TextEncoder().encode(JSON.stringify(identity))) {
+    hash ^= BigInt(byte);
+    hash = BigInt.asUintN(128, hash * 0x1000000000000000000013bn);
+  }
+  return `attempt_v2_${hash.toString(16).padStart(32, "0")}`;
 }
 
 export function normalizeAssessmentAttempt(record = {}) {

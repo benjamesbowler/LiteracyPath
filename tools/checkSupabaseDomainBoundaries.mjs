@@ -34,23 +34,46 @@ function sourceFiles(directory) {
 }
 
 const failures = [];
-const privateQueryPattern = /\b(?!Array\b)[A-Za-z_$][\w$]*\s*\.\s*(?:from|rpc)\s*\(/;
+const nativeArrayConstructors = new Set([
+  "Array", "Int8Array", "Uint8Array", "Uint8ClampedArray", "Int16Array", "Uint16Array",
+  "Int32Array", "Uint32Array", "Float16Array", "Float32Array", "Float64Array",
+  "BigInt64Array", "BigUint64Array"
+]);
+const privateQueryPattern = /\b((?:[A-Za-z_$][\w$]*\s*\.\s*)*[A-Za-z_$][\w$]*)\s*\.\s*(from|rpc)\s*\(/g;
 
 function hasPrivateQueryAccess(source) {
-  return privateQueryPattern.test(source);
+  for (const [, receiver, method] of source.matchAll(privateQueryPattern)) {
+    const constructor = receiver.replace(/\s+/g, "").replace(/^globalThis\./, "");
+    if (method === "from" && nativeArrayConstructors.has(constructor)) continue;
+    return true;
+  }
+  return false;
 }
 
 for (const fixture of [
   "client.rpc('student_login')",
   "serviceClient.from('students')",
-  "supabase.rpc('teacher_create_demo_class')"
+  "supabase.rpc('teacher_create_demo_class')",
+  "Uint8Array.from(bytes); client.from('students')",
+  "Array.rpc('student_login')",
+  "Uint32Array.rpc('student_login')",
+  "customArray.from('students')",
+  "client.Uint8Array.from('students')"
 ]) {
   if (!hasPrivateQueryAccess(fixture)) {
     failures.push(`The private-query detector missed its regression fixture: ${fixture}`);
   }
 }
-if (hasPrivateQueryAccess("Array.from(rows)")) {
-  failures.push("The private-query detector misclassified Array.from.");
+for (const constructor of nativeArrayConstructors) {
+  for (const fixture of [
+    `${constructor}.from(rows)`,
+    `${constructor} . from (rows)`,
+    `globalThis.${constructor}.from(rows)`
+  ]) {
+    if (hasPrivateQueryAccess(fixture)) {
+      failures.push(`The private-query detector misclassified native array construction: ${fixture}`);
+    }
+  }
 }
 
 for (const file of requiredBoundaryFiles) {

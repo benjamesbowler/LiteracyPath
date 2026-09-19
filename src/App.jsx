@@ -152,6 +152,7 @@ export default function App() {
   activeAppViewRef.current = appView;
   const activeStudentFocusRef = useRef(null);
   const appViewNavigationRevisionRef = useRef(0);
+  const pendingAssessmentCompletionRef = useRef(null);
   const [studentPreview, setStudentPreview] = useState(null);
   const [studentPreviewStatus, setStudentPreviewStatus] = useState("");
   const [studentReportView, setStudentReportView] = useState("whole-child");
@@ -190,6 +191,11 @@ export default function App() {
     // this public setter is therefore a newer user/system intent that an
     // already-running restore must never replace when it eventually resolves.
     appViewNavigationRevisionRef.current += 1;
+    if (activeAppViewRef.current === APP_VIEWS.ASSESSMENT && resolvedNext !== APP_VIEWS.ASSESSMENT) {
+      pendingAssessmentCompletionRef.revision = (pendingAssessmentCompletionRef.revision || 0) + 1;
+      pendingAssessmentCompletionRef.current = null;
+      setAssessmentSaveState(null);
+    }
     if (
       typeof document !== "undefined"
       && typeof document.startViewTransition === "function"
@@ -253,6 +259,7 @@ export default function App() {
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [feedback, setFeedback] = useState(null);
   const [assessmentTransitioning, setAssessmentTransitioning] = useState(false);
+  const [assessmentSaveState, setAssessmentSaveState] = useState(null);
   const [message, setMessage] = useState("");
   const [teacherUser, setTeacherUser] = useState(null);
   const [entryMode, setEntryMode] = useState("entry");
@@ -892,12 +899,24 @@ export default function App() {
     return () => cancelQuestionMediaWindow(allQuestionsRef, currentQuestion);
   }, [appView, currentQuestion]);
 
+  const assessmentCompletionOwner = `${studentId || ""}:${teacherId || ""}:${studentFocus.session?.id || ""}:${sessionMode}`;
+  // A late save belongs to its original learner and assignment, never the next one.
+  if (pendingAssessmentCompletionRef.owner !== assessmentCompletionOwner) {
+    pendingAssessmentCompletionRef.revision = (pendingAssessmentCompletionRef.revision || 0) + 1;
+  }
+  pendingAssessmentCompletionRef.owner = assessmentCompletionOwner;
+  useEffect(() => {
+    pendingAssessmentCompletionRef.current = null;
+    setAssessmentSaveState(null);
+  }, [assessmentCompletionOwner, pendingAssessmentCompletionRef]);
+
   const {
     answerQuestion, buildInitialSoundRoundQueue, buildSkillMasterySummary, getAvailableStageQuestions,
     getItemMasteryStateKey, getQuestionItemKey, handleAssessmentEvidenceImageError, normalizeItemMasteryRow,
-    persistCompletedAssessmentAttempt, pickQuestion, prioritizeCoverageQuestions, resetInitialSoundRoundQueue, reviseLastAnswer,
+    persistCompletedAssessmentAttempt, pickQuestion, prioritizeCoverageQuestions, resetInitialSoundRoundQueue, retryCompletedAssessment, reviseLastAnswer,
     shouldShowImage, speakText,
   } = createAssessmentRoundController({
+    pendingAssessmentCompletionRef, assessmentCompletionOwner, setAssessmentSaveState,
     allQuestionsRef, answerHistory, answerHistoryRef, answerInFlightRef,
     assessmentActiveRef, assessmentMediaPickerRef, assessmentMediaUsageRef, assessmentMode,
     currentQuestion, currentSkillIndex, currentStage, excludeSessionMediaFailures,
@@ -2577,6 +2596,11 @@ export default function App() {
 
   async function startAssessment(stageIndex = currentSkillIndex, options = {}) {
     if (!ensureTeacherAssessmentEvidenceReady(options?.verifiedEvidenceSyncStatus)) return;
+    const startNavigationRevision = appViewNavigationRevisionRef.current;
+    const runRevision = (pendingAssessmentCompletionRef.revision || 0) + 1;
+    pendingAssessmentCompletionRef.revision = runRevision;
+    pendingAssessmentCompletionRef.current = null;
+    setAssessmentSaveState(null);
     answerInFlightRef.current = false;
     resetFailedAssessmentMedia();
     const nextStageIndex = Number.isFinite(stageIndex) ? stageIndex : currentSkillIndex;
@@ -2590,12 +2614,18 @@ export default function App() {
         ensureAssessmentMediaPicker()
       ]);
     } catch (error) {
+      if (pendingAssessmentCompletionRef.owner !== assessmentCompletionOwner
+        || pendingAssessmentCompletionRef.revision !== runRevision
+        || appViewNavigationRevisionRef.current !== startNavigationRevision) return;
       console.warn("Could not load assessment skill bank.", { skillId: nextStage.id, error });
       setAssessmentTransitioning(false);
       setMessage("Could not load this assessment. Please try again.");
       return;
     }
 
+    if (pendingAssessmentCompletionRef.owner !== assessmentCompletionOwner
+      || pendingAssessmentCompletionRef.revision !== runRevision
+        || appViewNavigationRevisionRef.current !== startNavigationRevision) return;
     resetInitialSoundRoundQueue();
     initialSoundRoundMetaRef.current = null;
     // Heads-up (not a blocker) when a skill's bank is too thin for a full
@@ -3103,6 +3133,8 @@ export default function App() {
       PASS_SCORE, ROUND_LENGTH, adminClasses, adminConfirm, adminConfirmBusy, adminDeleteClass,
       adminDeleteStudent, adminLoading, adminPendingAccounts, adminPendingAccountsWarning, adminSchools, adminSetTeacherSchool,
       adminStudents, adminTeachers, allQuestions, allowPassageAudio, answerHistory, answerQuestion, appView,
+      assessmentSaveState: assessmentSaveState?.owner === assessmentCompletionOwner ? assessmentSaveState : null,
+      retryCompletedAssessment,
       applyStudentSession, archivedStudentList, assessmentFullscreen, assessmentHistory, assessmentHistoryReadState, assessmentMode, assessmentTransitioning,
       assignQuestPractice, authDisplayName, authEmail, authLoading, authMessage, authMode, awaitingEmailConfirmation,
       resendEmailConfirmation, nudgeTeacherAccountReview, teacherAccountNudgeBusy, pendingAccountAlert,

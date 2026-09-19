@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 
 import "./index.css";
@@ -10,6 +10,8 @@ import { AssessmentPage } from "./components/AppPages.jsx";
 import { StudentSessionNotice } from "./components/student-sessions/StudentSessionNotice.jsx";
 import { refillAssessmentRoundAfterMediaFailure } from "./policy/assessmentMediaEvidence.js";
 import { importV3Bank } from "./data/v3/v3Registry.js";
+import { createAssessmentRoundController } from "./appState/assessmentRoundController.js";
+import { buildAssessmentAttemptRecord } from "./data/assessmentHistoryStore.js";
 
 const BROKEN_SOURCE = "/images/assessment/does-not-exist-a3-10.webp";
 const PREVIEW_PARAMS = new URLSearchParams(window.location.search);
@@ -254,8 +256,75 @@ export function AssessmentMediaEvidencePreview({ inspectedQuestion = null }) {
   );
 }
 
+// Exercise the real completion/retry controller without requiring a classroom
+// account. Browser checks replace only the Supabase transport for this preview.
+const COMPLETION_PREVIEW_STAGE = { id: "cvc_short_vowels", label: "CVC words" };
+function AssessmentCompletionPreview() {
+  const stage = COMPLETION_PREVIEW_STAGE;
+  const [assessmentSaveState, setAssessmentSaveState] = useState(null);
+  const [appView, setAppView] = useState("assessment");
+  const [roundAnswers, setRoundAnswers] = useState(Array(10).fill(true));
+  const answerHistoryRef = useRef([]);
+  const answerInFlightRef = useRef(false);
+  const roundItemKeysRef = useRef([]);
+  const roundQuestionIdsRef = useRef([]);
+  const pendingAssessmentCompletionRef = useRef(null);
+  const assessmentCompletionOwner = "completion-preview";
+  pendingAssessmentCompletionRef.owner = assessmentCompletionOwner;
+  const noop = () => {};
+  const { retryCompletedAssessment } = createAssessmentRoundController({
+    answerHistoryRef, answerInFlightRef, roundItemKeysRef, roundQuestionIdsRef,
+    pendingAssessmentCompletionRef, assessmentCompletionOwner, setAssessmentSaveState,
+    studentId: "11111111-1111-4111-8111-111111111111",
+    studentSessionToken: "synthetic-preview-token",
+    studentFocusSession: {
+      id: "33333333-3333-4333-8333-333333333333", target: "skills_assessment",
+      teacher_id: "22222222-2222-4222-8222-222222222222",
+      resolved_config: { skill_id: stage.id, level: 1, phase: 1 }
+    },
+    ROUND_LENGTH: 10, setAppView, setRoundAnswers,
+    setAssessmentTransitioning: noop, setMessage: noop, setAssessmentHistory: noop,
+    setMastery: noop, setCheckpointDecision: noop, setRoundItemKeys: noop,
+    setRoundQuestionIds: noop, resetAssessmentMediaUsage: noop,
+    setCurrentQuestion: noop, setFeedback: noop
+  });
+  const beginRef = useRef(retryCompletedAssessment);
+  useEffect(() => {
+    const attemptRecord = buildAssessmentAttemptRecord({
+      studentId: "11111111-1111-4111-8111-111111111111",
+      teacherId: "22222222-2222-4222-8222-222222222222",
+      stage, assessmentType: "skill_checkpoint",
+      checkpoint: { pathStatus: { level: 1, phase: 1 }, passed: true },
+      questionRecords: Array.from({ length: 10 }, (_, index) => ({
+        questionId: `preview-full-round-question-${index}`,
+        skillId: stage.id, question: "Find cat", chosen: "cat", correct: "cat",
+        isCorrect: true, answeredAt: "2026-09-19T00:00:00.000Z"
+      }))
+    });
+    pendingAssessmentCompletionRef.current = { attemptRecord, checkpoint: {}, stage, score: 10, mastered: false };
+    void beginRef.current();
+  }, [stage]);
+  return (
+    <div className="app student-mode-app no-sidebar lp-skin-sage">
+      {appView === "checkpoint" ? <main className="student-focus-complete"><h1>All done!</h1></main> : (
+        <AssessmentPage
+          currentStage={stage} currentQuestion={null} feedback={null}
+          setFeedback={noop} pickQuestion={noop} roundAnswers={roundAnswers}
+          roundLength={10} roundProgress={100} assessmentMode="mastery"
+          assessmentSaveState={assessmentSaveState}
+          retryCompletedAssessment={retryCompletedAssessment}
+          independentAssessment
+          sessionNotice={<StudentSessionNotice placement="inline" session={{ target: "skills_assessment" }} />}
+        />
+      )}
+    </div>
+  );
+}
+
 const root = createRoot(document.getElementById("root"));
-if (REQUESTED_SKILL) {
+if (PREVIEW_PARAMS.get("scenario") === "completion-recovery") {
+  root.render(<AssessmentCompletionPreview />);
+} else if (REQUESTED_SKILL) {
   const questions = await importV3Bank(REQUESTED_SKILL);
   const inspectedQuestion = questions.find(question => question.id === REQUESTED_ITEM_ID) || questions[0] || null;
   root.render(<AssessmentMediaEvidencePreview inspectedQuestion={inspectedQuestion} />);

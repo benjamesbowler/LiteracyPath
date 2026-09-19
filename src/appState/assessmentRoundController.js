@@ -55,6 +55,7 @@ export function createAssessmentRoundController(context) {
     studentName, teacherId, usedByStage, weaknessSnapshot,
     studentFocusSession = null, studentSessionToken = "", studentSessionTeacherId = "",
     onStudentFocusAssessmentComplete = null,
+    pendingAssessmentCompletionRef, assessmentCompletionOwner, setAssessmentSaveState,
   } = context;
   if (!assessmentSummarySaves.has(answerHistoryRef)) {
     assessmentSummarySaves.set(answerHistoryRef, { current: Promise.resolve() });
@@ -70,6 +71,12 @@ export function createAssessmentRoundController(context) {
     || studentFocusSession?.teacher_id
     || studentSessionTeacherId
     || "local";
+
+  const assessmentCompletionRevision = pendingAssessmentCompletionRef?.revision || 0;
+  function isCurrentAssessmentRun() {
+    return pendingAssessmentCompletionRef?.owner === assessmentCompletionOwner
+      && (pendingAssessmentCompletionRef?.revision || 0) === assessmentCompletionRevision;
+  }
 
   function makeEvidenceEventId(prefix = "evidence") {
     if (globalThis.crypto?.randomUUID) return globalThis.crypto.randomUUID();
@@ -1159,7 +1166,7 @@ export function createAssessmentRoundController(context) {
             mastered: row.mastered
           }
         });
-        return { error: data?.ok === false ? new Error(data.error || "student_focus_item_mastery_failed") : null, row };
+        return { error: data?.ok !== true ? new Error(data?.error || "student_focus_item_mastery_failed") : null, row };
       } catch (error) {
         return { error, row };
       }
@@ -1256,7 +1263,7 @@ export function createAssessmentRoundController(context) {
 
   async function persistCompletedAssessmentAttempt(
     attemptRecord,
-    { mergeIntoMastery = false, deriveMastery = true } = {}
+    { mergeIntoMastery = false, deriveMastery = true, isCurrent = () => true } = {}
   ) {
     if (!attemptRecord?.studentId) return null;
 
@@ -1306,10 +1313,11 @@ export function createAssessmentRoundController(context) {
           sessionId: studentFocusSession.id,
           attempt: independentAttempt
         });
-        if (data?.ok === false) {
+        if (data?.ok !== true) {
           console.warn("Independent assessment archive was rejected.", data);
           return null;
         }
+        if (!isCurrent()) return null;
         setAssessmentHistory(previous => mergeAssessmentAttemptRecords(previous, [independentAttempt]));
         onStudentFocusAssessmentComplete?.(studentFocusSession.id);
         return {
@@ -1335,6 +1343,7 @@ export function createAssessmentRoundController(context) {
         console.warn("Assessment attempt was not durably saved to either local or cloud storage.", saveResult);
         return null;
       }
+      if (!isCurrent()) return null;
       // A rebuildable mastery summary must never get ahead of the immutable
       // assessment evidence. Merge only after at least one durable copy of the
       // attempt exists; otherwise a refused save would still change the
@@ -1440,8 +1449,8 @@ export function createAssessmentRoundController(context) {
             phase: assignedStep.phase ?? normalizedRecord.itemPhase
           }
         });
-        return data?.ok === false
-          ? { durable: false, error: new Error(data.error || "student_focus_answer_failed") }
+        return data?.ok !== true
+          ? { durable: false, error: new Error(data?.error || "student_focus_answer_failed") }
           : { durable: true, duplicate: Boolean(data?.duplicate), error: null };
       } catch (error) {
         return { durable: false, error };
@@ -1822,6 +1831,7 @@ export function createAssessmentRoundController(context) {
       setAnswerHistory(answerHistoryRef.current);
       setTotalAnswered(n => n + 1);
       answerPersistence = await saveAnswerToSupabase(answerRecord);
+      if (!isCurrentAssessmentRun()) return;
       if (answerPersistence?.durable) {
         void updateItemMastery(
           { ...answeredQuestion, source: "assessment" },
@@ -1907,6 +1917,7 @@ export function createAssessmentRoundController(context) {
       // writes. Drain its ordered summaries at completion, while ordinary
       // between-question interaction remains independent of their latency.
       await assessmentSummarySaveRef.current;
+      if (!isCurrentAssessmentRun()) return;
       const score = nextRound.filter(Boolean).length;
       const accuracyPassed = score >= PASS_SCORE;
       const nextRoundCorrectItemKeys = nextRoundItemKeys.filter((key, index) => nextRound[index] && key);
@@ -2014,22 +2025,53 @@ export function createAssessmentRoundController(context) {
         }
       });
 
-      const attemptPersistence = await persistCompletedAssessmentAttempt(attemptRecord);
+      if (!isCurrentAssessmentRun()) return;
+      pendingAssessmentCompletionRef.current = { attemptRecord, checkpoint, stage, score, mastered };
+      setRoundAnswers(nextRound);
+      setCurrentQuestion(null);
+      setFeedback(null);
+      await retryCompletedAssessment();
+      return;
+    } else {
+      setRoundAnswers(nextRound);
+    }
+
+    setFeedback({
+      question: answeredQuestion,
+      answerEventId: answerRecord.answerEventId,
+      skillId: answeredQuestion.skillId,
+      isCorrect,
+      chosen: submittedAnswer,
+      correct: correctAnswer,
+      skill: answeredQuestion.skill,
+      explanation: getTeachingTip(answeredQuestion, submittedAnswer, isCorrect),
+      support: buildFeedbackSupport(answeredQuestion, submittedAnswer),
+      autoAdvance: false
+    });
+    setAssessmentTransitioning(false);
+
+    setCurrentQuestion(null);
+    answerInFlightRef.current = false;
+  }
+
+  async function retryCompletedAssessment() {
+    const pending = pendingAssessmentCompletionRef.current;
+    if (!pending || pending.saving || !isCurrentAssessmentRun()) return;
+    const isCurrent = () => pendingAssessmentCompletionRef.current === pending
+      && isCurrentAssessmentRun();
+    const { attemptRecord, checkpoint, stage, score, mastered } = pending;
+    pending.saving = true;
+    answerInFlightRef.current = true;
+    setAssessmentTransitioning(false);
+    setMessage("");
+    setAssessmentSaveState({ owner: assessmentCompletionOwner, status: "saving" });
+    try {
+      const attemptPersistence = await persistCompletedAssessmentAttempt(attemptRecord, { isCurrent });
+      if (!isCurrent()) return;
       if (!attemptPersistence) {
-        setMessage("This assessment could not be saved on this device or to the cloud, so it was not marked complete. Return to the assessment list and run it again when storage is available.");
-        setRoundAnswers([]);
-        setRoundItemKeys([]);
-        setRoundQuestionIds([]);
-        roundItemKeysRef.current = [];
-        roundQuestionIdsRef.current = [];
-        setCurrentQuestion(null);
-        setFeedback(null);
-        setAssessmentTransitioning(false);
-        setAppView(APP_VIEWS.ASSESSMENTS);
-        answerInFlightRef.current = false;
+        setAssessmentSaveState({ owner: assessmentCompletionOwner, status: "error" });
         return;
       }
-
       // Recency is authoritative. A later failed retake must surface as review,
       // never remain silently green because an old boolean was ratcheted true.
       const retainedMastery = mastered;
@@ -2055,6 +2097,7 @@ export function createAssessmentRoundController(context) {
         retainedMastery,
         attemptRecord.attemptId
       );
+      if (!isCurrent()) return;
       if (!masteryPersistence?.durable) {
         setMessage("The completed assessment is safely archived, but its dashboard summary could not be queued. The saved results will remain available for recovery.");
       }
@@ -2069,29 +2112,14 @@ export function createAssessmentRoundController(context) {
       setCurrentQuestion(null);
       setFeedback(null);
       setAssessmentTransitioning(false);
+      pendingAssessmentCompletionRef.current = null;
+      setAssessmentSaveState(null);
       setAppView(APP_VIEWS.CHECKPOINT);
       answerInFlightRef.current = false;
-      return;
-    } else {
-      setRoundAnswers(nextRound);
+    } finally {
+      pending.saving = false;
+      if (isCurrent()) answerInFlightRef.current = false;
     }
-
-    setFeedback({
-      question: answeredQuestion,
-      answerEventId: answerRecord.answerEventId,
-      skillId: answeredQuestion.skillId,
-      isCorrect,
-      chosen: submittedAnswer,
-      correct: correctAnswer,
-      skill: answeredQuestion.skill,
-      explanation: getTeachingTip(answeredQuestion, submittedAnswer, isCorrect),
-      support: buildFeedbackSupport(answeredQuestion, submittedAnswer),
-      autoAdvance: false
-    });
-    setAssessmentTransitioning(false);
-
-    setCurrentQuestion(null);
-    answerInFlightRef.current = false;
   }
 
   function reviseLastAnswer(answeredQuestion = {}, answerEventId = "") {
@@ -2479,7 +2507,7 @@ export function createAssessmentRoundController(context) {
   return {
     answerQuestion, buildInitialSoundRoundQueue, buildSkillMasterySummary, getAvailableStageQuestions,
     getItemMasteryStateKey, getQuestionItemKey, handleAssessmentEvidenceImageError, normalizeItemMasteryRow,
-    persistCompletedAssessmentAttempt, pickQuestion, prioritizeCoverageQuestions, resetInitialSoundRoundQueue, reviseLastAnswer,
+    persistCompletedAssessmentAttempt, pickQuestion, prioritizeCoverageQuestions, resetInitialSoundRoundQueue, retryCompletedAssessment, reviseLastAnswer,
     shouldShowImage, speakText, updateItemMastery,
   };
 }

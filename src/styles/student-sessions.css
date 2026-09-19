@@ -548,7 +548,13 @@
 
 .student-session-notice--header {
   flex: 0 1 420px;
+  min-width: 0;
+  grid-template-columns: auto minmax(0, 1fr);
   margin-left: auto;
+}
+
+.student-session-notice--header small {
+  white-space: normal;
 }
 
 .student-session-notice--inline {
@@ -557,10 +563,12 @@
 }
 
 .assessment-shell > .student-session-notice--inline {
+  flex: 0 0 auto;
   align-self: flex-end;
 }
 
 .kg-stage .kg-profile:not(.kg-profile--interactive) {
+  flex-shrink: 0;
   cursor: default;
 }
 
@@ -589,6 +597,17 @@
 }
 
 @media (max-width: 720px) {
+  .student-session-notice--header {
+    padding: 6px 8px;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  .student-session-notice--header small {
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
   .student-session-setup {
     width: min(100%, calc(100vw - 20px));
     max-height: calc(100dvh - 20px);

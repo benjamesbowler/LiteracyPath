@@ -221,8 +221,27 @@ function Surface() {
           onSessionStart={() => markDestination("student-home")}
         />
       );
-    case "phonics":
-      return <PreviewShell active="phonics"><div className="student-surface-frame student-surface-phonics"><PhonicsLearnPage initialIsland={PREVIEW_PARAMS.get("island") || "letters"} initialStep={Number(PREVIEW_PARAMS.get("step")) || 1} progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
+    case "phonics": {
+      const lockedToLetters = PREVIEW_PARAMS.get("lockedLetters") === "1";
+      const focusNotice = lockedToLetters ? (
+        <StudentSessionNotice connection="connected" placement="header" session={{
+          id: "focus-preview-letters",
+          target: "letters_practice"
+        }} />
+      ) : null;
+      return (
+        <PreviewShell active="phonics" focusLocked={lockedToLetters} headerActions={focusNotice}>
+          <div className="student-surface-frame student-surface-phonics">
+            <PhonicsLearnPage
+              initialIsland={PREVIEW_PARAMS.get("island") || "letters"}
+              initialStep={Number(PREVIEW_PARAMS.get("step")) || 1}
+              lockedToLetters={lockedToLetters}
+              progressScopeKey={PREVIEW_SCOPE}
+            />
+          </div>
+        </PreviewShell>
+      );
+    }
     case "arcade":
       // The preview-only token is accepted only by the injected client. Passing
       // it explicitly keeps the production same-origin student session intact.
