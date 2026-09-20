@@ -1,0 +1,277 @@
+/* Skills keep their evidence and scoring; their response surface shares the
+   woodland chapter's physical pads, spacious stage and separate replay. */
+.assessment-shell.woodland-assessment {
+  width: 100%;
+  max-width: none;
+  padding: clamp(12px, 2vw, 28px);
+  gap: clamp(12px, 2vh, 22px);
+  border-radius: 24px;
+  --lp-color-primary: #486850;
+  --lp-color-primary-strong: #365846;
+  --lp-color-primary-soft: #e8edce;
+  --lp-color-text-strong: #365846;
+}
+.woodland-assessment .assessment-topbar {
+  position: relative;
+  top: auto;
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  gap: 14px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.woodland-assessment .assessment-meta { gap: 6px; flex: 1 1 240px; }
+.woodland-assessment .assessment-meta h1 {
+  color: var(--wa-ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(20px, 2.4vw, 32px);
+  line-height: 1.15;
+  font-weight: 500;
+  white-space: normal;
+}
+.woodland-assessment .assessment-meta > span { color: #536b52; font-size: 12px; }
+.woodland-assessment .assessment-question-level { background: #fff9e899; border: 1px solid #bcc8a5; }
+.woodland-assessment .assessment-progress { flex: 0 1 230px; }
+.woodland-assessment .assessment-progress .progress-label { color: #365846; font-size: 13px; line-height: 1.5; }
+.woodland-assessment .progress-bar { height: 8px; background: #cbd5b6; }
+.woodland-assessment .progress-fill { background: #52734c; }
+.woodland-assessment .assessment-progress-dots { margin-top: 6px; }
+.woodland-assessment .assessment-progress-dots span { background: #c8d0b4; }
+.woodland-assessment .assessment-progress-dots span.complete { background: #52734c; }
+.woodland-assessment .assessment-progress-dots span.current { background: #b39451; }
+.woodland-assessment .assessment-card,
+.woodland-assessment .letter-focus-card {
+  width: 100%;
+  max-width: none;
+  max-height: none;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: inherit;
+}
+.woodland-assessment .assessment-question-layout { gap: clamp(14px, 2.8vh, 28px); padding: 10px 16px 22px; }
+.woodland-assessment .assessment-prompt {
+  flex: 0 0 auto;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0;
+}
+.woodland-assessment .assessment-prompt h2 { color: var(--wa-ink); font: inherit; font-size: clamp(19px, 2vw, 28px); line-height: 1.5; text-align: center; }
+.woodland-assessment .assessment-prompt .assessment-audio-button { width: auto; padding-inline: 20px; }
+.woodland-assessment .assessment-stimulus:empty { display: none; }
+.woodland-assessment .assessment-stimulus { flex: 0 0 auto; gap: 12px; }
+.woodland-assessment .assessment-main-image-wrap {
+  width: min(380px, 70%);
+  min-height: 0;
+  padding: 14px 24px 20px;
+  background: var(--wa-cream);
+  border: 4px solid var(--wa-edge);
+  border-radius: 45% 48% 44% 46%;
+  box-shadow: 0 8px 0 var(--wa-shadow), 0 15px 24px #29443414;
+}
+.woodland-assessment .assessment-main-image-wrap .assessment-main-image {
+  width: 100%;
+  height: clamp(100px, 18vh, 165px);
+  max-height: 165px !important;
+  object-fit: contain;
+  border-radius: 0;
+  mix-blend-mode: multiply;
+}
+.woodland-assessment .woodland-scene-assessment .assessment-main-image-wrap { width: min(540px, 88%); border-radius: 28px; }
+.woodland-assessment .woodland-scene-assessment .assessment-main-image-wrap .assessment-main-image { height: clamp(150px, 26vh, 235px); max-height: 235px !important; }
+.woodland-assessment .assessment-stimulus-audio { right: -12px; bottom: -10px; background: #486850 !important; color: #fff9e8 !important; }
+.woodland-assessment .assessment-listening-panel { width: 190px; min-height: 150px; border: 0; background: transparent; }
+.woodland-assessment .assessment-listening-visual { color: var(--wa-ink); border: 3px solid var(--wa-edge); background: var(--wa-cream); box-shadow: 0 7px 0 var(--wa-shadow); }
+.woodland-assessment .assessment-question-layout :is(.visual-card-grid, .initial-sound-card-grid, .ixl-answer-grid, .assessment-answer-grid) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  width: min(100%, 980px);
+  margin: auto auto 0;
+  gap: clamp(16px, 3vw, 38px);
+  align-items: start;
+  justify-content: center;
+}
+.woodland-assessment .assessment-question-layout :is(.visual-card-choice-panel, .initial-sound-pair-panel, .ixl-template-panel) { gap: 18px; width: 100%; }
+.woodland-assessment :is(.visual-assessment-card, .initial-sound-card, .ixl-answer-card, .choice-wrap) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .ixl-answer-button, .assessment-answer-card) {
+  position: relative;
+  width: 100%;
+  min-width: 56px;
+  min-height: clamp(120px, 19vh, 185px) !important;
+  padding: clamp(10px, 1.5vw, 20px) !important;
+  gap: 8px;
+  border: 4px solid var(--wa-edge) !important;
+  border-radius: 48% 52% 45% 55% / 54% 46% 54% 46% !important;
+  color: var(--wa-ink) !important;
+  background: var(--wa-cream) !important;
+  box-shadow: 0 8px 0 var(--wa-shadow), 0 13px 20px #29443420;
+  font-family: inherit;
+  font-size: clamp(22px, 2.8vw, 36px);
+  font-weight: 500;
+  line-height: 1.2;
+  transition: box-shadow 180ms var(--wa-ease), border-color 180ms ease;
+}
+.woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .ixl-answer-button, .assessment-answer-card) :is(img) {
+  height: clamp(80px, 13vh, 125px);
+  max-height: 125px;
+  width: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .ixl-answer-button) strong { font-weight: 500; font-size: clamp(18px, 2vw, 26px); }
+.woodland-assessment .letter-options .ixl-answer-button strong { font-size: clamp(36px, 5vw, 58px); }
+.woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .ixl-answer-button, .assessment-answer-card)[data-pressed='true'] { transform: none; box-shadow: 0 3px 0 var(--wa-shadow); }
+.woodland-assessment :is(.visual-assessment-card, .initial-sound-card, .ixl-answer-card).selected > button:first-child { border-color: #6d875d !important; background: #f5edcc !important; }
+.woodland-assessment :is(.visual-assessment-card, .initial-sound-card).selected > button:first-child::after { content: '✓'; position: absolute; top: -8px; right: -4px; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #486850; color: #fff9e8; font-size: 20px; }
+.woodland-assessment .assessment-audio-button {
+  position: static;
+  flex: 0 0 auto;
+  order: 2;
+  width: 56px;
+  min-width: 56px;
+  height: 56px;
+  min-height: 56px !important;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #a8b690 !important;
+  border-radius: 999px !important;
+  background: #fff9e8dc;
+  color: var(--wa-ink);
+  box-shadow: none;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+}
+/* Outrank the legacy app-wide hover lift so a held finger keeps its target. */
+.woodland-assessment.woodland-activity button:is(.visual-assessment-card-button, .initial-sound-image-button, .ixl-answer-button, .assessment-answer-card, .assessment-audio-button):is(:hover, :active, [data-pressed='true']):not(:disabled) { transform: none; }
+.woodland-assessment .assessment-stimulus-audio { position: absolute; }
+.woodland-assessment .assessment-construction-guide { color: #365846; font-size: 15px; line-height: 1.5; text-align: center; margin: 2px 0 0; }
+.woodland-assessment :is(.sound-order-build, .hfw-letter-build-sentence, .sentence-builder) { min-height: 88px; padding: 14px; border: 0; background: transparent; color: var(--wa-ink); gap: 12px; }
+.woodland-assessment :is(.sound-order-selected-tile, .sound-order-empty-slot, .hfw-letter-slot, .hfw-letter-slot.filled) {
+  min-width: 56px; width: 56px; min-height: 66px; border: 3px solid #c6c49d; border-radius: 42% 50% 38% 45%; background: #f6e6ad; color: var(--wa-ink); box-shadow: 0 6px 0 #a0a584; font: inherit; font-size: 32px;
+}
+.woodland-assessment :is(.sound-order-empty-slot, .hfw-letter-slot:not(.filled)) { border-style: dashed; background: #dce3c5; }
+.woodland-assessment .sound-order-tile-row { justify-content: center; flex-wrap: wrap; gap: 18px; }
+.woodland-assessment .sound-order-tile { min-width: 66px; min-height: 72px; font: inherit; font-size: 34px; padding: 10px 16px; }
+.woodland-assessment .sound-order-tile:disabled { opacity: .3; transform: translateY(5px); box-shadow: 0 3px 0 var(--wa-shadow); }
+.woodland-assessment .hfw-sentence-audio-button { justify-self: center; }
+.woodland-assessment .hfw-letter-build-sentence { font-size: clamp(20px, 2.8vw, 30px); line-height: 1.5; }
+.woodland-assessment .picture-sequence-order { width: min(100%, 820px); margin-inline: auto; }
+.woodland-assessment .picture-sequence-order li { background: #e1e6ca; border-color: #a3af85; min-height: 78px; gap: 8px; }
+.woodland-assessment .picture-sequence-order li > span { background: #486850; }
+.woodland-assessment .picture-sequence-order img { width: 64px; height: 60px; object-fit: contain; mix-blend-mode: multiply; }
+.woodland-assessment .picture-sequence-order strong { font-size: 12px; line-height: 1.3; }
+.woodland-assessment .picture-sequence-order .filled { border-style: solid; background: var(--wa-cream); }
+.woodland-assessment .assessment-card.comprehension-assessment-layout .comprehension-passage-card { background: var(--wa-cream); border: 1px solid var(--wa-edge); border-radius: 24px; box-shadow: 0 5px 0 var(--wa-shadow); }
+.woodland-assessment .assessment-card .comprehension-choice-list { gap: 16px; }
+.woodland-assessment .comprehension-choice-wrap { display: grid; grid-template-columns: 1fr 56px; align-items: center; gap: 18px; }
+.woodland-assessment .assessment-card .comprehension-choice-button { min-height: 60px !important; border-radius: 22px !important; font-size: 18px; }
+.woodland-assessment .assessment-feedback { align-items: center; justify-content: center; gap: 16px; background: #fff9e8cc; border: 1px solid var(--wa-edge); border-radius: 36px; }
+.woodland-assessment .assessment-feedback h2 { font-family: Georgia, serif; font-size: clamp(32px, 5vw, 54px); font-weight: 500; }
+.woodland-assessment :is(.letter-display, .pattern-display) { color: var(--wa-ink); border: 4px solid var(--wa-edge); background: var(--wa-cream); border-radius: 45% 48% 44% 46%; box-shadow: 0 8px 0 var(--wa-shadow); }
+.woodland-assessment :is(.letter-action-panel, .pattern-action-panel) { background: #fff9e8ba; border-color: #cbd5b6; border-radius: 24px; }
+.woodland-assessment .question-flag-controls { margin-top: auto; }
+.woodland-assessment .question-flag-controls button { color: #587050; }
+@media (hover: hover) {
+  .woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .ixl-answer-button, .assessment-answer-card):not(:disabled):hover { transform: none; box-shadow: 0 9px 0 var(--wa-shadow), 0 15px 22px #29443425; }
+}
+@media (max-width: 760px) {
+  .assessment-shell.woodland-assessment { padding: 10px; gap: 10px; }
+  .woodland-assessment .assessment-topbar { gap: 10px; padding: 4px; }
+  .woodland-assessment .assessment-progress { flex: 1 1 150px; }
+  .woodland-assessment .assessment-meta { flex-basis: 180px; }
+  .woodland-assessment .assessment-meta h1 { font-size: 20px; }
+  .woodland-assessment .assessment-question-layout { padding: 8px 8px 20px; gap: 18px; }
+  .woodland-assessment .assessment-question-layout :is(.visual-card-grid, .initial-sound-card-grid, .ixl-answer-grid, .assessment-answer-grid) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 18px; }
+  .woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .ixl-answer-button, .assessment-answer-card) { min-height: 130px !important; }
+  .woodland-assessment .assessment-main-image-wrap { width: min(300px, 80%); }
+  .woodland-assessment .assessment-prompt { gap: 12px; }
+  .woodland-assessment .assessment-prompt h2 { font-size: 19px; }
+  .woodland-assessment .picture-sequence-order { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .woodland-assessment .picture-sequence-order li { flex-wrap: wrap; justify-content: center; padding: 8px; }
+  .woodland-assessment .picture-sequence-order strong { text-align: center; }
+}
+@media (max-height: 740px) and (min-width: 761px) {
+  .assessment-shell.woodland-assessment { padding: 8px 18px; gap: 8px; }
+  .woodland-assessment .assessment-topbar { padding-block: 4px; }
+  .woodland-assessment .assessment-meta h1 { font-size: 22px; }
+  .woodland-assessment .assessment-meta { gap: 3px; }
+  .woodland-assessment .assessment-question-layout { gap: 14px; padding: 4px 16px 18px; }
+  .woodland-assessment .assessment-main-image-wrap { padding-block: 9px 12px; width: min(300px, 70%); }
+  .woodland-assessment .assessment-main-image-wrap .assessment-main-image { height: 110px; max-height: 110px !important; }
+  .woodland-assessment .woodland-scene-assessment .assessment-main-image-wrap { width: min(440px, 85%); }
+  .woodland-assessment .woodland-scene-assessment .assessment-main-image-wrap .assessment-main-image { height: 170px; max-height: 170px !important; }
+  .woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .ixl-answer-button, .assessment-answer-card) { min-height: 115px !important; }
+  .woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .ixl-answer-button, .assessment-answer-card) img { height: 80px; max-height: 80px; }
+  .woodland-assessment :is(.visual-assessment-card, .initial-sound-card, .ixl-answer-card, .choice-wrap) { gap: 15px; }
+}
+.woodland-assessment .assessment-construction-retry { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; padding: 12px; border-radius: 22px; background: var(--wa-cream); color: var(--wa-ink); }
+.woodland-assessment .assessment-construction-retry p { margin: 0; }
+/* Outrank the old shared assessment grid/white-card skin at its boundary. */
+.woodland-assessment .assessment-card { background: transparent !important; border: 0 !important; box-shadow: none !important; }
+.woodland-assessment .assessment-prompt { border-bottom: 0 !important; padding-bottom: 0; }
+.woodland-assessment .assessment-topbar { display: grid; grid-template-columns: minmax(160px, 1fr) minmax(125px, 180px) auto; }
+.woodland-assessment .assessment-topbar-actions { width: auto; margin: 0; flex-wrap: nowrap; }
+.woodland-assessment .assessment-topbar-actions :is(.assessment-fullscreen-button, .assessment-end-button) { min-height: 44px; padding: 8px 12px; font-size: 12px; border-radius: 999px; }
+.woodland-assessment .assessment-topbar-actions .assessment-skill-level { gap: 6px; }
+.woodland-assessment .assessment-skill-level select { max-width: 135px; min-height: 44px; padding: 7px; font-size: 12px; }
+.woodland-assessment .assessment-question-layout :is(.visual-card-grid, .initial-sound-card-grid, .ixl-answer-grid, .assessment-answer-grid) {
+  grid-template-columns: repeat(var(--assessment-choice-count, 4), minmax(0, 1fr)) !important;
+  width: min(100%, calc(var(--assessment-choice-count, 4) * 232px));
+  gap: clamp(16px, 3vw, 32px) !important;
+}
+.woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .ixl-answer-card.image-card .ixl-answer-button, .assessment-answer-card:has(img)) { max-width: 232px; min-height: 180px !important; aspect-ratio: 1.08; }
+.woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .assessment-answer-card) img { height: 125px; max-height: 125px; }
+.woodland-assessment .assessment-card .comprehension-choice-list { width: min(100%, 840px); grid-template-columns: 1fr !important; }
+.woodland-assessment .student-session-notice--inline { grid-column: 1 / -1; }
+@media (max-width: 880px) {
+  .woodland-assessment .assessment-topbar { grid-template-columns: minmax(150px, 1fr) minmax(110px, 160px); gap: 8px; }
+  .woodland-assessment .assessment-topbar-actions { grid-column: 1 / -1; justify-content: flex-end; }
+  .woodland-assessment .assessment-question-layout :is(.visual-card-grid, .initial-sound-card-grid, .ixl-answer-grid, .assessment-answer-grid) { width: min(100%, 540px); grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (max-height: 820px) and (min-width: 881px) {
+  .assessment-shell.woodland-assessment { padding: 10px 16px; gap: 10px; }
+  .woodland-assessment .assessment-meta { gap: 3px; }
+  .woodland-assessment .assessment-meta h1 { font-size: 21px; }
+  .woodland-assessment .assessment-question-layout { gap: 16px; padding-block: 4px 12px; }
+  .woodland-assessment .assessment-main-image-wrap { padding: 10px 18px 14px; width: 270px; }
+  .woodland-assessment .assessment-main-image-wrap .assessment-main-image { height: 125px; max-height: 125px !important; }
+  .woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .assessment-answer-card:has(img)) { min-height: 160px !important; max-height: 185px; }
+  .woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .assessment-answer-card) img { height: 110px; max-height: 110px; }
+}
+.woodland-assessment .assessment-meta { grid-column: 1; grid-row: 1; order: 0; }
+.woodland-assessment .assessment-progress { grid-column: 2; grid-row: 1; order: 0; width: auto; }
+.woodland-assessment .assessment-topbar-actions { grid-column: 3; grid-row: 1; order: 0; }
+.woodland-assessment .visual-assessment-card-button:not(:has(strong)),
+.woodland-assessment .initial-sound-image-button:not(:has(strong)) { grid-template-rows: minmax(0, 1fr); }
+@media (max-width: 880px) {
+  .woodland-assessment .assessment-topbar-actions { grid-column: 1 / -1; grid-row: 2; }
+  .woodland-assessment .assessment-listening-panel { min-height: 104px; }
+  .woodland-assessment .assessment-question-layout { gap: 16px; padding-block: 6px 8px; }
+  .woodland-assessment .assessment-question-layout :is(.visual-card-grid, .initial-sound-card-grid) { width: min(100%, 450px); gap: 22px 28px !important; }
+  .woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button) { min-height: 156px !important; max-height: 175px; max-width: 190px; aspect-ratio: 1.12; }
+  .woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button) img { height: 110px; max-height: 110px; }
+}
+.woodland-assessment .assessment-listening-panel { width: auto; min-height: 64px; }
+.woodland-assessment .assessment-word-replay { width: auto; min-height: 64px !important; padding: 12px 24px; border: 3px solid var(--wa-edge) !important; background: var(--wa-cream); box-shadow: 0 5px 0 var(--wa-shadow); }
+.woodland-assessment .assessment-topbar-actions :is(.assessment-fullscreen-button, .assessment-end-button) { background: #fff9e866 !important; color: var(--wa-ink) !important; border: 1px solid #a8b690 !important; box-shadow: none !important; }
+.woodland-assessment .letter-focus-card { background: transparent !important; border: 0 !important; box-shadow: none !important; }
+.woodland-assessment .sound-order-tile-row { display: flex; align-items: center; justify-content: center; }
+.woodland-assessment .sound-order-tile { flex: 0 0 auto; width: auto; min-width: 72px; }
+.woodland-assessment .hfw-sentence-audio-button { order: 0; width: auto; padding-inline: 20px; }
+@media (max-height: 820px) and (min-width: 881px) {
+  .woodland-assessment .woodland-scene-assessment .assessment-main-image-wrap .assessment-main-image { height: 175px; max-height: 175px !important; }
+}

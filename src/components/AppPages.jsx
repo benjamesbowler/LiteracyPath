@@ -2,6 +2,10 @@
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import "../styles/assessment.css";
+import "./activities/woodland-activity.css";
+import "./assessment/woodland-assessment.css";
+import { AssessmentConstructionStatus } from "./assessment/AssessmentConstructionStatus.jsx";
+import { useAssessmentCompletion } from "./assessment/useAssessmentCompletion.js";
 import {
   getTargetWordAudioPath,
   SHORT_VOWEL_LISTEN_PROMPT
@@ -31,7 +35,6 @@ import { RouteLoadingFallback } from "./RouteLoadingFallback.jsx";
 import { TeacherRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { TeacherSurfaceState } from "./teacher/ui/TeacherSurfaceState.jsx";
 import {
-  getAssessmentDecorativeMediaProps,
   getAssessmentEvidenceAccessibleName,
   getAssessmentMainImageLabel
 } from "../policy/assessmentMediaEvidence.js";
@@ -356,6 +359,7 @@ function PairSelectionQuestion({
   onEvidenceImageError
 }) {
   const [selectedWords, setSelectedWords] = useState([]);
+  const { complete, pending, error, retry } = useAssessmentCompletion(currentQuestion.id, answerQuestion);
   const showCardAudio = true;
   const isFinalSoundsPair = currentQuestion?.skillId === "final_sounds" || currentQuestion?.questionType === "final_sound_pair";
 
@@ -364,22 +368,17 @@ function PairSelectionQuestion({
   }, [currentQuestion.id]);
 
   function toggleWord(word) {
-    setSelectedWords(previous => {
-      if (previous.includes(word)) {
-        return previous.filter(item => item !== word);
-      }
-
-      if (previous.length >= 2) {
-        return [previous[1], word];
-      }
-
-      return [...previous, word];
-    });
+    if (pending) return;
+    const next = selectedWords.includes(word)
+      ? selectedWords.filter(item => item !== word)
+      : [...selectedWords, word];
+    setSelectedWords(next);
+    if (next.length === 2) complete(next);
   }
 
   return (
     <div className={isFinalSoundsPair ? "initial-sound-pair-panel final-sounds-pair-panel" : "initial-sound-pair-panel"}>
-      <div className={isFinalSoundsPair ? "initial-sound-card-grid final-sounds-pair-grid" : "initial-sound-card-grid"}>
+      <div className={isFinalSoundsPair ? "initial-sound-card-grid final-sounds-pair-grid" : "initial-sound-card-grid"} style={{ "--assessment-choice-count": currentQuestion.imageCards?.length || 4 }} role="group" aria-label="Choose two pictures">
         {(currentQuestion.imageCards || []).map(card => {
           const label = getAnswerOptionLabel(card) || card.word;
           const value = getAnswerOptionValue(card) || label;
@@ -398,6 +397,7 @@ function PairSelectionQuestion({
               <ActivityButton
                 className={isFinalSoundsPair ? "initial-sound-image-button final-sounds-pair-image-button" : "initial-sound-image-button"}
                 onClick={() => toggleWord(value)}
+                disabled={pending}
                 aria-pressed={selected}
                 aria-label={`Select picture for ${label}`}
                 type="button"
@@ -428,14 +428,9 @@ function PairSelectionQuestion({
         })}
       </div>
 
-      <ActivityButton
-        className={isFinalSoundsPair ? "main-button initial-sound-submit final-sounds-pair-submit" : "main-button initial-sound-submit"}
-        disabled={selectedWords.length !== 2}
-        onClick={() => answerQuestion(selectedWords)}
-        type="button"
-      >
-        Submit
-      </ActivityButton>
+      <AssessmentConstructionStatus pending={pending} error={error} onRetry={retry} readyText="Pair ready…">
+        {`Choose two pictures. ${selectedWords.length} of 2 chosen.`}
+      </AssessmentConstructionStatus>
     </div>
   );
 }
@@ -447,6 +442,7 @@ function VisualCardChoiceQuestion({
   onEvidenceImageError
 }) {
   const [selectedValues, setSelectedValues] = useState([]);
+  const { complete, pending, error, retry } = useAssessmentCompletion(currentQuestion.id, answerQuestion);
   const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
   const showCardAudio = true;
   const requiredSelections = Math.max(1, Number(currentQuestion.requiredSelections || currentQuestion.correctAnswers?.length || 1));
@@ -463,16 +459,17 @@ function VisualCardChoiceQuestion({
   }, [currentQuestion.id]);
 
   function toggleValue(value) {
-    setSelectedValues(previous => {
-      if (previous.includes(value)) return previous.filter(item => item !== value);
-      if (previous.length >= requiredSelections) return [...previous.slice(1), value];
-      return [...previous, value];
-    });
+    if (pending) return;
+    const next = selectedValues.includes(value)
+      ? selectedValues.filter(item => item !== value)
+      : [...selectedValues, value];
+    setSelectedValues(next);
+    if (next.length === requiredSelections) complete(next);
   }
 
   return (
     <div className={panelClassName}>
-      <div className={gridClassName}>
+      <div className={gridClassName} style={{ "--assessment-choice-count": currentQuestion.imageCards?.length || 4 }} role="group" aria-label="Picture choices">
         {(currentQuestion.imageCards || []).map(card => {
           const label = getAnswerOptionLabel(card) || card.word;
           const value = getAnswerOptionValue(card) || label;
@@ -488,7 +485,8 @@ function VisualCardChoiceQuestion({
               key={card.id || value}
             >
               <ActivityButton
-                className="visual-assessment-card-button"
+                className="visual-assessment-card-button wa-choice"
+                disabled={pending}
                 onClick={() => isMultiSelect ? toggleValue(value) : answerQuestion(value)}
                 aria-label={isMultiSelect ? `Select ${label}` : `Choose ${label}`}
                 aria-pressed={isMultiSelect ? selected : undefined}
@@ -523,14 +521,9 @@ function VisualCardChoiceQuestion({
       </div>
 
       {isMultiSelect && (
-        <ActivityButton
-          className="main-button initial-sound-submit"
-          disabled={selectedValues.length !== requiredSelections}
-          onClick={() => answerQuestion(selectedValues)}
-          type="button"
-        >
-          Submit {selectedValues.length}/{requiredSelections}
-        </ActivityButton>
+        <AssessmentConstructionStatus pending={pending} error={error} onRetry={retry} readyText="Pictures ready…">
+          {`Choose ${requiredSelections} pictures. ${selectedValues.length} chosen.`}
+        </AssessmentConstructionStatus>
       )}
     </div>
   );
@@ -554,17 +547,19 @@ function PictureSequenceOrderQuestion({
     return offset === 0 ? [...rotated].reverse() : rotated;
   }, [currentQuestion.id, sourceCards]);
   const [orderedValues, setOrderedValues] = useState([]);
+  const { complete, pending, error, retry } = useAssessmentCompletion(currentQuestion.id, answerQuestion);
 
   useEffect(() => {
     setOrderedValues([]);
   }, [currentQuestion.id]);
 
   function choose(card) {
-    setOrderedValues(previous => (
-      previous.includes(card.value)
-        ? previous.filter(value => value !== card.value)
-        : [...previous, card.value]
-    ));
+    if (pending) return;
+    const next = orderedValues.includes(card.value)
+      ? orderedValues.filter(value => value !== card.value)
+      : [...orderedValues, card.value];
+    setOrderedValues(next);
+    if (next.length === sourceCards.length) complete(next.join(" → "));
   }
 
   return (
@@ -574,21 +569,30 @@ function PictureSequenceOrderQuestion({
           const value = orderedValues[index];
           const card = sourceCards.find(candidate => candidate.value === value);
           return (
-            <li key={`sequence-slot-${index}`}>
+            <li className={card ? "filled" : "waiting"} key={`sequence-slot-${index}`}>
               <span>{index + 1}</span>
+              {card && <AssessmentEvidenceImage
+                src={card.image || card.imagePath}
+                alt={card.alt}
+                label={card.label}
+                role="choice"
+                currentQuestion={currentQuestion}
+                onEvidenceImageError={onEvidenceImageError}
+              />}
               <strong>{card ? (currentQuestion.hideWrittenLabels ? "Picture selected" : card.label) : "Choose a picture"}</strong>
             </li>
           );
         })}
       </ol>
 
-      <div className="visual-card-grid picture-sequence-grid">
+      <div className="visual-card-grid picture-sequence-grid" style={{ "--assessment-choice-count": displayCards.length }} role="group" aria-label="Pictures to put in order">
         {displayCards.map(card => {
           const selectedIndex = orderedValues.indexOf(card.value);
           return (
             <article className={selectedIndex >= 0 ? "visual-assessment-card selected" : "visual-assessment-card"} key={card.id || card.value}>
               <ActivityButton
-                className="visual-assessment-card-button"
+                className="visual-assessment-card-button wa-choice"
+                disabled={pending}
                 onClick={() => choose(card)}
                 aria-label={selectedIndex >= 0 ? `Remove step ${selectedIndex + 1}: ${card.label}` : `Add ${card.label} next`}
                 aria-pressed={selectedIndex >= 0}
@@ -619,25 +623,16 @@ function PictureSequenceOrderQuestion({
         })}
       </div>
 
-      <div className="button-row">
-        <ActivityButton className="reset-button" onClick={() => setOrderedValues([])} type="button">
-          Start again
-        </ActivityButton>
-        <ActivityButton
-          className="main-button"
-          disabled={orderedValues.length !== sourceCards.length}
-          onClick={() => answerQuestion(orderedValues.join(" → "))}
-          type="button"
-        >
-          Put in order
-        </ActivityButton>
-      </div>
+      <AssessmentConstructionStatus pending={pending} error={error} onRetry={retry} readyText="Picture order ready…">
+        {`Tap the pictures in order. ${orderedValues.length} of ${sourceCards.length} placed.`}
+      </AssessmentConstructionStatus>
     </div>
   );
 }
 
 function GrammarSentenceFitQuestion({ currentQuestion, answerQuestion, speakText }) {
   const [selectedOption, setSelectedOption] = useState(null);
+  const { complete, pending, error, retry } = useAssessmentCompletion(currentQuestion.id, answerQuestion);
   const answerOptions = currentQuestion.answerOptions || [];
   const normalizedAnswerOptions = answerOptions.map(option => ({
     ...normalizeAnswerOption(option),
@@ -656,7 +651,9 @@ function GrammarSentenceFitQuestion({ currentQuestion, answerQuestion, speakText
   }, [currentQuestion.id]);
 
   function selectOption(option) {
+    if (pending) return;
     setSelectedOption(option);
+    complete(option.value);
   }
 
   function handleDrop(event) {
@@ -681,7 +678,7 @@ function GrammarSentenceFitQuestion({ currentQuestion, answerQuestion, speakText
         <span>{afterBlank}</span>
       </div>
 
-      <div className="ixl-answer-grid four-options">
+      <div className="ixl-answer-grid four-options" style={{ "--assessment-choice-count": normalizedAnswerOptions.length }} role="group" aria-label="Sentence choices">
         {normalizedAnswerOptions.map((option, index) => {
           const audioPath = getApprovedAudioPath(option.label, option.media.audio || "");
           const selected = selectedOption?.value === option.value;
@@ -692,7 +689,8 @@ function GrammarSentenceFitQuestion({ currentQuestion, answerQuestion, speakText
               key={`${option.value}-${index}`}
             >
               <ActivityButton
-                className="ixl-answer-button"
+                className="ixl-answer-button wa-choice"
+                disabled={pending}
                 draggable
                 onClick={() => selectOption(option)}
                 onDragStart={event => event.dataTransfer.setData("text/plain", option.value)}
@@ -714,23 +712,9 @@ function GrammarSentenceFitQuestion({ currentQuestion, answerQuestion, speakText
         })}
       </div>
 
-      <div className="button-row ixl-template-actions">
-        <ActivityButton
-          className="reset-button"
-          onClick={() => setSelectedOption(null)}
-          type="button"
-        >
-          Reset
-        </ActivityButton>
-        <ActivityButton
-          className="main-button"
-          disabled={!selectedOption}
-          onClick={() => answerQuestion(selectedOption.value)}
-          type="button"
-        >
-          Submit
-        </ActivityButton>
-      </div>
+      <AssessmentConstructionStatus pending={pending} error={error} onRetry={retry} readyText="Sentence ready…">
+        Tap a word to put it in the sentence.
+      </AssessmentConstructionStatus>
     </div>
   );
 }
@@ -742,9 +726,10 @@ function IxlStyleTemplateQuestion({
   onEvidenceImageError
 }) {
   const [selectedTiles, setSelectedTiles] = useState([]);
+  const { complete, pending, error, retry } = useAssessmentCompletion(currentQuestion.id, answerQuestion);
   const isHfwLetterBuild = isHfwLetterBuildQuestion(currentQuestion);
   const isGrammarSentenceFit = isGrammarSentenceFitQuestion(currentQuestion);
-  const isSoundOrder = currentQuestion.templateType === "PUT_SOUNDS_IN_ORDER";
+  const isSoundOrder = (currentQuestion.templateType || currentQuestion.formatType) === "PUT_SOUNDS_IN_ORDER";
   const isGraphemeChoiceItem = isGraphemeChoiceQuestion(currentQuestion);
   const isShortVowelWordChoiceItem = isShortVowelWordChoiceQuestion(currentQuestion);
   const answerOptions = currentQuestion.answerOptions || [];
@@ -792,6 +777,7 @@ function IxlStyleTemplateQuestion({
   }
 
   function addTile(tile, index) {
+    if (pending || selectedTiles.some(item => item.index === index)) return;
     const descriptor = normalizeSoundTile(tile);
     if (descriptor.audioPath && speakText) {
       void speakText(descriptor.audioText, descriptor.audioPath, {
@@ -799,53 +785,52 @@ function IxlStyleTemplateQuestion({
         requireApprovedAudio: true
       });
     }
-    setSelectedTiles(previous => [...previous, { tile: descriptor, index }]);
+    const next = [...selectedTiles, { tile: descriptor, index }];
+    setSelectedTiles(next);
+    if (next.length === currentQuestion.soundTiles.length) {
+      complete(next.map(item => item.tile.answerValue).join(""));
+    }
   }
 
   function removeTile(index) {
+    if (pending) return;
     setSelectedTiles(previous => previous.filter((_, itemIndex) => itemIndex !== index));
   }
 
   if (isSoundOrder) {
     const tiles = currentQuestion.soundTiles || [];
     const selectedIndexes = new Set(selectedTiles.map(item => item.index));
-    const builtWord = selectedTiles.map(item => item.tile.answerValue).join("");
-    const targetLength = String(currentQuestion.correctAnswer || currentQuestion.answer || "").length;
+    const targetLength = tiles.length;
 
     return (
       <div className={isHfwLetterBuild ? "ixl-template-panel hfw-letter-build-panel" : "ixl-template-panel"}>
         <div className="sound-order-build" aria-label="Built word">
-          {selectedTiles.length === 0 && !isHfwLetterBuild ? (
-            <span className="sound-order-placeholder">
-              Tap the sounds in order
-            </span>
-          ) : (
-            selectedTiles.map((item, index) => (
+          {Array.from({ length: targetLength }, (_, index) => {
+            const item = selectedTiles[index];
+            return item ? (
               <ActivityButton
                 className="sound-order-selected-tile"
-                key={`${item.tile.answerValue}-${item.index}`}
+                disabled={pending}
+                key={`slot-${index}`}
                 onClick={() => removeTile(index)}
                 type="button"
                 aria-label={`Remove ${item.tile.label}`}
               >
                 {item.tile.display}
               </ActivityButton>
-            ))
-          )}
-          {isHfwLetterBuild && selectedTiles.length < targetLength && (
-            Array.from({ length: targetLength - selectedTiles.length }, (_, index) => (
-              <span className="sound-order-empty-slot" key={`empty-${index}`} aria-hidden="true"></span>
-            ))
-          )}
+            ) : (
+              <span className="sound-order-empty-slot" key={`slot-${index}`} aria-label={`Sound ${index + 1}`} />
+            );
+          })}
         </div>
 
-        <div className={isHfwLetterBuild ? "sound-order-tile-row hfw-letter-tile-row" : "sound-order-tile-row"}>
+        <div className={isHfwLetterBuild ? "sound-order-tile-row hfw-letter-tile-row" : "sound-order-tile-row"} role="group" aria-label="Sounds to put in order">
           {tiles.map((tile, index) => {
             const descriptor = normalizeSoundTile(tile);
             return (
               <ActivityButton
-                className="sound-order-tile"
-                disabled={selectedIndexes.has(index)}
+                className="sound-order-tile wa-choice"
+                disabled={pending || selectedIndexes.has(index)}
                 key={`${descriptor.answerValue}-${descriptor.label}-${index}`}
                 onClick={() => addTile(tile, index)}
                 type="button"
@@ -857,23 +842,9 @@ function IxlStyleTemplateQuestion({
           })}
         </div>
 
-        <div className="button-row ixl-template-actions">
-          <ActivityButton
-            className="reset-button"
-            onClick={() => setSelectedTiles([])}
-            type="button"
-          >
-            Reset
-          </ActivityButton>
-          <ActivityButton
-            className="main-button"
-            disabled={builtWord.length !== targetLength}
-            onClick={() => answerQuestion(builtWord)}
-            type="button"
-          >
-            Submit
-          </ActivityButton>
-        </div>
+        <AssessmentConstructionStatus pending={pending} error={error} onRetry={retry} readyText="Word ready…">
+          {`Tap the sounds in order. ${selectedTiles.length} of ${targetLength} placed.`}
+        </AssessmentConstructionStatus>
       </div>
     );
   }
@@ -886,7 +857,7 @@ function IxlStyleTemplateQuestion({
         </div>
       )}
 
-      <div className={answerGridClassName}>
+      <div className={answerGridClassName} style={{ "--assessment-choice-count": normalizedAnswerOptions.length }} role="group" aria-label="Answer choices">
         {normalizedAnswerOptions.map((option, index) => {
           const label = option.label;
           const value = option.value;
@@ -1047,20 +1018,6 @@ function QuestionFlagControls({
   );
 }
 
-function ListeningVisual() {
-  return (
-    <div
-      className="assessment-listening-visual"
-      {...getAssessmentDecorativeMediaProps()}
-    >
-      <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true" focusable="false">
-        <path d="M5 9.5v5h3.6l4.4 3.4V6.1L8.6 9.5H5Z" fill="currentColor" />
-        <path d="M16.4 9a4.6 4.6 0 0 1 0 6M19.2 6.2a8.6 8.6 0 0 1 0 11.6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    </div>
-  );
-}
-
 const FINAL_SOUNDS_STUDENT_PROMPT = "Listen to the word. Which sound does it end with?";
 const HFW_AUDIO_FIND_WORD_PROMPT = "Tap sound. Pick its match.";
 
@@ -1124,6 +1081,7 @@ function getStudentVisiblePrompt(question = {}) {
   const safeQuestion = question || {};
   if (isFinalSoundsEndingQuestion(safeQuestion)) return FINAL_SOUNDS_STUDENT_PROMPT;
   if (isHfwAudioFindWordQuestion(safeQuestion)) return HFW_AUDIO_FIND_WORD_PROMPT;
+  if (isHfwLetterBuildQuestion(safeQuestion)) return "Listen, then build the missing word.";
   if (isListenChooseVowelQuestion(safeQuestion)) return SHORT_VOWEL_LISTEN_PROMPT;
   return safeQuestion.prompt || safeQuestion.question || "";
 }
@@ -1262,14 +1220,14 @@ function AssessmentStimulus({
 
       {shouldShowListeningVisual && (
         <div className="assessment-listening-panel">
-          <ListeningVisual />
           {(
             <AssessmentAudioButton
               text={stimulusAudioText}
               audioPath={approvedStimulusAudioPath || rawStimulusAudioPath}
               speakText={speakText}
               label="Hear the word"
-              className="mini-audio-button assessment-stimulus-audio"
+              displayLabel="Hear the word"
+              className="mini-audio-button assessment-word-replay"
               audioRole="target_word"
               showDisabled
             />
@@ -2252,7 +2210,7 @@ export function AdvancedPhonicsPatternAssessmentPage({
   const currentPattern = patternItems[patternIndex];
 
   return (
-    <main className="assessment-shell letter-focus-shell">
+    <main className="assessment-shell woodland-activity woodland-assessment letter-focus-shell">
       {patternIndex < patternItems.length ? (
         <>
           <div className="assessment-topbar letter-topbar">
@@ -2457,7 +2415,7 @@ export function LetterAssessmentPage({
   const currentLetter = letterItems[letterIndex];
 
   return (
-    <main className="assessment-shell letter-focus-shell">
+    <main className="assessment-shell woodland-activity woodland-assessment letter-focus-shell">
       {letterIndex < letterItems.length ? (
         <>
           <div className="assessment-topbar letter-topbar">
@@ -2666,6 +2624,7 @@ export function AssessmentPage({
   independentAssessment = false,
   sessionNotice = null
 }) {
+  const reducedMotion = useReducedMotion();
   const hasCurrentQuestion = Boolean(currentQuestion);
   const safeSkillId =
     currentQuestion?.skillId ??
@@ -2710,6 +2669,8 @@ export function AssessmentPage({
   const isIxlStyleTemplate =
     hasCurrentQuestion && (
       currentQuestion?.questionType === "ixl_template" ||
+      (currentQuestion?.templateType || currentQuestion?.formatType) === "PUT_SOUNDS_IN_ORDER" ||
+      isGrammarSentenceFitQuestion(currentQuestion) ||
       isHfwLetterBuildQuestion(currentQuestion)
     );
   const isFinalSoundsEndingItem = hasCurrentQuestion && isFinalSoundsEndingQuestion(currentQuestion);
@@ -2721,7 +2682,7 @@ export function AssessmentPage({
   const isComprehensionPassageItem = hasCurrentQuestion && isComprehensionPassageQuestion(currentQuestion);
   const isHfwSkillItem = hasCurrentQuestion && String(safeSkillId || "").toLowerCase().startsWith("hfw_");
   const assessmentShellClassName = [
-    "assessment-shell",
+    "assessment-shell woodland-activity woodland-assessment",
     assessmentFullscreen ? "fullscreen" : "",
     independentAssessment ? "student-independent-assessment" : ""
   ].filter(Boolean).join(" ");
@@ -2729,13 +2690,13 @@ export function AssessmentPage({
     <div className="assessment-topbar">
       <div className="assessment-meta">
         <span>{studentName || "Unnamed student"}</span>
-        <strong>
+        <h1>
           {independentAssessment
             ? `Skills Assessment · ${safeCurrentStage.label}`
             : assessmentMode === "targetedReview"
             ? "Targeted Review"
             : `${currentSkillIndex + 1}. ${safeCurrentStage.label}`}
-        </strong>
+        </h1>
         {currentQuestion && (
           <span className="assessment-question-level">
             Question level {Number(currentQuestion.level || currentQuestion.difficulty || 1) >= 2 ? 2 : 1}
@@ -2869,13 +2830,13 @@ export function AssessmentPage({
   const renderFeedbackCard = () => feedback ? (
     <motion.div
       className={[
-        "feedback-card assessment-feedback",
+        "feedback-card assessment-feedback wa-feedback",
         independentAssessment ? "neutral-feedback" : feedback.isCorrect ? "correct-feedback" : "wrong-feedback",
         feedback.skillId === "final_sounds" ? "final-sounds-feedback" : ""
       ].filter(Boolean).join(" ")}
       role="status"
       aria-live="assertive"
-      initial={{ scale: 0.96, opacity: 0 }}
+      initial={reducedMotion ? false : { scale: 0.96, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
     >
       <h2>{independentAssessment ? "Answer saved" : feedback.isCorrect ? "Correct" : "Incorrect"}</h2>
@@ -3038,7 +2999,7 @@ export function AssessmentPage({
         {currentQuestion && (
           <motion.div
             className={[
-              "card assessment-card assessment-question-layout",
+              "card assessment-card assessment-question-layout wa-stage",
               isRhymingPictureItem ? "rhyming-assessment-layout" : "",
               safeSkillId === "final_sounds" ? "final-sounds-assessment-card" : "",
               isPairSelection && safeSkillId === "final_sounds" ? "final-sounds-pair-assessment-card" : "",
@@ -3046,22 +3007,25 @@ export function AssessmentPage({
               isGraphemeChoiceItem ? "grapheme-choice-assessment-card" : "",
               isShortVowelWordChoiceItem ? "short-vowel-word-choice-card" : "",
               isListenChooseVowelItem ? "short-vowel-listen-choice-card" : "",
-              isComprehensionPassageItem ? "comprehension-assessment-layout" : ""
+              isComprehensionPassageItem ? "comprehension-assessment-layout" : "",
+              safeSkillId === "prepositions_of_place" ? "woodland-scene-assessment" : ""
             ].filter(Boolean).join(" ")}
             key={currentQuestion.id}
             data-assessment-question-id={currentQuestion.id}
             aria-busy={isAssessmentTransitioning}
             inert={isAssessmentTransitioning}
-            initial={{ scale: 0.96 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0.96 }}
+            initial={reducedMotion ? false : { y: 12, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={reducedMotion ? { opacity: 1 } : { y: -8, opacity: 0 }}
+            transition={{ duration: reducedMotion ? 0 : 0.18 }}
           >
-            <div className="question-line assessment-prompt">
+            <div className="question-line assessment-prompt wa-instruction">
               <AssessmentAudioButton
                 text={promptAudioText}
                 audioPath={promptAudioPath || rawPromptAudioPath}
                 speakText={speakText}
                 label="Listen to question"
+                displayLabel="Listen"
                 className={isPairSelection ? "mini-audio-button instruction-audio-button" : "mini-audio-button"}
                 showDisabled
               />
@@ -3124,11 +3088,11 @@ export function AssessmentPage({
                 isShortVowelWordChoiceItem ? "short-vowel-word-choice-grid" : "",
                 isListenChooseVowelItem ? "vowel-choice-grid" : "",
                 isGraphemeChoiceItem ? "grapheme-choice-grid final-sounds-grapheme-grid" : ""
-              ].filter(Boolean).join(" ")}>
+              ].filter(Boolean).join(" ")} style={{ "--assessment-choice-count": normalizedChoices.length }} role="group" aria-label="Answer choices">
                 {normalizedChoices.map((choice, index) => {
                   const choiceImage = currentQuestion.choiceImages?.[choice.value] || currentQuestion.choiceImages?.[choice.label] || {};
                   const choiceButtonClassName = [
-                    isListenAndFindWord && !isShortVowelWordChoiceItem ? "choice-button visual-word-choice assessment-answer-card" : "choice-button assessment-answer-card",
+                    isListenAndFindWord && !isShortVowelWordChoiceItem ? "choice-button visual-word-choice assessment-answer-card wa-choice" : "choice-button assessment-answer-card wa-choice",
                     isComprehensionPassageItem ? "comprehension-choice-button" : "",
                     isShortVowelWordChoiceItem ? "short-vowel-word-choice-button" : "",
                     isGraphemeChoiceItem ? "grapheme-choice-button final-sound-choice-button final-sound-grapheme-option" : ""

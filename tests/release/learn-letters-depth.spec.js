@@ -11,8 +11,8 @@ async function openLetter(page,letter='A') {
 }
 async function trace(page) {
   await expect(page.locator('.phonics-trace-pad')).toBeVisible();
-  const skip=page.getByRole('button',{name:'Skip',exact:true});
-  if(await skip.isVisible()) await skip.click();
+  // Input stays available during the optional guide. Skip can naturally
+  // become Show me between visibility and click, so start the real activity.
   await expect(page.getByRole('button',{name:/^Trace stroke/})).toBeVisible();
   for(let stroke=0;stroke<5;stroke++) {
     const button=page.getByRole('button',{name:/^Trace stroke/});
@@ -162,6 +162,9 @@ for (const viewport of [{width:320,height:568},{width:568,height:320},{width:102
       const heading=await page.locator('.phonics-practice-question-heading').boundingBox();
       const replay=await page.getByRole('button',{name:'Hear the question'}).boundingBox();
       expect(replay.y).toBeGreaterThanOrEqual(heading.y+heading.height);
+      const activity=await page.locator('.phonics-practice-question').boundingBox();
+      const feedback=await page.locator('.phonics-practice-feedback').boundingBox();
+      expect(feedback.y+feedback.height).toBeLessThanOrEqual(activity.y+activity.height+1);
     };
     await checkFit();
     await page.screenshot({path:`.artifacts/learn-letters/case-match-${viewport.width}x${viewport.height}.png`});

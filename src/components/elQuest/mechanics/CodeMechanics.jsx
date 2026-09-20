@@ -65,12 +65,12 @@ export function LetterPressMechanic({
           <span>{pressState.paired ? "Paired" : pressState.selected ? "Try again" : "Match"}</span>
         </div>
       </div>
-      <div className="am-letter-press-choices" aria-label="Choose the matching letter">
+      <div className="am-letter-press-choices" role="group" aria-label="Choose the matching letter">
         {round.choices.map(choice => (
           <ActivityButton
             key={choice}
             type="button"
-            className="am-letter-press-button"
+            className="am-letter-press-button wa-choice"
             style={CHILD_TARGET_STYLE}
             disabled={disabled}
             aria-pressed={pressState.selected === choice}
@@ -119,7 +119,7 @@ export function SoundChoiceMechanic({
           <ActivityButton
             key={choice}
             type="button"
-            className="am-sound-choice__tile"
+            className="am-sound-choice__tile wa-choice"
             style={CHILD_TARGET_STYLE}
             disabled={disabled || soundState.committed}
             aria-pressed={soundState.selected === choice}

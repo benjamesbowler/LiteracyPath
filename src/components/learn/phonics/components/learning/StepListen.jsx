@@ -1,5 +1,6 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import ActivityButton from "../../../../ActivityButton.jsx";
 import { hasPhonicsAudioSource, usePhonicsAudio } from "../../../../../hooks/usePhonicsAudio";
 import PhonicsButton from "../PhonicsButton";
 import { getPrintedMatchContract, settleExposureDeliveries } from "../../phonicsActivityState.js";
@@ -27,12 +28,10 @@ const WordCard = memo(function WordCard({ word, onDelivery }) {
   }, [canHear, onDelivery, play, word.word]);
 
   return (
-    <motion.button
-      whileHover={canHear ? { scale: 1.02 } : {}}
-      whileTap={canHear ? { scale: 0.98 } : {}}
+    <ActivityButton
       onClick={canHear ? handleTap : undefined}
       disabled={!canHear}
-      className={`phonics-listen-card ${isPlaying ? "is-sounding" : ""}`}
+      className={`phonics-listen-card wa-choice ${isPlaying ? "is-sounding" : ""}`}
       aria-label={canHear ? `Hear the word ${word.word}` : `Word: ${word.word}; audio unavailable`}
       type="button"
     >
@@ -40,7 +39,8 @@ const WordCard = memo(function WordCard({ word, onDelivery }) {
         <WordImage src={word.image} word={word.word} priority />
       </span>
       <span className="phonics-word-label">{word.word}</span>
-    </motion.button>
+      <span className="phonics-listen-replay" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5ZM15 8q6 4 0 8M18 4q10 8 0 16" /></svg></span>
+    </ActivityButton>
   );
 });
 
@@ -65,6 +65,12 @@ const StepListen = memo(function StepListen({ lesson, onComplete }) {
     void playPhonic().then(status => { if (epoch === soundRequest.current) recordDelivery("sound", deliveryStatus(status)); });
   }, [playPhonic, recordDelivery]);
 
+  useEffect(() => {
+    if (!canHearPhoneme) return undefined;
+    const timer = setTimeout(handlePhonicClick, 0);
+    return () => clearTimeout(timer);
+  }, [canHearPhoneme, handlePhonicClick]);
+
   return (
     <div className="phonics-step phonics-step-listen kg-child-flow__content">
       <motion.div className="phonics-listen-focus" initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }}>
@@ -76,17 +82,15 @@ const StepListen = memo(function StepListen({ lesson, onComplete }) {
         </motion.p>
 
         {canHearPhoneme ? <motion.div className="phonics-sound-button-group" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.96 }}
+          <ActivityButton
             onClick={handlePhonicClick}
-            className={`phonics-sound-button ${isPlaying ? "is-playing" : ""}`}
+            className={`phonics-sound-button wa-audio ${isPlaying ? "is-playing" : ""}`}
             aria-label={`Replay the ${lesson.phonicSound} sound`}
             type="button"
           >
-            <motion.span animate={isPlaying ? { scale: [1, 1.35, 1], opacity: [0.35, 0, 0.35] } : {}} transition={{ duration: 1.5, repeat: Infinity }} />
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5ZM15 8q6 4 0 8M18 4q10 8 0 16" /></svg>
             <span aria-hidden="true">Replay</span>
-          </motion.button>
+          </ActivityButton>
           <span>{isPlaying ? "Listening..." : "Tap to hear the sound"}</span>
         </motion.div> : <p className="phonics-sound-unavailable" role="status">This sound is unavailable. Use the pictures and continue.</p>}
       </motion.div>
@@ -95,7 +99,7 @@ const StepListen = memo(function StepListen({ lesson, onComplete }) {
         <motion.p className="phonics-is-for" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           Words with {lesson.letter} at the {listenContract.location === "ending" ? "end" : "beginning"}
         </motion.p>
-        <div className="phonics-listen-grid" aria-label={`${lesson.letter} picture examples`}>
+        <div className="phonics-listen-grid" role="group" aria-label={`${lesson.letter} picture examples`}>
         {lesson.words.map(word => (
           <WordCard key={word.word} word={word} onDelivery={recordDelivery} />
         ))}
@@ -107,7 +111,6 @@ const StepListen = memo(function StepListen({ lesson, onComplete }) {
 
       <motion.div className="phonics-step-actions" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
       {Object.values(delivery).some(status => ["unavailable", "interrupted"].includes(status)) && <p role="status">Sound stopped or could not play. Tap it to retry, or continue with the pictures.</p>}
-      {canHearPhoneme && delivery.sound === "unavailable" && <p role="status">The sound could not play. Replay it, or continue with the pictures.</p>}
         <PhonicsButton onClick={() => onComplete({ step: "listen", completionKind: "exposure", audioDelivery: settleExposureDeliveries(deliveryRef.current).sound || (canHearPhoneme ? "not_played" : "unavailable"), firstResponse: null, attempts: 0, supportUsed: ["picture_and_print_model"], independent: false, deliveries: settleExposureDeliveries(deliveryRef.current) })}>Next Step</PhonicsButton>
       </motion.div>
     </div>

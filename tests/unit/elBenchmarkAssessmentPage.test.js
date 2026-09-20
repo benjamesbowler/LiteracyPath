@@ -469,7 +469,11 @@ test("Decoding puts the word on screen with three immediate teacher judgments", 
     currentItemIndex: 0
   }));
 
-  assert.match(html, new RegExp(`class="el-benchmark-word-display" aria-label="Word to read: ${item.targetWord}">${item.targetWord}<`));
+  const wordDisplay = html.match(/<div class="([^"]*)" aria-label="Word to read: ([^"]*)">([^<]*)<\/div>/);
+  assert.ok(wordDisplay, "The child sees a labelled word display");
+  assert.ok(wordDisplay[1].split(/\s+/).includes("el-benchmark-word-display"));
+  assert.equal(wordDisplay[2], item.targetWord);
+  assert.equal(wordDisplay[3], item.targetWord);
   assert.match(html, /How did the student read the word\?/);
   assert.match(html, /<span>Straight away<\/span>/);
   assert.match(html, /<span>Worked it out<\/span>/);

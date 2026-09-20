@@ -24,6 +24,37 @@ One rule everywhere: **the world supplies warmth (backgrounds, accents,
 characters); the UI itself stays clean** — frosted glass panels, Lexend/
 Inter type, generous touch targets. Themed, never cluttered.
 
+## Learning activity presentation
+
+Assessments, Adventure Map activities, Cycle Practice and Letters use the
+activity presentation of the current Sound Seekers Woodland chapter. This is
+the product owner's direction of 20 September 2026. Its reference is the
+chapter's direct picture choice, sound sorting, ordered word building and
+object placement activities, not its 3D exploration or camera controls.
+
+Shared activity styles and controls live in
+`src/components/activities/woodland-activity.css` and `WoodlandActivity.jsx`.
+Use warm cream picture medallions, sage surfaces, forest-coloured text,
+rounded raised answer pads and separate, clearly named replay controls.
+Titles may use the chapter's storybook serif; assessed letters and words retain
+their existing teaching fonts. A press visibly settles the pad, feedback changes
+shape as well as colour, and reduced motion removes decorative movement.
+The activity background stays calm and lightweight without loading a 3D scene.
+
+Keep one spoken and visible task above the learning objects, meaningful
+progress, large reachable choices and an obvious way back or pause. Listening
+must never submit an answer. Complete actions advance automatically where the
+response is unambiguous; incomplete ordered responses remain editable.
+Touch, mouse and keyboard use the same learning action, including while an
+instruction is playing. Preserve cancellation and duplicate-tap protection.
+
+The shared presentation does not own curriculum, scoring or persistence.
+Practice retains its supported retry and existing session depth; independent
+assessment records the first response without revealing a key or coaching
+before it is saved. Teacher-administered oral, handwriting and fluency checks
+retain their administration mechanics. Existing media, audio lifecycle,
+progress recovery and teacher session restrictions remain authoritative.
+
 ## How the theme is applied (technical)
 
 A single `data-pal-world="meadow|dino|moonwood"` attribute on the page

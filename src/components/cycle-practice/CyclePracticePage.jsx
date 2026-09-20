@@ -453,7 +453,7 @@ function CyclePracticeSession({
 
   if (!cycle || !practicePlan.length || !assessmentPlan.length) {
     return (
-      <main className="cycle-practice-page cycle-practice-page--error" role="alert">
+      <main className="cycle-practice-page woodland-activity cycle-practice-page--error" role="alert">
         <h1>Cycle Practice needs an update</h1>
         <p>Stay on this screen and ask your teacher for help.</p>
       </main>
@@ -462,7 +462,7 @@ function CyclePracticeSession({
 
   if (result) {
     return (
-      <main className="cycle-practice-page cycle-practice-page--complete">
+      <main className="cycle-practice-page woodland-activity cycle-practice-page--complete">
         {headerActions}
         <section className="cycle-practice-complete-card" aria-labelledby="cycle-practice-complete-title">
           <img className="cycle-complete-guide" src="/images/companions/pip.webp" alt="Pip celebrates your work" />
@@ -477,7 +477,7 @@ function CyclePracticeSession({
   }
 
   if (state.pendingAttempt && !feedbackRound) return (
-    <main className="cycle-practice-page cycle-practice-page--complete">
+    <main className="cycle-practice-page woodland-activity cycle-practice-page--complete">
       {headerActions}<section className="cycle-practice-complete-card">
         <img className="cycle-complete-guide" src="/images/companions/pip.webp" alt="Pip waits with your work" />
         <h1>{answerPending ? "Saving…" : "Let's save your work"}</h1>
@@ -489,7 +489,7 @@ function CyclePracticeSession({
   );
 
   if (!currentRound) return (
-    <main className="cycle-practice-page cycle-practice-page--error" role="alert">
+    <main className="cycle-practice-page woodland-activity cycle-practice-page--error" role="alert">
       <h1>This saved activity is unavailable</h1>
       <p>Your recorded answers are retained. Ask your teacher to start another session.</p>
     </main>
@@ -538,13 +538,13 @@ function CyclePracticeSession({
     }
     setSubtarget({ roundRunKey, object: authored });
   };
-  const instructionRow = <div className="cycle-instruction-row">
+  const instructionRow = <div className="cycle-instruction-row wa-instruction">
     <div><span className="cycle-activity-name">{shownRound.stationTitle}</span><p data-child-instruction="">{currentAudio.instructionText}</p></div>
-    <ActivityButton type="button" className="cycle-listen-button" data-child-primary="" data-audio-action="replay" data-audio-state={audioStatus === "ready" && !teachingReady ? "pending" : audioStatus} aria-label="Hear what to do" disabled={frozen} onClick={() => { triggerTactileFeedback(16); replayInstruction(true); }}><SpeakerIcon /><span>{listening ? "Listening…" : "Listen"}</span></ActivityButton>
+    <ActivityButton type="button" className="cycle-listen-button wa-audio" data-audio-action="replay" data-audio-state={audioStatus === "ready" && !teachingReady ? "pending" : audioStatus} aria-label="Hear what to do" disabled={frozen} onClick={() => { triggerTactileFeedback(16); replayInstruction(true); }}><SpeakerIcon /><span>{listening ? "Listening…" : "Listen"}</span></ActivityButton>
   </div>;
 
   return (
-    <main className="cycle-practice-page" data-cycle-id={cycle.id} data-motion={reducedMotion ? "reduced" : "full"}
+    <main className="cycle-practice-page woodland-activity" data-cycle-id={cycle.id} data-motion={reducedMotion ? "reduced" : "full"}
       onKeyDownCapture={activity} onPointerDownCapture={activity}>
       <header className="cycle-practice-topbar">
         <div className="cycle-practice-topbar__identity">
@@ -553,7 +553,7 @@ function CyclePracticeSession({
         </div>
         <div className="cycle-practice-topbar__round" data-child-progress="" aria-label={`${mode === "assessment" ? "Cycle Check" : "Practice"}, activity ${currentRoundNumber} of ${totalRounds}`}>
           <div className="cycle-star-trail" aria-hidden="true">{Array.from({ length: 6 }, (_, i) => <CycleIcon key={i} name="star" className={i < starsInSet ? "is-earned" : ""} />)}</div>
-          <strong>{mode === "assessment" ? `Cycle Check · ${currentRoundNumber} / ${totalRounds}` : `${earned} activities · ${Math.floor(earned / 6)} star trails`}</strong>
+          <strong>{mode === "assessment" ? <><span className="cycle-check-label">Cycle Check · </span>{currentRoundNumber} / {totalRounds}</> : <>{earned} activities<span className="cycle-trail-count"> · {Math.floor(earned / 6)} star trails</span></>}</strong>
         </div>
         {compact && instructionRow}
         <div className="cycle-practice-topbar__actions">
@@ -565,7 +565,7 @@ function CyclePracticeSession({
       <section className={`cycle-playground cycle-playground--${shownRound.mechanicId}`} data-mechanic-stage={shownRound.mechanicId} data-child-choices="" aria-label={shownRound.stationTitle} data-feedback={feedbackTone}>
         <div className="cycle-scenery" aria-hidden="true"><i /><i /><i /><i /></div>
         {!compact && instructionRow}
-        <div ref={activitySpace} className="cycle-activity-space" onLoadCapture={checkPictures} inert={frozen || mediaFailed || !picturesReady ? true : undefined}>
+        <div ref={activitySpace} className="cycle-activity-space wa-stage" data-child-primary="" onLoadCapture={checkPictures} inert={frozen || mediaFailed || !picturesReady ? true : undefined}>
           <CycleActivityRenderer key={(shownRound.mechanicId === "soundSort" && shownRound.objects?.length) || (shownRound.mechanicId === "wordBuild" && shownRound.variant !== "wordParts") ? feedbackActivityKey || roundRunKey : feedbackKey || roundKey} round={shownRound} disabled={frozen || mediaFailed || !picturesReady}
             mediaRevision={mediaRevision}
             supportLevel={mode === "assessment" ? 0 : attempts} reducedMotion={reducedMotion}

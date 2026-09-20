@@ -27,12 +27,11 @@ async function openStation(page, cycle, station) {
 }
 
 async function expectRound(page, index, total) {
-  await expect(page.getByRole("heading", { name: `${index} of ${total}`, exact: true })).toBeVisible();
+  await expect(page.locator(".adventure-round-frame__counter")).toHaveText(`${index} / ${total}`);
 }
 
 async function roundTotal(page) {
-  const heading = await page.locator(".adventure-round-frame__heading h1").textContent();
-  return Number(heading.match(/of (\d+)/)[1]);
+  return Number(await page.getByRole("progressbar", { name: "Station progress" }).getAttribute("aria-valuemax"));
 }
 
 async function pictureWords(stage) {

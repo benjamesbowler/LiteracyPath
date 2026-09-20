@@ -21,7 +21,7 @@ assigned mappings. A missing picture offers reload without recording a literacy 
 | Sound Safari | Tap a pictured object for the heard sound or ending | Picture identification for the declared first sound, final sound or ending chunk |
 | Letter Friends | Match a heard sound, letter case, or spoken word | Grapheme–phoneme matching, visual letter identity, or auditory word recognition |
 | Rhyme Picnic | Join a pictured word to a rhyming picture | Oral rhyme recognition, with picture-name replay available |
-| Word Workshop | Fill word-train cars by tapping letters | Taught-code encoding or supported high-frequency word copying |
+| Word Workshop | Fill woodland word slots by tapping letters | Taught-code encoding or supported high-frequency word copying |
 | Sound Delivery | Sort three objects into persistent sound baskets, or match a spoken word to beat dots | First/final sound or ending classification and spoken syllable counting; dragging is optional |
 | Rainbow Writing | Follow a large letter trail with a finger or pointer | Supported formation practice, never independent handwriting mastery |
 

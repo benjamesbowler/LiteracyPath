@@ -1,4 +1,7 @@
 import { Suspense, useEffect, useState } from "react";
+import { MotionConfig } from "framer-motion";
+import "../../activities/woodland-activity.css";
+import "./woodland-letters.css";
 import { loadCvcProgress, saveCvcProgress, recordCvcCompletion } from "../../../utils/cvcProgress";
 import { loadPhonicsProgress, loadPhonicsProgressRecords, savePhonicsProgress, recordPhonicsCompletion } from "../../../utils/phonicsProgress";
 import { getLetterPracticeProgress } from "../../../utils/letterPracticeProgress.js";
@@ -189,7 +192,7 @@ function PhonicsLearnContent({
   }
 
   return (
-    <div className="phonics-island-view">
+    <div className="phonics-island-view woodland-activity woodland-letters woodland-letters-picker">
       <section className="phonics-practice-overview" aria-label="Phonics practice progress">
         <div>
           <span className="phonics-practice-kicker">Phonics</span>
@@ -249,5 +252,5 @@ function PhonicsLearnContent({
 }
 
 export function PhonicsLearnTab(props) {
-  return <PhonicsLearnContent key={props.progressScopeKey || "default"} {...props} />;
+  return <MotionConfig reducedMotion="user"><PhonicsLearnContent key={props.progressScopeKey || "default"} {...props} /></MotionConfig>;
 }

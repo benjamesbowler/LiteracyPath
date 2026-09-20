@@ -279,7 +279,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
     context.lineWidth = 18;
     context.lineCap = "round";
     context.lineJoin = "round";
-    context.strokeStyle = "#4D96FF";
+    context.strokeStyle = "#466c51";
     context.globalAlpha = 0.92;
 
     if (lastCanvasPoint.current) {
@@ -290,7 +290,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
     } else {
       context.beginPath();
       context.arc(point.x, point.y, 9, 0, Math.PI * 2);
-      context.fillStyle = "#4D96FF";
+      context.fillStyle = "#466c51";
       context.fill();
     }
 
@@ -414,13 +414,13 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
       <div className="phonics-trace-area">
         <div className="phonics-trace-wrap">
           <svg className="phonics-trace-ring" viewBox="0 0 368 368" aria-hidden="true">
-            <circle cx="184" cy="184" r="170" fill="none" stroke="#E0E0E0" strokeWidth="6" />
+            <circle cx="184" cy="184" r="170" fill="none" stroke="#e8dcb8" strokeWidth="6" />
             <circle
               cx="184"
               cy="184"
               r="170"
               fill="none"
-              stroke="#FFD93D"
+              stroke="#a3af85"
               strokeWidth="6"
               strokeLinecap="round"
               strokeDasharray={`${2 * Math.PI * 170}`}
@@ -444,7 +444,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
               <path
                 d={tracePath}
                 fill="none"
-                stroke="#D0D8E0"
+                stroke="#a3af85"
                 strokeWidth="16"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -456,7 +456,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
                     key={`demo-${stroke.pathData}-${index}`}
                     d={stroke.pathData}
                     fill="none"
-                    stroke="#4D96FF"
+                    stroke="#65876a"
                     strokeWidth="18"
                     strokeLinecap="round"
                     strokeLinejoin="round"

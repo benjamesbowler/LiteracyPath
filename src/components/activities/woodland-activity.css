@@ -1,0 +1,92 @@
+@font-face {
+  font-family: WoodlandLexend;
+  src: url('../../../demos/sound-seekers/assets/fonts/lexend-latin.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* The same warm paper, sage and grounded shapes as the Woodland chapter.
+   No world renderer or decorative media is needed by an activity. */
+.woodland-activity {
+  --wa-ink: #365846;
+  --wa-cream: #fff9e8;
+  --wa-sage: #dfe5c5;
+  --wa-edge: #e8dcb8;
+  --wa-shadow: #a3af85;
+  --wa-gold: #ebc875;
+  --wa-ease: cubic-bezier(.2,.7,.2,1);
+  color: var(--wa-ink);
+  font-family: WoodlandLexend, 'Trebuchet MS', sans-serif;
+  --wa-background:
+    radial-gradient(ellipse at 12% 0%, #a9bf9e70, transparent 55%),
+    radial-gradient(ellipse at 95% 85%, #c5d1a680, transparent 60%),
+    linear-gradient(165deg, #eff0d8, #f8f4df 56%, #e4e9cb);
+  background: var(--wa-background);
+  isolation: isolate;
+  font-synthesis: none;
+}
+
+.woodland-activity *, .woodland-activity *::before, .woodland-activity *::after { box-sizing: border-box; }
+.woodland-activity button { -webkit-tap-highlight-color: transparent; }
+.woodland-activity :is(button, [role='button']):focus-visible {
+  outline: 3px solid #365846;
+  outline-offset: 5px;
+}
+.woodland-activity .wa-heading { font-family: Georgia, 'Times New Roman', serif; font-weight: 500; line-height: 1.12; letter-spacing: -.025em; text-wrap: balance; }
+.woodland-activity .wa-instruction { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; color: var(--wa-ink); }
+.woodland-activity .wa-instruction p { margin: 0; font-size: clamp(16px, 1.65vw, 23px); line-height: 1.5; }
+.woodland-activity .wa-stage { position: relative; min-width: 0; min-height: 0; }
+
+.woodland-activity .wa-choice {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 56px;
+  min-height: 56px;
+  padding: clamp(12px, 2vw, 24px);
+  border: 4px solid var(--wa-edge);
+  border-radius: 48% 52% 45% 55% / 54% 46% 54% 46%;
+  background: var(--wa-cream);
+  color: var(--wa-ink);
+  box-shadow: 0 8px 0 var(--wa-shadow), 0 13px 20px #29443420;
+  cursor: pointer;
+  transition: transform 180ms var(--wa-ease), box-shadow 180ms var(--wa-ease), background-color 180ms ease, border-color 180ms ease;
+}
+.woodland-activity .wa-choice img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.woodland-activity .wa-choice:active,
+.woodland-activity .wa-choice[data-pressed='true'] { transform: none; box-shadow: 0 3px 0 var(--wa-shadow), 0 6px 12px #29443420; }
+.woodland-activity .wa-choice:is([data-state='selected'], [aria-pressed='true']) { border-color: #55734b; background: #f5edcc; }
+.woodland-activity .wa-choice[data-state='correct'] { background: #fff0b4; border-color: var(--wa-gold); }
+.woodland-activity .wa-choice[data-state='retry'] { animation: wa-nudge 280ms ease-in-out; }
+.woodland-activity .wa-choice:disabled { cursor: default; }
+.woodland-activity .wa-audio {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-width: 56px; min-height: 56px; padding: 12px 20px;
+  border: 1px solid #a8b690; border-radius: 999px;
+  color: var(--wa-ink); background: #fff9e8dc;
+  font: inherit; font-size: 16px; font-weight: 500; cursor: pointer;
+  transition: background-color 160ms ease, transform 160ms var(--wa-ease);
+}
+.woodland-activity .wa-audio--icon { width: 56px; padding: 0; }
+.woodland-activity .wa-audio--icon > span:empty { display: none; }
+.woodland-activity .wa-audio:active, .woodland-activity .wa-audio[data-pressed='true'] { transform: none; background: #dbe4c4; }
+.woodland-activity .wa-audio:disabled { opacity: .5; cursor: default; }
+/* Keep finger release coordinates inside the original target, including when
+   touch browsers apply the application's legacy hover treatment. */
+.app .woodland-activity.woodland-activity button:is(.wa-choice, .wa-audio):is(:hover, :active, [data-pressed='true']) { transform: none; }
+.woodland-activity .wa-progress { height: 8px; overflow: hidden; border-radius: 999px; background: #cbd5b6; }
+.woodland-activity .wa-progress > span { display: block; height: 100%; width: 100%; background: #52734c; border-radius: inherit; transform-origin: left center; transition: transform 280ms var(--wa-ease); }
+.woodland-activity .wa-feedback { min-height: 32px; color: var(--wa-ink); font-size: clamp(14px, 1.2vw, 18px); text-align: center; line-height: 1.5; }
+.woodland-activity .wa-slots { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; }
+.woodland-activity .wa-slots > span { min-width: 56px; min-height: 64px; display: grid; place-items: center; border: 3px dashed #a3af85; border-radius: 42% 50% 38% 45%; background: #e8dfbb; box-shadow: 0 6px 0 #a0a584; }
+
+@media (hover: hover) {
+  .woodland-activity .wa-choice:not(:disabled):hover { box-shadow: 0 9px 0 var(--wa-shadow), 0 15px 22px #29443425; }
+  .woodland-activity .wa-audio:not(:disabled):hover { background: #edf0d8; }
+}
+@keyframes wa-nudge { 0%, 100% { transform: translateX(0); } 35% { transform: translateX(-4px); } 70% { transform: translateX(4px); } }
+@media (prefers-reduced-motion: reduce) {
+  .woodland-activity *, .woodland-activity *::before, .woodland-activity *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+.woodland-activity[data-reduced-motion='true'] *,
+.woodland-activity[data-reduced-motion='true'] *::before,
+.woodland-activity[data-reduced-motion='true'] *::after { animation: none !important; transition: none !important; }

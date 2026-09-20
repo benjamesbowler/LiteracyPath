@@ -1,6 +1,9 @@
 import ActivityButton from "../ActivityButton.jsx";
+import { getLedaInstructionAudioPath, getLedaWordAudioPath } from "../../data/ledaProductionAudio.js";
 import { useState } from "react";
-import { SpeakerHigh } from "@phosphor-icons/react";
+import { AssessmentAudioButton } from "./AssessmentAudioButton.jsx";
+import { AssessmentConstructionStatus } from "./AssessmentConstructionStatus.jsx";
+import { useAssessmentCompletion } from "./useAssessmentCompletion.js";
 
 function getHfwLetterBuildTarget(question = {}) {
   return String(question.targetWord || question.correctAnswer || question.answer || "")
@@ -17,7 +20,7 @@ export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText
     const tiles = typeof updater === "function" ? updater(current) : updater;
     return { questionId: currentQuestion.id, tiles };
   });
-  const [isPlayingSentence, setIsPlayingSentence] = useState(false);
+  const { complete, pending, error, retry } = useAssessmentCompletion(currentQuestion.id, answerQuestion);
   const targetWord = getHfwLetterBuildTarget(currentQuestion);
   const targetLength = targetWord.length || Number(currentQuestion.blankSlots) || 0;
   const rawTiles = currentQuestion.letterTiles || currentQuestion.soundTiles || [];
@@ -25,7 +28,6 @@ export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText
     ? rawTiles
     : targetWord.split("");
   const selectedIndexes = new Set(selectedTiles.map(item => item.index));
-  const builtWord = selectedTiles.map(item => item.tile).join("").toLowerCase();
   const sentence = String(currentQuestion.sentence || currentQuestion.context || currentQuestion.passage || "")
     .replace(/_{2,}/g, "___");
   const [sentenceBefore, sentenceAfter = ""] = sentence.includes("___")
@@ -35,11 +37,14 @@ export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText
     .trim();
 
   function addTile(tile, index) {
-    if (selectedIndexes.has(index) || selectedTiles.length >= targetLength) return;
-    setSelectedTiles(previous => [...previous, { tile: String(tile || "").toLowerCase(), index }]);
+    if (pending || selectedIndexes.has(index) || selectedTiles.length >= targetLength || !tiles[index]) return;
+    const next = [...selectedTiles, { tile: String(tile || "").toLowerCase(), index }];
+    setSelectedTiles(next);
+    if (next.length === targetLength) complete(next.map(item => item.tile).join(""));
   }
 
   function removeTile(index) {
+    if (pending) return;
     setSelectedTiles(previous => previous.filter((_, itemIndex) => itemIndex !== index));
   }
 
@@ -55,28 +60,17 @@ export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText
     addTile(tiles[tileIndex], tileIndex);
   }
 
-  async function playSentence() {
-    if (!sentenceAudioText || !speakText || isPlayingSentence) return;
-    setIsPlayingSentence(true);
-    try {
-      await speakText(sentenceAudioText, "", { allowBrowserFallback: true });
-    } finally {
-      setTimeout(() => setIsPlayingSentence(false), 800);
-    }
-  }
-
   return (
-    <div className="ixl-template-panel hfw-letter-build-panel">
+    <div className="ixl-template-panel hfw-letter-build-panel" aria-busy={pending}>
       {sentenceAudioText && (
-        <ActivityButton
-          className="assessment-audio-button mini-audio-button hfw-sentence-audio-button"
-          disabled={isPlayingSentence}
-          onClick={playSentence}
-          type="button"
-          aria-label={isPlayingSentence ? "Sentence playing" : "Listen to sentence"}
-        >
-          {isPlayingSentence ? <span className="audio-loading-dot" aria-hidden="true" /> : <SpeakerHigh size={20} weight="bold" aria-hidden="true" />}
-        </ActivityButton>
+        <AssessmentAudioButton
+          text={sentenceAudioText}
+          audioPath={getLedaInstructionAudioPath(sentenceAudioText) || getLedaWordAudioPath(sentenceAudioText) || currentQuestion.sentenceAudioPath || currentQuestion.contextAudioPath || ""}
+          speakText={speakText}
+          label="Listen to sentence"
+          displayLabel="Hear sentence"
+          className="mini-audio-button hfw-sentence-audio-button"
+        />
       )}
 
       <div
@@ -85,12 +79,13 @@ export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText
         onDrop={handleDrop}
       >
         <span>{sentenceBefore}</span>
-        <span className="hfw-letter-build-slots" aria-label="Built word">
+        <span className="hfw-letter-build-slots wa-slots" aria-label="Built word">
           {Array.from({ length: targetLength }, (_, index) => {
             const selected = selectedTiles[index];
             return selected ? (
               <ActivityButton
                 className="sound-order-selected-tile hfw-letter-slot filled"
+                disabled={pending}
                 key={`${selected.tile}-${selected.index}`}
                 onClick={() => removeTile(index)}
                 type="button"
@@ -110,12 +105,12 @@ export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText
         <span>{sentenceAfter}</span>
       </div>
 
-      <div className="sound-order-tile-row hfw-letter-tile-row" aria-label="Choose letters">
+      <div className="sound-order-tile-row hfw-letter-tile-row" role="group" aria-label="Choose letters">
         {tiles.map((tile, index) => {
-          const disabled = selectedIndexes.has(index) || selectedTiles.length >= targetLength;
+          const disabled = pending || selectedIndexes.has(index) || selectedTiles.length >= targetLength;
           return (
             <ActivityButton
-              className="sound-order-tile"
+              className="sound-order-tile wa-choice"
               disabled={disabled}
               draggable={!disabled}
               key={`${tile}-${index}`}
@@ -130,23 +125,9 @@ export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText
         })}
       </div>
 
-      <div className="button-row ixl-template-actions">
-        <ActivityButton
-          className="reset-button"
-          onClick={() => setSelectedTiles([])}
-          type="button"
-        >
-          Reset
-        </ActivityButton>
-        <ActivityButton
-          className="main-button"
-          disabled={builtWord.length !== targetLength}
-          onClick={() => answerQuestion(builtWord)}
-          type="button"
-        >
-          Submit
-        </ActivityButton>
-      </div>
+      <AssessmentConstructionStatus pending={pending} error={error} onRetry={retry} readyText="Word ready…">
+        {`Tap letters in order. ${selectedTiles.length} of ${targetLength} placed.`}
+      </AssessmentConstructionStatus>
     </div>
   );
 }

@@ -101,7 +101,7 @@ test("the next rhyme question keeps its simple positive instruction and speaks f
   expect(pair).toHaveLength(2);
   for (const word of pair) await round.getByRole("button", { name: `Choose ${word}`, exact: true }).click();
   const next = page.locator('[data-quest-view="round"][data-round-type="rhymePair"]');
-  await expect(next.locator('.adventure-round-frame__heading h1')).toContainText("2 of");
+  await expect(next.locator('.adventure-round-frame__counter')).toContainText("2 /");
   await expect(next).toBeVisible();
   const expected = resolveAdventureRoundAudio(authoredRounds(route)[1]);
   await expect(next.locator('.adventure-round-frame__instruction > p')).toHaveText("Find the two words that rhyme.");

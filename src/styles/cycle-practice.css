@@ -104,20 +104,10 @@
 .cycle-build-target .cycle-picture { width: 130px; height: 120px; mix-blend-mode: multiply; }
 .cycle-copy-model { font: 800 clamp(35px, 5vw, 65px)/1 var(--lp-font-letter, var(--lp-font-reading)); }
 .cycle-word-train { display: flex; align-items: end; justify-content: center; gap: 14px; position: relative; padding: 0 15px 16px; max-width: 100%; }
-.cycle-word-train::after { content: ''; position: absolute; height: 7px; background: #748b7b; left: -20px; right: -20px; bottom: -2px; border-radius: 5px; box-shadow: 0 7px 0 #fff9; }
 .cycle-word-car { position: relative; display: grid; place-items: center; min-width: 74px; min-height: 90px; padding: 8px 18px; border-radius: 17px 17px 10px 10px; background: #fafdf7; border: 4px solid #a8c1c6; font: 800 clamp(35px, 5vw, 60px)/1 var(--lp-font-letter, var(--lp-font-reading)); }
-.cycle-word-car::after { content: ''; position: absolute; width: 20px; height: 7px; background: #7d979a; right: -22px; bottom: 12px; }
-.cycle-word-car:last-child::after { display: none; }
-.cycle-word-car > i, .cycle-train-engine i, .cycle-train-engine b { position: absolute; width: 24px; height: 24px; border: 6px solid #385661; background: #91b2b5; border-radius: 50%; bottom: -16px; left: 6px; }
-.cycle-word-car > i:last-child { left: auto; right: 6px; }
 .cycle-word-car--next { border-color: #dd9a20; box-shadow: inset 0 0 0 4px #ffe6a2; background: #fff9df; }
 .cycle-word-car--filled { background: #e1f6d5; border-color: #77a573; }
 .cycle-word-car > span { animation: cycle-letter-arrive .22s ease-out; }
-.cycle-train-engine { position: relative; width: 105px; height: 74px; background: #db7350; border-radius: 40px 12px 8px 12px; box-shadow: inset 0 -10px #b4543c; }
-.cycle-train-engine::before { content: ''; position: absolute; right: 4px; top: -48px; width: 45px; height: 60px; border: 9px solid #db7350; border-radius: 10px 10px 0 0; background: #e5fbfb; }
-.cycle-train-engine::after { content: ''; position: absolute; right: -2px; top: -52px; width: 58px; height: 12px; border-radius: 6px; background: #af503a; }
-.cycle-train-engine > span { position: absolute; width: 20px; height: 35px; top: -20px; left: 13px; background: #365c67; border-radius: 6px; }
-.cycle-train-engine b { left: auto; right: 8px; }
 .cycle-letter-bank { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; width: 100%; }
 .cycle-letter-block { display: grid; place-items: center; min-width: 80px; min-height: 82px; padding: 9px 18px; border: 4px solid #fffdf4; border-radius: 20px; color: #195568; background: #bfe9ed; box-shadow: 0 6px 0 #73a6b3; font: 800 44px/1 var(--lp-font-letter, var(--lp-font-reading)); }
 .cycle-sort-play { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; gap: 5px; }
@@ -208,7 +198,6 @@
   .cycle-answer--letter { min-height: 130px; font-size: 60px; }
   .cycle-word-car { min-width: 58px; padding-inline: 8px; }
   .cycle-word-train { gap: 10px; padding-inline: 0; }
-  .cycle-train-engine { width: 70px; }
 }
 @media (max-width: 540px) {
   .cycle-practice-topbar__round strong { font-size: 9px; }
@@ -233,10 +222,7 @@
   .cycle-sort-bin strong { min-width: 75px; }
   .cycle-letter-bank { gap: 10px; }
   .cycle-letter-block { min-width: 56px; min-height: 64px; padding: 6px 10px; font-size: 34px; }
-  .cycle-train-engine { display: none; }
   .cycle-word-car { min-width: 46px; min-height: 65px; padding: 5px; font-size: 33px; border-width: 3px; }
-  .cycle-word-car > i { width: 18px; height: 18px; border-width: 5px; left: 1px; bottom: -12px; }
-  .cycle-word-car > i:last-child { right: 1px; }
   .cycle-build-target { gap: 12px; }
   .cycle-copy-model { font-size: 35px; }
 }
@@ -249,9 +235,7 @@
 .cycle-answer--hint { outline: 5px dashed #be8a1e; outline-offset: 5px; }
 [data-feedback="correct"] .cycle-answer[aria-pressed="true"] { outline-color: #308851; animation: cycle-collect .7s ease-in-out both; }
 [data-feedback="incorrect"] .cycle-answer[aria-pressed="true"] { outline-color: #a26031; }
-[data-feedback="correct"] .cycle-word-train { animation: cycle-train-go 1s ease-in-out both; }
 @keyframes cycle-collect { 40% { transform: translateY(-22px) rotate(-4deg); } 75% { transform: translateY(-5px) rotate(3deg); } }
-@keyframes cycle-train-go { 35% { transform: translateX(-10px); } 100% { transform: translateX(24px); } }
 .cycle-before-word { display: grid; justify-items: center; gap: 4px; }
 .cycle-before-word > span { font-size: 24px; font-weight: 850; }
 .cycle-before-word > .cycle-picture { width: 90px; height: 75px; }
@@ -373,13 +357,8 @@
   .cycle-before-word > .cycle-picture { width: 48px; height: 44px; }
   .cycle-before-word > span { font-size: 20px; }
   .cycle-change-arrow { width: 20px; height: 20px; }
-  .cycle-train-engine { display: none; }
   .cycle-word-train { gap: 8px; padding: 0 0 12px; justify-content: center; }
-  .cycle-word-train::after { left: 0; right: 0; }
   .cycle-word-car { min-width: 38px; min-height: 60px; padding: 4px; font-size: 32px; border-width: 3px; }
-  .cycle-word-car > i { width: 16px; height: 16px; border-width: 4px; left: 1px; bottom: -10px; }
-  .cycle-word-car > i:last-child { right: 1px; }
-  .cycle-word-car::after { width: 10px; right: -12px; }
   .cycle-practice-page .cycle-letter-bank { gap: 10px; flex-wrap: nowrap; }
   .cycle-practice-page .cycle-letter-block { padding: 6px; font-size: 32px; }
   .cycle-sort-play { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: 16px; align-items: center; }
@@ -415,4 +394,167 @@
   .cycle-sort-bins:has(.cycle-beat-dots) .cycle-sort-bin { min-width: max(56px, var(--kg-physical-hit, 56px)); }
   .cycle-sorted-pictures .cycle-picture { width: 48px; height: 48px; }
   .cycle-sorted-pictures { min-height: 56px; }
+}
+
+/* Shared woodland activity direction: one pictured model, soft raised choices,
+   persistent building slots and separate speakers. No exploration canvas. */
+.cycle-practice-page.woodland-activity {
+  --cycle-ink: var(--wa-ink);
+  --cycle-blue: #587953;
+  --cycle-yellow: var(--wa-gold);
+  padding: 10px clamp(10px, 2vw, 24px);
+  background: linear-gradient(180deg, #edf0df, #dfe5c5);
+  font-family: WoodlandLexend, var(--lp-font-reading), sans-serif;
+}
+.woodland-activity .cycle-practice-topbar { border-radius: 0; padding-inline: 8px; background: transparent; box-shadow: none; }
+.woodland-activity .cycle-practice-topbar__identity h1 { font-family: Georgia, serif; font-size: clamp(22px, 2.6vw, 34px); font-weight: 400; letter-spacing: -.025em; }
+.woodland-activity .cycle-practice-topbar__identity div > span { color: #647855; font-size: 11px; font-weight: 450; letter-spacing: .07em; }
+.woodland-activity .cycle-brand-mark { border-radius: 50%; background: #f7edc8; color: #748450; width: 44px; height: 44px; transform: none; }
+.woodland-activity .cycle-star-trail svg { color: #d5ddbb; stroke: #9aa983; }
+.woodland-activity .cycle-star-trail .is-earned { color: #eec975; stroke: #9b8045; }
+.woodland-activity .cycle-practice-topbar__round strong { color: #617553; font-weight: 450; }
+.woodland-activity .cycle-icon-button { border: 1px solid #a4b591; border-radius: 50%; color: var(--wa-ink); background: #f9fae9c2; box-shadow: 0 3px 0 #a5b28b; }
+.woodland-activity .cycle-playground { border: 0; border-radius: 28px; background: transparent; box-shadow: none; }
+.woodland-activity .cycle-scenery { background: radial-gradient(ellipse at 50% 38%, #fff9e847, transparent 60%), linear-gradient(180deg, #e7ebd6, #dfe5c5); }
+.woodland-activity .cycle-scenery::before, .woodland-activity .cycle-scenery::after { background: #c1cda0; opacity: .2; top: auto; bottom: -6%; height: 30%; width: 60%; }
+.woodland-activity .cycle-scenery i { display: none; }
+.woodland-activity .cycle-instruction-row { flex-wrap: nowrap; padding-top: 10px; padding-inline: clamp(16px, 4vw, 54px); justify-content: center; gap: 26px; }
+.woodland-activity .cycle-activity-name { display: block; color: #697d57; font-size: 10px; font-weight: 450; letter-spacing: .17em; }
+.woodland-activity .cycle-instruction-row p { color: var(--wa-ink); font-size: clamp(17px, 1.9vw, 25px); font-weight: 450; letter-spacing: -.02em; line-height: 1.35; }
+.woodland-activity .cycle-listen-button { min-height: 56px; padding: 10px 20px; border: 1px solid #a4b591; border-radius: 50px; background: #fbfbecc9; color: var(--wa-ink); box-shadow: 0 3px 0 #a5b28b; font-size: 15px; font-weight: 450; }
+.woodland-activity .cycle-listen-button[data-audio-state="playing"] { background: #fff4ce; border-color: #83936a; }
+.woodland-activity .cycle-listen-button svg { width: 25px; height: 25px; }
+.woodland-activity .cycle-activity-space { padding: 20px 32px 15px; }
+.woodland-activity .cycle-sound-sun { background: #f5edd3; border-color: var(--wa-edge); box-shadow: 0 6px 0 var(--wa-shadow); color: var(--wa-ink); }
+.woodland-activity .cycle-sound-sun > svg { display: none; }
+.woodland-activity .cycle-answer,
+.cycle-practice-page.woodland-activity .cycle-answer--letter,
+.cycle-practice-page.woodland-activity .cycle-answer--word,
+.woodland-activity .cycle-letter-block { background: var(--wa-cream); color: var(--wa-ink); border: 4px solid var(--wa-edge); border-radius: 48% 52% 45% 55% / 54% 46% 54% 46%; box-shadow: 0 8px 0 var(--wa-shadow), 0 13px 20px #29443418; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
+.woodland-activity .cycle-answer--picture .cycle-picture { border-radius: 0; }
+.woodland-activity .cycle-answer--picture::after { display: none; }
+.woodland-activity .cycle-picture-hear { background: #f9f8df; color: var(--wa-ink); border: 1px solid #c6cdab; box-shadow: 0 3px 0 #aab68f; }
+.woodland-activity .cycle-picture-model,
+.woodland-activity .cycle-choice-play--letterMatch .cycle-picture-model,
+.woodland-activity .cycle-build-target { background: var(--wa-cream); border: 4px solid var(--wa-edge); border-radius: 50%; box-shadow: 0 7px 0 var(--wa-shadow); }
+.woodland-activity .cycle-picture-model { width: auto; min-width: 170px; min-height: 170px; padding: 18px; }
+.woodland-activity .cycle-picture-model > .cycle-picture-hear { left: auto; right: -20px; bottom: -8px; }
+.woodland-activity .cycle-picture-model--rhyme { min-height: 200px; }
+.woodland-activity .cycle-choice-play--letterMatch .cycle-picture-model { flex-direction: row; max-width: 300px; gap: 16px; }
+.woodland-activity .cycle-choice-play--letterMatch .cycle-picture-model > .cycle-picture { width: 115px; height: 130px; }
+.woodland-activity .cycle-model-letter { color: var(--wa-ink); }
+.woodland-activity .cycle-rhyme-link { color: #7a8d66; }
+.woodland-activity .cycle-choice-marker { display: grid; place-items: center; right: 8px; bottom: 8px; width: 30px; height: 30px; color: #365846; }
+.woodland-activity .cycle-choice-marker:not(:empty) { background: #fff9e8; border-radius: 50%; }
+.woodland-activity .cycle-choice-marker svg { width: 24px; height: 24px; }
+.woodland-activity .cycle-answer[aria-pressed="true"] { outline-color: #819563; outline-width: 3px; }
+.woodland-activity [data-feedback="correct"] .cycle-answer[aria-pressed="true"] { background: #fff0b4; border-color: #e8b954; outline-color: transparent; animation: cycle-woodland-settle .45s ease both; }
+.woodland-activity [data-feedback="incorrect"] .cycle-answer[aria-pressed="true"] { border-style: dashed; border-color: #ab7653; outline-color: transparent; animation: cycle-woodland-nudge .25s ease; }
+.woodland-activity button[data-pressed="true"] { outline-color: #647e54; }
+.woodland-activity .cycle-answer:not(:disabled):active,
+.woodland-activity .cycle-letter-block:not(:disabled):active { transform: translateY(4px); box-shadow: 0 3px 0 var(--wa-shadow); }
+@media (hover: hover) { .woodland-activity .cycle-answer:not(:disabled):hover, .woodland-activity .cycle-letter-block:not(:disabled):hover { transform: translateY(-3px); } }
+/* Letter pieces settle into the same soft slots used by Sound Seekers. */
+.woodland-activity .cycle-word-workshop { display: grid; grid-template-columns: auto auto; grid-template-rows: auto auto; justify-content: center; align-content: center; align-items: center; gap: 30px 40px; }
+.woodland-activity .cycle-build-target { justify-self: end; padding: 18px; flex-wrap: wrap; max-width: 320px; min-width: 170px; min-height: 170px; }
+.woodland-activity .cycle-build-target .cycle-picture { width: 130px; height: 130px; }
+.woodland-activity .cycle-build-target .cycle-picture-hear { position: absolute; right: -18px; bottom: -9px; }
+.woodland-activity .cycle-copy-model { font-size: clamp(30px, 4vw, 52px); }
+.woodland-activity .cycle-word-train { flex-wrap: nowrap; justify-self: start; align-items: center; padding: 0 0 10px; gap: 13px; }
+.woodland-activity .cycle-word-car { min-width: 72px; min-height: 84px; padding: 10px 12px; border: 3px solid #c6c49d; border-radius: 42% 50% 38% 45%; background: #e8dfbb; color: var(--wa-ink); box-shadow: 0 8px 0 #a0a584; font-size: clamp(34px, 4vw, 52px); }
+.woodland-activity .cycle-word-car--next { border-style: dashed; border-color: #7e8b67; background: #f6edcaa6; }
+.woodland-activity .cycle-word-car--filled { border-style: solid; border-color: #e4bf75; background: #f9e3a1; }
+.woodland-activity .cycle-letter-bank { grid-column: 1 / -1; gap: 24px; }
+.woodland-activity .cycle-letter-block { min-width: 90px; min-height: 90px; padding: 14px 24px; }
+.woodland-activity [data-feedback="correct"] .cycle-word-train { animation: cycle-woodland-settle .45s ease both; }
+.woodland-activity .cycle-sort-picture { border-color: var(--wa-edge); background: var(--wa-cream); border-radius: 50%; box-shadow: 0 7px 0 var(--wa-shadow); }
+.woodland-activity .cycle-sort-waiting { background: #f7f4dd80; border-radius: 28px; }
+.woodland-activity .cycle-sort-bin { border: 4px solid #ad854d; border-radius: 9% 9% 42% 42%; background: repeating-linear-gradient(0deg, transparent 0 12px, #9e6e3935 12px 15px), repeating-linear-gradient(90deg, #d7b176 0 16px, #bd945d 16px 19px); color: var(--wa-ink); box-shadow: 0 8px 0 #957b4b; }
+.woodland-activity .cycle-sort-bin strong { border-radius: 50%; border: 2px solid #b89963; background: var(--wa-cream); color: var(--wa-ink); }
+.woodland-activity .cycle-sorted-pictures { background: #f5f1d5a6; border-radius: 40%; }
+.woodland-activity .cycle-feedback.is-visible, .woodland-activity .cycle-readiness { border: 0; background: transparent; box-shadow: none; color: var(--wa-ink); font-size: 16px; font-weight: 450; min-height: 32px; padding: 4px 12px; }
+.woodland-activity [data-feedback="correct"] .cycle-feedback { background: #fff2b98c; color: var(--wa-ink); }
+.woodland-activity .cycle-readiness > svg { width: 20px; height: 20px; }
+.woodland-activity .cycle-audio-pulse i { background: #7c9267; }
+.woodland-activity .cycle-play-overlay { background: #e4e9d5f5; }
+.woodland-activity .cycle-launch-card h2, .woodland-activity .cycle-practice-complete-card h1 { font-family: Georgia, serif; font-weight: 400; }
+.woodland-activity .cycle-practice-complete-card { background: var(--wa-cream); border-color: var(--wa-edge); box-shadow: 0 8px 0 var(--wa-shadow); }
+.woodland-activity .cycle-trace__picture-card, .woodland-activity .cycle-trace__pad { border-color: var(--wa-edge); background-color: var(--wa-cream); box-shadow: 0 6px 0 var(--wa-shadow); }
+.woodland-activity .cycle-trace__tools button { background: #f9f8df; color: var(--wa-ink); border-color: #c6cdab; }
+@keyframes cycle-woodland-settle { 40% { transform: translateY(-7px); } 100% { transform: translateY(-2px); } }
+@keyframes cycle-woodland-nudge { 30% { transform: translateX(-4px); } 70% { transform: translateX(4px); } }
+@media (max-width: 800px) {
+  .woodland-activity .cycle-choice-play--letterMatch { gap: 28px; }
+  .woodland-activity .cycle-picture-model { min-width: 135px; min-height: 135px; }
+  .woodland-activity .cycle-word-workshop { gap: 25px; }
+  .woodland-activity .cycle-word-car { min-width: 54px; min-height: 74px; padding-inline: 8px; }
+}
+@media (max-width: 540px) {
+  .woodland-activity .cycle-practice-topbar__identity h1 { font-size: 20px; }
+  .woodland-activity .cycle-practice-topbar__identity div > span { font-size: 9px; }
+  .woodland-activity .cycle-instruction-row { gap: 14px; padding-inline: 8px; }
+  .woodland-activity .cycle-instruction-row p { font-size: 16px; }
+  .woodland-activity .cycle-activity-space { padding-inline: 10px; }
+  .woodland-activity .cycle-word-workshop { display: flex; gap: 24px; }
+  .woodland-activity .cycle-build-target { min-width: 140px; min-height: 130px; padding: 12px; }
+  .woodland-activity .cycle-build-target .cycle-picture { width: 95px; height: 95px; }
+  .woodland-activity .cycle-word-car { min-width: 43px; min-height: 62px; padding: 5px; font-size: 34px; }
+  .woodland-activity .cycle-word-train { gap: 9px; }
+  .woodland-activity .cycle-letter-block { padding: 10px; }
+  .woodland-activity .cycle-readiness, .woodland-activity .cycle-feedback.is-visible { font-size: 14px; }
+}
+@media (max-width: 540px) and (min-height: 561px) {
+  .woodland-activity .cycle-practice-topbar { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 8px; }
+  .woodland-activity .cycle-practice-topbar__identity { min-width: 0; }
+  .woodland-activity .cycle-practice-topbar__round { grid-column: 1; justify-items: start; }
+  .woodland-activity .cycle-practice-topbar__actions { grid-column: 2; grid-row: 1 / 3; }
+  .woodland-activity .cycle-star-trail { display: none; }
+}
+@media (max-width: 360px) and (min-height: 561px) {
+  .woodland-activity .cycle-word-workshop { gap: 16px; }
+  .woodland-activity .cycle-build-target { min-height: 110px; padding: 10px; }
+  .woodland-activity .cycle-build-target .cycle-picture { width: 75px; height: 75px; }
+  .woodland-activity .cycle-word-train { gap: 7px; }
+  .woodland-activity .cycle-word-car { min-width: 34px; padding-inline: 4px; font-size: 30px; }
+  .woodland-activity .cycle-letter-bank { gap: 10px; }
+  .woodland-activity .cycle-letter-block { padding: 8px; font-size: 36px; }
+  .woodland-activity .cycle-sort-picture { width: 105px; height: 85px; padding: 8px; }
+  .cycle-practice-page.woodland-activity .cycle-sort-arrow { margin-bottom: 12px; font-size: 26px; }
+  .woodland-activity .cycle-sort-bin { padding: 8px; }
+}
+@media (max-height: 560px) {
+  .cycle-practice-page.woodland-activity { padding: 6px; }
+  .woodland-activity .cycle-practice-topbar__identity h1 { font-size: 16px; }
+  .woodland-activity .cycle-instruction-row { padding: 0; gap: 8px; }
+  .woodland-activity .cycle-instruction-row p { font-size: 15px; }
+  .woodland-activity .cycle-activity-name { display: none; }
+  .woodland-activity .cycle-listen-button { padding: 8px; }
+  .woodland-activity .cycle-activity-space { padding: 8px 12px 10px; }
+  .woodland-activity .cycle-choice-play .cycle-picture-model { min-height: 0; min-width: 0; max-width: 120px; padding: 8px; }
+  .woodland-activity .cycle-choice-play .cycle-picture-model > .cycle-picture-hear { position: static; }
+  .woodland-activity .cycle-choice-play--letterMatch .cycle-picture-model > .cycle-picture { width: 52px; height: 60px; }
+  .woodland-activity .cycle-word-workshop { grid-template-columns: 120px minmax(0, 1fr); grid-template-rows: auto auto; gap: 16px; }
+  .woodland-activity .cycle-build-target { min-width: 0; min-height: 0; width: 120px; padding: 10px; gap: 8px; }
+  .woodland-activity .cycle-build-target .cycle-picture { width: 58px; height: 60px; }
+  .woodland-activity .cycle-build-target .cycle-picture-hear { position: static; }
+  .woodland-activity .cycle-word-train { flex-wrap: nowrap; justify-self: center; padding: 0 0 7px; gap: 8px; }
+  .woodland-activity .cycle-word-car { min-width: 38px; min-height: 54px; padding: 4px; font-size: 32px; }
+  .woodland-activity .cycle-letter-bank { grid-column: 2; }
+  .woodland-activity .cycle-letter-block { padding: 8px; }
+  .woodland-activity .cycle-readiness, .woodland-activity .cycle-feedback.is-visible { min-height: 25px; padding: 2px 12px; font-size: 14px; }
+}
+
+.woodland-activity .cycle-sort-bin .cycle-basket-handle { position: absolute; z-index: -1; top: -32px; left: 23%; width: 54%; height: 55px; border: 7px solid #b49462; border-bottom: 0; border-radius: 60% 60% 0 0; pointer-events: none; }
+.woodland-activity .cycle-sort-arrow { margin-bottom: 24px; }
+@media (max-height: 560px) { .woodland-activity .cycle-sort-bin .cycle-basket-handle { display: none; } }
+/* The pressed surface moves inside its stable touch region, so a child who
+   starts at an edge can release there without losing the answer. */
+.cycle-practice-page.woodland-activity :is(.cycle-answer, .cycle-letter-block):not(:disabled):is(:hover, :active, [data-pressed="true"]) { transform: none; }
+.cycle-practice-page.woodland-activity :is(.cycle-answer, .cycle-letter-block):is(:active, [data-pressed="true"]) > :is(img, span) { transform: translateY(3px); }
+
+.woodland-activity :is(.cycle-trace__caption, .cycle-trace__target) { color: var(--wa-ink); }
+
+@media (max-height: 560px) {
+  .woodland-activity .cycle-practice-topbar__identity h1 { font-size: 14px; }
+  .woodland-activity .cycle-trail-count, .woodland-activity .cycle-check-label { display: none; }
 }

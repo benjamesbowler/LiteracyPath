@@ -135,7 +135,7 @@ test("answer durability still gates advancement and rapid repeated taps save onl
   assert.equal(harness.state.feedback, null);
   assert.equal(harness.state.currentQuestion.id, "test-cvc-cat");
   network.resolve({ durable: false, error: new Error("offline and no storage") });
-  await submitting;
+  assert.equal(await submitting, false, "construction controls need an explicit failure to offer same-answer retry");
   assert.equal(harness.scope.answerHistoryRef.current.length, 0);
   assert.equal(harness.state.totalAnswered, 0);
   assert.equal(harness.state.roundQuestionIds.length, 0);

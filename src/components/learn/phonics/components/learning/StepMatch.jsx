@@ -2,6 +2,7 @@ import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { usePhonicsAudio } from "../../../../../hooks/usePhonicsAudio";
 import AudioButton from "../AudioButton";
+import PhonicsButton from "../PhonicsButton";
 import WordTile from "../WordTile";
 import { getLedaInstructionAudioPath } from "../../../../../data/ledaProductionAudio.js";
 
@@ -23,6 +24,7 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
   const responsesRef = useRef([]);
   const completedRef = useRef(false);
   const correctionTimerRef = useRef(null);
+  const completionTimerRef = useRef(null);
   const [correction, setCorrection] = useState("");
   const [wrongTileKey, setWrongTileKey] = useState("");
   const [flipStates, setFlipStates] = useState(() => Object.fromEntries(tiles.map(tile => [getTileKey(tile), "default"])));
@@ -30,7 +32,7 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
   const isComplete = foundCount === lesson.words.length;
   const remaining = lesson.words.length - foundCount;
 
-  useEffect(() => () => clearTimeout(correctionTimerRef.current), []);
+  useEffect(() => () => { clearTimeout(correctionTimerRef.current); clearTimeout(completionTimerRef.current); }, []);
 
   const handleTileClick = useCallback((tile) => {
     const tileKey = getTileKey(tile);
@@ -40,17 +42,17 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
 
     if (tile.isCorrect) {
       selectedRef.current.add(tileKey);
-      setCorrection("");
+      setCorrection(`${tile.word.word} has ${lesson.letter} at the ${matchContract.location}.`);
       setWrongTileKey("");
-      playCorrect();
+      if (selectedRef.current.size < lesson.words.length) playCorrect();
       setFlipStates(previous => ({ ...previous, [tileKey]: "correct" }));
       setFoundCount(previous => previous + 1);
       if (responsesRef.current.filter(response => response.correct).length === lesson.words.length && !completedRef.current) {
         completedRef.current = true;
         playYay();
-        onComplete({ step: "match", completionKind: "supported", audioDelivery: "not_required", firstResponse: responsesRef.current[0] || null,
+        completionTimerRef.current = setTimeout(() => onComplete({ step: "match", completionKind: "supported", audioDelivery: "not_required", firstResponse: responsesRef.current[0] || null,
           attempts: responsesRef.current.length, supportUsed: ["printed_word_model", ...(responsesRef.current.some(r => !r.correct) ? ["elimination", "correction"] : [])], independent: false,
-          responses: [...responsesRef.current], construct: matchContract.construct });
+          responses: [...responsesRef.current], construct: matchContract.construct }), 650);
       }
     } else {
       playIncorrect();
@@ -69,6 +71,7 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
 
   const handleRestart = useCallback(() => {
     clearTimeout(correctionTimerRef.current);
+    clearTimeout(completionTimerRef.current);
     selectedRef.current.clear(); responsesRef.current = []; completedRef.current = false;
     const nextTiles = makeMatchTiles(lesson, epoch + 1);
     setEpoch(previous => previous + 1);
@@ -88,7 +91,7 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
         <span aria-hidden="true">★</span>
       </motion.div>
 
-      <div className="phonics-match-grid">
+      <div className="phonics-match-grid" role="group" aria-label="Find the matching words">
         {tiles.map(tile => {
           const tileKey = getTileKey(tile);
 
@@ -112,21 +115,21 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
 
       <AnimatePresence mode="wait">
         {!isComplete ? (
-          <motion.p key="hint" className="phonics-match-hint" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+          <motion.p key="hint" className="phonics-match-hint" role="status" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             {correction || (remaining > 0 ? `Find ${remaining} more!` : "You found them all!")}
           </motion.p>
         ) : (
           <motion.p key="complete" className="phonics-step-status success" initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }}>
-            Amazing work!
+            You found every {lesson.letter} word!
           </motion.p>
         )}
       </AnimatePresence>
 
       <motion.div className="phonics-step-actions" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
         <AudioButton src={lesson.phonicAudio} fallbackText={lesson.phonicSound} size={64} />
-        <motion.button className="phonics-shuffle-button" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={handleRestart} type="button">
+        <PhonicsButton className="phonics-shuffle-button" variant="secondary" onClick={handleRestart}>
           Shuffle Again
-        </motion.button>
+        </PhonicsButton>
       </motion.div>
     </div>
   );

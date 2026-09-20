@@ -70,7 +70,7 @@ immediately. Missing review metadata is not a publication queue.
 - [Game visual and playability production guide](design/GAME_VISUAL_PLAYABILITY_PRODUCTION_GUIDE.md) — agent workflow for authored visual, asset, audio, performance and evidence quality
 - [Meadow Pals animation production bible](design/ANIMATION_PRODUCTION_BIBLE.md)
 - [Student emphasis budget](design/STUDENT_EMPHASIS_BUDGET.md)
-- [Little Literacy Guides design system](LITTLE_LITERACY_GUIDES_DESIGN_SYSTEM.md)
+- [Little Literacy Guides design system](LITTLE_LITERACY_GUIDES_DESIGN_SYSTEM.md) — includes the shared Woodland activity presentation for assessments, Adventure Map, Cycle Practice and Letters
 - [Teacher UI primitives](teacher/UI_PRIMITIVES.md)
 - [Teacher state matrix](teacher/STATE_MATRIX.md)
 - [Teacher parity matrix](teacher/PARITY_MATRIX.md)

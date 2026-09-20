@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 import { CHILD_SURFACE_ROUTES } from "../../src/policy/childSurfaceRules.js";
+import { LETTER_PRACTICE_VERSION, LETTER_PRACTICE_ROUND_COUNT } from "../../src/policy/letterPractice.js";
 import {
   STUDENT_DEVICE_PROFILES,
   STUDENT_FULLSCREEN_DEVICE_IDS,
@@ -1938,15 +1939,19 @@ test("A3.6 Phonics names recommended, completed and in-progress letter states", 
   await expect(letterA.locator(".phonics-letter-next")).toHaveText("Start here");
   await expect(letterA).toHaveAccessibleName("Letter A, Start here, recommended");
 
-  await page.evaluate(() => {
+  await page.evaluate(({ version, roundCount }) => {
     window.localStorage.setItem(
       "lp_phonics_progress_child-surface-preview",
-      JSON.stringify({ A: "completed", B: "inprogress" })
+      // A legacy completed string represents one round, not a finished letter.
+      JSON.stringify({ A: { v: 3, status: "completed", completions: Array.from({ length: roundCount }, (_, index) => ({
+        id: `a11y-A-${index + 1}`, contentVersion: version, completedAt: "2026-09-20T00:00:00Z",
+        steps: [1, 2, 3].map(practiceStep => ({ practiceRound: index + 1, practiceStep }))
+      })) }, B: "inprogress" })
     );
     window.dispatchEvent(new CustomEvent("lp-progress-hydrated", {
       detail: { studentId: "child-surface-preview" }
     }));
-  });
+  }, { version: LETTER_PRACTICE_VERSION, roundCount: LETTER_PRACTICE_ROUND_COUNT });
 
   await expect(surface.locator(".phonics-letter-card").nth(0))
     .toHaveAccessibleName("Letter A, completed");

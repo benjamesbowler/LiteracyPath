@@ -2300,3 +2300,36 @@
     padding: 16mm;
   }
 }
+
+/* The teacher's administration and scoring controls remain explicit. The
+   learner's print has the same calm, grounded surface as woodland activities. */
+@media screen {
+.woodland-activity.el-benchmark-shell {
+  --el-accent: #486850;
+  --el-accent-strong: #365846;
+  --el-accent-soft: #e5eacf;
+  --el-ink: #365846;
+  --el-muted: #5a6d51;
+  --el-canvas: #eff0d8;
+  --el-surface: #fffbef;
+  --el-surface-subtle: #edf0db;
+  --el-border: #d2d7ba;
+  --el-border-strong: #a8b690;
+  font-family: WoodlandLexend, 'Trebuchet MS', sans-serif;
+}
+.woodland-activity.el-benchmark-shell .el-benchmark-topbar { border-radius: 24px; box-shadow: none; }
+.woodland-activity.el-benchmark-shell .el-benchmark-title-block h1 { font-family: Georgia, serif; font-weight: 500; }
+.woodland-activity.el-benchmark-shell .el-benchmark-item-card { border-radius: 28px; border-color: var(--wa-edge); box-shadow: 0 6px 0 var(--wa-shadow); }
+.woodland-activity.el-benchmark-shell .woodland-reading-stimulus {
+  margin: 12px auto 22px;
+  width: min(100%, 680px);
+  border: 4px solid var(--wa-edge);
+  border-radius: 42% 46% 38% 44%;
+  background: var(--wa-cream);
+  color: var(--wa-ink);
+  box-shadow: 0 8px 0 var(--wa-shadow), 0 16px 26px #29443414;
+}
+.woodland-activity.el-benchmark-shell .el-benchmark-quick-button { border-radius: 20px; box-shadow: 0 4px 0 #c4cbb0; transition: transform 180ms ease, background-color 180ms ease; }
+.woodland-activity.el-benchmark-shell .el-benchmark-quick-button:active { transform: translateY(3px); box-shadow: 0 1px 0 #c4cbb0; }
+
+}

@@ -388,7 +388,7 @@ const variants = [
   ['beats', round => round.variant === 'syllableSort'],
   ['trace-team', round => round.mechanicId === 'letterTrace' && round.targetGrapheme.length > 1],
 ];
-for (const viewport of [{ width: 1024, height: 768 }, { width: 834, height: 1194 }, { width: 568, height: 320 }]) {
+for (const viewport of [{ width: 1024, height: 768 }, { width: 834, height: 1194 }, { width: 568, height: 320 }, { width: 320, height: 568 }]) {
   test(`all variant controls fit at ${viewport.width}x${viewport.height} with physical targets and separation`, async ({ page }) => {
     test.setTimeout(120_000);
     await page.setViewportSize(viewport);
@@ -425,10 +425,16 @@ for (const viewport of [{ width: 1024, height: 768 }, { width: 834, height: 1194
         const space = root.querySelector('.cycle-activity-space').getBoundingClientRect();
         const status = root.querySelector('.cycle-readiness').getBoundingClientRect();
         if (status.top < space.bottom - 1) errors.push('Status overlaps learning area');
+        if (innerWidth <= 360 && status.bottom > innerHeight + 1) errors.push('Status outside phone viewport');
         for (const object of root.querySelectorAll('.cycle-activity-space img, .cycle-sound-sun, .cycle-copy-model, .cycle-trace__pad, .cycle-word-car, .cycle-sort-bin strong')) {
           if (!object.getClientRects().length) continue;
           const r = object.getBoundingClientRect();
           if (r.top < space.top - 1 || r.bottom > space.bottom + 1 || r.left < space.left - 1 || r.right > space.right + 1) errors.push(`${object.className.baseVal || object.className}: learning object clipped`);
+        }
+        if (innerHeight <= 560) {
+          const title = root.querySelector('.cycle-practice-topbar__identity h1').getBoundingClientRect();
+          const progress = root.querySelector('.cycle-practice-topbar__round').getBoundingClientRect();
+          if (title.bottom > progress.top) errors.push('Title overlaps activity progress');
         }
         if (root.querySelector('.cycle-playground').scrollTop !== 0) errors.push('Playground scrolled under header');
         return errors;

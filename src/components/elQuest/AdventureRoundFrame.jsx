@@ -1,14 +1,12 @@
+import "../activities/woodland-activity.css";
+import "../../styles/adventure-woodland.css";
+import { WoodlandIcon, WoodlandProgress } from "../activities/WoodlandActivity.jsx";
 import ActivityButton from '../ActivityButton.jsx';
 import { useEffect, useRef } from "react";
 import { triggerTactileFeedback } from "../../utils/tactileFeedback.js";
 
 export function SpeakerIcon() {
-  return (
-    <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M11 5 6 9H3v6h3l5 4V5Z" fill="currentColor" stroke="none" />
-      <path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 6a9 9 0 0 1 0 12" />
-    </svg>
-  );
+  return <WoodlandIcon name="sound" size={22} />;
 }
 
 export function AdventureRoundFrame({
@@ -43,7 +41,6 @@ export function AdventureRoundFrame({
 }) {
   const current = Math.max(1, Number(roundNumber) || 1);
   const total = Math.max(current, Number(roundTotal) || current);
-  const progress = Math.round(((current - 1) / total) * 100);
   const correctionModelRef = useRef(null);
   const genericCorrectionActive = Boolean(correctionModel && correctionModel.mode !== "native-formation");
   const correctionReplayKey = correctionModel?.replayKey || "ready";
@@ -77,7 +74,7 @@ export function AdventureRoundFrame({
 
   return (
     <section
-      className="adventure-round-frame"
+      className="adventure-round-frame woodland-activity woodland-adventure"
       data-adventure-round-frame={mechanicId || "unknown"}
       data-frame-layout={compact ? "compact" : "standard"}
       {...(compact ? { "data-child-choices": "" } : {})}
@@ -88,18 +85,12 @@ export function AdventureRoundFrame({
     >
       {!compact && <header className="adventure-round-frame__header">
         <div className="adventure-round-frame__heading">
-          <p className="adventure-round-frame__eyebrow">{stationTitle}</p>
-          <h1 id="adventure-round-title">{current} of {total}</h1>
+          <p className="adventure-round-frame__eyebrow">Adventure Map</p>
+          <h1 id="adventure-round-title" data-child-title="">{stationTitle}</h1>
         </div>
-        <div
-          className="adventure-round-frame__progress"
-          role="progressbar"
-          aria-label="Station progress"
-          aria-valuemin="0"
-          aria-valuemax={total}
-          aria-valuenow={current - 1}
-        >
-          <span style={{ width: `${progress}%` }} />
+        <div className="adventure-round-frame__journey" data-child-progress="">
+          <span className="adventure-round-frame__counter">{current}<small> / {total}</small></span>
+          <WoodlandProgress className="adventure-round-frame__progress" current={current - 1} total={total} label="Station progress" />
         </div>
         <ActivityButton
           className="adventure-round-frame__stop"
@@ -113,13 +104,14 @@ export function AdventureRoundFrame({
       <div className={`adventure-round-frame__body${compact ? " adventure-round-frame__body--compact" : ""}`}>
         {!compact && <aside className="adventure-round-frame__plaque" aria-label="What to do">
           <div className="adventure-round-frame__instruction">
-            <p>{instructionText}</p>
+            <p data-child-instruction="">{instructionText}</p>
             {detailText && <small>{detailText}</small>}
             {supportText && <small className="adventure-round-frame__support">{supportText}</small>}
           </div>
           <div className="adventure-round-frame__audio-actions">
             <ActivityButton
               type="button"
+              className="wa-audio"
               aria-label="Hear instructions again"
               data-instruction-audio={instructionAudio}
               data-audio-state={audioStatus}
@@ -132,23 +124,27 @@ export function AdventureRoundFrame({
             {hasTargetAudio && (
               <ActivityButton
                 type="button"
+                className="wa-audio"
+                aria-label={targetReplayLabel}
                 data-audio-state={audioStatus}
                 disabled={disabled}
                 onClick={() => { triggerTactileFeedback(); onReplayTarget?.(); }}
               >
                 <SpeakerIcon />
-                {targetReplayLabel}
+                <span>{targetReplayLabel}</span>
               </ActivityButton>
             )}
             {hasContentAudio && (
               <ActivityButton
                 type="button"
+                className="wa-audio"
+                aria-label={contentReplayLabel}
                 data-audio-state={audioStatus}
                 disabled={disabled}
                 onClick={() => { triggerTactileFeedback(); onReplayContent?.(); }}
               >
                 <SpeakerIcon />
-                {contentReplayLabel}
+                <span>{contentReplayLabel}</span>
               </ActivityButton>
             )}
             <span
@@ -165,6 +161,8 @@ export function AdventureRoundFrame({
 
         <div
           className={`adventure-round-frame__stage${shaking ? " sbq-shake" : ""}`}
+          data-child-choices=""
+          data-child-primary=""
           data-stage-state={feedbackTone}
           onClickCapture={onStageInteraction}
           onAnimationEnd={onShakeEnd}

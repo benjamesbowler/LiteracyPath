@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePhonicsAudio, hasPhonicsAudioSource } from "../../../../../hooks/usePhonicsAudio.js";
+import ActivityButton from "../../../../ActivityButton.jsx";
+import { WoodlandAudioButton } from "../../../../activities/WoodlandActivity.jsx";
 import { WordImage } from "../WordImage.jsx";
 
 function PracticeQuestion({ question, number, total, onAnswer }) {
@@ -70,7 +72,7 @@ function PracticeQuestion({ question, number, total, onAnswer }) {
 
   return (
     <section className="phonics-practice-question kg-child-flow__content" aria-label="Letter practice" data-practice-question={question.id} data-audio-delivery={delivery}>
-      <div className="phonics-practice-question-heading">
+      <div className="phonics-practice-question-heading wa-heading">
         <h2>{question.prompt}</h2>
         <p aria-live="polite">{number} of {total}</p>
       </div>
@@ -82,24 +84,23 @@ function PracticeQuestion({ question, number, total, onAnswer }) {
           </div>
         ) : <span className="phonics-practice-letter-model">{question.targetDisplay}</span>)}
         <div className="phonics-practice-audio">
-          <button type="button" className="phonics-button phonics-button-primary" onClick={listen} aria-label="Hear the question" data-child-primary="">
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zM17 8c3 2 3 6 0 8M20 5c5 4 5 10 0 14" /></svg>
+          <WoodlandAudioButton className="phonics-button phonics-button-primary" onClick={listen} label="Hear the question" data-child-primary="">
             {isPlaying || instructionPlaying ? "Listening…" : "Listen again"}
-          </button>
+          </WoodlandAudioButton>
           {!showTarget && <button type="button" className="phonics-practice-help" onClick={() => setModelShown(true)}>Show me</button>}
           {["unavailable", "interrupted"].includes(delivery) && <p role="status">Tap to hear again. The picture or letter can help.</p>}
         </div>
       </div>
       <div className="phonics-practice-options" role="group" aria-label="Answer choices">
         {question.options.map(option => (
-          <button key={option.id} type="button" onClick={() => choose(option)} disabled={solved}
-            aria-label={`Choose ${option.label}`} className={`phonics-practice-option ${pictureChoice ? "has-picture" : "has-letter"} ${selected === option.id ? solved ? "is-correct" : "is-incorrect" : ""}`}>
+          <ActivityButton key={option.id} type="button" onClick={() => choose(option)} disabled={solved}
+            aria-label={`Choose ${option.label}`} className={`phonics-practice-option wa-choice ${pictureChoice ? "has-picture" : "has-letter"} ${selected === option.id ? solved ? "is-correct" : "is-incorrect" : ""}`}>
             {pictureChoice ? <><WordImage src={option.image} word={option.label} priority /><small>{option.label}</small></> : <span>{option.label}</span>}
             {selected === option.id && <span className="phonics-practice-choice-mark" aria-hidden="true">{solved ? "✓" : "↻"}</span>}
-          </button>
+          </ActivityButton>
         ))}
       </div>
-      <p className="phonics-practice-feedback" role="status">{feedback || "Tap your answer."}</p>
+      <p className="phonics-practice-feedback wa-feedback" role="status">{feedback || "Tap your answer."}</p>
     </section>
   );
 }

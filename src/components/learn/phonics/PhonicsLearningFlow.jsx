@@ -12,6 +12,9 @@ import StepMatch from "./components/learning/StepMatch";
 import StepTracer from "./components/learning/StepTracer";
 import StepPractice from "./components/learning/StepPractice.jsx";
 
+import "../../activities/woodland-activity.css";
+import "./woodland-letters.css";
+
 const newSeed = () => globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random()}`;
 
 export function PhonicsLearningFlow({ letter, initialStep = 1, onBack, onComplete, onExit = onBack, progressScopeKey = "default", progressRecord, reviewLetters = [] }) {
@@ -66,9 +69,9 @@ export function PhonicsLearningFlow({ letter, initialStep = 1, onBack, onComplet
   const finalRound = round === LETTER_PRACTICE_ROUND_COUNT;
 
   return (
-    <div className="phonics-learning-flow kg-child-flow" data-letter-round={round}>
+    <div className="phonics-learning-flow kg-child-flow woodland-activity woodland-letters" data-letter-round={round}>
       <div className="phonics-flow-header kg-child-flow__header">
-        <button className="phonics-back-button" onClick={() => { if (!saveFailed) onBack(); }} type="button">Back to letters</button>
+        <button className="phonics-back-button wa-audio" onClick={() => { if (!saveFailed) onBack(); }} type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6" /></svg><span>Back to letters</span></button>
         <div className="phonics-round-progress">
           <span className="phonics-round-label">{letter} · Round {round} of {LETTER_PRACTICE_ROUND_COUNT} · {roundPlan.name}</span>
           <PhonicsProgressBar steps={progressSteps} />

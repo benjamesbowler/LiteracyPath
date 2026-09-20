@@ -168,6 +168,7 @@ export function AssessmentMediaEvidencePreview({ inspectedQuestion = null }) {
   const [feedback, setFeedback] = useState(null);
   const [savingAnswer, setSavingAnswer] = useState(false);
   const [answerCount, setAnswerCount] = useState(0);
+  const [lastAnswer, setLastAnswer] = useState("");
   const answerInFlightRef = useRef(false);
   const handledQuestionIds = useRef(new Set());
 
@@ -177,7 +178,20 @@ export function AssessmentMediaEvidencePreview({ inspectedQuestion = null }) {
     setSavingAnswer(true);
     // The browser regression holds this preview-only response to exercise the
     // production renderer's pending-save state independently of credentials.
-    await fetch("/__preview_assessment_answer__");
+    let response;
+    try {
+      response = await fetch("/__preview_assessment_answer__");
+    } catch (error) {
+      answerInFlightRef.current = false;
+      setSavingAnswer(false);
+      throw error;
+    }
+    if (!response.ok) {
+      answerInFlightRef.current = false;
+      setSavingAnswer(false);
+      return false;
+    }
+    setLastAnswer(JSON.stringify(choice));
     setAnswerCount(count => count + 1);
     setCurrentQuestion(null);
     setFeedback({ isCorrect: choice === currentQuestion.answer, explanation: "" });
@@ -214,6 +228,7 @@ export function AssessmentMediaEvidencePreview({ inspectedQuestion = null }) {
       data-preview-scenario={IS_COMPACT_VISUAL_GRID ? "compact-visual-grid" : inspectedQuestion ? "generated-v3-item" : "media-evidence"}
       data-failure-count={failureCount}
       data-answer-count={answerCount}
+      data-last-answer={lastAnswer}
       data-round-question-ids={round.map(question => question.id).join(",")}
     >
       <AssessmentPage

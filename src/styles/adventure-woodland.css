@@ -1,0 +1,201 @@
+/* The Sound Seekers activity language, without its 3D exploration layer.
+   The existing round state and recorded teaching remain the learning authority. */
+.skills-block-quest .woodland-adventure {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: none;
+  padding: 10px clamp(12px, 3vw, 44px);
+  border-radius: 26px;
+  color: var(--wa-ink);
+  background: linear-gradient(180deg, #e9eddbf5, #e4e8cde8 54%, #dce3bef5);
+  font-family: WoodlandLexend, var(--lp-font-reading), sans-serif;
+}
+.woodland-adventure .adventure-round-frame__header {
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  min-height: 76px;
+  gap: 24px;
+  padding: 0;
+  background: transparent;
+  color: var(--wa-ink);
+  border: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.woodland-adventure .adventure-round-frame__eyebrow { color: #617553; font-size: 10px; letter-spacing: .22em; line-height: 1.6; }
+.woodland-adventure .adventure-round-frame__heading h1 { color: var(--wa-ink); font: 400 clamp(24px, 3.1vw, 40px)/1.15 Georgia, serif; }
+.woodland-adventure .adventure-round-frame__journey { display: grid; justify-items: center; gap: 8px; min-width: 86px; }
+.woodland-adventure .adventure-round-frame__counter { font: 400 29px/1 Georgia, serif; white-space: nowrap; }
+.woodland-adventure .adventure-round-frame__counter small { font: 400 14px/1 WoodlandLexend, sans-serif; opacity: .8; }
+.woodland-adventure .adventure-round-frame__progress { width: 90px; height: 5px; border: 0; background: #b3c0997d; box-shadow: none; }
+.woodland-adventure .adventure-round-frame__progress span { background: #69845b; box-shadow: none; }
+.woodland-adventure .adventure-round-frame__stop { border: 1px solid #96aa8a; border-radius: 50%; background: #f9fae9c2; color: var(--wa-ink); box-shadow: 0 3px 0 #a6b591; padding-inline: 16px; }
+.woodland-adventure .adventure-round-frame__body { gap: 10px; }
+.woodland-adventure .adventure-round-frame__plaque,
+.skills-block-quest [data-adventure-round-frame].woodland-adventure:has(.am-simple) .adventure-round-frame__plaque {
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  min-height: 64px;
+  padding: 4px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.woodland-adventure .adventure-round-frame__instruction { text-align: center; }
+.woodland-adventure .adventure-round-frame__instruction p { font: 450 clamp(16px, 1.8vw, 22px)/1.35 WoodlandLexend, var(--lp-font-reading), sans-serif; color: var(--wa-ink); }
+.woodland-adventure .adventure-round-frame__instruction small { font-size: 13px; font-weight: 450; color: #52674c; }
+.woodland-adventure .adventure-round-frame__audio-actions { align-items: center; position: relative; gap: 12px; }
+.woodland-adventure .adventure-round-frame__audio-actions button { border: 1px solid #a4b591; border-radius: 50px; padding: 10px 18px; background: #fbfbecc9; color: var(--wa-ink); box-shadow: 0 3px 0 #a5b28b; font-size: 14px; font-weight: 450; }
+.woodland-adventure .adventure-round-frame__audio-status { position: absolute; top: 100%; right: 0; font-size: 11px; white-space: nowrap; }
+.woodland-adventure .adventure-round-frame__audio-status:empty { display: none; }
+.skills-block-quest .woodland-adventure .adventure-round-frame__stage,
+.skills-block-quest [data-adventure-round-frame].woodland-adventure:has(.am-simple) .adventure-round-frame__stage {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 12px 12px 18px;
+  overflow: auto;
+}
+.woodland-adventure .adventure-round-frame__feedback {
+  position: static;
+  max-width: none;
+  width: auto;
+  min-height: 30px;
+  margin: 0;
+  padding: 4px 10px;
+  border: 0;
+  background: transparent;
+  color: var(--wa-ink);
+  box-shadow: none;
+  font: 450 15px/1.35 WoodlandLexend, var(--lp-font-reading), sans-serif;
+  text-align: center;
+}
+.woodland-adventure .adventure-round-frame__feedback[data-feedback-tone="correct"] { background: #fff2b98c; color: #365846; }
+.woodland-adventure .adventure-round-frame__feedback[data-feedback-tone="retry"] { background: #fff9e8b3; color: #704c2f; }
+.skills-block-quest .woodland-adventure .am-simple { --am-ink: var(--wa-ink); --am-edge: var(--wa-edge); gap: 20px; }
+.skills-block-quest .woodland-adventure :is(.am-simple-picture-choice, .am-word-choice__words button, .am-letter-grid__cells button, .am-simple-letter-choices button, .am-sound-choice__tile, .am-letter-press-button) {
+  color: var(--wa-ink);
+  background: var(--wa-cream);
+  border: 4px solid var(--wa-edge);
+  border-radius: 48% 52% 45% 55% / 54% 46% 54% 46%;
+  box-shadow: 0 8px 0 var(--wa-shadow), 0 13px 20px #29443418;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.skills-block-quest .woodland-adventure :is(.am-simple-picture-choice, .am-word-choice__words button, .am-letter-grid__cells button, .am-simple-letter-choices button, .am-sound-choice__tile, .am-letter-press-button):not(:disabled):active,
+.skills-block-quest .woodland-adventure button[data-pressed="true"] { transform: translateY(4px); box-shadow: 0 3px 0 var(--wa-shadow); outline-color: #607d50; }
+@media (hover: hover) {
+  .skills-block-quest .woodland-adventure :is(.am-simple-picture-choice, .am-word-choice__words button, .am-simple-letter-choices button, .am-sound-choice__tile, .am-letter-press-button):not(:disabled):hover { transform: translateY(-3px); }
+}
+.skills-block-quest .woodland-adventure .am-simple-picture-choice { display: flex; }
+.skills-block-quest .woodland-adventure :is(.am-simple-picture-card, .am-picture-search__object) { gap: 15px; }
+.skills-block-quest .woodland-adventure .am-simple-picture-choice > img { mix-blend-mode: multiply; height: clamp(108px, 21vh, 205px); }
+.skills-block-quest .woodland-adventure .am-picture-sounds__choices { width: min(1040px, 100%); gap: clamp(18px, 4vw, 50px); }
+.skills-block-quest .woodland-adventure .am-simple-hear { align-self: center; flex-shrink: 0; width: max(56px, var(--kg-physical-hit, 56px)); padding: 0; border-radius: 50%; background: #f9f8df; border: 1px solid #c6cdab; box-shadow: 0 3px 0 #aab68f; color: var(--wa-ink); }
+.skills-block-quest .woodland-adventure .am-simple-hear > span { display: none; }
+.skills-block-quest .woodland-adventure .am-picture-target { gap: 18px; }
+.skills-block-quest .woodland-adventure .am-picture-target > strong { display: grid; place-items: center; min-width: 90px; min-height: 80px; padding: 10px 20px; background: #f6edd0; border: 3px solid #e8dcb8; border-radius: 50%; box-shadow: 0 5px 0 #b6bb91; }
+.skills-block-quest .woodland-adventure .am-simple-target-letters > span { border: 2px solid #c6c49d; border-radius: 42% 50% 38% 45%; background: #f5eed5; box-shadow: 0 4px 0 #a3af85; }
+.skills-block-quest .woodland-adventure .am-letter-grid__cells { gap: 17px; width: min(660px, 100%); }
+.skills-block-quest .woodland-adventure .am-letter-grid__cells button { min-height: 82px; border-radius: 38% 45% 40% 36%; }
+.skills-block-quest .woodland-adventure .am-simple [data-find-state="found"],
+.skills-block-quest .woodland-adventure .am-simple [data-answer-state="correct"] { background: #fff0b4; border-color: #e8b954; color: var(--wa-ink); box-shadow: 0 4px 0 #aaa773; opacity: 1; }
+.skills-block-quest .woodland-adventure .am-simple [data-find-state="retry"],
+.skills-block-quest .woodland-adventure .am-simple [data-answer-state="retry"] { border-style: dashed; border-color: #ab7653; animation: adventure-woodland-nudge .25s ease; }
+.skills-block-quest .woodland-adventure .am-missing-letter__picture { gap: 16px; }
+.skills-block-quest .woodland-adventure .am-missing-letter__picture .am-simple-hear { width: max(56px, var(--kg-physical-hit, 56px)); }
+.skills-block-quest .woodland-adventure .am-missing-letter__word { flex-wrap: nowrap; }
+.skills-block-quest .woodland-adventure .am-missing-letter__picture > img { width: clamp(115px, 16vw, 180px); height: clamp(110px, 19vh, 180px); padding: 15px; background: var(--wa-cream); border: 4px solid var(--wa-edge); border-radius: 50%; box-shadow: 0 7px 0 var(--wa-shadow); mix-blend-mode: multiply; }
+.skills-block-quest .woodland-adventure .am-missing-letter__word > span { width: clamp(60px, 8vw, 100px); height: clamp(74px, 12vh, 110px); border: 3px solid #c6c49d; border-radius: 42% 50% 38% 45%; background: #e8dfbb; box-shadow: 0 7px 0 #a0a584; }
+.skills-block-quest .woodland-adventure .am-missing-letter__word [data-letter-slot="missing"] { border-style: dashed; border-color: #748464; background: #f6edcaa6; }
+.skills-block-quest .woodland-adventure .am-simple-letter-choices { gap: 24px; width: min(550px, 100%); }
+.skills-block-quest .woodland-adventure .am-simple-letter-choices > button { min-height: 110px; }
+.skills-block-quest .woodland-adventure .am-code-sign-slot { border: 3px solid #c6c49d; border-radius: 42% 50% 38% 45%; background: #e8dfbb; box-shadow: 0 8px 0 #a0a584; color: var(--wa-ink); min-width: 130px; }
+.skills-block-quest .woodland-adventure .am-code-sign-slot::before { display: none; }
+.skills-block-quest .woodland-adventure .am-code-sign-slot[data-slot-state="empty"] { border-style: dashed; background: #f6edcaa6; }
+.skills-block-quest .woodland-adventure .am-code-sign-slot[data-slot-state="paired"] { background: #fff0b4; border-color: #e8b954; }
+.skills-block-quest .woodland-adventure .am-code-sign-slot strong { color: var(--wa-ink); }
+.skills-block-quest .woodland-adventure .am-letter-press { gap: 30px; }
+.skills-block-quest .woodland-adventure .am-letter-press-choices { gap: 26px; }
+.skills-block-quest .woodland-adventure .am-sound-choice__tiles { gap: clamp(20px, 4vw, 56px); }
+.skills-block-quest .woodland-adventure .am-sound-choice__tile { width: clamp(125px, 17vw, 215px); min-height: 160px; padding: 18px; }
+.skills-block-quest .woodland-adventure .am-word-choice__words { gap: 32px; width: min(980px, 100%); }
+.skills-block-quest .woodland-adventure .am-word-choice__words button { min-height: clamp(140px, 24vh, 220px); border-radius: 42% 46% 38% 42%; }
+.skills-block-quest .woodland-adventure .am-picture-search__scene { gap: 17px 22px; }
+.skills-block-quest .woodland-adventure .am-picture-search__object .am-simple-picture-choice { border-radius: 38% 45% 40% 36%; }
+.skills-block-quest .woodland-adventure .am-picture-search__object .am-simple-picture-choice img { height: 100%; }
+.skills-block-quest .woodland-adventure .am-compound-pictures { gap: 18px; }
+.skills-block-quest .woodland-adventure .am-compound-pictures .am-simple-picture-choice > img { height: 0; }
+.skills-block-quest .woodland-adventure .am-word-memory__card { border-radius: 26px; background: #486850; border-color: #799073; box-shadow: 0 7px 0 #365846, inset 0 0 0 5px #486850, inset 0 0 0 7px #a3af85; }
+.skills-block-quest .woodland-adventure .am-word-memory__card[data-card-state="open"] { background: var(--wa-cream); box-shadow: 0 7px 0 var(--wa-shadow); border-color: var(--wa-edge); }
+.skills-block-quest .woodland-adventure .am-word-memory__card[data-card-state="matched"] { background: #fff0b4; border-color: #e8b954; color: var(--wa-ink); box-shadow: 0 4px 0 #aaa773; }
+@keyframes adventure-woodland-nudge { 30% { transform: translateX(-4px); } 70% { transform: translateX(4px); } }
+@media (max-height: 720px) {
+  .skills-block-quest .woodland-adventure { padding-top: 3px; padding-bottom: 4px; }
+  .woodland-adventure .adventure-round-frame__header { min-height: 60px; }
+  .woodland-adventure .adventure-round-frame__heading h1 { font-size: 27px; }
+  .woodland-adventure .adventure-round-frame__plaque { min-height: 58px; }
+  .skills-block-quest .woodland-adventure .am-simple { gap: 12px; }
+  .skills-block-quest .woodland-adventure .am-simple-picture-choice > img { height: clamp(90px, 16vh, 145px); }
+  .skills-block-quest .woodland-adventure .am-letter-grid__cells { gap: 12px; }
+  .skills-block-quest .woodland-adventure .am-letter-grid__cells button { min-height: 62px; }
+  .skills-block-quest .woodland-adventure .am-picture-search__object .am-simple-picture-choice img { height: 100%; }
+}
+@media (max-width: 620px) {
+  .skills-block-quest .woodland-adventure { padding-inline: 9px; border-radius: 18px; }
+  .woodland-adventure .adventure-round-frame__header { gap: 10px; }
+  .woodland-adventure .adventure-round-frame__heading h1 { font-size: 24px; }
+  .woodland-adventure .adventure-round-frame__journey { min-width: 40px; }
+  .woodland-adventure .adventure-round-frame__counter { font-size: 23px; }
+  .woodland-adventure .adventure-round-frame__progress { width: 48px; }
+  .woodland-adventure .adventure-round-frame__plaque,
+  .skills-block-quest [data-adventure-round-frame].woodland-adventure:has(.am-simple) .adventure-round-frame__plaque { gap: 10px; flex-direction: row; }
+  .woodland-adventure .adventure-round-frame__instruction p { font-size: 14px; }
+  .woodland-adventure .adventure-round-frame__instruction small { font-size: 11px; }
+  .woodland-adventure .adventure-round-frame__audio-actions { gap: 8px; flex-wrap: nowrap; }
+  .woodland-adventure .adventure-round-frame__audio-actions button { width: max(56px, var(--kg-physical-hit, 56px)); padding: 0; }
+  .woodland-adventure .adventure-round-frame__audio-actions button span { display: none; }
+  .skills-block-quest .woodland-adventure .am-simple-picture-choice > img { height: 95px; }
+  .skills-block-quest .woodland-adventure .am-picture-sounds__choices { gap: 13px; }
+  .skills-block-quest .woodland-adventure .am-picture-search__scene { gap: 10px; }
+  .skills-block-quest .woodland-adventure .am-word-choice__words { gap: 20px; }
+  .skills-block-quest .woodland-adventure .am-word-choice__words button { min-height: 88px; }
+  .skills-block-quest .woodland-adventure .am-sound-choice__tile { width: 110px; min-height: 120px; }
+  .skills-block-quest .woodland-adventure .am-simple-letter-choices { gap: 15px; }
+  .skills-block-quest .woodland-adventure .am-simple-letter-choices > button { min-height: 90px; }
+}
+@media (max-height: 430px) and (orientation: landscape) {
+  .woodland-adventure .adventure-round-frame__heading h1 { font-size: 20px; }
+  .woodland-adventure .adventure-round-frame__header { min-height: 56px; }
+  .woodland-adventure .adventure-round-frame__eyebrow { display: none; }
+  .skills-block-quest .woodland-adventure .am-simple-picture-choice > img { height: 76px; }
+  .skills-block-quest .woodland-adventure .am-simple { gap: 8px; }
+  .skills-block-quest .woodland-adventure .am-sound-choice__tile { min-height: 90px; }
+  .skills-block-quest .woodland-adventure .am-letter-press { gap: 12px; }
+  .skills-block-quest .woodland-adventure .am-simple-letter-choices > button { min-height: 64px; }
+}
+@media (prefers-reduced-motion: reduce) { .woodland-adventure *, .woodland-adventure *::before, .woodland-adventure *::after { animation: none !important; transition: none !important; } }
+.woodland-adventure [data-reduced-motion="true"] * { animation: none !important; transition: none !important; }
+/* Picture responses are objects on near-round pads, not wide cards with a
+   small thumbnail. The available height sets their size on classroom screens. */
+.skills-block-quest .woodland-adventure .am-picture-sounds__choices { width: min(100%, 900px); gap: clamp(16px, 3vw, 40px); }
+.skills-block-quest .woodland-adventure .am-picture-sounds .am-simple-picture-card { align-items: center; }
+.skills-block-quest .woodland-adventure .am-picture-sounds .am-simple-picture-choice {
+  width: min(100%, 32vh, 240px);
+  aspect-ratio: 1;
+  min-height: 0;
+  padding: 12px;
+}
+.skills-block-quest .woodland-adventure .am-picture-sounds .am-simple-picture-choice > img {
+  position: absolute;
+  inset: 12px;
+  width: calc(100% - 24px);
+  height: calc(100% - 24px);
+  max-height: none;
+  border-radius: inherit;
+}
+@media (max-width: 620px) {
+  .skills-block-quest .woodland-adventure .am-picture-sounds .am-simple-picture-choice { width: 100%; }
+}

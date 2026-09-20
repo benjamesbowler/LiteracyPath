@@ -1,5 +1,15 @@
 # Current system cleanup — 31 July 2026
 
+## Shared Woodland activity presentation — 20 September 2026
+
+Assessments, Adventure Map activities, Cycle Practice and Letters adopt the
+current Sound Seekers chapter's activity visual language through
+`src/components/activities/`. Each surface retains its current learning,
+audio and progress controller. The shared layer imports no 3D world or new
+media service. The current contract is in the
+[child design system](LITTLE_LITERACY_GUIDES_DESIGN_SYSTEM.md#learning-activity-presentation).
+No learner records, original artwork or question banks were removed.
+
 ## Startup and game recovery — 16 September 2026
 
 Removed the three base64 JavaScript model copies for Sound Racer, Spell & Skate

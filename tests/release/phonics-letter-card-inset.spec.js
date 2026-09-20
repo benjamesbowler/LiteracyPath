@@ -140,8 +140,8 @@ test("hovering outside letters preserves the recommendation and focus ring", asy
     // Framer Motion updates inline transforms as hover springs settle.
     await expect.poll(() => card.evaluate(element => {
       const transform = new DOMMatrixReadOnly(getComputedStyle(element).transform);
-      return Math.round(transform.a * 100);
-    })).toBe(108);
+      return { scale: Math.round(transform.a * 100), lift: Math.round(transform.m42) };
+    })).toEqual({ scale: 100, lift: -2 });
     expect(await outlineClipping(card)).toEqual([]);
   }
 });

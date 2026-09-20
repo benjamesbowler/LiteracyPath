@@ -16,6 +16,31 @@ async function drift(page, control, { cancel = false, outside = false } = {}) {
   await client.detach();
 }
 
+async function stationaryEdgeTap(page, control) {
+  await control.click({ trial: true });
+  const bounds = await control.boundingBox();
+  const point = { x: bounds.x + bounds.width / 2, y: bounds.y + 2 };
+  expect(await control.evaluate((button, position) => button.contains(document.elementFromPoint(position.x, position.y)), point)).toBe(true);
+  const client = await page.context().newCDPSession(page);
+  try {
+    await client.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [point] });
+    await expect(control).toHaveAttribute("data-pressed", "true");
+    // Sample during pressed animation, before ActivityButton clears its feedback.
+    const pressed = await control.evaluate(button => new Promise(resolve => {
+      requestAnimationFrame(() => requestAnimationFrame(() => requestAnimationFrame(() => {
+        const rect = button.getBoundingClientRect();
+        resolve({ x: rect.x, y: rect.y, width: rect.width, height: rect.height });
+      })));
+    }));
+    for (const dimension of ["x", "y", "width", "height"]) {
+      expect(pressed[dimension]).toBeCloseTo(bounds[dimension], 1);
+    }
+    await client.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
+  } finally {
+    await client.detach();
+  }
+}
+
 for (const viewport of [{ width: 1024, height: 768 }, { width: 768, height: 1024 }]) {
 test(`assessment acknowledges a held save and promptly opens the next item at ${viewport.width}×${viewport.height}`, async ({ page }, testInfo) => {
   await page.setViewportSize(viewport);
@@ -61,7 +86,7 @@ test(`assessment acknowledges a held save and promptly opens the next item at ${
 });
 }
 
-test("assessment accepts small finger drift once and rejects cancelled or outside releases", async ({ page, browserName }) => {
+test("assessment keeps near-edge taps stationary and rejects cancelled or outside releases", async ({ page, browserName }) => {
   test.skip(browserName !== "chromium", "Trusted moved touch uses the Chromium input protocol.");
   await page.setViewportSize({ width: 1024, height: 768 });
   let saves = 0;
@@ -76,7 +101,11 @@ test("assessment accepts small finger drift once and rejects cancelled or outsid
   await drift(page, answer, { outside: true });
   await expect(preview).toHaveAttribute("data-answer-count", "0");
   expect(saves).toBe(0);
-  await drift(page, answer);
+  const replay = page.locator(".assessment-audio-button").first();
+  await stationaryEdgeTap(page, replay);
+  await expect(replay).toHaveAttribute("aria-label", / playing$/);
+  await expect(preview).toHaveAttribute("data-answer-count", "0");
+  await stationaryEdgeTap(page, answer);
   await expect(preview).toHaveAttribute("data-answer-count", "1", { timeout: 300 });
   await expect(page.locator('[data-assessment-question-id="second-safe-picture-item"]')).toBeVisible();
   expect(saves).toBe(1);
@@ -101,7 +130,61 @@ test("assessment spelling tiles keep moved taps and keyboard input single-action
   await expect(selected).toHaveCount(2);
   await drift(page, page.getByRole("button", { name: "Add d", exact: true }));
   await expect(selected).toHaveCount(3);
-  await drift(page, page.getByRole("button", { name: "Submit", exact: true }));
+  await expect(page.getByRole("button", { name: "Submit", exact: true })).toHaveCount(0);
   await expect(page.locator('[data-preview-surface="assessment-media-evidence"]'))
     .toHaveAttribute("data-answer-count", "1");
 });
+
+
+test("completed spelling retries its unchanged first answer after a failed save", async ({ page }) => {
+  await page.setViewportSize({ width: 1024, height: 768 });
+  let saves = 0;
+  await page.route("**/__preview_assessment_answer__", route => {
+    saves += 1;
+    return route.fulfill({ status: saves === 1 ? 503 : 200, contentType: "application/json", body: '{"ok":true}' });
+  });
+  const errors = [];
+  page.on("pageerror", error => errors.push(error.message));
+  await page.goto("/preview/assessment-media-evidence.html?scenario=response-latency&skill=hfw_1_25&item=lp3.hfw_1_25.l2.B.and.v2");
+  // An incomplete construction is still editable. A completed one is immutable.
+  await page.getByRole("button", { name: "Add n", exact: true }).click();
+  await page.getByRole("button", { name: "Remove n", exact: true }).click();
+  for (const letter of ["a", "d", "n"]) await page.getByRole("button", { name: `Add ${letter}`, exact: true }).click();
+  await expect(page.getByRole("alert")).toContainText("Your answer is still here");
+  await expect(page.getByRole("button", { name: "Remove a", exact: true })).toBeDisabled();
+  const preview = page.locator('[data-preview-surface="assessment-media-evidence"]');
+  await expect(preview).toHaveAttribute("data-answer-count", "0");
+  await page.getByRole("button", { name: "Try saving again", exact: true }).click();
+  await expect(preview).toHaveAttribute("data-answer-count", "1");
+  await expect(preview).toHaveAttribute("data-last-answer", '"adn"');
+  expect(saves).toBe(2);
+  expect(errors).toEqual([]);
+});
+
+for (const item of [
+  { id: 'lp3.cvc_short_vowels.l2.C.short_i.v6', word: 'fish', tiles: ['f', 'i', 'sh'] },
+  { id: 'lp3.cvc_short_vowels.l2.C.short_o.v6', word: 'clock', tiles: ['c', 'l', 'o', 'ck'] }
+]) {
+  test(`sound construction uses whole digraph slots and records ${item.word} once`, async ({ page }) => {
+    await page.setViewportSize({ width: 1024, height: 768 });
+    let saves = 0;
+    await page.route('**/__preview_assessment_answer__', route => {
+      saves += 1;
+      return route.fulfill({ status: 200, contentType: 'application/json', body: '{"ok":true}' });
+    });
+    await page.goto(`/preview/assessment-media-evidence.html?scenario=response-latency&skill=cvc_short_vowels&item=${item.id}`);
+    await expect(page.locator('.sound-order-empty-slot')).toHaveCount(item.tiles.length);
+    const digraph = item.tiles.at(-1);
+    await page.getByRole('button', { name: `Add ${digraph}`, exact: true }).click();
+    await page.getByRole('button', { name: `Remove ${digraph}`, exact: true }).click();
+    await expect(page.locator('.sound-order-empty-slot')).toHaveCount(item.tiles.length);
+    for (const tile of item.tiles) {
+      const spoken = /^[aeiou]$/.test(tile) ? `short ${tile}` : tile;
+      await page.getByRole('button', { name: `Add ${spoken}`, exact: true }).click();
+    }
+    const preview = page.locator('[data-preview-surface="assessment-media-evidence"]');
+    await expect(preview).toHaveAttribute('data-answer-count', '1');
+    await expect(preview).toHaveAttribute('data-last-answer', JSON.stringify(item.word));
+    expect(saves).toBe(1);
+  });
+}

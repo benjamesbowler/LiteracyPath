@@ -113,9 +113,11 @@ test("A3.10 failed answer evidence is removed, refilled, and never scored", asyn
     images.every(image => image.complete && image.naturalWidth > 0)
   ))).toBe(true);
 
-  const decoration = page.locator('[data-assessment-media-kind="decorative"]');
-  await expect(decoration).toHaveCount(1);
-  await expect(decoration).toHaveAttribute("aria-hidden", "true");
+  // The separate decorative speaker medallion was replaced by one named
+  // replay control. Its glyph is decoration; the control carries the meaning.
+  const replayGlyph = page.getByRole("button", { name: "Hear the word", exact: true }).locator("svg");
+  await expect(replayGlyph).toHaveCount(1);
+  await expect(replayGlyph).toHaveAttribute("aria-hidden", "true");
 
   const axe = await new AxeBuilder({ page })
     .include('[data-preview-surface="assessment-media-evidence"]')

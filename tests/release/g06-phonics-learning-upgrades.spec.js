@@ -151,12 +151,16 @@ test("two-word Word Magic families get a reverse grapheme choice", async ({ page
 test("Match corrections keep a wrong picture retryable", async ({ page }) => {
   await page.goto("/preview/child-surfaces.html?surface=phonics&step=3");
   await page.getByRole("button", { name: /^Letter A(?:,|$)/ }).click();
+  for (const picture of await page.locator(".phonics-word-tile img").all()) await expect(picture).toBeVisible();
   const wrong = page.getByRole("button", { name: "Word tile: dog", exact: true });
   await wrong.click();
   await expect(page.locator(".phonics-match-hint")).toContainText("starts with D");
   await expect(wrong).toBeEnabled();
   await wrong.click();
   await expect(page.locator(".phonics-match-hint")).toContainText("starts with D");
+  await page.getByRole("button", { name: "Word tile: ant", exact: true }).click();
+  await expect(page.locator(".phonics-word-tile.correct img")).toBeVisible();
+  await expect(page.locator(".phonics-word-tile.correct .phonics-word-label")).toHaveText("ant");
 });
 
 test("Listen follows the authored ending contract and keeps picture taps available", async ({ page }) => {
@@ -171,6 +175,42 @@ test("Listen follows the authored ending contract and keeps picture taps availab
   await page.getByRole("button", { name: "Hear the word fox", exact: true }).click();
   await expect(page.getByRole("status").filter({ hasText: "could not play" })).toBeVisible();
 });
+
+for (const viewport of [{ width: 320, height: 568 }, { width: 568, height: 320 }]) {
+  for (const step of [2, 3]) {
+    test(`introductory ${step === 2 ? "Listen" : "Match"} pictures and recovery fit ${viewport.width}x${viewport.height}`, async ({ page }) => {
+      await page.setViewportSize(viewport);
+      await page.emulateMedia({ reducedMotion: "reduce" });
+      await page.route("**/*.mp3", route => route.abort());
+      await page.goto(`/preview/child-surfaces.html?surface=phonics&step=${step}`);
+      await page.getByRole("button", { name: /^Letter A(?:,|$)/ }).click();
+      if (step === 2) {
+        await page.getByRole("button", { name: /Replay the/ }).click();
+        await expect(page.getByRole("status").filter({ hasText: "could not play" })).toBeVisible();
+      } else {
+        await page.getByRole("button", { name: "Word tile: dog", exact: true }).click();
+        await expect(page.locator(".phonics-match-hint")).toContainText("starts with D");
+      }
+      const flow = page.locator(".phonics-learning-flow");
+      const bounds = await flow.boundingBox();
+      for (const element of await flow.locator("button:visible, [role='status']:visible").all()) {
+        const box = await element.boundingBox();
+        expect(box.x).toBeGreaterThanOrEqual(bounds.x - 1);
+        expect(box.y).toBeGreaterThanOrEqual(bounds.y - 1);
+        expect(box.x + box.width).toBeLessThanOrEqual(bounds.x + bounds.width + 1);
+        expect(box.y + box.height).toBeLessThanOrEqual(bounds.y + bounds.height + 1);
+      }
+      for (const card of await flow.locator(step === 2 ? ".phonics-listen-card" : ".phonics-word-tile").all()) {
+        const image = card.locator("img");
+        await expect(image).toBeVisible();
+        const picture = await image.boundingBox();
+        const label = await card.locator(".phonics-word-label").boundingBox();
+        expect(Math.min(picture.width, picture.height)).toBeGreaterThanOrEqual(44);
+        expect(picture.y + picture.height).toBeLessThanOrEqual(label.y + 1);
+      }
+    });
+  }
+}
 
 test("Build exposes a bounded supported continuation above the tab bar", async ({ page }) => {
   await page.route("**/*.mp3", route => route.abort());

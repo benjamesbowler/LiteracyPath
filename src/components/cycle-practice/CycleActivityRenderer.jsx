@@ -25,7 +25,7 @@ function Picture({ src, word, onFailure, className = "" }) {
 }
 
 function HearPicture({ choice, disabled, onHear }) {
-  return <ActivityButton type="button" className="cycle-picture-hear" aria-label={`Hear ${choice.label || choice.value}`} disabled={disabled} data-audio-action="replay" onClick={() => onHear?.(choice.audio, choice.label || choice.value)}><SpeakerIcon /></ActivityButton>;
+  return <ActivityButton type="button" className="cycle-picture-hear wa-audio" aria-label={`Hear ${choice.label || choice.value}`} disabled={disabled} data-audio-action="replay" onClick={() => onHear?.(choice.audio, choice.label || choice.value)}><SpeakerIcon /></ActivityButton>;
 }
 
 function ChoiceActivity({ round, disabled, onCommit, onHear, onMediaFailure, supportLevel }) {
@@ -46,14 +46,14 @@ function ChoiceActivity({ round, disabled, onCommit, onHear, onMediaFailure, sup
       <div className={`cycle-picture-model${rhyme ? " cycle-picture-model--rhyme" : ""}`}>
         <Picture src={round.image} word={round.imageWord || round.targetWord} onFailure={onMediaFailure} />
         {round.mechanicId === "letterMatch" && round.variant !== "wordListen" && <span className="cycle-model-letter" aria-hidden="true">{round.variant === "letterCase" ? round.model : "?"}</span>}
-        <ActivityButton type="button" className="cycle-picture-hear" aria-label={`Hear ${round.targetWord}`} disabled={disabled} data-audio-action="replay" onClick={() => onHear?.(round.audio, round.targetWord)}><SpeakerIcon /></ActivityButton>
+        <ActivityButton type="button" className="cycle-picture-hear wa-audio" aria-label={`Hear ${round.targetWord}`} disabled={disabled} data-audio-action="replay" onClick={() => onHear?.(round.audio, round.targetWord)}><SpeakerIcon /></ActivityButton>
         {rhyme && <div className="cycle-rhyme-link" aria-hidden="true">↔</div>}
       </div>}
     <div className="cycle-play-choices" role="group" aria-label={pictureChoice ? "Choose a picture" : round.variant === "wordListen" ? "Choose a word" : "Choose a letter"}>
       {round.choices.map(choice => <div className="cycle-choice-wrap" key={choice.id || choice.value}>
-        <ActivityButton type="button" className={`cycle-answer ${pictureChoice ? "cycle-answer--picture" : round.variant === "wordListen" ? "cycle-answer--word" : "cycle-answer--letter"}${supportLevel >= 2 && String(choice.value) === String(round.answer) ? " cycle-answer--hint" : ""}`} aria-label={choice.label || String(choice.value)} aria-pressed={selected === choice.value} disabled={disabled || selected !== null} onClick={() => select(choice)}>
+        <ActivityButton type="button" className={`cycle-answer wa-choice ${pictureChoice ? "cycle-answer--picture" : round.variant === "wordListen" ? "cycle-answer--word" : "cycle-answer--letter"}${supportLevel >= 2 && String(choice.value) === String(round.answer) ? " cycle-answer--hint" : ""}`} aria-label={choice.label || String(choice.value)} aria-pressed={selected === choice.value} disabled={disabled || selected !== null} onClick={() => select(choice)}>
           {pictureChoice ? <Picture src={choice.image} word={choice.label} onFailure={onMediaFailure} /> : <span>{choice.label || choice.value}</span>}
-          <span className="cycle-choice-marker" aria-hidden="true">{selected === choice.value ? "●" : ""}</span>
+          <span className="cycle-choice-marker" aria-hidden="true">{selected === choice.value && <CycleIcon name={String(choice.value) === String(round.answer) ? "tick" : "retry"} />}</span>
         </ActivityButton>
         {pictureChoice && <HearPicture choice={choice} disabled={disabled} onHear={onHear} />}
       </div>)}
@@ -100,14 +100,13 @@ function WordBuild({ round, disabled, feedbackPending, onCommit, onHear, onMedia
       {changing && <CycleIcon name="arrow" className="cycle-change-arrow" />}
       <Picture src={round.image} word={round.imageWord || round.targetWord} onFailure={onMediaFailure} />
       {model && <strong className="cycle-copy-model" aria-label={`Word model ${model}`}>{model}</strong>}
-      <ActivityButton type="button" className="cycle-picture-hear" aria-label={`Hear ${round.targetWord}`} disabled={disabled} data-audio-action="replay" onClick={() => onHear?.(round.audio, round.targetWord)}><SpeakerIcon /></ActivityButton>
+      <ActivityButton type="button" className="cycle-picture-hear wa-audio" aria-label={`Hear ${round.targetWord}`} disabled={disabled} data-audio-action="replay" onClick={() => onHear?.(round.audio, round.targetWord)}><SpeakerIcon /></ActivityButton>
     </div>
-    <div className="cycle-word-train" role="group" aria-label="Word you are building">
-      <div className="cycle-train-engine" aria-hidden="true"><span /><i /><b /><em /></div>
-      {expected.map((_, index) => <div key={index} className={`cycle-word-car${index === nextIndex ? " cycle-word-car--next" : ""}${built[index] ? " cycle-word-car--filled" : ""}`} aria-label={`Letter ${index + 1}: ${built[index] || "empty"}`}><span>{changing ? <ActivityButton type="button" className={`cycle-change-letter${supportLevel >= 2 && index === round.changeIndex ? " cycle-answer--hint" : ""}`} aria-label={`Change letter ${index + 1}: ${built[index]}`} aria-pressed={changeSlot === index} disabled={disabled || miss !== null} onClick={() => { setChangeSlot(index); onStep?.(); }}>{built[index]}</ActivityButton> : built[index] || ""}</span><i /><i /></div>)}
+    <div className="cycle-word-train wa-slots" role="group" aria-label="Word you are building">
+      {expected.map((_, index) => <div key={index} className={`cycle-word-car${index === nextIndex ? " cycle-word-car--next" : ""}${built[index] ? " cycle-word-car--filled" : ""}`} aria-label={`Letter ${index + 1}: ${built[index] || "empty"}`}><span>{changing ? <ActivityButton type="button" className={`cycle-change-letter${supportLevel >= 2 && index === round.changeIndex ? " cycle-answer--hint" : ""}`} aria-label={`Change letter ${index + 1}: ${built[index]}`} aria-pressed={changeSlot === index} disabled={disabled || miss !== null} onClick={() => { setChangeSlot(index); onStep?.(); }}>{built[index]}</ActivityButton> : built[index] || ""}</span></div>)}
     </div>
     <div className="cycle-letter-bank" role="group" aria-label="Letters to build the word">
-      {round.choices.map(choice => <ActivityButton type="button" key={choice.id || choice.value} className={`cycle-letter-block${supportLevel >= 2 && String(choice.value) === String(expected[changing ? round.changeIndex : nextIndex]) ? " cycle-answer--hint" : ""}`} disabled={disabled || miss !== null || (changing && changeSlot === null)} onClick={() => place(choice)} aria-label={`Add ${choice.label || choice.value}`}><span>{choice.label || choice.value}</span></ActivityButton>)}
+      {round.choices.map(choice => <ActivityButton type="button" key={choice.id || choice.value} className={`cycle-letter-block wa-choice${supportLevel >= 2 && String(choice.value) === String(expected[changing ? round.changeIndex : nextIndex]) ? " cycle-answer--hint" : ""}`} disabled={disabled || miss !== null || (changing && changeSlot === null)} onClick={() => place(choice)} aria-label={`Add ${choice.label || choice.value}`}><span>{choice.label || choice.value}</span></ActivityButton>)}
     </div>
   </div>;
 }
@@ -206,7 +205,7 @@ function SoundSort({ round, disabled, feedbackPending, assessment, onCommit, onH
           onPointerMove={move} onPointerUp={release} onPointerCancel={cancelDrag} onLostPointerCapture={cancelDrag}>
           <Picture src={object.image} word={object.word} onFailure={onMediaFailure} />
         </button>
-        <ActivityButton type="button" className="cycle-picture-hear" data-audio-action="replay" aria-label={`Hear ${object.word}`} disabled={disabled} onClick={() => onHear?.(object.audio, object.word)}><SpeakerIcon /></ActivityButton>
+        <ActivityButton type="button" className="cycle-picture-hear wa-audio" data-audio-action="replay" aria-label={`Hear ${object.word}`} disabled={disabled} onClick={() => onHear?.(object.audio, object.word)}><SpeakerIcon /></ActivityButton>
       </div>
     </div>
     <div className="cycle-sort-arrow" aria-hidden="true">↓</div>

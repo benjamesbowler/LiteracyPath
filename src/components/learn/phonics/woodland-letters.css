@@ -1,0 +1,262 @@
+/* The Sound Seekers activity language, scoped to Letters. Existing bounded
+   stage layouts still own fit; learning glyphs keep the authored letter font. */
+.woodland-letters {
+  --phonics-font-body: WoodlandLexend, 'Trebuchet MS', sans-serif;
+  --phonics-ink: var(--wa-ink);
+  --phonics-soft-ink: #526b52;
+  --phonics-ocean-blue: #466c51;
+  --phonics-sky-green: #557348;
+  --phonics-sun-yellow: #bb9345;
+  --phonics-cloud: var(--wa-cream);
+  --phonics-peach: var(--wa-gold);
+  isolation: isolate;
+  box-sizing: border-box;
+}
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity {
+  padding: 14px 20px 16px;
+  border-radius: 28px;
+  color: var(--wa-ink);
+}
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity :is(h1, h2) {
+  color: var(--wa-ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+.woodland-letters :is(button, [role="button"]) { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+.woodland-letters :is(button, [role="button"]):focus-visible { outline: 3px solid #547649; outline-offset: 3px; }
+.woodland-letters .phonics-back-button svg { width: 24px; height: 24px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #9faf86;
+  border-radius: 99px;
+  background: #fff9e8b8;
+  color: var(--wa-ink);
+  box-shadow: none;
+  font-size: .9rem;
+}
+.woodland-letters .phonics-round-label { color: var(--wa-ink); letter-spacing: .03em; }
+.woodland-letters .phonics-progress-segment { background: #cbd3b1; }
+.woodland-letters .phonics-progress-segment :is(span) { background: #708957; }
+.woodland-letters .phonics-progress-star { color: #627b4f; }
+.woodland-letters .phonics-progress-star.complete { color: #947223; text-shadow: none; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-overview {
+  border: 0;
+  padding: 0;
+  box-shadow: none;
+  background: none;
+}
+.woodland-letters .phonics-practice-kicker { color: #657749; letter-spacing: .2em; background: none; padding: 0; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-overview h2 { font-size: clamp(1.25rem, 2.3vw, 2rem); }
+.woodland-letters .phonics-practice-stats span { background: #fff9e8a6; color: var(--wa-ink); border-color: #cbd3b1; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-island-switcher { gap: 12px; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-island-card {
+  min-height: 56px;
+  border: 1px solid #b7c19d;
+  border-radius: 99px;
+  box-shadow: none;
+  background: #fff9e859;
+  color: var(--wa-ink);
+}
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-island-card.active { background: #fff9e8ed; border-color: #708957; box-shadow: 0 3px 0 #a3af85; }
+.woodland-letters .phonics-island-card svg { stroke: var(--wa-ink); }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-picker { gap: 6px; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-letter-grid { max-width: 1100px; gap: 12px; padding-block: 10px 15px; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-letter-card {
+  border: 2px solid var(--wa-edge);
+  border-radius: 38% 38% 32% 32%;
+  background: var(--wa-cream);
+  color: var(--wa-ink);
+  box-shadow: 0 6px 0 #a3af85, inset 0 1px 0 #fff;
+  transition: background .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-letter-card.recommended { outline: 3px solid #b68b34; outline-offset: 2px; background: #fff1c4; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-letter-card.completed { background: #e6edd1; border-color: #8fa774; }
+.woodland-letters .phonics-letter-next { background: #526f40; }
+.woodland-letters .phonics-letter-rounds { color: #58704b; }
+.woodland-letters .phonics-picker-progress { background: #fff9e8b8; border: 1px solid #b9c69a; box-shadow: none; color: var(--wa-ink); }
+.woodland-letters .phonics-picker-stars { color: #97772c; }
+.woodland-letters .phonics-recommendation-reason { color: #526b52; }
+.woodland-letters .phonics-recommendation-reason strong { color: var(--wa-ink); }
+.woodland-letters .phonics-status-pulse { animation: none; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity :is(.phonics-button, .phonics-shuffle-button) {
+  min-height: 56px;
+  color: var(--wa-ink);
+  border: 1px solid #aab98c;
+  border-radius: 99px;
+  background: #fff9e8d6;
+  box-shadow: 0 3px 0 #a3af85;
+  font-size: 1rem;
+}
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-button-primary { background: #476b4e; color: #fff9e8; border-color: #476b4e; box-shadow: 0 4px 0 #2f4f37; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity :is(.phonics-button, .phonics-shuffle-button):is(:hover, :active, [data-pressed="true"]) { transform: none; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity :is(.phonics-button, .phonics-shuffle-button)[data-pressed="true"] { filter: brightness(.97); }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity :is(.phonics-audio-button, .phonics-sound-button) {
+  min-width: 56px;
+  min-height: 56px;
+  border: 1px solid #b1c092;
+  border-radius: 99px;
+  background: #fff9e8;
+  color: var(--wa-ink);
+  box-shadow: 0 3px 0 #a3af85;
+}
+.woodland-letters .phonics-audio-button[aria-pressed="true"] { background: #e1eac8; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-sound-button { display: flex; align-items: center; justify-content: center; gap: 8px; width: auto; height: 56px; padding-inline: 20px; }
+.woodland-letters .phonics-sound-button svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.woodland-letters .phonics-sound-button > span { position: static; font-size: .85rem; background: none; inset: auto; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-trace-pad {
+  border: 3px solid var(--wa-edge);
+  border-radius: 50%;
+  background: var(--wa-cream);
+  box-shadow: 0 8px 0 #a3af85, inset 0 2px 0 #fff;
+}
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-trace-svg > path { stroke: #a9b892; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-trace-demo-layer path { stroke: #65876a; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-trace-hints circle { fill: #466c51; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-trace-hints path { fill: #466c51; stroke: #466c51; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity :is(.phonics-listen-focus, .phonics-listen-examples) { background: none; box-shadow: none; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-big-letter { color: var(--wa-ink); text-shadow: 0 4px 0 #fff9e8; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-listen-card,
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-word-tile {
+  position: relative;
+  border: 2px solid var(--wa-edge);
+  border-radius: 36% 36% 30% 30%;
+  background: var(--wa-cream);
+  color: var(--wa-ink);
+  box-shadow: 0 7px 0 #a3af85, inset 0 2px 0 #fff;
+  overflow: visible;
+}
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-listen-card { padding-bottom: 28px; }
+.woodland-letters .phonics-listen-replay { position: absolute; bottom: -13px; right: 8px; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #466c51; color: #fff9e8; }
+.woodland-letters .phonics-listen-replay svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-match-grid { gap: 16px; padding: 0 6px 10px; }
+.woodland-letters .phonics-word-tile-inner { display: block; width: 100%; height: 100%; transform: none; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-word-tile-front { background: none; border: 0; border-radius: inherit; box-shadow: none; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-word-tile.correct { background: #e5edcd; border-color: #7a945e; opacity: 1; }
+.woodland-letters .phonics-tile-result { position: absolute; right: 8px; top: 8px; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #466c51; color: #fff9e8; font: 700 21px/1 var(--phonics-font-body); }
+.woodland-letters .phonics-found-counter { color: var(--wa-ink); }
+.woodland-letters .phonics-found-counter > span { color: #97772c; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-options { width: min(960px, 100%); align-self: center; gap: 24px; padding: 0 6px 10px; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-option {
+  background: var(--wa-cream);
+  border: 2px solid var(--wa-edge);
+  border-radius: 36% 36% 30% 30%;
+  box-shadow: 0 7px 0 #a3af85, inset 0 2px 0 #fff;
+  color: var(--wa-ink);
+  transition: background .18s ease, border-color .18s ease, transform .16s ease;
+}
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-option.is-correct { border-color: #6e8957; background: #e5edcd; opacity: 1; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-option.is-incorrect { border-color: #b78b40; background: #fff0d1; }
+.woodland-letters .phonics-practice-letter-model { padding: 10px 25px; border-radius: 50%; background: #fff9e8a6; border: 2px solid #e8dcb8; }
+.woodland-letters .phonics-practice-word-model { padding: 8px 20px; border-radius: 60px; background: #fff9e8a6; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-help { min-height: 56px; color: var(--wa-ink); }
+.woodland-letters .phonics-celebration-overlay { background: #dfe5c5d6; backdrop-filter: blur(8px); }
+.woodland-letters .phonics-celebration-card { background: var(--wa-cream); border: 2px solid var(--wa-edge); border-radius: 36px; box-shadow: 0 8px 0 #a3af85; }
+.woodland-letters .phonics-celebration-stars { color: #b28e3b; }
+@media (max-width: 767px) {
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity { padding: 8px 8px 12px; border-radius: 20px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-letter-grid { gap: 10px; padding-inline: 7px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-options { gap: 12px; padding-inline: 3px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-match-grid { gap: 10px; }
+}
+@media (max-height: 500px) {
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity { padding: 3px 6px 8px; border-radius: 16px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-options { gap: 9px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity :is(.phonics-button, .phonics-shuffle-button) { font-size: .75rem; }
+  .woodland-letters .phonics-practice-letter-model { padding: 5px 12px; }
+  .woodland-letters .phonics-practice-word-model { padding: 4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .woodland-letters *, .woodland-letters *::before, .woodland-letters *::after { animation: none !important; transition-duration: 0s !important; }
+}
+
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-option { display: flex; padding: 12px; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-listen-card { display: flex; padding: 2px 12px 8px; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-letter-card { padding: 6px; }
+@media (max-width: 600px), (max-height: 500px) {
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity:has(:is(.phonics-step-listen, .phonics-step-match)) { --kg-physical-hit: 44px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-option { padding: 6px; }
+}
+
+/* The legacy Sage skin explicitly flattens hub backgrounds and selected-label
+   colours. These scoped rules give the new activity surface its own palette. */
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity {
+  background: var(--wa-background);
+}
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-island-card.active :is(strong, small, span) { color: var(--wa-ink); }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-letter-card:hover { box-shadow: 0 6px 0 #a3af85, inset 0 1px 0 #fff; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-picker-progress { border: 1px solid #b9c69a; border-radius: 99px; background: #fff9e8b8; box-shadow: none; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-trace-hints path { stroke: none; stroke-width: 0; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-trace-hints text { fill: #fff9e8; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-word-tile { display: block; padding: 2px 8px 6px; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-word-tile .phonics-word-image-wrap { flex: 1; height: 0; min-height: 0; padding: 0; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-word-tile .phonics-word-label { flex: 0 0 24px; height: 24px; border: 0; background: none; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-listen-examples > :is(.phonics-is-for, .phonics-listen-grid, .phonics-instruction) { grid-column: 1; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-listen-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 18px; padding-bottom: 12px; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-listen-card .phonics-word-image-wrap { width: 100%; height: 0; min-height: 0; flex: 1; padding: 0; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-listen-card .phonics-word-label { height: auto; min-height: 24px; border: 0; background: none; }
+@media (max-height: 500px) and (orientation: landscape) {
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity.phonics-learning-flow { gap: 4px; padding-block: 0; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-question { gap: 4px 10px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-options { grid-row: 1 / 3; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-feedback { grid-column: 1 / -1; grid-row: 3; min-height: 18px; font-size: .7rem; line-height: 1.3; }
+}
+
+/* The introductory pictures keep their own bounded stage on compact screens.
+   Give the art the flexible space; printed labels never compete for it. */
+@media (max-width: 600px), (max-height: 500px) {
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity :is(.phonics-step-listen, .phonics-step-match) { padding: 0; gap: 4px; overflow: hidden; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-listen { grid-template-columns: minmax(0, 1fr); grid-template-rows: 44px minmax(0, 1fr) auto; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-listen-focus { grid-column: 1; grid-row: 1; padding: 0; gap: 8px; flex-direction: row; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-listen-examples { grid-column: 1; grid-row: 2; padding: 0; min-height: 0; grid-template-rows: auto minmax(0, 1fr); gap: 4px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-is-for { font-size: 1rem; line-height: 1.15; margin: 0; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-listen-grid { min-height: 0; gap: 10px; padding: 0 2px 9px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-listen-card { padding: 2px 6px 4px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-listen-replay { top: 3px; right: 3px; bottom: auto; width: 20px; height: 20px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-listen-replay svg { width: 12px; height: 12px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-listen-card .phonics-word-label { min-height: 16px; font-size: .75rem; line-height: 16px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-big-letter { font-size: 44px; line-height: 1; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-sound-text { font-size: 18px; line-height: 1; margin: 0; white-space: nowrap; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-sound-button { height: 44px; min-height: 44px; padding-inline: 12px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-sound-button-group > span { display: none; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-listen-examples > .phonics-instruction { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-listen .phonics-step-actions { grid-column: 1; grid-row: 3; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity :is(.phonics-step-listen, .phonics-step-match) .phonics-step-actions { min-height: 44px; gap: 4px; margin: 0; flex-direction: row; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-match .phonics-step-actions { flex-wrap: nowrap; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity :is(.phonics-step-listen, .phonics-step-match) .phonics-step-actions > p { font-size: .69rem; line-height: 1.15; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity :is(.phonics-step-listen, .phonics-step-match) :is(.phonics-button, .phonics-audio-button, .phonics-shuffle-button) { min-height: 44px; height: 44px; padding: 5px 10px; font-size: .8rem; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-match { grid-template-rows: auto auto minmax(0, 1fr) auto auto; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-match h2 { font-size: 1rem; line-height: 1.12; margin: 0; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-found-counter { font-size: .85rem; line-height: 1.15; gap: 6px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-match-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); min-height: 0; gap: 8px; padding: 0 2px 6px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-word-tile { min-width: 0; min-height: 0; padding: 0 2px 3px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-word-tile .phonics-word-label { flex-basis: 14px; height: 14px; font-size: .65rem; line-height: 14px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-tile-result { top: 2px; right: 2px; width: 18px; height: 18px; font-size: 13px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-match-hint { min-height: 0; font-size: .75rem; line-height: 1.15; margin: 0; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity:has(:is(.phonics-step-listen, .phonics-step-match)) .kg-child-flow__header { min-height: 44px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity:has(:is(.phonics-step-listen, .phonics-step-match)) .phonics-back-button { min-height: 44px; height: 44px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-listen { grid-template-columns: 140px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) 44px auto; column-gap: 10px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-listen-focus { flex-wrap: nowrap; gap: 4px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-sound-text { display: none; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-sound-button { padding-inline: 7px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-listen-examples { grid-column: 2; grid-row: 1 / 3; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-listen-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr); gap: 6px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-listen .phonics-step-actions { display: contents; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-listen .phonics-step-actions > .phonics-button { grid-column: 1; grid-row: 2; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-listen .phonics-step-actions > p { grid-column: 1 / -1; grid-row: 3; font-size: .6rem; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-match { grid-template-columns: 150px minmax(0, 1fr); grid-template-rows: auto auto minmax(0, 1fr) 44px; column-gap: 10px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-match .phonics-step-heading { grid-column: 1; grid-row: 1; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-match h2 { font-size: .76rem; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-found-counter { grid-column: 1; grid-row: 2; font-size: .7rem; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-match-grid { grid-column: 2; grid-row: 1 / -1; gap: 6px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-word-tile { padding: 0; border-width: 1px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-word-tile .phonics-word-label { flex-basis: 12px; height: 12px; line-height: 12px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-match-hint { grid-column: 1; grid-row: 3; font-size: .6rem; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-match .phonics-step-actions { grid-column: 1; grid-row: 4; flex-wrap: nowrap; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-match .phonics-audio-button { min-width: 44px; width: 44px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-shuffle-button { font-size: .65rem; padding: 4px; }
+}

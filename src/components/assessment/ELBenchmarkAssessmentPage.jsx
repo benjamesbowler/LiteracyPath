@@ -6,6 +6,7 @@ import {
   scoreElBenchmarkSession
 } from "../../data/elBenchmarkAssessments.js";
 import { TEACHER_COPY } from "../../copy/teacherCopy.js";
+import "../activities/woodland-activity.css";
 import "./el-benchmark-assessment.css";
 
 const ASSESSMENT_KINDS = Object.freeze({
@@ -2117,7 +2118,7 @@ function ItemPanel({
       {kind === ASSESSMENT_KINDS.ENCODING && <ProtectedEncodingPrompt item={item} />}
 
       {kind === ASSESSMENT_KINDS.DECODING && (
-        <div className="el-benchmark-word-display" aria-label={`Word to read: ${decodingWord}`}>
+        <div className="el-benchmark-word-display woodland-reading-stimulus" aria-label={`Word to read: ${decodingWord}`}>
           {decodingWord}
         </div>
       )}
@@ -3699,7 +3700,7 @@ export function ELBenchmarkAssessmentPage({
 
   if (planResult.error || !plan) {
     return (
-      <main className="el-benchmark-shell el-benchmark-empty-state" aria-labelledby="el-benchmark-error-title">
+      <main className="woodland-activity el-benchmark-shell el-benchmark-empty-state" aria-labelledby="el-benchmark-error-title">
         <section>
           <span className="el-benchmark-framework-label">Literacy Guide EL-aligned</span>
           <h1 id="el-benchmark-error-title">Assessment unavailable</h1>
@@ -3714,7 +3715,7 @@ export function ELBenchmarkAssessmentPage({
 
   if (!items.length || !currentItem) {
     return (
-      <main className="el-benchmark-shell el-benchmark-empty-state" aria-labelledby="el-benchmark-empty-title">
+      <main className="woodland-activity el-benchmark-shell el-benchmark-empty-state" aria-labelledby="el-benchmark-empty-title">
         <section>
           <span className="el-benchmark-framework-label">Literacy Guide EL-aligned</span>
           <h1 id="el-benchmark-empty-title">No items in this plan</h1>
@@ -3731,7 +3732,7 @@ export function ELBenchmarkAssessmentPage({
     <main
       aria-busy={completionIsSaving ? "true" : undefined}
       aria-labelledby="el-benchmark-page-title"
-      className="el-benchmark-shell"
+      className="woodland-activity el-benchmark-shell"
     >
       <header className="el-benchmark-topbar">
         <div className="el-benchmark-title-block">

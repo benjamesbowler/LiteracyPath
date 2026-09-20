@@ -73,7 +73,8 @@ test("the shared frame owns presentation but receives the live mechanic as child
 
   assert.match(html, /data-adventure-round-frame="soundChoice"/);
   assert.match(html, /<header/);
-  assert.match(html, /2 of 5/);
+  assert.match(html, /class="adventure-round-frame__counter">2<small> \/ 5<\/small>/);
+  assert.match(html, /aria-label="Station progress" aria-valuemin="0" aria-valuemax="5" aria-valuenow="1"/);
   assert.match(html, /aria-label="Hear instructions again"/);
   assert.match(html, /role="status"/);
   assert.match(html, /data-feedback-tone="ready"/);

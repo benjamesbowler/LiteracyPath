@@ -1852,7 +1852,7 @@ export function createAssessmentRoundController(context) {
       setMessage("That answer could not be saved on this device or to the cloud. Nothing has been marked complete. Check the connection and try again.");
       setAssessmentTransitioning(false);
       answerInFlightRef.current = false;
-      return;
+      return false;
     }
 
     // Only consume the question and advance round coverage after the answer is

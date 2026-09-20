@@ -14,12 +14,12 @@ const Celebration = memo(function Celebration({
 }) {
   const burstTimer = useRef(null);
   const fireConfetti = useCallback(() => {
-    const colors = ["#FFD93D", "#4D96FF", "#9B5DE5", "#95E1D3", "#FF6B6B"];
+    const colors = ["#ebc875", "#a3af85", "#fff9e8", "#365846"];
 
-    confetti({ particleCount: 40, angle: 60, spread: 55, origin: { x: 0, y: 1 }, colors, disableForReducedMotion: true });
-    confetti({ particleCount: 40, angle: 120, spread: 55, origin: { x: 1, y: 1 }, colors, disableForReducedMotion: true });
+    confetti({ particleCount: 18, angle: 60, spread: 55, origin: { x: 0, y: 1 }, colors, disableForReducedMotion: true });
+    confetti({ particleCount: 18, angle: 120, spread: 55, origin: { x: 1, y: 1 }, colors, disableForReducedMotion: true });
     burstTimer.current = setTimeout(() => {
-      confetti({ particleCount: 30, angle: 90, spread: 100, origin: { x: 0.5, y: 0.3 }, colors, disableForReducedMotion: true });
+      confetti({ particleCount: 12, angle: 90, spread: 100, origin: { x: 0.5, y: 0.3 }, colors, disableForReducedMotion: true });
     }, 300);
   }, []);
 

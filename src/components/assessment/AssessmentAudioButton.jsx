@@ -1,6 +1,7 @@
+import { WoodlandIcon } from "../activities/WoodlandActivity.jsx";
 import ActivityButton from "../ActivityButton.jsx";
 import { useEffect, useRef, useState } from "react";
-import { SpeakerHigh, SpeakerSlash } from "@phosphor-icons/react";
+import { SpeakerSlash } from "@phosphor-icons/react";
 import {
   getTargetWordAudioPath,
   isGenericInstructionAudioPath
@@ -11,6 +12,7 @@ export function AssessmentAudioButton({
   audioPath = "",
   speakText,
   label = "Play audio",
+  displayLabel = "",
   className = "mini-audio-button",
   audioRole = "",
   showDisabled = false
@@ -44,7 +46,7 @@ export function AssessmentAudioButton({
     if (!showDisabled) return null;
     return (
       <ActivityButton
-        className={`assessment-audio-button ${className}`}
+        className={`assessment-audio-button wa-audio ${className}`}
         aria-label={`${label} unavailable`}
         title="Audio is not available yet."
         type="button"
@@ -78,7 +80,7 @@ export function AssessmentAudioButton({
   return (
     <ActivityButton
       className={[
-        "assessment-audio-button",
+        "assessment-audio-button wa-audio",
         className,
         isLoading ? "audio-feedback-loading" : "",
         isPlaying ? "audio-feedback-playing" : ""
@@ -88,7 +90,8 @@ export function AssessmentAudioButton({
       aria-label={isLoading ? `${label} loading` : isPlaying ? `${label} playing` : label}
       type="button"
     >
-      {isLoading ? <span className="audio-loading-dot" aria-hidden="true" /> : <SpeakerHigh size={20} weight="bold" aria-hidden="true" />}
+      {isLoading ? <span className="audio-loading-dot" aria-hidden="true" /> : <WoodlandIcon size={24} />}
+      {displayLabel && <span>{displayLabel}</span>}
     </ActivityButton>
   );
 }

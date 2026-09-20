@@ -49,7 +49,7 @@ export function PhonicsAlphabetPicker({ progress = {}, rounds = {}, onSelectLett
         </p>
       )}
 
-      <div className="phonics-letter-grid" data-child-choices="">
+      <div className="phonics-letter-grid" role="group" aria-label="Choose a letter to practise" data-child-choices="">
         {letters.map(letter => {
           const status = getStatus(letter);
           const isClickable = status !== "locked";
@@ -58,11 +58,10 @@ export function PhonicsAlphabetPicker({ progress = {}, rounds = {}, onSelectLett
           return (
             <motion.button
               key={letter}
-              whileHover={isClickable ? { scale: 1.08 } : {}}
-              whileTap={isClickable ? { scale: 0.95 } : {}}
+              whileHover={isClickable ? { y: -2 } : {}}
               onClick={() => handleLetterClick(letter, status)}
               disabled={!isClickable}
-              className={`phonics-letter-card ${status}${isRecommended ? " recommended" : ""}`}
+              className={`phonics-letter-card wa-choice ${status}${isRecommended ? " recommended" : ""}`}
               aria-label={letterAccessibleName(letter, status, isRecommended)}
               aria-description={`${rounds[letter]?.completedCount || 0} of ${LETTER_PRACTICE_ROUND_COUNT} rounds`}
               type="button"
