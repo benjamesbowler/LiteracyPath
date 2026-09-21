@@ -102,6 +102,10 @@
   display: contents;
 }
 
+.guided-word-run {
+  white-space: nowrap;
+}
+
 /* Shared stories retain their spoken paragraphs. Inline word help belongs to
    the sentence flow; fixed square word controls obscure this longer text. */
 .guided-reader-shell[data-reading-flow="prose"] .guided-story-paragraph {

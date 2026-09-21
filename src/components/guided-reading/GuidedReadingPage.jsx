@@ -2768,20 +2768,25 @@ export function GuidedReadingPage({
                         ].filter(Boolean).join(" ")}
                         key={`sentence-${group.sentenceIndex}`}
                       >
-                        {group.tokens.map(item => {
+                        {group.tokens.map((item, tokenIndex) => {
                           if (item.type === "text") {
-                            return <span aria-hidden="true" key={`text-${group.sentenceIndex}-${item.index}`}>{item.token}</span>;
+                            return <span aria-hidden="true" key={`text-${group.sentenceIndex}-${item.index}`}>{item.token.replace(/\S/g, "")}</span>;
                           }
 
+                          const before = group.tokens[tokenIndex - 1]?.token || "";
+                          const after = group.tokens[tokenIndex + 1]?.token || "";
+                          const leading = tokenIndex === 1 || /\s/.test(before) ? before.match(/\S+$/)?.[0] || "" : "";
+                          const trailing = after.match(/^\S+/)?.[0] || "";
                           const mark = displayedWordMarks?.[item.wordIndex] || "";
                           const isHighlighted = highlightedWordIndex === item.wordIndex;
                           const isWordAudioLoading = loadingWordAudioIndex === item.wordIndex;
 
                           return (
+                            <span className="guided-word-run" key={`word-${group.sentenceIndex}-${item.index}-${item.wordIndex}`}>
+                            <span aria-hidden="true">{leading}</span>
                             <button
                               aria-label={isWordAudioLoading ? `Loading support for ${item.token}` : `${readerInteractionMode === "marking" ? "Mark" : "Get reading help for"} ${item.token}`}
                               className={`guided-word ${readerInteractionMode} ${mark || "neutral"} ${isHighlighted ? "heard audio-feedback-playing" : ""} ${isWordAudioLoading ? "audio-feedback-loading" : ""}`}
-                              key={`word-${group.sentenceIndex}-${item.index}-${item.wordIndex}`}
                               onClick={event => handleWordClick(item.token, item.wordIndex, event)}
                               onContextMenu={event => {
                                 event.preventDefault();
@@ -2798,6 +2803,8 @@ export function GuidedReadingPage({
                             >
                               {item.token}
                             </button>
+                            <span aria-hidden="true">{trailing}</span>
+                            </span>
                           );
                         })}
                         {" "}

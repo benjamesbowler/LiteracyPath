@@ -119,10 +119,15 @@ test("whole-class prose reads naturally and stays balanced beside its illustrati
     const wordBox = word.getBoundingClientRect();
     const textBox = text.getBoundingClientRect();
     const frame = element.querySelector(".guided-page-text-frame").getBoundingClientRect();
+    const watch = [...text.querySelectorAll("button")].find(button => button.textContent === "watch");
+    const punctuation = document.createRange();
+    punctuation.selectNodeContents(watch.nextElementSibling);
     return {
       wordExtraWidth: wordBox.width - range.getBoundingClientRect().width,
       textCentre: textBox.top + textBox.height / 2,
       frameCentre: frame.top + frame.height / 2,
+      punctuationTop: punctuation.getBoundingClientRect().top,
+      wordTop: watch.getBoundingClientRect().top,
       fits: text.scrollHeight <= text.clientHeight + 1
     };
   });
@@ -130,6 +135,7 @@ test("whole-class prose reads naturally and stays balanced beside its illustrati
   expect(layout.wordExtraWidth).toBeLessThan(3);
   expect(layout.textCentre).toBeCloseTo(layout.frameCentre, 0);
   expect(layout.fits).toBe(true);
+  expect(Math.abs(layout.punctuationTop - layout.wordTop)).toBeLessThan(5);
   await page.screenshot({ path: testInfo.outputPath("socks-desktop.png") });
   await reader.getByRole("button", { name: "Get reading help for Socks", exact: true }).click();
   await expect(reader.locator(".guided-decoding-support")).toBeVisible();
