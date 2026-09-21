@@ -62,7 +62,8 @@ for (const viewport of [
       const measured = await geometry(reader);
       expect(measured.bar.y).toBeGreaterThanOrEqual(0);
       expect(measured.bar.height).toBeLessThanOrEqual(viewport.width <= 480 ? 128 : 72);
-      expect(measured.page.y).toBeLessThanOrEqual(measured.bar.bottom + 1);
+      expect(measured.page.y).toBeGreaterThanOrEqual(measured.bar.bottom);
+      expect(measured.page.y).toBeLessThanOrEqual(measured.bar.bottom + 13);
       expect(measured.page.bottom).toBeLessThanOrEqual(viewport.height + 1);
       expect(measured.shell.width).toBeCloseTo(viewport.width, 0);
       expect(measured.shell.height).toBeCloseTo(viewport.height, 0);
@@ -99,6 +100,47 @@ for (const viewport of [
     expect(errors).toEqual([]);
   });
 }
+
+test("whole-class prose reads naturally and stays balanced beside its illustration", async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 1467, height: 885 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/preview/guided-reading-preview.html?book=ab-c-04&mode=class");
+  const reader = page.locator(".guided-reader-shell");
+  for (let turn = 0; turn < 4; turn += 1) {
+    await reader.getByRole("button", { name: "Next page", exact: true }).click();
+  }
+  await expect(reader.locator(".guided-page-text")).toHaveClass(/is-ready/);
+  await expect(reader.getByRole("status", { name: "Reading progress" })).toHaveText("Page 5 of 14");
+  const layout = await reader.evaluate(element => {
+    const text = element.querySelector(".guided-page-text");
+    const word = [...text.querySelectorAll("button")].find(button => button.textContent === "it");
+    const range = document.createRange();
+    range.selectNodeContents(word);
+    const wordBox = word.getBoundingClientRect();
+    const textBox = text.getBoundingClientRect();
+    const frame = element.querySelector(".guided-page-text-frame").getBoundingClientRect();
+    return {
+      wordExtraWidth: wordBox.width - range.getBoundingClientRect().width,
+      textCentre: textBox.top + textBox.height / 2,
+      frameCentre: frame.top + frame.height / 2,
+      fits: text.scrollHeight <= text.clientHeight + 1
+    };
+  });
+  // Short words must follow the prose, without the old square-button gaps.
+  expect(layout.wordExtraWidth).toBeLessThan(3);
+  expect(layout.textCentre).toBeCloseTo(layout.frameCentre, 0);
+  expect(layout.fits).toBe(true);
+  await page.screenshot({ path: testInfo.outputPath("socks-desktop.png") });
+  await reader.getByRole("button", { name: "Get reading help for Socks", exact: true }).click();
+  await expect(reader.locator(".guided-decoding-support")).toBeVisible();
+  await reader.getByRole("button", { name: "Next page", exact: true }).click();
+  await expect(reader.getByRole("status", { name: "Reading progress" })).toHaveText("Page 6 of 14");
+  await expect(reader.locator(".guided-decoding-support")).not.toBeVisible();
+  await page.setViewportSize({ width: 768, height: 1024 });
+  await expect(reader.locator(".guided-transport-book strong")).toBeVisible();
+  await expect(reader.locator(".guided-page-text")).toHaveClass(/is-ready/);
+  await page.screenshot({ path: testInfo.outputPath("socks-tablet.png") });
+});
 
 test("teacher discussion opens over the book, restores focus and never takes its page space", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });

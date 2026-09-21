@@ -2425,6 +2425,7 @@ export function GuidedReadingPage({
           data-learning-lane="language_and_meaning"
           data-reading-purpose={selectedReadingPurpose?.id || "supported"}
           data-reading-band-profile={selectedBook.readingBandProfile}
+          data-reading-flow={(isClassMode && !activeGroupSession) || selectedBook.readingBandProfile === "read-aloud" ? "prose" : "word-targets"}
         >
           <div className="guided-reader-card">
             {isPictureBookReader ? (

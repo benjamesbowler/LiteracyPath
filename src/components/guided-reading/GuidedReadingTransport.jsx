@@ -45,6 +45,9 @@ export default function GuidedReadingTransport({
         <p role="status" aria-live="polite" aria-label="Reading progress">
           Page {pageIndex + 1} of {pageCount}
         </p>
+        <div className="guided-transport-progress" aria-hidden="true">
+          <span style={{ width: `${((pageIndex + 1) / pageCount) * 100}%` }} />
+        </div>
       </div>
       {audio.enabled && (
         <div className="guided-read-aloud-controls" role="group" aria-label="Read aloud controls">

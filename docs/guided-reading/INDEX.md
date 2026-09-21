@@ -61,7 +61,11 @@ pause/resume, page navigation and Exit. The last forward action becomes
 **Finish book**. **More** holds line focus and the teacher's optional discussion
 support in a dismissible overlay, without reducing the book's space. Pictures
 retain their full composition; squarer tablets place the illustration above
-the text. Small screens keep longer text scrollable. Teacher conferences and
+the text. A warm, bounded spread centres the illustration and text, and the
+title remains visible alongside page progress at tablet widths. Whole-class
+reading uses natural inline word spacing, as read-aloud stories do; individual
+graded-reading practice retains its larger word targets. Small screens keep
+longer text scrollable. Teacher conferences and
 synchronized marking retain their dedicated teaching controls.
 
 The Willow Street release authorities are:
