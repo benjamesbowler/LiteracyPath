@@ -53,20 +53,6 @@ function modelsFromPortal(children = []) {
   }));
 }
 
-function escapeHtml(value) {
-  return String(value || "").replace(/[&<>"']/g, character => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-  })[character]);
-}
-
-function printableHtml({ title, model, autoHeading = "Family reading update" }) {
-  const list = (heading, items) => items?.length
-    ? `<section><h2>${escapeHtml(heading)}</h2><ul>${items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul></section>`
-    : "";
-  const activities = model.atHome?.activities || [];
-  return `<!doctype html><html><head><meta charset="utf-8"><title>${escapeHtml(title)}</title><style>@page{margin:14mm}body{font:16px/1.5 Arial,sans-serif;color:#172033;max-width:760px;margin:auto}header{border-bottom:3px solid #0c6b65;padding-bottom:14px}h1{font-size:28px;margin:.25rem 0}h2{font-size:19px;color:#084e4a;margin-top:24px}section{break-inside:avoid}li{margin:.4rem 0}.meta{color:#586579}.notice{margin-top:28px;border-top:1px solid #dbe3e8;padding-top:12px;color:#586579;font-size:13px}</style></head><body><header><small>${escapeHtml(autoHeading)}</small><h1>${escapeHtml(title)}</h1><p class="meta">${escapeHtml(model.updatedLabel)}</p><p>${escapeHtml(model.highlight)}</p></header>${list("What is going well", model.strengths)}${list("What comes next", model.nextFocus)}${activities.length ? `<section><h2>${escapeHtml(model.atHome.title)}</h2><p>${escapeHtml(model.atHome.introduction)}</p><ol>${activities.map(item => `<li><strong>${escapeHtml(item.title)}</strong><br>${escapeHtml(item.direction)}</li>`).join("")}</ol></section>` : ""}<p class="notice">This is a family-ready update released by ${escapeHtml(model.learner.schoolName)}. Contact the school with questions.</p></body></html>`;
-}
-
 function ParentAuthShell({ children }) {
   return <main className="parent-auth-shell"><section className="parent-auth-card"><header><span><img src={logomarkUrl} alt="" /></span><div><strong>Literacy Guide</strong><small>Secure family access</small></div></header>{children}</section></main>;
 }
@@ -278,7 +264,6 @@ export function ParentApp() {
         setOpenReportModel(model);
         void guardianPortalApi.recordReportEvent(supabase, { reportId: report.id, eventType: "report_viewed" }).catch(() => {});
       }}
-      onPrintPlan={model => openHtmlDocument({ html: printableHtml({ title: model.atHome.title, model, autoHeading: "Family Bridge plan" }), name: "literacy-guide-home-plan", autoPrint: true })}
       onPrintReport={printReport}
       onSignOut={async () => { await supabase.auth.signOut(); setPortal(null); setSession(null); }}
       onUpdatePreferences={async preferences => {

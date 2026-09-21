@@ -3,7 +3,6 @@ import {
   WHOLE_CHILD_REPORT_AUDIENCES
 } from "./reportAudienceTemplates.js";
 import { lintParentAreaPlainLanguage } from "./parentAreaModel.js";
-import { buildFamilyBridgePlan } from "../utils/familyBridgePlan.js";
 import {
   canonicalStatusId,
   REPORT_STATUS_IDS
@@ -84,14 +83,6 @@ function progressRows(report = {}) {
   }));
 }
 
-function bridgePlan({ cycleNumber, studentName, language }) {
-  try {
-    return buildFamilyBridgePlan({ cycleNumber, studentName, language });
-  } catch {
-    return buildFamilyBridgePlan({ cycleNumber: 1, studentName, language });
-  }
-}
-
 export function buildParentReleaseSnapshot({
   workspace,
   studentId,
@@ -99,9 +90,7 @@ export function buildParentReleaseSnapshot({
   className,
   schoolName,
   teacherName = "Class teacher",
-  teacherEmail = "",
-  cycleNumber = 1,
-  language = "en"
+  teacherEmail = ""
 }) {
   const wholeChild = workspace?.wholeChild || {};
   const family = buildWholeChildAudienceTemplates({
@@ -110,7 +99,7 @@ export function buildParentReleaseSnapshot({
     className
   })[WHOLE_CHILD_REPORT_AUDIENCES.FAMILY];
   const sections = Object.fromEntries(asArray(family.sections).map(section => [section.id, section]));
-  const plan = bridgePlan({ cycleNumber, studentName, language });
+  const homeSupport = sections.what_you_can_do_at_home;
   const strengths = asArray(sections.what_your_child_can_do?.items).slice(0, 4);
   const nextFocus = asArray(sections.working_on_next?.items).slice(0, 3);
   const snapshot = {
@@ -129,16 +118,12 @@ export function buildParentReleaseSnapshot({
     meaning: "The teacher will build these skills in small steps. Short, calm practice at home can help too.",
     progress: progressRows(wholeChild),
     atHome: {
-      title: plan.title,
-      introduction: plan.note,
-      durationLabel: "5 to 10 minutes",
-      language,
-      activities: plan.activities.map(activity => ({
-        moment: `Day ${activity.day}`,
-        title: activity.title,
-        direction: activity.direction
-      })),
-      privacyText: plan.privacyText
+      title: homeSupport.title,
+      introduction: homeSupport.description,
+      durationLabel: "",
+      language: "en",
+      activities: asArray(homeSupport.items).map(direction => ({ moment: "", title: "", direction })),
+      privacyText: "Home practice is not recorded and does not change the school report."
     },
     contact: {
       name: teacherName,

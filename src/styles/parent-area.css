@@ -4,7 +4,6 @@
   --pa-green: #0c6b65;
   --pa-green-strong: #084e4a;
   --pa-green-soft: #e3f4f2;
-  --pa-cream: #fffaf0;
   --pa-warm: #a55d0a;
   --pa-warm-soft: #fff3d7;
   --pa-line: #dbe3e8;
@@ -133,19 +132,6 @@
   padding-left: 12px;
   font-size: 12px;
   font-weight: 700;
-}
-
-.pa-plan-language {
-  display: inline-flex;
-  align-items: center;
-  min-height: 40px;
-  border: 1px solid var(--pa-line);
-  border-radius: 12px;
-  background: #fff;
-  color: var(--pa-muted);
-  padding: 0 12px;
-  font-size: 12px;
-  font-weight: 750;
 }
 
 .pa-account-message {
@@ -331,8 +317,7 @@
   margin-top: 24px;
 }
 
-.pa-update-meta > span,
-.pa-duration {
+.pa-update-meta > span {
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -417,7 +402,6 @@
 }
 
 .pa-panel,
-.pa-practice-intro,
 .pa-report-card,
 .pa-progress-row,
 .pa-inline-empty {
@@ -456,7 +440,6 @@
 }
 
 .pa-panel h2,
-.pa-practice-intro h2,
 .pa-report-card h2,
 .pa-progress-row h2,
 .pa-inline-empty h2 {
@@ -501,8 +484,7 @@
   padding-top: 21px;
 }
 
-.pa-can-do h3,
-.pa-activity-list h3 {
+.pa-can-do h3 {
   margin: 0;
   color: var(--pa-ink);
   font-family: var(--lp-font-reading, Lexend, sans-serif);
@@ -543,7 +525,6 @@
 
 .pa-meaning-note,
 .pa-context-note,
-.pa-privacy-note,
 .pa-data-panel {
   display: flex;
   align-items: flex-start;
@@ -560,39 +541,21 @@
 
 .pa-meaning-note svg,
 .pa-context-note svg,
-.pa-privacy-note svg,
 .pa-data-panel > svg {
   flex: 0 0 auto;
   margin-top: 1px;
 }
 
 .pa-meaning-note strong,
-.pa-context-note strong,
-.pa-privacy-note strong {
+.pa-context-note strong {
   font-size: 14px;
 }
 
 .pa-meaning-note p,
-.pa-context-note p,
-.pa-privacy-note p {
+.pa-context-note p {
   margin: 4px 0 0;
   color: #42605e;
   font-size: 14px;
-  line-height: 1.5;
-}
-
-.pa-home-action {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 22px;
-  border-color: #ecd7aa;
-  background: var(--pa-cream);
-}
-
-.pa-home-action > div > p:not(.pa-eyebrow) {
-  margin: 10px 0;
-  color: var(--pa-muted);
   line-height: 1.5;
 }
 
@@ -797,8 +760,7 @@
   color: #50458a;
 }
 
-.pa-context-note,
-.pa-privacy-note {
+.pa-context-note {
   border: 1px solid #c9dcda;
   border-radius: 15px;
   background: var(--pa-green-soft);
@@ -808,83 +770,6 @@
 
 .pa-language-select {
   min-width: 200px;
-}
-
-.pa-practice-intro {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 24px;
-  border-color: #ecd7aa;
-  background: var(--pa-cream);
-}
-
-.pa-practice-intro span {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--pa-warm);
-  font-size: 12px;
-  font-weight: 850;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.pa-practice-intro p {
-  margin: 8px 0 0;
-  color: var(--pa-muted);
-}
-
-.pa-activity-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.pa-activity-list li {
-  min-height: 160px;
-  display: grid;
-  grid-template-columns: 40px 1fr;
-  gap: 14px;
-  border: 1px solid var(--pa-line);
-  border-radius: 16px;
-  background: #fff;
-  padding: 20px;
-}
-
-.pa-activity-list li:last-child {
-  grid-column: 1 / -1;
-  min-height: auto;
-}
-
-.pa-activity-number {
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  border-radius: 11px;
-  background: var(--pa-green-soft);
-  color: var(--pa-green-strong);
-  font-weight: 850;
-}
-
-.pa-activity-list li > div > p {
-  margin: 0 0 6px;
-  color: var(--pa-green);
-  font-size: 11px;
-  font-weight: 850;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.pa-activity-list li > div > span {
-  display: block;
-  margin-top: 9px;
-  color: var(--pa-muted);
-  line-height: 1.55;
 }
 
 .pa-report-list {
@@ -1233,7 +1118,7 @@
 
   .pa-nav button {
     min-width: 0;
-    flex: 1 1 25%;
+    flex: 1 1 0;
     display: grid;
     place-items: center;
     align-content: center;
@@ -1289,10 +1174,8 @@
     padding: 20px;
   }
 
-  .pa-home-action,
   .pa-contact-strip,
   .pa-section-heading,
-  .pa-practice-intro,
   .pa-footer {
     align-items: stretch;
     flex-direction: column;
@@ -1310,18 +1193,12 @@
     width: 100%;
   }
 
-  .pa-activity-list,
   .pa-account-grid {
     grid-template-columns: 1fr;
   }
 
-  .pa-activity-list li:last-child,
   .pa-data-panel {
     grid-column: auto;
-  }
-
-  .pa-activity-list li {
-    min-height: 0;
   }
 
   .pa-report-card {
@@ -1367,8 +1244,7 @@
   .pa-topbar,
   .pa-nav,
   .pa-footer,
-  .pa-section-heading .pa-language-select,
-  .pa-practice-intro button {
+  .pa-section-heading .pa-language-select {
     display: none;
   }
 
@@ -1380,12 +1256,5 @@
   .pa-main {
     width: 100%;
     padding: 0;
-  }
-
-  .pa-activity-list li,
-  .pa-practice-intro,
-  .pa-privacy-note {
-    break-inside: avoid;
-    box-shadow: none;
   }
 }

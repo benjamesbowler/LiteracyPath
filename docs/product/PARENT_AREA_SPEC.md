@@ -37,7 +37,7 @@ A verified adult invited by a school. A guardian can:
 - view only learners to whom the school has explicitly linked them;
 - switch between linked learners;
 - view family-ready updates and reports released by the school;
-- print home activities and reports;
+- print released reports;
 - save a preferred family language and future report-email preference;
 - contact the school using the route the school provides; and
 - see the family privacy notice and how to make a data-rights request.
@@ -59,7 +59,7 @@ An authorised teacher or school administrator can:
 - link one or more guardians to a learner;
 - revoke a link immediately;
 - release or withdraw a family report;
-- release the current family-safe report and Family Bridge plan; and
+- release the current family-safe report; and
 - withdraw a released report.
 
 The school remains responsible for confirming that the invited adult is entitled to see the learner's record.
@@ -75,8 +75,7 @@ The default page is a strengths-first summary in this order:
 3. What the child can do now
 4. The next teaching focus
 5. What this means
-6. One thing to try at home
-7. Who to talk to
+6. Who to talk to
 
 This follows the family-report ordering required by the Reporting Bible while reducing it to a quick daily-use view.
 
@@ -95,16 +94,13 @@ Use the Reporting Bible's canonical status labels: `Secure`, `Developing`, `Need
 
 `Not checked` is an honest absence of shared information, never zero.
 
-### At home
+### Home support in reports
 
-Reuse and extend the current Family Bridge system:
-
-- five short activities tied to the current teaching focus;
-- English, Spanish and Simplified Chinese at launch;
-- print-friendly version;
-- no voice or image recording;
-- no completion streak or compliance score; and
-- no claim that home activity proves learning.
+Family Bridge and its separate At home page and plan printing are retired.
+Released family reports retain the Reporting Bible’s home-support section,
+using the same recommendations as the teacher’s family report. New releases
+no longer generate a five-day plan from a teaching cycle. Historical released
+reports remain readable as immutable records.
 
 ### Reports
 
@@ -162,10 +158,9 @@ Recovery must never reveal whether an unverified email is linked to a child. Sup
 - Guardian authentication with email verification and password recovery
 - School-created invitation, fresh-link replacement, expiry, cancellation and revocation
 - One guardian linked to multiple children and multiple guardians linked to one child
-- Home, Progress, At home, Reports and Account pages
+- Home, Progress, Reports and Account pages
 - Teacher release control for family reports
-- Family Bridge delivery and printing
-- Stored preferred family language and language-labelled released home plan
+- Stored preferred family language
 - Parent-specific row-level policies and cross-tenant security tests
 - Access audit, privacy notice and school-routed data-rights instructions
 - Empty, loading, error, no-report and revoked-access states
@@ -273,7 +268,6 @@ These are targets to validate, not current product claims:
 |---|---:|
 | Invitation accepted within 14 days | 70% or better |
 | Activated guardians returning within 30 days | 60% or better |
-| Activated guardians opening an at-home activity | 50% or better |
 | Released reports successfully opened | 95% or better |
 | Unauthorised cross-learner access in automated and manual testing | 0 |
 | Parent copy passing the plain-language check | 100% |
@@ -293,7 +287,7 @@ The feature is not production-ready until all of these pass:
 - A parent can complete every task on a 390-pixel-wide phone using keyboard or touch.
 - A failed load explains that no data was changed and offers a retry.
 - An unlinked adult sees no child names and receives no clue that a particular child exists.
-- Printing an at-home plan excludes app navigation and account controls.
+- Printing a released report excludes app navigation and account controls.
 
 ## Current implementation boundary
 

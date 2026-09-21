@@ -862,7 +862,6 @@ export function FinishedReportPage({
   schoolName = "",
   teacherName = "Class teacher",
   teacherEmail = "",
-  cycleNumber = 1,
   // Called whenever the report navigation changes which report is showing. The Reports
   // funnel embeds this page under its own step 3, and without this the step
   // would keep saying "Overview" after the teacher moved to Skills.
@@ -1344,7 +1343,6 @@ export function FinishedReportPage({
                   schoolName={schoolName}
                   teacherName={teacherName}
                   teacherEmail={teacherEmail}
-                  cycleNumber={cycleNumber}
                 />
               ) : null}
             </>

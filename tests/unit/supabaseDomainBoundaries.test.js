@@ -50,8 +50,8 @@ function fakeRawClient({ authResponse, rpcResponses = {}, tableResponses = {} } 
 }
 
 test("all domain registries expose the complete reviewed backend surface", () => {
-  assert.equal(BOUNDARY_TABLES.length, 29);
-  assert.equal(BOUNDARY_RPCS.length, 86);
+  assert.equal(BOUNDARY_TABLES.length, 25);
+  assert.equal(BOUNDARY_RPCS.length, 82);
   assert.ok(BOUNDARY_RPCS.includes("student_revoke_session"));
   assert.ok(BOUNDARY_TABLES.includes("classes"));
   assert.ok(BOUNDARY_TABLES.includes("reading_sessions"));
@@ -64,8 +64,8 @@ test("all domain registries expose the complete reviewed backend surface", () =>
   assert.ok(BOUNDARY_TABLES.includes("teacher_instructional_group_reviews"));
   assert.ok(BOUNDARY_TABLES.includes("teacher_intervention_events"));
   assert.ok(BOUNDARY_TABLES.includes("teacher_account_decision_events"));
-  assert.ok(BOUNDARY_TABLES.includes("teacher_lesson_plans"));
-  assert.ok(BOUNDARY_TABLES.includes("teacher_lesson_plan_deliveries"));
+  assert.ok(!BOUNDARY_TABLES.includes("teacher_lesson_plans"));
+  assert.ok(!BOUNDARY_TABLES.includes("teacher_lesson_plan_deliveries"));
   assert.ok(BOUNDARY_TABLES.includes("worksheet_bank"));
   assert.ok(BOUNDARY_TABLES.includes("entitlements"));
   assert.ok(BOUNDARY_RPCS.includes("student_login"));
@@ -74,8 +74,8 @@ test("all domain registries expose the complete reviewed backend surface", () =>
   assert.ok(BOUNDARY_RPCS.includes("teacher_export_learner_data"));
   assert.ok(BOUNDARY_RPCS.includes("guardian_get_portal"));
   assert.ok(BOUNDARY_RPCS.includes("teacher_release_family_report"));
-  assert.ok(BOUNDARY_RPCS.includes("teacher_create_lesson_plan"));
-  assert.ok(BOUNDARY_RPCS.includes("teacher_record_lesson_delivery"));
+  assert.ok(!BOUNDARY_RPCS.includes("teacher_create_lesson_plan"));
+  assert.ok(!BOUNDARY_RPCS.includes("teacher_record_lesson_delivery"));
   assert.ok(BOUNDARY_RPCS.includes("teacher_delete_learner_data_staged"));
   assert.ok(BOUNDARY_RPCS.includes("teacher_complete_learner_deletion"));
   assert.ok(BOUNDARY_RPCS.includes("teacher_reset_student_progress"));
@@ -214,6 +214,9 @@ test("unknown tables and RPCs are rejected before reaching the raw client", () =
   assert.throws(() => client.call("invented_rpc"), /Unregistered Supabase RPC/);
   assert.throws(() => client.from("classes"), /Direct Supabase from access is private/);
   assert.throws(() => client.rpc("student_login"), /Direct Supabase rpc access is private/);
+  for (const name of ["teacher_create_lesson_plan", "teacher_read_lesson_plan", "teacher_record_lesson_delivery", "teacher_update_draft_lesson_plan"]) {
+    assert.throws(() => client.call(name), /Unregistered Supabase RPC/);
+  }
 });
 
 test("known RPC payload fields and auth identities are runtime validated", async () => {

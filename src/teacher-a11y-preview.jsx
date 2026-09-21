@@ -488,7 +488,6 @@ function Intent({ intent }) {
       intent={intent}
       teacherId=""
       classList={classList}
-      studentList={previewStudents}
       selectedClassId={classId}
       cycleId={teacherCycleOptions()[5]?.id || ""}
       onOpenGuidedReading={noop}

@@ -98,6 +98,20 @@ Historical evidence IDs and compatible renderers remain for stored records.
 No learner records or irreplaceable source artwork were deleted. Scratch outputs
 and generated verification evidence live in ignored `.artifacts/classroom-readiness/`.
 
+## Teacher feature retirement — 21 September 2026
+
+Small-group Lesson Composer (lesson planner) and Family Bridge are removed
+from Teacher Resources. Their components, content builders, styles, tests and
+planner browser data access are deleted. The parent area no longer has the
+Family Bridge At home page, activity shortcut or standalone plan printing.
+New family report releases reuse the existing family-report recommendations
+instead of generating a cycle-linked plan. Reports, family access, worksheets,
+presentations and Guided Reading remain.
+
+Historical database migrations, stored lesson records, learner export/erasure
+paths and immutable released reports are retained. This is an application
+retirement; no hosted data or database functions were changed.
+
 ## Current authoritative sources
 
 ### Skills assessment
@@ -244,6 +258,8 @@ listening, physical-device or child-play quality.
   of the deleted `docs/validation` audit tree.
 
 ## Permanently retired — do not restore
+
+- Small-group Lesson Composer (lesson planner) and Family Bridge
 
 - Class Decodable Press, Class Quest Live, Observed Change, Paper-to-Progress,
   Story Crew, and Reading Passport

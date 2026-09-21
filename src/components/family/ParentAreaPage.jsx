@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
 import {
   ArrowRight,
-  BookOpenText,
   CaretDown,
   CheckCircle,
   Clock,
@@ -27,7 +26,6 @@ import "../../styles/parent-area.css";
 const PRIMARY_SECTIONS = Object.freeze([
   { id: "overview", label: "Home", Icon: House },
   { id: "progress", label: "Progress", Icon: TrendUp },
-  { id: "practice", label: "At home", Icon: BookOpenText },
   { id: "reports", label: "Reports", Icon: FileText }
 ]);
 
@@ -147,18 +145,6 @@ function Overview({ model, onChangeSection }) {
               <div><strong>What this means</strong><p>{model.meaning}</p></div>
             </div>
           </section>
-
-          <section className="pa-panel pa-home-action" aria-labelledby="home-action-title">
-            <div>
-              <p className="pa-eyebrow">Try this at home</p>
-              <h2 id="home-action-title">{model.atHome.title}</h2>
-              <p>{model.atHome.introduction}</p>
-              <span className="pa-duration"><Clock size={17} aria-hidden="true" />{model.atHome.durationLabel}</span>
-            </div>
-            <button type="button" className="pa-button pa-button-secondary" onClick={() => onChangeSection("practice")}>
-              See the activity <ArrowRight size={17} aria-hidden="true" />
-            </button>
-          </section>
         </div>
       </div>
 
@@ -200,36 +186,6 @@ function Progress({ model }) {
       <aside className="pa-context-note">
         <Info size={21} aria-hidden="true" />
         <div><strong>Progress is more than a score</strong><p>The school combines classroom learning, reading and carefully chosen checks before sharing an update.</p></div>
-      </aside>
-    </div>
-  );
-}
-
-function Practice({ model, onPrintPlan }) {
-  const languageLabels = { en: "English", es: "Español", "zh-Hans": "简体中文" };
-  return (
-    <div className="pa-page" data-parent-section="practice">
-      <SectionHeading
-        eyebrow="Family Bridge"
-        title="Small things that help at home"
-        description={`These activities match what ${model.learner.name} is learning in class. Choose one at a time and keep it relaxed.`}
-        action={<span className="pa-plan-language">Plan language: {languageLabels[model.atHome.language] || model.atHome.language || "English"}</span>}
-      />
-      <section className="pa-practice-intro" aria-labelledby="practice-plan-title">
-        <div><span>{model.atHome.durationLabel}</span><h2 id="practice-plan-title">{model.atHome.title}</h2><p>{model.atHome.introduction}</p></div>
-        <button type="button" className="pa-button pa-button-secondary" onClick={() => onPrintPlan(model)}><Printer size={18} aria-hidden="true" />Print plan</button>
-      </section>
-      <ol className="pa-activity-list">
-        {model.atHome.activities.map((activity, index) => (
-          <li key={activity.title}>
-            <span className="pa-activity-number">{index + 1}</span>
-            <div><p>{activity.moment}</p><h3>{activity.title}</h3><span>{activity.direction}</span></div>
-          </li>
-        ))}
-      </ol>
-      <aside className="pa-privacy-note">
-        <ShieldCheck size={24} aria-hidden="true" />
-        <div><strong>Private, low-pressure practice</strong><p>{model.atHome.privacyText}</p></div>
       </aside>
     </div>
   );
@@ -307,13 +263,16 @@ export function ParentAreaPage({
   accountMessage = "",
   onRetry = () => {},
   onOpenReport = () => {},
-  onPrintPlan = () => {},
   onPrintReport = () => {},
   onSignOut = () => {},
   onUpdatePreferences = () => {}
 }) {
   const [learnerId, setLearnerId] = useState(initialLearnerId || models[0]?.learner.id || "");
-  const [section, setSection] = useState(initialSection);
+  const [section, setSection] = useState(() => (
+    PRIMARY_SECTIONS.some(item => item.id === initialSection) || initialSection === "account"
+      ? initialSection
+      : "overview"
+  ));
   const model = useMemo(() => models.find(item => item.learner.id === learnerId) || models[0], [learnerId, models]);
 
   if (state === "loading") return <ParentAreaLoading />;
@@ -343,7 +302,6 @@ export function ParentAreaPage({
       <main id="parent-main" className="pa-main" tabIndex="-1">
         {section === "overview" ? <Overview model={model} onChangeSection={setSection} /> : null}
         {section === "progress" ? <Progress model={model} /> : null}
-        {section === "practice" ? <Practice model={model} onPrintPlan={onPrintPlan} /> : null}
         {section === "reports" ? <Reports model={model} onOpenReport={onOpenReport} onPrintReport={onPrintReport} /> : null}
         {section === "account" ? <Account models={models} model={model} preferredLanguage={preferredLanguage} reportNotifications={reportNotifications} accountMessage={accountMessage} onUpdatePreferences={onUpdatePreferences} onSignOut={onSignOut} /> : null}
       </main>

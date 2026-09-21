@@ -63,7 +63,6 @@ export const LIVE_DATABASE_FUNCTIONS = Object.freeze({
   teacher_create_insight_intervention: ["p_action_type", "p_class_id", "p_insight", "p_student_ids", "p_targets", "p_owner_label", "p_activity", "p_planned_for"],
   teacher_create_intervention_follow_up: ["p_parent_intervention_id", "p_owner_label", "p_group_label", "p_student_ids", "p_focus", "p_activity", "p_planned_for"],
   teacher_create_intervention_plan: ["p_class_id", "p_owner_label", "p_group_label", "p_student_ids", "p_focus", "p_activity", "p_planned_for"],
-  teacher_create_lesson_plan: ["p_class_id", "p_intervention_id", "p_learner_ids", "p_recipe", "p_evidence_source", "p_scheduled_for"],
   teacher_delete_empty_class: ["p_class_id"],
   teacher_delete_learner_data_staged: ["p_request_id", "p_student_id", "p_subject_ref", "p_confirmation"],
   teacher_delete_planned_intervention: ["p_intervention_id"],
@@ -78,10 +77,8 @@ export const LIVE_DATABASE_FUNCTIONS = Object.freeze({
   teacher_list_guardian_access: ["p_student_id"],
   teacher_mark_intervention_delivered: ["p_intervention_id"],
   teacher_prepare_learner_deletion: ["p_student_id", "p_requester_role", "p_verification_method"],
-  teacher_read_lesson_plan: ["p_plan_id"],
   teacher_record_insight_observation: ["p_class_id", "p_insight", "p_student_ids", "p_note", "p_owner_label", "p_follow_up_activity", "p_follow_up_on"],
   teacher_record_intervention_outcome: ["p_intervention_id", "p_outcome", "p_outcome_note"],
-  teacher_record_lesson_delivery: ["p_plan_id", "p_client_event_id", "p_learner_ids", "p_completion_state", "p_notes", "p_observed_support"],
   teacher_regenerate_class_code: ["p_class_id"],
   teacher_release_family_report: ["p_student_id", "p_title", "p_snapshot"],
   teacher_reset_student_progress: ["p_student_id", "p_reset_at"],
@@ -100,7 +97,6 @@ export const LIVE_DATABASE_FUNCTIONS = Object.freeze({
   teacher_start_reading_session: ["p_class_id", "p_book_id", "p_page_numbers", "p_student_ids", "p_content_version"],
   teacher_start_student_focus_session: ["p_class_id", "p_target", "p_student_ids", "p_assignments", "p_duration_minutes", "p_content_version", "p_whole_class"],
   teacher_transfer_student: ["p_student_id", "p_source_class_id", "p_target_class_id"],
-  teacher_update_draft_lesson_plan: ["p_plan_id", "p_expected_revision", "p_learner_ids", "p_recipe", "p_scheduled_for"],
   teacher_update_planned_intervention: ["p_intervention_id", "p_owner_label", "p_group_label", "p_student_ids", "p_focus", "p_activity", "p_planned_for"],
   teacher_withdraw_family_report: ["p_report_id"]
 });

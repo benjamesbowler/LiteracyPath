@@ -62,7 +62,7 @@ immediately. Missing review metadata is not a publication queue.
 
 - [Teacher-controlled Student Sessions](product/STUDENT_SESSIONS.md) — whole-class or selected-student iPad focus sessions for targeted Skills checks, exact books and games, plus Reading Library, Letters Practice, and existing synchronized Guided Reading
 - [Student welcome guide](product/STUDENT_WELCOME_GUIDE.md) — first-login orientation, lightweight reminders, replayable Help, spoken guidance, and focus-session suppression
-- [School-linked parent area](product/PARENT_AREA_SPEC.md) — guardian portal product model, privacy boundary, release scope and working seeded preview
+- [School-linked parent area](product/PARENT_AREA_SPEC.md) — guardian access, released family reports, privacy boundary and seeded preview; Family Bridge is retired
 - [Child surface rules](design/CHILD_SURFACE_RULES.md)
 - [Complete game upgrade plan](design/GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md) — all 22 games plus Sound Seekers; gameplay, graphics, learning, reported defects and per-game acceptance
 - [Game design bible](design/GAME_DESIGN_BIBLE.md) — preserves original Arcade gameplay, including Sound Beat rhythm; instruction playback never blocks activity input

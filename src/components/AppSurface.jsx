@@ -221,7 +221,6 @@ export function AppSurface({ surface }) {
   // does not name a skill yet, so this stays empty and Reports opens unfiltered
   // until it does.
   const [soundMapSkillFilter, setSoundMapSkillFilter] = useState("");
-  const [lessonComposerRequest, setLessonComposerRequest] = useState(0);
 
   const refreshGuidedReadingReviews = useCallback(async () => {
     setGuidedReadingReviewState({ error: null, rows: [], status: "loading" });
@@ -1128,7 +1127,6 @@ export function AppSurface({ surface }) {
         schoolName={teacherSchoolName || ""}
         teacherName={teacherUser?.user_metadata?.display_name || "Class teacher"}
         teacherEmail=""
-        cycleNumber={Number(String(teacherCycleId).match(/\d+/)?.[0] || 1)}
         totalAnswered={totalAnswered}
         accuracy={accuracy}
         currentStage={currentStage}
@@ -1751,7 +1749,6 @@ export function AppSurface({ surface }) {
         <PageBoundary resetKey="teacher-resources">
           <Suspense fallback={<LazyPageFallback label="Loading resources..." />}>
             <TeacherIntentPage
-              client={supabase}
               intent="resources"
               classList={classList}
               classListReadState={classListReadState}
@@ -1759,11 +1756,8 @@ export function AppSurface({ surface }) {
               selectedClassId={selectedClassId}
               cycleId={teacherCycleId}
               loadingClasses={loadingClasses}
-              studentList={studentList}
               onRetryClasses={loadClasses}
               onOpenWorksheets={() => goToTeacherIntent(APP_VIEWS.WORKSHEETS)}
-              lessonComposerRequest={lessonComposerRequest}
-              onLessonComposerRequestHandled={() => setLessonComposerRequest(0)}
               onOpenPresent={() => goToTeacherIntent(APP_VIEWS.PRESENT)}
               onOpenToday={() => goToTeacherIntent(APP_VIEWS.TEACHER_DASHBOARD)}
               onOpenGuidedReading={bookId => {

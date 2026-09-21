@@ -15,11 +15,7 @@ export const EVIDENCE_TABLES = new Set([
   "teacher_instructional_group_reviews",
   "teacher_instructional_groups",
   "teacher_intervention_events",
-  "teacher_interventions",
-  "teacher_lesson_delivery_students",
-  "teacher_lesson_plan_deliveries",
-  "teacher_lesson_plan_students",
-  "teacher_lesson_plans"
+  "teacher_interventions"
 ]);
 
 export const EVIDENCE_RPCS = new Set([
@@ -32,19 +28,15 @@ export const EVIDENCE_RPCS = new Set([
   "teacher_create_insight_intervention",
   "teacher_create_intervention_follow_up",
   "teacher_create_intervention_plan",
-  "teacher_create_lesson_plan",
   "teacher_delete_planned_intervention",
   "teacher_mark_intervention_delivered",
   "teacher_record_insight_observation",
-  "teacher_read_lesson_plan",
   "teacher_record_intervention_outcome",
-  "teacher_record_lesson_delivery",
   "teacher_reset_student_progress",
   "teacher_review_instructional_group",
   "teacher_review_intervention",
   "teacher_save_instructional_group",
-  "teacher_update_planned_intervention",
-  "teacher_update_draft_lesson_plan"
+  "teacher_update_planned_intervention"
 ]);
 
 export function validateEvidenceRow(row, label, resource) {

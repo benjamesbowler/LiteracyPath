@@ -28,8 +28,7 @@ export function FamilySharingPanel({
   className,
   schoolName,
   teacherName,
-  teacherEmail,
-  cycleNumber = 1
+  teacherEmail
 }) {
   const [access, setAccess] = useState({ invites: [], links: [], reports: [] });
   const [email, setEmail] = useState("");
@@ -134,7 +133,7 @@ export function FamilySharingPanel({
         <h3>Release a family report</h3>
         <p>This creates a separate, plain-language snapshot. Later changes to teacher records do not silently change it.</p>
         <button type="button" className="teacher-button primary" disabled={Boolean(busy)} onClick={() => perform("release", async () => {
-          const snapshot = buildParentReleaseSnapshot({ workspace, studentId, studentName, className, schoolName, teacherName, teacherEmail, cycleNumber });
+          const snapshot = buildParentReleaseSnapshot({ workspace, studentId, studentName, className, schoolName, teacherName, teacherEmail });
           await guardianPortalApi.releaseReport(client, { studentId, title: reportTitle, snapshot });
         }, "Family report released. Linked adults can see it now.")}>{busy === "release" ? <SpinnerGap className="parent-area-spinner" size={18} /> : <Link size={18} />}Release current family update</button>
       </section>

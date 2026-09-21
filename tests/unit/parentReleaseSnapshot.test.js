@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { buildParentReleaseSnapshot } from "../../src/data/parentReleaseSnapshot.js";
+import { buildWholeChildAudienceTemplates, WHOLE_CHILD_REPORT_AUDIENCES } from "../../src/data/reportAudienceTemplates.js";
 import { lintParentAreaPlainLanguage } from "../../src/data/parentAreaModel.js";
 
 const workspace = {
@@ -34,7 +35,11 @@ test("family release snapshots contain plain-language summaries but no raw evide
   assert.equal(snapshot.schemaVersion, 1);
   assert.equal(snapshot.learner.name, "Aarav");
   assert.equal(snapshot.progress.length, 5);
-  assert.equal(snapshot.atHome.activities.length, 5);
+  assert.ok(snapshot.atHome.activities.length > 0);
+  assert.ok(snapshot.atHome.activities.length <= 3);
+  for (const activity of snapshot.atHome.activities) {
+    for (const field of ["moment", "title", "direction"]) assert.equal(typeof activity[field], "string");
+  }
   assert.deepEqual(lintParentAreaPlainLanguage(snapshot), []);
   assert.doesNotMatch(JSON.stringify(snapshot), /private-evidence-id|whole_child|accuracy|raw score/i);
   assert.ok(Buffer.byteLength(JSON.stringify(snapshot)) < 65_536);
@@ -83,7 +88,7 @@ test("family domain summaries never hide mixed evidence behind another status", 
   assert.equal(snapshot.progress.find(row => row.id === "spelling_words").status, "mixed_evidence");
 });
 
-test("family release snapshots fall back to a valid teaching cycle", () => {
+test("family release snapshots use report home support without a cycle-generated plan", () => {
   const snapshot = buildParentReleaseSnapshot({
     workspace,
     studentId: "11111111-1111-4111-8111-111111111111",
@@ -92,5 +97,8 @@ test("family release snapshots fall back to a valid teaching cycle", () => {
     schoolName: "Oakfield Primary",
     cycleNumber: 999
   });
-  assert.equal(snapshot.atHome.activities.length, 5);
+  const report = buildWholeChildAudienceTemplates({ report: workspace.wholeChild, studentName: "Aarav", className: "Willow Class" })[WHOLE_CHILD_REPORT_AUDIENCES.FAMILY];
+  const homeSupport = report.sections.find(section => section.id === "what_you_can_do_at_home");
+  assert.deepEqual(snapshot.atHome.activities.map(activity => activity.direction), homeSupport.items);
+  assert.equal(snapshot.atHome.title, homeSupport.title);
 });

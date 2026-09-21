@@ -57,6 +57,15 @@ The product owner requires games, assessments, Cycles and phonics activities to 
 No second-brain infrastructure blocker is recorded. The Codex startup hook was
 installed, reviewed, and trusted on 2026-08-03.
 
+## Retired teacher tools
+
+- Small-group Lesson Composer and Family Bridge are retired by the product
+  owner’s 21 September 2026 request. Remove their entry points and runtime
+  modules; do not restore them. The parent area keeps family reports and
+  account access but no separate home-activity plan. See the
+  [cleanup record](../CURRENT_SYSTEM_CLEANUP_2026-07-31.md) and
+  [parent-area specification](../product/PARENT_AREA_SPEC.md).
+
 ## Current beta release state
 
 - Adventure Map uses the [simple-game contract](../product/ADVENTURE_MAP.md):
