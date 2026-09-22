@@ -300,9 +300,11 @@ test('Letter Leap terrain supports every pickup in all thirty curriculum levels 
     const world = worldForGameDifficulty(difficulty);
     for (const [index, stage] of difficultyLadder('letter-leap', difficulty).entries()) {
       for (const words of stage.mode === 'sentence' ? stage.targets : [stage.targets]) {
-        const level = makeLevel(words.map(w => w.toUpperCase()), world, index);
-        routes += 1;
-        expectSafeRoute(level);
+        for(let route=0;route<6;route++){
+          const level = makeLevel(words.map(w => w.toUpperCase()), world, index, route);
+          routes += 1;
+          expectSafeRoute(level);
+        }
       }
     }
   }

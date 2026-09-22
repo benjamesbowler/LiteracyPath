@@ -62,3 +62,9 @@ The generated `public/models/library/manifest.json` is the source of truth for s
 5. Keep each model under 6MB and the shared runtime model collection under 75MB until the deployment budget changes deliberately.
 6. Test rigged models with idle and locomotion clips, not merely a static first frame.
 7. Inspect final lighting, material response, scale, shadows, framing, and mobile performance in the browser.
+
+## Curated Arcade world delivery
+
+The Arcade garden/plaza bank lives in `public/game-assets/arcade-worlds/` and is loaded only by the games that use it. It contains thirteen garden/plaza models and three original railway models; the canvas games use small rendered views instead of loading their 3D equivalents. This game-specific bank has a 16 MiB complete-delivery budget and the same 6 MiB per-model limit. It is separate from the searchable `public/models/library/` collection, whose 75 MiB budget remains unchanged. Measure embedded images/buffers and atlases, not just the JSON container.
+
+Editable sources and exact rights/modifications are retained in `source-art/arcade/garden-plaza/` and `source-art/arcade/rolling-stock/`. Rebuild each manifest with its Blender generator. `tests/unit/arcadeGardenAssets.test.js` verifies the delivered hashes, complete GLB dependencies, bounds, animation pivots and lifecycle; `tests/unit/arcadeBlenderAssets.test.js` verifies real foliage footprints against racing bends. The bank does not introduce a hosted asset service or runtime third-party requests.

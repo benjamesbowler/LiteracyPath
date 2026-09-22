@@ -7,8 +7,8 @@ const record = (oralPrompt, listenFor, page, visualPrompt, lookFor) => Object.fr
 
 export const GUIDED_READING_DISCUSSION_PROMPTS_WILLOW = Object.freeze({
   "willow-street-the-lunchbox-mix-up": record(
-    "How did the labels help Maya and Samir fix both lunch mistakes?",
-    "Connects each label with returning the mixed-up things and the spoon.",
+    "How do Maya and Samir check that their lunches are right?",
+    "They check the labels and return the swapped things. Maya spots the spoon left behind, and Samir returns it.",
     7,
     "Which items on page 7 prove both lunches are correct now?",
     "Finds Maya's green apple and spoon together, plus Samir's blue cup and orange napkin."
@@ -28,18 +28,18 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WILLOW = Object.freeze({
     "Locates one closed food box on each of the four striped-cloth corners."
   ),
   "willow-street-the-puddle-plan": record(
-    "What did Leo's muddy boot teach the friends about their first route?",
-    "Recognizes that the short edge was soft, so they changed toward dry stones.",
+    "What does Leo’s muddy shoe show them about the first route?",
+    "The edge is soft. Samir tests the stones, and the friends use the firm route to the shed.",
     6,
     "Follow the safe path marked on page 6 from puddle to shed.",
     "Traces the curved dry stones between the two orange cones and the shed."
   ),
   "willow-street-the-squeaky-wheel": record(
-    "Why was asking the gardener wiser than pushing the squeaky cart harder?",
-    "Links the dry axle to the sound and the adult's oiling repair.",
+    "Why does the cart need more than another push?",
+    "Pushing does not fix the squeak. The gardener puts oil on the dry axle so the wheel turns quietly.",
     5,
     "Where does the gardener place the single oil drop on page 5?",
-    "Identifies the metal axle beside the cart's front-left wheel."
+    "Finds the oil-can spout touching the axle hub at the center of the near front wheel."
   ),
   "willow-street-the-garden-gate": record(
     "How did looking underneath change Maya and Leo's gate plan?",
@@ -56,18 +56,18 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WILLOW = Object.freeze({
     "Notices the chapati triangles fitting neatly beside the small sealed pot."
   ),
   "willow-street-dumplings-for-new-year": record(
-    "What did Zoe change after her first dumpling wrapper opened?",
+    "What did Zoe change when her first dumpling would not close?",
     "Mentions using less filling and pinching the full curved edge without gaps.",
     5,
     "How can you see Zoe sealing her dumpling on page 5?",
     "Follows her fingers pinching the crescent edge while the filling stays enclosed."
   ),
   "willow-street-drums-for-carnival": record(
-    "How did listening help Leo become part of the Carnival rhythm?",
-    "Contrasts playing continuously with waiting for the group's answering beat.",
+    "What does Leo change after his early beat covers the call?",
+    "He listens for the call to finish before playing the answer.",
     5,
-    "Which two cues on page 5 tell Leo when to begin?",
-    "Uses Mr Baptiste's finished call and pointing hand as the start cues."
+    "How does Mr Baptiste show Leo that it is his turn?",
+    "Mr Baptiste points toward Leo, who watches with his hands ready at the drum."
   ),
   "willow-street-eid-morning-with-samir": record(
     "How did helping at the welcome table lead Samir to Maya?",
@@ -115,22 +115,22 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WILLOW = Object.freeze({
     "Why does rainwater follow more than one path after landing?",
     "Distinguishes soaking into loose soil from running over hard sloping surfaces.",
     4,
-    "Trace both water routes shown by the gutter system on page 4.",
-    "Follows water into the covered barrel and overflow continuing toward drainage."
+    "Which parts in this picture collect or carry rainwater?",
+    "Identifies the gutter along the roof, the black pipes, the covered water butt, and the drain beside it."
   ),
   "willow-street-inside-a-fire-station": record(
     "What work makes a fire crew ready before and after emergencies?",
     "Combines equipment checks, protective clothing, teamwork, cleaning, and repeated training.",
     4,
-    "Which stored resources can you locate inside the engine on page 4?",
-    "Finds hose reels, water controls, ladders, hand tools, and crew seats."
+    "Which pieces of equipment can you find on the fire engine?",
+    "Finds hoses, water controls, hand tools, and the ladders on the roof."
   ),
   "willow-street-how-paper-is-recycled": record(
     "How does water help old paper become usable fibers again?",
     "Explains that water and mixing separate paper into pulp before screening and pressing.",
     6,
-    "What leaves the thin pulp layer as it crosses page 6?",
-    "Observes press rollers squeezing water downward while fibers continue as one mat."
+    "What are the rollers squeezing out of the wet paper?",
+    "Sees water dripping below the rollers while the paper continues through them."
   ),
   "willow-street-a-snail-comes-out-at-night": record(
     "How does a damp night help the snail move and feed?",

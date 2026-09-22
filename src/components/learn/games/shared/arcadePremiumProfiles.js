@@ -122,7 +122,7 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
     mission: "Collect sound spellings, then choose the built word.",
     objective: "Encode a spoken word with its ordered graphemes.",
     action: "Skate through the next grapheme, then the matching word gate.",
-    controls: Object.freeze(["Skate: Arrow keys or W / A / S / D", "Trick: Space or Enter"]),
+    controls: Object.freeze(["Skate: arrows or W / A / S / D. Forward builds speed.", "Jump / Trick: Space or Enter. Press again in the air to spin; use by a rail to grind."]),
     retry: "The first miss teaches the contrast; a repeated miss points to the correct spelling.",
     completionTitle: "Skate line complete",
     rewardLabel: "words built"

@@ -406,6 +406,7 @@ function drawBeat(ctx, state, config, w, h, now, blenderWorld, reduceMotion) {
 
   ctx.save();
   drawBeatBackdrop(ctx, state, config, w, h);
+  blenderWorld?.drawLandscape(ctx,{width:w,height:h,ground:h*.60,time:state.time,world:state.level?.world,reducedMotion:reduceMotion,paused:state.paused});
   const stageSize = Math.min(310, h * .59, w * .35);
   blenderWorld?.draw(ctx, w * .12 - stageSize / 2, h * .68 - stageSize, stageSize, stageSize, state.time, { reducedMotion: reduceMotion, paused: state.paused, opacity: 1, phase: state.beatPulse || 0 });
   for (let index = 0; index < (state.performers?.length || 0); index += 1) {
@@ -475,7 +476,7 @@ function drawBeat(ctx, state, config, w, h, now, blenderWorld, reduceMotion) {
 }
 
 function startPs1ArcadeGame(mount, options) {
-  const blenderWorld = createBlenderWorldSprite("sound-beat", mount);
+  const blenderWorld = createBlenderWorldSprite("sound-beat", mount, { landscape: true });
   const config = CONFIG[options.kind] || CONFIG["sound-beat"];
   const ladder = config.ladder(options.difficulty, options.sessionSeed);
   const total = totalUnits(options.kind, ladder);
@@ -966,7 +967,7 @@ function startPs1ArcadeGame(mount, options) {
 export default function Ps1ArcadeGame({
   kind,
   difficulty = "easy",
-  sessionSeed = 0,
+  sessionSeed = 0, journey = null,
   startLevel = 0,
   onScoreUpdate,
   onProgressUpdate,
@@ -1015,7 +1016,7 @@ export default function Ps1ArcadeGame({
     const engine = startPs1ArcadeGame(mountRef.current, {
       kind,
       difficulty,
-      sessionSeed,
+      sessionSeed, journey,
       startLevel,
       onScoreUpdate: score => handlersRef.current.onScoreUpdate?.(score),
       onProgressUpdate: (current, total) => handlersRef.current.onProgressUpdate?.(current, total),
@@ -1026,7 +1027,7 @@ export default function Ps1ArcadeGame({
       getMusic: () => musicRef.current
     });
     return () => engine.destroy();
-  }, [kind, difficulty, sessionSeed, startLevel]);
+  }, [kind, difficulty, sessionSeed, startLevel, journey]);
 
   return (
     <div

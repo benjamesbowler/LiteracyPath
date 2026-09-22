@@ -1,3 +1,4 @@
+import { ARCADE_JOURNEYS, completedArcadeChapters } from "../../../utils/arcadeJourneys.js";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { GAME_LIST } from "../../../data/learnGamesData";
 import { filterSample } from "../../../policy/freeTierContent.js";
@@ -355,6 +356,7 @@ export function GameArcadeHub({
         >
           {visibleGames.map(game => {
             const gameProgress = getLearnGameProgress(progress, game.id);
+            const journeyCount=ARCADE_JOURNEYS[game.id] ? completedArcadeChapters(gameProgress,progress.difficulty).length : null;
             const isRecommended = game.id === recommendedGame?.id;
             return (
               <button
@@ -384,7 +386,7 @@ export function GameArcadeHub({
                 )}
                 <span className="lg-game-tile-foot">
                   <ProgressStars stars={gameProgress.stars || 0} />
-                  {gameProgress.highScore ? <em className="lg-game-tile-score">{gameProgress.highScore}</em> : null}
+                  {journeyCount !== null ? <em className="lg-game-tile-score">{journeyCount} / 12 trails</em> : gameProgress.highScore ? <em className="lg-game-tile-score">{gameProgress.highScore}</em> : null}
                 </span>
               </button>
             );

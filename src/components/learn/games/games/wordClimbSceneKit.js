@@ -13,18 +13,18 @@ function mesh(geometry, mat, name) { const value = new THREE.Mesh(geometry, mat)
 function tube(points, radii, mat, name, sides = 10) {
   const curve = new THREE.CatmullRomCurve3(points.map(p => new THREE.Vector3(...p)));
   const steps = Math.max(12, points.length * 5); const frames = curve.computeFrenetFrames(steps, false);
-  const vertices = [], indices = [];
+  const vertices = [], indices = [], uv = [];
   for (let j = 0; j <= steps; j++) {
     const t = j / steps, center = curve.getPoint(t), segment = Math.min(radii.length - 2, Math.floor(t * (radii.length - 1)));
     const r = THREE.MathUtils.lerp(radii[segment], radii[segment + 1], t * (radii.length - 1) - segment);
     for (let i = 0; i < sides; i++) {
       const angle = i * Math.PI * 2 / sides;
       const p = center.clone().addScaledVector(frames.normals[j], Math.cos(angle) * r).addScaledVector(frames.binormals[j], Math.sin(angle) * r);
-      vertices.push(p.x, p.y, p.z);
+      vertices.push(p.x, p.y, p.z);uv.push(i / sides * 3, t * curve.getLength() / 110);
       if (j < steps) { const a = j * sides + i, b = j * sides + (i + 1) % sides; indices.push(a, b, b + sides, a, b + sides, a + sides); }
     }
   }
-  const geometry = new THREE.BufferGeometry(); geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3)); geometry.setIndex(indices); geometry.computeVertexNormals();
+  const geometry = new THREE.BufferGeometry(); geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3)); geometry.setAttribute("uv", new THREE.Float32BufferAttribute(uv, 2));geometry.setIndex(indices); geometry.computeVertexNormals();
   return mesh(geometry, mat, name);
 }
 function leaf(length, width, mat) {
@@ -58,10 +58,10 @@ function batchSurfaces(group) {
   group.updateMatrixWorld(true);
   const batches=new Map(),originals=[];
   group.traverse(object=>{if(object.isMesh&&!Array.isArray(object.material)&&!object.userData.dynamic){
-    const list=batches.get(object.material)||[];list.push(object.geometry.clone().applyMatrix4(object.matrixWorld));batches.set(object.material,list);originals.push(object);
+    const groups=batches.get(object.material)||new Map(),signature=Object.keys(object.geometry.attributes).sort().join(","),list=groups.get(signature)||[];list.push(object.geometry.clone().applyMatrix4(object.matrixWorld));groups.set(signature,list);batches.set(object.material,groups);originals.push(object);
   }});
   for(const object of originals){object.removeFromParent();object.geometry.dispose();}
-  for(const [mat,geometries] of batches){const merged=mergeGeometries(geometries,false);for(const geometry of geometries)geometry.dispose();if(merged)group.add(mesh(merged,mat,"batched-authored-world-surface"));}
+  for(const [mat,groups] of batches)for(const geometries of groups.values()){const merged=mergeGeometries(geometries,false);for(const geometry of geometries)geometry.dispose();if(merged)group.add(mesh(merged,mat,"batched-authored-world-surface"));}
 }
 
 export function climbSurfaceDepth(journey,y,x,viewWidth) {
@@ -81,10 +81,25 @@ export function createClimbSceneKit(platforms,summit,viewWidth,shelfHeight,journ
   const detailScale=Math.max(1,unitsPerPixel);
   const colours={...palette,bark:family===1?[0x66684b,0x414c3c,0x929166]:family===2?[0x867255,0x564b3c,0xb09a6c]:palette.bark};
   const mats=Object.fromEntries(Object.entries(colours).map(([name,colors])=>[name,colors.map(c=>material(c,{side:THREE.DoubleSide}))]));
+  const barkTexture=new THREE.TextureLoader().load('/game-assets/arcade-worlds/textures/bark.webp');
+  barkTexture.colorSpace=THREE.SRGBColorSpace;barkTexture.wrapS=barkTexture.wrapT=THREE.RepeatWrapping;barkTexture.anisotropy=4;
+  mats.bark.forEach((mat,index)=>{mat.map=barkTexture;mat.color.set([0xc5b9a3,0x9eab93,0xe5d4b1][index]);mat.roughness=.93;});
   const far=material(family===2?0x6d8395:0x527f75,{side:THREE.DoubleSide}),distant=material(0x3f655c,{side:THREE.DoubleSide});
   const glow=material(0xffd795,{emissive:0xe8ac4d,emissiveIntensity:.8});
   const top=journey?journey.sectionHeight*summit:summit*210;
   const radius=journey?CLIMB_ROUTE_HALF_WIDTH*viewWidth/1000:Math.min(72,viewWidth*.11);
+  // Blender-rendered crowns sit behind the physical climbing surface. Repeated
+  // planes share one material and one instanced draw, including on low tiers.
+  const crowns=[];
+  for(let y=-180;y<top+600;y+=480)for(const side of [-1,1])crowns.push({x:side*viewWidth*(.42+(Math.floor(y/480)%2)*.08),y,height:650+(Math.floor(y/480)%3)*70});
+  let released=false,canopies;
+  const canopyTexture=new THREE.TextureLoader().load('/game-assets/arcade-worlds/sprites/broadleaf-tree.webp',()=>{if(!released)canopies.visible=true;else canopyTexture.dispose();});
+  canopyTexture.colorSpace=THREE.SRGBColorSpace;canopyTexture.addEventListener('dispose',()=>{released=true;});
+  const canopyMaterial=new THREE.MeshBasicMaterial({map:canopyTexture,alphaTest:.35,color:family===2?0x8eabb8:0xadc8b3,side:THREE.DoubleSide});
+  canopies=new THREE.InstancedMesh(new THREE.PlaneGeometry(1,1),canopyMaterial,crowns.length);canopies.name='Blender distant woodland canopy';canopies.visible=false;
+  crowns.forEach((c,i)=>canopies.setMatrixAt(i,new THREE.Matrix4().compose(new THREE.Vector3(c.x,c.y+c.height/2,-380),new THREE.Quaternion(),new THREE.Vector3(c.height*.61,c.height,1))));
+  canopies.geometry.addEventListener('dispose',()=>canopies.dispose());
+  canopies.computeBoundingSphere();root.add(canopies);
   const xAt=y=>journey?(climbRouteCenter(journey,Math.max(0,Math.min(top-1,y)))-500)*viewWidth/1000:(Math.sin(y/280)*.30+Math.sin(y/530)*.14)*radius;
   // Static geometry is batched in short vertical chunks. Distant parts are
   // frustum-culled, so a three-minute course does not draw its entire tree.

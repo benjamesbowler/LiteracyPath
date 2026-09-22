@@ -61,7 +61,7 @@ test("each bridge manuscript keeps compact stable print and exact narration text
       assert.equal(page.pageNumber, index + 1, `${book.id}: stable page order`);
       assert.equal(page.pageAudioText, page.text, `${book.id} page ${page.pageNumber}: exact audio text`);
       assert.ok(countWords(page.text) >= 6 && countWords(page.text) <= 12, `${book.id} page ${page.pageNumber}: ${countWords(page.text)} words`);
-      assert.match(page.text, /[.!?]$/u, `${book.id} page ${page.pageNumber}: final punctuation`);
+      assert.match(page.text, /[.!?][”"’']?$/u, `${book.id} page ${page.pageNumber}: final punctuation`);
       assert.ok(page.imageBrief.trim().length >= 80, `${book.id} page ${page.pageNumber}: detailed page-specific brief`);
     }
   }
@@ -145,8 +145,14 @@ test("fiction review evidence matches reader-visible setbacks and resolutions", 
   assert.match(eid.storyBibleReview.resolution, /finds Maya/iu);
 
   const puddle = GUIDED_READING_BRIDGE_BOOKS.find(book => book.title === "The Puddle Plan");
+  assert.match(puddle.pages[2].text, /Leo.*sinks.*mud/iu);
+  assert.match(puddle.pages[4].text, /tests each stone.*stays still/iu);
+  assert.match(puddle.pages[5].text, /cones.*stones.*mark the way/iu);
+  assert.match(puddle.pages[6].text, /Maya.*stones.*shoes stay dry/iu);
   assert.doesNotMatch(puddle.pages[7].text, /clean.*feet/iu);
-  assert.match(puddle.pages[7].text, /safe.*dry (?:way|path|route)/iu);
+  assert.match(puddle.pages[7].text, /friends reach the garden.*only Leo.*muddy shoe/iu);
+  assert.match(puddle.storyBibleReview.failedAttempt, /Leo.*shoe.*mud/iu);
+  assert.match(puddle.storyBibleReview.resolution, /test.*stones.*cones.*Maya.*dry shoes/iu);
   assert.match(puddle.pages[7].imageBrief, /Leo.*muddy boot/iu);
 });
 

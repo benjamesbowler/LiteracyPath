@@ -79,6 +79,10 @@ export function createSpellSkater() {
     }
     active.setEffectiveTimeScale(state === 'push' ? Math.min(1.8, .7 + Math.abs(player.speed) / 22) : state === 'coast' ? Math.min(1.5, Math.abs(player.speed) / 10) : 1);
     mixer.update(Math.min(dt, .05));
+    // Spin the complete authored rider and board together, independently of
+    // physical steering. Every full turn returns to the same landing heading.
+    model.rotation.y = player.onGround || player.grind > 0 ? 0 : player.spinAngle || 0;
+    model.rotation.z = player.airTricks ? Math.sin(player.spinAngle || 0) * .16 : 0;
   }
   function dispose() {
     disposed = true;

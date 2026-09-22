@@ -565,7 +565,7 @@
       "sha256": "b64884ea3232379d80eee89e62dbc01245bcc29b0e3deede891344b807c39f3a",
       "width": 1365,
       "height": 768,
-      "textSha256": "ce53aef49091157a323f25b7b81a8523a53e135fe1c785b73badc542eabf5151",
+      "textSha256": "62e7b8c66acdc7356ace8c49300914c9f6049c9c92d6ef2ec11324d5b32101ae",
       "briefSha256": "81e77ba8a3a058d1742e08a1135d608e258eb04f632207a0d4860d60b59090b5",
       "visualTreatment": "self-created-photorealistic",
       "mediaLicense": "self-created",
@@ -575,7 +575,30 @@
         "reviewedSha256": "b64884ea3232379d80eee89e62dbc01245bcc29b0e3deede891344b807c39f3a",
         "notes": "Original-detail review approved for How Paper Is Recycled page 2: guarded sorting and removal of contaminants; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
       },
-      "sourceImageGenOutput": "exec-47749815-afc3-4bb4-aa6c-1ad9c854c44b.png"
+      "sourceImageGenOutput": "exec-47749815-afc3-4bb4-aa6c-1ad9c854c44b.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Page 2 supports sorting out nonpaper material, not all waste labels. Page 8 shows boxes, bags and notebooks, now named as the result."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/224-willow-street-how-paper-is-recycled.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "ce53aef49091157a323f25b7b81a8523a53e135fe1c785b73badc542eabf5151",
+          "briefSha256": "81e77ba8a3a058d1742e08a1135d608e258eb04f632207a0d4860d60b59090b5",
+          "sha256": "b64884ea3232379d80eee89e62dbc01245bcc29b0e3deede891344b807c39f3a",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "b64884ea3232379d80eee89e62dbc01245bcc29b0e3deede891344b807c39f3a",
+            "notes": "Original-detail review approved for How Paper Is Recycled page 2: guarded sorting and removal of contaminants; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-how-paper-is-recycled",
@@ -679,7 +702,7 @@
       "sha256": "ec83bd794423b2c843316b4db48f2a2f06889a433a4c903cd8bdbcecd189dc7f",
       "width": 1365,
       "height": 768,
-      "textSha256": "605f7918e45d2a1370ff5e2ea2ccbf6aa28574942924593f8ee7f79989f540ac",
+      "textSha256": "7901484ba675276481aa5ce8a782c6145e1d73c8af90f9ddacdad057655ea267",
       "briefSha256": "b922fddf97ffe70d295e34400e96ab8b15bfba77ac4ba0031f0d000e6a61bacf",
       "visualTreatment": "self-created-photorealistic",
       "mediaLicense": "self-created",
@@ -689,7 +712,30 @@
         "reviewedSha256": "ec83bd794423b2c843316b4db48f2a2f06889a433a4c903cd8bdbcecd189dc7f",
         "notes": "Original-detail review approved for How Paper Is Recycled page 8: off-white unbranded recycled products; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
       },
-      "sourceImageGenOutput": "exec-7a00fe5b-48de-482e-ba62-5b6bfb096797.png"
+      "sourceImageGenOutput": "exec-7a00fe5b-48de-482e-ba62-5b6bfb096797.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Page 2 supports sorting out nonpaper material, not all waste labels. Page 8 shows boxes, bags and notebooks, now named as the result."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/224-willow-street-how-paper-is-recycled.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "605f7918e45d2a1370ff5e2ea2ccbf6aa28574942924593f8ee7f79989f540ac",
+          "briefSha256": "b922fddf97ffe70d295e34400e96ab8b15bfba77ac4ba0031f0d000e6a61bacf",
+          "sha256": "ec83bd794423b2c843316b4db48f2a2f06889a433a4c903cd8bdbcecd189dc7f",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "ec83bd794423b2c843316b4db48f2a2f06889a433a4c903cd8bdbcecd189dc7f",
+            "notes": "Original-detail review approved for How Paper Is Recycled page 8: off-white unbranded recycled products; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-a-snail-comes-out-at-night",
@@ -736,7 +782,7 @@
       "sha256": "bb1e674222672f598c5e80d4b2942e320def64279af33b8da98871a2be94601a",
       "width": 1365,
       "height": 768,
-      "textSha256": "01732def1f5d86056ede0c2420d2206870b130b920febc440c5b0b5b7b36a7a3",
+      "textSha256": "edba28ccd935128e0b0214dba1170902ad5796913d8b89312fca931b410a2642",
       "briefSha256": "0525883181ae6ed81da8e0603f0a4e6a9749a942ff356e1063c23309329e0a3e",
       "visualTreatment": "self-created-photorealistic",
       "mediaLicense": "self-created",
@@ -746,7 +792,30 @@
         "reviewedSha256": "bb1e674222672f598c5e80d4b2942e320def64279af33b8da98871a2be94601a",
         "notes": "Original-detail review approved for A Snail Comes Out at Night page 2: same shell emerging in damp blue-hour light; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
       },
-      "sourceImageGenOutput": "exec-23fd10df-66df-40b3-ab7d-8015ccfce616.png"
+      "sourceImageGenOutput": "exec-23fd10df-66df-40b3-ab7d-8015ccfce616.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Dusk and dawn images frame the snail’s wet-night activity. Close underside/rough ground supports slime and final leaf shelter supports avoiding drying out."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/225-willow-street-a-snail-comes-out-at-night.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "01732def1f5d86056ede0c2420d2206870b130b920febc440c5b0b5b7b36a7a3",
+          "briefSha256": "0525883181ae6ed81da8e0603f0a4e6a9749a942ff356e1063c23309329e0a3e",
+          "sha256": "bb1e674222672f598c5e80d4b2942e320def64279af33b8da98871a2be94601a",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "bb1e674222672f598c5e80d4b2942e320def64279af33b8da98871a2be94601a",
+            "notes": "Original-detail review approved for A Snail Comes Out at Night page 2: same shell emerging in damp blue-hour light; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-a-snail-comes-out-at-night",
@@ -812,7 +881,7 @@
       "sha256": "dcb23ef7f35dd0ff7d9b36446665a252747c67d0c4a77910d37dde1c0f78323d",
       "width": 1365,
       "height": 768,
-      "textSha256": "34c10292dae6c521e010b6dad2cb3a7144df4851a38693a18f2cf3d08b8e3234",
+      "textSha256": "388f263f9e69578ca3417f309907414abb8e0566cd126f77f7e9e6e8a464f781",
       "briefSha256": "c1b389887a8f9835ad9ab71a936553ae5f309fbfaff97561f5a9ff33a9eafe64",
       "visualTreatment": "self-created-photorealistic",
       "mediaLicense": "self-created",
@@ -822,7 +891,30 @@
         "reviewedSha256": "dcb23ef7f35dd0ff7d9b36446665a252747c67d0c4a77910d37dde1c0f78323d",
         "notes": "Original-detail review approved for A Snail Comes Out at Night page 6: thin continuous slime trail and four visible tentacles; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
       },
-      "sourceImageGenOutput": "exec-135ae18d-4757-4c91-a066-c9d16a62d7c8.png"
+      "sourceImageGenOutput": "exec-135ae18d-4757-4c91-a066-c9d16a62d7c8.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Dusk and dawn images frame the snail’s wet-night activity. Close underside/rough ground supports slime and final leaf shelter supports avoiding drying out."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/225-willow-street-a-snail-comes-out-at-night.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "34c10292dae6c521e010b6dad2cb3a7144df4851a38693a18f2cf3d08b8e3234",
+          "briefSha256": "c1b389887a8f9835ad9ab71a936553ae5f309fbfaff97561f5a9ff33a9eafe64",
+          "sha256": "dcb23ef7f35dd0ff7d9b36446665a252747c67d0c4a77910d37dde1c0f78323d",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "dcb23ef7f35dd0ff7d9b36446665a252747c67d0c4a77910d37dde1c0f78323d",
+            "notes": "Original-detail review approved for A Snail Comes Out at Night page 6: thin continuous slime trail and four visible tentacles; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-a-snail-comes-out-at-night",
@@ -850,7 +942,7 @@
       "sha256": "d13ccfee85dfeb77906ebd4d40590315670cd85bcb50ef87f650fae9fc940db2",
       "width": 1365,
       "height": 768,
-      "textSha256": "2048d08db96f817acf133ca7f1b72561dbfbd66771b7381831028b96833f9a7d",
+      "textSha256": "92b7cde63ef39ea7136578e91007d382178e466b7a4b50e16477a03a00d40169",
       "briefSha256": "99bfb1aacf1dbd9306dbb0d5b82d1b3e7061b7ce18e8a93a9afc355c54d60dd0",
       "visualTreatment": "self-created-photorealistic",
       "mediaLicense": "self-created",
@@ -860,7 +952,30 @@
         "reviewedSha256": "d13ccfee85dfeb77906ebd4d40590315670cd85bcb50ef87f650fae9fc940db2",
         "notes": "Original-detail review approved for A Snail Comes Out at Night page 8: same snail entering moist shade before daylight; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
       },
-      "sourceImageGenOutput": "exec-f5112175-ccb2-4681-9cd0-ab3908f576a4.png"
+      "sourceImageGenOutput": "exec-f5112175-ccb2-4681-9cd0-ab3908f576a4.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Dusk and dawn images frame the snail’s wet-night activity. Close underside/rough ground supports slime and final leaf shelter supports avoiding drying out."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/225-willow-street-a-snail-comes-out-at-night.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "2048d08db96f817acf133ca7f1b72561dbfbd66771b7381831028b96833f9a7d",
+          "briefSha256": "99bfb1aacf1dbd9306dbb0d5b82d1b3e7061b7ce18e8a93a9afc355c54d60dd0",
+          "sha256": "d13ccfee85dfeb77906ebd4d40590315670cd85bcb50ef87f650fae9fc940db2",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "d13ccfee85dfeb77906ebd4d40590315670cd85bcb50ef87f650fae9fc940db2",
+            "notes": "Original-detail review approved for A Snail Comes Out at Night page 8: same snail entering moist shade before daylight; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-how-a-book-is-made",

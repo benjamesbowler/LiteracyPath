@@ -668,8 +668,8 @@ button.sx-carbox:active { transform: translateY(2px); }
 .sx-pal { display: none; }
 .sx-bubble { display: grid; grid-template-columns: minmax(0,1fr) auto; column-gap: 8px; width: auto; max-width: none; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; color: #fff4dc; }
 .sx-bubble::before, .sx-bubble::after { display: none; }
-.sx-bubble .sx-objective { grid-column: 1; margin: 0; font-size: 13px; }
-.sx-bubble .sx-target { grid-column: 1; margin: 2px 0; font-size: 19px; line-height: 1.2; }
+.sx-bubble .sx-objective { grid-column: 1; margin: 0; font-size: 18px; }
+.sx-bubble .sx-target { grid-column: 1; margin: 2px 0; font-size: 20px; line-height: 1.2; }
 .sx-bell { grid-column: 2; grid-row: 1 / 3; width: 56px; min-width: 56px; height: 56px; min-height: 56px; padding: 6px; font-size: 0; }
 .sx-bell svg { width: 28px; height: 28px; }
 .sx-hint { grid-column: 1 / -1; margin: 0; font-size: 13px; color: #ffe5a6; }
@@ -691,8 +691,8 @@ button.sx-carbox:active { transform: translateY(2px); }
   .sx-spurlabel { display: none; }
   .sx-fore { height: 8px; }
   .sx-trackbed { height: 12px; }
-  .sx-bubble .sx-target { font-size: 16px; }
-  .sx-bubble .sx-objective { font-size: 11px; }
+  .sx-bubble .sx-target { font-size: 20px; }
+  .sx-bubble .sx-objective { font-size: 18px; }
   .sx-master { padding: 2px 8px; }
   .sx-lever { margin: 2px 4px; }
   .sx-structure { padding: 2px 6px; }
@@ -754,3 +754,10 @@ button.sx-carbox:active { transform: translateY(2px); }
 .sx-raildeck { position: relative; }
 .sx-raildeck .sx-station, .sx-raildeck .sx-destination { top: auto; bottom: 42px; }
 @container (max-height: 430px) { .sx-raildeck .sx-station, .sx-raildeck .sx-destination { bottom: 20px; } }
+
+/* Eight registered Blender frames; words remain independent live text. */
+.sx-stock{position:absolute;inset:0;overflow:hidden;pointer-events:none}.sx-stock img{position:absolute;inset:0;width:400%;height:200%;max-width:none;transform:translate(0,0)}
+.sx-carbox:has(.sx-stock.is-ready):not(.sx-ghostbox) .sx-carword{top:45%;color:#253d42;text-shadow:0 1px #fffa;font-weight:900}.sx-carbox.sx-kind-engine:has(.sx-stock.is-ready):not(.sx-ghostbox) .sx-carword{top:47%;left:12%;right:45%}.sx-carbox.sx-kind-caboose:has(.sx-stock.is-ready):not(.sx-ghostbox) .sx-carword{top:43%}
+.sx-rolling .sx-stock img{animation:sx-stock-roll .65s steps(1) infinite}
+@keyframes sx-stock-roll{0%{transform:translate(0,0)}12.5%{transform:translate(-25%,0)}25%{transform:translate(-50%,0)}37.5%{transform:translate(-75%,0)}50%{transform:translate(0,-50%)}62.5%{transform:translate(-25%,-50%)}75%{transform:translate(-50%,-50%)}87.5%{transform:translate(-75%,-50%)}}
+@media(prefers-reduced-motion:reduce){.sx-rolling .sx-stock img{animation:none}}

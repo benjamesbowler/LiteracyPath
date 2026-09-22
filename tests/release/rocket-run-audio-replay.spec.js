@@ -27,6 +27,7 @@ test("Rocket Run keeps the exact target sound replayable without hiding the targ
   // runs after the other full-screen WebGL games in the same worker.
   test.setTimeout(45_000);
   const target = rocketRunLadder("easy")[0];
+  await page.addInitScript(()=>localStorage.setItem("literacy-guide-learn-games:fullscreen-overlay-preview",JSON.stringify({games:{"rocket-run":{checkpoints:{easy:{level:0,totalLevels:10,sessionSeed:0}}}}})));
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));
   await page.addInitScript(() => {

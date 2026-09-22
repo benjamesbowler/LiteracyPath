@@ -1,0 +1,31 @@
+{
+  "downloadProvenance": [
+    {
+      "name": "MapleTree_Leaves.png",
+      "googleDriveId": "1bEUjiz9g2rhWGPu1pyjYmZ_FFtEhXMg1",
+      "sha256": "915f0836e9889e28032662c7aa0d0eb9601ba999eda042c9a4e38690786d6c7b"
+    },
+    {
+      "name": "NormalTree_Bark_Normal.png",
+      "googleDriveId": "1LIstIQfo3n_cK8vWguFg2N42yCJ9plCc",
+      "sha256": "8136a8d6dc18e6b055c7cb53cf42bc6bac41319e102289d8ba25ee5837fbc39b"
+    },
+    {
+      "name": "NormalTree_Bark.png",
+      "googleDriveId": "1Yj_m3kf_BfoiTNRf67932Jq2MTZqNP2B",
+      "sha256": "17d8836b4eb3462c486bc0ca596d8d4dcde918c0ce0dd37eec9111b2e175be69"
+    },
+    {
+      "name": "NormalTree_Leaves.png",
+      "googleDriveId": "1hGjtu8MT0HCZThjRaT-gdrujpc7qi1sW",
+      "sha256": "9f662296a285ca56b1ed56e952a198b93b466ae39ab7b6ee1c1ac1bd1c46242f"
+    },
+    {
+      "name": "Rocks.png",
+      "googleDriveId": "1fuJ_X7P-sCTsNIDslKGt7L2V1mCsxsZM",
+      "sha256": "643d97219a00269b67f49b03123dff8d138cb4036c1a77153f917a3843332ce0"
+    }
+  ],
+  "retainedIn": "woodland-selection.blend",
+  "cleanup": "Raw downloads removed after native packed-image verification; original hashes retained for provenance."
+}

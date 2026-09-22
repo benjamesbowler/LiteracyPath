@@ -62,10 +62,10 @@ const TARGET_SOUND_OVERRIDES = Object.freeze({
   th: Object.freeze(["thin", "thud", "thank", "thick", "thief", "thorn", "throw", "thump", "thumb", "three", "thread", "thrill", "throat", "thing"])
 });
 
-function shuffle(items) {
+function shuffle(items, random = Math.random) {
   const copy = [...items];
   for (let i = copy.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
+    const j = Math.floor(random() * (i + 1));
     [copy[i], copy[j]] = [copy[j], copy[i]];
   }
   return copy;
@@ -107,8 +107,8 @@ export function rocketRunTargets(minCorrect = 3) {
     .filter(g => wordsStartingWithTargetSound(g).length >= minCorrect);
 }
 
-function uniqueSample(pool, n) {
-  return shuffle([...new Set(pool)]).slice(0, Math.max(0, n));
+function uniqueSample(pool, n, random) {
+  return shuffle([...new Set(pool)], random).slice(0, Math.max(0, n));
 }
 
 // Word length band per difficulty, so the words a round shows suit the level.
@@ -116,7 +116,7 @@ const LEN_RANGE = { easy: [2, 4], low: [2, 4], medium: [3, 5], mid: [3, 5], hard
 
 // One round: DISTINCT correct words to catch (never "vest, vest, vest") + MORE,
 // also-distinct, sound-distinct distractors, interleaved into a fair spawn order.
-export function buildRocketRunRound(targetGrapheme, { count = 6, difficulty } = {}) {
+export function buildRocketRunRound(targetGrapheme, { count = 6, difficulty, random = Math.random } = {}) {
   const g = String(targetGrapheme || "").toLowerCase();
   const range = LEN_RANGE[String(difficulty || "").toLowerCase()];
   const inRange = w => !range || (w.length >= range[0] && w.length <= range[1]);
@@ -124,18 +124,18 @@ export function buildRocketRunRound(targetGrapheme, { count = 6, difficulty } = 
   const correctPool = wordsStartingWithTargetSound(g);
   let cp = correctPool.filter(inRange);
   if (cp.length < 3) cp = correctPool;                 // never starve a small sound
-  const correct = uniqueSample(cp, count);             // distinct, no cycling/repeats
+  const correct = uniqueSample(cp, count, random);             // distinct, no cycling/repeats
 
   const correctSet = new Set(correct);
   const distractorPool = ALL_WORDS.filter(w => !sharesSound(onsetGrapheme(w), g) && !correctSet.has(w));
   let dp = distractorPool.filter(inRange);
   if (dp.length < count) dp = distractorPool;
-  const distractors = uniqueSample(dp, count + Math.ceil(count / 2)); // more, all distinct
+  const distractors = uniqueSample(dp, count + Math.ceil(count / 2), random); // more, all distinct
 
   const sequence = shuffle([
     ...correct.map(word => ({ word, correct: true })),
     ...distractors.map(word => ({ word, correct: false }))
-  ]);
+  ], random);
   return { targetGrapheme: g, correct, distractors, sequence, needed: correct.length };
 }
 

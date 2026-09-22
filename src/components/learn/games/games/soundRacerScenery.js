@@ -4,8 +4,8 @@ import { disposeObject } from '../shared/threeShell.js';
 import { sampleCircuitPath, offsetCircuitPoint, RACER_ROAD_WIDTH } from '../../../../utils/soundRacerPhysics.js';
 
 const ASSETS = {
-  treeB: { height: 3.8, radius: 2.4, foliage: true },
-  meadowCopse: { height: 5.8, radius: 2.8, foliage: true },
+  treeB: { height: 10, radius: 3.8, foliage: true },
+  meadowCopse: { height: 12, radius: 5.8, foliage: true },
   dinoCycads: { height: 5, radius: 4.8, foliage: true },
   moonMushrooms: { height: 5.5, radius: 3, foliage: true },
   bush: { height: 1.2, radius: 1 }, lamp: { height: 4.5, radius: .5 },
@@ -15,7 +15,9 @@ const ASSETS = {
 };
 export const RACER_SCENERY_URLS = {
   ...Object.fromEntries(Object.keys(ASSETS).filter(name => !['windmill', 'fossil', 'moonTower', 'meadowCopse', 'dinoCycads', 'moonMushrooms'].includes(name)).map(name => [name, `/game-assets/sound-racer/models/${name}.glb`])),
-  meadowCopse: '/game-assets/arcade-blender/meadow-copse.glb',
+  treeB: '/game-assets/arcade-worlds/birch-canopy.glb',
+  bush: '/game-assets/arcade-worlds/flowering-shrub.glb',
+  meadowCopse: '/game-assets/arcade-worlds/broadleaf-tree.glb',
   dinoCycads: '/game-assets/arcade-blender/dino-cycads.glb',
   moonMushrooms: '/game-assets/arcade-blender/moonwood-mushrooms.glb',
   windmill: '/game-assets/arcade-blender/meadow-windmill.glb',
@@ -123,6 +125,10 @@ export function createRacerScenery(track, world, tier) {
     const locations = placements.filter(p => p.name === name);
     gltf.scene.traverse(mesh => {
       if (!mesh.isMesh) return;
+      for(const material of Array.isArray(mesh.material)?mesh.material:[mesh.material]){
+        if(material.transparent&&ASSETS[name].foliage){material.transparent=false;material.alphaTest=.4;material.depthWrite=true;material.forceSinglePass=true;material.needsUpdate=true;}
+        material.envMapIntensity=.32;material.roughness=Math.max(.8,material.roughness||0);
+      }
       const instance = new THREE.InstancedMesh(mesh.geometry, mesh.material, locations.length);
       instance.userData.capacity = locations.length;
       instance.userData.foliage = ASSETS[name].foliage || name === 'bush';

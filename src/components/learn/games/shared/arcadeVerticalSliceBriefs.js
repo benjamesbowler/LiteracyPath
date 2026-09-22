@@ -1,3 +1,4 @@
+import { buildArcadeJourneyBriefs } from "./arcadeJourneyBriefs.js";
 import { GAME_VERTICAL_SLICE_BRIEF_SCHEMA_VERSION } from "./premiumGameStandard.js";
 
 function deepFreeze(value) {
@@ -11,7 +12,7 @@ function deepFreeze(value) {
  * canonical rules and field meanings live in docs/design/GAME_DESIGN_BIBLE.md.
  * Add a brief here before substantially changing another flagship game.
  */
-export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
+const ORIGINAL_BRIEFS = deepFreeze({
   "sound-seekers": {
   "schemaVersion": 1,
   "gameId": "sound-seekers",
@@ -533,6 +534,8 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
     }
   }
 });
+
+export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({...ORIGINAL_BRIEFS,...buildArcadeJourneyBriefs(ORIGINAL_BRIEFS)});
 
 export function verticalSliceBriefForGame(gameId) {
   return ARCADE_VERTICAL_SLICE_BRIEFS[String(gameId || "")] || null;

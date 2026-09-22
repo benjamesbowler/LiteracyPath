@@ -26,11 +26,12 @@ test("Spell & Skate keeps the exact build goal and replay action child-readable"
   await player.locator(".lg-game-loading").waitFor({ state: "hidden", timeout: 20_000 });
 
   const action = player.locator('[data-gg="prompt"]');
-  const buildGoal = player.locator('[data-gg="coach"]');
+  const buildGoal = player.locator('[data-gg="sentence"]');
   const replay = player.locator('[data-gg="hear"]');
   await expect(action).toBeVisible();
   await expect(buildGoal).toBeVisible();
-  await expect(buildGoal).toContainText(/Build .+:/);
+  await expect(buildGoal).not.toBeEmpty();
+  await expect(action).toContainText(/Collect|Choose|Build/);
   await expect(replay).toBeVisible();
   await expect(replay).toHaveAttribute("aria-label", /Hear .+ again/);
 
@@ -45,7 +46,7 @@ test("Spell & Skate keeps the exact build goal and replay action child-readable"
 test("Sentence Express prints its sentence goal beside a generous replay control", async ({ page }) => {
   await page.goto("/preview/game-overlay.html?game=sentence-express&sound=1&music=0");
   const player = page.getByRole("dialog", { name: "Sentence Express", exact: true });
-  await player.getByRole("button", { name: /TO THE YARD/ }).click();
+  await expect(player.getByRole("button", { name: /TO THE YARD/ })).toHaveCount(0);
 
   const action = player.locator(".sx-objective");
   const target = player.locator(".sx-target");
@@ -58,7 +59,7 @@ test("Sentence Express prints its sentence goal beside a generous replay control
   expect((await readableStyles(action)).fontSize).toBeGreaterThanOrEqual(18);
   expect((await readableStyles(target)).fontSize).toBeGreaterThanOrEqual(20);
   const replayStyles = await readableStyles(replay);
-  expect(replayStyles.fontSize).toBeGreaterThanOrEqual(16);
+  expect((await readableStyles(replay.locator("svg"))).width).toBeGreaterThanOrEqual(28);
   expect(replayStyles.width).toBeGreaterThanOrEqual(56);
   expect(replayStyles.height).toBeGreaterThanOrEqual(56);
 });

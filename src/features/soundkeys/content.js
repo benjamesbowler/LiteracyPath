@@ -6,6 +6,25 @@ export const SOUNDKEY_PROFILES = Object.freeze({
 });
 
 const WORD_DEFINITIONS = [
+  ["shop", ["sh", "o", "p"]],
+  ["chat", ["ch", "a", "t"]],
+  ["chick", ["ch", "i", "ck"]],
+  ["rich", ["r", "i", "ch"]],
+  ["ring", ["r", "i", "ng"]],
+  ["song", ["s", "o", "ng"]],
+  ["rock", ["r", "o", "ck"]],
+  ["check", ["ch", "e", "ck"]],
+  ["deep", ["d", "ee", "p"]],
+  ["seed", ["s", "ee", "d"]],
+  ["feet", ["f", "ee", "t"]],
+  ["born", ["b", "or", "n"]],
+  ["mail", ["m", "ai", "l"]],
+  ["keep", ["k", "ee", "p"]],
+  ["car", ["c", "ar"]],
+  ["room", ["r", "oo", "m"]],
+  ["park", ["p", "ar", "k"]],
+  ["torch", ["t", "or", "ch"]],
+  ["sport", ["s", "p", "or", "t"]],
   ["cat", ["c", "a", "t"]], ["bat", ["b", "a", "t"]], ["hat", ["h", "a", "t"]],
   ["sat", ["s", "a", "t"]], ["map", ["m", "a", "p"]], ["cap", ["c", "a", "p"]],
   ["nap", ["n", "a", "p"]], ["pig", ["p", "i", "g"]], ["dig", ["d", "i", "g"]],
@@ -13,7 +32,7 @@ const WORD_DEFINITIONS = [
   ["bin", ["b", "i", "n"]], ["pot", ["p", "o", "t"]], ["hot", ["h", "o", "t"]],
   ["dot", ["d", "o", "t"]], ["bug", ["b", "u", "g"]], ["mug", ["m", "u", "g"]],
   ["dug", ["d", "u", "g"]], ["sun", ["s", "u", "n"]], ["bun", ["b", "u", "n"]],
-  ["nut", ["n", "u", "t"]], ["cut", ["c", "u", "t"]], ["hut", ["h", "u", "t"]],
+  ["net", ["n", "e", "t"]], ["cut", ["c", "u", "t"]], ["hut", ["h", "u", "t"]],
   ["ship", ["sh", "i", "p"]], ["fish", ["f", "i", "sh"]], ["chin", ["ch", "i", "n"]],
   ["chop", ["ch", "o", "p"]], ["shut", ["sh", "u", "t"]], ["shed", ["sh", "e", "d"]],
   ["thin", ["th", "i", "n"]], ["moth", ["m", "o", "th"]], ["bath", ["b", "a", "th"]],
@@ -27,9 +46,9 @@ const WORD_DEFINITIONS = [
 ];
 
 const DIFFICULTY_WORD_IDS = Object.freeze({
-  easy: Object.freeze(["cat", "bat", "hat", "sat", "map", "cap", "nap", "pig", "dig", "wig", "pin", "fin"]),
-  medium: Object.freeze(["ship", "fish", "chin", "chop", "shut", "shed", "thin", "moth", "bath", "duck", "kick", "sing", "king", "long", "tree", "star"]),
-  hard: Object.freeze(["train", "rain", "boat", "coat", "goat", "toast", "moon", "book", "food", "cook", "farm", "fork", "corn"])
+  easy: Object.freeze(["cat", "bat", "hat", "sat", "map", "cap", "nap", "pig", "dig", "wig", "pin", "fin", "bin", "pot", "hot", "dot", "bug", "mug", "dug", "sun", "bun", "net", "cut", "hut"]),
+  medium: Object.freeze(["ship", "fish", "chin", "chop", "shut", "shed", "thin", "moth", "bath", "duck", "kick", "sing", "king", "long", "tree", "star", "shop", "chat", "chick", "rich", "ring", "song", "rock", "check"]),
+  hard: Object.freeze(["train", "rain", "boat", "coat", "goat", "toast", "moon", "book", "food", "cook", "farm", "fork", "corn", "deep", "seed", "feet", "born", "mail", "keep", "car", "room", "park", "torch", "sport"])
 });
 
 export const SOUNDKEY_WORDS = Object.freeze(WORD_DEFINITIONS.map(([word, tokens]) => {

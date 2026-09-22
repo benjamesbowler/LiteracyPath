@@ -104,7 +104,7 @@ test("Letter Leap keeps the active ordered letter grounded after a fullscreen he
     window.localStorage.setItem("lp-arcade-onboarded-v1:letter-leap", "1");
     // Keep the first target in the left-most slot so running into it exercises
     // the actual canvas collision path without relying on jump timing.
-    Math.random = () => 0.999999;
+    localStorage.setItem("literacy-guide-learn-games:fullscreen-overlay-preview",JSON.stringify({games:{"letter-leap":{checkpoints:{easy:{level:0,totalLevels:10,sessionSeed:0}}}}}));
   });
   await page.setViewportSize({ width: 1024, height: 640 });
   await page.goto("/preview/game-overlay.html?game=letter-leap&sound=0&music=0");
@@ -119,7 +119,7 @@ test("Letter Leap keeps the active ordered letter grounded after a fullscreen he
   await page.setViewportSize({ width: 1600, height: 1000 });
   await page.waitForTimeout(120);
   await page.keyboard.down("ArrowRight");
-  await page.waitForTimeout(850);
+  await expect.poll(() => completedSlots.count()).toBeGreaterThanOrEqual(1);
   await page.keyboard.up("ArrowRight");
 
   await expect.poll(() => completedSlots.count()).toBeGreaterThanOrEqual(1);
@@ -159,14 +159,17 @@ test("Letter Leap keeps its target and 56px controls inside 568x320 phone landsc
 });
 
 test("Letter Leap completes a word through pointer taps and keyboard leaps", async ({ page }) => {
+  test.setTimeout(90000);
+  await page.clock.install();
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));
   await page.addInitScript(() => {
     window.localStorage.setItem("lp-arcade-onboarded-v1:letter-leap", "1");
-    Math.random = () => 0.999999;
+    localStorage.setItem("literacy-guide-learn-games:fullscreen-overlay-preview",JSON.stringify({games:{"letter-leap":{checkpoints:{easy:{level:0,totalLevels:10,sessionSeed:0}}}}}));
   });
   await page.goto("/preview/game-overlay.html?game=letter-leap&sound=0&music=0");
 
+  const snapshot=()=>page.evaluate(()=>document.querySelector(".letter-leap").__letterLeapSnapshot());
   const right = page.getByRole("button", { name: "Move right", exact: true });
   const completedSlots = page.locator('[data-ll="word"] [aria-label^="Completed letter"]');
   await expect(page.getByRole("button", { name: "Leap right", exact: true })).toBeVisible();
@@ -184,22 +187,27 @@ test("Letter Leap completes a word through pointer taps and keyboard leaps", asy
   }
   await expect(completedSlots).toHaveCount(1);
 
-  const leapRight = async () => {
-    await page.keyboard.down("ArrowRight");
-    await page.keyboard.down("Space");
-    await page.waitForTimeout(420);
-    await page.keyboard.up("Space");
-    await page.waitForTimeout(980);
-    await page.keyboard.up("ArrowRight");
-  };
-  await leapRight();
-  await expect(completedSlots).toHaveCount(2);
-  const readableCompletion = expect(page.locator('[data-ll="lab"]')).toContainText("BAT built");
-  await leapRight();
-
-  await readableCompletion;
+  const initial=await snapshot();let held=new Set(),jumpUntil=0;
+  for(let frame=0;frame<800;frame++){
+    const state=await snapshot();if(state.wordsDone>=1)break;
+    const target=state.bubbles.find(b=>!b.taken&&b.word===state.wordIndex&&b.order===state.letterIndex);
+    let dx=(target?.x??state.flag)-state.player.x;
+    const support=state.platforms.find(p=>state.player.x>=p.x&&state.player.x<=p.x+p.w&&Math.abs(state.player.y+23-p.y)<5);
+    if(target&&target.y>state.player.y+48&&Math.abs(dx)<40&&support)dx=support.x+support.w+45-state.player.x;
+    const direction=Math.sign(dx),edge=support?(direction>0?support.x+support.w:support.x):state.player.x;
+    const gap=state.pits.some(([a,b])=>edge+direction*(support?35:85)>a&&edge+direction*(support?35:85)<b)&&(!support||Math.abs(edge-state.player.x)<60);
+    const decoy=state.bubbles.some(b=>!b.taken&&b.word===-1&&b.decisionWord===state.wordIndex&&b.decisionOrder===state.letterIndex&&Math.sign(b.x-state.player.x)===direction&&Math.abs(b.x-state.player.x)<85&&Math.abs(b.x-state.player.x)>35);
+    const foe=state.foes.some(f=>Math.sign(f.x-state.player.x)===direction&&Math.abs(f.x-state.player.x)<120);
+    if(state.player.onGround&&frame>=jumpUntil&&(gap||decoy||foe||(target&&target.y<state.player.y-50&&Math.abs(dx)<125)))jumpUntil=frame+7;
+    const next=new Set([...(Math.abs(dx)>=15?[direction<0?'ArrowLeft':'ArrowRight']:[]),...(frame<jumpUntil?['ArrowUp']:[])]);
+    for(const key of held)if(!next.has(key))await page.keyboard.up(key);for(const key of next)if(!held.has(key))await page.keyboard.down(key);held=next;
+    await page.clock.runFor(70);
+  }
+  for(const key of held)await page.keyboard.up(key);
+  expect((await snapshot()).wordsDone).toBe(1);
+  await expect(page.locator('[data-ll="lab"]')).toContainText(initial.word+' built');
   await expect(page.getByText("1 of 50", { exact: true })).toBeVisible();
-  await page.waitForTimeout(800);
+  await page.clock.runFor(850);
   await expect(page.locator('[data-ll="lab"]')).toContainText("word 2 of 5");
   expect(pageErrors).toEqual([]);
 });

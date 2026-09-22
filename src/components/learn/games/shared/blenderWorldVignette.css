@@ -1,7 +1,7 @@
 .blender-world-vignette { position: absolute; pointer-events: none; object-fit: contain; }
-.blender-world-vignette--sentence-express { width: clamp(150px, 28vw, 330px); height: auto; right: 3%; bottom: 46%; opacity: .96; }
+.blender-world-vignette--sentence-express { width: clamp(120px, 19vw, 210px); height: auto; right: 3%; bottom: 48%; opacity: .96; }
 .blender-world-vignette--soundkeys { width: clamp(125px, 27vw, 290px); height: auto; left: -3%; bottom: -8%; opacity: .86; }
 @media (max-width: 600px) {
-  .blender-world-vignette--sentence-express { width: 160px; right: -7%; bottom: 43%; }
+  .blender-world-vignette--sentence-express { width: 120px; right: -5%; bottom: 48%; }
   .blender-world-vignette--soundkeys { width: 150px; left: -9%; opacity: .68; }
 }

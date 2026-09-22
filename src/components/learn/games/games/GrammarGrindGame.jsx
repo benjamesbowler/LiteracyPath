@@ -1,3 +1,5 @@
+import { createGardenWorld } from '../shared/arcadeGardenWorlds.js';
+import { arcadeSurfaceTexture } from '../shared/arcadeWorldSurfaces.js';
 import { createBlenderLandmarks } from '../shared/arcadeBlenderLandmarks.js';
 import "../shared/arcadeMissionHud.css";
 import "./SpellSkateWorld.css";
@@ -25,7 +27,7 @@ import { createRenderer, createScene, createPerspectiveCamera, attachResize, cre
 import { createArcadePremiumRenderPipeline } from "../shared/arcadePremiumRender.js";
 
 import { createSpellSkater } from "./spellSkaterAsset.js";
-import { createSkateRampGeometry, createSkateBowlGeometry, createSkateDeckGeometry, createSkateParkDressing, sampleSkateSurface, skateSurfaceTilt, skateObstacleAt, planSkateRoute, skateFrameSteps, nextSkateQuality, skateSteering, skateMotion, chooseSkateDestination } from "./spellSkatePark.js";
+import { createSkateTextSign, createSkateRampGeometry, createSkateBowlGeometry, createSkateDeckGeometry, createSkateParkDressing, sampleSkateSurface, skateSurfaceTilt, skateObstacleAt, planSkateRoute, skateFrameSteps, nextSkateQuality, skateSteering, skateMotion, skateAction, chooseSkateDestination } from "./spellSkatePark.js";
 
 const THEMES = {
   easy: {
@@ -78,7 +80,6 @@ const THEMES = {
 const ARENA_LIMIT = 82;
 const PLAYER_RADIUS = 2.15;
 const MAX_SPEED = { easy: 9, medium: 29, hard: 33 };
-const BOOST_MAX = 100;
 const TOKEN_COUNT = { easy: 0, medium: 12, hard: 14 };
 const STYLE_WINDOW = 6;
 
@@ -226,34 +227,10 @@ function makeTextTexture(text, theme, options = {}) {
   return texture;
 }
 
-function makeGroundTexture(theme) {
-  const canvas = document.createElement("canvas");
-  canvas.width = 512;
-  canvas.height = 512;
-  const ctx = canvas.getContext("2d");
-  ctx.fillStyle = theme.ground;
-  ctx.fillRect(0, 0, 512, 512);
-  const rand = seeded(481);
-  for (let i = 0; i < 4200; i += 1) {
-    const x = rand() * 512, y = rand() * 512;
-    ctx.strokeStyle = i % 2 ? "rgba(244,245,184,.08)" : "rgba(15,65,46,.10)";
-    ctx.lineWidth = .5 + rand();
-    ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+rand()*3-1.5,y-2-rand()*4); ctx.stroke();
-  }
-  const texture = new THREE.CanvasTexture(canvas);
-  texture.colorSpace = THREE.SRGBColorSpace;
-  texture.wrapS = THREE.RepeatWrapping;
-  texture.wrapT = THREE.RepeatWrapping;
-  texture.repeat.set(9, 9);
-  texture.magFilter = THREE.LinearFilter;
-  texture.minFilter = THREE.LinearMipmapLinearFilter;
-  texture.generateMipmaps = true;
-  return texture;
-}
 
 function startGame(mount, opts) {
   const difficulty = ["easy", "medium", "hard"].includes(String(opts.difficulty)) ? String(opts.difficulty) : "easy";
-  const ladder = grammarGrindLadder(difficulty, opts.sessionSeed);
+  const ladder = grammarGrindLadder(difficulty, opts.sessionSeed, opts.journey?.index || 0);
   const theme = THEMES[difficulty] || THEMES.easy;
   const startAt = clamp(Number(opts.startLevel) || 0, 0, ladder.length - 1);
   const getSound = () => opts.getSound?.() !== false;
@@ -267,6 +244,7 @@ function startGame(mount, opts) {
   // Hardware quality tier: scales the DPR cap, shadow mode and burst/trail
   // particle rates so weak devices get a lighter scene instead of a stuttery one.
   const motionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)") || null;
+  let gardenWorld = null;
   let qualityTier = detectQualityTier();
   let particleScale = QUALITY_TIERS[qualityTier].particleScale;
 
@@ -287,9 +265,9 @@ function startGame(mount, opts) {
   scene.background = new THREE.Color(theme.sky);
   const camera = createPerspectiveCamera(THREE, { fov: 60, aspect: 1, near: 0.1, far: 360 });
 
-  const hemi = new THREE.HemisphereLight("#ffffff", theme.ground, 1.3);
+  const hemi = new THREE.HemisphereLight("#e5f0f1", "#536351", .95);
   scene.add(hemi);
-  const sun = new THREE.DirectionalLight("#fff7e2", 2.1);
+  const sun = new THREE.DirectionalLight("#fff3dc", 1.65);
   sun.position.set(-44, 82, 38);
   sun.castShadow = qualityTier !== "low";
   sun.shadow.mapSize.set(1024, 1024);
@@ -327,6 +305,7 @@ function startGame(mount, opts) {
   function reassessQualityTier() {
     premiumRender.setTier(detectQualityTier());
     qualityTier = premiumRender.effectiveTier;
+    gardenWorld?.setQuality(qualityTier);
     particleScale = QUALITY_TIERS[qualityTier].particleScale;
     applyQualityTier(renderer, qualityTier);
     premiumRender.resize(mount.clientWidth || 960, mount.clientHeight || 560);
@@ -368,7 +347,7 @@ function startGame(mount, opts) {
 
   const ground = new THREE.Mesh(
     new THREE.PlaneGeometry(ARENA_LIMIT * 2.25, ARENA_LIMIT * 2.25, 16, 16),
-    new THREE.MeshStandardMaterial({ map: makeGroundTexture(theme), roughness: 0.78, metalness: 0.04 })
+    new THREE.MeshStandardMaterial({ map: arcadeSurfaceTexture("concrete", {easy:"meadow",medium:"dino",hard:"moonwood"}[difficulty]), roughness: 0.78, metalness: 0.04 })
   );
   ground.rotation.x = -Math.PI / 2;
   ground.receiveShadow = true;
@@ -380,7 +359,7 @@ function startGame(mount, opts) {
     // arena. The path also gives young children a strong forward cue.
     const path = new THREE.Mesh(
       new THREE.PlaneGeometry(22, 152),
-      makeMat("#f7dfa0", { roughness: 0.92, metalness: 0 })
+      new THREE.MeshStandardMaterial({ color: "#d4d2bf", map: arcadeSurfaceTexture("concrete", {easy:"meadow",medium:"dino",hard:"moonwood"}[difficulty]), roughness: .94 })
     );
     path.rotation.x = -Math.PI / 2;
     path.position.set(0, 0.035, -28);
@@ -398,7 +377,7 @@ function startGame(mount, opts) {
     for (let z = 36; z >= -94; z -= 13) {
       const steppingStone = new THREE.Mesh(
         new THREE.CylinderGeometry(1.15, 1.4, 0.16, 12),
-        makeMat(z % 26 === 10 ? "#f8c95a" : "#fff1bd", { roughness: 0.88 })
+        makeMat("#bacabf", { roughness: 0.94 })
       );
       steppingStone.position.set(Math.sin(z * 0.12) * 2.2, 0.14, z);
       steppingStone.receiveShadow = true;
@@ -552,10 +531,8 @@ function startGame(mount, opts) {
       border: theme.gate || theme.accent2,
       bg: "rgba(4,8,22,.86)"
     });
-    const sign = new THREE.Mesh(
-      new THREE.PlaneGeometry(6.8, 2.1),
-      new THREE.MeshBasicMaterial({ map: texture, transparent: true, side: THREE.DoubleSide })
-    );
+    const sign = createSkateTextSign(texture, 6.8, 2.1);
+    sign.name = `Readable ${text} banner`;
     sign.position.set(0, 4.5, 0.06);
     sign.castShadow = true;
     group.add(sign);
@@ -599,6 +576,11 @@ function startGame(mount, opts) {
   const dressing = createSkateParkDressing(theme, difficulty);
   const parkObstacles = dressing.userData.obstacles;
   park.add(dressing);
+  gardenWorld = createGardenWorld('grammar-grind', { world: {easy:'meadow',medium:'dino',hard:'moonwood'}[difficulty], onReady: group => {
+    dressing.traverse(node => { if (node.userData.gardenTreeFallback) node.visible = false; });
+    gardenWorld.setQuality(qualityTier); premiumRender.prepareObject(group);
+  } });
+  park.add(gardenWorld.root);
   mount.dataset.blenderWorld = "grammar-grind";
   const pavilionPlacements = [-1, 1].flatMap(side => [
     { x: side * (ARENA_LIMIT + 13), z: 15, height: 16, yaw: side * Math.PI / 2 },
@@ -642,7 +624,6 @@ function startGame(mount, opts) {
       '<div data-gg="world" style="font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;color:#9bf4ff;font-weight:900"></div>' +
       '<div data-gg="speed" style="font-size:1.22rem;font-weight:950">0 kmh</div>' +
       '<div data-gg="trick" style="font-size:.82rem;color:#ffe17a;font-weight:900">Find the next spelling part</div>' +
-      '<div style="margin-top:7px;width:142px;height:8px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.2);margin-left:auto;overflow:hidden"><div data-gg="boostbar" style="height:100%;width:42%;background:linear-gradient(90deg,#7df2ff,#ffe17a)"></div></div>' +
       '<div data-gg="style" style="margin-top:4px;font-size:.72rem;color:#d9f2ff;font-weight:900;text-transform:uppercase;letter-spacing:.08em">Style ready</div>' +
     '</div>' +
     '<div data-gg="banner" style="position:absolute;left:50%;bottom:100px;transform:translateX(-50%);max-width:75%;padding:7px 14px;border-radius:12px;background:rgba(12,39,47,.9);text-align:center;font-size:1.1rem;font-weight:800;display:none"></div>' +
@@ -653,8 +634,7 @@ function startGame(mount, opts) {
     '<div data-gg-controls="right" style="position:absolute;bottom:18px;right:18px;display:flex;gap:10px;pointer-events:auto">' +
       '<button data-gg-btn="left" aria-label="Turn left" style="width:70px;height:64px;border:1px solid rgba(125,242,255,.42);background:rgba(6,10,28,.76);color:#fff;font-size:1.6rem;font-weight:950;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.3)">←</button>' +
       '<button data-gg-btn="right" aria-label="Turn right" style="width:70px;height:64px;border:1px solid rgba(125,242,255,.42);background:rgba(6,10,28,.76);color:#fff;font-size:1.6rem;font-weight:950;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.3)">→</button>' +
-      '<button data-gg-btn="boost" aria-label="Boost" style="width:72px;height:58px;border:1px solid rgba(125,242,255,.52);background:linear-gradient(160deg,#131b3d,#33e6ff);color:#fff;font-weight:950;border-radius:12px;box-shadow:0 10px 24px rgba(0,0,0,.3)">BOOST</button>' +
-      '<button data-gg-btn="jump" aria-label="Jump trick" style="width:86px;height:68px;border:1px solid rgba(255,255,255,.58);background:linear-gradient(160deg,#fff0a8,#ffc83d 55%,#f59e0b);color:#201400;font-weight:950;border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,.3),inset 0 -8px 0 rgba(0,0,0,.2)">TRICK</button>' +
+      '<button data-gg-btn="jump" aria-label="Jump trick" style="width:86px;height:68px;border:1px solid rgba(255,255,255,.58);background:linear-gradient(160deg,#fff0a8,#ffc83d 55%,#f59e0b);color:#201400;font-weight:950;border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,.3),inset 0 -8px 0 rgba(0,0,0,.2)">JUMP /<br>TRICK</button>' +
     '</div>' +
     (difficulty === "easy"
       ? '<div data-gg-guide style="position:absolute;right:18px;bottom:102px;width:min(190px,23vw);display:grid;justify-items:center;filter:drop-shadow(0 12px 18px rgba(29,73,57,.28))">' +
@@ -748,13 +728,11 @@ function startGame(mount, opts) {
       [data-gg-btn="left"],
       [data-gg-btn="right"] {
         width: 58px !important;
+        font-size: 1.65rem !important;
       }
       [data-gg-btn="brake"],
       [data-gg-btn="push"] {
         width: 64px !important;
-      }
-      [data-gg-btn="boost"] {
-        display: none !important;
       }
       [data-gg-btn="jump"] {
         width: 68px !important;
@@ -781,7 +759,6 @@ function startGame(mount, opts) {
     world: overlay.querySelector('[data-gg="world"]'),
     speed: overlay.querySelector('[data-gg="speed"]'),
     trick: overlay.querySelector('[data-gg="trick"]'),
-    boostbar: overlay.querySelector('[data-gg="boostbar"]'),
     style: overlay.querySelector('[data-gg="style"]'),
     banner: overlay.querySelector('[data-gg="banner"]')
   };
@@ -813,7 +790,6 @@ function startGame(mount, opts) {
   let messageTimer = 0;
   let coachText = level.teaching || level.cue;
   let correctionTimer = 0;
-  let boost = 42;
   let boostFlash = 0;
   let styleWindow = 0;
   let styleScore = 0;
@@ -825,7 +801,7 @@ function startGame(mount, opts) {
   let phase = "playing";
   let phaseTimer = 0;
   let completed = false;
-  const keys = { left: false, right: false, push: false, brake: false, boost: false, jump: false, jumpPressed: false };
+  const keys = { left: false, right: false, push: false, brake: false, jump: false, jumpPressed: false };
   const player = {
     pos: new THREE.Vector3(0, 0, 24),
     yaw: Math.PI,
@@ -838,7 +814,11 @@ function startGame(mount, opts) {
     grind: 0,
     grindRail: null,
     grindT: 0,
-    trick: 0,
+    airTricks: 0,
+    spinAngle: 0,
+    spinTarget: 0,
+    railIntent: 0,
+    grindDirection: 1,
     railLock: 0,
     rampLock: 0,
     landTime: 0,
@@ -980,7 +960,7 @@ function startGame(mount, opts) {
       createLineNode(
         segment,
         index,
-        safeLearningPosition(index, lineStep + levelIndex),
+        safeLearningPosition(index, lineStep + levelIndex + (opts.journey?.route || 0)),
         lineStep === level.segments.length - 1
           ? `${expected} completes ${level.audioWord}. Now choose the built word.`
           : `Good. Now find ${level.segments[lineStep + 1]}.`,
@@ -1099,7 +1079,7 @@ function startGame(mount, opts) {
       [options[i], options[swap]] = [options[swap], options[i]];
     }
     options.forEach((choice, index) => {
-      createGate(choice, index, safeLearningPosition(index, levelIndex), level.correct);
+      createGate(choice, index, safeLearningPosition(index, levelIndex + (opts.journey?.route || 0)), level.correct);
     });
   }
 
@@ -1125,9 +1105,7 @@ function startGame(mount, opts) {
     el.hear.setAttribute("aria-label", level.audioWord ? `Hear ${level.audioWord} again` : "Hear the word again");
     setHudText(el.world, theme.name);
     setHudText(el.speed, `${Math.round(Math.abs(player.speed) * 3.2)} kmh`);
-    setHudText(el.trick, player.grind > 0 ? "Grinding rail" : player.air > 0.2 ? "Air trick" : message || (lineReady ? "Choose the built word" : "Find the next spelling part"));
-    el.boostbar.style.width = `${Math.round(clamp(boost, 0, BOOST_MAX))}%`;
-    el.boostbar.style.filter = boostFlash > 0 ? "brightness(1.75)" : "";
+    setHudText(el.trick, player.grind > 0 ? "Grinding rail" : !player.onGround ? (player.airTricks > 1 ? "Double spin" : player.airTricks ? "Air spin" : "Ollie") : message || (lineReady ? "Choose the built word" : "Find the next spelling part"));
     setHudText(el.style, lineReady
       ? `${level.audioWord} is ready`
       : lineStep < level.segments.length
@@ -1225,7 +1203,6 @@ function startGame(mount, opts) {
   function awardStyle(amount, label) {
     styleWindow = STYLE_WINDOW;
     styleScore = clamp(styleScore + amount, 0, 420);
-    boost = clamp(boost + amount * 0.55, 0, BOOST_MAX);
     boostFlash = 0.2;
     addScore(amount * combo);
     if (label) {
@@ -1294,7 +1271,6 @@ function startGame(mount, opts) {
       const styleBonus = styleWindow > 0 ? Math.round((70 + styleScore) * combo) : 0;
       const lineBonus = lineReady ? 260 * combo : 0;
       addScore(180 * combo + Math.round(Math.abs(player.speed) * 8) + styleBonus + lineBonus);
-      boost = clamp(boost + 18 + combo * 2, 0, BOOST_MAX);
       boostFlash = 0.32;
       spawnBurst(gate.pos, theme.correct, 22);
       sfx(playCorrectChime);
@@ -1323,15 +1299,64 @@ function startGame(mount, opts) {
     }
   }
 
+  function nearestRail() {
+    if (player.railLock > 0 || player.air > 4.2) return null;
+    let nearest = null;
+    for (const rail of railZones) {
+      const hit = distanceToSegment(player.pos.x, player.pos.z, rail.ax, rail.az, rail.bx, rail.bz);
+      if (hit.distance < 2.8 && (!nearest || hit.distance < nearest.hit.distance)) nearest = { rail, hit };
+    }
+    return nearest;
+  }
+
+  function startGrind({ rail, hit }) {
+    const along = Math.atan2(rail.bx - rail.ax, rail.bz - rail.az);
+    const travelHeading = player.yaw + (player.speed < 0 ? Math.PI : 0);
+    player.grindDirection = Math.cos(travelHeading - along) >= 0 ? 1 : -1;
+    player.yaw = along + (player.grindDirection < 0 ? Math.PI : 0);
+    player.speed = Math.max(4, Math.abs(player.speed));
+    player.grind = .95;
+    player.grindRail = rail;
+    player.grindT = hit.t;
+    player.onGround = false;
+    player.vy = 0;
+    player.airTime = 0;
+    player.airTricks = 0;
+    player.spinAngle = player.spinTarget = 0;
+    player.railIntent = 0;
+    combo = clamp(combo + 1, 1, 9);
+    awardStyle(24, "Rail +24");
+    sfx(playPopSound);
+  }
+
   function handleJump() {
     if (!keys.jumpPressed) return;
     keys.jumpPressed = false;
-    if (!player.onGround || player.stun > 0) return;
-    player.vy = 11 + Math.min(4, Math.abs(player.speed) * 0.14);
-    player.onGround = false;
-    player.air += 0.02;
-    player.airTime = 0;
-    player.trick = 0.8;
+    if (phase !== "playing") return;
+    const rail = nearestRail();
+    const action = skateAction(player, Boolean(rail));
+    if (action === "none") return;
+    player.railIntent = .65;
+    if (action === "grind") {
+      startGrind(rail);
+    } else if (action === "spin") {
+      // Extra presses change the pose, never gravity or jump height. Two spins
+      // per flight keeps holding/tapping from generating unlimited rewards.
+      player.airTricks += 1;
+      player.spinTarget += Math.PI * 2;
+    } else {
+      if (action === "pop-out") {
+        player.grind = 0;
+        player.grindRail = null;
+        player.railLock = .8;
+      }
+      player.vy = action === "pop-out" ? 7.5 : 11 + Math.min(4, Math.abs(player.speed) * .14);
+      player.onGround = false;
+      player.air += .02;
+      player.airTime = 0;
+      player.airTricks = 0;
+      player.spinAngle = player.spinTarget = 0;
+    }
     sfx(playWhoosh);
   }
 
@@ -1346,7 +1371,7 @@ function startGame(mount, opts) {
     if (player.grind > 0 && player.grindRail) {
       const rail = player.grindRail;
       player.grind -= dt;
-      player.grindT = clamp(player.grindT + (dt * Math.max(0.12, Math.abs(player.speed))) / rail.length, 0, 1);
+      player.grindT = clamp(player.grindT + player.grindDirection * (dt * Math.max(0.12, Math.abs(player.speed))) / rail.length, 0, 1);
       const x = rail.ax + (rail.bx - rail.ax) * player.grindT;
       const z = rail.az + (rail.bz - rail.az) * player.grindT;
       // The deck underside meets the 1.30 m rail crown at either actor scale.
@@ -1356,7 +1381,7 @@ function startGame(mount, opts) {
       player.vy = 0;
       player.onGround = false;
       addScore(dt * 18 * combo);
-      if (player.grind <= 0 || player.grindT >= 0.98) {
+      if (player.grind <= 0 || (player.grindDirection > 0 ? player.grindT >= .98 : player.grindT <= .02)) {
         player.grind = 0;
         player.grindRail = null;
         player.railLock = 0.8;
@@ -1364,22 +1389,9 @@ function startGame(mount, opts) {
       }
       return;
     }
-    if ((!keys.jump && player.air < 0.35) || player.railLock > 0 || Math.abs(player.speed) < 7) return;
-    for (const rail of railZones) {
-      const hit = distanceToSegment(player.pos.x, player.pos.z, rail.ax, rail.az, rail.bx, rail.bz);
-      if (hit.distance < 2.8 && player.air < 4.2) {
-        player.grind = 0.95;
-        player.grindRail = rail;
-        player.yaw = Math.atan2(rail.bx - rail.ax, rail.bz - rail.az);
-        player.speed = Math.abs(player.speed);
-        player.grindT = hit.t;
-        player.airTime = 0;
-        combo = clamp(combo + 1, 1, 9);
-        awardStyle(24, "Rail +24");
-        sfx(playPopSound);
-        break;
-      }
-    }
+    if ((!keys.jump && player.railIntent <= 0 && player.air < .35) || Math.abs(player.speed) < 3) return;
+    const rail = nearestRail();
+    if (rail) startGrind(rail);
   }
 
   function updatePlayer(dt) {
@@ -1392,25 +1404,23 @@ function startGame(mount, opts) {
       turn=steering.turn;push=steering.push;brake=steering.brake;assistSpeedLimit=steering.limit;
       player.speed=assistRoute.length?Math.max(0,player.speed):0;
     }
-    const boostActive = keys.boost && boost > 1 && phase === "playing" && player.stun <= 0 && player.grind <= 0;
+    const boostActive = Boolean(push && !brake && !assistRoute.length && phase === "playing" && player.stun <= 0 && player.grind <= 0);
     const wasStunned = player.stun > 0;
     player.stun = Math.max(0, player.stun - dt);
     player.landTime = Math.max(0, player.landTime - dt);
     player.recoverTime = Math.max(0, player.recoverTime - dt);
     if (wasStunned && player.stun === 0) player.recoverTime = .65;
     const moving=phase === "playing" && player.stun <= 0 && player.grind <= 0;
-    const wasFast=Math.abs(player.speed)>6;
-    const topSpeed=(assistRoute.length?assistSpeedLimit:MAX_SPEED[difficulty])+(boostActive?8:0);
+    const topSpeed=assistRoute.length?assistSpeedLimit:MAX_SPEED[difficulty]+8;
     const motion=skateMotion(player,{turn,push,brake,active:moving,boost:boostActive,maxSpeed:MAX_SPEED[difficulty],minSpeed:assistRoute.length?0:-MAX_SPEED[difficulty]*.45,topSpeed},dt);
     player.yaw=motion.yaw;player.speed=motion.speed;
-    if(moving){
-      if(boostActive){boost=clamp(boost-dt*34,0,BOOST_MAX);boostFlash=.16;}
-      else if(wasFast && player.onGround)boost=clamp(boost+dt*2.5,0,BOOST_MAX);
-    }
+    if (boostActive) boostFlash = .16;
     boostFlash = Math.max(0, boostFlash - dt);
     styleWindow = Math.max(0, styleWindow - dt);
     if (styleWindow <= 0) styleScore = Math.max(0, styleScore - dt * 24);
+    player.railIntent = Math.max(0, player.railIntent - dt);
     handleJump();
+    player.spinAngle = Math.min(player.spinTarget, player.spinAngle + dt * Math.PI * 2 / .42);
 
     const previousPosition = player.pos.clone();
     const previousHeight = player.air;
@@ -1446,11 +1456,14 @@ function startGame(mount, opts) {
         player.vy = 0;
         player.onGround = true;
         player.landTime = .42;
-        player.trick = 0;
-        // Style is earned by real air (speed-boosted jumps, ramp launches) -
-        // a stationary hop (~0.92s) stays below the threshold, so TRICK-spam
-        // in place no longer farms style points and boost.
-        if (player.airTime >= 0.95) awardStyle(10, "Style +10");
+        // Bank style only on landing after real travel; stationary tapping
+        // cannot earn literacy credit or farm an endless airborne combo.
+        if (player.airTime >= .95 && Math.abs(player.speed) > 6) {
+          const style = 10 + player.airTricks * 8;
+          awardStyle(style, player.airTricks ? `Spin landed +${style}` : "Style +10");
+        }
+        player.airTricks = 0;
+        player.spinAngle = player.spinTarget = 0;
         player.airTime = 0;
         if (Math.abs(player.speed) > 6) addScore(12 * combo);
       }
@@ -1685,6 +1698,7 @@ function startGame(mount, opts) {
     lastTime = now;
     if(!paused && !completed){
       blenderLandmarks.update(dt);
+      gardenWorld.update(dt);
       activeSimulationSeconds+=dt;
       frameBudgetSeconds+=rawDelta;frameBudgetCount++;
       if(frameBudgetSeconds>=2 && frameBudgetCount>=5){
@@ -1696,6 +1710,7 @@ function startGame(mount, opts) {
       }
     }
     for(const step of skateFrameSteps(dt)) update(step,time);
+    mount.dataset.gardenWorldState = gardenWorld.root.userData.assetState;
     mount.dataset.blenderWorldState = blenderLandmarks.root.userData.assetState;
     mount.dataset.blenderWorldTime = String(blenderLandmarks.root.userData.animationTime || 0);
     flushScore();
@@ -1707,6 +1722,9 @@ function startGame(mount, opts) {
     mount.dataset.skaterGrounded = String(player.onGround);
     mount.dataset.skaterHeight = player.air.toFixed(3);
     mount.dataset.skaterSpeed = player.speed.toFixed(2);
+    mount.dataset.skaterAirTricks = String(player.airTricks);
+    mount.dataset.skaterSpin = player.spinAngle.toFixed(3);
+    mount.dataset.skaterAutoSpeed = String(keys.push && !keys.brake && !paused);
     mount.dataset.skaterActiveSeconds = activeSimulationSeconds.toFixed(2);
     mount.dataset.skaterHeading = player.yaw.toFixed(4);
     mount.dataset.skaterPosition = `${player.pos.x.toFixed(2)},${player.pos.z.toFixed(2)}`;
@@ -1722,6 +1740,7 @@ function startGame(mount, opts) {
     const renderedTier = premiumRender.render(dt);
     if (renderedTier !== qualityTier) {
       qualityTier = renderedTier;
+      gardenWorld?.setQuality(qualityTier);
       particleScale = QUALITY_TIERS[qualityTier].particleScale;
       applyQualityTier(renderer, qualityTier);
     }
@@ -1729,6 +1748,7 @@ function startGame(mount, opts) {
   const loop = createFrameLoop(render);
 
   function setKey(key, value) {
+    if (value && (paused || completed)) return;
     if(value) assistRoute = [];
     if (key === "jump" && value && !keys.jump) keys.jumpPressed = true;
     keys[key] = value;
@@ -1740,7 +1760,6 @@ function startGame(mount, opts) {
     else if (["ArrowRight", "d", "D"].includes(event.key)) setKey("right", true);
     else if (["ArrowUp", "w", "W"].includes(event.key)) setKey("push", true);
     else if (["ArrowDown", "s", "S"].includes(event.key)) setKey("brake", true);
-    else if (event.key === "Shift" || event.key === "b" || event.key === "B") setKey("boost", true);
     else if (event.key === " " || event.key === "Enter") setKey("jump", true);
     else return;
     event.preventDefault();
@@ -1751,7 +1770,6 @@ function startGame(mount, opts) {
     else if (["ArrowRight", "d", "D"].includes(event.key)) setKey("right", false);
     else if (["ArrowUp", "w", "W"].includes(event.key)) setKey("push", false);
     else if (["ArrowDown", "s", "S"].includes(event.key)) setKey("brake", false);
-    else if (event.key === "Shift" || event.key === "b" || event.key === "B") setKey("boost", false);
     else if (event.key === " " || event.key === "Enter") setKey("jump", false);
     else return;
     if (!isInteractiveKeyTarget(event.target)) event.preventDefault();
@@ -1762,7 +1780,8 @@ function startGame(mount, opts) {
     if (!button) return;
     const down = event => {
       event.preventDefault();
-      button.setPointerCapture?.(event.pointerId);
+      if (event.repeat || paused || completed) return;
+      if (event.pointerId !== undefined) button.setPointerCapture?.(event.pointerId);
       button.style.transform = "translateY(2px) scale(.98)";
       if (key === "left" || key === "right") player.yaw += key === "left" ? 0.12 : -0.12;
       if (key === "push") player.speed = Math.max(player.speed, 1.8);
@@ -1774,19 +1793,26 @@ function startGame(mount, opts) {
       button.style.transform = "";
       setKey(key, false);
     };
+    button.addEventListener("keydown", event => { if ([" ", "Enter"].includes(event.key)) down(event); });
+    button.addEventListener("keyup", event => { if ([" ", "Enter"].includes(event.key)) up(event); });
+    button.addEventListener("blur", up);
     button.addEventListener("pointerdown", down);
     button.addEventListener("pointerup", up);
     button.addEventListener("pointercancel", up);
     button.addEventListener("lostpointercapture", up);
   }
 
+  function releaseControls() {
+    Object.keys(keys).forEach(key => { keys[key] = false; });
+    overlay.querySelectorAll('[data-gg-btn]').forEach(button => { button.style.transform = ""; });
+  }
+  window.addEventListener("blur", releaseControls);
   window.addEventListener("keydown", onKeyDown);
   window.addEventListener("keyup", onKeyUp);
   bindButton("left", "left");
   bindButton("right", "right");
   bindButton("push", "push");
   bindButton("brake", "brake");
-  bindButton("boost", "boost");
   bindButton("jump", "jump");
   el.hear.addEventListener("click", speakLevelAloud);
 
@@ -1800,17 +1826,19 @@ function startGame(mount, opts) {
   const api = {
     pause() {
       paused = true;
-      Object.keys(keys).forEach(key=>{keys[key]=false;});
+      releaseControls();
       speechToken += 1;
     },
     resume() {
       if (!introActive) paused = false;
     },
     teardown() {
+      gardenWorld.dispose();
       blenderLandmarks.dispose();
       running = false;
       loop.stop();
       detachContextGuard();
+      window.removeEventListener("blur", releaseControls);
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
 
@@ -1848,7 +1876,7 @@ function startGame(mount, opts) {
 
 export default function GrammarGrindGame({
   difficulty = "easy",
-  sessionSeed = 0,
+  sessionSeed = 0, journey = null,
   startLevel = 0,
   onScoreUpdate,
   onProgressUpdate,
@@ -1868,7 +1896,7 @@ export default function GrammarGrindGame({
     if (!mountRef.current) return undefined;
     const engine = startGame(mountRef.current, {
       difficulty,
-      sessionSeed,
+      sessionSeed, journey,
       startLevel,
       onScoreUpdate,
       onProgressUpdate,

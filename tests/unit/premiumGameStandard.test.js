@@ -73,7 +73,7 @@ test("every live arcade game has an individual premium mission and recovery prof
 test("every substantial vertical slice is complete, traceable to checks, and honest about hardware validation", () => {
   assert.deepEqual(
     Object.keys(ARCADE_VERTICAL_SLICE_BRIEFS).sort(),
-    ["letter-leap", "sound-beat", "sound-racer", "sound-seekers", "word-bridge", "word-climb"]
+    [...Object.keys(ARCADE_PREMIUM_PROFILES), "sound-seekers"].sort()
   );
   for (const [gameId, brief] of Object.entries(ARCADE_VERTICAL_SLICE_BRIEFS)) {
     assert.equal(brief.gameId, gameId);

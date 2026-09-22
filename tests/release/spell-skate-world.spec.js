@@ -122,14 +122,19 @@ for (const difficulty of ['easy', 'medium', 'hard']) test(`Spell & Skate ${diffi
   expect(normalCadenceSeconds).toBeGreaterThan(120);
   fs.writeFileSync(`${out}/${difficulty}-completed.json`, JSON.stringify({ wordsCompleted: 10, elapsedSeconds, normalCadenceSeconds, activeSimulationSeconds: Number(await world.getAttribute('data-skater-active-seconds')) }, null, 2));
   await page.screenshot({path:`${out}/${difficulty}-complete.png`});
-  await expect(page.getByRole('button', { name: 'Next level', exact: true })).toBeFocused();
-  await expect(page.getByRole('button', { name: 'Replay level', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Next trail', exact: true })).toBeFocused();
+  await expect(page.getByRole('button', { name: 'Play this again', exact: true })).toBeVisible();
   const next = difficulty === 'easy';
-  await page.getByRole('button', { name: next ? 'Next level' : 'Replay level', exact: true }).click();
+  await page.getByRole('button', { name: next ? 'Next trail' : 'Play this again', exact: true }).click();
   const restarted = page.locator('[data-skater-asset]');
   await expect(restarted).toHaveAttribute('data-skate-level', '0');
   await expect(restarted).toHaveAttribute('data-skater-asset', 'ready');
-  await expect(page.locator(`[data-skate-choice=part][data-value=${next ? 'h' : grammarGrindLadder(difficulty)[0].segments[0]}]`)).toBeVisible();
+  const chapter = next ? 1 : 0;
+  await expect(page.locator('[data-journey-chapter]')).toHaveAttribute('data-journey-chapter', String(chapter));
+  const checkpoint = await page.evaluate(d => JSON.parse(localStorage.getItem('literacy-guide-learn-games:fullscreen-overlay-preview')).games['grammar-grind'].checkpoints[d], difficulty);
+  expect(checkpoint.chapter).toBe(chapter);
+  const firstPart = grammarGrindLadder(difficulty, checkpoint.sessionSeed, chapter)[0].segments[0];
+  await expect(page.locator(`[data-skate-choice=part][data-value="${firstPart}"]`)).toBeVisible();
 });
 test('retained authored model recovers from unavailable GLB without blocking play', async ({
   page
@@ -219,13 +224,13 @@ for (const viewport of [{
     await context.close();
   }
 });
-async function poseFixture(page, x, z) {
+async function poseFixture(page, x, z, yaw = Math.PI) {
   // Isolated initial-pose fixture, not evidence of travelling here from spawn.
   // All subsequent movement, collision, animation and scoring are live runtime.
   await page.route('**/games/GrammarGrindGame.jsx*', async route => {
     const response = await route.fetch();
     const body = await response.text();
-    const patched = body.replace(/pos: new THREE.Vector3\(0, 0, 24\)/, `pos: new THREE.Vector3(${x}, 0, ${z})`).replace(/player.pos.set\(0, 0, 24\)/, `player.pos.set(${x}, 0, ${z})`);
+    const patched = body.replace(/pos: new THREE.Vector3\(0, 0, 24\)/, `pos: new THREE.Vector3(${x}, 0, ${z})`).replace(/player.pos.set\(0, 0, 24\)/, `player.pos.set(${x}, 0, ${z})`).replace(/yaw: Math.PI/, `yaw: ${yaw}`).replace(/player.yaw = Math.PI/, `player.yaw = ${yaw}`);
     expect(patched).not.toBe(body);
     await route.fulfill({response,body:patched});
   });
@@ -303,4 +308,53 @@ test('medium first word verifies safe navigation and measured frame budget',asyn
  const metrics={elapsedSeconds:(Date.now()-started)/1000,quality:await world.getAttribute('data-skater-quality'),meanFrameMs:await world.getAttribute('data-skater-mean-frame-ms'),motorRecoveries:await world.getAttribute('data-motor-recoveries')};
  fs.writeFileSync(`${out}/medium-frame-budget.json`,JSON.stringify(metrics,null,2));await page.screenshot({path:`${out}/medium-park.png`});
  expect(metrics.motorRecoveries).toBe('0');
+});
+
+
+test('five skate controls build speed and share jump, repeat-air trick and keyboard action', async ({ page }) => {
+  const world = await open(page);
+  await expect(page.locator('[data-gg-btn]')).toHaveCount(5);
+  await expect(page.getByRole('button', { name: 'Boost', exact: true })).toHaveCount(0);
+  await page.keyboard.down('ArrowUp');
+  await expect.poll(async () => Number(await world.getAttribute('data-skater-speed'))).toBeGreaterThan(12);
+  await page.keyboard.up('ArrowUp');
+  const jump = page.getByRole('button', { name: 'Jump trick', exact: true });
+  await jump.focus();
+  await page.keyboard.press('Enter');
+  await expect(world).toHaveAttribute('data-skater-grounded', 'false');
+  await page.keyboard.press('Enter');
+  await expect(world).toHaveAttribute('data-skater-air-tricks', '1');
+  await expect.poll(async () => Number(await world.getAttribute('data-skater-spin'))).toBeGreaterThan(.2);
+  await page.screenshot({ path: `${out}/context-air-spin.png` });
+  await page.keyboard.press('Enter');
+  await page.keyboard.press('Enter');
+  await expect(world).toHaveAttribute('data-skater-air-tricks', '2');
+  await expect(world).toHaveAttribute('data-skater-grounded', 'true', { timeout: 2500 });
+  await expect(world).toHaveAttribute('data-skater-air-tricks', '0');
+  await expect(world).toHaveAttribute('data-spelling-step', '0');
+  // A focused forward button has the same acceleration contract as W/up.
+  await page.getByRole('button', { name: 'Move forward', exact: true }).focus();
+  await page.keyboard.down('Space');
+  await expect(world).toHaveAttribute('data-skater-auto-speed', 'true');
+  await page.keyboard.up('Space');
+  await expect(world).toHaveAttribute('data-skater-auto-speed', 'false');
+});
+
+for (const side of [1, -1]) test(`park banner is readable from its ${side === 1 ? 'front' : 'back'} approach`, async ({ page }) => {
+  const rotation = .04 * Math.PI;
+  await poseFixture(page, -31 + Math.sin(rotation) * 8 * side, 28 + Math.cos(rotation) * 8 * side, rotation + (side === 1 ? Math.PI : 0));
+  const world = await open(page);
+  await expect(world).toHaveAttribute('data-garden-world-state', 'ready');
+  await page.waitForTimeout(1200);
+  await page.screenshot({ path: `${out}/readable-banner-${side === 1 ? 'front' : 'back'}.png` });
+});
+
+
+test('unavailable garden scenery keeps spelling and the five skate controls playable', async ({ page }) => {
+  await page.route('**/game-assets/arcade-worlds/*.glb', route => route.abort());
+  const world = await open(page);
+  await expect(world).toHaveAttribute('data-garden-world-state', 'fallback');
+  await expect(page.locator('[data-gg-btn]')).toHaveCount(5);
+  await skate(page, 'c');
+  await expect(world).toHaveAttribute('data-spelling-step', '1', { timeout: 20000 });
 });

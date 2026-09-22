@@ -22,4 +22,3 @@ export function promptAnswerSignature(item) {
   // different questions, not duplicates.
   return `${norm(item.prompt)}||${norm(item.passage || "")}||${norm(item.sentence || "")}||${norm(item.answer)}||${norm(item.targetWord || item.target || "")}||${optionSetSignature(item)}`;
 }
-

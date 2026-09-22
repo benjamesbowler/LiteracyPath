@@ -622,6 +622,7 @@ function drawRhymePop(ctx, state, config, w, h, blenderWorld, reduceMotion) {
   if (!task) return;
   drawRhymeBackdropFx(ctx, state, config, w, h);
   drawRhymeStageFloor(ctx, state, w, h);
+  blenderWorld?.drawLandscape(ctx,{width:w,height:h,ground:h*.76,time:state.time,world:state.level?.world,reducedMotion:reduceMotion,paused:state.paused});
   const pavilionSize = Math.min(310, h * .58);
   blenderWorld?.draw(ctx, -pavilionSize * .12, h * .76 - pavilionSize, pavilionSize, pavilionSize, state.time, { reducedMotion: reduceMotion, paused: state.paused, opacity: .9 });
   drawRhymeRigging(ctx, state, config, w, h);
@@ -702,7 +703,7 @@ function drawLowPolyPal(ctx, x, y, scale, config, now) {
 }
 
 function startRhymePopArcadeGame(mount, options) {
-  const blenderWorld = createBlenderWorldSprite("rhyme-pop", mount);
+  const blenderWorld = createBlenderWorldSprite("rhyme-pop", mount, { landscape: true });
   const config = CONFIG[options.kind] || CONFIG["rhyme-pop"];
   const ladder = config.ladder(options.difficulty, options.sessionSeed);
   const startAt = clamp(Number(options.startLevel) || 0, 0, ladder.length - 1);
@@ -951,7 +952,7 @@ function startRhymePopArcadeGame(mount, options) {
     // balloons keep their position; the player can fire throughout the parade.
     const fromRight = (state.stage + shaped.id) % 2 === 1;
     shaped.entering = true;
-    shaped.route = state.level.act || 0;
+    shaped.route = ((state.level.act || 0) + (options.journey?.variation || 0)) % 3;
     shaped.routeY = shaped.y;
     shaped.travel = 0;
     shaped.x = fromRight ? w - shaped.r - 12 : shaped.r + 12;
@@ -1311,7 +1312,7 @@ function startRhymePopArcadeGame(mount, options) {
 export default function RhymePopArcadeGame({
   kind,
   difficulty = "easy",
-  sessionSeed = 0,
+  sessionSeed = 0, journey = null,
   startLevel = 0,
   onScoreUpdate,
   onProgressUpdate,
@@ -1354,7 +1355,7 @@ export default function RhymePopArcadeGame({
     const engine = startRhymePopArcadeGame(mountRef.current, {
       kind,
       difficulty,
-      sessionSeed,
+      sessionSeed, journey,
       startLevel,
       onScoreUpdate: score => handlersRef.current.onScoreUpdate?.(score),
       onProgressUpdate: (current, total) => handlersRef.current.onProgressUpdate?.(current, total),
@@ -1364,7 +1365,7 @@ export default function RhymePopArcadeGame({
       getSound: () => soundRef.current
     });
     return () => engine.destroy();
-  }, [kind, difficulty, sessionSeed, startLevel]);
+  }, [kind, difficulty, sessionSeed, startLevel, journey]);
 
   return (
     <div

@@ -1,4 +1,4 @@
-import { useId } from 'react';
+import { useId, useState } from 'react';
 
 // Authored three-quarter rolling stock. Side panels remain clear for live words;
 // roof, end wall, rim, undercarriage and independently rotating wheels give depth.
@@ -14,7 +14,7 @@ function Wheel({ x, y, r, metal }) {
     </g>
   </g>;
 }
-export default function SentenceExpressRollingStock({ kind = 'wagon', tone = 0, rusty = false }) {
+function DrawnRollingStock({ kind = 'wagon', tone = 0, rusty = false }) {
   const id = useId().replace(/:/g, '');
   const [hi, lo] = rusty ? ['#b99263', '#715037'] : kind === 'engine' ? ['#f38162', '#9b352e'] : kind === 'caboose' ? ['#e98062', '#963c31'] : PAINT[tone % PAINT.length];
   const fill = name => `url(#${id}-${name})`;
@@ -72,4 +72,17 @@ export default function SentenceExpressRollingStock({ kind = 'wagon', tone = 0, 
     </>}
     <path className="sx-coupler" d={`M${width - 9} 94h8v5h-8`} fill="#a1aaa1" stroke="#30424a"/>
   </svg>;
+}
+
+// Every frame uses the retained Blender camera. The CSS clock only runs while
+// the assembled train travels; the drawn stock is the complete image fallback.
+export default function SentenceExpressRollingStock({kind='wagon',tone=0,rusty=false}) {
+  const [ready,setReady]=useState(false),[failed,setFailed]=useState(false);
+  const asset=['engine','caboose'].includes(kind)?kind:'wagon';
+  return <>
+    {!ready && <DrawnRollingStock kind={kind} tone={tone} rusty={rusty} />}
+    {!failed && <span className={`sx-carsvg sx-stock${ready?" is-ready":""}`} aria-hidden="true" style={{visibility:ready?'visible':'hidden',filter:rusty?'sepia(.7)':asset==='wagon'?`hue-rotate(${[0,170,315,75][tone%4]}deg)`:undefined}}>
+      <img src={`/game-assets/arcade-worlds/trains/${asset}.webp`} alt="" onLoad={()=>setReady(true)} onError={()=>{setFailed(true);setReady(false);}} />
+    </span>}
+  </>;
 }

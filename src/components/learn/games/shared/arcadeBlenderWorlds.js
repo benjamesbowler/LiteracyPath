@@ -1,3 +1,4 @@
+import { createArcadeLandscape } from "./arcadeLandscapeSprites.js";
 // Runtime delivery map. Source, dimensions, animation and hashes are recorded
 // in public/game-assets/arcade-blender/manifest.json and checked against this map.
 export const BLENDER_WORLD_ASSETS = Object.freeze({
@@ -24,7 +25,8 @@ export function blenderWorldUrl(gameId, extension = 'glb') {
 // Sprite sheets are actual Blender animation frames, with a shared canvas and
 // true alpha. Existing playfield drawing remains the complete failure path.
 // This scope owns no timer; only the game's active render loop advances it.
-export function createBlenderWorldSprite(gameId, host, { ImageClass = globalThis.Image } = {}) {
+export function createBlenderWorldSprite(gameId, host, { ImageClass = globalThis.Image, landscape: withLandscape = false } = {}) {
+  const landscape = withLandscape ? createArcadeLandscape(gameId, host, { ImageClass }) : null;
   const image = new ImageClass();
   const motion = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)');
   let disposed = false, ready = false, last = null, elapsed = 0;
@@ -38,6 +40,7 @@ export function createBlenderWorldSprite(gameId, host, { ImageClass = globalThis
   image.onerror = () => { if (!disposed) host.dataset.blenderWorldState = 'fallback'; };
   image.src = blenderWorldUrl(gameId, 'webp');
   return {
+    drawLandscape: landscape?.draw ?? (() => {}),
     draw(ctx, x, y, width, height, time, { reducedMotion = false, paused = false, opacity = 1, phase } = {}) {
       if (disposed) return;
       if (last !== null && !paused && !reducedMotion && !motion?.matches) elapsed += Math.min(.05, Math.max(0, time - last));
@@ -50,6 +53,6 @@ export function createBlenderWorldSprite(gameId, host, { ImageClass = globalThis
       ctx.restore();
       host.dataset.blenderWorldFrame = String(frame);
     },
-    dispose() { disposed = true; image.onload = null; image.onerror = null; image.src = ''; }
+    dispose() { landscape?.dispose(); disposed = true; image.onload = null; image.onerror = null; image.src = ''; }
   };
 }

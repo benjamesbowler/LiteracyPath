@@ -181,7 +181,7 @@ function markOnboarded() {
 
 export default function ReelReadGame({
   difficulty = "easy",
-  sessionSeed = 0,
+  sessionSeed = 0, journey = null,
   startLevel = 0,
   onScoreUpdate,
   onProgressUpdate,
@@ -203,7 +203,7 @@ export default function ReelReadGame({
     if (!mountRef.current) return undefined;
     const api = startGame(mountRef.current, {
       difficulty,
-      sessionSeed,
+      sessionSeed, journey,
       startLevel,
       onScoreUpdate,
       onProgressUpdate,
@@ -237,7 +237,7 @@ export default function ReelReadGame({
 }
 
 function startGame(mount, opts) {
-  const blenderWorld = createBlenderWorldSprite("reel-read", mount);
+  const blenderWorld = createBlenderWorldSprite("reel-read", mount, { landscape: true });
   const difficulty = ["easy", "medium", "hard"].includes(String(opts.difficulty)) ? String(opts.difficulty) : "easy";
   const ladder = reelReadLadder(difficulty, opts.sessionSeed);
   const startAt = clamp(Number(opts.startLevel) || 0, 0, ladder.length - 1);
@@ -1245,8 +1245,9 @@ function startGame(mount, opts) {
     if (images.bg.ready) drawCover(ctx, images.bg.image, 0, 0, w, h, 0.5, 0.5);
     else drawFallbackBackground(time);
     if (!reduceMotion) drawSceneParallax(time);
-    const harbourSize = Math.min(320, h * .5);
-    blenderWorld.draw(ctx, w - harbourSize * .92, waterTop - harbourSize * .88, harbourSize, harbourSize, time, { reducedMotion: reduceMotion, paused });
+    blenderWorld.drawLandscape(ctx,{width:w,height:h,ground:waterTop,time,world:level.world,variation:opts.journey?.variation,reducedMotion:reduceMotion,paused});
+    const harbourSize = Math.min(240, h * .36);
+    blenderWorld.draw(ctx, w - harbourSize * .92, waterTop - harbourSize * (326 / 384) + 3, harbourSize, harbourSize, time, { reducedMotion: reduceMotion, paused });
     drawWater(time);
     drawBoatReflection(time);
     fish

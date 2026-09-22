@@ -61,7 +61,7 @@
       "sha256": "24f31ebd337b5d2c92196592b96336d9fa8c07133d9c3be09ffa45d711cac2e3",
       "width": 1365,
       "height": 768,
-      "textSha256": "88d6d15da1063d88b12a9c98a5268d72dd04cf713b4707d94da2dd70fdf40bab",
+      "textSha256": "dd2aa19f4f536afc1330c8321f56e039518a6101fca146094f057489b8ebc870",
       "briefSha256": "786f08b4844cc0e133d72f5182e0c7e519ba28b417f0bb502f025c7779d2ea35",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -72,7 +72,23 @@
         "notes": "Replacement directly inspected at original detail and in the production reader. Yellow stays with Maya and green with Samir; cup/apple mixed until content exchange on page 4, spoon returned afterward; prose and exact narration agree."
       },
       "sourceImageGenOutput": "exec-ab5ee183-34b2-4473-bbb2-eb248f858123.png",
-      "cacheVersion": "24f31ebd337b"
+      "cacheVersion": "24f31ebd337b",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Independent editorial review lane",
+        "method": "Complete current main three-book Willow sequences inspected by the independent review lane; parent confirmed the text repair against labels visibly on the lunchbox lids.",
+        "notes": [
+          "The retained main picture has cream label patches on both open lids. The final sentence now says on both lunchboxes, replacing beside each lunchbox. Image bytes and current main image review remain unchanged."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/integration-review-conflicts.json",
+          "public/guided-reading/willow-street/the-lunchbox-mix-up/page-02.webp"
+        ],
+        "evidenceLimits": "Image inspection was performed by the independent review lane; this refresh binds its confirmed observation to exact runtime text. No new listening or physical-device observation.",
+        "priorFingerprint": {
+          "textSha256": "88d6d15da1063d88b12a9c98a5268d72dd04cf713b4707d94da2dd70fdf40bab"
+        }
+      }
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",
@@ -235,7 +251,7 @@
       "sha256": "a328d47b823d8f5e9ed65cddd87878b27313fce3cd2ad83389c5b5559ca17395",
       "width": 1365,
       "height": 768,
-      "textSha256": "7870588b93b0ea588eb3113fc959bfdd4f7fe7035759c45a3ca83d223e4ae9bf",
+      "textSha256": "1e796b5808000b2946e338cdc8aa5710bba517cceebeda5fe5182634816cf80b",
       "briefSha256": "857430658b9400a3d02fed5c7629aa380f76088cb7600bb480955f4d63d2c7b0",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -245,7 +261,30 @@
         "reviewedSha256": "a328d47b823d8f5e9ed65cddd87878b27313fce3cd2ad83389c5b5559ca17395",
         "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
       },
-      "sourceImageGenOutput": "exec-d37d3e8f-89d9-487b-aef4-112e7f8a0ced.png"
+      "sourceImageGenOutput": "exec-d37d3e8f-89d9-487b-aef4-112e7f8a0ced.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Page 2 is under the reading table; 5 is the leaf clue; 6 the remembered bench; 7 librarian handing over book; 8 bag closing. Text now follows these visible actions."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/208-willow-street-the-lost-library-book.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "7870588b93b0ea588eb3113fc959bfdd4f7fe7035759c45a3ca83d223e4ae9bf",
+          "briefSha256": "857430658b9400a3d02fed5c7629aa380f76088cb7600bb480955f4d63d2c7b0",
+          "sha256": "a328d47b823d8f5e9ed65cddd87878b27313fce3cd2ad83389c5b5559ca17395",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "a328d47b823d8f5e9ed65cddd87878b27313fce3cd2ad83389c5b5559ca17395",
+            "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-the-lost-library-book",
@@ -311,7 +350,7 @@
       "sha256": "79ad2754b45f896437576188994462bedfe0b328dfad1c8aac686134b8156f2b",
       "width": 1365,
       "height": 768,
-      "textSha256": "40ae76d4818f2c151912b58ba4eea0c43fcef29d770ecb0a05974da6aaed7dac",
+      "textSha256": "bcc4905ea20b4f4459d5491998232818d7a7703ba23bfa61ec0421f471ba0dc0",
       "briefSha256": "6343693641559dbc8aeee9c61fa3caa08d3de885e825f1e9de8d2513954083db",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -321,7 +360,30 @@
         "reviewedSha256": "79ad2754b45f896437576188994462bedfe0b328dfad1c8aac686134b8156f2b",
         "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
       },
-      "sourceImageGenOutput": "exec-ee0c219e-c636-4908-99cc-f01ccf520aed.png"
+      "sourceImageGenOutput": "exec-ee0c219e-c636-4908-99cc-f01ccf520aed.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Page 2 is under the reading table; 5 is the leaf clue; 6 the remembered bench; 7 librarian handing over book; 8 bag closing. Text now follows these visible actions."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/208-willow-street-the-lost-library-book.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "40ae76d4818f2c151912b58ba4eea0c43fcef29d770ecb0a05974da6aaed7dac",
+          "briefSha256": "6343693641559dbc8aeee9c61fa3caa08d3de885e825f1e9de8d2513954083db",
+          "sha256": "79ad2754b45f896437576188994462bedfe0b328dfad1c8aac686134b8156f2b",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "79ad2754b45f896437576188994462bedfe0b328dfad1c8aac686134b8156f2b",
+            "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-the-lost-library-book",
@@ -330,7 +392,7 @@
       "sha256": "35208644107d7715bff96417010d662ab8ab24b12757b8b9a6fecd8fa3f594f0",
       "width": 1365,
       "height": 768,
-      "textSha256": "4c70065a4cf557f79ad8bb90a8f61da393c53803e6ecea534d48beeefe9d279c",
+      "textSha256": "b9d7274d3a38d717337182c31c365c0b1e9779455e9153ce916c5b74e2eac6e3",
       "briefSha256": "4c556e66ab4b693be576280b29f6ff62dffbc838d7f8ee44b0327e91593449f7",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -340,7 +402,30 @@
         "reviewedSha256": "35208644107d7715bff96417010d662ab8ab24b12757b8b9a6fecd8fa3f594f0",
         "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
       },
-      "sourceImageGenOutput": "exec-b8e33ec8-f20e-4fed-9b6f-eae9b96e102f.png"
+      "sourceImageGenOutput": "exec-b8e33ec8-f20e-4fed-9b6f-eae9b96e102f.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Page 2 is under the reading table; 5 is the leaf clue; 6 the remembered bench; 7 librarian handing over book; 8 bag closing. Text now follows these visible actions."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/208-willow-street-the-lost-library-book.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "4c70065a4cf557f79ad8bb90a8f61da393c53803e6ecea534d48beeefe9d279c",
+          "briefSha256": "4c556e66ab4b693be576280b29f6ff62dffbc838d7f8ee44b0327e91593449f7",
+          "sha256": "35208644107d7715bff96417010d662ab8ab24b12757b8b9a6fecd8fa3f594f0",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "35208644107d7715bff96417010d662ab8ab24b12757b8b9a6fecd8fa3f594f0",
+            "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-the-lost-library-book",
@@ -349,7 +434,7 @@
       "sha256": "6b32cf2bde9855890494244e7fc156ff53dc5feef6d240315ad8f29a0d44c86f",
       "width": 1365,
       "height": 768,
-      "textSha256": "c95a5ab23adfb6f5c8371875100fbee5a950c38deee6a4a336ba5e02b94c2ec5",
+      "textSha256": "83e07782b2930417034ad2f374ed55565be303ca8c275b4ef9e9f3a325d27e08",
       "briefSha256": "3ded4d964c1cba0d583eb68ae380bfad4bf1806612e25dd742970fd69538c1b0",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -359,7 +444,30 @@
         "reviewedSha256": "6b32cf2bde9855890494244e7fc156ff53dc5feef6d240315ad8f29a0d44c86f",
         "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
       },
-      "sourceImageGenOutput": "exec-29869fde-b614-4da3-b412-5705bf77a3c5.png"
+      "sourceImageGenOutput": "exec-29869fde-b614-4da3-b412-5705bf77a3c5.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Page 2 is under the reading table; 5 is the leaf clue; 6 the remembered bench; 7 librarian handing over book; 8 bag closing. Text now follows these visible actions."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/208-willow-street-the-lost-library-book.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "c95a5ab23adfb6f5c8371875100fbee5a950c38deee6a4a336ba5e02b94c2ec5",
+          "briefSha256": "3ded4d964c1cba0d583eb68ae380bfad4bf1806612e25dd742970fd69538c1b0",
+          "sha256": "6b32cf2bde9855890494244e7fc156ff53dc5feef6d240315ad8f29a0d44c86f",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "6b32cf2bde9855890494244e7fc156ff53dc5feef6d240315ad8f29a0d44c86f",
+            "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-the-windy-picnic",
@@ -444,7 +552,7 @@
       "sha256": "9e965909417799b74a747b1f29ddfdf3ec7e62258a8319e19e77cab959217b9c",
       "width": 1365,
       "height": 768,
-      "textSha256": "c4cbeeee115b63a66e8e4c25ca8934ad4ec7953c5d6624259e9904bcd4fc8131",
+      "textSha256": "46c1331f45da1f3d449b4f142a1d4b83c9c544b9c978edfcafa083dae5973287",
       "briefSha256": "32f027a9c931af3394e8ddb615118d68050c2d94cab30821cd3915a6a03825e4",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -454,7 +562,30 @@
         "reviewedSha256": "9e965909417799b74a747b1f29ddfdf3ec7e62258a8319e19e77cab959217b9c",
         "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
       },
-      "sourceImageGenOutput": "exec-670b56da-1204-4477-849c-99772ca453ab.png"
+      "sourceImageGenOutput": "exec-670b56da-1204-4477-849c-99772ca453ab.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Page 4 shows two caught napkins and a third still loose; page 5 resolves the third before moving; pages 6–8 show weighted cloth and free hands."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/209-willow-street-the-windy-picnic.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "c4cbeeee115b63a66e8e4c25ca8934ad4ec7953c5d6624259e9904bcd4fc8131",
+          "briefSha256": "32f027a9c931af3394e8ddb615118d68050c2d94cab30821cd3915a6a03825e4",
+          "sha256": "9e965909417799b74a747b1f29ddfdf3ec7e62258a8319e19e77cab959217b9c",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "9e965909417799b74a747b1f29ddfdf3ec7e62258a8319e19e77cab959217b9c",
+            "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-the-windy-picnic",
@@ -463,7 +594,7 @@
       "sha256": "3365465c161f0be335c802d2275824e286892efb3601044de6344b496a06ddb0",
       "width": 1365,
       "height": 768,
-      "textSha256": "0a50638140b588efcf1db242669fa4cb04245cd19a466ae275361b99d8c954fc",
+      "textSha256": "313bfc08944ed78b8835757af186d0745b13a163d3c3dc196862fcbfa8f0f34d",
       "briefSha256": "a1742748e1e351a31d914c0601bb4fdd366916a3205b1cc58c60bb5d46ba3f4b",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -473,7 +604,30 @@
         "reviewedSha256": "3365465c161f0be335c802d2275824e286892efb3601044de6344b496a06ddb0",
         "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
       },
-      "sourceImageGenOutput": "exec-ff0446f8-af5e-4394-a6d9-001a98db5343.png"
+      "sourceImageGenOutput": "exec-ff0446f8-af5e-4394-a6d9-001a98db5343.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Page 4 shows two caught napkins and a third still loose; page 5 resolves the third before moving; pages 6–8 show weighted cloth and free hands."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/209-willow-street-the-windy-picnic.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "0a50638140b588efcf1db242669fa4cb04245cd19a466ae275361b99d8c954fc",
+          "briefSha256": "a1742748e1e351a31d914c0601bb4fdd366916a3205b1cc58c60bb5d46ba3f4b",
+          "sha256": "3365465c161f0be335c802d2275824e286892efb3601044de6344b496a06ddb0",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "3365465c161f0be335c802d2275824e286892efb3601044de6344b496a06ddb0",
+            "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-the-windy-picnic",
@@ -520,7 +674,7 @@
       "sha256": "3eea3995675472ca6d02fea1f7b926bd04cf63a7a4dc5026e68eb9a5f42575bf",
       "width": 1365,
       "height": 768,
-      "textSha256": "e80e9420553d0ef5cd6d2a65dfb59cb8821819e97211e1838a537841a473355c",
+      "textSha256": "cfc38eba1f46e9fdc4cda883d9e492c1c534e79029b1005fcf58b3de3a7acba5",
       "briefSha256": "ce5288661b5400d12c809ab5ef7e0819cdab384a24942b33e0c4026a6326c023",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -530,7 +684,30 @@
         "reviewedSha256": "3eea3995675472ca6d02fea1f7b926bd04cf63a7a4dc5026e68eb9a5f42575bf",
         "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
       },
-      "sourceImageGenOutput": "exec-211d1007-672d-45f7-9f49-185be5055376.png"
+      "sourceImageGenOutput": "exec-211d1007-672d-45f7-9f49-185be5055376.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Page 4 shows two caught napkins and a third still loose; page 5 resolves the third before moving; pages 6–8 show weighted cloth and free hands."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/209-willow-street-the-windy-picnic.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "e80e9420553d0ef5cd6d2a65dfb59cb8821819e97211e1838a537841a473355c",
+          "briefSha256": "ce5288661b5400d12c809ab5ef7e0819cdab384a24942b33e0c4026a6326c023",
+          "sha256": "3eea3995675472ca6d02fea1f7b926bd04cf63a7a4dc5026e68eb9a5f42575bf",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "3eea3995675472ca6d02fea1f7b926bd04cf63a7a4dc5026e68eb9a5f42575bf",
+            "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-the-puddle-plan",
@@ -577,7 +754,7 @@
       "sha256": "c3a8f8b938edbd1740130046feff9008ae253604ccddd86ea63ae849e2cc2667",
       "width": 1365,
       "height": 768,
-      "textSha256": "d93862668010f202879cc4a94548b731c1252f668bd10a5bb4542cee1718ef73",
+      "textSha256": "93f9fc2226ce47fcef1eca25ebb7e77236522cad5736f4eebe4206b2236d85c2",
       "briefSha256": "7e432cf9f31fecf60e80a187d5e20d62ae744bd1aedfad90653f5977144252dc",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -587,7 +764,30 @@
         "reviewedSha256": "c3a8f8b938edbd1740130046feff9008ae253604ccddd86ea63ae849e2cc2667",
         "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
       },
-      "sourceImageGenOutput": "exec-7ea7625d-30ff-4736-b0a1-d85ff0adea12.png"
+      "sourceImageGenOutput": "exec-7ea7625d-30ff-4736-b0a1-d85ff0adea12.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Pages 2–3 show tested muddy edge; 4–6 stable dry stones and cones; 7 Maya crossing; 8 three friends with Leo’s muddy boot. The last detail recalls the failed attempt."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/210-willow-street-the-puddle-plan.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "d93862668010f202879cc4a94548b731c1252f668bd10a5bb4542cee1718ef73",
+          "briefSha256": "7e432cf9f31fecf60e80a187d5e20d62ae744bd1aedfad90653f5977144252dc",
+          "sha256": "c3a8f8b938edbd1740130046feff9008ae253604ccddd86ea63ae849e2cc2667",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "c3a8f8b938edbd1740130046feff9008ae253604ccddd86ea63ae849e2cc2667",
+            "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-the-puddle-plan",
@@ -596,7 +796,7 @@
       "sha256": "14041a1c5a1695b74e01abbbef633feb480516d64c2e4e43c0ceadb92e4d31c6",
       "width": 1365,
       "height": 768,
-      "textSha256": "3f51df5e3084b11be073dc9eb9df98495ffb0df79fb598faf806d62e2ea7db1f",
+      "textSha256": "e12ef449b00a60962722d749f823316dc58d011b73a8977a4adc83f7ff6b206e",
       "briefSha256": "fac3c25bd5b0ff96e2673f9af573d6b2da1db93f43be01eccb9e4d2c96bfbe2a",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -606,7 +806,30 @@
         "reviewedSha256": "14041a1c5a1695b74e01abbbef633feb480516d64c2e4e43c0ceadb92e4d31c6",
         "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
       },
-      "sourceImageGenOutput": "exec-96008808-84d9-4885-97d9-88687f223984.png"
+      "sourceImageGenOutput": "exec-96008808-84d9-4885-97d9-88687f223984.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Pages 2–3 show tested muddy edge; 4–6 stable dry stones and cones; 7 Maya crossing; 8 three friends with Leo’s muddy boot. The last detail recalls the failed attempt."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/210-willow-street-the-puddle-plan.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "3f51df5e3084b11be073dc9eb9df98495ffb0df79fb598faf806d62e2ea7db1f",
+          "briefSha256": "fac3c25bd5b0ff96e2673f9af573d6b2da1db93f43be01eccb9e4d2c96bfbe2a",
+          "sha256": "14041a1c5a1695b74e01abbbef633feb480516d64c2e4e43c0ceadb92e4d31c6",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "14041a1c5a1695b74e01abbbef633feb480516d64c2e4e43c0ceadb92e4d31c6",
+            "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-the-puddle-plan",
@@ -615,7 +838,7 @@
       "sha256": "84e45a022bfd579719979dec8daaf6903f808e580950f1fa98a0f577d2e8ebea",
       "width": 1365,
       "height": 768,
-      "textSha256": "befbb1977b9379d799ed237e01bdc417ab06f9de5c03298f61a8ca35810ea6e9",
+      "textSha256": "dcd111097317eb4e45450fb24d7061739394125b8c374485b7db4bf9f7aca28e",
       "briefSha256": "3c232790ed42f0276c9f0ad7cec1c3a92c51d9c226998173c521328e7c7d2c8b",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -625,7 +848,30 @@
         "reviewedSha256": "84e45a022bfd579719979dec8daaf6903f808e580950f1fa98a0f577d2e8ebea",
         "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
       },
-      "sourceImageGenOutput": "exec-0f76ad8f-c263-4b86-b51c-cb83d0031552.png"
+      "sourceImageGenOutput": "exec-0f76ad8f-c263-4b86-b51c-cb83d0031552.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Pages 2–3 show tested muddy edge; 4–6 stable dry stones and cones; 7 Maya crossing; 8 three friends with Leo’s muddy boot. The last detail recalls the failed attempt."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/210-willow-street-the-puddle-plan.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "befbb1977b9379d799ed237e01bdc417ab06f9de5c03298f61a8ca35810ea6e9",
+          "briefSha256": "3c232790ed42f0276c9f0ad7cec1c3a92c51d9c226998173c521328e7c7d2c8b",
+          "sha256": "84e45a022bfd579719979dec8daaf6903f808e580950f1fa98a0f577d2e8ebea",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "84e45a022bfd579719979dec8daaf6903f808e580950f1fa98a0f577d2e8ebea",
+            "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-the-puddle-plan",
@@ -634,7 +880,7 @@
       "sha256": "9ab0b63e3ecacf282510175974d24f588ce0a1df73e415378265a05378489f8f",
       "width": 1365,
       "height": 768,
-      "textSha256": "013268e1be479f76c70d17d3cf9b672230db750a22522e8d59f1d6d7834eb169",
+      "textSha256": "51311c638b90e7ce5b0818cfd763b1c9999f4ca95d4f8c7c8ae451d52b813d6b",
       "briefSha256": "ffcb6eebade81d222cff0fe8a07028508210cd1d575883ec3a9adc8342a68ae0",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -644,7 +890,30 @@
         "reviewedSha256": "9ab0b63e3ecacf282510175974d24f588ce0a1df73e415378265a05378489f8f",
         "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
       },
-      "sourceImageGenOutput": "exec-676476b7-ceaa-4358-ad32-63914f83e20a.png"
+      "sourceImageGenOutput": "exec-676476b7-ceaa-4358-ad32-63914f83e20a.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Pages 2–3 show tested muddy edge; 4–6 stable dry stones and cones; 7 Maya crossing; 8 three friends with Leo’s muddy boot. The last detail recalls the failed attempt."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/210-willow-street-the-puddle-plan.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "013268e1be479f76c70d17d3cf9b672230db750a22522e8d59f1d6d7834eb169",
+          "briefSha256": "ffcb6eebade81d222cff0fe8a07028508210cd1d575883ec3a9adc8342a68ae0",
+          "sha256": "9ab0b63e3ecacf282510175974d24f588ce0a1df73e415378265a05378489f8f",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "9ab0b63e3ecacf282510175974d24f588ce0a1df73e415378265a05378489f8f",
+            "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-the-puddle-plan",
@@ -653,7 +922,7 @@
       "sha256": "c185b3239443ed15bcc80a9df04c4d6cafd2b741c078e2ddc02418fe871d7c40",
       "width": 1365,
       "height": 768,
-      "textSha256": "0cba84534a80a325e6089d2445a96f50ce6fceda503b0de9472f7903a82646de",
+      "textSha256": "9b7a7efb6087ca3ccaf7bba2e41f883107da3c919cf366a2145e06a9cbe33e3d",
       "briefSha256": "312a4ca39cb2f2f1f4023c0a8cc5ae8eea0c8a73f8240ab48a6bdf9077ba2ae2",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -663,7 +932,30 @@
         "reviewedSha256": "c185b3239443ed15bcc80a9df04c4d6cafd2b741c078e2ddc02418fe871d7c40",
         "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
       },
-      "sourceImageGenOutput": "exec-e9560242-8464-4842-a595-6336febf25dd.png"
+      "sourceImageGenOutput": "exec-e9560242-8464-4842-a595-6336febf25dd.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Pages 2–3 show tested muddy edge; 4–6 stable dry stones and cones; 7 Maya crossing; 8 three friends with Leo’s muddy boot. The last detail recalls the failed attempt."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/210-willow-street-the-puddle-plan.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "0cba84534a80a325e6089d2445a96f50ce6fceda503b0de9472f7903a82646de",
+          "briefSha256": "312a4ca39cb2f2f1f4023c0a8cc5ae8eea0c8a73f8240ab48a6bdf9077ba2ae2",
+          "sha256": "c185b3239443ed15bcc80a9df04c4d6cafd2b741c078e2ddc02418fe871d7c40",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "c185b3239443ed15bcc80a9df04c4d6cafd2b741c078e2ddc02418fe871d7c40",
+            "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-the-puddle-plan",
@@ -672,7 +964,7 @@
       "sha256": "a41808da559364997384aa61a1c7348868992fa400d419ab6bcbaaee098efc8d",
       "width": 1365,
       "height": 768,
-      "textSha256": "e5bc9e723b29fc438a8bae0a441c84009a768501f91d8b63b4676bcf69bc6792",
+      "textSha256": "691cfea44285e04d80b940947948b9cb294f167cfebca2f500574c26c6b464c8",
       "briefSha256": "209a1403edf0bbc82df7af81439a4c225f8433ce7752529cfd23ed0dc4faf78e",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -682,7 +974,30 @@
         "reviewedSha256": "a41808da559364997384aa61a1c7348868992fa400d419ab6bcbaaee098efc8d",
         "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
       },
-      "sourceImageGenOutput": "exec-d904bc00-da60-4f2f-9fca-ac9f22ab22ba.png"
+      "sourceImageGenOutput": "exec-d904bc00-da60-4f2f-9fca-ac9f22ab22ba.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Pages 2–3 show tested muddy edge; 4–6 stable dry stones and cones; 7 Maya crossing; 8 three friends with Leo’s muddy boot. The last detail recalls the failed attempt."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/210-willow-street-the-puddle-plan.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "e5bc9e723b29fc438a8bae0a441c84009a768501f91d8b63b4676bcf69bc6792",
+          "briefSha256": "209a1403edf0bbc82df7af81439a4c225f8433ce7752529cfd23ed0dc4faf78e",
+          "sha256": "a41808da559364997384aa61a1c7348868992fa400d419ab6bcbaaee098efc8d",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "a41808da559364997384aa61a1c7348868992fa400d419ab6bcbaaee098efc8d",
+            "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-the-puddle-plan",
@@ -691,7 +1006,7 @@
       "sha256": "b21720c2d034d1c71954193e088ccf97ce079f2a7bd939a0bc30de7e5354ab8c",
       "width": 1365,
       "height": 768,
-      "textSha256": "0d1c574861d4c40dddb17acd9d0f973ec78c646aea401e8b04e8fc89b2ba34e4",
+      "textSha256": "272e5e5032a51b6ccc73d803c36afdfd0bb651ecb72bad92fa97ed83daa3b542",
       "briefSha256": "4f1eeae76c24f8810d0fe7226daffb39bb1874e6e97fcbd4b9f153acb19abd29",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -701,7 +1016,30 @@
         "reviewedSha256": "b21720c2d034d1c71954193e088ccf97ce079f2a7bd939a0bc30de7e5354ab8c",
         "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
       },
-      "sourceImageGenOutput": "exec-af65ea0e-3d8e-409f-ab73-ac467b81e4df.png"
+      "sourceImageGenOutput": "exec-af65ea0e-3d8e-409f-ab73-ac467b81e4df.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Pages 2–3 show tested muddy edge; 4–6 stable dry stones and cones; 7 Maya crossing; 8 three friends with Leo’s muddy boot. The last detail recalls the failed attempt."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/210-willow-street-the-puddle-plan.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "0d1c574861d4c40dddb17acd9d0f973ec78c646aea401e8b04e8fc89b2ba34e4",
+          "briefSha256": "4f1eeae76c24f8810d0fe7226daffb39bb1874e6e97fcbd4b9f153acb19abd29",
+          "sha256": "b21720c2d034d1c71954193e088ccf97ce079f2a7bd939a0bc30de7e5354ab8c",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "b21720c2d034d1c71954193e088ccf97ce079f2a7bd939a0bc30de7e5354ab8c",
+            "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-the-squeaky-wheel",
@@ -745,9 +1083,9 @@
       "bookId": "willow-street-the-squeaky-wheel",
       "pageNumber": 2,
       "path": "/guided-reading/willow-street/the-squeaky-wheel/page-02.webp",
-      "sha256": "af39bc2a5c295504e5166be2334d9989ae9d8d1c8733c588b806f29d5ecacf55",
-      "width": 1365,
-      "height": 768,
+      "sha256": "3636990dbf5768cd318e0005874a91637b38d311e533a5f0f597738303cd4300",
+      "width": 1672,
+      "height": 941,
       "textSha256": "a22b8bad36afb07d401138d236fb39a2bf6de291a01c81e4d37eef80eaf2ad9c",
       "briefSha256": "caa70ee3d381e0e73a5b55e6b21f26fd6f1feae5b872b90f60d2acfdb530bd97",
       "visualTreatment": "willow-street-illustrated",
@@ -755,10 +1093,45 @@
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "af39bc2a5c295504e5166be2334d9989ae9d8d1c8733c588b806f29d5ecacf55",
-        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+        "reviewedSha256": "3636990dbf5768cd318e0005874a91637b38d311e533a5f0f597738303cd4300",
+        "notes": "Samir wears cobalt-blue hoodie and charcoal trousers while kneeling by the stopped cart; Zoe, cart, garden and cream lower band retained.",
+        "reviewedAt": "2026-09-22",
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/211-willow-street-the-squeaky-wheel.jpg",
+          ".artifacts/editorial-repair/core-art-handoff.json"
+        ]
       },
-      "sourceImageGenOutput": "exec-4b73805a-bfe5-4df3-949e-87debead775a.png"
+      "sourceImageGenOutput": "/Users/benjaminbowler/.codex/generated_images/01a0c794-a58b-7d30-80c7-e14d892bbd70/exec-13f4e603-ce0c-4f2c-a583-f3bf58907d6c.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Current replacement was directly inspected against its exact story action and neighboring image continuity; current installed bytes match the art handoff.",
+        "notes": [
+          "Pages 2–3 support checking stones and retrying, pages 5–6 adult oiling/spinning, final page a cart of seedlings. Page 2 Samir wardrobe mismatch requested for correction.",
+          "Samir wears cobalt-blue hoodie and charcoal trousers while kneeling by the stopped cart; Zoe, cart, garden and cream lower band retained."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/211-willow-street-the-squeaky-wheel.jpg",
+          ".artifacts/editorial-repair/core-art-handoff.json"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "a22b8bad36afb07d401138d236fb39a2bf6de291a01c81e4d37eef80eaf2ad9c",
+          "briefSha256": "caa70ee3d381e0e73a5b55e6b21f26fd6f1feae5b872b90f60d2acfdb530bd97",
+          "sha256": "af39bc2a5c295504e5166be2334d9989ae9d8d1c8733c588b806f29d5ecacf55",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "af39bc2a5c295504e5166be2334d9989ae9d8d1c8733c588b806f29d5ecacf55",
+            "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+          },
+          "sourceImageGenOutput": "exec-4b73805a-bfe5-4df3-949e-87debead775a.png",
+          "width": 1365,
+          "height": 768
+        }
+      },
+      "cacheVersion": "3636990dbf57"
     },
     {
       "bookId": "willow-street-the-squeaky-wheel",
@@ -767,7 +1140,7 @@
       "sha256": "330301cc4c59d808f7aa2f0267e709615821d2fa787ceb016f156230d5287545",
       "width": 1365,
       "height": 768,
-      "textSha256": "f7aaf085665e57eaefe4221d115142b50e3caadee8e37ef1b03370cddcfefa99",
+      "textSha256": "52b117f67010face5ba443a93074c1fede8a020b48d105bab65aadb6aedf2e51",
       "briefSha256": "1c4b4233956780dbd25135ff48de608274d60ebae1f2d79ae1bc2a624cbc066d",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -777,7 +1150,30 @@
         "reviewedSha256": "330301cc4c59d808f7aa2f0267e709615821d2fa787ceb016f156230d5287545",
         "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
       },
-      "sourceImageGenOutput": "exec-8e885e51-c8c8-4920-b3d1-227d5cbb9c7f.png"
+      "sourceImageGenOutput": "exec-8e885e51-c8c8-4920-b3d1-227d5cbb9c7f.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Pages 2–3 support checking stones and retrying, pages 5–6 adult oiling/spinning, final page a cart of seedlings. Page 2 Samir wardrobe mismatch requested for correction."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/211-willow-street-the-squeaky-wheel.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "f7aaf085665e57eaefe4221d115142b50e3caadee8e37ef1b03370cddcfefa99",
+          "briefSha256": "1c4b4233956780dbd25135ff48de608274d60ebae1f2d79ae1bc2a624cbc066d",
+          "sha256": "330301cc4c59d808f7aa2f0267e709615821d2fa787ceb016f156230d5287545",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "330301cc4c59d808f7aa2f0267e709615821d2fa787ceb016f156230d5287545",
+            "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-the-squeaky-wheel",
@@ -802,20 +1198,78 @@
       "bookId": "willow-street-the-squeaky-wheel",
       "pageNumber": 5,
       "path": "/guided-reading/willow-street/the-squeaky-wheel/page-05.webp",
-      "sha256": "fdc07cdcc5be582c001473aa148ed6c93a5ead038aa4bf72e7cc47bbdbcdee89",
+      "sha256": "3b61dcf91a7f04a3d3c681d4be6931d94a05a6e84aa1d2e80dc341b31a82d736",
       "width": 1365,
       "height": 768,
-      "textSha256": "0f7ac3044070e5c17433d91546177384c6450dff672715878d361a1ce22713c6",
+      "textSha256": "4ff2954ce55b979384de8f5d2fe092446000a3f80c839f1e511f5ed931428d03",
       "briefSha256": "bcea2445a6ca5d2d8a0b4ad83141b781848f181bd0ba1822298661bf5cd59576",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "fdc07cdcc5be582c001473aa148ed6c93a5ead038aa4bf72e7cc47bbdbcdee89",
-        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+        "reviewedSha256": "3b61dcf91a7f04a3d3c681d4be6931d94a05a6e84aa1d2e80dc341b31a82d736",
+        "reviewedAt": "2026-09-22",
+        "notes": "Installed original opened and directly inspected: one oil can is held outside and below the cart platform, with its spout touching the central wheel axle hub. Gardener, Zoe, Samir, intact cart, natural arm position and blank lower text area match the sequence.",
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-art-handoff.json",
+          "/guided-reading/willow-street/the-squeaky-wheel/page-05.webp"
+        ]
       },
-      "sourceImageGenOutput": "exec-46839e69-94c5-4434-b310-7f29c89daa83.png"
+      "sourceImageGenOutput": "/Users/benjaminbowler/.codex/generated_images/01a0c794-7b67-7d80-8e16-2eff31306662/exec-1f0ede0c-e957-4eb2-96aa-237ca0390265.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Pages 2–3 support checking stones and retrying, pages 5–6 adult oiling/spinning, final page a cart of seedlings. Page 2 Samir wardrobe mismatch requested for correction."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/211-willow-street-the-squeaky-wheel.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "0f7ac3044070e5c17433d91546177384c6450dff672715878d361a1ce22713c6",
+          "briefSha256": "bcea2445a6ca5d2d8a0b4ad83141b781848f181bd0ba1822298661bf5cd59576",
+          "sha256": "fdc07cdcc5be582c001473aa148ed6c93a5ead038aa4bf72e7cc47bbdbcdee89",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "fdc07cdcc5be582c001473aa148ed6c93a5ead038aa4bf72e7cc47bbdbcdee89",
+            "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+          }
+        },
+        "followupReviews": [
+          {
+            "reviewedAt": "2026-09-22",
+            "reviewer": "Independent editorial visual review",
+            "method": "Direct inspection of the installed full-size replacement, after reading the full current book sequence.",
+            "notes": [
+              "Installed original opened and directly inspected: one oil can is held outside and below the cart platform, with its spout touching the central wheel axle hub. Gardener, Zoe, Samir, intact cart, natural arm position and blank lower text area match the sequence."
+            ],
+            "evidencePaths": [
+              ".artifacts/editorial-repair/human-art-handoff.json",
+              "/guided-reading/willow-street/the-squeaky-wheel/page-05.webp"
+            ],
+            "evidenceLimits": "Text/image alignment and continuity only; no human-listening, classroom or physical-device observation is claimed.",
+            "priorFingerprint": {
+              "textSha256": "4ff2954ce55b979384de8f5d2fe092446000a3f80c839f1e511f5ed931428d03",
+              "briefSha256": "bcea2445a6ca5d2d8a0b4ad83141b781848f181bd0ba1822298661bf5cd59576",
+              "sha256": "fdc07cdcc5be582c001473aa148ed6c93a5ead038aa4bf72e7cc47bbdbcdee89",
+              "directReview": {
+                "state": "approved-original-detail",
+                "reviewedSha256": "fdc07cdcc5be582c001473aa148ed6c93a5ead038aa4bf72e7cc47bbdbcdee89",
+                "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+              },
+              "sourceImageGenOutput": "exec-46839e69-94c5-4434-b310-7f29c89daa83.png",
+              "width": 1365,
+              "height": 768
+            }
+          }
+        ]
+      },
+      "caption": "The gardener kneels beside the green cart and touches the oil can's spout to the metal axle hub at the center of the near front wheel. Samir and Zoe watch.",
+      "cacheVersion": "3b61dcf91a7f"
     },
     {
       "bookId": "willow-street-the-squeaky-wheel",
@@ -862,7 +1316,7 @@
       "sha256": "f83405eec470366d42de334899192fbd77a82ea3cae04b76d69d7043915d956a",
       "width": 1365,
       "height": 768,
-      "textSha256": "b0735bb163db82eb63b1fe1c9ce31b38720e241cfdb9d5db35d0d18522d320ee",
+      "textSha256": "f076c1d29f8ce7280b8f4dce5bc3a934a14f82f8ba057597cc41ee8c86eb552c",
       "briefSha256": "32495ef9fa49078d0ee5f1e6634ce80dad785e859d580e53ff204e81c5914d2a",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -872,7 +1326,30 @@
         "reviewedSha256": "f83405eec470366d42de334899192fbd77a82ea3cae04b76d69d7043915d956a",
         "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
       },
-      "sourceImageGenOutput": "exec-fdf76d0f-5fd1-422e-b9a5-437eafd151da.png"
+      "sourceImageGenOutput": "exec-fdf76d0f-5fd1-422e-b9a5-437eafd151da.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Pages 2–3 support checking stones and retrying, pages 5–6 adult oiling/spinning, final page a cart of seedlings. Page 2 Samir wardrobe mismatch requested for correction."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/211-willow-street-the-squeaky-wheel.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "b0735bb163db82eb63b1fe1c9ce31b38720e241cfdb9d5db35d0d18522d320ee",
+          "briefSha256": "32495ef9fa49078d0ee5f1e6634ce80dad785e859d580e53ff204e81c5914d2a",
+          "sha256": "f83405eec470366d42de334899192fbd77a82ea3cae04b76d69d7043915d956a",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "f83405eec470366d42de334899192fbd77a82ea3cae04b76d69d7043915d956a",
+            "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-the-garden-gate",
@@ -1204,7 +1681,7 @@
       "sha256": "436287f9d00a35cf64476e3b26908e1d8dcee93664bb498d406dbc71d3e0694f",
       "width": 1365,
       "height": 768,
-      "textSha256": "3ee2be1bfae5b3b0aec0c88beff0021263c4686976131bbd6dd6753f1938460f",
+      "textSha256": "45c0b6b4ba13552323b8d6cd02174ada8f14372cec132aedc48917ac734e1fda",
       "briefSha256": "081b0408cc070a7cca433c8fc72fee2b2e581cb1ddc44fbc4a6b3ec7265883dc",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -1214,7 +1691,30 @@
         "reviewedSha256": "436287f9d00a35cf64476e3b26908e1d8dcee93664bb498d406dbc71d3e0694f",
         "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
       },
-      "sourceImageGenOutput": "exec-43a9bb11-f5d8-48f9-acea-c216a94e9a53.png"
+      "sourceImageGenOutput": "exec-43a9bb11-f5d8-48f9-acea-c216a94e9a53.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Final art shows the shared tiffin meal. New ending answers the opening packing problem with everything fitting rather than a generic sharing summary."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/213-willow-street-nanis-chapati-lunch.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "3ee2be1bfae5b3b0aec0c88beff0021263c4686976131bbd6dd6753f1938460f",
+          "briefSha256": "081b0408cc070a7cca433c8fc72fee2b2e581cb1ddc44fbc4a6b3ec7265883dc",
+          "sha256": "436287f9d00a35cf64476e3b26908e1d8dcee93664bb498d406dbc71d3e0694f",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "436287f9d00a35cf64476e3b26908e1d8dcee93664bb498d406dbc71d3e0694f",
+            "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-dumplings-for-new-year",
@@ -1261,7 +1761,7 @@
       "sha256": "14e12d25d9295662f409c667e544be3250827f699a5d88c548e31d4f194597a1",
       "width": 1365,
       "height": 768,
-      "textSha256": "7589d3a925a1fc0e4208ff7cd3ff1f509c53df6d75f0a41efea8cfffff71bd0b",
+      "textSha256": "03dcc278a7edf55a5e0373bfb3bdf45568c7f4b83aec968002d3bf8f63290f62",
       "briefSha256": "fc1ceba5e2828ff16570bf7b715131588bf982f8a89ae23792768872fc3f7b79",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -1271,7 +1771,30 @@
         "reviewedSha256": "14e12d25d9295662f409c667e544be3250827f699a5d88c548e31d4f194597a1",
         "notes": "Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
       },
-      "sourceImageGenOutput": "exec-787f0fc7-003b-488d-a762-46c7a603b325.png"
+      "sourceImageGenOutput": "exec-787f0fc7-003b-488d-a762-46c7a603b325.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Pages 2–6 clearly show modest filling, overfilled wrapper, reduced spoonful, pinching, and sealed dumpling. Adult cooks on 7; meal on 8. Child dialogue and final bite make success tangible."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/214-willow-street-dumplings-for-new-year.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "7589d3a925a1fc0e4208ff7cd3ff1f509c53df6d75f0a41efea8cfffff71bd0b",
+          "briefSha256": "fc1ceba5e2828ff16570bf7b715131588bf982f8a89ae23792768872fc3f7b79",
+          "sha256": "14e12d25d9295662f409c667e544be3250827f699a5d88c548e31d4f194597a1",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "14e12d25d9295662f409c667e544be3250827f699a5d88c548e31d4f194597a1",
+            "notes": "Original-detail review approved for Dumplings for New Year page 2: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-dumplings-for-new-year",
@@ -1280,7 +1803,7 @@
       "sha256": "3ac6983bc2d4ecb3a59afc688d69f4b462c0071cc9d3151949ae1aca8484e1f0",
       "width": 1365,
       "height": 768,
-      "textSha256": "dc64e9f3a64e16198ba4e91c24fa11f2a005df1300512503c0669852fca42b4c",
+      "textSha256": "4d7404e1569280dcd59136af07ae66f671458d7092530a8a076972e3bd826d9a",
       "briefSha256": "f35f7b4e5fc0c0ce03b58dca8765dc7f33e0dfd8a7aa8af66bdbc63bd540be5b",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -1290,7 +1813,30 @@
         "reviewedSha256": "3ac6983bc2d4ecb3a59afc688d69f4b462c0071cc9d3151949ae1aca8484e1f0",
         "notes": "Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
       },
-      "sourceImageGenOutput": "exec-68fbdd11-2d91-46e9-b8a6-fc9f76630123.png"
+      "sourceImageGenOutput": "exec-68fbdd11-2d91-46e9-b8a6-fc9f76630123.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Pages 2–6 clearly show modest filling, overfilled wrapper, reduced spoonful, pinching, and sealed dumpling. Adult cooks on 7; meal on 8. Child dialogue and final bite make success tangible."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/214-willow-street-dumplings-for-new-year.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "dc64e9f3a64e16198ba4e91c24fa11f2a005df1300512503c0669852fca42b4c",
+          "briefSha256": "f35f7b4e5fc0c0ce03b58dca8765dc7f33e0dfd8a7aa8af66bdbc63bd540be5b",
+          "sha256": "3ac6983bc2d4ecb3a59afc688d69f4b462c0071cc9d3151949ae1aca8484e1f0",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "3ac6983bc2d4ecb3a59afc688d69f4b462c0071cc9d3151949ae1aca8484e1f0",
+            "notes": "Original-detail review approved for Dumplings for New Year page 3: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-dumplings-for-new-year",
@@ -1299,7 +1845,7 @@
       "sha256": "a0957ce02ba78c59e7cf1bd0a2fa4f4e961643c3490c3c8796ac682e9494b1a6",
       "width": 1365,
       "height": 768,
-      "textSha256": "c431838e85e60f5a824342bf30ffac35e1f23a66b12b5287afce5b1e289cd92a",
+      "textSha256": "6dadf33ed5fd55373f0656960dba46eb9664688e4d714aec92f0456ecd0eea44",
       "briefSha256": "b9f4d998ea15105e02e866498f19218d7afb278911cc2d126c48707a14bde08f",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -1309,7 +1855,30 @@
         "reviewedSha256": "a0957ce02ba78c59e7cf1bd0a2fa4f4e961643c3490c3c8796ac682e9494b1a6",
         "notes": "Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
       },
-      "sourceImageGenOutput": "exec-04268f90-f3d5-4448-8016-98087805e8af.png"
+      "sourceImageGenOutput": "exec-04268f90-f3d5-4448-8016-98087805e8af.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Pages 2–6 clearly show modest filling, overfilled wrapper, reduced spoonful, pinching, and sealed dumpling. Adult cooks on 7; meal on 8. Child dialogue and final bite make success tangible."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/214-willow-street-dumplings-for-new-year.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "c431838e85e60f5a824342bf30ffac35e1f23a66b12b5287afce5b1e289cd92a",
+          "briefSha256": "b9f4d998ea15105e02e866498f19218d7afb278911cc2d126c48707a14bde08f",
+          "sha256": "a0957ce02ba78c59e7cf1bd0a2fa4f4e961643c3490c3c8796ac682e9494b1a6",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "a0957ce02ba78c59e7cf1bd0a2fa4f4e961643c3490c3c8796ac682e9494b1a6",
+            "notes": "Original-detail review approved for Dumplings for New Year page 4: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-dumplings-for-new-year",
@@ -1318,7 +1887,7 @@
       "sha256": "51026d4f08c3db5a28af3eb0da5ffa7109884424eedd84a70902b1fb233721da",
       "width": 1365,
       "height": 768,
-      "textSha256": "ce3ecea57a3e2e7522d095208b9aa6ab3076caaba98f4e4cfeae8bd59887df4f",
+      "textSha256": "12d0a73216739b6b50ea5e8df970bf67b068585b8ea9a9078bf3ecd7232a9f59",
       "briefSha256": "72d0e096089476455d2cb09097b592a6a61cf2e68e0fd546deb6ecd5f60adeed",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -1328,7 +1897,30 @@
         "reviewedSha256": "51026d4f08c3db5a28af3eb0da5ffa7109884424eedd84a70902b1fb233721da",
         "notes": "Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
       },
-      "sourceImageGenOutput": "exec-88f8c34b-5e86-432a-9798-ca335a7c2e86.png"
+      "sourceImageGenOutput": "exec-88f8c34b-5e86-432a-9798-ca335a7c2e86.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Pages 2–6 clearly show modest filling, overfilled wrapper, reduced spoonful, pinching, and sealed dumpling. Adult cooks on 7; meal on 8. Child dialogue and final bite make success tangible."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/214-willow-street-dumplings-for-new-year.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "ce3ecea57a3e2e7522d095208b9aa6ab3076caaba98f4e4cfeae8bd59887df4f",
+          "briefSha256": "72d0e096089476455d2cb09097b592a6a61cf2e68e0fd546deb6ecd5f60adeed",
+          "sha256": "51026d4f08c3db5a28af3eb0da5ffa7109884424eedd84a70902b1fb233721da",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "51026d4f08c3db5a28af3eb0da5ffa7109884424eedd84a70902b1fb233721da",
+            "notes": "Original-detail review approved for Dumplings for New Year page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-dumplings-for-new-year",
@@ -1337,7 +1929,7 @@
       "sha256": "d9fd4945af397538b82273ce2a0e7b3b252d23f20e0a547e4cf3086ba00dffa9",
       "width": 1365,
       "height": 768,
-      "textSha256": "ba871b3a1d02bfd8e1b113f7563c066962f0b9b0c83ef24389a0243514d592a5",
+      "textSha256": "8a65ba7bdf645cbaad1b32530297d877403c57772bf408f0aee3fe2f442a9e81",
       "briefSha256": "3412107ce4290e76c9ffabcb7a5e8bc93cb27890b6076549dce896fb31c6353b",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -1347,7 +1939,30 @@
         "reviewedSha256": "d9fd4945af397538b82273ce2a0e7b3b252d23f20e0a547e4cf3086ba00dffa9",
         "notes": "Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
       },
-      "sourceImageGenOutput": "exec-1fcd844d-1b97-48e9-b4ba-3c43f42b175b.png"
+      "sourceImageGenOutput": "exec-1fcd844d-1b97-48e9-b4ba-3c43f42b175b.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Pages 2–6 clearly show modest filling, overfilled wrapper, reduced spoonful, pinching, and sealed dumpling. Adult cooks on 7; meal on 8. Child dialogue and final bite make success tangible."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/214-willow-street-dumplings-for-new-year.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "ba871b3a1d02bfd8e1b113f7563c066962f0b9b0c83ef24389a0243514d592a5",
+          "briefSha256": "3412107ce4290e76c9ffabcb7a5e8bc93cb27890b6076549dce896fb31c6353b",
+          "sha256": "d9fd4945af397538b82273ce2a0e7b3b252d23f20e0a547e4cf3086ba00dffa9",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "d9fd4945af397538b82273ce2a0e7b3b252d23f20e0a547e4cf3086ba00dffa9",
+            "notes": "Original-detail review approved for Dumplings for New Year page 6: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-dumplings-for-new-year",
@@ -1356,7 +1971,7 @@
       "sha256": "a88db6e269fe55a65a4d6594eb3e92cf3ad30aa01e16eb69463014191e36c3a6",
       "width": 1365,
       "height": 768,
-      "textSha256": "4b8882d3a1be2386e64b12e446dde6e47e16a4653eaecb669163b13f1060f174",
+      "textSha256": "38f693120ccfd391da1386d018d4f803e55cfd727df5e125f75a7a0fdfe1fcb3",
       "briefSha256": "26642572860f7388e1253235880334e030979a82cc9663bc64bc09dff4991df4",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -1367,7 +1982,45 @@
         "notes": "Replacement directly inspected at original detail and in the production reader. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
       },
       "sourceImageGenOutput": "exec-c77b6331-d06a-4bd0-a9f9-213b85527e21.png",
-      "cacheVersion": "a88db6e269fe"
+      "cacheVersion": "a88db6e269fe",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Pages 2–6 clearly show modest filling, overfilled wrapper, reduced spoonful, pinching, and sealed dumpling. Adult cooks on 7; meal on 8. Child dialogue and final bite make success tangible."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/214-willow-street-dumplings-for-new-year.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "4b8882d3a1be2386e64b12e446dde6e47e16a4653eaecb669163b13f1060f174",
+          "briefSha256": "18582b8adc3d064fdec3f5f30aac3da82a52e9f495a84edcc84b7c2eb294ebb3",
+          "sha256": "b9bf49c16b36ac07067ff64fbac4aa97af181ea88d9b0a9856d02054dae70621",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "b9bf49c16b36ac07067ff64fbac4aa97af181ea88d9b0a9856d02054dae70621",
+            "notes": "Original-detail review approved for Dumplings for New Year page 7: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+          }
+        },
+        "followupReviews": [
+          {
+            "reviewedAt": "2026-09-22",
+            "reviewer": "Independent editorial visual review",
+            "method": "Direct original-detail inspection during integration of current main media with the editorial manuscript.",
+            "notes": [
+              "Retained main replacement: Aunt Mei uses a long slotted spoon to lower a dumpling toward the steaming pot; Zoe stays at a separate table across a clear aisle. Our exact sentence about Aunt Mei lowering dumplings into boiling water matches this scene."
+            ],
+            "evidencePaths": [
+              "public/guided-reading/willow-street/dumplings-for-new-year/page-07.webp",
+              ".artifacts/editorial-repair/integration-review-conflicts.json"
+            ],
+            "evidenceLimits": "Text/image coherence only; no new human-listening or physical-device observation."
+          }
+        ]
+      }
     },
     {
       "bookId": "willow-street-dumplings-for-new-year",
@@ -1376,7 +2029,7 @@
       "sha256": "0fd17c7b5c2f6f2d3328e72d7574f3dcc71cebcc3fe8e52939d84b07b50e9724",
       "width": 1365,
       "height": 768,
-      "textSha256": "857e0259fb523d994afbc7a0705d6e8fc1757aa0a106af9e2dfc4d727ea9b4fb",
+      "textSha256": "1b9384728531e85bf95e7e10b121138103fb6b29fb0296a0a3f62d811de24fdc",
       "briefSha256": "776a2b8d8ed08dbf2da39537887c0e10c329660f84953cb6623f6934bcbd239b",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -1386,7 +2039,30 @@
         "reviewedSha256": "0fd17c7b5c2f6f2d3328e72d7574f3dcc71cebcc3fe8e52939d84b07b50e9724",
         "notes": "Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
       },
-      "sourceImageGenOutput": "exec-77d058b7-3302-46ee-b979-9d17f2d45094.png"
+      "sourceImageGenOutput": "exec-77d058b7-3302-46ee-b979-9d17f2d45094.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Pages 2–6 clearly show modest filling, overfilled wrapper, reduced spoonful, pinching, and sealed dumpling. Adult cooks on 7; meal on 8. Child dialogue and final bite make success tangible."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/214-willow-street-dumplings-for-new-year.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "857e0259fb523d994afbc7a0705d6e8fc1757aa0a106af9e2dfc4d727ea9b4fb",
+          "briefSha256": "776a2b8d8ed08dbf2da39537887c0e10c329660f84953cb6623f6934bcbd239b",
+          "sha256": "0fd17c7b5c2f6f2d3328e72d7574f3dcc71cebcc3fe8e52939d84b07b50e9724",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "0fd17c7b5c2f6f2d3328e72d7574f3dcc71cebcc3fe8e52939d84b07b50e9724",
+            "notes": "Original-detail review approved for Dumplings for New Year page 8: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-drums-for-carnival",
@@ -1433,7 +2109,7 @@
       "sha256": "1449144ab867feb609fb131479fdbfef8fec2373b1abcd4ffab7d2b5a746bd09",
       "width": 1365,
       "height": 768,
-      "textSha256": "0f56f2aa26c8c41cbd228d6bf41d5594742e078e46b82187036f4fa1130e070e",
+      "textSha256": "d037cb1f222a108402108a7b0e4cc59a316388ab4479010648279aa16214269e",
       "briefSha256": "3b467108e98438b574e818a808da0c271441e23ae49c919358c9062de642bd91",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -1443,7 +2119,30 @@
         "reviewedSha256": "1449144ab867feb609fb131479fdbfef8fec2373b1abcd4ffab7d2b5a746bd09",
         "notes": "Original-detail review approved for Drums for Carnival page 2: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
       },
-      "sourceImageGenOutput": "exec-3cadcd81-2413-4fc7-ad57-b53e94610304.png"
+      "sourceImageGenOutput": "exec-3cadcd81-2413-4fc7-ad57-b53e94610304.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "All eight images show practice, leader cue, mistimed drumming, stopping, listening, group answer, hall performance and procession. Text gives call-and-response an understandable cause and correction."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/215-willow-street-drums-for-carnival.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "0f56f2aa26c8c41cbd228d6bf41d5594742e078e46b82187036f4fa1130e070e",
+          "briefSha256": "3b467108e98438b574e818a808da0c271441e23ae49c919358c9062de642bd91",
+          "sha256": "1449144ab867feb609fb131479fdbfef8fec2373b1abcd4ffab7d2b5a746bd09",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "1449144ab867feb609fb131479fdbfef8fec2373b1abcd4ffab7d2b5a746bd09",
+            "notes": "Original-detail review approved for Drums for Carnival page 2: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-drums-for-carnival",
@@ -1452,7 +2151,7 @@
       "sha256": "55421cef522418db2205adaaff82963c4e212781750885f8f2ef3de6b3c8ce32",
       "width": 1365,
       "height": 768,
-      "textSha256": "ea5bea03065a430715b4b531c7edbbba77264ab7ff1962a6444e478bb1072f34",
+      "textSha256": "cfcb7ff34902741ca8448208bf98290f4fdf1aec869de5cc861a7dbd3ab741b3",
       "briefSha256": "770de6f70b3bd4d3126cc696e3bbd684ce4b5839f0bd1878e55655d19e873030",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -1462,7 +2161,30 @@
         "reviewedSha256": "55421cef522418db2205adaaff82963c4e212781750885f8f2ef3de6b3c8ce32",
         "notes": "Original-detail review approved for Drums for Carnival page 3: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
       },
-      "sourceImageGenOutput": "exec-51ae67f5-18f5-4f16-9721-d5226e485044.png"
+      "sourceImageGenOutput": "exec-51ae67f5-18f5-4f16-9721-d5226e485044.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "All eight images show practice, leader cue, mistimed drumming, stopping, listening, group answer, hall performance and procession. Text gives call-and-response an understandable cause and correction."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/215-willow-street-drums-for-carnival.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "ea5bea03065a430715b4b531c7edbbba77264ab7ff1962a6444e478bb1072f34",
+          "briefSha256": "770de6f70b3bd4d3126cc696e3bbd684ce4b5839f0bd1878e55655d19e873030",
+          "sha256": "55421cef522418db2205adaaff82963c4e212781750885f8f2ef3de6b3c8ce32",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "55421cef522418db2205adaaff82963c4e212781750885f8f2ef3de6b3c8ce32",
+            "notes": "Original-detail review approved for Drums for Carnival page 3: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-drums-for-carnival",
@@ -1471,7 +2193,7 @@
       "sha256": "9716e32f4ec78482daa882822bfcac722608a7f458499fc34de08c94e211c200",
       "width": 1365,
       "height": 768,
-      "textSha256": "6e6aacfb25029977fab418ec74e9a4234a2c1b49be469aac7ba50c7edbe6bf0f",
+      "textSha256": "717377086558a9a2964193a1e4449447ad4a7c13c1ae8078aa3cfdf78e299cf0",
       "briefSha256": "acd78d037f89c838a479e0a814b838f15c667b5173999699a8cc7d9fdfd656f7",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -1481,7 +2203,30 @@
         "reviewedSha256": "9716e32f4ec78482daa882822bfcac722608a7f458499fc34de08c94e211c200",
         "notes": "Original-detail review approved for Drums for Carnival page 4: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
       },
-      "sourceImageGenOutput": "exec-0bdc9860-888d-407b-b542-bcb15a9da7d9.png"
+      "sourceImageGenOutput": "exec-0bdc9860-888d-407b-b542-bcb15a9da7d9.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "All eight images show practice, leader cue, mistimed drumming, stopping, listening, group answer, hall performance and procession. Text gives call-and-response an understandable cause and correction."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/215-willow-street-drums-for-carnival.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "6e6aacfb25029977fab418ec74e9a4234a2c1b49be469aac7ba50c7edbe6bf0f",
+          "briefSha256": "acd78d037f89c838a479e0a814b838f15c667b5173999699a8cc7d9fdfd656f7",
+          "sha256": "9716e32f4ec78482daa882822bfcac722608a7f458499fc34de08c94e211c200",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "9716e32f4ec78482daa882822bfcac722608a7f458499fc34de08c94e211c200",
+            "notes": "Original-detail review approved for Drums for Carnival page 4: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-drums-for-carnival",
@@ -1490,7 +2235,7 @@
       "sha256": "416bf688e7c5ed32101875073207a356fa2e9d59ef8cf9cabc489573cac39899",
       "width": 1365,
       "height": 768,
-      "textSha256": "97662a7ecc312639bd8d7ca6b53a95aaa7c414ba77fe7b2067524baf6983904a",
+      "textSha256": "9e1626e5c7586cafb8dfcf6548e442b9542f358ca12eb10aff8511e2a0add39f",
       "briefSha256": "84228f8e80bb6da4abf06de617c38e1e6fa26d3770c002bc26cdd14f520b9c5f",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -1500,7 +2245,30 @@
         "reviewedSha256": "416bf688e7c5ed32101875073207a356fa2e9d59ef8cf9cabc489573cac39899",
         "notes": "Original-detail review approved for Drums for Carnival page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
       },
-      "sourceImageGenOutput": "exec-d2dd9964-d904-406f-b2b1-4274fb1748ac.png"
+      "sourceImageGenOutput": "exec-d2dd9964-d904-406f-b2b1-4274fb1748ac.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "All eight images show practice, leader cue, mistimed drumming, stopping, listening, group answer, hall performance and procession. Text gives call-and-response an understandable cause and correction."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/215-willow-street-drums-for-carnival.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "97662a7ecc312639bd8d7ca6b53a95aaa7c414ba77fe7b2067524baf6983904a",
+          "briefSha256": "84228f8e80bb6da4abf06de617c38e1e6fa26d3770c002bc26cdd14f520b9c5f",
+          "sha256": "416bf688e7c5ed32101875073207a356fa2e9d59ef8cf9cabc489573cac39899",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "416bf688e7c5ed32101875073207a356fa2e9d59ef8cf9cabc489573cac39899",
+            "notes": "Original-detail review approved for Drums for Carnival page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-drums-for-carnival",
@@ -1509,7 +2277,7 @@
       "sha256": "ca4429577f277e44d8a485d693cd2002f48a0127992c5b0933021238a0229d78",
       "width": 1365,
       "height": 768,
-      "textSha256": "c16e18484bcf8e07575e13bdd19979a35be20d0eeb9d489820a5abcbe4344ab2",
+      "textSha256": "d4a39a97d90c579ee627e9df60f3401ba9911f0038ecaae36dce37cda7a7bb8b",
       "briefSha256": "aa5aea7a95aed3b8e25f729f3623d2dba3ec0cddb89f48b80db7e5d7ae9cde41",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -1519,7 +2287,30 @@
         "reviewedSha256": "ca4429577f277e44d8a485d693cd2002f48a0127992c5b0933021238a0229d78",
         "notes": "Original-detail review approved for Drums for Carnival page 6: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
       },
-      "sourceImageGenOutput": "exec-32c98693-4060-4802-bb21-d7413266a93a.png"
+      "sourceImageGenOutput": "exec-32c98693-4060-4802-bb21-d7413266a93a.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "All eight images show practice, leader cue, mistimed drumming, stopping, listening, group answer, hall performance and procession. Text gives call-and-response an understandable cause and correction."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/215-willow-street-drums-for-carnival.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "c16e18484bcf8e07575e13bdd19979a35be20d0eeb9d489820a5abcbe4344ab2",
+          "briefSha256": "aa5aea7a95aed3b8e25f729f3623d2dba3ec0cddb89f48b80db7e5d7ae9cde41",
+          "sha256": "ca4429577f277e44d8a485d693cd2002f48a0127992c5b0933021238a0229d78",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "ca4429577f277e44d8a485d693cd2002f48a0127992c5b0933021238a0229d78",
+            "notes": "Original-detail review approved for Drums for Carnival page 6: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-drums-for-carnival",
@@ -1528,7 +2319,7 @@
       "sha256": "c2961b63d107cd3b12137d7eacebfa0ff0332085cfe1f3ccfe4a7eeff12b3fc5",
       "width": 1365,
       "height": 768,
-      "textSha256": "6769bf327ecdf85b2acbbc515ed264bf93b5b2cb43c07f7164d55610cebec737",
+      "textSha256": "4d53a4650eb20b6bf95a6e0cbacc91515c03102614305331d0dfc2da928e68d8",
       "briefSha256": "3ae3e43c586a0422e94f86f14a243910245de323771de813e1584e688fc19cd3",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -1538,7 +2329,30 @@
         "reviewedSha256": "c2961b63d107cd3b12137d7eacebfa0ff0332085cfe1f3ccfe4a7eeff12b3fc5",
         "notes": "Original-detail review approved for Drums for Carnival page 7: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
       },
-      "sourceImageGenOutput": "exec-acd2676e-77fc-4c6b-94a0-e411008be40d.png"
+      "sourceImageGenOutput": "exec-acd2676e-77fc-4c6b-94a0-e411008be40d.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "All eight images show practice, leader cue, mistimed drumming, stopping, listening, group answer, hall performance and procession. Text gives call-and-response an understandable cause and correction."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/215-willow-street-drums-for-carnival.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "6769bf327ecdf85b2acbbc515ed264bf93b5b2cb43c07f7164d55610cebec737",
+          "briefSha256": "3ae3e43c586a0422e94f86f14a243910245de323771de813e1584e688fc19cd3",
+          "sha256": "c2961b63d107cd3b12137d7eacebfa0ff0332085cfe1f3ccfe4a7eeff12b3fc5",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "c2961b63d107cd3b12137d7eacebfa0ff0332085cfe1f3ccfe4a7eeff12b3fc5",
+            "notes": "Original-detail review approved for Drums for Carnival page 7: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-drums-for-carnival",
@@ -1547,7 +2361,7 @@
       "sha256": "97d49911f6aea405ded936fe61e99802ef15dab15593227ac4df8530f9f0fdda",
       "width": 1365,
       "height": 768,
-      "textSha256": "15787d1522fc07451ed7d34b6fa5480f0c615ae1839b3e525dd1f9c835a41ed6",
+      "textSha256": "082bbee3c9faf743ae1cec8470b1b34dd4acc163ff8578423e84b79dca4c56ed",
       "briefSha256": "200073b24f3cb754164d8364b6b2e184f00bccf36f0f2f5cf685c12417c27cf8",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -1557,7 +2371,30 @@
         "reviewedSha256": "97d49911f6aea405ded936fe61e99802ef15dab15593227ac4df8530f9f0fdda",
         "notes": "Original-detail review approved for Drums for Carnival page 8: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
       },
-      "sourceImageGenOutput": "exec-08d92072-518c-4988-9616-ee5a32ccfb1b.png"
+      "sourceImageGenOutput": "exec-08d92072-518c-4988-9616-ee5a32ccfb1b.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "All eight images show practice, leader cue, mistimed drumming, stopping, listening, group answer, hall performance and procession. Text gives call-and-response an understandable cause and correction."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/215-willow-street-drums-for-carnival.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "15787d1522fc07451ed7d34b6fa5480f0c615ae1839b3e525dd1f9c835a41ed6",
+          "briefSha256": "200073b24f3cb754164d8364b6b2e184f00bccf36f0f2f5cf685c12417c27cf8",
+          "sha256": "97d49911f6aea405ded936fe61e99802ef15dab15593227ac4df8530f9f0fdda",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "97d49911f6aea405ded936fe61e99802ef15dab15593227ac4df8530f9f0fdda",
+            "notes": "Original-detail review approved for Drums for Carnival page 8: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-eid-morning-with-samir",
@@ -2003,7 +2840,7 @@
       "sha256": "65c544de633c20fcb9b520707746dd3cc84410630cae80e12580d6716de1e0b4",
       "width": 1365,
       "height": 768,
-      "textSha256": "799175ee633ac4617c3e8121ad58e18f99396445321e6458da984601f6550d0e",
+      "textSha256": "d4a10e1f1083c11e5681cc68495c164323c3e0866639b79ef999b1ea2eea5e78",
       "briefSha256": "9857b7c983b1f8a72bb19deda861eebc5e0fe55bdbf1c4700874782854863246",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
@@ -2013,7 +2850,30 @@
         "reviewedSha256": "65c544de633c20fcb9b520707746dd3cc84410630cae80e12580d6716de1e0b4",
         "notes": "Original-detail review approved for Make a Paper Kite page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
       },
-      "sourceImageGenOutput": "exec-d5b6c57c-1c5e-4f22-8b4a-a85f06c5e5d0.png"
+      "sourceImageGenOutput": "exec-d5b6c57c-1c5e-4f22-8b4a-a85f06c5e5d0.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Editorial repair team; agent visual review",
+        "method": "Ordered full-book image sequence reviewed against complete runtime text; ambiguous or replacement originals inspected separately.",
+        "notes": [
+          "Page 5 shows an adult attaching line at the crossed sticks; revised instruction names that visible attachment instead of the vague center."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-manuscript-handoff.json",
+          ".artifacts/editorial-repair/visual-before/books/218-willow-street-make-a-paper-kite.jpg"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity review only. Historical reviews remain historical; no new audio, human-listening, classroom or physical-device approval.",
+        "priorFingerprint": {
+          "textSha256": "799175ee633ac4617c3e8121ad58e18f99396445321e6458da984601f6550d0e",
+          "briefSha256": "9857b7c983b1f8a72bb19deda861eebc5e0fe55bdbf1c4700874782854863246",
+          "sha256": "65c544de633c20fcb9b520707746dd3cc84410630cae80e12580d6716de1e0b4",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "65c544de633c20fcb9b520707746dd3cc84410630cae80e12580d6716de1e0b4",
+            "notes": "Original-detail review approved for Make a Paper Kite page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+          }
+        }
+      }
     },
     {
       "bookId": "willow-street-make-a-paper-kite",
@@ -2370,7 +3230,7 @@
       "bookId": "willow-street-make-fruit-and-yoghurt-cups",
       "pageNumber": 6,
       "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-06.webp",
-      "sha256": "8dd80fef249f5f7b2e932161d887064bacb54f29745650b24c688832d455c6d2",
+      "sha256": "1c83fb82e3ede9448bad7b7aef36b7de3000721ee9558d2bfbc322dfd1b67235",
       "width": 1365,
       "height": 768,
       "textSha256": "4ea22efa5df7ab43053cbd30c302dc8acb843e45c57178fd5662a7d5df352479",
@@ -2380,10 +3240,43 @@
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "8dd80fef249f5f7b2e932161d887064bacb54f29745650b24c688832d455c6d2",
-        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 6: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "reviewedSha256": "1c83fb82e3ede9448bad7b7aef36b7de3000721ee9558d2bfbc322dfd1b67235",
+        "reviewedAt": "2026-09-22",
+        "notes": "Installed original opened and directly inspected: all four clear cups have white yogurt across the bottom, banana and berries in the middle, and yogurt on top; Zoe spoons the final top layer. This retains the sequence established on pages 4 and 5.",
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-art-handoff.json",
+          "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-06.webp"
+        ]
       },
-      "sourceImageGenOutput": "exec-3855d17f-29f8-4d01-9534-04a6a86a9a99.png"
+      "sourceImageGenOutput": "/Users/benjaminbowler/.codex/generated_images/01a0c794-7b67-7d80-8e16-2eff31306662/exec-33d162f7-9435-4edb-842d-5051dea9886b.png",
+      "editorialReview20260922": {
+        "reviewedAt": "2026-09-22",
+        "reviewer": "Independent editorial visual review",
+        "method": "Direct inspection of the installed full-size replacement, after reading the full current book sequence.",
+        "notes": [
+          "Installed original opened and directly inspected: all four clear cups have white yogurt across the bottom, banana and berries in the middle, and yogurt on top; Zoe spoons the final top layer. This retains the sequence established on pages 4 and 5."
+        ],
+        "evidencePaths": [
+          ".artifacts/editorial-repair/human-art-handoff.json",
+          "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-06.webp"
+        ],
+        "evidenceLimits": "Text/image alignment and continuity only; no human-listening, classroom or physical-device observation is claimed.",
+        "priorFingerprint": {
+          "textSha256": "4ea22efa5df7ab43053cbd30c302dc8acb843e45c57178fd5662a7d5df352479",
+          "briefSha256": "8e64410af28dd9826c7310231d5bcdf3b6ade129d25d89c7542759573b06b6ea",
+          "sha256": "8dd80fef249f5f7b2e932161d887064bacb54f29745650b24c688832d455c6d2",
+          "directReview": {
+            "state": "approved-original-detail",
+            "reviewedSha256": "8dd80fef249f5f7b2e932161d887064bacb54f29745650b24c688832d455c6d2",
+            "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 6: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+          },
+          "sourceImageGenOutput": "exec-3855d17f-29f8-4d01-9534-04a6a86a9a99.png",
+          "width": 1365,
+          "height": 768
+        }
+      },
+      "caption": "Zoe spoons yogurt onto the fruit in the fourth clear cup. Each of the four cups has a white yogurt base, banana and berries in the middle, and a second white yogurt layer on top.",
+      "cacheVersion": "1c83fb82e3ed"
     },
     {
       "bookId": "willow-street-make-fruit-and-yoghurt-cups",

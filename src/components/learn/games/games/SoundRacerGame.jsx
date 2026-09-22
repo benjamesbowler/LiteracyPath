@@ -456,7 +456,7 @@ function startGame(THREE, mount, opts) {
   let burstParticles = [];
   let pulseObjects = [];
   let roadTexture = null;
-  let currentMap = mapForLevel(world, startLevelIdx);
+  let currentMap = mapForLevel(world, startLevelIdx + (opts.journey?.route || 0));
   let track = null;
   let levelIdx = startLevelIdx;
   let laneIx = 1;
@@ -1800,7 +1800,7 @@ function startGame(THREE, mount, opts) {
   // 3.8-second countdown/game is running. Level transitions then upload cached
   // canvases instead of synchronously redrawing thousands of shapes.
   function prewarmMapTextures(nextLevelIndex) {
-    const map = mapForLevel(world, nextLevelIndex);
+    const map = mapForLevel(world, nextLevelIndex + (opts.journey?.route || 0));
     const prewarmKey = `${qualityTier}:${map.name}`;
     if (prewarmingMaps.has(prewarmKey)) return;
     prewarmingMaps.add(prewarmKey);
@@ -1862,7 +1862,7 @@ function startGame(THREE, mount, opts) {
     scene.background = new THREE.Color(mixHex(currentMap.sky, 0x0b1020, world === "moonwood" ? 0.3 : world === "dino" ? 0.14 : 0.08));
     scene.fog = new THREE.FogExp2(currentMap.fog, world === "dino" ? 0.0094 : world === "moonwood" ? 0.0115 : 0.009);
     ambient.color.setHex(currentMap.ambient);
-    ambient.intensity = qualityTier === "low" ? 1.45 : world === "moonwood" ? 0.42 : world === "dino" ? 0.46 : 0.52;
+    ambient.intensity = (world === "moonwood" ? 0.42 : world === "dino" ? 0.46 : 0.52) + (qualityTier === "low" ? .16 : 0);
     keyLight.color.setHex(currentMap.sun);
     keyLight.intensity = world === "dino" ? 1.72 : 1.42;
     fillLight.color.setHex(currentMap.ambient);
@@ -2060,7 +2060,7 @@ function startGame(THREE, mount, opts) {
   function startLevel() {
     cancelRecordedCue(overlayCueTimer);
     overlayCueTimer = null;
-    currentMap = mapForLevel(world, levelIdx);
+    currentMap = mapForLevel(world, levelIdx + (opts.journey?.route || 0));
     const target = ladder[levelIdx % ladder.length];
     track = buildSoundRacerRace(target, { difficulty, seed: opts.sessionSeed ? `${opts.sessionSeed}:${levelIdx}` : levelIdx });
     resetSceneForMap();
@@ -2795,7 +2795,7 @@ function startGame(THREE, mount, opts) {
 
 export default function SoundRacerGame({
   difficulty = "easy",
-  sessionSeed = 0,
+  sessionSeed = 0, journey = null,
   startLevel = 0,
   progressScopeKey = "default",
   onScoreUpdate,
@@ -2827,7 +2827,7 @@ export default function SoundRacerGame({
         try {
           const startedApi = startGame(THREE, mountRef.current, {
             difficulty,
-            sessionSeed,
+            sessionSeed, journey,
             startLevel,
             progressScopeKey,
             onScoreUpdate,

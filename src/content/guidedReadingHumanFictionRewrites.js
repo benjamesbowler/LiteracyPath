@@ -24,7 +24,7 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
     canonIds: ["HUMAN-JAMES", "HUMAN-ANNA", "HUMAN-ZIM"],
     storySpine: "James and Anna want to turn their cardboard rocket into a shared journey to the Moon.",
     failedAttempt: "Their first countdown leaves the rocket sitting in the garden.",
-    resolution: "Anna's star map helps them build an imaginative Moon adventure, then they open their eyes safely at home.",
+    resolution: "Anna starts a make-believe flight; they land on the Moon, jump with Zim and return to cake in the garden.",
     sourcePageNumbers: [1, 2, 3, 4, 6, 7, 8, 10, 11, 12, 13, 14],
     pages: [
       "James and Anna find big boxes in the garden.",
@@ -33,33 +33,33 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
       "Snip! Rip! Tape! Their rocket grows all morning.",
       "At last, the red and silver rocket is ready.",
       "“Five, four, three, two, one!” The rocket stays still.",
-      "Anna opens her star map. “Close your eyes,” she says.",
-      "In their game, bright planets sweep past the window.",
-      "Their garden becomes the pale, quiet Moon.",
-      "They imagine Zim and bounce together across the Moon.",
-      "Their game turns the rocket towards home.",
-      "They open their eyes in the garden. Mom brings cake."
+      "“Let’s pretend!” says Anna. Up, up goes their rocket.",
+      "In their game, the rocket lands on the Moon.",
+      "A little green alien waves. “I’m Zim! Come and jump!”",
+      "James jumps. Anna jumps. Their feet hardly touch the ground!",
+      "“Home!” calls James. They wave to Zim and blast off.",
+      "Mom brings cake. The astronauts tumble onto the grass."
     ]
   }),
 
   "james-and-anna-02-chips": humanFictionRewrite({
     canonIds: ["HUMAN-JAMES", "HUMAN-ANNA", "HUMAN-CHIPS"],
-    storySpine: "James and Anna want their hungry goat to enjoy a safe first walk.",
-    failedAttempt: "The rope lead slips, and Chips bites through a rose bush.",
-    resolution: "Anna pulls him back; later James's clear instruction makes Chips drop the sweater.",
+    storySpine: "James wants to teach Chips to drop things; Chips ignores him, Dad demonstrates with a hat, and James finally gets his sweater back with the same command.",
+    failedAttempt: "Chips trots past James, then pulls free on the walk and tugs a rose bush.",
+    resolution: "After Anna frees the rose and they feed Chips at home, James uses Drop to get the sweater back.",
     pages: [
-      "Meet Chips, their small white goat with big brown patches.",
-      "Jingle, jingle! His blue bell warns everyone: trouble is coming.",
-      "Chips eats grass, bark, and Dad’s best hat.",
-      "“Chips!” Dad points. Chips chews and looks away.",
-      "James clips on a rope lead. Walk time!",
-      "Jingle, jingle! Chips munches grass along the lane.",
-      "Snap! Chips bolts free and bites the rose bush.",
-      "Anna pulls him back. Chips licks her nose.",
-      "At home, James fills his bowl with grass and apple.",
+      "This is Chips. James wants to teach him “Drop!”",
+      "Chips hears James. He trots straight past. Jingle, jingle!",
+      "Chips grabs Dad’s hat. Chomp! That is not grass.",
+      "“Drop!” says Dad. Chips lets go. Dad grabs his hat.",
+      "James clips on the lead. “My turn to try!”",
+      "Chips eats grass. James has nothing to rescue.",
+      "Chips pulls free. He tugs at a rose bush.",
+      "Anna frees the rose. Chips licks her nose.",
+      "At home, James fills his bowl. Chips leaves the flowers alone.",
       "The bowl is empty. Chips eyes James’s sweater.",
-      "Crunch! Chips grabs one woolly sleeve.",
-      "“Drop it, Chips!” James points. Chips lets go. Jingle!"
+      "Chomp! Chips pulls the sleeve. James holds out his hand.",
+      "“Drop!” says James. Down goes the sweater. Jingle, jingle!"
     ]
   }),
 
@@ -77,7 +77,7 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
       "Anna picks the round loaf with crunchy seeds.",
       "Grapes, cheese, eggs, juice—everything goes in. James carries the eggs with both hands.",
       "Then a shiny cake stand stops them. Is the list done?",
-      "Mom holds up one finger. They check the list.",
+      "“Check first,” says Mom. They tick off every item.",
       "One lemon cake for James. One jam tart for Anna.",
       "At checkout, James counts each item. Every egg stays whole.",
       "The bread smells wonderful. James reaches in. Anna gives him the look.",
@@ -92,8 +92,8 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
     resolution: "James uses one slow breath, then Anna copies him and completes her check.",
     sourcePageNumbers: [1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13],
     pages: [
-      "James frowns at the dentist card. Anna grips her sleeve.",
-      "Mom kneels beside them. “The dentist only checks your teeth.”",
+      "A dental checkup today! James frowns. Anna folds her arms.",
+      "Mom kneels beside them. “I’m coming in with you.”",
       "Anna holds James’s hand. He frowns all the way.",
       "Bright fish zip through the waiting-room tank.",
       "Anna finds a shark book. Her tight shoulders drop.",
@@ -101,7 +101,7 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
       "He breathes in. He opens wide. The check is quick!",
       "James runs back smiling. “It doesn’t hurt, Anna!”",
       "Anna climbs into the chair. She breathes in too.",
-      "The dentist sings. Anna keeps her mouth wide.",
+      "The dentist sings. Anna opens wide for the last tooth.",
       "Outside, James shows his rocket sticker. Anna shows her star.",
       "Brush, brush, brush! Two minutes. Chips watches from the door."
     ]
@@ -111,18 +111,18 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
     canonIds: ["HUMAN-JAMES", "HUMAN-ANNA", "HUMAN-CHIPS"],
     storySpine: "James and Anna want to build a safe tree house from their own plan.",
     failedAttempt: "Chips steals the paint lid before the final details are finished.",
-    resolution: "They rescue the lid, move the paint high and complete every part of their plan.",
+    resolution: "They recover the paint lid, finish their tree house and sleep in the place they designed.",
     sourcePageNumbers: [1, 2, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14],
     pages: [
       "James and Anna stare up at the old oak tree.",
       "James draws their tree house: door, window, flag, ladder.",
       "Dad studies the plan. “You two are in charge.”",
-      "Dad works up high. They pass each tool safely.",
+      "Dad climbs the ladder. James passes up the hammer.",
       "Step, step, stomp! The new floor stays firm.",
-      "Dad guides James’s saw. A little window appears.",
+      "Dad guides the saw. James cuts wood for the window.",
       "James paints blue. Anna paints yellow. Chips steals the paint lid.",
       "They rescue the lid and move the paint high. Up goes the flag!",
-      "Blue walls. Yellow door. Red star. Their plan is real!",
+      "“Can we sleep up there?” James asks Dad.",
       "They climb up. The whole garden fills their window.",
       "Mom sends juice and cookies up on a rope.",
       "Under the stars, two sleeping bags rustle in their tree house."
@@ -176,7 +176,7 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
     canonIds: ["HUMAN-JAMES", "HUMAN-ANNA", "HUMAN-CHIPS"],
     storySpine: "James and Anna want Chips and Bella to enjoy a safe first play date.",
     failedAttempt: "Uncontrolled chasing soaks the children and sends petals flying.",
-    resolution: "They stop the rough game, give the flowers space and watch Bella happily share.",
+    resolution: "Mrs. Chen calls the pets back; James holds Bella while Anna supports the bent flowers, then the animals rest and drink.",
     pages: [
       "Mrs. Chen brings bouncy Bella to meet Chips.",
       "James and Anna grin. “This play date will be easy!”",
@@ -187,7 +187,7 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
       "Bent flowers, flying petals—too rough! The children call, “Stop!”",
       "Mrs. Chen laughs, then sees the mess. She calls both pets back.",
       "At last, both pets flop down. Chips licks Bella’s ear.",
-      "James folds his arms. Anna says, “Rest. The flowers need space.”",
+      "James holds Bella’s lead. Anna props up the bent flowers.",
       "Mom brings water for Bella and apple for Chips.",
       "Chips drinks Bella’s water. “Chips!” James points. Bella wags and shares."
     ]
@@ -218,22 +218,22 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
   "ja-b-10": humanFictionRewrite({
     canonIds: ["HUMAN-JAMES", "HUMAN-ANNA", "HUMAN-CHIPS"],
     storySpine: "James and Anna want to complete one whole night camping in the garden.",
-    failedAttempt: "A fox outside frightens them, but blasting the air horn would frighten everyone nearby.",
-    resolution: "Dad's light quietly sends the fox away, and the family stays safely in the tent until breakfast.",
+    failedAttempt: "A fox wakes them, then morning reveals that Chips has chewed the tent.",
+    resolution: "They stay outside until breakfast, and Anna patches the hole before Chips can chew it again.",
     sourcePageNumbers: [1, 2, 3, 5, 6, 8, 9, 10, 11, 12, 13, 14],
     pages: [
       "Dad wrestles with a green tent. Chips steals one peg.",
       "James hammers. Anna threads poles. Dad rescues the peg.",
       "In go sleeping bags, flashlight, cards, books, and snacks.",
-      "At dusk, marshmallows toast over Dad’s safe fire dish.",
+      "Dad watches the little fire. They turn their marshmallow sticks.",
       "Chips lunges. Dad pulls the hot marshmallow away. Phew!",
       "At midnight, a fox barks. They stay inside the tent.",
-      "Anna reaches for the horn. Dad says, “Wait.”",
-      "Dad switches on the light. The fox trots away.",
+      "Anna lifts the horn. “Wait!” calls Dad from the house.",
+      "Dad steps outside. The fox bolts across the lawn.",
       "Chips leans on James. James leans on Anna. Squash!",
       "Morning shines through the seam Chips chewed.",
-      "They last all night! Hot toast tastes wonderful in the morning.",
-      "Mom waits at the door. Chips grabs the zip. Anna pulls it free."
+      "Dad brings toast. “Breakfast in bed!” says James.",
+      "Anna presses on a patch. Chips sniffs it. “Don’t!”"
     ]
   }),
 
@@ -283,23 +283,23 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
 
   "ab-c-03": humanFictionRewrite({
     canonIds: ["HUMAN-AIDEN", "HUMAN-BETTY"],
-    storySpine: "Aiden and Betty want to fill their one-week seaside vacation with discoveries.",
-    failedAttempt: "Heavy rain cancels the beach and lighthouse plans they had counted on.",
-    resolution: "They use the clearing weather to climb the lighthouse, fill Aiden's notebook, and choose one lasting keepsake.",
+    storySpine: "Betty wants to explore the places on the seaside brochure; rain interrupts their outings, so she draws a route that takes the family to the lighthouse.",
+    failedAttempt: "Rain stops the beach outings and leaves Aiden slumped over the indoor game.",
+    resolution: "Betty plans a route during the rain, leads the family to the lighthouse and sees their route from above; Aiden wants to keep her map.",
     pages: [
       "The final bell rang. Aiden and Betty raced home shouting, “Vacation!”",
-      "Mom opened the cottage page. “One week by the sea,” she said. Betty whooped.",
+      "Mom opened the cottage brochure. “One week by the sea.” Betty traced the coast. “Can we visit all these places?”",
       "Three hours later, Betty was still counting red cars. Aiden had finished two chapters—and one nap.",
       "They raced upstairs. Aiden chose the bigger room. Betty opened her window—and heard the sea.",
       "Past the last dune, the green sea filled the sky. Aiden stopped. “Wow,” was all he said.",
       "Aiden filled his field notebook with tide-pool creatures and careful labels.",
       "Betty learned to steer her boogie board through the foaming waves.",
-      "On Wednesday, rain hammered the windows. No beach. No lighthouse. Aiden slumped over the board game.",
-      "When the rain cleared, they climbed all one hundred and forty-seven lighthouse steps.",
-      "From the top, silver water curved around bays, cliffs and a fishing village.",
-      "That evening, salty fries tasted best beside the sea. “Maybe rain isn't so bad,” Aiden said.",
+      "Rain rattled the window. Aiden slumped over the board game. Betty drew their route: beach, harbor, then lighthouse.",
+      "The rain stopped. Betty led them along her route. At the lighthouse, Aiden counted all 147 steps.",
+      "From the top, they traced their route below. “There’s the beach!” said Betty. Aiden found the tiny harbor.",
+      "At supper, Aiden held up a fry. “I’m going to draw the whole trip. Even the rain!” Betty laughed.",
       "Betty turned one smooth white pebble in her fingers. “This one is coming home,” she said.",
-      "On the drive home, Betty held her pebble. Aiden said, “Next time, I'm bringing two notebooks.”"
+      "On the drive home, Betty held her pebble. “Your map got us there,” Aiden said. “Can I keep it?”"
     ]
   }),
 
@@ -307,7 +307,7 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
     canonIds: ["HUMAN-AIDEN", "HUMAN-BETTY", "HUMAN-SOCKS"],
     storySpine: "Aiden and Betty want to help foster dog Socks feel safe in their unfamiliar home.",
     failedAttempt: "The cozy kitchen crate does not settle Socks; he leaves it to seek Aiden's room.",
-    resolution: "The family follows his clues, uses calm routines and safe trades, and lets Socks choose a resting place near Aiden.",
+    resolution: "The family lets Socks settle near Aiden; he approaches both children for petting and rests beside Aiden as he draws.",
     pages: [
       "Scritch, scratch! Uncle Eddie's pet carrier bumped beside his travel bag. “Who's in there?” Aiden asked.",
       "“A rescue dog,” said Uncle Eddie. “Frightened dogs need time before they trust a new home.”",
@@ -319,10 +319,10 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
       "“Hide shiny things. Shut the linen closet,” Uncle Eddie warned. Socks listened from his mat.",
       "At dinner, Dad dropped his napkin. Socks carried it to his mat—then fetched Uncle Eddie's slipper.",
       "Dad made a cozy kitchen crate. By morning, Socks was asleep beside Aiden's flashlight instead.",
-      "So they made a new routine: harness on its peg, quiet hellos, and a safe bed near Aiden.",
+      "Next morning, Aiden crouched beside Socks. This time, Socks came close enough for both children to stroke him.",
       "Socks collected pegs, ribbon, and Betty's hair ties. Betty traded him a chew ring. Drop!",
       "Mom measured his food while Socks waited calmly on his mat.",
-      "Aiden wrote, Socks sleeps by my flashlight. Socks rested his chin on the page. He was home."
+      "Aiden drew Socks beside his flashlight. Socks settled on his blanket, close enough to hear the scratch of Aiden’s pencil."
     ]
   }),
 
@@ -352,21 +352,21 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
   "ab-c-06": humanFictionRewrite({
     canonIds: ["HUMAN-AIDEN", "HUMAN-BETTY", "HUMAN-SOCKS"],
     storySpine: "Aiden and Betty want to grow safe crystals and explain their method at the Science Fair.",
-    failedAttempt: "After several careful mornings, the closed jar still appears unchanged.",
-    resolution: "They keep the jar steady, record every day and earn recognition because they can explain why waiting mattered.",
+    failedAttempt: "Two mornings pass without crystals, and Aiden wants to start again.",
+    resolution: "Betty asks him to wait; their dated photographs and chart show growth that the children can explain at the fair.",
+    sourcePageNumbers: [1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13],
     pages: [
       "“Science Fair!” Miss Okafor announced. Aiden's notebook was open before she finished speaking.",
       "Aiden listed eleven ideas. Betty listed nine. “Three match,” she said. “Great minds!”",
-      "They chose safe crystal growing and ordered a kit. Waiting four days felt like forty.",
-      "With Mom supervising, they wore goggles and followed every safe instruction.",
-      "Morning one: no crystals. Morning two: still none. Socks stared up at the high shelf.",
-      "“Start over?” Aiden asked. “No. Keep watching,” Betty said. They photographed the same jar each day.",
-      "Then sharp blue crystals began to climb the sides of the jar.",
+      "Their crystal kit arrived. Mom read the instructions with them, then mixed the powder and water.",
+      "Nothing on morning one. Nothing on morning two. Mom moved the jar above Socks’s nose. Aiden wanted to start again.",
+      "“Let’s wait,” Betty said. Days later, blue crystals filled the jar. Aiden photographed them, and Betty recorded the date.",
+      "They lined up the photographs beside Betty’s chart. Each day’s crystals were taller. “Look!” Aiden said. “They kept growing.”",
       "Betty packed the board. Aiden held the closed jar in both hands.",
       "The hall was packed with volcanoes and planets. Their little jar looked very little. Aiden swallowed.",
       "But the judges kept asking questions. Betty showed the chart. Aiden explained why they had waited.",
       "“Third place!” Miss Okafor cheered. Their careful daily record had caught the judges' attention.",
-      "That night, Aiden wrote six fair-test rules in his notebook. Socks watched every pen stroke.",
+      "Aiden numbered the days in his notebook. Socks followed every stroke of the pencil. “Are you checking my work?”",
       "“He's learning science,” Aiden whispered. Betty blocked the doorway. “Please don't teach him to open jars.”"
     ]
   }),
@@ -374,44 +374,45 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
   "ab-c-07": humanFictionRewrite({
     canonIds: ["HUMAN-AIDEN", "HUMAN-BETTY", "HUMAN-SOCKS"],
     storySpine: "Aiden and Betty want to record the nature preserve's hidden wildlife with Socks and Uncle Eddie.",
-    failedAttempt: "Watching only from the bird blind reveals one quick kingfisher, then nothing else nearby.",
-    resolution: "They follow Socks safely across the bridge, find a spring pool, and carry the day's discoveries into new nature notebooks.",
+    failedAttempt: "After one kingfisher, the children wait at the bird blind without seeing more birds.",
+    resolution: "Following the path with Socks leads them to aquatic insects; Betty fills the logbook, and the children remember to include their animal guide.",
     pages: [
-      "Ding-dong! Socks saw Uncle Eddie and spun in circles for forty-five seconds.",
+      "Ding-dong! Socks saw Uncle Eddie and spun in circles. His tail thumped the door.",
       "“Let's visit the nature preserve,” Uncle Eddie said. “We'll record everything we spot.”",
       "At the preserve, insects buzzed, birds called, and water rushed. Socks stopped to listen.",
-      "Betty found the bird blind, binoculars, a logbook, and a board with twelve species.",
+      "Betty opened the bird blind’s logbook. She wanted to fill a page, but the reeds hardly moved.",
       "A blue-and-orange kingfisher flashed past. “One!” Betty whispered, adding it to the logbook.",
-      "Then Socks pulled toward the footbridge. Uncle Eddie checked the map and clipped on his leash.",
-      "Across the river, Socks followed the sounds through tall grass and into thicker trees.",
-      "He stopped at a clear spring pool. Dragonflies zipped above tiny swimmers. “Good find, Socks!”",
-      "Back at the hide, Betty logged each creature. Uncle Eddie helped name the tiny swimmers.",
+      "They waited. No more birds came. Socks tugged toward the bridge, so Uncle Eddie picked up his leash.",
+      "Across the bridge, they followed the path beside the water. Socks tugged again. Somewhere ahead, wings buzzed.",
+      "Dragonflies skimmed a pool. Beneath them, little beetles paddled. Aiden crouched. “There’s a whole other world down there!”",
+      "Back in the bird blind, Betty drew a dragonfly and beetles. The empty page was full of legs and wings.",
       "At sunset, Socks walked beside Uncle Eddie through the glowing meadow.",
       "After Uncle Eddie left, Socks watched the road, then rested against Aiden.",
       "Aiden and Betty each began a nature notebook that evening.",
-      "“I think this is his home now,” Betty said. Socks curled tighter at Aiden's feet."
+      "“We forgot one animal,” Betty said. Socks snored between their chairs. Aiden grinned. “Our guide!”"
     ]
   }),
 
   "ab-c-08": humanFictionRewrite({
     canonIds: ["HUMAN-AIDEN", "HUMAN-BETTY", "HUMAN-SOCKS"],
-    storySpine: "Aiden wants repeated name-calling to stop without facing it alone or unsafely.",
-    failedAttempt: "Betty asks Marcus to stop, but the name-calling happens again on Monday.",
-    resolution: "Aiden uses his practiced words, walks away and reports the pattern; Miss Okafor intervenes and Marcus changes his behavior.",
+    storySpine: "Aiden wants the repeated name-calling to stop; asking Marcus is not enough, so he and Betty tell Miss Okafor, who intervenes and checks on him.",
+    failedAttempt: "Marcus laughs at Aiden’s request to stop and repeats the name-calling at lunch despite Betty’s objection.",
+    resolution: "Miss Okafor sets a boundary and monitors the week; the name-calling stops, and Marcus lets Aiden pass with his lunch tray.",
+    sourcePageNumbers: [1, 2, 3, 4, 7, 5, 6, 8, 13, 12, 9, 10, 11],
     pages: [
       "Marcus called Aiden a hurtful name again. Betty saw Aiden look down.",
       "At home, Aiden told Betty. “He says it every day. I want it to stop.”",
-      "“Say your name. Say stop. Walk away. Then tell Miss Okafor,” Betty said.",
-      "Aiden practiced the plan aloud while Socks stayed beside him.",
-      "On Friday, Marcus started again. Betty stepped beside Aiden. “His name is Aiden. Stop.”",
-      "“Thanks,” Aiden said. “Next time, I want to say it.” Betty nodded.",
-      "On Monday, Marcus repeated it. Aiden said clearly, “My name is Aiden. Stop.”",
-      "His voice shook, but he walked away with Betty and told Miss Okafor everything.",
-      "That evening, Aiden wrote the words once more. This time, his hand did not shake.",
-      "Betty bumped his shoulder with hers. “I heard you,” she said.",
-      "A week later, Marcus bumped Aiden's tray. “Sorry, Aiden,” he said. Aiden nodded.",
-      "Miss Okafor told the class, “If unkindness keeps happening, speak, move away, and tell an adult.”",
-      "Then she knelt by Aiden. “You were brave to ask for help. This was never your fault.”"
+      "“Want me to come with you?” Betty asked. Aiden nodded. “I want to tell him to stop first.”",
+      "Aiden tried the words aloud. They sounded small in his bedroom. Socks looked up. Aiden tried once more.",
+      "Next morning, Marcus started again. “Stop calling me that,” Aiden said. Marcus laughed, and Aiden looked away.",
+      "At lunch, Marcus did it again. Betty stepped beside Aiden. “He asked you to stop.” Marcus shrugged.",
+      "“Come on,” Betty said. “We’ll tell Miss Okafor.” This time, Aiden went with her. His lunch could wait.",
+      "Aiden’s voice shook outside the classroom. Betty stayed beside him. Together, they went in.",
+      "Miss Okafor listened. “You did nothing wrong,” she said. “I’ll speak to Marcus and stay close at lunch.”",
+      "Miss Okafor spoke to Marcus. “No more name-calling.” She checked on Aiden at lunch and playtime all week.",
+      "That evening, Aiden wrote about the week. He added one more line: No names today.",
+      "Betty bumped his shoulder with hers. “You told her,” she said. “We told her,” Aiden said.",
+      "At lunch, Marcus stepped aside. “After you, Aiden.” Aiden carried his tray past him. His hands stayed steady."
     ]
   }),
 
@@ -440,8 +441,8 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
   "ab-c-10": humanFictionRewrite({
     canonIds: ["HUMAN-AIDEN", "HUMAN-BETTY"],
     storySpine: "Aiden wants to fill one notebook page with clues about how people used the castle.",
-    failedAttempt: "The dim underground room hides its details and leaves part of his page blank.",
-    resolution: "A picture book makes the missing details visible, so Aiden can fill the blank space at home.",
+    failedAttempt: "Aiden cannot work out what the dark underground room was used for, and its dim display picture does not help.",
+    resolution: "A picture book identifies the dark room as a storeroom; Aiden adds the food barrels to his drawing and understands its purpose.",
     pages: [
       "Dad showed them a castle picture. “I'm filling a page with clues,” Aiden said. Betty grabbed a guidebook.",
       "On Saturday, the castle rose above the hill. “There!” Aiden pressed close to the car window.",
@@ -449,13 +450,13 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
       "Inside the great hall, worn floor stones showed where countless feet had passed.",
       "Betty opened her map. “Armor room next, then the tower.” Aiden followed.",
       "The guide showed plate armor. Aiden lifted one metal glove. “Heavy!”",
-      "Downstairs, dim light hid the old details. Aiden could not find a clue to draw.",
+      "Downstairs, Aiden peered into a dark stone room. “What was this for?” The display picture was too dark to tell.",
       "They climbed 112 steps. From the tower, the river and fields stretched far below.",
       "“Lookouts watched from here,” Betty said. Aiden drew the wide view across two notebook lines.",
       "On the way down, Aiden found an arrow slit. “Another clue!” Thick stone protected the archers.",
-      "At the shop, Betty chose a model. Aiden found a picture book showing the dark room clearly.",
-      "In the car, they checked their clues: moat, hall, lookout, arrow slit—and the dark room's secret.",
-      "At home, Aiden used the picture book to finish his clue page. No blank space left!"
+      "At the shop, Betty chose a model. Aiden found a book with a picture of the dark room.",
+      "“It held food!” Aiden told Betty in the car. “Barrels and sacks. That dark room was a storeroom!”",
+      "At home, Aiden added barrels to his drawing. Now his castle had somewhere to keep its winter food."
     ]
   })
 });

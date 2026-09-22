@@ -609,3 +609,26 @@ evidence remain; generated reports are under ignored `.artifacts/skills-quality`
 The delivery report distinguishes content review, automated audio decoding,
 speech recognition, browser emulation and any outstanding listening, device
 or hosted evidence. No learner data or hosted state is changed by this work.
+
+## All-game Arcade worlds and saved journeys — 22 September 2026
+
+All thirteen Arcade engines now use the shared saved-journey authority in
+`src/utils/arcadeJourneys.js`, with bounded per-difficulty chapter stamps in the
+existing learner-scoped progress record. The Game Design Bible records the
+progression and data minimisation review. Existing mechanics, difficulty bands,
+recordings, quarantines and evidence rules remain authoritative.
+
+Retained editable Blender garden/plaza and railway sources, the exact selected
+CC0 imports, licences, source URLs, hashes, packed textures and generators.
+Removed the downloaded full asset-pack archives and unpacked duplicates after
+verifying the curated sources and packed texture dependencies; removed five
+unused Kenney foliage models, five redundant raw woodland textures and three
+unreferenced runtime sprite variants. These temporary downloads can be restored
+from their recorded official URLs; current selected originals remain in
+`source-art/arcade`. Task-generated previews, intermediate renders and validation
+reports are confined to ignored `.artifacts/arcade-world-upgrade`.
+
+No learner data, unrelated art or hosted content was deleted. Runtime artwork
+loads from the application origin. The new lazy world bank has its own 16 MiB
+budget and 6 MiB per-model cap; the separate searchable model library retains its
+75 MiB cap. Verification details and visual evidence live in the scoped report.

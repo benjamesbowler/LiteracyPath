@@ -1,0 +1,55 @@
+{
+  "creator": "Literacy Guide",
+  "license": "Project-owned",
+  "source": "source-art/arcade/rolling-stock/Railway.blend",
+  "sourceSha256": "e973e30a939762d35b1eb8ae6955c56920f1052fea0453fe10673e15454b79f4",
+  "authoring": "tools/blender/build_arcade_rolling_stock.py",
+  "authoringSha256": "fcc5fd895edb8d01a40a285d0e2b5905f560fe226bffb6c9f13a42d8ddbdf251",
+  "assets": [
+    {
+      "id": "wagon",
+      "url": "/game-assets/arcade-worlds/trains/wagon.glb",
+      "glbSha256": "88a6914623b60a842745d7e750738a2ad494e01005d12a26465358997b62f4dc",
+      "glbBytes": 768576,
+      "sprite": {
+        "url": "/game-assets/arcade-worlds/trains/wagon.webp",
+        "width": 512,
+        "height": 320,
+        "frames": 8,
+        "columns": 4,
+        "fps": 12
+      },
+      "sha256": "cd000d5c3b0cd90524d1de8c512a529c5450a9eff33af4b775a88ff3f4e69b80"
+    },
+    {
+      "id": "engine",
+      "url": "/game-assets/arcade-worlds/trains/engine.glb",
+      "glbSha256": "917992a9ae83e461305e19d84ecca6e0f17245af57af57df3cc21717753e0fcc",
+      "glbBytes": 1541244,
+      "sprite": {
+        "url": "/game-assets/arcade-worlds/trains/engine.webp",
+        "width": 512,
+        "height": 320,
+        "frames": 8,
+        "columns": 4,
+        "fps": 12
+      },
+      "sha256": "57131c3064444a9c6a80681ee756ba0ad94744cab1ac4dda50444293b8e10ebf"
+    },
+    {
+      "id": "caboose",
+      "url": "/game-assets/arcade-worlds/trains/caboose.glb",
+      "glbSha256": "e5740cb30ed8230266d9c07726c277f9121fbd39e91f76d837c113bc44c9b22f",
+      "glbBytes": 2285752,
+      "sprite": {
+        "url": "/game-assets/arcade-worlds/trains/caboose.webp",
+        "width": 512,
+        "height": 320,
+        "frames": 8,
+        "columns": 4,
+        "fps": 12
+      },
+      "sha256": "d930abee1c27fd37819288198dcd983529882362f98d767b92df1598b9cdb45c"
+    }
+  ]
+}

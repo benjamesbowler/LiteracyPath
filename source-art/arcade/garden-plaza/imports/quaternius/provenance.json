@@ -1,0 +1,146 @@
+{
+  "creator": "Quaternius",
+  "pack": "Ultimate Stylized Nature",
+  "license": "CC0-1.0",
+  "sourceUrl": "https://quaternius.com/packs/ultimatestylizednature.html",
+  "licenseNote": "The official Nature product page declares CC0. Its shared download folder includes a generic CC0 licence titled Ultimate Platformer Pack; retained verbatim.",
+  "files": [
+    {
+      "file": "BirchTree_1.gltf",
+      "sourceUrl": "https://drive.google.com/file/d/1K3kgivCdB10eg57AM0CwSZi6TvCwsvNh/view",
+      "bytes": 3420,
+      "sha256": "8dbf9fd8b6402bfffdbe370a8c4337e8dae27fa3da5fbacbfd4fae6482ad50fa"
+    },
+    {
+      "file": "BirchTree_1.bin",
+      "sourceUrl": "https://drive.google.com/file/d/1CzLliZji_8zxWRI_QQXmTgGaycWGYhLb/view",
+      "bytes": 201976,
+      "sha256": "a1b14d1c82ebb8153991de4156b77ceaa1143d64469679147c0ee249c8b90b83"
+    },
+    {
+      "file": "BirchTree_3.gltf",
+      "sourceUrl": "https://drive.google.com/file/d/1_quJzC_FGAbkYGcV0A8AJbcTtISwkOWU/view",
+      "bytes": 3814,
+      "sha256": "0b8c042a35073de46c4e73c81c23df9af412460d59f90178e4491d9353bb2b9c"
+    },
+    {
+      "file": "BirchTree_3.bin",
+      "sourceUrl": "https://drive.google.com/file/d/16XqK_LDVe--xuyu3LtxOerCcnIrJiXMq/view",
+      "bytes": 437788,
+      "sha256": "98d3a00145beeab868c0e7eb8dbb1118115cb00a44a8a801244eae837805d602"
+    },
+    {
+      "file": "BirchTree_Bark_Normal.png",
+      "sourceUrl": "https://drive.google.com/file/d/1qg4n9gasJ-c_jQED-IBqx28Qu53CURcR/view",
+      "bytes": 22721595,
+      "sha256": "e30ee9c7561742523340d5657056f8392bc0f944da5145f0af7690cd1d2e6a11",
+      "modification": {
+        "operation": "Downsample source texture for the curated game kit",
+        "originalDimensions": [
+          2048,
+          2048
+        ],
+        "retainedDimensions": [
+          256,
+          256
+        ],
+        "retainedBytes": 117967,
+        "retainedSha256": "ac53052a65083365d09d22e4dfa1d8267313ead9f25f84e345e6b6b32150e047"
+      }
+    },
+    {
+      "file": "BirchTree_Bark.jpg",
+      "sourceUrl": "https://drive.google.com/file/d/1puC8NuyemENIPB40TOsKdqzp0EmUJe1g/view",
+      "bytes": 1015231,
+      "sha256": "f796f02e47bc5afddd17dc2385bbef53a352628ceb348deb1188ef04fe5deff9",
+      "modification": {
+        "operation": "Downsample source texture for the curated game kit",
+        "originalDimensions": [
+          2048,
+          2048
+        ],
+        "retainedDimensions": [
+          512,
+          512
+        ],
+        "retainedBytes": 32926,
+        "retainedSha256": "9fe8eb1cfc76ecab60f6fcb920921fafeb01ba5c16cde9f071eb1193ef3a4709"
+      }
+    },
+    {
+      "file": "BirchTree_Leaves.png",
+      "sourceUrl": "https://drive.google.com/file/d/1RPfkjEuuEwFno9gh3U0zQndzcB8DOr_S/view",
+      "bytes": 77836,
+      "sha256": "8b674a02017d987f8ec0448bd2a52ad788d1235f91b7f00499b4ca071f8e69fe",
+      "modification": {
+        "operation": "Downsample source texture for the curated game kit",
+        "originalDimensions": [
+          1024,
+          1024
+        ],
+        "retainedDimensions": [
+          512,
+          512
+        ],
+        "retainedBytes": 59236,
+        "retainedSha256": "01a5998c5231c17d92cdb66d8d0193cfeaa14334e3a2349d2822cfa141cb0867"
+      }
+    },
+    {
+      "file": "Bush_Large_Flowers.gltf",
+      "sourceUrl": "https://drive.google.com/file/d/1ZfIqi_ZVGWQoiv7aqL6toE2AxB1zaIyA/view",
+      "bytes": 3335,
+      "sha256": "cc63ec8946ee072b06d4d57e845042ed9df46efaef8de26b0a640fbe557dda12"
+    },
+    {
+      "file": "Bush_Large_Flowers.bin",
+      "sourceUrl": "https://drive.google.com/file/d/1Uqx2arbqdrJNg0gs4dRQRW82dbGDyXu-/view",
+      "bytes": 24780,
+      "sha256": "780b50270f5bb264c5642eae514191a372a7799eafc444cc9afb5ce501b9109a"
+    },
+    {
+      "file": "Bush_Leaves.png",
+      "sourceUrl": "https://drive.google.com/file/d/19xOyTuSATvkHhQd8zC6PW-y6RX761yGA/view",
+      "bytes": 74828,
+      "sha256": "9f662296a285ca56b1ed56e952a198b93b466ae39ab7b6ee1c1ac1bd1c46242f",
+      "modification": {
+        "operation": "Downsample source texture for the curated game kit",
+        "originalDimensions": [
+          1024,
+          1024
+        ],
+        "retainedDimensions": [
+          512,
+          512
+        ],
+        "retainedBytes": 59175,
+        "retainedSha256": "195e1335c1ce20e67ad4c23166f808f350930779d2db321c2d1fcc7a05db59c3"
+      }
+    },
+    {
+      "file": "Flowers.png",
+      "sourceUrl": "https://drive.google.com/file/d/1aVoa3KmIjIlIA5MhvUn7Z5trLRBlM1r6/view",
+      "bytes": 318021,
+      "sha256": "23673fc87e55d8f7cbc699581a164cffec505376bd8b0b90b593dc387aa569fd",
+      "modification": {
+        "operation": "Downsample source texture for the curated game kit",
+        "originalDimensions": [
+          1024,
+          1024
+        ],
+        "retainedDimensions": [
+          512,
+          512
+        ],
+        "retainedBytes": 139076,
+        "retainedSha256": "7749d27170d2edfeade7fed6cf35c3ce721e0cea482ff32f8f225c9c3a0fa207"
+      }
+    },
+    {
+      "file": "LICENSE.txt",
+      "sourceUrl": "https://drive.google.com/file/d/1W3YGLar9Ie0Lwfw7QJv1x8oBLKFPuOkW/view",
+      "bytes": 374,
+      "sha256": "de990ef6fc68cffd7fd1ae342c4d0c823b541b8848d8f76bca5d3339f4de6f6e"
+    }
+  ]
+}

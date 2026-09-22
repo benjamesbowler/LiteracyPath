@@ -15,6 +15,7 @@ import { GUIDED_READING_HUMAN_FICTION_REWRITES } from "../content/guidedReadingH
 import { GUIDED_READING_WORLD_FICTION_REWRITES } from "../content/guidedReadingWorldFictionRewrites.js";
 import { GUIDED_READING_NARRATION_CLEARANCE } from "./generated/guidedReadingNarrationClearance.generated.js";
 import { LEDA_PRODUCTION_VOICE } from "./ledaProductionVoice.js";
+import { GUIDED_READING_ILLUSTRATION_DESCRIPTIONS } from "../content/guidedReadingIllustrationDescriptions.js";
 
 const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
   ...GUIDED_READING_CORE_REWRITES,
@@ -117,14 +118,16 @@ function ensureGuidedReadingMetadata(book = {}) {
     pages: (book.pages || []).map((page, index) => {
       const pageNumber = page.pageNumber || index + 1;
       const cleanText = normalizeReadingText(page.text);
-      const metadataGeneratedFromReadingText = !page.imageAlt && !page.pageDescription && !page.illustrationPrompt;
-      const sceneDescription = page.pageDescription
+      const reviewedCaption = GUIDED_READING_ILLUSTRATION_DESCRIPTIONS[`${book.id}::${pageNumber}`];
+      const metadataGeneratedFromReadingText = !reviewedCaption && !page.imageAlt && !page.pageDescription && !page.illustrationPrompt;
+      const sceneDescription = reviewedCaption || page.pageDescription
         || page.illustrationPrompt
         || `Illustration for page ${pageNumber} of ${book.title}, matching the reading text: ${cleanText}`;
 
       return {
         ...page,
-        imageAlt: page.imageAlt || sceneDescription,
+        imageAlt: reviewedCaption || page.imageAlt || sceneDescription,
+        ...(reviewedCaption ? { illustrationPrompt: reviewedCaption } : {}),
         pageDescription: sceneDescription,
         embeddedImageText: page.embeddedImageText || "",
         metadataGeneratedFromReadingText,
@@ -158,7 +161,10 @@ function applyStoryBibleRewrite(book = {}) {
     }
   }
 
-  let activePageIndex = 0;
+  if (selectedPageNumbers.size !== sourcePageNumbers.length) {
+    throw new Error(`${book.id}: Story Bible rewrite selected duplicate source pages.`);
+  }
+  const rewriteIndexByPage = new Map(sourcePageNumbers.map((pageNumber, index) => [pageNumber, index]));
   return {
     ...book,
     ...(rewrite.title ? { title: rewrite.title } : {}),
@@ -189,13 +195,13 @@ function applyStoryBibleRewrite(book = {}) {
           qaNotes: "Removed from the active reading route by the Story Bible edit."
         };
       }
-      const text = normalizeReadingText(rewrite.pages[activePageIndex]);
-      activePageIndex += 1;
+      const text = normalizeReadingText(rewrite.pages[rewriteIndexByPage.get(pageNumber)]);
       const clearance = GUIDED_READING_NARRATION_CLEARANCE[`${book.id}::${pageNumber}`];
       const narrationCleared = clearance?.displayedText === canonicalNarrationText(text)
         && clearance?.voice === LEDA_PRODUCTION_VOICE;
       return {
         ...page,
+        pageNumber,
         text,
         pageAudioText: text,
         words: words(text),
@@ -204,6 +210,12 @@ function applyStoryBibleRewrite(book = {}) {
           ? "Story Bible manuscript and hash-verified exact-text Leda narration locked."
           : "Story Bible manuscript locked; exact-text Leda narration required."
       };
+    }).sort((left, right) => {
+      // Manuscript order can differ from the original illustration sequence.
+      // Keep source page numbers for image, audio and discussion references.
+      const leftOrder = rewriteIndexByPage.get(left.pageNumber) ?? Number.MAX_SAFE_INTEGER;
+      const rightOrder = rewriteIndexByPage.get(right.pageNumber) ?? Number.MAX_SAFE_INTEGER;
+      return leftOrder - rightOrder;
     })
   };
 }

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { sampleSkateSurface, skateRampProfile, skateSurfaceTilt, createSkateRampGeometry, createSkateDeckGeometry, planSkateRoute, skateObstacleAt, skateDeckClearance, skateFrameSteps, nextSkateQuality, skateMotion, measureSkateTravel, chooseSkateDestination, SKATE_DESTINATION_DISTANCE } from '../../src/components/learn/games/games/spellSkatePark.js';
+import { createSkateTextSign, sampleSkateSurface, skateRampProfile, skateSurfaceTilt, createSkateRampGeometry, createSkateDeckGeometry, planSkateRoute, skateObstacleAt, skateDeckClearance, skateFrameSteps, nextSkateQuality, skateMotion, skateAction, measureSkateTravel, chooseSkateDestination, SKATE_DESTINATION_DISTANCE } from '../../src/components/learn/games/games/spellSkatePark.js';
 import { chooseSkaterState, SPELL_SKATER_STATES } from '../../src/components/learn/games/games/spellSkaterAsset.js';
 import { grammarGrindLadder } from '../../src/utils/grammarGrindLevels.js';
 test('every ramp vertex and sampled riding surface agree, including rotated quarters and bowl', () => {
@@ -309,4 +309,50 @@ test('compressed network recovery preserves exactly the same retained authored s
   const recovery=await fs.readFile(new URL('../../src/assets/game-recovery/spell-skater.glb.gz',import.meta.url));
   const original=await fs.readFile(new URL('../../public/game-assets/spell-skate/spell-skater.glb',import.meta.url));
   assert.deepEqual(gunzipSync(recovery),original);
+});
+
+
+test('park banners keep left-to-right lettering on both approaches without mirrored backfaces', () => {
+  const texture=new THREE.Texture();
+  const sign=createSkateTextSign(texture,6.8,2.1);
+  assert.equal(sign.material.side,THREE.FrontSide);
+  assert.equal(sign.material.map,texture);
+  const position=sign.geometry.attributes.position,uv=sign.geometry.attributes.uv;
+  const normal=sign.geometry.attributes.normal;
+  for(const [offset,side] of [[0,1],[4,-1]]){
+    assert.equal(uv.getX(offset),0);assert.equal(uv.getX(offset+2),1);
+    assert.ok((position.getX(offset+2)-position.getX(offset))*side>0,'texture progresses rightward from the viewer on each side');
+    assert.ok(normal.getZ(offset)*side>.99,'each printed face points toward its own approach');
+    assert.ok(position.getZ(offset)*side>0,'faces are separated so they cannot fight for depth');
+    const ray=new THREE.Raycaster(new THREE.Vector3(0,0,side*10),new THREE.Vector3(0,0,-side));
+    sign.updateMatrixWorld();const hits=ray.intersectObject(sign);
+    assert.ok(hits.length>=1);assert.ok(hits[0].normal.z*side>.99,'the visible text is the outward face');
+  }
+  sign.geometry.dispose();sign.material.dispose();texture.dispose();
+});
+
+
+test('one skate action responds to ground, rails, airborne repeats and recovery', () => {
+  const grounded = { onGround: true, speed: 12, airTricks: 0 };
+  assert.equal(skateAction(grounded), 'ollie');
+  assert.equal(skateAction(grounded, true), 'grind');
+  assert.equal(skateAction({ ...grounded, speed: -8 }, true), 'grind');
+  assert.equal(skateAction({ ...grounded, speed: 0 }, true), 'ollie');
+  assert.equal(skateAction({ ...grounded, grind: .5 }, true), 'pop-out');
+  assert.equal(skateAction({ ...grounded, onGround: false }), 'spin');
+  assert.equal(skateAction({ ...grounded, onGround: false, airTricks: 1 }), 'spin');
+  assert.equal(skateAction({ ...grounded, onGround: false, airTricks: 2 }), 'none');
+  assert.equal(skateAction({ ...grounded, stun: .2 }, true), 'none');
+});
+
+test('forward acceleration reaches cruising speed without a boost resource and release coasts', () => {
+  const state = { speed: 0, yaw: 0, onGround: true };
+  const controls = { active: true, turn: 0, push: 1, brake: 0, boost: true, maxSpeed: 9, minSpeed: -4.05, topSpeed: 17 };
+  for (let n = 0; n < 40; n++) Object.assign(state, skateMotion(state, controls, 1 / 60));
+  assert.equal(state.speed, 17);
+  const coast = skateMotion(state, { ...controls, push: 0, boost: false }, 1 / 60);
+  assert.ok(coast.speed < 17 && coast.speed > 16);
+  const reverse = { ...state };
+  for (let n = 0; n < 90; n++) Object.assign(reverse, skateMotion(reverse, { ...controls, push: 0, boost: false, brake: 1 }, 1 / 60));
+  assert.equal(reverse.speed, -4.05);
 });
