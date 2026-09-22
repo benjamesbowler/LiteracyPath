@@ -2243,6 +2243,7 @@ export function AppSurface({ surface }) {
             currentStage={currentStage}
             setFeedback={setFeedback}
             pickQuestion={pickQuestion}
+            restartAssessment={() => startAssessment(currentSkillIndex, { mode: assessmentMode })}
             roundAnswers={roundAnswers}
             roundLength={ROUND_LENGTH}
             roundProgress={roundProgress}

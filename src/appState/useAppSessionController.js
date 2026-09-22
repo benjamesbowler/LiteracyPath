@@ -130,10 +130,10 @@ export function useAppSessionController(context) {
     letterAssessment, letterIndex, loadElBenchmarkDraft, loadManualAssessmentDrafts,
     loadTeacherRouteRuntime, logAdminSupabaseError, mastery, mergeAssessmentAttemptIntoItemMastery,
     mergeAssessmentAttemptRecords, newClassName, normalizeItemMasteryRow, patternAssessment,
-    patternAttempt, patternIndex, pickQuestion, profileLoaded, profileLoadedTeacherIdRef,
+    patternAttempt, patternIndex, resumeAssessmentAfterRestore, profileLoaded, profileLoadedTeacherIdRef,
     queueProgressSave, rawSetAppView, resetInitialSoundRoundQueue,
     restoreElBenchmarkSessionFromHash, restoreManualAssessmentDraftsFromHistory, roundAnswers, roundItemKeys, roundItemKeysRef,
-    roundQuestionIds, roundQuestionIdsRef, saveElBenchmarkDraft, saveManualAssessmentDrafts, saveStudentAccessibilitySettings,
+    roundQuestionIds, roundQuestionIdsRef, assessmentSittingRef, saveElBenchmarkDraft, saveManualAssessmentDrafts, saveStudentAccessibilitySettings,
     saveStudentReducedChoiceMode, selectedClassId, sessionMode, setAdminClasses,
     setAdminConfirm, setAdminLoading, setAdminPendingAccounts, setAdminPendingAccountsWarning,
     setAdminSchools, setAdminStatusError, setAdminStudents, setAdminTeachers,
@@ -174,6 +174,8 @@ export function useAppSessionController(context) {
   const [classListReadState, setClassListReadState] = useState(
     createClassListReadState
   );
+  const resumeAssessmentRef = useRef(resumeAssessmentAfterRestore);
+  useEffect(() => { resumeAssessmentRef.current = resumeAssessmentAfterRestore; }, [resumeAssessmentAfterRestore]);
   const [classDashboardReadState, setClassDashboardReadState] = useState(
     createClassDashboardReadState
   );
@@ -917,7 +919,6 @@ export function useAppSessionController(context) {
           Math.max(0, Number(data.currentSkillIndex) || 0),
           skillTree.length - 1
         );
-        const restoredRoundAnswers = Array.isArray(data.roundAnswers) ? data.roundAnswers : [];
         const savedStudentId = data.teacherStudentId || data.studentId || null;
         const restoredStudentId = teacherRoute
           ? teacherRoute.learnerId || null
@@ -925,6 +926,11 @@ export function useAppSessionController(context) {
         const restoredStudentName = restoredStudentId && restoredStudentId === savedStudentId
           ? data.teacherStudentName || data.studentName || ""
           : "";
+        const ownsLearnerProfile = Boolean(restoredStudentId && restoredStudentId === savedStudentId);
+        const ownsAssessmentDraft = String(data.teacherStudentId || "") === String(restoredStudentId || "")
+          && data.assessmentSitting?.studentId === restoredStudentId;
+        const restoredRoundAnswers = ownsAssessmentDraft && Array.isArray(data.roundAnswers) ? data.roundAnswers : [];
+        if (assessmentSittingRef) assessmentSittingRef.current = ownsAssessmentDraft ? data.assessmentSitting : null;
         const savedManualDrafts = restoredStudentId
           ? loadManualAssessmentDrafts({
               teacherId: restoreTeacherId,
@@ -1001,10 +1007,10 @@ export function useAppSessionController(context) {
         setRoundQuestionIds(restoredRoundQuestionIds);
         roundItemKeysRef.current = restoredRoundItemKeys;
         roundQuestionIdsRef.current = restoredRoundQuestionIds;
-        setUsedByStage(data.usedByStage || {});
-        setMastery(data.mastery || {});
-        setTotalAnswered(data.totalAnswered || 0);
-        setCorrectAnswered(data.correctAnswered || 0);
+        setUsedByStage(ownsLearnerProfile ? data.usedByStage || {} : {});
+        setMastery(ownsLearnerProfile ? data.mastery || {} : {});
+        setTotalAnswered(ownsLearnerProfile ? data.totalAnswered || 0 : 0);
+        setCorrectAnswered(ownsLearnerProfile ? data.correctAnswered || 0 : 0);
         // Formal assessment drafts are stored per student. The profile fields
         // below are only a one-release migration fallback for existing devices;
         // they are accepted solely when the profile's saved student is the
@@ -1023,11 +1029,11 @@ export function useAppSessionController(context) {
           : useLegacyManualDraft && Array.isArray(data.patternAssessment) ? data.patternAssessment : []);
         setPatternAttempt(restoredStudentId ? data.patternAttempt || 0 : 0);
         setElBenchmarkSession(restoredElBenchmarkSession);
-        const restoredAnswerHistory = restoredStudentId && Array.isArray(data.answerHistory) ? data.answerHistory : [];
+        const restoredAnswerHistory = restoredStudentId && String(data.teacherStudentId || "") === String(restoredStudentId) && Array.isArray(data.answerHistory) ? data.answerHistory : [];
         setAnswerHistory(restoredAnswerHistory);
         answerHistoryRef.current = restoredAnswerHistory;
         setGuidedReadingRecords(restoredStudentId ? loadGuidedReadingRecords(restoredStudentId) : {});
-        setItemMastery(data.itemMastery || {});
+        setItemMastery(ownsLearnerProfile ? data.itemMastery || {} : {});
         setItemSessionSeen({});
         setFeedback(null);
         setCurrentQuestion(null);
@@ -1046,7 +1052,7 @@ export function useAppSessionController(context) {
           setAssessmentTransitioning(true);
           setTimeout(() => {
             if (!isRestoreCurrent()) return;
-            pickQuestion(data.assessmentMode || "mastery", restoredSkillIndex);
+            void resumeAssessmentRef.current(data.assessmentMode || "mastery", restoredSkillIndex);
           }, 0);
         }
       } catch (error) {
@@ -1197,6 +1203,7 @@ export function useAppSessionController(context) {
         roundAnswers,
         roundItemKeys,
         roundQuestionIds,
+        assessmentSitting: assessmentSittingRef?.current || null,
         usedByStage,
         mastery,
         totalAnswered,

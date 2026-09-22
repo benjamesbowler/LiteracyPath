@@ -235,13 +235,27 @@ export default {
       note: "the exact spoken target avoids the truck-versus-lorry picture naming ambiguity"
     }),
 
+    // New targets, not reordered answer sets, fill a complete fresh retention retry.
+    { ...mv("short_e", 1, 1, 20, "peg", "p_g", ["e", "i", "a", "u"]), retention: true, media: "audio-required", img: undefined,
+      evidenceModality: "audio+print", audioRole: "target_word", note: "new CVC target; the spoken word separates peg from pig and pug" },
+    { ...mv("short_a", 2, 1, 20, "band", "b_nd", ["a", "e", "i", "o"]), retention: true, media: "audio-required", img: undefined,
+      evidenceModality: "audio+print", audioRole: "target_word", note: "new final-cluster target; band, bend, bind and bond demand the heard vowel" },
+    { ...mv("short_e", 2, 1, 20, "desk", "d_sk", ["e", "i", "u", "a"]), retention: true, media: "audio-required", img: undefined,
+      evidenceModality: "audio+print", audioRole: "target_word", note: "new final-cluster target; desk is distinguished from disk and dusk by its vowel" },
+    { ...mv("short_i", 2, 1, 20, "swim", "sw_m", ["i", "a", "u", "e"]), retention: true, media: "audio-required", img: undefined,
+      evidenceModality: "audio+print", audioRole: "target_word", note: "new initial-cluster target; the recording distinguishes swim from swam and swum" },
+    { ...mv("short_o", 2, 2, 20, "spot", "sp_t", ["o", "a", "i", "u"]), retention: true, media: "audio-required", img: undefined,
+      evidenceModality: "audio+print", audioRole: "target_word", note: "new initial-cluster target; spot contrasts with spat and spit without a scene-naming demand" },
+    { ...mv("short_u", 2, 2, 20, "clump", "cl_mp", ["u", "a", "i", "o"]), retention: true, media: "audio-required", img: undefined,
+      evidenceModality: "audio+print", audioRole: "target_word", note: "new word with initial and final clusters; the heard vowel distinguishes clump from clamp" },
+
     // ================= Retention reserve (form R) =================
     mv("short_u", 1, 2, 7, "nut", "n_t", ["u", "a", "o", "e"],
       "n-o-t and n-e-t are real words — the directly nameable nut image pins the target"),
     mv("short_u", 1, 2, 8, "mug", "m_g", ["u", "a", "i", "o"]),
     pp("short_a", 1, 1, 7, "hat", ["hat", "hot", "hut", "hit"], {},
       "the full hat/hot/hut/hit vowel square"),
-    pp("short_i", 1, 1, 7, "pin", ["pin", "pan", "pen", "pit"], {}),
+    pp("short_i", 1, 1, 7, "pin", ["pin", "pan", "pen", "pit"], { pit: "D-RIME-NEAR" }),
     svw("short_a", 1, 1, 8, "a", ["jam", "game", "jet", "jug"], "jam",
       { game: "D-PATTERN-TRAP", jet: "D-VOWEL", jug: "D-VOWEL" }),
     svw("short_o", 1, 2, 7, "o", ["hot", "home", "hat", "hut"], "hot",

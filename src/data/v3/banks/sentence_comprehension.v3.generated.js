@@ -58,7 +58,7 @@ export const questions = [
   "correctAnswer": "red flowers along the garden path",
   "distractorRationales": {
    "green beans along the garden path": "D-PLAUSIBLE-UNSUPPORTED",
-   "green beans far from the garden path": "D-OPPOSITE",
+   "green beans far from the garden path": "D-PLAUSIBLE-UNSUPPORTED",
    "red flowers far from the garden path": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -148,7 +148,7 @@ export const questions = [
   "correctAnswer": "a sticker as a reward",
   "distractorRationales": {
    "a brush for his teeth": "D-PLAUSIBLE-UNSUPPORTED",
-   "a sticker for his sister": "D-OPPOSITE",
+   "a sticker for his sister": "D-PLAUSIBLE-UNSUPPORTED",
    "a toy as a reward": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -238,7 +238,7 @@ export const questions = [
   "correctAnswer": "the person who brings letters",
   "distractorRationales": {
    "the person who drives buses": "D-PLAUSIBLE-UNSUPPORTED",
-   "the person who sweeps paths": "D-OPPOSITE",
+   "the person who sweeps paths": "D-PLAUSIBLE-UNSUPPORTED",
    "the person who sells bread": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -327,8 +327,8 @@ export const questions = [
   "answer": "Ren did it alone",
   "correctAnswer": "Ren did it alone",
   "distractorRationales": {
-   "Ren and his dad": "D-PLAUSIBLE-UNSUPPORTED",
-   "Ren and his sister": "D-PLAUSIBLE-UNSUPPORTED",
+   "Ren and his dad": "D-OPPOSITE",
+   "Ren and his sister": "D-OPPOSITE",
    "Ren and his friend": "D-OPPOSITE"
   },
   "mediaTier": "text",
@@ -417,7 +417,7 @@ export const questions = [
   "answer": "his toast got too dark",
   "correctAnswer": "his toast got too dark",
   "distractorRationales": {
-   "his cups broke on the floor": "D-OPPOSITE",
+   "his cups broke on the floor": "D-PLAUSIBLE-UNSUPPORTED",
    "his toast fell onto the floor": "D-PLAUSIBLE-UNSUPPORTED",
    "his tea spilled on the table": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -509,7 +509,7 @@ export const questions = [
   "distractorRationales": {
    "the inside wall of their bedroom": "D-PLAUSIBLE-UNSUPPORTED",
    "the entrance to their kitchen": "D-PLAUSIBLE-UNSUPPORTED",
-   "the inside wall of their kitchen": "D-OPPOSITE"
+   "the inside wall of their kitchen": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -599,7 +599,7 @@ export const questions = [
   "distractorRationales": {
    "the side of a box": "D-PLAUSIBLE-UNSUPPORTED",
    "the lid from a jar": "D-PLAUSIBLE-UNSUPPORTED",
-   "the handle of a cup": "D-OPPOSITE"
+   "the handle of a cup": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -689,7 +689,7 @@ export const questions = [
   "distractorRationales": {
    "a chair that was not steady": "D-PLAUSIBLE-UNSUPPORTED",
    "a table with a wet top": "D-PLAUSIBLE-UNSUPPORTED",
-   "a chair with a torn seat": "D-OPPOSITE"
+   "a chair with a torn seat": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -777,7 +777,7 @@ export const questions = [
   "answer": "on Tuesday each week",
   "correctAnswer": "on Tuesday each week",
   "distractorRationales": {
-   "on Sunday each week": "D-OPPOSITE",
+   "on Sunday each week": "D-PLAUSIBLE-UNSUPPORTED",
    "on Friday each week": "D-PLAUSIBLE-UNSUPPORTED",
    "on Monday each week": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -867,7 +867,7 @@ export const questions = [
   "answer": "inside a bowl for fruit",
   "correctAnswer": "inside a bowl for fruit",
   "distractorRationales": {
-   "beside a box for toys": "D-OPPOSITE",
+   "beside a box for toys": "D-PLAUSIBLE-UNSUPPORTED",
    "beside a bowl for fruit": "D-PLAUSIBLE-UNSUPPORTED",
    "inside a box for toys": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -957,8 +957,8 @@ export const questions = [
   "answer": "below the biggest leaf",
   "correctAnswer": "below the biggest leaf",
   "distractorRationales": {
-   "above the smallest leaf": "D-OPPOSITE",
-   "above the biggest leaf": "D-PLAUSIBLE-UNSUPPORTED",
+   "above the smallest leaf": "D-PLAUSIBLE-UNSUPPORTED",
+   "above the biggest leaf": "D-OPPOSITE",
    "below the smallest leaf": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -1014,7 +1014,7 @@ export const questions = [
   "prompt": "When do swimming lessons start?",
   "question": "When do swimming lessons start?",
   "spokenPrompt": "When do swimming lessons start?",
-  "passage": "Swimming lessons start after lunch every Friday.",
+  "passage": "Swimming lessons at our school start after lunch every Friday.",
   "cell": "literal_where_when",
   "choices": [
    "before Friday’s lunch has started",
@@ -1047,9 +1047,9 @@ export const questions = [
   "answer": "when Friday’s lunch is over",
   "correctAnswer": "when Friday’s lunch is over",
   "distractorRationales": {
-   "before Friday’s lunch has started": "D-PLAUSIBLE-UNSUPPORTED",
+   "before Friday’s lunch has started": "D-OPPOSITE",
    "when Monday’s lunch is over": "D-PLAUSIBLE-UNSUPPORTED",
-   "before Monday’s lunch has started": "D-OPPOSITE"
+   "before Monday’s lunch has started": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1138,8 +1138,8 @@ export const questions = [
   "correctAnswer": "at the back of the bins",
   "distractorRationales": {
    "on the left of the bins": "D-PLAUSIBLE-UNSUPPORTED",
-   "on the right of the bins": "D-OPPOSITE",
-   "at the front of the bins": "D-PLAUSIBLE-UNSUPPORTED"
+   "on the right of the bins": "D-PLAUSIBLE-UNSUPPORTED",
+   "at the front of the bins": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1229,7 +1229,7 @@ export const questions = [
   "distractorRationales": {
    "at seven after lunch": "D-PLAUSIBLE-UNSUPPORTED",
    "at nine before lunch": "D-PLAUSIBLE-UNSUPPORTED",
-   "at nine after lunch": "D-OPPOSITE"
+   "at nine after lunch": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1319,7 +1319,7 @@ export const questions = [
   "distractorRationales": {
    "on the chair near the window": "D-PLAUSIBLE-UNSUPPORTED",
    "on the bench near the flowers": "D-PLAUSIBLE-UNSUPPORTED",
-   "on the bench near the window": "D-OPPOSITE"
+   "on the bench near the window": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1409,7 +1409,7 @@ export const questions = [
   "distractorRationales": {
    "on the cupboard": "D-PLAUSIBLE-UNSUPPORTED",
    "by the cupboard": "D-PLAUSIBLE-UNSUPPORTED",
-   "under the cupboard": "D-OPPOSITE"
+   "under the cupboard": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1466,16 +1466,16 @@ export const questions = [
   "spokenPrompt": "Look carefully at the picture. Which sentence tells about it?",
   "cell": "picture_match",
   "choices": [
-   "A girl paints a picture of rain.",
+   "A girl is painting a picture of rainy weather.",
    "A girl in rain boots jumps over a puddle.",
-   "A girl sleeps in her warm bed.",
-   "A boy in rain boots fills a puddle."
+   "A girl is sleeping in her warm bed indoors.",
+   "A boy in rain boots is filling a puddle."
   ],
   "answerOptions": [
    {
-    "value": "A girl paints a picture of rain.",
-    "label": "A girl paints a picture of rain.",
-    "text": "A girl paints a picture of rain."
+    "value": "A girl is painting a picture of rainy weather.",
+    "label": "A girl is painting a picture of rainy weather.",
+    "text": "A girl is painting a picture of rainy weather."
    },
    {
     "value": "A girl in rain boots jumps over a puddle.",
@@ -1483,22 +1483,22 @@ export const questions = [
     "text": "A girl in rain boots jumps over a puddle."
    },
    {
-    "value": "A girl sleeps in her warm bed.",
-    "label": "A girl sleeps in her warm bed.",
-    "text": "A girl sleeps in her warm bed."
+    "value": "A girl is sleeping in her warm bed indoors.",
+    "label": "A girl is sleeping in her warm bed indoors.",
+    "text": "A girl is sleeping in her warm bed indoors."
    },
    {
-    "value": "A boy in rain boots fills a puddle.",
-    "label": "A boy in rain boots fills a puddle.",
-    "text": "A boy in rain boots fills a puddle."
+    "value": "A boy in rain boots is filling a puddle.",
+    "label": "A boy in rain boots is filling a puddle.",
+    "text": "A boy in rain boots is filling a puddle."
    }
   ],
   "answer": "A girl in rain boots jumps over a puddle.",
   "correctAnswer": "A girl in rain boots jumps over a puddle.",
   "distractorRationales": {
-   "A girl paints a picture of rain.": "D-TOPIC-ADJACENT",
-   "A girl sleeps in her warm bed.": "D-PLAUSIBLE-UNSUPPORTED",
-   "A boy in rain boots fills a puddle.": "D-VISUAL-NEIGHBOR"
+   "A girl is painting a picture of rainy weather.": "D-TOPIC-ADJACENT",
+   "A girl is sleeping in her warm bed indoors.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A boy in rain boots is filling a puddle.": "D-VISUAL-NEIGHBOR"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1569,39 +1569,39 @@ export const questions = [
   "spokenPrompt": "Look carefully at the picture. Which sentence tells about it?",
   "cell": "picture_match",
   "choices": [
-   "Two boys carry a ladder past the bakery.",
-   "Two boys buy buns at the bakery.",
-   "One boy climbs a ladder at home.",
-   "Two bakers carry a table."
+   "Two boys are carrying a ladder past the bakery.",
+   "Two boys are buying some buns at the bakery.",
+   "One boy is climbing up a ladder at home.",
+   "Two bakers are carrying a table along the street."
   ],
   "answerOptions": [
    {
-    "value": "Two boys carry a ladder past the bakery.",
-    "label": "Two boys carry a ladder past the bakery.",
-    "text": "Two boys carry a ladder past the bakery."
+    "value": "Two boys are carrying a ladder past the bakery.",
+    "label": "Two boys are carrying a ladder past the bakery.",
+    "text": "Two boys are carrying a ladder past the bakery."
    },
    {
-    "value": "Two boys buy buns at the bakery.",
-    "label": "Two boys buy buns at the bakery.",
-    "text": "Two boys buy buns at the bakery."
+    "value": "Two boys are buying some buns at the bakery.",
+    "label": "Two boys are buying some buns at the bakery.",
+    "text": "Two boys are buying some buns at the bakery."
    },
    {
-    "value": "One boy climbs a ladder at home.",
-    "label": "One boy climbs a ladder at home.",
-    "text": "One boy climbs a ladder at home."
+    "value": "One boy is climbing up a ladder at home.",
+    "label": "One boy is climbing up a ladder at home.",
+    "text": "One boy is climbing up a ladder at home."
    },
    {
-    "value": "Two bakers carry a table.",
-    "label": "Two bakers carry a table.",
-    "text": "Two bakers carry a table."
+    "value": "Two bakers are carrying a table along the street.",
+    "label": "Two bakers are carrying a table along the street.",
+    "text": "Two bakers are carrying a table along the street."
    }
   ],
-  "answer": "Two boys carry a ladder past the bakery.",
-  "correctAnswer": "Two boys carry a ladder past the bakery.",
+  "answer": "Two boys are carrying a ladder past the bakery.",
+  "correctAnswer": "Two boys are carrying a ladder past the bakery.",
   "distractorRationales": {
-   "Two boys buy buns at the bakery.": "D-TOPIC-ADJACENT",
-   "One boy climbs a ladder at home.": "D-VISUAL-NEIGHBOR",
-   "Two bakers carry a table.": "D-VISUAL-NEIGHBOR"
+   "Two boys are buying some buns at the bakery.": "D-TOPIC-ADJACENT",
+   "One boy is climbing up a ladder at home.": "D-VISUAL-NEIGHBOR",
+   "Two bakers are carrying a table along the street.": "D-VISUAL-NEIGHBOR"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1672,39 +1672,39 @@ export const questions = [
   "spokenPrompt": "Look carefully at the picture. Which sentence tells about it?",
   "cell": "picture_match",
   "choices": [
-   "A cat plays with a ball of wool.",
-   "A cat sleeps inside an open umbrella.",
-   "A cat hides from the rain indoors.",
-   "A dog sleeps under an umbrella."
+   "A cat is playing with a loose ball of wool.",
+   "A cat is sleeping curled inside an open umbrella.",
+   "A cat is hiding indoors away from the rain.",
+   "A dog is sleeping beneath an umbrella near a door."
   ],
   "answerOptions": [
    {
-    "value": "A cat plays with a ball of wool.",
-    "label": "A cat plays with a ball of wool.",
-    "text": "A cat plays with a ball of wool."
+    "value": "A cat is playing with a loose ball of wool.",
+    "label": "A cat is playing with a loose ball of wool.",
+    "text": "A cat is playing with a loose ball of wool."
    },
    {
-    "value": "A cat sleeps inside an open umbrella.",
-    "label": "A cat sleeps inside an open umbrella.",
-    "text": "A cat sleeps inside an open umbrella."
+    "value": "A cat is sleeping curled inside an open umbrella.",
+    "label": "A cat is sleeping curled inside an open umbrella.",
+    "text": "A cat is sleeping curled inside an open umbrella."
    },
    {
-    "value": "A cat hides from the rain indoors.",
-    "label": "A cat hides from the rain indoors.",
-    "text": "A cat hides from the rain indoors."
+    "value": "A cat is hiding indoors away from the rain.",
+    "label": "A cat is hiding indoors away from the rain.",
+    "text": "A cat is hiding indoors away from the rain."
    },
    {
-    "value": "A dog sleeps under an umbrella.",
-    "label": "A dog sleeps under an umbrella.",
-    "text": "A dog sleeps under an umbrella."
+    "value": "A dog is sleeping beneath an umbrella near a door.",
+    "label": "A dog is sleeping beneath an umbrella near a door.",
+    "text": "A dog is sleeping beneath an umbrella near a door."
    }
   ],
-  "answer": "A cat sleeps inside an open umbrella.",
-  "correctAnswer": "A cat sleeps inside an open umbrella.",
+  "answer": "A cat is sleeping curled inside an open umbrella.",
+  "correctAnswer": "A cat is sleeping curled inside an open umbrella.",
   "distractorRationales": {
-   "A cat plays with a ball of wool.": "D-PLAUSIBLE-UNSUPPORTED",
-   "A cat hides from the rain indoors.": "D-TOPIC-ADJACENT",
-   "A dog sleeps under an umbrella.": "D-VISUAL-NEIGHBOR"
+   "A cat is playing with a loose ball of wool.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A cat is hiding indoors away from the rain.": "D-TOPIC-ADJACENT",
+   "A dog is sleeping beneath an umbrella near a door.": "D-VISUAL-NEIGHBOR"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1775,39 +1775,39 @@ export const questions = [
   "spokenPrompt": "Look carefully at the picture. Which sentence tells about it?",
   "cell": "picture_match",
   "choices": [
-   "Two children fly two kites.",
-   "Grandpa reads about kites.",
-   "Grandpa and a child fly a red kite.",
-   "Grandpa buys a child a red ball."
+   "Two children are flying a pair of colourful kites.",
+   "Grandpa is reading a book about different kinds of kites.",
+   "Grandpa and a child are flying a red kite.",
+   "Grandpa is buying a red ball for a child."
   ],
   "answerOptions": [
    {
-    "value": "Two children fly two kites.",
-    "label": "Two children fly two kites.",
-    "text": "Two children fly two kites."
+    "value": "Two children are flying a pair of colourful kites.",
+    "label": "Two children are flying a pair of colourful kites.",
+    "text": "Two children are flying a pair of colourful kites."
    },
    {
-    "value": "Grandpa reads about kites.",
-    "label": "Grandpa reads about kites.",
-    "text": "Grandpa reads about kites."
+    "value": "Grandpa is reading a book about different kinds of kites.",
+    "label": "Grandpa is reading a book about different kinds of kites.",
+    "text": "Grandpa is reading a book about different kinds of kites."
    },
    {
-    "value": "Grandpa and a child fly a red kite.",
-    "label": "Grandpa and a child fly a red kite.",
-    "text": "Grandpa and a child fly a red kite."
+    "value": "Grandpa and a child are flying a red kite.",
+    "label": "Grandpa and a child are flying a red kite.",
+    "text": "Grandpa and a child are flying a red kite."
    },
    {
-    "value": "Grandpa buys a child a red ball.",
-    "label": "Grandpa buys a child a red ball.",
-    "text": "Grandpa buys a child a red ball."
+    "value": "Grandpa is buying a red ball for a child.",
+    "label": "Grandpa is buying a red ball for a child.",
+    "text": "Grandpa is buying a red ball for a child."
    }
   ],
-  "answer": "Grandpa and a child fly a red kite.",
-  "correctAnswer": "Grandpa and a child fly a red kite.",
+  "answer": "Grandpa and a child are flying a red kite.",
+  "correctAnswer": "Grandpa and a child are flying a red kite.",
   "distractorRationales": {
-   "Grandpa buys a child a red ball.": "D-VISUAL-NEIGHBOR",
-   "Two children fly two kites.": "D-VISUAL-NEIGHBOR",
-   "Grandpa reads about kites.": "D-TOPIC-ADJACENT"
+   "Grandpa is buying a red ball for a child.": "D-VISUAL-NEIGHBOR",
+   "Two children are flying a pair of colourful kites.": "D-VISUAL-NEIGHBOR",
+   "Grandpa is reading a book about different kinds of kites.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1878,39 +1878,39 @@ export const questions = [
   "spokenPrompt": "Look carefully at the picture. Which sentence tells about it?",
   "cell": "picture_match",
   "choices": [
-   "Someone irons a red shirt.",
-   "One red sock falls from the clothesline.",
-   "A red sock hangs safely on the line.",
-   "The empty clothesline swings in the wind."
+   "Someone is ironing a red shirt on an ironing board.",
+   "One red sock is falling from the hanging clothesline.",
+   "One red sock is hanging safely on the clothesline.",
+   "The empty clothesline is swinging around in the wind."
   ],
   "answerOptions": [
    {
-    "value": "Someone irons a red shirt.",
-    "label": "Someone irons a red shirt.",
-    "text": "Someone irons a red shirt."
+    "value": "Someone is ironing a red shirt on an ironing board.",
+    "label": "Someone is ironing a red shirt on an ironing board.",
+    "text": "Someone is ironing a red shirt on an ironing board."
    },
    {
-    "value": "One red sock falls from the clothesline.",
-    "label": "One red sock falls from the clothesline.",
-    "text": "One red sock falls from the clothesline."
+    "value": "One red sock is falling from the hanging clothesline.",
+    "label": "One red sock is falling from the hanging clothesline.",
+    "text": "One red sock is falling from the hanging clothesline."
    },
    {
-    "value": "A red sock hangs safely on the line.",
-    "label": "A red sock hangs safely on the line.",
-    "text": "A red sock hangs safely on the line."
+    "value": "One red sock is hanging safely on the clothesline.",
+    "label": "One red sock is hanging safely on the clothesline.",
+    "text": "One red sock is hanging safely on the clothesline."
    },
    {
-    "value": "The empty clothesline swings in the wind.",
-    "label": "The empty clothesline swings in the wind.",
-    "text": "The empty clothesline swings in the wind."
+    "value": "The empty clothesline is swinging around in the wind.",
+    "label": "The empty clothesline is swinging around in the wind.",
+    "text": "The empty clothesline is swinging around in the wind."
    }
   ],
-  "answer": "One red sock falls from the clothesline.",
-  "correctAnswer": "One red sock falls from the clothesline.",
+  "answer": "One red sock is falling from the hanging clothesline.",
+  "correctAnswer": "One red sock is falling from the hanging clothesline.",
   "distractorRationales": {
-   "A red sock hangs safely on the line.": "D-OPPOSITE",
-   "The empty clothesline swings in the wind.": "D-VISUAL-NEIGHBOR",
-   "Someone irons a red shirt.": "D-TOPIC-ADJACENT"
+   "One red sock is hanging safely on the clothesline.": "D-OPPOSITE",
+   "The empty clothesline is swinging around in the wind.": "D-VISUAL-NEIGHBOR",
+   "Someone is ironing a red shirt on an ironing board.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1981,21 +1981,21 @@ export const questions = [
   "spokenPrompt": "Look carefully at the picture. Which sentence tells about it?",
   "cell": "picture_match",
   "choices": [
-   "An ice cream truck drives past a farm.",
-   "One duck swims away from a boat.",
+   "An ice cream truck is driving past a farm.",
+   "One duck is swimming away from a small boat.",
    "Three ducks wait in line at the ice cream truck.",
-   "Three children feed ducks at the pond."
+   "Three children are feeding ducks beside the quiet pond."
   ],
   "answerOptions": [
    {
-    "value": "An ice cream truck drives past a farm.",
-    "label": "An ice cream truck drives past a farm.",
-    "text": "An ice cream truck drives past a farm."
+    "value": "An ice cream truck is driving past a farm.",
+    "label": "An ice cream truck is driving past a farm.",
+    "text": "An ice cream truck is driving past a farm."
    },
    {
-    "value": "One duck swims away from a boat.",
-    "label": "One duck swims away from a boat.",
-    "text": "One duck swims away from a boat."
+    "value": "One duck is swimming away from a small boat.",
+    "label": "One duck is swimming away from a small boat.",
+    "text": "One duck is swimming away from a small boat."
    },
    {
     "value": "Three ducks wait in line at the ice cream truck.",
@@ -2003,17 +2003,17 @@ export const questions = [
     "text": "Three ducks wait in line at the ice cream truck."
    },
    {
-    "value": "Three children feed ducks at the pond.",
-    "label": "Three children feed ducks at the pond.",
-    "text": "Three children feed ducks at the pond."
+    "value": "Three children are feeding ducks beside the quiet pond.",
+    "label": "Three children are feeding ducks beside the quiet pond.",
+    "text": "Three children are feeding ducks beside the quiet pond."
    }
   ],
   "answer": "Three ducks wait in line at the ice cream truck.",
   "correctAnswer": "Three ducks wait in line at the ice cream truck.",
   "distractorRationales": {
-   "Three children feed ducks at the pond.": "D-VISUAL-NEIGHBOR",
-   "An ice cream truck drives past a farm.": "D-TOPIC-ADJACENT",
-   "One duck swims away from a boat.": "D-PLAUSIBLE-UNSUPPORTED"
+   "Three children are feeding ducks beside the quiet pond.": "D-VISUAL-NEIGHBOR",
+   "An ice cream truck is driving past a farm.": "D-TOPIC-ADJACENT",
+   "One duck is swimming away from a small boat.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2084,39 +2084,39 @@ export const questions = [
   "spokenPrompt": "Look carefully at the picture. Which sentence tells about it?",
   "cell": "picture_match",
   "choices": [
-   "A boy eats from a small red bowl.",
-   "A boy drops a tray of red apples.",
-   "A boy washes a tall empty glass.",
-   "A boy holds up a huge red jelly."
+   "A boy is eating from a small red bowl.",
+   "A boy is dropping a tray full of red apples.",
+   "A boy is washing a tall and empty glass.",
+   "A boy is holding up a huge red jelly."
   ],
   "answerOptions": [
    {
-    "value": "A boy eats from a small red bowl.",
-    "label": "A boy eats from a small red bowl.",
-    "text": "A boy eats from a small red bowl."
+    "value": "A boy is eating from a small red bowl.",
+    "label": "A boy is eating from a small red bowl.",
+    "text": "A boy is eating from a small red bowl."
    },
    {
-    "value": "A boy drops a tray of red apples.",
-    "label": "A boy drops a tray of red apples.",
-    "text": "A boy drops a tray of red apples."
+    "value": "A boy is dropping a tray full of red apples.",
+    "label": "A boy is dropping a tray full of red apples.",
+    "text": "A boy is dropping a tray full of red apples."
    },
    {
-    "value": "A boy washes a tall empty glass.",
-    "label": "A boy washes a tall empty glass.",
-    "text": "A boy washes a tall empty glass."
+    "value": "A boy is washing a tall and empty glass.",
+    "label": "A boy is washing a tall and empty glass.",
+    "text": "A boy is washing a tall and empty glass."
    },
    {
-    "value": "A boy holds up a huge red jelly.",
-    "label": "A boy holds up a huge red jelly.",
-    "text": "A boy holds up a huge red jelly."
+    "value": "A boy is holding up a huge red jelly.",
+    "label": "A boy is holding up a huge red jelly.",
+    "text": "A boy is holding up a huge red jelly."
    }
   ],
-  "answer": "A boy holds up a huge red jelly.",
-  "correctAnswer": "A boy holds up a huge red jelly.",
+  "answer": "A boy is holding up a huge red jelly.",
+  "correctAnswer": "A boy is holding up a huge red jelly.",
   "distractorRationales": {
-   "A boy eats from a small red bowl.": "D-PLAUSIBLE-UNSUPPORTED",
-   "A boy drops a tray of red apples.": "D-PLAUSIBLE-UNSUPPORTED",
-   "A boy washes a tall empty glass.": "D-OPPOSITE"
+   "A boy is eating from a small red bowl.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A boy is dropping a tray full of red apples.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A boy is washing a tall and empty glass.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2187,39 +2187,39 @@ export const questions = [
   "spokenPrompt": "Look carefully at the picture. Which sentence tells about it?",
   "cell": "picture_match",
   "choices": [
-   "A child wears sunglasses at the beach.",
-   "A snowman wears a warm scarf at night.",
-   "A snowman wears sunglasses in the sunshine.",
-   "A snowman melts away in the rain."
+   "A child is wearing dark sunglasses at the beach.",
+   "A snowman is wearing a warm scarf at night.",
+   "A snowman is wearing a pair of sunglasses in sunshine.",
+   "A snowman is slowly melting away in the rain."
   ],
   "answerOptions": [
    {
-    "value": "A child wears sunglasses at the beach.",
-    "label": "A child wears sunglasses at the beach.",
-    "text": "A child wears sunglasses at the beach."
+    "value": "A child is wearing dark sunglasses at the beach.",
+    "label": "A child is wearing dark sunglasses at the beach.",
+    "text": "A child is wearing dark sunglasses at the beach."
    },
    {
-    "value": "A snowman wears a warm scarf at night.",
-    "label": "A snowman wears a warm scarf at night.",
-    "text": "A snowman wears a warm scarf at night."
+    "value": "A snowman is wearing a warm scarf at night.",
+    "label": "A snowman is wearing a warm scarf at night.",
+    "text": "A snowman is wearing a warm scarf at night."
    },
    {
-    "value": "A snowman wears sunglasses in the sunshine.",
-    "label": "A snowman wears sunglasses in the sunshine.",
-    "text": "A snowman wears sunglasses in the sunshine."
+    "value": "A snowman is wearing a pair of sunglasses in sunshine.",
+    "label": "A snowman is wearing a pair of sunglasses in sunshine.",
+    "text": "A snowman is wearing a pair of sunglasses in sunshine."
    },
    {
-    "value": "A snowman melts away in the rain.",
-    "label": "A snowman melts away in the rain.",
-    "text": "A snowman melts away in the rain."
+    "value": "A snowman is slowly melting away in the rain.",
+    "label": "A snowman is slowly melting away in the rain.",
+    "text": "A snowman is slowly melting away in the rain."
    }
   ],
-  "answer": "A snowman wears sunglasses in the sunshine.",
-  "correctAnswer": "A snowman wears sunglasses in the sunshine.",
+  "answer": "A snowman is wearing a pair of sunglasses in sunshine.",
+  "correctAnswer": "A snowman is wearing a pair of sunglasses in sunshine.",
   "distractorRationales": {
-   "A snowman wears a warm scarf at night.": "D-VISUAL-NEIGHBOR",
-   "A snowman melts away in the rain.": "D-VISUAL-NEIGHBOR",
-   "A child wears sunglasses at the beach.": "D-VISUAL-NEIGHBOR"
+   "A snowman is wearing a warm scarf at night.": "D-VISUAL-NEIGHBOR",
+   "A snowman is slowly melting away in the rain.": "D-VISUAL-NEIGHBOR",
+   "A child is wearing dark sunglasses at the beach.": "D-VISUAL-NEIGHBOR"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2288,7 +2288,7 @@ export const questions = [
   "prompt": "How did Pia move past the dog?",
   "question": "How did Pia move past the dog?",
   "spokenPrompt": "How did Pia move past the dog?",
-  "passage": "Pia tiptoed past the sleeping dog.",
+  "passage": "Pia tiptoed past the sleeping dog beside the doorway.",
   "cell": "literal_action",
   "choices": [
    "she stepped quietly on her toes",
@@ -2323,7 +2323,7 @@ export const questions = [
   "distractorRationales": {
    "she ran quickly on the grass": "D-PLAUSIBLE-UNSUPPORTED",
    "she jumped over its soft bed": "D-PLAUSIBLE-UNSUPPORTED",
-   "she crawled under its low bench": "D-OPPOSITE"
+   "she crawled under its low bench": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2353,7 +2353,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the stated action or its manner without adding an unstated event."
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_action.v2",
@@ -2413,7 +2413,7 @@ export const questions = [
   "distractorRationales": {
    "stacked on a tray": "D-PLAUSIBLE-UNSUPPORTED",
    "packed in a box": "D-PLAUSIBLE-UNSUPPORTED",
-   "spread on a cart": "D-OPPOSITE"
+   "spread on a cart": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2443,7 +2443,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the stated action or its manner without adding an unstated event."
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_action.v3",
@@ -2503,7 +2503,7 @@ export const questions = [
   "distractorRationales": {
    "she peeled the fruit": "D-PLAUSIBLE-UNSUPPORTED",
    "she boiled the fruit": "D-PLAUSIBLE-UNSUPPORTED",
-   "she chopped the fruit": "D-OPPOSITE"
+   "she chopped the fruit": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2533,7 +2533,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the stated action or its manner without adding an unstated event."
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_action.v4",
@@ -2555,45 +2555,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Where did the goalkeeper send the ball?",
-  "question": "Where did the goalkeeper send the ball?",
-  "spokenPrompt": "Where did the goalkeeper send the ball?",
+  "prompt": "What did the goalkeeper do to the ball?",
+  "question": "What did the goalkeeper do to the ball?",
+  "spokenPrompt": "What did the goalkeeper do to the ball?",
   "passage": "The goalkeeper tipped the ball above the goal.",
   "cell": "literal_action",
   "choices": [
-   "under the goal",
-   "over the goal",
-   "into the goal",
-   "beside the goal"
+   "kicked it under the goal",
+   "knocked it over the goal",
+   "caught it inside the goal",
+   "rolled it beside the goal"
   ],
   "answerOptions": [
    {
-    "value": "under the goal",
-    "label": "under the goal",
-    "text": "under the goal"
+    "value": "kicked it under the goal",
+    "label": "kicked it under the goal",
+    "text": "kicked it under the goal"
    },
    {
-    "value": "over the goal",
-    "label": "over the goal",
-    "text": "over the goal"
+    "value": "knocked it over the goal",
+    "label": "knocked it over the goal",
+    "text": "knocked it over the goal"
    },
    {
-    "value": "into the goal",
-    "label": "into the goal",
-    "text": "into the goal"
+    "value": "caught it inside the goal",
+    "label": "caught it inside the goal",
+    "text": "caught it inside the goal"
    },
    {
-    "value": "beside the goal",
-    "label": "beside the goal",
-    "text": "beside the goal"
+    "value": "rolled it beside the goal",
+    "label": "rolled it beside the goal",
+    "text": "rolled it beside the goal"
    }
   ],
-  "answer": "over the goal",
-  "correctAnswer": "over the goal",
+  "answer": "knocked it over the goal",
+  "correctAnswer": "knocked it over the goal",
   "distractorRationales": {
-   "beside the goal": "D-PLAUSIBLE-UNSUPPORTED",
-   "under the goal": "D-OPPOSITE",
-   "into the goal": "D-PLAUSIBLE-UNSUPPORTED"
+   "rolled it beside the goal": "D-PLAUSIBLE-UNSUPPORTED",
+   "kicked it under the goal": "D-PLAUSIBLE-UNSUPPORTED",
+   "caught it inside the goal": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2623,7 +2623,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the stated action or its manner without adding an unstated event."
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_action.v5",
@@ -2648,7 +2648,7 @@ export const questions = [
   "prompt": "What did Kofi do to the map?",
   "question": "What did Kofi do to the map?",
   "spokenPrompt": "What did Kofi do to the map?",
-  "passage": "Kofi taped the torn map back together.",
+  "passage": "Kofi taped the torn map back together on his desk.",
   "cell": "literal_action",
   "choices": [
    "joined its torn parts with tape",
@@ -2683,7 +2683,7 @@ export const questions = [
   "distractorRationales": {
    "cut its folded parts with scissors": "D-PLAUSIBLE-UNSUPPORTED",
    "drew its missing roads with pencil": "D-PLAUSIBLE-UNSUPPORTED",
-   "hung its top edge with string": "D-OPPOSITE"
+   "hung its top edge with string": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2713,7 +2713,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the stated action or its manner without adding an unstated event."
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_action.v6",
@@ -2735,45 +2735,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What sound did the parrot make?",
-  "question": "What sound did the parrot make?",
-  "spokenPrompt": "What sound did the parrot make?",
-  "passage": "The parrot copied Grandpa's cough all afternoon.",
+  "prompt": "What did the parrot do all afternoon?",
+  "question": "What did the parrot do all afternoon?",
+  "spokenPrompt": "What did the parrot do all afternoon?",
+  "passage": "The parrot copied Grandpa's loud cough throughout the whole afternoon.",
   "cell": "literal_action",
   "choices": [
-   "the same cough as Grandpa",
-   "the same song as Grandpa",
-   "a cough different from Grandpa's",
-   "a song different from Grandpa's"
+   "copied the sound of Grandpa's cough",
+   "sang a song about Grandpa's cough",
+   "copied Grandpa's loud sneeze",
+   "whistled a tune while Grandpa coughed"
   ],
   "answerOptions": [
    {
-    "value": "the same cough as Grandpa",
-    "label": "the same cough as Grandpa",
-    "text": "the same cough as Grandpa"
+    "value": "copied the sound of Grandpa's cough",
+    "label": "copied the sound of Grandpa's cough",
+    "text": "copied the sound of Grandpa's cough"
    },
    {
-    "value": "the same song as Grandpa",
-    "label": "the same song as Grandpa",
-    "text": "the same song as Grandpa"
+    "value": "sang a song about Grandpa's cough",
+    "label": "sang a song about Grandpa's cough",
+    "text": "sang a song about Grandpa's cough"
    },
    {
-    "value": "a cough different from Grandpa's",
-    "label": "a cough different from Grandpa's",
-    "text": "a cough different from Grandpa's"
+    "value": "copied Grandpa's loud sneeze",
+    "label": "copied Grandpa's loud sneeze",
+    "text": "copied Grandpa's loud sneeze"
    },
    {
-    "value": "a song different from Grandpa's",
-    "label": "a song different from Grandpa's",
-    "text": "a song different from Grandpa's"
+    "value": "whistled a tune while Grandpa coughed",
+    "label": "whistled a tune while Grandpa coughed",
+    "text": "whistled a tune while Grandpa coughed"
    }
   ],
-  "answer": "the same cough as Grandpa",
-  "correctAnswer": "the same cough as Grandpa",
+  "answer": "copied the sound of Grandpa's cough",
+  "correctAnswer": "copied the sound of Grandpa's cough",
   "distractorRationales": {
-   "a cough different from Grandpa's": "D-PLAUSIBLE-UNSUPPORTED",
-   "a song different from Grandpa's": "D-OPPOSITE",
-   "the same song as Grandpa": "D-PLAUSIBLE-UNSUPPORTED"
+   "copied Grandpa's loud sneeze": "D-PLAUSIBLE-UNSUPPORTED",
+   "whistled a tune while Grandpa coughed": "D-PLAUSIBLE-UNSUPPORTED",
+   "sang a song about Grandpa's cough": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2803,7 +2803,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the stated action or its manner without adding an unstated event."
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_action.v7",
@@ -2825,45 +2825,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "How large was Ada's snowball?",
-  "question": "How large was Ada's snowball?",
-  "spokenPrompt": "How large was Ada's snowball?",
+  "prompt": "What did Ada do with the snow?",
+  "question": "What did Ada do with the snow?",
+  "spokenPrompt": "What did Ada do with the snow?",
   "passage": "Ada rolled the biggest snowball in the street.",
   "cell": "literal_action",
   "choices": [
-   "the same size as the others",
-   "half the size of the others",
-   "larger than the others nearby",
-   "smaller than the others nearby"
+   "dug it into a deep hole",
+   "shaped it into a small chair",
+   "rolled it into a large ball",
+   "pressed it into a tall wall"
   ],
   "answerOptions": [
    {
-    "value": "the same size as the others",
-    "label": "the same size as the others",
-    "text": "the same size as the others"
+    "value": "dug it into a deep hole",
+    "label": "dug it into a deep hole",
+    "text": "dug it into a deep hole"
    },
    {
-    "value": "half the size of the others",
-    "label": "half the size of the others",
-    "text": "half the size of the others"
+    "value": "shaped it into a small chair",
+    "label": "shaped it into a small chair",
+    "text": "shaped it into a small chair"
    },
    {
-    "value": "larger than the others nearby",
-    "label": "larger than the others nearby",
-    "text": "larger than the others nearby"
+    "value": "rolled it into a large ball",
+    "label": "rolled it into a large ball",
+    "text": "rolled it into a large ball"
    },
    {
-    "value": "smaller than the others nearby",
-    "label": "smaller than the others nearby",
-    "text": "smaller than the others nearby"
+    "value": "pressed it into a tall wall",
+    "label": "pressed it into a tall wall",
+    "text": "pressed it into a tall wall"
    }
   ],
-  "answer": "larger than the others nearby",
-  "correctAnswer": "larger than the others nearby",
+  "answer": "rolled it into a large ball",
+  "correctAnswer": "rolled it into a large ball",
   "distractorRationales": {
-   "half the size of the others": "D-OPPOSITE",
-   "smaller than the others nearby": "D-PLAUSIBLE-UNSUPPORTED",
-   "the same size as the others": "D-PLAUSIBLE-UNSUPPORTED"
+   "shaped it into a small chair": "D-PLAUSIBLE-UNSUPPORTED",
+   "pressed it into a tall wall": "D-PLAUSIBLE-UNSUPPORTED",
+   "dug it into a deep hole": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2893,7 +2893,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the stated action or its manner without adding an unstated event."
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_action.v8",
@@ -2915,45 +2915,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which date did the librarian stamp?",
-  "question": "Which date did the librarian stamp?",
-  "spokenPrompt": "Which date did the librarian stamp?",
-  "passage": "The librarian stamped tomorrow's date on today's book.",
+  "prompt": "What did the librarian do inside the book?",
+  "question": "What did the librarian do inside the book?",
+  "spokenPrompt": "What did the librarian do inside the book?",
+  "passage": "The librarian stamped the return date inside my borrowed book.",
   "cell": "literal_action",
   "choices": [
-   "the next month's date",
-   "the next day's date",
-   "the same day's date",
-   "the last day's date"
+   "wrote a price across the cover",
+   "printed a date using a stamp",
+   "drew a face using a pencil",
+   "stuck a picture onto a page"
   ],
   "answerOptions": [
    {
-    "value": "the next month's date",
-    "label": "the next month's date",
-    "text": "the next month's date"
+    "value": "wrote a price across the cover",
+    "label": "wrote a price across the cover",
+    "text": "wrote a price across the cover"
    },
    {
-    "value": "the next day's date",
-    "label": "the next day's date",
-    "text": "the next day's date"
+    "value": "printed a date using a stamp",
+    "label": "printed a date using a stamp",
+    "text": "printed a date using a stamp"
    },
    {
-    "value": "the same day's date",
-    "label": "the same day's date",
-    "text": "the same day's date"
+    "value": "drew a face using a pencil",
+    "label": "drew a face using a pencil",
+    "text": "drew a face using a pencil"
    },
    {
-    "value": "the last day's date",
-    "label": "the last day's date",
-    "text": "the last day's date"
+    "value": "stuck a picture onto a page",
+    "label": "stuck a picture onto a page",
+    "text": "stuck a picture onto a page"
    }
   ],
-  "answer": "the next day's date",
-  "correctAnswer": "the next day's date",
+  "answer": "printed a date using a stamp",
+  "correctAnswer": "printed a date using a stamp",
   "distractorRationales": {
-   "the next month's date": "D-OPPOSITE",
-   "the same day's date": "D-PLAUSIBLE-UNSUPPORTED",
-   "the last day's date": "D-PLAUSIBLE-UNSUPPORTED"
+   "wrote a price across the cover": "D-PLAUSIBLE-UNSUPPORTED",
+   "drew a face using a pencil": "D-PLAUSIBLE-UNSUPPORTED",
+   "stuck a picture onto a page": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2983,7 +2983,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the stated action or its manner without adding an unstated event."
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.two_clause.v1",
@@ -3008,7 +3008,7 @@ export const questions = [
   "prompt": "Why did the movers use the stairs?",
   "question": "Why did the movers use the stairs?",
   "spokenPrompt": "Why did the movers use the stairs?",
-  "passage": "Because the lift was broken, the movers used the stairs.",
+  "passage": "Because the lift was broken, the movers carried our furniture up the stairs.",
   "cell": "two_clause",
   "choices": [
    "the lift had no space",
@@ -3043,7 +3043,7 @@ export const questions = [
   "distractorRationales": {
    "the stairs would save time": "D-PLAUSIBLE-UNSUPPORTED",
    "the lift had no space": "D-PLAUSIBLE-UNSUPPORTED",
-   "the stairs were less steep": "D-OPPOSITE"
+   "the stairs were less steep": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3073,7 +3073,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Connect the broken lift to the alternative route."
+  "notes": "Connect the failed lift with the alternative route used for moving furniture."
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.two_clause.v2",
@@ -3098,7 +3098,7 @@ export const questions = [
   "prompt": "Why did Rosa leave huge footprints?",
   "question": "Why did Rosa leave huge footprints?",
   "spokenPrompt": "Why did Rosa leave huge footprints?",
-  "passage": "Rosa wore big borrowed boots, so her footprints looked huge.",
+  "passage": "Rosa wore boots much bigger than her feet, so her footprints looked huge.",
   "cell": "two_clause",
   "choices": [
    "her feet were larger than her boots",
@@ -3133,7 +3133,7 @@ export const questions = [
   "distractorRationales": {
    "her feet were larger than her boots": "D-PLAUSIBLE-UNSUPPORTED",
    "the ground was softer than usual": "D-PLAUSIBLE-UNSUPPORTED",
-   "the mud was deeper than usual": "D-OPPOSITE"
+   "the mud was deeper than usual": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3163,7 +3163,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Distinguish the size of the borrowed boots from Rosa's own feet."
+  "notes": "Relate the borrowed boot size to the marks, rather than assuming Rosa's feet were huge."
  },
  {
   "id": "lp3.sentence_comprehension.l2.C.two_clause.v3",
@@ -3185,45 +3185,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "How did people feel after moving inside?",
-  "question": "How did people feel after moving inside?",
-  "spokenPrompt": "How did people feel after moving inside?",
-  "passage": "The picnic moved inside, but everyone still enjoyed sharing the cake.",
+  "prompt": "What stayed enjoyable despite the rain?",
+  "question": "What stayed enjoyable despite the rain?",
+  "spokenPrompt": "What stayed enjoyable despite the rain?",
+  "passage": "Although rain moved the picnic inside, everyone still enjoyed sharing the birthday cake.",
   "cell": "two_clause",
   "choices": [
-   "pleased to share the cake",
-   "cross about sharing the cake",
-   "worried about finding a cake",
-   "surprised to find a cake"
+   "sharing cake inside with everyone",
+   "sharing cake outside in the rain",
+   "sharing picnic games with everyone",
+   "sharing games outside in the rain"
   ],
   "answerOptions": [
    {
-    "value": "pleased to share the cake",
-    "label": "pleased to share the cake",
-    "text": "pleased to share the cake"
+    "value": "sharing cake inside with everyone",
+    "label": "sharing cake inside with everyone",
+    "text": "sharing cake inside with everyone"
    },
    {
-    "value": "cross about sharing the cake",
-    "label": "cross about sharing the cake",
-    "text": "cross about sharing the cake"
+    "value": "sharing cake outside in the rain",
+    "label": "sharing cake outside in the rain",
+    "text": "sharing cake outside in the rain"
    },
    {
-    "value": "worried about finding a cake",
-    "label": "worried about finding a cake",
-    "text": "worried about finding a cake"
+    "value": "sharing picnic games with everyone",
+    "label": "sharing picnic games with everyone",
+    "text": "sharing picnic games with everyone"
    },
    {
-    "value": "surprised to find a cake",
-    "label": "surprised to find a cake",
-    "text": "surprised to find a cake"
+    "value": "sharing games outside in the rain",
+    "label": "sharing games outside in the rain",
+    "text": "sharing games outside in the rain"
    }
   ],
-  "answer": "pleased to share the cake",
-  "correctAnswer": "pleased to share the cake",
+  "answer": "sharing cake inside with everyone",
+  "correctAnswer": "sharing cake inside with everyone",
   "distractorRationales": {
-   "cross about sharing the cake": "D-PLAUSIBLE-UNSUPPORTED",
-   "worried about finding a cake": "D-PLAUSIBLE-UNSUPPORTED",
-   "surprised to find a cake": "D-OPPOSITE"
+   "sharing cake outside in the rain": "D-PLAUSIBLE-UNSUPPORTED",
+   "sharing picnic games with everyone": "D-PLAUSIBLE-UNSUPPORTED",
+   "sharing games outside in the rain": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3253,7 +3253,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Follow the contrast instead of assuming the move spoiled the picnic."
+  "notes": "Interpret although: moving indoors did not prevent enjoyment of the picnic."
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.two_clause.v4",
@@ -3278,7 +3278,7 @@ export const questions = [
   "prompt": "What does the sentence tell us about swimming?",
   "question": "What does the sentence tell us about swimming?",
   "spokenPrompt": "What does the sentence tell us about swimming?",
-  "passage": "The sea looked calm, but a sign warned against swimming.",
+  "passage": "The sea looked calm from the beach, but a sign warned against swimming.",
   "cell": "two_clause",
   "choices": [
    "the calm water must be safe",
@@ -3311,8 +3311,8 @@ export const questions = [
   "answer": "the calm water might be unsafe",
   "correctAnswer": "the calm water might be unsafe",
   "distractorRationales": {
-   "the calm water would be shallow": "D-OPPOSITE",
-   "the calm water must be safe": "D-PLAUSIBLE-UNSUPPORTED",
+   "the calm water would be shallow": "D-PLAUSIBLE-UNSUPPORTED",
+   "the calm water must be safe": "D-OPPOSITE",
    "the calm water would be warm": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -3343,7 +3343,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Resolve appearance versus explicit warning without requiring flag knowledge."
+  "notes": "Reconcile calm appearance with the warning that limits what can be concluded."
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.two_clause.v5",
@@ -3368,7 +3368,7 @@ export const questions = [
   "prompt": "Why did Jin save his money?",
   "question": "Why did Jin save his money?",
   "spokenPrompt": "Why did Jin save his money?",
-  "passage": "Jin saved his money to buy Mom a birthday plant.",
+  "passage": "Jin saved his pocket money because he wanted to buy Mom a birthday plant.",
   "cell": "two_clause",
   "choices": [
    "for a plant to give Mom",
@@ -3403,7 +3403,7 @@ export const questions = [
   "distractorRationales": {
    "for a plant to keep himself": "D-PLAUSIBLE-UNSUPPORTED",
    "for a present from his mom": "D-PLAUSIBLE-UNSUPPORTED",
-   "for a present from his friend": "D-OPPOSITE"
+   "for a present from his friend": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3433,7 +3433,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Link the purpose clause to the recipient."
+  "notes": "Connect saving with the purpose and intended recipient of the purchase."
  },
  {
   "id": "lp3.sentence_comprehension.l2.C.two_clause.v6",
@@ -3458,7 +3458,7 @@ export const questions = [
   "prompt": "Why was the sign there?",
   "question": "Why was the sign there?",
   "spokenPrompt": "Why was the sign there?",
-  "passage": "The bench had wet paint, so a sign warned people away.",
+  "passage": "The bench still had wet paint, so a sign warned people against sitting there.",
   "cell": "two_clause",
   "choices": [
    "to ask people to paint benches",
@@ -3491,7 +3491,7 @@ export const questions = [
   "answer": "to keep people off wet paint",
   "correctAnswer": "to keep people off wet paint",
   "distractorRationales": {
-   "to ask people to paint benches": "D-OPPOSITE",
+   "to ask people to paint benches": "D-PLAUSIBLE-UNSUPPORTED",
    "to help people find a seat": "D-PLAUSIBLE-UNSUPPORTED",
    "to show people a new path": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -3523,7 +3523,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Connect the warning to the still-wet surface."
+  "notes": "Connect the wet surface with the warning against sitting there."
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.two_clause.v7",
@@ -3545,45 +3545,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Where did Tara play in the final match?",
-  "question": "Where did Tara play in the final match?",
-  "spokenPrompt": "Where did Tara play in the final match?",
-  "passage": "Tara practiced in goal, but played forward in the final match.",
+  "prompt": "How did Tara's match role differ from her practice role?",
+  "question": "How did Tara's match role differ from her practice role?",
+  "spokenPrompt": "How did Tara's match role differ from her practice role?",
+  "passage": "Although Tara practiced in goal all week, she played forward in the final match.",
   "cell": "two_clause",
   "choices": [
-   "up front with the attackers",
-   "in goal with the gloves",
-   "at the side as a helper",
-   "on the bench as a spare"
+   "she attacked after practicing as goalkeeper",
+   "she kept goal after practicing as attacker",
+   "she watched after practicing as goalkeeper",
+   "she attacked after practicing as a helper"
   ],
   "answerOptions": [
    {
-    "value": "up front with the attackers",
-    "label": "up front with the attackers",
-    "text": "up front with the attackers"
+    "value": "she attacked after practicing as goalkeeper",
+    "label": "she attacked after practicing as goalkeeper",
+    "text": "she attacked after practicing as goalkeeper"
    },
    {
-    "value": "in goal with the gloves",
-    "label": "in goal with the gloves",
-    "text": "in goal with the gloves"
+    "value": "she kept goal after practicing as attacker",
+    "label": "she kept goal after practicing as attacker",
+    "text": "she kept goal after practicing as attacker"
    },
    {
-    "value": "at the side as a helper",
-    "label": "at the side as a helper",
-    "text": "at the side as a helper"
+    "value": "she watched after practicing as goalkeeper",
+    "label": "she watched after practicing as goalkeeper",
+    "text": "she watched after practicing as goalkeeper"
    },
    {
-    "value": "on the bench as a spare",
-    "label": "on the bench as a spare",
-    "text": "on the bench as a spare"
+    "value": "she attacked after practicing as a helper",
+    "label": "she attacked after practicing as a helper",
+    "text": "she attacked after practicing as a helper"
    }
   ],
-  "answer": "up front with the attackers",
-  "correctAnswer": "up front with the attackers",
+  "answer": "she attacked after practicing as goalkeeper",
+  "correctAnswer": "she attacked after practicing as goalkeeper",
   "distractorRationales": {
-   "at the side as a helper": "D-PLAUSIBLE-UNSUPPORTED",
-   "on the bench as a spare": "D-OPPOSITE",
-   "in goal with the gloves": "D-PLAUSIBLE-UNSUPPORTED"
+   "she watched after practicing as goalkeeper": "D-PLAUSIBLE-UNSUPPORTED",
+   "she attacked after practicing as a helper": "D-PLAUSIBLE-UNSUPPORTED",
+   "she kept goal after practicing as attacker": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3613,7 +3613,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Use the contrast to separate practice from the match."
+  "notes": "Integrate the contrasting practice and match roles rather than retrieving one position."
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.two_clause.v8",
@@ -3638,7 +3638,7 @@ export const questions = [
   "prompt": "What happened to the bread before the fair?",
   "question": "What happened to the bread before the fair?",
   "spokenPrompt": "What happened to the bread before the fair?",
-  "passage": "The bread smelled good, but nobody ate it before the fair.",
+  "passage": "Although the bread smelled good, it stayed untouched on the fair stall until opening time.",
   "cell": "two_clause",
   "choices": [
    "it was cut for a picnic",
@@ -3672,8 +3672,8 @@ export const questions = [
   "correctAnswer": "it was left for later",
   "distractorRationales": {
    "it was thrown in the bin": "D-PLAUSIBLE-UNSUPPORTED",
-   "it was cut for a picnic": "D-OPPOSITE",
-   "it was eaten straight away": "D-PLAUSIBLE-UNSUPPORTED"
+   "it was cut for a picnic": "D-PLAUSIBLE-UNSUPPORTED",
+   "it was eaten straight away": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3703,7 +3703,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Use the second clause instead of inferring eating from the smell."
+  "notes": "Retain the negative clause despite the tempting food described first."
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.pronoun_reference.v1",
@@ -3728,7 +3728,7 @@ export const questions = [
   "prompt": "Who wanted to paint?",
   "question": "Who wanted to paint?",
   "spokenPrompt": "Who wanted to paint?",
-  "passage": "Maya passed her brother the brush because he wanted to paint.",
+  "passage": "Maya passed her younger brother the brush because he wanted to paint the fence.",
   "cell": "pronoun_reference",
   "choices": [
    "Maya's mother",
@@ -3761,7 +3761,7 @@ export const questions = [
   "answer": "Maya's brother",
   "correctAnswer": "Maya's brother",
   "distractorRationales": {
-   "Maya's mother": "D-OPPOSITE",
+   "Maya's mother": "D-PLAUSIBLE-UNSUPPORTED",
    "Maya herself": "D-PLAUSIBLE-UNSUPPORTED",
    "Maya's sister": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -3794,7 +3794,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Resolve he using the stated brother relationship."
+  "notes": "Resolve he to the male recipient, not the person passing the brush."
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.pronoun_reference.v2",
@@ -3819,7 +3819,7 @@ export const questions = [
   "prompt": "What sailed away?",
   "question": "What sailed away?",
   "spokenPrompt": "What sailed away?",
-  "passage": "The gull followed the fishing boat until it sailed away.",
+  "passage": "The hungry gull followed the fishing boat until it sailed away from the harbour.",
   "cell": "pronoun_reference",
   "choices": [
    "a passing ferry",
@@ -3854,7 +3854,7 @@ export const questions = [
   "distractorRationales": {
    "the following gull": "D-PLAUSIBLE-UNSUPPORTED",
    "a passing ferry": "D-PLAUSIBLE-UNSUPPORTED",
-   "a small sailboat": "D-OPPOSITE"
+   "a small sailboat": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3885,7 +3885,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Use the verb sailed to select the correct singular referent."
+  "notes": "Resolve it through the sailing action among a bird and a boat."
  },
  {
   "id": "lp3.sentence_comprehension.l2.C.pronoun_reference.v3",
@@ -3907,16 +3907,16 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Whose pencil did Maya chew?",
-  "question": "Whose pencil did Maya chew?",
-  "spokenPrompt": "Whose pencil did Maya chew?",
-  "passage": "Sam lent Maya his pencil, and she chewed its end.",
+  "prompt": "Whose pencil did Elise chew?",
+  "question": "Whose pencil did Elise chew?",
+  "spokenPrompt": "Whose pencil did Elise chew?",
+  "passage": "Sam lent Elise his new pencil, and she chewed its end during the lesson.",
   "cell": "pronoun_reference",
   "choices": [
    "the teacher's pencil",
    "her brother's pencil",
    "Sam's pencil",
-   "Maya's pencil"
+   "Elise's pencil"
   ],
   "answerOptions": [
    {
@@ -3935,16 +3935,16 @@ export const questions = [
     "text": "Sam's pencil"
    },
    {
-    "value": "Maya's pencil",
-    "label": "Maya's pencil",
-    "text": "Maya's pencil"
+    "value": "Elise's pencil",
+    "label": "Elise's pencil",
+    "text": "Elise's pencil"
    }
   ],
   "answer": "Sam's pencil",
   "correctAnswer": "Sam's pencil",
   "distractorRationales": {
-   "her brother's pencil": "D-OPPOSITE",
-   "Maya's pencil": "D-PLAUSIBLE-UNSUPPORTED",
+   "her brother's pencil": "D-PLAUSIBLE-UNSUPPORTED",
+   "Elise's pencil": "D-PLAUSIBLE-UNSUPPORTED",
    "the teacher's pencil": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -3976,7 +3976,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Resolve possession across the two clauses."
+  "notes": "Track his and she across lending and chewing to preserve ownership."
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.pronoun_reference.v4",
@@ -4001,7 +4001,7 @@ export const questions = [
   "prompt": "Who taught the game?",
   "question": "Who taught the game?",
   "spokenPrompt": "Who taught the game?",
-  "passage": "The twins visited Auntie Vee, and she taught them a game.",
+  "passage": "The twins visited Auntie Vee on Sunday, and she taught them a new game.",
   "cell": "pronoun_reference",
   "choices": [
    "their mother",
@@ -4036,7 +4036,7 @@ export const questions = [
   "distractorRationales": {
    "the twins": "D-PLAUSIBLE-UNSUPPORTED",
    "their mother": "D-PLAUSIBLE-UNSUPPORTED",
-   "their grandpa": "D-OPPOSITE"
+   "their grandpa": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4067,7 +4067,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Resolve she versus plural them."
+  "notes": "Resolve singular she separately from plural them across the clauses."
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.pronoun_reference.v5",
@@ -4092,7 +4092,7 @@ export const questions = [
   "prompt": "What grew taller?",
   "question": "What grew taller?",
   "spokenPrompt": "What grew taller?",
-  "passage": "Nia put a seedling beside two cacti, but it grew taller.",
+  "passage": "Nia put a seedling beside two tall cacti, but it soon grew taller than them.",
   "cell": "pronoun_reference",
   "choices": [
    "the two cacti",
@@ -4127,7 +4127,7 @@ export const questions = [
   "distractorRationales": {
    "the two cacti": "D-PLAUSIBLE-UNSUPPORTED",
    "the plant shelf": "D-PLAUSIBLE-UNSUPPORTED",
-   "the flower pot": "D-OPPOSITE"
+   "the flower pot": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4158,7 +4158,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Use singular it rather than the nearer plural cacti."
+  "notes": "Resolve singular it against plural them while comparing the plants."
  },
  {
   "id": "lp3.sentence_comprehension.l2.C.pronoun_reference.v6",
@@ -4183,7 +4183,7 @@ export const questions = [
   "prompt": "Who built the robot?",
   "question": "Who built the robot?",
   "spokenPrompt": "Who built the robot?",
-  "passage": "Carmen showed Grandpa the robot that she built from boxes.",
+  "passage": "Carmen proudly showed Grandpa the small robot that she had built from empty boxes.",
   "cell": "pronoun_reference",
   "choices": [
    "Grandpa",
@@ -4218,7 +4218,7 @@ export const questions = [
   "distractorRationales": {
    "Grandpa": "D-PLAUSIBLE-UNSUPPORTED",
    "her dad": "D-PLAUSIBLE-UNSUPPORTED",
-   "her brother": "D-OPPOSITE"
+   "her brother": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4249,7 +4249,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Resolve she through a relative clause."
+  "notes": "Resolve she inside a relative clause to the person who made the robot."
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.pronoun_reference.v7",
@@ -4274,7 +4274,7 @@ export const questions = [
   "prompt": "Who was full?",
   "question": "Who was full?",
   "spokenPrompt": "Who was full?",
-  "passage": "The keeper fed the penguins, so they were full before visitors arrived.",
+  "passage": "The keeper fed the hungry penguins, so they were full before the first visitors arrived.",
   "cell": "pronoun_reference",
   "choices": [
    "the visitors",
@@ -4309,7 +4309,7 @@ export const questions = [
   "distractorRationales": {
    "the visitors": "D-PLAUSIBLE-UNSUPPORTED",
    "the keepers": "D-PLAUSIBLE-UNSUPPORTED",
-   "the seals": "D-OPPOSITE"
+   "the seals": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4340,7 +4340,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Resolve plural they across cause and later arrival."
+  "notes": "Resolve they to the fed animals rather than the later visitors."
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.pronoun_reference.v8",
@@ -4365,7 +4365,7 @@ export const questions = [
   "prompt": "Who did the train pass?",
   "question": "Who did the train pass?",
   "spokenPrompt": "Who did the train pass?",
-  "passage": "Effie waved to her cousin until the train passed him.",
+  "passage": "Effie waved to her cousin on the platform until the train had passed him.",
   "cell": "pronoun_reference",
   "choices": [
    "Effie's cousin",
@@ -4398,7 +4398,7 @@ export const questions = [
   "answer": "Effie's cousin",
   "correctAnswer": "Effie's cousin",
   "distractorRationales": {
-   "the ticket seller": "D-OPPOSITE",
+   "the ticket seller": "D-PLAUSIBLE-UNSUPPORTED",
    "Effie herself": "D-PLAUSIBLE-UNSUPPORTED",
    "the train driver": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -4431,7 +4431,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Resolve him as the person on the platform."
+  "notes": "Resolve him to the person on the platform, not the passenger or driver."
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.best_restatement.v1",
@@ -4456,7 +4456,7 @@ export const questions = [
   "prompt": "Which sentence means the SAME?",
   "question": "Which sentence means the SAME?",
   "spokenPrompt": "Which sentence means the SAME?",
-  "passage": "By lunchtime, every ticket for the puppet show had sold.",
+  "passage": "By lunchtime on Monday, every ticket for the puppet show had already been sold.",
   "cell": "best_restatement",
   "choices": [
    "No tickets were left by lunch.",
@@ -4489,8 +4489,8 @@ export const questions = [
   "answer": "No tickets were left by lunch.",
   "correctAnswer": "No tickets were left by lunch.",
   "distractorRationales": {
-   "The puppet show was canceled at lunch.": "D-OPPOSITE",
-   "Some tickets were left after lunch.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The puppet show was canceled at lunch.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Some tickets were left after lunch.": "D-OPPOSITE",
    "New tickets went on sale at lunch.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -4521,7 +4521,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Preserve every and by lunchtime when recasting sold tickets as none remaining."
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.best_restatement.v2",
@@ -4546,7 +4546,7 @@ export const questions = [
   "prompt": "Which sentence means the SAME?",
   "question": "Which sentence means the SAME?",
   "spokenPrompt": "Which sentence means the SAME?",
-  "passage": "Ravi knows the route to the pool very well.",
+  "passage": "Ravi knows the route to the swimming pool without needing to ask for directions.",
   "cell": "best_restatement",
   "choices": [
    "Ravi always takes a new route there.",
@@ -4579,8 +4579,8 @@ export const questions = [
   "answer": "Ravi can find his way there easily.",
   "correctAnswer": "Ravi can find his way there easily.",
   "distractorRationales": {
-   "Ravi always takes a new route there.": "D-OPPOSITE",
-   "Ravi needs help to find his way.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Ravi always takes a new route there.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Ravi needs help to find his way.": "D-OPPOSITE",
    "Ravi has never gone to the pool.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -4611,7 +4611,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Restate knowing a route without help as finding the way independently."
  },
  {
   "id": "lp3.sentence_comprehension.l2.C.best_restatement.v3",
@@ -4636,7 +4636,7 @@ export const questions = [
   "prompt": "Which sentence means the SAME?",
   "question": "Which sentence means the SAME?",
   "spokenPrompt": "Which sentence means the SAME?",
-  "passage": "The class stood up before the final whistle ended the match.",
+  "passage": "The whole class stood up before the final whistle ended the exciting football match.",
   "cell": "best_restatement",
   "choices": [
    "Everyone rose before the match finished.",
@@ -4669,8 +4669,8 @@ export const questions = [
   "answer": "Everyone rose before the match finished.",
   "correctAnswer": "Everyone rose before the match finished.",
   "distractorRationales": {
-   "Everyone sat until the match finished.": "D-OPPOSITE",
-   "Everyone rose after the match finished.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Everyone sat until the match finished.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Everyone rose after the match finished.": "D-OPPOSITE",
    "Everyone left before the match finished.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -4701,7 +4701,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Preserve the whole group, the action and its timing relative to the final whistle."
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.best_restatement.v4",
@@ -4726,42 +4726,42 @@ export const questions = [
   "prompt": "Which sentence means the SAME?",
   "question": "Which sentence means the SAME?",
   "spokenPrompt": "Which sentence means the SAME?",
-  "passage": "Dad said the soup had a very strong smell.",
+  "passage": "Dad said he could smell the soup even from outside the closed kitchen door.",
   "cell": "best_restatement",
   "choices": [
-   "Dad said the soup was too cold.",
-   "Dad could smell the soup clearly.",
-   "Dad could hardly smell the soup.",
-   "Dad wanted soup with more salt."
+   "Dad said the closed door kept the smell inside.",
+   "Dad could smell the soup through the closed door.",
+   "Dad could smell the soup only beside the cooker.",
+   "Dad opened the kitchen door before smelling the soup."
   ],
   "answerOptions": [
    {
-    "value": "Dad said the soup was too cold.",
-    "label": "Dad said the soup was too cold.",
-    "text": "Dad said the soup was too cold."
+    "value": "Dad said the closed door kept the smell inside.",
+    "label": "Dad said the closed door kept the smell inside.",
+    "text": "Dad said the closed door kept the smell inside."
    },
    {
-    "value": "Dad could smell the soup clearly.",
-    "label": "Dad could smell the soup clearly.",
-    "text": "Dad could smell the soup clearly."
+    "value": "Dad could smell the soup through the closed door.",
+    "label": "Dad could smell the soup through the closed door.",
+    "text": "Dad could smell the soup through the closed door."
    },
    {
-    "value": "Dad could hardly smell the soup.",
-    "label": "Dad could hardly smell the soup.",
-    "text": "Dad could hardly smell the soup."
+    "value": "Dad could smell the soup only beside the cooker.",
+    "label": "Dad could smell the soup only beside the cooker.",
+    "text": "Dad could smell the soup only beside the cooker."
    },
    {
-    "value": "Dad wanted soup with more salt.",
-    "label": "Dad wanted soup with more salt.",
-    "text": "Dad wanted soup with more salt."
+    "value": "Dad opened the kitchen door before smelling the soup.",
+    "label": "Dad opened the kitchen door before smelling the soup.",
+    "text": "Dad opened the kitchen door before smelling the soup."
    }
   ],
-  "answer": "Dad could smell the soup clearly.",
-  "correctAnswer": "Dad could smell the soup clearly.",
+  "answer": "Dad could smell the soup through the closed door.",
+  "correctAnswer": "Dad could smell the soup through the closed door.",
   "distractorRationales": {
-   "Dad could hardly smell the soup.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Dad wanted soup with more salt.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Dad said the soup was too cold.": "D-OPPOSITE"
+   "Dad could smell the soup only beside the cooker.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Dad opened the kitchen door before smelling the soup.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Dad said the closed door kept the smell inside.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4791,7 +4791,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Preserve the surprising distance and closed barrier in the reported smell."
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.best_restatement.v5",
@@ -4816,7 +4816,7 @@ export const questions = [
   "prompt": "Which sentence means the SAME?",
   "question": "Which sentence means the SAME?",
   "spokenPrompt": "Which sentence means the SAME?",
-  "passage": "Omar had stopped waiting calmly before the late bus came.",
+  "passage": "Omar had stopped waiting calmly long before the late bus finally came around the corner.",
   "cell": "best_restatement",
   "choices": [
    "Omar missed the bus because he arrived late.",
@@ -4850,8 +4850,8 @@ export const questions = [
   "correctAnswer": "Omar grew impatient while waiting for the bus.",
   "distractorRationales": {
    "Omar missed the bus because he arrived late.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Omar left calmly before the bus arrived.": "D-OPPOSITE",
-   "Omar stayed calm while waiting for the bus.": "D-PLAUSIBLE-UNSUPPORTED"
+   "Omar left calmly before the bus arrived.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Omar stayed calm while waiting for the bus.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4881,7 +4881,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Restate stopped waiting calmly as growing impatient before the arrival."
  },
  {
   "id": "lp3.sentence_comprehension.l2.C.best_restatement.v6",
@@ -4906,7 +4906,7 @@ export const questions = [
   "prompt": "Which sentence means the SAME?",
   "question": "Which sentence means the SAME?",
   "spokenPrompt": "Which sentence means the SAME?",
-  "passage": "The new puppy chewed every shoe in the house.",
+  "passage": "The new puppy chewed every shoe in the house while everyone was outside gardening.",
   "cell": "best_restatement",
   "choices": [
    "The puppy carried shoes without chewing them.",
@@ -4939,9 +4939,9 @@ export const questions = [
   "answer": "No shoe escaped the puppy's chewing.",
   "correctAnswer": "No shoe escaped the puppy's chewing.",
   "distractorRationales": {
-   "Some shoes escaped the puppy's chewing.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Some shoes escaped the puppy's chewing.": "D-OPPOSITE",
    "The puppy only chewed its own toys.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The puppy carried shoes without chewing them.": "D-OPPOSITE"
+   "The puppy carried shoes without chewing them.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4971,7 +4971,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Translate every shoe into no shoe escaping while keeping the puppy as agent."
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.best_restatement.v7",
@@ -4996,42 +4996,42 @@ export const questions = [
   "prompt": "Which sentence means the SAME?",
   "question": "Which sentence means the SAME?",
   "spokenPrompt": "Which sentence means the SAME?",
-  "passage": "Lila found it hard to keep the secret until Friday.",
+  "passage": "Lila found it hard to keep the birthday surprise a secret until her sister arrived.",
   "cell": "best_restatement",
   "choices": [
-   "Telling the secret made Lila happy.",
-   "Hearing the secret made Lila worried.",
-   "Not telling the secret was difficult.",
-   "Remembering the secret was very easy."
+   "Hearing about her sister’s surprise made Lila feel worried.",
+   "Telling her sister the birthday surprise made Lila happy.",
+   "Hiding the birthday surprise from her sister was difficult.",
+   "Forgetting the birthday surprise before her sister arrived was difficult."
   ],
   "answerOptions": [
    {
-    "value": "Telling the secret made Lila happy.",
-    "label": "Telling the secret made Lila happy.",
-    "text": "Telling the secret made Lila happy."
+    "value": "Hearing about her sister’s surprise made Lila feel worried.",
+    "label": "Hearing about her sister’s surprise made Lila feel worried.",
+    "text": "Hearing about her sister’s surprise made Lila feel worried."
    },
    {
-    "value": "Hearing the secret made Lila worried.",
-    "label": "Hearing the secret made Lila worried.",
-    "text": "Hearing the secret made Lila worried."
+    "value": "Telling her sister the birthday surprise made Lila happy.",
+    "label": "Telling her sister the birthday surprise made Lila happy.",
+    "text": "Telling her sister the birthday surprise made Lila happy."
    },
    {
-    "value": "Not telling the secret was difficult.",
-    "label": "Not telling the secret was difficult.",
-    "text": "Not telling the secret was difficult."
+    "value": "Hiding the birthday surprise from her sister was difficult.",
+    "label": "Hiding the birthday surprise from her sister was difficult.",
+    "text": "Hiding the birthday surprise from her sister was difficult."
    },
    {
-    "value": "Remembering the secret was very easy.",
-    "label": "Remembering the secret was very easy.",
-    "text": "Remembering the secret was very easy."
+    "value": "Forgetting the birthday surprise before her sister arrived was difficult.",
+    "label": "Forgetting the birthday surprise before her sister arrived was difficult.",
+    "text": "Forgetting the birthday surprise before her sister arrived was difficult."
    }
   ],
-  "answer": "Not telling the secret was difficult.",
-  "correctAnswer": "Not telling the secret was difficult.",
+  "answer": "Hiding the birthday surprise from her sister was difficult.",
+  "correctAnswer": "Hiding the birthday surprise from her sister was difficult.",
   "distractorRationales": {
-   "Remembering the secret was very easy.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Telling the secret made Lila happy.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Hearing the secret made Lila worried.": "D-OPPOSITE"
+   "Forgetting the birthday surprise before her sister arrived was difficult.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Hearing about her sister’s surprise made Lila feel worried.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Telling her sister the birthday surprise made Lila happy.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5061,7 +5061,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Restate the difficulty of withholding a surprise without turning it into forgetting."
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.best_restatement.v8",
@@ -5086,42 +5086,42 @@ export const questions = [
   "prompt": "Which sentence means the SAME?",
   "question": "Which sentence means the SAME?",
   "spokenPrompt": "Which sentence means the SAME?",
-  "passage": "Hailstones bounced all over the trampoline during the storm.",
+  "passage": "During the sudden storm, small balls of ice bounced all over the garden trampoline.",
   "cell": "best_restatement",
   "choices": [
-   "Falling leaves covered the whole trampoline.",
-   "Heavy rain washed under the trampoline.",
-   "Strong wind lifted the whole trampoline.",
-   "Falling ice jumped across the trampoline."
+   "Rain flowed beneath the trampoline during the storm.",
+   "Leaves stuck to the trampoline during the storm.",
+   "Wind lifted the trampoline up during the storm.",
+   "Hail bounced across the trampoline during the storm."
   ],
   "answerOptions": [
    {
-    "value": "Falling leaves covered the whole trampoline.",
-    "label": "Falling leaves covered the whole trampoline.",
-    "text": "Falling leaves covered the whole trampoline."
+    "value": "Rain flowed beneath the trampoline during the storm.",
+    "label": "Rain flowed beneath the trampoline during the storm.",
+    "text": "Rain flowed beneath the trampoline during the storm."
    },
    {
-    "value": "Heavy rain washed under the trampoline.",
-    "label": "Heavy rain washed under the trampoline.",
-    "text": "Heavy rain washed under the trampoline."
+    "value": "Leaves stuck to the trampoline during the storm.",
+    "label": "Leaves stuck to the trampoline during the storm.",
+    "text": "Leaves stuck to the trampoline during the storm."
    },
    {
-    "value": "Strong wind lifted the whole trampoline.",
-    "label": "Strong wind lifted the whole trampoline.",
-    "text": "Strong wind lifted the whole trampoline."
+    "value": "Wind lifted the trampoline up during the storm.",
+    "label": "Wind lifted the trampoline up during the storm.",
+    "text": "Wind lifted the trampoline up during the storm."
    },
    {
-    "value": "Falling ice jumped across the trampoline.",
-    "label": "Falling ice jumped across the trampoline.",
-    "text": "Falling ice jumped across the trampoline."
+    "value": "Hail bounced across the trampoline during the storm.",
+    "label": "Hail bounced across the trampoline during the storm.",
+    "text": "Hail bounced across the trampoline during the storm."
    }
   ],
-  "answer": "Falling ice jumped across the trampoline.",
-  "correctAnswer": "Falling ice jumped across the trampoline.",
+  "answer": "Hail bounced across the trampoline during the storm.",
+  "correctAnswer": "Hail bounced across the trampoline during the storm.",
   "distractorRationales": {
-   "Falling leaves covered the whole trampoline.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Heavy rain washed under the trampoline.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Strong wind lifted the whole trampoline.": "D-OPPOSITE"
+   "Rain flowed beneath the trampoline during the storm.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Leaves stuck to the trampoline during the storm.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Wind lifted the trampoline up during the storm.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5151,7 +5151,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Replace the description of falling ice with hail while preserving its movement."
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.literal_who_what.v9r",
@@ -5209,7 +5209,7 @@ export const questions = [
   "answer": "her very large pumpkin",
   "correctAnswer": "her very large pumpkin",
   "distractorRationales": {
-   "her very small carrot": "D-OPPOSITE",
+   "her very small carrot": "D-PLAUSIBLE-UNSUPPORTED",
    "her very large carrot": "D-PLAUSIBLE-UNSUPPORTED",
    "her very small pumpkin": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -5301,7 +5301,7 @@ export const questions = [
   "distractorRationales": {
    "during the day": "D-PLAUSIBLE-UNSUPPORTED",
    "only before lunch": "D-PLAUSIBLE-UNSUPPORTED",
-   "only after lunch": "D-OPPOSITE"
+   "only after lunch": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5359,9 +5359,9 @@ export const questions = [
   "cell": "picture_match",
   "choices": [
    "A small dog leads a tall man down the street.",
-   "A tall man carries a small dog.",
-   "Two dogs chase a ball.",
-   "A man buys a dog lead."
+   "A tall man is carrying a small dog along.",
+   "Two dogs are running after a ball in the park.",
+   "A man is buying a dog lead in a shop."
   ],
   "answerOptions": [
    {
@@ -5370,27 +5370,27 @@ export const questions = [
     "text": "A small dog leads a tall man down the street."
    },
    {
-    "value": "A tall man carries a small dog.",
-    "label": "A tall man carries a small dog.",
-    "text": "A tall man carries a small dog."
+    "value": "A tall man is carrying a small dog along.",
+    "label": "A tall man is carrying a small dog along.",
+    "text": "A tall man is carrying a small dog along."
    },
    {
-    "value": "Two dogs chase a ball.",
-    "label": "Two dogs chase a ball.",
-    "text": "Two dogs chase a ball."
+    "value": "Two dogs are running after a ball in the park.",
+    "label": "Two dogs are running after a ball in the park.",
+    "text": "Two dogs are running after a ball in the park."
    },
    {
-    "value": "A man buys a dog lead.",
-    "label": "A man buys a dog lead.",
-    "text": "A man buys a dog lead."
+    "value": "A man is buying a dog lead in a shop.",
+    "label": "A man is buying a dog lead in a shop.",
+    "text": "A man is buying a dog lead in a shop."
    }
   ],
   "answer": "A small dog leads a tall man down the street.",
   "correctAnswer": "A small dog leads a tall man down the street.",
   "distractorRationales": {
-   "Two dogs chase a ball.": "D-PLAUSIBLE-UNSUPPORTED",
-   "A man buys a dog lead.": "D-TOPIC-ADJACENT",
-   "A tall man carries a small dog.": "D-VISUAL-NEIGHBOR"
+   "Two dogs are running after a ball in the park.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A man is buying a dog lead in a shop.": "D-TOPIC-ADJACENT",
+   "A tall man is carrying a small dog along.": "D-VISUAL-NEIGHBOR"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -5456,45 +5456,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Where did the baker put the coin?",
-  "question": "Where did the baker put the coin?",
-  "spokenPrompt": "Where did the baker put the coin?",
-  "passage": "The baker hid a coin inside one bread roll.",
+  "prompt": "What did the baker do to each roll?",
+  "question": "What did the baker do to each roll?",
+  "spokenPrompt": "What did the baker do to each roll?",
+  "passage": "The baker pressed a flower shape into each bread roll.",
   "cell": "literal_action",
   "choices": [
-   "behind the bread tray",
-   "in one bread roll",
-   "by one bread roll",
-   "under the bread tray"
+   "tied it with a flower ribbon",
+   "pressed in a flower design",
+   "cut it into a flower shape",
+   "painted on a flower design"
   ],
   "answerOptions": [
    {
-    "value": "behind the bread tray",
-    "label": "behind the bread tray",
-    "text": "behind the bread tray"
+    "value": "tied it with a flower ribbon",
+    "label": "tied it with a flower ribbon",
+    "text": "tied it with a flower ribbon"
    },
    {
-    "value": "in one bread roll",
-    "label": "in one bread roll",
-    "text": "in one bread roll"
+    "value": "pressed in a flower design",
+    "label": "pressed in a flower design",
+    "text": "pressed in a flower design"
    },
    {
-    "value": "by one bread roll",
-    "label": "by one bread roll",
-    "text": "by one bread roll"
+    "value": "cut it into a flower shape",
+    "label": "cut it into a flower shape",
+    "text": "cut it into a flower shape"
    },
    {
-    "value": "under the bread tray",
-    "label": "under the bread tray",
-    "text": "under the bread tray"
+    "value": "painted on a flower design",
+    "label": "painted on a flower design",
+    "text": "painted on a flower design"
    }
   ],
-  "answer": "in one bread roll",
-  "correctAnswer": "in one bread roll",
+  "answer": "pressed in a flower design",
+  "correctAnswer": "pressed in a flower design",
   "distractorRationales": {
-   "under the bread tray": "D-PLAUSIBLE-UNSUPPORTED",
-   "behind the bread tray": "D-OPPOSITE",
-   "by one bread roll": "D-PLAUSIBLE-UNSUPPORTED"
+   "painted on a flower design": "D-PLAUSIBLE-UNSUPPORTED",
+   "tied it with a flower ribbon": "D-PLAUSIBLE-UNSUPPORTED",
+   "cut it into a flower shape": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5524,7 +5524,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the stated action or its manner without adding an unstated event."
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.literal_who_what.v10r",
@@ -5584,7 +5584,7 @@ export const questions = [
   "distractorRationales": {
    "the child’s mother": "D-PLAUSIBLE-UNSUPPORTED",
    "the child’s neighbour": "D-PLAUSIBLE-UNSUPPORTED",
-   "the child’s grandfather": "D-OPPOSITE"
+   "the child’s grandfather": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5674,7 +5674,7 @@ export const questions = [
   "distractorRationales": {
    "in the basket under his bed": "D-PLAUSIBLE-UNSUPPORTED",
    "in the drawer beside his bed": "D-PLAUSIBLE-UNSUPPORTED",
-   "in the basket beside his bed": "D-OPPOSITE"
+   "in the basket beside his bed": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5731,39 +5731,39 @@ export const questions = [
   "spokenPrompt": "Look carefully at the picture. Which sentence tells about it?",
   "cell": "picture_match",
   "choices": [
-   "The family sleeps together on the sofa.",
-   "The family eats together at the table.",
-   "The family watches television from the sofa.",
-   "The family reads together on the floor."
+   "The whole family is sleeping together on the sofa.",
+   "The whole family is eating together at the table.",
+   "The whole family is watching television from the sofa.",
+   "The whole family is reading together on the floor."
   ],
   "answerOptions": [
    {
-    "value": "The family sleeps together on the sofa.",
-    "label": "The family sleeps together on the sofa.",
-    "text": "The family sleeps together on the sofa."
+    "value": "The whole family is sleeping together on the sofa.",
+    "label": "The whole family is sleeping together on the sofa.",
+    "text": "The whole family is sleeping together on the sofa."
    },
    {
-    "value": "The family eats together at the table.",
-    "label": "The family eats together at the table.",
-    "text": "The family eats together at the table."
+    "value": "The whole family is eating together at the table.",
+    "label": "The whole family is eating together at the table.",
+    "text": "The whole family is eating together at the table."
    },
    {
-    "value": "The family watches television from the sofa.",
-    "label": "The family watches television from the sofa.",
-    "text": "The family watches television from the sofa."
+    "value": "The whole family is watching television from the sofa.",
+    "label": "The whole family is watching television from the sofa.",
+    "text": "The whole family is watching television from the sofa."
    },
    {
-    "value": "The family reads together on the floor.",
-    "label": "The family reads together on the floor.",
-    "text": "The family reads together on the floor."
+    "value": "The whole family is reading together on the floor.",
+    "label": "The whole family is reading together on the floor.",
+    "text": "The whole family is reading together on the floor."
    }
   ],
-  "answer": "The family sleeps together on the sofa.",
-  "correctAnswer": "The family sleeps together on the sofa.",
+  "answer": "The whole family is sleeping together on the sofa.",
+  "correctAnswer": "The whole family is sleeping together on the sofa.",
   "distractorRationales": {
-   "The family watches television from the sofa.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The family reads together on the floor.": "D-OPPOSITE",
-   "The family eats together at the table.": "D-PLAUSIBLE-UNSUPPORTED"
+   "The whole family is watching television from the sofa.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The whole family is reading together on the floor.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The whole family is eating together at the table.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -5829,45 +5829,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What did Mrs. Cho use to reach the ball?",
-  "question": "What did Mrs. Cho use to reach the ball?",
-  "spokenPrompt": "What did Mrs. Cho use to reach the ball?",
-  "passage": "Mrs. Cho got the ball down with a mop.",
+  "prompt": "How did Mrs Cho get the ball down?",
+  "question": "How did Mrs Cho get the ball down?",
+  "spokenPrompt": "How did Mrs Cho get the ball down?",
+  "passage": "Mrs Cho got the ball down with a mop.",
   "cell": "literal_action",
   "choices": [
-   "a net with a small hoop",
-   "a mop with a long handle",
-   "a pole with a small hook",
-   "a broom with a long handle"
+   "shook a branch to move it",
+   "used a mop to reach it",
+   "climbed a ladder to reach it",
+   "threw a stick to move it"
   ],
   "answerOptions": [
    {
-    "value": "a net with a small hoop",
-    "label": "a net with a small hoop",
-    "text": "a net with a small hoop"
+    "value": "shook a branch to move it",
+    "label": "shook a branch to move it",
+    "text": "shook a branch to move it"
    },
    {
-    "value": "a mop with a long handle",
-    "label": "a mop with a long handle",
-    "text": "a mop with a long handle"
+    "value": "used a mop to reach it",
+    "label": "used a mop to reach it",
+    "text": "used a mop to reach it"
    },
    {
-    "value": "a pole with a small hook",
-    "label": "a pole with a small hook",
-    "text": "a pole with a small hook"
+    "value": "climbed a ladder to reach it",
+    "label": "climbed a ladder to reach it",
+    "text": "climbed a ladder to reach it"
    },
    {
-    "value": "a broom with a long handle",
-    "label": "a broom with a long handle",
-    "text": "a broom with a long handle"
+    "value": "threw a stick to move it",
+    "label": "threw a stick to move it",
+    "text": "threw a stick to move it"
    }
   ],
-  "answer": "a mop with a long handle",
-  "correctAnswer": "a mop with a long handle",
+  "answer": "used a mop to reach it",
+  "correctAnswer": "used a mop to reach it",
   "distractorRationales": {
-   "a broom with a long handle": "D-PLAUSIBLE-UNSUPPORTED",
-   "a net with a small hoop": "D-OPPOSITE",
-   "a pole with a small hook": "D-PLAUSIBLE-UNSUPPORTED"
+   "threw a stick to move it": "D-PLAUSIBLE-UNSUPPORTED",
+   "shook a branch to move it": "D-PLAUSIBLE-UNSUPPORTED",
+   "climbed a ladder to reach it": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5897,7 +5897,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the stated action or its manner without adding an unstated event."
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.two_clause.v9r",
@@ -5922,7 +5922,7 @@ export const questions = [
   "prompt": "Why did Mom light the candles again?",
   "question": "Why did Mom light the candles again?",
   "spokenPrompt": "Why did Mom light the candles again?",
-  "passage": "Baby Bo blew the candles out, so Mom lit them again.",
+  "passage": "Baby Bo blew all the birthday candles out, so Mom carefully lit them again.",
   "cell": "two_clause",
   "choices": [
    "Bo had put them away",
@@ -5957,7 +5957,7 @@ export const questions = [
   "distractorRationales": {
    "Bo had put them away": "D-PLAUSIBLE-UNSUPPORTED",
    "the wind had blown them out": "D-PLAUSIBLE-UNSUPPORTED",
-   "the rain had made them wet": "D-OPPOSITE"
+   "the rain had made them wet": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5987,7 +5987,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Connect an action to a repeated action."
+  "notes": "Connect the extinguished candles with the reason for repeating an action."
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.two_clause.v10r",
@@ -6012,7 +6012,7 @@ export const questions = [
   "prompt": "What did Grandma think about waiting?",
   "question": "What did Grandma think about waiting?",
   "spokenPrompt": "What did Grandma think about waiting?",
-  "passage": "The wait was long, but Grandma thought the dumplings were worth it.",
+  "passage": "Although the wait for lunch was long, Grandma thought the dumplings were worth it.",
   "cell": "two_clause",
   "choices": [
    "the food made the wait worthwhile",
@@ -6045,8 +6045,8 @@ export const questions = [
   "answer": "the food made the wait worthwhile",
   "correctAnswer": "the food made the wait worthwhile",
   "distractorRationales": {
-   "the line was too noisy to join": "D-OPPOSITE",
-   "the food made the wait pointless": "D-PLAUSIBLE-UNSUPPORTED",
+   "the line was too noisy to join": "D-PLAUSIBLE-UNSUPPORTED",
+   "the food made the wait pointless": "D-OPPOSITE",
    "the line was too short to join": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -6077,7 +6077,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Interpret a contrast in opinion after a long wait."
+  "notes": "Interpret the positive judgement despite the negative waiting experience."
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.pronoun_reference.v9r",
@@ -6102,7 +6102,7 @@ export const questions = [
   "prompt": "Who fell asleep?",
   "question": "Who fell asleep?",
   "spokenPrompt": "Who fell asleep?",
-  "passage": "Priya read to her brother until he fell asleep.",
+  "passage": "Priya read a bedtime story to her little brother until he finally fell asleep.",
   "cell": "pronoun_reference",
   "choices": [
    "her sister",
@@ -6136,7 +6136,7 @@ export const questions = [
   "correctAnswer": "her brother",
   "distractorRationales": {
    "her mother": "D-PLAUSIBLE-UNSUPPORTED",
-   "her sister": "D-OPPOSITE",
+   "her sister": "D-PLAUSIBLE-UNSUPPORTED",
    "Priya": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -6168,7 +6168,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Resolve he at the end of the subordinate clause."
+  "notes": "Resolve he to the listener rather than the reader."
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.pronoun_reference.v10r",
@@ -6193,11 +6193,11 @@ export const questions = [
   "prompt": "Who packed the cones?",
   "question": "Who packed the cones?",
   "spokenPrompt": "Who packed the cones?",
-  "passage": "The coach thanked the parents because they had packed the cones.",
+  "passage": "The coach thanked the waiting parents because they had packed the cones after practice.",
   "cell": "pronoun_reference",
   "choices": [
    "the players",
-   "the helpers",
+   "the referee",
    "the parents",
    "the coach"
   ],
@@ -6208,9 +6208,9 @@ export const questions = [
     "text": "the players"
    },
    {
-    "value": "the helpers",
-    "label": "the helpers",
-    "text": "the helpers"
+    "value": "the referee",
+    "label": "the referee",
+    "text": "the referee"
    },
    {
     "value": "the parents",
@@ -6227,7 +6227,7 @@ export const questions = [
   "correctAnswer": "the parents",
   "distractorRationales": {
    "the players": "D-PLAUSIBLE-UNSUPPORTED",
-   "the helpers": "D-OPPOSITE",
+   "the referee": "D-PLAUSIBLE-UNSUPPORTED",
    "the coach": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -6259,7 +6259,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Resolve they from the people thanked, not the subject."
+  "notes": "Resolve they to the thanked group and their earlier contribution."
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.best_restatement.v10r",
@@ -6284,42 +6284,42 @@ export const questions = [
   "prompt": "Which sentence means the SAME?",
   "question": "Which sentence means the SAME?",
   "spokenPrompt": "Which sentence means the SAME?",
-  "passage": "The tide had covered the sandcastle by late afternoon.",
+  "passage": "When the children returned that afternoon, the incoming tide had covered their whole sandcastle.",
   "cell": "best_restatement",
   "choices": [
-   "The sea stayed below it until evening.",
-   "The sea washed it away after dark.",
-   "The sea never reached it that day.",
-   "The sea was over it before evening."
+   "When the children returned, only the castle’s base was underwater.",
+   "The tide reached the whole castle after the children returned.",
+   "The children returned before the water reached their castle.",
+   "When the children returned, the whole castle was underwater."
   ],
   "answerOptions": [
    {
-    "value": "The sea stayed below it until evening.",
-    "label": "The sea stayed below it until evening.",
-    "text": "The sea stayed below it until evening."
+    "value": "When the children returned, only the castle’s base was underwater.",
+    "label": "When the children returned, only the castle’s base was underwater.",
+    "text": "When the children returned, only the castle’s base was underwater."
    },
    {
-    "value": "The sea washed it away after dark.",
-    "label": "The sea washed it away after dark.",
-    "text": "The sea washed it away after dark."
+    "value": "The tide reached the whole castle after the children returned.",
+    "label": "The tide reached the whole castle after the children returned.",
+    "text": "The tide reached the whole castle after the children returned."
    },
    {
-    "value": "The sea never reached it that day.",
-    "label": "The sea never reached it that day.",
-    "text": "The sea never reached it that day."
+    "value": "The children returned before the water reached their castle.",
+    "label": "The children returned before the water reached their castle.",
+    "text": "The children returned before the water reached their castle."
    },
    {
-    "value": "The sea was over it before evening.",
-    "label": "The sea was over it before evening.",
-    "text": "The sea was over it before evening."
+    "value": "When the children returned, the whole castle was underwater.",
+    "label": "When the children returned, the whole castle was underwater.",
+    "text": "When the children returned, the whole castle was underwater."
    }
   ],
-  "answer": "The sea was over it before evening.",
-  "correctAnswer": "The sea was over it before evening.",
+  "answer": "When the children returned, the whole castle was underwater.",
+  "correctAnswer": "When the children returned, the whole castle was underwater.",
   "distractorRationales": {
-   "The sea stayed below it until evening.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The sea washed it away after dark.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The sea never reached it that day.": "D-OPPOSITE"
+   "When the children returned, only the castle’s base was underwater.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The tide reached the whole castle after the children returned.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The children returned before the water reached their castle.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6349,7 +6349,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Retain both complete coverage and the deadline of the children’s return."
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.best_restatement.v9r",
@@ -6374,7 +6374,7 @@ export const questions = [
   "prompt": "Which sentence means the SAME?",
   "question": "Which sentence means the SAME?",
   "spokenPrompt": "Which sentence means the SAME?",
-  "passage": "The cheese smelled so bad that everyone opened the windows.",
+  "passage": "The cheese smelled so bad that everyone opened the windows to let fresh air inside.",
   "cell": "best_restatement",
   "choices": [
    "People let fresh air in because of the cheese.",
@@ -6409,7 +6409,7 @@ export const questions = [
   "distractorRationales": {
    "People let fresh air in to cool the cheese.": "D-PLAUSIBLE-UNSUPPORTED",
    "People shut the windows to hide the cheese smell.": "D-PLAUSIBLE-UNSUPPORTED",
-   "People shut the windows because the cheese was cold.": "D-OPPOSITE"
+   "People shut the windows because the cheese was cold.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6439,7 +6439,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Preserve the reason for opening the windows, rather than reversing the action."
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.two_clause.v11r",
@@ -6461,45 +6461,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What did the cleaner do while working?",
-  "question": "What did the cleaner do while working?",
-  "spokenPrompt": "What did the cleaner do while working?",
-  "passage": "The cleaner kept working, but waved to the passing children.",
+  "prompt": "What happened while the cleaner greeted the children?",
+  "question": "What happened while the cleaner greeted the children?",
+  "spokenPrompt": "What happened while the cleaner greeted the children?",
+  "passage": "The window cleaner kept wiping the glass while he waved to the passing children.",
   "cell": "two_clause",
   "choices": [
-   "told the children to step back",
-   "greeted the children with a wave",
-   "joined the children on their walk",
-   "asked the children for a cloth"
+   "he finished work and packed his cloths",
+   "he continued cleaning the window",
+   "he left the window to join them",
+   "he stopped cleaning to ask for help"
   ],
   "answerOptions": [
    {
-    "value": "told the children to step back",
-    "label": "told the children to step back",
-    "text": "told the children to step back"
+    "value": "he finished work and packed his cloths",
+    "label": "he finished work and packed his cloths",
+    "text": "he finished work and packed his cloths"
    },
    {
-    "value": "greeted the children with a wave",
-    "label": "greeted the children with a wave",
-    "text": "greeted the children with a wave"
+    "value": "he continued cleaning the window",
+    "label": "he continued cleaning the window",
+    "text": "he continued cleaning the window"
    },
    {
-    "value": "joined the children on their walk",
-    "label": "joined the children on their walk",
-    "text": "joined the children on their walk"
+    "value": "he left the window to join them",
+    "label": "he left the window to join them",
+    "text": "he left the window to join them"
    },
    {
-    "value": "asked the children for a cloth",
-    "label": "asked the children for a cloth",
-    "text": "asked the children for a cloth"
+    "value": "he stopped cleaning to ask for help",
+    "label": "he stopped cleaning to ask for help",
+    "text": "he stopped cleaning to ask for help"
    }
   ],
-  "answer": "greeted the children with a wave",
-  "correctAnswer": "greeted the children with a wave",
+  "answer": "he continued cleaning the window",
+  "correctAnswer": "he continued cleaning the window",
   "distractorRationales": {
-   "asked the children for a cloth": "D-PLAUSIBLE-UNSUPPORTED",
-   "told the children to step back": "D-OPPOSITE",
-   "joined the children on their walk": "D-PLAUSIBLE-UNSUPPORTED"
+   "he stopped cleaning to ask for help": "D-PLAUSIBLE-UNSUPPORTED",
+   "he finished work and packed his cloths": "D-PLAUSIBLE-UNSUPPORTED",
+   "he left the window to join them": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6529,7 +6529,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Both actions happen together despite the contrast."
+  "notes": "Recognise that the greeting and the cleaning happened together."
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.pronoun_reference.v11r",
@@ -6554,19 +6554,19 @@ export const questions = [
   "prompt": "Who spotted the bird?",
   "question": "Who spotted the bird?",
   "spokenPrompt": "Who spotted the bird?",
-  "passage": "Grandma passed Jonah the glasses after he spotted a bird.",
+  "passage": "Grandma passed Jonah her spare glasses after he spotted a tiny bird in the hedge.",
   "cell": "pronoun_reference",
   "choices": [
-   "a birdwatcher",
+   "a bus driver",
    "a gardener",
    "Jonah",
    "Grandma"
   ],
   "answerOptions": [
    {
-    "value": "a birdwatcher",
-    "label": "a birdwatcher",
-    "text": "a birdwatcher"
+    "value": "a bus driver",
+    "label": "a bus driver",
+    "text": "a bus driver"
    },
    {
     "value": "a gardener",
@@ -6587,9 +6587,9 @@ export const questions = [
   "answer": "Jonah",
   "correctAnswer": "Jonah",
   "distractorRationales": {
-   "a gardener": "D-OPPOSITE",
+   "a gardener": "D-PLAUSIBLE-UNSUPPORTED",
    "Grandma": "D-PLAUSIBLE-UNSUPPORTED",
-   "a birdwatcher": "D-PLAUSIBLE-UNSUPPORTED"
+   "a bus driver": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6620,7 +6620,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Resolve he and distinguish receiving from noticing."
+  "notes": "Resolve he to the bird spotter rather than the person handing over glasses."
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.two_clause.v20",
@@ -6645,7 +6645,7 @@ export const questions = [
   "prompt": "Why did Mei wait?",
   "question": "Why did Mei wait?",
   "spokenPrompt": "Why did Mei wait?",
-  "passage": "The lift was full, so Mei waited for the next one. She reached the top floor after her friends.",
+  "passage": "The lift was already full of passengers, so Mei waited downstairs for the next one.",
   "cell": "two_clause",
   "choices": [
    "her friends were waiting on the ground floor",
@@ -6678,7 +6678,7 @@ export const questions = [
   "answer": "there was no room inside the lift",
   "correctAnswer": "there was no room inside the lift",
   "distractorRationales": {
-   "she wanted to use the stairs instead": "D-OPPOSITE",
+   "she wanted to use the stairs instead": "D-PLAUSIBLE-UNSUPPORTED",
    "her friends were waiting on the ground floor": "D-PLAUSIBLE-UNSUPPORTED",
    "the lift could not reach the top floor": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -6710,7 +6710,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Connect the lack of space in one lift with waiting for another."
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.two_clause.v21",
@@ -6732,45 +6732,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What did Hana carry?",
-  "question": "What did Hana carry?",
-  "spokenPrompt": "What did Hana carry?",
-  "passage": "Leo carried the empty tray, but Hana carried the drinks. Both took their things to the picnic table.",
+  "prompt": "How were the things Leo and Hana carried different?",
+  "question": "How were the things Leo and Hana carried different?",
+  "spokenPrompt": "How were the things Leo and Hana carried different?",
+  "passage": "While Leo carried only the empty tray, Hana took all the drinks to the picnic table.",
   "cell": "two_clause",
   "choices": [
-   "the drinks taken to the table",
-   "the empty tray taken to the table",
-   "the picnic table carried to the garden",
-   "both the drinks and the empty tray"
+   "Leo had the empty tray; Hana had drinks",
+   "Leo had drinks; Hana had the empty tray",
+   "Leo had the table; Hana had both loads",
+   "Leo had both loads; Hana had the table"
   ],
   "answerOptions": [
    {
-    "value": "the drinks taken to the table",
-    "label": "the drinks taken to the table",
-    "text": "the drinks taken to the table"
+    "value": "Leo had the empty tray; Hana had drinks",
+    "label": "Leo had the empty tray; Hana had drinks",
+    "text": "Leo had the empty tray; Hana had drinks"
    },
    {
-    "value": "the empty tray taken to the table",
-    "label": "the empty tray taken to the table",
-    "text": "the empty tray taken to the table"
+    "value": "Leo had drinks; Hana had the empty tray",
+    "label": "Leo had drinks; Hana had the empty tray",
+    "text": "Leo had drinks; Hana had the empty tray"
    },
    {
-    "value": "the picnic table carried to the garden",
-    "label": "the picnic table carried to the garden",
-    "text": "the picnic table carried to the garden"
+    "value": "Leo had the table; Hana had both loads",
+    "label": "Leo had the table; Hana had both loads",
+    "text": "Leo had the table; Hana had both loads"
    },
    {
-    "value": "both the drinks and the empty tray",
-    "label": "both the drinks and the empty tray",
-    "text": "both the drinks and the empty tray"
+    "value": "Leo had both loads; Hana had the table",
+    "label": "Leo had both loads; Hana had the table",
+    "text": "Leo had both loads; Hana had the table"
    }
   ],
-  "answer": "the drinks taken to the table",
-  "correctAnswer": "the drinks taken to the table",
+  "answer": "Leo had the empty tray; Hana had drinks",
+  "correctAnswer": "Leo had the empty tray; Hana had drinks",
   "distractorRationales": {
-   "the empty tray taken to the table": "D-PLAUSIBLE-UNSUPPORTED",
-   "the picnic table carried to the garden": "D-PLAUSIBLE-UNSUPPORTED",
-   "both the drinks and the empty tray": "D-OPPOSITE"
+   "Leo had drinks; Hana had the empty tray": "D-PLAUSIBLE-UNSUPPORTED",
+   "Leo had the table; Hana had both loads": "D-PLAUSIBLE-UNSUPPORTED",
+   "Leo had both loads; Hana had the table": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6800,7 +6800,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Integrate both carriers and distinguish an empty container from its usual contents."
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.pronoun_reference.v20",
@@ -6825,7 +6825,7 @@ export const questions = [
   "prompt": "Who does \"He\" mean?",
   "question": "Who does \"He\" mean?",
   "spokenPrompt": "Who does \"He\" mean?",
-  "passage": "Nina showed her drawings to Alex. He chose the picture with a boat on it.",
+  "passage": "Nina showed her drawings to Alex, and he chose the picture with a boat.",
   "cell": "pronoun_reference",
   "choices": [
    "the teacher looking over Nina’s shoulder",
@@ -6859,7 +6859,7 @@ export const questions = [
   "correctAnswer": "Alex, the person viewing Nina’s pictures",
   "distractorRationales": {
    "the person sailing in the drawn boat": "D-PLAUSIBLE-UNSUPPORTED",
-   "the teacher looking over Nina’s shoulder": "D-OPPOSITE",
+   "the teacher looking over Nina’s shoulder": "D-PLAUSIBLE-UNSUPPORTED",
    "Nina, the person showing Alex her pictures": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -6890,7 +6890,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Resolve he to the viewer rather than the owner of the drawings."
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.best_restatement.v20",
@@ -6915,7 +6915,7 @@ export const questions = [
   "prompt": "Which sentence has the same meaning?",
   "question": "Which sentence has the same meaning?",
   "spokenPrompt": "Which sentence has the same meaning?",
-  "passage": "The gate stays shut unless an adult opens it. Children wait outside until that happens.",
+  "passage": "The children must wait outside the locked gate until an adult opens it for them.",
   "cell": "best_restatement",
   "choices": [
    "The gate closes only after the children have left.",
@@ -6949,7 +6949,7 @@ export const questions = [
   "correctAnswer": "Children can enter after an adult opens the gate.",
   "distractorRationales": {
    "The gate closes only after the children have left.": "D-PLAUSIBLE-UNSUPPORTED",
-   "An adult must wait outside while children go in.": "D-OPPOSITE",
+   "An adult must wait outside while children go in.": "D-PLAUSIBLE-UNSUPPORTED",
    "Children can open the gate whenever they reach it.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -6980,7 +6980,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Preserve the adult-opening condition that determines when children may enter."
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.two_clause.v22",
@@ -7002,45 +7002,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "When did Arlo move his models?",
-  "question": "When did Arlo move his models?",
-  "spokenPrompt": "When did Arlo move his models?",
-  "passage": "Before the visitors arrived, Arlo moved his models onto a shelf. He left room on the table for their bags.",
+  "prompt": "Why did Arlo move his models before the visit?",
+  "question": "Why did Arlo move his models before the visit?",
+  "spokenPrompt": "Why did Arlo move his models before the visit?",
+  "passage": "Before the visitors arrived, Arlo moved his models to make room for their bags.",
   "cell": "two_clause",
   "choices": [
-   "after the visitors put down their bags",
-   "while the visitors were leaving the house",
-   "after he had shown them every model",
-   "while he was preparing for the visitors"
+   "to show the visitors every model he owned",
+   "to carry his models away with the visitors",
+   "to pack his models inside the visitors' bags",
+   "to free a place for the visitors' bags"
   ],
   "answerOptions": [
    {
-    "value": "after the visitors put down their bags",
-    "label": "after the visitors put down their bags",
-    "text": "after the visitors put down their bags"
+    "value": "to show the visitors every model he owned",
+    "label": "to show the visitors every model he owned",
+    "text": "to show the visitors every model he owned"
    },
    {
-    "value": "while the visitors were leaving the house",
-    "label": "while the visitors were leaving the house",
-    "text": "while the visitors were leaving the house"
+    "value": "to carry his models away with the visitors",
+    "label": "to carry his models away with the visitors",
+    "text": "to carry his models away with the visitors"
    },
    {
-    "value": "after he had shown them every model",
-    "label": "after he had shown them every model",
-    "text": "after he had shown them every model"
+    "value": "to pack his models inside the visitors' bags",
+    "label": "to pack his models inside the visitors' bags",
+    "text": "to pack his models inside the visitors' bags"
    },
    {
-    "value": "while he was preparing for the visitors",
-    "label": "while he was preparing for the visitors",
-    "text": "while he was preparing for the visitors"
+    "value": "to free a place for the visitors' bags",
+    "label": "to free a place for the visitors' bags",
+    "text": "to free a place for the visitors' bags"
    }
   ],
-  "answer": "while he was preparing for the visitors",
-  "correctAnswer": "while he was preparing for the visitors",
+  "answer": "to free a place for the visitors' bags",
+  "correctAnswer": "to free a place for the visitors' bags",
   "distractorRationales": {
-   "after the visitors put down their bags": "D-PLAUSIBLE-UNSUPPORTED",
-   "while the visitors were leaving the house": "D-PLAUSIBLE-UNSUPPORTED",
-   "after he had shown them every model": "D-OPPOSITE"
+   "to show the visitors every model he owned": "D-PLAUSIBLE-UNSUPPORTED",
+   "to carry his models away with the visitors": "D-PLAUSIBLE-UNSUPPORTED",
+   "to pack his models inside the visitors' bags": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7070,7 +7070,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Connect an earlier action with its purpose for arriving visitors."
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.pronoun_reference.v21",
@@ -7095,7 +7095,7 @@ export const questions = [
   "prompt": "Who does \"They\" refer to?",
   "question": "Who does \"They\" refer to?",
   "spokenPrompt": "Who does \"They\" refer to?",
-  "passage": "Amina gave the old coats to her neighbours. They thanked her and carried them to the shelter.",
+  "passage": "Amina gave the old coats to her neighbours, and they carried them to the shelter.",
   "cell": "pronoun_reference",
   "choices": [
    "the neighbours receiving the coats",
@@ -7130,7 +7130,7 @@ export const questions = [
   "distractorRationales": {
    "Amina carrying her old clothes": "D-PLAUSIBLE-UNSUPPORTED",
    "the people already at the shelter": "D-PLAUSIBLE-UNSUPPORTED",
-   "the coats lying in the bag": "D-OPPOSITE"
+   "the coats lying in the bag": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7160,7 +7160,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Resolve they to the recipients and them to the objects being carried."
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.best_restatement.v21",
@@ -7185,7 +7185,7 @@ export const questions = [
   "prompt": "Which sentence has the same meaning?",
   "question": "Which sentence has the same meaning?",
   "spokenPrompt": "Which sentence has the same meaning?",
-  "passage": "Only the children with permission slips could join the walk. Everyone else stayed at school with Ms Moss.",
+  "passage": "Only children who brought a permission slip could leave school to join the woodland walk.",
   "cell": "best_restatement",
   "choices": [
    "Ms Moss took the whole class out for a walk.",
@@ -7220,7 +7220,7 @@ export const questions = [
   "distractorRationales": {
    "Every child went walking before returning to the school.": "D-PLAUSIBLE-UNSUPPORTED",
    "Children staying at school had all brought permission slips.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Ms Moss took the whole class out for a walk.": "D-OPPOSITE"
+   "Ms Moss took the whole class out for a walk.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7250,7 +7250,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Interpret only as a necessary condition rather than universal permission."
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.best_restatement.v22",
@@ -7272,45 +7272,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence keeps the same order?",
-  "question": "Which sentence keeps the same order?",
-  "spokenPrompt": "Which sentence keeps the same order?",
-  "passage": "Tara finished folding the cards before she decorated their covers. She put each finished card in an envelope.",
+  "prompt": "Which sentence has the same meaning?",
+  "question": "Which sentence has the same meaning?",
+  "spokenPrompt": "Which sentence has the same meaning?",
+  "passage": "Lena decorated every folded card except the blue one, which she left completely plain.",
   "cell": "best_restatement",
   "choices": [
-   "Tara packed, folded, then decorated each card.",
-   "Tara folded, packed, then decorated each card.",
-   "Tara folded, decorated, then packed each card.",
-   "Tara decorated, packed, then folded each card."
+   "None of the folded cards had any decoration.",
+   "All of the folded cards had some decoration.",
+   "The blue card alone had no decoration.",
+   "The blue card alone had some decoration."
   ],
   "answerOptions": [
    {
-    "value": "Tara packed, folded, then decorated each card.",
-    "label": "Tara packed, folded, then decorated each card.",
-    "text": "Tara packed, folded, then decorated each card."
+    "value": "None of the folded cards had any decoration.",
+    "label": "None of the folded cards had any decoration.",
+    "text": "None of the folded cards had any decoration."
    },
    {
-    "value": "Tara folded, packed, then decorated each card.",
-    "label": "Tara folded, packed, then decorated each card.",
-    "text": "Tara folded, packed, then decorated each card."
+    "value": "All of the folded cards had some decoration.",
+    "label": "All of the folded cards had some decoration.",
+    "text": "All of the folded cards had some decoration."
    },
    {
-    "value": "Tara folded, decorated, then packed each card.",
-    "label": "Tara folded, decorated, then packed each card.",
-    "text": "Tara folded, decorated, then packed each card."
+    "value": "The blue card alone had no decoration.",
+    "label": "The blue card alone had no decoration.",
+    "text": "The blue card alone had no decoration."
    },
    {
-    "value": "Tara decorated, packed, then folded each card.",
-    "label": "Tara decorated, packed, then folded each card.",
-    "text": "Tara decorated, packed, then folded each card."
+    "value": "The blue card alone had some decoration.",
+    "label": "The blue card alone had some decoration.",
+    "text": "The blue card alone had some decoration."
    }
   ],
-  "answer": "Tara folded, decorated, then packed each card.",
-  "correctAnswer": "Tara folded, decorated, then packed each card.",
+  "answer": "The blue card alone had no decoration.",
+  "correctAnswer": "The blue card alone had no decoration.",
   "distractorRationales": {
-   "Tara decorated, packed, then folded each card.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Tara packed, folded, then decorated each card.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Tara folded, packed, then decorated each card.": "D-OPPOSITE"
+   "The blue card alone had some decoration.": "D-OPPOSITE",
+   "None of the folded cards had any decoration.": "D-PLAUSIBLE-UNSUPPORTED",
+   "All of the folded cards had some decoration.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7340,6 +7340,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Interpret every except as one excluded card, not a sequence of craft steps."
  }
 ];

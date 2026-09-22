@@ -3589,39 +3589,39 @@ export const questions = [
   "question": "Which sentence has exactly TWO naming words?",
   "spokenPrompt": "Which sentence has exactly TWO naming words?",
   "choices": [
-   "We sat very still.",
-   "The cat sat on the mat.",
-   "The cat sat quietly.",
-   "The cat, dog and hen slept."
+   "They swooped quickly and silently.",
+   "Owls hunt mice.",
+   "The small owl swooped silently.",
+   "Owls, hawks and foxes hunt."
   ],
   "answerOptions": [
    {
-    "value": "We sat very still.",
-    "label": "We sat very still.",
-    "text": "We sat very still."
+    "value": "They swooped quickly and silently.",
+    "label": "They swooped quickly and silently.",
+    "text": "They swooped quickly and silently."
    },
    {
-    "value": "The cat sat on the mat.",
-    "label": "The cat sat on the mat.",
-    "text": "The cat sat on the mat."
+    "value": "Owls hunt mice.",
+    "label": "Owls hunt mice.",
+    "text": "Owls hunt mice."
    },
    {
-    "value": "The cat sat quietly.",
-    "label": "The cat sat quietly.",
-    "text": "The cat sat quietly."
+    "value": "The small owl swooped silently.",
+    "label": "The small owl swooped silently.",
+    "text": "The small owl swooped silently."
    },
    {
-    "value": "The cat, dog and hen slept.",
-    "label": "The cat, dog and hen slept.",
-    "text": "The cat, dog and hen slept."
+    "value": "Owls, hawks and foxes hunt.",
+    "label": "Owls, hawks and foxes hunt.",
+    "text": "Owls, hawks and foxes hunt."
    }
   ],
-  "answer": "The cat sat on the mat.",
-  "correctAnswer": "The cat sat on the mat.",
+  "answer": "Owls hunt mice.",
+  "correctAnswer": "Owls hunt mice.",
   "distractorRationales": {
-   "We sat very still.": "D-FUNCTION-SWAP",
-   "The cat sat quietly.": "D-FUNCTION-SWAP",
-   "The cat, dog and hen slept.": "D-FUNCTION-SWAP"
+   "They swooped quickly and silently.": "D-FUNCTION-SWAP",
+   "The small owl swooped silently.": "D-FUNCTION-SWAP",
+   "Owls, hawks and foxes hunt.": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3651,7 +3651,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cat + mat; the distractors contain one, three and zero naming words"
+  "notes": "Count owl and mouse names alongside verb and adjective distractions; longer options may contain zero, one or three nouns."
  },
  {
   "id": "lp3.nouns.l2.B.noun_two_step.v2",
@@ -3678,9 +3678,9 @@ export const questions = [
   "spokenPrompt": "Which sentence has exactly TWO naming words?",
   "choices": [
    "The dog dug up a bone.",
-   "The dog dug quickly.",
+   "The dog dug quietly.",
    "The dog took a bone to its bowl.",
-   "They dug all day."
+   "They dug."
   ],
   "answerOptions": [
    {
@@ -3689,9 +3689,9 @@ export const questions = [
     "text": "The dog dug up a bone."
    },
    {
-    "value": "The dog dug quickly.",
-    "label": "The dog dug quickly.",
-    "text": "The dog dug quickly."
+    "value": "The dog dug quietly.",
+    "label": "The dog dug quietly.",
+    "text": "The dog dug quietly."
    },
    {
     "value": "The dog took a bone to its bowl.",
@@ -3699,17 +3699,17 @@ export const questions = [
     "text": "The dog took a bone to its bowl."
    },
    {
-    "value": "They dug all day.",
-    "label": "They dug all day.",
-    "text": "They dug all day."
+    "value": "They dug.",
+    "label": "They dug.",
+    "text": "They dug."
    }
   ],
   "answer": "The dog dug up a bone.",
   "correctAnswer": "The dog dug up a bone.",
   "distractorRationales": {
-   "The dog dug quickly.": "D-FUNCTION-SWAP",
+   "The dog dug quietly.": "D-FUNCTION-SWAP",
    "The dog took a bone to its bowl.": "D-FUNCTION-SWAP",
-   "They dug all day.": "D-FUNCTION-SWAP"
+   "They dug.": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3765,39 +3765,39 @@ export const questions = [
   "question": "Which sentence has exactly TWO naming words?",
   "spokenPrompt": "Which sentence has exactly TWO naming words?",
   "choices": [
-   "It jumped up high.",
-   "A frog sat on a log.",
-   "The frog jumped away.",
-   "A frog and a toad sat on a log."
+   "It jumped up.",
+   "The little frog rested on a smooth log.",
+   "The green frog jumped.",
+   "A frog and toad shared a log."
   ],
   "answerOptions": [
    {
-    "value": "It jumped up high.",
-    "label": "It jumped up high.",
-    "text": "It jumped up high."
+    "value": "It jumped up.",
+    "label": "It jumped up.",
+    "text": "It jumped up."
    },
    {
-    "value": "A frog sat on a log.",
-    "label": "A frog sat on a log.",
-    "text": "A frog sat on a log."
+    "value": "The little frog rested on a smooth log.",
+    "label": "The little frog rested on a smooth log.",
+    "text": "The little frog rested on a smooth log."
    },
    {
-    "value": "The frog jumped away.",
-    "label": "The frog jumped away.",
-    "text": "The frog jumped away."
+    "value": "The green frog jumped.",
+    "label": "The green frog jumped.",
+    "text": "The green frog jumped."
    },
    {
-    "value": "A frog and a toad sat on a log.",
-    "label": "A frog and a toad sat on a log.",
-    "text": "A frog and a toad sat on a log."
+    "value": "A frog and toad shared a log.",
+    "label": "A frog and toad shared a log.",
+    "text": "A frog and toad shared a log."
    }
   ],
-  "answer": "A frog sat on a log.",
-  "correctAnswer": "A frog sat on a log.",
+  "answer": "The little frog rested on a smooth log.",
+  "correctAnswer": "The little frog rested on a smooth log.",
   "distractorRationales": {
-   "It jumped up high.": "D-FUNCTION-SWAP",
-   "The frog jumped away.": "D-FUNCTION-SWAP",
-   "A frog and a toad sat on a log.": "D-FUNCTION-SWAP"
+   "It jumped up.": "D-FUNCTION-SWAP",
+   "The green frog jumped.": "D-FUNCTION-SWAP",
+   "A frog and toad shared a log.": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3849,44 +3849,44 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which pair completes both naming words? The ___ chased a ___.",
-  "question": "Which pair completes both naming words? The ___ chased a ___.",
-  "spokenPrompt": "Which pair completes both naming words? The … chased a ….",
-  "sentence": "The ___ chased a ___.",
+  "prompt": "Which phrase gives this sentence exactly TWO naming words?",
+  "question": "Which phrase gives this sentence exactly TWO naming words?",
+  "spokenPrompt": "Which phrase gives this sentence exactly TWO naming words? … played together.",
+  "sentence": "___ played together.",
   "choices": [
-   "chased and mouse",
-   "the and a",
-   "cat and mouse",
-   "cat and chased"
+   "Cats, dogs and tiny mice",
+   "We",
+   "Cats and dogs",
+   "The very playful little kittens"
   ],
   "answerOptions": [
    {
-    "value": "chased and mouse",
-    "label": "chased and mouse",
-    "text": "chased and mouse"
+    "value": "Cats, dogs and tiny mice",
+    "label": "Cats, dogs and tiny mice",
+    "text": "Cats, dogs and tiny mice"
    },
    {
-    "value": "the and a",
-    "label": "the and a",
-    "text": "the and a"
+    "value": "We",
+    "label": "We",
+    "text": "We"
    },
    {
-    "value": "cat and mouse",
-    "label": "cat and mouse",
-    "text": "cat and mouse"
+    "value": "Cats and dogs",
+    "label": "Cats and dogs",
+    "text": "Cats and dogs"
    },
    {
-    "value": "cat and chased",
-    "label": "cat and chased",
-    "text": "cat and chased"
+    "value": "The very playful little kittens",
+    "label": "The very playful little kittens",
+    "text": "The very playful little kittens"
    }
   ],
-  "answer": "cat and mouse",
-  "correctAnswer": "cat and mouse",
+  "answer": "Cats and dogs",
+  "correctAnswer": "Cats and dogs",
   "distractorRationales": {
-   "cat and chased": "D-FUNCTION-SWAP",
-   "chased and mouse": "D-FUNCTION-SWAP",
-   "the and a": "D-FUNCTION-SWAP"
+   "The very playful little kittens": "D-FUNCTION-SWAP",
+   "Cats, dogs and tiny mice": "D-FUNCTION-SWAP",
+   "We": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3896,7 +3896,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The ___ chased a ___.",
+  "sentenceText": "___ played together.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3917,7 +3917,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Identify both naming words, rather than spotting just one."
+  "notes": "Combine each grammatical subject phrase with the sentence, then distinguish two nouns from one, three or a pronoun. Adjectives and phrase length do not determine noun count."
  },
  {
   "id": "lp3.nouns.l2.B.noun_two_step.v5",
@@ -3943,26 +3943,26 @@ export const questions = [
   "question": "Which sentence has exactly TWO naming words?",
   "spokenPrompt": "Which sentence has exactly TWO naming words?",
   "choices": [
-   "It fell down slowly.",
-   "My hat fell in the mud.",
-   "My hat fell down.",
+   "It fell.",
+   "Mud covered my hat.",
+   "My floppy hat fell slowly.",
    "My hat and coat fell in mud."
   ],
   "answerOptions": [
    {
-    "value": "It fell down slowly.",
-    "label": "It fell down slowly.",
-    "text": "It fell down slowly."
+    "value": "It fell.",
+    "label": "It fell.",
+    "text": "It fell."
    },
    {
-    "value": "My hat fell in the mud.",
-    "label": "My hat fell in the mud.",
-    "text": "My hat fell in the mud."
+    "value": "Mud covered my hat.",
+    "label": "Mud covered my hat.",
+    "text": "Mud covered my hat."
    },
    {
-    "value": "My hat fell down.",
-    "label": "My hat fell down.",
-    "text": "My hat fell down."
+    "value": "My floppy hat fell slowly.",
+    "label": "My floppy hat fell slowly.",
+    "text": "My floppy hat fell slowly."
    },
    {
     "value": "My hat and coat fell in mud.",
@@ -3970,12 +3970,12 @@ export const questions = [
     "text": "My hat and coat fell in mud."
    }
   ],
-  "answer": "My hat fell in the mud.",
-  "correctAnswer": "My hat fell in the mud.",
+  "answer": "Mud covered my hat.",
+  "correctAnswer": "Mud covered my hat.",
   "distractorRationales": {
-   "My hat fell down.": "D-FUNCTION-SWAP",
+   "My floppy hat fell slowly.": "D-FUNCTION-SWAP",
    "My hat and coat fell in mud.": "D-FUNCTION-SWAP",
-   "It fell down slowly.": "D-FUNCTION-SWAP"
+   "It fell.": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4031,21 +4031,21 @@ export const questions = [
   "question": "Which sentence has exactly TWO naming words?",
   "spokenPrompt": "Which sentence has exactly TWO naming words?",
   "choices": [
-   "The bee flew from a rose to a tree.",
-   "It flew away fast.",
+   "Bees visit roses and daisies.",
+   "It flew.",
    "The bee flew to the rose.",
-   "The bee flew away."
+   "The busy bee flew around very slowly."
   ],
   "answerOptions": [
    {
-    "value": "The bee flew from a rose to a tree.",
-    "label": "The bee flew from a rose to a tree.",
-    "text": "The bee flew from a rose to a tree."
+    "value": "Bees visit roses and daisies.",
+    "label": "Bees visit roses and daisies.",
+    "text": "Bees visit roses and daisies."
    },
    {
-    "value": "It flew away fast.",
-    "label": "It flew away fast.",
-    "text": "It flew away fast."
+    "value": "It flew.",
+    "label": "It flew.",
+    "text": "It flew."
    },
    {
     "value": "The bee flew to the rose.",
@@ -4053,17 +4053,17 @@ export const questions = [
     "text": "The bee flew to the rose."
    },
    {
-    "value": "The bee flew away.",
-    "label": "The bee flew away.",
-    "text": "The bee flew away."
+    "value": "The busy bee flew around very slowly.",
+    "label": "The busy bee flew around very slowly.",
+    "text": "The busy bee flew around very slowly."
    }
   ],
   "answer": "The bee flew to the rose.",
   "correctAnswer": "The bee flew to the rose.",
   "distractorRationales": {
-   "The bee flew away.": "D-FUNCTION-SWAP",
-   "The bee flew from a rose to a tree.": "D-FUNCTION-SWAP",
-   "It flew away fast.": "D-FUNCTION-SWAP"
+   "The busy bee flew around very slowly.": "D-FUNCTION-SWAP",
+   "Bees visit roses and daisies.": "D-FUNCTION-SWAP",
+   "It flew.": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4119,39 +4119,39 @@ export const questions = [
   "question": "Which sentence has exactly TWO naming words?",
   "spokenPrompt": "Which sentence has exactly TWO naming words?",
   "choices": [
-   "A crab hid there.",
-   "A crab and a fish hid under a rock.",
-   "They hid very well.",
-   "A crab hid under a rock."
+   "The little crab hid well.",
+   "A crab and fish shared a rock.",
+   "They hid there very quietly.",
+   "Crabs cover rocks."
   ],
   "answerOptions": [
    {
-    "value": "A crab hid there.",
-    "label": "A crab hid there.",
-    "text": "A crab hid there."
+    "value": "The little crab hid well.",
+    "label": "The little crab hid well.",
+    "text": "The little crab hid well."
    },
    {
-    "value": "A crab and a fish hid under a rock.",
-    "label": "A crab and a fish hid under a rock.",
-    "text": "A crab and a fish hid under a rock."
+    "value": "A crab and fish shared a rock.",
+    "label": "A crab and fish shared a rock.",
+    "text": "A crab and fish shared a rock."
    },
    {
-    "value": "They hid very well.",
-    "label": "They hid very well.",
-    "text": "They hid very well."
+    "value": "They hid there very quietly.",
+    "label": "They hid there very quietly.",
+    "text": "They hid there very quietly."
    },
    {
-    "value": "A crab hid under a rock.",
-    "label": "A crab hid under a rock.",
-    "text": "A crab hid under a rock."
+    "value": "Crabs cover rocks.",
+    "label": "Crabs cover rocks.",
+    "text": "Crabs cover rocks."
    }
   ],
-  "answer": "A crab hid under a rock.",
-  "correctAnswer": "A crab hid under a rock.",
+  "answer": "Crabs cover rocks.",
+  "correctAnswer": "Crabs cover rocks.",
   "distractorRationales": {
-   "A crab hid there.": "D-FUNCTION-SWAP",
-   "A crab and a fish hid under a rock.": "D-FUNCTION-SWAP",
-   "They hid very well.": "D-FUNCTION-SWAP"
+   "The little crab hid well.": "D-FUNCTION-SWAP",
+   "A crab and fish shared a rock.": "D-FUNCTION-SWAP",
+   "They hid there very quietly.": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4203,44 +4203,44 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which pair completes both naming words? A ___ scratched the ___.",
-  "question": "Which pair completes both naming words? A ___ scratched the ___.",
-  "spokenPrompt": "Which pair completes both naming words? A … scratched the ….",
-  "sentence": "A ___ scratched the ___.",
+  "prompt": "Which phrase gives this sentence exactly TWO naming words?",
+  "question": "Which phrase gives this sentence exactly TWO naming words?",
+  "spokenPrompt": "Which phrase gives this sentence exactly TWO naming words? … lay together.",
+  "sentence": "___ lay together.",
   "choices": [
-   "scratched and plate",
-   "a and the",
-   "fork and plate",
-   "fork and scratched"
+   "Forks, spoons and plates",
+   "They",
+   "The sharp fork and shiny plate",
+   "The shiny spoons"
   ],
   "answerOptions": [
    {
-    "value": "scratched and plate",
-    "label": "scratched and plate",
-    "text": "scratched and plate"
+    "value": "Forks, spoons and plates",
+    "label": "Forks, spoons and plates",
+    "text": "Forks, spoons and plates"
    },
    {
-    "value": "a and the",
-    "label": "a and the",
-    "text": "a and the"
+    "value": "They",
+    "label": "They",
+    "text": "They"
    },
    {
-    "value": "fork and plate",
-    "label": "fork and plate",
-    "text": "fork and plate"
+    "value": "The sharp fork and shiny plate",
+    "label": "The sharp fork and shiny plate",
+    "text": "The sharp fork and shiny plate"
    },
    {
-    "value": "fork and scratched",
-    "label": "fork and scratched",
-    "text": "fork and scratched"
+    "value": "The shiny spoons",
+    "label": "The shiny spoons",
+    "text": "The shiny spoons"
    }
   ],
-  "answer": "fork and plate",
-  "correctAnswer": "fork and plate",
+  "answer": "The sharp fork and shiny plate",
+  "correctAnswer": "The sharp fork and shiny plate",
   "distractorRationales": {
-   "a and the": "D-FUNCTION-SWAP",
-   "fork and scratched": "D-FUNCTION-SWAP",
-   "scratched and plate": "D-FUNCTION-SWAP"
+   "They": "D-FUNCTION-SWAP",
+   "The shiny spoons": "D-FUNCTION-SWAP",
+   "Forks, spoons and plates": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4250,7 +4250,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "A ___ scratched the ___.",
+  "sentenceText": "___ lay together.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4271,7 +4271,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Identify both naming words, rather than spotting just one."
+  "notes": "Combine each grammatical subject phrase with the sentence, then distinguish two nouns from one, three or a pronoun. Adjectives and phrase length do not determine noun count."
  },
  {
   "id": "lp3.nouns.l1.R.noun_person.v7r",
@@ -4836,7 +4836,7 @@ export const questions = [
    "The hen laid an egg.",
    "The hen clucked loudly.",
    "The hen laid an egg in straw.",
-   "It was so loud."
+   "It clucked."
   ],
   "answerOptions": [
    {
@@ -4855,16 +4855,16 @@ export const questions = [
     "text": "The hen laid an egg in straw."
    },
    {
-    "value": "It was so loud.",
-    "label": "It was so loud.",
-    "text": "It was so loud."
+    "value": "It clucked.",
+    "label": "It clucked.",
+    "text": "It clucked."
    }
   ],
   "answer": "The hen laid an egg.",
   "correctAnswer": "The hen laid an egg.",
   "distractorRationales": {
    "The hen laid an egg in straw.": "D-FUNCTION-SWAP",
-   "It was so loud.": "D-FUNCTION-SWAP",
+   "It clucked.": "D-FUNCTION-SWAP",
    "The hen clucked loudly.": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
@@ -5275,16 +5275,16 @@ export const questions = [
   "question": "Which sentence has exactly TWO naming words?",
   "spokenPrompt": "Which sentence has exactly TWO naming words?",
   "choices": [
-   "The moth flew inside.",
+   "The little moth flew quietly inside.",
    "The moth flew past a lamp and a clock.",
    "It flew in quietly.",
-   "The moth flew at the lamp."
+   "Moths circled lamps."
   ],
   "answerOptions": [
    {
-    "value": "The moth flew inside.",
-    "label": "The moth flew inside.",
-    "text": "The moth flew inside."
+    "value": "The little moth flew quietly inside.",
+    "label": "The little moth flew quietly inside.",
+    "text": "The little moth flew quietly inside."
    },
    {
     "value": "The moth flew past a lamp and a clock.",
@@ -5297,17 +5297,17 @@ export const questions = [
     "text": "It flew in quietly."
    },
    {
-    "value": "The moth flew at the lamp.",
-    "label": "The moth flew at the lamp.",
-    "text": "The moth flew at the lamp."
+    "value": "Moths circled lamps.",
+    "label": "Moths circled lamps.",
+    "text": "Moths circled lamps."
    }
   ],
-  "answer": "The moth flew at the lamp.",
-  "correctAnswer": "The moth flew at the lamp.",
+  "answer": "Moths circled lamps.",
+  "correctAnswer": "Moths circled lamps.",
   "distractorRationales": {
    "The moth flew past a lamp and a clock.": "D-FUNCTION-SWAP",
    "It flew in quietly.": "D-FUNCTION-SWAP",
-   "The moth flew inside.": "D-FUNCTION-SWAP"
+   "The little moth flew quietly inside.": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6067,16 +6067,16 @@ export const questions = [
   "question": "Which sentence has exactly TWO naming words?",
   "spokenPrompt": "Which sentence has exactly TWO naming words?",
   "choices": [
-   "Rain filled the bucket.",
+   "The heavy rain filled our small bucket completely.",
    "Rain fell softly.",
-   "Rain filled the bucket and tub.",
+   "Rain filled buckets and tubs.",
    "It fell all around."
   ],
   "answerOptions": [
    {
-    "value": "Rain filled the bucket.",
-    "label": "Rain filled the bucket.",
-    "text": "Rain filled the bucket."
+    "value": "The heavy rain filled our small bucket completely.",
+    "label": "The heavy rain filled our small bucket completely.",
+    "text": "The heavy rain filled our small bucket completely."
    },
    {
     "value": "Rain fell softly.",
@@ -6084,9 +6084,9 @@ export const questions = [
     "text": "Rain fell softly."
    },
    {
-    "value": "Rain filled the bucket and tub.",
-    "label": "Rain filled the bucket and tub.",
-    "text": "Rain filled the bucket and tub."
+    "value": "Rain filled buckets and tubs.",
+    "label": "Rain filled buckets and tubs.",
+    "text": "Rain filled buckets and tubs."
    },
    {
     "value": "It fell all around.",
@@ -6094,10 +6094,10 @@ export const questions = [
     "text": "It fell all around."
    }
   ],
-  "answer": "Rain filled the bucket.",
-  "correctAnswer": "Rain filled the bucket.",
+  "answer": "The heavy rain filled our small bucket completely.",
+  "correctAnswer": "The heavy rain filled our small bucket completely.",
   "distractorRationales": {
-   "Rain filled the bucket and tub.": "D-FUNCTION-SWAP",
+   "Rain filled buckets and tubs.": "D-FUNCTION-SWAP",
    "It fell all around.": "D-FUNCTION-SWAP",
    "Rain fell softly.": "D-FUNCTION-SWAP"
   },
@@ -6155,16 +6155,16 @@ export const questions = [
   "question": "Which sentence has exactly TWO naming words?",
   "spokenPrompt": "Which sentence has exactly TWO naming words?",
   "choices": [
-   "She smiled and waved.",
+   "She smiled.",
    "The child opened a parcel.",
-   "The child smiled.",
+   "The excited child smiled and waved happily.",
    "The child put a toy in the parcel."
   ],
   "answerOptions": [
    {
-    "value": "She smiled and waved.",
-    "label": "She smiled and waved.",
-    "text": "She smiled and waved."
+    "value": "She smiled.",
+    "label": "She smiled.",
+    "text": "She smiled."
    },
    {
     "value": "The child opened a parcel.",
@@ -6172,9 +6172,9 @@ export const questions = [
     "text": "The child opened a parcel."
    },
    {
-    "value": "The child smiled.",
-    "label": "The child smiled.",
-    "text": "The child smiled."
+    "value": "The excited child smiled and waved happily.",
+    "label": "The excited child smiled and waved happily.",
+    "text": "The excited child smiled and waved happily."
    },
    {
     "value": "The child put a toy in the parcel.",
@@ -6185,8 +6185,8 @@ export const questions = [
   "answer": "The child opened a parcel.",
   "correctAnswer": "The child opened a parcel.",
   "distractorRationales": {
-   "She smiled and waved.": "D-FUNCTION-SWAP",
-   "The child smiled.": "D-FUNCTION-SWAP",
+   "She smiled.": "D-FUNCTION-SWAP",
+   "The excited child smiled and waved happily.": "D-FUNCTION-SWAP",
    "The child put a toy in the parcel.": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
@@ -6244,9 +6244,9 @@ export const questions = [
   "spokenPrompt": "Which sentence has exactly TWO naming words?",
   "choices": [
    "My scarf covered my chin and neck.",
-   "I was very warm.",
+   "I shivered.",
    "My scarf covered my chin.",
-   "My scarf was warm."
+   "My scarf felt warm."
   ],
   "answerOptions": [
    {
@@ -6255,9 +6255,9 @@ export const questions = [
     "text": "My scarf covered my chin and neck."
    },
    {
-    "value": "I was very warm.",
-    "label": "I was very warm.",
-    "text": "I was very warm."
+    "value": "I shivered.",
+    "label": "I shivered.",
+    "text": "I shivered."
    },
    {
     "value": "My scarf covered my chin.",
@@ -6265,17 +6265,17 @@ export const questions = [
     "text": "My scarf covered my chin."
    },
    {
-    "value": "My scarf was warm.",
-    "label": "My scarf was warm.",
-    "text": "My scarf was warm."
+    "value": "My scarf felt warm.",
+    "label": "My scarf felt warm.",
+    "text": "My scarf felt warm."
    }
   ],
   "answer": "My scarf covered my chin.",
   "correctAnswer": "My scarf covered my chin.",
   "distractorRationales": {
-   "My scarf was warm.": "D-FUNCTION-SWAP",
+   "My scarf felt warm.": "D-FUNCTION-SWAP",
    "My scarf covered my chin and neck.": "D-FUNCTION-SWAP",
-   "I was very warm.": "D-FUNCTION-SWAP"
+   "I shivered.": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6331,16 +6331,16 @@ export const questions = [
   "question": "Which sentence has exactly TWO naming words?",
   "spokenPrompt": "Which sentence has exactly TWO naming words?",
   "choices": [
-   "A seed grew slowly.",
+   "The tiny seed grew very slowly.",
    "A seed grew into a flower in our garden.",
-   "It grew very quickly.",
-   "A seed grew into a flower."
+   "It grew.",
+   "A seed became a flower."
   ],
   "answerOptions": [
    {
-    "value": "A seed grew slowly.",
-    "label": "A seed grew slowly.",
-    "text": "A seed grew slowly."
+    "value": "The tiny seed grew very slowly.",
+    "label": "The tiny seed grew very slowly.",
+    "text": "The tiny seed grew very slowly."
    },
    {
     "value": "A seed grew into a flower in our garden.",
@@ -6348,22 +6348,22 @@ export const questions = [
     "text": "A seed grew into a flower in our garden."
    },
    {
-    "value": "It grew very quickly.",
-    "label": "It grew very quickly.",
-    "text": "It grew very quickly."
+    "value": "It grew.",
+    "label": "It grew.",
+    "text": "It grew."
    },
    {
-    "value": "A seed grew into a flower.",
-    "label": "A seed grew into a flower.",
-    "text": "A seed grew into a flower."
+    "value": "A seed became a flower.",
+    "label": "A seed became a flower.",
+    "text": "A seed became a flower."
    }
   ],
-  "answer": "A seed grew into a flower.",
-  "correctAnswer": "A seed grew into a flower.",
+  "answer": "A seed became a flower.",
+  "correctAnswer": "A seed became a flower.",
   "distractorRationales": {
-   "A seed grew slowly.": "D-FUNCTION-SWAP",
+   "The tiny seed grew very slowly.": "D-FUNCTION-SWAP",
    "A seed grew into a flower in our garden.": "D-FUNCTION-SWAP",
-   "It grew very quickly.": "D-FUNCTION-SWAP"
+   "It grew.": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6415,44 +6415,44 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which pair completes both naming words? The ___ passed the ___.",
-  "question": "Which pair completes both naming words? The ___ passed the ___.",
-  "spokenPrompt": "Which pair completes both naming words? The … passed the ….",
-  "sentence": "The ___ passed the ___.",
+  "prompt": "Which phrase gives this sentence exactly TWO naming words?",
+  "question": "Which phrase gives this sentence exactly TWO naming words?",
+  "spokenPrompt": "Which phrase gives this sentence exactly TWO naming words? … passed slowly.",
+  "sentence": "___ passed slowly.",
   "choices": [
-   "bus and shop",
-   "bus and passed",
-   "passed and shop",
-   "the and passed"
+   "The bus and van",
+   "That very old rusty bus",
+   "A bus, van and truck",
+   "They"
   ],
   "answerOptions": [
    {
-    "value": "bus and shop",
-    "label": "bus and shop",
-    "text": "bus and shop"
+    "value": "The bus and van",
+    "label": "The bus and van",
+    "text": "The bus and van"
    },
    {
-    "value": "bus and passed",
-    "label": "bus and passed",
-    "text": "bus and passed"
+    "value": "That very old rusty bus",
+    "label": "That very old rusty bus",
+    "text": "That very old rusty bus"
    },
    {
-    "value": "passed and shop",
-    "label": "passed and shop",
-    "text": "passed and shop"
+    "value": "A bus, van and truck",
+    "label": "A bus, van and truck",
+    "text": "A bus, van and truck"
    },
    {
-    "value": "the and passed",
-    "label": "the and passed",
-    "text": "the and passed"
+    "value": "They",
+    "label": "They",
+    "text": "They"
    }
   ],
-  "answer": "bus and shop",
-  "correctAnswer": "bus and shop",
+  "answer": "The bus and van",
+  "correctAnswer": "The bus and van",
   "distractorRationales": {
-   "passed and shop": "D-FUNCTION-SWAP",
-   "the and passed": "D-FUNCTION-SWAP",
-   "bus and passed": "D-FUNCTION-SWAP"
+   "A bus, van and truck": "D-FUNCTION-SWAP",
+   "They": "D-FUNCTION-SWAP",
+   "That very old rusty bus": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6462,7 +6462,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The ___ passed the ___.",
+  "sentenceText": "___ passed slowly.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -6483,7 +6483,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Identify both naming words, rather than spotting just one."
+  "notes": "Combine each grammatical subject phrase with the sentence, then distinguish two nouns from one, three or a pronoun. Adjectives and phrase length do not determine noun count."
  },
  {
   "id": "lp3.nouns.l2.A.noun_two_step.v16",
@@ -6505,44 +6505,44 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which pair completes both naming words? A ___ lifted the ___.",
-  "question": "Which pair completes both naming words? A ___ lifted the ___.",
-  "spokenPrompt": "Which pair completes both naming words? A … lifted the ….",
-  "sentence": "A ___ lifted the ___.",
+  "prompt": "Which phrase gives this sentence exactly TWO naming words?",
+  "question": "Which phrase gives this sentence exactly TWO naming words?",
+  "spokenPrompt": "Which phrase gives this sentence exactly TWO naming words? … drifted away.",
+  "sentence": "___ drifted away.",
   "choices": [
-   "lifted and boat",
-   "wave and boat",
-   "a and lifted",
-   "wave and lifted"
+   "It",
+   "The small boat and raft",
+   "The raft",
+   "A boat, raft and fallen log"
   ],
   "answerOptions": [
    {
-    "value": "lifted and boat",
-    "label": "lifted and boat",
-    "text": "lifted and boat"
+    "value": "It",
+    "label": "It",
+    "text": "It"
    },
    {
-    "value": "wave and boat",
-    "label": "wave and boat",
-    "text": "wave and boat"
+    "value": "The small boat and raft",
+    "label": "The small boat and raft",
+    "text": "The small boat and raft"
    },
    {
-    "value": "a and lifted",
-    "label": "a and lifted",
-    "text": "a and lifted"
+    "value": "The raft",
+    "label": "The raft",
+    "text": "The raft"
    },
    {
-    "value": "wave and lifted",
-    "label": "wave and lifted",
-    "text": "wave and lifted"
+    "value": "A boat, raft and fallen log",
+    "label": "A boat, raft and fallen log",
+    "text": "A boat, raft and fallen log"
    }
   ],
-  "answer": "wave and boat",
-  "correctAnswer": "wave and boat",
+  "answer": "The small boat and raft",
+  "correctAnswer": "The small boat and raft",
   "distractorRationales": {
-   "lifted and boat": "D-FUNCTION-SWAP",
-   "a and lifted": "D-FUNCTION-SWAP",
-   "wave and lifted": "D-FUNCTION-SWAP"
+   "It": "D-FUNCTION-SWAP",
+   "The raft": "D-FUNCTION-SWAP",
+   "A boat, raft and fallen log": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6552,7 +6552,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "A ___ lifted the ___.",
+  "sentenceText": "___ drifted away.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -6573,7 +6573,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Identify both naming words, rather than spotting just one."
+  "notes": "Combine each grammatical subject phrase with the sentence, then distinguish two nouns from one, three or a pronoun. Adjectives and phrase length do not determine noun count."
  },
  {
   "id": "lp3.nouns.l2.A.noun_two_step.v17",
@@ -6595,44 +6595,44 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which pair completes both naming words? The ___ carried a ___.",
-  "question": "Which pair completes both naming words? The ___ carried a ___.",
-  "spokenPrompt": "Which pair completes both naming words? The … carried a ….",
-  "sentence": "The ___ carried a ___.",
+  "prompt": "Which phrase gives this sentence exactly TWO naming words?",
+  "question": "Which phrase gives this sentence exactly TWO naming words?",
+  "spokenPrompt": "Which phrase gives this sentence exactly TWO naming words? … were carried inside.",
+  "sentence": "___ were carried inside.",
   "choices": [
-   "carried and basket",
-   "the and carried",
-   "girl and basket",
-   "girl and carried"
+   "The baskets, boxes and folded blankets",
+   "They",
+   "Those large baskets and boxes",
+   "The groceries"
   ],
   "answerOptions": [
    {
-    "value": "carried and basket",
-    "label": "carried and basket",
-    "text": "carried and basket"
+    "value": "The baskets, boxes and folded blankets",
+    "label": "The baskets, boxes and folded blankets",
+    "text": "The baskets, boxes and folded blankets"
    },
    {
-    "value": "the and carried",
-    "label": "the and carried",
-    "text": "the and carried"
+    "value": "They",
+    "label": "They",
+    "text": "They"
    },
    {
-    "value": "girl and basket",
-    "label": "girl and basket",
-    "text": "girl and basket"
+    "value": "Those large baskets and boxes",
+    "label": "Those large baskets and boxes",
+    "text": "Those large baskets and boxes"
    },
    {
-    "value": "girl and carried",
-    "label": "girl and carried",
-    "text": "girl and carried"
+    "value": "The groceries",
+    "label": "The groceries",
+    "text": "The groceries"
    }
   ],
-  "answer": "girl and basket",
-  "correctAnswer": "girl and basket",
+  "answer": "Those large baskets and boxes",
+  "correctAnswer": "Those large baskets and boxes",
   "distractorRationales": {
-   "girl and carried": "D-FUNCTION-SWAP",
-   "carried and basket": "D-FUNCTION-SWAP",
-   "the and carried": "D-FUNCTION-SWAP"
+   "The groceries": "D-FUNCTION-SWAP",
+   "The baskets, boxes and folded blankets": "D-FUNCTION-SWAP",
+   "They": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6642,7 +6642,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The ___ carried a ___.",
+  "sentenceText": "___ were carried inside.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -6663,7 +6663,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Identify both naming words, rather than spotting just one."
+  "notes": "Combine each grammatical subject phrase with the sentence, then distinguish two nouns from one, three or a pronoun. Adjectives and phrase length do not determine noun count."
  },
  {
   "id": "lp3.nouns.l2.A.noun_two_step.v18",
@@ -6685,44 +6685,44 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which pair completes both naming words? ___ shook the ___.",
-  "question": "Which pair completes both naming words? ___ shook the ___.",
-  "spokenPrompt": "Which pair completes both naming words? … shook the ….",
-  "sentence": "___ shook the ___.",
+  "prompt": "Which phrase gives this sentence exactly TWO naming words?",
+  "question": "Which phrase gives this sentence exactly TWO naming words?",
+  "spokenPrompt": "Which phrase gives this sentence exactly TWO naming words? … shook wildly.",
+  "sentence": "___ shook wildly.",
   "choices": [
-   "wind and shook",
-   "shook and leaves",
-   "the and shook",
-   "wind and leaves"
+   "The tall tree by itself",
+   "The leaves, branches and flowers",
+   "They all",
+   "Leaves and branches"
   ],
   "answerOptions": [
    {
-    "value": "wind and shook",
-    "label": "wind and shook",
-    "text": "wind and shook"
+    "value": "The tall tree by itself",
+    "label": "The tall tree by itself",
+    "text": "The tall tree by itself"
    },
    {
-    "value": "shook and leaves",
-    "label": "shook and leaves",
-    "text": "shook and leaves"
+    "value": "The leaves, branches and flowers",
+    "label": "The leaves, branches and flowers",
+    "text": "The leaves, branches and flowers"
    },
    {
-    "value": "the and shook",
-    "label": "the and shook",
-    "text": "the and shook"
+    "value": "They all",
+    "label": "They all",
+    "text": "They all"
    },
    {
-    "value": "wind and leaves",
-    "label": "wind and leaves",
-    "text": "wind and leaves"
+    "value": "Leaves and branches",
+    "label": "Leaves and branches",
+    "text": "Leaves and branches"
    }
   ],
-  "answer": "wind and leaves",
-  "correctAnswer": "wind and leaves",
+  "answer": "Leaves and branches",
+  "correctAnswer": "Leaves and branches",
   "distractorRationales": {
-   "wind and shook": "D-FUNCTION-SWAP",
-   "shook and leaves": "D-FUNCTION-SWAP",
-   "the and shook": "D-FUNCTION-SWAP"
+   "The tall tree by itself": "D-FUNCTION-SWAP",
+   "The leaves, branches and flowers": "D-FUNCTION-SWAP",
+   "They all": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6732,7 +6732,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "___ shook the ___.",
+  "sentenceText": "___ shook wildly.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -6753,6 +6753,358 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Identify both naming words, rather than spotting just one."
+  "notes": "Combine each grammatical subject phrase with the sentence, then distinguish two nouns from one, three or a pronoun. Adjectives and phrase length do not determine noun count."
+ },
+ {
+  "id": "lp3.nouns.l1.R.noun_person.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_person",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word names someone who checks teeth?",
+  "question": "Which word names someone who checks teeth?",
+  "spokenPrompt": "Which word names someone who checks teeth?",
+  "choices": [
+   "carefully",
+   "dentist",
+   "clean",
+   "shiny"
+  ],
+  "answerOptions": [
+   {
+    "value": "carefully",
+    "label": "carefully",
+    "text": "carefully"
+   },
+   {
+    "value": "dentist",
+    "label": "dentist",
+    "text": "dentist"
+   },
+   {
+    "value": "clean",
+    "label": "clean",
+    "text": "clean"
+   },
+   {
+    "value": "shiny",
+    "label": "shiny",
+    "text": "shiny"
+   }
+  ],
+  "answer": "dentist",
+  "correctAnswer": "dentist",
+  "distractorRationales": {
+   "shiny": "D-FUNCTION-SWAP",
+   "carefully": "D-FUNCTION-SWAP",
+   "clean": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l1.R.noun_person.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.nouns.l1.R.noun_place.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_place",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which naming word is a place inside a hill?",
+  "question": "Which naming word is a place inside a hill?",
+  "spokenPrompt": "Which naming word is a place inside a hill?",
+  "choices": [
+   "crawl",
+   "quietly",
+   "cave",
+   "dark"
+  ],
+  "answerOptions": [
+   {
+    "value": "crawl",
+    "label": "crawl",
+    "text": "crawl"
+   },
+   {
+    "value": "quietly",
+    "label": "quietly",
+    "text": "quietly"
+   },
+   {
+    "value": "cave",
+    "label": "cave",
+    "text": "cave"
+   },
+   {
+    "value": "dark",
+    "label": "dark",
+    "text": "dark"
+   }
+  ],
+  "answer": "cave",
+  "correctAnswer": "cave",
+  "distractorRationales": {
+   "crawl": "D-FUNCTION-SWAP",
+   "quietly": "D-FUNCTION-SWAP",
+   "dark": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l1.R.noun_place.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.nouns.l2.R.noun_in_sentence.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_in_sentence",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which word names something in ‘The nurse checks my pulse’?",
+  "question": "Which word names something in ‘The nurse checks my pulse’?",
+  "spokenPrompt": "Which word names something in ‘The nurse checks my pulse’?",
+  "choices": [
+   "pulse",
+   "checks",
+   "my",
+   "the"
+  ],
+  "answerOptions": [
+   {
+    "value": "pulse",
+    "label": "pulse",
+    "text": "pulse"
+   },
+   {
+    "value": "checks",
+    "label": "checks",
+    "text": "checks"
+   },
+   {
+    "value": "my",
+    "label": "my",
+    "text": "my"
+   },
+   {
+    "value": "the",
+    "label": "the",
+    "text": "the"
+   }
+  ],
+  "answer": "pulse",
+  "correctAnswer": "pulse",
+  "distractorRationales": {
+   "checks": "D-FUNCTION-SWAP",
+   "my": "D-FUNCTION-SWAP",
+   "the": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l2.R.noun_in_sentence.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.nouns.l2.R.noun_two_step.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_two_step",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which sentence has exactly TWO naming words?",
+  "question": "Which sentence has exactly TWO naming words?",
+  "spokenPrompt": "Which sentence has exactly TWO naming words?",
+  "choices": [
+   "It fell very softly.",
+   "Snow covered rooftops.",
+   "Snow fell silently all around us.",
+   "Snow covered rooftops and pavements."
+  ],
+  "answerOptions": [
+   {
+    "value": "It fell very softly.",
+    "label": "It fell very softly.",
+    "text": "It fell very softly."
+   },
+   {
+    "value": "Snow covered rooftops.",
+    "label": "Snow covered rooftops.",
+    "text": "Snow covered rooftops."
+   },
+   {
+    "value": "Snow fell silently all around us.",
+    "label": "Snow fell silently all around us.",
+    "text": "Snow fell silently all around us."
+   },
+   {
+    "value": "Snow covered rooftops and pavements.",
+    "label": "Snow covered rooftops and pavements.",
+    "text": "Snow covered rooftops and pavements."
+   }
+  ],
+  "answer": "Snow covered rooftops.",
+  "correctAnswer": "Snow covered rooftops.",
+  "distractorRationales": {
+   "Snow fell silently all around us.": "D-FUNCTION-SWAP",
+   "Snow covered rooftops and pavements.": "D-FUNCTION-SWAP",
+   "It fell very softly.": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l2.R.noun_two_step.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
  }
 ];

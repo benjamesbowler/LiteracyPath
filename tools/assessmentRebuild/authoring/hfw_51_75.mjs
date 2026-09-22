@@ -198,8 +198,8 @@ export default {
     cz("up", 1, 2, 2, "Roll the sleeping bag ___ for packing.", ["up", "out", "on", "by"], [FS, FS, FS],
       "the packing purpose pins the roll-up action"),
     rf("up", 1, 2, 3, ["up", "us", "cup", "pup"], [VN, VN, VN]),
-    cz("will", 1, 2, 1, "The forecast is certain: it ___ rain tomorrow.", ["will", "would", "was", "are"], [FS, DV, DV],
-      "present certainty pins will; the approved inventory forces two form traps"),
+    cz("will", 1, 2, 1, "We ___ bake a cake tomorrow.", ["will", "would", "was", "are"], [FS, DV, DV],
+      "The complete recording supplies will in a familiar plan; the child matches the spoken word to print."),
     cz("will", 1, 2, 2, "She promised, ‘Tomorrow I ___ help Mia.’", ["will", "is", "was", "had"], [DV, DV, DV],
       "the direct promise pins will; other approved forms cannot fill the modal slot"),
     rf("will", 1, 2, 3, ["will", "well", "wall", "with"], [VN, VN, VN]),
@@ -292,8 +292,8 @@ export default {
     // ===== Retention reserve (form R) — would/write get the double coverage =====
     cz("would", 1, 2, 7, "We ___ go outside if the rain stopped.", ["would", "use", "have", "had"], [FS, FS, FS],
       "the complete recording supplies would in a conditional sentence"),
-    cz("write", 1, 2, 7, "Students ___ answers with pencils during the test.", ["write", "make", "use", "have"], [FS, FS, FS],
-      "the pencils and test-answer context pin write"),
+    cz("write", 1, 2, 7, "Students ___ answers with pencils during the test.", ["write", "would", "which", "were"], [DV, FS, DV],
+      "The recorded action and pencil context specify write; rivals share initial w but cannot complete this clause."),
     sp("would", 2, 2, 7, "Ben ___ trade his apple.", ["w", "o", "u", "l", "d", "e"]),
     lb("write", 2, 2, 7, "___ neatly on the line.", ["w", "r", "i", "t", "e", "y"]),
     cz("two", 1, 2, 8, "There are exactly ___ socks in this pair.", ["two", "one", "many", "some"], [FS, FS, FS],
@@ -303,7 +303,15 @@ export default {
     rf("these", 1, 2, 7, ["these", "those", "then", "them"], [VN, VN, VN], "", "point"),
     rf("about", 1, 1, 7, ["about", "out", "above", "boat"], [VN, VN, VN], "", "point"),
     sp("look", 2, 1, 7, "___ before you leap!", ["l", "o", "o", "k", "u"]),
-    lb("time", 2, 2, 7, "Bath ___ for the pup!", ["t", "i", "m", "e", "y"])
+    lb("time", 2, 2, 7, "Bath ___ for the pup!", ["t", "i", "m", "e", "y"]),
+    cz("has", 1, 1, 7, "The duck ___ just laid an egg.", ["has", "have", "are", "were"], [DV, DV, DV],
+      "A singular subject plus laid requires has among these auxiliary choices."),
+    cz("him", 1, 1, 7, "Ben waits. Please pass ___ the cup.", ["him", "he", "his", "they"], [DV, DV, DV],
+      "The recipient slot requires the object form, with Ben explicitly identifying the recipient."),
+    sp("about", 2, 1, 7, "This book is ___ insects.", ["a", "b", "o", "u", "t", "e", "d"]),
+    lb("other", 2, 1, 7, "Please use the ___ door.", ["o", "t", "h", "e", "r", "u", "a"]),
+    sp("some", 2, 2, 7, "Save ___ seeds for spring.", ["s", "o", "m", "e", "u", "n"]),
+    lb("then", 2, 2, 7, "Wash first, ___ dry your hands.", ["t", "h", "e", "n", "a", "i"])
   ].map(item => {
     if (item.v >= 7) item.retention = true;
     return item;

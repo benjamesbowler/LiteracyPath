@@ -370,6 +370,17 @@ export default {
     }),
     fresh(es("t", 1, 2, 6, "pot", "po__", ["t", "d", "p", "f"], ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"])),
 
+    // New spoken anchors supply a fresh, balanced retention retry.
+    { ...es("g", 1, 1, 20, "peg", "pe__", ["g", "k", "p", "q"], ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"]), retention: true, media: "audio-required", img: undefined },
+    { ...es("l", 1, 1, 20, "pool", "poo__", ["l", "n", "p", "i"], ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"]), retention: true, media: "audio-required", img: undefined },
+    { ...es("p", 1, 2, 20, "cup", "cu__", ["p", "b", "c", "d"], ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"]), retention: true, media: "audio-required", img: undefined },
+    { ...es("ll", 2, 1, 20, "spill", "spi__", ["ll", "sh", "nt", "s"], ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"]), retention: true,
+      note: "the full heard word pins double-l spelling; no one-l alternative gives a second final-sound answer" },
+    { ...es("nd", 2, 1, 20, "bend", "be__", ["nd", "nt", "ng", "b"], ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"]), retention: true,
+      note: "bend and bent differ in the voiced final stop; the exact recording fixes the intended two-letter ending" },
+    { ...es("ft", 2, 2, 20, "loft", "lo__", ["ft", "st", "nd", "l"], ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"]), retention: true,
+      note: "the heard loft target distinguishes ft from the real-word rival lost; l is the initial-position error" },
+
     // ================= Retention reserve (form R) =================
     wm("b", 1, 1, 5, "web", ["tub", "cap", "ball", "mud"], "tub",
       { cap: "D-RIME-NEAR", ball: "D-POSITION", mud: "D-RIME-NEAR" }),

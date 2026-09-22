@@ -8560,5 +8560,365 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l2.R.new_knew.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "homophone_set",
+  "itemKey": "new_knew",
+  "formatType": "HOMOPHONE_CONTEXT_CLOZE",
+  "templateType": "HOMOPHONE_CONTEXT_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling fits: Yesterday I ___ all ten spellings before the lesson.",
+  "question": "Which spelling fits: Yesterday I ___ all ten spellings before the lesson.",
+  "spokenPrompt": "Which spelling fits? Yesterday I … all ten spellings before the lesson.",
+  "sentence": "Yesterday I ___ all ten spellings before the lesson.",
+  "choices": [
+   "know",
+   "knot",
+   "knew",
+   "new"
+  ],
+  "answerOptions": [
+   {
+    "value": "know",
+    "label": "know",
+    "text": "know"
+   },
+   {
+    "value": "knot",
+    "label": "knot",
+    "text": "knot"
+   },
+   {
+    "value": "knew",
+    "label": "knew",
+    "text": "knew"
+   },
+   {
+    "value": "new",
+    "label": "new",
+    "text": "new"
+   }
+  ],
+  "answer": "knew",
+  "correctAnswer": "knew",
+  "distractorRationales": {
+   "new": "D-HOMOPHONE",
+   "know": "D-FUNCTION-SWAP",
+   "knot": "D-VISUAL-NEIGHBOR"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Yesterday I ___ all ten spellings before the lesson.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.R.new_knew.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l2.R.hour_our.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "homophone_set",
+  "itemKey": "hour_our",
+  "formatType": "HOMOPHONE_CONTEXT_CLOZE",
+  "templateType": "HOMOPHONE_CONTEXT_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling fits: Half an ___ is thirty minutes.",
+  "question": "Which spelling fits: Half an ___ is thirty minutes.",
+  "spokenPrompt": "Which spelling fits? Half an … is thirty minutes.",
+  "sentence": "Half an ___ is thirty minutes.",
+  "choices": [
+   "our",
+   "sour",
+   "four",
+   "hour"
+  ],
+  "answerOptions": [
+   {
+    "value": "our",
+    "label": "our",
+    "text": "our"
+   },
+   {
+    "value": "sour",
+    "label": "sour",
+    "text": "sour"
+   },
+   {
+    "value": "four",
+    "label": "four",
+    "text": "four"
+   },
+   {
+    "value": "hour",
+    "label": "hour",
+    "text": "hour"
+   }
+  ],
+  "answer": "hour",
+  "correctAnswer": "hour",
+  "distractorRationales": {
+   "sour": "D-VISUAL-NEIGHBOR",
+   "four": "D-VISUAL-NEIGHBOR",
+   "our": "D-HOMOPHONE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Half an ___ is thirty minutes.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.R.hour_our.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l2.R.flower_flour.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "homophone_set",
+  "itemKey": "flower_flour",
+  "formatType": "HOMOPHONE_CONTEXT_CLOZE",
+  "templateType": "HOMOPHONE_CONTEXT_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling fits: The potter painted a ___ with five petals.",
+  "question": "Which spelling fits: The potter painted a ___ with five petals.",
+  "spokenPrompt": "Which spelling fits? The potter painted a … with five petals.",
+  "sentence": "The potter painted a ___ with five petals.",
+  "choices": [
+   "flower",
+   "flour",
+   "floor",
+   "flute"
+  ],
+  "answerOptions": [
+   {
+    "value": "flower",
+    "label": "flower",
+    "text": "flower"
+   },
+   {
+    "value": "flour",
+    "label": "flour",
+    "text": "flour"
+   },
+   {
+    "value": "floor",
+    "label": "floor",
+    "text": "floor"
+   },
+   {
+    "value": "flute",
+    "label": "flute",
+    "text": "flute"
+   }
+  ],
+  "answer": "flower",
+  "correctAnswer": "flower",
+  "distractorRationales": {
+   "flute": "D-VISUAL-NEIGHBOR",
+   "flour": "D-HOMOPHONE",
+   "floor": "D-VISUAL-NEIGHBOR"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The potter painted a ___ with five petals.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.R.flower_flour.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l2.R.would_wood.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "homophone_set",
+  "itemKey": "would_wood",
+  "formatType": "HOMOPHONE_CONTEXT_CLOZE",
+  "templateType": "HOMOPHONE_CONTEXT_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling fits: I ___ lend you my coat if I had it.",
+  "question": "Which spelling fits: I ___ lend you my coat if I had it.",
+  "spokenPrompt": "Which spelling fits? I … lend you my coat if I had it.",
+  "sentence": "I ___ lend you my coat if I had it.",
+  "choices": [
+   "wild",
+   "would",
+   "wood",
+   "wound"
+  ],
+  "answerOptions": [
+   {
+    "value": "wild",
+    "label": "wild",
+    "text": "wild"
+   },
+   {
+    "value": "would",
+    "label": "would",
+    "text": "would"
+   },
+   {
+    "value": "wood",
+    "label": "wood",
+    "text": "wood"
+   },
+   {
+    "value": "wound",
+    "label": "wound",
+    "text": "wound"
+   }
+  ],
+  "answer": "would",
+  "correctAnswer": "would",
+  "distractorRationales": {
+   "wound": "D-VISUAL-NEIGHBOR",
+   "wild": "D-VISUAL-NEIGHBOR",
+   "wood": "D-HOMOPHONE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "I ___ lend you my coat if I had it.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.R.would_wood.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
  }
 ];

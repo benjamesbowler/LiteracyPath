@@ -12,6 +12,10 @@ import { OBJECTIVE_ASSESSMENT_IMAGE_REJECTIONS } from "./objectiveAssessmentImag
 export const ASSESSMENT_IMAGE_REVIEW_EVIDENCE_VERSION = "direct-pixel-review-2026-09-01-v9";
 
 const LEGACY_ASSESSMENT_REJECTED_IMAGE_HASHES = Object.freeze({
+  "7c47d33f52c9d586fa356bf6b8fcd96ef664e5c92a8c8c9a9d7e2be00d27fb18": {
+  "path": "/images/assessment/grammar-scenes/water-through-pipe.webp",
+  "reason": "Damaged multicolour alpha fringe beneath floor and excessive empty canvas reduce clarity."
+},
   "75eed63a59ad9cb8ae469d6d3938cf9c21dcf2fb4241443d366ec4d54462f8e9": {
     path: "/images/assessment/blends/block.webp",
     reason: "wood-grain texture and rendered three-dimensional material"

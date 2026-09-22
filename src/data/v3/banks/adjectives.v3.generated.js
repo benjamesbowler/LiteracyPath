@@ -6774,5 +6774,365 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": ""
+ },
+ {
+  "id": "lp3.adjectives.l1.R.adj_color.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_color",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes something? The silver cloud drifted.",
+  "question": "Which word describes something? The silver cloud drifted.",
+  "spokenPrompt": "Which word describes something? The silver cloud drifted.",
+  "sentence": "The silver cloud drifted.",
+  "choices": [
+   "cloud",
+   "drifted",
+   "the",
+   "silver"
+  ],
+  "answerOptions": [
+   {
+    "value": "cloud",
+    "label": "cloud",
+    "text": "cloud"
+   },
+   {
+    "value": "drifted",
+    "label": "drifted",
+    "text": "drifted"
+   },
+   {
+    "value": "the",
+    "label": "the",
+    "text": "the"
+   },
+   {
+    "value": "silver",
+    "label": "silver",
+    "text": "silver"
+   }
+  ],
+  "answer": "silver",
+  "correctAnswer": "silver",
+  "distractorRationales": {
+   "cloud": "D-FUNCTION-SWAP",
+   "drifted": "D-FUNCTION-SWAP",
+   "the": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The silver cloud drifted.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.R.adj_color.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Distinguish the descriptor from the naming, action and linking words in context."
+ },
+ {
+  "id": "lp3.adjectives.l1.R.adj_texture_state.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_texture_state",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes something? A rough shell scratched me.",
+  "question": "Which word describes something? A rough shell scratched me.",
+  "spokenPrompt": "Which word describes something? A rough shell scratched me.",
+  "sentence": "A rough shell scratched me.",
+  "choices": [
+   "rough",
+   "shell",
+   "scratched",
+   "a"
+  ],
+  "answerOptions": [
+   {
+    "value": "rough",
+    "label": "rough",
+    "text": "rough"
+   },
+   {
+    "value": "shell",
+    "label": "shell",
+    "text": "shell"
+   },
+   {
+    "value": "scratched",
+    "label": "scratched",
+    "text": "scratched"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   }
+  ],
+  "answer": "rough",
+  "correctAnswer": "rough",
+  "distractorRationales": {
+   "scratched": "D-FUNCTION-SWAP",
+   "a": "D-FUNCTION-SWAP",
+   "shell": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "A rough shell scratched me.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.R.adj_texture_state.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Distinguish the descriptor from the naming, action and linking words in context."
+ },
+ {
+  "id": "lp3.adjectives.l2.R.adj_precision.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_precision",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which describing word fits best: The ___ bus had no passengers on board.",
+  "question": "Which describing word fits best: The ___ bus had no passengers on board.",
+  "spokenPrompt": "Which describing word fits best? The … bus had no passengers on board.",
+  "sentence": "The ___ bus had no passengers on board.",
+  "choices": [
+   "full",
+   "packed",
+   "empty",
+   "crowded"
+  ],
+  "answerOptions": [
+   {
+    "value": "full",
+    "label": "full",
+    "text": "full"
+   },
+   {
+    "value": "packed",
+    "label": "packed",
+    "text": "packed"
+   },
+   {
+    "value": "empty",
+    "label": "empty",
+    "text": "empty"
+   },
+   {
+    "value": "crowded",
+    "label": "crowded",
+    "text": "crowded"
+   }
+  ],
+  "answer": "empty",
+  "correctAnswer": "empty",
+  "distractorRationales": {
+   "full": "D-OPPOSITE",
+   "packed": "D-OPPOSITE",
+   "crowded": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The ___ bus had no passengers on board.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.R.adj_precision.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Absence of passengers distinguishes empty from three descriptions of a bus holding passengers."
+ },
+ {
+  "id": "lp3.adjectives.l2.R.adj_vs_noun_verb.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_vs_noun_verb",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes something? The suitcase felt awkward to carry.",
+  "question": "Which word describes something? The suitcase felt awkward to carry.",
+  "spokenPrompt": "Which word describes something? The suitcase felt awkward to carry.",
+  "sentence": "The suitcase felt awkward to carry.",
+  "choices": [
+   "suitcase",
+   "felt",
+   "carry",
+   "awkward"
+  ],
+  "answerOptions": [
+   {
+    "value": "suitcase",
+    "label": "suitcase",
+    "text": "suitcase"
+   },
+   {
+    "value": "felt",
+    "label": "felt",
+    "text": "felt"
+   },
+   {
+    "value": "carry",
+    "label": "carry",
+    "text": "carry"
+   },
+   {
+    "value": "awkward",
+    "label": "awkward",
+    "text": "awkward"
+   }
+  ],
+  "answer": "awkward",
+  "correctAnswer": "awkward",
+  "distractorRationales": {
+   "felt": "D-FUNCTION-SWAP",
+   "carry": "D-FUNCTION-SWAP",
+   "suitcase": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The suitcase felt awkward to carry.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.R.adj_vs_noun_verb.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Distinguish the descriptor from the naming, action and linking words in context."
  }
 ];

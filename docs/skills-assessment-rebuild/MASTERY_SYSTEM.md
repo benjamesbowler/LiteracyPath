@@ -91,17 +91,22 @@ review flag. These constants have one source in `skillBlueprints.js`.
 - The complete sitting is composed before it begins.
 - Selection uses the published v3 bank for that skill and level only.
 - Items, prompt/answer signatures, and option-set signatures are kept distinct
-  across the protected selection window.
+  across the last administered sitting in the same learner, skill, level, phase
+  and mode. This includes an abandoned plan, persisted separately from scored
+  evidence. Older questions may rotate back after a fresh sitting; the 90-day
+  grading window is not a ban on all question reuse for 90 days.
 - Each level and phase must contain enough genuinely distinct eligible content
   for two full sittings at its existing blueprint length: an initial sitting
   and a fresh retry. Retention-only reserves do not count toward either sitting.
   New IDs or token-swapped copies do not increase this stock. The gate composes
   both sittings and checks their full lengths and distinct evidence; a perfect
   first-pass simulation alone cannot establish retry readiness.
+- Retention also has a fresh retry: sixteen independent reserved questions
+  support two full eight-item checks. Ordinary forms do not borrow this stock.
 - A media failure is unscored and replaced; it cannot become an incorrect
   literacy answer.
 - Answer positions are shuffled deterministically at the render boundary.
-- Formal assessment does not reveal the answer or teach between scored items.
+- Lock and score the response before any feedback. Ordinary assessment feedback follows Question Design Bible §11: Correct/Not yet with one brief construct-linked reason and automatic progression. No extra coaching or answer changes may enter the scored response; explicitly supported responses remain excluded evidence.
 
 ## Publication gates
 
@@ -114,7 +119,7 @@ reproducible gates as passing:
 | G2 | Original questions without duplicate prompt/answer or option-set inflation |
 | G3 | One valid key, plausible distractors, balanced key positions, and no answer leakage |
 | G4 | Perfect-path reachability, deterministic scanner resistance, and correct regression behavior under the shared policy |
-| G5 | Enough distinct content for the pass and retention path, including a full initial and fresh retry sitting in every level/phase, without repeats or short sittings |
+| G5 | Enough distinct content for the pass and retention path, including full initial and fresh retry sittings in every level/phase and retention, without repeated scoring evidence or short sittings |
 | G6 | Runtime progression and reports use the same status reducer |
 | G7 | Construct validity and clear prompts, without ambiguous keys or copying shortcuts |
 | G8 | Required media proves the intended construct without revealing the key through duplicated art |

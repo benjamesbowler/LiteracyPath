@@ -1862,6 +1862,8 @@ export function buildAssessmentAttemptRecord({
     itemType: record.itemType,
     correctAnswer: record.correct,
     selectedAnswer: record.chosen,
+    responseStatus: record.responseStatus,
+    supported: record.supported,
     isCorrect: record.isCorrect,
     skillId: record.skillId || stage?.id,
     templateType: record.templateType || record.formatType,
@@ -1871,7 +1873,7 @@ export function buildAssessmentAttemptRecord({
     timestamp: record.timestamp || new Date().toISOString()
   }));
   const missedItems = normalizedQuestions
-    .filter(record => !record.isCorrect)
+    .filter(record => record.isCorrect === false)
     .map(record => record.targetWord || record.itemKey || record.correctAnswer)
     .filter(Boolean);
 

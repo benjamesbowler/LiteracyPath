@@ -9446,6 +9446,564 @@ export const questions = [
   "notes": "no soft image — sond, solt and somp are non-words"
  },
  {
+  "id": "lp3.blends.l1.R.gr.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "gr",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __ip.",
+  "question": "Choose the missing letters for __ip.",
+  "spokenPrompt": "Grip. Choose the missing letters.",
+  "choices": [
+   "gr",
+   "g",
+   "dr",
+   "sl"
+  ],
+  "answerOptions": [
+   {
+    "value": "gr",
+    "label": "gr",
+    "text": "gr"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
+   {
+    "value": "dr",
+    "label": "dr",
+    "text": "dr"
+   },
+   {
+    "value": "sl",
+    "label": "sl",
+    "text": "sl"
+   }
+  ],
+  "answer": "gr",
+  "correctAnswer": "gr",
+  "distractorRationales": {
+   "g": "D-ONSET",
+   "dr": "D-PATTERN-TRAP",
+   "sl": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "grip",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l1.R.gr.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "new gr target; one-letter g drops r, while drip and slip are real competing completions"
+ },
+ {
+  "id": "lp3.blends.l1.R.sw.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "sw",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __eep.",
+  "question": "Choose the missing letters for __eep.",
+  "spokenPrompt": "Sweep. Choose the missing letters.",
+  "choices": [
+   "st",
+   "sw",
+   "w",
+   "sl"
+  ],
+  "answerOptions": [
+   {
+    "value": "st",
+    "label": "st",
+    "text": "st"
+   },
+   {
+    "value": "sw",
+    "label": "sw",
+    "text": "sw"
+   },
+   {
+    "value": "w",
+    "label": "w",
+    "text": "w"
+   },
+   {
+    "value": "sl",
+    "label": "sl",
+    "text": "sl"
+   }
+  ],
+  "answer": "sw",
+  "correctAnswer": "sw",
+  "distractorRationales": {
+   "w": "D-ONSET",
+   "sl": "D-PATTERN-TRAP",
+   "st": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "sweep",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l1.R.sw.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "new sw target; weep drops s, and sleep and steep retain different complete blends"
+ },
+ {
+  "id": "lp3.blends.l2.R.sm.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "sm",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __ooth.",
+  "question": "Choose the missing letters for __ooth.",
+  "spokenPrompt": "Smooth. Choose the missing letters.",
+  "choices": [
+   "sn",
+   "sm",
+   "s",
+   "sp"
+  ],
+  "answerOptions": [
+   {
+    "value": "sn",
+    "label": "sn",
+    "text": "sn"
+   },
+   {
+    "value": "sm",
+    "label": "sm",
+    "text": "sm"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   },
+   {
+    "value": "sp",
+    "label": "sp",
+    "text": "sp"
+   }
+  ],
+  "answer": "sm",
+  "correctAnswer": "sm",
+  "distractorRationales": {
+   "sp": "D-PATTERN-TRAP",
+   "sn": "D-PATTERN-TRAP",
+   "s": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "smooth",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l2.R.sm.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "new spoken adjective supplies a clear sm target without an image-based texture judgement"
+ },
+ {
+  "id": "lp3.blends.l2.R.tr.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "tr",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __ack.",
+  "question": "Choose the missing letters for __ack.",
+  "spokenPrompt": "Track. Choose the missing letters.",
+  "choices": [
+   "cr",
+   "bl",
+   "tr",
+   "t"
+  ],
+  "answerOptions": [
+   {
+    "value": "cr",
+    "label": "cr",
+    "text": "cr"
+   },
+   {
+    "value": "bl",
+    "label": "bl",
+    "text": "bl"
+   },
+   {
+    "value": "tr",
+    "label": "tr",
+    "text": "tr"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   }
+  ],
+  "answer": "tr",
+  "correctAnswer": "tr",
+  "distractorRationales": {
+   "t": "D-ONSET",
+   "cr": "D-PATTERN-TRAP",
+   "bl": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "track",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l2.R.tr.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "new tr target; tack removes r, while crack and black supply complete competing blends"
+ },
+ {
+  "id": "lp3.blends.l2.R.nt.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "nt",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for hu__.",
+  "question": "Choose the missing letters for hu__.",
+  "spokenPrompt": "Hunt. Choose the missing letters.",
+  "choices": [
+   "n",
+   "mp",
+   "sh",
+   "nt"
+  ],
+  "answerOptions": [
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   },
+   {
+    "value": "mp",
+    "label": "mp",
+    "text": "mp"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "nt",
+    "label": "nt",
+    "text": "nt"
+   }
+  ],
+  "answer": "nt",
+  "correctAnswer": "nt",
+  "distractorRationales": {
+   "n": "D-DEVELOPMENTAL",
+   "mp": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "hunt",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l2.R.nt.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "new final nt target; n drops the final stop, while hump and hush are real heard-word rivals"
+ },
+ {
+  "id": "lp3.blends.l2.R.mp.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "mp",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for stu__.",
+  "question": "Choose the missing letters for stu__.",
+  "spokenPrompt": "Stump. Choose the missing letters.",
+  "choices": [
+   "mp",
+   "m",
+   "nt",
+   "ck"
+  ],
+  "answerOptions": [
+   {
+    "value": "mp",
+    "label": "mp",
+    "text": "mp"
+   },
+   {
+    "value": "m",
+    "label": "m",
+    "text": "m"
+   },
+   {
+    "value": "nt",
+    "label": "nt",
+    "text": "nt"
+   },
+   {
+    "value": "ck",
+    "label": "ck",
+    "text": "ck"
+   }
+  ],
+  "answer": "mp",
+  "correctAnswer": "mp",
+  "distractorRationales": {
+   "m": "D-DEVELOPMENTAL",
+   "nt": "D-PATTERN-TRAP",
+   "ck": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "stump",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l2.R.mp.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "new final mp target after an initial blend; m drops p, and stunt and stuck supply competing endings"
+ },
+ {
   "id": "lp3.blends.l1.R.br.v5r",
   "bankStandardVersion": 3,
   "grade": "K-2",
@@ -9469,22 +10027,12 @@ export const questions = [
   "question": "Choose the missing letters for __ush.",
   "spokenPrompt": "Brush. Choose the missing letters.",
   "choices": [
-   "br",
-   "cr",
    "fl",
-   "pl"
+   "pl",
+   "br",
+   "cr"
   ],
   "answerOptions": [
-   {
-    "value": "br",
-    "label": "br",
-    "text": "br"
-   },
-   {
-    "value": "cr",
-    "label": "cr",
-    "text": "cr"
-   },
    {
     "value": "fl",
     "label": "fl",
@@ -9494,6 +10042,16 @@ export const questions = [
     "value": "pl",
     "label": "pl",
     "text": "pl"
+   },
+   {
+    "value": "br",
+    "label": "br",
+    "text": "br"
+   },
+   {
+    "value": "cr",
+    "label": "cr",
+    "text": "cr"
    }
   ],
   "answer": "br",
@@ -9536,7 +10094,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "crush, flush and plush are real — the brush image pins the target"
+  "notes": "crush, flush and plush are real; the spoken brush target specifies the intended beginning"
  },
  {
   "id": "lp3.blends.l1.R.br.v6r",
@@ -9562,22 +10120,12 @@ export const questions = [
   "question": "Choose the missing letters for __oom.",
   "spokenPrompt": "Broom. Choose the missing letters.",
   "choices": [
-   "sp",
-   "br",
    "gl",
-   "dr"
+   "dr",
+   "sp",
+   "br"
   ],
   "answerOptions": [
-   {
-    "value": "sp",
-    "label": "sp",
-    "text": "sp"
-   },
-   {
-    "value": "br",
-    "label": "br",
-    "text": "br"
-   },
    {
     "value": "gl",
     "label": "gl",
@@ -9587,6 +10135,16 @@ export const questions = [
     "value": "dr",
     "label": "dr",
     "text": "dr"
+   },
+   {
+    "value": "sp",
+    "label": "sp",
+    "text": "sp"
+   },
+   {
+    "value": "br",
+    "label": "br",
+    "text": "br"
    }
   ],
   "answer": "br",
@@ -9629,7 +10187,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "gloom is real — the broom image pins the target"
+  "notes": "gloom is real; the spoken broom target specifies the intended beginning"
  },
  {
   "id": "lp3.blends.l1.R.cl.v5r",
@@ -9655,22 +10213,12 @@ export const questions = [
   "question": "Which printed word matches the recording?",
   "spokenPrompt": "Clap. Which printed word matches the recording?",
   "choices": [
-   "clip",
-   "cap",
    "clap",
-   "lap"
+   "lap",
+   "clip",
+   "cap"
   ],
   "answerOptions": [
-   {
-    "value": "clip",
-    "label": "clip",
-    "text": "clip"
-   },
-   {
-    "value": "cap",
-    "label": "cap",
-    "text": "cap"
-   },
    {
     "value": "clap",
     "label": "clap",
@@ -9680,6 +10228,16 @@ export const questions = [
     "value": "lap",
     "label": "lap",
     "text": "lap"
+   },
+   {
+    "value": "clip",
+    "label": "clip",
+    "text": "clip"
+   },
+   {
+    "value": "cap",
+    "label": "cap",
+    "text": "cap"
    }
   ],
   "answer": "clap",
@@ -9839,22 +10397,12 @@ export const questions = [
   "question": "Which word begins with the same blend?",
   "spokenPrompt": "Plate. Which word begins with the same blend?",
   "choices": [
-   "gate",
-   "frog",
    "lamp",
-   "plant"
+   "plant",
+   "gate",
+   "frog"
   ],
   "answerOptions": [
-   {
-    "value": "gate",
-    "label": "gate",
-    "text": "gate"
-   },
-   {
-    "value": "frog",
-    "label": "frog",
-    "text": "frog"
-   },
    {
     "value": "lamp",
     "label": "lamp",
@@ -9864,6 +10412,16 @@ export const questions = [
     "value": "plant",
     "label": "plant",
     "text": "plant"
+   },
+   {
+    "value": "gate",
+    "label": "gate",
+    "text": "gate"
+   },
+   {
+    "value": "frog",
+    "label": "frog",
+    "text": "frog"
    }
   ],
   "answer": "plant",
@@ -9893,10 +10451,10 @@ export const questions = [
    "itemId": "lp3.blends.l1.R.pl.v5r",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/objective-words/gate.webp",
-    "/images/assessment/blends/frog.webp",
     "/images/assessment/objective-words/lamp.webp",
-    "/images/assessment/blends/plant.webp"
+    "/images/assessment/blends/plant.webp",
+    "/images/assessment/objective-words/gate.webp",
+    "/images/assessment/blends/frog.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -9914,24 +10472,6 @@ export const questions = [
   "notes": "gate rhymes with the anchor — the scanner tie",
   "imageCards": [
    {
-    "id": "lp3.blends.l1.R.pl.v5r_card_gate",
-    "word": "gate",
-    "value": "gate",
-    "label": "gate",
-    "image": "/images/assessment/objective-words/gate.webp",
-    "imagePath": "/images/assessment/objective-words/gate.webp",
-    "imageAlt": "gate"
-   },
-   {
-    "id": "lp3.blends.l1.R.pl.v5r_card_frog",
-    "word": "frog",
-    "value": "frog",
-    "label": "frog",
-    "image": "/images/assessment/blends/frog.webp",
-    "imagePath": "/images/assessment/blends/frog.webp",
-    "imageAlt": "frog"
-   },
-   {
     "id": "lp3.blends.l1.R.pl.v5r_card_lamp",
     "word": "lamp",
     "value": "lamp",
@@ -9948,6 +10488,24 @@ export const questions = [
     "image": "/images/assessment/blends/plant.webp",
     "imagePath": "/images/assessment/blends/plant.webp",
     "imageAlt": "plant"
+   },
+   {
+    "id": "lp3.blends.l1.R.pl.v5r_card_gate",
+    "word": "gate",
+    "value": "gate",
+    "label": "gate",
+    "image": "/images/assessment/objective-words/gate.webp",
+    "imagePath": "/images/assessment/objective-words/gate.webp",
+    "imageAlt": "gate"
+   },
+   {
+    "id": "lp3.blends.l1.R.pl.v5r_card_frog",
+    "word": "frog",
+    "value": "frog",
+    "label": "frog",
+    "image": "/images/assessment/blends/frog.webp",
+    "imagePath": "/images/assessment/blends/frog.webp",
+    "imageAlt": "frog"
    }
   ]
  },
@@ -10135,7 +10693,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no raft image — rand, ralt and rasc are non-words for this age (ramp and rant stay out)"
+  "notes": "the spoken raft target specifies ft; nd, lt and sc are different endings"
  },
  {
   "id": "lp3.blends.l2.R.nd.v5r",
@@ -10254,22 +10812,12 @@ export const questions = [
   "question": "Which printed word matches the recording?",
   "spokenPrompt": "Stop. Which printed word matches the recording?",
   "choices": [
-   "stop",
-   "top",
    "shop",
-   "step"
+   "step",
+   "stop",
+   "top"
   ],
   "answerOptions": [
-   {
-    "value": "stop",
-    "label": "stop",
-    "text": "stop"
-   },
-   {
-    "value": "top",
-    "label": "top",
-    "text": "top"
-   },
    {
     "value": "shop",
     "label": "shop",
@@ -10279,6 +10827,16 @@ export const questions = [
     "value": "step",
     "label": "step",
     "text": "step"
+   },
+   {
+    "value": "stop",
+    "label": "stop",
+    "text": "stop"
+   },
+   {
+    "value": "top",
+    "label": "top",
+    "text": "top"
    }
   ],
   "answer": "stop",
@@ -10346,22 +10904,12 @@ export const questions = [
   "question": "Which word begins with the same blend?",
   "spokenPrompt": "Clown. Which word begins with the same blend?",
   "choices": [
-   "drum",
-   "cloud",
    "crown",
-   "lamp"
+   "lamp",
+   "drum",
+   "cloud"
   ],
   "answerOptions": [
-   {
-    "value": "drum",
-    "label": "drum",
-    "text": "drum"
-   },
-   {
-    "value": "cloud",
-    "label": "cloud",
-    "text": "cloud"
-   },
    {
     "value": "crown",
     "label": "crown",
@@ -10371,6 +10919,16 @@ export const questions = [
     "value": "lamp",
     "label": "lamp",
     "text": "lamp"
+   },
+   {
+    "value": "drum",
+    "label": "drum",
+    "text": "drum"
+   },
+   {
+    "value": "cloud",
+    "label": "cloud",
+    "text": "cloud"
    }
   ],
   "answer": "cloud",
@@ -10400,10 +10958,10 @@ export const questions = [
    "itemId": "lp3.blends.l1.R.cl.v6r",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/blends/drum.webp",
-    "/images/assessment/release-media/cloud-86182099.webp",
     "/images/assessment/objective-words/crown.webp",
-    "/images/assessment/objective-words/lamp.webp"
+    "/images/assessment/objective-words/lamp.webp",
+    "/images/assessment/blends/drum.webp",
+    "/images/assessment/release-media/cloud-86182099.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -10421,24 +10979,6 @@ export const questions = [
   "notes": "crown rhymes with the anchor and out-chunks the key",
   "imageCards": [
    {
-    "id": "lp3.blends.l1.R.cl.v6r_card_drum",
-    "word": "drum",
-    "value": "drum",
-    "label": "drum",
-    "image": "/images/assessment/blends/drum.webp",
-    "imagePath": "/images/assessment/blends/drum.webp",
-    "imageAlt": "drum"
-   },
-   {
-    "id": "lp3.blends.l1.R.cl.v6r_card_cloud",
-    "word": "cloud",
-    "value": "cloud",
-    "label": "cloud",
-    "image": "/images/assessment/release-media/cloud-86182099.webp",
-    "imagePath": "/images/assessment/release-media/cloud-86182099.webp",
-    "imageAlt": "cloud"
-   },
-   {
     "id": "lp3.blends.l1.R.cl.v6r_card_crown",
     "word": "crown",
     "value": "crown",
@@ -10455,6 +10995,24 @@ export const questions = [
     "image": "/images/assessment/objective-words/lamp.webp",
     "imagePath": "/images/assessment/objective-words/lamp.webp",
     "imageAlt": "lamp"
+   },
+   {
+    "id": "lp3.blends.l1.R.cl.v6r_card_drum",
+    "word": "drum",
+    "value": "drum",
+    "label": "drum",
+    "image": "/images/assessment/blends/drum.webp",
+    "imagePath": "/images/assessment/blends/drum.webp",
+    "imageAlt": "drum"
+   },
+   {
+    "id": "lp3.blends.l1.R.cl.v6r_card_cloud",
+    "word": "cloud",
+    "value": "cloud",
+    "label": "cloud",
+    "image": "/images/assessment/release-media/cloud-86182099.webp",
+    "imagePath": "/images/assessment/release-media/cloud-86182099.webp",
+    "imageAlt": "cloud"
    }
   ]
  }

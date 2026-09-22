@@ -18,7 +18,7 @@ import { execSync } from "node:child_process";
 import {
   ROOT, AUTHORING_DIR, BANKS_DIR, STATUS_FILE, REPORT_DIR,
   expandBank, generatedBankSource, lintBank, lintPerceptualMediaIndependence, simulate, simulateRegression, scannerAnswer, writeGeneratedBank, loadLexicon,
-  norm, makeImageResolver, mediaDecisionContractIssues, checkFreshRetry, independentLengthShortcuts
+  norm, makeImageResolver, mediaDecisionContractIssues, checkFreshRetry, checkFreshRetentionRetry, independentLengthShortcuts
 } from "./lib.mjs";
 import { skillBlueprints, ASSESSMENT_REBUILD_STANDARD_VERSION, PHASE_PASS_RULE } from "../../src/content/blueprints/skillBlueprints.js";
 import * as policy from "../../src/policy/skillStatusPolicy.js";
@@ -393,10 +393,12 @@ for (const file of authoringFiles) {
     // budget + retention. A bank that runs out after 4 questions cannot claim
     // to support a fixed 10-question administration.
     detail.sims.freshRetry = checkFreshRetry(items, blueprint);
+    detail.sims.freshRetentionRetry = checkFreshRetentionRetry(items);
     gates.G5_no_repeats =
       perfect.repeats.length === 0
       && perfect.shortSittings.length === 0
-      && detail.sims.freshRetry.pass;
+      && detail.sims.freshRetry.pass
+      && detail.sims.freshRetentionRetry.pass;
 
     // G6 — runtime progression, class reports and student reports must all
     // consume the same pure status reducer.

@@ -52,9 +52,9 @@ export const PURE_EARLY_PHONICS_SKILL_IDS = new Set([
 ]);
 
 export const ASSESSMENT_PATH_STEPS = [
-  { level: 1, phase: 1, label: "Level 1 Phase 1", nextLabel: "Continue Phase 1 Round 2" },
-  { level: 1, phase: 2, label: "Level 1 Phase 2", nextLabel: "Start Phase 2 Round 1" },
-  { level: 2, phase: 1, label: "Level 2 Phase 1", nextLabel: "Continue Phase 2 Round 2" },
+  { level: 1, phase: 1, label: "Level 1 Phase 1", nextLabel: "Continue Level 1 Phase 2" },
+  { level: 1, phase: 2, label: "Level 1 Phase 2", nextLabel: "Try optional Level 2 Phase 1" },
+  { level: 2, phase: 1, label: "Level 2 Phase 1", nextLabel: "Continue Level 2 Phase 2" },
   { level: 2, phase: 2, label: "Level 2 Phase 2", nextLabel: "Move to next skill" }
 ];
 
@@ -103,7 +103,7 @@ export function getAssessmentCheckpointProgression({
     label: getAssessmentPathLabel(currentStep),
     nextStep: ASSESSMENT_PATH_STEPS[index + 1] || null,
     nextActionLabel: currentKey === "L1P2" && levelOnePassed
-      ? "Move to next skill or try Phase 2 Round 1"
+      ? "Move to next skill or try optional Level 2 Phase 1"
       : finalStepComplete
         ? "Move to next skill"
         : ASSESSMENT_PATH_STEPS[index]?.nextLabel || "Continue assessment",
@@ -118,6 +118,7 @@ export function getAssessmentCheckpointProgression({
 }
 
 export function getAssessmentQuestionPhase(question = {}) {
+  if (question.source === V3_QUESTION_SOURCE && [1, 2].includes(Number(question.phase))) return Number(question.phase);
   const questionSkillId = normalizeEarlySkillId(question.skillId || question.skillName || question.skill || "");
   if (questionSkillId === "rhyming") {
     const family = normalizeItemKey(
@@ -1325,6 +1326,11 @@ export function isGeneratedReplacementQuestion(question = {}) {
 }
 
 export function keepRuntimeQuestion(question = {}) {
+  // Published v3 constructs have explicit reviewed media contracts and current
+  // blueprint units. Legacy visual-only word lists predate those contracts.
+  // Universal validation and blocked-media checks still run at this boundary.
+  if (question.source === V3_QUESTION_SOURCE) return !isQuestionBlockedByMediaQa(question)
+    && getV3RuntimeEligibilityIssues(question, question.assessmentSkillId || question.skillId).length === 0;
   const skillId = normalizeRuntimeSkillId(question.skillId || question.assessmentSkillId || question.skillName || question.skill || "");
   if (!isLevelOneContentQualityAllowed(question)) return false;
   if (!REPLACED_LEGACY_ASSESSMENT_SKILLS.has(skillId)) return true;

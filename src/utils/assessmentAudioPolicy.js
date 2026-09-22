@@ -1,3 +1,5 @@
+import { V3_QUESTION_SOURCE } from "../data/v3/v3Registry.js";
+
 export const SHORT_VOWEL_LISTEN_PROMPT = "Listen to the word. What vowel sound can you hear?";
 
 const VOWEL_CHOICES = ["a", "e", "i", "o", "u"];
@@ -75,6 +77,16 @@ export function normalizeVowelAnswer(value = "", targetWord = "") {
  */
 export function normalizeAssessmentAudioRoles(question = {}) {
   if (!question) return question;
+
+  if (question.source === V3_QUESTION_SOURCE) {
+    // Current authored contrasts are already validated. Legacy vowel helpers
+    // must not rewrite their choices, prompts, images, or scoring key.
+    const target = getAssessmentStimulusAudioText(question);
+    const path = question.audioPath || question.audioUrl || "";
+    return !target || isGenericInstructionAudioPath(path)
+      ? { ...question, audioPath: "", audioUrl: "", audio: "" }
+      : question;
+  }
 
   if (isListenChooseVowelQuestion(question)) {
     const targetWord = question.targetWord || question.audioText || question.word || "";

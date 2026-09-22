@@ -15870,6 +15870,558 @@ export const questions = [
   ]
  },
  {
+  "id": "lp3.initial_sounds.l1.R.d.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "initial_sound",
+  "itemKey": "d",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Dig. Which letter matches the first sound?",
+  "choices": [
+   "g",
+   "d",
+   "t",
+   "p"
+  ],
+  "answerOptions": [
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   }
+  ],
+  "answer": "d",
+  "correctAnswer": "d",
+  "distractorRationales": {
+   "t": "D-ONSET",
+   "p": "D-VISUAL-NEIGHBOR",
+   "g": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "dig",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.R.d.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the spoken word supplies the stimulus without relying on ambiguous picture naming"
+ },
+ {
+  "id": "lp3.initial_sounds.l1.R.f.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "initial_sound",
+  "itemKey": "f",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Fig. Which letter matches the first sound?",
+  "choices": [
+   "t",
+   "g",
+   "f",
+   "v"
+  ],
+  "answerOptions": [
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
+   {
+    "value": "f",
+    "label": "f",
+    "text": "f"
+   },
+   {
+    "value": "v",
+    "label": "v",
+    "text": "v"
+   }
+  ],
+  "answer": "f",
+  "correctAnswer": "f",
+  "distractorRationales": {
+   "t": "D-VISUAL-NEIGHBOR",
+   "g": "D-POSITION",
+   "v": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "fig",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.R.f.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the spoken word supplies the stimulus without relying on ambiguous picture naming"
+ },
+ {
+  "id": "lp3.initial_sounds.l1.R.p.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "initial_sound",
+  "itemKey": "p",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Pet. Which letter matches the first sound?",
+  "choices": [
+   "b",
+   "q",
+   "t",
+   "p"
+  ],
+  "answerOptions": [
+   {
+    "value": "b",
+    "label": "b",
+    "text": "b"
+   },
+   {
+    "value": "q",
+    "label": "q",
+    "text": "q"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   }
+  ],
+  "answer": "p",
+  "correctAnswer": "p",
+  "distractorRationales": {
+   "b": "D-ONSET",
+   "q": "D-VISUAL-NEIGHBOR",
+   "t": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "pet",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.R.p.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the spoken word supplies the stimulus without relying on ambiguous picture naming"
+ },
+ {
+  "id": "lp3.initial_sounds.l1.R.l.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "initial_sound",
+  "itemKey": "l",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Leaf. Which letter matches the first sound?",
+  "choices": [
+   "l",
+   "r",
+   "i",
+   "f"
+  ],
+  "answerOptions": [
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
+   },
+   {
+    "value": "r",
+    "label": "r",
+    "text": "r"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "f",
+    "label": "f",
+    "text": "f"
+   }
+  ],
+  "answer": "l",
+  "correctAnswer": "l",
+  "distractorRationales": {
+   "r": "D-ONSET",
+   "i": "D-VISUAL-NEIGHBOR",
+   "f": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "leaf",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.R.l.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the spoken word supplies the stimulus without relying on ambiguous picture naming"
+ },
+ {
+  "id": "lp3.initial_sounds.l2.R.h.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "initial_sound",
+  "itemKey": "h",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Headphones. Which letter matches the first sound?",
+  "choices": [
+   "h",
+   "f",
+   "n",
+   "z"
+  ],
+  "answerOptions": [
+   {
+    "value": "h",
+    "label": "h",
+    "text": "h"
+   },
+   {
+    "value": "f",
+    "label": "f",
+    "text": "f"
+   },
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   },
+   {
+    "value": "z",
+    "label": "z",
+    "text": "z"
+   }
+  ],
+  "answer": "h",
+  "correctAnswer": "h",
+  "distractorRationales": {
+   "z": "D-POSITION",
+   "f": "D-ONSET",
+   "n": "D-VISUAL-NEIGHBOR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "headphones",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.R.h.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the spoken word supplies the stimulus without relying on ambiguous picture naming"
+ },
+ {
+  "id": "lp3.initial_sounds.l2.R.l.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "initial_sound",
+  "itemKey": "l",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Ladder. Which letter matches the first sound?",
+  "choices": [
+   "d",
+   "l",
+   "r",
+   "i"
+  ],
+  "answerOptions": [
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
+   },
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
+   },
+   {
+    "value": "r",
+    "label": "r",
+    "text": "r"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   }
+  ],
+  "answer": "l",
+  "correctAnswer": "l",
+  "distractorRationales": {
+   "d": "D-DEVELOPMENTAL",
+   "r": "D-ONSET",
+   "i": "D-VISUAL-NEIGHBOR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "ladder",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.R.l.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "two-syllable heard onset; d is an internal-consonant error, not a claimed final phoneme"
+ },
+ {
   "id": "lp3.initial_sounds.l2.R.a.v7r",
   "bankStandardVersion": 3,
   "grade": "K-2",
@@ -15893,22 +16445,12 @@ export const questions = [
   "question": "Which letter matches the first sound?",
   "spokenPrompt": "Ankle. Which letter matches the first sound?",
   "choices": [
-   "a",
-   "e",
    "i",
-   "k"
+   "k",
+   "a",
+   "e"
   ],
   "answerOptions": [
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
-   },
-   {
-    "value": "e",
-    "label": "e",
-    "text": "e"
-   },
    {
     "value": "i",
     "label": "i",
@@ -15918,6 +16460,16 @@ export const questions = [
     "value": "k",
     "label": "k",
     "text": "k"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
    }
   ],
   "answer": "a",
@@ -15985,22 +16537,12 @@ export const questions = [
   "question": "Which letter matches the first sound?",
   "spokenPrompt": "Empty. Which letter matches the first sound?",
   "choices": [
-   "p",
-   "e",
    "i",
-   "o"
+   "o",
+   "p",
+   "e"
   ],
   "answerOptions": [
-   {
-    "value": "p",
-    "label": "p",
-    "text": "p"
-   },
-   {
-    "value": "e",
-    "label": "e",
-    "text": "e"
-   },
    {
     "value": "i",
     "label": "i",
@@ -16010,6 +16552,16 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
    }
   ],
   "answer": "e",
@@ -16177,22 +16729,12 @@ export const questions = [
   "question": "Which letter matches the first sound?",
   "spokenPrompt": "Sandcastle. Which letter matches the first sound?",
   "choices": [
-   "f",
-   "l",
    "s",
-   "z"
+   "z",
+   "f",
+   "l"
   ],
   "answerOptions": [
-   {
-    "value": "f",
-    "label": "f",
-    "text": "f"
-   },
-   {
-    "value": "l",
-    "label": "l",
-    "text": "l"
-   },
    {
     "value": "s",
     "label": "s",
@@ -16202,6 +16744,16 @@ export const questions = [
     "value": "z",
     "label": "z",
     "text": "z"
+   },
+   {
+    "value": "f",
+    "label": "f",
+    "text": "f"
+   },
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
    }
   ],
   "answer": "s",
@@ -16277,22 +16829,12 @@ export const questions = [
   "question": "Which letter matches the first sound?",
   "spokenPrompt": "Train. Which letter matches the first sound?",
   "choices": [
-   "d",
-   "p",
    "n",
-   "t"
+   "t",
+   "d",
+   "p"
   ],
   "answerOptions": [
-   {
-    "value": "d",
-    "label": "d",
-    "text": "d"
-   },
-   {
-    "value": "p",
-    "label": "p",
-    "text": "p"
-   },
    {
     "value": "n",
     "label": "n",
@@ -16302,6 +16844,16 @@ export const questions = [
     "value": "t",
     "label": "t",
     "text": "t"
+   },
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
    }
   ],
   "answer": "t",
@@ -16513,22 +17065,12 @@ export const questions = [
   "question": "Which word has the same starting sound?",
   "spokenPrompt": "Goat. Which word has the same starting sound?",
   "choices": [
-   "gate",
-   "cap",
    "king",
-   "key"
+   "key",
+   "gate",
+   "cap"
   ],
   "answerOptions": [
-   {
-    "value": "gate",
-    "label": "gate",
-    "text": "gate"
-   },
-   {
-    "value": "cap",
-    "label": "cap",
-    "text": "cap"
-   },
    {
     "value": "king",
     "label": "king",
@@ -16538,6 +17080,16 @@ export const questions = [
     "value": "key",
     "label": "key",
     "text": "key"
+   },
+   {
+    "value": "gate",
+    "label": "gate",
+    "text": "gate"
+   },
+   {
+    "value": "cap",
+    "label": "cap",
+    "text": "cap"
    }
   ],
   "answer": "gate",
@@ -16567,10 +17119,10 @@ export const questions = [
    "itemId": "lp3.initial_sounds.l2.R.g.v7r",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/objective-words/gate.webp",
-    "/images/assessment/objective-words/cap.webp",
     "/images/assessment/objective-words/king.webp",
-    "/images/assessment/objective-words/key.webp"
+    "/images/assessment/objective-words/key.webp",
+    "/images/assessment/objective-words/gate.webp",
+    "/images/assessment/objective-words/cap.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -16588,24 +17140,6 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l2.R.g.v7r_card_gate",
-    "word": "gate",
-    "value": "gate",
-    "label": "gate",
-    "image": "/images/assessment/objective-words/gate.webp",
-    "imagePath": "/images/assessment/objective-words/gate.webp",
-    "imageAlt": "gate"
-   },
-   {
-    "id": "lp3.initial_sounds.l2.R.g.v7r_card_cap",
-    "word": "cap",
-    "value": "cap",
-    "label": "cap",
-    "image": "/images/assessment/objective-words/cap.webp",
-    "imagePath": "/images/assessment/objective-words/cap.webp",
-    "imageAlt": "cap"
-   },
-   {
     "id": "lp3.initial_sounds.l2.R.g.v7r_card_king",
     "word": "king",
     "value": "king",
@@ -16622,6 +17156,24 @@ export const questions = [
     "image": "/images/assessment/objective-words/key.webp",
     "imagePath": "/images/assessment/objective-words/key.webp",
     "imageAlt": "key"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.R.g.v7r_card_gate",
+    "word": "gate",
+    "value": "gate",
+    "label": "gate",
+    "image": "/images/assessment/objective-words/gate.webp",
+    "imagePath": "/images/assessment/objective-words/gate.webp",
+    "imageAlt": "gate"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.R.g.v7r_card_cap",
+    "word": "cap",
+    "value": "cap",
+    "label": "cap",
+    "image": "/images/assessment/objective-words/cap.webp",
+    "imagePath": "/images/assessment/objective-words/cap.webp",
+    "imageAlt": "cap"
    }
   ]
  },
@@ -16785,22 +17337,12 @@ export const questions = [
   "question": "Which word has the same starting sound?",
   "spokenPrompt": "Rocket. Which word has the same starting sound?",
   "choices": [
-   "web",
-   "rat",
    "van",
-   "wheel"
+   "wheel",
+   "web",
+   "rat"
   ],
   "answerOptions": [
-   {
-    "value": "web",
-    "label": "web",
-    "text": "web"
-   },
-   {
-    "value": "rat",
-    "label": "rat",
-    "text": "rat"
-   },
    {
     "value": "van",
     "label": "van",
@@ -16810,6 +17352,16 @@ export const questions = [
     "value": "wheel",
     "label": "wheel",
     "text": "wheel"
+   },
+   {
+    "value": "web",
+    "label": "web",
+    "text": "web"
+   },
+   {
+    "value": "rat",
+    "label": "rat",
+    "text": "rat"
    }
   ],
   "answer": "rat",
@@ -16839,10 +17391,10 @@ export const questions = [
    "itemId": "lp3.initial_sounds.l2.R.r.v7r",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/objective-words/web.webp",
-    "/images/assessment/objective-words/rat.webp",
     "/images/assessment/objective-words/van.webp",
-    "/images/assessment/objective-words/wheel.webp"
+    "/images/assessment/objective-words/wheel.webp",
+    "/images/assessment/objective-words/web.webp",
+    "/images/assessment/objective-words/rat.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -16860,24 +17412,6 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l2.R.r.v7r_card_web",
-    "word": "web",
-    "value": "web",
-    "label": "web",
-    "image": "/images/assessment/objective-words/web.webp",
-    "imagePath": "/images/assessment/objective-words/web.webp",
-    "imageAlt": "web"
-   },
-   {
-    "id": "lp3.initial_sounds.l2.R.r.v7r_card_rat",
-    "word": "rat",
-    "value": "rat",
-    "label": "rat",
-    "image": "/images/assessment/objective-words/rat.webp",
-    "imagePath": "/images/assessment/objective-words/rat.webp",
-    "imageAlt": "rat"
-   },
-   {
     "id": "lp3.initial_sounds.l2.R.r.v7r_card_van",
     "word": "van",
     "value": "van",
@@ -16894,6 +17428,24 @@ export const questions = [
     "image": "/images/assessment/objective-words/wheel.webp",
     "imagePath": "/images/assessment/objective-words/wheel.webp",
     "imageAlt": "wheel"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.R.r.v7r_card_web",
+    "word": "web",
+    "value": "web",
+    "label": "web",
+    "image": "/images/assessment/objective-words/web.webp",
+    "imagePath": "/images/assessment/objective-words/web.webp",
+    "imageAlt": "web"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.R.r.v7r_card_rat",
+    "word": "rat",
+    "value": "rat",
+    "label": "rat",
+    "image": "/images/assessment/objective-words/rat.webp",
+    "imagePath": "/images/assessment/objective-words/rat.webp",
+    "imageAlt": "rat"
    }
   ]
  },

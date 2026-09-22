@@ -302,5 +302,14 @@ export default {
     if (item.v >= 5) item.retention = true;
     if (item.u.startsWith("homonym_")) item.nonGating = true;
     return item;
-  }).concat(freshPhaseItems)
+  }).concat(freshPhaseItems, [
+    hcc("new_knew", 2, 1, 31, "Yesterday I ___ all ten spellings before the lesson.",
+      ["knew", "new", "know", "knot"], [HOM, FS, VN]),
+    hcc("hour_our", 2, 2, 31, "Half an ___ is thirty minutes.",
+      ["hour", "our", "sour", "four"], [HOM, VN, VN]),
+    hcc("flower_flour", 2, 2, 31, "The potter painted a ___ with five petals.",
+      ["flower", "flour", "floor", "flute"], [HOM, VN, VN]),
+    hcc("would_wood", 2, 2, 31, "I ___ lend you my coat if I had it.",
+      ["would", "wood", "wound", "wild"], [HOM, VN, VN])
+  ].map(item => ({ ...item, retention: true })))
 };

@@ -6764,5 +6764,545 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l1.R.plural_add_s.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_add_s",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits: Three ___ carried people up the snowy hill.",
+  "question": "Which word fits: Three ___ carried people up the snowy hill.",
+  "spokenPrompt": "Which word fits? Three … carried people up the snowy hill.",
+  "sentence": "Three ___ carried people up the snowy hill.",
+  "choices": [
+   "lifted",
+   "lifts",
+   "lift",
+   "lifting"
+  ],
+  "answerOptions": [
+   {
+    "value": "lifted",
+    "label": "lifted",
+    "text": "lifted"
+   },
+   {
+    "value": "lifts",
+    "label": "lifts",
+    "text": "lifts"
+   },
+   {
+    "value": "lift",
+    "label": "lift",
+    "text": "lift"
+   },
+   {
+    "value": "lifting",
+    "label": "lifting",
+    "text": "lifting"
+   }
+  ],
+  "answer": "lifts",
+  "correctAnswer": "lifts",
+  "distractorRationales": {
+   "lift": "D-FUNCTION-SWAP",
+   "lifting": "D-FUNCTION-SWAP",
+   "lifted": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Three ___ carried people up the snowy hill.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.R.plural_add_s.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l1.R.plural_add_es.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_add_es",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits: We made two birthday ___ before blowing out candles.",
+  "question": "Which word fits: We made two birthday ___ before blowing out candles.",
+  "spokenPrompt": "Which word fits? We made two birthday … before blowing out candles.",
+  "sentence": "We made two birthday ___ before blowing out candles.",
+  "choices": [
+   "wishing",
+   "wished",
+   "wishes",
+   "wish"
+  ],
+  "answerOptions": [
+   {
+    "value": "wishing",
+    "label": "wishing",
+    "text": "wishing"
+   },
+   {
+    "value": "wished",
+    "label": "wished",
+    "text": "wished"
+   },
+   {
+    "value": "wishes",
+    "label": "wishes",
+    "text": "wishes"
+   },
+   {
+    "value": "wish",
+    "label": "wish",
+    "text": "wish"
+   }
+  ],
+  "answer": "wishes",
+  "correctAnswer": "wishes",
+  "distractorRationales": {
+   "wish": "D-FUNCTION-SWAP",
+   "wishing": "D-FUNCTION-SWAP",
+   "wished": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "We made two birthday ___ before blowing out candles.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.R.plural_add_es.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l1.R.plural_add_es.v32r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_add_es",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits: Two ___ were drawn in red pencil.",
+  "question": "Which word fits: Two ___ were drawn in red pencil.",
+  "spokenPrompt": "Which word fits? Two … were drawn in red pencil.",
+  "sentence": "Two ___ were drawn in red pencil.",
+  "choices": [
+   "cross",
+   "crossing",
+   "crossed",
+   "crosses"
+  ],
+  "answerOptions": [
+   {
+    "value": "cross",
+    "label": "cross",
+    "text": "cross"
+   },
+   {
+    "value": "crossing",
+    "label": "crossing",
+    "text": "crossing"
+   },
+   {
+    "value": "crossed",
+    "label": "crossed",
+    "text": "crossed"
+   },
+   {
+    "value": "crosses",
+    "label": "crosses",
+    "text": "crosses"
+   }
+  ],
+  "answer": "crosses",
+  "correctAnswer": "crosses",
+  "distractorRationales": {
+   "crossing": "D-FUNCTION-SWAP",
+   "crossed": "D-FUNCTION-SWAP",
+   "cross": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Two ___ were drawn in red pencil.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.R.plural_add_es.v32r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l1.R.plural_concept.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_concept",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits: Just one ___ came to collect me.",
+  "question": "Which word fits: Just one ___ came to collect me.",
+  "spokenPrompt": "Which word fits? Just one … came to collect me.",
+  "sentence": "Just one ___ came to collect me.",
+  "choices": [
+   "sister",
+   "brothers",
+   "uncles",
+   "parents"
+  ],
+  "answerOptions": [
+   {
+    "value": "sister",
+    "label": "sister",
+    "text": "sister"
+   },
+   {
+    "value": "brothers",
+    "label": "brothers",
+    "text": "brothers"
+   },
+   {
+    "value": "uncles",
+    "label": "uncles",
+    "text": "uncles"
+   },
+   {
+    "value": "parents",
+    "label": "parents",
+    "text": "parents"
+   }
+  ],
+  "answer": "sister",
+  "correctAnswer": "sister",
+  "distractorRationales": {
+   "parents": "D-FUNCTION-SWAP",
+   "brothers": "D-FUNCTION-SWAP",
+   "uncles": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Just one ___ came to collect me.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.R.plural_concept.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l2.R.plural_y_to_ies.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_y_to_ies",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits: The tour visits three ___ in Spain.",
+  "question": "Which word fits: The tour visits three ___ in Spain.",
+  "spokenPrompt": "Which word fits? The tour visits three … in Spain.",
+  "sentence": "The tour visits three ___ in Spain.",
+  "choices": [
+   "country",
+   "capital",
+   "cities",
+   "city"
+  ],
+  "answerOptions": [
+   {
+    "value": "country",
+    "label": "country",
+    "text": "country"
+   },
+   {
+    "value": "capital",
+    "label": "capital",
+    "text": "capital"
+   },
+   {
+    "value": "cities",
+    "label": "cities",
+    "text": "cities"
+   },
+   {
+    "value": "city",
+    "label": "city",
+    "text": "city"
+   }
+  ],
+  "answer": "cities",
+  "correctAnswer": "cities",
+  "distractorRationales": {
+   "city": "D-FUNCTION-SWAP",
+   "country": "D-FUNCTION-SWAP",
+   "capital": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The tour visits three ___ in Spain.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.R.plural_y_to_ies.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l2.R.plural_f_to_ves.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_f_to_ves",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits: Three young ___ followed their mother cow.",
+  "question": "Which word fits: Three young ___ followed their mother cow.",
+  "spokenPrompt": "Which word fits? Three young … followed their mother cow.",
+  "sentence": "Three young ___ followed their mother cow.",
+  "choices": [
+   "calf",
+   "colt",
+   "foal",
+   "calves"
+  ],
+  "answerOptions": [
+   {
+    "value": "calf",
+    "label": "calf",
+    "text": "calf"
+   },
+   {
+    "value": "colt",
+    "label": "colt",
+    "text": "colt"
+   },
+   {
+    "value": "foal",
+    "label": "foal",
+    "text": "foal"
+   },
+   {
+    "value": "calves",
+    "label": "calves",
+    "text": "calves"
+   }
+  ],
+  "answer": "calves",
+  "correctAnswer": "calves",
+  "distractorRationales": {
+   "foal": "D-FUNCTION-SWAP",
+   "calf": "D-FUNCTION-SWAP",
+   "colt": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Three young ___ followed their mother cow.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.R.plural_f_to_ves.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
  }
 ];

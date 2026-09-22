@@ -109,7 +109,7 @@ export default {
     cz("as", 1, 1, 2, "The box is big. The bag is ___ big.", ["as", "with", "from", "on"], [DV, DV, DV]),
     rf("as", 1, 1, 3, ["as", "at", "an", "is"], [VN, VN, VN]),
     cz("at", 1, 1, 1, "We meet ___ noon.", ["at", "on", "as", "with"], [FS, FS, FS]),
-    cz("at", 1, 1, 2, "Lunch starts ___ six o'clock.", ["at", "on", "as", "of"], [FS, FS, FS]),
+    cz("at", 1, 1, 2, "Dinner starts ___ six o'clock.", ["at", "on", "as", "of"], [FS, FS, FS]),
     rf("at", 1, 1, 3, ["at", "as", "an", "it"], [VN, VN, VN]),
     cz("be", 1, 1, 1, "Mia wants to ___ a vet.", ["be", "is", "was", "his"], [DV, DV, DV]),
     cz("be", 1, 1, 2, "Ben will ___ our captain.", ["be", "is", "was", "are"], [DV, DV, DV]),
@@ -239,7 +239,19 @@ export default {
     sp("the", 2, 2, 7, "Sweep ___ steps, please.", ["t", "h", "e", "a", "u"]),
     lb("you", 2, 2, 7, "Can ___ lift this log?", ["y", "o", "u", "w", "e"]),
     sp("from", 2, 1, 7, "We hid ___ the rain.", ["f", "r", "o", "m", "u"]),
-    lb("his", 2, 1, 7, "Bob packs ___ own lunch.", ["h", "i", "s", "z", "e"])
+    lb("his", 2, 1, 7, "Bob packs ___ own lunch.", ["h", "i", "s", "z", "e"]),
+    cz("on", 1, 2, 7, "Put the lid ___ top of the box.", ["on", "of", "as", "from"], [FS, FS, FS],
+      "The fixed phrase on top of pins a new spatial use, unlike the ordinary turn-on questions."),
+    cz("is", 1, 2, 7, "Why ___ the lid stuck?", ["is", "are", "be", "have"], [DV, DV, DV],
+      "A singular subject in an inverted question requires is among these choices."),
+    sp("are", 2, 1, 7, "Both bins ___ full now.", ["a", "r", "e", "u", "i"],
+      "The recording pins are; the printed frame contains no copy of its letters as a word."),
+    lb("have", 2, 1, 7, "We ___ lost the key.", ["h", "a", "v", "e", "f", "i"],
+      "Spell have in a present-perfect sentence, extending the ordinary possession contexts."),
+    sp("on", 2, 2, 7, "The shoes are ___ the mat.", ["o", "n", "a", "m"],
+      "Recorded on specifies the spelling; position is not guessed from text alone."),
+    lb("that", 2, 2, 7, "I hope ___ you can come.", ["t", "h", "a", "t", "d", "e"],
+      "The heard complement word is built with both required t tiles.")
   ].map(item => {
     if (item.v >= 7) item.retention = true;
     return item;

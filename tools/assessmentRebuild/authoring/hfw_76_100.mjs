@@ -307,7 +307,15 @@ export default {
     rf("people", 1, 2, 7, ["people", "person", "purple", "pebble"], [VN, VN, VN], "", "point"),
     rf("water", 1, 2, 7, ["water", "winter", "waiter", "wander"], [VN, VN, VN], "", "point"),
     sp("number", 2, 2, 7, "Pick an odd ___.", ["n", "u", "m", "b", "e", "r", "o"]),
-    lb("water", 2, 2, 7, "Save ___ — take short showers.", ["w", "a", "t", "e", "r", "o"])
+    lb("water", 2, 2, 7, "Save ___ — take short showers.", ["w", "a", "t", "e", "r", "o"]),
+    cz("did", 1, 1, 7, "Why ___ she leave yesterday?", ["did", "do", "has", "was"], [DV, DV, DV],
+      "Yesterday sets the past question; the alternative auxiliaries cannot support this subject and base verb."),
+    cz("my", 1, 2, 7, "I tied ___ own shoes.", ["my", "I", "he", "they"], [DV, DV, DV],
+      "The noun phrase requires a possessive form; no rival possessive permits a second interpretation."),
+    sp("called", 2, 1, 7, "Dad ___ us in for lunch.", ["c", "a", "l", "l", "e", "d", "o", "t"]),
+    lb("first", 2, 1, 7, "Who will go ___ in line?", ["f", "i", "r", "s", "t", "e", "u"]),
+    sp("people", 2, 2, 7, "Many ___ use this path.", ["p", "e", "o", "p", "l", "e", "i", "a"]),
+    lb("than", 2, 2, 7, "This box is wider ___ mine.", ["t", "h", "a", "n", "e", "i"])
   ].map(item => {
     if (item.v >= 7) item.retention = true;
     return item;

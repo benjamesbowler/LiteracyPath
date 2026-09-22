@@ -250,7 +250,16 @@ export default {
     sp("there", 2, 2, 7, "Sit ___ by the window.", ["t", "h", "e", "r", "e", "i"]),
     lb("said", 2, 2, 7, "Who ___ that?", ["s", "a", "i", "d", "e"]),
     sp("can", 2, 1, 7, "Crabs ___ nip — take care!", ["c", "a", "n", "k", "e"]),
-    lb("your", 2, 2, 7, "Is this ___ pen or mine?", ["y", "o", "u", "r", "e"])
+    lb("your", 2, 2, 7, "Is this ___ pen or mine?", ["y", "o", "u", "r", "e"]),
+    cz("an", 1, 1, 7, "The hens laid ___ egg today.", ["an", "a", "at", "or"], [DV, FS, FS],
+      "The singular vowel-initial noun needs an; the egg-laying context is distinct from ordinary examples."),
+    cz("do", 1, 1, 7, "How ___ these clips work?", ["do", "had", "is", "was"], [DV, DV, DV],
+      "Do supports the base verb in this plural present question; all alternatives come from the cumulative taught inventory."),
+    sp("each", 2, 1, 7, "Give ___ child a turn.", ["e", "a", "c", "h", "i", "t"]),
+    lb("but", 2, 1, 7, "The rope is wet ___ still strong.", ["b", "u", "t", "d", "a"]),
+    sp("their", 2, 2, 7, "The children washed ___ hands.", ["t", "h", "e", "i", "r", "e"],
+      "Ownership distinguishes the spoken homophone; letter tiles also allow the tempting there error."),
+    lb("when", 2, 2, 7, "Call me ___ lunch is ready.", ["w", "h", "e", "n", "i", "t"])
   ].map(item => {
     if (item.v >= 7) item.retention = true;
     return item;

@@ -46,7 +46,10 @@ const L1_WORD_SENTENCES = {
   breathe: ["We breathe air through our noses.", ["we", "through", "noses"]],
   listen: ["We listen to a bedtime story.", ["we", "bedtime", "story"]],
   dress: ["I dress myself each morning.", ["I", "myself", "morning"]],
-  comb: ["I comb my long hair.", ["my", "long", "hair"]]
+  comb: ["I comb my long hair.", ["my", "long", "hair"]],
+  nod: ["I nod my head slowly.", ["my", "head", "slowly"]],
+  peel: ["We peel the ripe orange.", ["we", "ripe", "orange"]],
+  tidy: ["We tidy our room daily.", ["our", "room", "daily"]]
 };
 
 const gic = (u, lvl, ph, v, prompt, cards, keyWord, rationales, note = "") => ({
@@ -257,5 +260,16 @@ export default {
   ].map(item => {
     if (item.v >= 9) item.retention = true;
     return item;
-  }).concat(freshPhaseItems)
+  }).concat(freshPhaseItems, [
+    gwc("verb_action_body", 1, 1, 31, "", ["nod"], []),
+    gwc("verb_action_object", 1, 1, 31, "", ["peel"], []),
+    gwc("verb_everyday", 1, 2, 31, "", ["tidy"], []),
+    gct("verb_in_sentence", 2, 1, 31, "Which word tells the action in ‘Our neighbour repairs bicycles’?",
+      ["repairs", "our", "neighbour", "bicycles"], [FS, FS, FS]),
+    gct("verb_vs_noun", 2, 1, 31, "Which word tells the action in ‘A drummer drums loudly’?",
+      ["drums", "drummer", "a", "loudly"], [FS, FS, FS]),
+    gsf("verb_precision", 2, 2, 31, "She ___ a little soup to taste it.",
+      ["sipped", "stirred", "served", "spilled"], [PU, PU, PU],
+      "Taste requires taking a small amount into the mouth; preparing or spilling it does not." )
+  ].map(item => ({ ...item, retention: true })))
 };

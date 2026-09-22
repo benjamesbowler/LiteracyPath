@@ -1,101 +1,71 @@
 # Blueprints — Grammar & Language (skills 15–22)
 
-**Standard.** Nouns, Verbs, Adjectives, Prepositions of Place, Plurals, Prefixes & Suffixes, Antonyms & Synonyms, Homophones & Homonyms. Read MASTERY_SYSTEM.md + AUTHORING_STANDARDS.md first.
+Updated 2026-09-22. The executable inventory is `src/content/blueprints/skillBlueprints.js`; the authored content is `tools/assessmentRebuild/authoring/`. Read MASTERY_SYSTEM.md and AUTHORING_STANDARDS.md for the shared scoring and quality contracts. This document describes instructional intent and must not create a second mastery algorithm.
 
-**The family-wide re-keying.** Nouns currently has 86 item keys (one per word), Verbs 59, Prepositions 55 — word-keys make coverage sprawl and mastery meaningless. v3 keys grammar skills by **concept unit** (`itemType: "grammar_concept"`), small honest inventories. A child masters "nouns name people/places/things", not the word "air". Prepositions, Plurals, Prefixes/Suffixes, Homophones keep word/morpheme/set-shaped units because there the specific word IS the concept.
+## Shared contract
 
-Child-facing wording rule (from instructional standards): L1 prompts use meaning words — "naming word / doing word / describing word"; the terms noun/verb/adjective may appear at L2 alongside the meaning gloss, never alone.
+Grammar skills use concept units rather than treating every vocabulary word as a separate skill. Child-facing Level 1 wording uses “naming word”, “doing word” and “describing word”. Level 2 demands more precise application, contrast or integration; extra text alone does not establish higher difficulty.
 
----
+Each level and phase needs a complete initial sitting and a genuinely fresh retry. Nouns, Verbs, Adjectives, Prepositions, Plurals and Antonyms/Synonyms use eight questions per sitting. Prefixes/Suffixes and Homophones/Homonyms use ten. Each skill also needs sixteen independent reserved questions across both levels: an eight-question delayed retention check and a fresh eight-question retry. Reserves do not inflate ordinary phase stock. Generated counts and evidence, rather than historical authoring quotas, establish readiness.
+
+Pictures are required when they supply scoring evidence. They are excluded when naming an object or depicting an action would reveal the grammatical category being assessed. Recorded instructions support independent access; playback must preserve the construct and cannot speak an answer that should be read.
 
 ## 15. Nouns (`nouns`)
 
-**Units (grammar_concept).** L1: `noun_person`, `noun_animal`, `noun_place`, `noun_thing` (4). L2: `noun_in_sentence` (choose the noun that completes/identifies within a sentence), `noun_vs_verb` (contrast: "Which word names a thing — jump / bed / run / go?"), `noun_two_step` (which sentence names TWO things). Family **D-small**.
+Level 1 units: `noun_person`, `noun_animal`, `noun_place`, `noun_thing`. Level 2: `noun_in_sentence`, `noun_vs_verb`, `noun_two_step`.
 
-**Formats.** L1 `GRAMMAR_IMAGE_CHOICE` (4 picture cards, one names the target category — distractors are actions/qualities pictured, `D-FUNCTION-SWAP`), L2 `GRAMMAR_SENTENCE_FIT` + `GRAMMAR_CONTRAST`. Imageability rule: L1 picture nouns from the concrete list only — `air`, `idea`-class unimageable words banned at L1 (lint via lexicon `imageable: true` flag).
+Level 1 uses `GRAMMAR_SENTENCE_FIT` and `GRAMMAR_WORD_CHOICE`: identify a naming word or use it in a controlled sentence. One obvious object picture among action pictures is not evidence of grammatical understanding. Level 2 uses sentence fit and `GRAMMAR_CONTRAST`, including identifying nouns in a sentence and finding exactly two nouns.
 
-**Bank.** L1: 4 × 6 = 24; L2: 3 × 8 = 24; + R 12 (one shared reserve, not per level). Total 60 as shipped (current 146 pruned/rebuilt; the 70 GRAMMAR_IMAGE_CHOICE L1 items are salvage candidates after re-keying).
-
----
+For noun-count comparisons, every candidate must be a grammatical sentence. For phrase completion, every phrase must fit the single blank. Neither answer length, its rank among the choices, copied words nor subject–verb agreement may replace counting nouns. Choices distinguish two nouns from one, three or a pronoun.
 
 ## 16. Verbs (`verbs`)
 
-**Units.** L1: `verb_action_body` (run, jump), `verb_action_object` (cut, pour), `verb_everyday` (eat, sleep, read) (3). L2: `verb_in_sentence`, `verb_vs_noun`, `verb_precision` (choose the BEST verb: the dog ___ over the fence — jumped/walked/slept/sat where two are grammatical but one matches the picture/sense) (3). Family **D-small**.
+Level 1 units: `verb_action_body`, `verb_action_object`, `verb_everyday`. Level 2: `verb_in_sentence`, `verb_vs_noun`, `verb_precision`.
 
-**Craft notes.** The audit's "The picture shows what happens when someone can…" generic-copy pattern is banned (O-2); every L1 item names a real depicted action scene. L2 `verb_precision` distractors are grammatical-but-wrong (`D-PLAUSIBLE-UNSUPPORTED` register) — this is what makes L2 harder thinking, not longer text.
-
-**Bank.** L1: 3 × 8 = 24; L2: 22 across 3 units; + R 12 (one shared reserve). Total 58 as shipped (current 111 replaced/pruned).
-
----
+Level 1 uses controlled sentence fit and identifies an action among words actually present in a complete sentence. A bare word can have several grammatical functions, so the supplied context decides. Level 2 adds function contrasts and precision: all choices in a precision item must be plausible verbs, with a concrete sense clue selecting one. For example, moving a sack along the floor without lifting it distinguishes dragging from carrying, raising or throwing.
 
 ## 17. Adjectives (`adjectives`)
 
-**Units.** L1: `adj_size`, `adj_color`, `adj_texture_state` (wet, soft, hot), `adj_feeling` (happy, tired) (4). L2: `adj_in_sentence`, `adj_precision` (closest describing word for the scene), `adj_vs_noun_verb` (3). Family **D-small**.
+Level 1 units: `adj_size`, `adj_color`, `adj_texture_state`, `adj_feeling`. Level 2: `adj_in_sentence`, `adj_precision`, `adj_vs_noun_verb`.
 
-**Craft notes.** Every one of the 30 published "a adjective" prompts dies (`L-GRAM`). L2's current five-target repetition (brave/bumpy/calm/crisp/cute rotations) is replaced by the semantic-dimension units above — breadth comes from dimensions, not from recycling five words.
+Both levels use controlled language contexts rather than subjective “big”, “happy” or “soft” object pictures. Sentence extraction choices must occur in the actual sentence. Level 2 includes precise sense distinctions and adjective-versus-noun/verb/adverb contrasts. A frame must identify the intended sense without making another offered description equally defensible.
 
-**Bank.** L1: 4 × 6 = 24; L2: 3 × 8 = 24; + R 12 (one shared reserve). Total 60 as shipped (current 110 replaced).
+## 18. Prepositions of Place (`prepositions_of_place`)
 
----
+Level 1 units: `in`, `on`, `under`, `behind`, `next_to`, `between`, `in_front_of`, `above`, `below`. Level 2: `over`, `through`, `near`, `opposite`, `among`, `around`, `inside_outside`.
 
-## 18. Prepositions of Place (`prepositions_of_place`) — PRUNE 303 → 76
+Every scored location question has its exact scene. Level 1 uses `PREPOSITION_SCENE_CHOICE`; the legacy `PREPOSITION_TEXT_CHOICE` name remains allowed by the blueprint, but must still supply the actual visible relationship. Level 2 uses `PREPOSITION_SENTENCE_FIT` and `PREPOSITION_PRECISION`.
 
-**Units (word-shaped, curated).** L1 (9): `in on under behind next_to between in_front_of above below`… exactly the 9 concrete spatial words a K-1 child needs (drop the 55-key sprawl). L2 (7): `over through near opposite among around inside_outside_contrast`. Family **D-small**.
-
-**Formats.** L1: `PREPOSITION_SCENE_CHOICE` — ONE drawn scene, question about the relation ("Where is the cat? — in the box / on the box / under the box / behind the box"; options differ ONLY by preposition, `D-FUNCTION-SWAP` ×3 by construction) + `PREPOSITION_TEXT_CHOICE` (class recognition "Which word says where?" and world-knowledge mini-frames; scene-less relations reuse the INVERSE of an existing scene — bird_above_tree answers "Where is the tree?" for below — so every relation gets real art with zero new assets). L2: `PREPOSITION_SENTENCE_FIT` (cloze with 4 prepositions) + `PREPOSITION_PRECISION` (two are spatially possible, one is exact — distractor note must defend why the key is uniquely right, C-1 pressure is highest here: no more `underneath` vs `under`).
-
-**Craft notes.** The 19 malformed "Choose the precise word means…" prompts die. `prepositionClozeScenes.js` scene inventory is reusable raw material. Every L1 item's four options are the same scene-relation family; a child who knows the WORD, not the picture convention, answers.
-
-**Bank.** L1: 9 × 4 = 36; L2: 7 × 4 = 28; + R 12. Total 76. (4 variants/unit at both levels: the D-small mastery rule needs 4 attempts per unit, so 3 variants would force a repeat — same fix as final_sounds/blends.)
-
----
+Options distinguish visible relationships. Do not offer two valid descriptions such as under/underneath or near/next to when the picture supports both. Object labels may identify the depicted subjects but must not state their relationship. Filenames must never be spoken as stimuli. A reused picture with a reworded question does not become fresh retention evidence when the same relationship is keyed. Required images must finish loading before a scored response is possible.
 
 ## 19. Plurals (`plurals`)
 
-**Units (rule-shaped).** L1 (3): `plural_add_s`, `plural_add_es` (x/ch/sh/ss endings), `plural_concept` (one↔many picture match). L2 (4): `plural_y_to_ies`, `plural_irregular` (men, children, feet, teeth, mice, sheep), `plural_f_to_ves` (leaf/leaves, wolf/wolves), `plural_in_sentence`. Family **D-small**.
+Level 1 units: `plural_add_s`, `plural_add_es`, `plural_concept`. Level 2: `plural_y_to_ies`, `plural_irregular`, `plural_f_to_ves`, `plural_in_sentence`.
 
-**The distractor law.** Fake forms (`boxs, boxies, staries, cloudies, plantes` — 11 published items carry them) are replaced by the **approved developmental-error list** (`D-DEVELOPMENTAL`: foxes→foxs is attested and stays ONLY in the explicit error-spotting format; choice formats otherwise use real competing forms: box/boxes/foxes/dishes). Where a wrong spelling must appear (spell-the-plural), it comes from `approvedDevErrors.json`, never invented.
+Level 1 uses `PLURAL_IMAGE_SPELLING` and `PLURAL_SPELLING_CONTEXT`. Level 2 adds `PLURAL_ERROR_SPOT` and `PLURAL_TEXT_CHOICE`. Scored picture questions show an unmistakable count; narration cannot name the correct plural. Sentence contexts combine an explicit number signal with sufficient meaning to select a unique word.
 
-**Formats.** `PLURAL_IMAGE_SPELLING` (picture of 3 stars → star/stars/stares/starry — all real words), `PLURAL_SPELLING_CONTEXT` (sentence cloze), L2 `PLURAL_ERROR_SPOT` ("Which word is written wrong? — the sanctioned home for developmental errors") + `PLURAL_PRODUCTION` (type/build: one fox, two ___).
+Every ordinary spelling choice is a real word. Developmental errors are permitted only in the explicit error-recognition format and must come from `approvedDevErrors` in `src/content/lexicon/approvedWords.json`. Error recognition must distinguish the actual error from correctly spelled words in the same sentence. Singular words ending in s, such as bus, class, dress and cross, must not be mistaken for plurals by automated checks.
 
-**Bank.** L1: 3 × 8 = 24; L2: 4 × 6 = 24; + R 12 (one shared reserve). Total 60 as shipped (current 138 replaced).
+## 20. Prefixes & Suffixes (`prefixes_suffixes`)
 
----
+Level 1 units: `prefix_un`, `prefix_re`, `suffix_ful`, `suffix_less`, `suffix_er_person`. Level 2: `suffix_s_es`, `suffix_ing`, `suffix_ed`, `suffix_er_est`, `suffix_ly`, `prefix_pre`.
 
-## 20. Prefixes & Suffixes (`prefixes_suffixes`) — REBUILD (single-template today)
+Level 1 uses `MORPHEME_MEANING_CONTEXT` and `MORPHEME_TRANSFER` with familiar bases and short language. Level 2 also uses `MORPHEME_BUILD`, including inflection, spelling changes, comparison and transfer to a new context. A transfer claim requires application; simply copying a supplied gloss is recognition.
 
-**Verified faults.** All 92 published items are one format (`MORPHEME_MEANING_CONTEXT`); 0/19 morphemes eligible; meanings mechanically literal ("careful = full of care").
+Distractor rationales must describe the actual error: a wrong grammatical form, another morpheme, a misleading pattern or a genuinely opposite meaning. Do not label a distractor “opposite” just because it occupies the first wrong-answer slot. Present and past alternatives require an explicit time cue whenever both would otherwise fit.
 
-**Units (morpheme-shaped, curated).** L1 suffixes (5): `-s/-es (verb)`, `-ing`, `-ed`, `-er (person who)`, `-ful`. L2 (6): `un-`, `re-`, `-less`, `-er/-est (compare)`, `-ly`, `pre-`. Family **D-small**.
+## 21. Antonyms & Synonyms (`antonyms_synonyms`)
 
-**Formats — three, all required per unit.** `MORPHEME_BUILD` (jump + ing → ?, tiles/choices), `MORPHEME_MEANING_CONTEXT` (choose what *unlock* means in the sentence — meanings written as natural child glosses, not formula: "open it again"❌ for unlock — the gloss must be right: "open something that was locked"), `MORPHEME_TRANSFER` (L2: apply the morpheme to an unseen word the child has never been taught — the audit's transfer requirement: "If *redo* means do again, what does *refill* mean?").
+Level 1 units: `antonym_concrete`, `synonym_concrete`, `antonym_picture`, `synonym_picture`. The last two are stable historical unit IDs; their current evidence is printed word relations and short contexts, not subjective picture pairs. Level 2: `antonym_precise`, `synonym_shade`, `antonym_in_context`, `synonym_in_context`.
 
-**Bank.** L1: 5 × 6 (3 MORPHEME_BUILD + 3 MEANING_CONTEXT) = 30; L2: 6 × 6 (2 BUILD + 2 MEANING + 2 TRANSFER) = 36; + R 12 (one shared reserve). Total 78 as shipped (replaces 92).
+Level 1 uses `LANGUAGE_PAIR_TEXT_CHOICE` and `WORD_RELATION_TEXT_CHOICE`. Level 2 uses text choice and `WORD_IN_SENTENCE_SWAP`. These are word/sentence tasks, not passage comprehension.
 
-**Distractors.** `D-MORPH-LITERAL` (wrong-morpheme reading), `D-FUNCTION-SWAP`, opposite-morpheme trap (unlock ↔ relock in the same set = the discrimination that matters).
-
----
-
-## 21. Antonyms & Synonyms (`antonyms_synonyms`) — SPLIT & REBUILD
-
-**Verified faults.** 0/98 keys eligible; L1/L2 split 60/174 is quota noise; 46 L2 items are re-badged comprehension passages; current release-gate blocker.
-
-**Units (relation × band).** L1 (4): `antonym_concrete` (big/little, hot/cold, up/down…), `synonym_concrete` (big/large, happy/glad…), `antonym_picture` (choose the opposite picture), `synonym_picture`. L2 (4): `antonym_precise` (whisper↔shout not talk), `synonym_shade` (closest in meaning among near-misses), `antonym_in_context`, `synonym_in_context` (sentence-embedded, ≤ 2 sentences — NOT full passages; the passage-format inflation dies here, C-2 construct purity). Family **D-small**.
-
-**Formats.** `LANGUAGE_PAIR_TEXT_CHOICE` (kept, rewritten items), `GRAMMAR_IMAGE_CHOICE` (L1 picture pairs), `WORD_IN_SENTENCE_SWAP` (L2: "Pick the word that means the SAME as *begin* in: We begin school at nine." — start/end/like/near).
-
-**The distractor law.** Every antonym item's set contains the true opposite (key), a same-category non-opposite (`D-TOPIC-ADJACENT`), and a second plausible same-domain non-relation (`D-SAME-DOMAIN`). Synonym items mirror it: key synonym, true antonym as one distractor (`D-OPPOSITE`), plus near and same-domain misses. Unrelated same-part-of-speech filler is banned: *hot → cold / boiling / wet / green* leaks the answer through category, while *hot → cold / boiling / warm / steaming* keeps every choice in the temperature/heat domain. A synonym-of-key is never used as an antonym distractor unless the format explicitly contrasts same-vs-opposite.
-
-**Bank.** L1: 4 × 6 = 24; L2: 4 × 6 = 24; + R 12 (one shared reserve). Total 60 as shipped (current 234 → 60; the biggest single prune in the family).
-
----
+Antonym sets contain one true opposite and plausible same-domain alternatives. Synonym sets contain one best same-meaning choice, a true antonym and related non-equivalents. A weaker but defensible opposite must not compete with the key: cold/cool is an unsafe answer pair for opposite-of-hot. Degree, grammatical sense and the supplied context must make the key unique. Reversing a familiar word pair with the same competing meanings is not a new retention probe. Rationale labels describe the actual relationship, not a fixed option-position recipe.
 
 ## 22. Homophones & Homonyms (`homophones_homonyms`)
 
-**Units (set-shaped).** L1 (8 homophone sets): `sea/see, sun/son, be/bee, no/know, one/won, ate/eight, hear/here, blue/blew`. L2 (8): `to/two/too, there/their, right/write, new/knew, hour/our, flower/flour, would/wood, made/maid`. Homonyms (bat/bat, ring/ring) become 2 recognition-only units at L2 (`nonGating: true`) — mixing the two constructs gated mastery today (0/46 eligible); the audit's set-shaped evidence key is exactly this design: `itemKey: "sea_see"`, not per-spelling.
+Level 1 sets: `sea_see`, `sun_son`, `be_bee`, `no_know`, `one_won`, `ate_eight`, `hear_here`, `blue_blew`. Level 2: `to_two_too`, `there_their`, `right_write`, `new_knew`, `hour_our`, `flower_flour`, `would_wood`, `made_maid`.
 
-**Formats.** BOTH levels carry BOTH formats — the D-small rule demands 2 evidence formats per unit, so a one-format level can never certify. `HOMOPHONE_MEANING` is the L1 centre (which spelling names the big salty water — sea/see + 2 same-POS foils), `HOMOPHONE_CONTEXT_CLOZE` the L2 centre (kept — the good format: "We sailed far out on the deep blue ___." sea/see/seat/snow). Each set's variants use ≥2 different natural contexts per spelling (the audit's "multiple natural contexts"). Sitting 10, not 8: 16 units × 4 attempts + 4 exposure items = 68 slots — at 8 a perfect pass blows the 2× budget (same fix as prefixes).
+Both levels use `HOMOPHONE_MEANING` and `HOMOPHONE_CONTEXT_CLOZE`, with natural, varied contexts. The paired homophone is a necessary distractor; other options must be real, plausible forms without providing a second correct completion. Contrasting know/knew, eat/ate or make/made requires an explicit tense anchor. Homonym bat/ring exposure is marked `nonGating` and cannot supply homophone mastery or retention evidence.
 
-**Bank.** L1: 8 × 4 = 32; L2: 8 × 4 + 2 homonym exposure ×2 = 36; + R 12 (one shared reserve). Total 80 as shipped — 4 variants per unit is the D-small no-repeat arithmetic (current 116 pruned/rebuilt; the 70 cloze items were the strongest salvage pool in this family).
-
-**Distractors.** The paired homophone (mandatory — it IS the construct), `D-VISUAL-NEIGHBOR` real word, `D-FUNCTION-SWAP`. `L-CLOZE-FIT` relaxed for the homophone itself (it may be ungrammatical in frame — that's the point) but the two fillers must parse.
+Format coverage is a content requirement. Completion, score and progression use the single shared phase policy; historical per-unit attempt quotas and separate percentage thresholds are not active mastery rules.

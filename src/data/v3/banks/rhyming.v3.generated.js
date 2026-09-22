@@ -14992,6 +14992,551 @@ export const questions = [
   "notes": "three spoken words share a rime; one has a different rime"
  },
  {
+  "id": "lp3.rhyming.l1.R.ap.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "rhyming_family",
+  "itemKey": "ap",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "Flap. Which word rhymes with it?",
+  "choices": [
+   "mop",
+   "ham",
+   "map",
+   "flag"
+  ],
+  "answerOptions": [
+   {
+    "value": "mop",
+    "label": "mop",
+    "text": "mop"
+   },
+   {
+    "value": "ham",
+    "label": "ham",
+    "text": "ham"
+   },
+   {
+    "value": "map",
+    "label": "map",
+    "text": "map"
+   },
+   {
+    "value": "flag",
+    "label": "flag",
+    "text": "flag"
+   }
+  ],
+  "answer": "map",
+  "correctAnswer": "map",
+  "distractorRationales": {
+   "flag": "D-ONSET",
+   "mop": "D-VOWEL",
+   "ham": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio",
+  "evidenceRole": "retention",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "flap",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.R.ap.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "map alone shares /ap/; flag retains the initial blend, mop changes the vowel, ham changes the coda"
+ },
+ {
+  "id": "lp3.rhyming.l1.R.ed.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "rhyming_family",
+  "itemKey": "ed",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "Shed. Which word rhymes with it?",
+  "choices": [
+   "ship",
+   "mud",
+   "hen",
+   "bed"
+  ],
+  "answerOptions": [
+   {
+    "value": "ship",
+    "label": "ship",
+    "text": "ship"
+   },
+   {
+    "value": "mud",
+    "label": "mud",
+    "text": "mud"
+   },
+   {
+    "value": "hen",
+    "label": "hen",
+    "text": "hen"
+   },
+   {
+    "value": "bed",
+    "label": "bed",
+    "text": "bed"
+   }
+  ],
+  "answer": "bed",
+  "correctAnswer": "bed",
+  "distractorRationales": {
+   "ship": "D-ONSET",
+   "mud": "D-VOWEL",
+   "hen": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio",
+  "evidenceRole": "retention",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "shed",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.R.ed.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "bed shares /ed/; ship has the same onset, mud keeps d but changes the vowel, hen changes the coda"
+ },
+ {
+  "id": "lp3.rhyming.l1.R.un.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "rhyming_family",
+  "itemKey": "un",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "Spun. Which word rhymes with it?",
+  "choices": [
+   "bun",
+   "spoon",
+   "pen",
+   "cup"
+  ],
+  "answerOptions": [
+   {
+    "value": "bun",
+    "label": "bun",
+    "text": "bun"
+   },
+   {
+    "value": "spoon",
+    "label": "spoon",
+    "text": "spoon"
+   },
+   {
+    "value": "pen",
+    "label": "pen",
+    "text": "pen"
+   },
+   {
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
+   }
+  ],
+  "answer": "bun",
+  "correctAnswer": "bun",
+  "distractorRationales": {
+   "pen": "D-VOWEL",
+   "cup": "D-RIME-NEAR",
+   "spoon": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio",
+  "evidenceRole": "retention",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "spun",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.R.un.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "bun alone shares /un/; spoon shares the initial blend, pen changes the vowel, cup changes the coda"
+ },
+ {
+  "id": "lp3.rhyming.l2.R.ill.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "rhyming_family",
+  "itemKey": "ill",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "Spill. Which word rhymes with it?",
+  "choices": [
+   "spin",
+   "spell",
+   "pit",
+   "pill"
+  ],
+  "answerOptions": [
+   {
+    "value": "spin",
+    "label": "spin",
+    "text": "spin"
+   },
+   {
+    "value": "spell",
+    "label": "spell",
+    "text": "spell"
+   },
+   {
+    "value": "pit",
+    "label": "pit",
+    "text": "pit"
+   },
+   {
+    "value": "pill",
+    "label": "pill",
+    "text": "pill"
+   }
+  ],
+  "answer": "pill",
+  "correctAnswer": "pill",
+  "distractorRationales": {
+   "pit": "D-RIME-NEAR",
+   "spin": "D-ONSET",
+   "spell": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio",
+  "evidenceRole": "retention",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "spill",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.R.ill.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "pill preserves the complete rime; spin keeps sp, spell contrasts e/i, and pit changes the final consonant"
+ },
+ {
+  "id": "lp3.rhyming.l2.R.ide.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "rhyming_family",
+  "itemKey": "ide",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "Wide. Which word rhymes with it?",
+  "choices": [
+   "slide",
+   "wind",
+   "slid",
+   "web"
+  ],
+  "answerOptions": [
+   {
+    "value": "slide",
+    "label": "slide",
+    "text": "slide"
+   },
+   {
+    "value": "wind",
+    "label": "wind",
+    "text": "wind"
+   },
+   {
+    "value": "slid",
+    "label": "slid",
+    "text": "slid"
+   },
+   {
+    "value": "web",
+    "label": "web",
+    "text": "web"
+   }
+  ],
+  "answer": "slide",
+  "correctAnswer": "slide",
+  "distractorRationales": {
+   "slid": "D-VOWEL",
+   "web": "D-ONSET",
+   "wind": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio",
+  "evidenceRole": "retention",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "wide",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.R.ide.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "slide alone shares /ide/; either familiar pronunciation of wind still contains a nonmatching final n+d cluster"
+ },
+ {
+  "id": "lp3.rhyming.l2.R.ash.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "rhyming_family",
+  "itemKey": "ash",
+  "formatType": "RHYME_ODD_ONE_OUT",
+  "templateType": "RHYME_ODD_ONE_OUT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
+  "spokenPrompt": "Which word does not rhyme with the others?",
+  "choices": [
+   "splash",
+   "fish",
+   "crash",
+   "flash"
+  ],
+  "answerOptions": [
+   {
+    "value": "splash",
+    "label": "splash",
+    "text": "splash"
+   },
+   {
+    "value": "fish",
+    "label": "fish",
+    "text": "fish"
+   },
+   {
+    "value": "crash",
+    "label": "crash",
+    "text": "crash"
+   },
+   {
+    "value": "flash",
+    "label": "flash",
+    "text": "flash"
+   }
+  ],
+  "answer": "fish",
+  "correctAnswer": "fish",
+  "distractorRationales": {
+   "splash": "D-RIME-NEAR",
+   "crash": "D-RIME-NEAR",
+   "flash": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio",
+  "evidenceRole": "retention",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.R.ash.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "three blend-onset words share /ash/; fish changes the medial vowel while retaining sh"
+ },
+ {
   "id": "lp3.rhyming.l1.R.at.v7r",
   "bankStandardVersion": 3,
   "grade": "K-2",
@@ -15015,17 +15560,12 @@ export const questions = [
   "question": "Which word rhymes with the word you hear?",
   "spokenPrompt": "Rat. Which word rhymes with it?",
   "choices": [
-   "pot",
    "jam",
    "bat",
-   "rose"
+   "rose",
+   "pot"
   ],
   "answerOptions": [
-   {
-    "value": "pot",
-    "label": "pot",
-    "text": "pot"
-   },
    {
     "value": "jam",
     "label": "jam",
@@ -15040,6 +15580,11 @@ export const questions = [
     "value": "rose",
     "label": "rose",
     "text": "rose"
+   },
+   {
+    "value": "pot",
+    "label": "pot",
+    "text": "pot"
    }
   ],
   "answer": "bat",
@@ -15068,10 +15613,10 @@ export const questions = [
    "itemId": "lp3.rhyming.l1.R.at.v7r",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/objective-words/pot.webp",
     "/images/assessment/objective-words/jam.webp",
     "/images/assessment/rhyming/variants/at/bat-02.webp",
-    "/images/assessment/objective-words/rose.webp"
+    "/images/assessment/objective-words/rose.webp",
+    "/images/assessment/objective-words/pot.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -15088,15 +15633,6 @@ export const questions = [
   },
   "notes": "",
   "imageCards": [
-   {
-    "id": "lp3.rhyming.l1.R.at.v7r_card_pot",
-    "word": "pot",
-    "value": "pot",
-    "label": "pot",
-    "image": "/images/assessment/objective-words/pot.webp",
-    "imagePath": "/images/assessment/objective-words/pot.webp",
-    "imageAlt": "pot"
-   },
    {
     "id": "lp3.rhyming.l1.R.at.v7r_card_jam",
     "word": "jam",
@@ -15123,6 +15659,15 @@ export const questions = [
     "image": "/images/assessment/objective-words/rose.webp",
     "imagePath": "/images/assessment/objective-words/rose.webp",
     "imageAlt": "rose"
+   },
+   {
+    "id": "lp3.rhyming.l1.R.at.v7r_card_pot",
+    "word": "pot",
+    "value": "pot",
+    "label": "pot",
+    "image": "/images/assessment/objective-words/pot.webp",
+    "imagePath": "/images/assessment/objective-words/pot.webp",
+    "imageAlt": "pot"
    }
   ]
  },
@@ -15150,17 +15695,12 @@ export const questions = [
   "question": "Which word rhymes with the word you hear?",
   "spokenPrompt": "Log. Which word rhymes with it?",
   "choices": [
-   "lock",
    "bug",
    "mop",
-   "dog"
+   "dog",
+   "lock"
   ],
   "answerOptions": [
-   {
-    "value": "lock",
-    "label": "lock",
-    "text": "lock"
-   },
    {
     "value": "bug",
     "label": "bug",
@@ -15175,6 +15715,11 @@ export const questions = [
     "value": "dog",
     "label": "dog",
     "text": "dog"
+   },
+   {
+    "value": "lock",
+    "label": "lock",
+    "text": "lock"
    }
   ],
   "answer": "dog",
@@ -15203,10 +15748,10 @@ export const questions = [
    "itemId": "lp3.rhyming.l1.R.og.v7r",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/digraphs/lock.webp",
     "/images/assessment/rhyming/variants/bug/bug-02.webp",
     "/images/assessment/objective-words/mop.webp",
-    "/images/assessment/objective-words/dog.webp"
+    "/images/assessment/objective-words/dog.webp",
+    "/images/assessment/digraphs/lock.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -15223,15 +15768,6 @@ export const questions = [
   },
   "notes": "",
   "imageCards": [
-   {
-    "id": "lp3.rhyming.l1.R.og.v7r_card_lock",
-    "word": "lock",
-    "value": "lock",
-    "label": "lock",
-    "image": "/images/assessment/digraphs/lock.webp",
-    "imagePath": "/images/assessment/digraphs/lock.webp",
-    "imageAlt": "lock"
-   },
    {
     "id": "lp3.rhyming.l1.R.og.v7r_card_bug",
     "word": "bug",
@@ -15258,6 +15794,15 @@ export const questions = [
     "image": "/images/assessment/objective-words/dog.webp",
     "imagePath": "/images/assessment/objective-words/dog.webp",
     "imageAlt": "dog"
+   },
+   {
+    "id": "lp3.rhyming.l1.R.og.v7r_card_lock",
+    "word": "lock",
+    "value": "lock",
+    "label": "lock",
+    "image": "/images/assessment/digraphs/lock.webp",
+    "imagePath": "/images/assessment/digraphs/lock.webp",
+    "imageAlt": "lock"
    }
   ]
  },
@@ -15285,17 +15830,12 @@ export const questions = [
   "question": "Which word rhymes with the word you hear?",
   "spokenPrompt": "Pen. Which word rhymes with it?",
   "choices": [
-   "hen",
    "web",
    "pin",
-   "net"
+   "net",
+   "hen"
   ],
   "answerOptions": [
-   {
-    "value": "hen",
-    "label": "hen",
-    "text": "hen"
-   },
    {
     "value": "web",
     "label": "web",
@@ -15310,13 +15850,18 @@ export const questions = [
     "value": "net",
     "label": "net",
     "text": "net"
+   },
+   {
+    "value": "hen",
+    "label": "hen",
+    "text": "hen"
    }
   ],
   "answer": "hen",
   "correctAnswer": "hen",
   "distractorRationales": {
    "net": "D-RIME-NEAR",
-   "web": "D-ONSET",
+   "web": "D-RIME-NEAR",
    "pin": "D-VOWEL"
   },
   "mediaTier": "image-required",
@@ -15338,10 +15883,10 @@ export const questions = [
    "itemId": "lp3.rhyming.l1.R.en.v7r",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/objective-words/hen.webp",
     "/images/assessment/objective-words/web.webp",
     "/images/assessment/rhyming/variants/in/pin-02.webp",
-    "/images/assessment/objective-words/net.webp"
+    "/images/assessment/objective-words/net.webp",
+    "/images/assessment/objective-words/hen.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -15358,15 +15903,6 @@ export const questions = [
   },
   "notes": "",
   "imageCards": [
-   {
-    "id": "lp3.rhyming.l1.R.en.v7r_card_hen",
-    "word": "hen",
-    "value": "hen",
-    "label": "hen",
-    "image": "/images/assessment/objective-words/hen.webp",
-    "imagePath": "/images/assessment/objective-words/hen.webp",
-    "imageAlt": "hen"
-   },
    {
     "id": "lp3.rhyming.l1.R.en.v7r_card_web",
     "word": "web",
@@ -15393,6 +15929,15 @@ export const questions = [
     "image": "/images/assessment/objective-words/net.webp",
     "imagePath": "/images/assessment/objective-words/net.webp",
     "imageAlt": "net"
+   },
+   {
+    "id": "lp3.rhyming.l1.R.en.v7r_card_hen",
+    "word": "hen",
+    "value": "hen",
+    "label": "hen",
+    "image": "/images/assessment/objective-words/hen.webp",
+    "imagePath": "/images/assessment/objective-words/hen.webp",
+    "imageAlt": "hen"
    }
   ]
  },
@@ -15420,17 +15965,12 @@ export const questions = [
   "question": "Which word rhymes with the word you hear?",
   "spokenPrompt": "Jug. Which word rhymes with it?",
   "choices": [
-   "cup",
    "bug",
    "web",
-   "bag"
+   "bag",
+   "cup"
   ],
   "answerOptions": [
-   {
-    "value": "cup",
-    "label": "cup",
-    "text": "cup"
-   },
    {
     "value": "bug",
     "label": "bug",
@@ -15445,12 +15985,17 @@ export const questions = [
     "value": "bag",
     "label": "bag",
     "text": "bag"
+   },
+   {
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
    }
   ],
   "answer": "bug",
   "correctAnswer": "bug",
   "distractorRationales": {
-   "web": "D-ONSET",
+   "web": "D-VOWEL",
    "bag": "D-VOWEL",
    "cup": "D-RIME-NEAR"
   },
@@ -15473,10 +16018,10 @@ export const questions = [
    "itemId": "lp3.rhyming.l1.R.ug.v7r",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/objective-words/cup.webp",
     "/images/assessment/rhyming/variants/bug/bug-02.webp",
     "/images/assessment/objective-words/web.webp",
-    "/images/assessment/objective-words/bag.webp"
+    "/images/assessment/objective-words/bag.webp",
+    "/images/assessment/objective-words/cup.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -15493,15 +16038,6 @@ export const questions = [
   },
   "notes": "",
   "imageCards": [
-   {
-    "id": "lp3.rhyming.l1.R.ug.v7r_card_cup",
-    "word": "cup",
-    "value": "cup",
-    "label": "cup",
-    "image": "/images/assessment/objective-words/cup.webp",
-    "imagePath": "/images/assessment/objective-words/cup.webp",
-    "imageAlt": "cup"
-   },
    {
     "id": "lp3.rhyming.l1.R.ug.v7r_card_bug",
     "word": "bug",
@@ -15528,6 +16064,15 @@ export const questions = [
     "image": "/images/assessment/objective-words/bag.webp",
     "imagePath": "/images/assessment/objective-words/bag.webp",
     "imageAlt": "bag"
+   },
+   {
+    "id": "lp3.rhyming.l1.R.ug.v7r_card_cup",
+    "word": "cup",
+    "value": "cup",
+    "label": "cup",
+    "image": "/images/assessment/objective-words/cup.webp",
+    "imagePath": "/images/assessment/objective-words/cup.webp",
+    "imageAlt": "cup"
    }
   ]
  },
@@ -15555,17 +16100,12 @@ export const questions = [
   "question": "Which word rhymes with the word you hear?",
   "spokenPrompt": "Tip. Which word rhymes with it?",
   "choices": [
-   "cap",
    "leg",
    "ship",
-   "tie"
+   "tie",
+   "cap"
   ],
   "answerOptions": [
-   {
-    "value": "cap",
-    "label": "cap",
-    "text": "cap"
-   },
    {
     "value": "leg",
     "label": "leg",
@@ -15580,6 +16120,11 @@ export const questions = [
     "value": "tie",
     "label": "tie",
     "text": "tie"
+   },
+   {
+    "value": "cap",
+    "label": "cap",
+    "text": "cap"
    }
   ],
   "answer": "ship",
@@ -15608,10 +16153,10 @@ export const questions = [
    "itemId": "lp3.rhyming.l1.R.ip.v7r",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/objective-words/cap.webp",
     "/images/assessment/objective-words/leg.webp",
     "/images/assessment/objective-words/ship.webp",
-    "/images/assessment/objective-words/tie.webp"
+    "/images/assessment/objective-words/tie.webp",
+    "/images/assessment/objective-words/cap.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -15628,15 +16173,6 @@ export const questions = [
   },
   "notes": "",
   "imageCards": [
-   {
-    "id": "lp3.rhyming.l1.R.ip.v7r_card_cap",
-    "word": "cap",
-    "value": "cap",
-    "label": "cap",
-    "image": "/images/assessment/objective-words/cap.webp",
-    "imagePath": "/images/assessment/objective-words/cap.webp",
-    "imageAlt": "cap"
-   },
    {
     "id": "lp3.rhyming.l1.R.ip.v7r_card_leg",
     "word": "leg",
@@ -15663,6 +16199,15 @@ export const questions = [
     "image": "/images/assessment/objective-words/tie.webp",
     "imagePath": "/images/assessment/objective-words/tie.webp",
     "imageAlt": "tie"
+   },
+   {
+    "id": "lp3.rhyming.l1.R.ip.v7r_card_cap",
+    "word": "cap",
+    "value": "cap",
+    "label": "cap",
+    "image": "/images/assessment/objective-words/cap.webp",
+    "imagePath": "/images/assessment/objective-words/cap.webp",
+    "imageAlt": "cap"
    }
   ]
  },
@@ -15690,17 +16235,12 @@ export const questions = [
   "question": "Which word rhymes with the word you hear?",
   "spokenPrompt": "Ring. Which word rhymes with it?",
   "choices": [
-   "rink",
    "rung",
    "rat",
-   "sing"
+   "sing",
+   "rink"
   ],
   "answerOptions": [
-   {
-    "value": "rink",
-    "label": "rink",
-    "text": "rink"
-   },
    {
     "value": "rung",
     "label": "rung",
@@ -15715,6 +16255,11 @@ export const questions = [
     "value": "sing",
     "label": "sing",
     "text": "sing"
+   },
+   {
+    "value": "rink",
+    "label": "rink",
+    "text": "rink"
    }
   ],
   "answer": "sing",
@@ -15781,17 +16326,12 @@ export const questions = [
   "question": "Which word rhymes with the word you hear?",
   "spokenPrompt": "Bake. Which word rhymes with it?",
   "choices": [
-   "snake",
    "bag",
    "snack",
-   "bin"
+   "bin",
+   "snake"
   ],
   "answerOptions": [
-   {
-    "value": "snake",
-    "label": "snake",
-    "text": "snake"
-   },
    {
     "value": "bag",
     "label": "bag",
@@ -15806,6 +16346,11 @@ export const questions = [
     "value": "bin",
     "label": "bin",
     "text": "bin"
+   },
+   {
+    "value": "snake",
+    "label": "snake",
+    "text": "snake"
    }
   ],
   "answer": "snake",
@@ -15872,17 +16417,12 @@ export const questions = [
   "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
-   "yell",
    "tub",
    "shell",
-   "spell"
+   "spell",
+   "yell"
   ],
   "answerOptions": [
-   {
-    "value": "yell",
-    "label": "yell",
-    "text": "yell"
-   },
    {
     "value": "tub",
     "label": "tub",
@@ -15897,6 +16437,11 @@ export const questions = [
     "value": "spell",
     "label": "spell",
     "text": "spell"
+   },
+   {
+    "value": "yell",
+    "label": "yell",
+    "text": "yell"
    }
   ],
   "answer": "tub",
@@ -15962,17 +16507,12 @@ export const questions = [
   "question": "Which word rhymes with the word you hear?",
   "spokenPrompt": "Goat. Which word rhymes with it?",
   "choices": [
-   "got",
    "cup",
    "coat",
-   "goal"
+   "goal",
+   "got"
   ],
   "answerOptions": [
-   {
-    "value": "got",
-    "label": "got",
-    "text": "got"
-   },
    {
     "value": "cup",
     "label": "cup",
@@ -15987,6 +16527,11 @@ export const questions = [
     "value": "goal",
     "label": "goal",
     "text": "goal"
+   },
+   {
+    "value": "got",
+    "label": "got",
+    "text": "got"
    }
   ],
   "answer": "coat",
@@ -16053,17 +16598,12 @@ export const questions = [
   "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
-   "sink",
    "drink",
    "pink",
-   "bat"
+   "bat",
+   "sink"
   ],
   "answerOptions": [
-   {
-    "value": "sink",
-    "label": "sink",
-    "text": "sink"
-   },
    {
     "value": "drink",
     "label": "drink",
@@ -16078,6 +16618,11 @@ export const questions = [
     "value": "bat",
     "label": "bat",
     "text": "bat"
+   },
+   {
+    "value": "sink",
+    "label": "sink",
+    "text": "sink"
    }
   ],
   "answer": "bat",

@@ -8347,7 +8347,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same blank as ship's item, different picture — a true minimal pair across sittings"
+  "notes": "The heard chip distinguishes the same visible blank from ship without relying on a picture."
  },
  {
   "id": "lp3.digraphs.l2.R.ch.v8r",
@@ -8495,7 +8495,7 @@ export const questions = [
   "distractorRationales": {
    "chain": "D-PATTERN-TRAP",
    "whale": "D-PATTERN-TRAP",
-   "tooth": "D-POSITION"
+   "tooth": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -9430,5 +9430,365 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "stick: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l1.R.ch.v10r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "ch",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Select the missing letters for __est.",
+  "question": "Select the missing letters for __est.",
+  "spokenPrompt": "Chest. Choose the missing letters.",
+  "choices": [
+   "ch",
+   "sh",
+   "th",
+   "wh"
+  ],
+  "answerOptions": [
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   }
+  ],
+  "answer": "ch",
+  "correctAnswer": "ch",
+  "distractorRationales": {
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP",
+   "wh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "chest",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.R.ch.v10r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "A new heard lexical target tests initial ch in a consonant-cluster word."
+ },
+ {
+  "id": "lp3.digraphs.l1.R.ck.v9r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "ck",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for ba__.",
+  "question": "Choose the missing letters for ba__.",
+  "spokenPrompt": "Back. Choose the missing letters.",
+  "choices": [
+   "th",
+   "ck",
+   "ch",
+   "sh"
+  ],
+  "answerOptions": [
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "ck",
+    "label": "ck",
+    "text": "ck"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   }
+  ],
+  "answer": "ck",
+  "correctAnswer": "ck",
+  "distractorRationales": {
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP",
+   "ch": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "back",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.R.ck.v9r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The heard back distinguishes final ck from the real bath contrast."
+ },
+ {
+  "id": "lp3.digraphs.l2.R.ch.v10r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "ch",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Select the missing letters for bea__.",
+  "question": "Select the missing letters for bea__.",
+  "spokenPrompt": "Beach. Choose the missing letters.",
+  "choices": [
+   "ck",
+   "ch",
+   "sh",
+   "th"
+  ],
+  "answerOptions": [
+   {
+    "value": "ck",
+    "label": "ck",
+    "text": "ck"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   }
+  ],
+  "answer": "ch",
+  "correctAnswer": "ch",
+  "distractorRationales": {
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP",
+   "ck": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "beach",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.R.ch.v10r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Final ch transfers to a new heard word with a vowel team."
+ },
+ {
+  "id": "lp3.digraphs.l2.R.ck.v9r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "ck",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for ti__et.",
+  "question": "Choose the missing letters for ti__et.",
+  "spokenPrompt": "Ticket. Choose the missing letters.",
+  "choices": [
+   "ch",
+   "th",
+   "ck",
+   "sh"
+  ],
+  "answerOptions": [
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "ck",
+    "label": "ck",
+    "text": "ck"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   }
+  ],
+  "answer": "ck",
+  "correctAnswer": "ck",
+  "distractorRationales": {
+   "sh": "D-PATTERN-TRAP",
+   "ch": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "medial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "ticket",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.R.ck.v9r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "A new two-syllable word tests medial ck without repeated printed pattern clues."
  }
 ];

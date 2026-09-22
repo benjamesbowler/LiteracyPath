@@ -24,7 +24,7 @@ export const questions = [
   "prompt": "In this passage, what does \"drowsy\" mean?",
   "question": "In this passage, what does \"drowsy\" mean?",
   "spokenPrompt": "In this passage, what does \"drowsy\" mean?",
-  "passage": "Tara felt drowsy during her favorite show. Drowsy means so sleepy you can hardly stay awake. Her eyes kept closing before the show ended.",
+  "passage": "Tara felt drowsy during her favourite evening show. Drowsy means so sleepy you can hardly stay awake. Her eyes kept closing before the story ended. She rested her head on a soft cushion.",
   "cell": "definition_clue",
   "choices": [
    "quite angry",
@@ -91,7 +91,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "An explicit child-readable definition is supported by closing eyes and settling down."
  },
  {
   "id": "lp3.context_clues.l1.B.definition_clue.v2",
@@ -116,7 +116,7 @@ export const questions = [
   "prompt": "In this passage, what does \"fragile\" mean?",
   "question": "In this passage, what does \"fragile\" mean?",
   "spokenPrompt": "In this passage, what does \"fragile\" mean?",
-  "passage": "The vase was fragile, or easy to break. Mom held it carefully with both hands. She put it where no one could knock it.",
+  "passage": "The vase was fragile, or easy to break. Mom held it carefully with both her hands. She kept it away from the table's edge. A small knock could crack its thin glass sides.",
   "cell": "definition_clue",
   "choices": [
    "easily broken",
@@ -183,7 +183,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "The direct definition and handling precautions identify breakability, not weight or price."
  },
  {
   "id": "lp3.context_clues.l1.C.definition_clue.v3",
@@ -208,7 +208,7 @@ export const questions = [
   "prompt": "In this passage, what does \"sturdy\" mean?",
   "question": "In this passage, what does \"sturdy\" mean?",
   "spokenPrompt": "In this passage, what does \"sturdy\" mean?",
-  "passage": "Our tent is sturdy, which means strongly made. Strong wind blew against it on the hill. The tent stayed up all through the night.",
+  "passage": "Our tent is sturdy, which means strongly made. Strong wind blew against it on the hill. Its thick poles stayed firmly in the ground. The tent stood safely all through the windy night.",
   "cell": "definition_clue",
   "choices": [
    "light and easy to move",
@@ -275,7 +275,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Strong construction and resisting wind support sturdy rather than light or decorative."
  },
  {
   "id": "lp3.context_clues.l1.A.definition_clue.v4",
@@ -300,7 +300,7 @@ export const questions = [
   "prompt": "In this passage, what does \"murmur\" mean?",
   "question": "In this passage, what does \"murmur\" mean?",
   "spokenPrompt": "In this passage, what does \"murmur\" mean?",
-  "passage": "A murmur is a quiet sound of voices. Lila heard a murmur from downstairs. The adults were talking softly while the baby slept.",
+  "passage": "A murmur is a quiet sound of voices. Lila heard a murmur from the room downstairs. The adults were talking softly while the baby slept. Their words were too quiet to hear clearly.",
   "cell": "definition_clue",
   "choices": [
    "a steady sound of footsteps",
@@ -367,7 +367,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Definition and quiet conversation distinguish voice sound from footsteps or louder speech."
  },
  {
   "id": "lp3.context_clues.l1.B.definition_clue.v5",
@@ -392,7 +392,7 @@ export const questions = [
   "prompt": "In this passage, what does \"jagged\" mean?",
   "question": "In this passage, what does \"jagged\" mean?",
   "spokenPrompt": "In this passage, what does \"jagged\" mean?",
-  "passage": "Jagged stones have sharp points and rough edges. The path was covered in jagged stones. We wore shoes to keep our feet safe.",
+  "passage": "Jagged stones have sharp points and rough edges. The path beside the cliff held many jagged stones. We wore thick shoes to protect our feet. Some corners could scratch skin if touched carelessly.",
   "cell": "definition_clue",
   "choices": [
    "flat and slippery on the top",
@@ -459,7 +459,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "The definition and injury risk point to irregular sharp edges."
  },
  {
   "id": "lp3.context_clues.l1.C.definition_clue.v6",
@@ -484,7 +484,7 @@ export const questions = [
   "prompt": "In this passage, what does \"hollow\" mean?",
   "question": "In this passage, what does \"hollow\" mean?",
   "spokenPrompt": "In this passage, what does \"hollow\" mean?",
-  "passage": "Hollow means empty inside. The log beside the fence was hollow. Mice made a nest in that empty space.",
+  "passage": "Hollow means empty inside instead of solid throughout. The log beside our fence was hollow. Through its broken end, we could see a space. Small mice had made their nest safely inside it.",
   "cell": "definition_clue",
   "choices": [
    "empty on the inside",
@@ -551,7 +551,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "The visible internal space supports hollow, distinct from external roughness or narrowness."
  },
  {
   "id": "lp3.context_clues.l1.A.definition_clue.v7",
@@ -576,7 +576,7 @@ export const questions = [
   "prompt": "In this passage, what does \"chilly\" mean?",
   "question": "In this passage, what does \"chilly\" mean?",
   "spokenPrompt": "In this passage, what does \"chilly\" mean?",
-  "passage": "The lane was chilly, which means a little cold. Pip pulled his sleeves down over his fingers. The morning air felt cold against his face.",
+  "passage": "The lane was chilly, meaning a little cold. Pip pulled his sleeves down over his fingers. The morning air felt cold against his face. He welcomed the warmth when they reached the shop.",
   "cell": "definition_clue",
   "choices": [
    "a little warm",
@@ -643,7 +643,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "The gloss and response to warmth establish mild cold rather than wind or wetness."
  },
  {
   "id": "lp3.context_clues.l1.B.definition_clue.v8",
@@ -668,7 +668,7 @@ export const questions = [
   "prompt": "In this passage, what does \"mend\" mean?",
   "question": "In this passage, what does \"mend\" mean?",
   "spokenPrompt": "In this passage, what does \"mend\" mean?",
-  "passage": "To mend something is to fix it. Grandpa mended the torn net with green string. Then we could use the net to play again.",
+  "passage": "To mend something is to fix damage to it. Grandpa mended the torn net with green string. He joined the edges until the gap was closed. Balls stayed inside when we played again later.",
   "cell": "definition_clue",
   "choices": [
    "to paint something",
@@ -735,7 +735,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Connect explicit definition with repair and restored function, not painting or disposal."
  },
  {
   "id": "lp3.context_clues.l1.A.example_clue.v1",
@@ -760,7 +760,7 @@ export const questions = [
   "prompt": "In this passage, what does \"feast\" mean?",
   "question": "In this passage, what does \"feast\" mean?",
   "spokenPrompt": "In this passage, what does \"feast\" mean?",
-  "passage": "Our picnic was a feast. We had sandwiches, rolls and two big cakes. Bowls of cherries stood beside jugs of lemonade. There was plenty for every guest.",
+  "passage": "Our picnic was a feast for the visiting family. We had sandwiches, rolls and two big cakes. Bowls of cherries stood beside jugs of lemonade. There was plenty for every guest to enjoy together.",
   "cell": "example_clue",
   "choices": [
    "a large and special meal",
@@ -826,7 +826,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Several foods and abundant shared portions exemplify a substantial special meal."
  },
  {
   "id": "lp3.context_clues.l1.B.example_clue.v2",
@@ -851,7 +851,7 @@ export const questions = [
   "prompt": "In this passage, what does \"clutter\" mean?",
   "question": "In this passage, what does \"clutter\" mean?",
   "spokenPrompt": "In this passage, what does \"clutter\" mean?",
-  "passage": "Milo's desk was full of clutter. Old wrappers hid broken crayons and dried pens. A glove covered three notes from last term. There was no space for his work.",
+  "passage": "Milo's desk was full of clutter. Old wrappers hid broken crayons and dried pens. A glove covered three notes from last term. There was no clear space for his work.",
   "cell": "example_clue",
   "choices": [
    "a neat collection of useful tools",
@@ -917,7 +917,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Unwanted wrappers, broken supplies and blocked workspace support clutter."
  },
  {
   "id": "lp3.context_clues.l1.C.example_clue.v3",
@@ -942,7 +942,7 @@ export const questions = [
   "prompt": "In this passage, what does \"enormous\" mean?",
   "question": "In this passage, what does \"enormous\" mean?",
   "spokenPrompt": "In this passage, what does \"enormous\" mean?",
-  "passage": "Enormous things filled the museum hall. A whale skeleton was longer than a bus. A boulder stood taller than Dad. Nia could sit inside the model footprint.",
+  "passage": "Enormous things filled the museum's main display hall. A whale skeleton was longer than a bus. A great boulder stood much taller than Dad. Nia could sit inside the huge model footprint nearby.",
   "cell": "example_clue",
   "choices": [
    "very heavy to lift",
@@ -1008,7 +1008,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Three size comparisons establish scale without relying on weight, value or age."
  },
  {
   "id": "lp3.context_clues.l1.A.example_clue.v4",
@@ -1033,13 +1033,13 @@ export const questions = [
   "prompt": "In this passage, what does \"gleaming\" mean?",
   "question": "In this passage, what does \"gleaming\" mean?",
   "spokenPrompt": "In this passage, what does \"gleaming\" mean?",
-  "passage": "Many things were gleaming after the school cleanup. The polished trumpet shone beside the window. Sunlight flashed on clean glass and silver stars. Even the wet floor looked bright.",
+  "passage": "Many things were gleaming after the school cleanup. The polished trumpet shone beside the window. Sunlight flashed on clean glass and silver stars. Even the wet floor looked bright and shiny.",
   "cell": "example_clue",
   "choices": [
    "newly made and unused",
-   "shining with reflected light",
-   "darkened with a thick coating",
-   "covered with bright paint"
+   "shining brightly",
+   "dark and dull",
+   "covered with new paint"
   ],
   "answerOptions": [
    {
@@ -1048,27 +1048,27 @@ export const questions = [
     "text": "newly made and unused"
    },
    {
-    "value": "shining with reflected light",
-    "label": "shining with reflected light",
-    "text": "shining with reflected light"
+    "value": "shining brightly",
+    "label": "shining brightly",
+    "text": "shining brightly"
    },
    {
-    "value": "darkened with a thick coating",
-    "label": "darkened with a thick coating",
-    "text": "darkened with a thick coating"
+    "value": "dark and dull",
+    "label": "dark and dull",
+    "text": "dark and dull"
    },
    {
-    "value": "covered with bright paint",
-    "label": "covered with bright paint",
-    "text": "covered with bright paint"
+    "value": "covered with new paint",
+    "label": "covered with new paint",
+    "text": "covered with new paint"
    }
   ],
-  "answer": "shining with reflected light",
-  "correctAnswer": "shining with reflected light",
+  "answer": "shining brightly",
+  "correctAnswer": "shining brightly",
   "distractorRationales": {
-   "covered with bright paint": "D-PLAUSIBLE-UNSUPPORTED",
-   "newly made and unused": "D-OPPOSITE",
-   "darkened with a thick coating": "D-PLAUSIBLE-UNSUPPORTED"
+   "covered with new paint": "D-TOPIC-ADJACENT",
+   "newly made and unused": "D-PLAUSIBLE-UNSUPPORTED",
+   "dark and dull": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1099,7 +1099,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Reflections from cleaned metal, glass and wet surfaces identify gleaming without difficult definition language."
  },
  {
   "id": "lp3.context_clues.l1.B.example_clue.v5",
@@ -1124,7 +1124,7 @@ export const questions = [
   "prompt": "In this passage, what does \"timid\" mean?",
   "question": "In this passage, what does \"timid\" mean?",
   "spokenPrompt": "In this passage, what does \"timid\" mean?",
-  "passage": "Timid animals lived in the hedge. A mouse ran away at one footstep. A wren hid when people passed. The rabbit stayed near its safe hole.",
+  "passage": "Timid animals lived in the thick garden hedge. A mouse ran away at one sudden footstep. A little wren hid whenever people passed nearby. The rabbit stayed close to its safe dark hole.",
   "cell": "example_clue",
   "choices": [
    "easily frightened",
@@ -1190,7 +1190,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Multiple small responses to approaching people support fearfulness rather than anger or hunger."
  },
  {
   "id": "lp3.context_clues.l1.C.example_clue.v6",
@@ -1215,7 +1215,7 @@ export const questions = [
   "prompt": "In this passage, what does \"swift\" mean?",
   "question": "In this passage, what does \"swift\" mean?",
   "spokenPrompt": "In this passage, what does \"swift\" mean?",
-  "passage": "Swift things passed our train window. A motorbike sped along the road. A hawk rushed past after a small bird. Another train was gone in a moment.",
+  "passage": "Swift things passed the window of our slow train. A motorbike sped along the nearby road. A hawk rushed past after a small bird. Another train vanished before we could count its carriages.",
   "cell": "example_clue",
   "choices": [
    "very loud",
@@ -1281,7 +1281,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Examples share speed, not sound, size or distance."
  },
  {
   "id": "lp3.context_clues.l1.A.example_clue.v7",
@@ -1372,7 +1372,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Stated historical ages and vanished places establish ancient rather than value or condition."
  },
  {
   "id": "lp3.context_clues.l1.B.example_clue.v8",
@@ -1463,7 +1463,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Several soaked objects share wetness despite different causes and materials."
  },
  {
   "id": "lp3.context_clues.l1.A.action_clue.v1",
@@ -1488,42 +1488,42 @@ export const questions = [
   "prompt": "In this passage, what does \"gobbled\" mean?",
   "question": "In this passage, what does \"gobbled\" mean?",
   "spokenPrompt": "In this passage, what does \"gobbled\" mean?",
-  "passage": "The hungry puppy gobbled his dinner. He took four huge mouthfuls without pausing to chew. In moments, the bowl was empty. Then he licked it across the floor.",
+  "passage": "The hungry puppy gobbled all of his dinner. He took four huge mouthfuls without pausing to chew. In moments, the food bowl was completely empty. Then he searched its edges for one last crumb.",
   "cell": "action_clue",
   "choices": [
-   "ate in small slow bites",
-   "sniffed without tasting anything",
-   "chewed one mouthful for ages",
-   "ate with great speed"
+   "ate in slow small bites",
+   "sniffed without tasting",
+   "chewed one bite for ages",
+   "ate very quickly"
   ],
   "answerOptions": [
    {
-    "value": "ate in small slow bites",
-    "label": "ate in small slow bites",
-    "text": "ate in small slow bites"
+    "value": "ate in slow small bites",
+    "label": "ate in slow small bites",
+    "text": "ate in slow small bites"
    },
    {
-    "value": "sniffed without tasting anything",
-    "label": "sniffed without tasting anything",
-    "text": "sniffed without tasting anything"
+    "value": "sniffed without tasting",
+    "label": "sniffed without tasting",
+    "text": "sniffed without tasting"
    },
    {
-    "value": "chewed one mouthful for ages",
-    "label": "chewed one mouthful for ages",
-    "text": "chewed one mouthful for ages"
+    "value": "chewed one bite for ages",
+    "label": "chewed one bite for ages",
+    "text": "chewed one bite for ages"
    },
    {
-    "value": "ate with great speed",
-    "label": "ate with great speed",
-    "text": "ate with great speed"
+    "value": "ate very quickly",
+    "label": "ate very quickly",
+    "text": "ate very quickly"
    }
   ],
-  "answer": "ate with great speed",
-  "correctAnswer": "ate with great speed",
+  "answer": "ate very quickly",
+  "correctAnswer": "ate very quickly",
   "distractorRationales": {
-   "ate in small slow bites": "D-PLAUSIBLE-UNSUPPORTED",
-   "sniffed without tasting anything": "D-PLAUSIBLE-UNSUPPORTED",
-   "chewed one mouthful for ages": "D-OPPOSITE"
+   "ate in slow small bites": "D-OPPOSITE",
+   "sniffed without tasting": "D-TOPIC-ADJACENT",
+   "chewed one bite for ages": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1554,7 +1554,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Large rapid mouthfuls and a quickly empty bowl define the action."
  },
  {
   "id": "lp3.context_clues.l1.B.action_clue.v2",
@@ -1579,19 +1579,19 @@ export const questions = [
   "prompt": "In this passage, what does \"glided\" mean?",
   "question": "In this passage, what does \"glided\" mean?",
   "spokenPrompt": "In this passage, what does \"glided\" mean?",
-  "passage": "The swans glided across the lake. Their bodies moved smoothly without making a splash. Their feet paddled below the water. Small ripples spread behind them as they passed.",
+  "passage": "The swans glided across the quiet blue lake. Their bodies moved smoothly without making a splash. Their feet paddled out of sight below the water. Small ripples spread gently behind them as they passed.",
   "cell": "action_clue",
   "choices": [
-   "sank below the lake’s surface",
+   "sank below the water",
    "flew high above the lake",
-   "travelled in a steady, flowing way",
-   "moved in a loud, splashing way"
+   "moved steadily",
+   "moved with noisy splashes"
   ],
   "answerOptions": [
    {
-    "value": "sank below the lake’s surface",
-    "label": "sank below the lake’s surface",
-    "text": "sank below the lake’s surface"
+    "value": "sank below the water",
+    "label": "sank below the water",
+    "text": "sank below the water"
    },
    {
     "value": "flew high above the lake",
@@ -1599,22 +1599,22 @@ export const questions = [
     "text": "flew high above the lake"
    },
    {
-    "value": "travelled in a steady, flowing way",
-    "label": "travelled in a steady, flowing way",
-    "text": "travelled in a steady, flowing way"
+    "value": "moved steadily",
+    "label": "moved steadily",
+    "text": "moved steadily"
    },
    {
-    "value": "moved in a loud, splashing way",
-    "label": "moved in a loud, splashing way",
-    "text": "moved in a loud, splashing way"
+    "value": "moved with noisy splashes",
+    "label": "moved with noisy splashes",
+    "text": "moved with noisy splashes"
    }
   ],
-  "answer": "travelled in a steady, flowing way",
-  "correctAnswer": "travelled in a steady, flowing way",
+  "answer": "moved steadily",
+  "correctAnswer": "moved steadily",
   "distractorRationales": {
-   "flew high above the lake": "D-OPPOSITE",
-   "moved in a loud, splashing way": "D-PLAUSIBLE-UNSUPPORTED",
-   "sank below the lake’s surface": "D-PLAUSIBLE-UNSUPPORTED"
+   "flew high above the lake": "D-TOPIC-ADJACENT",
+   "moved with noisy splashes": "D-OPPOSITE",
+   "sank below the water": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1645,7 +1645,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Visible smooth movement and hidden paddling distinguish gliding from flying or sinking."
  },
  {
   "id": "lp3.context_clues.l1.C.action_clue.v3",
@@ -1670,13 +1670,13 @@ export const questions = [
   "prompt": "In this passage, what does \"scampered\" mean?",
   "question": "In this passage, what does \"scampered\" mean?",
   "spokenPrompt": "In this passage, what does \"scampered\" mean?",
-  "passage": "A squirrel scampered along the fence. It took quick, light steps, then leaped. More quick steps carried it up a tree. Milo barely had time to point.",
+  "passage": "A squirrel scampered along the old garden fence. It took quick, light steps, then leaped up. More quick steps carried it along a branch. Enzo barely had time to point before it vanished.",
   "cell": "action_clue",
   "choices": [
    "stood still on the fence",
-   "climbed slowly up the tree",
-   "took one enormous leap down",
-   "ran lightly and rapidly"
+   "climbed slowly up the trunk",
+   "took one long leap down",
+   "ran with quick little steps"
   ],
   "answerOptions": [
    {
@@ -1685,27 +1685,27 @@ export const questions = [
     "text": "stood still on the fence"
    },
    {
-    "value": "climbed slowly up the tree",
-    "label": "climbed slowly up the tree",
-    "text": "climbed slowly up the tree"
+    "value": "climbed slowly up the trunk",
+    "label": "climbed slowly up the trunk",
+    "text": "climbed slowly up the trunk"
    },
    {
-    "value": "took one enormous leap down",
-    "label": "took one enormous leap down",
-    "text": "took one enormous leap down"
+    "value": "took one long leap down",
+    "label": "took one long leap down",
+    "text": "took one long leap down"
    },
    {
-    "value": "ran lightly and rapidly",
-    "label": "ran lightly and rapidly",
-    "text": "ran lightly and rapidly"
+    "value": "ran with quick little steps",
+    "label": "ran with quick little steps",
+    "text": "ran with quick little steps"
    }
   ],
-  "answer": "ran lightly and rapidly",
-  "correctAnswer": "ran lightly and rapidly",
+  "answer": "ran with quick little steps",
+  "correctAnswer": "ran with quick little steps",
   "distractorRationales": {
-   "stood still on the fence": "D-PLAUSIBLE-UNSUPPORTED",
-   "climbed slowly up the tree": "D-PLAUSIBLE-UNSUPPORTED",
-   "took one enormous leap down": "D-OPPOSITE"
+   "stood still on the fence": "D-OPPOSITE",
+   "climbed slowly up the trunk": "D-TOPIC-ADJACENT",
+   "took one long leap down": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1736,7 +1736,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Repeated light rapid steps, not merely the single leap, establish scampered."
  },
  {
   "id": "lp3.context_clues.l1.A.action_clue.v4",
@@ -1761,42 +1761,42 @@ export const questions = [
   "prompt": "In this passage, what does \"pleaded\" mean?",
   "question": "In this passage, what does \"pleaded\" mean?",
   "spokenPrompt": "In this passage, what does \"pleaded\" mean?",
-  "passage": "Sol pleaded to keep the lost puppy. He pressed his hands together and asked again. He followed Mom, saying please over and over. He hoped she would agree.",
+  "passage": "Sol pleaded to keep the small lost puppy. He pressed his hands together and asked again. He followed Mom, saying please over and over. He hoped one more request would make her agree.",
   "cell": "action_clue",
   "choices": [
-   "begged with great feeling",
-   "spoke with a cross voice",
-   "stopped asking for the puppy",
-   "shared a secret with Mom"
+   "begged again and again",
+   "spoke in an angry voice",
+   "stopped asking about it",
+   "shared a quiet secret"
   ],
   "answerOptions": [
    {
-    "value": "begged with great feeling",
-    "label": "begged with great feeling",
-    "text": "begged with great feeling"
+    "value": "begged again and again",
+    "label": "begged again and again",
+    "text": "begged again and again"
    },
    {
-    "value": "spoke with a cross voice",
-    "label": "spoke with a cross voice",
-    "text": "spoke with a cross voice"
+    "value": "spoke in an angry voice",
+    "label": "spoke in an angry voice",
+    "text": "spoke in an angry voice"
    },
    {
-    "value": "stopped asking for the puppy",
-    "label": "stopped asking for the puppy",
-    "text": "stopped asking for the puppy"
+    "value": "stopped asking about it",
+    "label": "stopped asking about it",
+    "text": "stopped asking about it"
    },
    {
-    "value": "shared a secret with Mom",
-    "label": "shared a secret with Mom",
-    "text": "shared a secret with Mom"
+    "value": "shared a quiet secret",
+    "label": "shared a quiet secret",
+    "text": "shared a quiet secret"
    }
   ],
-  "answer": "begged with great feeling",
-  "correctAnswer": "begged with great feeling",
+  "answer": "begged again and again",
+  "correctAnswer": "begged again and again",
   "distractorRationales": {
-   "stopped asking for the puppy": "D-PLAUSIBLE-UNSUPPORTED",
-   "shared a secret with Mom": "D-OPPOSITE",
-   "spoke with a cross voice": "D-PLAUSIBLE-UNSUPPORTED"
+   "stopped asking about it": "D-OPPOSITE",
+   "shared a quiet secret": "D-TOPIC-ADJACENT",
+   "spoke in an angry voice": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1827,7 +1827,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Repeated earnest requests support pleading; angry, secret and abandoned requests lack evidence."
  },
  {
   "id": "lp3.context_clues.l1.B.action_clue.v5",
@@ -1852,7 +1852,7 @@ export const questions = [
   "prompt": "In this passage, what does \"trembled\" mean?",
   "question": "In this passage, what does \"trembled\" mean?",
   "spokenPrompt": "In this passage, what does \"trembled\" mean?",
-  "passage": "Thunder boomed, and Pepper the cat trembled. Her small body shook under the bed. She stayed there until the loud storm passed. Then she came out for her food.",
+  "passage": "Thunder boomed, and Pepper the cat trembled. Her small body shook hard under the bed. She stayed there until the loud storm passed. Then she came out for her food.",
   "cell": "action_clue",
   "choices": [
    "stretched out slowly",
@@ -1918,7 +1918,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "The visible shaking provides the meaning; hiding is a separate concurrent action."
  },
  {
   "id": "lp3.context_clues.l1.C.action_clue.v6",
@@ -1943,29 +1943,29 @@ export const questions = [
   "prompt": "In this passage, what does \"grumbled\" mean?",
   "question": "In this passage, what does \"grumbled\" mean?",
   "spokenPrompt": "In this passage, what does \"grumbled\" mean?",
-  "passage": "Grandpa grumbled as he walked up the hill. He complained quietly about his sore knees. He complained about the wind too. His voice was low and cross.",
+  "passage": "Grandpa grumbled as he walked up the steep hill. He complained quietly about his sore knees. He complained about the cold wind as well. His voice stayed low and cross along the path.",
   "cell": "action_clue",
   "choices": [
-   "muttered crossly about problems",
-   "sang a song about the hill",
-   "called loudly to his neighbours",
+   "complained softly",
+   "sang in a happy voice",
+   "called loudly to neighbours",
    "laughed about his sore knees"
   ],
   "answerOptions": [
    {
-    "value": "muttered crossly about problems",
-    "label": "muttered crossly about problems",
-    "text": "muttered crossly about problems"
+    "value": "complained softly",
+    "label": "complained softly",
+    "text": "complained softly"
    },
    {
-    "value": "sang a song about the hill",
-    "label": "sang a song about the hill",
-    "text": "sang a song about the hill"
+    "value": "sang in a happy voice",
+    "label": "sang in a happy voice",
+    "text": "sang in a happy voice"
    },
    {
-    "value": "called loudly to his neighbours",
-    "label": "called loudly to his neighbours",
-    "text": "called loudly to his neighbours"
+    "value": "called loudly to neighbours",
+    "label": "called loudly to neighbours",
+    "text": "called loudly to neighbours"
    },
    {
     "value": "laughed about his sore knees",
@@ -1973,12 +1973,12 @@ export const questions = [
     "text": "laughed about his sore knees"
    }
   ],
-  "answer": "muttered crossly about problems",
-  "correctAnswer": "muttered crossly about problems",
+  "answer": "complained softly",
+  "correctAnswer": "complained softly",
   "distractorRationales": {
-   "called loudly to his neighbours": "D-PLAUSIBLE-UNSUPPORTED",
-   "laughed about his sore knees": "D-OPPOSITE",
-   "sang a song about the hill": "D-PLAUSIBLE-UNSUPPORTED"
+   "called loudly to neighbours": "D-PLAUSIBLE-UNSUPPORTED",
+   "laughed about his sore knees": "D-TOPIC-ADJACENT",
+   "sang in a happy voice": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2009,7 +2009,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Replace difficult muttered-crossly wording with the simple spoken complaint shown in context."
  },
  {
   "id": "lp3.context_clues.l1.A.action_clue.v7",
@@ -2034,7 +2034,7 @@ export const questions = [
   "prompt": "In this passage, what does \"drifted\" mean?",
   "question": "In this passage, what does \"drifted\" mean?",
   "spokenPrompt": "In this passage, what does \"drifted\" mean?",
-  "passage": "Soap bubbles drifted over the wall. The light breeze carried them slowly along. They went wherever the wind pushed them. No bubble moved quickly or in a straight line.",
+  "passage": "Soap bubbles drifted over the wall. The gentle, light breeze carried them slowly along. They went wherever the wind pushed them. No bubble moved quickly or in a straight line.",
   "cell": "action_clue",
   "choices": [
    "burst loudly above the wall",
@@ -2100,7 +2100,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Gentle wind-directed movement establishes drifted rather than active turning or falling."
  },
  {
   "id": "lp3.context_clues.l1.B.action_clue.v8",
@@ -2191,7 +2191,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Sustained attention and not looking away support gazed, rather than a brief glance."
  },
  {
   "id": "lp3.context_clues.l2.A.synonym_clue.v1",
@@ -2216,42 +2216,42 @@ export const questions = [
   "prompt": "In this passage, what does \"dazzling\" mean?",
   "question": "In this passage, what does \"dazzling\" mean?",
   "spokenPrompt": "In this passage, what does \"dazzling\" mean?",
-  "passage": "The fireworks were dazzling. Their light was so brilliant that people covered their eyes. Even the bright streetlights seemed dull beside the display.",
+  "passage": "The evening show began with quiet music beside the dark lake. Then a dazzling burst of white fireworks spread above the water. Its brilliant light made the far bank visible for a moment. People blinked and shaded their eyes before looking up again. The coloured bursts afterwards were beautiful but much less bright. Even the lamps along the path seemed dull during the display. Sam could hear the bangs, but he kept watching the light. He described its brightness when drawing the scene the next morning.",
   "cell": "synonym_clue",
   "choices": [
-   "very bright to look at",
-   "very loud to listen to",
-   "very quick to finish",
-   "very far away from people"
+   "Extremely bright to look at.",
+   "Extremely loud to listen to.",
+   "Too distant to see clearly.",
+   "Very weak and difficult to notice."
   ],
   "answerOptions": [
    {
-    "value": "very bright to look at",
-    "label": "very bright to look at",
-    "text": "very bright to look at"
+    "value": "Extremely bright to look at.",
+    "label": "Extremely bright to look at.",
+    "text": "Extremely bright to look at."
    },
    {
-    "value": "very loud to listen to",
-    "label": "very loud to listen to",
-    "text": "very loud to listen to"
+    "value": "Extremely loud to listen to.",
+    "label": "Extremely loud to listen to.",
+    "text": "Extremely loud to listen to."
    },
    {
-    "value": "very quick to finish",
-    "label": "very quick to finish",
-    "text": "very quick to finish"
+    "value": "Too distant to see clearly.",
+    "label": "Too distant to see clearly.",
+    "text": "Too distant to see clearly."
    },
    {
-    "value": "very far away from people",
-    "label": "very far away from people",
-    "text": "very far away from people"
+    "value": "Very weak and difficult to notice.",
+    "label": "Very weak and difficult to notice.",
+    "text": "Very weak and difficult to notice."
    }
   ],
-  "answer": "very bright to look at",
-  "correctAnswer": "very bright to look at",
+  "answer": "Extremely bright to look at.",
+  "correctAnswer": "Extremely bright to look at.",
   "distractorRationales": {
-   "very far away from people": "D-OPPOSITE",
-   "very loud to listen to": "D-PLAUSIBLE-UNSUPPORTED",
-   "very quick to finish": "D-PLAUSIBLE-UNSUPPORTED"
+   "Very weak and difficult to notice.": "D-OPPOSITE",
+   "Extremely loud to listen to.": "D-TOPIC-ADJACENT",
+   "Too distant to see clearly.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2282,7 +2282,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Integrate brilliant light, visible bank, shaded eyes and dull comparison; sounds are present but do not define the visual adjective."
  },
  {
   "id": "lp3.context_clues.l2.B.synonym_clue.v2",
@@ -2307,42 +2307,42 @@ export const questions = [
   "prompt": "In this passage, what does \"weary\" mean?",
   "question": "In this passage, what does \"weary\" mean?",
   "spokenPrompt": "In this passage, what does \"weary\" mean?",
-  "passage": "The hikers were weary after their mountain walk. They were tired and worn out from the climb. They dropped their heavy bags and sat down without speaking.",
+  "passage": "The walkers reached the hut after carrying bags uphill all afternoon. They were weary, worn out by the steep final climb. Their usual lively conversation had stopped before the last bend. At the door, they lowered their bags and sat without speaking. A helper offered another short walk to see the sunset. They chose to watch from the bench outside the hut instead. After food and a long rest, their energy began returning. They planned the next morning's route once they felt stronger again.",
   "cell": "synonym_clue",
   "choices": [
-   "unsure of the way back",
-   "lacking energy after effort",
-   "ready for more hard work",
-   "in need of a cool drink"
+   "Being unhappy with the other walkers.",
+   "Having little energy after hard effort.",
+   "Feeling ready for more hard work.",
+   "Needing directions to an unknown place."
   ],
   "answerOptions": [
    {
-    "value": "unsure of the way back",
-    "label": "unsure of the way back",
-    "text": "unsure of the way back"
+    "value": "Being unhappy with the other walkers.",
+    "label": "Being unhappy with the other walkers.",
+    "text": "Being unhappy with the other walkers."
    },
    {
-    "value": "lacking energy after effort",
-    "label": "lacking energy after effort",
-    "text": "lacking energy after effort"
+    "value": "Having little energy after hard effort.",
+    "label": "Having little energy after hard effort.",
+    "text": "Having little energy after hard effort."
    },
    {
-    "value": "ready for more hard work",
-    "label": "ready for more hard work",
-    "text": "ready for more hard work"
+    "value": "Feeling ready for more hard work.",
+    "label": "Feeling ready for more hard work.",
+    "text": "Feeling ready for more hard work."
    },
    {
-    "value": "in need of a cool drink",
-    "label": "in need of a cool drink",
-    "text": "in need of a cool drink"
+    "value": "Needing directions to an unknown place.",
+    "label": "Needing directions to an unknown place.",
+    "text": "Needing directions to an unknown place."
    }
   ],
-  "answer": "lacking energy after effort",
-  "correctAnswer": "lacking energy after effort",
+  "answer": "Having little energy after hard effort.",
+  "correctAnswer": "Having little energy after hard effort.",
   "distractorRationales": {
-   "unsure of the way back": "D-OPPOSITE",
-   "ready for more hard work": "D-PLAUSIBLE-UNSUPPORTED",
-   "in need of a cool drink": "D-PLAUSIBLE-UNSUPPORTED"
+   "Being unhappy with the other walkers.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Feeling ready for more hard work.": "D-OPPOSITE",
+   "Needing directions to an unknown place.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2373,7 +2373,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Connect the near-synonym worn out with behaviour and recovery; distinguish tiredness from navigation trouble or a disagreement."
  },
  {
   "id": "lp3.context_clues.l2.C.synonym_clue.v3",
@@ -2398,42 +2398,42 @@ export const questions = [
   "prompt": "In this passage, what does \"commotion\" mean?",
   "question": "In this passage, what does \"commotion\" mean?",
   "spokenPrompt": "In this passage, what does \"commotion\" mean?",
-  "passage": "A commotion began outside the classroom. A noisy uproar of bangs and squawks came from the yard. Three teachers went to find out what caused the racket.",
+  "passage": "A commotion began in the yard during the quiet reading lesson. Bangs, voices and loud squawks mixed into a sudden uproar. Children turned towards the windows while a teacher went to investigate. A delivery box had fallen beside a group of startled geese. The birds flapped around as two adults moved the scattered boxes. One person called directions over the noise of the others. After the geese settled and the boxes were stacked, calm returned. The children could hear their teacher reading softly once more.",
   "cell": "synonym_clue",
   "choices": [
-   "a short break for food",
-   "a slow walk in pairs",
-   "a lot of noisy activity",
-   "a long quiet wait"
+   "A planned break for eating food.",
+   "A slow group walk in a line.",
+   "A burst of noisy, unsettled activity.",
+   "A long stretch of complete silence."
   ],
   "answerOptions": [
    {
-    "value": "a short break for food",
-    "label": "a short break for food",
-    "text": "a short break for food"
+    "value": "A planned break for eating food.",
+    "label": "A planned break for eating food.",
+    "text": "A planned break for eating food."
    },
    {
-    "value": "a slow walk in pairs",
-    "label": "a slow walk in pairs",
-    "text": "a slow walk in pairs"
+    "value": "A slow group walk in a line.",
+    "label": "A slow group walk in a line.",
+    "text": "A slow group walk in a line."
    },
    {
-    "value": "a lot of noisy activity",
-    "label": "a lot of noisy activity",
-    "text": "a lot of noisy activity"
+    "value": "A burst of noisy, unsettled activity.",
+    "label": "A burst of noisy, unsettled activity.",
+    "text": "A burst of noisy, unsettled activity."
    },
    {
-    "value": "a long quiet wait",
-    "label": "a long quiet wait",
-    "text": "a long quiet wait"
+    "value": "A long stretch of complete silence.",
+    "label": "A long stretch of complete silence.",
+    "text": "A long stretch of complete silence."
    }
   ],
-  "answer": "a lot of noisy activity",
-  "correctAnswer": "a lot of noisy activity",
+  "answer": "A burst of noisy, unsettled activity.",
+  "correctAnswer": "A burst of noisy, unsettled activity.",
   "distractorRationales": {
-   "a slow walk in pairs": "D-OPPOSITE",
-   "a long quiet wait": "D-PLAUSIBLE-UNSUPPORTED",
-   "a short break for food": "D-PLAUSIBLE-UNSUPPORTED"
+   "A slow group walk in a line.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A long stretch of complete silence.": "D-OPPOSITE",
+   "A planned break for eating food.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2464,7 +2464,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Use the near-synonym uproar, multiple simultaneous sounds and return to calm; the setting change supports the meaning beyond one gloss."
  },
  {
   "id": "lp3.context_clues.l2.A.synonym_clue.v4",
@@ -2489,42 +2489,42 @@ export const questions = [
   "prompt": "In this passage, what does \"drenched\" mean?",
   "question": "In this passage, what does \"drenched\" mean?",
   "spokenPrompt": "In this passage, what does \"drenched\" mean?",
-  "passage": "Priya came home drenched by the sudden rain. Her clothes were soaked through and her hair dripped. She left a wet patch on the doormat.",
+  "passage": "Priya left home without a coat because the sky was clear. Halfway back from the shop, a sudden shower reached her street. She arrived drenched, with her clothes soaked right through. Water dripped from her sleeves even after she squeezed them out. Her shopping stayed dry inside its closed waterproof bag. Priya changed every wet layer before sitting beside the warm heater. The towel she used for her hair quickly became wet too. Only the things protected inside the bag escaped the shower.",
   "cell": "synonym_clue",
   "choices": [
-   "creased from being folded",
-   "soaking wet in every part",
-   "dry on every outer layer",
-   "cold without getting wet"
+   "Safe from moisture.",
+   "Very wet throughout.",
+   "Cold but still dry.",
+   "Crumpled into folds."
   ],
   "answerOptions": [
    {
-    "value": "creased from being folded",
-    "label": "creased from being folded",
-    "text": "creased from being folded"
+    "value": "Safe from moisture.",
+    "label": "Safe from moisture.",
+    "text": "Safe from moisture."
    },
    {
-    "value": "soaking wet in every part",
-    "label": "soaking wet in every part",
-    "text": "soaking wet in every part"
+    "value": "Very wet throughout.",
+    "label": "Very wet throughout.",
+    "text": "Very wet throughout."
    },
    {
-    "value": "dry on every outer layer",
-    "label": "dry on every outer layer",
-    "text": "dry on every outer layer"
+    "value": "Cold but still dry.",
+    "label": "Cold but still dry.",
+    "text": "Cold but still dry."
    },
    {
-    "value": "cold without getting wet",
-    "label": "cold without getting wet",
-    "text": "cold without getting wet"
+    "value": "Crumpled into folds.",
+    "label": "Crumpled into folds.",
+    "text": "Crumpled into folds."
    }
   ],
-  "answer": "soaking wet in every part",
-  "correctAnswer": "soaking wet in every part",
+  "answer": "Very wet throughout.",
+  "correctAnswer": "Very wet throughout.",
   "distractorRationales": {
-   "dry on every outer layer": "D-PLAUSIBLE-UNSUPPORTED",
-   "cold without getting wet": "D-PLAUSIBLE-UNSUPPORTED",
-   "creased from being folded": "D-OPPOSITE"
+   "Cold but still dry.": "D-TOPIC-ADJACENT",
+   "Crumpled into folds.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Safe from moisture.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2555,7 +2555,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Relate soaked through to multiple wet layers and contrast with the dry protected bag; avoid equating wetness with temperature or crumpling."
  },
  {
   "id": "lp3.context_clues.l2.B.synonym_clue.v5",
@@ -2580,42 +2580,42 @@ export const questions = [
   "prompt": "In this passage, what does \"nibbled\" mean?",
   "question": "In this passage, what does \"nibbled\" mean?",
   "spokenPrompt": "In this passage, what does \"nibbled\" mean?",
-  "passage": "The mouse nibbled the cheese. It took small bites, eating just a little each time. The dog would have swallowed that piece in one gulp.",
+  "passage": "A mouse found a piece of cheese beside the garden wall. It nibbled one corner, taking a series of tiny bites. Each bite left a small mark rather than removing the whole piece. The mouse paused between bites to look towards the nearby hedge. A dog watched from behind the gate but could not reach it. Such a small piece would fit in the dog's mouth at once. The mouse carried on eating bit by bit until it finished. Small tooth marks covered the cheese's edges before the last bite.",
   "cell": "synonym_clue",
   "choices": [
-   "pushed the food aside",
-   "sniffed it without eating",
-   "took tiny mouthfuls to eat it",
-   "gulped the whole piece at once"
+   "Smelled the food without tasting it.",
+   "Pushed the piece away without eating.",
+   "Ate it in very small mouthfuls.",
+   "Swallowed the whole piece at once."
   ],
   "answerOptions": [
    {
-    "value": "pushed the food aside",
-    "label": "pushed the food aside",
-    "text": "pushed the food aside"
+    "value": "Smelled the food without tasting it.",
+    "label": "Smelled the food without tasting it.",
+    "text": "Smelled the food without tasting it."
    },
    {
-    "value": "sniffed it without eating",
-    "label": "sniffed it without eating",
-    "text": "sniffed it without eating"
+    "value": "Pushed the piece away without eating.",
+    "label": "Pushed the piece away without eating.",
+    "text": "Pushed the piece away without eating."
    },
    {
-    "value": "took tiny mouthfuls to eat it",
-    "label": "took tiny mouthfuls to eat it",
-    "text": "took tiny mouthfuls to eat it"
+    "value": "Ate it in very small mouthfuls.",
+    "label": "Ate it in very small mouthfuls.",
+    "text": "Ate it in very small mouthfuls."
    },
    {
-    "value": "gulped the whole piece at once",
-    "label": "gulped the whole piece at once",
-    "text": "gulped the whole piece at once"
+    "value": "Swallowed the whole piece at once.",
+    "label": "Swallowed the whole piece at once.",
+    "text": "Swallowed the whole piece at once."
    }
   ],
-  "answer": "took tiny mouthfuls to eat it",
-  "correctAnswer": "took tiny mouthfuls to eat it",
+  "answer": "Ate it in very small mouthfuls.",
+  "correctAnswer": "Ate it in very small mouthfuls.",
   "distractorRationales": {
-   "pushed the food aside": "D-PLAUSIBLE-UNSUPPORTED",
-   "sniffed it without eating": "D-OPPOSITE",
-   "gulped the whole piece at once": "D-PLAUSIBLE-UNSUPPORTED"
+   "Smelled the food without tasting it.": "D-TOPIC-ADJACENT",
+   "Pushed the piece away without eating.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Swallowed the whole piece at once.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2646,7 +2646,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Use tiny bites, repeated small marks and the whole-mouth contrast; no knowledge of a mouse’s normal diet is needed."
  },
  {
   "id": "lp3.context_clues.l2.C.synonym_clue.v6",
@@ -2671,42 +2671,42 @@ export const questions = [
   "prompt": "In this passage, what does \"spotless\" mean?",
   "question": "In this passage, what does \"spotless\" mean?",
   "spokenPrompt": "In this passage, what does \"spotless\" mean?",
-  "passage": "The baker kept his kitchen spotless. Every counter was perfectly clean, without a single crumb or mark. He wiped up flour as soon as it spilled.",
+  "passage": "The baker checked that the kitchen was spotless before work began. The counters were perfectly clean, with no crumbs or sticky marks. Boxes were still stacked beside the door, waiting to be unpacked. Although that corner looked crowded, every surface had been carefully washed. When flour spilled during mixing, the baker wiped it up immediately. She checked beneath the bowl rather than cleaning only visible patches. At closing time, the room was not empty of equipment. The equipment and work areas were simply clean again throughout.",
   "cell": "synonym_clue",
   "choices": [
-   "tidy and neatly arranged",
-   "empty with nothing inside",
-   "shiny from fresh paint",
-   "clean with no marks at all"
+   "Neatly arranged without any crowded corners.",
+   "Empty because every object has been removed.",
+   "Covered with flour after a busy morning.",
+   "Completely clean, without dirt or marks."
   ],
   "answerOptions": [
    {
-    "value": "tidy and neatly arranged",
-    "label": "tidy and neatly arranged",
-    "text": "tidy and neatly arranged"
+    "value": "Neatly arranged without any crowded corners.",
+    "label": "Neatly arranged without any crowded corners.",
+    "text": "Neatly arranged without any crowded corners."
    },
    {
-    "value": "empty with nothing inside",
-    "label": "empty with nothing inside",
-    "text": "empty with nothing inside"
+    "value": "Empty because every object has been removed.",
+    "label": "Empty because every object has been removed.",
+    "text": "Empty because every object has been removed."
    },
    {
-    "value": "shiny from fresh paint",
-    "label": "shiny from fresh paint",
-    "text": "shiny from fresh paint"
+    "value": "Covered with flour after a busy morning.",
+    "label": "Covered with flour after a busy morning.",
+    "text": "Covered with flour after a busy morning."
    },
    {
-    "value": "clean with no marks at all",
-    "label": "clean with no marks at all",
-    "text": "clean with no marks at all"
+    "value": "Completely clean, without dirt or marks.",
+    "label": "Completely clean, without dirt or marks.",
+    "text": "Completely clean, without dirt or marks."
    }
   ],
-  "answer": "clean with no marks at all",
-  "correctAnswer": "clean with no marks at all",
+  "answer": "Completely clean, without dirt or marks.",
+  "correctAnswer": "Completely clean, without dirt or marks.",
   "distractorRationales": {
-   "tidy and neatly arranged": "D-PLAUSIBLE-UNSUPPORTED",
-   "empty with nothing inside": "D-PLAUSIBLE-UNSUPPORTED",
-   "shiny from fresh paint": "D-OPPOSITE"
+   "Neatly arranged without any crowded corners.": "D-TOPIC-ADJACENT",
+   "Empty because every object has been removed.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Covered with flour after a busy morning.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2737,7 +2737,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Distinguish cleanliness from tidiness and emptiness using the crowded boxes and remaining equipment; near-synonym is supported across the paragraph."
  },
  {
   "id": "lp3.context_clues.l2.A.synonym_clue.v7",
@@ -2762,42 +2762,42 @@ export const questions = [
   "prompt": "In this passage, what does \"soared\" mean?",
   "question": "In this passage, what does \"soared\" mean?",
   "spokenPrompt": "In this passage, what does \"soared\" mean?",
-  "passage": "The kestrel soared above the cliff. It flew higher and higher on warm rising air. Soon the bird looked like a tiny spot in the sky.",
+  "passage": "A large bird launched from a ledge above the valley. It soared, sailing high on a rising current of warm air. Its broad wings stayed spread instead of beating quickly each moment. The walkers watched it climb until the ledge looked far below. Sometimes it turned in a wide circle without losing much height. A second bird skimmed close to the ground near the stream. That low flight looked quite different from the first bird's movement. Soon the high bird was a small shape against the clouds.",
   "cell": "synonym_clue",
   "choices": [
-   "stayed still above the cliff",
-   "skimmed low across the ground",
-   "rose and flew high in the air",
-   "dived swiftly downward"
+   "Dropped rapidly from the ledge towards the ground.",
+   "Stayed perched without spreading or moving its wings.",
+   "Flew high while being carried through the air.",
+   "Skimmed just above the ground near the stream."
   ],
   "answerOptions": [
    {
-    "value": "stayed still above the cliff",
-    "label": "stayed still above the cliff",
-    "text": "stayed still above the cliff"
+    "value": "Dropped rapidly from the ledge towards the ground.",
+    "label": "Dropped rapidly from the ledge towards the ground.",
+    "text": "Dropped rapidly from the ledge towards the ground."
    },
    {
-    "value": "skimmed low across the ground",
-    "label": "skimmed low across the ground",
-    "text": "skimmed low across the ground"
+    "value": "Stayed perched without spreading or moving its wings.",
+    "label": "Stayed perched without spreading or moving its wings.",
+    "text": "Stayed perched without spreading or moving its wings."
    },
    {
-    "value": "rose and flew high in the air",
-    "label": "rose and flew high in the air",
-    "text": "rose and flew high in the air"
+    "value": "Flew high while being carried through the air.",
+    "label": "Flew high while being carried through the air.",
+    "text": "Flew high while being carried through the air."
    },
    {
-    "value": "dived swiftly downward",
-    "label": "dived swiftly downward",
-    "text": "dived swiftly downward"
+    "value": "Skimmed just above the ground near the stream.",
+    "label": "Skimmed just above the ground near the stream.",
+    "text": "Skimmed just above the ground near the stream."
    }
   ],
-  "answer": "rose and flew high in the air",
-  "correctAnswer": "rose and flew high in the air",
+  "answer": "Flew high while being carried through the air.",
+  "correctAnswer": "Flew high while being carried through the air.",
   "distractorRationales": {
-   "dived swiftly downward": "D-PLAUSIBLE-UNSUPPORTED",
-   "stayed still above the cliff": "D-PLAUSIBLE-UNSUPPORTED",
-   "skimmed low across the ground": "D-OPPOSITE"
+   "Skimmed just above the ground near the stream.": "D-TOPIC-ADJACENT",
+   "Dropped rapidly from the ledge towards the ground.": "D-OPPOSITE",
+   "Stayed perched without spreading or moving its wings.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2828,7 +2828,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Connect sailing high, supported wings and maintained height; contrast the other bird’s low flight without reducing soar to a single upward flap."
  },
  {
   "id": "lp3.context_clues.l2.B.synonym_clue.v8",
@@ -2853,42 +2853,42 @@ export const questions = [
   "prompt": "In this passage, what does \"bitter\" mean?",
   "question": "In this passage, what does \"bitter\" mean?",
   "spokenPrompt": "In this passage, what does \"bitter\" mean?",
-  "passage": "The soup was bitter. Its taste was harsh and unsweet, but not sour like lemon. Jonah made a face and put down his spoon.",
+  "passage": "Jonah tasted the soup before the rest of the family. It was bitter, with a sharp, unpleasant flavour on his tongue. He did not mean salty; the cook had added little salt. It was not sour like the lemon beside his bowl either. Grandma recognised the taste from some burnt herbs in the pot. She compared it with the harsh taste of very dark chocolate. Adding honey made one spoonful sweeter, though the harsh taste remained. Jonah chose plain bread while Grandma prepared a different dish.",
   "cell": "synonym_clue",
   "choices": [
-   "a sweet taste like honey",
-   "a sour taste like lemon",
-   "a gentle taste without much flavour",
-   "a harsh taste without sweetness"
+   "Having the sour taste of a lemon.",
+   "Having a strong taste of added salt.",
+   "Having a mild and gently sweet taste.",
+   "Having a harsh taste without sweetness."
   ],
   "answerOptions": [
    {
-    "value": "a sweet taste like honey",
-    "label": "a sweet taste like honey",
-    "text": "a sweet taste like honey"
+    "value": "Having the sour taste of a lemon.",
+    "label": "Having the sour taste of a lemon.",
+    "text": "Having the sour taste of a lemon."
    },
    {
-    "value": "a sour taste like lemon",
-    "label": "a sour taste like lemon",
-    "text": "a sour taste like lemon"
+    "value": "Having a strong taste of added salt.",
+    "label": "Having a strong taste of added salt.",
+    "text": "Having a strong taste of added salt."
    },
    {
-    "value": "a gentle taste without much flavour",
-    "label": "a gentle taste without much flavour",
-    "text": "a gentle taste without much flavour"
+    "value": "Having a mild and gently sweet taste.",
+    "label": "Having a mild and gently sweet taste.",
+    "text": "Having a mild and gently sweet taste."
    },
    {
-    "value": "a harsh taste without sweetness",
-    "label": "a harsh taste without sweetness",
-    "text": "a harsh taste without sweetness"
+    "value": "Having a harsh taste without sweetness.",
+    "label": "Having a harsh taste without sweetness.",
+    "text": "Having a harsh taste without sweetness."
    }
   ],
-  "answer": "a harsh taste without sweetness",
-  "correctAnswer": "a harsh taste without sweetness",
+  "answer": "Having a harsh taste without sweetness.",
+  "correctAnswer": "Having a harsh taste without sweetness.",
   "distractorRationales": {
-   "a sweet taste like honey": "D-PLAUSIBLE-UNSUPPORTED",
-   "a sour taste like lemon": "D-PLAUSIBLE-UNSUPPORTED",
-   "a gentle taste without much flavour": "D-OPPOSITE"
+   "Having the sour taste of a lemon.": "D-TOPIC-ADJACENT",
+   "Having a strong taste of added salt.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Having a mild and gently sweet taste.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2919,7 +2919,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Combine harsh near-synonyms with explicitly contrasted taste categories; the answer is a taste description, not an emotion or loudness."
  },
  {
   "id": "lp3.context_clues.l2.A.antonym_contrast_clue.v1",
@@ -2944,42 +2944,42 @@ export const questions = [
   "prompt": "In this passage, what does \"bashful\" mean?",
   "question": "In this passage, what does \"bashful\" mean?",
   "spokenPrompt": "In this passage, what does \"bashful\" mean?",
-  "passage": "Faye's sister said hello loudly whenever they met new people. Faye was bashful instead, waiting quietly behind her sister. She only stepped forward when someone gently welcomed her.",
+  "passage": "Faye and her sister helped welcome new families at school. Her sister called cheerful greetings and introduced herself without being asked. Faye was bashful, staying a little behind the welcome table. She knew the answers when visitors asked where classrooms were. However, she looked down before quietly explaining the way. A friendly child waited and invited her to show them around. Faye began speaking more easily as they walked together. By lunchtime, she no longer needed her sister beside every new greeting.",
   "cell": "antonym_contrast_clue",
   "choices": [
-   "confident when greeting strangers",
-   "annoyed about sharing attention",
-   "impatient to leave the gathering",
-   "shy about meeting others"
+   "Confident about introducing herself to strangers.",
+   "Unable to remember where the classrooms were.",
+   "Annoyed because other people needed directions.",
+   "Shy when speaking to unfamiliar people."
   ],
   "answerOptions": [
    {
-    "value": "confident when greeting strangers",
-    "label": "confident when greeting strangers",
-    "text": "confident when greeting strangers"
+    "value": "Confident about introducing herself to strangers.",
+    "label": "Confident about introducing herself to strangers.",
+    "text": "Confident about introducing herself to strangers."
    },
    {
-    "value": "annoyed about sharing attention",
-    "label": "annoyed about sharing attention",
-    "text": "annoyed about sharing attention"
+    "value": "Unable to remember where the classrooms were.",
+    "label": "Unable to remember where the classrooms were.",
+    "text": "Unable to remember where the classrooms were."
    },
    {
-    "value": "impatient to leave the gathering",
-    "label": "impatient to leave the gathering",
-    "text": "impatient to leave the gathering"
+    "value": "Annoyed because other people needed directions.",
+    "label": "Annoyed because other people needed directions.",
+    "text": "Annoyed because other people needed directions."
    },
    {
-    "value": "shy about meeting others",
-    "label": "shy about meeting others",
-    "text": "shy about meeting others"
+    "value": "Shy when speaking to unfamiliar people.",
+    "label": "Shy when speaking to unfamiliar people.",
+    "text": "Shy when speaking to unfamiliar people."
    }
   ],
-  "answer": "shy about meeting others",
-  "correctAnswer": "shy about meeting others",
+  "answer": "Shy when speaking to unfamiliar people.",
+  "correctAnswer": "Shy when speaking to unfamiliar people.",
   "distractorRationales": {
-   "confident when greeting strangers": "D-PLAUSIBLE-UNSUPPORTED",
-   "annoyed about sharing attention": "D-PLAUSIBLE-UNSUPPORTED",
-   "impatient to leave the gathering": "D-OPPOSITE"
+   "Confident about introducing herself to strangers.": "D-OPPOSITE",
+   "Unable to remember where the classrooms were.": "D-TOPIC-ADJACENT",
+   "Annoyed because other people needed directions.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3010,7 +3010,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Contrast social confidence with hesitation while showing Faye has the needed knowledge; separate shyness from ignorance or unwillingness."
  },
  {
   "id": "lp3.context_clues.l2.B.antonym_contrast_clue.v2",
@@ -3035,42 +3035,42 @@ export const questions = [
   "prompt": "In this passage, what does \"rickety\" mean?",
   "question": "In this passage, what does \"rickety\" mean?",
   "spokenPrompt": "In this passage, what does \"rickety\" mean?",
-  "passage": "The new bridge stayed firm through the storm. The old bridge was rickety, shaking at every step. Two loose boards creaked, and another board was missing.",
+  "passage": "A new wooden bridge crossed the stream beside the old one. Its firm boards did not move when the workers tested them. The old bridge was rickety, trembling as its loose joints shifted. A warning barrier kept visitors away from that unsafe crossing. Both bridges were wide enough for people carrying large bags. Their height above the water was almost exactly the same. The workers checked the new supports before opening the safe route. They removed the old loose boards after everyone could cross elsewhere.",
   "cell": "antonym_contrast_clue",
   "choices": [
-   "unstable and poorly supported",
-   "firmly built and dependable",
-   "too steep for most walkers",
-   "narrow but strongly built"
+   "Shaky because its parts were not firmly held together.",
+   "Strongly built with joints that stayed firmly in place.",
+   "Too narrow for people carrying bags to cross safely.",
+   "Much higher above the water than another nearby bridge."
   ],
   "answerOptions": [
    {
-    "value": "unstable and poorly supported",
-    "label": "unstable and poorly supported",
-    "text": "unstable and poorly supported"
+    "value": "Shaky because its parts were not firmly held together.",
+    "label": "Shaky because its parts were not firmly held together.",
+    "text": "Shaky because its parts were not firmly held together."
    },
    {
-    "value": "firmly built and dependable",
-    "label": "firmly built and dependable",
-    "text": "firmly built and dependable"
+    "value": "Strongly built with joints that stayed firmly in place.",
+    "label": "Strongly built with joints that stayed firmly in place.",
+    "text": "Strongly built with joints that stayed firmly in place."
    },
    {
-    "value": "too steep for most walkers",
-    "label": "too steep for most walkers",
-    "text": "too steep for most walkers"
+    "value": "Too narrow for people carrying bags to cross safely.",
+    "label": "Too narrow for people carrying bags to cross safely.",
+    "text": "Too narrow for people carrying bags to cross safely."
    },
    {
-    "value": "narrow but strongly built",
-    "label": "narrow but strongly built",
-    "text": "narrow but strongly built"
+    "value": "Much higher above the water than another nearby bridge.",
+    "label": "Much higher above the water than another nearby bridge.",
+    "text": "Much higher above the water than another nearby bridge."
    }
   ],
-  "answer": "unstable and poorly supported",
-  "correctAnswer": "unstable and poorly supported",
+  "answer": "Shaky because its parts were not firmly held together.",
+  "correctAnswer": "Shaky because its parts were not firmly held together.",
   "distractorRationales": {
-   "narrow but strongly built": "D-OPPOSITE",
-   "firmly built and dependable": "D-PLAUSIBLE-UNSUPPORTED",
-   "too steep for most walkers": "D-PLAUSIBLE-UNSUPPORTED"
+   "Much higher above the water than another nearby bridge.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Strongly built with joints that stayed firmly in place.": "D-OPPOSITE",
+   "Too narrow for people carrying bags to cross safely.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3101,7 +3101,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Use opposed stability and loose supports; width and height are explicitly similar so cannot define the contrast."
  },
  {
   "id": "lp3.context_clues.l2.C.antonym_contrast_clue.v3",
@@ -3126,42 +3126,42 @@ export const questions = [
   "prompt": "In this passage, what does \"bare\" mean?",
   "question": "In this passage, what does \"bare\" mean?",
   "spokenPrompt": "In this passage, what does \"bare\" mean?",
-  "passage": "The town square was full of people and market stalls. The side streets were bare. They had no stalls, lanterns or people. Everyone had gathered in the square.",
+  "passage": "On market days, stalls usually filled several narrow streets near the square. This week, all the sellers gathered in the square instead. The side streets looked bare beside that busy collection of tables. There were no baskets, hanging lanterns or waiting customers along them. Their stone surfaces were still dusty from the previous dry day. Nobody had washed or repainted the buildings during the move. Children could see the walls normally hidden behind the stalls. They walked through the empty space to reach the crowded square.",
   "cell": "antonym_contrast_clue",
   "choices": [
-   "empty of the things usually there",
-   "crowded with many different things",
-   "covered with a thin layer of dust",
-   "freshly cleaned for a special event"
+   "Empty of the things that normally filled them.",
+   "Crowded with many stalls and waiting customers.",
+   "Freshly cleaned with no dust on the ground.",
+   "Hidden by new decorations along every building."
   ],
   "answerOptions": [
    {
-    "value": "empty of the things usually there",
-    "label": "empty of the things usually there",
-    "text": "empty of the things usually there"
+    "value": "Empty of the things that normally filled them.",
+    "label": "Empty of the things that normally filled them.",
+    "text": "Empty of the things that normally filled them."
    },
    {
-    "value": "crowded with many different things",
-    "label": "crowded with many different things",
-    "text": "crowded with many different things"
+    "value": "Crowded with many stalls and waiting customers.",
+    "label": "Crowded with many stalls and waiting customers.",
+    "text": "Crowded with many stalls and waiting customers."
    },
    {
-    "value": "covered with a thin layer of dust",
-    "label": "covered with a thin layer of dust",
-    "text": "covered with a thin layer of dust"
+    "value": "Freshly cleaned with no dust on the ground.",
+    "label": "Freshly cleaned with no dust on the ground.",
+    "text": "Freshly cleaned with no dust on the ground."
    },
    {
-    "value": "freshly cleaned for a special event",
-    "label": "freshly cleaned for a special event",
-    "text": "freshly cleaned for a special event"
+    "value": "Hidden by new decorations along every building.",
+    "label": "Hidden by new decorations along every building.",
+    "text": "Hidden by new decorations along every building."
    }
   ],
-  "answer": "empty of the things usually there",
-  "correctAnswer": "empty of the things usually there",
+  "answer": "Empty of the things that normally filled them.",
+  "correctAnswer": "Empty of the things that normally filled them.",
   "distractorRationales": {
-   "crowded with many different things": "D-PLAUSIBLE-UNSUPPORTED",
-   "covered with a thin layer of dust": "D-PLAUSIBLE-UNSUPPORTED",
-   "freshly cleaned for a special event": "D-OPPOSITE"
+   "Crowded with many stalls and waiting customers.": "D-OPPOSITE",
+   "Freshly cleaned with no dust on the ground.": "D-TOPIC-ADJACENT",
+   "Hidden by new decorations along every building.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3192,7 +3192,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Contrast absent ordinary contents with the crowded square; retained dust rules out a cleanliness meaning."
  },
  {
   "id": "lp3.context_clues.l2.A.antonym_contrast_clue.v4",
@@ -3217,42 +3217,42 @@ export const questions = [
   "prompt": "In this passage, what does \"frigid\" mean?",
   "question": "In this passage, what does \"frigid\" mean?",
   "spokenPrompt": "In this passage, what does \"frigid\" mean?",
-  "passage": "The hall was warm, but the office was frigid. The principal wore a coat and wrapped herself in a blanket. She rubbed her cold fingers while waiting for the heater.",
+  "passage": "The school hall felt pleasantly warm after its heater started. The small office next door remained frigid throughout the morning. Inside, the principal kept her coat buttoned beneath a thick blanket. Even after rubbing her hands, her fingers felt painfully cold. She moved her work into the hall while waiting for repairs. Both rooms had been quiet before the children arrived. The difference was not their noise or how neatly papers were arranged. Warm air finally reached the office when its heater was fixed.",
   "cell": "antonym_contrast_clue",
   "choices": [
-   "extremely cold",
-   "comfortably warm",
-   "strangely quiet",
-   "very tidy"
+   "Extremely cold and uncomfortable.",
+   "Warm enough to feel comfortable.",
+   "Unusually quiet without any voices.",
+   "Untidy with papers left everywhere."
   ],
   "answerOptions": [
    {
-    "value": "extremely cold",
-    "label": "extremely cold",
-    "text": "extremely cold"
+    "value": "Extremely cold and uncomfortable.",
+    "label": "Extremely cold and uncomfortable.",
+    "text": "Extremely cold and uncomfortable."
    },
    {
-    "value": "comfortably warm",
-    "label": "comfortably warm",
-    "text": "comfortably warm"
+    "value": "Warm enough to feel comfortable.",
+    "label": "Warm enough to feel comfortable.",
+    "text": "Warm enough to feel comfortable."
    },
    {
-    "value": "strangely quiet",
-    "label": "strangely quiet",
-    "text": "strangely quiet"
+    "value": "Unusually quiet without any voices.",
+    "label": "Unusually quiet without any voices.",
+    "text": "Unusually quiet without any voices."
    },
    {
-    "value": "very tidy",
-    "label": "very tidy",
-    "text": "very tidy"
+    "value": "Untidy with papers left everywhere.",
+    "label": "Untidy with papers left everywhere.",
+    "text": "Untidy with papers left everywhere."
    }
   ],
-  "answer": "extremely cold",
-  "correctAnswer": "extremely cold",
+  "answer": "Extremely cold and uncomfortable.",
+  "correctAnswer": "Extremely cold and uncomfortable.",
   "distractorRationales": {
-   "strangely quiet": "D-PLAUSIBLE-UNSUPPORTED",
-   "very tidy": "D-PLAUSIBLE-UNSUPPORTED",
-   "comfortably warm": "D-OPPOSITE"
+   "Unusually quiet without any voices.": "D-TOPIC-ADJACENT",
+   "Untidy with papers left everywhere.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Warm enough to feel comfortable.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3283,7 +3283,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Use the hall-office temperature contrast, protective clothing and repaired heating; reject noise and tidiness as stated non-causes."
  },
  {
   "id": "lp3.context_clues.l2.B.antonym_contrast_clue.v5",
@@ -3308,42 +3308,42 @@ export const questions = [
   "prompt": "In this passage, what does \"brisk\" mean?",
   "question": "In this passage, what does \"brisk\" mean?",
   "spokenPrompt": "In this passage, what does \"brisk\" mean?",
-  "passage": "Dad walks slowly on Sundays. On school mornings, his pace is brisk instead. Ida has to take quick little running steps to keep up.",
+  "passage": "On Sundays, Dad liked a slow walk beside the river. He stopped often to look at birds or talk with neighbours. His pace on school mornings was brisk instead. Ida needed several quick steps to match each of his strides. They still used the same smooth path beside the river. Dad did not stumble or walk quietly on his toes. He moved with purpose, reaching the gate before the bell. On the return journey, he slowed down and watched the ducks again.",
   "cell": "antonym_contrast_clue",
   "choices": [
-   "uneven and likely to stumble",
-   "quick and full of energy",
-   "slow and without much effort",
-   "quiet and careful at each step"
+   "Quiet so that nobody could hear footsteps.",
+   "Quick and full of purposeful energy.",
+   "Slow and relaxed with frequent stops.",
+   "Unsteady because the path was uneven."
   ],
   "answerOptions": [
    {
-    "value": "uneven and likely to stumble",
-    "label": "uneven and likely to stumble",
-    "text": "uneven and likely to stumble"
+    "value": "Quiet so that nobody could hear footsteps.",
+    "label": "Quiet so that nobody could hear footsteps.",
+    "text": "Quiet so that nobody could hear footsteps."
    },
    {
-    "value": "quick and full of energy",
-    "label": "quick and full of energy",
-    "text": "quick and full of energy"
+    "value": "Quick and full of purposeful energy.",
+    "label": "Quick and full of purposeful energy.",
+    "text": "Quick and full of purposeful energy."
    },
    {
-    "value": "slow and without much effort",
-    "label": "slow and without much effort",
-    "text": "slow and without much effort"
+    "value": "Slow and relaxed with frequent stops.",
+    "label": "Slow and relaxed with frequent stops.",
+    "text": "Slow and relaxed with frequent stops."
    },
    {
-    "value": "quiet and careful at each step",
-    "label": "quiet and careful at each step",
-    "text": "quiet and careful at each step"
+    "value": "Unsteady because the path was uneven.",
+    "label": "Unsteady because the path was uneven.",
+    "text": "Unsteady because the path was uneven."
    }
   ],
-  "answer": "quick and full of energy",
-  "correctAnswer": "quick and full of energy",
+  "answer": "Quick and full of purposeful energy.",
+  "correctAnswer": "Quick and full of purposeful energy.",
   "distractorRationales": {
-   "quiet and careful at each step": "D-PLAUSIBLE-UNSUPPORTED",
-   "uneven and likely to stumble": "D-OPPOSITE",
-   "slow and without much effort": "D-PLAUSIBLE-UNSUPPORTED"
+   "Unsteady because the path was uneven.": "D-TOPIC-ADJACENT",
+   "Quiet so that nobody could hear footsteps.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Slow and relaxed with frequent stops.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3374,7 +3374,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Infer pace from contrasting journeys, effort to keep up and timely arrival; same path excludes terrain as the word’s meaning."
  },
  {
   "id": "lp3.context_clues.l2.C.antonym_contrast_clue.v6",
@@ -3399,42 +3399,42 @@ export const questions = [
   "prompt": "In this passage, what does \"mutter\" mean?",
   "question": "In this passage, what does \"mutter\" mean?",
   "spokenPrompt": "In this passage, what does \"mutter\" mean?",
-  "passage": "Ade spoke clearly so everyone in the hall could hear. Bola chose to mutter instead. Her low, unclear words could hardly be heard nearby.",
+  "passage": "The drama class practised speaking across the large school hall. Ade spoke clearly, sending each word towards the children at the back. Bola began to mutter when her turn arrived. Her low, unclear words barely reached the person standing beside her. The teacher could not tell whether she was repeating the right sentence. She asked Bola to lift her head and speak more openly. This time, the words reached the other end of the room. The script itself had not changed between Bola's two attempts.",
   "cell": "antonym_contrast_clue",
   "choices": [
-   "explain something slowly and carefully",
-   "speak softly without clear words",
-   "call out loudly and clearly",
-   "repeat something in a steady rhythm"
+   "Explain the meaning of a sentence very slowly.",
+   "Speak in a low voice with unclear words.",
+   "Call out so everyone hears each word clearly.",
+   "Repeat the wrong sentence from the written script."
   ],
   "answerOptions": [
    {
-    "value": "explain something slowly and carefully",
-    "label": "explain something slowly and carefully",
-    "text": "explain something slowly and carefully"
+    "value": "Explain the meaning of a sentence very slowly.",
+    "label": "Explain the meaning of a sentence very slowly.",
+    "text": "Explain the meaning of a sentence very slowly."
    },
    {
-    "value": "speak softly without clear words",
-    "label": "speak softly without clear words",
-    "text": "speak softly without clear words"
+    "value": "Speak in a low voice with unclear words.",
+    "label": "Speak in a low voice with unclear words.",
+    "text": "Speak in a low voice with unclear words."
    },
    {
-    "value": "call out loudly and clearly",
-    "label": "call out loudly and clearly",
-    "text": "call out loudly and clearly"
+    "value": "Call out so everyone hears each word clearly.",
+    "label": "Call out so everyone hears each word clearly.",
+    "text": "Call out so everyone hears each word clearly."
    },
    {
-    "value": "repeat something in a steady rhythm",
-    "label": "repeat something in a steady rhythm",
-    "text": "repeat something in a steady rhythm"
+    "value": "Repeat the wrong sentence from the written script.",
+    "label": "Repeat the wrong sentence from the written script.",
+    "text": "Repeat the wrong sentence from the written script."
    }
   ],
-  "answer": "speak softly without clear words",
-  "correctAnswer": "speak softly without clear words",
+  "answer": "Speak in a low voice with unclear words.",
+  "correctAnswer": "Speak in a low voice with unclear words.",
   "distractorRationales": {
-   "repeat something in a steady rhythm": "D-PLAUSIBLE-UNSUPPORTED",
-   "explain something slowly and carefully": "D-OPPOSITE",
-   "call out loudly and clearly": "D-PLAUSIBLE-UNSUPPORTED"
+   "Repeat the wrong sentence from the written script.": "D-TOPIC-ADJACENT",
+   "Explain the meaning of a sentence very slowly.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Call out so everyone hears each word clearly.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3465,7 +3465,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Contrast audibility and articulation across two deliveries of the same script; unclear speech does not imply incorrect content."
  },
  {
   "id": "lp3.context_clues.l2.A.antonym_contrast_clue.v7",
@@ -3490,42 +3490,42 @@ export const questions = [
   "prompt": "In this passage, what does \"lively\" mean?",
   "question": "In this passage, what does \"lively\" mean?",
   "spokenPrompt": "In this passage, what does \"lively\" mean?",
-  "passage": "The harbor was lively during the day. Boats came and went while workers called across the dock. At midnight it was still, with no engines or voices.",
+  "passage": "The harbour was lively when the fishing boats returned each morning. Engines hummed while workers called across the dock and carried boxes. Buyers checked the catches, and drivers loaded vans for the market. By midnight, the same place was still and almost silent. The boxes remained stacked, but nobody moved among them then. Boats rested at their ropes with their engines switched off. Deep water lay beneath the dock at both times of day. At dawn, the returning crews brought movement and voices again.",
   "cell": "antonym_contrast_clue",
   "choices": [
-   "unsafe because of deep water",
-   "busy with things happening",
-   "quiet and still",
-   "crowded with stored tools"
+   "Dangerous because the water beneath it was deep.",
+   "Busy with movement, voices and activity.",
+   "Quiet and still without people moving about.",
+   "Crowded only with boxes left in storage."
   ],
   "answerOptions": [
    {
-    "value": "unsafe because of deep water",
-    "label": "unsafe because of deep water",
-    "text": "unsafe because of deep water"
+    "value": "Dangerous because the water beneath it was deep.",
+    "label": "Dangerous because the water beneath it was deep.",
+    "text": "Dangerous because the water beneath it was deep."
    },
    {
-    "value": "busy with things happening",
-    "label": "busy with things happening",
-    "text": "busy with things happening"
+    "value": "Busy with movement, voices and activity.",
+    "label": "Busy with movement, voices and activity.",
+    "text": "Busy with movement, voices and activity."
    },
    {
-    "value": "quiet and still",
-    "label": "quiet and still",
-    "text": "quiet and still"
+    "value": "Quiet and still without people moving about.",
+    "label": "Quiet and still without people moving about.",
+    "text": "Quiet and still without people moving about."
    },
    {
-    "value": "crowded with stored tools",
-    "label": "crowded with stored tools",
-    "text": "crowded with stored tools"
+    "value": "Crowded only with boxes left in storage.",
+    "label": "Crowded only with boxes left in storage.",
+    "text": "Crowded only with boxes left in storage."
    }
   ],
-  "answer": "busy with things happening",
-  "correctAnswer": "busy with things happening",
+  "answer": "Busy with movement, voices and activity.",
+  "correctAnswer": "Busy with movement, voices and activity.",
   "distractorRationales": {
-   "unsafe because of deep water": "D-OPPOSITE",
-   "quiet and still": "D-PLAUSIBLE-UNSUPPORTED",
-   "crowded with stored tools": "D-PLAUSIBLE-UNSUPPORTED"
+   "Dangerous because the water beneath it was deep.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Quiet and still without people moving about.": "D-OPPOSITE",
+   "Crowded only with boxes left in storage.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3556,7 +3556,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Compare the same place across time; unchanged boxes and water distinguish active life from static crowding or danger."
  },
  {
   "id": "lp3.context_clues.l2.B.antonym_contrast_clue.v8",
@@ -3581,42 +3581,42 @@ export const questions = [
   "prompt": "In this passage, what does \"dim\" mean?",
   "question": "In this passage, what does \"dim\" mean?",
   "spokenPrompt": "In this passage, what does \"dim\" mean?",
-  "passage": "The midday sun filled the room with bright light. That evening, the old lamp gave only a dim glow. Noor had to move her book close to see the words.",
+  "passage": "At noon, strong sunlight made every corner of Noor's room bright. She read comfortably while sitting well away from the window. That evening, the small old lamp gave only a dim glow. Noor moved her book closer but still struggled with tiny letters. The light stayed steady rather than flashing on and off. Its colour was the same warm yellow as before. A stronger bulb made the page clear without moving the chair. Noor could finally see the small print from her usual distance.",
   "cell": "antonym_contrast_clue",
   "choices": [
-   "changing between several different colours",
-   "flashing on and off very quickly",
-   "producing only a weak light",
-   "producing a dazzling bright light"
+   "Changing quickly between light and darkness.",
+   "Changing from one bright colour to another.",
+   "Giving only a weak amount of light.",
+   "Giving strong light that fills the room."
   ],
   "answerOptions": [
    {
-    "value": "changing between several different colours",
-    "label": "changing between several different colours",
-    "text": "changing between several different colours"
+    "value": "Changing quickly between light and darkness.",
+    "label": "Changing quickly between light and darkness.",
+    "text": "Changing quickly between light and darkness."
    },
    {
-    "value": "flashing on and off very quickly",
-    "label": "flashing on and off very quickly",
-    "text": "flashing on and off very quickly"
+    "value": "Changing from one bright colour to another.",
+    "label": "Changing from one bright colour to another.",
+    "text": "Changing from one bright colour to another."
    },
    {
-    "value": "producing only a weak light",
-    "label": "producing only a weak light",
-    "text": "producing only a weak light"
+    "value": "Giving only a weak amount of light.",
+    "label": "Giving only a weak amount of light.",
+    "text": "Giving only a weak amount of light."
    },
    {
-    "value": "producing a dazzling bright light",
-    "label": "producing a dazzling bright light",
-    "text": "producing a dazzling bright light"
+    "value": "Giving strong light that fills the room.",
+    "label": "Giving strong light that fills the room.",
+    "text": "Giving strong light that fills the room."
    }
   ],
-  "answer": "producing only a weak light",
-  "correctAnswer": "producing only a weak light",
+  "answer": "Giving only a weak amount of light.",
+  "correctAnswer": "Giving only a weak amount of light.",
   "distractorRationales": {
-   "producing a dazzling bright light": "D-PLAUSIBLE-UNSUPPORTED",
-   "changing between several different colours": "D-PLAUSIBLE-UNSUPPORTED",
-   "flashing on and off very quickly": "D-OPPOSITE"
+   "Giving strong light that fills the room.": "D-OPPOSITE",
+   "Changing quickly between light and darkness.": "D-TOPIC-ADJACENT",
+   "Changing from one bright colour to another.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3647,7 +3647,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Use daytime-evening visibility, reading distance and stronger replacement; steady colour explicitly excludes flicker and colour change."
  },
  {
   "id": "lp3.context_clues.l2.A.inference_clue.v1",
@@ -3672,42 +3672,42 @@ export const questions = [
   "prompt": "In this passage, what does \"vanish\" mean?",
   "question": "In this passage, what does \"vanish\" mean?",
   "spokenPrompt": "In this passage, what does \"vanish\" mean?",
-  "passage": "The magician held a coin between his fingers. After he clapped, it seemed to vanish. He showed both empty hands and turned them over. The children could not find the coin anywhere.",
+  "passage": "The magician placed a bright coin on his open palm. Everyone could see its silver edge under the stage lights. He closed both hands, clapped once and opened them again. The coin seemed to vanish while the audience was watching. He spread his fingers and slowly showed both empty palms. The children searched for a flash of silver but saw none. Later, the coin appeared beneath a cup on the table. Its size and colour were unchanged when a child examined it.",
   "cell": "inference_clue",
   "choices": [
-   "shine more brightly",
-   "stay in plain sight",
-   "disappear completely",
-   "grow much bigger"
+   "Become much larger than before.",
+   "Remain clearly visible in one place.",
+   "Disappear from view.",
+   "Change into a different object."
   ],
   "answerOptions": [
    {
-    "value": "shine more brightly",
-    "label": "shine more brightly",
-    "text": "shine more brightly"
+    "value": "Become much larger than before.",
+    "label": "Become much larger than before.",
+    "text": "Become much larger than before."
    },
    {
-    "value": "stay in plain sight",
-    "label": "stay in plain sight",
-    "text": "stay in plain sight"
+    "value": "Remain clearly visible in one place.",
+    "label": "Remain clearly visible in one place.",
+    "text": "Remain clearly visible in one place."
    },
    {
-    "value": "disappear completely",
-    "label": "disappear completely",
-    "text": "disappear completely"
+    "value": "Disappear from view.",
+    "label": "Disappear from view.",
+    "text": "Disappear from view."
    },
    {
-    "value": "grow much bigger",
-    "label": "grow much bigger",
-    "text": "grow much bigger"
+    "value": "Change into a different object.",
+    "label": "Change into a different object.",
+    "text": "Change into a different object."
    }
   ],
-  "answer": "disappear completely",
-  "correctAnswer": "disappear completely",
+  "answer": "Disappear from view.",
+  "correctAnswer": "Disappear from view.",
   "distractorRationales": {
-   "grow much bigger": "D-PLAUSIBLE-UNSUPPORTED",
-   "shine more brightly": "D-TOPIC-ADJACENT",
-   "stay in plain sight": "D-OPPOSITE"
+   "Change into a different object.": "D-TOPIC-ADJACENT",
+   "Become much larger than before.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Remain clearly visible in one place.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3738,7 +3738,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Infer disappearance from failed visual search and later reappearance; unchanged coin excludes physical transformation and growth."
  },
  {
   "id": "lp3.context_clues.l2.B.inference_clue.v2",
@@ -3763,42 +3763,42 @@ export const questions = [
   "prompt": "In this passage, what does \"slumber\" mean?",
   "question": "In this passage, what does \"slumber\" mean?",
   "spokenPrompt": "In this passage, what does \"slumber\" mean?",
-  "passage": "Leo settled into a slumber after his long hike. His eyes closed, and his breathing became slow and quiet. An hour later, he woke when Dad called him for supper.",
+  "passage": "Leo rested on the sofa after a long walk with Dad. He meant to look through the pictures they had taken. Soon his eyes closed, and he slipped into a peaceful slumber. The picture book stayed open on his knees without another page turning. Dad lowered the music and left him undisturbed for a while. An hour later, Leo opened his eyes when supper was called. He could not remember hearing the songs played during that hour. After stretching, he felt ready to eat and discuss the walk.",
   "cell": "inference_clue",
   "choices": [
-   "a slow search for something to eat",
-   "a long time watching the view",
-   "a short walk to cool down",
-   "a period of rest while asleep"
+   "A quiet time spent studying photographs.",
+   "A slow search for a missing object.",
+   "An energetic walk without stopping to rest.",
+   "A period of rest while asleep."
   ],
   "answerOptions": [
    {
-    "value": "a slow search for something to eat",
-    "label": "a slow search for something to eat",
-    "text": "a slow search for something to eat"
+    "value": "A quiet time spent studying photographs.",
+    "label": "A quiet time spent studying photographs.",
+    "text": "A quiet time spent studying photographs."
    },
    {
-    "value": "a long time watching the view",
-    "label": "a long time watching the view",
-    "text": "a long time watching the view"
+    "value": "A slow search for a missing object.",
+    "label": "A slow search for a missing object.",
+    "text": "A slow search for a missing object."
    },
    {
-    "value": "a short walk to cool down",
-    "label": "a short walk to cool down",
-    "text": "a short walk to cool down"
+    "value": "An energetic walk without stopping to rest.",
+    "label": "An energetic walk without stopping to rest.",
+    "text": "An energetic walk without stopping to rest."
    },
    {
-    "value": "a period of rest while asleep",
-    "label": "a period of rest while asleep",
-    "text": "a period of rest while asleep"
+    "value": "A period of rest while asleep.",
+    "label": "A period of rest while asleep.",
+    "text": "A period of rest while asleep."
    }
   ],
-  "answer": "a period of rest while asleep",
-  "correctAnswer": "a period of rest while asleep",
+  "answer": "A period of rest while asleep.",
+  "correctAnswer": "A period of rest while asleep.",
   "distractorRationales": {
-   "a slow search for something to eat": "D-PLAUSIBLE-UNSUPPORTED",
-   "a long time watching the view": "D-PLAUSIBLE-UNSUPPORTED",
-   "a short walk to cool down": "D-OPPOSITE"
+   "A quiet time spent studying photographs.": "D-TOPIC-ADJACENT",
+   "A slow search for a missing object.": "D-PLAUSIBLE-UNSUPPORTED",
+   "An energetic walk without stopping to rest.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3829,7 +3829,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Integrate closed eyes, a gap in awareness, waking and renewed energy; quiet sitting alone would not establish sleep."
  },
  {
   "id": "lp3.context_clues.l2.C.inference_clue.v3",
@@ -3854,42 +3854,42 @@ export const questions = [
   "prompt": "In this passage, what does \"scent\" mean?",
   "question": "In this passage, what does \"scent\" mean?",
   "spokenPrompt": "In this passage, what does \"scent\" mean?",
-  "passage": "A sweet scent reached Omar from the kitchen. He lifted his nose and breathed in again. He could tell Mom was cooking apples with cinnamon.",
+  "passage": "Omar stopped in the hallway before he could see the kitchen. A sweet scent reached him from beyond its half-open door. He lifted his nose and breathed in slowly once more. Nobody had brought him food to taste, and the kitchen was quiet. He thought of warm apples and the cinnamon jar on the shelf. Turning towards the door made the sensation stronger rather than louder. Inside, Mom was lifting an apple dish from the oven. Omar had guessed its ingredients before seeing what she had cooked.",
   "cell": "inference_clue",
   "choices": [
-   "a taste left inside the mouth",
-   "a breeze coming through the window",
-   "an odour carried through the air",
-   "a sound travelling through the house"
+   "A sound coming from a busy room.",
+   "A picture clearly visible through a window.",
+   "A smell travelling through the air.",
+   "A flavour left inside someone’s mouth."
   ],
   "answerOptions": [
    {
-    "value": "a taste left inside the mouth",
-    "label": "a taste left inside the mouth",
-    "text": "a taste left inside the mouth"
+    "value": "A sound coming from a busy room.",
+    "label": "A sound coming from a busy room.",
+    "text": "A sound coming from a busy room."
    },
    {
-    "value": "a breeze coming through the window",
-    "label": "a breeze coming through the window",
-    "text": "a breeze coming through the window"
+    "value": "A picture clearly visible through a window.",
+    "label": "A picture clearly visible through a window.",
+    "text": "A picture clearly visible through a window."
    },
    {
-    "value": "an odour carried through the air",
-    "label": "an odour carried through the air",
-    "text": "an odour carried through the air"
+    "value": "A smell travelling through the air.",
+    "label": "A smell travelling through the air.",
+    "text": "A smell travelling through the air."
    },
    {
-    "value": "a sound travelling through the house",
-    "label": "a sound travelling through the house",
-    "text": "a sound travelling through the house"
+    "value": "A flavour left inside someone’s mouth.",
+    "label": "A flavour left inside someone’s mouth.",
+    "text": "A flavour left inside someone’s mouth."
    }
   ],
-  "answer": "an odour carried through the air",
-  "correctAnswer": "an odour carried through the air",
+  "answer": "A smell travelling through the air.",
+  "correctAnswer": "A smell travelling through the air.",
   "distractorRationales": {
-   "a sound travelling through the house": "D-PLAUSIBLE-UNSUPPORTED",
-   "a taste left inside the mouth": "D-PLAUSIBLE-UNSUPPORTED",
-   "a breeze coming through the window": "D-OPPOSITE"
+   "A flavour left inside someone’s mouth.": "D-TOPIC-ADJACENT",
+   "A sound coming from a busy room.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A picture clearly visible through a window.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3920,7 +3920,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Infer the sensory channel from nose, breathing, direction and accurate identification without sight or tasting; sound is explicitly excluded."
  },
  {
   "id": "lp3.context_clues.l2.A.inference_clue.v4",
@@ -3945,42 +3945,42 @@ export const questions = [
   "prompt": "In this passage, what does \"repaid\" mean?",
   "question": "In this passage, what does \"repaid\" mean?",
   "spokenPrompt": "In this passage, what does \"repaid\" mean?",
-  "passage": "The steep climb left everyone hot and tired. At the top, the wide valley repaid their effort. They smiled at the view and were glad they had climbed.",
+  "passage": "The climb towards the lookout was steeper than the family expected. They stopped twice to rest and wondered whether to turn back. At the top, a wide view of the valley repaid their effort. They could see the winding river and farms beyond the distant trees. Nobody exchanged money, and the lookout had no ticket office. The tired walkers stayed much longer than they had planned. On the way down, they described their favourite parts of the view. Each agreed that reaching the top had been worth the climb.",
   "cell": "inference_clue",
   "choices": [
-   "returned money they had borrowed",
-   "required another difficult climb",
-   "made the effort seem wasted",
-   "provided a reward for their effort"
+   "Returned money that the walkers had previously lent someone.",
+   "Required them to repeat the same difficult climb once more.",
+   "Made them wish they had never bothered reaching the top.",
+   "Gave them something worthwhile in return for their effort."
   ],
   "answerOptions": [
    {
-    "value": "returned money they had borrowed",
-    "label": "returned money they had borrowed",
-    "text": "returned money they had borrowed"
+    "value": "Returned money that the walkers had previously lent someone.",
+    "label": "Returned money that the walkers had previously lent someone.",
+    "text": "Returned money that the walkers had previously lent someone."
    },
    {
-    "value": "required another difficult climb",
-    "label": "required another difficult climb",
-    "text": "required another difficult climb"
+    "value": "Required them to repeat the same difficult climb once more.",
+    "label": "Required them to repeat the same difficult climb once more.",
+    "text": "Required them to repeat the same difficult climb once more."
    },
    {
-    "value": "made the effort seem wasted",
-    "label": "made the effort seem wasted",
-    "text": "made the effort seem wasted"
+    "value": "Made them wish they had never bothered reaching the top.",
+    "label": "Made them wish they had never bothered reaching the top.",
+    "text": "Made them wish they had never bothered reaching the top."
    },
    {
-    "value": "provided a reward for their effort",
-    "label": "provided a reward for their effort",
-    "text": "provided a reward for their effort"
+    "value": "Gave them something worthwhile in return for their effort.",
+    "label": "Gave them something worthwhile in return for their effort.",
+    "text": "Gave them something worthwhile in return for their effort."
    }
   ],
-  "answer": "provided a reward for their effort",
-  "correctAnswer": "provided a reward for their effort",
+  "answer": "Gave them something worthwhile in return for their effort.",
+  "correctAnswer": "Gave them something worthwhile in return for their effort.",
   "distractorRationales": {
-   "required another difficult climb": "D-PLAUSIBLE-UNSUPPORTED",
-   "made the effort seem wasted": "D-OPPOSITE",
-   "returned money they had borrowed": "D-PLAUSIBLE-UNSUPPORTED"
+   "Required them to repeat the same difficult climb once more.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Made them wish they had never bothered reaching the top.": "D-OPPOSITE",
+   "Returned money that the walkers had previously lent someone.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4011,7 +4011,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Infer the figurative reward meaning from satisfaction after effort; contrast with literal financial repayment without teaching that sense as impossible elsewhere."
  },
  {
   "id": "lp3.context_clues.l2.B.inference_clue.v5",
@@ -4033,45 +4033,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "In this passage, what does \"peered\" mean?",
-  "question": "In this passage, what does \"peered\" mean?",
-  "spokenPrompt": "In this passage, what does \"peered\" mean?",
-  "passage": "Dev peered through a keyhole to see the birthday preparations. He brought his eye very close and narrowed it. Then he tried a crack beside the door for another glimpse.",
+  "prompt": "In this passage, what does “tentative” mean?",
+  "question": "In this passage, what does “tentative” mean?",
+  "spokenPrompt": "In this passage, what does “tentative” mean?",
+  "passage": "Dev joined a pottery group where everyone else had tried the wheel. He watched the spinning clay before placing his hands near it. His first touch was tentative, and he quickly drew his fingers back. He asked the teacher whether that much pressure was enough. She guided his hands until the soft wall stayed upright. After several tries, his movements became firmer and more certain. He no longer stopped before every touch of the clay. The bowl grew evenly while the wheel turned at the same speed.",
   "cell": "inference_clue",
   "choices": [
-   "looked closely with effort",
-   "listened closely without looking",
-   "glanced briefly while passing",
-   "knocked gently before entering"
+   "Uncertain and careful because he was not yet confident.",
+   "Firm and confident because he knew exactly what to do.",
+   "Quick and careless because he wanted to finish first.",
+   "Angry and forceful because the clay had upset him."
   ],
   "answerOptions": [
    {
-    "value": "looked closely with effort",
-    "label": "looked closely with effort",
-    "text": "looked closely with effort"
+    "value": "Uncertain and careful because he was not yet confident.",
+    "label": "Uncertain and careful because he was not yet confident.",
+    "text": "Uncertain and careful because he was not yet confident."
    },
    {
-    "value": "listened closely without looking",
-    "label": "listened closely without looking",
-    "text": "listened closely without looking"
+    "value": "Firm and confident because he knew exactly what to do.",
+    "label": "Firm and confident because he knew exactly what to do.",
+    "text": "Firm and confident because he knew exactly what to do."
    },
    {
-    "value": "glanced briefly while passing",
-    "label": "glanced briefly while passing",
-    "text": "glanced briefly while passing"
+    "value": "Quick and careless because he wanted to finish first.",
+    "label": "Quick and careless because he wanted to finish first.",
+    "text": "Quick and careless because he wanted to finish first."
    },
    {
-    "value": "knocked gently before entering",
-    "label": "knocked gently before entering",
-    "text": "knocked gently before entering"
+    "value": "Angry and forceful because the clay had upset him.",
+    "label": "Angry and forceful because the clay had upset him.",
+    "text": "Angry and forceful because the clay had upset him."
    }
   ],
-  "answer": "looked closely with effort",
-  "correctAnswer": "looked closely with effort",
+  "answer": "Uncertain and careful because he was not yet confident.",
+  "correctAnswer": "Uncertain and careful because he was not yet confident.",
   "distractorRationales": {
-   "listened closely without looking": "D-PLAUSIBLE-UNSUPPORTED",
-   "glanced briefly while passing": "D-PLAUSIBLE-UNSUPPORTED",
-   "knocked gently before entering": "D-OPPOSITE"
+   "Firm and confident because he knew exactly what to do.": "D-OPPOSITE",
+   "Quick and careless because he wanted to finish first.": "D-TOPIC-ADJACENT",
+   "Angry and forceful because the clay had upset him.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4081,7 +4081,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "peered",
+  "targetWord": "tentative",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4102,7 +4102,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Replace the cross-level peered/keyhole duplicate; infer tentative from withdrawal, checking and later confidence rather than a direct synonym gloss."
  },
  {
   "id": "lp3.context_clues.l2.C.inference_clue.v6",
@@ -4127,42 +4127,42 @@ export const questions = [
   "prompt": "In this passage, what does \"bobbed\" mean?",
   "question": "In this passage, what does \"bobbed\" mean?",
   "spokenPrompt": "In this passage, what does \"bobbed\" mean?",
-  "passage": "The little boat bobbed beside the dock. A small wave lifted its nose, then let it fall. The next wave lifted it once more. Its rope kept it from moving away.",
+  "passage": "The little boat stayed tied beside the dock after its passengers left. A passing ferry sent gentle waves towards its wooden hull. The boat bobbed as each wave reached the place it floated. Its nose rose above the dock's edge, then dropped below it. The next wave brought the same change in height again. Its rope kept it near the post throughout this movement. It did not travel down the harbour or turn in circles. When the water settled, the boat's nose stayed level beside the dock.",
   "cell": "inference_clue",
   "choices": [
-   "travelled quickly away from the shore",
-   "turned steadily around in a circle",
-   "slid sideways along the edge of the dock",
-   "rose and fell on the water"
+   "Travelled quickly away from the place it was tied.",
+   "Turned steadily in circles around the nearest post.",
+   "Stayed at exactly the same height without moving.",
+   "Moved up and down repeatedly on the water."
   ],
   "answerOptions": [
    {
-    "value": "travelled quickly away from the shore",
-    "label": "travelled quickly away from the shore",
-    "text": "travelled quickly away from the shore"
+    "value": "Travelled quickly away from the place it was tied.",
+    "label": "Travelled quickly away from the place it was tied.",
+    "text": "Travelled quickly away from the place it was tied."
    },
    {
-    "value": "turned steadily around in a circle",
-    "label": "turned steadily around in a circle",
-    "text": "turned steadily around in a circle"
+    "value": "Turned steadily in circles around the nearest post.",
+    "label": "Turned steadily in circles around the nearest post.",
+    "text": "Turned steadily in circles around the nearest post."
    },
    {
-    "value": "slid sideways along the edge of the dock",
-    "label": "slid sideways along the edge of the dock",
-    "text": "slid sideways along the edge of the dock"
+    "value": "Stayed at exactly the same height without moving.",
+    "label": "Stayed at exactly the same height without moving.",
+    "text": "Stayed at exactly the same height without moving."
    },
    {
-    "value": "rose and fell on the water",
-    "label": "rose and fell on the water",
-    "text": "rose and fell on the water"
+    "value": "Moved up and down repeatedly on the water.",
+    "label": "Moved up and down repeatedly on the water.",
+    "text": "Moved up and down repeatedly on the water."
    }
   ],
-  "answer": "rose and fell on the water",
-  "correctAnswer": "rose and fell on the water",
+  "answer": "Moved up and down repeatedly on the water.",
+  "correctAnswer": "Moved up and down repeatedly on the water.",
   "distractorRationales": {
-   "turned steadily around in a circle": "D-PLAUSIBLE-UNSUPPORTED",
-   "slid sideways along the edge of the dock": "D-OPPOSITE",
-   "travelled quickly away from the shore": "D-PLAUSIBLE-UNSUPPORTED"
+   "Turned steadily in circles around the nearest post.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Stayed at exactly the same height without moving.": "D-OPPOSITE",
+   "Travelled quickly away from the place it was tied.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4193,7 +4193,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Infer repeated vertical motion from height changes and waves; fixed position separates bobbing from travel or rotation."
  },
  {
   "id": "lp3.context_clues.l2.A.inference_clue.v7",
@@ -4218,42 +4218,42 @@ export const questions = [
   "prompt": "In this passage, what does \"patched\" mean?",
   "question": "In this passage, what does \"patched\" mean?",
   "spokenPrompt": "In this passage, what does \"patched\" mean?",
-  "passage": "Roz patched the hole in her jeans. She sewed a square of cloth over the torn knee. Her skin no longer showed, and the hole stopped getting bigger.",
+  "passage": "Roz caught her jeans on a nail and tore one knee. The rest of the trousers was still strong and fitted well. She found a square of thick cloth larger than the hole. After pinning it in place, she stitched carefully around its edges. The covered knee no longer showed her skin when she bent down. She had patched the jeans instead of throwing them away. The new square was blue, while the older cloth was black. Both layers stayed firmly joined after a wash and another day's wear.",
   "cell": "inference_clue",
   "choices": [
-   "mended by adding a covering piece",
-   "enlarged by cutting around the edge",
-   "cleaned by soaking in hot water",
-   "shaped by folding the material over"
+   "Mended a damaged place by attaching another piece over it.",
+   "Changed the shape by folding the original material underneath.",
+   "Removed marks by washing the whole garment in hot water.",
+   "Made the damaged area larger by cutting away more cloth."
   ],
   "answerOptions": [
    {
-    "value": "mended by adding a covering piece",
-    "label": "mended by adding a covering piece",
-    "text": "mended by adding a covering piece"
+    "value": "Mended a damaged place by attaching another piece over it.",
+    "label": "Mended a damaged place by attaching another piece over it.",
+    "text": "Mended a damaged place by attaching another piece over it."
    },
    {
-    "value": "enlarged by cutting around the edge",
-    "label": "enlarged by cutting around the edge",
-    "text": "enlarged by cutting around the edge"
+    "value": "Changed the shape by folding the original material underneath.",
+    "label": "Changed the shape by folding the original material underneath.",
+    "text": "Changed the shape by folding the original material underneath."
    },
    {
-    "value": "cleaned by soaking in hot water",
-    "label": "cleaned by soaking in hot water",
-    "text": "cleaned by soaking in hot water"
+    "value": "Removed marks by washing the whole garment in hot water.",
+    "label": "Removed marks by washing the whole garment in hot water.",
+    "text": "Removed marks by washing the whole garment in hot water."
    },
    {
-    "value": "shaped by folding the material over",
-    "label": "shaped by folding the material over",
-    "text": "shaped by folding the material over"
+    "value": "Made the damaged area larger by cutting away more cloth.",
+    "label": "Made the damaged area larger by cutting away more cloth.",
+    "text": "Made the damaged area larger by cutting away more cloth."
    }
   ],
-  "answer": "mended by adding a covering piece",
-  "correctAnswer": "mended by adding a covering piece",
+  "answer": "Mended a damaged place by attaching another piece over it.",
+  "correctAnswer": "Mended a damaged place by attaching another piece over it.",
   "distractorRationales": {
-   "shaped by folding the material over": "D-OPPOSITE",
-   "enlarged by cutting around the edge": "D-PLAUSIBLE-UNSUPPORTED",
-   "cleaned by soaking in hot water": "D-PLAUSIBLE-UNSUPPORTED"
+   "Made the damaged area larger by cutting away more cloth.": "D-OPPOSITE",
+   "Changed the shape by folding the original material underneath.": "D-TOPIC-ADJACENT",
+   "Removed marks by washing the whole garment in hot water.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4284,7 +4284,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Use the added material, stitching, covered hole and two retained layers to distinguish patching from washing, folding or cutting."
  },
  {
   "id": "lp3.context_clues.l2.B.inference_clue.v8",
@@ -4309,42 +4309,42 @@ export const questions = [
   "prompt": "In this passage, what does \"dashed\" mean?",
   "question": "In this passage, what does \"dashed\" mean?",
   "spokenPrompt": "In this passage, what does \"dashed\" mean?",
-  "passage": "The first heavy drops hit the picnic blanket. Everyone dashed toward the shelter before their food got wet. They reached the roof breathing hard, leaving muddy footprints behind.",
+  "passage": "The picnic was almost ready when large drops struck the blanket. A roofed shelter stood across the grass, some distance from their tree. Everyone dashed towards it, carrying whatever food they could reach. Their feet splashed through the shallow puddles forming on the path. They reached the roof breathing hard, before the cakes were soaked. Nobody stopped to examine flowers or collect the scattered leaves. Once under cover, they slowed down and put the food safely aside. The rain grew heavier while they looked back at the empty tree.",
   "cell": "inference_clue",
   "choices": [
-   "stood still and waited",
-   "ran there very quickly",
-   "walked there very slowly",
-   "jumped around in place"
+   "Waited beneath the tree for the rain to end.",
+   "Ran towards the shelter very quickly.",
+   "Walked towards it slowly with frequent stops.",
+   "Jumped up and down without moving closer."
   ],
   "answerOptions": [
    {
-    "value": "stood still and waited",
-    "label": "stood still and waited",
-    "text": "stood still and waited"
+    "value": "Waited beneath the tree for the rain to end.",
+    "label": "Waited beneath the tree for the rain to end.",
+    "text": "Waited beneath the tree for the rain to end."
    },
    {
-    "value": "ran there very quickly",
-    "label": "ran there very quickly",
-    "text": "ran there very quickly"
+    "value": "Ran towards the shelter very quickly.",
+    "label": "Ran towards the shelter very quickly.",
+    "text": "Ran towards the shelter very quickly."
    },
    {
-    "value": "walked there very slowly",
-    "label": "walked there very slowly",
-    "text": "walked there very slowly"
+    "value": "Walked towards it slowly with frequent stops.",
+    "label": "Walked towards it slowly with frequent stops.",
+    "text": "Walked towards it slowly with frequent stops."
    },
    {
-    "value": "jumped around in place",
-    "label": "jumped around in place",
-    "text": "jumped around in place"
+    "value": "Jumped up and down without moving closer.",
+    "label": "Jumped up and down without moving closer.",
+    "text": "Jumped up and down without moving closer."
    }
   ],
-  "answer": "ran there very quickly",
-  "correctAnswer": "ran there very quickly",
+  "answer": "Ran towards the shelter very quickly.",
+  "correctAnswer": "Ran towards the shelter very quickly.",
   "distractorRationales": {
-   "stood still and waited": "D-OPPOSITE",
-   "walked there very slowly": "D-PLAUSIBLE-UNSUPPORTED",
-   "jumped around in place": "D-PLAUSIBLE-UNSUPPORTED"
+   "Waited beneath the tree for the rain to end.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Walked towards it slowly with frequent stops.": "D-OPPOSITE",
+   "Jumped up and down without moving closer.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4375,7 +4375,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Infer hurried directed motion from weather urgency, breathlessness and reaching shelter; contrast with the slower behaviour afterwards."
  },
  {
   "id": "lp3.context_clues.l1.R.definition_clue.v9r",
@@ -4400,7 +4400,7 @@ export const questions = [
   "prompt": "In this passage, what does \"snug\" mean?",
   "question": "In this passage, what does \"snug\" mean?",
   "spokenPrompt": "In this passage, what does \"snug\" mean?",
-  "passage": "Snug means warm and comfortable. Mia sat in a snug nest of blankets. Outside, rain tapped the window. Inside, she stayed warm while reading her book.",
+  "passage": "Snug means pleasantly warm and comfortable in a space. Mia sat in a snug nest of soft blankets. Outside, cold rain tapped against the bedroom window. Inside, she enjoyed reading without feeling cold or cramped.",
   "cell": "definition_clue",
   "choices": [
    "warm and comfortable",
@@ -4467,7 +4467,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Direct definition plus contrasting outside weather distinguish comfort from merely being half asleep."
  },
  {
   "id": "lp3.context_clues.l1.R.definition_clue.v10r",
@@ -4492,7 +4492,7 @@ export const questions = [
   "prompt": "In this passage, what does \"faint\" mean?",
   "question": "In this passage, what does \"faint\" mean?",
   "spokenPrompt": "In this passage, what does \"faint\" mean?",
-  "passage": "A faint sound is very quiet. We heard a faint chime from far away. Everyone stopped talking to hear it. The next small ring was almost too quiet.",
+  "passage": "A faint sound is quiet and hard to hear. We heard a faint chime from far away. Everyone stopped talking to listen for it again. The next ring was almost lost in the breeze.",
   "cell": "definition_clue",
   "choices": [
    "far too slow",
@@ -4559,7 +4559,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Definition and listening effort support sound volume, not tempo or musical tuning."
  },
  {
   "id": "lp3.context_clues.l1.R.example_clue.v9r",
@@ -4650,7 +4650,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Blocked harbour view, toy-like trucks and many window levels jointly establish size."
  },
  {
   "id": "lp3.context_clues.l1.R.example_clue.v10r",
@@ -4741,7 +4741,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Glass breaking and paper tearing exemplify vulnerability despite different materials."
  },
  {
   "id": "lp3.context_clues.l1.R.action_clue.v9r",
@@ -4766,7 +4766,7 @@ export const questions = [
   "prompt": "In this passage, what does \"grumpy\" mean?",
   "question": "In this passage, what does \"grumpy\" mean?",
   "spokenPrompt": "In this passage, what does \"grumpy\" mean?",
-  "passage": "Uncle Ray seemed grumpy during dinner. He frowned at his peas and sighed. When people asked him questions, he answered sharply. Even his favorite pudding brought no smile.",
+  "passage": "Uncle Ray seemed grumpy throughout the family dinner. He frowned at his peas and sighed loudly. When people asked him questions, he answered sharply. Even his favourite pudding failed to bring a smile.",
   "cell": "action_clue",
   "choices": [
    "in a bad mood",
@@ -4832,7 +4832,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Negative mood is supported across speech, face and response to a favourite food."
  },
  {
   "id": "lp3.context_clues.l1.R.action_clue.v10r",
@@ -4857,7 +4857,7 @@ export const questions = [
   "prompt": "In this passage, what does \"darted\" mean?",
   "question": "In this passage, what does \"darted\" mean?",
   "spokenPrompt": "In this passage, what does \"darted\" mean?",
-  "passage": "The lizard darted across the hot path. One moment it was on a stone. A moment later it was under the bush. Nobody could follow its quick movement.",
+  "passage": "The lizard darted across the hot garden path. One moment it was on a flat stone. A moment later it was underneath the bush. Nobody could follow the sudden movement with their eyes.",
   "cell": "action_clue",
   "choices": [
    "turned slowly in a circle",
@@ -4923,7 +4923,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Abrupt relocation in a moment distinguishes darted from slow movement or rest."
  },
  {
   "id": "lp3.context_clues.l1.R.definition_clue.v11r",
@@ -4948,7 +4948,7 @@ export const questions = [
   "prompt": "In this passage, what does \"elderly\" mean?",
   "question": "In this passage, what does \"elderly\" mean?",
   "spokenPrompt": "In this passage, what does \"elderly\" mean?",
-  "passage": "Elderly means old in age. Our elderly neighbor is nearly ninety. He has lived here longer than anyone else. He remembers when our road had no shops.",
+  "passage": "Elderly means old in age rather than young. Our elderly neighbour is now nearly ninety years old. He has lived here longer than anyone else. He remembers when fields stood where shops stand today.",
   "cell": "definition_clue",
   "choices": [
    "newly arrived",
@@ -5015,7 +5015,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Definition, numerical age and long memory establish the age meaning."
  },
  {
   "id": "lp3.context_clues.l1.R.example_clue.v11r",
@@ -5040,7 +5040,7 @@ export const questions = [
   "prompt": "In this passage, what does \"jumble\" mean?",
   "question": "In this passage, what does \"jumble\" mean?",
   "spokenPrompt": "In this passage, what does \"jumble\" mean?",
-  "passage": "The junk drawer held a jumble. Old keys lay mixed with buttons and string. Batteries were tangled in rubber bands. Finding the missing bicycle bell took a long time.",
+  "passage": "The costume basket held a jumble after the play. Crowns lay mixed with boots and feathered hats. Long scarves curled around jackets of different sizes. Finding matching gloves meant searching through the mixed pile.",
   "cell": "example_clue",
   "choices": [
    "a neat row of things",
@@ -5106,7 +5106,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Mixed theatrical objects establish a disordered collection in a different setting from the desk-clutter item."
  },
  {
   "id": "lp3.context_clues.l2.R.synonym_clue.v9r",
@@ -5131,42 +5131,42 @@ export const questions = [
   "prompt": "In this passage, what does \"famished\" mean?",
   "question": "In this passage, what does \"famished\" mean?",
   "spokenPrompt": "In this passage, what does \"famished\" mean?",
-  "passage": "The stray kitten was famished. It was so hungry that it ate the whole saucerful. Ella had barely stood up before it began looking for more.",
+  "passage": "Ella returned from the long walk later than the family expected. She had missed lunch after leaving her packed food at home. By the time she reached the kitchen, she was famished. She felt terribly hungry and could think only about eating. Although she was tired too, a comfortable chair was not enough. She finished her sandwich and asked whether any soup was ready. After a second helping, her stomach finally stopped growling. Then she settled into the chair to tell everyone about the walk.",
   "cell": "synonym_clue",
   "choices": [
-   "quite exhausted",
-   "extremely hungry",
-   "completely full",
-   "very frightened"
+   "Frightened and wanting someone to stay nearby.",
+   "Extremely hungry and needing food.",
+   "Completely full after a large meal.",
+   "Tired and needing sleep rather than food."
   ],
   "answerOptions": [
    {
-    "value": "quite exhausted",
-    "label": "quite exhausted",
-    "text": "quite exhausted"
+    "value": "Frightened and wanting someone to stay nearby.",
+    "label": "Frightened and wanting someone to stay nearby.",
+    "text": "Frightened and wanting someone to stay nearby."
    },
    {
-    "value": "extremely hungry",
-    "label": "extremely hungry",
-    "text": "extremely hungry"
+    "value": "Extremely hungry and needing food.",
+    "label": "Extremely hungry and needing food.",
+    "text": "Extremely hungry and needing food."
    },
    {
-    "value": "completely full",
-    "label": "completely full",
-    "text": "completely full"
+    "value": "Completely full after a large meal.",
+    "label": "Completely full after a large meal.",
+    "text": "Completely full after a large meal."
    },
    {
-    "value": "very frightened",
-    "label": "very frightened",
-    "text": "very frightened"
+    "value": "Tired and needing sleep rather than food.",
+    "label": "Tired and needing sleep rather than food.",
+    "text": "Tired and needing sleep rather than food."
    }
   ],
-  "answer": "extremely hungry",
-  "correctAnswer": "extremely hungry",
+  "answer": "Extremely hungry and needing food.",
+  "correctAnswer": "Extremely hungry and needing food.",
   "distractorRationales": {
-   "completely full": "D-PLAUSIBLE-UNSUPPORTED",
-   "very frightened": "D-PLAUSIBLE-UNSUPPORTED",
-   "quite exhausted": "D-OPPOSITE"
+   "Completely full after a large meal.": "D-OPPOSITE",
+   "Tired and needing sleep rather than food.": "D-TOPIC-ADJACENT",
+   "Frightened and wanting someone to stay nearby.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5197,7 +5197,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Use missed food, terrible hunger and eating response; fatigue is present but separated from the target meaning."
  },
  {
   "id": "lp3.context_clues.l2.R.synonym_clue.v10r",
@@ -5222,42 +5222,42 @@ export const questions = [
   "prompt": "In this passage, what does \"baffled\" mean?",
   "question": "In this passage, what does \"baffled\" mean?",
   "spokenPrompt": "In this passage, what does \"baffled\" mean?",
-  "passage": "The riddle baffled the family. Dad was puzzled, and Grandma could not work it out. Even Priya kept changing her answer and shaking her head.",
+  "passage": "A picture riddle baffled the family after their evening meal. They were puzzled by the way its different clues fitted together. Dad thought the circles meant wheels, but that left three shapes unexplained. Grandma tried counting the corners and reached a different answer. Mina tested both ideas without finding a match for every clue. Nobody refused to try; each person wanted to solve it. At last, a hint helped them see the pattern they had missed. They could now explain every shape using the same simple rule.",
   "cell": "synonym_clue",
   "choices": [
-   "helped everyone agree on one clear answer",
-   "made everyone laugh at the same mistake",
-   "left everyone unable to work it out",
-   "made everyone unwilling to try at all"
+   "Helped them reach the right answer immediately.",
+   "Made them agree that the picture was badly drawn.",
+   "Left them confused and unable to find the answer.",
+   "Made them unwilling to try solving it at all."
   ],
   "answerOptions": [
    {
-    "value": "helped everyone agree on one clear answer",
-    "label": "helped everyone agree on one clear answer",
-    "text": "helped everyone agree on one clear answer"
+    "value": "Helped them reach the right answer immediately.",
+    "label": "Helped them reach the right answer immediately.",
+    "text": "Helped them reach the right answer immediately."
    },
    {
-    "value": "made everyone laugh at the same mistake",
-    "label": "made everyone laugh at the same mistake",
-    "text": "made everyone laugh at the same mistake"
+    "value": "Made them agree that the picture was badly drawn.",
+    "label": "Made them agree that the picture was badly drawn.",
+    "text": "Made them agree that the picture was badly drawn."
    },
    {
-    "value": "left everyone unable to work it out",
-    "label": "left everyone unable to work it out",
-    "text": "left everyone unable to work it out"
+    "value": "Left them confused and unable to find the answer.",
+    "label": "Left them confused and unable to find the answer.",
+    "text": "Left them confused and unable to find the answer."
    },
    {
-    "value": "made everyone unwilling to try at all",
-    "label": "made everyone unwilling to try at all",
-    "text": "made everyone unwilling to try at all"
+    "value": "Made them unwilling to try solving it at all.",
+    "label": "Made them unwilling to try solving it at all.",
+    "text": "Made them unwilling to try solving it at all."
    }
   ],
-  "answer": "left everyone unable to work it out",
-  "correctAnswer": "left everyone unable to work it out",
+  "answer": "Left them confused and unable to find the answer.",
+  "correctAnswer": "Left them confused and unable to find the answer.",
   "distractorRationales": {
-   "made everyone unwilling to try at all": "D-PLAUSIBLE-UNSUPPORTED",
-   "helped everyone agree on one clear answer": "D-PLAUSIBLE-UNSUPPORTED",
-   "made everyone laugh at the same mistake": "D-OPPOSITE"
+   "Made them unwilling to try solving it at all.": "D-TOPIC-ADJACENT",
+   "Helped them reach the right answer immediately.": "D-OPPOSITE",
+   "Made them agree that the picture was badly drawn.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5288,7 +5288,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Connect puzzled with incompatible attempts and later understanding; separate inability to solve from unwillingness to engage."
  },
  {
   "id": "lp3.context_clues.l2.R.antonym_contrast_clue.v9r",
@@ -5313,42 +5313,42 @@ export const questions = [
   "prompt": "In this passage, what does \"placid\" mean?",
   "question": "In this passage, what does \"placid\" mean?",
   "spokenPrompt": "In this passage, what does \"placid\" mean?",
-  "passage": "Most days, rough waves crashed against the harbor wall. Today the sea was placid. Boats rested on quiet, smooth water without rocking from side to side.",
+  "passage": "Yesterday, rough waves struck the harbour wall throughout the afternoon. Boats tugged sharply against their ropes as their decks rolled sideways. This morning, the sea was placid beneath a pale sky. The boats barely moved on the smooth surface beside the dock. A gull's reflection stayed clear rather than breaking into scattered shapes. The water was just as deep as it had been yesterday. A fisher lowered a bucket without bracing against another large wave. Only tiny ripples spread where the bucket touched the water.",
   "cell": "antonym_contrast_clue",
   "choices": [
-   "rough with powerful waves",
-   "cold with pieces of ice",
-   "shallow with a muddy bottom",
-   "calm with little movement"
+   "Rough, with strong crashing waves.",
+   "Shallow enough to see the bottom.",
+   "Freezing, with thick floating ice.",
+   "Calm, with very little movement."
   ],
   "answerOptions": [
    {
-    "value": "rough with powerful waves",
-    "label": "rough with powerful waves",
-    "text": "rough with powerful waves"
+    "value": "Rough, with strong crashing waves.",
+    "label": "Rough, with strong crashing waves.",
+    "text": "Rough, with strong crashing waves."
    },
    {
-    "value": "cold with pieces of ice",
-    "label": "cold with pieces of ice",
-    "text": "cold with pieces of ice"
+    "value": "Shallow enough to see the bottom.",
+    "label": "Shallow enough to see the bottom.",
+    "text": "Shallow enough to see the bottom."
    },
    {
-    "value": "shallow with a muddy bottom",
-    "label": "shallow with a muddy bottom",
-    "text": "shallow with a muddy bottom"
+    "value": "Freezing, with thick floating ice.",
+    "label": "Freezing, with thick floating ice.",
+    "text": "Freezing, with thick floating ice."
    },
    {
-    "value": "calm with little movement",
-    "label": "calm with little movement",
-    "text": "calm with little movement"
+    "value": "Calm, with very little movement.",
+    "label": "Calm, with very little movement.",
+    "text": "Calm, with very little movement."
    }
   ],
-  "answer": "calm with little movement",
-  "correctAnswer": "calm with little movement",
+  "answer": "Calm, with very little movement.",
+  "correctAnswer": "Calm, with very little movement.",
   "distractorRationales": {
-   "rough with powerful waves": "D-PLAUSIBLE-UNSUPPORTED",
-   "cold with pieces of ice": "D-PLAUSIBLE-UNSUPPORTED",
-   "shallow with a muddy bottom": "D-OPPOSITE"
+   "Rough, with strong crashing waves.": "D-OPPOSITE",
+   "Shallow enough to see the bottom.": "D-TOPIC-ADJACENT",
+   "Freezing, with thick floating ice.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5379,7 +5379,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Use a same-place contrast across days and stable reflections; depth is explicitly unchanged, excluding a calm-equals-shallow assumption."
  },
  {
   "id": "lp3.context_clues.l2.R.antonym_contrast_clue.v10r",
@@ -5401,45 +5401,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "In this passage, what does \"cunning\" mean?",
-  "question": "In this passage, what does \"cunning\" mean?",
-  "spokenPrompt": "In this passage, what does \"cunning\" mean?",
-  "passage": "The first clue was plain and simple to solve. The final clue was cunning instead. Even the puzzle club champion had to think carefully about it.",
+  "prompt": "In this passage, what does “intricate” mean?",
+  "question": "In this passage, what does “intricate” mean?",
+  "spokenPrompt": "In this passage, what does “intricate” mean?",
+  "passage": "The first paper snowflake had three simple cuts around its edge. The second design was intricate, with many small connected shapes. Narrow curves surrounded stars, and tiny holes formed another repeating pattern. Both snowflakes were made from the same thin white paper. The class needed more time to follow the second design's details. One missed cut could remove part of a neighbouring shape. Nobody needed a larger sheet to make that more complex design. They simply had to attend to its many carefully arranged parts.",
   "cell": "antonym_contrast_clue",
   "choices": [
-   "cleverly difficult to work out",
-   "simple and quick to understand",
-   "long but familiar to everyone",
-   "incomplete because parts were missing"
+   "Complicated, with many connected little parts.",
+   "Made with only a few plain, simple parts.",
+   "Larger because it uses a much bigger sheet.",
+   "Unfinished because several important parts are missing."
   ],
   "answerOptions": [
    {
-    "value": "cleverly difficult to work out",
-    "label": "cleverly difficult to work out",
-    "text": "cleverly difficult to work out"
+    "value": "Complicated, with many connected little parts.",
+    "label": "Complicated, with many connected little parts.",
+    "text": "Complicated, with many connected little parts."
    },
    {
-    "value": "simple and quick to understand",
-    "label": "simple and quick to understand",
-    "text": "simple and quick to understand"
+    "value": "Made with only a few plain, simple parts.",
+    "label": "Made with only a few plain, simple parts.",
+    "text": "Made with only a few plain, simple parts."
    },
    {
-    "value": "long but familiar to everyone",
-    "label": "long but familiar to everyone",
-    "text": "long but familiar to everyone"
+    "value": "Larger because it uses a much bigger sheet.",
+    "label": "Larger because it uses a much bigger sheet.",
+    "text": "Larger because it uses a much bigger sheet."
    },
    {
-    "value": "incomplete because parts were missing",
-    "label": "incomplete because parts were missing",
-    "text": "incomplete because parts were missing"
+    "value": "Unfinished because several important parts are missing.",
+    "label": "Unfinished because several important parts are missing.",
+    "text": "Unfinished because several important parts are missing."
    }
   ],
-  "answer": "cleverly difficult to work out",
-  "correctAnswer": "cleverly difficult to work out",
+  "answer": "Complicated, with many connected little parts.",
+  "correctAnswer": "Complicated, with many connected little parts.",
   "distractorRationales": {
-   "simple and quick to understand": "D-PLAUSIBLE-UNSUPPORTED",
-   "long but familiar to everyone": "D-PLAUSIBLE-UNSUPPORTED",
-   "incomplete because parts were missing": "D-OPPOSITE"
+   "Made with only a few plain, simple parts.": "D-OPPOSITE",
+   "Larger because it uses a much bigger sheet.": "D-TOPIC-ADJACENT",
+   "Unfinished because several important parts are missing.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5449,7 +5449,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "cunning",
+  "targetWord": "intricate",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -5470,7 +5470,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Replace the strained cunning-clue wording with a precise complexity contrast; equal material and size distinguish detail from scale or incompleteness."
  },
  {
   "id": "lp3.context_clues.l2.R.inference_clue.v9r",
@@ -5495,42 +5495,42 @@ export const questions = [
   "prompt": "In this passage, what does \"cumbersome\" mean?",
   "question": "In this passage, what does \"cumbersome\" mean?",
   "spokenPrompt": "In this passage, what does \"cumbersome\" mean?",
-  "passage": "The parcel was cumbersome. Jai wrapped both arms around it to keep hold. He had to turn sideways to fit through doorways. He stopped often to rest his arms.",
+  "passage": "Jai collected a parcel that was much wider than his chest. He wrapped both arms around it but could not reach the corners. The parcel was cumbersome as he tried carrying it home. At each doorway, he turned sideways and checked both edges. Its contents were not especially heavy, yet holding it felt awkward. He could not use a free hand to open the gate. A neighbour helped by taking one end while Jai held the other. Together they could guide it through the narrow entrance without damage.",
   "cell": "inference_clue",
   "choices": [
-   "soft and easy to squeeze",
-   "large and difficult to handle",
-   "light and simple to lift",
-   "small but very valuable"
+   "Soft enough to squeeze into any narrow gap.",
+   "Large and awkward to carry or handle.",
+   "Small enough to carry easily in one hand.",
+   "Valuable enough to need a locked container."
   ],
   "answerOptions": [
    {
-    "value": "soft and easy to squeeze",
-    "label": "soft and easy to squeeze",
-    "text": "soft and easy to squeeze"
+    "value": "Soft enough to squeeze into any narrow gap.",
+    "label": "Soft enough to squeeze into any narrow gap.",
+    "text": "Soft enough to squeeze into any narrow gap."
    },
    {
-    "value": "large and difficult to handle",
-    "label": "large and difficult to handle",
-    "text": "large and difficult to handle"
+    "value": "Large and awkward to carry or handle.",
+    "label": "Large and awkward to carry or handle.",
+    "text": "Large and awkward to carry or handle."
    },
    {
-    "value": "light and simple to lift",
-    "label": "light and simple to lift",
-    "text": "light and simple to lift"
+    "value": "Small enough to carry easily in one hand.",
+    "label": "Small enough to carry easily in one hand.",
+    "text": "Small enough to carry easily in one hand."
    },
    {
-    "value": "small but very valuable",
-    "label": "small but very valuable",
-    "text": "small but very valuable"
+    "value": "Valuable enough to need a locked container.",
+    "label": "Valuable enough to need a locked container.",
+    "text": "Valuable enough to need a locked container."
    }
   ],
-  "answer": "large and difficult to handle",
-  "correctAnswer": "large and difficult to handle",
+  "answer": "Large and awkward to carry or handle.",
+  "correctAnswer": "Large and awkward to carry or handle.",
   "distractorRationales": {
-   "small but very valuable": "D-PLAUSIBLE-UNSUPPORTED",
-   "soft and easy to squeeze": "D-OPPOSITE",
-   "light and simple to lift": "D-PLAUSIBLE-UNSUPPORTED"
+   "Valuable enough to need a locked container.": "D-TOPIC-ADJACENT",
+   "Soft enough to squeeze into any narrow gap.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Small enough to carry easily in one hand.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5561,7 +5561,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Infer awkward handling from reach, doors and occupied hands; explicitly distinguish cumbersome shape from heaviness alone."
  },
  {
   "id": "lp3.context_clues.l2.R.inference_clue.v10r",
@@ -5586,42 +5586,42 @@ export const questions = [
   "prompt": "In this passage, what does \"rancid\" mean?",
   "question": "In this passage, what does \"rancid\" mean?",
   "spokenPrompt": "In this passage, what does \"rancid\" mean?",
-  "passage": "Asha sniffed the butter, then held it away from her face. It smelled bad after several days in the warm kitchen. The butter had turned rancid, so she threw it away.",
+  "passage": "Asha found an old packet of butter behind the bread tin. It had stayed in the warm kitchen for several days. When she opened it, an unpleasant smell made her pull away. The butter had turned rancid, so she did not taste it. She compared its smell with the fresh packet from the fridge. That new butter smelled mild and was safe to use. Asha wrapped the old packet and put it in the rubbish. She used the fresh butter instead when preparing the family's toast.",
   "cell": "inference_clue",
   "choices": [
-   "hard after becoming very cold",
-   "thin after mixing with water",
-   "spoiled and unpleasant to smell",
-   "fresh and pleasant to spread"
+   "Become harder because it was kept very cold.",
+   "Become thinner because water was mixed into it.",
+   "Spoiled and developed an unpleasant smell.",
+   "Fresh and ready to use for eating."
   ],
   "answerOptions": [
    {
-    "value": "hard after becoming very cold",
-    "label": "hard after becoming very cold",
-    "text": "hard after becoming very cold"
+    "value": "Become harder because it was kept very cold.",
+    "label": "Become harder because it was kept very cold.",
+    "text": "Become harder because it was kept very cold."
    },
    {
-    "value": "thin after mixing with water",
-    "label": "thin after mixing with water",
-    "text": "thin after mixing with water"
+    "value": "Become thinner because water was mixed into it.",
+    "label": "Become thinner because water was mixed into it.",
+    "text": "Become thinner because water was mixed into it."
    },
    {
-    "value": "spoiled and unpleasant to smell",
-    "label": "spoiled and unpleasant to smell",
-    "text": "spoiled and unpleasant to smell"
+    "value": "Spoiled and developed an unpleasant smell.",
+    "label": "Spoiled and developed an unpleasant smell.",
+    "text": "Spoiled and developed an unpleasant smell."
    },
    {
-    "value": "fresh and pleasant to spread",
-    "label": "fresh and pleasant to spread",
-    "text": "fresh and pleasant to spread"
+    "value": "Fresh and ready to use for eating.",
+    "label": "Fresh and ready to use for eating.",
+    "text": "Fresh and ready to use for eating."
    }
   ],
-  "answer": "spoiled and unpleasant to smell",
-  "correctAnswer": "spoiled and unpleasant to smell",
+  "answer": "Spoiled and developed an unpleasant smell.",
+  "correctAnswer": "Spoiled and developed an unpleasant smell.",
   "distractorRationales": {
-   "hard after becoming very cold": "D-PLAUSIBLE-UNSUPPORTED",
-   "thin after mixing with water": "D-OPPOSITE",
-   "fresh and pleasant to spread": "D-PLAUSIBLE-UNSUPPORTED"
+   "Become harder because it was kept very cold.": "D-TOPIC-ADJACENT",
+   "Become thinner because water was mixed into it.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Fresh and ready to use for eating.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5652,7 +5652,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Infer spoilage from warmth, bad smell, rejection and fresh comparison; no tasting of spoiled food or irrelevant definition sentence."
  },
  {
   "id": "lp3.context_clues.l2.R.synonym_clue.v11r",
@@ -5677,42 +5677,42 @@ export const questions = [
   "prompt": "In this passage, what does \"loyal\" mean?",
   "question": "In this passage, what does \"loyal\" mean?",
   "spokenPrompt": "In this passage, what does \"loyal\" mean?",
-  "passage": "The dog was loyal to Farmer Bell. It stayed by his side and never left him behind. Even in heavy rain, the dog followed him along the path.",
+  "passage": "Farmer Bell's old dog remained loyal throughout a difficult winter. The faithful animal stayed close when the farmer's injured leg slowed him. Other dogs ran ahead across the field, eager to play. This dog waited whenever the farmer needed to stop and rest. At home, it settled beside his chair instead of following visitors out. It was friendly with those visitors and accepted their gentle strokes. However, when the farmer moved, it returned to his side. Its steady companionship continued even when walks were short and slow.",
   "cell": "synonym_clue",
   "choices": [
-   "staying afraid of someone",
-   "staying hidden from someone",
-   "staying angry with someone",
-   "staying true to someone"
+   "Frightened of every person except its owner.",
+   "Angry because it was no longer allowed outside.",
+   "Ready to leave someone as soon as things became difficult.",
+   "Faithful and continuing to stay with someone."
   ],
   "answerOptions": [
    {
-    "value": "staying afraid of someone",
-    "label": "staying afraid of someone",
-    "text": "staying afraid of someone"
+    "value": "Frightened of every person except its owner.",
+    "label": "Frightened of every person except its owner.",
+    "text": "Frightened of every person except its owner."
    },
    {
-    "value": "staying hidden from someone",
-    "label": "staying hidden from someone",
-    "text": "staying hidden from someone"
+    "value": "Angry because it was no longer allowed outside.",
+    "label": "Angry because it was no longer allowed outside.",
+    "text": "Angry because it was no longer allowed outside."
    },
    {
-    "value": "staying angry with someone",
-    "label": "staying angry with someone",
-    "text": "staying angry with someone"
+    "value": "Ready to leave someone as soon as things became difficult.",
+    "label": "Ready to leave someone as soon as things became difficult.",
+    "text": "Ready to leave someone as soon as things became difficult."
    },
    {
-    "value": "staying true to someone",
-    "label": "staying true to someone",
-    "text": "staying true to someone"
+    "value": "Faithful and continuing to stay with someone.",
+    "label": "Faithful and continuing to stay with someone.",
+    "text": "Faithful and continuing to stay with someone."
    }
   ],
-  "answer": "staying true to someone",
-  "correctAnswer": "staying true to someone",
+  "answer": "Faithful and continuing to stay with someone.",
+  "correctAnswer": "Faithful and continuing to stay with someone.",
   "distractorRationales": {
-   "staying afraid of someone": "D-PLAUSIBLE-UNSUPPORTED",
-   "staying hidden from someone": "D-PLAUSIBLE-UNSUPPORTED",
-   "staying angry with someone": "D-OPPOSITE"
+   "Frightened of every person except its owner.": "D-TOPIC-ADJACENT",
+   "Angry because it was no longer allowed outside.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Ready to leave someone as soon as things became difficult.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5743,7 +5743,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Use faithful plus repeated companionship despite changed walks; friendly visitor behaviour rules out fear as the reason for staying."
  },
  {
   "id": "lp3.context_clues.l2.R.inference_clue.v11r",
@@ -5768,42 +5768,42 @@ export const questions = [
   "prompt": "In this passage, what does \"beamed\" mean?",
   "question": "In this passage, what does \"beamed\" mean?",
   "spokenPrompt": "In this passage, what does \"beamed\" mean?",
-  "passage": "Zainab waited quietly while the judge read the results. At last, she heard her name as the winner. She beamed at her family. Her wide smile stayed through the whole prize giving.",
+  "passage": "Zainab waited beside the other entrants while the judge opened an envelope. She kept her lips pressed together as the names were read. Then the judge announced her painting had won the first prize. Zainab beamed at her family across the crowded hall. Her mouth stretched into a wide smile, and her cheeks lifted. She held that expression while walking up to collect the certificate. Later photographs showed the same bright smile beside her finished painting. She had not laughed aloud, but everyone could see her pleasure.",
   "cell": "inference_clue",
   "choices": [
-   "smiled very broadly",
-   "frowned with annoyance",
-   "stared without expression",
-   "laughed with a loud noise"
+   "Smiled very broadly with pleasure.",
+   "Laughed loudly enough for everyone to hear.",
+   "Frowned because she disliked the result.",
+   "Stared without showing any feeling in her face."
   ],
   "answerOptions": [
    {
-    "value": "smiled very broadly",
-    "label": "smiled very broadly",
-    "text": "smiled very broadly"
+    "value": "Smiled very broadly with pleasure.",
+    "label": "Smiled very broadly with pleasure.",
+    "text": "Smiled very broadly with pleasure."
    },
    {
-    "value": "frowned with annoyance",
-    "label": "frowned with annoyance",
-    "text": "frowned with annoyance"
+    "value": "Laughed loudly enough for everyone to hear.",
+    "label": "Laughed loudly enough for everyone to hear.",
+    "text": "Laughed loudly enough for everyone to hear."
    },
    {
-    "value": "stared without expression",
-    "label": "stared without expression",
-    "text": "stared without expression"
+    "value": "Frowned because she disliked the result.",
+    "label": "Frowned because she disliked the result.",
+    "text": "Frowned because she disliked the result."
    },
    {
-    "value": "laughed with a loud noise",
-    "label": "laughed with a loud noise",
-    "text": "laughed with a loud noise"
+    "value": "Stared without showing any feeling in her face.",
+    "label": "Stared without showing any feeling in her face.",
+    "text": "Stared without showing any feeling in her face."
    }
   ],
-  "answer": "smiled very broadly",
-  "correctAnswer": "smiled very broadly",
+  "answer": "Smiled very broadly with pleasure.",
+  "correctAnswer": "Smiled very broadly with pleasure.",
   "distractorRationales": {
-   "laughed with a loud noise": "D-OPPOSITE",
-   "frowned with annoyance": "D-PLAUSIBLE-UNSUPPORTED",
-   "stared without expression": "D-PLAUSIBLE-UNSUPPORTED"
+   "Stared without showing any feeling in her face.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Laughed loudly enough for everyone to hear.": "D-TOPIC-ADJACENT",
+   "Frowned because she disliked the result.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5834,7 +5834,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Infer a particular visible expression from mouth and cheeks plus photographs; explicit absence of loud laughter distinguishes two happy responses."
  },
  {
   "id": "lp3.context_clues.l1.A.definition_clue.v20",
@@ -5859,7 +5859,7 @@ export const questions = [
   "prompt": "What does \"narrow\" mean here?",
   "question": "What does \"narrow\" mean here?",
   "spokenPrompt": "What does \"narrow\" mean here?",
-  "passage": "The path was narrow, with little space across it. We had to walk in a line.",
+  "passage": "The path was narrow, with little space across it. We had to walk in a single line. Two people could not stand side by side there. The next wide path gave everyone more room.",
   "cell": "definition_clue",
   "choices": [
    "not very straight",
@@ -5904,6 +5904,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "narrow",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -5924,7 +5925,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Definition and side-by-side constraint distinguish width from length, smoothness or straightness."
  },
  {
   "id": "lp3.context_clues.l1.A.example_clue.v20",
@@ -5949,7 +5950,7 @@ export const questions = [
   "prompt": "What are \"fasteners\"?",
   "question": "What are \"fasteners\"?",
   "spokenPrompt": "What are \"fasteners\"?",
-  "passage": "We sorted the fasteners into trays. Buttons went here, and zips went there. Hooks and buckles filled the last tray.",
+  "passage": "We sorted the fasteners from the sewing box. Buttons went here, and zips went into another tray. Hooks and buckles filled the tray beside them. Each kind could hold parts of our clothing together.",
   "cell": "example_clue",
   "choices": [
    "things that make clothing warmer",
@@ -5994,6 +5995,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "fasteners",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -6014,7 +6016,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Multiple examples share a fastening function rather than cleaning or changing colour."
  },
  {
   "id": "lp3.context_clues.l1.A.action_clue.v20",
@@ -6039,7 +6041,7 @@ export const questions = [
   "prompt": "What does \"peered\" mean?",
   "question": "What does \"peered\" mean?",
   "spokenPrompt": "What does \"peered\" mean?",
-  "passage": "Tia peered through the tiny hole. She moved closer and squinted to see inside.",
+  "passage": "Tia peered through a tiny hole in the box. She moved closer and squinted to see inside. The opening gave her only a narrow view. She shifted her head slowly to make things clearer.",
   "cell": "action_clue",
   "choices": [
    "looked with careful effort",
@@ -6084,6 +6086,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "peered",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -6104,7 +6107,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Close positioning, narrowed eyes and adjusting the view establish effortful looking; L2 peered duplicate replaced."
  },
  {
   "id": "lp3.context_clues.l1.A.example_clue.v21",
@@ -6129,7 +6132,7 @@ export const questions = [
   "prompt": "What are \"utensils\" here?",
   "question": "What are \"utensils\" here?",
   "spokenPrompt": "What are \"utensils\" here?",
-  "passage": "We packed utensils for the picnic. Each bag had a spoon, fork, and knife.",
+  "passage": "We packed utensils for everyone joining our picnic. Each bag had a spoon, fork, and knife. Nobody would need to eat with their fingers. We put the food in separate covered boxes afterwards.",
   "cell": "example_clue",
   "choices": [
    "boxes used for storing food",
@@ -6174,6 +6177,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "utensils",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -6194,7 +6198,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Shared eating-tool examples and function distinguish utensils from containers and covers."
  },
  {
   "id": "lp3.context_clues.l1.A.action_clue.v21",
@@ -6219,7 +6223,7 @@ export const questions = [
   "prompt": "What does \"nudged\" mean?",
   "question": "What does \"nudged\" mean?",
   "spokenPrompt": "What does \"nudged\" mean?",
-  "passage": "The puppy nudged my knee with its nose. My leg moved a little from the gentle push.",
+  "passage": "The puppy nudged my knee with its soft nose. My leg moved a little from the gentle push. It did not bite or make any noise. I looked down to see its hopeful face.",
   "cell": "action_clue",
   "choices": [
    "looked closely",
@@ -6264,6 +6268,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "nudged",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -6284,7 +6289,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Gentle contact causing slight movement gives the meaning without confusing looking, biting or calling."
  },
  {
   "id": "lp3.context_clues.l1.A.definition_clue.v21",
@@ -6309,7 +6314,7 @@ export const questions = [
   "prompt": "What does \"absorbent\" mean?",
   "question": "What does \"absorbent\" mean?",
   "spokenPrompt": "What does \"absorbent\" mean?",
-  "passage": "The cloth was absorbent; it soaked up spilled water. Soon, the table was dry.",
+  "passage": "The cloth was absorbent; it soaked up spilled water. The wet patch became smaller as we wiped. Soon, the table was dry and the cloth heavy. We squeezed the water out over the sink.",
   "cell": "definition_clue",
   "choices": [
    "able to keep out dust",
@@ -6354,6 +6359,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "absorbent",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -6374,7 +6380,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "A simple definition is reinforced by liquid transfer and later squeezing."
  },
  {
   "id": "lp3.context_clues.l1.A.example_clue.v22",
@@ -6399,7 +6405,7 @@ export const questions = [
   "prompt": "What are \"keepsakes\"?",
   "question": "What are \"keepsakes\"?",
   "spokenPrompt": "What are \"keepsakes\"?",
-  "passage": "The box held keepsakes from our trip. There was a ticket, postcard, and tiny shell. Each one helped us remember a special day.",
+  "passage": "The box held keepsakes from our seaside trip. There was a ticket, postcard, and tiny shell. Each object helped us remember a special day. We showed them while telling friends about our holiday.",
   "cell": "example_clue",
   "choices": [
    "objects saved to remember something",
@@ -6444,6 +6450,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "keepsakes",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -6464,7 +6471,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Varied saved objects share memory value, not resale value or a working purpose."
  },
  {
   "id": "lp3.context_clues.l1.A.action_clue.v22",
@@ -6489,7 +6496,7 @@ export const questions = [
   "prompt": "What does \"fumbled\" mean?",
   "question": "What does \"fumbled\" mean?",
   "spokenPrompt": "What does \"fumbled\" mean?",
-  "passage": "Jo fumbled with the wet soap. It slipped between her fingers twice. She could not get a firm grip.",
+  "passage": "Jo fumbled with the wet soap beside the sink. It slipped between her fingers twice in a row. She could not get a firm grip on it. Her awkward movements sent it into the basin.",
   "cell": "action_clue",
   "choices": [
    "carried in a steady way",
@@ -6534,6 +6541,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "fumbled",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -6554,7 +6562,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Repeated failed handling and awkward movement establish fumbled rather than careful washing or drying."
  },
  {
   "id": "lp3.context_clues.l2.A.synonym_clue.v20",
@@ -6579,42 +6587,42 @@ export const questions = [
   "prompt": "What does \"circular\" mean?",
   "question": "What does \"circular\" mean?",
   "spokenPrompt": "What does \"circular\" mean?",
-  "passage": "The guide described the route as circular. It formed a loop and ended where it began.",
+  "passage": "The guide offered two routes from the visitor centre beside the lake. One followed a straight path to a village across the fields. The other route was circular, forming a loop around the water. Walkers on that route passed the woods before reaching a small bridge. Beyond it, a different path followed the opposite shore home. They finished at the visitor centre without retracing their outward steps. Neither route climbed a hill or entered the nearby mountain area. The family chose the loop so their car would be waiting there.",
   "cell": "synonym_clue",
   "choices": [
-   "going back only along the same track",
-   "going around and returning to the start",
-   "going straight on without changing direction",
-   "going upward until reaching the highest point"
+   "Returning only by retracing every step along the same path.",
+   "Going around and returning to the starting place.",
+   "Going straight ahead to finish in a different place.",
+   "Climbing upwards until reaching the highest available point."
   ],
   "answerOptions": [
    {
-    "value": "going back only along the same track",
-    "label": "going back only along the same track",
-    "text": "going back only along the same track"
+    "value": "Returning only by retracing every step along the same path.",
+    "label": "Returning only by retracing every step along the same path.",
+    "text": "Returning only by retracing every step along the same path."
    },
    {
-    "value": "going around and returning to the start",
-    "label": "going around and returning to the start",
-    "text": "going around and returning to the start"
+    "value": "Going around and returning to the starting place.",
+    "label": "Going around and returning to the starting place.",
+    "text": "Going around and returning to the starting place."
    },
    {
-    "value": "going straight on without changing direction",
-    "label": "going straight on without changing direction",
-    "text": "going straight on without changing direction"
+    "value": "Going straight ahead to finish in a different place.",
+    "label": "Going straight ahead to finish in a different place.",
+    "text": "Going straight ahead to finish in a different place."
    },
    {
-    "value": "going upward until reaching the highest point",
-    "label": "going upward until reaching the highest point",
-    "text": "going upward until reaching the highest point"
+    "value": "Climbing upwards until reaching the highest available point.",
+    "label": "Climbing upwards until reaching the highest available point.",
+    "text": "Climbing upwards until reaching the highest available point."
    }
   ],
-  "answer": "going around and returning to the start",
-  "correctAnswer": "going around and returning to the start",
+  "answer": "Going around and returning to the starting place.",
+  "correctAnswer": "Going around and returning to the starting place.",
   "distractorRationales": {
-   "going upward until reaching the highest point": "D-PLAUSIBLE-UNSUPPORTED",
-   "going back only along the same track": "D-OPPOSITE",
-   "going straight on without changing direction": "D-PLAUSIBLE-UNSUPPORTED"
+   "Climbing upwards until reaching the highest available point.": "D-TOPIC-ADJACENT",
+   "Returning only by retracing every step along the same path.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Going straight ahead to finish in a different place.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6624,6 +6632,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "circular",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -6644,7 +6653,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Use loop, different return shore and common start/finish; distinguish a circuit from an out-and-back route rather than merely from a straight line."
  },
  {
   "id": "lp3.context_clues.l2.A.antonym_contrast_clue.v20",
@@ -6669,42 +6678,42 @@ export const questions = [
   "prompt": "What does \"rigid\" mean?",
   "question": "What does \"rigid\" mean?",
   "spokenPrompt": "What does \"rigid\" mean?",
-  "passage": "The first cushion was rigid, but the second bent easily. Mia chose the flexible one for the curved seat.",
+  "passage": "Mia wanted a seat pad to fit a curved garden bench. The first sample was rigid and kept its flat shape. Pressing its middle did not make its edges follow the curve. A second pad was flexible and bent easily around the seat. Both samples had smooth covers, so neither scratched her hands. Their colours and widths were almost exactly the same. Mia chose the one that could change shape without breaking. It rested against the whole curved seat instead of rocking on top.",
   "cell": "antonym_contrast_clue",
   "choices": [
-   "rough and painful to touch",
-   "thin and easy to tear",
-   "stiff and hard to bend",
-   "soft and easy to squeeze"
+   "Rough enough to hurt someone’s hands when touched.",
+   "Too narrow to cover the full width of the seat.",
+   "Stiff and difficult to bend into another shape.",
+   "Flexible enough to bend easily around a curve."
   ],
   "answerOptions": [
    {
-    "value": "rough and painful to touch",
-    "label": "rough and painful to touch",
-    "text": "rough and painful to touch"
+    "value": "Rough enough to hurt someone’s hands when touched.",
+    "label": "Rough enough to hurt someone’s hands when touched.",
+    "text": "Rough enough to hurt someone’s hands when touched."
    },
    {
-    "value": "thin and easy to tear",
-    "label": "thin and easy to tear",
-    "text": "thin and easy to tear"
+    "value": "Too narrow to cover the full width of the seat.",
+    "label": "Too narrow to cover the full width of the seat.",
+    "text": "Too narrow to cover the full width of the seat."
    },
    {
-    "value": "stiff and hard to bend",
-    "label": "stiff and hard to bend",
-    "text": "stiff and hard to bend"
+    "value": "Stiff and difficult to bend into another shape.",
+    "label": "Stiff and difficult to bend into another shape.",
+    "text": "Stiff and difficult to bend into another shape."
    },
    {
-    "value": "soft and easy to squeeze",
-    "label": "soft and easy to squeeze",
-    "text": "soft and easy to squeeze"
+    "value": "Flexible enough to bend easily around a curve.",
+    "label": "Flexible enough to bend easily around a curve.",
+    "text": "Flexible enough to bend easily around a curve."
    }
   ],
-  "answer": "stiff and hard to bend",
-  "correctAnswer": "stiff and hard to bend",
+  "answer": "Stiff and difficult to bend into another shape.",
+  "correctAnswer": "Stiff and difficult to bend into another shape.",
   "distractorRationales": {
-   "soft and easy to squeeze": "D-PLAUSIBLE-UNSUPPORTED",
-   "rough and painful to touch": "D-PLAUSIBLE-UNSUPPORTED",
-   "thin and easy to tear": "D-OPPOSITE"
+   "Flexible enough to bend easily around a curve.": "D-OPPOSITE",
+   "Rough enough to hurt someone’s hands when touched.": "D-TOPIC-ADJACENT",
+   "Too narrow to cover the full width of the seat.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6714,6 +6723,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "rigid",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -6734,7 +6744,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Contrast flexibility directly while controlling surface, size and colour; application to a curved seat makes bending central."
  },
  {
   "id": "lp3.context_clues.l2.A.inference_clue.v20",
@@ -6759,42 +6769,42 @@ export const questions = [
   "prompt": "What does \"corroded\" mean here?",
   "question": "What does \"corroded\" mean here?",
   "spokenPrompt": "What does \"corroded\" mean here?",
-  "passage": "The hinge was corroded after years of rain. Orange flakes fell off, and the metal broke when pressed.",
+  "passage": "The shed door had stood in rain for many years. Its lower hinge was corroded, unlike the shiny new hinge above. Orange flakes fell away when Dad brushed the old metal gently. Underneath, small holes had appeared where solid metal once joined. Dad replaced it before the weak hinge could snap. The new hinge moved smoothly without losing flakes or powder. He added a protective coating to keep water from the metal. The old piece crumbled further when it was placed in a box.",
   "cell": "inference_clue",
   "choices": [
-   "bent into a shape for a new use",
-   "covered with a fresh layer of paint",
-   "heated until the metal became soft",
-   "damaged as the metal slowly rusted"
+   "Bent carefully into a useful new shape.",
+   "Protected by a fresh, strong surface coating.",
+   "Softened because it had been heated in a fire.",
+   "Damaged as the metal slowly rusted away."
   ],
   "answerOptions": [
    {
-    "value": "bent into a shape for a new use",
-    "label": "bent into a shape for a new use",
-    "text": "bent into a shape for a new use"
+    "value": "Bent carefully into a useful new shape.",
+    "label": "Bent carefully into a useful new shape.",
+    "text": "Bent carefully into a useful new shape."
    },
    {
-    "value": "covered with a fresh layer of paint",
-    "label": "covered with a fresh layer of paint",
-    "text": "covered with a fresh layer of paint"
+    "value": "Protected by a fresh, strong surface coating.",
+    "label": "Protected by a fresh, strong surface coating.",
+    "text": "Protected by a fresh, strong surface coating."
    },
    {
-    "value": "heated until the metal became soft",
-    "label": "heated until the metal became soft",
-    "text": "heated until the metal became soft"
+    "value": "Softened because it had been heated in a fire.",
+    "label": "Softened because it had been heated in a fire.",
+    "text": "Softened because it had been heated in a fire."
    },
    {
-    "value": "damaged as the metal slowly rusted",
-    "label": "damaged as the metal slowly rusted",
-    "text": "damaged as the metal slowly rusted"
+    "value": "Damaged as the metal slowly rusted away.",
+    "label": "Damaged as the metal slowly rusted away.",
+    "text": "Damaged as the metal slowly rusted away."
    }
   ],
-  "answer": "damaged as the metal slowly rusted",
-  "correctAnswer": "damaged as the metal slowly rusted",
+  "answer": "Damaged as the metal slowly rusted away.",
+  "correctAnswer": "Damaged as the metal slowly rusted away.",
   "distractorRationales": {
-   "bent into a shape for a new use": "D-PLAUSIBLE-UNSUPPORTED",
-   "covered with a fresh layer of paint": "D-PLAUSIBLE-UNSUPPORTED",
-   "heated until the metal became soft": "D-OPPOSITE"
+   "Bent carefully into a useful new shape.": "D-TOPIC-ADJACENT",
+   "Protected by a fresh, strong surface coating.": "D-OPPOSITE",
+   "Softened because it had been heated in a fire.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6804,6 +6814,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "corroded",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -6824,7 +6835,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Infer material decay from weather exposure, flakes, holes and weakening; distinguish rust damage from reshaping, coating and heat."
  },
  {
   "id": "lp3.context_clues.l2.A.inference_clue.v21",
@@ -6849,42 +6860,42 @@ export const questions = [
   "prompt": "What does \"concise\" mean?",
   "question": "What does \"concise\" mean?",
   "spokenPrompt": "What does \"concise\" mean?",
-  "passage": "The instructions were concise. I read them in half a minute and knew each step. Nothing important was missing.",
+  "passage": "The old game instructions filled four pages with repeated explanations. The club rewrote them before welcoming new players next week. Their new instructions were concise, fitting neatly on one small card. A reader learned the goal and rules within half a minute. The card omitted stories about how the game had been invented. However, it kept the order of turns and how scoring worked. New players began correctly without needing another sheet or extra explanation. The longer version stayed in the cupboard, unused during their first game.",
   "cell": "inference_clue",
   "choices": [
-   "brief while still giving what is needed",
-   "long because every detail is repeated",
-   "unclear because important steps are missing",
-   "careful to avoid giving a direct answer"
+   "Brief while still giving the information that is needed.",
+   "Short because important rules have been left out.",
+   "Long because the same instructions are repeated many times.",
+   "Unclear because the reader is not told how to begin."
   ],
   "answerOptions": [
    {
-    "value": "brief while still giving what is needed",
-    "label": "brief while still giving what is needed",
-    "text": "brief while still giving what is needed"
+    "value": "Brief while still giving the information that is needed.",
+    "label": "Brief while still giving the information that is needed.",
+    "text": "Brief while still giving the information that is needed."
    },
    {
-    "value": "long because every detail is repeated",
-    "label": "long because every detail is repeated",
-    "text": "long because every detail is repeated"
+    "value": "Short because important rules have been left out.",
+    "label": "Short because important rules have been left out.",
+    "text": "Short because important rules have been left out."
    },
    {
-    "value": "unclear because important steps are missing",
-    "label": "unclear because important steps are missing",
-    "text": "unclear because important steps are missing"
+    "value": "Long because the same instructions are repeated many times.",
+    "label": "Long because the same instructions are repeated many times.",
+    "text": "Long because the same instructions are repeated many times."
    },
    {
-    "value": "careful to avoid giving a direct answer",
-    "label": "careful to avoid giving a direct answer",
-    "text": "careful to avoid giving a direct answer"
+    "value": "Unclear because the reader is not told how to begin.",
+    "label": "Unclear because the reader is not told how to begin.",
+    "text": "Unclear because the reader is not told how to begin."
    }
   ],
-  "answer": "brief while still giving what is needed",
-  "correctAnswer": "brief while still giving what is needed",
+  "answer": "Brief while still giving the information that is needed.",
+  "correctAnswer": "Brief while still giving the information that is needed.",
   "distractorRationales": {
-   "careful to avoid giving a direct answer": "D-OPPOSITE",
-   "long because every detail is repeated": "D-PLAUSIBLE-UNSUPPORTED",
-   "unclear because important steps are missing": "D-PLAUSIBLE-UNSUPPORTED"
+   "Unclear because the reader is not told how to begin.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Short because important rules have been left out.": "D-TOPIC-ADJACENT",
+   "Long because the same instructions are repeated many times.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6894,6 +6905,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "concise",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -6914,7 +6926,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Infer useful brevity from retained essentials and successful independent use; brevity alone must not be confused with incompleteness."
  },
  {
   "id": "lp3.context_clues.l2.A.antonym_contrast_clue.v21",
@@ -6939,42 +6951,42 @@ export const questions = [
   "prompt": "What does \"taut\" mean?",
   "question": "What does \"taut\" mean?",
   "spokenPrompt": "What does \"taut\" mean?",
-  "passage": "The loose rope sagged between the posts. Dan pulled it taut, so it ran straight without drooping.",
+  "passage": "Dan hung a rope between two posts for an outdoor display. At first, the middle sagged low under the weight of the flags. He loosened one end and pulled until the rope became taut. It now stretched straight across instead of drooping towards the grass. Dan tied the end firmly without cutting any rope away. The flags hung well above the path once he had finished. When he untied the end later, the middle sagged again. The rope itself was the same length throughout the whole task.",
   "cell": "antonym_contrast_clue",
   "choices": [
-   "tied loosely",
-   "pulled tight",
-   "hanging low",
-   "cut short"
+   "Made heavier by adding extra flags to it.",
+   "Pulled tight rather than hanging loosely.",
+   "Loose enough to hang low in the middle.",
+   "Made shorter by cutting part of it away."
   ],
   "answerOptions": [
    {
-    "value": "tied loosely",
-    "label": "tied loosely",
-    "text": "tied loosely"
+    "value": "Made heavier by adding extra flags to it.",
+    "label": "Made heavier by adding extra flags to it.",
+    "text": "Made heavier by adding extra flags to it."
    },
    {
-    "value": "pulled tight",
-    "label": "pulled tight",
-    "text": "pulled tight"
+    "value": "Pulled tight rather than hanging loosely.",
+    "label": "Pulled tight rather than hanging loosely.",
+    "text": "Pulled tight rather than hanging loosely."
    },
    {
-    "value": "hanging low",
-    "label": "hanging low",
-    "text": "hanging low"
+    "value": "Loose enough to hang low in the middle.",
+    "label": "Loose enough to hang low in the middle.",
+    "text": "Loose enough to hang low in the middle."
    },
    {
-    "value": "cut short",
-    "label": "cut short",
-    "text": "cut short"
+    "value": "Made shorter by cutting part of it away.",
+    "label": "Made shorter by cutting part of it away.",
+    "text": "Made shorter by cutting part of it away."
    }
   ],
-  "answer": "pulled tight",
-  "correctAnswer": "pulled tight",
+  "answer": "Pulled tight rather than hanging loosely.",
+  "correctAnswer": "Pulled tight rather than hanging loosely.",
   "distractorRationales": {
-   "tied loosely": "D-OPPOSITE",
-   "hanging low": "D-PLAUSIBLE-UNSUPPORTED",
-   "cut short": "D-PLAUSIBLE-UNSUPPORTED"
+   "Made heavier by adding extra flags to it.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Loose enough to hang low in the middle.": "D-OPPOSITE",
+   "Made shorter by cutting part of it away.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6984,6 +6996,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "taut",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -7004,7 +7017,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Infer tension through a reversible tight-loose contrast; unchanged length explicitly excludes shortening as the word’s meaning."
  },
  {
   "id": "lp3.context_clues.l2.A.synonym_clue.v21",
@@ -7029,42 +7042,42 @@ export const questions = [
   "prompt": "What does \"postpone\" mean?",
   "question": "What does \"postpone\" mean?",
   "spokenPrompt": "What does \"postpone\" mean?",
-  "passage": "We needed to postpone the outdoor show. We moved it to the following week because of rain.",
+  "passage": "Heavy rain was expected on the day of the outdoor show. The organisers decided to postpone it rather than lose the whole event. They moved the performance to the following Saturday on the calendar. The same stage, performers and planned songs would still be used. Families were told to keep their tickets for the later date. Nobody needed to arrive earlier or travel to another venue. During the extra week, the cast had one more practice together. On the new Saturday, the waiting audience finally saw the promised show.",
   "cell": "synonym_clue",
   "choices": [
-   "change its location",
-   "hold it earlier",
-   "move it to a later date",
-   "cancel it completely"
+   "Move an event into a different building or place.",
+   "Bring an event forward to an earlier day.",
+   "Move an event to a later time or date.",
+   "Cancel an event so that it will not happen."
   ],
   "answerOptions": [
    {
-    "value": "change its location",
-    "label": "change its location",
-    "text": "change its location"
+    "value": "Move an event into a different building or place.",
+    "label": "Move an event into a different building or place.",
+    "text": "Move an event into a different building or place."
    },
    {
-    "value": "hold it earlier",
-    "label": "hold it earlier",
-    "text": "hold it earlier"
+    "value": "Bring an event forward to an earlier day.",
+    "label": "Bring an event forward to an earlier day.",
+    "text": "Bring an event forward to an earlier day."
    },
    {
-    "value": "move it to a later date",
-    "label": "move it to a later date",
-    "text": "move it to a later date"
+    "value": "Move an event to a later time or date.",
+    "label": "Move an event to a later time or date.",
+    "text": "Move an event to a later time or date."
    },
    {
-    "value": "cancel it completely",
-    "label": "cancel it completely",
-    "text": "cancel it completely"
+    "value": "Cancel an event so that it will not happen.",
+    "label": "Cancel an event so that it will not happen.",
+    "text": "Cancel an event so that it will not happen."
    }
   ],
-  "answer": "move it to a later date",
-  "correctAnswer": "move it to a later date",
+  "answer": "Move an event to a later time or date.",
+  "correctAnswer": "Move an event to a later time or date.",
   "distractorRationales": {
-   "cancel it completely": "D-PLAUSIBLE-UNSUPPORTED",
-   "change its location": "D-PLAUSIBLE-UNSUPPORTED",
-   "hold it earlier": "D-OPPOSITE"
+   "Cancel an event so that it will not happen.": "D-OPPOSITE",
+   "Move an event into a different building or place.": "D-TOPIC-ADJACENT",
+   "Bring an event forward to an earlier day.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7074,6 +7087,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "postpone",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -7094,7 +7108,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Use moved-to-later-date, valid tickets and eventual performance to separate postponement from cancellation, relocation and advancement."
  },
  {
   "id": "lp3.context_clues.l2.A.inference_clue.v22",
@@ -7119,42 +7133,42 @@ export const questions = [
   "prompt": "What does \"meticulous\" mean?",
   "question": "What does \"meticulous\" mean?",
   "spokenPrompt": "What does \"meticulous\" mean?",
-  "passage": "Eli was meticulous when building the model. He measured each piece twice and checked every tiny join.",
+  "passage": "Eli built a model bridge for the class display. He was meticulous, measuring each piece twice before making a cut. He checked every tiny join, even those hidden underneath the finished roadway. When one support was slightly crooked, he adjusted it and checked again. A friend finished sooner but had overlooked several loose corners. Eli followed the original plan rather than inventing a different bridge. His slow checks meant the model stood level during the final test. He placed the ruler away only after inspecting the last small joint.",
   "cell": "inference_clue",
   "choices": [
-   "very quick to finish a task",
-   "very keen to change the plan",
-   "very willing to share materials",
-   "very careful about small details"
+   "Very quick to finish ahead of other people.",
+   "Very eager to replace the original plan with new ideas.",
+   "Willing to leave small mistakes without checking them.",
+   "Very careful about small details of the work."
   ],
   "answerOptions": [
    {
-    "value": "very quick to finish a task",
-    "label": "very quick to finish a task",
-    "text": "very quick to finish a task"
+    "value": "Very quick to finish ahead of other people.",
+    "label": "Very quick to finish ahead of other people.",
+    "text": "Very quick to finish ahead of other people."
    },
    {
-    "value": "very keen to change the plan",
-    "label": "very keen to change the plan",
-    "text": "very keen to change the plan"
+    "value": "Very eager to replace the original plan with new ideas.",
+    "label": "Very eager to replace the original plan with new ideas.",
+    "text": "Very eager to replace the original plan with new ideas."
    },
    {
-    "value": "very willing to share materials",
-    "label": "very willing to share materials",
-    "text": "very willing to share materials"
+    "value": "Willing to leave small mistakes without checking them.",
+    "label": "Willing to leave small mistakes without checking them.",
+    "text": "Willing to leave small mistakes without checking them."
    },
    {
-    "value": "very careful about small details",
-    "label": "very careful about small details",
-    "text": "very careful about small details"
+    "value": "Very careful about small details of the work.",
+    "label": "Very careful about small details of the work.",
+    "text": "Very careful about small details of the work."
    }
   ],
-  "answer": "very careful about small details",
-  "correctAnswer": "very careful about small details",
+  "answer": "Very careful about small details of the work.",
+  "correctAnswer": "Very careful about small details of the work.",
   "distractorRationales": {
-   "very keen to change the plan": "D-PLAUSIBLE-UNSUPPORTED",
-   "very willing to share materials": "D-OPPOSITE",
-   "very quick to finish a task": "D-PLAUSIBLE-UNSUPPORTED"
+   "Very eager to replace the original plan with new ideas.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Willing to leave small mistakes without checking them.": "D-OPPOSITE",
+   "Very quick to finish ahead of other people.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7164,6 +7178,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "meticulous",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -7184,7 +7199,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Infer thorough precision from repeated measurement, hidden-joint checks and correction; distinguish care from speed and creative redesign."
  },
  {
   "id": "lp3.context_clues.l2.A.inference_clue.v23",
@@ -7209,42 +7224,42 @@ export const questions = [
   "prompt": "What does \"permeable\" mean?",
   "question": "What does \"permeable\" mean?",
   "spokenPrompt": "What does \"permeable\" mean?",
-  "passage": "The roof was permeable. After a shower, drops passed through tiny spaces and wet the floor.",
+  "passage": "The class tested two fabric roofs above matching model shelters. The first roof was permeable when water was poured over it. Tiny drops passed through spaces in the cloth and reached the floor. The second roof kept its floor dry during the same test. Both materials bent easily and supported the same small wooden weight. The class placed paper underneath to record where the drops landed. After drying both models, they repeated the test with fresh paper. Wet marks appeared beneath the first roof again, in several places.",
   "cell": "inference_clue",
   "choices": [
-   "allowing water to pass through",
-   "able to fold into a small space",
-   "strong enough to hold heavy objects",
-   "able to reflect light from its surface"
+   "Allowing water to pass through the material.",
+   "Able to bend easily without breaking apart.",
+   "Strong enough to support a small wooden weight.",
+   "Keeping water from reaching anything underneath it."
   ],
   "answerOptions": [
    {
-    "value": "allowing water to pass through",
-    "label": "allowing water to pass through",
-    "text": "allowing water to pass through"
+    "value": "Allowing water to pass through the material.",
+    "label": "Allowing water to pass through the material.",
+    "text": "Allowing water to pass through the material."
    },
    {
-    "value": "able to fold into a small space",
-    "label": "able to fold into a small space",
-    "text": "able to fold into a small space"
+    "value": "Able to bend easily without breaking apart.",
+    "label": "Able to bend easily without breaking apart.",
+    "text": "Able to bend easily without breaking apart."
    },
    {
-    "value": "strong enough to hold heavy objects",
-    "label": "strong enough to hold heavy objects",
-    "text": "strong enough to hold heavy objects"
+    "value": "Strong enough to support a small wooden weight.",
+    "label": "Strong enough to support a small wooden weight.",
+    "text": "Strong enough to support a small wooden weight."
    },
    {
-    "value": "able to reflect light from its surface",
-    "label": "able to reflect light from its surface",
-    "text": "able to reflect light from its surface"
+    "value": "Keeping water from reaching anything underneath it.",
+    "label": "Keeping water from reaching anything underneath it.",
+    "text": "Keeping water from reaching anything underneath it."
    }
   ],
-  "answer": "allowing water to pass through",
-  "correctAnswer": "allowing water to pass through",
+  "answer": "Allowing water to pass through the material.",
+  "correctAnswer": "Allowing water to pass through the material.",
   "distractorRationales": {
-   "able to fold into a small space": "D-PLAUSIBLE-UNSUPPORTED",
-   "strong enough to hold heavy objects": "D-PLAUSIBLE-UNSUPPORTED",
-   "able to reflect light from its surface": "D-OPPOSITE"
+   "Able to bend easily without breaking apart.": "D-TOPIC-ADJACENT",
+   "Strong enough to support a small wooden weight.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Keeping water from reaching anything underneath it.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7254,6 +7269,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "permeable",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -7274,6 +7290,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Infer permeability from repeated passage of water while flexibility and strength are controlled; those true properties are not the tested distinction."
  }
 ];

@@ -102,7 +102,7 @@ export async function importV3Bank(assessmentSkillId = "") {
 
 // Runtime eligibility for current v3 items. A non-v3 item is ineligible because
 // v3 is the only published assessment source.
-export function getV3RuntimeEligibilityIssues(question = {}, assessmentSkillId = "") {
+export function getV3RuntimeEligibilityIssues(question = {}, assessmentSkillId = "", { retention = question.retentionAdministration === true } = {}) {
   if (question?.source !== V3_QUESTION_SOURCE) return ["question is not from the current v3 assessment source"];
   if (!isV3PublishedSkill(assessmentSkillId)) return ["v3 bank is not published for this skill"];
   const blueprint = skillBlueprints[assessmentSkillId];
@@ -124,7 +124,7 @@ export function getV3RuntimeEligibilityIssues(question = {}, assessmentSkillId =
   if (choices.length && !choices.includes(question.answer)) {
     issues.push("answer is missing from choices");
   }
-  if (question.retentionOnly) issues.push("retention-reserve items are not selectable in regular sittings");
+  if (question.retentionOnly && !retention) issues.push("retention-reserve items are not selectable in regular sittings");
   return [...new Set(issues)];
 }
 

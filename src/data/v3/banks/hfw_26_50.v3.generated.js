@@ -11874,5 +11874,525 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": ""
+ },
+ {
+  "id": "lp3.hfw_26_50.l1.R.an.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_26_50",
+  "assessmentSkillId": "hfw_26_50",
+  "skillName": "High-Frequency Words 26–50",
+  "skill": "High-Frequency Words 26–50",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "an",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. The hens laid an egg today. Which printed word fills the blank?",
+  "sentence": "The hens laid ___ egg today.",
+  "choices": [
+   "an",
+   "a",
+   "at",
+   "or"
+  ],
+  "answerOptions": [
+   {
+    "value": "an",
+    "label": "an",
+    "text": "an"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "at",
+    "label": "at",
+    "text": "at"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   }
+  ],
+  "answer": "an",
+  "correctAnswer": "an",
+  "distractorRationales": {
+   "or": "D-FUNCTION-SWAP",
+   "a": "D-DEVELOPMENTAL",
+   "at": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The hens laid ___ egg today.",
+  "targetWord": "an",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_26_50.l1.R.an.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The singular vowel-initial noun needs an; the egg-laying context is distinct from ordinary examples."
+ },
+ {
+  "id": "lp3.hfw_26_50.l1.R.do.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_26_50",
+  "assessmentSkillId": "hfw_26_50",
+  "skillName": "High-Frequency Words 26–50",
+  "skill": "High-Frequency Words 26–50",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "do",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. How do these clips work? Which printed word fills the blank?",
+  "sentence": "How ___ these clips work?",
+  "choices": [
+   "was",
+   "do",
+   "had",
+   "is"
+  ],
+  "answerOptions": [
+   {
+    "value": "was",
+    "label": "was",
+    "text": "was"
+   },
+   {
+    "value": "do",
+    "label": "do",
+    "text": "do"
+   },
+   {
+    "value": "had",
+    "label": "had",
+    "text": "had"
+   },
+   {
+    "value": "is",
+    "label": "is",
+    "text": "is"
+   }
+  ],
+  "answer": "do",
+  "correctAnswer": "do",
+  "distractorRationales": {
+   "had": "D-DEVELOPMENTAL",
+   "is": "D-DEVELOPMENTAL",
+   "was": "D-DEVELOPMENTAL"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "How ___ these clips work?",
+  "targetWord": "do",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_26_50.l1.R.do.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Do supports the base verb in this plural present question; all alternatives come from the cumulative taught inventory."
+ },
+ {
+  "id": "lp3.hfw_26_50.l2.R.each.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_26_50",
+  "assessmentSkillId": "hfw_26_50",
+  "skillName": "High-Frequency Words 26–50",
+  "skill": "High-Frequency Words 26–50",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "each",
+  "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
+  "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Listen, then build the missing word: Give ___ child a turn.",
+  "question": "Listen, then build the missing word: Give ___ child a turn.",
+  "spokenPrompt": "Listen to the whole sentence. Give each child a turn. Build the missing word.",
+  "sentence": "Give ___ child a turn.",
+  "choices": [
+   "each"
+  ],
+  "answerOptions": [
+   {
+    "value": "each",
+    "label": "each",
+    "text": "each"
+   }
+  ],
+  "answer": "each",
+  "correctAnswer": "each",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "letterTiles": [
+   "e",
+   "a",
+   "c",
+   "h",
+   "i",
+   "t"
+  ],
+  "letterBank": [
+   "e",
+   "a",
+   "c",
+   "h",
+   "i",
+   "t"
+  ],
+  "sentenceText": "Give each child a turn.",
+  "targetWord": "each",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_26_50.l2.R.each.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.hfw_26_50.l2.R.but.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_26_50",
+  "assessmentSkillId": "hfw_26_50",
+  "skillName": "High-Frequency Words 26–50",
+  "skill": "High-Frequency Words 26–50",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "but",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen, then build the missing word: The rope is wet ___ still strong.",
+  "question": "Listen, then build the missing word: The rope is wet ___ still strong.",
+  "spokenPrompt": "Listen to the whole sentence. The rope is wet but still strong. Build the missing word.",
+  "sentence": "The rope is wet ___ still strong.",
+  "choices": [
+   "but"
+  ],
+  "answerOptions": [
+   {
+    "value": "but",
+    "label": "but",
+    "text": "but"
+   }
+  ],
+  "answer": "but",
+  "correctAnswer": "but",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "letterTiles": [
+   "b",
+   "u",
+   "t",
+   "d",
+   "a"
+  ],
+  "letterBank": [
+   "b",
+   "u",
+   "t",
+   "d",
+   "a"
+  ],
+  "sentenceText": "The rope is wet but still strong.",
+  "targetWord": "but",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_26_50.l2.R.but.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.hfw_26_50.l2.R.their.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_26_50",
+  "assessmentSkillId": "hfw_26_50",
+  "skillName": "High-Frequency Words 26–50",
+  "skill": "High-Frequency Words 26–50",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "their",
+  "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
+  "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Listen, then build the missing word: The children washed ___ hands.",
+  "question": "Listen, then build the missing word: The children washed ___ hands.",
+  "spokenPrompt": "Listen to the whole sentence. The children washed their hands. Build the missing word.",
+  "sentence": "The children washed ___ hands.",
+  "choices": [
+   "their"
+  ],
+  "answerOptions": [
+   {
+    "value": "their",
+    "label": "their",
+    "text": "their"
+   }
+  ],
+  "answer": "their",
+  "correctAnswer": "their",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "letterTiles": [
+   "t",
+   "h",
+   "e",
+   "i",
+   "r",
+   "e"
+  ],
+  "letterBank": [
+   "t",
+   "h",
+   "e",
+   "i",
+   "r",
+   "e"
+  ],
+  "sentenceText": "The children washed their hands.",
+  "targetWord": "their",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_26_50.l2.R.their.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Ownership distinguishes the spoken homophone; letter tiles also allow the tempting there error."
+ },
+ {
+  "id": "lp3.hfw_26_50.l2.R.when.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_26_50",
+  "assessmentSkillId": "hfw_26_50",
+  "skillName": "High-Frequency Words 26–50",
+  "skill": "High-Frequency Words 26–50",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "when",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen, then build the missing word: Call me ___ lunch is ready.",
+  "question": "Listen, then build the missing word: Call me ___ lunch is ready.",
+  "spokenPrompt": "Listen to the whole sentence. Call me when lunch is ready. Build the missing word.",
+  "sentence": "Call me ___ lunch is ready.",
+  "choices": [
+   "when"
+  ],
+  "answerOptions": [
+   {
+    "value": "when",
+    "label": "when",
+    "text": "when"
+   }
+  ],
+  "answer": "when",
+  "correctAnswer": "when",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "letterTiles": [
+   "w",
+   "h",
+   "e",
+   "n",
+   "i",
+   "t"
+  ],
+  "letterBank": [
+   "w",
+   "h",
+   "e",
+   "n",
+   "i",
+   "t"
+  ],
+  "sentenceText": "Call me when lunch is ready.",
+  "targetWord": "when",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_26_50.l2.R.when.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
  }
 ];

@@ -259,5 +259,18 @@ export default {
       item.retention = true;
     }
     return item;
-  }).concat(freshPhaseItems)
+  }).concat(freshPhaseItems, [
+    psc("plural_add_s", 1, 1, 31, "Three ___ carried people up the snowy hill.",
+      ["lifts", "lift", "lifting", "lifted"], [FS, FS, FS]),
+    psc("plural_add_es", 1, 2, 31, "We made two birthday ___ before blowing out candles.",
+      ["wishes", "wish", "wishing", "wished"], [FS, FS, FS]),
+    psc("plural_add_es", 1, 2, 32, "Two ___ were drawn in red pencil.",
+      ["crosses", "cross", "crossing", "crossed"], [FS, FS, FS]),
+    psc("plural_concept", 1, 1, 31, "Just one ___ came to collect me.",
+      ["sister", "brothers", "uncles", "parents"], [FS, FS, FS]),
+    psc("plural_y_to_ies", 2, 1, 31, "The tour visits three ___ in Spain.",
+      ["cities", "city", "country", "capital"], [FS, FS, FS]),
+    psc("plural_f_to_ves", 2, 2, 31, "Three young ___ followed their mother cow.",
+      ["calves", "calf", "colt", "foal"], [FS, FS, FS])
+  ].map(item => ({ ...item, retention: true })))
 };

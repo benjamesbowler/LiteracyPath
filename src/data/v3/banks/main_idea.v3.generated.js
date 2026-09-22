@@ -27,39 +27,39 @@ export const questions = [
   "passage": "Rana planted three bean seeds in a paper cup. She watered them every morning before school. For days, nothing happened. Then one green stem pushed up through the soil. Rana cheered so loudly that her dog barked.",
   "cell": "mostly_about_fiction",
   "choices": [
-   "Rana making a noise that wakes her dog",
-   "Rana choosing which seeds to buy for her garden",
-   "Rana waiting and caring for a growing plant",
-   "Rana watering a cup before going to school"
+   "Rana choosing seeds for a large outdoor garden",
+   "Rana throwing her seeds away before they grow",
+   "Rana caring for seeds until a plant grows",
+   "Rana watering her cup before leaving for school"
   ],
   "answerOptions": [
    {
-    "value": "Rana making a noise that wakes her dog",
-    "label": "Rana making a noise that wakes her dog",
-    "text": "Rana making a noise that wakes her dog"
+    "value": "Rana choosing seeds for a large outdoor garden",
+    "label": "Rana choosing seeds for a large outdoor garden",
+    "text": "Rana choosing seeds for a large outdoor garden"
    },
    {
-    "value": "Rana choosing which seeds to buy for her garden",
-    "label": "Rana choosing which seeds to buy for her garden",
-    "text": "Rana choosing which seeds to buy for her garden"
+    "value": "Rana throwing her seeds away before they grow",
+    "label": "Rana throwing her seeds away before they grow",
+    "text": "Rana throwing her seeds away before they grow"
    },
    {
-    "value": "Rana waiting and caring for a growing plant",
-    "label": "Rana waiting and caring for a growing plant",
-    "text": "Rana waiting and caring for a growing plant"
+    "value": "Rana caring for seeds until a plant grows",
+    "label": "Rana caring for seeds until a plant grows",
+    "text": "Rana caring for seeds until a plant grows"
    },
    {
-    "value": "Rana watering a cup before going to school",
-    "label": "Rana watering a cup before going to school",
-    "text": "Rana watering a cup before going to school"
+    "value": "Rana watering her cup before leaving for school",
+    "label": "Rana watering her cup before leaving for school",
+    "text": "Rana watering her cup before leaving for school"
    }
   ],
-  "answer": "Rana waiting and caring for a growing plant",
-  "correctAnswer": "Rana waiting and caring for a growing plant",
+  "answer": "Rana caring for seeds until a plant grows",
+  "correctAnswer": "Rana caring for seeds until a plant grows",
   "distractorRationales": {
-   "Rana watering a cup before going to school": "D-PLAUSIBLE-UNSUPPORTED",
-   "Rana making a noise that wakes her dog": "D-PLAUSIBLE-UNSUPPORTED",
-   "Rana choosing which seeds to buy for her garden": "D-OPPOSITE"
+   "Rana watering her cup before leaving for school": "D-DETAIL-AS-MAIN",
+   "Rana choosing seeds for a large outdoor garden": "D-TOPIC-ADJACENT",
+   "Rana throwing her seeds away before they grow": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -89,7 +89,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Track care and growth; watering is a true part, outdoor planning is unsupported, and abandonment contradicts continued care."
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_fiction.v2",
@@ -117,26 +117,26 @@ export const questions = [
   "passage": "Tom could not find his library book anywhere. He looked under his bed and behind the sofa. He even checked the fridge. At last he checked inside his pillowcase. The book was where he read it last.",
   "cell": "mostly_about_fiction",
   "choices": [
-   "Tom looking behind the sofa in his room",
-   "Tom choosing a new book at the library",
-   "Tom making a pillowcase for his own bed",
+   "Tom looking behind the sofa for his book",
+   "Tom choosing books for a new reading corner",
+   "Tom leaving his lost book at the library",
    "Tom searching many places for a missing book"
   ],
   "answerOptions": [
    {
-    "value": "Tom looking behind the sofa in his room",
-    "label": "Tom looking behind the sofa in his room",
-    "text": "Tom looking behind the sofa in his room"
+    "value": "Tom looking behind the sofa for his book",
+    "label": "Tom looking behind the sofa for his book",
+    "text": "Tom looking behind the sofa for his book"
    },
    {
-    "value": "Tom choosing a new book at the library",
-    "label": "Tom choosing a new book at the library",
-    "text": "Tom choosing a new book at the library"
+    "value": "Tom choosing books for a new reading corner",
+    "label": "Tom choosing books for a new reading corner",
+    "text": "Tom choosing books for a new reading corner"
    },
    {
-    "value": "Tom making a pillowcase for his own bed",
-    "label": "Tom making a pillowcase for his own bed",
-    "text": "Tom making a pillowcase for his own bed"
+    "value": "Tom leaving his lost book at the library",
+    "label": "Tom leaving his lost book at the library",
+    "text": "Tom leaving his lost book at the library"
    },
    {
     "value": "Tom searching many places for a missing book",
@@ -147,9 +147,9 @@ export const questions = [
   "answer": "Tom searching many places for a missing book",
   "correctAnswer": "Tom searching many places for a missing book",
   "distractorRationales": {
-   "Tom looking behind the sofa in his room": "D-PLAUSIBLE-UNSUPPORTED",
-   "Tom choosing a new book at the library": "D-PLAUSIBLE-UNSUPPORTED",
-   "Tom making a pillowcase for his own bed": "D-OPPOSITE"
+   "Tom looking behind the sofa for his book": "D-DETAIL-AS-MAIN",
+   "Tom choosing books for a new reading corner": "D-TOPIC-ADJACENT",
+   "Tom leaving his lost book at the library": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -179,7 +179,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Find the search-and-discovery idea rather than one search location or an imagined borrowing event."
  },
  {
   "id": "lp3.main_idea.l1.C.mostly_about_fiction.v3",
@@ -207,39 +207,39 @@ export const questions = [
   "passage": "Amara's bike squeaked all the way to the park. Squeak, squeak, squeak. Her uncle helped her put oil on the chain. The bike was quiet on the way home. Amara smiled as she rode.",
   "cell": "mostly_about_fiction",
   "choices": [
-   "making Amara’s bicycle stop squeaking",
-   "riding to the park with Amara",
-   "putting oil onto one bicycle part",
-   "buying a new bicycle for Amara"
+   "Amara and her uncle stopping her bike squeaking",
+   "Amara riding her bicycle back from the park",
+   "Amara learning to ride her bike without any help",
+   "Amara buying a new bike after hers breaks"
   ],
   "answerOptions": [
    {
-    "value": "making Amara’s bicycle stop squeaking",
-    "label": "making Amara’s bicycle stop squeaking",
-    "text": "making Amara’s bicycle stop squeaking"
+    "value": "Amara and her uncle stopping her bike squeaking",
+    "label": "Amara and her uncle stopping her bike squeaking",
+    "text": "Amara and her uncle stopping her bike squeaking"
    },
    {
-    "value": "riding to the park with Amara",
-    "label": "riding to the park with Amara",
-    "text": "riding to the park with Amara"
+    "value": "Amara riding her bicycle back from the park",
+    "label": "Amara riding her bicycle back from the park",
+    "text": "Amara riding her bicycle back from the park"
    },
    {
-    "value": "putting oil onto one bicycle part",
-    "label": "putting oil onto one bicycle part",
-    "text": "putting oil onto one bicycle part"
+    "value": "Amara learning to ride her bike without any help",
+    "label": "Amara learning to ride her bike without any help",
+    "text": "Amara learning to ride her bike without any help"
    },
    {
-    "value": "buying a new bicycle for Amara",
-    "label": "buying a new bicycle for Amara",
-    "text": "buying a new bicycle for Amara"
+    "value": "Amara buying a new bike after hers breaks",
+    "label": "Amara buying a new bike after hers breaks",
+    "text": "Amara buying a new bike after hers breaks"
    }
   ],
-  "answer": "making Amara’s bicycle stop squeaking",
-  "correctAnswer": "making Amara’s bicycle stop squeaking",
+  "answer": "Amara and her uncle stopping her bike squeaking",
+  "correctAnswer": "Amara and her uncle stopping her bike squeaking",
   "distractorRationales": {
-   "riding to the park with Amara": "D-PLAUSIBLE-UNSUPPORTED",
-   "putting oil onto one bicycle part": "D-PLAUSIBLE-UNSUPPORTED",
-   "buying a new bicycle for Amara": "D-OPPOSITE"
+   "Amara riding her bicycle back from the park": "D-DETAIL-AS-MAIN",
+   "Amara learning to ride her bike without any help": "D-TOPIC-ADJACENT",
+   "Amara buying a new bike after hers breaks": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -269,7 +269,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Oil and changed sound connect the problem and solution; the journey is only the setting."
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_fiction.v4",
@@ -297,26 +297,26 @@ export const questions = [
   "passage": "Milo's tooth had wobbled for a week. He wiggled it at breakfast and at bath time. He laughed at dinner, and the tooth popped out. He caught it in his hand. Milo put it under his pillow that night.",
   "cell": "mostly_about_fiction",
   "choices": [
-   "Milo laughing while eating his dinner",
-   "Milo placing something beneath his pillow",
-   "Milo visiting a dentist after school",
+   "Milo catching his tooth in his hand",
+   "Milo visiting a dentist to have his teeth checked",
+   "Milo keeping the tooth firmly in his mouth",
    "Milo losing his wobbly tooth"
   ],
   "answerOptions": [
    {
-    "value": "Milo laughing while eating his dinner",
-    "label": "Milo laughing while eating his dinner",
-    "text": "Milo laughing while eating his dinner"
+    "value": "Milo catching his tooth in his hand",
+    "label": "Milo catching his tooth in his hand",
+    "text": "Milo catching his tooth in his hand"
    },
    {
-    "value": "Milo placing something beneath his pillow",
-    "label": "Milo placing something beneath his pillow",
-    "text": "Milo placing something beneath his pillow"
+    "value": "Milo visiting a dentist to have his teeth checked",
+    "label": "Milo visiting a dentist to have his teeth checked",
+    "text": "Milo visiting a dentist to have his teeth checked"
    },
    {
-    "value": "Milo visiting a dentist after school",
-    "label": "Milo visiting a dentist after school",
-    "text": "Milo visiting a dentist after school"
+    "value": "Milo keeping the tooth firmly in his mouth",
+    "label": "Milo keeping the tooth firmly in his mouth",
+    "text": "Milo keeping the tooth firmly in his mouth"
    },
    {
     "value": "Milo losing his wobbly tooth",
@@ -327,9 +327,9 @@ export const questions = [
   "answer": "Milo losing his wobbly tooth",
   "correctAnswer": "Milo losing his wobbly tooth",
   "distractorRationales": {
-   "Milo placing something beneath his pillow": "D-PLAUSIBLE-UNSUPPORTED",
-   "Milo visiting a dentist after school": "D-OPPOSITE",
-   "Milo laughing while eating his dinner": "D-PLAUSIBLE-UNSUPPORTED"
+   "Milo visiting a dentist to have his teeth checked": "D-TOPIC-ADJACENT",
+   "Milo keeping the tooth firmly in his mouth": "D-OPPOSITE",
+   "Milo catching his tooth in his hand": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -359,7 +359,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Link the week of wobbling to the tooth coming out, not just catching it."
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_fiction.v5",
@@ -387,39 +387,39 @@ export const questions = [
   "passage": "A thin gray kitten kept visiting Priya's steps. Priya put out water for it each day. Each day the kitten crept closer. On Friday it curled up on her lap. She heard it purr softly.",
   "cell": "mostly_about_fiction",
   "choices": [
-   "Priya gradually gaining a stray kitten’s trust",
-   "Priya leaving water on her front steps",
-   "Priya listening to a quiet purring sound",
-   "Priya taking a kitten to an animal clinic"
+   "Priya helping a shy kitten feel safe nearby",
+   "Priya putting water outside on her front steps",
+   "Priya teaching a kitten to follow spoken commands",
+   "Priya sending the kitten away from her steps"
   ],
   "answerOptions": [
    {
-    "value": "Priya gradually gaining a stray kitten’s trust",
-    "label": "Priya gradually gaining a stray kitten’s trust",
-    "text": "Priya gradually gaining a stray kitten’s trust"
+    "value": "Priya helping a shy kitten feel safe nearby",
+    "label": "Priya helping a shy kitten feel safe nearby",
+    "text": "Priya helping a shy kitten feel safe nearby"
    },
    {
-    "value": "Priya leaving water on her front steps",
-    "label": "Priya leaving water on her front steps",
-    "text": "Priya leaving water on her front steps"
+    "value": "Priya putting water outside on her front steps",
+    "label": "Priya putting water outside on her front steps",
+    "text": "Priya putting water outside on her front steps"
    },
    {
-    "value": "Priya listening to a quiet purring sound",
-    "label": "Priya listening to a quiet purring sound",
-    "text": "Priya listening to a quiet purring sound"
+    "value": "Priya teaching a kitten to follow spoken commands",
+    "label": "Priya teaching a kitten to follow spoken commands",
+    "text": "Priya teaching a kitten to follow spoken commands"
    },
    {
-    "value": "Priya taking a kitten to an animal clinic",
-    "label": "Priya taking a kitten to an animal clinic",
-    "text": "Priya taking a kitten to an animal clinic"
+    "value": "Priya sending the kitten away from her steps",
+    "label": "Priya sending the kitten away from her steps",
+    "text": "Priya sending the kitten away from her steps"
    }
   ],
-  "answer": "Priya gradually gaining a stray kitten’s trust",
-  "correctAnswer": "Priya gradually gaining a stray kitten’s trust",
+  "answer": "Priya helping a shy kitten feel safe nearby",
+  "correctAnswer": "Priya helping a shy kitten feel safe nearby",
   "distractorRationales": {
-   "Priya leaving water on her front steps": "D-PLAUSIBLE-UNSUPPORTED",
-   "Priya listening to a quiet purring sound": "D-PLAUSIBLE-UNSUPPORTED",
-   "Priya taking a kitten to an animal clinic": "D-OPPOSITE"
+   "Priya putting water outside on her front steps": "D-DETAIL-AS-MAIN",
+   "Priya teaching a kitten to follow spoken commands": "D-TOPIC-ADJACENT",
+   "Priya sending the kitten away from her steps": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -449,7 +449,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "The kitten moving closer and settling on her lap show growing trust without requiring the word gradually."
  },
  {
   "id": "lp3.main_idea.l1.C.mostly_about_fiction.v6",
@@ -477,39 +477,39 @@ export const questions = [
   "passage": "Dev dropped his mitten somewhere in the snow. He walked back along his own footprints to look. A red mitten hung on the gate post. Someone had left it there for him to find.",
   "cell": "mostly_about_fiction",
   "choices": [
-   "Dev shopping for new winter clothing",
-   "Dev recovering a mitten lost outside",
-   "Dev following his footprints through snow",
-   "Dev noticing something on a gate post"
+   "Dev leaving his found mitten on the ground",
+   "Dev finding the mitten he lost outside",
+   "Dev walking back along his snowy footprints",
+   "Dev choosing warm mittens for a snow trip"
   ],
   "answerOptions": [
    {
-    "value": "Dev shopping for new winter clothing",
-    "label": "Dev shopping for new winter clothing",
-    "text": "Dev shopping for new winter clothing"
+    "value": "Dev leaving his found mitten on the ground",
+    "label": "Dev leaving his found mitten on the ground",
+    "text": "Dev leaving his found mitten on the ground"
    },
    {
-    "value": "Dev recovering a mitten lost outside",
-    "label": "Dev recovering a mitten lost outside",
-    "text": "Dev recovering a mitten lost outside"
+    "value": "Dev finding the mitten he lost outside",
+    "label": "Dev finding the mitten he lost outside",
+    "text": "Dev finding the mitten he lost outside"
    },
    {
-    "value": "Dev following his footprints through snow",
-    "label": "Dev following his footprints through snow",
-    "text": "Dev following his footprints through snow"
+    "value": "Dev walking back along his snowy footprints",
+    "label": "Dev walking back along his snowy footprints",
+    "text": "Dev walking back along his snowy footprints"
    },
    {
-    "value": "Dev noticing something on a gate post",
-    "label": "Dev noticing something on a gate post",
-    "text": "Dev noticing something on a gate post"
+    "value": "Dev choosing warm mittens for a snow trip",
+    "label": "Dev choosing warm mittens for a snow trip",
+    "text": "Dev choosing warm mittens for a snow trip"
    }
   ],
-  "answer": "Dev recovering a mitten lost outside",
-  "correctAnswer": "Dev recovering a mitten lost outside",
+  "answer": "Dev finding the mitten he lost outside",
+  "correctAnswer": "Dev finding the mitten he lost outside",
   "distractorRationales": {
-   "Dev noticing something on a gate post": "D-PLAUSIBLE-UNSUPPORTED",
-   "Dev shopping for new winter clothing": "D-OPPOSITE",
-   "Dev following his footprints through snow": "D-PLAUSIBLE-UNSUPPORTED"
+   "Dev choosing warm mittens for a snow trip": "D-TOPIC-ADJACENT",
+   "Dev leaving his found mitten on the ground": "D-OPPOSITE",
+   "Dev walking back along his snowy footprints": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -539,7 +539,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Include loss, search and recovery; retracing footprints is just the method."
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_fiction.v7",
@@ -567,39 +567,39 @@ export const questions = [
   "passage": "The choir had one last practice before the show. First the singing was too quiet. Then it was too fast. Miss Obi clapped a steady beat for them. Soon their voices joined in time.",
   "cell": "mostly_about_fiction",
   "choices": [
-   "singers learning to keep time together",
-   "Miss Obi making a steady clapping sound",
-   "singers preparing the stage for a show",
-   "Miss Obi learning a new song alone"
+   "Singers learning to keep time together",
+   "Miss Obi clapping a steady beat for singers",
+   "Singers choosing costumes for their next performance",
+   "Singers cancelling their show after the first practice"
   ],
   "answerOptions": [
    {
-    "value": "singers learning to keep time together",
-    "label": "singers learning to keep time together",
-    "text": "singers learning to keep time together"
+    "value": "Singers learning to keep time together",
+    "label": "Singers learning to keep time together",
+    "text": "Singers learning to keep time together"
    },
    {
-    "value": "Miss Obi making a steady clapping sound",
-    "label": "Miss Obi making a steady clapping sound",
-    "text": "Miss Obi making a steady clapping sound"
+    "value": "Miss Obi clapping a steady beat for singers",
+    "label": "Miss Obi clapping a steady beat for singers",
+    "text": "Miss Obi clapping a steady beat for singers"
    },
    {
-    "value": "singers preparing the stage for a show",
-    "label": "singers preparing the stage for a show",
-    "text": "singers preparing the stage for a show"
+    "value": "Singers choosing costumes for their next performance",
+    "label": "Singers choosing costumes for their next performance",
+    "text": "Singers choosing costumes for their next performance"
    },
    {
-    "value": "Miss Obi learning a new song alone",
-    "label": "Miss Obi learning a new song alone",
-    "text": "Miss Obi learning a new song alone"
+    "value": "Singers cancelling their show after the first practice",
+    "label": "Singers cancelling their show after the first practice",
+    "text": "Singers cancelling their show after the first practice"
    }
   ],
-  "answer": "singers learning to keep time together",
-  "correctAnswer": "singers learning to keep time together",
+  "answer": "Singers learning to keep time together",
+  "correctAnswer": "Singers learning to keep time together",
   "distractorRationales": {
-   "Miss Obi learning a new song alone": "D-OPPOSITE",
-   "Miss Obi making a steady clapping sound": "D-PLAUSIBLE-UNSUPPORTED",
-   "singers preparing the stage for a show": "D-PLAUSIBLE-UNSUPPORTED"
+   "Singers cancelling their show after the first practice": "D-OPPOSITE",
+   "Miss Obi clapping a steady beat for singers": "D-DETAIL-AS-MAIN",
+   "Singers choosing costumes for their next performance": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -629,7 +629,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Repeated practice problems and the steady beat support improvement, not performance preparations generally."
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_fiction.v8",
@@ -657,39 +657,39 @@ export const questions = [
   "passage": "Jin practiced flipping a paper pancake in a pan. The pan was cold, so he could practice safely. On Sunday he tried using a real pancake. His dad watched from the table. The pancake spun up and landed in the pan.",
   "cell": "mostly_about_fiction",
   "choices": [
-   "Dad teaching Jin to mix pancake batter",
-   "Jin learning to flip a pancake",
-   "Dad sitting at the table on Sunday",
-   "Jin using a paper pancake to practice"
+   "Jin giving up before trying a real pancake",
+   "Jin learning to flip a pancake safely",
+   "Jin practising with paper in a cold pan",
+   "Jin choosing ingredients for a new pancake recipe"
   ],
   "answerOptions": [
    {
-    "value": "Dad teaching Jin to mix pancake batter",
-    "label": "Dad teaching Jin to mix pancake batter",
-    "text": "Dad teaching Jin to mix pancake batter"
+    "value": "Jin giving up before trying a real pancake",
+    "label": "Jin giving up before trying a real pancake",
+    "text": "Jin giving up before trying a real pancake"
    },
    {
-    "value": "Jin learning to flip a pancake",
-    "label": "Jin learning to flip a pancake",
-    "text": "Jin learning to flip a pancake"
+    "value": "Jin learning to flip a pancake safely",
+    "label": "Jin learning to flip a pancake safely",
+    "text": "Jin learning to flip a pancake safely"
    },
    {
-    "value": "Dad sitting at the table on Sunday",
-    "label": "Dad sitting at the table on Sunday",
-    "text": "Dad sitting at the table on Sunday"
+    "value": "Jin practising with paper in a cold pan",
+    "label": "Jin practising with paper in a cold pan",
+    "text": "Jin practising with paper in a cold pan"
    },
    {
-    "value": "Jin using a paper pancake to practice",
-    "label": "Jin using a paper pancake to practice",
-    "text": "Jin using a paper pancake to practice"
+    "value": "Jin choosing ingredients for a new pancake recipe",
+    "label": "Jin choosing ingredients for a new pancake recipe",
+    "text": "Jin choosing ingredients for a new pancake recipe"
    }
   ],
-  "answer": "Jin learning to flip a pancake",
-  "correctAnswer": "Jin learning to flip a pancake",
+  "answer": "Jin learning to flip a pancake safely",
+  "correctAnswer": "Jin learning to flip a pancake safely",
   "distractorRationales": {
-   "Dad teaching Jin to mix pancake batter": "D-OPPOSITE",
-   "Dad sitting at the table on Sunday": "D-PLAUSIBLE-UNSUPPORTED",
-   "Jin using a paper pancake to practice": "D-PLAUSIBLE-UNSUPPORTED"
+   "Jin giving up before trying a real pancake": "D-OPPOSITE",
+   "Jin practising with paper in a cold pan": "D-DETAIL-AS-MAIN",
+   "Jin choosing ingredients for a new pancake recipe": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -719,7 +719,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Join safe rehearsal and successful transfer; paper practice is only the first stage."
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_info.v1",
@@ -747,39 +747,39 @@ export const questions = [
   "passage": "Bees visit many flowers on one trip. They drink a sweet juice called nectar. They pass the nectar to bees inside the hive. Slowly the nectar thickens into honey. One jar of honey takes thousands of flower visits.",
   "cell": "mostly_about_info",
   "choices": [
-   "how jars are filled at a honey factory",
-   "how bees make honey from flower nectar",
-   "how bees drink juice from each flower",
-   "how flowers grow near a busy hive"
+   "Bees taking finished honey from inside flowers",
+   "How bees turn flower juice into honey",
+   "Bees visiting many flowers on one trip",
+   "How bees keep their stored honey safe all winter"
   ],
   "answerOptions": [
    {
-    "value": "how jars are filled at a honey factory",
-    "label": "how jars are filled at a honey factory",
-    "text": "how jars are filled at a honey factory"
+    "value": "Bees taking finished honey from inside flowers",
+    "label": "Bees taking finished honey from inside flowers",
+    "text": "Bees taking finished honey from inside flowers"
    },
    {
-    "value": "how bees make honey from flower nectar",
-    "label": "how bees make honey from flower nectar",
-    "text": "how bees make honey from flower nectar"
+    "value": "How bees turn flower juice into honey",
+    "label": "How bees turn flower juice into honey",
+    "text": "How bees turn flower juice into honey"
    },
    {
-    "value": "how bees drink juice from each flower",
-    "label": "how bees drink juice from each flower",
-    "text": "how bees drink juice from each flower"
+    "value": "Bees visiting many flowers on one trip",
+    "label": "Bees visiting many flowers on one trip",
+    "text": "Bees visiting many flowers on one trip"
    },
    {
-    "value": "how flowers grow near a busy hive",
-    "label": "how flowers grow near a busy hive",
-    "text": "how flowers grow near a busy hive"
+    "value": "How bees keep their stored honey safe all winter",
+    "label": "How bees keep their stored honey safe all winter",
+    "text": "How bees keep their stored honey safe all winter"
    }
   ],
-  "answer": "how bees make honey from flower nectar",
-  "correctAnswer": "how bees make honey from flower nectar",
+  "answer": "How bees turn flower juice into honey",
+  "correctAnswer": "How bees turn flower juice into honey",
   "distractorRationales": {
-   "how bees drink juice from each flower": "D-PLAUSIBLE-UNSUPPORTED",
-   "how flowers grow near a busy hive": "D-PLAUSIBLE-UNSUPPORTED",
-   "how jars are filled at a honey factory": "D-OPPOSITE"
+   "Bees visiting many flowers on one trip": "D-DETAIL-AS-MAIN",
+   "How bees keep their stored honey safe all winter": "D-TOPIC-ADJACENT",
+   "Bees taking finished honey from inside flowers": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -809,7 +809,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the whole process rather than collection alone; flower juice is not already honey."
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_info.v2",
@@ -837,39 +837,39 @@ export const questions = [
   "passage": "A tadpole does not look like a frog. It has a tail and no legs. First the back legs grow. The front legs appear next. The tail gets shorter. At last the small frog can leave the pond.",
   "cell": "mostly_about_info",
   "choices": [
-   "the front legs growing after the back ones",
-   "the best places for frogs to find food",
-   "the changes as a tadpole grows up",
-   "the back legs beginning to appear"
+   "Where different pond animals find their food",
+   "How a young frog grows a longer tail",
+   "How a tadpole changes into a frog",
+   "Back legs growing before the front legs"
   ],
   "answerOptions": [
    {
-    "value": "the front legs growing after the back ones",
-    "label": "the front legs growing after the back ones",
-    "text": "the front legs growing after the back ones"
+    "value": "Where different pond animals find their food",
+    "label": "Where different pond animals find their food",
+    "text": "Where different pond animals find their food"
    },
    {
-    "value": "the best places for frogs to find food",
-    "label": "the best places for frogs to find food",
-    "text": "the best places for frogs to find food"
+    "value": "How a young frog grows a longer tail",
+    "label": "How a young frog grows a longer tail",
+    "text": "How a young frog grows a longer tail"
    },
    {
-    "value": "the changes as a tadpole grows up",
-    "label": "the changes as a tadpole grows up",
-    "text": "the changes as a tadpole grows up"
+    "value": "How a tadpole changes into a frog",
+    "label": "How a tadpole changes into a frog",
+    "text": "How a tadpole changes into a frog"
    },
    {
-    "value": "the back legs beginning to appear",
-    "label": "the back legs beginning to appear",
-    "text": "the back legs beginning to appear"
+    "value": "Back legs growing before the front legs",
+    "label": "Back legs growing before the front legs",
+    "text": "Back legs growing before the front legs"
    }
   ],
-  "answer": "the changes as a tadpole grows up",
-  "correctAnswer": "the changes as a tadpole grows up",
+  "answer": "How a tadpole changes into a frog",
+  "correctAnswer": "How a tadpole changes into a frog",
   "distractorRationales": {
-   "the best places for frogs to find food": "D-OPPOSITE",
-   "the back legs beginning to appear": "D-PLAUSIBLE-UNSUPPORTED",
-   "the front legs growing after the back ones": "D-PLAUSIBLE-UNSUPPORTED"
+   "How a young frog grows a longer tail": "D-OPPOSITE",
+   "Back legs growing before the front legs": "D-DETAIL-AS-MAIN",
+   "Where different pond animals find their food": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -899,7 +899,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Combine the body changes into development; one change does not cover the sequence."
  },
  {
   "id": "lp3.main_idea.l1.C.mostly_about_info.v3",
@@ -927,39 +927,39 @@ export const questions = [
   "passage": "Old paper does not have to be trash. Trucks take it to a special factory. Water and paper are mashed into soft pulp. The pulp is rolled flat and dried. The new paper is ready to use again.",
   "cell": "mostly_about_info",
   "choices": [
-   "water mixing with paper to form pulp",
-   "different things a paper factory can make",
-   "turning used paper into paper again",
-   "trucks taking used paper to a factory"
+   "Choosing the best paper for writing stories",
+   "Keeping old paper dry throughout the whole process",
+   "Turning used paper into paper people can reuse",
+   "Trucks taking old paper to a special factory"
   ],
   "answerOptions": [
    {
-    "value": "water mixing with paper to form pulp",
-    "label": "water mixing with paper to form pulp",
-    "text": "water mixing with paper to form pulp"
+    "value": "Choosing the best paper for writing stories",
+    "label": "Choosing the best paper for writing stories",
+    "text": "Choosing the best paper for writing stories"
    },
    {
-    "value": "different things a paper factory can make",
-    "label": "different things a paper factory can make",
-    "text": "different things a paper factory can make"
+    "value": "Keeping old paper dry throughout the whole process",
+    "label": "Keeping old paper dry throughout the whole process",
+    "text": "Keeping old paper dry throughout the whole process"
    },
    {
-    "value": "turning used paper into paper again",
-    "label": "turning used paper into paper again",
-    "text": "turning used paper into paper again"
+    "value": "Turning used paper into paper people can reuse",
+    "label": "Turning used paper into paper people can reuse",
+    "text": "Turning used paper into paper people can reuse"
    },
    {
-    "value": "trucks taking used paper to a factory",
-    "label": "trucks taking used paper to a factory",
-    "text": "trucks taking used paper to a factory"
+    "value": "Trucks taking old paper to a special factory",
+    "label": "Trucks taking old paper to a special factory",
+    "text": "Trucks taking old paper to a special factory"
    }
   ],
-  "answer": "turning used paper into paper again",
-  "correctAnswer": "turning used paper into paper again",
+  "answer": "Turning used paper into paper people can reuse",
+  "correctAnswer": "Turning used paper into paper people can reuse",
   "distractorRationales": {
-   "trucks taking used paper to a factory": "D-PLAUSIBLE-UNSUPPORTED",
-   "water mixing with paper to form pulp": "D-PLAUSIBLE-UNSUPPORTED",
-   "different things a paper factory can make": "D-OPPOSITE"
+   "Trucks taking old paper to a special factory": "D-DETAIL-AS-MAIN",
+   "Choosing the best paper for writing stories": "D-TOPIC-ADJACENT",
+   "Keeping old paper dry throughout the whole process": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -989,7 +989,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Trace recycling across transport, pulping and drying; one stage and a new-paper preference are narrower or unsupported."
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_info.v4",
@@ -1017,39 +1017,39 @@ export const questions = [
   "passage": "A lighthouse stands where the rocks are dangerous. At night its big lamp turns round and round. Ships out at sea watch for its flashing light. It warns them about rocks in the water. They can steer safely past.",
   "cell": "mostly_about_info",
   "choices": [
-   "finding different buildings beside the sea",
-   "learning how sailors live aboard their ships",
-   "using a lighthouse to guide boats safely",
-   "watching a large lamp turn at night"
+   "Building tall towers to watch the weather at sea",
+   "Guiding ships straight toward rocks in the water",
+   "Using a lighthouse to guide boats past danger",
+   "A large lamp turning around at night"
   ],
   "answerOptions": [
    {
-    "value": "finding different buildings beside the sea",
-    "label": "finding different buildings beside the sea",
-    "text": "finding different buildings beside the sea"
+    "value": "Building tall towers to watch the weather at sea",
+    "label": "Building tall towers to watch the weather at sea",
+    "text": "Building tall towers to watch the weather at sea"
    },
    {
-    "value": "learning how sailors live aboard their ships",
-    "label": "learning how sailors live aboard their ships",
-    "text": "learning how sailors live aboard their ships"
+    "value": "Guiding ships straight toward rocks in the water",
+    "label": "Guiding ships straight toward rocks in the water",
+    "text": "Guiding ships straight toward rocks in the water"
    },
    {
-    "value": "using a lighthouse to guide boats safely",
-    "label": "using a lighthouse to guide boats safely",
-    "text": "using a lighthouse to guide boats safely"
+    "value": "Using a lighthouse to guide boats past danger",
+    "label": "Using a lighthouse to guide boats past danger",
+    "text": "Using a lighthouse to guide boats past danger"
    },
    {
-    "value": "watching a large lamp turn at night",
-    "label": "watching a large lamp turn at night",
-    "text": "watching a large lamp turn at night"
+    "value": "A large lamp turning around at night",
+    "label": "A large lamp turning around at night",
+    "text": "A large lamp turning around at night"
    }
   ],
-  "answer": "using a lighthouse to guide boats safely",
-  "correctAnswer": "using a lighthouse to guide boats safely",
+  "answer": "Using a lighthouse to guide boats past danger",
+  "correctAnswer": "Using a lighthouse to guide boats past danger",
   "distractorRationales": {
-   "finding different buildings beside the sea": "D-PLAUSIBLE-UNSUPPORTED",
-   "learning how sailors live aboard their ships": "D-OPPOSITE",
-   "watching a large lamp turn at night": "D-PLAUSIBLE-UNSUPPORTED"
+   "Building tall towers to watch the weather at sea": "D-TOPIC-ADJACENT",
+   "Guiding ships straight toward rocks in the water": "D-OPPOSITE",
+   "A large lamp turning around at night": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1079,7 +1079,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Connect the lamp to its warning purpose rather than describe the lamp alone."
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_info.v5",
@@ -1107,39 +1107,39 @@ export const questions = [
   "passage": "An ant can carry things bigger than itself. Ants work in long lines. One ant finds food and leaves a smell trail. The others follow the trail. The ants work together to carry food home.",
   "cell": "mostly_about_info",
   "choices": [
-   "how one ant leaves a smell trail",
-   "how ants keep their nest warm",
-   "how ants care for all their eggs",
-   "how ants work together for food"
+   "Ants can carry things bigger than themselves",
+   "How ants dig their tunnels underneath the ground",
+   "Ants hiding food trails from the other ants",
+   "How ants work together to bring food home"
   ],
   "answerOptions": [
    {
-    "value": "how one ant leaves a smell trail",
-    "label": "how one ant leaves a smell trail",
-    "text": "how one ant leaves a smell trail"
+    "value": "Ants can carry things bigger than themselves",
+    "label": "Ants can carry things bigger than themselves",
+    "text": "Ants can carry things bigger than themselves"
    },
    {
-    "value": "how ants keep their nest warm",
-    "label": "how ants keep their nest warm",
-    "text": "how ants keep their nest warm"
+    "value": "How ants dig their tunnels underneath the ground",
+    "label": "How ants dig their tunnels underneath the ground",
+    "text": "How ants dig their tunnels underneath the ground"
    },
    {
-    "value": "how ants care for all their eggs",
-    "label": "how ants care for all their eggs",
-    "text": "how ants care for all their eggs"
+    "value": "Ants hiding food trails from the other ants",
+    "label": "Ants hiding food trails from the other ants",
+    "text": "Ants hiding food trails from the other ants"
    },
    {
-    "value": "how ants work together for food",
-    "label": "how ants work together for food",
-    "text": "how ants work together for food"
+    "value": "How ants work together to bring food home",
+    "label": "How ants work together to bring food home",
+    "text": "How ants work together to bring food home"
    }
   ],
-  "answer": "how ants work together for food",
-  "correctAnswer": "how ants work together for food",
+  "answer": "How ants work together to bring food home",
+  "correctAnswer": "How ants work together to bring food home",
   "distractorRationales": {
-   "how ants keep their nest warm": "D-PLAUSIBLE-UNSUPPORTED",
-   "how ants care for all their eggs": "D-OPPOSITE",
-   "how one ant leaves a smell trail": "D-PLAUSIBLE-UNSUPPORTED"
+   "How ants dig their tunnels underneath the ground": "D-TOPIC-ADJACENT",
+   "Ants hiding food trails from the other ants": "D-OPPOSITE",
+   "Ants can carry things bigger than themselves": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1169,7 +1169,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Link finding, signalling and carrying food; the trail is one part of cooperation."
  },
  {
   "id": "lp3.main_idea.l1.C.mostly_about_info.v6",
@@ -1197,39 +1197,39 @@ export const questions = [
   "passage": "Shadows are not the same all day. Morning shadows are long when the sun is low. At midday the sun is high. Shadows become shorter. Evening shadows stretch out the other way.",
   "cell": "mostly_about_info",
   "choices": [
-   "short shadows beneath the high midday sun",
-   "long shadows stretching across the evening ground",
-   "people using shadows to keep out of sunlight",
-   "shadows changing as the sun moves"
+   "Short shadows appearing when the sun is high",
+   "How people choose places to avoid the sun",
+   "Shadows staying the same from morning to evening",
+   "How shadows change during the day"
   ],
   "answerOptions": [
    {
-    "value": "short shadows beneath the high midday sun",
-    "label": "short shadows beneath the high midday sun",
-    "text": "short shadows beneath the high midday sun"
+    "value": "Short shadows appearing when the sun is high",
+    "label": "Short shadows appearing when the sun is high",
+    "text": "Short shadows appearing when the sun is high"
    },
    {
-    "value": "long shadows stretching across the evening ground",
-    "label": "long shadows stretching across the evening ground",
-    "text": "long shadows stretching across the evening ground"
+    "value": "How people choose places to avoid the sun",
+    "label": "How people choose places to avoid the sun",
+    "text": "How people choose places to avoid the sun"
    },
    {
-    "value": "people using shadows to keep out of sunlight",
-    "label": "people using shadows to keep out of sunlight",
-    "text": "people using shadows to keep out of sunlight"
+    "value": "Shadows staying the same from morning to evening",
+    "label": "Shadows staying the same from morning to evening",
+    "text": "Shadows staying the same from morning to evening"
    },
    {
-    "value": "shadows changing as the sun moves",
-    "label": "shadows changing as the sun moves",
-    "text": "shadows changing as the sun moves"
+    "value": "How shadows change during the day",
+    "label": "How shadows change during the day",
+    "text": "How shadows change during the day"
    }
   ],
-  "answer": "shadows changing as the sun moves",
-  "correctAnswer": "shadows changing as the sun moves",
+  "answer": "How shadows change during the day",
+  "correctAnswer": "How shadows change during the day",
   "distractorRationales": {
-   "long shadows stretching across the evening ground": "D-PLAUSIBLE-UNSUPPORTED",
-   "people using shadows to keep out of sunlight": "D-OPPOSITE",
-   "short shadows beneath the high midday sun": "D-PLAUSIBLE-UNSUPPORTED"
+   "How people choose places to avoid the sun": "D-TOPIC-ADJACENT",
+   "Shadows staying the same from morning to evening": "D-OPPOSITE",
+   "Short shadows appearing when the sun is high": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1259,7 +1259,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Integrate length and direction over time; noon is one example."
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_info.v7",
@@ -1287,39 +1287,39 @@ export const questions = [
   "passage": "A spider web starts with one thin thread. The wind carries the thread across a gap. The spider walks along it, adding more threads. The sticky web can trap flies for dinner.",
   "cell": "mostly_about_info",
   "choices": [
-   "how wind carries one thin thread",
-   "how spiders find places to sleep",
-   "how a fly escapes a sticky web",
-   "how a spider builds its web"
+   "Wind carrying the first thread across a gap",
+   "How a spider finds a dry place to hide",
+   "How spiders use webs to keep flies away",
+   "How a spider builds a web for food"
   ],
   "answerOptions": [
    {
-    "value": "how wind carries one thin thread",
-    "label": "how wind carries one thin thread",
-    "text": "how wind carries one thin thread"
+    "value": "Wind carrying the first thread across a gap",
+    "label": "Wind carrying the first thread across a gap",
+    "text": "Wind carrying the first thread across a gap"
    },
    {
-    "value": "how spiders find places to sleep",
-    "label": "how spiders find places to sleep",
-    "text": "how spiders find places to sleep"
+    "value": "How a spider finds a dry place to hide",
+    "label": "How a spider finds a dry place to hide",
+    "text": "How a spider finds a dry place to hide"
    },
    {
-    "value": "how a fly escapes a sticky web",
-    "label": "how a fly escapes a sticky web",
-    "text": "how a fly escapes a sticky web"
+    "value": "How spiders use webs to keep flies away",
+    "label": "How spiders use webs to keep flies away",
+    "text": "How spiders use webs to keep flies away"
    },
    {
-    "value": "how a spider builds its web",
-    "label": "how a spider builds its web",
-    "text": "how a spider builds its web"
+    "value": "How a spider builds a web for food",
+    "label": "How a spider builds a web for food",
+    "text": "How a spider builds a web for food"
    }
   ],
-  "answer": "how a spider builds its web",
-  "correctAnswer": "how a spider builds its web",
+  "answer": "How a spider builds a web for food",
+  "correctAnswer": "How a spider builds a web for food",
   "distractorRationales": {
-   "how a fly escapes a sticky web": "D-OPPOSITE",
-   "how wind carries one thin thread": "D-PLAUSIBLE-UNSUPPORTED",
-   "how spiders find places to sleep": "D-PLAUSIBLE-UNSUPPORTED"
+   "How spiders use webs to keep flies away": "D-OPPOSITE",
+   "Wind carrying the first thread across a gap": "D-DETAIL-AS-MAIN",
+   "How a spider finds a dry place to hide": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1349,7 +1349,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Link construction with catching food; reject a broad animal claim and reversed purpose."
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_info.v8",
@@ -1377,39 +1377,39 @@ export const questions = [
   "passage": "The moon does not really change its shape. The moon circles the Earth. Sunlight lights up one side of it. Some nights we see the whole bright side. Other nights we see only a thin piece. That is why the moon looks different.",
   "cell": "mostly_about_info",
   "choices": [
-   "the reason the moon appears to change",
-   "the thin part visible on some nights",
-   "sunlight shining on one side of the moon",
-   "the way astronauts travel between Earth and space"
+   "Why the moon looks different on different nights",
+   "Sunlight lighting only one side of the moon",
+   "How astronauts travel from Earth to the moon",
+   "Why the moon really shrinks into smaller pieces"
   ],
   "answerOptions": [
    {
-    "value": "the reason the moon appears to change",
-    "label": "the reason the moon appears to change",
-    "text": "the reason the moon appears to change"
+    "value": "Why the moon looks different on different nights",
+    "label": "Why the moon looks different on different nights",
+    "text": "Why the moon looks different on different nights"
    },
    {
-    "value": "the thin part visible on some nights",
-    "label": "the thin part visible on some nights",
-    "text": "the thin part visible on some nights"
+    "value": "Sunlight lighting only one side of the moon",
+    "label": "Sunlight lighting only one side of the moon",
+    "text": "Sunlight lighting only one side of the moon"
    },
    {
-    "value": "sunlight shining on one side of the moon",
-    "label": "sunlight shining on one side of the moon",
-    "text": "sunlight shining on one side of the moon"
+    "value": "How astronauts travel from Earth to the moon",
+    "label": "How astronauts travel from Earth to the moon",
+    "text": "How astronauts travel from Earth to the moon"
    },
    {
-    "value": "the way astronauts travel between Earth and space",
-    "label": "the way astronauts travel between Earth and space",
-    "text": "the way astronauts travel between Earth and space"
+    "value": "Why the moon really shrinks into smaller pieces",
+    "label": "Why the moon really shrinks into smaller pieces",
+    "text": "Why the moon really shrinks into smaller pieces"
    }
   ],
-  "answer": "the reason the moon appears to change",
-  "correctAnswer": "the reason the moon appears to change",
+  "answer": "Why the moon looks different on different nights",
+  "correctAnswer": "Why the moon looks different on different nights",
   "distractorRationales": {
-   "the thin part visible on some nights": "D-PLAUSIBLE-UNSUPPORTED",
-   "sunlight shining on one side of the moon": "D-PLAUSIBLE-UNSUPPORTED",
-   "the way astronauts travel between Earth and space": "D-OPPOSITE"
+   "Sunlight lighting only one side of the moon": "D-DETAIL-AS-MAIN",
+   "How astronauts travel from Earth to the moon": "D-TOPIC-ADJACENT",
+   "Why the moon really shrinks into smaller pieces": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1439,7 +1439,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "The lighted fraction explains the visible changes; the physical moon does not change size."
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_everyday.v1",
@@ -1464,42 +1464,42 @@ export const questions = [
   "prompt": "What is this passage mostly about?",
   "question": "What is this passage mostly about?",
   "spokenPrompt": "What is this passage mostly about?",
-  "passage": "Every morning Mr Pole stands at the school crossing. He raises his round sign to stop the cars. He waves the children across, grinning his good-morning grin. He arrives before the bell in any weather.",
+  "passage": "Every morning Mr Pole stands at the school crossing. He raises his round sign to stop the cars. He smiles and waves the children across. He arrives before the bell in any weather.",
   "cell": "mostly_about_everyday",
   "choices": [
-   "someone helping pupils cross the road daily",
-   "holding a round sign to stop passing cars",
-   "arriving at the school before the morning bell",
-   "people learning how to drive past a school"
+   "Someone helping children cross the road each morning",
+   "Mr Pole raising a round sign for cars",
+   "Children practising how to cross without a helper",
+   "Mr Pole arriving after all the children cross"
   ],
   "answerOptions": [
    {
-    "value": "someone helping pupils cross the road daily",
-    "label": "someone helping pupils cross the road daily",
-    "text": "someone helping pupils cross the road daily"
+    "value": "Someone helping children cross the road each morning",
+    "label": "Someone helping children cross the road each morning",
+    "text": "Someone helping children cross the road each morning"
    },
    {
-    "value": "holding a round sign to stop passing cars",
-    "label": "holding a round sign to stop passing cars",
-    "text": "holding a round sign to stop passing cars"
+    "value": "Mr Pole raising a round sign for cars",
+    "label": "Mr Pole raising a round sign for cars",
+    "text": "Mr Pole raising a round sign for cars"
    },
    {
-    "value": "arriving at the school before the morning bell",
-    "label": "arriving at the school before the morning bell",
-    "text": "arriving at the school before the morning bell"
+    "value": "Children practising how to cross without a helper",
+    "label": "Children practising how to cross without a helper",
+    "text": "Children practising how to cross without a helper"
    },
    {
-    "value": "people learning how to drive past a school",
-    "label": "people learning how to drive past a school",
-    "text": "people learning how to drive past a school"
+    "value": "Mr Pole arriving after all the children cross",
+    "label": "Mr Pole arriving after all the children cross",
+    "text": "Mr Pole arriving after all the children cross"
    }
   ],
-  "answer": "someone helping pupils cross the road daily",
-  "correctAnswer": "someone helping pupils cross the road daily",
+  "answer": "Someone helping children cross the road each morning",
+  "correctAnswer": "Someone helping children cross the road each morning",
   "distractorRationales": {
-   "holding a round sign to stop passing cars": "D-PLAUSIBLE-UNSUPPORTED",
-   "arriving at the school before the morning bell": "D-PLAUSIBLE-UNSUPPORTED",
-   "people learning how to drive past a school": "D-OPPOSITE"
+   "Mr Pole raising a round sign for cars": "D-DETAIL-AS-MAIN",
+   "Children practising how to cross without a helper": "D-TOPIC-ADJACENT",
+   "Mr Pole arriving after all the children cross": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1529,7 +1529,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "The role connects daily attendance, stopping cars and guiding children; the sign is only his tool."
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_everyday.v2",
@@ -1557,39 +1557,39 @@ export const questions = [
   "passage": "The class had a cleanup race before home time. One team stacked the chairs. Another team collected the pencils. The last team wiped the tables. Soon the room was neat. Each child earned a sticker for helping.",
   "cell": "mostly_about_everyday",
   "choices": [
-   "a teacher explaining the rules for earning stickers",
-   "children working together to clean their classroom",
-   "one team making a neat pile of chairs",
-   "another team collecting pencils before home time"
+   "Children leaving every cleaning job for their teacher",
+   "Children working together to clean their classroom",
+   "One team stacking chairs before going home",
+   "A teacher buying new furniture for the room"
   ],
   "answerOptions": [
    {
-    "value": "a teacher explaining the rules for earning stickers",
-    "label": "a teacher explaining the rules for earning stickers",
-    "text": "a teacher explaining the rules for earning stickers"
+    "value": "Children leaving every cleaning job for their teacher",
+    "label": "Children leaving every cleaning job for their teacher",
+    "text": "Children leaving every cleaning job for their teacher"
    },
    {
-    "value": "children working together to clean their classroom",
-    "label": "children working together to clean their classroom",
-    "text": "children working together to clean their classroom"
+    "value": "Children working together to clean their classroom",
+    "label": "Children working together to clean their classroom",
+    "text": "Children working together to clean their classroom"
    },
    {
-    "value": "one team making a neat pile of chairs",
-    "label": "one team making a neat pile of chairs",
-    "text": "one team making a neat pile of chairs"
+    "value": "One team stacking chairs before going home",
+    "label": "One team stacking chairs before going home",
+    "text": "One team stacking chairs before going home"
    },
    {
-    "value": "another team collecting pencils before home time",
-    "label": "another team collecting pencils before home time",
-    "text": "another team collecting pencils before home time"
+    "value": "A teacher buying new furniture for the room",
+    "label": "A teacher buying new furniture for the room",
+    "text": "A teacher buying new furniture for the room"
    }
   ],
-  "answer": "children working together to clean their classroom",
-  "correctAnswer": "children working together to clean their classroom",
+  "answer": "Children working together to clean their classroom",
+  "correctAnswer": "Children working together to clean their classroom",
   "distractorRationales": {
-   "another team collecting pencils before home time": "D-PLAUSIBLE-UNSUPPORTED",
-   "a teacher explaining the rules for earning stickers": "D-OPPOSITE",
-   "one team making a neat pile of chairs": "D-PLAUSIBLE-UNSUPPORTED"
+   "A teacher buying new furniture for the room": "D-TOPIC-ADJACENT",
+   "Children leaving every cleaning job for their teacher": "D-OPPOSITE",
+   "One team stacking chairs before going home": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1619,7 +1619,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Combine the teams’ different jobs into the shared task."
  },
  {
   "id": "lp3.main_idea.l1.C.mostly_about_everyday.v3",
@@ -1647,39 +1647,39 @@ export const questions = [
   "passage": "Saturday is market day. Grandma gives Ade the shopping list. He finds the oranges, and Grandma picks the fish. The vendor always adds one free plum for Ade. They carry their food home for dinner.",
   "cell": "mostly_about_everyday",
   "choices": [
-   "a boy shopping for dinner with his grandmother",
-   "a seller giving Ade one extra plum",
-   "Grandma choosing fish from a market stall",
-   "Ade learning to cook the family’s evening meal"
+   "A boy and his grandmother buying their food",
+   "A seller giving Ade one extra plum",
+   "A boy helping his grandmother sell fruit at a stall",
+   "Grandma going shopping while Ade waits at home"
   ],
   "answerOptions": [
    {
-    "value": "a boy shopping for dinner with his grandmother",
-    "label": "a boy shopping for dinner with his grandmother",
-    "text": "a boy shopping for dinner with his grandmother"
+    "value": "A boy and his grandmother buying their food",
+    "label": "A boy and his grandmother buying their food",
+    "text": "A boy and his grandmother buying their food"
    },
    {
-    "value": "a seller giving Ade one extra plum",
-    "label": "a seller giving Ade one extra plum",
-    "text": "a seller giving Ade one extra plum"
+    "value": "A seller giving Ade one extra plum",
+    "label": "A seller giving Ade one extra plum",
+    "text": "A seller giving Ade one extra plum"
    },
    {
-    "value": "Grandma choosing fish from a market stall",
-    "label": "Grandma choosing fish from a market stall",
-    "text": "Grandma choosing fish from a market stall"
+    "value": "A boy helping his grandmother sell fruit at a stall",
+    "label": "A boy helping his grandmother sell fruit at a stall",
+    "text": "A boy helping his grandmother sell fruit at a stall"
    },
    {
-    "value": "Ade learning to cook the family’s evening meal",
-    "label": "Ade learning to cook the family’s evening meal",
-    "text": "Ade learning to cook the family’s evening meal"
+    "value": "Grandma going shopping while Ade waits at home",
+    "label": "Grandma going shopping while Ade waits at home",
+    "text": "Grandma going shopping while Ade waits at home"
    }
   ],
-  "answer": "a boy shopping for dinner with his grandmother",
-  "correctAnswer": "a boy shopping for dinner with his grandmother",
+  "answer": "A boy and his grandmother buying their food",
+  "correctAnswer": "A boy and his grandmother buying their food",
   "distractorRationales": {
-   "a seller giving Ade one extra plum": "D-PLAUSIBLE-UNSUPPORTED",
-   "Grandma choosing fish from a market stall": "D-PLAUSIBLE-UNSUPPORTED",
-   "Ade learning to cook the family’s evening meal": "D-OPPOSITE"
+   "A seller giving Ade one extra plum": "D-DETAIL-AS-MAIN",
+   "A boy helping his grandmother sell fruit at a stall": "D-TOPIC-ADJACENT",
+   "Grandma going shopping while Ade waits at home": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1709,7 +1709,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Cover the shared market trip rather than the gift detail or an invented cooking lesson."
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_everyday.v4",
@@ -1737,39 +1737,39 @@ export const questions = [
   "passage": "The laundromat on our street hums all morning. Round windows spin with socks and shirts. Mrs Kaur folds warm towels into tall piles. People chat while they wait for clean clothes.",
   "cell": "mostly_about_everyday",
   "choices": [
-   "shop owners deciding what clothes they will sell",
-   "people getting washing done at a busy shop",
-   "Mrs Kaur stacking the towels after folding them",
-   "socks and shirts turning behind round glass windows"
+   "A shop closing because nobody brings any washing",
+   "People washing and drying clothes at a busy shop",
+   "Mrs Kaur folding warm towels into tall piles",
+   "People choosing clothes to buy for winter"
   ],
   "answerOptions": [
    {
-    "value": "shop owners deciding what clothes they will sell",
-    "label": "shop owners deciding what clothes they will sell",
-    "text": "shop owners deciding what clothes they will sell"
+    "value": "A shop closing because nobody brings any washing",
+    "label": "A shop closing because nobody brings any washing",
+    "text": "A shop closing because nobody brings any washing"
    },
    {
-    "value": "people getting washing done at a busy shop",
-    "label": "people getting washing done at a busy shop",
-    "text": "people getting washing done at a busy shop"
+    "value": "People washing and drying clothes at a busy shop",
+    "label": "People washing and drying clothes at a busy shop",
+    "text": "People washing and drying clothes at a busy shop"
    },
    {
-    "value": "Mrs Kaur stacking the towels after folding them",
-    "label": "Mrs Kaur stacking the towels after folding them",
-    "text": "Mrs Kaur stacking the towels after folding them"
+    "value": "Mrs Kaur folding warm towels into tall piles",
+    "label": "Mrs Kaur folding warm towels into tall piles",
+    "text": "Mrs Kaur folding warm towels into tall piles"
    },
    {
-    "value": "socks and shirts turning behind round glass windows",
-    "label": "socks and shirts turning behind round glass windows",
-    "text": "socks and shirts turning behind round glass windows"
+    "value": "People choosing clothes to buy for winter",
+    "label": "People choosing clothes to buy for winter",
+    "text": "People choosing clothes to buy for winter"
    }
   ],
-  "answer": "people getting washing done at a busy shop",
-  "correctAnswer": "people getting washing done at a busy shop",
+  "answer": "People washing and drying clothes at a busy shop",
+  "correctAnswer": "People washing and drying clothes at a busy shop",
   "distractorRationales": {
-   "shop owners deciding what clothes they will sell": "D-OPPOSITE",
-   "Mrs Kaur stacking the towels after folding them": "D-PLAUSIBLE-UNSUPPORTED",
-   "socks and shirts turning behind round glass windows": "D-PLAUSIBLE-UNSUPPORTED"
+   "A shop closing because nobody brings any washing": "D-OPPOSITE",
+   "Mrs Kaur folding warm towels into tall piles": "D-DETAIL-AS-MAIN",
+   "People choosing clothes to buy for winter": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1799,7 +1799,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "The machines, folding and waiting all support laundry activity; sale and closure are not supported."
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_everyday.v5",
@@ -1827,39 +1827,39 @@ export const questions = [
   "passage": "After the rain, the playground was full of puddles. Children splashed in the deep puddle by the slide. Two friends raced leaf boats along the gutter stream. By lunch, the warm sun had dried the puddles.",
   "cell": "mostly_about_everyday",
   "choices": [
-   "watching warm sunlight dry the ground",
-   "waiting indoors until the weather changes",
-   "enjoying outdoor puddles and streams",
-   "racing leaf boats along the gutter"
+   "Children learning to build a large sailing boat",
+   "Children waiting indoors until every puddle dries",
+   "Children enjoying water left after the rain",
+   "Two friends racing leaf boats along a gutter"
   ],
   "answerOptions": [
    {
-    "value": "watching warm sunlight dry the ground",
-    "label": "watching warm sunlight dry the ground",
-    "text": "watching warm sunlight dry the ground"
+    "value": "Children learning to build a large sailing boat",
+    "label": "Children learning to build a large sailing boat",
+    "text": "Children learning to build a large sailing boat"
    },
    {
-    "value": "waiting indoors until the weather changes",
-    "label": "waiting indoors until the weather changes",
-    "text": "waiting indoors until the weather changes"
+    "value": "Children waiting indoors until every puddle dries",
+    "label": "Children waiting indoors until every puddle dries",
+    "text": "Children waiting indoors until every puddle dries"
    },
    {
-    "value": "enjoying outdoor puddles and streams",
-    "label": "enjoying outdoor puddles and streams",
-    "text": "enjoying outdoor puddles and streams"
+    "value": "Children enjoying water left after the rain",
+    "label": "Children enjoying water left after the rain",
+    "text": "Children enjoying water left after the rain"
    },
    {
-    "value": "racing leaf boats along the gutter",
-    "label": "racing leaf boats along the gutter",
-    "text": "racing leaf boats along the gutter"
+    "value": "Two friends racing leaf boats along a gutter",
+    "label": "Two friends racing leaf boats along a gutter",
+    "text": "Two friends racing leaf boats along a gutter"
    }
   ],
-  "answer": "enjoying outdoor puddles and streams",
-  "correctAnswer": "enjoying outdoor puddles and streams",
+  "answer": "Children enjoying water left after the rain",
+  "correctAnswer": "Children enjoying water left after the rain",
   "distractorRationales": {
-   "waiting indoors until the weather changes": "D-OPPOSITE",
-   "racing leaf boats along the gutter": "D-PLAUSIBLE-UNSUPPORTED",
-   "watching warm sunlight dry the ground": "D-PLAUSIBLE-UNSUPPORTED"
+   "Children waiting indoors until every puddle dries": "D-OPPOSITE",
+   "Two friends racing leaf boats along a gutter": "D-DETAIL-AS-MAIN",
+   "Children learning to build a large sailing boat": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1889,7 +1889,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Combine splashing and leaf boats as outdoor water play, not just the boats."
  },
  {
   "id": "lp3.main_idea.l1.C.mostly_about_everyday.v6",
@@ -1917,39 +1917,39 @@ export const questions = [
   "passage": "Dad flips the calendar to a new month. Everyone adds their days. Swimming badge test for Lena. Dentist for Dad. Grandma's visit gets a big red circle. The little squares fill up with the family's plans.",
   "cell": "mostly_about_everyday",
   "choices": [
-   "planning what to buy for Lena’s swimming lesson",
-   "using a calendar to organise family activities",
-   "drawing a red circle around Grandma’s visit",
-   "turning the page when a new month begins"
+   "A family erasing every plan from the calendar",
+   "A family using a calendar for their plans",
+   "Grandma’s visit getting a big red circle",
+   "A family choosing presents for every birthday"
   ],
   "answerOptions": [
    {
-    "value": "planning what to buy for Lena’s swimming lesson",
-    "label": "planning what to buy for Lena’s swimming lesson",
-    "text": "planning what to buy for Lena’s swimming lesson"
+    "value": "A family erasing every plan from the calendar",
+    "label": "A family erasing every plan from the calendar",
+    "text": "A family erasing every plan from the calendar"
    },
    {
-    "value": "using a calendar to organise family activities",
-    "label": "using a calendar to organise family activities",
-    "text": "using a calendar to organise family activities"
+    "value": "A family using a calendar for their plans",
+    "label": "A family using a calendar for their plans",
+    "text": "A family using a calendar for their plans"
    },
    {
-    "value": "drawing a red circle around Grandma’s visit",
-    "label": "drawing a red circle around Grandma’s visit",
-    "text": "drawing a red circle around Grandma’s visit"
+    "value": "Grandma’s visit getting a big red circle",
+    "label": "Grandma’s visit getting a big red circle",
+    "text": "Grandma’s visit getting a big red circle"
    },
    {
-    "value": "turning the page when a new month begins",
-    "label": "turning the page when a new month begins",
-    "text": "turning the page when a new month begins"
+    "value": "A family choosing presents for every birthday",
+    "label": "A family choosing presents for every birthday",
+    "text": "A family choosing presents for every birthday"
    }
   ],
-  "answer": "using a calendar to organise family activities",
-  "correctAnswer": "using a calendar to organise family activities",
+  "answer": "A family using a calendar for their plans",
+  "correctAnswer": "A family using a calendar for their plans",
   "distractorRationales": {
-   "planning what to buy for Lena’s swimming lesson": "D-OPPOSITE",
-   "drawing a red circle around Grandma’s visit": "D-PLAUSIBLE-UNSUPPORTED",
-   "turning the page when a new month begins": "D-PLAUSIBLE-UNSUPPORTED"
+   "A family erasing every plan from the calendar": "D-OPPOSITE",
+   "Grandma’s visit getting a big red circle": "D-DETAIL-AS-MAIN",
+   "A family choosing presents for every birthday": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1979,7 +1979,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Different events share one organising purpose; changing the page is a true detail."
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_everyday.v7",
@@ -2007,39 +2007,39 @@ export const questions = [
   "passage": "The mail cart comes up our road at nine. Letters slide through mail slots, flap, flap, flap. The family at number twelve signs for a package. Our dog waits by the mail slot each morning.",
   "cell": "mostly_about_everyday",
   "choices": [
-   "a dog waiting near the door each morning",
-   "families learning to write letters to each other",
-   "mail being delivered around the neighbourhood",
-   "a family signing to receive its package"
+   "Families learning to write their first letters",
+   "Families collecting all their mail from a shop",
+   "Letters and parcels being delivered along a street",
+   "A family signing to receive a package"
   ],
   "answerOptions": [
    {
-    "value": "a dog waiting near the door each morning",
-    "label": "a dog waiting near the door each morning",
-    "text": "a dog waiting near the door each morning"
+    "value": "Families learning to write their first letters",
+    "label": "Families learning to write their first letters",
+    "text": "Families learning to write their first letters"
    },
    {
-    "value": "families learning to write letters to each other",
-    "label": "families learning to write letters to each other",
-    "text": "families learning to write letters to each other"
+    "value": "Families collecting all their mail from a shop",
+    "label": "Families collecting all their mail from a shop",
+    "text": "Families collecting all their mail from a shop"
    },
    {
-    "value": "mail being delivered around the neighbourhood",
-    "label": "mail being delivered around the neighbourhood",
-    "text": "mail being delivered around the neighbourhood"
+    "value": "Letters and parcels being delivered along a street",
+    "label": "Letters and parcels being delivered along a street",
+    "text": "Letters and parcels being delivered along a street"
    },
    {
-    "value": "a family signing to receive its package",
-    "label": "a family signing to receive its package",
-    "text": "a family signing to receive its package"
+    "value": "A family signing to receive a package",
+    "label": "A family signing to receive a package",
+    "text": "A family signing to receive a package"
    }
   ],
-  "answer": "mail being delivered around the neighbourhood",
-  "correctAnswer": "mail being delivered around the neighbourhood",
+  "answer": "Letters and parcels being delivered along a street",
+  "correctAnswer": "Letters and parcels being delivered along a street",
   "distractorRationales": {
-   "a dog waiting near the door each morning": "D-PLAUSIBLE-UNSUPPORTED",
-   "families learning to write letters to each other": "D-OPPOSITE",
-   "a family signing to receive its package": "D-PLAUSIBLE-UNSUPPORTED"
+   "Families learning to write their first letters": "D-TOPIC-ADJACENT",
+   "Families collecting all their mail from a shop": "D-OPPOSITE",
+   "A family signing to receive a package": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2069,7 +2069,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Combine letters and a parcel into the delivery route; a single household does not cover it."
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_everyday.v8",
@@ -2097,39 +2097,39 @@ export const questions = [
   "passage": "The bakery opens before the sun is up. Trays of rolls slide into the big oven. The smell of warm bread drifts down the street. At eight, people line up outside for fresh bread.",
   "cell": "mostly_about_everyday",
   "choices": [
-   "people waiting outside the shop at eight",
-   "fresh rolls going into a large hot oven",
-   "a baker teaching customers to make their bread",
-   "a bread shop preparing for its daily customers"
+   "People waiting outside the bakery at eight",
+   "Customers learning to bake bread at home",
+   "A bakery shutting before any customers arrive",
+   "A bakery preparing fresh bread for its customers"
   ],
   "answerOptions": [
    {
-    "value": "people waiting outside the shop at eight",
-    "label": "people waiting outside the shop at eight",
-    "text": "people waiting outside the shop at eight"
+    "value": "People waiting outside the bakery at eight",
+    "label": "People waiting outside the bakery at eight",
+    "text": "People waiting outside the bakery at eight"
    },
    {
-    "value": "fresh rolls going into a large hot oven",
-    "label": "fresh rolls going into a large hot oven",
-    "text": "fresh rolls going into a large hot oven"
+    "value": "Customers learning to bake bread at home",
+    "label": "Customers learning to bake bread at home",
+    "text": "Customers learning to bake bread at home"
    },
    {
-    "value": "a baker teaching customers to make their bread",
-    "label": "a baker teaching customers to make their bread",
-    "text": "a baker teaching customers to make their bread"
+    "value": "A bakery shutting before any customers arrive",
+    "label": "A bakery shutting before any customers arrive",
+    "text": "A bakery shutting before any customers arrive"
    },
    {
-    "value": "a bread shop preparing for its daily customers",
-    "label": "a bread shop preparing for its daily customers",
-    "text": "a bread shop preparing for its daily customers"
+    "value": "A bakery preparing fresh bread for its customers",
+    "label": "A bakery preparing fresh bread for its customers",
+    "text": "A bakery preparing fresh bread for its customers"
    }
   ],
-  "answer": "a bread shop preparing for its daily customers",
-  "correctAnswer": "a bread shop preparing for its daily customers",
+  "answer": "A bakery preparing fresh bread for its customers",
+  "correctAnswer": "A bakery preparing fresh bread for its customers",
   "distractorRationales": {
-   "people waiting outside the shop at eight": "D-PLAUSIBLE-UNSUPPORTED",
-   "fresh rolls going into a large hot oven": "D-PLAUSIBLE-UNSUPPORTED",
-   "a baker teaching customers to make their bread": "D-OPPOSITE"
+   "People waiting outside the bakery at eight": "D-DETAIL-AS-MAIN",
+   "Customers learning to bake bread at home": "D-TOPIC-ADJACENT",
+   "A bakery shutting before any customers arrive": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2159,7 +2159,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Preparation and the arriving queue form the whole daily activity."
  },
  {
   "id": "lp3.main_idea.l2.A.best_title.v1",
@@ -2184,42 +2184,42 @@ export const questions = [
   "prompt": "Which title fits this passage best?",
   "question": "Which title fits this passage best?",
   "spokenPrompt": "Which title fits this passage best?",
-  "passage": "Nobody wanted the muddy corner of the school garden. Weeds grew tall, and snack wrappers blew against the fence. Then a second-grade class claimed it. They pulled weeds and added compost to the soil. Then they planted rows of sunflower seeds. All summer the corner was bright with yellow flowers. Even the school cleaner stopped to take photographs.",
+  "passage": "Nobody used the muddy corner of the school garden. Water gathered there, and wrappers caught against its broken fence. A class first cleared the rubbish and repaired the fence. They mixed compost into the ground so water drained better. Then they planted sunflowers where children could watch them grow. By summer, yellow flowers stood above the old muddy patch. The class added a bench for anyone passing through. People now stopped there instead of hurrying past the mess.",
   "cell": "best_title",
   "choices": [
-   "Removing Snack Wrappers from the Fence",
-   "Photographs Taken by the School Cleaner",
-   "Choosing Flowers for Every Part of Town",
-   "A Forgotten Corner Becomes a Garden"
+   "Repairing the Fence Around a Muddy Corner",
+   "Growing Flowers to Sell at a Market",
+   "A Flower Garden Is Closed to Visitors",
+   "A Neglected Corner Becomes a Welcoming Garden"
   ],
   "answerOptions": [
    {
-    "value": "Removing Snack Wrappers from the Fence",
-    "label": "Removing Snack Wrappers from the Fence",
-    "text": "Removing Snack Wrappers from the Fence"
+    "value": "Repairing the Fence Around a Muddy Corner",
+    "label": "Repairing the Fence Around a Muddy Corner",
+    "text": "Repairing the Fence Around a Muddy Corner"
    },
    {
-    "value": "Photographs Taken by the School Cleaner",
-    "label": "Photographs Taken by the School Cleaner",
-    "text": "Photographs Taken by the School Cleaner"
+    "value": "Growing Flowers to Sell at a Market",
+    "label": "Growing Flowers to Sell at a Market",
+    "text": "Growing Flowers to Sell at a Market"
    },
    {
-    "value": "Choosing Flowers for Every Part of Town",
-    "label": "Choosing Flowers for Every Part of Town",
-    "text": "Choosing Flowers for Every Part of Town"
+    "value": "A Flower Garden Is Closed to Visitors",
+    "label": "A Flower Garden Is Closed to Visitors",
+    "text": "A Flower Garden Is Closed to Visitors"
    },
    {
-    "value": "A Forgotten Corner Becomes a Garden",
-    "label": "A Forgotten Corner Becomes a Garden",
-    "text": "A Forgotten Corner Becomes a Garden"
+    "value": "A Neglected Corner Becomes a Welcoming Garden",
+    "label": "A Neglected Corner Becomes a Welcoming Garden",
+    "text": "A Neglected Corner Becomes a Welcoming Garden"
    }
   ],
-  "answer": "A Forgotten Corner Becomes a Garden",
-  "correctAnswer": "A Forgotten Corner Becomes a Garden",
+  "answer": "A Neglected Corner Becomes a Welcoming Garden",
+  "correctAnswer": "A Neglected Corner Becomes a Welcoming Garden",
   "distractorRationales": {
-   "Photographs Taken by the School Cleaner": "D-PLAUSIBLE-UNSUPPORTED",
-   "Choosing Flowers for Every Part of Town": "D-OPPOSITE",
-   "Removing Snack Wrappers from the Fence": "D-PLAUSIBLE-UNSUPPORTED"
+   "Growing Flowers to Sell at a Market": "D-TOPIC-ADJACENT",
+   "A Flower Garden Is Closed to Visitors": "D-OPPOSITE",
+   "Repairing the Fence Around a Muddy Corner": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2249,7 +2249,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Integrate the change from neglected ground to shared garden; fence repair is only one enabling step, and the text does not compare flower choices."
  },
  {
   "id": "lp3.main_idea.l2.B.best_title.v2",
@@ -2274,42 +2274,42 @@ export const questions = [
   "prompt": "Which title fits this passage best?",
   "question": "Which title fits this passage best?",
   "spokenPrompt": "Which title fits this passage best?",
-  "passage": "When the old footbridge closed for repairs, everyone grumbled. The walk to school took ten minutes longer, right around the stream. Children found blackberries and a heron along the longer walk. They also found a hollow tree that echoed. Some families still chose the long way after the bridge reopened.",
+  "passage": "The old footbridge closed while workers replaced its damaged boards. Families had to follow a longer path beside the stream. At first, everyone complained about the extra walk to school. Then children noticed blackberries growing beside a hollow tree. A heron stood in the shallows, waiting for a fish. They began leaving early so they could watch it hunting. When the repaired bridge opened, the short route was safe. Some families still chose the longer path on quiet mornings.",
   "cell": "best_title",
   "choices": [
-   "The Hollow Tree beside the Stream",
-   "Blackberries Ready for Picking near School",
-   "Discoveries on a Longer Journey",
-   "Repair Work on the Old Footbridge"
+   "The Best Ways to Repair Old Footbridges",
+   "A Dangerous Route That Families Must Abandon",
+   "Finding Good Things on an Unwanted Detour",
+   "A Heron Hunts Beside the School Path"
   ],
   "answerOptions": [
    {
-    "value": "The Hollow Tree beside the Stream",
-    "label": "The Hollow Tree beside the Stream",
-    "text": "The Hollow Tree beside the Stream"
+    "value": "The Best Ways to Repair Old Footbridges",
+    "label": "The Best Ways to Repair Old Footbridges",
+    "text": "The Best Ways to Repair Old Footbridges"
    },
    {
-    "value": "Blackberries Ready for Picking near School",
-    "label": "Blackberries Ready for Picking near School",
-    "text": "Blackberries Ready for Picking near School"
+    "value": "A Dangerous Route That Families Must Abandon",
+    "label": "A Dangerous Route That Families Must Abandon",
+    "text": "A Dangerous Route That Families Must Abandon"
    },
    {
-    "value": "Discoveries on a Longer Journey",
-    "label": "Discoveries on a Longer Journey",
-    "text": "Discoveries on a Longer Journey"
+    "value": "Finding Good Things on an Unwanted Detour",
+    "label": "Finding Good Things on an Unwanted Detour",
+    "text": "Finding Good Things on an Unwanted Detour"
    },
    {
-    "value": "Repair Work on the Old Footbridge",
-    "label": "Repair Work on the Old Footbridge",
-    "text": "Repair Work on the Old Footbridge"
+    "value": "A Heron Hunts Beside the School Path",
+    "label": "A Heron Hunts Beside the School Path",
+    "text": "A Heron Hunts Beside the School Path"
    }
   ],
-  "answer": "Discoveries on a Longer Journey",
-  "correctAnswer": "Discoveries on a Longer Journey",
+  "answer": "Finding Good Things on an Unwanted Detour",
+  "correctAnswer": "Finding Good Things on an Unwanted Detour",
   "distractorRationales": {
-   "The Hollow Tree beside the Stream": "D-PLAUSIBLE-UNSUPPORTED",
-   "Blackberries Ready for Picking near School": "D-OPPOSITE",
-   "Repair Work on the Old Footbridge": "D-PLAUSIBLE-UNSUPPORTED"
+   "The Best Ways to Repair Old Footbridges": "D-TOPIC-ADJACENT",
+   "A Dangerous Route That Families Must Abandon": "D-OPPOSITE",
+   "A Heron Hunts Beside the School Path": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2339,7 +2339,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Connect the unwanted route change with discoveries and the final voluntary choice; the heron is one discovery, not the whole change."
  },
  {
   "id": "lp3.main_idea.l2.C.best_title.v3",
@@ -2364,42 +2364,42 @@ export const questions = [
   "prompt": "Which title fits this passage best?",
   "question": "Which title fits this passage best?",
   "spokenPrompt": "Which title fits this passage best?",
-  "passage": "Asha's drum kit lived in the garage, because drums are loud. She tried the tricky rhythm each evening. Her sticks kept missing the beats in the middle. Her mom suggested slowing right down. Boring, thought Asha, but she tried it. Two weeks later, she could play it fast without a mistake.",
+  "passage": "Asha wanted to play a fast rhythm at the concert. Each evening, her sticks missed the same beats halfway through. She tried hitting harder, but the mistake stayed the same. Her teacher asked her to play each part very slowly. Asha disliked how plain the slow rhythm sounded at first. Soon she could hear exactly where her hands lost time. She joined the parts, then carefully increased her speed. At the concert, she played the whole rhythm without stumbling.",
   "cell": "best_title",
   "choices": [
-   "The First Evening of a Music Course",
-   "Slow Practice Makes the Rhythm Work",
-   "Keeping a Drum Kit in the Garage",
-   "A Mother Suggests a Different Hobby"
+   "Choosing an Easier Tune for the Concert",
+   "Slowing Down to Master a Fast Rhythm",
+   "Practicing the Middle Beats of a Tune",
+   "Making Drums Louder for a Large Audience"
   ],
   "answerOptions": [
    {
-    "value": "The First Evening of a Music Course",
-    "label": "The First Evening of a Music Course",
-    "text": "The First Evening of a Music Course"
+    "value": "Choosing an Easier Tune for the Concert",
+    "label": "Choosing an Easier Tune for the Concert",
+    "text": "Choosing an Easier Tune for the Concert"
    },
    {
-    "value": "Slow Practice Makes the Rhythm Work",
-    "label": "Slow Practice Makes the Rhythm Work",
-    "text": "Slow Practice Makes the Rhythm Work"
+    "value": "Slowing Down to Master a Fast Rhythm",
+    "label": "Slowing Down to Master a Fast Rhythm",
+    "text": "Slowing Down to Master a Fast Rhythm"
    },
    {
-    "value": "Keeping a Drum Kit in the Garage",
-    "label": "Keeping a Drum Kit in the Garage",
-    "text": "Keeping a Drum Kit in the Garage"
+    "value": "Practicing the Middle Beats of a Tune",
+    "label": "Practicing the Middle Beats of a Tune",
+    "text": "Practicing the Middle Beats of a Tune"
    },
    {
-    "value": "A Mother Suggests a Different Hobby",
-    "label": "A Mother Suggests a Different Hobby",
-    "text": "A Mother Suggests a Different Hobby"
+    "value": "Making Drums Louder for a Large Audience",
+    "label": "Making Drums Louder for a Large Audience",
+    "text": "Making Drums Louder for a Large Audience"
    }
   ],
-  "answer": "Slow Practice Makes the Rhythm Work",
-  "correctAnswer": "Slow Practice Makes the Rhythm Work",
+  "answer": "Slowing Down to Master a Fast Rhythm",
+  "correctAnswer": "Slowing Down to Master a Fast Rhythm",
   "distractorRationales": {
-   "A Mother Suggests a Different Hobby": "D-PLAUSIBLE-UNSUPPORTED",
-   "The First Evening of a Music Course": "D-OPPOSITE",
-   "Keeping a Drum Kit in the Garage": "D-PLAUSIBLE-UNSUPPORTED"
+   "Making Drums Louder for a Large Audience": "D-TOPIC-ADJACENT",
+   "Choosing an Easier Tune for the Concert": "D-OPPOSITE",
+   "Practicing the Middle Beats of a Tune": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2429,7 +2429,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Follow why slowing practice fixes a specific error and leads to accurate speed; distinguish method from one practiced section and the rejected louder approach."
  },
  {
   "id": "lp3.main_idea.l2.A.best_title.v4",
@@ -2454,42 +2454,42 @@ export const questions = [
   "prompt": "Which title fits this passage best?",
   "question": "Which title fits this passage best?",
   "spokenPrompt": "Which title fits this passage best?",
-  "passage": "The aquarium otters kept escaping their pool at night. They slid along the halls outside. Cameras showed them stacking rocks by the glass wall like little stairs. The keepers did not punish the clever climbers. They built a bigger pool with tunnels and waterfalls. The otters had rocks to move around too.",
+  "passage": "The aquarium's otters kept climbing out of their small pool. Cameras showed them stacking stones against the glass each night. The keepers could have removed every stone from the pool. Instead, they watched how much the animals enjoyed moving things. They built a larger space with tunnels and deeper water. Safe stones remained, but the outer walls were much higher. The otters explored, carried stones, and swam through the tunnels. They stopped escaping while keeping activities that interested them.",
   "cell": "best_title",
   "choices": [
-   "A Better Home for Clever Escaping Otters",
-   "Night Cameras Watching the Aquarium Halls",
-   "A Guide to Animals That Can Climb",
-   "The Rocks beside an Aquarium Pool"
+   "A Safer Home That Keeps Otters Busy",
+   "Cameras Record Otters Building Steps from Stones",
+   "Training Otters to Return When Keepers Call",
+   "Removing Every Stone to Stop Otters Playing"
   ],
   "answerOptions": [
    {
-    "value": "A Better Home for Clever Escaping Otters",
-    "label": "A Better Home for Clever Escaping Otters",
-    "text": "A Better Home for Clever Escaping Otters"
+    "value": "A Safer Home That Keeps Otters Busy",
+    "label": "A Safer Home That Keeps Otters Busy",
+    "text": "A Safer Home That Keeps Otters Busy"
    },
    {
-    "value": "Night Cameras Watching the Aquarium Halls",
-    "label": "Night Cameras Watching the Aquarium Halls",
-    "text": "Night Cameras Watching the Aquarium Halls"
+    "value": "Cameras Record Otters Building Steps from Stones",
+    "label": "Cameras Record Otters Building Steps from Stones",
+    "text": "Cameras Record Otters Building Steps from Stones"
    },
    {
-    "value": "A Guide to Animals That Can Climb",
-    "label": "A Guide to Animals That Can Climb",
-    "text": "A Guide to Animals That Can Climb"
+    "value": "Training Otters to Return When Keepers Call",
+    "label": "Training Otters to Return When Keepers Call",
+    "text": "Training Otters to Return When Keepers Call"
    },
    {
-    "value": "The Rocks beside an Aquarium Pool",
-    "label": "The Rocks beside an Aquarium Pool",
-    "text": "The Rocks beside an Aquarium Pool"
+    "value": "Removing Every Stone to Stop Otters Playing",
+    "label": "Removing Every Stone to Stop Otters Playing",
+    "text": "Removing Every Stone to Stop Otters Playing"
    }
   ],
-  "answer": "A Better Home for Clever Escaping Otters",
-  "correctAnswer": "A Better Home for Clever Escaping Otters",
+  "answer": "A Safer Home That Keeps Otters Busy",
+  "correctAnswer": "A Safer Home That Keeps Otters Busy",
   "distractorRationales": {
-   "Night Cameras Watching the Aquarium Halls": "D-PLAUSIBLE-UNSUPPORTED",
-   "A Guide to Animals That Can Climb": "D-PLAUSIBLE-UNSUPPORTED",
-   "The Rocks beside an Aquarium Pool": "D-OPPOSITE"
+   "Cameras Record Otters Building Steps from Stones": "D-DETAIL-AS-MAIN",
+   "Training Otters to Return When Keepers Call": "D-TOPIC-ADJACENT",
+   "Removing Every Stone to Stop Otters Playing": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2519,7 +2519,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Combine security and animal activity, rather than select the camera detail or assume all play was removed."
  },
  {
   "id": "lp3.main_idea.l2.B.best_title.v5",
@@ -2544,42 +2544,42 @@ export const questions = [
   "prompt": "Which title fits this passage best?",
   "question": "Which title fits this passage best?",
   "spokenPrompt": "Which title fits this passage best?",
-  "passage": "Grandpa folds a square of paper in silence. Corner to corner, crease by crease. Suddenly it has wings. He taught Dad this plane thirty years ago. Today he is showing me how to fold it. Mine flies crooked, then straight, then right across the kitchen. Grandpa says the fold matters more than the throw.",
+  "passage": "Grandpa folded a paper plane at the kitchen table. He showed Hana where to press each corner firmly. Dad recognised the design from lessons thirty years earlier. His first planes had crashed, just like Hana's first attempt. Together they checked her uneven wings and adjusted the folds. This time, her plane crossed the kitchen in a straight line. Hana wrote the folding steps in her own picture book. She wanted to show her little cousin when he visited.",
   "cell": "best_title",
   "choices": [
-   "Making Wings from Corners of Paper",
-   "Learning How to Throw across a Room",
-   "A Guide to the Fastest Real Aircraft",
-   "A Paper Plane Shared Across Generations"
+   "Adjusting Two Uneven Wings at the Table",
+   "Choosing the Fastest Plane for a Flying Contest",
+   "Keeping a Special Plane Design Secret from Others",
+   "A Paper Plane Skill Travels Through a Family"
   ],
   "answerOptions": [
    {
-    "value": "Making Wings from Corners of Paper",
-    "label": "Making Wings from Corners of Paper",
-    "text": "Making Wings from Corners of Paper"
+    "value": "Adjusting Two Uneven Wings at the Table",
+    "label": "Adjusting Two Uneven Wings at the Table",
+    "text": "Adjusting Two Uneven Wings at the Table"
    },
    {
-    "value": "Learning How to Throw across a Room",
-    "label": "Learning How to Throw across a Room",
-    "text": "Learning How to Throw across a Room"
+    "value": "Choosing the Fastest Plane for a Flying Contest",
+    "label": "Choosing the Fastest Plane for a Flying Contest",
+    "text": "Choosing the Fastest Plane for a Flying Contest"
    },
    {
-    "value": "A Guide to the Fastest Real Aircraft",
-    "label": "A Guide to the Fastest Real Aircraft",
-    "text": "A Guide to the Fastest Real Aircraft"
+    "value": "Keeping a Special Plane Design Secret from Others",
+    "label": "Keeping a Special Plane Design Secret from Others",
+    "text": "Keeping a Special Plane Design Secret from Others"
    },
    {
-    "value": "A Paper Plane Shared Across Generations",
-    "label": "A Paper Plane Shared Across Generations",
-    "text": "A Paper Plane Shared Across Generations"
+    "value": "A Paper Plane Skill Travels Through a Family",
+    "label": "A Paper Plane Skill Travels Through a Family",
+    "text": "A Paper Plane Skill Travels Through a Family"
    }
   ],
-  "answer": "A Paper Plane Shared Across Generations",
-  "correctAnswer": "A Paper Plane Shared Across Generations",
+  "answer": "A Paper Plane Skill Travels Through a Family",
+  "correctAnswer": "A Paper Plane Skill Travels Through a Family",
   "distractorRationales": {
-   "A Guide to the Fastest Real Aircraft": "D-OPPOSITE",
-   "Making Wings from Corners of Paper": "D-PLAUSIBLE-UNSUPPORTED",
-   "Learning How to Throw across a Room": "D-PLAUSIBLE-UNSUPPORTED"
+   "Keeping a Special Plane Design Secret from Others": "D-OPPOSITE",
+   "Adjusting Two Uneven Wings at the Table": "D-DETAIL-AS-MAIN",
+   "Choosing the Fastest Plane for a Flying Contest": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2609,7 +2609,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Trace knowledge from Grandpa through Dad and Hana toward the cousin; successful flight is a detail within the wider passing-on idea."
  },
  {
   "id": "lp3.main_idea.l2.C.best_title.v6",
@@ -2634,42 +2634,42 @@ export const questions = [
   "prompt": "Which title fits this passage best?",
   "question": "Which title fits this passage best?",
   "spokenPrompt": "Which title fits this passage best?",
-  "passage": "At first the new rain gauge seemed dull. A plastic tube, a ruler, an empty chart. But day by day the chart filled in. A dry week made a flat line. A stormy Tuesday shot the line up like a mountain. By term end, the class could read their whole spring there. The chart showed dry weeks and wet weeks.",
+  "passage": "The class put a rain gauge beside their vegetable patch. Each morning, they measured the water and emptied the tube. They added that amount to a chart covering the whole term. Several dry days made a row of low marks. After one storm, the day's mark rose much higher. At term's end, they compared the chart with garden notes. Plants needed extra watering during the long dry spell. Their simple daily measurements helped explain changes across the season.",
   "cell": "best_title",
   "choices": [
-   "The Ruler beside a Plastic Tube",
-   "Explaining Why the Weather Brings Storms",
-   "Recording a Whole Season of Rain",
-   "A Storm Arrives on One Tuesday"
+   "Using Rain Records to Forecast Tomorrow’s Weather",
+   "Replacing Daily Measurements with Guesses About Rain",
+   "Daily Rain Records Explain a Garden Season",
+   "A High Mark After One Heavy Storm"
   ],
   "answerOptions": [
    {
-    "value": "The Ruler beside a Plastic Tube",
-    "label": "The Ruler beside a Plastic Tube",
-    "text": "The Ruler beside a Plastic Tube"
+    "value": "Using Rain Records to Forecast Tomorrow’s Weather",
+    "label": "Using Rain Records to Forecast Tomorrow’s Weather",
+    "text": "Using Rain Records to Forecast Tomorrow’s Weather"
    },
    {
-    "value": "Explaining Why the Weather Brings Storms",
-    "label": "Explaining Why the Weather Brings Storms",
-    "text": "Explaining Why the Weather Brings Storms"
+    "value": "Replacing Daily Measurements with Guesses About Rain",
+    "label": "Replacing Daily Measurements with Guesses About Rain",
+    "text": "Replacing Daily Measurements with Guesses About Rain"
    },
    {
-    "value": "Recording a Whole Season of Rain",
-    "label": "Recording a Whole Season of Rain",
-    "text": "Recording a Whole Season of Rain"
+    "value": "Daily Rain Records Explain a Garden Season",
+    "label": "Daily Rain Records Explain a Garden Season",
+    "text": "Daily Rain Records Explain a Garden Season"
    },
    {
-    "value": "A Storm Arrives on One Tuesday",
-    "label": "A Storm Arrives on One Tuesday",
-    "text": "A Storm Arrives on One Tuesday"
+    "value": "A High Mark After One Heavy Storm",
+    "label": "A High Mark After One Heavy Storm",
+    "text": "A High Mark After One Heavy Storm"
    }
   ],
-  "answer": "Recording a Whole Season of Rain",
-  "correctAnswer": "Recording a Whole Season of Rain",
+  "answer": "Daily Rain Records Explain a Garden Season",
+  "correctAnswer": "Daily Rain Records Explain a Garden Season",
   "distractorRationales": {
-   "A Storm Arrives on One Tuesday": "D-PLAUSIBLE-UNSUPPORTED",
-   "The Ruler beside a Plastic Tube": "D-PLAUSIBLE-UNSUPPORTED",
-   "Explaining Why the Weather Brings Storms": "D-OPPOSITE"
+   "A High Mark After One Heavy Storm": "D-DETAIL-AS-MAIN",
+   "Using Rain Records to Forecast Tomorrow’s Weather": "D-TOPIC-ADJACENT",
+   "Replacing Daily Measurements with Guesses About Rain": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2699,7 +2699,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Connect repeated measurements, the completed record, and its use; one storm is insufficient to represent the seasonal investigation."
  },
  {
   "id": "lp3.main_idea.l2.A.best_title.v7",
@@ -2724,42 +2724,42 @@ export const questions = [
   "prompt": "Which title fits this passage best?",
   "question": "Which title fits this passage best?",
   "spokenPrompt": "Which title fits this passage best?",
-  "passage": "The station escalator broke on Monday. A sign beside it said SORRY. Some people sighed and took the stairs. A musician sat on the bottom step. He played cheerful songs for people walking up. Strangers counted steps together and laughed when they lost count. It was, everyone agreed, a strangely happy week.",
+  "passage": "The station escalator stopped working at the start of the week. People sighed when they saw the stairs they must climb. A musician asked permission to play beside the bottom step. His cheerful tunes gave tired passengers something pleasant to hear. Some people counted steps in time with the music. Others paused safely nearby and thanked him after a song. Workers repaired the escalator by Friday, ending the difficult climb. Passengers still remembered the unexpected pleasure of those extra steps.",
   "cell": "best_title",
   "choices": [
-   "The Different Songs a Musician Can Play",
-   "An Unexpectedly Cheerful Climb at the Station",
-   "Reading an Apology beside the Broken Steps",
-   "A Guide to Repairing Station Equipment"
+   "A Musician Keeps the Escalator Closed for Longer",
+   "Music Brightens a Difficult Week at the Station",
+   "Passengers Count Their Steps in Time to Music",
+   "Choosing Station Music to Attract More Passengers"
   ],
   "answerOptions": [
    {
-    "value": "The Different Songs a Musician Can Play",
-    "label": "The Different Songs a Musician Can Play",
-    "text": "The Different Songs a Musician Can Play"
+    "value": "A Musician Keeps the Escalator Closed for Longer",
+    "label": "A Musician Keeps the Escalator Closed for Longer",
+    "text": "A Musician Keeps the Escalator Closed for Longer"
    },
    {
-    "value": "An Unexpectedly Cheerful Climb at the Station",
-    "label": "An Unexpectedly Cheerful Climb at the Station",
-    "text": "An Unexpectedly Cheerful Climb at the Station"
+    "value": "Music Brightens a Difficult Week at the Station",
+    "label": "Music Brightens a Difficult Week at the Station",
+    "text": "Music Brightens a Difficult Week at the Station"
    },
    {
-    "value": "Reading an Apology beside the Broken Steps",
-    "label": "Reading an Apology beside the Broken Steps",
-    "text": "Reading an Apology beside the Broken Steps"
+    "value": "Passengers Count Their Steps in Time to Music",
+    "label": "Passengers Count Their Steps in Time to Music",
+    "text": "Passengers Count Their Steps in Time to Music"
    },
    {
-    "value": "A Guide to Repairing Station Equipment",
-    "label": "A Guide to Repairing Station Equipment",
-    "text": "A Guide to Repairing Station Equipment"
+    "value": "Choosing Station Music to Attract More Passengers",
+    "label": "Choosing Station Music to Attract More Passengers",
+    "text": "Choosing Station Music to Attract More Passengers"
    }
   ],
-  "answer": "An Unexpectedly Cheerful Climb at the Station",
-  "correctAnswer": "An Unexpectedly Cheerful Climb at the Station",
+  "answer": "Music Brightens a Difficult Week at the Station",
+  "correctAnswer": "Music Brightens a Difficult Week at the Station",
   "distractorRationales": {
-   "Reading an Apology beside the Broken Steps": "D-PLAUSIBLE-UNSUPPORTED",
-   "A Guide to Repairing Station Equipment": "D-PLAUSIBLE-UNSUPPORTED",
-   "The Different Songs a Musician Can Play": "D-OPPOSITE"
+   "Passengers Count Their Steps in Time to Music": "D-DETAIL-AS-MAIN",
+   "Choosing Station Music to Attract More Passengers": "D-TOPIC-ADJACENT",
+   "A Musician Keeps the Escalator Closed for Longer": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2789,7 +2789,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Join the inconvenience, response and remembered outcome; a single musical activity is narrower than the passage."
  },
  {
   "id": "lp3.main_idea.l2.B.best_title.v8",
@@ -2814,42 +2814,42 @@ export const questions = [
   "prompt": "Which title fits this passage best?",
   "question": "Which title fits this passage best?",
   "spokenPrompt": "Which title fits this passage best?",
-  "passage": "Every seed in the seed bank sleeps in a silver packet. It holds wheat and beans from different places. Some pumpkin seeds were saved a hundred years ago. A flood or fire could destroy crops in a field. Farmers could then plant saved seeds of those crops. The freezer hums quietly, keeping tomorrow's fields safe on its cold shelves.",
+  "passage": "A seed bank stores seeds from many kinds of crops. Workers label each packet with its plant and original place. Cold rooms help keep those seeds useful for future years. A few seeds are tested regularly to check they grow. If a flood destroys a local crop, saved seeds may help. Farmers can grow that kind again instead of losing it. Researchers also compare old varieties with crops grown today. The quiet store protects choices that future growers may need.",
   "cell": "best_title",
   "choices": [
-   "Saving Seeds to Protect Future Crops",
-   "The Pumpkin Seeds from a Century Ago",
-   "Wheat and Beans from Different Places",
-   "Choosing the Best Food for a Farmer"
+   "Saving Seeds to Keep Future Growing Choices Open",
+   "Testing Stored Seeds to Check That They Still Grow",
+   "Choosing One Crop for Every Farm to Grow",
+   "Using All Stored Seeds to Feed People Today"
   ],
   "answerOptions": [
    {
-    "value": "Saving Seeds to Protect Future Crops",
-    "label": "Saving Seeds to Protect Future Crops",
-    "text": "Saving Seeds to Protect Future Crops"
+    "value": "Saving Seeds to Keep Future Growing Choices Open",
+    "label": "Saving Seeds to Keep Future Growing Choices Open",
+    "text": "Saving Seeds to Keep Future Growing Choices Open"
    },
    {
-    "value": "The Pumpkin Seeds from a Century Ago",
-    "label": "The Pumpkin Seeds from a Century Ago",
-    "text": "The Pumpkin Seeds from a Century Ago"
+    "value": "Testing Stored Seeds to Check That They Still Grow",
+    "label": "Testing Stored Seeds to Check That They Still Grow",
+    "text": "Testing Stored Seeds to Check That They Still Grow"
    },
    {
-    "value": "Wheat and Beans from Different Places",
-    "label": "Wheat and Beans from Different Places",
-    "text": "Wheat and Beans from Different Places"
+    "value": "Choosing One Crop for Every Farm to Grow",
+    "label": "Choosing One Crop for Every Farm to Grow",
+    "text": "Choosing One Crop for Every Farm to Grow"
    },
    {
-    "value": "Choosing the Best Food for a Farmer",
-    "label": "Choosing the Best Food for a Farmer",
-    "text": "Choosing the Best Food for a Farmer"
+    "value": "Using All Stored Seeds to Feed People Today",
+    "label": "Using All Stored Seeds to Feed People Today",
+    "text": "Using All Stored Seeds to Feed People Today"
    }
   ],
-  "answer": "Saving Seeds to Protect Future Crops",
-  "correctAnswer": "Saving Seeds to Protect Future Crops",
+  "answer": "Saving Seeds to Keep Future Growing Choices Open",
+  "correctAnswer": "Saving Seeds to Keep Future Growing Choices Open",
   "distractorRationales": {
-   "The Pumpkin Seeds from a Century Ago": "D-PLAUSIBLE-UNSUPPORTED",
-   "Wheat and Beans from Different Places": "D-PLAUSIBLE-UNSUPPORTED",
-   "Choosing the Best Food for a Farmer": "D-OPPOSITE"
+   "Testing Stored Seeds to Check That They Still Grow": "D-DETAIL-AS-MAIN",
+   "Choosing One Crop for Every Farm to Grow": "D-TOPIC-ADJACENT",
+   "Using All Stored Seeds to Feed People Today": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2879,7 +2879,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Integrate preservation, recovery and comparison as one purpose; testing is one safeguard and a single universal crop contradicts the diversity described."
  },
  {
   "id": "lp3.main_idea.l2.A.main_idea_vs_detail.v1",
@@ -2904,42 +2904,42 @@ export const questions = [
   "prompt": "Which option best states the main idea?",
   "question": "Which option best states the main idea?",
   "spokenPrompt": "Which option best states the main idea?",
-  "passage": "The class made soup for the winter fair. Priya chopped carrots into little moons. Sam stirred so the bottom would not stick. Miss Lee added one secret spoonful of ginger. Soon the soup bubbled, filling the hall with a lovely smell. Every bowl sold within twenty minutes.",
+  "passage": "The class chose to sell soup at the winter fair. Different teams washed vegetables, measured spices, and set out bowls. While Priya chopped, Sam stirred the pot to prevent sticking. The first taste seemed plain, so they added some ginger. A teacher helped serve the hot soup safely to visitors. Soon the queue stretched past the classroom's open door. Every bowl sold, raising money for the shared garden. They counted enough money to buy the garden's new hose.",
   "cell": "main_idea_vs_detail",
   "choices": [
-   "Miss Lee added some ginger",
-   "Sam stirred the pot",
-   "the class made soup that everyone loved",
-   "carrots were cut into little moons"
+   "A teacher helped serve hot soup safely to visitors.",
+   "The children added ginger after tasting the first soup.",
+   "The class worked together to run a successful soup stall.",
+   "Sam stirred the soup while Priya chopped the vegetables."
   ],
   "answerOptions": [
    {
-    "value": "Miss Lee added some ginger",
-    "label": "Miss Lee added some ginger",
-    "text": "Miss Lee added some ginger"
+    "value": "A teacher helped serve hot soup safely to visitors.",
+    "label": "A teacher helped serve hot soup safely to visitors.",
+    "text": "A teacher helped serve hot soup safely to visitors."
    },
    {
-    "value": "Sam stirred the pot",
-    "label": "Sam stirred the pot",
-    "text": "Sam stirred the pot"
+    "value": "The children added ginger after tasting the first soup.",
+    "label": "The children added ginger after tasting the first soup.",
+    "text": "The children added ginger after tasting the first soup."
    },
    {
-    "value": "the class made soup that everyone loved",
-    "label": "the class made soup that everyone loved",
-    "text": "the class made soup that everyone loved"
+    "value": "The class worked together to run a successful soup stall.",
+    "label": "The class worked together to run a successful soup stall.",
+    "text": "The class worked together to run a successful soup stall."
    },
    {
-    "value": "carrots were cut into little moons",
-    "label": "carrots were cut into little moons",
-    "text": "carrots were cut into little moons"
+    "value": "Sam stirred the soup while Priya chopped the vegetables.",
+    "label": "Sam stirred the soup while Priya chopped the vegetables.",
+    "text": "Sam stirred the soup while Priya chopped the vegetables."
    }
   ],
-  "answer": "the class made soup that everyone loved",
-  "correctAnswer": "the class made soup that everyone loved",
+  "answer": "The class worked together to run a successful soup stall.",
+  "correctAnswer": "The class worked together to run a successful soup stall.",
   "distractorRationales": {
-   "Miss Lee added some ginger": "D-DETAIL-AS-MAIN",
-   "Sam stirred the pot": "D-DETAIL-AS-MAIN",
-   "carrots were cut into little moons": "D-DETAIL-AS-MAIN"
+   "A teacher helped serve hot soup safely to visitors.": "D-DETAIL-AS-MAIN",
+   "The children added ginger after tasting the first soup.": "D-DETAIL-AS-MAIN",
+   "Sam stirred the soup while Priya chopped the vegetables.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2969,7 +2969,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "three true details vs the point — the defining discrimination of this cell"
+  "notes": "Choose the idea connecting preparation, teamwork and success; all rivals are accurate but cover only one stage."
  },
  {
   "id": "lp3.main_idea.l2.B.main_idea_vs_detail.v2",
@@ -2994,42 +2994,42 @@ export const questions = [
   "prompt": "Which option best states the main idea?",
   "question": "Which option best states the main idea?",
   "spokenPrompt": "Which option best states the main idea?",
-  "passage": "Hedgehogs need help in autumn. They need a safe pile of leaves for their winter sleep. People can leave leaves in a quiet garden corner. They can check bonfires for sleeping animals before lighting them. A small fence gap lets hedgehogs visit other gardens for food.",
+  "passage": "Hedgehogs often travel through several gardens while looking for food. A small gap below a fence can let them pass. In autumn, a quiet leaf pile offers a sheltered resting place. People should check garden fires for hidden animals before lighting them. Netting left loose on the ground can trap small legs. Rolling it away after use removes that danger. A shallow water dish can help during dry weather. A fence gap must stay clear when neighbours replace old boards.",
   "cell": "main_idea_vs_detail",
   "choices": [
-   "bonfires should be checked",
-   "people can make gardens safer for hedgehogs",
-   "hedgehogs sleep in piles of leaves",
-   "a gap in a fence helps hedgehogs walk through"
+   "Loose netting can trap the legs of small animals.",
+   "People can make gardens safer for visiting hedgehogs.",
+   "A fence gap lets hedgehogs move between nearby gardens.",
+   "People should inspect garden fires before lighting them."
   ],
   "answerOptions": [
    {
-    "value": "bonfires should be checked",
-    "label": "bonfires should be checked",
-    "text": "bonfires should be checked"
+    "value": "Loose netting can trap the legs of small animals.",
+    "label": "Loose netting can trap the legs of small animals.",
+    "text": "Loose netting can trap the legs of small animals."
    },
    {
-    "value": "people can make gardens safer for hedgehogs",
-    "label": "people can make gardens safer for hedgehogs",
-    "text": "people can make gardens safer for hedgehogs"
+    "value": "People can make gardens safer for visiting hedgehogs.",
+    "label": "People can make gardens safer for visiting hedgehogs.",
+    "text": "People can make gardens safer for visiting hedgehogs."
    },
    {
-    "value": "hedgehogs sleep in piles of leaves",
-    "label": "hedgehogs sleep in piles of leaves",
-    "text": "hedgehogs sleep in piles of leaves"
+    "value": "A fence gap lets hedgehogs move between nearby gardens.",
+    "label": "A fence gap lets hedgehogs move between nearby gardens.",
+    "text": "A fence gap lets hedgehogs move between nearby gardens."
    },
    {
-    "value": "a gap in a fence helps hedgehogs walk through",
-    "label": "a gap in a fence helps hedgehogs walk through",
-    "text": "a gap in a fence helps hedgehogs walk through"
+    "value": "People should inspect garden fires before lighting them.",
+    "label": "People should inspect garden fires before lighting them.",
+    "text": "People should inspect garden fires before lighting them."
    }
   ],
-  "answer": "people can make gardens safer for hedgehogs",
-  "correctAnswer": "people can make gardens safer for hedgehogs",
+  "answer": "People can make gardens safer for visiting hedgehogs.",
+  "correctAnswer": "People can make gardens safer for visiting hedgehogs.",
   "distractorRationales": {
-   "hedgehogs sleep in piles of leaves": "D-DETAIL-AS-MAIN",
-   "a gap in a fence helps hedgehogs walk through": "D-DETAIL-AS-MAIN",
-   "bonfires should be checked": "D-DETAIL-AS-MAIN"
+   "A fence gap lets hedgehogs move between nearby gardens.": "D-DETAIL-AS-MAIN",
+   "People should inspect garden fires before lighting them.": "D-DETAIL-AS-MAIN",
+   "Loose netting can trap the legs of small animals.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3059,7 +3059,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Unify several different garden actions by their protective purpose; each rival is a supported example rather than the shared idea."
  },
  {
   "id": "lp3.main_idea.l2.C.main_idea_vs_detail.v3",
@@ -3084,42 +3084,42 @@ export const questions = [
   "prompt": "Which option best states the main idea?",
   "question": "Which option best states the main idea?",
   "spokenPrompt": "Which option best states the main idea?",
-  "passage": "Maya kept a moon diary for a month. On clear nights she drew the moon's shape in silver pencil. On cloudy nights she wrote 'hidden' in the box. Slowly her pages showed the moon growing round, then shrinking thin. Her diary turned a whole month of sky into one small story.",
+  "passage": "Maya watched the moon from the same window each evening. She drew its shape beside that day's date. On cloudy evenings, she marked the box hidden instead. At first, each drawing seemed like a separate little picture. After four weeks, she laid the pages in a row. The bright shape grew wider, then became narrow again. Her cousin could see that pattern without watching every night. Her cousin pointed to matching shapes several pages apart.",
   "cell": "main_idea_vs_detail",
   "choices": [
-   "she drew with a silver pencil",
-   "some nights she wrote 'hidden'",
-   "she kept the diary for a month",
-   "Maya's diary recorded how the moon changed"
+   "Maya observed the moon from the same window each evening.",
+   "She marked cloudy evenings instead of drawing a hidden moon.",
+   "Her cousin looked at the drawings arranged in a row.",
+   "Maya used daily pictures to reveal the moon’s changing appearance."
   ],
   "answerOptions": [
    {
-    "value": "she drew with a silver pencil",
-    "label": "she drew with a silver pencil",
-    "text": "she drew with a silver pencil"
+    "value": "Maya observed the moon from the same window each evening.",
+    "label": "Maya observed the moon from the same window each evening.",
+    "text": "Maya observed the moon from the same window each evening."
    },
    {
-    "value": "some nights she wrote 'hidden'",
-    "label": "some nights she wrote 'hidden'",
-    "text": "some nights she wrote 'hidden'"
+    "value": "She marked cloudy evenings instead of drawing a hidden moon.",
+    "label": "She marked cloudy evenings instead of drawing a hidden moon.",
+    "text": "She marked cloudy evenings instead of drawing a hidden moon."
    },
    {
-    "value": "she kept the diary for a month",
-    "label": "she kept the diary for a month",
-    "text": "she kept the diary for a month"
+    "value": "Her cousin looked at the drawings arranged in a row.",
+    "label": "Her cousin looked at the drawings arranged in a row.",
+    "text": "Her cousin looked at the drawings arranged in a row."
    },
    {
-    "value": "Maya's diary recorded how the moon changed",
-    "label": "Maya's diary recorded how the moon changed",
-    "text": "Maya's diary recorded how the moon changed"
+    "value": "Maya used daily pictures to reveal the moon’s changing appearance.",
+    "label": "Maya used daily pictures to reveal the moon’s changing appearance.",
+    "text": "Maya used daily pictures to reveal the moon’s changing appearance."
    }
   ],
-  "answer": "Maya's diary recorded how the moon changed",
-  "correctAnswer": "Maya's diary recorded how the moon changed",
+  "answer": "Maya used daily pictures to reveal the moon’s changing appearance.",
+  "correctAnswer": "Maya used daily pictures to reveal the moon’s changing appearance.",
   "distractorRationales": {
-   "some nights she wrote 'hidden'": "D-DETAIL-AS-MAIN",
-   "she kept the diary for a month": "D-DETAIL-AS-MAIN",
-   "she drew with a silver pencil": "D-DETAIL-AS-MAIN"
+   "She marked cloudy evenings instead of drawing a hidden moon.": "D-DETAIL-AS-MAIN",
+   "Her cousin looked at the drawings arranged in a row.": "D-DETAIL-AS-MAIN",
+   "Maya observed the moon from the same window each evening.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3149,7 +3149,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Integrate the purpose of recording over time; observation place, missing data and sharing results are true subordinate details."
  },
  {
   "id": "lp3.main_idea.l2.A.main_idea_vs_detail.v4",
@@ -3174,42 +3174,42 @@ export const questions = [
   "prompt": "Which option best states the main idea?",
   "question": "Which option best states the main idea?",
   "spokenPrompt": "Which option best states the main idea?",
-  "passage": "The old phone box no longer has a phone inside. The town filled it with books instead. Anyone may take one home, as long as they leave another. The shelves change every week: cookbooks, comics, mysteries. The little red box is now the smallest library in town.",
+  "passage": "The old phone box stood empty after its telephone was removed. Instead of taking it away, the town repaired its door. Volunteers fitted shelves and brought books they had finished reading. Anyone could choose a book and leave another in return. A neighbour checked that the shelves stayed clean and dry. New titles arrived as different readers used the little box. People began stopping to chat about stories they had enjoyed. By Friday, a returned comic had three new borrowers waiting.",
   "cell": "main_idea_vs_detail",
   "choices": [
-   "the box is red",
-   "the shelves change every week",
-   "people leave a book when they take one",
-   "the phone box became a tiny library"
+   "Volunteers fitted shelves inside the repaired old phone box.",
+   "Readers could leave another book after choosing one.",
+   "A neighbour checked that the books stayed dry.",
+   "An empty phone box became a shared local library."
   ],
   "answerOptions": [
    {
-    "value": "the box is red",
-    "label": "the box is red",
-    "text": "the box is red"
+    "value": "Volunteers fitted shelves inside the repaired old phone box.",
+    "label": "Volunteers fitted shelves inside the repaired old phone box.",
+    "text": "Volunteers fitted shelves inside the repaired old phone box."
    },
    {
-    "value": "the shelves change every week",
-    "label": "the shelves change every week",
-    "text": "the shelves change every week"
+    "value": "Readers could leave another book after choosing one.",
+    "label": "Readers could leave another book after choosing one.",
+    "text": "Readers could leave another book after choosing one."
    },
    {
-    "value": "people leave a book when they take one",
-    "label": "people leave a book when they take one",
-    "text": "people leave a book when they take one"
+    "value": "A neighbour checked that the books stayed dry.",
+    "label": "A neighbour checked that the books stayed dry.",
+    "text": "A neighbour checked that the books stayed dry."
    },
    {
-    "value": "the phone box became a tiny library",
-    "label": "the phone box became a tiny library",
-    "text": "the phone box became a tiny library"
+    "value": "An empty phone box became a shared local library.",
+    "label": "An empty phone box became a shared local library.",
+    "text": "An empty phone box became a shared local library."
    }
   ],
-  "answer": "the phone box became a tiny library",
-  "correctAnswer": "the phone box became a tiny library",
+  "answer": "An empty phone box became a shared local library.",
+  "correctAnswer": "An empty phone box became a shared local library.",
   "distractorRationales": {
-   "the box is red": "D-DETAIL-AS-MAIN",
-   "the shelves change every week": "D-DETAIL-AS-MAIN",
-   "people leave a book when they take one": "D-DETAIL-AS-MAIN"
+   "Volunteers fitted shelves inside the repaired old phone box.": "D-DETAIL-AS-MAIN",
+   "Readers could leave another book after choosing one.": "D-DETAIL-AS-MAIN",
+   "A neighbour checked that the books stayed dry.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3239,7 +3239,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Separate the whole transformation and purpose from three true implementation details."
  },
  {
   "id": "lp3.main_idea.l2.B.main_idea_vs_detail.v5",
@@ -3264,42 +3264,42 @@ export const questions = [
   "prompt": "Which option best states the main idea?",
   "question": "Which option best states the main idea?",
   "spokenPrompt": "Which option best states the main idea?",
-  "passage": "Dad's garden plot gives us vegetables nearly all year. In spring we pull sweet little radishes. Summer brings beans that climb higher than me. In autumn we dig up potatoes like buried treasure. Even in winter there is kale, standing green in the frost.",
+  "passage": "Dad plans the vegetable patch before the first spring shoots appear. He chooses plants that will be ready at different times. We pick little radishes while the climbing beans are still small. Those beans fill our bowls during the warmer summer months. In autumn, we dig potatoes from beneath their dying leaves. Winter frost covers the paths, but hardy kale remains green. Dad leaves room for each crop instead of planting everything together. After picking one crop, he prepares its space for another.",
   "cell": "main_idea_vs_detail",
   "choices": [
-   "potatoes are dug in autumn",
-   "kale stands in the frost",
-   "the garden plot grows food in every season",
-   "beans climb very high"
+   "Potatoes are dug after their leaves begin to die.",
+   "Kale remains green when frost covers the winter paths.",
+   "Planning different crops keeps the garden producing across the year.",
+   "Radishes are ready while the climbing beans are still small."
   ],
   "answerOptions": [
    {
-    "value": "potatoes are dug in autumn",
-    "label": "potatoes are dug in autumn",
-    "text": "potatoes are dug in autumn"
+    "value": "Potatoes are dug after their leaves begin to die.",
+    "label": "Potatoes are dug after their leaves begin to die.",
+    "text": "Potatoes are dug after their leaves begin to die."
    },
    {
-    "value": "kale stands in the frost",
-    "label": "kale stands in the frost",
-    "text": "kale stands in the frost"
+    "value": "Kale remains green when frost covers the winter paths.",
+    "label": "Kale remains green when frost covers the winter paths.",
+    "text": "Kale remains green when frost covers the winter paths."
    },
    {
-    "value": "the garden plot grows food in every season",
-    "label": "the garden plot grows food in every season",
-    "text": "the garden plot grows food in every season"
+    "value": "Planning different crops keeps the garden producing across the year.",
+    "label": "Planning different crops keeps the garden producing across the year.",
+    "text": "Planning different crops keeps the garden producing across the year."
    },
    {
-    "value": "beans climb very high",
-    "label": "beans climb very high",
-    "text": "beans climb very high"
+    "value": "Radishes are ready while the climbing beans are still small.",
+    "label": "Radishes are ready while the climbing beans are still small.",
+    "text": "Radishes are ready while the climbing beans are still small."
    }
   ],
-  "answer": "the garden plot grows food in every season",
-  "correctAnswer": "the garden plot grows food in every season",
+  "answer": "Planning different crops keeps the garden producing across the year.",
+  "correctAnswer": "Planning different crops keeps the garden producing across the year.",
   "distractorRationales": {
-   "beans climb very high": "D-DETAIL-AS-MAIN",
-   "potatoes are dug in autumn": "D-DETAIL-AS-MAIN",
-   "kale stands in the frost": "D-DETAIL-AS-MAIN"
+   "Radishes are ready while the climbing beans are still small.": "D-DETAIL-AS-MAIN",
+   "Potatoes are dug after their leaves begin to die.": "D-DETAIL-AS-MAIN",
+   "Kale remains green when frost covers the winter paths.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3329,7 +3329,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Connect seasonal examples to the year-round plan; each alternative describes only one crop and season."
  },
  {
   "id": "lp3.main_idea.l2.C.main_idea_vs_detail.v6",
@@ -3354,42 +3354,42 @@ export const questions = [
   "prompt": "Which option best states the main idea?",
   "question": "Which option best states the main idea?",
   "spokenPrompt": "Which option best states the main idea?",
-  "passage": "The fire station opened its doors on Saturday. Children tried on helmets that wobbled on their heads. A firefighter showed how the long ladder unfolds to reach high windows. Everyone got to spray the practice hose at a target. By home time, half the visitors wanted the job one day.",
+  "passage": "The fire station invited families inside on Saturday morning. Children tried heavy helmets while a firefighter explained their purpose. Another firefighter unfolded the ladder used for reaching high windows. Visitors sprayed a practice hose and felt how strongly water pushed. Inside the truck, they saw tools for rescuing people from cars. The crew also explained why equipment must be checked every day. Some children had thought the job meant only putting out flames. One child asked whether the crew trained for river rescues.",
   "cell": "main_idea_vs_detail",
   "choices": [
-   "visitors learning about a firefighter’s work",
-   "the helmets wobbling on the visitors’ heads",
-   "the long ladder reaching toward high windows",
-   "children spraying a practice hose at a target"
+   "Visitors discovered several parts of a firefighter’s work.",
+   "Children felt the push of water from a practice hose.",
+   "The crew explained why their equipment needs daily checks.",
+   "A firefighter showed a ladder that reaches high windows."
   ],
   "answerOptions": [
    {
-    "value": "visitors learning about a firefighter’s work",
-    "label": "visitors learning about a firefighter’s work",
-    "text": "visitors learning about a firefighter’s work"
+    "value": "Visitors discovered several parts of a firefighter’s work.",
+    "label": "Visitors discovered several parts of a firefighter’s work.",
+    "text": "Visitors discovered several parts of a firefighter’s work."
    },
    {
-    "value": "the helmets wobbling on the visitors’ heads",
-    "label": "the helmets wobbling on the visitors’ heads",
-    "text": "the helmets wobbling on the visitors’ heads"
+    "value": "Children felt the push of water from a practice hose.",
+    "label": "Children felt the push of water from a practice hose.",
+    "text": "Children felt the push of water from a practice hose."
    },
    {
-    "value": "the long ladder reaching toward high windows",
-    "label": "the long ladder reaching toward high windows",
-    "text": "the long ladder reaching toward high windows"
+    "value": "The crew explained why their equipment needs daily checks.",
+    "label": "The crew explained why their equipment needs daily checks.",
+    "text": "The crew explained why their equipment needs daily checks."
    },
    {
-    "value": "children spraying a practice hose at a target",
-    "label": "children spraying a practice hose at a target",
-    "text": "children spraying a practice hose at a target"
+    "value": "A firefighter showed a ladder that reaches high windows.",
+    "label": "A firefighter showed a ladder that reaches high windows.",
+    "text": "A firefighter showed a ladder that reaches high windows."
    }
   ],
-  "answer": "visitors learning about a firefighter’s work",
-  "correctAnswer": "visitors learning about a firefighter’s work",
+  "answer": "Visitors discovered several parts of a firefighter’s work.",
+  "correctAnswer": "Visitors discovered several parts of a firefighter’s work.",
   "distractorRationales": {
-   "the helmets wobbling on the visitors’ heads": "D-PLAUSIBLE-UNSUPPORTED",
-   "the long ladder reaching toward high windows": "D-PLAUSIBLE-UNSUPPORTED",
-   "children spraying a practice hose at a target": "D-OPPOSITE"
+   "Children felt the push of water from a practice hose.": "D-DETAIL-AS-MAIN",
+   "The crew explained why their equipment needs daily checks.": "D-DETAIL-AS-MAIN",
+   "A firefighter showed a ladder that reaches high windows.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3419,7 +3419,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "All three rivals are genuine details; the key covers the broader learning about preparation and rescue as well as equipment."
  },
  {
   "id": "lp3.main_idea.l2.A.main_idea_vs_detail.v7",
@@ -3444,42 +3444,42 @@ export const questions = [
   "prompt": "Which option best states the main idea?",
   "question": "Which option best states the main idea?",
   "spokenPrompt": "Which option best states the main idea?",
-  "passage": "A wind farm stands on the hill above our town. Each turbine is taller than the church tower. The spinning blades use wind to make electricity for nearby homes. The blades rest on still days and spin on windy days.",
+  "passage": "A wind farm stands on the hill above our town. Its tall towers hold blades that turn when wind pushes them. Equipment inside changes that movement into electricity for nearby homes. On still days, the blades rest and produce no power. Other sources must supply the electricity people need then. Workers check the towers and stop damaged machines for repairs. The town uses the wind farm alongside its other power sources. Nearby homes still need lights during long, calm evenings.",
   "cell": "main_idea_vs_detail",
   "choices": [
-   "the wind farm makes electricity from wind",
-   "turbines are taller than the church",
-   "blades rest on still days",
-   "the blades look like pinwheels"
+   "The wind farm helps supply electricity when wind is available.",
+   "Equipment changes the movement of turning blades into electricity.",
+   "Workers stop damaged machines so that repairs can be made.",
+   "Other sources provide power while the blades remain still."
   ],
   "answerOptions": [
    {
-    "value": "the wind farm makes electricity from wind",
-    "label": "the wind farm makes electricity from wind",
-    "text": "the wind farm makes electricity from wind"
+    "value": "The wind farm helps supply electricity when wind is available.",
+    "label": "The wind farm helps supply electricity when wind is available.",
+    "text": "The wind farm helps supply electricity when wind is available."
    },
    {
-    "value": "turbines are taller than the church",
-    "label": "turbines are taller than the church",
-    "text": "turbines are taller than the church"
+    "value": "Equipment changes the movement of turning blades into electricity.",
+    "label": "Equipment changes the movement of turning blades into electricity.",
+    "text": "Equipment changes the movement of turning blades into electricity."
    },
    {
-    "value": "blades rest on still days",
-    "label": "blades rest on still days",
-    "text": "blades rest on still days"
+    "value": "Workers stop damaged machines so that repairs can be made.",
+    "label": "Workers stop damaged machines so that repairs can be made.",
+    "text": "Workers stop damaged machines so that repairs can be made."
    },
    {
-    "value": "the blades look like pinwheels",
-    "label": "the blades look like pinwheels",
-    "text": "the blades look like pinwheels"
+    "value": "Other sources provide power while the blades remain still.",
+    "label": "Other sources provide power while the blades remain still.",
+    "text": "Other sources provide power while the blades remain still."
    }
   ],
-  "answer": "the wind farm makes electricity from wind",
-  "correctAnswer": "the wind farm makes electricity from wind",
+  "answer": "The wind farm helps supply electricity when wind is available.",
+  "correctAnswer": "The wind farm helps supply electricity when wind is available.",
   "distractorRationales": {
-   "turbines are taller than the church": "D-DETAIL-AS-MAIN",
-   "blades rest on still days": "D-DETAIL-AS-MAIN",
-   "the blades look like pinwheels": "D-DETAIL-AS-MAIN"
+   "Equipment changes the movement of turning blades into electricity.": "D-DETAIL-AS-MAIN",
+   "Workers stop damaged machines so that repairs can be made.": "D-DETAIL-AS-MAIN",
+   "Other sources provide power while the blades remain still.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3509,7 +3509,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Integrate purpose and limitation, rather than choose one mechanical or maintenance detail; all rivals are explicitly true."
  },
  {
   "id": "lp3.main_idea.l2.B.main_idea_vs_detail.v8",
@@ -3534,42 +3534,42 @@ export const questions = [
   "prompt": "Which option best states the main idea?",
   "question": "Which option best states the main idea?",
   "spokenPrompt": "Which option best states the main idea?",
-  "passage": "Our street planned a surprise for Mr Chen's hundredth birthday. Neighbors strung flags from lamp post to lamp post. The cafe made a cake with one hundred candles. Lighting all those candles took three tries. Children painted a banner as long as a bus. When Mr Chen stepped outside, the whole street sang at once.",
+  "passage": "Neighbours planned a surprise for Chen's hundredth birthday. The cafe offered a cake, but one shop could not organise everything. Children painted a long banner while adults hung flags safely. A musician practised the song Chen loved as a boy. People who could not attend wrote messages for a shared book. When Chen stepped outside, the street began singing together. He read the messages while neighbours passed slices of cake. He kept the shared book beside his chair after everyone left.",
   "cell": "main_idea_vs_detail",
   "choices": [
-   "the cake had one hundred candles",
-   "the banner was as long as a bus",
-   "flags were strung from lamp post to lamp post",
-   "the street celebrated Mr. Chen's birthday together"
+   "Children painting a long banner for Chen’s birthday.",
+   "People unable to attend wrote messages for a shared book.",
+   "A musician practised a song Chen enjoyed as a boy.",
+   "Neighbours helping to celebrate Chen’s birthday together."
   ],
   "answerOptions": [
    {
-    "value": "the cake had one hundred candles",
-    "label": "the cake had one hundred candles",
-    "text": "the cake had one hundred candles"
+    "value": "Children painting a long banner for Chen’s birthday.",
+    "label": "Children painting a long banner for Chen’s birthday.",
+    "text": "Children painting a long banner for Chen’s birthday."
    },
    {
-    "value": "the banner was as long as a bus",
-    "label": "the banner was as long as a bus",
-    "text": "the banner was as long as a bus"
+    "value": "People unable to attend wrote messages for a shared book.",
+    "label": "People unable to attend wrote messages for a shared book.",
+    "text": "People unable to attend wrote messages for a shared book."
    },
    {
-    "value": "flags were strung from lamp post to lamp post",
-    "label": "flags were strung from lamp post to lamp post",
-    "text": "flags were strung from lamp post to lamp post"
+    "value": "A musician practised a song Chen enjoyed as a boy.",
+    "label": "A musician practised a song Chen enjoyed as a boy.",
+    "text": "A musician practised a song Chen enjoyed as a boy."
    },
    {
-    "value": "the street celebrated Mr. Chen's birthday together",
-    "label": "the street celebrated Mr. Chen's birthday together",
-    "text": "the street celebrated Mr. Chen's birthday together"
+    "value": "Neighbours helping to celebrate Chen’s birthday together.",
+    "label": "Neighbours helping to celebrate Chen’s birthday together.",
+    "text": "Neighbours helping to celebrate Chen’s birthday together."
    }
   ],
-  "answer": "the street celebrated Mr. Chen's birthday together",
-  "correctAnswer": "the street celebrated Mr. Chen's birthday together",
+  "answer": "Neighbours helping to celebrate Chen’s birthday together.",
+  "correctAnswer": "Neighbours helping to celebrate Chen’s birthday together.",
   "distractorRationales": {
-   "the banner was as long as a bus": "D-DETAIL-AS-MAIN",
-   "flags were strung from lamp post to lamp post": "D-DETAIL-AS-MAIN",
-   "the cake had one hundred candles": "D-DETAIL-AS-MAIN"
+   "People unable to attend wrote messages for a shared book.": "D-DETAIL-AS-MAIN",
+   "A musician practised a song Chen enjoyed as a boy.": "D-DETAIL-AS-MAIN",
+   "Children painting a long banner for Chen’s birthday.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3599,7 +3599,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Find the common contribution-and-celebration idea across the whole passage; each rival describes one contributor only."
  },
  {
   "id": "lp3.main_idea.l2.A.summary_choice.v1",
@@ -3624,42 +3624,42 @@ export const questions = [
   "prompt": "Which sentence sums up the whole passage best?",
   "question": "Which sentence sums up the whole passage best?",
   "spokenPrompt": "Which sentence sums up the whole passage best?",
-  "passage": "Leo wanted to swim the whole length of the pool. At first he could only manage halfway before standing up, coughing. His coach taught him one small swimming skill each week. He practiced slower arms, blowing bubbles and long kicks. After six weeks, Leo reached the far wall without stopping. He lifted his face from the water and grinned.",
+  "passage": "Leo wanted to swim the full length of the pool. He usually stopped halfway because he tried to move too quickly. His coach first helped him practise slow breathing beside the edge. Then they worked on steady kicks over a shorter distance. Leo joined the two skills during each lesson that month. Sometimes he still stopped, but he could see his progress. After six weeks, he touched the far wall without standing up. The coach marked the full length on Leo's progress sheet.",
   "cell": "summary_choice",
   "choices": [
-   "Leo practiced for six weeks but still stopped at the halfway point.",
-   "Leo improved with regular coaching and eventually swam a full length.",
-   "Leo reached halfway before deciding to begin his first swimming lesson.",
-   "Leo taught his coach a new way to reach the far wall."
+   "Leo learned that swimming quickly matters more than breathing steadily.",
+   "Leo improved separate swimming skills and finally completed a full length.",
+   "Leo practised slow breathing at the pool edge with his coach.",
+   "Leo reached the far wall first, then began practising shorter distances."
   ],
   "answerOptions": [
    {
-    "value": "Leo practiced for six weeks but still stopped at the halfway point.",
-    "label": "Leo practiced for six weeks but still stopped at the halfway point.",
-    "text": "Leo practiced for six weeks but still stopped at the halfway point."
+    "value": "Leo learned that swimming quickly matters more than breathing steadily.",
+    "label": "Leo learned that swimming quickly matters more than breathing steadily.",
+    "text": "Leo learned that swimming quickly matters more than breathing steadily."
    },
    {
-    "value": "Leo improved with regular coaching and eventually swam a full length.",
-    "label": "Leo improved with regular coaching and eventually swam a full length.",
-    "text": "Leo improved with regular coaching and eventually swam a full length."
+    "value": "Leo improved separate swimming skills and finally completed a full length.",
+    "label": "Leo improved separate swimming skills and finally completed a full length.",
+    "text": "Leo improved separate swimming skills and finally completed a full length."
    },
    {
-    "value": "Leo reached halfway before deciding to begin his first swimming lesson.",
-    "label": "Leo reached halfway before deciding to begin his first swimming lesson.",
-    "text": "Leo reached halfway before deciding to begin his first swimming lesson."
+    "value": "Leo practised slow breathing at the pool edge with his coach.",
+    "label": "Leo practised slow breathing at the pool edge with his coach.",
+    "text": "Leo practised slow breathing at the pool edge with his coach."
    },
    {
-    "value": "Leo taught his coach a new way to reach the far wall.",
-    "label": "Leo taught his coach a new way to reach the far wall.",
-    "text": "Leo taught his coach a new way to reach the far wall."
+    "value": "Leo reached the far wall first, then began practising shorter distances.",
+    "label": "Leo reached the far wall first, then began practising shorter distances.",
+    "text": "Leo reached the far wall first, then began practising shorter distances."
    }
   ],
-  "answer": "Leo improved with regular coaching and eventually swam a full length.",
-  "correctAnswer": "Leo improved with regular coaching and eventually swam a full length.",
+  "answer": "Leo improved separate swimming skills and finally completed a full length.",
+  "correctAnswer": "Leo improved separate swimming skills and finally completed a full length.",
   "distractorRationales": {
-   "Leo reached halfway before deciding to begin his first swimming lesson.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Leo taught his coach a new way to reach the far wall.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Leo practiced for six weeks but still stopped at the halfway point.": "D-OPPOSITE"
+   "Leo practised slow breathing at the pool edge with his coach.": "D-DETAIL-AS-MAIN",
+   "Leo reached the far wall first, then began practising shorter distances.": "D-OPPOSITE",
+   "Leo learned that swimming quickly matters more than breathing steadily.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3689,7 +3689,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Summarize the problem, targeted method and outcome; reject an accurate single exercise, reversed sequence and the rejected fast approach."
  },
  {
   "id": "lp3.main_idea.l2.B.summary_choice.v2",
@@ -3714,42 +3714,42 @@ export const questions = [
   "prompt": "Which sentence sums up the whole passage best?",
   "question": "Which sentence sums up the whole passage best?",
   "spokenPrompt": "Which sentence sums up the whole passage best?",
-  "passage": "The museum's dinosaur skeleton arrived in ninety-two boxes. Visitors watched through glass as scientists fitted bones together. They worked for a whole month. A neck as long as a slide rose slowly toward the ceiling. At last they added the final tail bone. The huge skeleton looked like the museum poster.",
+  "passage": "A dinosaur skeleton arrived at the museum in numbered boxes. Scientists checked photographs before deciding where each fossil belonged. Some bones were too fragile to support the weight above them. Metal supports held those pieces safely in their correct positions. Visitors watched through glass as the body slowly took shape. A missing section was replaced with a clearly marked model. After a month, the complete display stood above the visitors. Its labels explained both the real fossils and the added supports.",
   "cell": "summary_choice",
   "choices": [
-   "Visitors saw experts put a huge fossil together over a month.",
-   "Visitors fitted bones together while scientists watched from behind glass.",
-   "Scientists packed the finished skeleton into boxes to leave the museum.",
-   "Scientists added a neck but decided the tail could never fit."
+   "Experts carefully assembled and explained a supported dinosaur display.",
+   "Visitors watched scientists working behind a glass wall at the museum.",
+   "Experts used only strong original bones and needed no extra supports.",
+   "Scientists compared fossils to discover what a dinosaur ate."
   ],
   "answerOptions": [
    {
-    "value": "Visitors saw experts put a huge fossil together over a month.",
-    "label": "Visitors saw experts put a huge fossil together over a month.",
-    "text": "Visitors saw experts put a huge fossil together over a month."
+    "value": "Experts carefully assembled and explained a supported dinosaur display.",
+    "label": "Experts carefully assembled and explained a supported dinosaur display.",
+    "text": "Experts carefully assembled and explained a supported dinosaur display."
    },
    {
-    "value": "Visitors fitted bones together while scientists watched from behind glass.",
-    "label": "Visitors fitted bones together while scientists watched from behind glass.",
-    "text": "Visitors fitted bones together while scientists watched from behind glass."
+    "value": "Visitors watched scientists working behind a glass wall at the museum.",
+    "label": "Visitors watched scientists working behind a glass wall at the museum.",
+    "text": "Visitors watched scientists working behind a glass wall at the museum."
    },
    {
-    "value": "Scientists packed the finished skeleton into boxes to leave the museum.",
-    "label": "Scientists packed the finished skeleton into boxes to leave the museum.",
-    "text": "Scientists packed the finished skeleton into boxes to leave the museum."
+    "value": "Experts used only strong original bones and needed no extra supports.",
+    "label": "Experts used only strong original bones and needed no extra supports.",
+    "text": "Experts used only strong original bones and needed no extra supports."
    },
    {
-    "value": "Scientists added a neck but decided the tail could never fit.",
-    "label": "Scientists added a neck but decided the tail could never fit.",
-    "text": "Scientists added a neck but decided the tail could never fit."
+    "value": "Scientists compared fossils to discover what a dinosaur ate.",
+    "label": "Scientists compared fossils to discover what a dinosaur ate.",
+    "text": "Scientists compared fossils to discover what a dinosaur ate."
    }
   ],
-  "answer": "Visitors saw experts put a huge fossil together over a month.",
-  "correctAnswer": "Visitors saw experts put a huge fossil together over a month.",
+  "answer": "Experts carefully assembled and explained a supported dinosaur display.",
+  "correctAnswer": "Experts carefully assembled and explained a supported dinosaur display.",
   "distractorRationales": {
-   "Visitors fitted bones together while scientists watched from behind glass.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Scientists packed the finished skeleton into boxes to leave the museum.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Scientists added a neck but decided the tail could never fit.": "D-OPPOSITE"
+   "Visitors watched scientists working behind a glass wall at the museum.": "D-DETAIL-AS-MAIN",
+   "Experts used only strong original bones and needed no extra supports.": "D-OPPOSITE",
+   "Scientists compared fossils to discover what a dinosaur ate.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3779,7 +3779,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Integrate assembly, protection and honest display information; distinguish a visitor detail and claims contradicted or broader than the text."
  },
  {
   "id": "lp3.main_idea.l2.C.summary_choice.v3",
@@ -3804,42 +3804,42 @@ export const questions = [
   "prompt": "Which sentence sums up the whole passage best?",
   "question": "Which sentence sums up the whole passage best?",
   "spokenPrompt": "Which sentence sums up the whole passage best?",
-  "passage": "When the power went out, the apartment went quiet and dark. Mom found candles, and we ate supper by their small light. Grandma taught us a clapping game from her childhood. The lights came back on at bedtime. We still wanted to keep one candle burning.",
+  "passage": "The apartment went dark just as supper was ready. A message said the electricity would return later that evening. Mom used battery lamps instead of waiting to serve the food. Without television, everyone began telling stories around the small table. Grandma taught a clapping game she remembered from childhood. Even after the lights returned, nobody reached for the remote. They finished their game before clearing the bowls away together. The family decided to spend another evening like that next week.",
   "cell": "summary_choice",
   "choices": [
-   "The family stopped their supper and waited silently for the lights.",
-   "Losing electric light led the family to enjoy an evening together.",
-   "The family played an old game until they found working electric lights.",
-   "Grandma taught a clapping game before the electricity failed at bedtime."
+   "The family found better ways to save electricity at home.",
+   "An electricity failure led the family to enjoy new time together.",
+   "Grandma taught a clapping game while the family sat around supper.",
+   "The family waited in silence until electricity returned before eating."
   ],
   "answerOptions": [
    {
-    "value": "The family stopped their supper and waited silently for the lights.",
-    "label": "The family stopped their supper and waited silently for the lights.",
-    "text": "The family stopped their supper and waited silently for the lights."
+    "value": "The family found better ways to save electricity at home.",
+    "label": "The family found better ways to save electricity at home.",
+    "text": "The family found better ways to save electricity at home."
    },
    {
-    "value": "Losing electric light led the family to enjoy an evening together.",
-    "label": "Losing electric light led the family to enjoy an evening together.",
-    "text": "Losing electric light led the family to enjoy an evening together."
+    "value": "An electricity failure led the family to enjoy new time together.",
+    "label": "An electricity failure led the family to enjoy new time together.",
+    "text": "An electricity failure led the family to enjoy new time together."
    },
    {
-    "value": "The family played an old game until they found working electric lights.",
-    "label": "The family played an old game until they found working electric lights.",
-    "text": "The family played an old game until they found working electric lights."
+    "value": "Grandma taught a clapping game while the family sat around supper.",
+    "label": "Grandma taught a clapping game while the family sat around supper.",
+    "text": "Grandma taught a clapping game while the family sat around supper."
    },
    {
-    "value": "Grandma taught a clapping game before the electricity failed at bedtime.",
-    "label": "Grandma taught a clapping game before the electricity failed at bedtime.",
-    "text": "Grandma taught a clapping game before the electricity failed at bedtime."
+    "value": "The family waited in silence until electricity returned before eating.",
+    "label": "The family waited in silence until electricity returned before eating.",
+    "text": "The family waited in silence until electricity returned before eating."
    }
   ],
-  "answer": "Losing electric light led the family to enjoy an evening together.",
-  "correctAnswer": "Losing electric light led the family to enjoy an evening together.",
+  "answer": "An electricity failure led the family to enjoy new time together.",
+  "correctAnswer": "An electricity failure led the family to enjoy new time together.",
   "distractorRationales": {
-   "The family played an old game until they found working electric lights.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Grandma taught a clapping game before the electricity failed at bedtime.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The family stopped their supper and waited silently for the lights.": "D-OPPOSITE"
+   "Grandma taught a clapping game while the family sat around supper.": "D-DETAIL-AS-MAIN",
+   "The family waited in silence until electricity returned before eating.": "D-OPPOSITE",
+   "The family found better ways to save electricity at home.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3869,7 +3869,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Connect the disruption with the response and lasting choice; a single activity does not summarize the whole change."
  },
  {
   "id": "lp3.main_idea.l2.A.summary_choice.v4",
@@ -3894,42 +3894,42 @@ export const questions = [
   "prompt": "Which sentence sums up the whole passage best?",
   "question": "Which sentence sums up the whole passage best?",
   "spokenPrompt": "Which sentence sums up the whole passage best?",
-  "passage": "The tide pool looked empty at first. Then Nadia crouched still and waited. A crab sidled out from under a stone. Something on the rock opened its tiny arms. It was a small sea animal. As she waited, she saw more animals come into view.",
+  "passage": "Nadia thought the tide pool was empty when she first arrived. Her moving shadow passed over the shallow water as she leaned. A guide asked her to sit still beside one dry rock. After a while, a tiny crab came out from hiding. Small arms opened on a sea creature fixed to a stone. Nadia noticed movement she had missed during her quick first look. She left every creature where it was and drew pictures. Her picture now showed creatures around the once empty-looking rock.",
   "cell": "summary_choice",
   "choices": [
-   "Nadia moved the rocks to make room for more sea animals.",
-   "Nadia watched the seaside but found no life near the stones.",
-   "Nadia waited patiently and began noticing many small sea creatures.",
-   "Nadia waited for a crab to leave so she could swim."
+   "Nadia moved the stones until hidden creatures had nowhere to stay.",
+   "Nadia compared two pools to find which held more creatures.",
+   "By watching quietly, Nadia discovered life she had first overlooked.",
+   "Nadia sat beside a dry rock and drew pictures of creatures."
   ],
   "answerOptions": [
    {
-    "value": "Nadia moved the rocks to make room for more sea animals.",
-    "label": "Nadia moved the rocks to make room for more sea animals.",
-    "text": "Nadia moved the rocks to make room for more sea animals."
+    "value": "Nadia moved the stones until hidden creatures had nowhere to stay.",
+    "label": "Nadia moved the stones until hidden creatures had nowhere to stay.",
+    "text": "Nadia moved the stones until hidden creatures had nowhere to stay."
    },
    {
-    "value": "Nadia watched the seaside but found no life near the stones.",
-    "label": "Nadia watched the seaside but found no life near the stones.",
-    "text": "Nadia watched the seaside but found no life near the stones."
+    "value": "Nadia compared two pools to find which held more creatures.",
+    "label": "Nadia compared two pools to find which held more creatures.",
+    "text": "Nadia compared two pools to find which held more creatures."
    },
    {
-    "value": "Nadia waited patiently and began noticing many small sea creatures.",
-    "label": "Nadia waited patiently and began noticing many small sea creatures.",
-    "text": "Nadia waited patiently and began noticing many small sea creatures."
+    "value": "By watching quietly, Nadia discovered life she had first overlooked.",
+    "label": "By watching quietly, Nadia discovered life she had first overlooked.",
+    "text": "By watching quietly, Nadia discovered life she had first overlooked."
    },
    {
-    "value": "Nadia waited for a crab to leave so she could swim.",
-    "label": "Nadia waited for a crab to leave so she could swim.",
-    "text": "Nadia waited for a crab to leave so she could swim."
+    "value": "Nadia sat beside a dry rock and drew pictures of creatures.",
+    "label": "Nadia sat beside a dry rock and drew pictures of creatures.",
+    "text": "Nadia sat beside a dry rock and drew pictures of creatures."
    }
   ],
-  "answer": "Nadia waited patiently and began noticing many small sea creatures.",
-  "correctAnswer": "Nadia waited patiently and began noticing many small sea creatures.",
+  "answer": "By watching quietly, Nadia discovered life she had first overlooked.",
+  "correctAnswer": "By watching quietly, Nadia discovered life she had first overlooked.",
   "distractorRationales": {
-   "Nadia moved the rocks to make room for more sea animals.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Nadia watched the seaside but found no life near the stones.": "D-OPPOSITE",
-   "Nadia waited for a crab to leave so she could swim.": "D-PLAUSIBLE-UNSUPPORTED"
+   "Nadia moved the stones until hidden creatures had nowhere to stay.": "D-OPPOSITE",
+   "Nadia compared two pools to find which held more creatures.": "D-TOPIC-ADJACENT",
+   "Nadia sat beside a dry rock and drew pictures of creatures.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3959,7 +3959,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Link the change in observation method with the changed conclusion; avoid a detail-only summary and claims about all sea life."
  },
  {
   "id": "lp3.main_idea.l2.B.summary_choice.v5",
@@ -3984,42 +3984,42 @@ export const questions = [
   "prompt": "Which sentence sums up the whole passage best?",
   "question": "Which sentence sums up the whole passage best?",
   "spokenPrompt": "Which sentence sums up the whole passage best?",
-  "passage": "A robot can vacuum a floor, but it needs some help. Cables must be lifted off the floor, or the robot eats them. Chairs become fences that trap it in corners. One sock can end the whole clean. Tidy first, the instructions say, and the robot will do the rest.",
+  "passage": "A family tried a small robot cleaner in their living room. At first, it stopped with a sock caught underneath. After the sock was removed, a loose cable blocked its brush. The instructions explained that small objects should be cleared first. The family lifted the cable and collected toys from the floor. This time, the machine travelled around the room without stopping. The machine avoided table legs and returned to its charger. After cleaning, Dad emptied dust from the small removable box.",
   "cell": "summary_choice",
   "choices": [
-   "A robotic cleaner works only while the family is away from home.",
-   "A robotic cleaner works better when obstacles have been removed first.",
-   "A robotic cleaner moves chairs and picks up socks before vacuuming.",
-   "A robotic cleaner needs someone to guide it into every room."
+   "The family learned that machines cannot help with household work.",
+   "The robot cleaned successfully after people prepared and maintained it.",
+   "A loose cable blocked the robot’s brush during an early attempt.",
+   "The robot moved all the toys before cleaning without any help."
   ],
   "answerOptions": [
    {
-    "value": "A robotic cleaner works only while the family is away from home.",
-    "label": "A robotic cleaner works only while the family is away from home.",
-    "text": "A robotic cleaner works only while the family is away from home."
+    "value": "The family learned that machines cannot help with household work.",
+    "label": "The family learned that machines cannot help with household work.",
+    "text": "The family learned that machines cannot help with household work."
    },
    {
-    "value": "A robotic cleaner works better when obstacles have been removed first.",
-    "label": "A robotic cleaner works better when obstacles have been removed first.",
-    "text": "A robotic cleaner works better when obstacles have been removed first."
+    "value": "The robot cleaned successfully after people prepared and maintained it.",
+    "label": "The robot cleaned successfully after people prepared and maintained it.",
+    "text": "The robot cleaned successfully after people prepared and maintained it."
    },
    {
-    "value": "A robotic cleaner moves chairs and picks up socks before vacuuming.",
-    "label": "A robotic cleaner moves chairs and picks up socks before vacuuming.",
-    "text": "A robotic cleaner moves chairs and picks up socks before vacuuming."
+    "value": "A loose cable blocked the robot’s brush during an early attempt.",
+    "label": "A loose cable blocked the robot’s brush during an early attempt.",
+    "text": "A loose cable blocked the robot’s brush during an early attempt."
    },
    {
-    "value": "A robotic cleaner needs someone to guide it into every room.",
-    "label": "A robotic cleaner needs someone to guide it into every room.",
-    "text": "A robotic cleaner needs someone to guide it into every room."
+    "value": "The robot moved all the toys before cleaning without any help.",
+    "label": "The robot moved all the toys before cleaning without any help.",
+    "text": "The robot moved all the toys before cleaning without any help."
    }
   ],
-  "answer": "A robotic cleaner works better when obstacles have been removed first.",
-  "correctAnswer": "A robotic cleaner works better when obstacles have been removed first.",
+  "answer": "The robot cleaned successfully after people prepared and maintained it.",
+  "correctAnswer": "The robot cleaned successfully after people prepared and maintained it.",
   "distractorRationales": {
-   "A robotic cleaner moves chairs and picks up socks before vacuuming.": "D-PLAUSIBLE-UNSUPPORTED",
-   "A robotic cleaner needs someone to guide it into every room.": "D-PLAUSIBLE-UNSUPPORTED",
-   "A robotic cleaner works only while the family is away from home.": "D-OPPOSITE"
+   "A loose cable blocked the robot’s brush during an early attempt.": "D-DETAIL-AS-MAIN",
+   "The robot moved all the toys before cleaning without any help.": "D-OPPOSITE",
+   "The family learned that machines cannot help with household work.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4049,7 +4049,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Integrate failed trials, preparation and remaining responsibilities rather than overgeneralize either complete independence or complete uselessness."
  },
  {
   "id": "lp3.main_idea.l2.C.summary_choice.v6",
@@ -4074,42 +4074,42 @@ export const questions = [
   "prompt": "Which sentence sums up the whole passage best?",
   "question": "Which sentence sums up the whole passage best?",
   "spokenPrompt": "Which sentence sums up the whole passage best?",
-  "passage": "The ferry crosses the bay eight times a day. Islanders set their clocks by its horn. It carries children to school, then shopping crates at noon. Workers take it home in the evening. During storms it stays tied to the dock. Islanders wait for the weather to let it sail again.",
+  "passage": "The island ferry carries different passengers throughout the day. Children board in the morning to reach the mainland school. At noon, boxes of food travel back to the island shops. Workers return home on a later crossing after their shifts. When strong storms arrive, the captain keeps the boat tied safely. Islanders then use stored supplies while waiting for calmer water. They plan important journeys around the ferry's published times. The captain checks the water again before restarting the service.",
   "cell": "summary_choice",
   "choices": [
-   "The ferry sails through storms because islanders need its regular service.",
-   "The ferry brings visitors but islanders mainly use other ways to travel.",
-   "The ferry connects islanders with the activities and supplies they need.",
-   "The ferry carries only schoolchildren and returns when their lessons finish."
+   "The ferry keeps every scheduled crossing even during dangerous storms.",
+   "The island uses its ferry mainly to bring tourists to beaches.",
+   "The ferry supports island life, with crossings limited by unsafe weather.",
+   "Children take the morning crossing to attend school on the mainland."
   ],
   "answerOptions": [
    {
-    "value": "The ferry sails through storms because islanders need its regular service.",
-    "label": "The ferry sails through storms because islanders need its regular service.",
-    "text": "The ferry sails through storms because islanders need its regular service."
+    "value": "The ferry keeps every scheduled crossing even during dangerous storms.",
+    "label": "The ferry keeps every scheduled crossing even during dangerous storms.",
+    "text": "The ferry keeps every scheduled crossing even during dangerous storms."
    },
    {
-    "value": "The ferry brings visitors but islanders mainly use other ways to travel.",
-    "label": "The ferry brings visitors but islanders mainly use other ways to travel.",
-    "text": "The ferry brings visitors but islanders mainly use other ways to travel."
+    "value": "The island uses its ferry mainly to bring tourists to beaches.",
+    "label": "The island uses its ferry mainly to bring tourists to beaches.",
+    "text": "The island uses its ferry mainly to bring tourists to beaches."
    },
    {
-    "value": "The ferry connects islanders with the activities and supplies they need.",
-    "label": "The ferry connects islanders with the activities and supplies they need.",
-    "text": "The ferry connects islanders with the activities and supplies they need."
+    "value": "The ferry supports island life, with crossings limited by unsafe weather.",
+    "label": "The ferry supports island life, with crossings limited by unsafe weather.",
+    "text": "The ferry supports island life, with crossings limited by unsafe weather."
    },
    {
-    "value": "The ferry carries only schoolchildren and returns when their lessons finish.",
-    "label": "The ferry carries only schoolchildren and returns when their lessons finish.",
-    "text": "The ferry carries only schoolchildren and returns when their lessons finish."
+    "value": "Children take the morning crossing to attend school on the mainland.",
+    "label": "Children take the morning crossing to attend school on the mainland.",
+    "text": "Children take the morning crossing to attend school on the mainland."
    }
   ],
-  "answer": "The ferry connects islanders with the activities and supplies they need.",
-  "correctAnswer": "The ferry connects islanders with the activities and supplies they need.",
+  "answer": "The ferry supports island life, with crossings limited by unsafe weather.",
+  "correctAnswer": "The ferry supports island life, with crossings limited by unsafe weather.",
   "distractorRationales": {
-   "The ferry sails through storms because islanders need its regular service.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The ferry brings visitors but islanders mainly use other ways to travel.": "D-OPPOSITE",
-   "The ferry carries only schoolchildren and returns when their lessons finish.": "D-PLAUSIBLE-UNSUPPORTED"
+   "The ferry keeps every scheduled crossing even during dangerous storms.": "D-OPPOSITE",
+   "The island uses its ferry mainly to bring tourists to beaches.": "D-TOPIC-ADJACENT",
+   "Children take the morning crossing to attend school on the mainland.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4139,7 +4139,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Summarize several uses and their shared limit; one passenger group, an opposite weather rule and a tourism claim have narrower or false scope."
  },
  {
   "id": "lp3.main_idea.l2.A.summary_choice.v7",
@@ -4164,42 +4164,42 @@ export const questions = [
   "prompt": "Which sentence sums up the whole passage best?",
   "question": "Which sentence sums up the whole passage best?",
   "spokenPrompt": "Which sentence sums up the whole passage best?",
-  "passage": "Amir's baby sister cried every time he practiced trumpet. He tried the yard, but the neighbors heard every note. The bathroom had a good echo but very little space. The winter coats in the closet made the trumpet much quieter. At last Amir had a place to practice.",
+  "passage": "Amir's trumpet practice disturbed his sleeping baby sister. He tried the yard, but neighbours could still hear every note. The bathroom had an echo that made the sound louder. Dad helped him test another room with thick curtains and rugs. Outside that room, the family could hear much less noise. Amir agreed to practise there before his sister's bedtime. He kept learning while people nearby could rest more easily. At bedtime, his trumpet was back in its case.",
   "cell": "summary_choice",
   "choices": [
-   "Amir stopped playing trumpet because his sister preferred to hear singing.",
-   "Amir chose the bathroom because it had space for his neighbours.",
-   "Amir practiced in the yard because nobody there could hear him.",
-   "Amir tried several spots before finding somewhere quiet enough to play."
+   "Amir and Dad compared the sound outside a softly furnished room.",
+   "Amir stopped playing because every room made the trumpet equally loud.",
+   "Amir chose the garden as the quietest place for trumpet practice.",
+   "Amir tested places and adjusted his practice to disturb others less."
   ],
   "answerOptions": [
    {
-    "value": "Amir stopped playing trumpet because his sister preferred to hear singing.",
-    "label": "Amir stopped playing trumpet because his sister preferred to hear singing.",
-    "text": "Amir stopped playing trumpet because his sister preferred to hear singing."
+    "value": "Amir and Dad compared the sound outside a softly furnished room.",
+    "label": "Amir and Dad compared the sound outside a softly furnished room.",
+    "text": "Amir and Dad compared the sound outside a softly furnished room."
    },
    {
-    "value": "Amir chose the bathroom because it had space for his neighbours.",
-    "label": "Amir chose the bathroom because it had space for his neighbours.",
-    "text": "Amir chose the bathroom because it had space for his neighbours."
+    "value": "Amir stopped playing because every room made the trumpet equally loud.",
+    "label": "Amir stopped playing because every room made the trumpet equally loud.",
+    "text": "Amir stopped playing because every room made the trumpet equally loud."
    },
    {
-    "value": "Amir practiced in the yard because nobody there could hear him.",
-    "label": "Amir practiced in the yard because nobody there could hear him.",
-    "text": "Amir practiced in the yard because nobody there could hear him."
+    "value": "Amir chose the garden as the quietest place for trumpet practice.",
+    "label": "Amir chose the garden as the quietest place for trumpet practice.",
+    "text": "Amir chose the garden as the quietest place for trumpet practice."
    },
    {
-    "value": "Amir tried several spots before finding somewhere quiet enough to play.",
-    "label": "Amir tried several spots before finding somewhere quiet enough to play.",
-    "text": "Amir tried several spots before finding somewhere quiet enough to play."
+    "value": "Amir tested places and adjusted his practice to disturb others less.",
+    "label": "Amir tested places and adjusted his practice to disturb others less.",
+    "text": "Amir tested places and adjusted his practice to disturb others less."
    }
   ],
-  "answer": "Amir tried several spots before finding somewhere quiet enough to play.",
-  "correctAnswer": "Amir tried several spots before finding somewhere quiet enough to play.",
+  "answer": "Amir tested places and adjusted his practice to disturb others less.",
+  "correctAnswer": "Amir tested places and adjusted his practice to disturb others less.",
   "distractorRationales": {
-   "Amir practiced in the yard because nobody there could hear him.": "D-OPPOSITE",
-   "Amir stopped playing trumpet because his sister preferred to hear singing.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Amir chose the bathroom because it had space for his neighbours.": "D-PLAUSIBLE-UNSUPPORTED"
+   "Amir chose the garden as the quietest place for trumpet practice.": "D-OPPOSITE",
+   "Amir and Dad compared the sound outside a softly furnished room.": "D-DETAIL-AS-MAIN",
+   "Amir stopped playing because every room made the trumpet equally loud.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4229,7 +4229,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Combine practical testing with the timing agreement; distinguish one test from the full solution and reject abandonment or the garden location, which the passage rules out."
  },
  {
   "id": "lp3.main_idea.l2.B.summary_choice.v8",
@@ -4254,42 +4254,42 @@ export const questions = [
   "prompt": "Which sentence sums up the whole passage best?",
   "question": "Which sentence sums up the whole passage best?",
   "spokenPrompt": "Which sentence sums up the whole passage best?",
-  "passage": "The street mural began as one painted door. Next, the artist painted a whale above the door. Waves spread along the walls of three more houses. Neighbors started leaving paint cans by their walls as an invitation. By summer, the street looked like a sea scene. Visitors came across town to take pictures.",
+  "passage": "An artist painted a whale above her own front door. A neighbour asked whether matching waves could cover his bare wall. More households joined after seeing the two pictures connect. They agreed on a sea scene before choosing their individual animals. Volunteers cleaned the walls while the artist marked the outlines. By summer, the paintings stretched along most of the short street. Visitors came to see how separate houses shared one picture. The first whale now joined an octopus several doors away.",
   "cell": "summary_choice",
   "choices": [
-   "An artist moved his painted door to three different houses that summer.",
-   "Visitors brought a whale painting to replace the art along the street.",
-   "A small painting inspired a neighbourhood to become a shared artwork.",
-   "Neighbours painted over an artist’s work to keep their houses plain."
+   "Neighbours removed the artist’s painting to keep their houses separate.",
+   "The artist ran lessons so visitors could paint their own animals.",
+   "One painting inspired neighbours to create a connected street artwork.",
+   "Volunteers cleaned the walls before the artist marked animal outlines."
   ],
   "answerOptions": [
    {
-    "value": "An artist moved his painted door to three different houses that summer.",
-    "label": "An artist moved his painted door to three different houses that summer.",
-    "text": "An artist moved his painted door to three different houses that summer."
+    "value": "Neighbours removed the artist’s painting to keep their houses separate.",
+    "label": "Neighbours removed the artist’s painting to keep their houses separate.",
+    "text": "Neighbours removed the artist’s painting to keep their houses separate."
    },
    {
-    "value": "Visitors brought a whale painting to replace the art along the street.",
-    "label": "Visitors brought a whale painting to replace the art along the street.",
-    "text": "Visitors brought a whale painting to replace the art along the street."
+    "value": "The artist ran lessons so visitors could paint their own animals.",
+    "label": "The artist ran lessons so visitors could paint their own animals.",
+    "text": "The artist ran lessons so visitors could paint their own animals."
    },
    {
-    "value": "A small painting inspired a neighbourhood to become a shared artwork.",
-    "label": "A small painting inspired a neighbourhood to become a shared artwork.",
-    "text": "A small painting inspired a neighbourhood to become a shared artwork."
+    "value": "One painting inspired neighbours to create a connected street artwork.",
+    "label": "One painting inspired neighbours to create a connected street artwork.",
+    "text": "One painting inspired neighbours to create a connected street artwork."
    },
    {
-    "value": "Neighbours painted over an artist’s work to keep their houses plain.",
-    "label": "Neighbours painted over an artist’s work to keep their houses plain.",
-    "text": "Neighbours painted over an artist’s work to keep their houses plain."
+    "value": "Volunteers cleaned the walls before the artist marked animal outlines.",
+    "label": "Volunteers cleaned the walls before the artist marked animal outlines.",
+    "text": "Volunteers cleaned the walls before the artist marked animal outlines."
    }
   ],
-  "answer": "A small painting inspired a neighbourhood to become a shared artwork.",
-  "correctAnswer": "A small painting inspired a neighbourhood to become a shared artwork.",
+  "answer": "One painting inspired neighbours to create a connected street artwork.",
+  "correctAnswer": "One painting inspired neighbours to create a connected street artwork.",
   "distractorRationales": {
-   "Visitors brought a whale painting to replace the art along the street.": "D-OPPOSITE",
-   "Neighbours painted over an artist’s work to keep their houses plain.": "D-PLAUSIBLE-UNSUPPORTED",
-   "An artist moved his painted door to three different houses that summer.": "D-PLAUSIBLE-UNSUPPORTED"
+   "The artist ran lessons so visitors could paint their own animals.": "D-TOPIC-ADJACENT",
+   "Volunteers cleaned the walls before the artist marked animal outlines.": "D-DETAIL-AS-MAIN",
+   "Neighbours removed the artist’s painting to keep their houses separate.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4319,7 +4319,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Trace origin, coordinated expansion and result; avoid a preparation detail, an opposite outcome and an unsupported teaching claim."
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_fiction.v9r",
@@ -4347,39 +4347,39 @@ export const questions = [
   "passage": "Bo built his blocks higher than the table. His baby brother reached out one finger. Crash! Blocks rolled everywhere. Bo took a big breath. He gave his brother two blocks to use. Together they started a new tower.",
   "cell": "mostly_about_fiction",
   "choices": [
-   "blocks rolling across the classroom floor",
-   "a child taking one deep steady breath",
-   "a child learning how real houses are built",
-   "two brothers rebuilding after their tower falls"
+   "Blocks rolling across the floor after the crash",
+   "Two brothers sorting their blocks into different colours",
+   "Bo refusing to let his brother use blocks",
+   "Two brothers rebuilding after a block tower falls"
   ],
   "answerOptions": [
    {
-    "value": "blocks rolling across the classroom floor",
-    "label": "blocks rolling across the classroom floor",
-    "text": "blocks rolling across the classroom floor"
+    "value": "Blocks rolling across the floor after the crash",
+    "label": "Blocks rolling across the floor after the crash",
+    "text": "Blocks rolling across the floor after the crash"
    },
    {
-    "value": "a child taking one deep steady breath",
-    "label": "a child taking one deep steady breath",
-    "text": "a child taking one deep steady breath"
+    "value": "Two brothers sorting their blocks into different colours",
+    "label": "Two brothers sorting their blocks into different colours",
+    "text": "Two brothers sorting their blocks into different colours"
    },
    {
-    "value": "a child learning how real houses are built",
-    "label": "a child learning how real houses are built",
-    "text": "a child learning how real houses are built"
+    "value": "Bo refusing to let his brother use blocks",
+    "label": "Bo refusing to let his brother use blocks",
+    "text": "Bo refusing to let his brother use blocks"
    },
    {
-    "value": "two brothers rebuilding after their tower falls",
-    "label": "two brothers rebuilding after their tower falls",
-    "text": "two brothers rebuilding after their tower falls"
+    "value": "Two brothers rebuilding after a block tower falls",
+    "label": "Two brothers rebuilding after a block tower falls",
+    "text": "Two brothers rebuilding after a block tower falls"
    }
   ],
-  "answer": "two brothers rebuilding after their tower falls",
-  "correctAnswer": "two brothers rebuilding after their tower falls",
+  "answer": "Two brothers rebuilding after a block tower falls",
+  "correctAnswer": "Two brothers rebuilding after a block tower falls",
   "distractorRationales": {
-   "a child taking one deep steady breath": "D-PLAUSIBLE-UNSUPPORTED",
-   "a child learning how real houses are built": "D-OPPOSITE",
-   "blocks rolling across the classroom floor": "D-PLAUSIBLE-UNSUPPORTED"
+   "Two brothers sorting their blocks into different colours": "D-TOPIC-ADJACENT",
+   "Bo refusing to let his brother use blocks": "D-OPPOSITE",
+   "Blocks rolling across the floor after the crash": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4409,7 +4409,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Join the collapse with the cooperative response; one physical detail is insufficient."
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_fiction.v10r",
@@ -4437,39 +4437,39 @@ export const questions = [
   "passage": "Nia's kite would not fly. It flopped on the grass like a tired fish. Grandpa made a longer tail from his old scarf. The next gust lifted the kite above the hill. Nia laughed and ran beneath it.",
   "cell": "mostly_about_fiction",
   "choices": [
-   "Nia and Grandpa making her kite work",
-   "Grandpa cutting a tail from his scarf",
-   "a gust blowing over the top of a hill",
-   "Nia rescuing a kite caught in a tall tree"
+   "Nia and Grandpa helping her kite fly",
+   "Grandpa making a longer tail from a scarf",
+   "Nia choosing a new kite in a shop",
+   "Nia stopping before the kite leaves the ground"
   ],
   "answerOptions": [
    {
-    "value": "Nia and Grandpa making her kite work",
-    "label": "Nia and Grandpa making her kite work",
-    "text": "Nia and Grandpa making her kite work"
+    "value": "Nia and Grandpa helping her kite fly",
+    "label": "Nia and Grandpa helping her kite fly",
+    "text": "Nia and Grandpa helping her kite fly"
    },
    {
-    "value": "Grandpa cutting a tail from his scarf",
-    "label": "Grandpa cutting a tail from his scarf",
-    "text": "Grandpa cutting a tail from his scarf"
+    "value": "Grandpa making a longer tail from a scarf",
+    "label": "Grandpa making a longer tail from a scarf",
+    "text": "Grandpa making a longer tail from a scarf"
    },
    {
-    "value": "a gust blowing over the top of a hill",
-    "label": "a gust blowing over the top of a hill",
-    "text": "a gust blowing over the top of a hill"
+    "value": "Nia choosing a new kite in a shop",
+    "label": "Nia choosing a new kite in a shop",
+    "text": "Nia choosing a new kite in a shop"
    },
    {
-    "value": "Nia rescuing a kite caught in a tall tree",
-    "label": "Nia rescuing a kite caught in a tall tree",
-    "text": "Nia rescuing a kite caught in a tall tree"
+    "value": "Nia stopping before the kite leaves the ground",
+    "label": "Nia stopping before the kite leaves the ground",
+    "text": "Nia stopping before the kite leaves the ground"
    }
   ],
-  "answer": "Nia and Grandpa making her kite work",
-  "correctAnswer": "Nia and Grandpa making her kite work",
+  "answer": "Nia and Grandpa helping her kite fly",
+  "correctAnswer": "Nia and Grandpa helping her kite fly",
   "distractorRationales": {
-   "a gust blowing over the top of a hill": "D-PLAUSIBLE-UNSUPPORTED",
-   "Nia rescuing a kite caught in a tall tree": "D-OPPOSITE",
-   "Grandpa cutting a tail from his scarf": "D-PLAUSIBLE-UNSUPPORTED"
+   "Nia choosing a new kite in a shop": "D-TOPIC-ADJACENT",
+   "Nia stopping before the kite leaves the ground": "D-OPPOSITE",
+   "Grandpa making a longer tail from a scarf": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4499,7 +4499,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Connect the failed flight, adjustment and result; replacing the tail is a true step."
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_info.v9r",
@@ -4527,39 +4527,39 @@ export const questions = [
   "passage": "A magnet does not pull every material. It pulls steel paper clips and iron nails. It does not pull plastic, wood or glass. A metal coin may not stick at all. Only some metals are pulled by a magnet.",
   "cell": "mostly_about_info",
   "choices": [
-   "how plastic toys are made in factories",
-   "which materials a magnet can pull",
-   "how a magnet pulls paper clips",
-   "why every metal sticks to magnets"
+   "Why every metal object sticks to a magnet",
+   "Which materials a magnet can pull",
+   "A magnet pulling steel paper clips",
+   "How factories make every kind of metal"
   ],
   "answerOptions": [
    {
-    "value": "how plastic toys are made in factories",
-    "label": "how plastic toys are made in factories",
-    "text": "how plastic toys are made in factories"
+    "value": "Why every metal object sticks to a magnet",
+    "label": "Why every metal object sticks to a magnet",
+    "text": "Why every metal object sticks to a magnet"
    },
    {
-    "value": "which materials a magnet can pull",
-    "label": "which materials a magnet can pull",
-    "text": "which materials a magnet can pull"
+    "value": "Which materials a magnet can pull",
+    "label": "Which materials a magnet can pull",
+    "text": "Which materials a magnet can pull"
    },
    {
-    "value": "how a magnet pulls paper clips",
-    "label": "how a magnet pulls paper clips",
-    "text": "how a magnet pulls paper clips"
+    "value": "A magnet pulling steel paper clips",
+    "label": "A magnet pulling steel paper clips",
+    "text": "A magnet pulling steel paper clips"
    },
    {
-    "value": "why every metal sticks to magnets",
-    "label": "why every metal sticks to magnets",
-    "text": "why every metal sticks to magnets"
+    "value": "How factories make every kind of metal",
+    "label": "How factories make every kind of metal",
+    "text": "How factories make every kind of metal"
    }
   ],
-  "answer": "which materials a magnet can pull",
-  "correctAnswer": "which materials a magnet can pull",
+  "answer": "Which materials a magnet can pull",
+  "correctAnswer": "Which materials a magnet can pull",
   "distractorRationales": {
-   "how a magnet pulls paper clips": "D-PLAUSIBLE-UNSUPPORTED",
-   "why every metal sticks to magnets": "D-PLAUSIBLE-UNSUPPORTED",
-   "how plastic toys are made in factories": "D-OPPOSITE"
+   "A magnet pulling steel paper clips": "D-DETAIL-AS-MAIN",
+   "How factories make every kind of metal": "D-TOPIC-ADJACENT",
+   "Why every metal object sticks to a magnet": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4589,7 +4589,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Generalise across positive and negative examples without claiming all metals respond."
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_info.v10r",
@@ -4617,39 +4617,39 @@ export const questions = [
   "passage": "Compost turns old scraps into useful plant food. Peelings, leaves, and eggshells go into the bin. Tiny creatures break them down over several months. Slowly the scraps turn dark and crumbly. Gardeners add this compost to their soil.",
   "cell": "mostly_about_info",
   "choices": [
-   "watching tiny creatures chew through old scraps",
-   "choosing the right place to grow new vegetables",
-   "making useful compost from food and plant waste",
-   "putting eggshells and leaves into a compost bin"
+   "Choosing where to plant a new vegetable garden",
+   "Keeping food scraps unchanged inside a compost bin",
+   "Making useful compost from food and plant waste",
+   "Putting eggshells and leaves into a compost bin"
   ],
   "answerOptions": [
    {
-    "value": "watching tiny creatures chew through old scraps",
-    "label": "watching tiny creatures chew through old scraps",
-    "text": "watching tiny creatures chew through old scraps"
+    "value": "Choosing where to plant a new vegetable garden",
+    "label": "Choosing where to plant a new vegetable garden",
+    "text": "Choosing where to plant a new vegetable garden"
    },
    {
-    "value": "choosing the right place to grow new vegetables",
-    "label": "choosing the right place to grow new vegetables",
-    "text": "choosing the right place to grow new vegetables"
+    "value": "Keeping food scraps unchanged inside a compost bin",
+    "label": "Keeping food scraps unchanged inside a compost bin",
+    "text": "Keeping food scraps unchanged inside a compost bin"
    },
    {
-    "value": "making useful compost from food and plant waste",
-    "label": "making useful compost from food and plant waste",
-    "text": "making useful compost from food and plant waste"
+    "value": "Making useful compost from food and plant waste",
+    "label": "Making useful compost from food and plant waste",
+    "text": "Making useful compost from food and plant waste"
    },
    {
-    "value": "putting eggshells and leaves into a compost bin",
-    "label": "putting eggshells and leaves into a compost bin",
-    "text": "putting eggshells and leaves into a compost bin"
+    "value": "Putting eggshells and leaves into a compost bin",
+    "label": "Putting eggshells and leaves into a compost bin",
+    "text": "Putting eggshells and leaves into a compost bin"
    }
   ],
-  "answer": "making useful compost from food and plant waste",
-  "correctAnswer": "making useful compost from food and plant waste",
+  "answer": "Making useful compost from food and plant waste",
+  "correctAnswer": "Making useful compost from food and plant waste",
   "distractorRationales": {
-   "putting eggshells and leaves into a compost bin": "D-PLAUSIBLE-UNSUPPORTED",
-   "watching tiny creatures chew through old scraps": "D-PLAUSIBLE-UNSUPPORTED",
-   "choosing the right place to grow new vegetables": "D-OPPOSITE"
+   "Putting eggshells and leaves into a compost bin": "D-DETAIL-AS-MAIN",
+   "Choosing where to plant a new vegetable garden": "D-TOPIC-ADJACENT",
+   "Keeping food scraps unchanged inside a compost bin": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4679,7 +4679,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify transformation into useful soil material rather than collection alone."
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_everyday.v9r",
@@ -4707,39 +4707,39 @@ export const questions = [
   "passage": "The waiting room has fish and old comics. Ben watches the striped fish glide while Mom reads. A buzzer sounds and a nurse calls Ben. He climbs into the dentist's big chair.",
   "cell": "mostly_about_everyday",
   "choices": [
-   "a striped fish moving through the tank",
-   "Mom reading while sitting beside her son",
-   "Ben learning how to keep his teeth clean",
-   "Ben waiting for his dental appointment"
+   "Ben watching fish while his mother reads",
+   "Ben learning how to look after pet fish",
+   "Ben leaving before the nurse calls his name",
+   "Ben waiting for his turn at the dentist"
   ],
   "answerOptions": [
    {
-    "value": "a striped fish moving through the tank",
-    "label": "a striped fish moving through the tank",
-    "text": "a striped fish moving through the tank"
+    "value": "Ben watching fish while his mother reads",
+    "label": "Ben watching fish while his mother reads",
+    "text": "Ben watching fish while his mother reads"
    },
    {
-    "value": "Mom reading while sitting beside her son",
-    "label": "Mom reading while sitting beside her son",
-    "text": "Mom reading while sitting beside her son"
+    "value": "Ben learning how to look after pet fish",
+    "label": "Ben learning how to look after pet fish",
+    "text": "Ben learning how to look after pet fish"
    },
    {
-    "value": "Ben learning how to keep his teeth clean",
-    "label": "Ben learning how to keep his teeth clean",
-    "text": "Ben learning how to keep his teeth clean"
+    "value": "Ben leaving before the nurse calls his name",
+    "label": "Ben leaving before the nurse calls his name",
+    "text": "Ben leaving before the nurse calls his name"
    },
    {
-    "value": "Ben waiting for his dental appointment",
-    "label": "Ben waiting for his dental appointment",
-    "text": "Ben waiting for his dental appointment"
+    "value": "Ben waiting for his turn at the dentist",
+    "label": "Ben waiting for his turn at the dentist",
+    "text": "Ben waiting for his turn at the dentist"
    }
   ],
-  "answer": "Ben waiting for his dental appointment",
-  "correctAnswer": "Ben waiting for his dental appointment",
+  "answer": "Ben waiting for his turn at the dentist",
+  "correctAnswer": "Ben waiting for his turn at the dentist",
   "distractorRationales": {
-   "Ben learning how to keep his teeth clean": "D-OPPOSITE",
-   "a striped fish moving through the tank": "D-PLAUSIBLE-UNSUPPORTED",
-   "Mom reading while sitting beside her son": "D-PLAUSIBLE-UNSUPPORTED"
+   "Ben leaving before the nurse calls his name": "D-OPPOSITE",
+   "Ben watching fish while his mother reads": "D-DETAIL-AS-MAIN",
+   "Ben learning how to look after pet fish": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4769,7 +4769,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "The fish and comics are waiting activities; the nurse and chair identify the larger event."
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_everyday.v10r",
@@ -4797,16 +4797,16 @@ export const questions = [
   "passage": "On Sunday the whole apartment smells of coconut rice. Auntie stirs the big silver pot. Cousins squeeze around the small table, elbow to elbow. Someone always finds an extra chair and plate. Everyone shares food and stories together.",
   "cell": "mostly_about_everyday",
   "choices": [
-   "relatives gathering to share a meal and talk",
+   "Relatives gathering to share food and stories",
    "Auntie stirring rice in a large silver pot",
-   "someone finding an extra plate for the table",
-   "cousins learning recipes from several different countries"
+   "Relatives opening a restaurant for paying customers",
+   "Everyone eating alone instead of sitting together"
   ],
   "answerOptions": [
    {
-    "value": "relatives gathering to share a meal and talk",
-    "label": "relatives gathering to share a meal and talk",
-    "text": "relatives gathering to share a meal and talk"
+    "value": "Relatives gathering to share food and stories",
+    "label": "Relatives gathering to share food and stories",
+    "text": "Relatives gathering to share food and stories"
    },
    {
     "value": "Auntie stirring rice in a large silver pot",
@@ -4814,22 +4814,22 @@ export const questions = [
     "text": "Auntie stirring rice in a large silver pot"
    },
    {
-    "value": "someone finding an extra plate for the table",
-    "label": "someone finding an extra plate for the table",
-    "text": "someone finding an extra plate for the table"
+    "value": "Relatives opening a restaurant for paying customers",
+    "label": "Relatives opening a restaurant for paying customers",
+    "text": "Relatives opening a restaurant for paying customers"
    },
    {
-    "value": "cousins learning recipes from several different countries",
-    "label": "cousins learning recipes from several different countries",
-    "text": "cousins learning recipes from several different countries"
+    "value": "Everyone eating alone instead of sitting together",
+    "label": "Everyone eating alone instead of sitting together",
+    "text": "Everyone eating alone instead of sitting together"
    }
   ],
-  "answer": "relatives gathering to share a meal and talk",
-  "correctAnswer": "relatives gathering to share a meal and talk",
+  "answer": "Relatives gathering to share food and stories",
+  "correctAnswer": "Relatives gathering to share food and stories",
   "distractorRationales": {
-   "Auntie stirring rice in a large silver pot": "D-PLAUSIBLE-UNSUPPORTED",
-   "someone finding an extra plate for the table": "D-PLAUSIBLE-UNSUPPORTED",
-   "cousins learning recipes from several different countries": "D-OPPOSITE"
+   "Auntie stirring rice in a large silver pot": "D-DETAIL-AS-MAIN",
+   "Relatives opening a restaurant for paying customers": "D-TOPIC-ADJACENT",
+   "Everyone eating alone instead of sitting together": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4859,7 +4859,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Combine food, crowded table and conversation into a family gathering."
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_fiction.v11r",
@@ -4887,39 +4887,39 @@ export const questions = [
   "passage": "The classroom hamster escaped on Friday. All weekend he was loose in the school. On Monday they followed seed shells past the library. The hamster lay in the lost-and-found box. He was curled inside a wool hat.",
   "cell": "mostly_about_fiction",
   "choices": [
-   "learning to feed a hamster over the weekend",
-   "finding the class pet after it escapes",
-   "following empty seed shells past the library",
-   "a wool hat inside the lost-property box"
+   "Leaving the hamster loose after finding its hiding place",
+   "Finding the class pet after it escapes",
+   "Following seed shells past the school library",
+   "Choosing a new animal for the classroom"
   ],
   "answerOptions": [
    {
-    "value": "learning to feed a hamster over the weekend",
-    "label": "learning to feed a hamster over the weekend",
-    "text": "learning to feed a hamster over the weekend"
+    "value": "Leaving the hamster loose after finding its hiding place",
+    "label": "Leaving the hamster loose after finding its hiding place",
+    "text": "Leaving the hamster loose after finding its hiding place"
    },
    {
-    "value": "finding the class pet after it escapes",
-    "label": "finding the class pet after it escapes",
-    "text": "finding the class pet after it escapes"
+    "value": "Finding the class pet after it escapes",
+    "label": "Finding the class pet after it escapes",
+    "text": "Finding the class pet after it escapes"
    },
    {
-    "value": "following empty seed shells past the library",
-    "label": "following empty seed shells past the library",
-    "text": "following empty seed shells past the library"
+    "value": "Following seed shells past the school library",
+    "label": "Following seed shells past the school library",
+    "text": "Following seed shells past the school library"
    },
    {
-    "value": "a wool hat inside the lost-property box",
-    "label": "a wool hat inside the lost-property box",
-    "text": "a wool hat inside the lost-property box"
+    "value": "Choosing a new animal for the classroom",
+    "label": "Choosing a new animal for the classroom",
+    "text": "Choosing a new animal for the classroom"
    }
   ],
-  "answer": "finding the class pet after it escapes",
-  "correctAnswer": "finding the class pet after it escapes",
+  "answer": "Finding the class pet after it escapes",
+  "correctAnswer": "Finding the class pet after it escapes",
   "distractorRationales": {
-   "learning to feed a hamster over the weekend": "D-OPPOSITE",
-   "following empty seed shells past the library": "D-PLAUSIBLE-UNSUPPORTED",
-   "a wool hat inside the lost-property box": "D-PLAUSIBLE-UNSUPPORTED"
+   "Leaving the hamster loose after finding its hiding place": "D-OPPOSITE",
+   "Following seed shells past the school library": "D-DETAIL-AS-MAIN",
+   "Choosing a new animal for the classroom": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4949,7 +4949,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Cover escape and recovery; the trail is the search method, not the whole story."
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_info.v11r",
@@ -4974,42 +4974,42 @@ export const questions = [
   "prompt": "What is this passage mostly about?",
   "question": "What is this passage mostly about?",
   "spokenPrompt": "What is this passage mostly about?",
-  "passage": "Tide pools change twice a day. At low tide, pools sit still in the sun. People can look at the creatures inside. The rising tide covers the pools with seawater. It brings fresh food for the creatures. Life in a tide pool changes with the tide.",
+  "passage": "Coastal pools change as the tide moves. At low tide, pools sit still in the sun. People can look at the creatures inside. The rising tide covers the pools with seawater. It brings fresh food for the creatures. Life in a tide pool changes with the tide.",
   "cell": "mostly_about_info",
   "choices": [
-   "which creatures are easiest to see in the sun",
-   "how different sea animals find homes far offshore",
-   "how the rising sea changes small shore pools",
-   "how creatures sit in still pools at low tide"
+   "How shore animals hide from people walking nearby",
+   "Why shore pools always stay cut off from seawater",
+   "How shore pools change with the tide",
+   "People seeing creatures when the tide is low"
   ],
   "answerOptions": [
    {
-    "value": "which creatures are easiest to see in the sun",
-    "label": "which creatures are easiest to see in the sun",
-    "text": "which creatures are easiest to see in the sun"
+    "value": "How shore animals hide from people walking nearby",
+    "label": "How shore animals hide from people walking nearby",
+    "text": "How shore animals hide from people walking nearby"
    },
    {
-    "value": "how different sea animals find homes far offshore",
-    "label": "how different sea animals find homes far offshore",
-    "text": "how different sea animals find homes far offshore"
+    "value": "Why shore pools always stay cut off from seawater",
+    "label": "Why shore pools always stay cut off from seawater",
+    "text": "Why shore pools always stay cut off from seawater"
    },
    {
-    "value": "how the rising sea changes small shore pools",
-    "label": "how the rising sea changes small shore pools",
-    "text": "how the rising sea changes small shore pools"
+    "value": "How shore pools change with the tide",
+    "label": "How shore pools change with the tide",
+    "text": "How shore pools change with the tide"
    },
    {
-    "value": "how creatures sit in still pools at low tide",
-    "label": "how creatures sit in still pools at low tide",
-    "text": "how creatures sit in still pools at low tide"
+    "value": "People seeing creatures when the tide is low",
+    "label": "People seeing creatures when the tide is low",
+    "text": "People seeing creatures when the tide is low"
    }
   ],
-  "answer": "how the rising sea changes small shore pools",
-  "correctAnswer": "how the rising sea changes small shore pools",
+  "answer": "How shore pools change with the tide",
+  "correctAnswer": "How shore pools change with the tide",
   "distractorRationales": {
-   "how creatures sit in still pools at low tide": "D-PLAUSIBLE-UNSUPPORTED",
-   "which creatures are easiest to see in the sun": "D-PLAUSIBLE-UNSUPPORTED",
-   "how different sea animals find homes far offshore": "D-OPPOSITE"
+   "People seeing creatures when the tide is low": "D-DETAIL-AS-MAIN",
+   "How shore animals hide from people walking nearby": "D-TOPIC-ADJACENT",
+   "Why shore pools always stay cut off from seawater": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5039,7 +5039,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Link the low-water view and returning sea; avoid general sea-living claims."
  },
  {
   "id": "lp3.main_idea.l2.R.best_title.v9r",
@@ -5064,42 +5064,42 @@ export const questions = [
   "prompt": "Which title fits this passage best?",
   "question": "Which title fits this passage best?",
   "spokenPrompt": "Which title fits this passage best?",
-  "passage": "The night bus is a different world. Streetlights slide across sleepy faces. A nurse heads to work. A baker heads home with flour on his coat. The driver knows the regular passengers by name. He waits to give everyone time to reach the bus.",
+  "passage": "The last daytime bus left before the hospital's night shift began. Nurses had to walk a long way from another stop. Bakers finishing late faced a similar journey in the opposite direction. The town added a night service linking both workplaces with homes. At first, its driver carried only a few regular passengers. More workers joined when they learned the times fitted their shifts. The driver kept the stops well lit and waited for arrivals. While many homes were dark, the bus still carried working people.",
   "cell": "best_title",
   "choices": [
-   "The Nurse Going to Work Tonight",
-   "A Driver Learning an Unfamiliar Route",
-   "The People Who Travel While Others Sleep",
-   "A Baker with Flour on His Coat"
+   "The Best Jobs for People Who Dislike Mornings",
+   "Closing Bus Services When Daytime Workers Go Home",
+   "A Bus for People Working Different Hours",
+   "Lighting the Stops Along a Night Route"
   ],
   "answerOptions": [
    {
-    "value": "The Nurse Going to Work Tonight",
-    "label": "The Nurse Going to Work Tonight",
-    "text": "The Nurse Going to Work Tonight"
+    "value": "The Best Jobs for People Who Dislike Mornings",
+    "label": "The Best Jobs for People Who Dislike Mornings",
+    "text": "The Best Jobs for People Who Dislike Mornings"
    },
    {
-    "value": "A Driver Learning an Unfamiliar Route",
-    "label": "A Driver Learning an Unfamiliar Route",
-    "text": "A Driver Learning an Unfamiliar Route"
+    "value": "Closing Bus Services When Daytime Workers Go Home",
+    "label": "Closing Bus Services When Daytime Workers Go Home",
+    "text": "Closing Bus Services When Daytime Workers Go Home"
    },
    {
-    "value": "The People Who Travel While Others Sleep",
-    "label": "The People Who Travel While Others Sleep",
-    "text": "The People Who Travel While Others Sleep"
+    "value": "A Bus for People Working Different Hours",
+    "label": "A Bus for People Working Different Hours",
+    "text": "A Bus for People Working Different Hours"
    },
    {
-    "value": "A Baker with Flour on His Coat",
-    "label": "A Baker with Flour on His Coat",
-    "text": "A Baker with Flour on His Coat"
+    "value": "Lighting the Stops Along a Night Route",
+    "label": "Lighting the Stops Along a Night Route",
+    "text": "Lighting the Stops Along a Night Route"
    }
   ],
-  "answer": "The People Who Travel While Others Sleep",
-  "correctAnswer": "The People Who Travel While Others Sleep",
+  "answer": "A Bus for People Working Different Hours",
+  "correctAnswer": "A Bus for People Working Different Hours",
   "distractorRationales": {
-   "A Driver Learning an Unfamiliar Route": "D-OPPOSITE",
-   "A Baker with Flour on His Coat": "D-PLAUSIBLE-UNSUPPORTED",
-   "The Nurse Going to Work Tonight": "D-PLAUSIBLE-UNSUPPORTED"
+   "Closing Bus Services When Daytime Workers Go Home": "D-OPPOSITE",
+   "Lighting the Stops Along a Night Route": "D-DETAIL-AS-MAIN",
+   "The Best Jobs for People Who Dislike Mornings": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5129,7 +5129,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the shared transport need across two groups and the service response; lighting is one detail, not the reason for the route."
  },
  {
   "id": "lp3.main_idea.l2.R.best_title.v10r",
@@ -5154,42 +5154,42 @@ export const questions = [
   "prompt": "Which title fits this passage best?",
   "question": "Which title fits this passage best?",
   "spokenPrompt": "Which title fits this passage best?",
-  "passage": "The campfire needed three tries. The first pile of sticks was too wet. The second caught, then faded into smoke. For try three, Sana put dry bark under the sticks. She stacked the sticks like a little tent. Her uncle lit the bark safely. Flames climbed through the sticks and kept the fire burning.",
+  "passage": "Sana and her uncle tried to light the campfire safely. The first sticks were damp and made only thick smoke. A second pile had dry wood, but little air could enter. Uncle moved it apart before trying again with dry bark underneath. This time, small flames reached the spaces between the sticks. Sana noticed that both the wood and arrangement had changed. She drew the successful stack beside pictures of the failed ones. Her uncle stayed beside the fire while she finished her notes.",
   "cell": "best_title",
   "choices": [
-   "The First Pile of Sticks Was Wet",
-   "Finding the Safest Campsite in the Forest",
-   "Three Ways to Put Out a Campfire",
-   "Sana Keeps Trying to Light the Fire"
+   "Drawing the Shape of a Successful Wood Stack",
+   "Finding the Warmest Campsite in a Large Forest",
+   "Making a Fire Burn by Packing Wet Sticks Tightly",
+   "Learning Why the First Campfires Would Not Burn"
   ],
   "answerOptions": [
    {
-    "value": "The First Pile of Sticks Was Wet",
-    "label": "The First Pile of Sticks Was Wet",
-    "text": "The First Pile of Sticks Was Wet"
+    "value": "Drawing the Shape of a Successful Wood Stack",
+    "label": "Drawing the Shape of a Successful Wood Stack",
+    "text": "Drawing the Shape of a Successful Wood Stack"
    },
    {
-    "value": "Finding the Safest Campsite in the Forest",
-    "label": "Finding the Safest Campsite in the Forest",
-    "text": "Finding the Safest Campsite in the Forest"
+    "value": "Finding the Warmest Campsite in a Large Forest",
+    "label": "Finding the Warmest Campsite in a Large Forest",
+    "text": "Finding the Warmest Campsite in a Large Forest"
    },
    {
-    "value": "Three Ways to Put Out a Campfire",
-    "label": "Three Ways to Put Out a Campfire",
-    "text": "Three Ways to Put Out a Campfire"
+    "value": "Making a Fire Burn by Packing Wet Sticks Tightly",
+    "label": "Making a Fire Burn by Packing Wet Sticks Tightly",
+    "text": "Making a Fire Burn by Packing Wet Sticks Tightly"
    },
    {
-    "value": "Sana Keeps Trying to Light the Fire",
-    "label": "Sana Keeps Trying to Light the Fire",
-    "text": "Sana Keeps Trying to Light the Fire"
+    "value": "Learning Why the First Campfires Would Not Burn",
+    "label": "Learning Why the First Campfires Would Not Burn",
+    "text": "Learning Why the First Campfires Would Not Burn"
    }
   ],
-  "answer": "Sana Keeps Trying to Light the Fire",
-  "correctAnswer": "Sana Keeps Trying to Light the Fire",
+  "answer": "Learning Why the First Campfires Would Not Burn",
+  "correctAnswer": "Learning Why the First Campfires Would Not Burn",
   "distractorRationales": {
-   "The First Pile of Sticks Was Wet": "D-PLAUSIBLE-UNSUPPORTED",
-   "Finding the Safest Campsite in the Forest": "D-PLAUSIBLE-UNSUPPORTED",
-   "Three Ways to Put Out a Campfire": "D-OPPOSITE"
+   "Drawing the Shape of a Successful Wood Stack": "D-DETAIL-AS-MAIN",
+   "Finding the Warmest Campsite in a Large Forest": "D-TOPIC-ADJACENT",
+   "Making a Fire Burn by Packing Wet Sticks Tightly": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5219,7 +5219,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Combine two distinct failed conditions and the tested solution; the drawings record learning but are not the whole problem-solving process."
  },
  {
   "id": "lp3.main_idea.l2.R.main_idea_vs_detail.v9r",
@@ -5244,42 +5244,42 @@ export const questions = [
   "prompt": "Which option best states the main idea?",
   "question": "Which option best states the main idea?",
   "spokenPrompt": "Which option best states the main idea?",
-  "passage": "Swifts are astonishing birds. They eat while flying and even sleep on the wing. Their nests sit under roofs. Once the young birds leave, they spend long periods flying. In late summer, swifts swoop above the town, calling loudly.",
+  "passage": "Swifts spend much of their time above the ground. They catch small insects from the air while moving. They sweep across the sky, gathering food with open beaks. Their narrow wings help them travel long distances without landing often. They still need safe places when raising their young. Small gaps beneath roofs can shelter nests during the breeding season. Afterwards, the birds leave those nests and return to long flights. Looking up reveals far more of their lives than watching the ground.",
   "cell": "main_idea_vs_detail",
   "choices": [
-   "swifts spend much of their lives flying",
-   "swift nests are tucked away under roofs",
-   "young swifts leave their nests after growing",
-   "swifts call while flying above the town"
+   "Swifts do much of their daily living while flying.",
+   "Small gaps beneath roofs can shelter swifts while they nest.",
+   "Their narrow wings help them travel without frequent landings.",
+   "They catch small flying insects while moving through the air."
   ],
   "answerOptions": [
    {
-    "value": "swifts spend much of their lives flying",
-    "label": "swifts spend much of their lives flying",
-    "text": "swifts spend much of their lives flying"
+    "value": "Swifts do much of their daily living while flying.",
+    "label": "Swifts do much of their daily living while flying.",
+    "text": "Swifts do much of their daily living while flying."
    },
    {
-    "value": "swift nests are tucked away under roofs",
-    "label": "swift nests are tucked away under roofs",
-    "text": "swift nests are tucked away under roofs"
+    "value": "Small gaps beneath roofs can shelter swifts while they nest.",
+    "label": "Small gaps beneath roofs can shelter swifts while they nest.",
+    "text": "Small gaps beneath roofs can shelter swifts while they nest."
    },
    {
-    "value": "young swifts leave their nests after growing",
-    "label": "young swifts leave their nests after growing",
-    "text": "young swifts leave their nests after growing"
+    "value": "Their narrow wings help them travel without frequent landings.",
+    "label": "Their narrow wings help them travel without frequent landings.",
+    "text": "Their narrow wings help them travel without frequent landings."
    },
    {
-    "value": "swifts call while flying above the town",
-    "label": "swifts call while flying above the town",
-    "text": "swifts call while flying above the town"
+    "value": "They catch small flying insects while moving through the air.",
+    "label": "They catch small flying insects while moving through the air.",
+    "text": "They catch small flying insects while moving through the air."
    }
   ],
-  "answer": "swifts spend much of their lives flying",
-  "correctAnswer": "swifts spend much of their lives flying",
+  "answer": "Swifts do much of their daily living while flying.",
+  "correctAnswer": "Swifts do much of their daily living while flying.",
   "distractorRationales": {
-   "swift nests are tucked away under roofs": "D-PLAUSIBLE-UNSUPPORTED",
-   "young swifts leave their nests after growing": "D-PLAUSIBLE-UNSUPPORTED",
-   "swifts call while flying above the town": "D-OPPOSITE"
+   "Small gaps beneath roofs can shelter swifts while they nest.": "D-DETAIL-AS-MAIN",
+   "Their narrow wings help them travel without frequent landings.": "D-DETAIL-AS-MAIN",
+   "They catch small flying insects while moving through the air.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5309,7 +5309,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Integrate feeding, movement and nesting rather than overgeneralize nesting or select a single flight adaptation."
  },
  {
   "id": "lp3.main_idea.l2.R.main_idea_vs_detail.v10r",
@@ -5334,42 +5334,42 @@ export const questions = [
   "prompt": "Which option best states the main idea?",
   "question": "Which option best states the main idea?",
   "spokenPrompt": "Which option best states the main idea?",
-  "passage": "The repair cafe opens once a month in the hall. People bring broken toasters, wobbly chairs, and jackets with stuck zips. Volunteers sit at tables and mend things for free. They explain each repair so visitors can learn. Most visitors leave with their things working and a new trick learned.",
+  "passage": "People bring broken household things to the monthly repair cafe. Volunteers ask owners to stay beside them while they work. A torn jacket may need a new piece of cloth. A loose chair may need its joints tightened carefully. The helpers explain each step and let owners try safe parts. Visitors often leave with both working belongings and useful new skills. A board lists tools people can borrow for repairs at home. Next month, one visitor returns to help another person mend something.",
   "cell": "main_idea_vs_detail",
   "choices": [
-   "Volunteers use tables to spread out their repair tools.",
-   "People can get belongings mended and learn repair skills.",
-   "Visitors bring jackets with zips that have become stuck.",
-   "The monthly repair cafe takes place inside the hall."
+   "Some torn jackets are mended with a new cloth piece.",
+   "The cafe repairs belongings while helping people learn useful skills.",
+   "A board lists tools visitors can borrow for home repairs.",
+   "Volunteers ask owners to stay while their belongings are repaired."
   ],
   "answerOptions": [
    {
-    "value": "Volunteers use tables to spread out their repair tools.",
-    "label": "Volunteers use tables to spread out their repair tools.",
-    "text": "Volunteers use tables to spread out their repair tools."
+    "value": "Some torn jackets are mended with a new cloth piece.",
+    "label": "Some torn jackets are mended with a new cloth piece.",
+    "text": "Some torn jackets are mended with a new cloth piece."
    },
    {
-    "value": "People can get belongings mended and learn repair skills.",
-    "label": "People can get belongings mended and learn repair skills.",
-    "text": "People can get belongings mended and learn repair skills."
+    "value": "The cafe repairs belongings while helping people learn useful skills.",
+    "label": "The cafe repairs belongings while helping people learn useful skills.",
+    "text": "The cafe repairs belongings while helping people learn useful skills."
    },
    {
-    "value": "Visitors bring jackets with zips that have become stuck.",
-    "label": "Visitors bring jackets with zips that have become stuck.",
-    "text": "Visitors bring jackets with zips that have become stuck."
+    "value": "A board lists tools visitors can borrow for home repairs.",
+    "label": "A board lists tools visitors can borrow for home repairs.",
+    "text": "A board lists tools visitors can borrow for home repairs."
    },
    {
-    "value": "The monthly repair cafe takes place inside the hall.",
-    "label": "The monthly repair cafe takes place inside the hall.",
-    "text": "The monthly repair cafe takes place inside the hall."
+    "value": "Volunteers ask owners to stay while their belongings are repaired.",
+    "label": "Volunteers ask owners to stay while their belongings are repaired.",
+    "text": "Volunteers ask owners to stay while their belongings are repaired."
    }
   ],
-  "answer": "People can get belongings mended and learn repair skills.",
-  "correctAnswer": "People can get belongings mended and learn repair skills.",
+  "answer": "The cafe repairs belongings while helping people learn useful skills.",
+  "correctAnswer": "The cafe repairs belongings while helping people learn useful skills.",
   "distractorRationales": {
-   "Volunteers use tables to spread out their repair tools.": "D-OPPOSITE",
-   "Visitors bring jackets with zips that have become stuck.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The monthly repair cafe takes place inside the hall.": "D-PLAUSIBLE-UNSUPPORTED"
+   "Some torn jackets are mended with a new cloth piece.": "D-DETAIL-AS-MAIN",
+   "A board lists tools visitors can borrow for home repairs.": "D-DETAIL-AS-MAIN",
+   "Volunteers ask owners to stay while their belongings are repaired.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5399,7 +5399,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Unify repair and learning across different objects; three genuine details support the central purpose but do not replace it."
  },
  {
   "id": "lp3.main_idea.l2.R.summary_choice.v9r",
@@ -5424,42 +5424,42 @@ export const questions = [
   "prompt": "Which sentence sums up the whole passage best?",
   "question": "Which sentence sums up the whole passage best?",
   "spokenPrompt": "Which sentence sums up the whole passage best?",
-  "passage": "The twins entered the sandcastle contest with a plan. Ria dug the moat while Rafi packed the towers. Halfway through, a wave stole their gate. They rebuilt it farther up the beach, faster this time. They missed first prize but won a special teamwork ribbon.",
+  "passage": "The twins entered a sandcastle contest with different jobs agreed. Ria dug the moat while Rafi shaped towers in damp sand. A larger wave arrived before they had finished their front gate. They saw the damage and checked where the wet sand ended. Together they moved the new gate farther from the water. Their castle was smaller than planned, but it stayed standing. Another team won first prize with a much taller building. The judges gave the twins a ribbon for solving trouble together.",
   "cell": "summary_choice",
   "choices": [
-   "The twins won first prize before a wave reached the beach.",
-   "The twins gave up when the wave washed their gate away.",
-   "The twins rebuilt after damage and earned praise for cooperating.",
-   "The twins dug a moat but left their towers unfinished."
+   "The twins abandoned the contest when their first gate washed away.",
+   "The judges rewarded the twins for building the tallest sandcastle.",
+   "The twins changed their design after damage and earned teamwork praise.",
+   "Ria dug a moat while Rafi shaped towers from damp sand."
   ],
   "answerOptions": [
    {
-    "value": "The twins won first prize before a wave reached the beach.",
-    "label": "The twins won first prize before a wave reached the beach.",
-    "text": "The twins won first prize before a wave reached the beach."
+    "value": "The twins abandoned the contest when their first gate washed away.",
+    "label": "The twins abandoned the contest when their first gate washed away.",
+    "text": "The twins abandoned the contest when their first gate washed away."
    },
    {
-    "value": "The twins gave up when the wave washed their gate away.",
-    "label": "The twins gave up when the wave washed their gate away.",
-    "text": "The twins gave up when the wave washed their gate away."
+    "value": "The judges rewarded the twins for building the tallest sandcastle.",
+    "label": "The judges rewarded the twins for building the tallest sandcastle.",
+    "text": "The judges rewarded the twins for building the tallest sandcastle."
    },
    {
-    "value": "The twins rebuilt after damage and earned praise for cooperating.",
-    "label": "The twins rebuilt after damage and earned praise for cooperating.",
-    "text": "The twins rebuilt after damage and earned praise for cooperating."
+    "value": "The twins changed their design after damage and earned teamwork praise.",
+    "label": "The twins changed their design after damage and earned teamwork praise.",
+    "text": "The twins changed their design after damage and earned teamwork praise."
    },
    {
-    "value": "The twins dug a moat but left their towers unfinished.",
-    "label": "The twins dug a moat but left their towers unfinished.",
-    "text": "The twins dug a moat but left their towers unfinished."
+    "value": "Ria dug a moat while Rafi shaped towers from damp sand.",
+    "label": "Ria dug a moat while Rafi shaped towers from damp sand.",
+    "text": "Ria dug a moat while Rafi shaped towers from damp sand."
    }
   ],
-  "answer": "The twins rebuilt after damage and earned praise for cooperating.",
-  "correctAnswer": "The twins rebuilt after damage and earned praise for cooperating.",
+  "answer": "The twins changed their design after damage and earned teamwork praise.",
+  "correctAnswer": "The twins changed their design after damage and earned teamwork praise.",
   "distractorRationales": {
-   "The twins won first prize before a wave reached the beach.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The twins gave up when the wave washed their gate away.": "D-OPPOSITE",
-   "The twins dug a moat but left their towers unfinished.": "D-PLAUSIBLE-UNSUPPORTED"
+   "The twins abandoned the contest when their first gate washed away.": "D-OPPOSITE",
+   "The judges rewarded the twins for building the tallest sandcastle.": "D-TOPIC-ADJACENT",
+   "Ria dug a moat while Rafi shaped towers from damp sand.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5489,7 +5489,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Combine initial plan, adaptation and specific outcome; the key neither exaggerates their prize nor stops at a true early detail."
  },
  {
   "id": "lp3.main_idea.l2.R.summary_choice.v10r",
@@ -5514,42 +5514,42 @@ export const questions = [
   "prompt": "Which sentence sums up the whole passage best?",
   "question": "Which sentence sums up the whole passage best?",
   "spokenPrompt": "Which sentence sums up the whole passage best?",
-  "passage": "The bookstore owner noticed birds bumping into its clear window. She covered the outside glass with closely spaced dots. Fewer birds hit the window after that. She shared the method and spare stickers with neighbours. Other people marked their windows in the same way.",
+  "passage": "Birds sometimes hit the bookstore's clear window while flying past. The owner learned that reflected trees could make glass confusing. She added closely spaced dots across the outside of the window. Visitors could still see the books through the small gaps. She kept a record and noticed fewer collisions after the change. Neighbours asked why the glass looked different from other shops. She shared her records and helped them mark their windows too. The next shop placed its dots before opening on Monday.",
   "cell": "summary_choice",
   "choices": [
-   "Birds stopped visiting the street because shops removed all their windows.",
-   "A shop sold books about birds after taking stickers off its window.",
-   "People copied a shop’s window decoration without noticing any bird collisions.",
-   "A shop’s window markings inspired others to reduce bird collisions too."
+   "Small gaps between window dots let visitors see the books inside.",
+   "The owner removed window markings after more birds began hitting them.",
+   "Neighbours copied the window markings to decorate their shops.",
+   "A shop reduced bird collisions and helped neighbours use its method."
   ],
   "answerOptions": [
    {
-    "value": "Birds stopped visiting the street because shops removed all their windows.",
-    "label": "Birds stopped visiting the street because shops removed all their windows.",
-    "text": "Birds stopped visiting the street because shops removed all their windows."
+    "value": "Small gaps between window dots let visitors see the books inside.",
+    "label": "Small gaps between window dots let visitors see the books inside.",
+    "text": "Small gaps between window dots let visitors see the books inside."
    },
    {
-    "value": "A shop sold books about birds after taking stickers off its window.",
-    "label": "A shop sold books about birds after taking stickers off its window.",
-    "text": "A shop sold books about birds after taking stickers off its window."
+    "value": "The owner removed window markings after more birds began hitting them.",
+    "label": "The owner removed window markings after more birds began hitting them.",
+    "text": "The owner removed window markings after more birds began hitting them."
    },
    {
-    "value": "People copied a shop’s window decoration without noticing any bird collisions.",
-    "label": "People copied a shop’s window decoration without noticing any bird collisions.",
-    "text": "People copied a shop’s window decoration without noticing any bird collisions."
+    "value": "Neighbours copied the window markings to decorate their shops.",
+    "label": "Neighbours copied the window markings to decorate their shops.",
+    "text": "Neighbours copied the window markings to decorate their shops."
    },
    {
-    "value": "A shop’s window markings inspired others to reduce bird collisions too.",
-    "label": "A shop’s window markings inspired others to reduce bird collisions too.",
-    "text": "A shop’s window markings inspired others to reduce bird collisions too."
+    "value": "A shop reduced bird collisions and helped neighbours use its method.",
+    "label": "A shop reduced bird collisions and helped neighbours use its method.",
+    "text": "A shop reduced bird collisions and helped neighbours use its method."
    }
   ],
-  "answer": "A shop’s window markings inspired others to reduce bird collisions too.",
-  "correctAnswer": "A shop’s window markings inspired others to reduce bird collisions too.",
+  "answer": "A shop reduced bird collisions and helped neighbours use its method.",
+  "correctAnswer": "A shop reduced bird collisions and helped neighbours use its method.",
   "distractorRationales": {
-   "A shop sold books about birds after taking stickers off its window.": "D-PLAUSIBLE-UNSUPPORTED",
-   "People copied a shop’s window decoration without noticing any bird collisions.": "D-OPPOSITE",
-   "Birds stopped visiting the street because shops removed all their windows.": "D-PLAUSIBLE-UNSUPPORTED"
+   "The owner removed window markings after more birds began hitting them.": "D-OPPOSITE",
+   "Neighbours copied the window markings to decorate their shops.": "D-TOPIC-ADJACENT",
+   "Small gaps between window dots let visitors see the books inside.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5579,7 +5579,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Summarize problem, tested response and spread; preserve the evidence of fewer collisions without claiming all collisions stopped."
  },
  {
   "id": "lp3.main_idea.l2.R.best_title.v11r",
@@ -5604,42 +5604,42 @@ export const questions = [
   "prompt": "Which title fits this passage best?",
   "question": "Which title fits this passage best?",
   "spokenPrompt": "Which title fits this passage best?",
-  "passage": "Dad's radio made only crackles until Amal carefully turned its dial. A voice became clear, followed by music. The radio now sits on the windowsill. Amal finds the station each morning before breakfast.",
+  "passage": "Dad's old radio made crackling noises instead of clear music. Amal first checked that its batteries still had power. New batteries made the sound louder but did not remove the crackles. Dad showed her how the dial selected different stations. She turned it slowly until a voice became clear. Moving the aerial a little made the signal steadier too. Amal marked the useful dial position on a small paper strip. Next morning, she found the same station without Dad's help.",
   "cell": "best_title",
   "choices": [
-   "Finding Music on Dad’s Old Radio",
-   "Breakfast beside the Kitchen Windowsill",
-   "The Different Ways That Sound Travels",
-   "A Collection of Radios from Long Ago"
+   "Finding a Clear Signal on an Old Radio",
+   "Marking a Useful Position Beside the Radio Dial",
+   "Choosing the Loudest Music for the Whole Family",
+   "Replacing a Broken Radio That Could Never Work"
   ],
   "answerOptions": [
    {
-    "value": "Finding Music on Dad’s Old Radio",
-    "label": "Finding Music on Dad’s Old Radio",
-    "text": "Finding Music on Dad’s Old Radio"
+    "value": "Finding a Clear Signal on an Old Radio",
+    "label": "Finding a Clear Signal on an Old Radio",
+    "text": "Finding a Clear Signal on an Old Radio"
    },
    {
-    "value": "Breakfast beside the Kitchen Windowsill",
-    "label": "Breakfast beside the Kitchen Windowsill",
-    "text": "Breakfast beside the Kitchen Windowsill"
+    "value": "Marking a Useful Position Beside the Radio Dial",
+    "label": "Marking a Useful Position Beside the Radio Dial",
+    "text": "Marking a Useful Position Beside the Radio Dial"
    },
    {
-    "value": "The Different Ways That Sound Travels",
-    "label": "The Different Ways That Sound Travels",
-    "text": "The Different Ways That Sound Travels"
+    "value": "Choosing the Loudest Music for the Whole Family",
+    "label": "Choosing the Loudest Music for the Whole Family",
+    "text": "Choosing the Loudest Music for the Whole Family"
    },
    {
-    "value": "A Collection of Radios from Long Ago",
-    "label": "A Collection of Radios from Long Ago",
-    "text": "A Collection of Radios from Long Ago"
+    "value": "Replacing a Broken Radio That Could Never Work",
+    "label": "Replacing a Broken Radio That Could Never Work",
+    "text": "Replacing a Broken Radio That Could Never Work"
    }
   ],
-  "answer": "Finding Music on Dad’s Old Radio",
-  "correctAnswer": "Finding Music on Dad’s Old Radio",
+  "answer": "Finding a Clear Signal on an Old Radio",
+  "correctAnswer": "Finding a Clear Signal on an Old Radio",
   "distractorRationales": {
-   "Breakfast beside the Kitchen Windowsill": "D-PLAUSIBLE-UNSUPPORTED",
-   "The Different Ways That Sound Travels": "D-PLAUSIBLE-UNSUPPORTED",
-   "A Collection of Radios from Long Ago": "D-OPPOSITE"
+   "Marking a Useful Position Beside the Radio Dial": "D-DETAIL-AS-MAIN",
+   "Choosing the Loudest Music for the Whole Family": "D-TOPIC-ADJACENT",
+   "Replacing a Broken Radio That Could Never Work": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5669,7 +5669,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Integrate tests and adjustments to identify the successful repair-like investigation; louder sound alone is shown insufficient."
  },
  {
   "id": "lp3.main_idea.l2.R.summary_choice.v11r",
@@ -5694,42 +5694,42 @@ export const questions = [
   "prompt": "Which sentence sums up the whole passage best?",
   "question": "Which sentence sums up the whole passage best?",
   "spokenPrompt": "Which sentence sums up the whole passage best?",
-  "passage": "The school's old apple tree gives more fruit than anyone can eat. This year the cook dried rings of apple for snack time. A first-grade class pressed juice with a squeaky hand press. The rest filled crates by the gate. A sign said HELP YOURSELF. Every crate was empty by Friday.",
+  "passage": "The school apple tree produced more fruit than lunch could use. Leaving all the apples in boxes would let many spoil. The cook dried thin rings to save for later snacks. A class pressed some into juice during a food lesson. Volunteers placed the remaining fresh apples by the school gate. A sign invited neighbours to take what they could use. By Friday, the boxes were empty and the dried rings stored. Neighbours carried the last fresh apples home in their shopping bags.",
   "cell": "summary_choice",
   "choices": [
-   "The school gave every fresh apple away before making any snacks.",
-   "The school used and shared its extra fruit in several ways.",
-   "The school saved every apple in crates for its own winter meals.",
-   "The school pressed all the apples into juice for one class."
+   "A class used the entire crop to make juice for sale.",
+   "The school preserved, used and shared apples that might otherwise spoil.",
+   "Volunteers placed boxes of fresh apples beside the school gate.",
+   "The school stored every apple fresh until the following winter."
   ],
   "answerOptions": [
    {
-    "value": "The school gave every fresh apple away before making any snacks.",
-    "label": "The school gave every fresh apple away before making any snacks.",
-    "text": "The school gave every fresh apple away before making any snacks."
+    "value": "A class used the entire crop to make juice for sale.",
+    "label": "A class used the entire crop to make juice for sale.",
+    "text": "A class used the entire crop to make juice for sale."
    },
    {
-    "value": "The school used and shared its extra fruit in several ways.",
-    "label": "The school used and shared its extra fruit in several ways.",
-    "text": "The school used and shared its extra fruit in several ways."
+    "value": "The school preserved, used and shared apples that might otherwise spoil.",
+    "label": "The school preserved, used and shared apples that might otherwise spoil.",
+    "text": "The school preserved, used and shared apples that might otherwise spoil."
    },
    {
-    "value": "The school saved every apple in crates for its own winter meals.",
-    "label": "The school saved every apple in crates for its own winter meals.",
-    "text": "The school saved every apple in crates for its own winter meals."
+    "value": "Volunteers placed boxes of fresh apples beside the school gate.",
+    "label": "Volunteers placed boxes of fresh apples beside the school gate.",
+    "text": "Volunteers placed boxes of fresh apples beside the school gate."
    },
    {
-    "value": "The school pressed all the apples into juice for one class.",
-    "label": "The school pressed all the apples into juice for one class.",
-    "text": "The school pressed all the apples into juice for one class."
+    "value": "The school stored every apple fresh until the following winter.",
+    "label": "The school stored every apple fresh until the following winter.",
+    "text": "The school stored every apple fresh until the following winter."
    }
   ],
-  "answer": "The school used and shared its extra fruit in several ways.",
-  "correctAnswer": "The school used and shared its extra fruit in several ways.",
+  "answer": "The school preserved, used and shared apples that might otherwise spoil.",
+  "correctAnswer": "The school preserved, used and shared apples that might otherwise spoil.",
   "distractorRationales": {
-   "The school gave every fresh apple away before making any snacks.": "D-OPPOSITE",
-   "The school saved every apple in crates for its own winter meals.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The school pressed all the apples into juice for one class.": "D-PLAUSIBLE-UNSUPPORTED"
+   "A class used the entire crop to make juice for sale.": "D-TOPIC-ADJACENT",
+   "Volunteers placed boxes of fresh apples beside the school gate.": "D-DETAIL-AS-MAIN",
+   "The school stored every apple fresh until the following winter.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5759,7 +5759,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Cover all three destinations for surplus food; avoid a single true use and claims that one use consumed the entire crop."
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_info.v20",
@@ -5784,42 +5784,42 @@ export const questions = [
   "prompt": "What is this mostly about?",
   "question": "What is this mostly about?",
   "spokenPrompt": "What is this mostly about?",
-  "passage": "A helmet has a hard outer shell. Soft pads fit around your head inside. A strap holds it in place. These parts help protect you if you fall.",
+  "passage": "A helmet has a hard outer shell. Soft pads fit around your head inside. A strap holds it in place during movement. These parts work together when someone falls. The helmet must fit properly to protect the head.",
   "cell": "mostly_about_info",
   "choices": [
-   "how soft pads fit around your head",
-   "how a strap holds the helmet in place",
-   "how the hard shell covers the soft pads",
-   "how helmet parts protect your head"
+   "How a strap holds the helmet in place",
+   "How people choose a helmet for its colour",
+   "Why a loose helmet protects better than one fitted",
+   "How helmet parts work together for protection"
   ],
   "answerOptions": [
    {
-    "value": "how soft pads fit around your head",
-    "label": "how soft pads fit around your head",
-    "text": "how soft pads fit around your head"
+    "value": "How a strap holds the helmet in place",
+    "label": "How a strap holds the helmet in place",
+    "text": "How a strap holds the helmet in place"
    },
    {
-    "value": "how a strap holds the helmet in place",
-    "label": "how a strap holds the helmet in place",
-    "text": "how a strap holds the helmet in place"
+    "value": "How people choose a helmet for its colour",
+    "label": "How people choose a helmet for its colour",
+    "text": "How people choose a helmet for its colour"
    },
    {
-    "value": "how the hard shell covers the soft pads",
-    "label": "how the hard shell covers the soft pads",
-    "text": "how the hard shell covers the soft pads"
+    "value": "Why a loose helmet protects better than one fitted",
+    "label": "Why a loose helmet protects better than one fitted",
+    "text": "Why a loose helmet protects better than one fitted"
    },
    {
-    "value": "how helmet parts protect your head",
-    "label": "how helmet parts protect your head",
-    "text": "how helmet parts protect your head"
+    "value": "How helmet parts work together for protection",
+    "label": "How helmet parts work together for protection",
+    "text": "How helmet parts work together for protection"
    }
   ],
-  "answer": "how helmet parts protect your head",
-  "correctAnswer": "how helmet parts protect your head",
+  "answer": "How helmet parts work together for protection",
+  "correctAnswer": "How helmet parts work together for protection",
   "distractorRationales": {
-   "how soft pads fit around your head": "D-PLAUSIBLE-UNSUPPORTED",
-   "how a strap holds the helmet in place": "D-PLAUSIBLE-UNSUPPORTED",
-   "how the hard shell covers the soft pads": "D-OPPOSITE"
+   "How a strap holds the helmet in place": "D-DETAIL-AS-MAIN",
+   "How people choose a helmet for its colour": "D-TOPIC-ADJACENT",
+   "Why a loose helmet protects better than one fitted": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5849,7 +5849,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Combine the functions of shell, pads and strap; a single part is true but narrower."
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_fiction.v20",
@@ -5874,42 +5874,42 @@ export const questions = [
   "prompt": "What is the story mostly about?",
   "question": "What is the story mostly about?",
   "spokenPrompt": "What is the story mostly about?",
-  "passage": "Nell could not find her library card. She checked her bag and coat. Then she retraced her walk from the bus. Her card was beside the front steps.",
+  "passage": "Nell wanted everyone to see her puppet show. The low stage hid the puppets from some children. She tried a taller box behind the curtain. Now the children at the back could see too. Nell began the show again for everyone.",
   "cell": "mostly_about_fiction",
   "choices": [
-   "Nell searching for her missing library card",
-   "Nell choosing a book about bus journeys",
-   "Nell getting ready for a winter walk",
-   "Nell helping someone repair the front steps"
+   "Nell changing her show so everyone can see",
+   "Nell using a taller box behind the curtain",
+   "Nell making extra puppets for a bigger cast",
+   "Nell asking children at the back to leave"
   ],
   "answerOptions": [
    {
-    "value": "Nell searching for her missing library card",
-    "label": "Nell searching for her missing library card",
-    "text": "Nell searching for her missing library card"
+    "value": "Nell changing her show so everyone can see",
+    "label": "Nell changing her show so everyone can see",
+    "text": "Nell changing her show so everyone can see"
    },
    {
-    "value": "Nell choosing a book about bus journeys",
-    "label": "Nell choosing a book about bus journeys",
-    "text": "Nell choosing a book about bus journeys"
+    "value": "Nell using a taller box behind the curtain",
+    "label": "Nell using a taller box behind the curtain",
+    "text": "Nell using a taller box behind the curtain"
    },
    {
-    "value": "Nell getting ready for a winter walk",
-    "label": "Nell getting ready for a winter walk",
-    "text": "Nell getting ready for a winter walk"
+    "value": "Nell making extra puppets for a bigger cast",
+    "label": "Nell making extra puppets for a bigger cast",
+    "text": "Nell making extra puppets for a bigger cast"
    },
    {
-    "value": "Nell helping someone repair the front steps",
-    "label": "Nell helping someone repair the front steps",
-    "text": "Nell helping someone repair the front steps"
+    "value": "Nell asking children at the back to leave",
+    "label": "Nell asking children at the back to leave",
+    "text": "Nell asking children at the back to leave"
    }
   ],
-  "answer": "Nell searching for her missing library card",
-  "correctAnswer": "Nell searching for her missing library card",
+  "answer": "Nell changing her show so everyone can see",
+  "correctAnswer": "Nell changing her show so everyone can see",
   "distractorRationales": {
-   "Nell choosing a book about bus journeys": "D-PLAUSIBLE-UNSUPPORTED",
-   "Nell getting ready for a winter walk": "D-PLAUSIBLE-UNSUPPORTED",
-   "Nell helping someone repair the front steps": "D-OPPOSITE"
+   "Nell using a taller box behind the curtain": "D-DETAIL-AS-MAIN",
+   "Nell making extra puppets for a bigger cast": "D-TOPIC-ADJACENT",
+   "Nell asking children at the back to leave": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5939,7 +5939,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Genuinely new visibility problem and inclusive adjustment, replacing the repeated missing-library-belonging search."
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_everyday.v20",
@@ -5964,42 +5964,42 @@ export const questions = [
   "prompt": "What is the passage mostly about?",
   "question": "What is the passage mostly about?",
   "spokenPrompt": "What is the passage mostly about?",
-  "passage": "The class found litter beside their pond. They wore gloves and collected it safely. They sorted rubbish from things that could be recycled. Soon, the water’s edge was clear again.",
+  "passage": "The class found litter beside their pond. They wore gloves and collected it safely with adults. They sorted rubbish from things that could be recycled. A helper took the full bags away. Soon, the water’s edge was clear again.",
   "cell": "mostly_about_everyday",
   "choices": [
-   "children building a new rubbish bin for school",
-   "children cleaning the area around their pond",
-   "children choosing gloves for cold winter days",
-   "children looking for fish in their school pond"
+   "Children throwing their collected rubbish into the water",
+   "Children cleaning the area around their pond",
+   "Children sorting rubbish into different groups",
+   "Children building a new pond for their school"
   ],
   "answerOptions": [
    {
-    "value": "children building a new rubbish bin for school",
-    "label": "children building a new rubbish bin for school",
-    "text": "children building a new rubbish bin for school"
+    "value": "Children throwing their collected rubbish into the water",
+    "label": "Children throwing their collected rubbish into the water",
+    "text": "Children throwing their collected rubbish into the water"
    },
    {
-    "value": "children cleaning the area around their pond",
-    "label": "children cleaning the area around their pond",
-    "text": "children cleaning the area around their pond"
+    "value": "Children cleaning the area around their pond",
+    "label": "Children cleaning the area around their pond",
+    "text": "Children cleaning the area around their pond"
    },
    {
-    "value": "children choosing gloves for cold winter days",
-    "label": "children choosing gloves for cold winter days",
-    "text": "children choosing gloves for cold winter days"
+    "value": "Children sorting rubbish into different groups",
+    "label": "Children sorting rubbish into different groups",
+    "text": "Children sorting rubbish into different groups"
    },
    {
-    "value": "children looking for fish in their school pond",
-    "label": "children looking for fish in their school pond",
-    "text": "children looking for fish in their school pond"
+    "value": "Children building a new pond for their school",
+    "label": "Children building a new pond for their school",
+    "text": "Children building a new pond for their school"
    }
   ],
-  "answer": "children cleaning the area around their pond",
-  "correctAnswer": "children cleaning the area around their pond",
+  "answer": "Children cleaning the area around their pond",
+  "correctAnswer": "Children cleaning the area around their pond",
   "distractorRationales": {
-   "children building a new rubbish bin for school": "D-OPPOSITE",
-   "children choosing gloves for cold winter days": "D-PLAUSIBLE-UNSUPPORTED",
-   "children looking for fish in their school pond": "D-PLAUSIBLE-UNSUPPORTED"
+   "Children throwing their collected rubbish into the water": "D-OPPOSITE",
+   "Children sorting rubbish into different groups": "D-DETAIL-AS-MAIN",
+   "Children building a new pond for their school": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6029,7 +6029,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "The whole cleanup includes collecting, sorting and removal; sorting alone is a true part."
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_info.v21",
@@ -6054,42 +6054,42 @@ export const questions = [
   "prompt": "What is this mostly about?",
   "question": "What is this mostly about?",
   "spokenPrompt": "What is this mostly about?",
-  "passage": "Ramps make steps easier to avoid. Wide doors give wheelchairs more room. Clear paths help people move around safely. These changes let more people use a building.",
+  "passage": "Ramps give people another way past steps. Wide doors give wheelchairs room to move through. Clear paths help people travel around safely. Low shelves put useful things within easy reach. These changes let more people use a building.",
   "cell": "mostly_about_info",
   "choices": [
-   "keeping busy roads safe from fast cars",
-   "choosing rooms for a new school club",
-   "making buildings easier for everyone to use",
-   "measuring the tallest doors in a building"
+   "Decorating a building to make its rooms look brighter",
+   "Blocking paths so fewer people can enter",
+   "Making a building easier for more people to use",
+   "Giving wheelchairs room through wider doors"
   ],
   "answerOptions": [
    {
-    "value": "keeping busy roads safe from fast cars",
-    "label": "keeping busy roads safe from fast cars",
-    "text": "keeping busy roads safe from fast cars"
+    "value": "Decorating a building to make its rooms look brighter",
+    "label": "Decorating a building to make its rooms look brighter",
+    "text": "Decorating a building to make its rooms look brighter"
    },
    {
-    "value": "choosing rooms for a new school club",
-    "label": "choosing rooms for a new school club",
-    "text": "choosing rooms for a new school club"
+    "value": "Blocking paths so fewer people can enter",
+    "label": "Blocking paths so fewer people can enter",
+    "text": "Blocking paths so fewer people can enter"
    },
    {
-    "value": "making buildings easier for everyone to use",
-    "label": "making buildings easier for everyone to use",
-    "text": "making buildings easier for everyone to use"
+    "value": "Making a building easier for more people to use",
+    "label": "Making a building easier for more people to use",
+    "text": "Making a building easier for more people to use"
    },
    {
-    "value": "measuring the tallest doors in a building",
-    "label": "measuring the tallest doors in a building",
-    "text": "measuring the tallest doors in a building"
+    "value": "Giving wheelchairs room through wider doors",
+    "label": "Giving wheelchairs room through wider doors",
+    "text": "Giving wheelchairs room through wider doors"
    }
   ],
-  "answer": "making buildings easier for everyone to use",
-  "correctAnswer": "making buildings easier for everyone to use",
+  "answer": "Making a building easier for more people to use",
+  "correctAnswer": "Making a building easier for more people to use",
   "distractorRationales": {
-   "choosing rooms for a new school club": "D-OPPOSITE",
-   "measuring the tallest doors in a building": "D-PLAUSIBLE-UNSUPPORTED",
-   "keeping busy roads safe from fast cars": "D-PLAUSIBLE-UNSUPPORTED"
+   "Blocking paths so fewer people can enter": "D-OPPOSITE",
+   "Giving wheelchairs room through wider doors": "D-DETAIL-AS-MAIN",
+   "Decorating a building to make its rooms look brighter": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6119,7 +6119,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Unify movement and reaching through access; door width is a single example."
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_fiction.v21",
@@ -6144,42 +6144,42 @@ export const questions = [
   "prompt": "What is the story mostly about?",
   "question": "What is the story mostly about?",
   "spokenPrompt": "What is the story mostly about?",
-  "passage": "Tao’s paper boat sank in the bath. He folded another with higher sides. It floated but tipped when he added stones. He made a wider boat that stayed upright.",
+  "passage": "Tao’s paper boat sank in the bath. He folded another with higher sides. It floated but tipped when he added stones. Tao tried a wider base on his next boat. This one stayed upright with the small stones inside.",
   "cell": "mostly_about_fiction",
   "choices": [
-   "Tao counting stones collected beside a river",
-   "Tao learning to fold a paper bird",
-   "Tao washing his toys before putting them away",
-   "Tao improving his paper boat through testing"
+   "Tao making the sides of one boat higher",
+   "Tao collecting stones beside a real harbour",
+   "Tao stopping after his first paper boat sinks",
+   "Tao testing changes to make his boat work"
   ],
   "answerOptions": [
    {
-    "value": "Tao counting stones collected beside a river",
-    "label": "Tao counting stones collected beside a river",
-    "text": "Tao counting stones collected beside a river"
+    "value": "Tao making the sides of one boat higher",
+    "label": "Tao making the sides of one boat higher",
+    "text": "Tao making the sides of one boat higher"
    },
    {
-    "value": "Tao learning to fold a paper bird",
-    "label": "Tao learning to fold a paper bird",
-    "text": "Tao learning to fold a paper bird"
+    "value": "Tao collecting stones beside a real harbour",
+    "label": "Tao collecting stones beside a real harbour",
+    "text": "Tao collecting stones beside a real harbour"
    },
    {
-    "value": "Tao washing his toys before putting them away",
-    "label": "Tao washing his toys before putting them away",
-    "text": "Tao washing his toys before putting them away"
+    "value": "Tao stopping after his first paper boat sinks",
+    "label": "Tao stopping after his first paper boat sinks",
+    "text": "Tao stopping after his first paper boat sinks"
    },
    {
-    "value": "Tao improving his paper boat through testing",
-    "label": "Tao improving his paper boat through testing",
-    "text": "Tao improving his paper boat through testing"
+    "value": "Tao testing changes to make his boat work",
+    "label": "Tao testing changes to make his boat work",
+    "text": "Tao testing changes to make his boat work"
    }
   ],
-  "answer": "Tao improving his paper boat through testing",
-  "correctAnswer": "Tao improving his paper boat through testing",
+  "answer": "Tao testing changes to make his boat work",
+  "correctAnswer": "Tao testing changes to make his boat work",
   "distractorRationales": {
-   "Tao washing his toys before putting them away": "D-OPPOSITE",
-   "Tao counting stones collected beside a river": "D-PLAUSIBLE-UNSUPPORTED",
-   "Tao learning to fold a paper bird": "D-PLAUSIBLE-UNSUPPORTED"
+   "Tao stopping after his first paper boat sinks": "D-OPPOSITE",
+   "Tao making the sides of one boat higher": "D-DETAIL-AS-MAIN",
+   "Tao collecting stones beside a real harbour": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6209,7 +6209,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Follow two different failures and adjustments; higher sides alone do not explain the eventual result."
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_info.v23",
@@ -6234,42 +6234,42 @@ export const questions = [
   "prompt": "What is the passage mostly about?",
   "question": "What is the passage mostly about?",
   "spokenPrompt": "What is the passage mostly about?",
-  "passage": "Bats rest in dark places during the day. At dusk, some hunt flying insects. They use sounds and echoes to find their way. They return to rest when night ends.",
+  "passage": "Bats rest in dark places during the day. At dusk, some hunt flying insects. They use sounds and echoes to find their way. Their calls help them locate food in the darkness. They return to rest when the night ends.",
   "cell": "mostly_about_info",
   "choices": [
-   "how bats spend their active hours",
-   "how insects find food in gardens",
-   "how caves are formed in rocky hills",
-   "how animals keep warm on cold nights"
+   "How some bats find food during the night",
+   "Bats returning to rest when the night ends",
+   "How bats choose quiet places to rest during daylight",
+   "Why bats must hunt only in bright sunshine"
   ],
   "answerOptions": [
    {
-    "value": "how bats spend their active hours",
-    "label": "how bats spend their active hours",
-    "text": "how bats spend their active hours"
+    "value": "How some bats find food during the night",
+    "label": "How some bats find food during the night",
+    "text": "How some bats find food during the night"
    },
    {
-    "value": "how insects find food in gardens",
-    "label": "how insects find food in gardens",
-    "text": "how insects find food in gardens"
+    "value": "Bats returning to rest when the night ends",
+    "label": "Bats returning to rest when the night ends",
+    "text": "Bats returning to rest when the night ends"
    },
    {
-    "value": "how caves are formed in rocky hills",
-    "label": "how caves are formed in rocky hills",
-    "text": "how caves are formed in rocky hills"
+    "value": "How bats choose quiet places to rest during daylight",
+    "label": "How bats choose quiet places to rest during daylight",
+    "text": "How bats choose quiet places to rest during daylight"
    },
    {
-    "value": "how animals keep warm on cold nights",
-    "label": "how animals keep warm on cold nights",
-    "text": "how animals keep warm on cold nights"
+    "value": "Why bats must hunt only in bright sunshine",
+    "label": "Why bats must hunt only in bright sunshine",
+    "text": "Why bats must hunt only in bright sunshine"
    }
   ],
-  "answer": "how bats spend their active hours",
-  "correctAnswer": "how bats spend their active hours",
+  "answer": "How some bats find food during the night",
+  "correctAnswer": "How some bats find food during the night",
   "distractorRationales": {
-   "how insects find food in gardens": "D-PLAUSIBLE-UNSUPPORTED",
-   "how caves are formed in rocky hills": "D-PLAUSIBLE-UNSUPPORTED",
-   "how animals keep warm on cold nights": "D-OPPOSITE"
+   "Bats returning to rest when the night ends": "D-DETAIL-AS-MAIN",
+   "How bats choose quiet places to rest during daylight": "D-TOPIC-ADJACENT",
+   "Why bats must hunt only in bright sunshine": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6299,7 +6299,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Integrate night hunting and sound use; preserve some-bats scope rather than generalise to every night animal."
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_info.v22",
@@ -6324,42 +6324,42 @@ export const questions = [
   "prompt": "What is this mostly about?",
   "question": "What is this mostly about?",
   "spokenPrompt": "What is this mostly about?",
-  "passage": "A market stall opens before the shops. Its seller lays out fresh fruit. Customers choose what they need and pay. At closing time, the seller packs the fruit away.",
+  "passage": "A market stall opens before the nearby shops. Its seller lays out fresh fruit in baskets. Customers choose what they need and pay. The seller replaces empty baskets during the busy morning. At closing time, she packs the remaining fruit away.",
   "cell": "mostly_about_info",
   "choices": [
-   "how empty stalls are built and repaired",
-   "how a seller spends the market day",
-   "which fresh fruit customers like most",
-   "why fruit grows beside busy shops"
+   "Why the seller leaves all her fruit out overnight",
+   "How a fruit seller spends the market day",
+   "How the seller fills empty baskets again",
+   "How farmers grow fruit in different countries"
   ],
   "answerOptions": [
    {
-    "value": "how empty stalls are built and repaired",
-    "label": "how empty stalls are built and repaired",
-    "text": "how empty stalls are built and repaired"
+    "value": "Why the seller leaves all her fruit out overnight",
+    "label": "Why the seller leaves all her fruit out overnight",
+    "text": "Why the seller leaves all her fruit out overnight"
    },
    {
-    "value": "how a seller spends the market day",
-    "label": "how a seller spends the market day",
-    "text": "how a seller spends the market day"
+    "value": "How a fruit seller spends the market day",
+    "label": "How a fruit seller spends the market day",
+    "text": "How a fruit seller spends the market day"
    },
    {
-    "value": "which fresh fruit customers like most",
-    "label": "which fresh fruit customers like most",
-    "text": "which fresh fruit customers like most"
+    "value": "How the seller fills empty baskets again",
+    "label": "How the seller fills empty baskets again",
+    "text": "How the seller fills empty baskets again"
    },
    {
-    "value": "why fruit grows beside busy shops",
-    "label": "why fruit grows beside busy shops",
-    "text": "why fruit grows beside busy shops"
+    "value": "How farmers grow fruit in different countries",
+    "label": "How farmers grow fruit in different countries",
+    "text": "How farmers grow fruit in different countries"
    }
   ],
-  "answer": "how a seller spends the market day",
-  "correctAnswer": "how a seller spends the market day",
+  "answer": "How a fruit seller spends the market day",
+  "correctAnswer": "How a fruit seller spends the market day",
   "distractorRationales": {
-   "why fruit grows beside busy shops": "D-PLAUSIBLE-UNSUPPORTED",
-   "how empty stalls are built and repaired": "D-OPPOSITE",
-   "which fresh fruit customers like most": "D-PLAUSIBLE-UNSUPPORTED"
+   "How farmers grow fruit in different countries": "D-TOPIC-ADJACENT",
+   "Why the seller leaves all her fruit out overnight": "D-OPPOSITE",
+   "How the seller fills empty baskets again": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6389,7 +6389,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Cover preparation, serving and closing rather than a single repeated job."
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_fiction.v22",
@@ -6414,42 +6414,42 @@ export const questions = [
   "prompt": "What is the story mostly about?",
   "question": "What is the story mostly about?",
   "spokenPrompt": "What is the story mostly about?",
-  "passage": "Sam and Jo wanted to share a small desk. Their papers kept mixing. They made two trays and cleared a space between. Now both had room to work together.",
+  "passage": "Sam and Jo wanted to share a small desk. Their papers kept mixing while they worked. They made two trays and cleared a space between. Each put loose papers into their own tray. Now both had room to finish their drawings.",
   "cell": "mostly_about_fiction",
   "choices": [
-   "two children building a desk from spare wood",
-   "two children arguing about who works faster",
-   "two children arranging a shared place to work",
-   "two children choosing new books for school"
+   "Two children building new desks from spare wood",
+   "Two children deciding they cannot work together",
+   "Two children making a shared desk work better",
+   "Each child putting papers into a separate tray"
   ],
   "answerOptions": [
    {
-    "value": "two children building a desk from spare wood",
-    "label": "two children building a desk from spare wood",
-    "text": "two children building a desk from spare wood"
+    "value": "Two children building new desks from spare wood",
+    "label": "Two children building new desks from spare wood",
+    "text": "Two children building new desks from spare wood"
    },
    {
-    "value": "two children arguing about who works faster",
-    "label": "two children arguing about who works faster",
-    "text": "two children arguing about who works faster"
+    "value": "Two children deciding they cannot work together",
+    "label": "Two children deciding they cannot work together",
+    "text": "Two children deciding they cannot work together"
    },
    {
-    "value": "two children arranging a shared place to work",
-    "label": "two children arranging a shared place to work",
-    "text": "two children arranging a shared place to work"
+    "value": "Two children making a shared desk work better",
+    "label": "Two children making a shared desk work better",
+    "text": "Two children making a shared desk work better"
    },
    {
-    "value": "two children choosing new books for school",
-    "label": "two children choosing new books for school",
-    "text": "two children choosing new books for school"
+    "value": "Each child putting papers into a separate tray",
+    "label": "Each child putting papers into a separate tray",
+    "text": "Each child putting papers into a separate tray"
    }
   ],
-  "answer": "two children arranging a shared place to work",
-  "correctAnswer": "two children arranging a shared place to work",
+  "answer": "Two children making a shared desk work better",
+  "correctAnswer": "Two children making a shared desk work better",
   "distractorRationales": {
-   "two children building a desk from spare wood": "D-PLAUSIBLE-UNSUPPORTED",
-   "two children arguing about who works faster": "D-OPPOSITE",
-   "two children choosing new books for school": "D-PLAUSIBLE-UNSUPPORTED"
+   "Two children building new desks from spare wood": "D-TOPIC-ADJACENT",
+   "Two children deciding they cannot work together": "D-OPPOSITE",
+   "Each child putting papers into a separate tray": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6479,7 +6479,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "The storage change solves a shared-space problem; making trays is only the method."
  },
  {
   "id": "lp3.main_idea.l2.A.main_idea_vs_detail.v20",
@@ -6504,42 +6504,42 @@ export const questions = [
   "prompt": "Which statement gives the main idea?",
   "question": "Which statement gives the main idea?",
   "spokenPrompt": "Which statement gives the main idea?",
-  "passage": "The town library lends more than books. Visitors can borrow puzzles, maps, and simple musical instruments. Staff also run free classes to help people use computers. These services make it a place for many kinds of learning.",
+  "passage": "The town library has shelves of books for different readers. Behind the desk, visitors can also borrow simple musical instruments. A map drawer helps walkers plan routes without buying new guides. Families take puzzles home and return them when finished. Staff run small computer classes for people needing help online. A quiet room gives groups space to learn together. These services are available even to visitors who borrow no books. Last week, a new reader returned a drum and borrowed a map.",
   "cell": "main_idea_vs_detail",
   "choices": [
-   "The library supports learning in several different ways.",
-   "Library visitors can borrow instruments to play music.",
-   "Some library classes teach people to use computers.",
-   "The library lends maps and puzzles to local visitors."
+   "The library supports learning through several different services.",
+   "Visitors can borrow musical instruments from behind the desk.",
+   "Staff run computer classes for people needing help online.",
+   "A map drawer helps walkers plan routes without buying guides."
   ],
   "answerOptions": [
    {
-    "value": "The library supports learning in several different ways.",
-    "label": "The library supports learning in several different ways.",
-    "text": "The library supports learning in several different ways."
+    "value": "The library supports learning through several different services.",
+    "label": "The library supports learning through several different services.",
+    "text": "The library supports learning through several different services."
    },
    {
-    "value": "Library visitors can borrow instruments to play music.",
-    "label": "Library visitors can borrow instruments to play music.",
-    "text": "Library visitors can borrow instruments to play music."
+    "value": "Visitors can borrow musical instruments from behind the desk.",
+    "label": "Visitors can borrow musical instruments from behind the desk.",
+    "text": "Visitors can borrow musical instruments from behind the desk."
    },
    {
-    "value": "Some library classes teach people to use computers.",
-    "label": "Some library classes teach people to use computers.",
-    "text": "Some library classes teach people to use computers."
+    "value": "Staff run computer classes for people needing help online.",
+    "label": "Staff run computer classes for people needing help online.",
+    "text": "Staff run computer classes for people needing help online."
    },
    {
-    "value": "The library lends maps and puzzles to local visitors.",
-    "label": "The library lends maps and puzzles to local visitors.",
-    "text": "The library lends maps and puzzles to local visitors."
+    "value": "A map drawer helps walkers plan routes without buying guides.",
+    "label": "A map drawer helps walkers plan routes without buying guides.",
+    "text": "A map drawer helps walkers plan routes without buying guides."
    }
   ],
-  "answer": "The library supports learning in several different ways.",
-  "correctAnswer": "The library supports learning in several different ways.",
+  "answer": "The library supports learning through several different services.",
+  "correctAnswer": "The library supports learning through several different services.",
   "distractorRationales": {
-   "Library visitors can borrow instruments to play music.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Some library classes teach people to use computers.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The library lends maps and puzzles to local visitors.": "D-OPPOSITE"
+   "Visitors can borrow musical instruments from behind the desk.": "D-DETAIL-AS-MAIN",
+   "Staff run computer classes for people needing help online.": "D-DETAIL-AS-MAIN",
+   "A map drawer helps walkers plan routes without buying guides.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6569,7 +6569,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Integrate several services beyond books; each rival is an accurate example with narrower scope."
  },
  {
   "id": "lp3.main_idea.l2.A.summary_choice.v20",
@@ -6594,42 +6594,42 @@ export const questions = [
   "prompt": "Which summary includes the important events?",
   "question": "Which summary includes the important events?",
   "spokenPrompt": "Which summary includes the important events?",
-  "passage": "A storm damaged the footbridge, so the walking club changed its route. Members followed a longer path beside the fields. They marked the unsafe bridge and told the town office. The club finished safely and planned repairs with local volunteers.",
+  "passage": "A small dog appeared outside the school without its owner. The office kept it safe while an adult checked its collar. The name tag was missing, so pupils could not telephone anyone. A nearby vet offered to check for a tiny identity chip. The chip's number led to a record with the owner's details. Soon a relieved neighbour arrived carrying the dog's empty lead. The office checked those details before allowing her to collect it. The dog returned home without the school guessing who owned it.",
   "cell": "summary_choice",
   "choices": [
-   "The club cancelled its walk and left without warning anyone.",
-   "The club avoided a damaged bridge and arranged help with repairs.",
-   "The club walked beside fields and forgot about the damaged bridge.",
-   "The club repaired the bridge before starting its usual short walk."
+   "The vet chose a new family because the dog had no owner.",
+   "Adults used identification records to return a lost dog safely.",
+   "The school office kept a small dog safe while checking its collar.",
+   "Pupils immediately found the owner’s number on the dog’s name tag."
   ],
   "answerOptions": [
    {
-    "value": "The club cancelled its walk and left without warning anyone.",
-    "label": "The club cancelled its walk and left without warning anyone.",
-    "text": "The club cancelled its walk and left without warning anyone."
+    "value": "The vet chose a new family because the dog had no owner.",
+    "label": "The vet chose a new family because the dog had no owner.",
+    "text": "The vet chose a new family because the dog had no owner."
    },
    {
-    "value": "The club avoided a damaged bridge and arranged help with repairs.",
-    "label": "The club avoided a damaged bridge and arranged help with repairs.",
-    "text": "The club avoided a damaged bridge and arranged help with repairs."
+    "value": "Adults used identification records to return a lost dog safely.",
+    "label": "Adults used identification records to return a lost dog safely.",
+    "text": "Adults used identification records to return a lost dog safely."
    },
    {
-    "value": "The club walked beside fields and forgot about the damaged bridge.",
-    "label": "The club walked beside fields and forgot about the damaged bridge.",
-    "text": "The club walked beside fields and forgot about the damaged bridge."
+    "value": "The school office kept a small dog safe while checking its collar.",
+    "label": "The school office kept a small dog safe while checking its collar.",
+    "text": "The school office kept a small dog safe while checking its collar."
    },
    {
-    "value": "The club repaired the bridge before starting its usual short walk.",
-    "label": "The club repaired the bridge before starting its usual short walk.",
-    "text": "The club repaired the bridge before starting its usual short walk."
+    "value": "Pupils immediately found the owner’s number on the dog’s name tag.",
+    "label": "Pupils immediately found the owner’s number on the dog’s name tag.",
+    "text": "Pupils immediately found the owner’s number on the dog’s name tag."
    }
   ],
-  "answer": "The club avoided a damaged bridge and arranged help with repairs.",
-  "correctAnswer": "The club avoided a damaged bridge and arranged help with repairs.",
+  "answer": "Adults used identification records to return a lost dog safely.",
+  "correctAnswer": "Adults used identification records to return a lost dog safely.",
   "distractorRationales": {
-   "The club walked beside fields and forgot about the damaged bridge.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The club repaired the bridge before starting its usual short walk.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The club cancelled its walk and left without warning anyone.": "D-OPPOSITE"
+   "The school office kept a small dog safe while checking its collar.": "D-DETAIL-AS-MAIN",
+   "Pupils immediately found the owner’s number on the dog’s name tag.": "D-OPPOSITE",
+   "The vet chose a new family because the dog had no owner.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6659,7 +6659,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Summarize the failed first check, alternative identification and verified reunion; distinguish missing identification from absence of an owner."
  },
  {
   "id": "lp3.main_idea.l2.A.best_title.v20",
@@ -6684,42 +6684,42 @@ export const questions = [
   "prompt": "Which title fits the whole passage?",
   "question": "Which title fits the whole passage?",
   "spokenPrompt": "Which title fits the whole passage?",
-  "passage": "A seed library lets gardeners borrow seeds at planting time. They grow the plants and save some of the new seeds. Later, they return those seeds for other gardeners to borrow. This keeps local varieties growing from year to year.",
+  "passage": "A seed library lends small packets at the start of spring. Gardeners choose plants suited to the local soil and weather. They grow them and leave some flowers to produce new seeds. After collecting and drying those seeds, they return a share. Other gardeners can borrow from those packets the following year. Labels explain which plants grew well and how they were cared for. The collection changes as neighbours contribute seeds and useful notes. Gardeners return new seeds, not the ones they first borrowed.",
   "cell": "best_title",
   "choices": [
-   "The Fastest Way to Pick Vegetables",
-   "Why Seeds All Need the Same Soil",
-   "Seeds That Keep on Being Shared",
-   "Choosing the Brightest Flower Colours"
+   "Keeping Every Seed Frozen for Future Emergencies",
+   "Returning Borrowed Seeds Before Planting Any of Them",
+   "Growing and Returning Seeds for Other Gardeners",
+   "Writing Labels About Successful Local Plants"
   ],
   "answerOptions": [
    {
-    "value": "The Fastest Way to Pick Vegetables",
-    "label": "The Fastest Way to Pick Vegetables",
-    "text": "The Fastest Way to Pick Vegetables"
+    "value": "Keeping Every Seed Frozen for Future Emergencies",
+    "label": "Keeping Every Seed Frozen for Future Emergencies",
+    "text": "Keeping Every Seed Frozen for Future Emergencies"
    },
    {
-    "value": "Why Seeds All Need the Same Soil",
-    "label": "Why Seeds All Need the Same Soil",
-    "text": "Why Seeds All Need the Same Soil"
+    "value": "Returning Borrowed Seeds Before Planting Any of Them",
+    "label": "Returning Borrowed Seeds Before Planting Any of Them",
+    "text": "Returning Borrowed Seeds Before Planting Any of Them"
    },
    {
-    "value": "Seeds That Keep on Being Shared",
-    "label": "Seeds That Keep on Being Shared",
-    "text": "Seeds That Keep on Being Shared"
+    "value": "Growing and Returning Seeds for Other Gardeners",
+    "label": "Growing and Returning Seeds for Other Gardeners",
+    "text": "Growing and Returning Seeds for Other Gardeners"
    },
    {
-    "value": "Choosing the Brightest Flower Colours",
-    "label": "Choosing the Brightest Flower Colours",
-    "text": "Choosing the Brightest Flower Colours"
+    "value": "Writing Labels About Successful Local Plants",
+    "label": "Writing Labels About Successful Local Plants",
+    "text": "Writing Labels About Successful Local Plants"
    }
   ],
-  "answer": "Seeds That Keep on Being Shared",
-  "correctAnswer": "Seeds That Keep on Being Shared",
+  "answer": "Growing and Returning Seeds for Other Gardeners",
+  "correctAnswer": "Growing and Returning Seeds for Other Gardeners",
   "distractorRationales": {
-   "Choosing the Brightest Flower Colours": "D-PLAUSIBLE-UNSUPPORTED",
-   "The Fastest Way to Pick Vegetables": "D-PLAUSIBLE-UNSUPPORTED",
-   "Why Seeds All Need the Same Soil": "D-OPPOSITE"
+   "Writing Labels About Successful Local Plants": "D-DETAIL-AS-MAIN",
+   "Keeping Every Seed Frozen for Future Emergencies": "D-TOPIC-ADJACENT",
+   "Returning Borrowed Seeds Before Planting Any of Them": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6749,7 +6749,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Infer the repeating sharing cycle from borrowing, growing and returning new seeds; distinguish it from long-term backup storage."
  },
  {
   "id": "lp3.main_idea.l2.A.main_idea_vs_detail.v21",
@@ -6774,42 +6774,42 @@ export const questions = [
   "prompt": "Which statement gives the main idea?",
   "question": "Which statement gives the main idea?",
   "spokenPrompt": "Which statement gives the main idea?",
-  "passage": "The new playground includes low steps, ramps, and firm paths. Some swings offer extra support for children who need it. Quiet corners give children somewhere calm to rest. The design helps children with different needs enjoy playing there.",
+  "passage": "The new playground was planned with several families' advice. Firm paths let wheels move between different parts of the site. Ramps offer a route where steps would stop some visitors. Certain swings have extra support around the seat and back. Children who find busy noise difficult can use quiet corners. Signs use clear pictures as well as written words. Families tested the plans before builders finished the equipment. Two friends now reach the same climbing platform by different routes.",
   "cell": "main_idea_vs_detail",
   "choices": [
-   "Some of the swings give children extra support while playing.",
-   "Firm paths run between several places in the playground.",
-   "Quiet corners offer a place away from the busy equipment.",
-   "The playground is designed for children with different needs."
+   "Some swings have extra support around their seats and backs.",
+   "Quiet corners offer space away from the busiest play areas.",
+   "Families tested the plans before builders finished the equipment.",
+   "The playground helps children with different needs play together."
   ],
   "answerOptions": [
    {
-    "value": "Some of the swings give children extra support while playing.",
-    "label": "Some of the swings give children extra support while playing.",
-    "text": "Some of the swings give children extra support while playing."
+    "value": "Some swings have extra support around their seats and backs.",
+    "label": "Some swings have extra support around their seats and backs.",
+    "text": "Some swings have extra support around their seats and backs."
    },
    {
-    "value": "Firm paths run between several places in the playground.",
-    "label": "Firm paths run between several places in the playground.",
-    "text": "Firm paths run between several places in the playground."
+    "value": "Quiet corners offer space away from the busiest play areas.",
+    "label": "Quiet corners offer space away from the busiest play areas.",
+    "text": "Quiet corners offer space away from the busiest play areas."
    },
    {
-    "value": "Quiet corners offer a place away from the busy equipment.",
-    "label": "Quiet corners offer a place away from the busy equipment.",
-    "text": "Quiet corners offer a place away from the busy equipment."
+    "value": "Families tested the plans before builders finished the equipment.",
+    "label": "Families tested the plans before builders finished the equipment.",
+    "text": "Families tested the plans before builders finished the equipment."
    },
    {
-    "value": "The playground is designed for children with different needs.",
-    "label": "The playground is designed for children with different needs.",
-    "text": "The playground is designed for children with different needs."
+    "value": "The playground helps children with different needs play together.",
+    "label": "The playground helps children with different needs play together.",
+    "text": "The playground helps children with different needs play together."
    }
   ],
-  "answer": "The playground is designed for children with different needs.",
-  "correctAnswer": "The playground is designed for children with different needs.",
+  "answer": "The playground helps children with different needs play together.",
+  "correctAnswer": "The playground helps children with different needs play together.",
   "distractorRationales": {
-   "Firm paths run between several places in the playground.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Quiet corners offer a place away from the busy equipment.": "D-OPPOSITE",
-   "Some of the swings give children extra support while playing.": "D-PLAUSIBLE-UNSUPPORTED"
+   "Quiet corners offer space away from the busiest play areas.": "D-DETAIL-AS-MAIN",
+   "Families tested the plans before builders finished the equipment.": "D-DETAIL-AS-MAIN",
+   "Some swings have extra support around their seats and backs.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6839,7 +6839,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Combine physical, sensory and information access into the shared design purpose rather than choose one feature."
  },
  {
   "id": "lp3.main_idea.l2.A.summary_choice.v21",
@@ -6864,42 +6864,42 @@ export const questions = [
   "prompt": "Which summary covers the whole passage?",
   "question": "Which summary covers the whole passage?",
   "spokenPrompt": "Which summary covers the whole passage?",
-  "passage": "A student newspaper asked pupils what needed changing at school. Many wanted a quiet place to read at lunch. The editors printed their suggestions and met with the headteacher. A spare room became a reading space the following month.",
+  "passage": "The student newspaper asked pupils what needed changing at school. Many wanted somewhere quiet to read during the busy lunch break. The editors printed those requests and invited other suggestions too. They checked which spare rooms were safe and available then. A meeting with the headteacher settled how the space would run. Volunteers agreed to put books away after each lunch session. The following month, pupils began using a small former meeting room. Their newspaper later reported how readers and helpers were finding it.",
   "cell": "summary_choice",
   "choices": [
-   "Pupils gathered requests and helped turn spare space into somewhere quiet.",
-   "Pupils asked for a quiet room but printed none of their suggestions.",
-   "The headteacher closed the reading space after meeting the newspaper editors.",
-   "The newspaper editors used the spare room to store their printed copies."
+   "Pupils gathered views and organised a quiet reading space with staff.",
+   "Volunteers agreed to put the books away after each lunch session.",
+   "The editors opened a room before asking pupils what they needed.",
+   "The newspaper persuaded the school to end all noisy lunchtime games."
   ],
   "answerOptions": [
    {
-    "value": "Pupils gathered requests and helped turn spare space into somewhere quiet.",
-    "label": "Pupils gathered requests and helped turn spare space into somewhere quiet.",
-    "text": "Pupils gathered requests and helped turn spare space into somewhere quiet."
+    "value": "Pupils gathered views and organised a quiet reading space with staff.",
+    "label": "Pupils gathered views and organised a quiet reading space with staff.",
+    "text": "Pupils gathered views and organised a quiet reading space with staff."
    },
    {
-    "value": "Pupils asked for a quiet room but printed none of their suggestions.",
-    "label": "Pupils asked for a quiet room but printed none of their suggestions.",
-    "text": "Pupils asked for a quiet room but printed none of their suggestions."
+    "value": "Volunteers agreed to put the books away after each lunch session.",
+    "label": "Volunteers agreed to put the books away after each lunch session.",
+    "text": "Volunteers agreed to put the books away after each lunch session."
    },
    {
-    "value": "The headteacher closed the reading space after meeting the newspaper editors.",
-    "label": "The headteacher closed the reading space after meeting the newspaper editors.",
-    "text": "The headteacher closed the reading space after meeting the newspaper editors."
+    "value": "The editors opened a room before asking pupils what they needed.",
+    "label": "The editors opened a room before asking pupils what they needed.",
+    "text": "The editors opened a room before asking pupils what they needed."
    },
    {
-    "value": "The newspaper editors used the spare room to store their printed copies.",
-    "label": "The newspaper editors used the spare room to store their printed copies.",
-    "text": "The newspaper editors used the spare room to store their printed copies."
+    "value": "The newspaper persuaded the school to end all noisy lunchtime games.",
+    "label": "The newspaper persuaded the school to end all noisy lunchtime games.",
+    "text": "The newspaper persuaded the school to end all noisy lunchtime games."
    }
   ],
-  "answer": "Pupils gathered requests and helped turn spare space into somewhere quiet.",
-  "correctAnswer": "Pupils gathered requests and helped turn spare space into somewhere quiet.",
+  "answer": "Pupils gathered views and organised a quiet reading space with staff.",
+  "correctAnswer": "Pupils gathered views and organised a quiet reading space with staff.",
   "distractorRationales": {
-   "The newspaper editors used the spare room to store their printed copies.": "D-OPPOSITE",
-   "Pupils asked for a quiet room but printed none of their suggestions.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The headteacher closed the reading space after meeting the newspaper editors.": "D-PLAUSIBLE-UNSUPPORTED"
+   "The newspaper persuaded the school to end all noisy lunchtime games.": "D-TOPIC-ADJACENT",
+   "Volunteers agreed to put the books away after each lunch session.": "D-DETAIL-AS-MAIN",
+   "The editors opened a room before asking pupils what they needed.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6929,7 +6929,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Track consultation, practical planning and opening; distinguish the specific improvement from banning other pupils’ activities."
  },
  {
   "id": "lp3.main_idea.l2.A.best_title.v21",
@@ -6954,42 +6954,42 @@ export const questions = [
   "prompt": "Which title fits the whole passage?",
   "question": "Which title fits the whole passage?",
   "spokenPrompt": "Which title fits the whole passage?",
-  "passage": "People once threw broken furniture away at the local collection centre. Now volunteers run repair sessions there each month. Owners learn to tighten joints, mend covers, and replace damaged parts. Many useful objects go home again instead of reaching the rubbish heap.",
+  "passage": "Most museum objects stood behind glass that visitors could not touch. A visitor who could not see asked about a carved bowl. Spoken descriptions helped, but did not explain every curve clearly. Staff made a strong copy that people could explore by hand. They added copies of several other objects with different shapes. Labels and recordings explained which details matched the originals. Sighted visitors also noticed things while holding the carefully made copies. The original objects remained protected behind their glass display cases.",
   "cell": "best_title",
   "choices": [
-   "Making Collections of Unusual Old Objects",
-   "Repairing Together to Reduce Waste",
-   "Choosing New Furniture for Small Homes",
-   "The Story of One Broken Chair"
+   "Removing Every Glass Case So Originals Can Be Handled",
+   "Touching Copies to Explore Museum Objects",
+   "Protecting Original Bowls Behind Glass Cases",
+   "Teaching Visitors to Make Their Own Ancient Objects"
   ],
   "answerOptions": [
    {
-    "value": "Making Collections of Unusual Old Objects",
-    "label": "Making Collections of Unusual Old Objects",
-    "text": "Making Collections of Unusual Old Objects"
+    "value": "Removing Every Glass Case So Originals Can Be Handled",
+    "label": "Removing Every Glass Case So Originals Can Be Handled",
+    "text": "Removing Every Glass Case So Originals Can Be Handled"
    },
    {
-    "value": "Repairing Together to Reduce Waste",
-    "label": "Repairing Together to Reduce Waste",
-    "text": "Repairing Together to Reduce Waste"
+    "value": "Touching Copies to Explore Museum Objects",
+    "label": "Touching Copies to Explore Museum Objects",
+    "text": "Touching Copies to Explore Museum Objects"
    },
    {
-    "value": "Choosing New Furniture for Small Homes",
-    "label": "Choosing New Furniture for Small Homes",
-    "text": "Choosing New Furniture for Small Homes"
+    "value": "Protecting Original Bowls Behind Glass Cases",
+    "label": "Protecting Original Bowls Behind Glass Cases",
+    "text": "Protecting Original Bowls Behind Glass Cases"
    },
    {
-    "value": "The Story of One Broken Chair",
-    "label": "The Story of One Broken Chair",
-    "text": "The Story of One Broken Chair"
+    "value": "Teaching Visitors to Make Their Own Ancient Objects",
+    "label": "Teaching Visitors to Make Their Own Ancient Objects",
+    "text": "Teaching Visitors to Make Their Own Ancient Objects"
    }
   ],
-  "answer": "Repairing Together to Reduce Waste",
-  "correctAnswer": "Repairing Together to Reduce Waste",
+  "answer": "Touching Copies to Explore Museum Objects",
+  "correctAnswer": "Touching Copies to Explore Museum Objects",
   "distractorRationales": {
-   "The Story of One Broken Chair": "D-PLAUSIBLE-UNSUPPORTED",
-   "Making Collections of Unusual Old Objects": "D-OPPOSITE",
-   "Choosing New Furniture for Small Homes": "D-PLAUSIBLE-UNSUPPORTED"
+   "Teaching Visitors to Make Their Own Ancient Objects": "D-TOPIC-ADJACENT",
+   "Removing Every Glass Case So Originals Can Be Handled": "D-OPPOSITE",
+   "Protecting Original Bowls Behind Glass Cases": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7019,7 +7019,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Integrate the access problem and tactile solution; conservation is a true supporting constraint rather than the central new approach."
  },
  {
   "id": "lp3.main_idea.l2.A.main_idea_vs_detail.v22",
@@ -7044,42 +7044,42 @@ export const questions = [
   "prompt": "Which statement gives the main idea?",
   "question": "Which statement gives the main idea?",
   "spokenPrompt": "Which statement gives the main idea?",
-  "passage": "In hot weather, the town puts drinking water in public places. Staff check shaded rest areas and visit people who live alone. Sports clubs move practice away from the hottest hours. These plans help residents cope with days of extreme heat.",
+  "passage": "The town prepared for several days of very hot weather. Drinking water was placed where people usually gathered outside. Staff checked that shaded resting places were open and usable. Helpers visited residents who lived alone and might need support. Sports clubs moved outdoor practice into cooler morning hours. Signs reminded families where to find water and shade nearby. Different groups shared their plans so important places were covered. An afternoon match took place early, before the empty field grew hot.",
   "cell": "main_idea_vs_detail",
   "choices": [
-   "Staff visit some people who live alone during hot weather.",
-   "People can find drinking water in several public places.",
-   "The town uses several measures to protect people during heat.",
-   "The sports clubs change the times of their outdoor practices."
+   "Helpers visited some residents who lived alone during hot weather.",
+   "Signs showed families where nearby water and shade were available.",
+   "The town uses several plans to keep people safe in heat.",
+   "Sports clubs moved outdoor practice into cooler morning hours."
   ],
   "answerOptions": [
    {
-    "value": "Staff visit some people who live alone during hot weather.",
-    "label": "Staff visit some people who live alone during hot weather.",
-    "text": "Staff visit some people who live alone during hot weather."
+    "value": "Helpers visited some residents who lived alone during hot weather.",
+    "label": "Helpers visited some residents who lived alone during hot weather.",
+    "text": "Helpers visited some residents who lived alone during hot weather."
    },
    {
-    "value": "People can find drinking water in several public places.",
-    "label": "People can find drinking water in several public places.",
-    "text": "People can find drinking water in several public places."
+    "value": "Signs showed families where nearby water and shade were available.",
+    "label": "Signs showed families where nearby water and shade were available.",
+    "text": "Signs showed families where nearby water and shade were available."
    },
    {
-    "value": "The town uses several measures to protect people during heat.",
-    "label": "The town uses several measures to protect people during heat.",
-    "text": "The town uses several measures to protect people during heat."
+    "value": "The town uses several plans to keep people safe in heat.",
+    "label": "The town uses several plans to keep people safe in heat.",
+    "text": "The town uses several plans to keep people safe in heat."
    },
    {
-    "value": "The sports clubs change the times of their outdoor practices.",
-    "label": "The sports clubs change the times of their outdoor practices.",
-    "text": "The sports clubs change the times of their outdoor practices."
+    "value": "Sports clubs moved outdoor practice into cooler morning hours.",
+    "label": "Sports clubs moved outdoor practice into cooler morning hours.",
+    "text": "Sports clubs moved outdoor practice into cooler morning hours."
    }
   ],
-  "answer": "The town uses several measures to protect people during heat.",
-  "correctAnswer": "The town uses several measures to protect people during heat.",
+  "answer": "The town uses several plans to keep people safe in heat.",
+  "correctAnswer": "The town uses several plans to keep people safe in heat.",
   "distractorRationales": {
-   "People can find drinking water in several public places.": "D-OPPOSITE",
-   "The sports clubs change the times of their outdoor practices.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Staff visit some people who live alone during hot weather.": "D-PLAUSIBLE-UNSUPPORTED"
+   "Signs showed families where nearby water and shade were available.": "D-DETAIL-AS-MAIN",
+   "Sports clubs moved outdoor practice into cooler morning hours.": "D-DETAIL-AS-MAIN",
+   "Helpers visited some residents who lived alone during hot weather.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7109,7 +7109,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Identify the purpose linking coordinated services; every alternative gives only one accurate measure."
  },
  {
   "id": "lp3.main_idea.l2.A.summary_choice.v22",
@@ -7134,42 +7134,42 @@ export const questions = [
   "prompt": "Which summary gives the important findings?",
   "question": "Which summary gives the important findings?",
   "spokenPrompt": "Which summary gives the important findings?",
-  "passage": "Lin recorded which birds visited a tree outside her window. Visits dropped when building work began beside it. After the noise stopped, many of the same birds returned. Lin used her notes to describe how the disturbance changed their visits.",
+  "passage": "Lin counted birds visiting the tree outside her classroom each morning. She recorded the same length of time on every school day. Visits fell after noisy building work began beside the tree. The tree still held berries, and the weather stayed similar. Lin continued counting instead of stopping after the first quiet morning. When the building noise ended, many familiar birds visited again. Her chart showed the drop and return across several weeks. She shared the observations without claiming she knew every bird's reason.",
   "cell": "summary_choice",
   "choices": [
-   "Lin recorded more bird visitors once noisy building work had begun.",
-   "Lin saw the same number of birds before and during building work.",
-   "Lin planted a tree after building noise made every bird leave forever.",
-   "Lin recorded fewer bird visitors during building noise and more afterward."
+   "Lin watched the same tree for equal periods on school mornings.",
+   "Lin found that bird visits rose as soon as building noise began.",
+   "Lin showed that fewer berries caused birds to leave the tree.",
+   "Lin recorded fewer visits during building noise and their later return."
   ],
   "answerOptions": [
    {
-    "value": "Lin recorded more bird visitors once noisy building work had begun.",
-    "label": "Lin recorded more bird visitors once noisy building work had begun.",
-    "text": "Lin recorded more bird visitors once noisy building work had begun."
+    "value": "Lin watched the same tree for equal periods on school mornings.",
+    "label": "Lin watched the same tree for equal periods on school mornings.",
+    "text": "Lin watched the same tree for equal periods on school mornings."
    },
    {
-    "value": "Lin saw the same number of birds before and during building work.",
-    "label": "Lin saw the same number of birds before and during building work.",
-    "text": "Lin saw the same number of birds before and during building work."
+    "value": "Lin found that bird visits rose as soon as building noise began.",
+    "label": "Lin found that bird visits rose as soon as building noise began.",
+    "text": "Lin found that bird visits rose as soon as building noise began."
    },
    {
-    "value": "Lin planted a tree after building noise made every bird leave forever.",
-    "label": "Lin planted a tree after building noise made every bird leave forever.",
-    "text": "Lin planted a tree after building noise made every bird leave forever."
+    "value": "Lin showed that fewer berries caused birds to leave the tree.",
+    "label": "Lin showed that fewer berries caused birds to leave the tree.",
+    "text": "Lin showed that fewer berries caused birds to leave the tree."
    },
    {
-    "value": "Lin recorded fewer bird visitors during building noise and more afterward.",
-    "label": "Lin recorded fewer bird visitors during building noise and more afterward.",
-    "text": "Lin recorded fewer bird visitors during building noise and more afterward."
+    "value": "Lin recorded fewer visits during building noise and their later return.",
+    "label": "Lin recorded fewer visits during building noise and their later return.",
+    "text": "Lin recorded fewer visits during building noise and their later return."
    }
   ],
-  "answer": "Lin recorded fewer bird visitors during building noise and more afterward.",
-  "correctAnswer": "Lin recorded fewer bird visitors during building noise and more afterward.",
+  "answer": "Lin recorded fewer visits during building noise and their later return.",
+  "correctAnswer": "Lin recorded fewer visits during building noise and their later return.",
   "distractorRationales": {
-   "Lin saw the same number of birds before and during building work.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Lin planted a tree after building noise made every bird leave forever.": "D-OPPOSITE",
-   "Lin recorded more bird visitors once noisy building work had begun.": "D-PLAUSIBLE-UNSUPPORTED"
+   "Lin found that bird visits rose as soon as building noise began.": "D-OPPOSITE",
+   "Lin showed that fewer berries caused birds to leave the tree.": "D-OPPOSITE",
+   "Lin watched the same tree for equal periods on school mornings.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7199,6 +7199,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Summarize the observed pattern while rejecting a food explanation contradicted by the unchanged berries."
  }
 ];

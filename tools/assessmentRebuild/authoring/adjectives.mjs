@@ -245,5 +245,12 @@ export default {
   ].map(item => {
     if ((item.lvl === 1 && item.v >= 7) || (item.lvl === 2 && item.v >= 9)) item.retention = true;
     return item;
-  }).concat(freshPhaseItems)
+  }).concat(freshPhaseItems, [
+    extract("adj_color", 1, 1, 31, "The silver cloud drifted.", ["silver", "cloud", "drifted", "the"]),
+    extract("adj_texture_state", 1, 2, 31, "A rough shell scratched me.", ["rough", "shell", "scratched", "a"]),
+    gsf("adj_precision", 2, 1, 31, "The ___ bus had no passengers on board.",
+      ["empty", "crowded", "full", "packed"], ["D-OPPOSITE", "D-OPPOSITE", "D-OPPOSITE"],
+      "Absence of passengers distinguishes empty from three descriptions of a bus holding passengers."),
+    extract("adj_vs_noun_verb", 2, 2, 31, "The suitcase felt awkward to carry.", ["awkward", "suitcase", "felt", "carry"])
+  ].map(item => ({ ...item, retention: true })))
 };

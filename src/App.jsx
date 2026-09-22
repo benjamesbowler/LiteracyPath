@@ -4,9 +4,10 @@ import { Suspense, useCallback, useEffect, useEffectEvent, useMemo, useRef, useS
 import { flushSync } from "react-dom";
 import { useReducedMotion } from "./hooks/useReducedMotion.js";
 import "./App.css";
-import { DEBUG_ASSESSMENT_COVERAGE, buildCoverageSnapshot, calculateWeaknessSnapshot, debugAssessmentCoverage, dedupeQuestionsByRuntimeSignature, downloadBlob, findQuestionForAnswerRecord, formatExportDateForFilename, formatReportDate, getAdminSetupMessage, getQuestionTargetWord, getRuntimeQuestionSignature, getStageIndex, inferItemMetadata, inferAnswerRecordMetadata, isApprovalSchemaError, isDuplicateAuthSignupError, isInitialSoundsStage, isInvalidRefreshTokenError, isMissingItemMasteryTableError, isMissingTableError, letterAssessmentOrder, logAdminSupabaseError, normalizeItemKey, normalizeRuntimeSkillId, prepareRuntimeQuestionBank, safeExportFilename, setRuntimeQuestionCache, startupQuestions } from "./appState/assessmentRuntime.js";
+import { DEBUG_ASSESSMENT_COVERAGE, buildCoverageSnapshot, calculateWeaknessSnapshot, debugAssessmentCoverage, dedupeQuestionsByRuntimeSignature, downloadBlob, findQuestionForAnswerRecord, formatExportDateForFilename, formatReportDate, getAdminSetupMessage, getQuestionTargetWord, getRuntimeQuestionSignature, getStageIndex, inferItemMetadata, inferAnswerRecordMetadata, isApprovalSchemaError, isDuplicateAuthSignupError, isInvalidRefreshTokenError, isMissingItemMasteryTableError, isMissingTableError, letterAssessmentOrder, logAdminSupabaseError, normalizeItemKey, normalizeRuntimeSkillId, prepareRuntimeQuestionBank, safeExportFilename, setRuntimeQuestionCache, startupQuestions } from "./appState/assessmentRuntime.js";
 import { useAppSessionController } from "./appState/useAppSessionController.js";
 import { STUDENT_SESSION_STORAGE_KEY, addWorkbookExportProvenance, createExcelWorkbook, exportStudentAssessmentWorkbook as exportStudentAssessmentWorkbookRuntime, flushRuntimeAssessmentAttemptSyncQueue, hydrateRuntimeAssessmentAttempts, loadAssessmentMediaPickerModule, loadAssessmentSkillBankLoaderModule, loadElBenchmarkEngineModule, loadFinishedReportPageModule, loadGuidedReadingBooksModule, loadTeacherRouteRuntime, pushRouteHash, resumeRuntimePendingLearnerDeletions, runtimeCloudIsExpected, teacherReportHash, useRuntimeStudentFocusSession } from "./appState/appRuntimeServices.js";
+import { RETENTION_RULE } from "./content/blueprints/skillBlueprints.js";
 import { getMasteryRule } from "./masterySystem";
 import { skillTree } from "./skillTree";
 import { excludeFailedAssessmentMediaQuestions } from "./policy/assessmentMediaEvidence.js";
@@ -382,6 +383,7 @@ export default function App() {
   const answerHistoryRef = useRef(answerHistory);
   const roundItemKeysRef = useRef(roundItemKeys);
   const roundQuestionIdsRef = useRef(roundQuestionIds);
+  const assessmentSittingRef = useRef(null);
   const allQuestionsRef = useRef(startupQuestions);
   const loadedAssessmentSkillBanksRef = useRef(new Set());
   const assessmentSkillBankPromisesRef = useRef(new Map());
@@ -531,11 +533,9 @@ export default function App() {
   const masteryRule =
     getMasteryRule(currentStage.label);
 
-  const ROUND_LENGTH =
-    masteryRule.roundLength;
+  const ROUND_LENGTH = assessmentMode === "retention" ? RETENTION_RULE.items : masteryRule.roundLength;
 
-  const PASS_SCORE =
-    masteryRule.passScore;
+  const PASS_SCORE = assessmentMode === "retention" ? RETENTION_RULE.passMin : masteryRule.passScore;
 
   const currentStageQuestions = useMemo(() =>
     allQuestions.filter(q =>
@@ -672,16 +672,17 @@ export default function App() {
     );
   }
 
-  async function loadRuntimeQuestionsForSkill(skillOrStageId = "") {
+  async function loadRuntimeQuestionsForSkill(skillOrStageId = "", { retention = false } = {}) {
     const skillId = normalizeRuntimeSkillId(skillOrStageId);
-    if (!skillId || loadedAssessmentSkillBanksRef.current.has(skillId)) {
+    const bankKey = `${skillId}:${retention ? "retention" : "formal"}`;
+    if (!skillId || loadedAssessmentSkillBanksRef.current.has(bankKey)) {
       return allQuestionsRef.current;
     }
 
-    if (!assessmentSkillBankPromisesRef.current.has(skillId)) {
+    if (!assessmentSkillBankPromisesRef.current.has(bankKey)) {
       const loadPromise = (async () => {
         const loaderModule = await loadAssessmentSkillBankLoaderModule();
-        const bank = await loaderModule.loadAssessmentSkillBank(skillId);
+        const bank = await loaderModule.loadAssessmentSkillBank(skillId, { retention });
         const preparedQuestions = prepareRuntimeQuestionBank(bank);
         const nextQuestions = dedupeQuestionsByRuntimeSignature([
           ...allQuestionsRef.current,
@@ -690,15 +691,15 @@ export default function App() {
         allQuestionsRef.current = nextQuestions;
         setRuntimeQuestionCache(nextQuestions);
         setAllQuestions(nextQuestions);
-        loadedAssessmentSkillBanksRef.current.add(skillId);
+        loadedAssessmentSkillBanksRef.current.add(bankKey);
         return nextQuestions;
       })().finally(() => {
-        assessmentSkillBankPromisesRef.current.delete(skillId);
+        assessmentSkillBankPromisesRef.current.delete(bankKey);
       });
-      assessmentSkillBankPromisesRef.current.set(skillId, loadPromise);
+      assessmentSkillBankPromisesRef.current.set(bankKey, loadPromise);
     }
 
-    return assessmentSkillBankPromisesRef.current.get(skillId);
+    return assessmentSkillBankPromisesRef.current.get(bankKey);
   }
 
   function preloadAssessmentShellForStage(stage = currentStage) {
@@ -911,12 +912,12 @@ export default function App() {
   }, [assessmentCompletionOwner, pendingAssessmentCompletionRef]);
 
   const {
-    answerQuestion, buildInitialSoundRoundQueue, buildSkillMasterySummary, getAvailableStageQuestions,
+    answerQuestion, buildSkillMasterySummary,
     getItemMasteryStateKey, getQuestionItemKey, handleAssessmentEvidenceImageError, normalizeItemMasteryRow,
-    persistCompletedAssessmentAttempt, pickQuestion, prioritizeCoverageQuestions, resetInitialSoundRoundQueue, retryCompletedAssessment, reviseLastAnswer,
-    shouldShowImage, speakText,
+    persistCompletedAssessmentAttempt, pickQuestion, resetInitialSoundRoundQueue, retryCompletedAssessment, reviseLastAnswer,
+    shouldShowImage, speakText, startAssessmentSitting, getCurrentSkillStatus,
   } = createAssessmentRoundController({
-    pendingAssessmentCompletionRef, assessmentCompletionOwner, setAssessmentSaveState,
+    pendingAssessmentCompletionRef, assessmentCompletionOwner, setAssessmentSaveState, assessmentSittingRef,
     allQuestionsRef, answerHistory, answerHistoryRef, answerInFlightRef,
     assessmentActiveRef, assessmentMediaPickerRef, assessmentMediaUsageRef, assessmentMode,
     currentQuestion, currentSkillIndex, currentStage, excludeSessionMediaFailures,
@@ -935,6 +936,30 @@ export default function App() {
     studentSessionTeacherId: studentSession?.teacherId || "",
     onStudentFocusAssessmentComplete: sessionId => setStudentFocusCompletedSessionId(sessionId)
   });
+
+  async function resumeAssessmentAfterRestore(mode, stageIndex) {
+    const stage = skillTree[stageIndex];
+    if (!stage || !assessmentActiveRef.current) return;
+    const owner = assessmentCompletionOwner;
+    const revision = pendingAssessmentCompletionRef.revision;
+    const navigationRevision = appViewNavigationRevisionRef.current;
+    const stillCurrent = () => assessmentActiveRef.current && pendingAssessmentCompletionRef.owner === owner
+      && pendingAssessmentCompletionRef.revision === revision && appViewNavigationRevisionRef.current === navigationRevision;
+    try {
+      await Promise.all([loadRuntimeQuestionsForSkill(stage.id, { retention: mode === "retention" }), ensureAssessmentMediaPicker()]);
+    } catch {
+      if (stillCurrent()) { setAssessmentTransitioning(false); setMessage("Could not reload this check. Please try loading it again."); }
+      return;
+    }
+    if (!stillCurrent()) return;
+    if (assessmentSittingRef.current?.studentId === studentId && assessmentSittingRef.current?.skillId === stage.id) {
+      assessmentSittingRef.current.owner = owner;
+    } else {
+      const plan = startAssessmentSitting(stage, { mode });
+      if (plan.error) { setMessage(plan.error); setAssessmentTransitioning(false); return; }
+    }
+    pickQuestion(mode, stageIndex);
+  }
 
   const {
     adminDeleteClass, adminDeleteStudent, adminSetTeacherSchool, applyStudentSession,
@@ -973,10 +998,10 @@ export default function App() {
     letterAssessment, letterIndex, loadAssessmentAttempts, loadElBenchmarkDraft, loadManualAssessmentDrafts,
     loadTeacherRouteRuntime, logAdminSupabaseError, mastery, mergeAssessmentAttemptIntoItemMastery,
     mergeAssessmentAttemptRecords, newClassName, normalizeItemMasteryRow, patternAssessment,
-    patternAttempt, patternIndex, pickQuestion, profileLoaded, profileLoadedTeacherIdRef,
+    patternAttempt, patternIndex, pickQuestion, resumeAssessmentAfterRestore, profileLoaded, profileLoadedTeacherIdRef,
     queueProgressSave, rawSetAppView, resetInitialSoundRoundQueue,
     restoreElBenchmarkSessionFromHash, restoreManualAssessmentDraftsFromHistory, roundAnswers, roundItemKeys, roundItemKeysRef,
-    roundQuestionIds, roundQuestionIdsRef, saveElBenchmarkDraft, saveManualAssessmentDrafts, saveStudentAccessibilitySettings,
+    roundQuestionIds, roundQuestionIdsRef, assessmentSittingRef, saveElBenchmarkDraft, saveManualAssessmentDrafts, saveStudentAccessibilitySettings,
     saveStudentReducedChoiceMode, selectedClassId, sessionMode, setAdminClasses,
     setAdminConfirm, setAdminLoading, setAdminPendingAccounts, setAdminPendingAccountsWarning,
     setAdminSchools, setAdminStatusError, setAdminStudents, setAdminTeachers,
@@ -2628,20 +2653,22 @@ export default function App() {
         || appViewNavigationRevisionRef.current !== startNavigationRevision) return;
     resetInitialSoundRoundQueue();
     initialSoundRoundMetaRef.current = null;
-    // Heads-up (not a blocker) when a skill's bank is too thin for a full
-    // round of distinct items - the teacher learns BEFORE starting, instead
-    // of the round stalling halfway through.
-    if (!isInitialSoundsStage(nextStage)) {
-      const distinctItems = new Set(
-        getAvailableStageQuestions(nextStageIndex).map(getQuestionItemKey).filter(Boolean)
-      ).size;
-      if (distinctItems > 0 && distinctItems < ROUND_LENGTH) {
-        setMessage(`Heads up: ${nextStage.label} only has ${distinctItems} distinct items right now; a full round asks ${ROUND_LENGTH}. The round will stop early if it runs out.`);
-      }
+    assessmentSittingRef.current = null;
+    const skillStatus = getCurrentSkillStatus(nextStage);
+    const assigned = studentFocus.session?.resolved_config;
+    let assignedStep = studentFocus.session?.target === "skills_assessment" && studentSession?.token
+      ? { level: Number(assigned?.level), phase: Number(assigned?.phase) } : null;
+    if (!assignedStep && initialSoundForcedLevelRef.current) { assignedStep = { level: initialSoundForcedLevelRef.current, phase: 1 }; initialSoundForcedLevelRef.current = null; }
+    const allPhasesPassed = skillStatus?.level1?.currentPassed && skillStatus?.level2?.currentPassed;
+    const requestedMode = options.mode || (!assignedStep && allPhasesPassed ? "retention" : "mastery");
+    if (requestedMode === "retention") {
+      try { await loadRuntimeQuestionsForSkill(nextStage.id, { retention: true }); }
+      catch { setAssessmentTransitioning(false); setMessage("Could not load the retention check. Please try again."); return; }
+      if (pendingAssessmentCompletionRef.owner !== assessmentCompletionOwner || pendingAssessmentCompletionRef.revision !== runRevision) return;
     }
-    const previewQuestions = isInitialSoundsStage(nextStage)
-      ? buildInitialSoundRoundQueue().items
-      : prioritizeCoverageQuestions(getAvailableStageQuestions(nextStageIndex), nextStage).slice(0, ROUND_LENGTH);
+    const plan = startAssessmentSitting(nextStage, { mode: requestedMode, assignedStep });
+    if (plan.error) { setAssessmentTransitioning(false); setMessage(plan.error); return; }
+    const previewQuestions = plan.questionIds.map(id => allQuestionsRef.current.find(question => question.id === id));
 
     debugAssessmentCoverage("start assessment", {
       studentId,
@@ -2652,7 +2679,7 @@ export default function App() {
 
     assessmentActiveRef.current = true;
     setCurrentSkillIndex(nextStageIndex);
-    setAssessmentMode("mastery");
+    setAssessmentMode(plan.mode);
     setFeedback(null);
     setCurrentQuestion(null);
     setCheckpointDecision(null);
@@ -2665,7 +2692,7 @@ export default function App() {
     resetAssessmentMediaUsage();
     setMessage("");
     setAppView(APP_VIEWS.ASSESSMENT);
-    pickQuestion("mastery", nextStageIndex);
+    pickQuestion(plan.mode, nextStageIndex);
   }
 
   const startStudentFocusAssessment = useEffectEvent(startAssessment);
@@ -2850,6 +2877,8 @@ export default function App() {
   }
 
   function endAssessment() {
+    assessmentSittingRef.current = null;
+    pendingAssessmentCompletionRef.revision = (pendingAssessmentCompletionRef.revision || 0) + 1;
     answerInFlightRef.current = false;
     assessmentActiveRef.current = false; // cancel any pending auto-advance timeouts
     void loadFinishedReportPageModule();
@@ -2871,6 +2900,9 @@ export default function App() {
   // Leaving a check returns to the roster it was started from. There is no
   // second per-student dashboard to go back to any more.
   function returnFromCheck() {
+    assessmentActiveRef.current = false;
+    assessmentSittingRef.current = null;
+    pendingAssessmentCompletionRef.revision = (pendingAssessmentCompletionRef.revision || 0) + 1;
     answerInFlightRef.current = false;
     resetFailedAssessmentMedia();
     setCurrentQuestion(null);
@@ -2880,6 +2912,9 @@ export default function App() {
     setAppView(APP_VIEWS.TEACHER_CLASSES);
   }
   function returnToTeacherDashboard() {
+    assessmentActiveRef.current = false;
+    assessmentSittingRef.current = null;
+    pendingAssessmentCompletionRef.revision = (pendingAssessmentCompletionRef.revision || 0) + 1;
     answerInFlightRef.current = false;
     setCurrentQuestion(null);
     setFeedback(null);

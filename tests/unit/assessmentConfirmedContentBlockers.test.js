@@ -42,12 +42,12 @@ const hiddenCardAnswers = skillId => expandedBySkill[skillId]
 
 test("retention prepositions measure their declared relation rather than an inverse relation", () => {
   const on = byId("prepositions_of_place", "lp3.prepositions_of_place.l1.R.on.v5r");
-  assert.equal(on.answer, "on the chair");
-  assert.match(on.prompt, /ball/i);
+  assert.equal(on.answer, "on the stool");
+  assert.match(on.prompt, /hat/i);
 
   const between = byId("prepositions_of_place", "lp3.prepositions_of_place.l1.R.between.v5r");
-  assert.equal(between.answer, "between the books");
-  assert.match(between.prompt, /cup/i);
+  assert.equal(between.answer, "between the cups");
+  assert.match(between.prompt, /apple/i);
 });
 
 test("morphology and plural prompts do not reveal or under-specify their answer", () => {

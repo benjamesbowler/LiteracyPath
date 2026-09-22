@@ -43,7 +43,7 @@ test("the reported concrete examples no longer expose the key through a random o
   );
   assert.deepEqual(
     new Set(byId("lp3.antonyms_synonyms.l1.C.antonym_concrete.v3").choices),
-    new Set(["up — down", "up — high", "up — under", "up — top"])
+    new Set(["up — down", "up — high", "up — over", "up — top"])
   );
 });
 

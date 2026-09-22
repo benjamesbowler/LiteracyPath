@@ -55,12 +55,12 @@ export const questions = [
   "answer": "unhappy",
   "correctAnswer": "unhappy",
   "distractorRationales": {
-   "helpful": "D-SEMANTIC",
+   "helpful": "D-PLAUSIBLE-UNSUPPORTED",
    "joyful": "D-OPPOSITE",
-   "careful": "D-PATTERN-TRAP"
+   "careful": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -144,12 +144,12 @@ export const questions = [
   "answer": "unfair",
   "correctAnswer": "unfair",
   "distractorRationales": {
-   "careful": "D-OPPOSITE",
-   "helpful": "D-PATTERN-TRAP",
-   "joyful": "D-SEMANTIC"
+   "careful": "D-PLAUSIBLE-UNSUPPORTED",
+   "helpful": "D-PLAUSIBLE-UNSUPPORTED",
+   "joyful": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -233,12 +233,12 @@ export const questions = [
   "answer": "unkind",
   "correctAnswer": "unkind",
   "distractorRationales": {
-   "careful": "D-SEMANTIC",
-   "joyful": "D-OPPOSITE",
-   "helpful": "D-PATTERN-TRAP"
+   "careful": "D-PLAUSIBLE-UNSUPPORTED",
+   "joyful": "D-PLAUSIBLE-UNSUPPORTED",
+   "helpful": "D-OPPOSITE"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -323,11 +323,11 @@ export const questions = [
   "correctAnswer": "untidy",
   "distractorRationales": {
    "tidy": "D-OPPOSITE",
-   "retied": "D-PATTERN-TRAP",
-   "untie": "D-SEMANTIC"
+   "retied": "D-MORPH-LITERAL",
+   "untie": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -412,11 +412,11 @@ export const questions = [
   "correctAnswer": "unwell",
   "distractorRationales": {
    "well": "D-OPPOSITE",
-   "wellness": "D-PATTERN-TRAP",
-   "replay": "D-SEMANTIC"
+   "wellness": "D-MORPH-LITERAL",
+   "replay": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -501,11 +501,11 @@ export const questions = [
   "correctAnswer": "unlock",
   "distractorRationales": {
    "relock": "D-OPPOSITE",
-   "lock": "D-PATTERN-TRAP",
-   "locked": "D-SEMANTIC"
+   "lock": "D-OPPOSITE",
+   "locked": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -589,12 +589,12 @@ export const questions = [
   "answer": "replay",
   "correctAnswer": "replay",
   "distractorRationales": {
-   "unhappy": "D-OPPOSITE",
-   "playful": "D-PATTERN-TRAP",
-   "player": "D-SEMANTIC"
+   "unhappy": "D-PLAUSIBLE-UNSUPPORTED",
+   "playful": "D-MORPH-LITERAL",
+   "player": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -678,12 +678,12 @@ export const questions = [
   "answer": "remake",
   "correctAnswer": "remake",
   "distractorRationales": {
-   "maker": "D-SEMANTIC",
-   "unfair": "D-OPPOSITE",
-   "helpful": "D-PATTERN-TRAP"
+   "maker": "D-MORPH-LITERAL",
+   "unfair": "D-PLAUSIBLE-UNSUPPORTED",
+   "helpful": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -767,12 +767,12 @@ export const questions = [
   "answer": "reread",
   "correctAnswer": "reread",
   "distractorRationales": {
-   "unkind": "D-OPPOSITE",
-   "careful": "D-PATTERN-TRAP",
-   "reader": "D-SEMANTIC"
+   "unkind": "D-PLAUSIBLE-UNSUPPORTED",
+   "careful": "D-PLAUSIBLE-UNSUPPORTED",
+   "reader": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -856,12 +856,12 @@ export const questions = [
   "answer": "refill",
   "correctAnswer": "refill",
   "distractorRationales": {
-   "filler": "D-PATTERN-TRAP",
-   "filling": "D-SEMANTIC",
-   "unfilled": "D-OPPOSITE"
+   "filler": "D-MORPH-LITERAL",
+   "filling": "D-MORPH-LITERAL",
+   "unfilled": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -945,12 +945,12 @@ export const questions = [
   "answer": "retell",
   "correctAnswer": "retell",
   "distractorRationales": {
-   "teller": "D-PATTERN-TRAP",
-   "untold": "D-SEMANTIC",
-   "telling": "D-OPPOSITE"
+   "teller": "D-MORPH-LITERAL",
+   "untold": "D-MORPH-LITERAL",
+   "telling": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -1034,12 +1034,12 @@ export const questions = [
   "answer": "reuse",
   "correctAnswer": "reuse",
   "distractorRationales": {
-   "useful": "D-PATTERN-TRAP",
-   "user": "D-SEMANTIC",
-   "unused": "D-OPPOSITE"
+   "useful": "D-MORPH-LITERAL",
+   "user": "D-MORPH-LITERAL",
+   "unused": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -1089,9 +1089,9 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Zara carries her friend's heavy bag. Which word describes Zara?",
-  "question": "Zara carries her friend's heavy bag. Which word describes Zara?",
-  "spokenPrompt": "Zara carries her friend's heavy bag. Which word describes Zara?",
+  "prompt": "Zara gives lots of help. Zara is ___.",
+  "question": "Zara gives lots of help. Zara is ___.",
+  "spokenPrompt": "Zara gives lots of help. Zara is ….",
   "choices": [
    "helpless",
    "helper",
@@ -1123,12 +1123,12 @@ export const questions = [
   "answer": "helpful",
   "correctAnswer": "helpful",
   "distractorRationales": {
-   "helper": "D-PATTERN-TRAP",
-   "replay": "D-SEMANTIC",
-   "helpless": "D-OPPOSITE"
+   "helper": "D-MORPH-LITERAL",
+   "replay": "D-PLAUSIBLE-UNSUPPORTED",
+   "helpless": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -1212,12 +1212,12 @@ export const questions = [
   "answer": "joyful",
   "correctAnswer": "joyful",
   "distractorRationales": {
-   "enjoy": "D-PATTERN-TRAP",
-   "rejoice": "D-SEMANTIC",
+   "enjoy": "D-MORPH-LITERAL",
+   "rejoice": "D-MORPH-LITERAL",
    "joyless": "D-OPPOSITE"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -1301,12 +1301,12 @@ export const questions = [
   "answer": "careful",
   "correctAnswer": "careful",
   "distractorRationales": {
-   "carer": "D-PATTERN-TRAP",
-   "reader": "D-SEMANTIC",
+   "carer": "D-MORPH-LITERAL",
+   "reader": "D-PLAUSIBLE-UNSUPPORTED",
    "careless": "D-OPPOSITE"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -1390,12 +1390,12 @@ export const questions = [
   "answer": "playful",
   "correctAnswer": "playful",
   "distractorRationales": {
-   "player": "D-OPPOSITE",
-   "played": "D-PATTERN-TRAP",
-   "replay": "D-SEMANTIC"
+   "player": "D-MORPH-LITERAL",
+   "played": "D-MORPH-LITERAL",
+   "replay": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -1479,12 +1479,12 @@ export const questions = [
   "answer": "thankful",
   "correctAnswer": "thankful",
   "distractorRationales": {
-   "hopeless": "D-SEMANTIC",
+   "hopeless": "D-PLAUSIBLE-UNSUPPORTED",
    "thankless": "D-OPPOSITE",
-   "careless": "D-PATTERN-TRAP"
+   "careless": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -1569,11 +1569,11 @@ export const questions = [
   "correctAnswer": "colorful",
   "distractorRationales": {
    "colorless": "D-OPPOSITE",
-   "careful": "D-PATTERN-TRAP",
-   "playful": "D-SEMANTIC"
+   "careful": "D-PLAUSIBLE-UNSUPPORTED",
+   "playful": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -1658,11 +1658,11 @@ export const questions = [
   "correctAnswer": "hopeless",
   "distractorRationales": {
    "hopeful": "D-OPPOSITE",
-   "helper": "D-PATTERN-TRAP",
-   "joyful": "D-SEMANTIC"
+   "helper": "D-MORPH-LITERAL",
+   "joyful": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -1746,12 +1746,12 @@ export const questions = [
   "answer": "fearless",
   "correctAnswer": "fearless",
   "distractorRationales": {
-   "farmer": "D-PATTERN-TRAP",
-   "joyful": "D-SEMANTIC",
+   "farmer": "D-PLAUSIBLE-UNSUPPORTED",
+   "joyful": "D-PLAUSIBLE-UNSUPPORTED",
    "fearful": "D-OPPOSITE"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -1836,11 +1836,11 @@ export const questions = [
   "correctAnswer": "harmless",
   "distractorRationales": {
    "harmful": "D-OPPOSITE",
-   "helper": "D-PATTERN-TRAP",
-   "careful": "D-SEMANTIC"
+   "helper": "D-MORPH-LITERAL",
+   "careful": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -1924,12 +1924,12 @@ export const questions = [
   "answer": "toothless",
   "correctAnswer": "toothless",
   "distractorRationales": {
-   "toothy": "D-SEMANTIC",
+   "toothy": "D-OPPOSITE",
    "toothed": "D-OPPOSITE",
-   "teething": "D-PATTERN-TRAP"
+   "teething": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -2013,12 +2013,12 @@ export const questions = [
   "answer": "sleepless",
   "correctAnswer": "sleepless",
   "distractorRationales": {
-   "asleep": "D-SEMANTIC",
-   "sleepy": "D-OPPOSITE",
-   "sleeping": "D-PATTERN-TRAP"
+   "asleep": "D-OPPOSITE",
+   "sleepy": "D-MORPH-LITERAL",
+   "sleeping": "D-OPPOSITE"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -2102,12 +2102,12 @@ export const questions = [
   "answer": "helpless",
   "correctAnswer": "helpless",
   "distractorRationales": {
-   "playful": "D-SEMANTIC",
-   "helpful": "D-OPPOSITE",
-   "hopeful": "D-PATTERN-TRAP"
+   "playful": "D-PLAUSIBLE-UNSUPPORTED",
+   "helpful": "D-MORPH-LITERAL",
+   "hopeful": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -2191,12 +2191,12 @@ export const questions = [
   "answer": "singer",
   "correctAnswer": "singer",
   "distractorRationales": {
-   "singing": "D-OPPOSITE",
-   "sings": "D-PATTERN-TRAP",
-   "replay": "D-SEMANTIC"
+   "singing": "D-MORPH-LITERAL",
+   "sings": "D-MORPH-LITERAL",
+   "replay": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -2280,12 +2280,12 @@ export const questions = [
   "answer": "teacher",
   "correctAnswer": "teacher",
   "distractorRationales": {
-   "teaching": "D-OPPOSITE",
-   "teaches": "D-PATTERN-TRAP",
-   "unfair": "D-SEMANTIC"
+   "teaching": "D-MORPH-LITERAL",
+   "teaches": "D-MORPH-LITERAL",
+   "unfair": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -2369,12 +2369,12 @@ export const questions = [
   "answer": "helper",
   "correctAnswer": "helper",
   "distractorRationales": {
-   "helping": "D-OPPOSITE",
-   "helpful": "D-PATTERN-TRAP",
-   "remake": "D-SEMANTIC"
+   "helping": "D-MORPH-LITERAL",
+   "helpful": "D-MORPH-LITERAL",
+   "remake": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -2458,12 +2458,12 @@ export const questions = [
   "answer": "reader",
   "correctAnswer": "reader",
   "distractorRationales": {
-   "careful": "D-SEMANTIC",
-   "reading": "D-OPPOSITE",
-   "reread": "D-PATTERN-TRAP"
+   "careful": "D-PLAUSIBLE-UNSUPPORTED",
+   "reading": "D-MORPH-LITERAL",
+   "reread": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -2547,12 +2547,12 @@ export const questions = [
   "answer": "painter",
   "correctAnswer": "painter",
   "distractorRationales": {
-   "painting": "D-OPPOSITE",
-   "repaint": "D-PATTERN-TRAP",
-   "joyful": "D-SEMANTIC"
+   "painting": "D-MORPH-LITERAL",
+   "repaint": "D-MORPH-LITERAL",
+   "joyful": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -2636,12 +2636,12 @@ export const questions = [
   "answer": "farmer",
   "correctAnswer": "farmer",
   "distractorRationales": {
-   "fearless": "D-SEMANTIC",
-   "farming": "D-OPPOSITE",
-   "farm": "D-PATTERN-TRAP"
+   "fearless": "D-PLAUSIBLE-UNSUPPORTED",
+   "farming": "D-MORPH-LITERAL",
+   "farm": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -2725,12 +2725,12 @@ export const questions = [
   "answer": "claps",
   "correctAnswer": "claps",
   "distractorRationales": {
-   "clapping": "D-FUNCTION-SWAP",
-   "clapper": "D-PATTERN-TRAP",
-   "clap": "D-FUNCTION-SWAP"
+   "clapping": "D-MORPH-LITERAL",
+   "clapper": "D-MORPH-LITERAL",
+   "clap": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -2813,12 +2813,12 @@ export const questions = [
   "answer": "brushes",
   "correctAnswer": "brushes",
   "distractorRationales": {
-   "brush": "D-FUNCTION-SWAP",
-   "brushing": "D-FUNCTION-SWAP",
-   "brushed": "D-PATTERN-TRAP"
+   "brush": "D-MORPH-LITERAL",
+   "brushing": "D-MORPH-LITERAL",
+   "brushed": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -2901,12 +2901,12 @@ export const questions = [
   "answer": "sings",
   "correctAnswer": "sings",
   "distractorRationales": {
-   "singing": "D-PATTERN-TRAP",
-   "singer": "D-SEMANTIC",
-   "sing": "D-OPPOSITE"
+   "singing": "D-MORPH-LITERAL",
+   "singer": "D-MORPH-LITERAL",
+   "sing": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -2990,12 +2990,12 @@ export const questions = [
   "answer": "washes",
   "correctAnswer": "washes",
   "distractorRationales": {
-   "wash": "D-FUNCTION-SWAP",
-   "washing": "D-FUNCTION-SWAP",
-   "washed": "D-PATTERN-TRAP"
+   "wash": "D-MORPH-LITERAL",
+   "washing": "D-MORPH-LITERAL",
+   "washed": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -3080,12 +3080,12 @@ export const questions = [
   "answer": "naps",
   "correctAnswer": "naps",
   "distractorRationales": {
-   "nap": "D-FUNCTION-SWAP",
-   "napping": "D-FUNCTION-SWAP",
-   "napped": "D-PATTERN-TRAP"
+   "nap": "D-MORPH-LITERAL",
+   "napping": "D-MORPH-LITERAL",
+   "napped": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -3170,12 +3170,12 @@ export const questions = [
   "answer": "bakes",
   "correctAnswer": "bakes",
   "distractorRationales": {
-   "bake": "D-FUNCTION-SWAP",
-   "baking": "D-FUNCTION-SWAP",
-   "baked": "D-PATTERN-TRAP"
+   "bake": "D-MORPH-LITERAL",
+   "baking": "D-MORPH-LITERAL",
+   "baked": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -3259,12 +3259,12 @@ export const questions = [
   "answer": "jumping",
   "correctAnswer": "jumping",
   "distractorRationales": {
-   "jumped": "D-FUNCTION-SWAP",
-   "singing": "D-PATTERN-TRAP",
-   "jumps": "D-FUNCTION-SWAP"
+   "jumped": "D-MORPH-LITERAL",
+   "singing": "D-MORPH-LITERAL",
+   "jumps": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -3347,12 +3347,12 @@ export const questions = [
   "answer": "reading",
   "correctAnswer": "reading",
   "distractorRationales": {
-   "ready": "D-FUNCTION-SWAP",
-   "singing": "D-PATTERN-TRAP",
-   "reads": "D-FUNCTION-SWAP"
+   "ready": "D-MORPH-LITERAL",
+   "singing": "D-MORPH-LITERAL",
+   "reads": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -3435,12 +3435,12 @@ export const questions = [
   "answer": "singing",
   "correctAnswer": "singing",
   "distractorRationales": {
-   "sang": "D-PATTERN-TRAP",
-   "singer": "D-SEMANTIC",
-   "sings": "D-OPPOSITE"
+   "sang": "D-MORPH-LITERAL",
+   "singer": "D-MORPH-LITERAL",
+   "sings": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -3489,10 +3489,10 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word fits: Right now, the pot is ___ on the stove.",
-  "question": "Which word fits: Right now, the pot is ___ on the stove.",
-  "spokenPrompt": "Which word fits? Right now, the pot is … on the stove.",
-  "sentence": "Right now, the pot is ___ on the stove.",
+  "prompt": "Which word fits: Right now, the water is ___ on the stove.",
+  "question": "Which word fits: Right now, the water is ___ on the stove.",
+  "spokenPrompt": "Which word fits? Right now, the water is … on the stove.",
+  "sentence": "Right now, the water is ___ on the stove.",
   "choices": [
    "sleeping",
    "boiling",
@@ -3524,19 +3524,19 @@ export const questions = [
   "answer": "boiling",
   "correctAnswer": "boiling",
   "distractorRationales": {
-   "boils": "D-FUNCTION-SWAP",
-   "boil": "D-FUNCTION-SWAP",
-   "sleeping": "D-PATTERN-TRAP"
+   "boils": "D-MORPH-LITERAL",
+   "boil": "D-MORPH-LITERAL",
+   "sleeping": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Right now, the pot is ___ on the stove.",
+  "sentenceText": "Right now, the water is ___ on the stove.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3579,10 +3579,10 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word fits: We are ___ a sandcastle one bucket at a time.",
-  "question": "Which word fits: We are ___ a sandcastle one bucket at a time.",
-  "spokenPrompt": "Which word fits? We are … a sandcastle one bucket at a time.",
-  "sentence": "We are ___ a sandcastle one bucket at a time.",
+  "prompt": "Which word fits: We are ___ a sandcastle by piling up wet sand.",
+  "question": "Which word fits: We are ___ a sandcastle by piling up wet sand.",
+  "spokenPrompt": "Which word fits? We are … a sandcastle by piling up wet sand.",
+  "sentence": "We are ___ a sandcastle by piling up wet sand.",
   "choices": [
    "build",
    "painting",
@@ -3614,19 +3614,19 @@ export const questions = [
   "answer": "building",
   "correctAnswer": "building",
   "distractorRationales": {
-   "painting": "D-PATTERN-TRAP",
-   "builds": "D-FUNCTION-SWAP",
-   "build": "D-FUNCTION-SWAP"
+   "painting": "D-PLAUSIBLE-UNSUPPORTED",
+   "builds": "D-MORPH-LITERAL",
+   "build": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "We are ___ a sandcastle one bucket at a time.",
+  "sentenceText": "We are ___ a sandcastle by piling up wet sand.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3704,12 +3704,12 @@ export const questions = [
   "answer": "running",
   "correctAnswer": "running",
   "distractorRationales": {
-   "runs": "D-FUNCTION-SWAP",
-   "run": "D-FUNCTION-SWAP",
-   "sleeping": "D-PATTERN-TRAP"
+   "runs": "D-MORPH-LITERAL",
+   "run": "D-MORPH-LITERAL",
+   "sleeping": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -3793,12 +3793,12 @@ export const questions = [
   "answer": "walked",
   "correctAnswer": "walked",
   "distractorRationales": {
-   "opened": "D-PATTERN-TRAP",
-   "walks": "D-FUNCTION-SWAP",
-   "walking": "D-FUNCTION-SWAP"
+   "opened": "D-MORPH-LITERAL",
+   "walks": "D-MORPH-LITERAL",
+   "walking": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -3881,12 +3881,12 @@ export const questions = [
   "answer": "helped",
   "correctAnswer": "helped",
   "distractorRationales": {
-   "helps": "D-FUNCTION-SWAP",
-   "helping": "D-FUNCTION-SWAP",
-   "hopped": "D-PATTERN-TRAP"
+   "helps": "D-MORPH-LITERAL",
+   "helping": "D-MORPH-LITERAL",
+   "hopped": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -3969,12 +3969,12 @@ export const questions = [
   "answer": "jumped",
   "correctAnswer": "jumped",
   "distractorRationales": {
-   "jumping": "D-SEMANTIC",
-   "jump": "D-OPPOSITE",
-   "jumps": "D-PATTERN-TRAP"
+   "jumping": "D-MORPH-LITERAL",
+   "jump": "D-MORPH-LITERAL",
+   "jumps": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -4058,12 +4058,12 @@ export const questions = [
   "answer": "walked",
   "correctAnswer": "walked",
   "distractorRationales": {
-   "walk": "D-FUNCTION-SWAP",
-   "walking": "D-FUNCTION-SWAP",
-   "helped": "D-PATTERN-TRAP"
+   "walk": "D-MORPH-LITERAL",
+   "walking": "D-MORPH-LITERAL",
+   "helped": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -4148,12 +4148,12 @@ export const questions = [
   "answer": "cried",
   "correctAnswer": "cried",
   "distractorRationales": {
-   "cries": "D-FUNCTION-SWAP",
-   "crying": "D-FUNCTION-SWAP",
-   "cry": "D-PATTERN-TRAP"
+   "cries": "D-MORPH-LITERAL",
+   "crying": "D-MORPH-LITERAL",
+   "cry": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -4238,12 +4238,12 @@ export const questions = [
   "answer": "locked",
   "correctAnswer": "locked",
   "distractorRationales": {
-   "locks": "D-FUNCTION-SWAP",
-   "locking": "D-FUNCTION-SWAP",
-   "filled": "D-PATTERN-TRAP"
+   "locks": "D-MORPH-LITERAL",
+   "locking": "D-MORPH-LITERAL",
+   "filled": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -4327,12 +4327,12 @@ export const questions = [
   "answer": "tallest",
   "correctAnswer": "tallest",
   "distractorRationales": {
-   "taller": "D-FUNCTION-SWAP",
-   "tall": "D-FUNCTION-SWAP",
-   "fastest": "D-PATTERN-TRAP"
+   "taller": "D-MORPH-LITERAL",
+   "tall": "D-MORPH-LITERAL",
+   "fastest": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -4415,12 +4415,12 @@ export const questions = [
   "answer": "faster",
   "correctAnswer": "faster",
   "distractorRationales": {
-   "fast": "D-FUNCTION-SWAP",
-   "taller": "D-PATTERN-TRAP",
-   "fastest": "D-FUNCTION-SWAP"
+   "fast": "D-MORPH-LITERAL",
+   "taller": "D-MORPH-LITERAL",
+   "fastest": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -4504,12 +4504,12 @@ export const questions = [
   "answer": "taller",
   "correctAnswer": "taller",
   "distractorRationales": {
-   "tallest": "D-FUNCTION-SWAP",
-   "tall": "D-FUNCTION-SWAP",
-   "faster": "D-PATTERN-TRAP"
+   "tallest": "D-MORPH-LITERAL",
+   "tall": "D-MORPH-LITERAL",
+   "faster": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -4594,12 +4594,12 @@ export const questions = [
   "answer": "fastest",
   "correctAnswer": "fastest",
   "distractorRationales": {
-   "tallest": "D-PATTERN-TRAP",
-   "faster": "D-FUNCTION-SWAP",
-   "fast": "D-FUNCTION-SWAP"
+   "tallest": "D-PLAUSIBLE-UNSUPPORTED",
+   "faster": "D-MORPH-LITERAL",
+   "fast": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -4649,9 +4649,9 @@ export const questions = [
   "formatType": "MORPHEME_TRANSFER",
   "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "One bag weighs more than the other. It is ___.",
-  "question": "One bag weighs more than the other. It is ___.",
-  "spokenPrompt": "One bag weighs more than the other. It is ….",
+  "prompt": "This bag weighs more. It is ___ than that bag.",
+  "question": "This bag weighs more. It is ___ than that bag.",
+  "spokenPrompt": "This bag weighs more. It is … than that bag.",
   "choices": [
    "heavy",
    "heavily",
@@ -4683,12 +4683,12 @@ export const questions = [
   "answer": "heavier",
   "correctAnswer": "heavier",
   "distractorRationales": {
-   "heavily": "D-SEMANTIC",
-   "heaviest": "D-OPPOSITE",
-   "heavy": "D-PATTERN-TRAP"
+   "heavily": "D-MORPH-LITERAL",
+   "heaviest": "D-MORPH-LITERAL",
+   "heavy": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -4771,12 +4771,12 @@ export const questions = [
   "answer": "slowest",
   "correctAnswer": "slowest",
   "distractorRationales": {
-   "tallest": "D-SEMANTIC",
-   "slower": "D-OPPOSITE",
-   "slow": "D-PATTERN-TRAP"
+   "tallest": "D-PLAUSIBLE-UNSUPPORTED",
+   "slower": "D-MORPH-LITERAL",
+   "slow": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -4859,12 +4859,12 @@ export const questions = [
   "answer": "quickly",
   "correctAnswer": "quickly",
   "distractorRationales": {
-   "quicker": "D-FUNCTION-SWAP",
-   "quickest": "D-FUNCTION-SWAP",
-   "softly": "D-PATTERN-TRAP"
+   "quicker": "D-MORPH-LITERAL",
+   "quickest": "D-MORPH-LITERAL",
+   "softly": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -4947,12 +4947,12 @@ export const questions = [
   "answer": "softly",
   "correctAnswer": "softly",
   "distractorRationales": {
-   "quickly": "D-PATTERN-TRAP",
-   "softer": "D-FUNCTION-SWAP",
-   "soft": "D-FUNCTION-SWAP"
+   "quickly": "D-MORPH-LITERAL",
+   "softer": "D-MORPH-LITERAL",
+   "soft": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -5036,12 +5036,12 @@ export const questions = [
   "answer": "gently",
   "correctAnswer": "gently",
   "distractorRationales": {
-   "gentle": "D-FUNCTION-SWAP",
-   "gentler": "D-FUNCTION-SWAP",
-   "quickly": "D-PATTERN-TRAP"
+   "gentle": "D-MORPH-LITERAL",
+   "gentler": "D-MORPH-LITERAL",
+   "quickly": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -5126,12 +5126,12 @@ export const questions = [
   "answer": "quietly",
   "correctAnswer": "quietly",
   "distractorRationales": {
-   "quieter": "D-FUNCTION-SWAP",
-   "loudly": "D-PATTERN-TRAP",
-   "quiet": "D-FUNCTION-SWAP"
+   "quieter": "D-MORPH-LITERAL",
+   "loudly": "D-OPPOSITE",
+   "quiet": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -5215,12 +5215,12 @@ export const questions = [
   "answer": "in a brave way",
   "correctAnswer": "in a brave way",
   "distractorRationales": {
-   "toward a brave person": "D-PATTERN-TRAP",
-   "before she was brave": "D-SEMANTIC",
-   "in a soft way": "D-OPPOSITE"
+   "toward a brave person": "D-MORPH-LITERAL",
+   "before she was brave": "D-MORPH-LITERAL",
+   "in a soft way": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -5303,12 +5303,12 @@ export const questions = [
   "answer": "in a proud way",
   "correctAnswer": "in a proud way",
   "distractorRationales": {
-   "toward a proud person": "D-PATTERN-TRAP",
-   "before he felt proud": "D-SEMANTIC",
-   "in a quick way": "D-OPPOSITE"
+   "toward a proud person": "D-MORPH-LITERAL",
+   "before he felt proud": "D-MORPH-LITERAL",
+   "in a quick way": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -5391,12 +5391,12 @@ export const questions = [
   "answer": "preheat",
   "correctAnswer": "preheat",
   "distractorRationales": {
-   "heats": "D-FUNCTION-SWAP",
-   "preview": "D-PATTERN-TRAP",
-   "heated": "D-FUNCTION-SWAP"
+   "heats": "D-MORPH-LITERAL",
+   "preview": "D-MORPH-LITERAL",
+   "heated": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -5479,12 +5479,12 @@ export const questions = [
   "answer": "preview",
   "correctAnswer": "preview",
   "distractorRationales": {
-   "viewed": "D-FUNCTION-SWAP",
-   "preheat": "D-PATTERN-TRAP",
-   "views": "D-FUNCTION-SWAP"
+   "viewed": "D-MORPH-LITERAL",
+   "preheat": "D-MORPH-LITERAL",
+   "views": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -5533,10 +5533,10 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word fits: ___ the oven before you mix the batter.",
-  "question": "Which word fits: ___ the oven before you mix the batter.",
-  "spokenPrompt": "Which word fits? … the oven before you mix the batter.",
-  "sentence": "___ the oven before you mix the batter.",
+  "prompt": "Which word fits: ___ the oven so it is hot before baking.",
+  "question": "Which word fits: ___ the oven so it is hot before baking.",
+  "spokenPrompt": "Which word fits? … the oven so it is hot before baking.",
+  "sentence": "___ the oven so it is hot before baking.",
   "choices": [
    "Heated",
    "Preview",
@@ -5568,19 +5568,19 @@ export const questions = [
   "answer": "Preheat",
   "correctAnswer": "Preheat",
   "distractorRationales": {
-   "Heated": "D-FUNCTION-SWAP",
-   "Preview": "D-PATTERN-TRAP",
-   "Cool": "D-FUNCTION-SWAP"
+   "Heated": "D-MORPH-LITERAL",
+   "Preview": "D-MORPH-LITERAL",
+   "Cool": "D-OPPOSITE"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "___ the oven before you mix the batter.",
+  "sentenceText": "___ the oven so it is hot before baking.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -5658,12 +5658,12 @@ export const questions = [
   "answer": "preview",
   "correctAnswer": "preview",
   "distractorRationales": {
-   "view": "D-FUNCTION-SWAP",
-   "viewed": "D-FUNCTION-SWAP",
-   "preheat": "D-PATTERN-TRAP"
+   "view": "D-MORPH-LITERAL",
+   "viewed": "D-MORPH-LITERAL",
+   "preheat": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -5747,12 +5747,12 @@ export const questions = [
   "answer": "before the lessons",
   "correctAnswer": "before the lessons",
   "distractorRationales": {
-   "before looking": "D-SEMANTIC",
+   "before looking": "D-MORPH-LITERAL",
    "after the lessons": "D-OPPOSITE",
-   "during the best lesson": "D-PATTERN-TRAP"
+   "during the best lesson": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -5836,11 +5836,11 @@ export const questions = [
   "correctAnswer": "order before it is out",
   "distractorRationales": {
    "order after it is out": "D-OPPOSITE",
-   "heat the order": "D-PATTERN-TRAP",
-   "order more copies": "D-SEMANTIC"
+   "heat the order": "D-MORPH-LITERAL",
+   "order more copies": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -5923,12 +5923,12 @@ export const questions = [
   "answer": "unsafe",
   "correctAnswer": "unsafe",
   "distractorRationales": {
-   "careless": "D-OPPOSITE",
-   "safety": "D-PATTERN-TRAP",
-   "helper": "D-SEMANTIC"
+   "careless": "D-PLAUSIBLE-UNSUPPORTED",
+   "safety": "D-MORPH-LITERAL",
+   "helper": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "evidenceRole": "retention",
@@ -6012,12 +6012,12 @@ export const questions = [
   "answer": "repaint",
   "correctAnswer": "repaint",
   "distractorRationales": {
-   "painter": "D-PATTERN-TRAP",
-   "careful": "D-SEMANTIC",
-   "painting": "D-OPPOSITE"
+   "painter": "D-MORPH-LITERAL",
+   "careful": "D-PLAUSIBLE-UNSUPPORTED",
+   "painting": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "evidenceRole": "retention",
@@ -6067,9 +6067,9 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Noah believes the team can win. Which word describes Noah?",
-  "question": "Noah believes the team can win. Which word describes Noah?",
-  "spokenPrompt": "Noah believes the team can win. Which word describes Noah?",
+  "prompt": "Noah believes the team can win. Noah feels ___.",
+  "question": "Noah believes the team can win. Noah feels ___.",
+  "spokenPrompt": "Noah believes the team can win. Noah feels ….",
   "choices": [
    "hopeful",
    "hopeless",
@@ -6102,11 +6102,11 @@ export const questions = [
   "correctAnswer": "hopeful",
   "distractorRationales": {
    "hopeless": "D-OPPOSITE",
-   "hoping": "D-PATTERN-TRAP",
-   "unhappy": "D-SEMANTIC"
+   "hoping": "D-MORPH-LITERAL",
+   "unhappy": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "evidenceRole": "retention",
@@ -6191,11 +6191,11 @@ export const questions = [
   "correctAnswer": "careless",
   "distractorRationales": {
    "careful": "D-OPPOSITE",
-   "caring": "D-PATTERN-TRAP",
-   "helper": "D-SEMANTIC"
+   "caring": "D-MORPH-LITERAL",
+   "helper": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "evidenceRole": "retention",
@@ -6279,12 +6279,12 @@ export const questions = [
   "answer": "baker",
   "correctAnswer": "baker",
   "distractorRationales": {
-   "remake": "D-SEMANTIC",
-   "baking": "D-OPPOSITE",
-   "bakes": "D-PATTERN-TRAP"
+   "remake": "D-PLAUSIBLE-UNSUPPORTED",
+   "baking": "D-MORPH-LITERAL",
+   "bakes": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "evidenceRole": "retention",
@@ -6368,12 +6368,12 @@ export const questions = [
   "answer": "rebuild",
   "correctAnswer": "rebuild",
   "distractorRationales": {
-   "builder": "D-OPPOSITE",
-   "building": "D-PATTERN-TRAP",
-   "unbuilt": "D-SEMANTIC"
+   "builder": "D-MORPH-LITERAL",
+   "building": "D-MORPH-LITERAL",
+   "unbuilt": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "evidenceRole": "retention",
@@ -6457,12 +6457,12 @@ export const questions = [
   "answer": "catches",
   "correctAnswer": "catches",
   "distractorRationales": {
-   "catcher": "D-PATTERN-TRAP",
-   "catch": "D-FUNCTION-SWAP",
-   "catching": "D-FUNCTION-SWAP"
+   "catcher": "D-MORPH-LITERAL",
+   "catch": "D-MORPH-LITERAL",
+   "catching": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "evidenceRole": "retention",
@@ -6545,12 +6545,12 @@ export const questions = [
   "answer": "cooking",
   "correctAnswer": "cooking",
   "distractorRationales": {
-   "cooks": "D-FUNCTION-SWAP",
-   "cooked": "D-FUNCTION-SWAP",
-   "reading": "D-PATTERN-TRAP"
+   "cooks": "D-MORPH-LITERAL",
+   "cooked": "D-MORPH-LITERAL",
+   "reading": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "evidenceRole": "retention",
@@ -6633,12 +6633,12 @@ export const questions = [
   "answer": "played",
   "correctAnswer": "played",
   "distractorRationales": {
-   "plays": "D-FUNCTION-SWAP",
-   "playing": "D-FUNCTION-SWAP",
-   "walked": "D-PATTERN-TRAP"
+   "plays": "D-MORPH-LITERAL",
+   "playing": "D-MORPH-LITERAL",
+   "walked": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "evidenceRole": "retention",
@@ -6722,12 +6722,12 @@ export const questions = [
   "answer": "quicker",
   "correctAnswer": "quicker",
   "distractorRationales": {
-   "quickest": "D-FUNCTION-SWAP",
-   "quick": "D-FUNCTION-SWAP",
-   "softer": "D-PATTERN-TRAP"
+   "quickest": "D-MORPH-LITERAL",
+   "quick": "D-MORPH-LITERAL",
+   "softer": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "evidenceRole": "retention",
@@ -6811,12 +6811,12 @@ export const questions = [
   "answer": "bravely",
   "correctAnswer": "bravely",
   "distractorRationales": {
-   "bravest": "D-FUNCTION-SWAP",
-   "softly": "D-PATTERN-TRAP",
-   "braver": "D-FUNCTION-SWAP"
+   "bravest": "D-MORPH-LITERAL",
+   "softly": "D-MORPH-LITERAL",
+   "braver": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "evidenceRole": "retention",
@@ -6899,12 +6899,12 @@ export const questions = [
   "answer": "preschool",
   "correctAnswer": "preschool",
   "distractorRationales": {
-   "schools": "D-FUNCTION-SWAP",
-   "schooling": "D-FUNCTION-SWAP",
-   "preheat": "D-PATTERN-TRAP"
+   "schools": "D-MORPH-LITERAL",
+   "schooling": "D-MORPH-LITERAL",
+   "preheat": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "evidenceRole": "retention",
@@ -6917,6 +6917,362 @@ export const questions = [
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.prefixes_suffixes.l2.R.prefix_pre.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l1.R.prefix_un.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "morpheme",
+  "itemKey": "prefix_un",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
+  "questionType": "multiple_choice",
+  "prompt": "No one has opened the parcel. It is ___.",
+  "question": "No one has opened the parcel. It is ___.",
+  "spokenPrompt": "No one has opened the parcel. It is ….",
+  "choices": [
+   "unopened",
+   "opening",
+   "opener",
+   "reopen"
+  ],
+  "answerOptions": [
+   {
+    "value": "unopened",
+    "label": "unopened",
+    "text": "unopened"
+   },
+   {
+    "value": "opening",
+    "label": "opening",
+    "text": "opening"
+   },
+   {
+    "value": "opener",
+    "label": "opener",
+    "text": "opener"
+   },
+   {
+    "value": "reopen",
+    "label": "reopen",
+    "text": "reopen"
+   }
+  ],
+  "answer": "unopened",
+  "correctAnswer": "unopened",
+  "distractorRationales": {
+   "opening": "D-MORPH-LITERAL",
+   "opener": "D-MORPH-LITERAL",
+   "reopen": "D-MORPH-LITERAL"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.R.prefix_un.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l1.R.suffix_less.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "morpheme",
+  "itemKey": "suffix_less",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
+  "questionType": "multiple_choice",
+  "prompt": "This drink has no taste. Which word describes it?",
+  "question": "This drink has no taste. Which word describes it?",
+  "spokenPrompt": "This drink has no taste. Which word describes it?",
+  "choices": [
+   "tasted",
+   "tasteless",
+   "tasty",
+   "tasting"
+  ],
+  "answerOptions": [
+   {
+    "value": "tasted",
+    "label": "tasted",
+    "text": "tasted"
+   },
+   {
+    "value": "tasteless",
+    "label": "tasteless",
+    "text": "tasteless"
+   },
+   {
+    "value": "tasty",
+    "label": "tasty",
+    "text": "tasty"
+   },
+   {
+    "value": "tasting",
+    "label": "tasting",
+    "text": "tasting"
+   }
+  ],
+  "answer": "tasteless",
+  "correctAnswer": "tasteless",
+  "distractorRationales": {
+   "tasting": "D-MORPH-LITERAL",
+   "tasted": "D-MORPH-LITERAL",
+   "tasty": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.R.suffix_less.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l2.R.suffix_ing.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "morpheme",
+  "itemKey": "suffix_ing",
+  "formatType": "MORPHEME_MEANING_CONTEXT",
+  "templateType": "MORPHEME_MEANING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits: Right now, the dog is ___ up the buried bone.",
+  "question": "Which word fits: Right now, the dog is ___ up the buried bone.",
+  "spokenPrompt": "Which word fits? Right now, the dog is … up the buried bone.",
+  "sentence": "Right now, the dog is ___ up the buried bone.",
+  "choices": [
+   "digger",
+   "digging",
+   "digs",
+   "dug"
+  ],
+  "answerOptions": [
+   {
+    "value": "digger",
+    "label": "digger",
+    "text": "digger"
+   },
+   {
+    "value": "digging",
+    "label": "digging",
+    "text": "digging"
+   },
+   {
+    "value": "digs",
+    "label": "digs",
+    "text": "digs"
+   },
+   {
+    "value": "dug",
+    "label": "dug",
+    "text": "dug"
+   }
+  ],
+  "answer": "digging",
+  "correctAnswer": "digging",
+  "distractorRationales": {
+   "dug": "D-MORPH-LITERAL",
+   "digger": "D-MORPH-LITERAL",
+   "digs": "D-MORPH-LITERAL"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Right now, the dog is ___ up the buried bone.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.R.suffix_ing.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Present progressive requires the -ing form; double the final g in dig."
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l2.R.prefix_pre.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "morpheme",
+  "itemKey": "prefix_pre",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
+  "questionType": "multiple_choice",
+  "prompt": "We prepay for a trip. When do we pay?",
+  "question": "We prepay for a trip. When do we pay?",
+  "spokenPrompt": "We prepay for a trip. When do we pay?",
+  "choices": [
+   "during the trip",
+   "instead of taking the trip",
+   "before the trip",
+   "after the trip"
+  ],
+  "answerOptions": [
+   {
+    "value": "during the trip",
+    "label": "during the trip",
+    "text": "during the trip"
+   },
+   {
+    "value": "instead of taking the trip",
+    "label": "instead of taking the trip",
+    "text": "instead of taking the trip"
+   },
+   {
+    "value": "before the trip",
+    "label": "before the trip",
+    "text": "before the trip"
+   },
+   {
+    "value": "after the trip",
+    "label": "after the trip",
+    "text": "after the trip"
+   }
+  ],
+  "answer": "before the trip",
+  "correctAnswer": "before the trip",
+  "distractorRationales": {
+   "during the trip": "D-MORPH-LITERAL",
+   "instead of taking the trip": "D-MORPH-LITERAL",
+   "after the trip": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.R.prefix_pre.v31r",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",
@@ -6987,12 +7343,12 @@ export const questions = [
   "answer": "unused",
   "correctAnswer": "unused",
   "distractorRationales": {
-   "using": "D-SEMANTIC",
-   "useful": "D-OPPOSITE",
-   "reuse": "D-PATTERN-TRAP"
+   "using": "D-MORPH-LITERAL",
+   "useful": "D-MORPH-LITERAL",
+   "reuse": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -7076,12 +7432,12 @@ export const questions = [
   "answer": "peaceful",
   "correctAnswer": "peaceful",
   "distractorRationales": {
-   "peacemaker": "D-OPPOSITE",
-   "piece": "D-PATTERN-TRAP",
-   "fearful": "D-SEMANTIC"
+   "peacemaker": "D-MORPH-LITERAL",
+   "piece": "D-MORPH-LITERAL",
+   "fearful": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -7166,11 +7522,11 @@ export const questions = [
   "correctAnswer": "useless",
   "distractorRationales": {
    "useful": "D-OPPOSITE",
-   "used": "D-PATTERN-TRAP",
-   "using": "D-SEMANTIC"
+   "used": "D-MORPH-LITERAL",
+   "using": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -7254,12 +7610,12 @@ export const questions = [
   "answer": "cloudless",
   "correctAnswer": "cloudless",
   "distractorRationales": {
-   "clouded": "D-PATTERN-TRAP",
-   "clouding": "D-SEMANTIC",
+   "clouded": "D-OPPOSITE",
+   "clouding": "D-MORPH-LITERAL",
    "cloudy": "D-OPPOSITE"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -7343,12 +7699,12 @@ export const questions = [
   "answer": "homeless",
   "correctAnswer": "homeless",
   "distractorRationales": {
-   "homeward": "D-OPPOSITE",
-   "homely": "D-PATTERN-TRAP",
-   "homemade": "D-SEMANTIC"
+   "homeward": "D-MORPH-LITERAL",
+   "homely": "D-MORPH-LITERAL",
+   "homemade": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -7432,12 +7788,12 @@ export const questions = [
   "answer": "soundless",
   "correctAnswer": "soundless",
   "distractorRationales": {
-   "resound": "D-SEMANTIC",
+   "resound": "D-MORPH-LITERAL",
    "sounding": "D-OPPOSITE",
-   "soundly": "D-PATTERN-TRAP"
+   "soundly": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -7521,12 +7877,12 @@ export const questions = [
   "answer": "driver",
   "correctAnswer": "driver",
   "distractorRationales": {
-   "drives": "D-PATTERN-TRAP",
-   "driven": "D-SEMANTIC",
-   "driving": "D-OPPOSITE"
+   "drives": "D-MORPH-LITERAL",
+   "driven": "D-MORPH-LITERAL",
+   "driving": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -7610,12 +7966,12 @@ export const questions = [
   "answer": "builder",
   "correctAnswer": "builder",
   "distractorRationales": {
-   "rebuild": "D-PATTERN-TRAP",
-   "built": "D-SEMANTIC",
-   "building": "D-OPPOSITE"
+   "rebuild": "D-MORPH-LITERAL",
+   "built": "D-MORPH-LITERAL",
+   "building": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -7699,12 +8055,12 @@ export const questions = [
   "answer": "swimmer",
   "correctAnswer": "swimmer",
   "distractorRationales": {
-   "swimming": "D-OPPOSITE",
-   "swims": "D-PATTERN-TRAP",
-   "swam": "D-SEMANTIC"
+   "swimming": "D-MORPH-LITERAL",
+   "swims": "D-MORPH-LITERAL",
+   "swam": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -7788,12 +8144,12 @@ export const questions = [
   "answer": "grower",
   "correctAnswer": "grower",
   "distractorRationales": {
-   "regrow": "D-SEMANTIC",
-   "growing": "D-OPPOSITE",
-   "grown": "D-PATTERN-TRAP"
+   "regrow": "D-MORPH-LITERAL",
+   "growing": "D-MORPH-LITERAL",
+   "grown": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -7877,12 +8233,12 @@ export const questions = [
   "answer": "chasing",
   "correctAnswer": "chasing",
   "distractorRationales": {
-   "chases": "D-OPPOSITE",
-   "chased": "D-PATTERN-TRAP",
-   "chase": "D-SEMANTIC"
+   "chases": "D-MORPH-LITERAL",
+   "chased": "D-MORPH-LITERAL",
+   "chase": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -7931,9 +8287,9 @@ export const questions = [
   "formatType": "MORPHEME_TRANSFER",
   "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "Yesterday the class ___ seeds. Today shoots are growing.",
-  "question": "Yesterday the class ___ seeds. Today shoots are growing.",
-  "spokenPrompt": "Yesterday the class … seeds. Today shoots are growing.",
+  "prompt": "Yesterday the class ___ seeds in pots of soil.",
+  "question": "Yesterday the class ___ seeds in pots of soil.",
+  "spokenPrompt": "Yesterday the class … seeds in pots of soil.",
   "choices": [
    "planted",
    "plants",
@@ -7965,12 +8321,12 @@ export const questions = [
   "answer": "planted",
   "correctAnswer": "planted",
   "distractorRationales": {
-   "plant": "D-SEMANTIC",
-   "plants": "D-OPPOSITE",
-   "planting": "D-PATTERN-TRAP"
+   "plant": "D-MORPH-LITERAL",
+   "plants": "D-MORPH-LITERAL",
+   "planting": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -8053,12 +8409,12 @@ export const questions = [
   "answer": "tallest",
   "correctAnswer": "tallest",
   "distractorRationales": {
-   "taller": "D-OPPOSITE",
-   "tall": "D-PATTERN-TRAP",
-   "tallness": "D-SEMANTIC"
+   "taller": "D-MORPH-LITERAL",
+   "tall": "D-MORPH-LITERAL",
+   "tallness": "D-MORPH-LITERAL"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",
@@ -8141,12 +8497,12 @@ export const questions = [
   "answer": "in a patient way",
   "correctAnswer": "in a patient way",
   "distractorRationales": {
-   "with a patient": "D-OPPOSITE",
-   "before waiting": "D-PATTERN-TRAP",
-   "without any patience": "D-SEMANTIC"
+   "with a patient": "D-MORPH-LITERAL",
+   "before waiting": "D-MORPH-LITERAL",
+   "without any patience": "D-OPPOSITE"
   },
   "mediaTier": "text",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceRole": "mastery",

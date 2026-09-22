@@ -7555,6 +7555,552 @@ export const questions = [
   "notes": "the exact spoken target avoids the truck-versus-lorry picture naming ambiguity"
  },
  {
+  "id": "lp3.cvc_short_vowels.l1.R.short_e.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "short_vowel",
+  "itemKey": "short_e",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes p_g?",
+  "question": "Which vowel completes p_g?",
+  "spokenPrompt": "Peg. Which vowel completes the word?",
+  "choices": [
+   "a",
+   "u",
+   "e",
+   "i"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   }
+  ],
+  "answer": "e",
+  "correctAnswer": "e",
+  "distractorRationales": {
+   "i": "D-VOWEL",
+   "a": "D-VOWEL",
+   "u": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "peg",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l1.R.short_e.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "new CVC target; the spoken word separates peg from pig and pug"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.R.short_a.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "short_vowel",
+  "itemKey": "short_a",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes b_nd?",
+  "question": "Which vowel completes b_nd?",
+  "spokenPrompt": "Band. Which vowel completes the word?",
+  "choices": [
+   "e",
+   "i",
+   "o",
+   "a"
+  ],
+  "answerOptions": [
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   }
+  ],
+  "answer": "a",
+  "correctAnswer": "a",
+  "distractorRationales": {
+   "i": "D-VOWEL",
+   "o": "D-VOWEL",
+   "e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "band",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.R.short_a.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "new final-cluster target; band, bend, bind and bond demand the heard vowel"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.R.short_e.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "short_vowel",
+  "itemKey": "short_e",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes d_sk?",
+  "question": "Which vowel completes d_sk?",
+  "spokenPrompt": "Desk. Which vowel completes the word?",
+  "choices": [
+   "e",
+   "i",
+   "u",
+   "a"
+  ],
+  "answerOptions": [
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   }
+  ],
+  "answer": "e",
+  "correctAnswer": "e",
+  "distractorRationales": {
+   "u": "D-VOWEL",
+   "a": "D-VOWEL",
+   "i": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "desk",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.R.short_e.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "new final-cluster target; desk is distinguished from disk and dusk by its vowel"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.R.short_i.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "short_vowel",
+  "itemKey": "short_i",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes sw_m?",
+  "question": "Which vowel completes sw_m?",
+  "spokenPrompt": "Swim. Which vowel completes the word?",
+  "choices": [
+   "e",
+   "i",
+   "a",
+   "u"
+  ],
+  "answerOptions": [
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   }
+  ],
+  "answer": "i",
+  "correctAnswer": "i",
+  "distractorRationales": {
+   "u": "D-VOWEL",
+   "e": "D-VOWEL",
+   "a": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "swim",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.R.short_i.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "new initial-cluster target; the recording distinguishes swim from swam and swum"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.R.short_o.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "short_vowel",
+  "itemKey": "short_o",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes sp_t?",
+  "question": "Which vowel completes sp_t?",
+  "spokenPrompt": "Spot. Which vowel completes the word?",
+  "choices": [
+   "i",
+   "u",
+   "o",
+   "a"
+  ],
+  "answerOptions": [
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   }
+  ],
+  "answer": "o",
+  "correctAnswer": "o",
+  "distractorRationales": {
+   "a": "D-VOWEL",
+   "i": "D-VOWEL",
+   "u": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "spot",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.R.short_o.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "new initial-cluster target; spot contrasts with spat and spit without a scene-naming demand"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.R.short_u.v20r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "short_vowel",
+  "itemKey": "short_u",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes cl_mp?",
+  "question": "Which vowel completes cl_mp?",
+  "spokenPrompt": "Clump. Which vowel completes the word?",
+  "choices": [
+   "a",
+   "i",
+   "o",
+   "u"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   }
+  ],
+  "answer": "u",
+  "correctAnswer": "u",
+  "distractorRationales": {
+   "i": "D-VOWEL",
+   "o": "D-VOWEL",
+   "a": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "clump",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.R.short_u.v20r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "new word with initial and final clusters; the heard vowel distinguishes clump from clamp"
+ },
+ {
   "id": "lp3.cvc_short_vowels.l1.R.short_u.v7r",
   "bankStandardVersion": 3,
   "grade": "K-2",
@@ -7578,12 +8124,17 @@ export const questions = [
   "question": "Which vowel completes n_t?",
   "spokenPrompt": "Nut. Which vowel completes the word?",
   "choices": [
+   "a",
    "o",
    "e",
-   "u",
-   "a"
+   "u"
   ],
   "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
    {
     "value": "o",
     "label": "o",
@@ -7598,11 +8149,6 @@ export const questions = [
     "value": "u",
     "label": "u",
     "text": "u"
-   },
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
    }
   ],
   "answer": "u",
@@ -7678,12 +8224,17 @@ export const questions = [
   "question": "Which vowel completes m_g?",
   "spokenPrompt": "Mug. Which vowel completes the word?",
   "choices": [
+   "u",
    "a",
    "i",
-   "o",
-   "u"
+   "o"
   ],
   "answerOptions": [
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
    {
     "value": "a",
     "label": "a",
@@ -7698,11 +8249,6 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
-   },
-   {
-    "value": "u",
-    "label": "u",
-    "text": "u"
    }
   ],
   "answer": "u",
@@ -7778,12 +8324,17 @@ export const questions = [
   "question": "Which word names the picture?",
   "spokenPrompt": "Which word names the picture?",
   "choices": [
+   "hit",
    "hat",
    "hot",
-   "hut",
-   "hit"
+   "hut"
   ],
   "answerOptions": [
+   {
+    "value": "hit",
+    "label": "hit",
+    "text": "hit"
+   },
    {
     "value": "hat",
     "label": "hat",
@@ -7798,11 +8349,6 @@ export const questions = [
     "value": "hut",
     "label": "hut",
     "text": "hut"
-   },
-   {
-    "value": "hit",
-    "label": "hit",
-    "text": "hit"
    }
   ],
   "answer": "hat",
@@ -7878,12 +8424,17 @@ export const questions = [
   "question": "Which word names the picture?",
   "spokenPrompt": "Which word names the picture?",
   "choices": [
+   "pen",
    "pit",
    "pin",
-   "pan",
-   "pen"
+   "pan"
   ],
   "answerOptions": [
+   {
+    "value": "pen",
+    "label": "pen",
+    "text": "pen"
+   },
    {
     "value": "pit",
     "label": "pit",
@@ -7898,18 +8449,13 @@ export const questions = [
     "value": "pan",
     "label": "pan",
     "text": "pan"
-   },
-   {
-    "value": "pen",
-    "label": "pen",
-    "text": "pen"
    }
   ],
   "answer": "pin",
   "correctAnswer": "pin",
   "distractorRationales": {
    "pen": "D-VOWEL",
-   "pit": "D-VOWEL",
+   "pit": "D-RIME-NEAR",
    "pan": "D-VOWEL"
   },
   "mediaTier": "image-required",
@@ -7978,12 +8524,17 @@ export const questions = [
   "question": "Which word has the short a sound?",
   "spokenPrompt": "Apple. Listen to the first sound. Which word has the same vowel sound?",
   "choices": [
+   "game",
    "jet",
    "jug",
-   "jam",
-   "game"
+   "jam"
   ],
   "answerOptions": [
+   {
+    "value": "game",
+    "label": "game",
+    "text": "game"
+   },
    {
     "value": "jet",
     "label": "jet",
@@ -7998,11 +8549,6 @@ export const questions = [
     "value": "jam",
     "label": "jam",
     "text": "jam"
-   },
-   {
-    "value": "game",
-    "label": "game",
-    "text": "game"
    }
   ],
   "answer": "jam",
@@ -8066,12 +8612,17 @@ export const questions = [
   "question": "Which word has the short o sound?",
   "spokenPrompt": "Octopus. Listen to the first sound. Which word has the same vowel sound?",
   "choices": [
+   "hot",
    "home",
    "hat",
-   "hut",
-   "hot"
+   "hut"
   ],
   "answerOptions": [
+   {
+    "value": "hot",
+    "label": "hot",
+    "text": "hot"
+   },
    {
     "value": "home",
     "label": "home",
@@ -8086,11 +8637,6 @@ export const questions = [
     "value": "hut",
     "label": "hut",
     "text": "hut"
-   },
-   {
-    "value": "hot",
-    "label": "hot",
-    "text": "hot"
    }
   ],
   "answer": "hot",
@@ -8154,12 +8700,17 @@ export const questions = [
   "question": "Which vowel completes b_ll?",
   "spokenPrompt": "Bell. Which vowel completes the word?",
   "choices": [
+   "e",
    "a",
    "i",
-   "o",
-   "e"
+   "o"
   ],
   "answerOptions": [
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
    {
     "value": "a",
     "label": "a",
@@ -8174,11 +8725,6 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
-   },
-   {
-    "value": "e",
-    "label": "e",
-    "text": "e"
    }
   ],
   "answer": "e",
@@ -8337,12 +8883,17 @@ export const questions = [
   "question": "Which vowel completes l_d?",
   "spokenPrompt": "Lid. Which vowel completes the word?",
   "choices": [
+   "o",
    "i",
    "a",
-   "e",
-   "o"
+   "e"
   ],
   "answerOptions": [
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
    {
     "value": "i",
     "label": "i",
@@ -8357,11 +8908,6 @@ export const questions = [
     "value": "e",
     "label": "e",
     "text": "e"
-   },
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
    }
   ],
   "answer": "i",
@@ -8437,12 +8983,17 @@ export const questions = [
   "question": "Which word did you hear?",
   "spokenPrompt": "Lump. Which word did you hear?",
   "choices": [
+   "lift",
    "lump",
    "lamp",
-   "limp",
-   "lift"
+   "limp"
   ],
   "answerOptions": [
+   {
+    "value": "lift",
+    "label": "lift",
+    "text": "lift"
+   },
    {
     "value": "lump",
     "label": "lump",
@@ -8457,11 +9008,6 @@ export const questions = [
     "value": "limp",
     "label": "limp",
     "text": "limp"
-   },
-   {
-    "value": "lift",
-    "label": "lift",
-    "text": "lift"
    }
   ],
   "answer": "lump",

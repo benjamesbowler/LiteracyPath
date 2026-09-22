@@ -36,6 +36,17 @@ const filesOnly = process.argv.includes("--files-only");
 // Prepare exact recordings before publication. A new bank cannot pass its
 // audio gate if the generator only sees the previously published questions.
 const useAuthored = process.argv.includes("--authored");
+// Freeze and record one reviewed bank at a time while other authors work.
+// Unselected catalogue entries are preserved by the merge below.
+const selectedSkills = process.argv.find(argument => argument.startsWith("--skills="))
+  ?.slice("--skills=".length).split(",").filter(Boolean);
+const selectSkillIds = ids => {
+  if (!selectedSkills) return ids;
+  for (const skill of selectedSkills) {
+    if (!ids.includes(skill)) throw new Error(`Unknown assessment skill: ${skill}`);
+  }
+  return ids.filter(skill => selectedSkills.includes(skill));
+};
 const integerArgument = name => {
   const prefix = `--${name}=`;
   const raw = process.argv.find(argument => argument.startsWith(prefix))?.slice(prefix.length);
@@ -98,11 +109,11 @@ function request(role, text) {
 const banks = useAuthored ? await (async () => {
   const { expandBank, makeImageResolver, AUTHORING_DIR } = await import("./assessmentRebuild/lib.mjs");
   const { skillBlueprints } = await import("../src/content/blueprints/skillBlueprints.js");
-  return Promise.all(Object.keys(skillBlueprints).map(async skill => {
+  return Promise.all(selectSkillIds(Object.keys(skillBlueprints)).map(async skill => {
     const source = (await import(path.join(AUTHORING_DIR, `${skill}.mjs`))).default;
     return expandBank(source, skillBlueprints[skill], source.imageResolver || makeImageResolver());
   }));
-})() : await Promise.all(listV3PublishedSkillIds().map(importV3Bank));
+})() : await Promise.all(selectSkillIds(listV3PublishedSkillIds()).map(importV3Bank));
 for (const item of banks.flat()) {
   request("assessment_prompt", spokenCloze(item.spokenPrompt || item.prompt));
   if (item.sentence) request("assessment_prompt", spokenCloze(item.sentence));

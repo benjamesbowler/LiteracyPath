@@ -35,6 +35,9 @@ function answerHarness({ saveAnswer, updateSummary, roundLength = 10, saveAttemp
     pendingAssessmentCompletionRef: { current: null, owner: "learner-owner" },
     assessmentCompletionOwner: "learner-owner",
     assessmentCompletionRevision: 0,
+    assessmentSittingRef: { current: null },
+    passedPathKeys: () => ["L1P1"],
+    getAssessmentCheckpointProgression: () => ({ level: 1, phase: 1 }),
     currentQuestion: question,
     currentStage: stage,
     skillTree: [stage],
@@ -43,6 +46,7 @@ function answerHarness({ saveAnswer, updateSummary, roundLength = 10, saveAttemp
     assessmentMode: "mastery",
     independentFocusAssessment: true,
     studentFocusSession: {},
+    getLearnerAssessmentAttempts: () => [],
     roundAnswers: [], roundItemKeys: [],
     roundQuestionIdsRef: { current: [] }, roundItemKeysRef: { current: [] },
     answerHistoryRef: { current: [] },
@@ -372,4 +376,15 @@ test("an assessment bank finishing after navigation cannot reopen the assessment
   network.resolve();
   await starting;
   assert.equal(writes.length, priorWrites, "retired start must not change the destination or UI state");
+});
+
+test("answers cannot be scored while requested evidence audio is still being delivered", async () => {
+  const harness = answerHarness();
+  harness.scope.assessmentSittingRef.current = { audioPending: { questionId: harness.scope.currentQuestion.id } };
+  await harness.answer("cat");
+  assert.equal(harness.calls.answers, 0);
+  assert.equal(harness.scope.answerHistoryRef.current.length, 0);
+  harness.scope.assessmentSittingRef.current.audioPending = null;
+  await harness.answer("cat");
+  assert.equal(harness.calls.answers, 1);
 });

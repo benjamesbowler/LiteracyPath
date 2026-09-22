@@ -189,6 +189,19 @@ export default {
     fresh(lcv("short_u", 2, 1, 9, "plum", ["u", "a", "o", "e"])),
     fresh(pp("short_u", 2, 2, 10, "stump", ["stump", "stamp", "stomp", "stub"], { stub: "D-DEVELOPMENTAL" })),
 
+    // Six new recordings spread the sixteen reserves evenly across the two levels.
+    { ...lcv("short_a", 1, 1, 20, "cap", ["a", "e", "i", "u"]), retention: true },
+    { ...lcv("short_a", 2, 1, 20, "lamp", ["a", "e", "o", "u"]), retention: true,
+      note: "new CVCC listening target; isolate the medial vowel despite the final mp cluster" },
+    { ...lcv("short_e", 2, 1, 20, "vest", ["e", "i", "a", "o"]), retention: true,
+      note: "new CVCC listening target; e/i pressure remains independent of recognizing an object" },
+    { ...lcv("short_i", 2, 1, 20, "ship", ["i", "e", "a", "u"]), retention: true,
+      note: "new listening target with a single sh onset phoneme and the short-i medial sound" },
+    { ...lcv("short_o", 2, 2, 20, "pond", ["o", "u", "a", "i"]), retention: true,
+      note: "new CVCC listening target; contrast short o/u without showing its written vowel" },
+    { ...lcv("short_u", 2, 2, 20, "plug", ["u", "a", "o", "e"]), retention: true,
+      note: "new CCVC listening target; retain both onset sounds while identifying its vowel" },
+
     // ================= Retention reserve (form R) =================
     lcv("short_e", 1, 1, 7, "hen", ["e", "i", "o", "a"]),
     lcv("short_u", 1, 2, 7, "hut", ["u", "a", "o", "e"]),

@@ -3427,16 +3427,16 @@ export const questions = [
   "question": "Which word has the same vowel sound?",
   "spokenPrompt": "Blue. Which word has the same vowel sound?",
   "choices": [
-   "broom",
+   "moon",
    "book",
    "bed",
    "pig"
   ],
   "answerOptions": [
    {
-    "value": "broom",
-    "label": "broom",
-    "text": "broom"
+    "value": "moon",
+    "label": "moon",
+    "text": "moon"
    },
    {
     "value": "book",
@@ -3454,8 +3454,8 @@ export const questions = [
     "text": "pig"
    }
   ],
-  "answer": "broom",
-  "correctAnswer": "broom",
+  "answer": "moon",
+  "correctAnswer": "moon",
   "distractorRationales": {
    "bed": "D-VOWEL",
    "pig": "D-VOWEL",
@@ -3697,16 +3697,16 @@ export const questions = [
   "question": "Which word does NOT have the oo (as in moon) sound?",
   "spokenPrompt": "Which word does not have the oo (as in moon) sound?",
   "choices": [
-   "room",
+   "food",
    "look",
-   "broom",
+   "spoon",
    "boot"
   ],
   "answerOptions": [
    {
-    "value": "room",
-    "label": "room",
-    "text": "room"
+    "value": "food",
+    "label": "food",
+    "text": "food"
    },
    {
     "value": "look",
@@ -3714,9 +3714,9 @@ export const questions = [
     "text": "look"
    },
    {
-    "value": "broom",
-    "label": "broom",
-    "text": "broom"
+    "value": "spoon",
+    "label": "spoon",
+    "text": "spoon"
    },
    {
     "value": "boot",
@@ -3727,9 +3727,9 @@ export const questions = [
   "answer": "look",
   "correctAnswer": "look",
   "distractorRationales": {
-   "broom": "D-PATTERN-TRAP",
+   "spoon": "D-PATTERN-TRAP",
    "boot": "D-PATTERN-TRAP",
-   "room": "D-PATTERN-TRAP"
+   "food": "D-PATTERN-TRAP"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -3759,7 +3759,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
+  "notes": "Distinguish the two oo sounds across four printed words; avoid room and broom, which vary by accent."
  },
  {
   "id": "lp3.vowel_teams.l2.A.ow.v1",
@@ -9415,7 +9415,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "now is real — the new word card pins the target"
+  "notes": "The spoken new distinguishes it from the real now completion; no word card is used."
  },
  {
   "id": "lp3.vowel_teams.l2.R.aw.v7r",
@@ -9533,7 +9533,7 @@ export const questions = [
   "spokenPrompt": "Which word does not have the oo (as in moon) sound?",
   "choices": [
    "good",
-   "room",
+   "moon",
    "zoo",
    "food"
   ],
@@ -9544,9 +9544,9 @@ export const questions = [
     "text": "good"
    },
    {
-    "value": "room",
-    "label": "room",
-    "text": "room"
+    "value": "moon",
+    "label": "moon",
+    "text": "moon"
    },
    {
     "value": "zoo",
@@ -9564,7 +9564,7 @@ export const questions = [
   "distractorRationales": {
    "zoo": "D-PATTERN-TRAP",
    "food": "D-PATTERN-TRAP",
-   "room": "D-PATTERN-TRAP"
+   "moon": "D-PATTERN-TRAP"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -9594,7 +9594,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
+  "notes": "Transfer the two oo sounds to a fresh word set with accent-stable long-oo alternatives."
  },
  {
   "id": "lp3.vowel_teams.l2.R.aw.v8r",
@@ -9683,6 +9683,362 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "crowl, creel and crool are non-words"
+  "notes": "The heard crawl pins aw; creel is a different real word, not another spelling of crawl."
+ },
+ {
+  "id": "lp3.vowel_teams.l1.R.ay.v11r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "ay",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete spr__?",
+  "question": "Which letters complete spr__?",
+  "spokenPrompt": "Spray. Which letters complete the word?",
+  "choices": [
+   "ai",
+   "ee",
+   "oa",
+   "ay"
+  ],
+  "answerOptions": [
+   {
+    "value": "ai",
+    "label": "ai",
+    "text": "ai"
+   },
+   {
+    "value": "ee",
+    "label": "ee",
+    "text": "ee"
+   },
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
+   {
+    "value": "ay",
+    "label": "ay",
+    "text": "ay"
+   }
+  ],
+  "answer": "ay",
+  "correctAnswer": "ay",
+  "distractorRationales": {
+   "ai": "D-PATTERN-TRAP",
+   "ee": "D-PATTERN-TRAP",
+   "oa": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "spray",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.R.ay.v11r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "A new final-ay word distinguishes the conventional ending from a medial-ai spelling."
+ },
+ {
+  "id": "lp3.vowel_teams.l1.R.ee.v11r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "ee",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete sw__t?",
+  "question": "Which letters complete sw__t?",
+  "spokenPrompt": "Sweet. Which letters complete the word?",
+  "choices": [
+   "ee",
+   "ea",
+   "ai",
+   "oa"
+  ],
+  "answerOptions": [
+   {
+    "value": "ee",
+    "label": "ee",
+    "text": "ee"
+   },
+   {
+    "value": "ea",
+    "label": "ea",
+    "text": "ea"
+   },
+   {
+    "value": "ai",
+    "label": "ai",
+    "text": "ai"
+   },
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   }
+  ],
+  "answer": "ee",
+  "correctAnswer": "ee",
+  "distractorRationales": {
+   "ea": "D-PATTERN-TRAP",
+   "ai": "D-PATTERN-TRAP",
+   "oa": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "sweet",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.R.ee.v11r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The heard sweet distinguishes it from the real short-vowel sweat completion."
+ },
+ {
+  "id": "lp3.vowel_teams.l1.R.igh.v11r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "igh",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete s__t?",
+  "question": "Which letters complete s__t?",
+  "spokenPrompt": "Sight. Which letters complete the word?",
+  "choices": [
+   "oa",
+   "igh",
+   "ai",
+   "ee"
+  ],
+  "answerOptions": [
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
+   {
+    "value": "igh",
+    "label": "igh",
+    "text": "igh"
+   },
+   {
+    "value": "ai",
+    "label": "ai",
+    "text": "ai"
+   },
+   {
+    "value": "ee",
+    "label": "ee",
+    "text": "ee"
+   }
+  ],
+  "answer": "igh",
+  "correctAnswer": "igh",
+  "distractorRationales": {
+   "ai": "D-PATTERN-TRAP",
+   "ee": "D-PATTERN-TRAP",
+   "oa": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "sight",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.R.igh.v11r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer the three-letter team to a new target; every option is a taught team."
+ },
+ {
+  "id": "lp3.vowel_teams.l2.R.oo.v9r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "oo",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete st__d?",
+  "question": "Which letters complete st__d?",
+  "spokenPrompt": "Stood. Which letters complete the word?",
+  "choices": [
+   "oa",
+   "ee",
+   "oo",
+   "ou"
+  ],
+  "answerOptions": [
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
+   {
+    "value": "ee",
+    "label": "ee",
+    "text": "ee"
+   },
+   {
+    "value": "oo",
+    "label": "oo",
+    "text": "oo"
+   },
+   {
+    "value": "ou",
+    "label": "ou",
+    "text": "ou"
+   }
+  ],
+  "answer": "oo",
+  "correctAnswer": "oo",
+  "distractorRationales": {
+   "ee": "D-PATTERN-TRAP",
+   "ou": "D-PATTERN-TRAP",
+   "oa": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "stood",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.R.oo.v9r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "A fresh short-oo word balances the reserve’s existing long-oo and contrast questions."
  }
 ];

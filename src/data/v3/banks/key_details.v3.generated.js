@@ -390,7 +390,7 @@ export const questions = [
    "the chain had snapped apart",
    "the chain was not tight",
    "the chain was too tight",
-   "the chain had come off"
+   "the front tyre had gone flat"
   ],
   "answerOptions": [
    {
@@ -409,15 +409,15 @@ export const questions = [
     "text": "the chain was too tight"
    },
    {
-    "value": "the chain had come off",
-    "label": "the chain had come off",
-    "text": "the chain had come off"
+    "value": "the front tyre had gone flat",
+    "label": "the front tyre had gone flat",
+    "text": "the front tyre had gone flat"
    }
   ],
   "answer": "the chain was not tight",
   "correctAnswer": "the chain was not tight",
   "distractorRationales": {
-   "the chain had come off": "D-PLAUSIBLE-UNSUPPORTED",
+   "the front tyre had gone flat": "D-PLAUSIBLE-UNSUPPORTED",
    "the chain had snapped apart": "D-OPPOSITE",
    "the chain was too tight": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -2181,45 +2181,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "When did Mr. Reed change the battery?",
-  "question": "When did Mr. Reed change the battery?",
-  "spokenPrompt": "When did Mr. Reed change the battery?",
+  "prompt": "What time had the clock stopped at?",
+  "question": "What time had the clock stopped at?",
+  "spokenPrompt": "What time had the clock stopped at?",
   "passage": "The classroom clock stopped during reading time. Ella saw both hands pointing at twelve. Mr. Reed changed its battery after lunch. The clock began ticking before home time. Ella watched its long hand move again.",
   "cell": "number_detail",
   "choices": [
-   "during assembly",
-   "after home time",
-   "after lunch",
-   "before breakfast"
+   "three on the clock",
+   "six on the clock",
+   "twelve on the clock",
+   "one on the clock"
   ],
   "answerOptions": [
    {
-    "value": "during assembly",
-    "label": "during assembly",
-    "text": "during assembly"
+    "value": "three on the clock",
+    "label": "three on the clock",
+    "text": "three on the clock"
    },
    {
-    "value": "after home time",
-    "label": "after home time",
-    "text": "after home time"
+    "value": "six on the clock",
+    "label": "six on the clock",
+    "text": "six on the clock"
    },
    {
-    "value": "after lunch",
-    "label": "after lunch",
-    "text": "after lunch"
+    "value": "twelve on the clock",
+    "label": "twelve on the clock",
+    "text": "twelve on the clock"
    },
    {
-    "value": "before breakfast",
-    "label": "before breakfast",
-    "text": "before breakfast"
+    "value": "one on the clock",
+    "label": "one on the clock",
+    "text": "one on the clock"
    }
   ],
-  "answer": "after lunch",
-  "correctAnswer": "after lunch",
+  "answer": "twelve on the clock",
+  "correctAnswer": "twelve on the clock",
   "distractorRationales": {
-   "before breakfast": "D-PLAUSIBLE-UNSUPPORTED",
-   "during assembly": "D-PLAUSIBLE-UNSUPPORTED",
-   "after home time": "D-PLAUSIBLE-UNSUPPORTED"
+   "one on the clock": "D-OPPOSITE",
+   "three on the clock": "D-OPPOSITE",
+   "six on the clock": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2249,7 +2249,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_074)"
+  "notes": "Read the numerical time shown by both stopped clock hands."
  },
  {
   "id": "lp3.key_details.l2.A.precise_detail.v1",
@@ -2274,7 +2274,7 @@ export const questions = [
   "prompt": "Which rolls did Baker Tom choose for the front counter?",
   "question": "Which rolls did Baker Tom choose for the front counter?",
   "spokenPrompt": "Which rolls did Baker Tom choose for the front counter?",
-  "passage": "Talia helped sort rolls before the bakery opened. One tray held plain rolls with soft tops. The other held rolls covered in seeds. Baker Tom chose the seeded rolls for the front counter. Talia put the plain rolls on the back shelf.",
+  "passage": "Talia helped sort rolls before the bakery opened. One tray held plain rolls with soft tops. The other held rolls covered in seeds. Baker Tom chose the seeded rolls for the front counter. Talia put the plain rolls on the back shelf. Customers could see both trays through the glass. A small card named each kind of roll. The seeds were scattered over the crust, not inside. Tom wanted those dotted tops facing the waiting customers.",
   "cell": "precise_detail",
   "choices": [
    "rolls with seeds on top",
@@ -2339,7 +2339,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_032)"
+  "notes": "Separate the roll's surface from its shelf position and inner ingredients."
  },
  {
   "id": "lp3.key_details.l2.B.precise_detail.v2",
@@ -2364,7 +2364,7 @@ export const questions = [
   "prompt": "Which plants did the students water first?",
   "question": "Which plants did the students water first?",
   "spokenPrompt": "Which plants did the students water first?",
-  "passage": "The garden club checked their plants after a hot weekend. Lettuce leaves were limp, but the tomatoes still stood tall. Mr. Hayes asked them to water the limp plants first. They watered the lettuce before the tomatoes. Then they wrote both jobs in their notebook.",
+  "passage": "The garden club checked their plants after a hot weekend. Lettuce leaves were limp, but the tomatoes still stood tall. Mr. Hayes asked them to water the limp plants first. They watered the lettuce before the tomatoes. Then they wrote both jobs in their notebook. The watering can held enough for only one row. A second trip to the tap would supply the other row. The leaves, rather than the fruits, showed which plants needed help. Their notebook recorded the order as well as both plant names.",
   "cell": "precise_detail",
   "choices": [
    "both plants at the same time",
@@ -2429,7 +2429,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_033)"
+  "notes": "Use the leaf condition and the teacher's priority to resolve competing plant orders."
  },
  {
   "id": "lp3.key_details.l2.C.precise_detail.v3",
@@ -2451,10 +2451,10 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Whose name was on the bookmark?",
-  "question": "Whose name was on the bookmark?",
-  "spokenPrompt": "Whose name was on the bookmark?",
-  "passage": "Amira found a bookmark beside the mystery books. Daniel's name was written on it in blue ink. Amira's own bookmark had her name in green. She gave the lost bookmark to the librarian. The librarian put it in Daniel's book box.",
+  "prompt": "Whose name was written in blue on the lost bookmark?",
+  "question": "Whose name was written in blue on the lost bookmark?",
+  "spokenPrompt": "Whose name was written in blue on the lost bookmark?",
+  "passage": "Amira found a bookmark beside the mystery books. Daniel's name was written on it in blue ink. Amira's own bookmark had her name in green. She gave the lost bookmark to the librarian. The librarian put it in Daniel's book box. Both bookmarks were strips of yellow card. They also had the same star drawn near one end. Their names and ink colours made them different. The librarian checked the blue writing before choosing a box. Amira kept the green one in her pocket.",
   "cell": "precise_detail",
   "choices": [
    "the librarian's",
@@ -2519,7 +2519,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_034)"
+  "notes": "Distinguish two otherwise similar objects by owner and ink colour."
  },
  {
   "id": "lp3.key_details.l2.A.precise_detail.v4",
@@ -2544,7 +2544,7 @@ export const questions = [
   "prompt": "Which part of the song was difficult for Sofia?",
   "question": "Which part of the song was difficult for Sofia?",
   "spokenPrompt": "Which part of the song was difficult for Sofia?",
-  "passage": "Sofia played her piano song before the school concert. She began well and played the middle without stopping. She kept missing only the final note. Her teacher asked her to practice the ending slowly. Three careful tries helped her play that note correctly.",
+  "passage": "Sofia played her piano song before the school concert. She began well and played the middle without stopping. She kept missing only the final note. Her teacher asked her to practice the ending slowly. Three careful tries helped her play that note correctly. The song had a loud opening and a quieter middle. Neither section needed more work that day. The ending had just one sound after a short pause. Sofia marked that place on her music with a circle. At the concert, she remembered to slow down there.",
   "cell": "precise_detail",
   "choices": [
    "the loud opening piano note",
@@ -2609,7 +2609,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_039)"
+  "notes": "Choose the precise part needing practice, rejecting other real sections of the song."
  },
  {
   "id": "lp3.key_details.l2.B.precise_detail.v5",
@@ -2634,7 +2634,7 @@ export const questions = [
   "prompt": "Which picture did the teacher choose?",
   "question": "Which picture did the teacher choose?",
   "spokenPrompt": "Which picture did the teacher choose?",
-  "passage": "Nadia took photographs for the class newsletter. The chess club held its board in their photo. The garden team held fresh carrots in theirs. The teacher chose the picture with the carrots. Nadia placed that picture on the front page.",
+  "passage": "Nadia took photographs for the class newsletter. The chess club held its board in their photo. The garden team held fresh carrots in theirs. The teacher chose the picture with the carrots. Nadia placed that picture on the front page. Pictures of the same groups working were saved for another page. One showed a chess game halfway through. Another showed hands planting seeds in a narrow bed. The front picture needed people holding things they had used or grown.",
   "cell": "precise_detail",
   "choices": [
    "the chess club holding a board",
@@ -2699,7 +2699,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_058)"
+  "notes": "Match both the chosen group and its pictured action among related photographs."
  },
  {
   "id": "lp3.key_details.l2.C.precise_detail.v6",
@@ -2724,7 +2724,7 @@ export const questions = [
   "prompt": "Which soil felt softer?",
   "question": "Which soil felt softer?",
   "spokenPrompt": "Which soil felt softer?",
-  "passage": "Two cups in the science corner held the same soil. The cup with a red label had been watered. The cup with a blue label had stayed dry. Priya pressed a finger into each cup. The soil with the red label felt softer.",
+  "passage": "Two cups in the science corner held the same soil. The cup with a red label had been watered. The cup with a blue label had stayed dry. Priya pressed a finger into each cup. The soil with the red label felt softer. Both cups stood on the same sunny shelf. Each held the same amount of soil from one bag. The labels helped her remember which treatment each cup received. She recorded the feeling before adding water to either cup.",
   "cell": "precise_detail",
   "choices": [
    "the dry soil with the blue label",
@@ -2789,7 +2789,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_080)"
+  "notes": "Combine the treatment and colour label rather than selecting by only one attribute."
  },
  {
   "id": "lp3.key_details.l2.A.precise_detail.v7",
@@ -2814,7 +2814,7 @@ export const questions = [
   "prompt": "Which snacks went in the fridge?",
   "question": "Which snacks went in the fridge?",
   "spokenPrompt": "Which snacks went in the fridge?",
-  "passage": "The class packed snacks for the field trip. Apples and cheese stayed in the fridge until morning. Crackers stayed in a sealed box on the counter. Ms. Reed checked both places before loading the cooler. She packed the apples and cheese last.",
+  "passage": "The class packed snacks for the field trip. Apples and cheese stayed in the fridge until morning. Crackers stayed in a sealed box on the counter. Ms. Reed checked both places before loading the cooler. She packed the apples and cheese last. The cooler already held ice packs beneath an empty tray. The crackers did not need to stay cold before departure. Their sealed box kept them dry instead. All snacks would travel together despite being stored separately overnight.",
   "cell": "precise_detail",
   "choices": [
    "cheese and crackers on the counter",
@@ -2879,7 +2879,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_089)"
+  "notes": "Keep the two cold snacks together while separating storage from later transport."
  },
  {
   "id": "lp3.key_details.l1.R.what_happened.v9r",
@@ -3354,7 +3354,7 @@ export const questions = [
   "prompt": "Where did Marcus fill his jar?",
   "question": "Where did Marcus fill his jar?",
   "spokenPrompt": "Where did Marcus fill his jar?",
-  "passage": "The teacher asked each group to use a different place. Marcus's group needed water from the slow part of the river. Only the patch near the reeds had slow water. The water near the bridge moved fast. Marcus took his jar to the right place and filled it.",
+  "passage": "The teacher asked each group to use a different place. Marcus's group needed water from the slow part of the river. Only the patch near the reeds had slow water. The water near the bridge moved fast. Marcus took his jar to the right place and filled it. His group was studying tiny creatures that stayed in gentle water. Other groups needed samples from places with stronger movement. Their jars all looked alike, but each had a different label. Marcus's label showed reeds, matching the slow area named on the map.",
   "cell": "detail_across_sentences",
   "choices": [
    "in the deep pool by the waterfall",
@@ -3419,7 +3419,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_031)"
+  "notes": "Match the group's required water speed to its mapped location."
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v10r",
@@ -3444,7 +3444,7 @@ export const questions = [
   "prompt": "Which side did the worker close?",
   "question": "Which side did the worker close?",
   "spokenPrompt": "Which side did the worker close?",
-  "passage": "Noah and his uncle crossed a wooden footbridge. Its left side had a loose board by the rail. The right side had no loose boards. His uncle asked the park worker to close the unsafe side. The worker put a barrier across that side.",
+  "passage": "Noah and his uncle crossed a wooden footbridge. Its left side had a loose board by the rail. The right side had no loose boards. His uncle asked the park worker to close the unsafe side. The worker put a barrier across that side. The bridge was wide enough for two people side by side. One safe lane could remain open while repairs were arranged. A red mark beside the damaged board showed the problem. The barrier lined up with that mark, leaving the firm boards clear.",
   "cell": "detail_across_sentences",
   "choices": [
    "both sides beside the bridge rail",
@@ -3509,7 +3509,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_035)"
+  "notes": "Combine the damage location with the instruction to close only the unsafe side."
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v11r",
@@ -3534,7 +3534,7 @@ export const questions = [
   "prompt": "Which tool did she clip to her jacket?",
   "question": "Which tool did she clip to her jacket?",
   "spokenPrompt": "Which tool did she clip to her jacket?",
-  "passage": "The firefighter showed the class a radio and a light. The radio let her hear messages from her team. The light helped her see inside dark rooms. She clipped the tool for hearing messages to her jacket. She kept the light in her hand.",
+  "passage": "The firefighter showed the class a radio and a light. The radio let her hear messages from her team. The light helped her see inside dark rooms. She clipped the tool for hearing messages to her jacket. She kept the light in her hand. Both tools were small enough to carry with one hand. During a rescue, her hands might be busy opening doors. The clip kept messages close enough for her to hear. It did not make the dark room any brighter by itself.",
   "cell": "detail_across_sentences",
   "choices": [
    "the tool that lights dark rooms",
@@ -3599,7 +3599,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_036)"
+  "notes": "Resolve the clipped tool through its function rather than the order objects were introduced."
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v12r",
@@ -3624,7 +3624,7 @@ export const questions = [
   "prompt": "How many butterflies did Chloe's partner count?",
   "question": "How many butterflies did Chloe's partner count?",
   "spokenPrompt": "How many butterflies did Chloe's partner count?",
-  "passage": "The class counted butterflies in two parts of the meadow. Chloe's partner counted the ones on the purple flowers. Five butterflies sat there before flying away. Two others stayed on the yellow flowers. Chloe wrote her partner's count in her guide.",
+  "passage": "The class counted butterflies in two parts of the meadow. Chloe's partner counted the ones on the purple flowers. Five butterflies sat there before flying away. Two others stayed on the yellow flowers. Chloe wrote her partner's count in her guide. Each partner had one patch, so no butterfly was counted twice. Chloe watched the yellow patch while her partner watched the purple. Their guide had separate spaces for the two results. The teacher wanted each count recorded before the class found the total.",
   "cell": "detail_across_sentences",
   "choices": [
    "five butterflies",
@@ -3689,7 +3689,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Numeric detail extraction retention check."
+  "notes": "Use the partner's assigned patch and retain its count instead of summing both patches."
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v13r",
@@ -3711,10 +3711,10 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What time did the screen say the train would arrive?",
-  "question": "What time did the screen say the train would arrive?",
-  "spokenPrompt": "What time did the screen say the train would arrive?",
-  "passage": "Ethan and Grandma waited for the island train. The board showed two trains coming to the station. The city train would arrive at nine fifteen. The island train would arrive at ten thirty. Ethan read their train's time aloud to Grandma.",
+  "prompt": "What time would Ethan's train arrive?",
+  "question": "What time would Ethan's train arrive?",
+  "spokenPrompt": "What time would Ethan's train arrive?",
+  "passage": "Ethan and Grandma waited for the island train. The board showed two trains coming to the station. The city train would arrive at nine fifteen. The island train would arrive at ten thirty. Ethan read their train's time aloud to Grandma. Grandma's ticket had a picture of a little island on it. The earlier service stopped only at the busy city platform. A message below the times said both trains were running normally. They needed the later service, so there was time for breakfast.",
   "cell": "detail_across_sentences",
   "choices": [
    "eight o'clock",
@@ -3779,7 +3779,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Time-detail extraction retention check."
+  "notes": "Select the arrival time associated with the destination on their ticket."
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v14r",
@@ -3804,7 +3804,7 @@ export const questions = [
   "prompt": "What did Mateo put in the recycling bag?",
   "question": "What did Mateo put in the recycling bag?",
   "spokenPrompt": "What did Mateo put in the recycling bag?",
-  "passage": "The class sorted things after the spring fair. Clean paper could go in the recycling bag. Dirty plastic had to go in the trash. Mateo found clean paper cups and dirty plastic spoons. He checked the rule before choosing a bag for each.",
+  "passage": "The class sorted things after the spring fair. Clean paper could go in the recycling bag. Dirty plastic had to go in the trash. Mateo found clean paper cups and dirty plastic spoons. He checked the rule before choosing a bag for each. Two bags stood open beside the classroom sink. A picture above each one showed what belonged inside. The cups had held dry paper decorations, not drinks. Mud from the garden covered the spoons. Mateo kept those dirty things away from the clean paper.",
   "cell": "detail_across_sentences",
   "choices": [
    "both the cups and spoons",
@@ -3869,7 +3869,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_040)"
+  "notes": "Combine material and condition with the stated sorting rule; neither attribute alone suffices."
  },
  {
   "id": "lp3.key_details.l1.C.who.v6",
@@ -4524,7 +4524,7 @@ export const questions = [
   "prompt": "How did Cal know which lunchbox was his?",
   "question": "How did Cal know which lunchbox was his?",
   "spokenPrompt": "How did Cal know which lunchbox was his?",
-  "passage": "Two blue lunchboxes had the same rocket sticker. Cal's box had a dent in one corner. Robi's box had a smooth corner and smelled of orange. Cal looked at the corners before taking his lunchbox. He left the smooth box on the bench for Robi.",
+  "passage": "Two blue lunchboxes had the same rocket sticker. Cal's box had a dent in one corner. Robi's box had a smooth corner and smelled of orange. Cal looked at the corners before taking his lunchbox. He left the smooth box on the bench for Robi. Neither box had a written name because the ink had faded. Their handles were the same size and colour too. The dent came from Cal dropping his box last week. Robi had kept his own box safely inside his school bag.",
   "cell": "precise_detail",
   "choices": [
    "a smooth corner and lid",
@@ -4589,7 +4589,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Select the distinguishing mark after ruling out the shared sticker and colour."
  },
  {
   "id": "lp3.key_details.l2.A.detail_across_sentences.v1",
@@ -4614,7 +4614,7 @@ export const questions = [
   "prompt": "Which checks show the feeder changing from full to empty?",
   "question": "Which checks show the feeder changing from full to empty?",
   "spokenPrompt": "Which checks show the feeder changing from full to empty?",
-  "passage": "Ola filled the bird feeder with seeds at breakfast. At lunchtime, half the seeds had gone. After school, she found only dust in the feeder. She had not added more seeds during the day. A pigeon rested on the nearby fence.",
+  "passage": "Ola filled the bird feeder with seeds at breakfast. At lunchtime, half the seeds had gone. After school, she found only dust in the feeder. She had not added more seeds during the day. A pigeon rested on the nearby fence. At each check, she looked through the clear sides. She wrote full, half full, or empty in her notebook. The lunch entry was different from both other entries. Her teacher asked for the two checks showing the whole change. No check was made the next morning.",
   "cell": "detail_across_sentences",
   "choices": [
    "at lunchtime and after school",
@@ -4679,7 +4679,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "answer assembled from first and third sentences"
+  "notes": "Combine the earliest full observation with the later empty one; do not infer an exact emptying time."
  },
  {
   "id": "lp3.key_details.l2.B.detail_across_sentences.v2",
@@ -4704,7 +4704,7 @@ export const questions = [
   "prompt": "Which treasure was still there on Saturday?",
   "question": "Which treasure was still there on Saturday?",
   "spokenPrompt": "Which treasure was still there on Saturday?",
-  "passage": "Three lost things stayed in a box on Friday. Jun took his striped scarf at morning break. Ivy took her water bottle after lunch. The only thing left was a dinosaur glove. The box stayed locked in school until Monday.",
+  "passage": "Three lost things stayed in a box on Friday. Jun took his striped scarf at morning break. Ivy took her water bottle after lunch. The only thing left was a dinosaur glove. The box stayed locked in school until Monday. No one could collect anything while the school was closed. The caretaker kept the key in the office over the weekend. A notice said the next collection time was Monday morning. Each owner would need to describe the pattern on their missing thing.",
   "cell": "detail_across_sentences",
   "choices": [
    "the glove with a dinosaur",
@@ -4769,7 +4769,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Combine Friday's remaining object with the weekend access rule."
  },
  {
   "id": "lp3.key_details.l2.C.detail_across_sentences.v3",
@@ -4794,7 +4794,7 @@ export const questions = [
   "prompt": "Whose tree gives the most fruit?",
   "question": "Whose tree gives the most fruit?",
   "spokenPrompt": "Whose tree gives the most fruit?",
-  "passage": "Dad planted a tree when each child was born. Asha's tree has cherries, and Ben's has apples. Baby Mo has the youngest tree, a plum. This year, the apple tree gave the most fruit. Ben helped Dad carry all its full baskets.",
+  "passage": "Dad planted a tree when each child was born. Asha's tree has cherries, and Ben's has apples. Baby Mo has the youngest tree, a plum. This year, the apple tree gave the most fruit. Ben helped Dad carry all its full baskets. The cherries ripened first, but there were only two small baskets. The young plum tree gave just a handful of fruit. Dad wrote each child's name beside the harvest on a chart. The fullest row belonged to the child with the apple tree.",
   "cell": "detail_across_sentences",
   "choices": [
    "Ben's tree",
@@ -4859,7 +4859,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Link fruit type to owner, then compare the harvest details across trees."
  },
  {
   "id": "lp3.key_details.l2.A.detail_across_sentences.v4",
@@ -4884,7 +4884,7 @@ export const questions = [
   "prompt": "Where did the sword come from?",
   "question": "Where did the sword come from?",
   "spokenPrompt": "Where did the sword come from?",
-  "passage": "The school play needed a crown, sword and throne. Raj brought things made from a recycling box. Nell lent the clothes from her costume box. The sword was made of cardboard from the recycling box. Two gold chairs from the staff room became the throne.",
+  "passage": "The school play needed a crown, sword and throne. Raj brought things made from a recycling box. Nell lent the clothes from her costume box. The sword was made of cardboard from the recycling box. Two gold chairs from the staff room became the throne. The crown had silver foil wrapped around a cardboard band. Nell's box held a cape and a long red robe. The chairs needed no cutting or folding to become royal seats. Raj used blunt scissors to shape the sword before covering its edge.",
   "cell": "detail_across_sentences",
   "choices": [
    "Raj's recycling box",
@@ -4949,7 +4949,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Track an object's material back to the person and supply source, not another prop."
  },
  {
   "id": "lp3.key_details.l2.B.detail_across_sentences.v5",
@@ -4971,10 +4971,10 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What is Keya allowed to do now?",
-  "question": "What is Keya allowed to do now?",
-  "spokenPrompt": "What is Keya allowed to do now?",
-  "passage": "The swimming lesson had three groups. Beginners stayed in water where they could stand. The middle group swam across with a kickboard. The top group swam full lengths without one. Keya moved from the middle group to the top group today. She handed her kickboard to a beginner.",
+  "prompt": "What swimming task does Keya's new group do?",
+  "question": "What swimming task does Keya's new group do?",
+  "spokenPrompt": "What swimming task does Keya's new group do?",
+  "passage": "The swimming lesson had three groups. Beginners stayed in water where they could stand. The middle group swam across with a kickboard. The top group swam full lengths without one. Keya moved from the middle group to the top group today. She handed her kickboard to a beginner. Each group had its own lane and teacher. Today's move followed a check of Keya's swimming earlier that morning. Her new teacher pointed to the far end of the pool. That group's task was longer than the middle group's crossing.",
   "cell": "detail_across_sentences",
   "choices": [
    "dive from the high diving board",
@@ -5039,7 +5039,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "needs the group rules AND her promotion"
+  "notes": "Combine the group descriptions with Keya's move to identify her new group's task."
  },
  {
   "id": "lp3.key_details.l2.C.detail_across_sentences.v6",
@@ -5064,7 +5064,7 @@ export const questions = [
   "prompt": "Where did the remaining cups go?",
   "question": "Where did the remaining cups go?",
   "spokenPrompt": "Where did the remaining cups go?",
-  "passage": "The twins sorted paper cups after the fair. They put half in the classroom cabinet. The remaining cups were shared between two art tables. Each table needed the same number of cups. The twins checked that both stacks matched before leaving.",
+  "passage": "The twins sorted paper cups after the fair. They put half in the classroom cabinet. The remaining cups were shared between two art tables. Each table needed the same number of cups. The twins checked that both stacks matched before leaving. There were twelve cups in all before the sorting began. Six were saved for classroom drinks on the next outing. The other six would hold paint for two groups of children. Each art table had three brushes ready beside its empty tray.",
   "cell": "detail_across_sentences",
   "choices": [
    "one small stack by the fair door",
@@ -5129,7 +5129,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "integrates the storage sentence with the equal-table distribution sentence"
+  "notes": "Distinguish saved stock from the remainder and integrate the equal-sharing detail."
  },
  {
   "id": "lp3.key_details.l2.A.detail_across_sentences.v7",
@@ -5151,22 +5151,22 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Why did Priya skip the watering?",
-  "question": "Why did Priya skip the watering?",
-  "spokenPrompt": "Why did Priya skip the watering?",
-  "passage": "The garden chart said to water on Mondays and Thursdays. Another rule said to skip watering after heavy rain. Rain poured all Thursday morning. Priya checked the chart and looked at the wet garden. She left the watering can under the sink.",
+  "prompt": "Why did Meena skip the watering?",
+  "question": "Why did Meena skip the watering?",
+  "spokenPrompt": "Why did Meena skip the watering?",
+  "passage": "The garden chart said to water on Mondays and Thursdays. Another rule said to skip watering after heavy rain. Rain poured all Thursday morning. Meena checked the chart and looked at the wet garden. She left the watering can under the sink. The rule was there to stop roots sitting in soaked soil. Monday had been dry, so watering had gone ahead then. Thursday's rain was heavy enough to fill the shallow dishes outside. The chart stayed on the wall; its usual days had not changed.",
   "cell": "detail_across_sentences",
   "choices": [
-   "Priya could not find the watering can",
+   "Meena could not find the watering can",
    "rain had already watered the garden",
    "Thursday was a day without watering",
    "plant food had replaced the watering"
   ],
   "answerOptions": [
    {
-    "value": "Priya could not find the watering can",
-    "label": "Priya could not find the watering can",
-    "text": "Priya could not find the watering can"
+    "value": "Meena could not find the watering can",
+    "label": "Meena could not find the watering can",
+    "text": "Meena could not find the watering can"
    },
    {
     "value": "rain had already watered the garden",
@@ -5189,7 +5189,7 @@ export const questions = [
   "distractorRationales": {
    "Thursday was a day without watering": "D-PLAUSIBLE-UNSUPPORTED",
    "plant food had replaced the watering": "D-PLAUSIBLE-UNSUPPORTED",
-   "Priya could not find the watering can": "D-OPPOSITE"
+   "Meena could not find the watering can": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5219,7 +5219,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rule sentence + weather sentence must combine"
+  "notes": "Apply a stated exception to the usual schedule using the reported weather."
  },
  {
   "id": "lp3.key_details.l2.B.detail_across_sentences.v8",
@@ -5244,7 +5244,7 @@ export const questions = [
   "prompt": "Which bench has a seed dish, and why?",
   "question": "Which bench has a seed dish, and why?",
   "spokenPrompt": "Which bench has a seed dish, and why?",
-  "passage": "Three benches in the park remembered people from the town. The newest one was for Mr. Alam. He had fed sparrows here for forty years. The carpenter added a seed dish to this bench. The other benches had flowers beside them instead.",
+  "passage": "Three benches in the park remembered people from the town. The newest one was for Mr. Alam. He had fed sparrows here for forty years. The carpenter added a seed dish to this bench. The other benches had flowers beside them instead. A small metal plate on each seat carried a different name. The plate on the newest seat also showed two little sparrows. Families could rest there while watching birds visit the dish. The flowers beside the older seats marked other people's favourite plants.",
   "cell": "detail_across_sentences",
   "choices": [
    "the oldest, to remember feeding birds",
@@ -5309,7 +5309,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Join the bench's owner, bird-feeding history and special feature across separate sentences."
  },
  {
   "id": "lp3.key_details.l2.A.which_is_not.v1",
@@ -5334,7 +5334,7 @@ export const questions = [
   "prompt": "Which of these is NOT in the story?",
   "question": "Which of these is NOT in the story?",
   "spokenPrompt": "Which of these is NOT in the story?",
-  "passage": "The class cleaned its aquarium on Friday. They rinsed the gravel through a strainer. They wiped the glass inside and outside. The plastic castle was washed until it shone. The fish waited in a bucket during all this work.",
+  "passage": "The class cleaned its aquarium on Friday. They rinsed the gravel through a strainer. They wiped the glass inside and outside. The plastic castle was washed until it shone. The fish waited in a bucket during all this work. The teacher kept the fish safely away from the cleaning tools. Fresh water was ready beside the tank before work began. Each helper had a different task written on a card. The class checked those cards to make sure nothing was missed.",
   "cell": "which_is_not",
   "choices": [
    "the glass was wiped",
@@ -5367,9 +5367,9 @@ export const questions = [
   "answer": "the fish were given new food",
   "correctAnswer": "the fish were given new food",
   "distractorRationales": {
-   "the glass was wiped": "D-DETAIL-AS-MAIN",
-   "the fish waited in a bucket": "D-DETAIL-AS-MAIN",
-   "the gravel was rinsed": "D-DETAIL-AS-MAIN"
+   "the glass was wiped": "D-SUPPORTED-DETAIL",
+   "the fish waited in a bucket": "D-SUPPORTED-DETAIL",
+   "the gravel was rinsed": "D-SUPPORTED-DETAIL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5399,7 +5399,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the key is plausible but absent — verbatim matchers pick a true fact and miss"
+  "notes": "Compare every option with the described cleaning tasks and distinguish absence from a true detail."
  },
  {
   "id": "lp3.key_details.l2.B.which_is_not.v2",
@@ -5424,7 +5424,7 @@ export const questions = [
   "prompt": "Which of these does the story NOT mention?",
   "question": "Which of these does the story NOT mention?",
   "spokenPrompt": "Which of these does the story NOT mention?",
-  "passage": "Helpers prepared the field for sports day. They painted white lanes on the grass. They counted beanbags into buckets beside the track. They tied the finish tape between two posts. Finally, someone tested the loudspeaker before the teams arrived.",
+  "passage": "Helpers prepared the field for sports day. They painted white lanes on the grass. They counted beanbags into buckets beside the track. They tied the finish tape between two posts. Finally, someone tested the loudspeaker before the teams arrived. The buckets had team colours painted on their sides. The lanes needed enough room for runners to pass safely. The finish tape was loose enough to break when touched. The speaker test checked whether distant teams could hear instructions.",
   "cell": "which_is_not",
   "choices": [
    "lanes were painted",
@@ -5457,9 +5457,9 @@ export const questions = [
   "answer": "medals were polished",
   "correctAnswer": "medals were polished",
   "distractorRationales": {
-   "beanbags were counted": "D-PLAUSIBLE-UNSUPPORTED",
-   "the loudspeaker was tested": "D-OPPOSITE",
-   "lanes were painted": "D-PLAUSIBLE-UNSUPPORTED"
+   "beanbags were counted": "D-SUPPORTED-DETAIL",
+   "the loudspeaker was tested": "D-SUPPORTED-DETAIL",
+   "lanes were painted": "D-SUPPORTED-DETAIL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5489,7 +5489,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Audit several stated preparations without assuming another typical sports-day job happened."
  },
  {
   "id": "lp3.key_details.l2.C.which_is_not.v3",
@@ -5514,7 +5514,7 @@ export const questions = [
   "prompt": "Which item is NOT in Amir's bag?",
   "question": "Which item is NOT in Amir's bag?",
   "spokenPrompt": "Which item is NOT in Amir's bag?",
-  "passage": "Amir packed his bag the evening before the trip. He rolled up a raincoat to save space. He added sandwiches and a bottle of water. His notebook and pencil were ready for bird spotting. He put a flashlight at the top of the bag.",
+  "passage": "Amir packed his bag the evening before the trip. He rolled up a raincoat to save space. He added sandwiches and a bottle of water. His notebook and pencil were ready for bird spotting. He put a flashlight at the top of the bag. A pocket inside kept his writing things away from the food. The coat would protect him if the clear sky changed. His torch would help on the shaded path home. The bird guide belonged to the teacher, who would carry it separately.",
   "cell": "which_is_not",
   "choices": [
    "a notebook",
@@ -5547,9 +5547,9 @@ export const questions = [
   "answer": "a camera",
   "correctAnswer": "a camera",
   "distractorRationales": {
-   "a notebook": "D-DETAIL-AS-MAIN",
-   "a flashlight": "D-DETAIL-AS-MAIN",
-   "a raincoat": "D-DETAIL-AS-MAIN"
+   "a notebook": "D-SUPPORTED-DETAIL",
+   "a flashlight": "D-SUPPORTED-DETAIL",
+   "a raincoat": "D-SUPPORTED-DETAIL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5579,7 +5579,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Check actual packed objects against a plausible but unstated piece of trip equipment."
  },
  {
   "id": "lp3.key_details.l2.A.which_is_not.v4",
@@ -5604,7 +5604,7 @@ export const questions = [
   "prompt": "Which of these is NOT described in the shed?",
   "question": "Which of these is NOT described in the shed?",
   "spokenPrompt": "Which of these is NOT described in the shed?",
-  "passage": "Grandpa kept his shed tidy. Screwdrivers hung on hooks in size order. Clear jars of screws stood on the window shelf. The lawn mower stayed under its cover. A radio near the door played music while he worked.",
+  "passage": "Grandpa kept his shed tidy. Screwdrivers hung on hooks in size order. Clear jars of screws stood on the window shelf. The lawn mower stayed under its cover. A radio near the door played music while he worked. There was a space between the jars for a small torch. Grandpa could see the smallest screws through the clear glass. The mower's cover kept dust off its wheels and handle. Hook labels showed where each screwdriver belonged after use.",
   "cell": "which_is_not",
   "choices": [
    "screwdrivers on hooks",
@@ -5637,9 +5637,9 @@ export const questions = [
   "answer": "a box of old paintbrushes",
   "correctAnswer": "a box of old paintbrushes",
   "distractorRationales": {
-   "screwdrivers on hooks": "D-DETAIL-AS-MAIN",
-   "jars of screws": "D-DETAIL-AS-MAIN",
-   "a radio by the door": "D-DETAIL-AS-MAIN"
+   "screwdrivers on hooks": "D-SUPPORTED-DETAIL",
+   "jars of screws": "D-SUPPORTED-DETAIL",
+   "a radio by the door": "D-SUPPORTED-DETAIL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5669,7 +5669,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Separate the shed's described storage arrangements from a plausible addition to that setting."
  },
  {
   "id": "lp3.key_details.l2.B.which_is_not.v5",
@@ -5694,7 +5694,7 @@ export const questions = [
   "prompt": "Which of these did NOT happen at the fair?",
   "question": "Which of these did NOT happen at the fair?",
   "spokenPrompt": "Which of these did NOT happen at the fair?",
-  "passage": "The book fair filled the school hall for a day. Tables held picture books and joke books. An author signed books at a special table. Reading club tokens counted double at the fair. The librarian wore a dress with a book pattern.",
+  "passage": "The book fair filled the school hall for a day. Tables held picture books and joke books. An author signed books at a special table. Reading club tokens counted double at the fair. The librarian wore a dress with a book pattern. Classes visited one at a time after morning lessons. Children could browse the picture tables or hear a short reading. The signing table stood near the hall's open doors. Books borrowed with tokens still needed returning to the library later.",
   "cell": "which_is_not",
   "choices": [
    "the fair sold out of tickets early",
@@ -5727,9 +5727,9 @@ export const questions = [
   "answer": "the fair sold out of tickets early",
   "correctAnswer": "the fair sold out of tickets early",
   "distractorRationales": {
-   "the librarian wore her book dress": "D-DETAIL-AS-MAIN",
-   "an author signed books": "D-DETAIL-AS-MAIN",
-   "reading tokens counted double": "D-DETAIL-AS-MAIN"
+   "the librarian wore her book dress": "D-SUPPORTED-DETAIL",
+   "an author signed books": "D-SUPPORTED-DETAIL",
+   "reading tokens counted double": "D-SUPPORTED-DETAIL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5759,7 +5759,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Check a plausible fair event against distributed details rather than relying on topic familiarity."
  },
  {
   "id": "lp3.key_details.l2.C.which_is_not.v6",
@@ -5784,7 +5784,7 @@ export const questions = [
   "prompt": "Which of these is NOT part of the story?",
   "question": "Which of these is NOT part of the story?",
   "spokenPrompt": "Which of these is NOT part of the story?",
-  "passage": "The power went off along the street. Neighbors put candles in glass jars on their steps. Mr. Okoye brought his guitar outside and played songs. The food truck could cook using its own gas. It kept serving warm meals while people listened.",
+  "passage": "The power went off along the street. Neighbors put candles in glass jars on their steps. Mr. Okoye brought his guitar outside and played songs. The food truck could cook using its own gas. It kept serving warm meals while people listened. The streetlamps were dark, but the small flames marked each doorstep. Adults kept the jars away from children and loose coats. People brought bowls to the truck rather than cooking at home. The music made the wait for repairs feel shorter for everyone.",
   "cell": "which_is_not",
   "choices": [
    "candles stood in glass jars",
@@ -5817,9 +5817,9 @@ export const questions = [
   "answer": "a bonfire was lit in the road",
   "correctAnswer": "a bonfire was lit in the road",
   "distractorRationales": {
-   "candles stood in glass jars": "D-PLAUSIBLE-UNSUPPORTED",
-   "a guitar played songs": "D-PLAUSIBLE-UNSUPPORTED",
-   "the food truck kept serving": "D-OPPOSITE"
+   "candles stood in glass jars": "D-SUPPORTED-DETAIL",
+   "a guitar played songs": "D-SUPPORTED-DETAIL",
+   "the food truck kept serving": "D-SUPPORTED-DETAIL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5849,7 +5849,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Distinguish the stated safe light sources and gathering activities from an unmentioned fire."
  },
  {
   "id": "lp3.key_details.l2.A.which_is_not.v7",
@@ -5874,7 +5874,7 @@ export const questions = [
   "prompt": "Which rule is NOT on the door?",
   "question": "Which rule is NOT on the door?",
   "spokenPrompt": "Which rule is NOT on the door?",
-  "passage": "The museum put three rules beside the dinosaur room. Visitors had to walk on its smooth floor. They had to whisper so others could listen. They could take photos but could not use flash. A helper showed each group the rules before entering.",
+  "passage": "The museum put three rules beside the dinosaur room. Visitors had to walk on its smooth floor. They had to whisper so others could listen. They could take photos but could not use flash. A helper showed each group the rules before entering. The first rule kept people from slipping on the polished floor. The quiet voices helped visitors hear the short dinosaur recording. The photo rule protected the experience without banning cameras altogether. The notice listed those three rules together in large, clear writing.",
   "cell": "which_is_not",
   "choices": [
    "no eating or drinking",
@@ -5907,9 +5907,9 @@ export const questions = [
   "answer": "no eating or drinking",
   "correctAnswer": "no eating or drinking",
   "distractorRationales": {
-   "walk, don't run": "D-DETAIL-AS-MAIN",
-   "whisper": "D-DETAIL-AS-MAIN",
-   "no flash photos": "D-DETAIL-AS-MAIN"
+   "walk, don't run": "D-SUPPORTED-DETAIL",
+   "whisper": "D-SUPPORTED-DETAIL",
+   "no flash photos": "D-SUPPORTED-DETAIL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5939,7 +5939,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Distinguish a restriction on flash from a ban on photos, then identify the absent rule."
  },
  {
   "id": "lp3.key_details.l2.B.which_is_not.v8",
@@ -5964,7 +5964,7 @@ export const questions = [
   "prompt": "Which of these is NOT in the story?",
   "question": "Which of these is NOT in the story?",
   "spokenPrompt": "Which of these is NOT in the story?",
-  "passage": "Everyone had a job during the garden harvest. The tall cousins picked green beans. The younger cousins dug potatoes with small trowels. Grandma weighed the vegetables on her kitchen scale. The largest pumpkin went home in a wheelbarrow.",
+  "passage": "Everyone had a job during the garden harvest. The tall cousins picked green beans. The younger cousins dug potatoes with small trowels. Grandma weighed the vegetables on her kitchen scale. The largest pumpkin went home in a wheelbarrow. The beans and potatoes went into baskets before weighing. Beans were high on poles, where longer arms could reach them. Potatoes were hidden below the soil and needed careful digging. The pumpkin was too heavy for a basket, so its wheels helped.",
   "cell": "which_is_not",
   "choices": [
    "the pumpkin rode in the wheelbarrow",
@@ -5997,9 +5997,9 @@ export const questions = [
   "answer": "carrots were pulled and washed",
   "correctAnswer": "carrots were pulled and washed",
   "distractorRationales": {
-   "beans were picked": "D-DETAIL-AS-MAIN",
-   "potatoes were dug up": "D-DETAIL-AS-MAIN",
-   "the pumpkin rode in the wheelbarrow": "D-DETAIL-AS-MAIN"
+   "beans were picked": "D-SUPPORTED-DETAIL",
+   "potatoes were dug up": "D-SUPPORTED-DETAIL",
+   "the pumpkin rode in the wheelbarrow": "D-SUPPORTED-DETAIL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6029,7 +6029,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Compare the described crop-and-action pairs with a believable harvest action never reported."
  },
  {
   "id": "lp3.key_details.l1.R.who.v12r",
@@ -6231,10 +6231,10 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these was NOT on the table?",
-  "question": "Which of these was NOT on the table?",
-  "spokenPrompt": "Which of these was NOT on the table?",
-  "passage": "The family set up a table for their yard sale. They checked every board game for missing pieces. A shoebox held their old dinosaur figures. Outgrown rain boots stood in order from smallest to largest. A toy cash register was ready to count sales.",
+  "prompt": "Which type of item is NOT listed for the sale?",
+  "question": "Which type of item is NOT listed for the sale?",
+  "spokenPrompt": "Which type of item is NOT listed for the sale?",
+  "passage": "The family set up a table for their yard sale. They checked every board game for missing pieces. A shoebox held their old dinosaur figures. Outgrown rain boots stood in order from smallest to largest. A toy cash register was ready to count sales. A paper sign above the table named the family's street sale. Game boxes were open so buyers could see every piece. The boots were clean enough to try on beside the gate. The dinosaur figures had prices on small tags tied around their tails.",
   "cell": "which_is_not",
   "choices": [
    "board games",
@@ -6267,9 +6267,9 @@ export const questions = [
   "answer": "a basket of picture books",
   "correctAnswer": "a basket of picture books",
   "distractorRationales": {
-   "outgrown rain boots": "D-DETAIL-AS-MAIN",
-   "board games": "D-DETAIL-AS-MAIN",
-   "dinosaur figures": "D-DETAIL-AS-MAIN"
+   "outgrown rain boots": "D-SUPPORTED-DETAIL",
+   "board games": "D-SUPPORTED-DETAIL",
+   "dinosaur figures": "D-SUPPORTED-DETAIL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6299,7 +6299,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Check listed sale stock, rejecting an ordinary sale category absent from the account."
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v15r",
@@ -6324,7 +6324,7 @@ export const questions = [
   "prompt": "Why did Omar run last?",
   "question": "Why did Omar run last?",
   "spokenPrompt": "Why did Omar run last?",
-  "passage": "The coach chose each runner's place from their best skill. Jaya was best at starting quickly. Omar was best at keeping a lead without being caught. The coach wanted that skill for the final runner. Ben and Priw took the two middle places.",
+  "passage": "The coach chose each runner's place from their best skill. Jaya was best at starting quickly. Omar was best at keeping a lead without being caught. The coach wanted that skill for the final runner. Tobin and Seth took the two middle places. The race had four runners, each carrying the same baton. A fast start mattered most before anyone had a lead. At the end, the team needed someone hard to catch. The coach matched places to skills rather than height or age.",
   "cell": "detail_across_sentences",
   "choices": [
    "he could keep a lead until the finish",
@@ -6389,7 +6389,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Match the final runner's requirement with Omar's particular strength among different roles."
  },
  {
   "id": "lp3.key_details.l2.A.detail_across_sentences.v20",
@@ -6414,7 +6414,7 @@ export const questions = [
   "prompt": "Which items had yellow labels?",
   "question": "Which items had yellow labels?",
   "spokenPrompt": "Which items had yellow labels?",
-  "passage": "The blue crate held books, and the red crate held games. Every book had a yellow return label. The games had plain white labels.",
+  "passage": "The blue crate held books, and the red crate held games. Every book had a yellow return label. The games had plain white labels. The library helper needed to send only the books back today. Games would stay for the rainy-day club next week. Both crates were full, so their contents were hidden beneath lids. The coloured crates and labels were listed together on the collection sheet. No empty boxes were waiting beside them.",
   "cell": "detail_across_sentences",
   "choices": [
    "the empty boxes beside the crates",
@@ -6479,7 +6479,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Connect the hidden crate contents with the different return-label colours."
  },
  {
   "id": "lp3.key_details.l2.A.precise_detail.v20",
@@ -6504,7 +6504,7 @@ export const questions = [
   "prompt": "Which tool did Noor leave behind?",
   "question": "Which tool did Noor leave behind?",
   "spokenPrompt": "Which tool did Noor leave behind?",
-  "passage": "Each team could choose three tools for the building task. Noor chose scissors, a ruler, and tape. She left the glue and paint on the supply table.",
+  "passage": "Each team could choose three tools for the building task. Noor chose scissors, a ruler, and tape. She left the glue and paint on the supply table. Her plan was a tall paper tower with straight sides. Measuring mattered because every side needed to be equally long. Cutting would make the shapes, and tape would hold them together. Only three tools could travel to the workbench. The table stood beside the sink, holding the unused supplies.",
   "cell": "precise_detail",
   "choices": [
    "tape used to fasten pieces",
@@ -6569,7 +6569,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Distinguish selected tools from unused supplies despite each having a plausible building purpose."
  },
  {
   "id": "lp3.key_details.l2.A.which_is_not.v20",
@@ -6594,7 +6594,7 @@ export const questions = [
   "prompt": "Which instruction was NOT on the notice?",
   "question": "Which instruction was NOT on the notice?",
   "spokenPrompt": "Which instruction was NOT on the notice?",
-  "passage": "The notice said to bring a hat and a water bottle. Lunch would be provided at the park. Children also needed shoes suitable for walking.",
+  "passage": "The notice said to bring a hat and a water bottle. Lunch would be provided at the park. Children also needed shoes suitable for walking. The outing involved a long path with very little shade. A drink refill point would be available beside the picnic area. The school kitchen would send enough sandwiches for every child. Teachers wanted families to read the whole notice before packing. Bringing the listed items would leave less to carry during the walk.",
   "cell": "which_is_not",
   "choices": [
    "carry water for the outing",
@@ -6627,9 +6627,9 @@ export const questions = [
   "answer": "bring your own packed lunch",
   "correctAnswer": "bring your own packed lunch",
   "distractorRationales": {
-   "carry water for the outing": "D-PLAUSIBLE-UNSUPPORTED",
-   "wear shoes for the walk": "D-PLAUSIBLE-UNSUPPORTED",
-   "bring a hat for outdoors": "D-OPPOSITE"
+   "carry water for the outing": "D-SUPPORTED-DETAIL",
+   "wear shoes for the walk": "D-SUPPORTED-DETAIL",
+   "bring a hat for outdoors": "D-SUPPORTED-DETAIL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6659,7 +6659,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Contrast the provided meal with the items the notice explicitly asks children to bring."
  },
  {
   "id": "lp3.key_details.l2.A.detail_across_sentences.v21",
@@ -6684,7 +6684,7 @@ export const questions = [
   "prompt": "Which pet needed a claw trim?",
   "question": "Which pet needed a claw trim?",
   "spokenPrompt": "Which pet needed a claw trim?",
-  "passage": "Three pets arrived at the clinic. The rabbit came before the cat, and the dog arrived last. Only the first pet needed its claws trimmed.",
+  "passage": "Three pets arrived at the clinic. The rabbit came before the cat, and the dog arrived last. Only the first pet needed its claws trimmed. The receptionist wrote their jobs beside the order of arrival. The second pet was there for a check of its ears. The last pet needed a bandage changed on its paw. None of those two was booked for claws. Their owners waited on separate chairs while the nurse checked the list.",
   "cell": "detail_across_sentences",
   "choices": [
    "the first arrival, a rabbit",
@@ -6749,7 +6749,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Combine the arrival order with a service described by ordinal position."
  },
  {
   "id": "lp3.key_details.l2.A.precise_detail.v21",
@@ -6774,7 +6774,7 @@ export const questions = [
   "prompt": "How long did the return journey take?",
   "question": "How long did the return journey take?",
   "spokenPrompt": "How long did the return journey take?",
-  "passage": "The morning ferry left at nine and took thirty minutes. Its afternoon return left at three and took forty minutes. Heavy wind slowed the return journey.",
+  "passage": "The morning ferry left at nine and took thirty minutes. Its afternoon return left at three and took forty minutes. Heavy wind slowed the return journey. The ticket listed a departure time for each trip separately. The outward crossing ended at the island before the shops opened. On the way home, waves pushed against the ferry's bow. The crew still followed the usual route past the lighthouse. The longer trip took ten extra minutes, rather than several hours.",
   "cell": "precise_detail",
   "choices": [
    "nine minutes on the water",
@@ -6839,7 +6839,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Separate clock times from travel durations and select the return crossing's duration."
  },
  {
   "id": "lp3.key_details.l2.A.detail_across_sentences.v22",
@@ -6864,7 +6864,7 @@ export const questions = [
   "prompt": "Who carried the display stand?",
   "question": "Who carried the display stand?",
   "spokenPrompt": "Who carried the display stand?",
-  "passage": "Pia and Jules carried different boxes into the hall. Pia’s box was lighter, but Jules’s was wider. The wide box contained the folding display stand.",
+  "passage": "Pia and Jules carried different boxes into the hall. Pia’s box was lighter, but Jules’s was wider. The wide box contained the folding display stand. The smaller box held paper maps for the visitors. The other box was awkward because it stretched past both handles. Each child carried just one box all the way. The helper needed the stand before she could hang the maps. She asked for the wider box, rather than the lighter load.",
   "cell": "detail_across_sentences",
   "choices": [
    "both children sharing one box",
@@ -6929,7 +6929,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Track the stand through its container's width to the carrier, rejecting the weight distraction."
  },
  {
   "id": "lp3.key_details.l2.A.which_is_not.v21",
@@ -6954,7 +6954,7 @@ export const questions = [
   "prompt": "Which detail is NOT in the description?",
   "question": "Which detail is NOT in the description?",
   "spokenPrompt": "Which detail is NOT in the description?",
-  "passage": "For the performance, the choir wore green scarves over white shirts. Each singer held a small lamp. They stood in two rows on the stage.",
+  "passage": "For the performance, the choir wore green scarves over white shirts. Each singer held a small lamp. They stood in two rows on the stage. The lamps ran on batteries, so there were no open flames. The back row stood on a low step behind the front. All the scarves were the same bright shade of green. Their white shirts made those scarves easy to see from far away. These clothes and the soft lights were part of the plan.",
   "cell": "which_is_not",
   "choices": [
    "the scarves were worn over white shirts",
@@ -6987,9 +6987,9 @@ export const questions = [
   "answer": "the singers wore matching green hats",
   "correctAnswer": "the singers wore matching green hats",
   "distractorRationales": {
-   "the singers held lamps during the performance": "D-PLAUSIBLE-UNSUPPORTED",
-   "the choir stood in two separate rows": "D-OPPOSITE",
-   "the scarves were worn over white shirts": "D-PLAUSIBLE-UNSUPPORTED"
+   "the singers held lamps during the performance": "D-SUPPORTED-DETAIL",
+   "the choir stood in two separate rows": "D-SUPPORTED-DETAIL",
+   "the scarves were worn over white shirts": "D-SUPPORTED-DETAIL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7019,7 +7019,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Check the complete costume and arrangement, rejecting an invented matching garment."
  },
  {
   "id": "lp3.key_details.l2.A.detail_across_sentences.v23",
@@ -7044,7 +7044,7 @@ export const questions = [
   "prompt": "Which shelter did the fan blow down?",
   "question": "Which shelter did the fan blow down?",
   "spokenPrompt": "Which shelter did the fan blow down?",
-  "passage": "The class made one shelter with sticks and another with card. They tested both using the same small fan. Only the stick shelter stayed standing during the test.",
+  "passage": "The class made one shelter with sticks and another with card. They tested both using the same small fan. Only the stick shelter stayed standing during the test. Both shelters stood on the same table at equal distances. The children used the fan's lowest setting for each trial. They kept its direction the same so the comparison was fair. After the test, one shelter lay flat against its base. The other still had a roof held up by its walls.",
   "cell": "detail_across_sentences",
   "choices": [
    "the shelter made from card",
@@ -7109,7 +7109,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Combine the material labels with the stated survivor to identify the collapsed shelter."
  },
  {
   "id": "lp3.key_details.l1.R.who.v20r",
@@ -7134,7 +7134,7 @@ export const questions = [
   "prompt": "Whose lunchbox was found?",
   "question": "Whose lunchbox was found?",
   "spokenPrompt": "Whose lunchbox was found?",
-  "passage": "A cleaner found a lunchbox in the empty hall. Its label had Hana’s name. The cleaner gave it to Hana after class.",
+  "passage": "A cleaner found a lunchbox in the empty hall. Its label had Hana’s name. The cleaner gave it to Hana after class. The name was written inside the lid. No other name was on the box.",
   "cell": "who",
   "choices": [
    "the one belonging to the cleaner",

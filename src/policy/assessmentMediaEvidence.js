@@ -151,7 +151,11 @@ export function questionUsesFailedAssessmentMedia(
 
   return Boolean(
     (questionId && failedIds.has(questionId)) ||
-    collectAssessmentEvidenceImages(question).some(image => failedMedia.has(image.src))
+    collectAssessmentEvidenceImages(question).some(image => failedMedia.has(image.src)) ||
+    [question.audioPath, question.audioUrl, question.audio, question.promptAudioPath, question.instructionAudioPath, question.passageAudioPath,
+      ...[...(question.imageCards || []), ...(question.answerOptions || []), ...(question.soundTiles || [])]
+        .flatMap(option => typeof option === "object" ? [option.audioPath, option.audioUrl, option.audio] : [])
+    ].some(path => typeof path === "string" && path && failedMedia.has(path))
   );
 }
 

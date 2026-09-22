@@ -30,6 +30,27 @@ test("neither answer length nor sentence length alone can pass any grammar phase
   }
 });
 
+test("noun-count completion choices have equal overlap with their sentence", () => {
+  const phrases = banks.nouns.filter(item => item.itemKey === "noun_two_step" && item.sentence);
+  assert.ok(phrases.length >= 6);
+  for (const item of phrases) {
+    assert.equal((item.sentence.match(/___/g) || []).length, 1, item.id);
+    const evidence = new Set(item.sentence.toLowerCase().match(/[a-z]+/g));
+    const overlaps = item.choices.map(choice => choice.toLowerCase().match(/[a-z]+/g).filter(word => evidence.has(word)).length);
+    assert.equal(new Set(overlaps).size, 1, `${item.id}: ${overlaps}`);
+  }
+  for (const result of independentLengthShortcuts(phrases)) {
+    assert.ok(result.expectedAccuracy < PHASE_PASS_RULE.accuracyMin, JSON.stringify(result));
+  }
+});
+
+test("choosing the second-longest sentence cannot pass the noun-count item family", () => {
+  const sentences = banks.nouns.filter(item => item.itemKey === "noun_two_step" && !item.sentence);
+  for (const result of independentLengthShortcuts(sentences)) {
+    assert.ok(result.expectedAccuracy < PHASE_PASS_RULE.accuracyMin, JSON.stringify(result));
+  }
+});
+
 test("every location question has its actual scoring scene and cannot speak its answer-bearing filename", () => {
   for (const [index, item] of banks.prepositions_of_place.entries()) {
     const source = sources.prepositions_of_place;

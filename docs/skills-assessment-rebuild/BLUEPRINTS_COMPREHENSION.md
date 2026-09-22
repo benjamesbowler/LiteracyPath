@@ -1,6 +1,6 @@
 # Blueprints — Comprehension (skills 23–30)
 
-**Standard.** Sentence Comprehension, Key Details, Sequencing, Main Idea, Inference, Cause & Effect, Context Clues, Theme. Read MASTERY_SYSTEM.md + AUTHORING_STANDARDS.md first. This family is the product's template-inflation ground zero (Main Idea: 92 passages → 2 skeletons; six-item rotations everywhere except Key Details) and is rebuilt with **every passage individually written**.
+**Standard.** Sentence Comprehension, Key Details, Sequencing, Main Idea, Inference, Cause & Effect, Context Clues, Theme. Read MASTERY_SYSTEM.md + AUTHORING_STANDARDS.md first. Every passage is individually written. The active authoring files and shared v3 runtime define the current corpus; historical pre-rebuild counts are not deployment evidence.
 
 ---
 
@@ -8,7 +8,7 @@
 
 **Rule family C (cells).** Units are cells = `textType × focus`. A cell passes on 2 correct · 2 distinct passages · 2 days · latest correct (MASTERY_SYSTEM, Evidence units). Sitting = 8. Phase progression uses the one shared 70% rule; cell evidence supports teacher detail and review rather than adding another level-pass threshold.
 
-**Text types.** `fiction` (narrative with characters), `info` (simple informational/how-things-work), `everyday` (school/home scene, no plot arc). Every level's cell grid spans ≥2 text types — the current banks are 100% same-flavor narrative.
+**Text types.** `fiction` (narrative with characters), `info` (simple informational/how-things-work), `everyday` (school/home scene, no plot arc). Every level's cell grid spans ≥2 text types — check the actual cell labels against each passage, rather than assuming that a story-like paragraph is informational text.
 
 **Passage law.**
 1. Written one at a time, single-use (O-6), unique topic registry per skill (no two passages share topic+setting; a `topics.md` sidecar per skill lists every used topic — collision = rewrite).
@@ -17,11 +17,11 @@
 4. Names/settings draw from a 60-name diverse roster with no name reused within a skill+level; cultural load screened (ESL rules).
 5. Question independence: the item must be unanswerable without the passage (SIM-SCANNER strategy 5 guard: key never lexically copies a passage phrase unless all four options do).
 
-**Distractors.** From the comprehension codes (§4 of AUTHORING_STANDARDS): every item carries ≥2 of `D-DETAIL-AS-MAIN / D-TOPIC-ADJACENT / D-SEQUENCE-SWAP / D-CAUSE-REVERSE / D-PLAUSIBLE-UNSUPPORTED / D-OPPOSITE`; register-matched (no "very sleepy / silly and giggly" filler — `L-DIST-REGISTER`).
+**Distractors.** Every alternative has the accurate semantic code from AUTHORING_STANDARDS §4, with comparable language/register. Multiple alternatives may diagnose the same misconception; two different code labels are not themselves evidence of quality. Negative questions use `D-SUPPORTED-DETAIL` for true facts incorrectly selected as missing, and causal-chain questions use `D-CAUSE-STEP` for a real event at the wrong link. Do not relabel true evidence as unsupported. No automated register classifier replaces literal editorial review.
 
-**Bank per skill (uniform).** Per level: 3 sitting-forms × 8 + form R 8 = **32 items = 32 passages**. Per skill: **64**. Family total: 512 authored passages (the honest price of killing the template mill; Key Details salvages ~half of its existing 93).
+**Bank per skill (uniform).** Each level has 32 ordinary items: 16 per phase, enough for an eight-item initial sitting and a fresh eight-item retry. Eight additional Level-specific reserve items use form R. That is **40 per level, 80 per skill, 640 across the family**. Runtime ordinary forms A/B/C are identity/distribution labels; the full sitting is composed for the requested phase. Reserves never fill an ordinary retry.
 
-**Media.** Whole family ships `mediaTier: "text"` (an optional scene image may illustrate L1 fiction but must never carry answer information — C-2 lint strips images and re-checks answerability).
+**Media.** Passage-based items supply readable text and replayable recordings under their explicit reviewed media decisions. Sentence Comprehension picture-match/visual-detail cells require the actual scene: here the scene is scored evidence and cannot be removed. Optional support must not supply a shortcut to an otherwise text-based key. Use the current Question Design Bible §9 and the exact item-media registry; neither decoration nor a blanket text-only declaration substitutes for required evidence.
 
 ---
 
@@ -35,17 +35,17 @@
 
 **Exemplar (L2 pronoun_reference).**
 ```json
-{"id":"lp3.sentence_comprehension.l2.A.pronoun_reference.v1","cell":"fiction.pronoun_reference",
- "passage":"Maya handed the brush to Elena because she wanted the fence painted blue.",
- "prompt":"Who wanted the fence painted blue?",
- "choices":[{"text":"Maya","isKey":true,"rationale":"KEY"},{"text":"Elena","isKey":false,"rationale":"D-PLAUSIBLE-UNSUPPORTED"},
- {"text":"the painter","isKey":false,"rationale":"D-TOPIC-ADJACENT"},{"text":"the fence owner","isKey":false,"rationale":"D-TOPIC-ADJACENT"}],
- "answer":"Maya","notes":"two-step: resolve 'she' against handing-direction"}
+{"id":"lp3.sentence_comprehension.l2.A.pronoun_reference.v1","cell":"everyday.pronoun_reference",
+ "passage":"Sam put the jug beside the cups before filling it with cold water.",
+ "prompt":"Which item did Sam fill?",
+ "choices":[{"text":"the jug","isKey":true,"rationale":"KEY"},{"text":"the cups","isKey":false,"rationale":"D-OPPOSITE"},
+ {"text":"a bottle","isKey":false,"rationale":"D-PLAUSIBLE-UNSUPPORTED"},{"text":"a bowl","isKey":false,"rationale":"D-PLAUSIBLE-UNSUPPORTED"}],
+ "answer":"the jug","notes":"Resolve singular it to jug despite the nearer plural cups; connect the reference to the filling action."}
 ```
 
 ## 24. Key Details (`key_details`)
 
-**Status: KEEP & RETAG.** The one genuinely authored bank (93/93 distinct skeletons, verified). Work: map each existing item into cells (`fiction/info/everyday × who/what/where/when/how-many`), fill empty cells with new passages, split into forms, trim to the 64-item structure keeping the strongest, apply distractor-rationale tags, run all lints (expect real attrition — some items will fail `L-READ` or register rules; replace those). No wholesale rewrite.
+**Authoring.** Classify each passage by its actual text type and question demand. Preserve useful independent contexts, strengthen weak evidence and alternatives, and meet the current 80-item inventory and passage lengths. Recheck every completed task after revision.
 
 **Cells.** L1: `who`, `what_happened`, `where`, `number_detail` (4). L2: `detail_across_sentences` (answer assembled from 2 sentences), `which_is_NOT` (verified negative — careful-reading pressure), `precise_detail` (distractors differ by one attribute) (3).
 
@@ -61,9 +61,9 @@
 
 **Construct.** Distinguish what a text is mostly about from its details and its topic. Current bank = 2 skeletons × 92 → total rebuild.
 
-**Cells.** L1: `mostly_about × fiction/info/everyday` (3). L2: `best_title`, `main_idea_vs_detail` (four true statements, one is the POINT), `summary_choice` (which one-sentence summary fits) (3).
+**Cells.** L1: `mostly_about × fiction/info/everyday` (3). L2: `best_title`, `main_idea_vs_detail` (whole-text point versus details and plausible misreadings), `summary_choice` (which one-sentence summary fits) (3).
 
-**Distractor law (the whole skill lives here).** Every set = one true detail (`D-DETAIL-AS-MAIN`), one topic-word overreach (`D-TOPIC-ADJACENT`: right nouns, wrong claim/too broad), one text-contradicted or unrelated (`D-OPPOSITE`/unrelated ≤1). The key never contains the passage's most-repeated content word unless a distractor does too.
+**Distractor law.** Apply Question Design Bible §10.7: true details may be alternatives, but none may also summarize the whole text. Choose plausible details, topic overreach or evidence-contradicted readings to fit the actual passage, with accurate rationale codes. Do not force an unrelated alternative or a fixed code quota. Reject word-overlap and length shortcuts in the final rendered choices.
 
 ## 27. Inference (`inference`)
 

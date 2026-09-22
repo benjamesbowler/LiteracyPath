@@ -245,12 +245,12 @@ export default {
 
     // ------------------------------ Retention reserve (form R)
     cw("ch", 1, 1, 7, "chip", "__ip", "chip", ["sh", "wh", "th"], "initial",
-      "same blank as ship's item, different picture — a true minimal pair across sittings"),
+      "The heard chip distinguishes the same visible blank from ship without relying on a picture."),
     cw("ch", 2, 1, 8, "lunch", "lun__", "lunch", ["sh", "th", "ck"], "final"),
     ic("sh", 1, 1, 7,
       "shell",
       ["sheep", "chain", "whale", "tooth"], "sheep",
-      { chain: "D-PATTERN-TRAP", whale: "D-PATTERN-TRAP", tooth: "D-POSITION" },
+      { chain: "D-PATTERN-TRAP", whale: "D-PATTERN-TRAP", tooth: "D-PATTERN-TRAP" },
       "initial"),
     cw("sh", 2, 1, 8, "dish", "di__", "dish", ["ch", "th", "ck"], "final"),
     cw("th", 1, 1, 7, "three", "__ree", "three", ["ch", "sh", "wh"], "initial"),
@@ -264,7 +264,15 @@ export default {
     cw("ph", 1, 2, 7, "headphones", "head__ones", "headphones", ["sh", "ch", "th"], "medial"),
     cw("ph", 2, 2, 8, "microphone", "micro__one", "microphone", ["sh", "wh", "th"], "medial"),
     cw("ck", 1, 2, 7, "truck", "tru__", "truck", ["ch", "sh", "th"], "final"),
-    cw("ck", 2, 2, 8, "stick", "sti__", "stick", ["sh", "ch", "th"], "final")
+    cw("ck", 2, 2, 8, "stick", "sti__", "stick", ["sh", "ch", "th"], "final"),
+    cw("ch", 1, 1, 10, "chest", "__est", "chest", ["sh", "th", "wh"], "initial",
+      "A new heard lexical target tests initial ch in a consonant-cluster word."),
+    cw("ck", 1, 2, 9, "back", "ba__", "back", ["ch", "sh", "th"], "final",
+      "The heard back distinguishes final ck from the real bath contrast."),
+    cw("ch", 2, 1, 10, "beach", "bea__", "beach", ["sh", "th", "ck"], "final",
+      "Final ch transfers to a new heard word with a vowel team."),
+    cw("ck", 2, 2, 9, "ticket", "ti__et", "ticket", ["sh", "ch", "th"], "medial",
+      "A new two-syllable word tests medial ck without repeated printed pattern clues.")
   ].map(item => {
     if (item.v >= 7 && item.retention !== false) item.retention = true;
     return item;

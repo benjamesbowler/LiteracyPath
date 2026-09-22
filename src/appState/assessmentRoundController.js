@@ -1,3 +1,5 @@
+import { composeAssessmentSitting, learnerAssessmentStatus, nextAssessmentStep, sittingQuestionSignatures, repeatsSittingQuestion } from "./assessmentSitting.js";
+import { loadAssessmentSelectionHistory, saveAssessmentSelectionHistory } from "../data/assessmentSelectionHistory.js";
 import { ASSESSMENT_PATH_STEPS, comparableSentenceAnswer, configuredCoverageTotals, debugAssessmentCoverage, formatCoverageKeyLabel, getRoundItemLabels, getAssessmentCheckpointProgression, getAssessmentPathKey, getAssessmentQuestionLevel, getAssessmentQuestionPhase, getConfiguredPhaseItemKeys, getCoverageItemKeysForStage, getQuestionAnswer, getQuestionPathStep, getQuestionPrompt, getQuestionTargetWord, getRuntimeQuestionPromptAnswerSignature, getRuntimeQuestionSignature, getFinalSoundQuestionLevel, getStageIndex, inferItemMetadata, inferAnswerRecordMetadata, isFinalSoundsStage, isFixSentenceQuestion, isInitialSoundsStage, isListenChooseVowelQuestion, isMissingItemMasteryTableError, isPairSelectionQuestion, isPureEarlyPhonicsStage, isQuestionBlockedByMediaQa, normalizeAnswerRecordShape, normalizeAssessmentQuestion, normalizeItemKey, normalizeMultiSelectAnswer, normalizePairSelectionAnswer, normalizeSentenceAnswer } from "./assessmentRuntime.js";
 import { supabase } from "../supabaseClient";
 import { skillTree } from "../skillTree";
@@ -8,7 +10,7 @@ import { createAssessmentRoundDuplicateProfile, getAssessmentRoundDuplicateFlags
 import { getFinalSoundsLevel1QuestionIssues } from "../data/earlyPhonicsValidation";
 import { buildFinalSoundAvailableWordMap, evaluateFinalSoundLevelOneMasteryDepth, finalSoundLevelOneTargets, getFinalSoundTargetFromEvidence } from "../data/finalSoundMasteryDepth";
 import { getQuestionFormatMetadata, isMasteryEligible } from "../questionFormatFramework";
-import { getBlueprintUnitRuleByItem } from "../content/blueprints/skillBlueprints.js";
+import { getBlueprintUnitRuleByItem, getSkillBlueprint } from "../content/blueprints/skillBlueprints.js";
 import { buildInitialSoundsProgressFromAnswerHistory, getInitialSoundRoundPlan } from "../content/initialSounds/initialSoundSelector";
 import { INITIAL_SOUND_LETTERS } from "../content/initialSounds/initialSoundWordBank";
 import { getAnswerRecordPromptAnswerSignature, getRepeatOptionSetSignature } from "../questionRepeatGuards";
@@ -20,7 +22,7 @@ import { APP_VIEWS } from "./appViews.js";
 import { getAssessmentAttemptType } from "./assessmentSessionHelpers.js";
 import { preloadQuestionMediaWindow } from "../utils/preloadQuestionMedia.js";
 import { speakWithBrowser as speakWithBrowserFallback } from "../utils/audio/speakWithBrowser.js";
-import { playCueAudio } from "../utils/audio/cuePlayer.js";
+import { playAssessmentCue } from "../utils/audio/assessmentPlayback.js";
 import { insertWithRetry } from "../utils/insertQueue.js";
 import {
   assessmentAttemptsToSkillLedger,
@@ -40,7 +42,7 @@ const assessmentSummarySaves = new WeakMap();
 
 export function createAssessmentRoundController(context) {
   const {
-    allQuestionsRef, answerHistory, answerHistoryRef, answerInFlightRef,
+    allQuestionsRef, answerHistory, answerHistoryRef, answerInFlightRef, assessmentSittingRef,
     assessmentActiveRef, assessmentMediaPickerRef, assessmentMediaUsageRef, assessmentMode,
     currentQuestion, currentSkillIndex, currentStage, excludeSessionMediaFailures,
     failedAssessmentMediaRef, initialSoundForcedLevelRef, initialSoundRoundAskedLettersRef, initialSoundRoundMetaRef,
@@ -90,55 +92,51 @@ export function createAssessmentRoundController(context) {
     );
   }
 
+  function getLearnerAssessmentAttempts() {
+    const records = independentFocusAssessment
+      // student_get_focus_session scopes this array by its validated token;
+      // its compact payload intentionally omits studentId. Never infer an
+      // owner for records from the teacher-wide archive.
+      ? (studentFocusSession?.prior_attempts || []).map(record => ({ ...record, studentId: record.studentId || record.student_id || studentId }))
+      : loadAssessmentAttempts({ teacherId: evidenceTeacherId, studentId });
+    return records.filter(record => String(record.studentId || record.student_id || "") === String(studentId));
+  }
+
+  function getCurrentSkillStatus(stage) {
+    return learnerAssessmentStatus(getLearnerAssessmentAttempts(), stage.id, studentId);
+  }
+
+  function passedPathKeys(status) {
+    return ASSESSMENT_PATH_STEPS.filter(step => status?.[`level${step.level}`]?.phases?.[step.phase]?.currentPassed)
+      .map(getAssessmentPathKey);
+  }
+
   function getPassedAssessmentPathKeys(stage) {
-    const records = getStageAssessmentRecords(stage)
-      .filter(record => Number(record.itemLevel || 0) > 0 && Number(record.itemPhase || 0) > 0);
-    const passedKeys = new Set();
+    return new Set(passedPathKeys(getCurrentSkillStatus(stage)));
+  }
 
-    for (let index = 0; index < records.length; index += ROUND_LENGTH) {
-      const round = records.slice(index, index + ROUND_LENGTH);
-      if (round.length < ROUND_LENGTH) continue;
-      const score = round.filter(record => record.isCorrect).length;
-      if (score < PASS_SCORE) continue;
-      const last = round.at(-1) || {};
-      const step = {
-        level: Number(last.itemLevel || 1) >= 2 ? 2 : 1,
-        phase: Number(last.itemPhase || 1) === 2 ? 2 : 1
-      };
-      passedKeys.add(getAssessmentPathKey(step));
+  function startAssessmentSitting(stage, { mode = "mastery", assignedStep = null } = {}) {
+    const selectionScope = { teacherId: evidenceTeacherId, studentId };
+    const plan = composeAssessmentSitting({
+      bank: excludeSessionMediaFailures(allQuestionsRef.current).filter(question => !isQuestionBlockedByMediaQa(question)),
+      skillId: stage.id, studentId, attempts: getLearnerAssessmentAttempts(), mode, assignedStep,
+      previousSittings: loadAssessmentSelectionHistory(selectionScope)
+    });
+    if (!plan.error) {
+      if (!saveAssessmentSelectionHistory(plan, selectionScope)) {
+        return { error: "This device could not save the check's question history. Free some browser storage, then try again. No check has started." };
+      }
+      assessmentSittingRef.current = { ...plan, owner: assessmentCompletionOwner, status: undefined, failedQuestionIds: [], mediaFailures: [] };
     }
-
-    return passedKeys;
+    return plan;
   }
 
   function hasConfiguredPhaseCoverage(stage, step = {}) {
     return Boolean(getConfiguredPhaseItemKeys(stage, step.level, step.phase)?.length);
   }
 
-  function hasAssessmentPathQuestions(stage, step = {}) {
-    if (!stage || !step) return false;
-    const stageIndex = skillTree.findIndex(item => item.id === stage.id);
-    const requiresExplicitPhase = hasConfiguredPhaseCoverage(stage, step);
-    return allQuestionsRef.current.filter(question =>
-      getStageIndex(question) === stageIndex &&
-      !isQuestionBlockedByMediaQa(question) &&
-      getAssessmentQuestionLevel(stage, question) === Number(step.level || 1) &&
-      (
-        requiresExplicitPhase
-          ? getAssessmentQuestionPhase(question) === Number(step.phase || 1)
-          : (getAssessmentQuestionPhase(question) || Number(step.phase || 1)) === Number(step.phase || 1)
-      )
-    ).length >= ROUND_LENGTH;
-  }
-
-  // The student-session RPCs validate every answer and the final attempt
-  // against the level/phase the teacher assigned, and never store those values
-  // themselves. The v3 bank's own `phase` means something different (an
-  // alphabet split: Initial Sounds level 1 is a-m phase 1, n-z phase 2), and the
-  // round selectors pick items without regard to it, so reporting a question's
-  // authored phase made the server reject legitimate answers as
-  // `assignment_mismatch` - which the UI then showed as a connection failure.
-  // Report the assignment, which is what the check is actually about.
+  // Student-session answers and attempts use the teacher's assignment.
+  // The complete sitting is composed from this exact authored level/phase.
   function getAssignedFocusStep() {
     const assigned = studentFocusSession?.resolved_config || {};
     const level = Number(assigned.level);
@@ -159,19 +157,9 @@ export function createAssessmentRoundController(context) {
     ) {
       return { level: Number(assigned.level), phase: Number(assigned.phase) };
     }
-    const passedKeys = getPassedAssessmentPathKeys(stage);
-    const nextUnpassed = ASSESSMENT_PATH_STEPS.find(step =>
-      !passedKeys.has(getAssessmentPathKey(step)) &&
-      (isInitialSoundsStage(stage) || hasAssessmentPathQuestions(stage, step))
-    );
-    if (nextUnpassed) return nextUnpassed;
-
-    // A thin or temporarily media-blocked bank must not jump over an unpassed
-    // phase. Keep the four-stage order and let the assessment start surface
-    // explain that content is unavailable.
-    return ASSESSMENT_PATH_STEPS.find(step =>
-      !passedKeys.has(getAssessmentPathKey(step))
-    ) || ASSESSMENT_PATH_STEPS.at(-1);
+    const active = assessmentSittingRef?.current;
+    if (active?.owner === assessmentCompletionOwner && active.skillId === stage.id) return { level: active.level, phase: active.phase };
+    return nextAssessmentStep(getCurrentSkillStatus(stage)) || ASSESSMENT_PATH_STEPS.at(-1);
   }
 
   function getCheckpointPathStatus(stage, currentStep = {}) {
@@ -220,6 +208,8 @@ export function createAssessmentRoundController(context) {
       studentProgress: { initialSoundsProgress: progress },
       level,
       roundNumber: level === 2 ? phase + 2 : phase,
+      assessmentPhase: phase,
+      roundLength: getSkillBlueprint(stage.id).sitting,
       seed: Date.now() + Math.floor(Math.random() * 1000000),
       excludeLetters,
       // Initial Sounds has a custom adaptive selector, but its question source
@@ -866,16 +856,39 @@ export function createAssessmentRoundController(context) {
     });
   }
 
+  function replaceFailedSittingQuestion(failedQuestion) {
+    const plan = assessmentSittingRef?.current;
+    if (!plan || plan.owner !== assessmentCompletionOwner) return;
+    plan.failedQuestionIds ||= [];
+    plan.failedQuestionIds.push(failedQuestion.id);
+    const existing = plan.questionIds.map(id => allQuestionsRef.current.find(question => question.id === id)).filter(Boolean);
+    const signatures = [...existing.map(sittingQuestionSignatures), ...(plan.protectedSignatures || [])];
+    const candidates = excludeSessionMediaFailures(allQuestionsRef.current).filter(question =>
+      (question.assessmentSkillId || question.skillId) === plan.skillId
+      && Boolean(question.retentionOnly) === (plan.mode === "retention")
+      && (plan.mode === "retention" || (Number(question.level) === plan.level && Number(question.phase) === plan.phase))
+      && !question.nonGating && !plan.failedQuestionIds.includes(question.id) && !isQuestionBlockedByMediaQa(question)
+    );
+    const replacement = candidates.find(question => !repeatsSittingQuestion(question, signatures));
+    const index = plan.questionIds.indexOf(failedQuestion.id);
+    if (index >= 0) plan.questionIds[index] = replacement?.id || "";
+    if (!saveAssessmentSelectionHistory(plan, { teacherId: evidenceTeacherId, studentId }) && index >= 0) {
+      plan.questionIds[index] = "";
+    }
+  }
+
   function handleAssessmentEvidenceImageError({
     questionId = "",
     src = "",
-    role = "evidence"
+    role = "evidence",
+    mediaKind = "picture"
   } = {}) {
     const failedQuestion = currentQuestion;
     const failedQuestionId = String(failedQuestion?.id || "");
     if (
       !failedQuestion ||
       (questionId && questionId !== failedQuestionId) ||
+      (assessmentSittingRef?.current?.activeQuestionId && assessmentSittingRef.current.activeQuestionId !== failedQuestionId) ||
       failedAssessmentMediaRef.current.failedQuestionIds.has(failedQuestionId)
     ) {
       return;
@@ -888,12 +901,18 @@ export function createAssessmentRoundController(context) {
       failedAssessmentMediaRef.current.failedSources.add(src);
     }
 
+    replaceFailedSittingQuestion(failedQuestion);
+    const plan = assessmentSittingRef?.current;
+    if (plan) {
+      plan.mediaFailures ||= [];
+      plan.mediaFailures.push({ questionId: failedQuestionId, responseStatus: "media_failed", isCorrect: null, skillId: failedQuestion.skillId, itemKey: failedQuestion.itemKey, itemType: failedQuestion.itemType, itemLevel: failedQuestion.level, itemPhase: failedQuestion.phase, timestamp: new Date().toISOString(), mediaKind, src });
+    }
     const failedStageIndex = getStageIndex(failedQuestion);
     const failedMode = assessmentMode;
     answerInFlightRef.current = true;
     setCurrentQuestion(null);
     setAssessmentTransitioning(true);
-    setMessage("That picture did not load. Replacing the question...");
+    setMessage(`That ${mediaKind} did not load. Replacing the question...`);
 
     debugAssessmentCoverage("assessment evidence image removed", {
       questionId: failedQuestionId,
@@ -904,7 +923,7 @@ export function createAssessmentRoundController(context) {
     });
 
     window.setTimeout(() => {
-      if (!assessmentActiveRef.current) return;
+      if (!assessmentActiveRef.current || !isCurrentAssessmentRun()) return;
       pickQuestion(failedMode, failedStageIndex);
     }, 0);
   }
@@ -942,6 +961,32 @@ export function createAssessmentRoundController(context) {
 
     const activeStageIndex = stageIndexOverride;
     const activeStage = skillTree[activeStageIndex] || currentStage;
+
+    const sitting = assessmentSittingRef?.current;
+    if (sitting && sitting.owner === assessmentCompletionOwner && sitting.skillId === activeStage.id) {
+      const answeredIds = new Set(roundQuestionIdsRef.current);
+      const nextId = sitting.questionIds.find(id => id && !answeredIds.has(id));
+      const next = allQuestionsRef.current.find(question => question.id === nextId);
+      if (!next || sitting.questionIds.some(id => !id)) {
+        answerInFlightRef.current = true;
+        setCurrentQuestion(null);
+        setAssessmentTransitioning(false);
+        setMessage("There are not enough available questions to finish this check. This incomplete check will not count as a pass. Try loading the check again when the connection is ready.");
+        return;
+      }
+      sitting.activeQuestionId = next.id;
+      sitting.audioPending = null;
+      const prepared = prepareQuestion(next);
+      if (!prepared) {
+        replaceFailedSittingQuestion(next);
+        pickQuestion(mode, activeStageIndex);
+        return;
+      }
+      preloadAssessmentQuestionWindow([prepared]);
+      setCurrentQuestion(prepared);
+      setAssessmentTransitioning(false);
+      return;
+    }
 
     if (isInitialSoundsStage(activeStage)) {
       const picked = getNextInitialSoundQuestion();
@@ -1505,6 +1550,31 @@ export function createAssessmentRoundController(context) {
   }
 
   function buildCheckpointDecision(stage, stageIndex, nextRound, nextRoundItemKeys, passed, nextRoundCorrectItemKeys = []) {
+    const plan = assessmentSittingRef?.current;
+    if (plan?.skillId === stage?.id && plan.owner === assessmentCompletionOwner) {
+      const blueprint = getSkillBlueprint(stage.id);
+      const expected = new Set(plan.mode === "retention"
+        ? Object.values(blueprint.unitsByLevel).flat()
+        : blueprint.phaseUnitsByLevel[plan.level][plan.phase]);
+      const records = getStageAssessmentRecords(stage).filter(row => plan.questionIds.includes(row.questionId)).slice(-nextRound.length);
+      const represented = new Set(records.map(row => row.itemKey).filter(key => expected.has(key)));
+      const answerLabels = correct => [...new Set(records.filter(row => Boolean(row.isCorrect) === correct)
+        .map(row => Array.isArray(row.correct) ? row.correct.join(", ") : String(row.correct || row.targetWord || "").replace(/\s*\|\|?\s*/g, ", "))
+        .filter(Boolean))];
+      const score = nextRound.filter(Boolean).length;
+      const pathStatus = getCheckpointPathStatus(stage, { level: plan.level, phase: plan.phase });
+      return {
+        skillId: stage.id, skillIndex: stageIndex, skillLabel: `${stage.label} ${pathStatus.label}`, pathStatus,
+        correct: score, total: plan.sittingSize, accuracy: Math.round(score / plan.sittingSize * 100),
+        passed, accuracyPassed: passed, coverageComplete: represented.size === expected.size, blockedPassReason: "",
+        nextSkillLabel: skillTree[stageIndex + 1]?.label || "",
+        coveredThisRound: answerLabels(true),
+        missedThisRound: answerLabels(false),
+        alreadyMastered: [], totalCoveredItems: [...represented],
+        remainingItems: [...expected].filter(key => !represented.has(key)),
+        coverage: { mastered: represented.size, total: expected.size, unit: "skill areas" }
+      };
+    }
     if (stage?.id === "initial_sounds") {
       const initialRoundMeta = initialSoundRoundMetaRef.current || {};
       const stageRecords = answerHistoryRef.current
@@ -1726,6 +1796,16 @@ export function createAssessmentRoundController(context) {
 
   async function answerQuestion(choice) {
     if (!currentQuestion || answerInFlightRef.current) return;
+    const pendingAudio = assessmentSittingRef?.current?.audioPending;
+    if (pendingAudio?.questionId === currentQuestion.id) {
+      setMessage("Listen to the audio, then choose.");
+      if (!pendingAudio.completion) return false;
+      answerInFlightRef.current = true;
+      const delivered = await pendingAudio.completion;
+      if (!isCurrentAssessmentRun() || assessmentSittingRef.current?.activeQuestionId !== currentQuestion.id) return false;
+      answerInFlightRef.current = false;
+      if (!delivered) return false;
+    }
     answerInFlightRef.current = true;
     setAssessmentTransitioning(true);
 
@@ -1933,12 +2013,9 @@ export function createAssessmentRoundController(context) {
         ...roundCheckpoint,
         passed: false,
         masteryEstablished: false,
-        blockedPassReason: !accuracyPassed
-          ? roundCheckpoint.blockedPassReason
-          : roundCheckpoint.blockedPassReason
-            || "This round was accurate, but the skill still needs enough correct results across separate assessments before it can be marked Secure."
+        blockedPassReason: ""
       };
-      const roundRecords = answerHistoryRef.current.slice(-nextRound.length);
+      const roundRecords = answerHistoryRef.current.filter(record => [...roundQuestionIdsRef.current, answeredQuestion.id].includes(record.questionId)).slice(-nextRound.length);
       let attemptRecord = buildAssessmentAttemptRecord({
         studentId,
         studentName,
@@ -1946,7 +2023,7 @@ export function createAssessmentRoundController(context) {
         teacherId: evidenceTeacherId,
         stage,
         checkpoint: preliminaryCheckpoint,
-        questionRecords: roundRecords,
+        questionRecords: [...roundRecords, ...(assessmentSittingRef?.current?.mediaFailures || [])],
         assessmentType: getAssessmentAttemptType(assessmentMode),
         policySnapshot: {
           rule: "Skills Assessment v3 single-status policy",
@@ -1957,13 +2034,9 @@ export function createAssessmentRoundController(context) {
           phase: preliminaryCheckpoint?.pathStatus?.phase ?? null
         }
       });
-      const archivedAttempts = independentFocusAssessment
-        ? Array.isArray(studentFocusSession?.prior_attempts)
-          ? studentFocusSession.prior_attempts
-          : []
-        : loadAssessmentAttempts({ teacherId: evidenceTeacherId });
+      const archivedAttempts = getLearnerAssessmentAttempts();
       const skillStatus = computeSkillStatus(
-        assessmentAttemptsToSkillLedger([...archivedAttempts, attemptRecord], stage.id),
+        assessmentAttemptsToSkillLedger([...archivedAttempts, attemptRecord], stage.id, { studentId }),
         stage.id
       );
       const masteryEstablished = Boolean(
@@ -1972,16 +2045,20 @@ export function createAssessmentRoundController(context) {
       );
       const completedLevel = Number(preliminaryCheckpoint?.pathStatus?.level || 1) >= 2 ? 2 : 1;
       const completedPhase = Number(preliminaryCheckpoint?.pathStatus?.phase || 1) === 2 ? 2 : 1;
-      const phasePassed = Boolean(
-        skillStatus?.[`level${completedLevel}`]?.phases?.[completedPhase]?.passed
-      );
+      const phasePassed = assessmentMode === "retention"
+        ? Boolean(skillStatus?.retention?.passed)
+        : Boolean(skillStatus?.[`level${completedLevel}`]?.phases?.[completedPhase]?.currentPassed);
+      const completedPath = getAssessmentCheckpointProgression({ currentStep: { level: completedLevel, phase: completedPhase }, passedKeys: passedPathKeys(skillStatus), nextSkillLabel: preliminaryCheckpoint.nextSkillLabel });
       const checkpoint = {
         ...preliminaryCheckpoint,
         passed: phasePassed,
         masteryEstablished,
         skillStatus,
+        assessmentMode,
+        skillLabel: assessmentMode === "retention" ? `${stage.label} retention check` : preliminaryCheckpoint.skillLabel,
         pathStatus: {
-          ...preliminaryCheckpoint.pathStatus,
+          ...completedPath,
+          ...(assessmentMode === "retention" ? { label: "Retention check" } : {}),
           levelOnePassed: Boolean(skillStatus?.level1?.passed),
           levelTwoPassed: Boolean(skillStatus?.level2?.passed),
           // The status reducer answers whether Level 1 is complete in the
@@ -1989,16 +2066,16 @@ export function createAssessmentRoundController(context) {
           // is allowed to leave the current skill: Phase 1 Round 1 and Phase
           // 2 Round 1 must never expose a next-skill action.
           nextSkillUnlocked: Boolean(
-            preliminaryCheckpoint.pathStatus?.nextSkillUnlocked
+            completedPath.nextSkillUnlocked
             && skillStatus?.nextSkillUnlocked
           ),
           level2Unlocked: Boolean(skillStatus?.level2Unlocked),
           level2Optional: true
         },
-        blockedPassReason: phasePassed || !accuracyPassed
-          ? preliminaryCheckpoint.blockedPassReason
+        blockedPassReason: phasePassed ? "" : assessmentMode === "retention"
+          ? skillStatus?.retention?.blockers?.[0] || "This retention check needs another try."
           : skillStatus?.[`level${completedLevel}`]?.phases?.[completedPhase]?.blockers?.[0]
-            || preliminaryCheckpoint.blockedPassReason
+            || "This phase needs another try."
       };
       const mastered = Boolean(skillStatus?.nextSkillUnlocked);
       // Rebuild the immutable archive row with the authoritative policy result
@@ -2011,7 +2088,7 @@ export function createAssessmentRoundController(context) {
         teacherId: evidenceTeacherId,
         stage,
         checkpoint,
-        questionRecords: roundRecords,
+        questionRecords: [...roundRecords, ...(assessmentSittingRef?.current?.mediaFailures || [])],
         assessmentType: getAssessmentAttemptType(assessmentMode),
         policySnapshot: {
           rule: "Skills Assessment v3 single-status policy",
@@ -2294,39 +2371,50 @@ export function createAssessmentRoundController(context) {
   }
 
   async function speakText(text, audioPath = "", options = {}) {
-    if (!text) return;
-
+    if (!text && !audioPath) return { ok: false, reason: "unavailable" };
+    const questionId = currentQuestion?.id || "";
+    const plan = assessmentSittingRef?.current;
+    const requestId = makeEvidenceEventId("audio");
+    let finishDelivery;
+    const completion = new Promise(resolve => { finishDelivery = resolve; });
+    if (plan && questionId) plan.audioPending = { questionId, requestId, completion };
+    const clearPending = (delivered = false) => {
+      finishDelivery(delivered);
+      if (plan?.audioPending?.requestId === requestId) plan.audioPending = null;
+    };
     const allowBrowserFallback = options.allowBrowserFallback === true;
     const requireApprovedAudio = options.requireApprovedAudio === true;
-    if (
-      import.meta.env.DEV &&
-      options.audioRole === "target_word" &&
-      isGenericInstructionAudioPath(audioPath)
-    ) {
-      console.warn("Target-word audio attempted to use instruction/prompt audio.", {
-        text,
-        audioPath
-      });
-    }
-    const { resolveAssessmentLedaAudioPath } = await import("../utils/assessmentLedaResolver.js");
-    const ledaAudioPath = resolveAssessmentLedaAudioPath(text, options.audioRole);
-    const preferredAudioPath = ledaAudioPath || audioPath || "";
-
-    if (requireApprovedAudio && !preferredAudioPath) return;
-
-    if (preferredAudioPath) {
-      playCueAudio(preferredAudioPath, {
-        onUnavailable: () => {
-          if (allowBrowserFallback) speakWithBrowser(text);
-        }
-      });
-      return;
-    }
-
-    if (requireApprovedAudio) return;
-
-    if (allowBrowserFallback) {
-      speakWithBrowser(text);
+    const fail = src => {
+      clearPending();
+      if (!questionId || !isCurrentAssessmentRun()) return;
+      handleAssessmentEvidenceImageError({ questionId, src, role: options.audioRole || "audio", mediaKind: "audio" });
+    };
+    try {
+      if (import.meta.env.DEV && options.audioRole === "target_word" && isGenericInstructionAudioPath(audioPath)) {
+        console.warn("Target-word audio attempted to use instruction/prompt audio.", { text, audioPath });
+      }
+      const { resolveAssessmentLedaAudioPath } = await import("../utils/assessmentLedaResolver.js");
+      if (!isCurrentAssessmentRun()) { clearPending(); return { ok: false, reason: "interrupted" }; }
+      const preferredAudioPath = resolveAssessmentLedaAudioPath(text, options.audioRole) || audioPath || "";
+      if (preferredAudioPath) {
+        return playAssessmentCue(preferredAudioPath, {
+          onUnavailable: () => fail(preferredAudioPath),
+          onDelivery: event => {
+            if (["completed", "interrupted", "failed", "unavailable"].includes(event.type)) clearPending(event.type === "completed");
+            options.onDelivery?.(event);
+          }
+        });
+      }
+      if (!requireApprovedAudio && allowBrowserFallback) {
+        speakWithBrowser(text);
+        clearPending();
+        return { ok: true, fallback: true };
+      }
+      fail(audioPath);
+      return { ok: false, reason: "unavailable" };
+    } catch {
+      fail(audioPath);
+      return { ok: false, reason: "unavailable" };
     }
   }
 
@@ -2505,7 +2593,7 @@ export function createAssessmentRoundController(context) {
 
 
   return {
-    answerQuestion, buildInitialSoundRoundQueue, buildSkillMasterySummary, getAvailableStageQuestions,
+    answerQuestion, buildInitialSoundRoundQueue, buildSkillMasterySummary, getAvailableStageQuestions, startAssessmentSitting, getCurrentSkillStatus,
     getItemMasteryStateKey, getQuestionItemKey, handleAssessmentEvidenceImageError, normalizeItemMasteryRow,
     persistCompletedAssessmentAttempt, pickQuestion, prioritizeCoverageQuestions, resetInitialSoundRoundQueue, retryCompletedAssessment, reviseLastAnswer,
     shouldShowImage, speakText, updateItemMastery,

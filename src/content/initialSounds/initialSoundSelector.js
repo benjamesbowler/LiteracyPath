@@ -303,6 +303,8 @@ export function getInitialSoundRoundPlan({
   studentProgress = {},
   level = 1,
   roundNumber = null,
+  assessmentPhase = null,
+  roundLength = INITIAL_SOUND_ROUND_LENGTH,
   seed = Date.now(),
   includeInactive = false,
   requireImportedMedia = true,
@@ -317,6 +319,9 @@ export function getInitialSoundRoundPlan({
   // round instead of an empty queue.
   excludeLetters = []
 } = {}) {
+  if ([1, 2].includes(Number(assessmentPhase))) {
+    itemBank = itemBank.filter(item => Number(item.phase) === Number(assessmentPhase));
+  }
   const safeLevel = Number(level) === 2 ? 2 : 1;
   const random = createSeededRandom(seed);
   const progress = normalizeInitialSoundsProgress(studentProgress)[levelKey(safeLevel)] || emptyLevelProgress();
@@ -329,7 +334,7 @@ export function getInitialSoundRoundPlan({
     itemFilter
   });
   const blockedLetters = INITIAL_SOUND_LETTERS.filter(letter => !availableLetters.includes(letter));
-  const phase = inferRoundPhase({ level: safeLevel, progress, roundNumber, availableLetters });
+  const phase = Number(assessmentPhase) || inferRoundPhase({ level: safeLevel, progress, roundNumber, availableLetters });
   const covered = new Set(progress.coveredLetters || []);
   const mastered = new Set(progress.masteredLetters || []);
   const incorrect = new Set(progress.incorrectLetters || []);
@@ -363,14 +368,14 @@ export function getInitialSoundRoundPlan({
   let reviewSelected = [];
 
   if (phase === 1) {
-    selectedLetters = uncoveredLetters.slice(0, INITIAL_SOUND_ROUND_LENGTH);
+    selectedLetters = uncoveredLetters.slice(0, roundLength);
   } else if (phase === 2) {
     const remaining = uncoveredLetters;
-    const reviewNeeded = Math.max(0, INITIAL_SOUND_ROUND_LENGTH - remaining.length);
+    const reviewNeeded = Math.max(0, roundLength - remaining.length);
     reviewSelected = reviewLetters.slice(0, reviewNeeded);
-    selectedLetters = [...remaining, ...reviewSelected].slice(0, INITIAL_SOUND_ROUND_LENGTH);
+    selectedLetters = [...remaining, ...reviewSelected].slice(0, roundLength);
   } else {
-    const weak = weakLetters.slice(0, INITIAL_SOUND_ROUND_LENGTH);
+    const weak = weakLetters.slice(0, roundLength);
     const unusedReview = prioritizedLetters
       .filter(letter => !weak.includes(letter))
       .filter(letter => {
@@ -387,21 +392,21 @@ export function getInitialSoundRoundPlan({
         return items.some(item => !used.has(String(item.targetWord).toLowerCase()));
       });
     const filler = prioritizedLetters.filter(letter => !weak.includes(letter) && !unusedReview.includes(letter));
-    selectedLetters = [...weak, ...unusedReview, ...filler].slice(0, INITIAL_SOUND_ROUND_LENGTH);
+    selectedLetters = [...weak, ...unusedReview, ...filler].slice(0, roundLength);
     reviewSelected = selectedLetters.filter(letter => covered.has(letter));
   }
 
-  if (selectedLetters.length < INITIAL_SOUND_ROUND_LENGTH) {
+  if (selectedLetters.length < roundLength) {
     const fallback = prioritizedAvailableLetters.filter(letter => !selectedLetters.includes(letter));
-    selectedLetters = [...selectedLetters, ...fallback].slice(0, INITIAL_SOUND_ROUND_LENGTH);
+    selectedLetters = [...selectedLetters, ...fallback].slice(0, roundLength);
 
     // A media failure or a deliberately small bank can leave fewer than 15
     // distinct letters. Reuse the filtered, runtime-ready pool only after all
     // distinct letters have been used; pickItemForLetter still rotates through
     // unused target words before it repeats one.
-    if (selectedLetters.length < INITIAL_SOUND_ROUND_LENGTH && prioritizedAvailableLetters.length) {
+    if (selectedLetters.length < roundLength && prioritizedAvailableLetters.length) {
       let fallbackIndex = 0;
-      while (selectedLetters.length < INITIAL_SOUND_ROUND_LENGTH) {
+      while (selectedLetters.length < roundLength) {
         selectedLetters.push(prioritizedAvailableLetters[fallbackIndex % prioritizedAvailableLetters.length]);
         fallbackIndex += 1;
       }

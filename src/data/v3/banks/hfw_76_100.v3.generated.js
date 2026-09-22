@@ -11880,5 +11880,537 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": ""
+ },
+ {
+  "id": "lp3.hfw_76_100.l1.R.did.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_76_100",
+  "assessmentSkillId": "hfw_76_100",
+  "skillName": "High-Frequency Words 76–100",
+  "skill": "High-Frequency Words 76–100",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "did",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Why did she leave yesterday? Which printed word fills the blank?",
+  "sentence": "Why ___ she leave yesterday?",
+  "choices": [
+   "do",
+   "has",
+   "was",
+   "did"
+  ],
+  "answerOptions": [
+   {
+    "value": "do",
+    "label": "do",
+    "text": "do"
+   },
+   {
+    "value": "has",
+    "label": "has",
+    "text": "has"
+   },
+   {
+    "value": "was",
+    "label": "was",
+    "text": "was"
+   },
+   {
+    "value": "did",
+    "label": "did",
+    "text": "did"
+   }
+  ],
+  "answer": "did",
+  "correctAnswer": "did",
+  "distractorRationales": {
+   "do": "D-DEVELOPMENTAL",
+   "has": "D-DEVELOPMENTAL",
+   "was": "D-DEVELOPMENTAL"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Why ___ she leave yesterday?",
+  "targetWord": "did",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_76_100.l1.R.did.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_76_100.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Yesterday sets the past question; the alternative auxiliaries cannot support this subject and base verb."
+ },
+ {
+  "id": "lp3.hfw_76_100.l1.R.my.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_76_100",
+  "assessmentSkillId": "hfw_76_100",
+  "skillName": "High-Frequency Words 76–100",
+  "skill": "High-Frequency Words 76–100",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "my",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. I tied my own shoes. Which printed word fills the blank?",
+  "sentence": "I tied ___ own shoes.",
+  "choices": [
+   "my",
+   "I",
+   "he",
+   "they"
+  ],
+  "answerOptions": [
+   {
+    "value": "my",
+    "label": "my",
+    "text": "my"
+   },
+   {
+    "value": "I",
+    "label": "I",
+    "text": "I"
+   },
+   {
+    "value": "he",
+    "label": "he",
+    "text": "he"
+   },
+   {
+    "value": "they",
+    "label": "they",
+    "text": "they"
+   }
+  ],
+  "answer": "my",
+  "correctAnswer": "my",
+  "distractorRationales": {
+   "they": "D-DEVELOPMENTAL",
+   "I": "D-DEVELOPMENTAL",
+   "he": "D-DEVELOPMENTAL"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "I tied ___ own shoes.",
+  "targetWord": "my",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_76_100.l1.R.my.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_76_100.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The noun phrase requires a possessive form; no rival possessive permits a second interpretation."
+ },
+ {
+  "id": "lp3.hfw_76_100.l2.R.called.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_76_100",
+  "assessmentSkillId": "hfw_76_100",
+  "skillName": "High-Frequency Words 76–100",
+  "skill": "High-Frequency Words 76–100",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "called",
+  "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
+  "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Listen, then build the missing word: Dad ___ us in for lunch.",
+  "question": "Listen, then build the missing word: Dad ___ us in for lunch.",
+  "spokenPrompt": "Listen to the whole sentence. Dad called us in for lunch. Build the missing word.",
+  "sentence": "Dad ___ us in for lunch.",
+  "choices": [
+   "called"
+  ],
+  "answerOptions": [
+   {
+    "value": "called",
+    "label": "called",
+    "text": "called"
+   }
+  ],
+  "answer": "called",
+  "correctAnswer": "called",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "letterTiles": [
+   "c",
+   "a",
+   "l",
+   "l",
+   "e",
+   "d",
+   "o",
+   "t"
+  ],
+  "letterBank": [
+   "c",
+   "a",
+   "l",
+   "l",
+   "e",
+   "d",
+   "o",
+   "t"
+  ],
+  "sentenceText": "Dad called us in for lunch.",
+  "targetWord": "called",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_76_100.l2.R.called.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_76_100.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.hfw_76_100.l2.R.first.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_76_100",
+  "assessmentSkillId": "hfw_76_100",
+  "skillName": "High-Frequency Words 76–100",
+  "skill": "High-Frequency Words 76–100",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "first",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen, then build the missing word: Who will go ___ in line?",
+  "question": "Listen, then build the missing word: Who will go ___ in line?",
+  "spokenPrompt": "Listen to the whole sentence. Who will go first in line? Build the missing word.",
+  "sentence": "Who will go ___ in line?",
+  "choices": [
+   "first"
+  ],
+  "answerOptions": [
+   {
+    "value": "first",
+    "label": "first",
+    "text": "first"
+   }
+  ],
+  "answer": "first",
+  "correctAnswer": "first",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "letterTiles": [
+   "f",
+   "i",
+   "r",
+   "s",
+   "t",
+   "e",
+   "u"
+  ],
+  "letterBank": [
+   "f",
+   "i",
+   "r",
+   "s",
+   "t",
+   "e",
+   "u"
+  ],
+  "sentenceText": "Who will go first in line?",
+  "targetWord": "first",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_76_100.l2.R.first.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_76_100.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.hfw_76_100.l2.R.people.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_76_100",
+  "assessmentSkillId": "hfw_76_100",
+  "skillName": "High-Frequency Words 76–100",
+  "skill": "High-Frequency Words 76–100",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "people",
+  "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
+  "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Listen, then build the missing word: Many ___ use this path.",
+  "question": "Listen, then build the missing word: Many ___ use this path.",
+  "spokenPrompt": "Listen to the whole sentence. Many people use this path. Build the missing word.",
+  "sentence": "Many ___ use this path.",
+  "choices": [
+   "people"
+  ],
+  "answerOptions": [
+   {
+    "value": "people",
+    "label": "people",
+    "text": "people"
+   }
+  ],
+  "answer": "people",
+  "correctAnswer": "people",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "letterTiles": [
+   "p",
+   "e",
+   "o",
+   "p",
+   "l",
+   "e",
+   "i",
+   "a"
+  ],
+  "letterBank": [
+   "p",
+   "e",
+   "o",
+   "p",
+   "l",
+   "e",
+   "i",
+   "a"
+  ],
+  "sentenceText": "Many people use this path.",
+  "targetWord": "people",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_76_100.l2.R.people.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_76_100.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.hfw_76_100.l2.R.than.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_76_100",
+  "assessmentSkillId": "hfw_76_100",
+  "skillName": "High-Frequency Words 76–100",
+  "skill": "High-Frequency Words 76–100",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "than",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen, then build the missing word: This box is wider ___ mine.",
+  "question": "Listen, then build the missing word: This box is wider ___ mine.",
+  "spokenPrompt": "Listen to the whole sentence. This box is wider than mine. Build the missing word.",
+  "sentence": "This box is wider ___ mine.",
+  "choices": [
+   "than"
+  ],
+  "answerOptions": [
+   {
+    "value": "than",
+    "label": "than",
+    "text": "than"
+   }
+  ],
+  "answer": "than",
+  "correctAnswer": "than",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "letterTiles": [
+   "t",
+   "h",
+   "a",
+   "n",
+   "e",
+   "i"
+  ],
+  "letterBank": [
+   "t",
+   "h",
+   "a",
+   "n",
+   "e",
+   "i"
+  ],
+  "sentenceText": "This box is wider than mine.",
+  "targetWord": "than",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_76_100.l2.R.than.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_76_100.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
  }
 ];

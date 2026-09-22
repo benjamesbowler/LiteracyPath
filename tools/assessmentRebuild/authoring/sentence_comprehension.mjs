@@ -1,349 +1,2297 @@
-// Literal meanings, image matches, clause relations, reference and restatement.
-// Every level contains 32 mastery items (16 per phase) and 8 reserves.
-
-const K = t => ({ t, r: "KEY", k: true });
-const P = (t, r) => ({ t, r });
-const it = (u, lvl, ph, v, sentence, prompt, choices, extra = {}) => ({
-  u, lvl, ph, v, fmt: "COMPREHENSION", cell: u, passage: sentence, prompt, choices, media: "text",
-  ...(u === "pronoun_reference" ? { copyExempt: "pronoun-reference-label" } : {}),
-  ...extra
-});
-const scene = (ph, v, imageKey, imageAlt, choices, extra = {}) => ({
-  u: "picture_match",
-  lvl: 1,
-  ph,
-  v,
-  fmt: "COMPREHENSION",
-  cell: "picture_match",
-  prompt: "Which sentence tells about this picture?",
-  spoken: "Look carefully at the picture. Which sentence tells about it?",
-  choices,
-  media: "image-required",
-  img: imageKey,
-  imgAlt: imageAlt,
-  mediaRole: "scoring-evidence",
-  evidenceModality: "image+sentence",
-  constructClaim: "picture_to_sentence_meaning",
-  suppressStimulusAudio: true,
-  ...extra
-});
-
+// Individually authored comprehension evidence; normal and reserve items share the same quality requirements.
 export default {
-  skillId: "sentence_comprehension",
-  skillName: "Sentence Comprehension",
-  items: [
-    // ===== L1 · literal_who_what (8) =====
-    it("literal_who_what", 1, 1, 1,
-      "Granny Bola planted red flowers beside the garden path.",
-      "What did Granny Bola plant?",
-      [K("red flowers along the garden path"), P("red flowers far from the garden path", "D-PLAUSIBLE-UNSUPPORTED"), P("green beans along the garden path", "D-PLAUSIBLE-UNSUPPORTED"), P("green beans far from the garden path", "D-OPPOSITE")]),
-    it("literal_who_what", 1, 1, 2,
-      "The dentist gave Milo a sticker for sitting calmly.",
-      "What did Milo get from the dentist?",
-      [K("a sticker as a reward"), P("a toy as a reward", "D-PLAUSIBLE-UNSUPPORTED"), P("a brush for his teeth", "D-PLAUSIBLE-UNSUPPORTED"), P("a sticker for his sister", "D-OPPOSITE")]),
-    it("literal_who_what", 1, 1, 3,
-      "Our mail carrier whistles music along the whole street.",
-      "Who whistles along the street?",
-      [K("the person who brings letters"), P("the person who sells bread", "D-PLAUSIBLE-UNSUPPORTED"), P("the person who drives buses", "D-PLAUSIBLE-UNSUPPORTED"), P("the person who sweeps paths", "D-OPPOSITE")]),
-    it("literal_who_what", 1, 1, 4,
-      "Baby Ren stacked four wooden blocks by himself.",
-      "Who stacked the four blocks?",
-      [K("Ren did it alone"), P("Ren and his dad", "D-PLAUSIBLE-UNSUPPORTED"), P("Ren and his sister", "D-PLAUSIBLE-UNSUPPORTED"), P("Ren and his friend", "D-OPPOSITE")]),
-    it("literal_who_what", 1, 2, 5,
-      "Uncle Dip burned two slices of toast before breakfast.",
-      "What went wrong before breakfast?",
-      [K("his toast got too dark"), P("his toast fell onto the floor", "D-PLAUSIBLE-UNSUPPORTED"), P("his tea spilled on the table", "D-PLAUSIBLE-UNSUPPORTED"), P("his cups broke on the floor", "D-OPPOSITE")]),
-    it("literal_who_what", 1, 2, 6,
-      "The twins painted their bedroom door bright orange.",
-      "What did the twins paint?",
-      [K("the entrance to their bedroom"), P("the inside wall of their bedroom", "D-PLAUSIBLE-UNSUPPORTED"), P("the entrance to their kitchen", "D-PLAUSIBLE-UNSUPPORTED"), P("the inside wall of their kitchen", "D-OPPOSITE")]),
-    it("literal_who_what", 1, 2, 7,
-      "A magpie took the shiny bottle top from outside.",
-      "What did the bird take?",
-      [K("the top from a bottle"), P("the side of a box", "D-PLAUSIBLE-UNSUPPORTED"), P("the lid from a jar", "D-PLAUSIBLE-UNSUPPORTED"), P("the handle of a cup", "D-OPPOSITE")]),
-    it("literal_who_what", 1, 2, 8,
-      "Miss Faro fixed a wobbly table with folded card.",
-      "What did Miss Faro fix?",
-      [K("a table that was not steady"), P("a chair that was not steady", "D-PLAUSIBLE-UNSUPPORTED"), P("a table with a wet top", "D-PLAUSIBLE-UNSUPPORTED"), P("a chair with a torn seat", "D-OPPOSITE")]),
-
-    // ===== L1 · literal_where_when (8) =====
-    it("literal_where_when", 1, 1, 1,
-      "The choir practices in the hall every Tuesday.",
-      "When does the choir practice?",
-      [K("on Tuesday each week"), P("on Friday each week", "D-PLAUSIBLE-UNSUPPORTED"), P("on Monday each week", "D-PLAUSIBLE-UNSUPPORTED"), P("on Sunday each week", "D-OPPOSITE")]),
-    it("literal_where_when", 1, 1, 2,
-      "Dad stores his glasses in an empty fruit bowl.",
-      "Where does Dad keep his glasses?",
-      [K("inside a bowl for fruit"), P("beside a bowl for fruit", "D-PLAUSIBLE-UNSUPPORTED"), P("inside a box for toys", "D-PLAUSIBLE-UNSUPPORTED"), P("beside a box for toys", "D-OPPOSITE")]),
-    it("literal_where_when", 1, 1, 3,
-      "The frog hid under the largest pond leaf.",
-      "Where did the frog hide?",
-      [K("below the biggest leaf"), P("above the biggest leaf", "D-PLAUSIBLE-UNSUPPORTED"), P("below the smallest leaf", "D-PLAUSIBLE-UNSUPPORTED"), P("above the smallest leaf", "D-OPPOSITE")]),
-    it("literal_where_when", 1, 1, 4,
-      "Swimming lessons start after lunch every Friday.",
-      "When do swimming lessons start?",
-      [K("when Friday’s lunch is over"), P("before Friday’s lunch has started", "D-PLAUSIBLE-UNSUPPORTED"), P("when Monday’s lunch is over", "D-PLAUSIBLE-UNSUPPORTED"), P("before Monday’s lunch has started", "D-OPPOSITE")]),
-    it("literal_where_when", 1, 2, 5,
-      "Mom parks her bike behind the recycling bins.",
-      "Where does Mom park her bike?",
-      [K("at the back of the bins"), P("at the front of the bins", "D-PLAUSIBLE-UNSUPPORTED"), P("on the left of the bins", "D-PLAUSIBLE-UNSUPPORTED"), P("on the right of the bins", "D-OPPOSITE")]),
-    it("literal_where_when", 1, 2, 6,
-      "The market opens at seven in the morning.",
-      "When does the market first open?",
-      [K("at seven before lunch"), P("at seven after lunch", "D-PLAUSIBLE-UNSUPPORTED"), P("at nine before lunch", "D-PLAUSIBLE-UNSUPPORTED"), P("at nine after lunch", "D-OPPOSITE")]),
-    it("literal_where_when", 1, 2, 7,
-      "Grandpa naps in the striped chair beside the roses.",
-      "Where does Grandpa nap?",
-      [K("on the chair near the flowers"), P("on the chair near the window", "D-PLAUSIBLE-UNSUPPORTED"), P("on the bench near the flowers", "D-PLAUSIBLE-UNSUPPORTED"), P("on the bench near the window", "D-OPPOSITE")]),
-    it("literal_where_when", 1, 2, 8,
-      "The kitten was found inside the tall cupboard.",
-      "Where was the kitten found?",
-      [K("in the cupboard"), P("on the cupboard", "D-PLAUSIBLE-UNSUPPORTED"), P("by the cupboard", "D-PLAUSIBLE-UNSUPPORTED"), P("under the cupboard", "D-OPPOSITE")]),
-
-    // ===== L1 · picture_match (8) — pick the sentence that fits the scene =====
-    scene(1, 1, "scene-girl-jumps-puddle", "A girl in yellow rain boots jumping over a puddle.",
-      [K("A girl in rain boots jumps over a puddle."),
-       P("A girl sleeps in her warm bed.", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("A boy in rain boots fills a puddle.", "D-VISUAL-NEIGHBOR"),
-       P("A girl paints a picture of rain.", "D-TOPIC-ADJACENT")]),
-    scene(1, 2, "scene-boys-ladder-bakery", "Two boys carrying a long ladder past a bakery.",
-      [K("Two boys carry a ladder past the bakery."),
-       P("Two boys buy buns at the bakery.", "D-TOPIC-ADJACENT"),
-       P("One boy climbs a ladder at home.", "D-VISUAL-NEIGHBOR"),
-       P("Two bakers carry a table.", "D-VISUAL-NEIGHBOR")]),
-    scene(1, 3, "scene-cat-umbrella", "A cat asleep inside an open umbrella.",
-      [K("A cat sleeps inside an open umbrella."),
-       P("A cat hides from the rain indoors.", "D-TOPIC-ADJACENT"),
-       P("A dog sleeps under an umbrella.", "D-VISUAL-NEIGHBOR"),
-       P("A cat plays with a ball of wool.", "D-PLAUSIBLE-UNSUPPORTED")]),
-    scene(1, 4, "scene-grandad-child-red-kite", "A grandpa and one child flying one red kite together.",
-      [K("Grandpa and a child fly a red kite."),
-       P("Grandpa buys a child a red ball.", "D-VISUAL-NEIGHBOR"),
-       P("Two children fly two kites.", "D-VISUAL-NEIGHBOR"),
-       P("Grandpa reads about kites.", "D-TOPIC-ADJACENT")]),
-    scene(2, 5, "scene-red-sock-falling", "One red sock dropping from a full clothesline toward the grass.",
-      [K("One red sock falls from the clothesline."),
-       P("A red sock hangs safely on the line.", "D-OPPOSITE"),
-      P("The empty clothesline swings in the wind.", "D-VISUAL-NEIGHBOR"),
-       P("Someone irons a red shirt.", "D-TOPIC-ADJACENT")]),
-    scene(2, 6, "scene-ducks-ice-cream-van", "Exactly three ducks waiting at an ice cream truck.",
-      [K("Three ducks wait in line at the ice cream truck."),
-       P("Three children feed ducks at the pond.", "D-VISUAL-NEIGHBOR"),
-       P("An ice cream truck drives past a farm.", "D-TOPIC-ADJACENT"),
-       P("One duck swims away from a boat.", "D-PLAUSIBLE-UNSUPPORTED")]),
-    scene(2, 7, "scene-boy-giant-jelly", "A boy holding a tray with a huge red jelly above his head.",
-      [K("A boy holds up a huge red jelly."), P("A boy eats from a small red bowl.", "D-PLAUSIBLE-UNSUPPORTED"), P("A boy drops a tray of red apples.", "D-PLAUSIBLE-UNSUPPORTED"), P("A boy washes a tall empty glass.", "D-OPPOSITE")]),
-    scene(2, 8, "scene-snowman-sunglasses", "A snowman wearing sunglasses on a sunny winter day.",
-      [K("A snowman wears sunglasses in the sunshine."),
-       P("A snowman melts away in the rain.", "D-VISUAL-NEIGHBOR"),
-       P("A child wears sunglasses at the beach.", "D-VISUAL-NEIGHBOR"),
-       P("A snowman wears a warm scarf at night.", "D-VISUAL-NEIGHBOR")]),
-
-    // ===== L1 · literal_action (8) =====
-    it("literal_action", 1, 1, 1,
-      "Pia tiptoed past the sleeping dog.",
-      "How did Pia move past the dog?",
-      [K("she stepped quietly on her toes"), P("she ran quickly on the grass", "D-PLAUSIBLE-UNSUPPORTED"), P("she jumped over its soft bed", "D-PLAUSIBLE-UNSUPPORTED"), P("she crawled under its low bench", "D-OPPOSITE")]),
-    it("literal_action", 1, 1, 2,
-      "The waiter carried six plates on one arm.",
-      "How did the waiter carry the plates?",
-      [K("balanced on his arm"), P("stacked on a tray", "D-PLAUSIBLE-UNSUPPORTED"), P("packed in a box", "D-PLAUSIBLE-UNSUPPORTED"), P("spread on a cart", "D-OPPOSITE")]),
-    it("literal_action", 1, 1, 3,
-      "Grandma squeezed three lemons to make a drink.",
-      "How did Grandma make juice from the lemons?",
-      [K("she pressed the fruit"), P("she peeled the fruit", "D-PLAUSIBLE-UNSUPPORTED"), P("she boiled the fruit", "D-PLAUSIBLE-UNSUPPORTED"), P("she chopped the fruit", "D-OPPOSITE")]),
-    it("literal_action", 1, 1, 4,
-      "The goalkeeper tipped the ball above the goal.",
-      "Where did the goalkeeper send the ball?",
-      [K("over the goal"), P("into the goal", "D-PLAUSIBLE-UNSUPPORTED"), P("beside the goal", "D-PLAUSIBLE-UNSUPPORTED"), P("under the goal", "D-OPPOSITE")]),
-    it("literal_action", 1, 2, 5,
-      "Kofi taped the torn map back together.",
-      "What did Kofi do to the map?",
-      [K("joined its torn parts with tape"), P("cut its folded parts with scissors", "D-PLAUSIBLE-UNSUPPORTED"), P("drew its missing roads with pencil", "D-PLAUSIBLE-UNSUPPORTED"), P("hung its top edge with string", "D-OPPOSITE")]),
-    it("literal_action", 1, 2, 6,
-      "The parrot copied Grandpa's cough all afternoon.",
-      "What sound did the parrot make?",
-      [K("the same cough as Grandpa"), P("the same song as Grandpa", "D-PLAUSIBLE-UNSUPPORTED"), P("a cough different from Grandpa's", "D-PLAUSIBLE-UNSUPPORTED"), P("a song different from Grandpa's", "D-OPPOSITE")]),
-    it("literal_action", 1, 2, 7,
-      "Ada rolled the biggest snowball in the street.",
-      "How large was Ada's snowball?",
-      [K("larger than the others nearby"), P("smaller than the others nearby", "D-PLAUSIBLE-UNSUPPORTED"), P("the same size as the others", "D-PLAUSIBLE-UNSUPPORTED"), P("half the size of the others", "D-OPPOSITE")]),
-    it("literal_action", 1, 2, 8,
-      "The librarian stamped tomorrow's date on today's book.",
-      "Which date did the librarian stamp?",
-      [K("the next day's date"), P("the same day's date", "D-PLAUSIBLE-UNSUPPORTED"), P("the last day's date", "D-PLAUSIBLE-UNSUPPORTED"), P("the next month's date", "D-OPPOSITE")]),
-
-    // ===== L2 · two_clause (8) =====
-    it("two_clause", 2, 1, 1,
-      "Because the lift was broken, the movers used the stairs.",
-      "Why did the movers use the stairs?",
-      [K("the lift could not work"), P("the stairs would save time", "D-PLAUSIBLE-UNSUPPORTED"), P("the lift had no space", "D-PLAUSIBLE-UNSUPPORTED"), P("the stairs were less steep", "D-OPPOSITE")], { note: "Connect the broken lift to the alternative route." }),
-    it("two_clause", 2, 1, 2,
-      "Rosa wore big borrowed boots, so her footprints looked huge.",
-      "Why did Rosa leave huge footprints?",
-      [K("her boots were larger than her feet"), P("her feet were larger than her boots", "D-PLAUSIBLE-UNSUPPORTED"), P("the ground was softer than usual", "D-PLAUSIBLE-UNSUPPORTED"), P("the mud was deeper than usual", "D-OPPOSITE")], { note: "Distinguish the size of the borrowed boots from Rosa's own feet." }),
-    it("two_clause", 2, 1, 3,
-      "The picnic moved inside, but everyone still enjoyed sharing the cake.",
-      "How did people feel after moving inside?",
-      [K("pleased to share the cake"), P("cross about sharing the cake", "D-PLAUSIBLE-UNSUPPORTED"), P("worried about finding a cake", "D-PLAUSIBLE-UNSUPPORTED"), P("surprised to find a cake", "D-OPPOSITE")], { note: "Follow the contrast instead of assuming the move spoiled the picnic." }),
-    it("two_clause", 2, 1, 4,
-      "The sea looked calm, but a sign warned against swimming.",
-      "What does the sentence tell us about swimming?",
-      [K("the calm water might be unsafe"), P("the calm water must be safe", "D-PLAUSIBLE-UNSUPPORTED"), P("the calm water would be warm", "D-PLAUSIBLE-UNSUPPORTED"), P("the calm water would be shallow", "D-OPPOSITE")], { note: "Resolve appearance versus explicit warning without requiring flag knowledge." }),
-    it("two_clause", 2, 2, 5,
-      "Jin saved his money to buy Mom a birthday plant.",
-      "Why did Jin save his money?",
-      [K("for a plant to give Mom"), P("for a plant to keep himself", "D-PLAUSIBLE-UNSUPPORTED"), P("for a present from his mom", "D-PLAUSIBLE-UNSUPPORTED"), P("for a present from his friend", "D-OPPOSITE")], { note: "Link the purpose clause to the recipient." }),
-    it("two_clause", 2, 2, 6,
-      "The bench had wet paint, so a sign warned people away.",
-      "Why was the sign there?",
-      [K("to keep people off wet paint"), P("to help people find a seat", "D-PLAUSIBLE-UNSUPPORTED"), P("to show people a new path", "D-PLAUSIBLE-UNSUPPORTED"), P("to ask people to paint benches", "D-OPPOSITE")], { note: "Connect the warning to the still-wet surface." }),
-    it("two_clause", 2, 2, 7,
-      "Tara practiced in goal, but played forward in the final match.",
-      "Where did Tara play in the final match?",
-      [K("up front with the attackers"), P("in goal with the gloves", "D-PLAUSIBLE-UNSUPPORTED"), P("at the side as a helper", "D-PLAUSIBLE-UNSUPPORTED"), P("on the bench as a spare", "D-OPPOSITE")], { note: "Use the contrast to separate practice from the match." }),
-    it("two_clause", 2, 2, 8,
-      "The bread smelled good, but nobody ate it before the fair.",
-      "What happened to the bread before the fair?",
-      [K("it was left for later"), P("it was eaten straight away", "D-PLAUSIBLE-UNSUPPORTED"), P("it was thrown in the bin", "D-PLAUSIBLE-UNSUPPORTED"), P("it was cut for a picnic", "D-OPPOSITE")], { note: "Use the second clause instead of inferring eating from the smell." }),
-
-    // ===== L2 · pronoun_reference (8) =====
-    it("pronoun_reference", 2, 1, 1,
-      "Maya passed her brother the brush because he wanted to paint.",
-      "Who wanted to paint?",
-      [K("Maya's brother"), P("Maya herself", "D-PLAUSIBLE-UNSUPPORTED"), P("Maya's sister", "D-PLAUSIBLE-UNSUPPORTED"), P("Maya's mother", "D-OPPOSITE")],
-      { note: "Resolve he using the stated brother relationship." }),
-    it("pronoun_reference", 2, 1, 2,
-      "The gull followed the fishing boat until it sailed away.",
-      "What sailed away?",
-      [K("the fishing boat"), P("the following gull", "D-PLAUSIBLE-UNSUPPORTED"), P("a passing ferry", "D-PLAUSIBLE-UNSUPPORTED"), P("a small sailboat", "D-OPPOSITE")],
-      { note: "Use the verb sailed to select the correct singular referent." }),
-    it("pronoun_reference", 2, 1, 3,
-      "Sam lent Maya his pencil, and she chewed its end.",
-      "Whose pencil did Maya chew?",
-      [K("Sam's pencil"), P("Maya's pencil", "D-PLAUSIBLE-UNSUPPORTED"), P("the teacher's pencil", "D-PLAUSIBLE-UNSUPPORTED"), P("her brother's pencil", "D-OPPOSITE")], { note: "Resolve possession across the two clauses." }),
-    it("pronoun_reference", 2, 1, 4,
-      "The twins visited Auntie Vee, and she taught them a game.",
-      "Who taught the game?",
-      [K("Auntie Vee"), P("the twins", "D-PLAUSIBLE-UNSUPPORTED"), P("their mother", "D-PLAUSIBLE-UNSUPPORTED"), P("their grandpa", "D-OPPOSITE")], { note: "Resolve she versus plural them." }),
-    it("pronoun_reference", 2, 2, 5,
-      "Nia put a seedling beside two cacti, but it grew taller.",
-      "What grew taller?",
-      [K("the seedling"), P("the two cacti", "D-PLAUSIBLE-UNSUPPORTED"), P("the plant shelf", "D-PLAUSIBLE-UNSUPPORTED"), P("the flower pot", "D-OPPOSITE")],
-      { note: "Use singular it rather than the nearer plural cacti." }),
-    it("pronoun_reference", 2, 2, 6,
-      "Carmen showed Grandpa the robot that she built from boxes.",
-      "Who built the robot?",
-      [K("Carmen"), P("Grandpa", "D-PLAUSIBLE-UNSUPPORTED"), P("her dad", "D-PLAUSIBLE-UNSUPPORTED"), P("her brother", "D-OPPOSITE")],
-      { note: "Resolve she through a relative clause." }),
-    it("pronoun_reference", 2, 2, 7,
-      "The keeper fed the penguins, so they were full before visitors arrived.",
-      "Who was full?",
-      [K("the penguins"), P("the visitors", "D-PLAUSIBLE-UNSUPPORTED"), P("the keepers", "D-PLAUSIBLE-UNSUPPORTED"), P("the seals", "D-OPPOSITE")], { note: "Resolve plural they across cause and later arrival." }),
-    it("pronoun_reference", 2, 2, 8,
-      "Effie waved to her cousin until the train passed him.",
-      "Who did the train pass?",
-      [K("Effie's cousin"), P("Effie herself", "D-PLAUSIBLE-UNSUPPORTED"), P("the train driver", "D-PLAUSIBLE-UNSUPPORTED"), P("the ticket seller", "D-OPPOSITE")], { note: "Resolve him as the person on the platform." }),
-
-    // ===== L2 · best_restatement (8) =====
-    it("best_restatement", 2, 1, 1,
-      "By lunchtime, every ticket for the puppet show had sold.",
-      "Which sentence means the SAME?",
-      [K("No tickets were left by lunch."), P("Some tickets were left after lunch.", "D-PLAUSIBLE-UNSUPPORTED"), P("New tickets went on sale at lunch.", "D-PLAUSIBLE-UNSUPPORTED"), P("The puppet show was canceled at lunch.", "D-OPPOSITE")]),
-    it("best_restatement", 2, 1, 2,
-      "Ravi knows the route to the pool very well.",
-      "Which sentence means the SAME?",
-      [K("Ravi can find his way there easily."), P("Ravi needs help to find his way.", "D-PLAUSIBLE-UNSUPPORTED"), P("Ravi has never gone to the pool.", "D-PLAUSIBLE-UNSUPPORTED"), P("Ravi always takes a new route there.", "D-OPPOSITE")]),
-    it("best_restatement", 2, 1, 3,
-      "The class stood up before the final whistle ended the match.",
-      "Which sentence means the SAME?",
-      [K("Everyone rose before the match finished."), P("Everyone rose after the match finished.", "D-PLAUSIBLE-UNSUPPORTED"), P("Everyone left before the match finished.", "D-PLAUSIBLE-UNSUPPORTED"), P("Everyone sat until the match finished.", "D-OPPOSITE")]),
-    it("best_restatement", 2, 1, 4,
-      "Dad said the soup had a very strong smell.",
-      "Which sentence means the SAME?",
-      [K("Dad could smell the soup clearly."), P("Dad could hardly smell the soup.", "D-PLAUSIBLE-UNSUPPORTED"), P("Dad wanted soup with more salt.", "D-PLAUSIBLE-UNSUPPORTED"), P("Dad said the soup was too cold.", "D-OPPOSITE")]),
-    it("best_restatement", 2, 2, 5,
-      "Omar had stopped waiting calmly before the late bus came.",
-      "Which sentence means the SAME?",
-      [K("Omar grew impatient while waiting for the bus."), P("Omar stayed calm while waiting for the bus.", "D-PLAUSIBLE-UNSUPPORTED"), P("Omar missed the bus because he arrived late.", "D-PLAUSIBLE-UNSUPPORTED"), P("Omar left calmly before the bus arrived.", "D-OPPOSITE")]),
-    it("best_restatement", 2, 2, 6,
-      "The new puppy chewed every shoe in the house.",
-      "Which sentence means the SAME?",
-      [K("No shoe escaped the puppy's chewing."), P("Some shoes escaped the puppy's chewing.", "D-PLAUSIBLE-UNSUPPORTED"), P("The puppy only chewed its own toys.", "D-PLAUSIBLE-UNSUPPORTED"), P("The puppy carried shoes without chewing them.", "D-OPPOSITE")]),
-    it("best_restatement", 2, 2, 7,
-      "Lila found it hard to keep the secret until Friday.",
-      "Which sentence means the SAME?",
-      [K("Not telling the secret was difficult."), P("Remembering the secret was very easy.", "D-PLAUSIBLE-UNSUPPORTED"), P("Telling the secret made Lila happy.", "D-PLAUSIBLE-UNSUPPORTED"), P("Hearing the secret made Lila worried.", "D-OPPOSITE")]),
-    it("best_restatement", 2, 2, 8,
-      "Hailstones bounced all over the trampoline during the storm.",
-      "Which sentence means the SAME?",
-      [K("Falling ice jumped across the trampoline."), P("Falling leaves covered the whole trampoline.", "D-PLAUSIBLE-UNSUPPORTED"), P("Heavy rain washed under the trampoline.", "D-PLAUSIBLE-UNSUPPORTED"), P("Strong wind lifted the whole trampoline.", "D-OPPOSITE")]),
-
-    // ===== RETENTION (8 + 8) =====
-    it("literal_who_what", 1, 1, 9,
-      "Auntie Meg won a prize for her huge pumpkin.",
-      "What won Auntie Meg a prize?",
-      [K("her very large pumpkin"), P("her very large carrot", "D-PLAUSIBLE-UNSUPPORTED"), P("her very small pumpkin", "D-PLAUSIBLE-UNSUPPORTED"), P("her very small carrot", "D-OPPOSITE")], { retention: true }),
-    it("literal_where_when", 1, 1, 10,
-      "The school hamster sleeps all day and runs overnight.",
-      "When does the school hamster run?",
-      [K("during the night"), P("during the day", "D-PLAUSIBLE-UNSUPPORTED"), P("only before lunch", "D-PLAUSIBLE-UNSUPPORTED"), P("only after lunch", "D-OPPOSITE")], { retention: true }),
-    scene(1, 9, "scene-small-dog-leads-tall-man", "A very small dog leading a very tall man down a street.",
-      [K("A small dog leads a tall man down the street."),
-       P("A tall man carries a small dog.", "D-VISUAL-NEIGHBOR"),
-       P("Two dogs chase a ball.", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("A man buys a dog lead.", "D-TOPIC-ADJACENT")], { retention: true }),
-    it("literal_action", 1, 1, 10,
-      "The baker hid a coin inside one bread roll.",
-      "Where did the baker put the coin?",
-      [K("in one bread roll"), P("by one bread roll", "D-PLAUSIBLE-UNSUPPORTED"), P("under the bread tray", "D-PLAUSIBLE-UNSUPPORTED"), P("behind the bread tray", "D-OPPOSITE")], { retention: true }),
-    it("literal_who_what", 1, 2, 10,
-      "Little Ivo taught the parrot to say good morning.",
-      "Who taught the bird its greeting?",
-      [K("the child called Ivo"), P("the child’s mother", "D-PLAUSIBLE-UNSUPPORTED"), P("the child’s neighbour", "D-PLAUSIBLE-UNSUPPORTED"), P("the child’s grandfather", "D-OPPOSITE")], { retention: true }),
-    it("literal_where_when", 1, 2, 9,
-      "Robi’s sports clothes fill a drawer below his bed.",
-      "Where does Robi keep his sports clothes?",
-      [K("in the drawer under his bed"), P("in the basket under his bed", "D-PLAUSIBLE-UNSUPPORTED"), P("in the drawer beside his bed", "D-PLAUSIBLE-UNSUPPORTED"), P("in the basket beside his bed", "D-OPPOSITE")], { retention: true }),
-    scene(2, 10, "scene-family-asleep-film", "A family asleep together on a sofa beside a television.",
-      [K("The family sleeps together on the sofa."), P("The family eats together at the table.", "D-PLAUSIBLE-UNSUPPORTED"), P("The family watches television from the sofa.", "D-PLAUSIBLE-UNSUPPORTED"), P("The family reads together on the floor.", "D-OPPOSITE")], { retention: true }),
-    it("literal_action", 1, 2, 9,
-      "Mrs. Cho got the ball down with a mop.",
-      "What did Mrs. Cho use to reach the ball?",
-      [K("a mop with a long handle"), P("a pole with a small hook", "D-PLAUSIBLE-UNSUPPORTED"), P("a broom with a long handle", "D-PLAUSIBLE-UNSUPPORTED"), P("a net with a small hoop", "D-OPPOSITE")], { retention: true }),
-    it("two_clause", 2, 1, 9,
-      "Baby Bo blew the candles out, so Mom lit them again.",
-      "Why did Mom light the candles again?",
-      [K("Bo had blown them out"), P("Bo had put them away", "D-PLAUSIBLE-UNSUPPORTED"), P("the wind had blown them out", "D-PLAUSIBLE-UNSUPPORTED"), P("the rain had made them wet", "D-OPPOSITE")], { retention: true , note: "Connect an action to a repeated action."}),
-    it("two_clause", 2, 2, 10,
-      "The wait was long, but Grandma thought the dumplings were worth it.",
-      "What did Grandma think about waiting?",
-      [K("the food made the wait worthwhile"), P("the food made the wait pointless", "D-PLAUSIBLE-UNSUPPORTED"), P("the line was too short to join", "D-PLAUSIBLE-UNSUPPORTED"), P("the line was too noisy to join", "D-OPPOSITE")], { retention: true , note: "Interpret a contrast in opinion after a long wait."}),
-    it("pronoun_reference", 2, 1, 9,
-      "Priya read to her brother until he fell asleep.",
-      "Who fell asleep?",
-      [K("her brother"), P("Priya", "D-PLAUSIBLE-UNSUPPORTED"), P("her mother", "D-PLAUSIBLE-UNSUPPORTED"), P("her sister", "D-OPPOSITE")], { retention: true , note: "Resolve he at the end of the subordinate clause."}),
-    it("pronoun_reference", 2, 2, 10,
-      "The coach thanked the parents because they had packed the cones.",
-      "Who packed the cones?",
-      [K("the parents"), P("the coach", "D-PLAUSIBLE-UNSUPPORTED"), P("the players", "D-PLAUSIBLE-UNSUPPORTED"), P("the helpers", "D-OPPOSITE")], { retention: true , note: "Resolve they from the people thanked, not the subject."}),
-    it("best_restatement", 2, 1, 10,
-      "The tide had covered the sandcastle by late afternoon.",
-      "Which sentence means the SAME?",
-      [K("The sea was over it before evening."), P("The sea stayed below it until evening.", "D-PLAUSIBLE-UNSUPPORTED"), P("The sea washed it away after dark.", "D-PLAUSIBLE-UNSUPPORTED"), P("The sea never reached it that day.", "D-OPPOSITE")], { retention: true }),
-    it("best_restatement", 2, 2, 9,
-      "The cheese smelled so bad that everyone opened the windows.",
-      "Which sentence means the SAME?",
-      [K("People let fresh air in because of the cheese."), P("People let fresh air in to cool the cheese.", "D-PLAUSIBLE-UNSUPPORTED"), P("People shut the windows to hide the cheese smell.", "D-PLAUSIBLE-UNSUPPORTED"), P("People shut the windows because the cheese was cold.", "D-OPPOSITE")], { retention: true }),
-    it("two_clause", 2, 1, 11,
-      "The cleaner kept working, but waved to the passing children.",
-      "What did the cleaner do while working?",
-      [K("greeted the children with a wave"), P("joined the children on their walk", "D-PLAUSIBLE-UNSUPPORTED"), P("asked the children for a cloth", "D-PLAUSIBLE-UNSUPPORTED"), P("told the children to step back", "D-OPPOSITE")], { retention: true , note: "Both actions happen together despite the contrast."}),
-    it("pronoun_reference", 2, 1, 11,
-      "Grandma passed Jonah the glasses after he spotted a bird.",
-      "Who spotted the bird?",
-      [K("Jonah"), P("Grandma", "D-PLAUSIBLE-UNSUPPORTED"), P("a birdwatcher", "D-PLAUSIBLE-UNSUPPORTED"), P("a gardener", "D-OPPOSITE")], { retention: true , note: "Resolve he and distinguish receiving from noticing."}),
-    // Fresh retry stock: four additional questions in each phase.
+  "skillId": "sentence_comprehension",
+  "skillName": "Sentence Comprehension",
+  "items": [
+    {
+      "u": "literal_who_what",
+      "lvl": 1,
+      "ph": 1,
+      "v": 1,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_who_what",
+      "passage": "Granny Bola planted red flowers beside the garden path.",
+      "prompt": "What did Granny Bola plant?",
+      "choices": [
+        {
+          "t": "red flowers along the garden path",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "red flowers far from the garden path",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "green beans along the garden path",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "green beans far from the garden path",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "literal_who_what",
+      "lvl": 1,
+      "ph": 1,
+      "v": 2,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_who_what",
+      "passage": "The dentist gave Milo a sticker for sitting calmly.",
+      "prompt": "What did Milo get from the dentist?",
+      "choices": [
+        {
+          "t": "a sticker as a reward",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "a toy as a reward",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a brush for his teeth",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a sticker for his sister",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "literal_who_what",
+      "lvl": 1,
+      "ph": 1,
+      "v": 3,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_who_what",
+      "passage": "Our mail carrier whistles music along the whole street.",
+      "prompt": "Who whistles along the street?",
+      "choices": [
+        {
+          "t": "the person who brings letters",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the person who sells bread",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the person who drives buses",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the person who sweeps paths",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "literal_who_what",
+      "lvl": 1,
+      "ph": 1,
+      "v": 4,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_who_what",
+      "passage": "Baby Ren stacked four wooden blocks by himself.",
+      "prompt": "Who stacked the four blocks?",
+      "choices": [
+        {
+          "t": "Ren did it alone",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Ren and his dad",
+          "r": "D-OPPOSITE"
+        },
+        {
+          "t": "Ren and his sister",
+          "r": "D-OPPOSITE"
+        },
+        {
+          "t": "Ren and his friend",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "literal_who_what",
+      "lvl": 1,
+      "ph": 2,
+      "v": 5,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_who_what",
+      "passage": "Uncle Dip burned two slices of toast before breakfast.",
+      "prompt": "What went wrong before breakfast?",
+      "choices": [
+        {
+          "t": "his toast got too dark",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "his toast fell onto the floor",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "his tea spilled on the table",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "his cups broke on the floor",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "literal_who_what",
+      "lvl": 1,
+      "ph": 2,
+      "v": 6,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_who_what",
+      "passage": "The twins painted their bedroom door bright orange.",
+      "prompt": "What did the twins paint?",
+      "choices": [
+        {
+          "t": "the entrance to their bedroom",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the inside wall of their bedroom",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the entrance to their kitchen",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the inside wall of their kitchen",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "literal_who_what",
+      "lvl": 1,
+      "ph": 2,
+      "v": 7,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_who_what",
+      "passage": "A magpie took the shiny bottle top from outside.",
+      "prompt": "What did the bird take?",
+      "choices": [
+        {
+          "t": "the top from a bottle",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the side of a box",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the lid from a jar",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the handle of a cup",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "literal_who_what",
+      "lvl": 1,
+      "ph": 2,
+      "v": 8,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_who_what",
+      "passage": "Miss Faro fixed a wobbly table with folded card.",
+      "prompt": "What did Miss Faro fix?",
+      "choices": [
+        {
+          "t": "a table that was not steady",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "a chair that was not steady",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a table with a wet top",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a chair with a torn seat",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "literal_where_when",
+      "lvl": 1,
+      "ph": 1,
+      "v": 1,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_where_when",
+      "passage": "The choir practices in the hall every Tuesday.",
+      "prompt": "When does the choir practice?",
+      "choices": [
+        {
+          "t": "on Tuesday each week",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "on Friday each week",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "on Monday each week",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "on Sunday each week",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "literal_where_when",
+      "lvl": 1,
+      "ph": 1,
+      "v": 2,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_where_when",
+      "passage": "Dad stores his glasses in an empty fruit bowl.",
+      "prompt": "Where does Dad keep his glasses?",
+      "choices": [
+        {
+          "t": "inside a bowl for fruit",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "beside a bowl for fruit",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "inside a box for toys",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "beside a box for toys",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "literal_where_when",
+      "lvl": 1,
+      "ph": 1,
+      "v": 3,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_where_when",
+      "passage": "The frog hid under the largest pond leaf.",
+      "prompt": "Where did the frog hide?",
+      "choices": [
+        {
+          "t": "below the biggest leaf",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "above the biggest leaf",
+          "r": "D-OPPOSITE"
+        },
+        {
+          "t": "below the smallest leaf",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "above the smallest leaf",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "literal_where_when",
+      "lvl": 1,
+      "ph": 1,
+      "v": 4,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_where_when",
+      "passage": "Swimming lessons at our school start after lunch every Friday.",
+      "prompt": "When do swimming lessons start?",
+      "choices": [
+        {
+          "t": "when Friday’s lunch is over",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "before Friday’s lunch has started",
+          "r": "D-OPPOSITE"
+        },
+        {
+          "t": "when Monday’s lunch is over",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "before Monday’s lunch has started",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "literal_where_when",
+      "lvl": 1,
+      "ph": 2,
+      "v": 5,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_where_when",
+      "passage": "Mom parks her bike behind the recycling bins.",
+      "prompt": "Where does Mom park her bike?",
+      "choices": [
+        {
+          "t": "at the back of the bins",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "at the front of the bins",
+          "r": "D-OPPOSITE"
+        },
+        {
+          "t": "on the left of the bins",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "on the right of the bins",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "literal_where_when",
+      "lvl": 1,
+      "ph": 2,
+      "v": 6,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_where_when",
+      "passage": "The market opens at seven in the morning.",
+      "prompt": "When does the market first open?",
+      "choices": [
+        {
+          "t": "at seven before lunch",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "at seven after lunch",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "at nine before lunch",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "at nine after lunch",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "literal_where_when",
+      "lvl": 1,
+      "ph": 2,
+      "v": 7,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_where_when",
+      "passage": "Grandpa naps in the striped chair beside the roses.",
+      "prompt": "Where does Grandpa nap?",
+      "choices": [
+        {
+          "t": "on the chair near the flowers",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "on the chair near the window",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "on the bench near the flowers",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "on the bench near the window",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "literal_where_when",
+      "lvl": 1,
+      "ph": 2,
+      "v": 8,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_where_when",
+      "passage": "The kitten was found inside the tall cupboard.",
+      "prompt": "Where was the kitten found?",
+      "choices": [
+        {
+          "t": "in the cupboard",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "on the cupboard",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "by the cupboard",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "under the cupboard",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "picture_match",
+      "lvl": 1,
+      "ph": 1,
+      "v": 1,
+      "fmt": "COMPREHENSION",
+      "cell": "picture_match",
+      "prompt": "Which sentence tells about this picture?",
+      "spoken": "Look carefully at the picture. Which sentence tells about it?",
+      "choices": [
+        {
+          "t": "A girl in rain boots jumps over a puddle.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "A girl is sleeping in her warm bed indoors.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "A boy in rain boots is filling a puddle.",
+          "r": "D-VISUAL-NEIGHBOR"
+        },
+        {
+          "t": "A girl is painting a picture of rainy weather.",
+          "r": "D-TOPIC-ADJACENT"
+        }
+      ],
+      "media": "image-required",
+      "img": "scene-girl-jumps-puddle",
+      "imgAlt": "A girl in yellow rain boots jumping over a puddle.",
+      "mediaRole": "scoring-evidence",
+      "evidenceModality": "image+sentence",
+      "constructClaim": "picture_to_sentence_meaning",
+      "suppressStimulusAudio": true
+    },
+    {
+      "u": "picture_match",
+      "lvl": 1,
+      "ph": 1,
+      "v": 2,
+      "fmt": "COMPREHENSION",
+      "cell": "picture_match",
+      "prompt": "Which sentence tells about this picture?",
+      "spoken": "Look carefully at the picture. Which sentence tells about it?",
+      "choices": [
+        {
+          "t": "Two boys are carrying a ladder past the bakery.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Two boys are buying some buns at the bakery.",
+          "r": "D-TOPIC-ADJACENT"
+        },
+        {
+          "t": "One boy is climbing up a ladder at home.",
+          "r": "D-VISUAL-NEIGHBOR"
+        },
+        {
+          "t": "Two bakers are carrying a table along the street.",
+          "r": "D-VISUAL-NEIGHBOR"
+        }
+      ],
+      "media": "image-required",
+      "img": "scene-boys-ladder-bakery",
+      "imgAlt": "Two boys carrying a long ladder past a bakery.",
+      "mediaRole": "scoring-evidence",
+      "evidenceModality": "image+sentence",
+      "constructClaim": "picture_to_sentence_meaning",
+      "suppressStimulusAudio": true
+    },
+    {
+      "u": "picture_match",
+      "lvl": 1,
+      "ph": 1,
+      "v": 3,
+      "fmt": "COMPREHENSION",
+      "cell": "picture_match",
+      "prompt": "Which sentence tells about this picture?",
+      "spoken": "Look carefully at the picture. Which sentence tells about it?",
+      "choices": [
+        {
+          "t": "A cat is sleeping curled inside an open umbrella.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "A cat is hiding indoors away from the rain.",
+          "r": "D-TOPIC-ADJACENT"
+        },
+        {
+          "t": "A dog is sleeping beneath an umbrella near a door.",
+          "r": "D-VISUAL-NEIGHBOR"
+        },
+        {
+          "t": "A cat is playing with a loose ball of wool.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "image-required",
+      "img": "scene-cat-umbrella",
+      "imgAlt": "A cat asleep inside an open umbrella.",
+      "mediaRole": "scoring-evidence",
+      "evidenceModality": "image+sentence",
+      "constructClaim": "picture_to_sentence_meaning",
+      "suppressStimulusAudio": true
+    },
+    {
+      "u": "picture_match",
+      "lvl": 1,
+      "ph": 1,
+      "v": 4,
+      "fmt": "COMPREHENSION",
+      "cell": "picture_match",
+      "prompt": "Which sentence tells about this picture?",
+      "spoken": "Look carefully at the picture. Which sentence tells about it?",
+      "choices": [
+        {
+          "t": "Grandpa and a child are flying a red kite.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Grandpa is buying a red ball for a child.",
+          "r": "D-VISUAL-NEIGHBOR"
+        },
+        {
+          "t": "Two children are flying a pair of colourful kites.",
+          "r": "D-VISUAL-NEIGHBOR"
+        },
+        {
+          "t": "Grandpa is reading a book about different kinds of kites.",
+          "r": "D-TOPIC-ADJACENT"
+        }
+      ],
+      "media": "image-required",
+      "img": "scene-grandad-child-red-kite",
+      "imgAlt": "A grandpa and one child flying one red kite together.",
+      "mediaRole": "scoring-evidence",
+      "evidenceModality": "image+sentence",
+      "constructClaim": "picture_to_sentence_meaning",
+      "suppressStimulusAudio": true
+    },
+    {
+      "u": "picture_match",
+      "lvl": 1,
+      "ph": 2,
+      "v": 5,
+      "fmt": "COMPREHENSION",
+      "cell": "picture_match",
+      "prompt": "Which sentence tells about this picture?",
+      "spoken": "Look carefully at the picture. Which sentence tells about it?",
+      "choices": [
+        {
+          "t": "One red sock is falling from the hanging clothesline.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "One red sock is hanging safely on the clothesline.",
+          "r": "D-OPPOSITE"
+        },
+        {
+          "t": "The empty clothesline is swinging around in the wind.",
+          "r": "D-VISUAL-NEIGHBOR"
+        },
+        {
+          "t": "Someone is ironing a red shirt on an ironing board.",
+          "r": "D-TOPIC-ADJACENT"
+        }
+      ],
+      "media": "image-required",
+      "img": "scene-red-sock-falling",
+      "imgAlt": "One red sock dropping from a full clothesline toward the grass.",
+      "mediaRole": "scoring-evidence",
+      "evidenceModality": "image+sentence",
+      "constructClaim": "picture_to_sentence_meaning",
+      "suppressStimulusAudio": true
+    },
+    {
+      "u": "picture_match",
+      "lvl": 1,
+      "ph": 2,
+      "v": 6,
+      "fmt": "COMPREHENSION",
+      "cell": "picture_match",
+      "prompt": "Which sentence tells about this picture?",
+      "spoken": "Look carefully at the picture. Which sentence tells about it?",
+      "choices": [
+        {
+          "t": "Three ducks wait in line at the ice cream truck.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Three children are feeding ducks beside the quiet pond.",
+          "r": "D-VISUAL-NEIGHBOR"
+        },
+        {
+          "t": "An ice cream truck is driving past a farm.",
+          "r": "D-TOPIC-ADJACENT"
+        },
+        {
+          "t": "One duck is swimming away from a small boat.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "image-required",
+      "img": "scene-ducks-ice-cream-van",
+      "imgAlt": "Exactly three ducks waiting at an ice cream truck.",
+      "mediaRole": "scoring-evidence",
+      "evidenceModality": "image+sentence",
+      "constructClaim": "picture_to_sentence_meaning",
+      "suppressStimulusAudio": true
+    },
+    {
+      "u": "picture_match",
+      "lvl": 1,
+      "ph": 2,
+      "v": 7,
+      "fmt": "COMPREHENSION",
+      "cell": "picture_match",
+      "prompt": "Which sentence tells about this picture?",
+      "spoken": "Look carefully at the picture. Which sentence tells about it?",
+      "choices": [
+        {
+          "t": "A boy is holding up a huge red jelly.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "A boy is eating from a small red bowl.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "A boy is dropping a tray full of red apples.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "A boy is washing a tall and empty glass.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "image-required",
+      "img": "scene-boy-giant-jelly",
+      "imgAlt": "A boy holding a tray with a huge red jelly above his head.",
+      "mediaRole": "scoring-evidence",
+      "evidenceModality": "image+sentence",
+      "constructClaim": "picture_to_sentence_meaning",
+      "suppressStimulusAudio": true
+    },
+    {
+      "u": "picture_match",
+      "lvl": 1,
+      "ph": 2,
+      "v": 8,
+      "fmt": "COMPREHENSION",
+      "cell": "picture_match",
+      "prompt": "Which sentence tells about this picture?",
+      "spoken": "Look carefully at the picture. Which sentence tells about it?",
+      "choices": [
+        {
+          "t": "A snowman is wearing a pair of sunglasses in sunshine.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "A snowman is slowly melting away in the rain.",
+          "r": "D-VISUAL-NEIGHBOR"
+        },
+        {
+          "t": "A child is wearing dark sunglasses at the beach.",
+          "r": "D-VISUAL-NEIGHBOR"
+        },
+        {
+          "t": "A snowman is wearing a warm scarf at night.",
+          "r": "D-VISUAL-NEIGHBOR"
+        }
+      ],
+      "media": "image-required",
+      "img": "scene-snowman-sunglasses",
+      "imgAlt": "A snowman wearing sunglasses on a sunny winter day.",
+      "mediaRole": "scoring-evidence",
+      "evidenceModality": "image+sentence",
+      "constructClaim": "picture_to_sentence_meaning",
+      "suppressStimulusAudio": true
+    },
+    {
+      "u": "literal_action",
+      "lvl": 1,
+      "ph": 1,
+      "v": 1,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_action",
+      "passage": "Pia tiptoed past the sleeping dog beside the doorway.",
+      "prompt": "How did Pia move past the dog?",
+      "choices": [
+        {
+          "t": "she stepped quietly on her toes",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "she ran quickly on the grass",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "she jumped over its soft bed",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "she crawled under its low bench",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Identify the stated action or its manner without adding an unstated event."
+    },
+    {
+      "u": "literal_action",
+      "lvl": 1,
+      "ph": 1,
+      "v": 2,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_action",
+      "passage": "The waiter carried six plates on one arm.",
+      "prompt": "How did the waiter carry the plates?",
+      "choices": [
+        {
+          "t": "balanced on his arm",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "stacked on a tray",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "packed in a box",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "spread on a cart",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Identify the stated action or its manner without adding an unstated event."
+    },
+    {
+      "u": "literal_action",
+      "lvl": 1,
+      "ph": 1,
+      "v": 3,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_action",
+      "passage": "Grandma squeezed three lemons to make a drink.",
+      "prompt": "How did Grandma make juice from the lemons?",
+      "choices": [
+        {
+          "t": "she pressed the fruit",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "she peeled the fruit",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "she boiled the fruit",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "she chopped the fruit",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Identify the stated action or its manner without adding an unstated event."
+    },
+    {
+      "u": "literal_action",
+      "lvl": 1,
+      "ph": 1,
+      "v": 4,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_action",
+      "passage": "The goalkeeper tipped the ball above the goal.",
+      "prompt": "What did the goalkeeper do to the ball?",
+      "choices": [
+        {
+          "t": "knocked it over the goal",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "caught it inside the goal",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "rolled it beside the goal",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "kicked it under the goal",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Identify the stated action or its manner without adding an unstated event."
+    },
+    {
+      "u": "literal_action",
+      "lvl": 1,
+      "ph": 2,
+      "v": 5,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_action",
+      "passage": "Kofi taped the torn map back together on his desk.",
+      "prompt": "What did Kofi do to the map?",
+      "choices": [
+        {
+          "t": "joined its torn parts with tape",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "cut its folded parts with scissors",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "drew its missing roads with pencil",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "hung its top edge with string",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Identify the stated action or its manner without adding an unstated event."
+    },
+    {
+      "u": "literal_action",
+      "lvl": 1,
+      "ph": 2,
+      "v": 6,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_action",
+      "passage": "The parrot copied Grandpa's loud cough throughout the whole afternoon.",
+      "prompt": "What did the parrot do all afternoon?",
+      "choices": [
+        {
+          "t": "copied the sound of Grandpa's cough",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "sang a song about Grandpa's cough",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "copied Grandpa's loud sneeze",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "whistled a tune while Grandpa coughed",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Identify the stated action or its manner without adding an unstated event."
+    },
+    {
+      "u": "literal_action",
+      "lvl": 1,
+      "ph": 2,
+      "v": 7,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_action",
+      "passage": "Ada rolled the biggest snowball in the street.",
+      "prompt": "What did Ada do with the snow?",
+      "choices": [
+        {
+          "t": "rolled it into a large ball",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "pressed it into a tall wall",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "dug it into a deep hole",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "shaped it into a small chair",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Identify the stated action or its manner without adding an unstated event."
+    },
+    {
+      "u": "literal_action",
+      "lvl": 1,
+      "ph": 2,
+      "v": 8,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_action",
+      "passage": "The librarian stamped the return date inside my borrowed book.",
+      "prompt": "What did the librarian do inside the book?",
+      "choices": [
+        {
+          "t": "printed a date using a stamp",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "drew a face using a pencil",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "stuck a picture onto a page",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "wrote a price across the cover",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Identify the stated action or its manner without adding an unstated event."
+    },
+    {
+      "u": "two_clause",
+      "lvl": 2,
+      "ph": 1,
+      "v": 1,
+      "fmt": "COMPREHENSION",
+      "cell": "two_clause",
+      "passage": "Because the lift was broken, the movers carried our furniture up the stairs.",
+      "prompt": "Why did the movers use the stairs?",
+      "choices": [
+        {
+          "t": "the lift could not work",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the stairs would save time",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the lift had no space",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the stairs were less steep",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Connect the failed lift with the alternative route used for moving furniture."
+    },
+    {
+      "u": "two_clause",
+      "lvl": 2,
+      "ph": 1,
+      "v": 2,
+      "fmt": "COMPREHENSION",
+      "cell": "two_clause",
+      "passage": "Rosa wore boots much bigger than her feet, so her footprints looked huge.",
+      "prompt": "Why did Rosa leave huge footprints?",
+      "choices": [
+        {
+          "t": "her boots were larger than her feet",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "her feet were larger than her boots",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the ground was softer than usual",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the mud was deeper than usual",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Relate the borrowed boot size to the marks, rather than assuming Rosa's feet were huge."
+    },
+    {
+      "u": "two_clause",
+      "lvl": 2,
+      "ph": 1,
+      "v": 3,
+      "fmt": "COMPREHENSION",
+      "cell": "two_clause",
+      "passage": "Although rain moved the picnic inside, everyone still enjoyed sharing the birthday cake.",
+      "prompt": "What stayed enjoyable despite the rain?",
+      "choices": [
+        {
+          "t": "sharing cake inside with everyone",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "sharing cake outside in the rain",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "sharing picnic games with everyone",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "sharing games outside in the rain",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Interpret although: moving indoors did not prevent enjoyment of the picnic."
+    },
+    {
+      "u": "two_clause",
+      "lvl": 2,
+      "ph": 1,
+      "v": 4,
+      "fmt": "COMPREHENSION",
+      "cell": "two_clause",
+      "passage": "The sea looked calm from the beach, but a sign warned against swimming.",
+      "prompt": "What does the sentence tell us about swimming?",
+      "choices": [
+        {
+          "t": "the calm water might be unsafe",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the calm water must be safe",
+          "r": "D-OPPOSITE"
+        },
+        {
+          "t": "the calm water would be warm",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the calm water would be shallow",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Reconcile calm appearance with the warning that limits what can be concluded."
+    },
+    {
+      "u": "two_clause",
+      "lvl": 2,
+      "ph": 2,
+      "v": 5,
+      "fmt": "COMPREHENSION",
+      "cell": "two_clause",
+      "passage": "Jin saved his pocket money because he wanted to buy Mom a birthday plant.",
+      "prompt": "Why did Jin save his money?",
+      "choices": [
+        {
+          "t": "for a plant to give Mom",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "for a plant to keep himself",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "for a present from his mom",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "for a present from his friend",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Connect saving with the purpose and intended recipient of the purchase."
+    },
+    {
+      "u": "two_clause",
+      "lvl": 2,
+      "ph": 2,
+      "v": 6,
+      "fmt": "COMPREHENSION",
+      "cell": "two_clause",
+      "passage": "The bench still had wet paint, so a sign warned people against sitting there.",
+      "prompt": "Why was the sign there?",
+      "choices": [
+        {
+          "t": "to keep people off wet paint",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "to help people find a seat",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "to show people a new path",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "to ask people to paint benches",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Connect the wet surface with the warning against sitting there."
+    },
+    {
+      "u": "two_clause",
+      "lvl": 2,
+      "ph": 2,
+      "v": 7,
+      "fmt": "COMPREHENSION",
+      "cell": "two_clause",
+      "passage": "Although Tara practiced in goal all week, she played forward in the final match.",
+      "prompt": "How did Tara's match role differ from her practice role?",
+      "choices": [
+        {
+          "t": "she attacked after practicing as goalkeeper",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "she kept goal after practicing as attacker",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "she watched after practicing as goalkeeper",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "she attacked after practicing as a helper",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Integrate the contrasting practice and match roles rather than retrieving one position."
+    },
+    {
+      "u": "two_clause",
+      "lvl": 2,
+      "ph": 2,
+      "v": 8,
+      "fmt": "COMPREHENSION",
+      "cell": "two_clause",
+      "passage": "Although the bread smelled good, it stayed untouched on the fair stall until opening time.",
+      "prompt": "What happened to the bread before the fair?",
+      "choices": [
+        {
+          "t": "it was left for later",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "it was eaten straight away",
+          "r": "D-OPPOSITE"
+        },
+        {
+          "t": "it was thrown in the bin",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "it was cut for a picnic",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Retain the negative clause despite the tempting food described first."
+    },
+    {
+      "u": "pronoun_reference",
+      "lvl": 2,
+      "ph": 1,
+      "v": 1,
+      "fmt": "COMPREHENSION",
+      "cell": "pronoun_reference",
+      "passage": "Maya passed her younger brother the brush because he wanted to paint the fence.",
+      "prompt": "Who wanted to paint?",
+      "choices": [
+        {
+          "t": "Maya's brother",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Maya herself",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Maya's sister",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Maya's mother",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "copyExempt": "pronoun-reference-label",
+      "note": "Resolve he to the male recipient, not the person passing the brush."
+    },
+    {
+      "u": "pronoun_reference",
+      "lvl": 2,
+      "ph": 1,
+      "v": 2,
+      "fmt": "COMPREHENSION",
+      "cell": "pronoun_reference",
+      "passage": "The hungry gull followed the fishing boat until it sailed away from the harbour.",
+      "prompt": "What sailed away?",
+      "choices": [
+        {
+          "t": "the fishing boat",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the following gull",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a passing ferry",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a small sailboat",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "copyExempt": "pronoun-reference-label",
+      "note": "Resolve it through the sailing action among a bird and a boat."
+    },
+    {
+      "u": "pronoun_reference",
+      "lvl": 2,
+      "ph": 1,
+      "v": 3,
+      "fmt": "COMPREHENSION",
+      "cell": "pronoun_reference",
+      "passage": "Sam lent Elise his new pencil, and she chewed its end during the lesson.",
+      "prompt": "Whose pencil did Elise chew?",
+      "choices": [
+        {
+          "t": "Sam's pencil",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Elise's pencil",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the teacher's pencil",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "her brother's pencil",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "copyExempt": "pronoun-reference-label",
+      "note": "Track his and she across lending and chewing to preserve ownership."
+    },
+    {
+      "u": "pronoun_reference",
+      "lvl": 2,
+      "ph": 1,
+      "v": 4,
+      "fmt": "COMPREHENSION",
+      "cell": "pronoun_reference",
+      "passage": "The twins visited Auntie Vee on Sunday, and she taught them a new game.",
+      "prompt": "Who taught the game?",
+      "choices": [
+        {
+          "t": "Auntie Vee",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the twins",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "their mother",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "their grandpa",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "copyExempt": "pronoun-reference-label",
+      "note": "Resolve singular she separately from plural them across the clauses."
+    },
+    {
+      "u": "pronoun_reference",
+      "lvl": 2,
+      "ph": 2,
+      "v": 5,
+      "fmt": "COMPREHENSION",
+      "cell": "pronoun_reference",
+      "passage": "Nia put a seedling beside two tall cacti, but it soon grew taller than them.",
+      "prompt": "What grew taller?",
+      "choices": [
+        {
+          "t": "the seedling",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the two cacti",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the plant shelf",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the flower pot",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "copyExempt": "pronoun-reference-label",
+      "note": "Resolve singular it against plural them while comparing the plants."
+    },
+    {
+      "u": "pronoun_reference",
+      "lvl": 2,
+      "ph": 2,
+      "v": 6,
+      "fmt": "COMPREHENSION",
+      "cell": "pronoun_reference",
+      "passage": "Carmen proudly showed Grandpa the small robot that she had built from empty boxes.",
+      "prompt": "Who built the robot?",
+      "choices": [
+        {
+          "t": "Carmen",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Grandpa",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "her dad",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "her brother",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "copyExempt": "pronoun-reference-label",
+      "note": "Resolve she inside a relative clause to the person who made the robot."
+    },
+    {
+      "u": "pronoun_reference",
+      "lvl": 2,
+      "ph": 2,
+      "v": 7,
+      "fmt": "COMPREHENSION",
+      "cell": "pronoun_reference",
+      "passage": "The keeper fed the hungry penguins, so they were full before the first visitors arrived.",
+      "prompt": "Who was full?",
+      "choices": [
+        {
+          "t": "the penguins",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the visitors",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the keepers",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the seals",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "copyExempt": "pronoun-reference-label",
+      "note": "Resolve they to the fed animals rather than the later visitors."
+    },
+    {
+      "u": "pronoun_reference",
+      "lvl": 2,
+      "ph": 2,
+      "v": 8,
+      "fmt": "COMPREHENSION",
+      "cell": "pronoun_reference",
+      "passage": "Effie waved to her cousin on the platform until the train had passed him.",
+      "prompt": "Who did the train pass?",
+      "choices": [
+        {
+          "t": "Effie's cousin",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Effie herself",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the train driver",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the ticket seller",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "copyExempt": "pronoun-reference-label",
+      "note": "Resolve him to the person on the platform, not the passenger or driver."
+    },
+    {
+      "u": "best_restatement",
+      "lvl": 2,
+      "ph": 1,
+      "v": 1,
+      "fmt": "COMPREHENSION",
+      "cell": "best_restatement",
+      "passage": "By lunchtime on Monday, every ticket for the puppet show had already been sold.",
+      "prompt": "Which sentence means the SAME?",
+      "choices": [
+        {
+          "t": "No tickets were left by lunch.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Some tickets were left after lunch.",
+          "r": "D-OPPOSITE"
+        },
+        {
+          "t": "New tickets went on sale at lunch.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "The puppet show was canceled at lunch.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Preserve every and by lunchtime when recasting sold tickets as none remaining."
+    },
+    {
+      "u": "best_restatement",
+      "lvl": 2,
+      "ph": 1,
+      "v": 2,
+      "fmt": "COMPREHENSION",
+      "cell": "best_restatement",
+      "passage": "Ravi knows the route to the swimming pool without needing to ask for directions.",
+      "prompt": "Which sentence means the SAME?",
+      "choices": [
+        {
+          "t": "Ravi can find his way there easily.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Ravi needs help to find his way.",
+          "r": "D-OPPOSITE"
+        },
+        {
+          "t": "Ravi has never gone to the pool.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Ravi always takes a new route there.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Restate knowing a route without help as finding the way independently."
+    },
+    {
+      "u": "best_restatement",
+      "lvl": 2,
+      "ph": 1,
+      "v": 3,
+      "fmt": "COMPREHENSION",
+      "cell": "best_restatement",
+      "passage": "The whole class stood up before the final whistle ended the exciting football match.",
+      "prompt": "Which sentence means the SAME?",
+      "choices": [
+        {
+          "t": "Everyone rose before the match finished.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Everyone rose after the match finished.",
+          "r": "D-OPPOSITE"
+        },
+        {
+          "t": "Everyone left before the match finished.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Everyone sat until the match finished.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Preserve the whole group, the action and its timing relative to the final whistle."
+    },
+    {
+      "u": "best_restatement",
+      "lvl": 2,
+      "ph": 1,
+      "v": 4,
+      "fmt": "COMPREHENSION",
+      "cell": "best_restatement",
+      "passage": "Dad said he could smell the soup even from outside the closed kitchen door.",
+      "prompt": "Which sentence means the SAME?",
+      "choices": [
+        {
+          "t": "Dad could smell the soup through the closed door.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Dad could smell the soup only beside the cooker.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Dad opened the kitchen door before smelling the soup.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Dad said the closed door kept the smell inside.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Preserve the surprising distance and closed barrier in the reported smell."
+    },
+    {
+      "u": "best_restatement",
+      "lvl": 2,
+      "ph": 2,
+      "v": 5,
+      "fmt": "COMPREHENSION",
+      "cell": "best_restatement",
+      "passage": "Omar had stopped waiting calmly long before the late bus finally came around the corner.",
+      "prompt": "Which sentence means the SAME?",
+      "choices": [
+        {
+          "t": "Omar grew impatient while waiting for the bus.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Omar stayed calm while waiting for the bus.",
+          "r": "D-OPPOSITE"
+        },
+        {
+          "t": "Omar missed the bus because he arrived late.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Omar left calmly before the bus arrived.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Restate stopped waiting calmly as growing impatient before the arrival."
+    },
+    {
+      "u": "best_restatement",
+      "lvl": 2,
+      "ph": 2,
+      "v": 6,
+      "fmt": "COMPREHENSION",
+      "cell": "best_restatement",
+      "passage": "The new puppy chewed every shoe in the house while everyone was outside gardening.",
+      "prompt": "Which sentence means the SAME?",
+      "choices": [
+        {
+          "t": "No shoe escaped the puppy's chewing.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Some shoes escaped the puppy's chewing.",
+          "r": "D-OPPOSITE"
+        },
+        {
+          "t": "The puppy only chewed its own toys.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "The puppy carried shoes without chewing them.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Translate every shoe into no shoe escaping while keeping the puppy as agent."
+    },
+    {
+      "u": "best_restatement",
+      "lvl": 2,
+      "ph": 2,
+      "v": 7,
+      "fmt": "COMPREHENSION",
+      "cell": "best_restatement",
+      "passage": "Lila found it hard to keep the birthday surprise a secret until her sister arrived.",
+      "prompt": "Which sentence means the SAME?",
+      "choices": [
+        {
+          "t": "Hiding the birthday surprise from her sister was difficult.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Forgetting the birthday surprise before her sister arrived was difficult.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Hearing about her sister’s surprise made Lila feel worried.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Telling her sister the birthday surprise made Lila happy.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Restate the difficulty of withholding a surprise without turning it into forgetting."
+    },
+    {
+      "u": "best_restatement",
+      "lvl": 2,
+      "ph": 2,
+      "v": 8,
+      "fmt": "COMPREHENSION",
+      "cell": "best_restatement",
+      "passage": "During the sudden storm, small balls of ice bounced all over the garden trampoline.",
+      "prompt": "Which sentence means the SAME?",
+      "choices": [
+        {
+          "t": "Hail bounced across the trampoline during the storm.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Rain flowed beneath the trampoline during the storm.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Leaves stuck to the trampoline during the storm.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Wind lifted the trampoline up during the storm.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "note": "Replace the description of falling ice with hail while preserving its movement."
+    },
+    {
+      "u": "literal_who_what",
+      "lvl": 1,
+      "ph": 1,
+      "v": 9,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_who_what",
+      "passage": "Auntie Meg won a prize for her huge pumpkin.",
+      "prompt": "What won Auntie Meg a prize?",
+      "choices": [
+        {
+          "t": "her very large pumpkin",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "her very large carrot",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "her very small pumpkin",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "her very small carrot",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "retention": true
+    },
+    {
+      "u": "literal_where_when",
+      "lvl": 1,
+      "ph": 1,
+      "v": 10,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_where_when",
+      "passage": "The school hamster sleeps all day and runs overnight.",
+      "prompt": "When does the school hamster run?",
+      "choices": [
+        {
+          "t": "during the night",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "during the day",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "only before lunch",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "only after lunch",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "retention": true
+    },
+    {
+      "u": "picture_match",
+      "lvl": 1,
+      "ph": 1,
+      "v": 9,
+      "fmt": "COMPREHENSION",
+      "cell": "picture_match",
+      "prompt": "Which sentence tells about this picture?",
+      "spoken": "Look carefully at the picture. Which sentence tells about it?",
+      "choices": [
+        {
+          "t": "A small dog leads a tall man down the street.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "A tall man is carrying a small dog along.",
+          "r": "D-VISUAL-NEIGHBOR"
+        },
+        {
+          "t": "Two dogs are running after a ball in the park.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "A man is buying a dog lead in a shop.",
+          "r": "D-TOPIC-ADJACENT"
+        }
+      ],
+      "media": "image-required",
+      "img": "scene-small-dog-leads-tall-man",
+      "imgAlt": "A very small dog leading a very tall man down a street.",
+      "mediaRole": "scoring-evidence",
+      "evidenceModality": "image+sentence",
+      "constructClaim": "picture_to_sentence_meaning",
+      "suppressStimulusAudio": true,
+      "retention": true
+    },
+    {
+      "u": "literal_action",
+      "lvl": 1,
+      "ph": 1,
+      "v": 10,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_action",
+      "passage": "The baker pressed a flower shape into each bread roll.",
+      "prompt": "What did the baker do to each roll?",
+      "choices": [
+        {
+          "t": "pressed in a flower design",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "cut it into a flower shape",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "painted on a flower design",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "tied it with a flower ribbon",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "retention": true,
+      "note": "Identify the stated action or its manner without adding an unstated event."
+    },
+    {
+      "u": "literal_who_what",
+      "lvl": 1,
+      "ph": 2,
+      "v": 10,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_who_what",
+      "passage": "Little Ivo taught the parrot to say good morning.",
+      "prompt": "Who taught the bird its greeting?",
+      "choices": [
+        {
+          "t": "the child called Ivo",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the child’s mother",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the child’s neighbour",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the child’s grandfather",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "retention": true
+    },
+    {
+      "u": "literal_where_when",
+      "lvl": 1,
+      "ph": 2,
+      "v": 9,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_where_when",
+      "passage": "Robi’s sports clothes fill a drawer below his bed.",
+      "prompt": "Where does Robi keep his sports clothes?",
+      "choices": [
+        {
+          "t": "in the drawer under his bed",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "in the basket under his bed",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "in the drawer beside his bed",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "in the basket beside his bed",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "retention": true
+    },
+    {
+      "u": "picture_match",
+      "lvl": 1,
+      "ph": 2,
+      "v": 10,
+      "fmt": "COMPREHENSION",
+      "cell": "picture_match",
+      "prompt": "Which sentence tells about this picture?",
+      "spoken": "Look carefully at the picture. Which sentence tells about it?",
+      "choices": [
+        {
+          "t": "The whole family is sleeping together on the sofa.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "The whole family is eating together at the table.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "The whole family is watching television from the sofa.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "The whole family is reading together on the floor.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "image-required",
+      "img": "scene-family-asleep-film",
+      "imgAlt": "A family asleep together on a sofa beside a television.",
+      "mediaRole": "scoring-evidence",
+      "evidenceModality": "image+sentence",
+      "constructClaim": "picture_to_sentence_meaning",
+      "suppressStimulusAudio": true,
+      "retention": true
+    },
+    {
+      "u": "literal_action",
+      "lvl": 1,
+      "ph": 2,
+      "v": 9,
+      "fmt": "COMPREHENSION",
+      "cell": "literal_action",
+      "passage": "Mrs Cho got the ball down with a mop.",
+      "prompt": "How did Mrs Cho get the ball down?",
+      "choices": [
+        {
+          "t": "used a mop to reach it",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "climbed a ladder to reach it",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "threw a stick to move it",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "shook a branch to move it",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "retention": true,
+      "note": "Identify the stated action or its manner without adding an unstated event."
+    },
+    {
+      "u": "two_clause",
+      "lvl": 2,
+      "ph": 1,
+      "v": 9,
+      "fmt": "COMPREHENSION",
+      "cell": "two_clause",
+      "passage": "Baby Bo blew all the birthday candles out, so Mom carefully lit them again.",
+      "prompt": "Why did Mom light the candles again?",
+      "choices": [
+        {
+          "t": "Bo had blown them out",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Bo had put them away",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the wind had blown them out",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the rain had made them wet",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "retention": true,
+      "note": "Connect the extinguished candles with the reason for repeating an action."
+    },
+    {
+      "u": "two_clause",
+      "lvl": 2,
+      "ph": 2,
+      "v": 10,
+      "fmt": "COMPREHENSION",
+      "cell": "two_clause",
+      "passage": "Although the wait for lunch was long, Grandma thought the dumplings were worth it.",
+      "prompt": "What did Grandma think about waiting?",
+      "choices": [
+        {
+          "t": "the food made the wait worthwhile",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the food made the wait pointless",
+          "r": "D-OPPOSITE"
+        },
+        {
+          "t": "the line was too short to join",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the line was too noisy to join",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "retention": true,
+      "note": "Interpret the positive judgement despite the negative waiting experience."
+    },
+    {
+      "u": "pronoun_reference",
+      "lvl": 2,
+      "ph": 1,
+      "v": 9,
+      "fmt": "COMPREHENSION",
+      "cell": "pronoun_reference",
+      "passage": "Priya read a bedtime story to her little brother until he finally fell asleep.",
+      "prompt": "Who fell asleep?",
+      "choices": [
+        {
+          "t": "her brother",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Priya",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "her mother",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "her sister",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "copyExempt": "pronoun-reference-label",
+      "retention": true,
+      "note": "Resolve he to the listener rather than the reader."
+    },
+    {
+      "u": "pronoun_reference",
+      "lvl": 2,
+      "ph": 2,
+      "v": 10,
+      "fmt": "COMPREHENSION",
+      "cell": "pronoun_reference",
+      "passage": "The coach thanked the waiting parents because they had packed the cones after practice.",
+      "prompt": "Who packed the cones?",
+      "choices": [
+        {
+          "t": "the parents",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the coach",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the players",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the referee",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "copyExempt": "pronoun-reference-label",
+      "retention": true,
+      "note": "Resolve they to the thanked group and their earlier contribution."
+    },
+    {
+      "u": "best_restatement",
+      "lvl": 2,
+      "ph": 1,
+      "v": 10,
+      "fmt": "COMPREHENSION",
+      "cell": "best_restatement",
+      "passage": "When the children returned that afternoon, the incoming tide had covered their whole sandcastle.",
+      "prompt": "Which sentence means the SAME?",
+      "choices": [
+        {
+          "t": "When the children returned, the whole castle was underwater.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "When the children returned, only the castle’s base was underwater.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "The tide reached the whole castle after the children returned.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "The children returned before the water reached their castle.",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "retention": true,
+      "note": "Retain both complete coverage and the deadline of the children’s return."
+    },
+    {
+      "u": "best_restatement",
+      "lvl": 2,
+      "ph": 2,
+      "v": 9,
+      "fmt": "COMPREHENSION",
+      "cell": "best_restatement",
+      "passage": "The cheese smelled so bad that everyone opened the windows to let fresh air inside.",
+      "prompt": "Which sentence means the SAME?",
+      "choices": [
+        {
+          "t": "People let fresh air in because of the cheese.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "People let fresh air in to cool the cheese.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "People shut the windows to hide the cheese smell.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "People shut the windows because the cheese was cold.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "retention": true,
+      "note": "Preserve the reason for opening the windows, rather than reversing the action."
+    },
+    {
+      "u": "two_clause",
+      "lvl": 2,
+      "ph": 1,
+      "v": 11,
+      "fmt": "COMPREHENSION",
+      "cell": "two_clause",
+      "passage": "The window cleaner kept wiping the glass while he waved to the passing children.",
+      "prompt": "What happened while the cleaner greeted the children?",
+      "choices": [
+        {
+          "t": "he continued cleaning the window",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "he left the window to join them",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "he stopped cleaning to ask for help",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "he finished work and packed his cloths",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "retention": true,
+      "note": "Recognise that the greeting and the cleaning happened together."
+    },
+    {
+      "u": "pronoun_reference",
+      "lvl": 2,
+      "ph": 1,
+      "v": 11,
+      "fmt": "COMPREHENSION",
+      "cell": "pronoun_reference",
+      "passage": "Grandma passed Jonah her spare glasses after he spotted a tiny bird in the hedge.",
+      "prompt": "Who spotted the bird?",
+      "choices": [
+        {
+          "t": "Jonah",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Grandma",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a bus driver",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a gardener",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "media": "text",
+      "copyExempt": "pronoun-reference-label",
+      "retention": true,
+      "note": "Resolve he to the bird spotter rather than the person handing over glasses."
+    },
     {
       "u": "two_clause",
       "lvl": 2,
@@ -351,7 +2299,7 @@ export default {
       "v": 20,
       "fmt": "COMPREHENSION",
       "cell": "two_clause",
-      "passage": "The lift was full, so Mei waited for the next one. She reached the top floor after her friends.",
+      "passage": "The lift was already full of passengers, so Mei waited downstairs for the next one.",
       "prompt": "Why did Mei wait?",
       "choices": [
         {
@@ -369,11 +2317,11 @@ export default {
         },
         {
           "t": "she wanted to use the stairs instead",
-          "r": "D-OPPOSITE"
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
-      "note": "Fresh authored retry item: distinct situation and evidence."
+      "note": "Connect the lack of space in one lift with waiting for another."
     },
     {
       "u": "two_clause",
@@ -382,11 +2330,29 @@ export default {
       "v": 21,
       "fmt": "COMPREHENSION",
       "cell": "two_clause",
-      "passage": "Leo carried the empty tray, but Hana carried the drinks. Both took their things to the picnic table.",
-      "prompt": "What did Hana carry?",
-      "choices": [K("the drinks taken to the table"), P("the empty tray taken to the table", "D-PLAUSIBLE-UNSUPPORTED"), P("the picnic table carried to the garden", "D-PLAUSIBLE-UNSUPPORTED"), P("both the drinks and the empty tray", "D-OPPOSITE")],
+      "passage": "While Leo carried only the empty tray, Hana took all the drinks to the picnic table.",
+      "prompt": "How were the things Leo and Hana carried different?",
+      "choices": [
+        {
+          "t": "Leo had the empty tray; Hana had drinks",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Leo had drinks; Hana had the empty tray",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Leo had the table; Hana had both loads",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Leo had both loads; Hana had the table",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
       "media": "text",
-      "note": "Fresh authored retry item: distinct situation and evidence."
+      "note": "Integrate both carriers and distinguish an empty container from its usual contents."
     },
     {
       "u": "pronoun_reference",
@@ -395,11 +2361,29 @@ export default {
       "v": 20,
       "fmt": "COMPREHENSION",
       "cell": "pronoun_reference",
-      "passage": "Nina showed her drawings to Alex. He chose the picture with a boat on it.",
+      "passage": "Nina showed her drawings to Alex, and he chose the picture with a boat.",
       "prompt": "Who does \"He\" mean?",
-      "choices": [K("Alex, the person viewing Nina’s pictures"), P("Nina, the person showing Alex her pictures", "D-PLAUSIBLE-UNSUPPORTED"), P("the person sailing in the drawn boat", "D-PLAUSIBLE-UNSUPPORTED"), P("the teacher looking over Nina’s shoulder", "D-OPPOSITE")],
+      "choices": [
+        {
+          "t": "Alex, the person viewing Nina’s pictures",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Nina, the person showing Alex her pictures",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the person sailing in the drawn boat",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the teacher looking over Nina’s shoulder",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
       "media": "text",
-      "note": "Fresh authored retry item: distinct situation and evidence."
+      "note": "Resolve he to the viewer rather than the owner of the drawings."
     },
     {
       "u": "best_restatement",
@@ -408,7 +2392,7 @@ export default {
       "v": 20,
       "fmt": "COMPREHENSION",
       "cell": "best_restatement",
-      "passage": "The gate stays shut unless an adult opens it. Children wait outside until that happens.",
+      "passage": "The children must wait outside the locked gate until an adult opens it for them.",
       "prompt": "Which sentence has the same meaning?",
       "choices": [
         {
@@ -426,11 +2410,11 @@ export default {
         },
         {
           "t": "An adult must wait outside while children go in.",
-          "r": "D-OPPOSITE"
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
-      "note": "Fresh authored retry item: distinct situation and evidence."
+      "note": "Preserve the adult-opening condition that determines when children may enter."
     },
     {
       "u": "two_clause",
@@ -439,29 +2423,29 @@ export default {
       "v": 22,
       "fmt": "COMPREHENSION",
       "cell": "two_clause",
-      "passage": "Before the visitors arrived, Arlo moved his models onto a shelf. He left room on the table for their bags.",
-      "prompt": "When did Arlo move his models?",
+      "passage": "Before the visitors arrived, Arlo moved his models to make room for their bags.",
+      "prompt": "Why did Arlo move his models before the visit?",
       "choices": [
         {
-          "t": "while he was preparing for the visitors",
+          "t": "to free a place for the visitors' bags",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "after the visitors put down their bags",
+          "t": "to show the visitors every model he owned",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "while the visitors were leaving the house",
+          "t": "to carry his models away with the visitors",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "after he had shown them every model",
-          "r": "D-OPPOSITE"
+          "t": "to pack his models inside the visitors' bags",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
-      "note": "Fresh authored retry item: distinct situation and evidence."
+      "note": "Connect an earlier action with its purpose for arriving visitors."
     },
     {
       "u": "pronoun_reference",
@@ -470,7 +2454,7 @@ export default {
       "v": 21,
       "fmt": "COMPREHENSION",
       "cell": "pronoun_reference",
-      "passage": "Amina gave the old coats to her neighbours. They thanked her and carried them to the shelter.",
+      "passage": "Amina gave the old coats to her neighbours, and they carried them to the shelter.",
       "prompt": "Who does \"They\" refer to?",
       "choices": [
         {
@@ -488,11 +2472,11 @@ export default {
         },
         {
           "t": "the coats lying in the bag",
-          "r": "D-OPPOSITE"
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
-      "note": "Fresh authored retry item: distinct situation and evidence."
+      "note": "Resolve they to the recipients and them to the objects being carried."
     },
     {
       "u": "best_restatement",
@@ -501,7 +2485,7 @@ export default {
       "v": 21,
       "fmt": "COMPREHENSION",
       "cell": "best_restatement",
-      "passage": "Only the children with permission slips could join the walk. Everyone else stayed at school with Ms Moss.",
+      "passage": "Only children who brought a permission slip could leave school to join the woodland walk.",
       "prompt": "Which sentence has the same meaning?",
       "choices": [
         {
@@ -519,11 +2503,11 @@ export default {
         },
         {
           "t": "Ms Moss took the whole class out for a walk.",
-          "r": "D-OPPOSITE"
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
-      "note": "Fresh authored retry item: distinct situation and evidence."
+      "note": "Interpret only as a necessary condition rather than universal permission."
     },
     {
       "u": "best_restatement",
@@ -532,29 +2516,29 @@ export default {
       "v": 22,
       "fmt": "COMPREHENSION",
       "cell": "best_restatement",
-      "passage": "Tara finished folding the cards before she decorated their covers. She put each finished card in an envelope.",
-      "prompt": "Which sentence keeps the same order?",
+      "passage": "Lena decorated every folded card except the blue one, which she left completely plain.",
+      "prompt": "Which sentence has the same meaning?",
       "choices": [
         {
-          "t": "Tara folded, decorated, then packed each card.",
+          "t": "The blue card alone had no decoration.",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "Tara decorated, packed, then folded each card.",
+          "t": "The blue card alone had some decoration.",
+          "r": "D-OPPOSITE"
+        },
+        {
+          "t": "None of the folded cards had any decoration.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "Tara packed, folded, then decorated each card.",
-          "r": "D-PLAUSIBLE-UNSUPPORTED"
-        },
-        {
-          "t": "Tara folded, packed, then decorated each card.",
+          "t": "All of the folded cards had some decoration.",
           "r": "D-OPPOSITE"
         }
       ],
       "media": "text",
-      "note": "Fresh authored retry item: distinct situation and evidence."
+      "note": "Interpret every except as one excluded card, not a sequence of craft steps."
     }
-]
+  ]
 };

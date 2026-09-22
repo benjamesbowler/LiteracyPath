@@ -43,28 +43,35 @@ export const EVIDENCE_WINDOW_DAYS = 90;
  * the assessment runner, class reports and student reports from inventing
  * subtly different interpretations of the same saved answers.
  */
-export function assessmentAttemptsToSkillLedger(records = [], skillId = "") {
+export function assessmentAttemptsToSkillLedger(records = [], skillId = "", { studentId = "" } = {}) {
   const wantedSkill = String(skillId || "").trim();
   return (Array.isArray(records) ? records : []).flatMap(record => {
+    if (studentId && String(record?.studentId || record?.student_id || "") !== String(studentId)) return [];
     const recordSkillId = String(record?.skillId || record?.assessmentSkillId || "").trim();
     if (wantedSkill && recordSkillId && recordSkillId !== wantedSkill) return [];
     const completedAt = record?.completedAt || record?.timestamp || record?.createdAt || "";
     const sittingId = String(record?.attemptId || record?.checkpointId || record?.id || "");
     const questionRecords = Array.isArray(record?.questionRecords) ? record.questionRecords : [];
+    const unscoredCount = questionRecords.filter(question => question.supported || question.prompted
+      || (question.responseStatus && !["correct", "incorrect", "self_corrected", "no_response"].includes(question.responseStatus))
+      || (!question.responseStatus && typeof question.isCorrect !== "boolean")).length;
     const mode = /retention/i.test(String(record?.assessmentType || record?.mode || ""))
       ? "retention"
       : "formal";
+    const administrationStatus = String(record?.administrationStatus || "").toLowerCase();
+    const recordStatus = String(record?.status || "").toLowerCase();
+    const incomplete = [administrationStatus, recordStatus].some(value =>
+      ["partial", "in_progress", "not_started", "discontinued", "abandoned"].includes(value));
     return questionRecords
       .filter(question => !wantedSkill || !question?.skillId || question.skillId === wantedSkill)
       .map(question => {
         const explicitStatus = String(question?.responseStatus || "").toLowerCase();
-        const responseState = explicitStatus === "correct" || explicitStatus === "self_corrected"
+        const responseState = explicitStatus === "self_corrected"
           ? "correct"
-          : ["incorrect", "no_response", "skipped"].includes(explicitStatus)
-            ? explicitStatus === "skipped" ? "skipped" : "incorrect"
-            : question?.isCorrect === true
-              ? "correct"
-              : "incorrect";
+          : explicitStatus === "no_response"
+            ? "incorrect"
+            : explicitStatus || (question?.isCorrect === true ? "correct"
+              : question?.isCorrect === false ? "incorrect" : "not_administered");
         return {
           itemId: question?.questionId || question?.itemId || "",
           itemKey: question?.itemKey || question?.item_key || "",
@@ -74,11 +81,11 @@ export function assessmentAttemptsToSkillLedger(records = [], skillId = "") {
           formatType: question?.templateType || question?.formatType || "",
           responseState,
           isCorrect: responseState === "correct",
-          supported: Boolean(question?.supported || question?.prompted),
+          supported: explicitStatus === "supported" || Boolean(question?.supported || question?.prompted),
           mode,
           sittingId,
-          sittingCompleted: true,
-          sittingPlannedSize: Number(record?.totalQuestions || questionRecords.length || 0) || null,
+          sittingCompleted: !incomplete,
+          sittingPlannedSize: Number(record?.policySnapshot?.roundLength || Math.max(0, Number(record?.totalQuestions || questionRecords.length) - unscoredCount) || 0) || null,
           answeredAt: question?.timestamp || question?.outcomeRecordedAt || completedAt
         };
       });
@@ -258,8 +265,11 @@ function phaseSummary(attempts, level, phase, blueprint) {
       Number(blueprint.sitting || 0),
       1
     );
-    const completed = rows.some(row => row.sittingCompleted === true)
-      || rows.length >= plannedSize;
+    // A completion marker is not a substitute for the full per-phase form.
+    // Explicitly partial archives and duplicate events cannot supply a pass.
+    const distinctItems = new Set(rows.map(row => row.itemId).filter(Boolean));
+    const completed = !rows.some(row => row.sittingCompleted === false)
+      && rows.length >= plannedSize && distinctItems.size >= plannedSize;
     const correct = rows.filter(row => row.isCorrect).length;
     const accuracy = rows.length ? correct / rows.length : 0;
     return {
@@ -349,24 +359,28 @@ function levelSummary(attempts, level, blueprint, unitStates) {
   };
 }
 
-function retentionSummary(attempts, { level2PassedAt = null } = {}) {
+function retentionSummary(attempts, { level2PassedAt = null, now = Date.now() } = {}) {
   const retention = attempts.filter(a => a.mode === "retention");
   if (!level2PassedAt) {
     return { attempted: retention.length > 0, passed: false, blockers: ["Retention check unlocks only after Level 2 passes."] };
   }
+  const unlockAt = level2PassedAt + RETENTION_RULE.minDaysAfterPass * 24 * 60 * 60 * 1000;
+  const eligible = now >= unlockAt;
   if (!retention.length) {
-    return { attempted: false, passed: false, blockers: ["Retention check not taken yet (unlocks 3 days after Level 2 passes)."] };
+    return { attempted: false, passed: false, eligible, unlockAt, blockers: ["Retention check not taken yet (unlocks 3 days after Level 2 passes)."] };
   }
   const latestSittingId = retention.at(-1).sittingId || retention.at(-1).dayKey;
   const latest = retention.filter(a => (a.sittingId || a.dayKey) === latestSittingId);
   const correct = latest.filter(a => a.isCorrect).length;
-  const unlockAt = level2PassedAt + RETENTION_RULE.minDaysAfterPass * 24 * 60 * 60 * 1000;
   const administeredAt = Math.min(...latest.map(a => a.timestamp).filter(Boolean));
   const wasEligible = Number.isFinite(administeredAt) && administeredAt >= unlockAt;
-  const passed = wasEligible && latest.length >= RETENTION_RULE.items && correct >= RETENTION_RULE.passMin;
+  const complete = !latest.some(row => row.sittingCompleted === false)
+    && new Set(latest.map(row => row.itemId).filter(Boolean)).size >= RETENTION_RULE.items;
+  const passed = wasEligible && complete && latest.length >= RETENTION_RULE.items && correct >= RETENTION_RULE.passMin;
   return {
     attempted: true,
     passed,
+    eligible,
     correct,
     total: latest.length,
     unlockAt,
@@ -400,7 +414,7 @@ export function computeSkillStatus(rawLedger = [], skillIdOrBlueprint, { now = D
   const level2PassedAt = level2.passed
     ? Math.max(level2.phases[1].passedAt || 0, level2.phases[2].passedAt || 0) || null
     : null;
-  const retention = retentionSummary(attempts, { level2PassedAt });
+  const retention = retentionSummary(attempts, { level2PassedAt, now });
 
   const skipped = rawLedger.map(r => normalizeLedgerAttempt(r, { timeZone }))
     .filter(a => a.responseState === "skipped" && inWindow(a, now)).length;

@@ -6051,8 +6051,8 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. The forecast is certain: it will rain tomorrow. Which printed word fills the blank?",
-  "sentence": "The forecast is certain: it ___ rain tomorrow.",
+  "spokenPrompt": "Listen to the whole sentence. We will bake a cake tomorrow. Which printed word fills the blank?",
+  "sentence": "We ___ bake a cake tomorrow.",
   "choices": [
    "was",
    "are",
@@ -6096,7 +6096,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The forecast is certain: it ___ rain tomorrow.",
+  "sentenceText": "We ___ bake a cake tomorrow.",
   "targetWord": "will",
   "v3AuthoredMedia": {
    "target": false,
@@ -6118,7 +6118,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "present certainty pins will; the approved inventory forces two form traps"
+  "notes": "The complete recording supplies will in a familiar plan; the child matches the spoken word to print."
  },
  {
   "id": "lp3.hfw_51_75.l1.B.will.v2",
@@ -11121,21 +11121,21 @@ export const questions = [
   "spokenPrompt": "Listen to the whole sentence. Students write answers with pencils during the test. Which printed word fills the blank?",
   "sentence": "Students ___ answers with pencils during the test.",
   "choices": [
-   "use",
-   "have",
+   "which",
+   "were",
    "write",
-   "make"
+   "would"
   ],
   "answerOptions": [
    {
-    "value": "use",
-    "label": "use",
-    "text": "use"
+    "value": "which",
+    "label": "which",
+    "text": "which"
    },
    {
-    "value": "have",
-    "label": "have",
-    "text": "have"
+    "value": "were",
+    "label": "were",
+    "text": "were"
    },
    {
     "value": "write",
@@ -11143,17 +11143,17 @@ export const questions = [
     "text": "write"
    },
    {
-    "value": "make",
-    "label": "make",
-    "text": "make"
+    "value": "would",
+    "label": "would",
+    "text": "would"
    }
   ],
   "answer": "write",
   "correctAnswer": "write",
   "distractorRationales": {
-   "make": "D-FUNCTION-SWAP",
-   "use": "D-FUNCTION-SWAP",
-   "have": "D-FUNCTION-SWAP"
+   "would": "D-DEVELOPMENTAL",
+   "which": "D-FUNCTION-SWAP",
+   "were": "D-DEVELOPMENTAL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -11185,7 +11185,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the pencils and test-answer context pin write"
+  "notes": "The recorded action and pencil context specify write; rivals share initial w but cannot complete this clause."
  },
  {
   "id": "lp3.hfw_51_75.l2.R.would.v7r",
@@ -11877,6 +11877,532 @@ export const questions = [
    "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.R.has.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "has",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. The duck has just laid an egg. Which printed word fills the blank?",
+  "sentence": "The duck ___ just laid an egg.",
+  "choices": [
+   "have",
+   "are",
+   "were",
+   "has"
+  ],
+  "answerOptions": [
+   {
+    "value": "have",
+    "label": "have",
+    "text": "have"
+   },
+   {
+    "value": "are",
+    "label": "are",
+    "text": "are"
+   },
+   {
+    "value": "were",
+    "label": "were",
+    "text": "were"
+   },
+   {
+    "value": "has",
+    "label": "has",
+    "text": "has"
+   }
+  ],
+  "answer": "has",
+  "correctAnswer": "has",
+  "distractorRationales": {
+   "were": "D-DEVELOPMENTAL",
+   "have": "D-DEVELOPMENTAL",
+   "are": "D-DEVELOPMENTAL"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The duck ___ just laid an egg.",
+  "targetWord": "has",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.R.has.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "A singular subject plus laid requires has among these auxiliary choices."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.R.him.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "him",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Ben waits. Please pass him the cup. Which printed word fills the blank?",
+  "sentence": "Ben waits. Please pass ___ the cup.",
+  "choices": [
+   "him",
+   "he",
+   "his",
+   "they"
+  ],
+  "answerOptions": [
+   {
+    "value": "him",
+    "label": "him",
+    "text": "him"
+   },
+   {
+    "value": "he",
+    "label": "he",
+    "text": "he"
+   },
+   {
+    "value": "his",
+    "label": "his",
+    "text": "his"
+   },
+   {
+    "value": "they",
+    "label": "they",
+    "text": "they"
+   }
+  ],
+  "answer": "him",
+  "correctAnswer": "him",
+  "distractorRationales": {
+   "he": "D-DEVELOPMENTAL",
+   "his": "D-DEVELOPMENTAL",
+   "they": "D-DEVELOPMENTAL"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Ben waits. Please pass ___ the cup.",
+  "targetWord": "him",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.R.him.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The recipient slot requires the object form, with Ben explicitly identifying the recipient."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.R.about.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "about",
+  "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
+  "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Listen, then build the missing word: This book is ___ insects.",
+  "question": "Listen, then build the missing word: This book is ___ insects.",
+  "spokenPrompt": "Listen to the whole sentence. This book is about insects. Build the missing word.",
+  "sentence": "This book is ___ insects.",
+  "choices": [
+   "about"
+  ],
+  "answerOptions": [
+   {
+    "value": "about",
+    "label": "about",
+    "text": "about"
+   }
+  ],
+  "answer": "about",
+  "correctAnswer": "about",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "letterTiles": [
+   "a",
+   "b",
+   "o",
+   "u",
+   "t",
+   "e",
+   "d"
+  ],
+  "letterBank": [
+   "a",
+   "b",
+   "o",
+   "u",
+   "t",
+   "e",
+   "d"
+  ],
+  "sentenceText": "This book is about insects.",
+  "targetWord": "about",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.R.about.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.R.other.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "other",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen, then build the missing word: Please use the ___ door.",
+  "question": "Listen, then build the missing word: Please use the ___ door.",
+  "spokenPrompt": "Listen to the whole sentence. Please use the other door. Build the missing word.",
+  "sentence": "Please use the ___ door.",
+  "choices": [
+   "other"
+  ],
+  "answerOptions": [
+   {
+    "value": "other",
+    "label": "other",
+    "text": "other"
+   }
+  ],
+  "answer": "other",
+  "correctAnswer": "other",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "letterTiles": [
+   "o",
+   "t",
+   "h",
+   "e",
+   "r",
+   "u",
+   "a"
+  ],
+  "letterBank": [
+   "o",
+   "t",
+   "h",
+   "e",
+   "r",
+   "u",
+   "a"
+  ],
+  "sentenceText": "Please use the other door.",
+  "targetWord": "other",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.R.other.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.R.some.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "some",
+  "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
+  "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Listen, then build the missing word: Save ___ seeds for spring.",
+  "question": "Listen, then build the missing word: Save ___ seeds for spring.",
+  "spokenPrompt": "Listen to the whole sentence. Save some seeds for spring. Build the missing word.",
+  "sentence": "Save ___ seeds for spring.",
+  "choices": [
+   "some"
+  ],
+  "answerOptions": [
+   {
+    "value": "some",
+    "label": "some",
+    "text": "some"
+   }
+  ],
+  "answer": "some",
+  "correctAnswer": "some",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "letterTiles": [
+   "s",
+   "o",
+   "m",
+   "e",
+   "u",
+   "n"
+  ],
+  "letterBank": [
+   "s",
+   "o",
+   "m",
+   "e",
+   "u",
+   "n"
+  ],
+  "sentenceText": "Save some seeds for spring.",
+  "targetWord": "some",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.R.some.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.R.then.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "then",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Hear this sentence. Build its missing word: Wash first, ___ dry your hands.",
+  "question": "Hear this sentence. Build its missing word: Wash first, ___ dry your hands.",
+  "spokenPrompt": "Listen to the whole sentence. Wash first, then dry your hands. Build the missing word.",
+  "sentence": "Wash first, ___ dry your hands.",
+  "choices": [
+   "then"
+  ],
+  "answerOptions": [
+   {
+    "value": "then",
+    "label": "then",
+    "text": "then"
+   }
+  ],
+  "answer": "then",
+  "correctAnswer": "then",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "letterTiles": [
+   "t",
+   "h",
+   "e",
+   "n",
+   "a",
+   "i"
+  ],
+  "letterBank": [
+   "t",
+   "h",
+   "e",
+   "n",
+   "a",
+   "i"
+  ],
+  "sentenceText": "Wash first, then dry your hands.",
+  "targetWord": "then",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.R.then.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",

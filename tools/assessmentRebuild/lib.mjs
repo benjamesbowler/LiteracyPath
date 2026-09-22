@@ -1,3 +1,4 @@
+import { CLOSED_SET_FORMATS, optionSetSignature, promptAnswerSignature } from "../../src/policy/assessmentRepeatPolicy.js";
 // Skills Assessment Rebuild v3 — shared library for build, lints, sims, gate.
 // Spec: docs/skills-assessment-rebuild/{MASTERY_SYSTEM,AUTHORING_STANDARDS}.md
 
@@ -11,7 +12,8 @@ export { normalizeSpokenCloze };
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const ROOT = path.resolve(__dirname, "..", "..");
 
-import { V3_QUESTION_SOURCE } from "../../src/content/blueprints/skillBlueprints.js";
+import { V3_QUESTION_SOURCE, RETENTION_RULE } from "../../src/content/blueprints/skillBlueprints.js";
+import { sittingQuestionSignatures, repeatsSittingQuestion } from "../../src/appState/assessmentSitting.js";
 import { ASSESSMENT_IMAGE_ALIAS_BY_SOURCE } from "../../src/content/assessments/v3/assessmentImageAliases.generated.js";
 import { ASSESSMENT_ITEM_MEDIA_DECISIONS } from "../../src/content/assessments/v3/assessmentItemMediaDecisions.generated.js";
 import { hfwApprovedWordsBySkill } from "../../src/data/hfwApprovedCoverageWords.js";
@@ -47,7 +49,7 @@ export const RATIONALE_CODES = new Set([
   "D-FUNCTION-SWAP", "D-HOMOPHONE", "D-MORPH-LITERAL", "D-DEVELOPMENTAL", "D-SEMANTIC",
   "D-SAME-DOMAIN",
   "D-DETAIL-AS-MAIN", "D-TOPIC-ADJACENT", "D-SEQUENCE-SWAP", "D-CAUSE-REVERSE",
-  "D-PLAUSIBLE-UNSUPPORTED", "D-OPPOSITE",
+  "D-PLAUSIBLE-UNSUPPORTED", "D-OPPOSITE", "D-SUPPORTED-DETAIL", "D-CAUSE-STEP",
   "D-SEQUENCE-START", "D-SEQUENCE-END", "D-SEQUENCE-REVERSE"
 ]);
 
@@ -203,28 +205,7 @@ export function jaccard(a, b) {
 // Formats whose choice universe IS the (tiny) pattern inventory — identical
 // option sets are inherent there, so option-set uniqueness applies only to
 // open-set formats (AUTHORING_STANDARDS O-4 targets stock distractor pools).
-export const CLOSED_SET_FORMATS = new Set([
-  "LONG_VOWEL_SILENT_E_PATTERN", "DIGRAPH_COMPLETE_WORD", "BLEND_COMPLETE_WORD",
-  "MISSING_VOWEL_CVC", "LISTEN_CHOOSE_VOWEL", "R_CONTROLLED_PATTERN",
-  "PICTURE_AUDIO_TO_PATTERN", "LONG_VOWEL_TEAM_COMPLETE", "PLURAL_TEXT_CHOICE",
-  "PREPOSITION_SCENE_CHOICE", "PREPOSITION_TEXT_CHOICE",
-  "PREPOSITION_SENTENCE_FIT", "PREPOSITION_PRECISION"
-]);
-
-export function optionSetSignature(item) {
-  // Tile-build items have no option SET — their single "choice" is the answer
-  // and the variance lives in the tile bank, so set-uniqueness does not apply.
-  if ((Array.isArray(item.soundTiles) && item.soundTiles.length) ||
-      (Array.isArray(item.letterTiles) && item.letterTiles.length)) return "";
-  return (item.choices || []).map(c => norm(c.text ?? c)).sort().join("|");
-}
-export function promptAnswerSignature(item) {
-  // targetWord distinguishes image-pinned items whose printed prompt is
-  // deliberately generic (LISTEN_CHOOSE_VOWEL never prints the word): two
-  // items with the same prompt and answer but different pictured targets are
-  // different questions, not duplicates.
-  return `${norm(item.prompt)}||${norm(item.passage || "")}||${norm(item.sentence || "")}||${norm(item.answer)}||${norm(item.targetWord || item.target || "")}||${optionSetSignature(item)}`;
-}
+export { CLOSED_SET_FORMATS, optionSetSignature, promptAnswerSignature };
 
 // ---------------------------------------------------------------------------
 // Authoring-source → runtime item expansion
@@ -540,10 +521,28 @@ export function lintBank(items, blueprint, {
     const longestPassageSentence = Math.max(0, ...passageSentenceWords);
     if (item.level === 1 && promptWords > 12) push("L-READ", item.id, `L1 prompt ${promptWords} words`);
     if (item.level === 2 && promptWords > 16) push("L-READ", item.id, `L2 prompt ${promptWords} words`);
-    if (item.level === 1 && sentenceWords > 9) push("L-READ", item.id, `L1 sentence ${sentenceWords} words`);
-    if (item.level === 2 && sentenceWords > 12) push("L-READ", item.id, `L2 sentence ${sentenceWords} words`);
-    if (longestPassageSentence > (item.level === 1 ? 9 : 12)) {
+    const isSentenceComprehension = item.skillId === "sentence_comprehension";
+    const sentenceMax = isSentenceComprehension ? (item.level === 1 ? 14 : 18) : (item.level === 1 ? 9 : 12);
+    if (sentenceWords > sentenceMax) push("L-READ", item.id, `L${item.level} sentence ${sentenceWords} words (maximum ${sentenceMax})`);
+    if (longestPassageSentence > sentenceMax) {
       push("L-READ", item.id, `L${item.level} passage sentence ${longestPassageSentence} words`);
+    }
+    if (isSentenceComprehension) {
+      const minimum = item.level === 1 ? 8 : 12;
+      // The picture-match contract supplies the scene as evidence and the
+      // sentences as choices. Adding a descriptive passage would give it away.
+      const stimuli = item.constructClaim === "picture_to_sentence_meaning"
+        ? item.choices : [item.passage || item.sentence || ""];
+      for (const stimulus of stimuli) {
+        const sentences = stimulus.split(/[.!?]+(?:["”']|\s|$)/).map(text => text.trim()).filter(Boolean);
+        const words = stimulus.trim().split(/\s+/).filter(Boolean).length;
+        if (sentences.length !== 1 || words < minimum || words > sentenceMax) {
+          push("L-READ", item.id, `Sentence Comprehension needs one ${minimum}–${sentenceMax}-word sentence; got ${sentences.length} sentences and ${words} words`);
+        }
+      }
+    } else if (item.passage) {
+      const minimum = item.level === 1 ? 30 : 70;
+      if (passageWords < minimum) push("L-READ", item.id, `L${item.level} passage ${passageWords} words (minimum ${minimum})`);
     }
     if (item.level === 1 && passageWords > 60) push("L-READ", item.id, `L1 passage ${passageWords} words`);
     if (item.level === 2 && passageWords > 110) push("L-READ", item.id, `L2 passage ${passageWords} words`);
@@ -639,7 +638,7 @@ export function lintBank(items, blueprint, {
       const pluralSignal = /\b(?:two|three|four|five|six|ten|both|many|lots of|all(?: the)?)\b/.test(sentence);
       const singularSignal = /\b(?:one|just one|a single)\b/.test(sentence);
       const irregularPlurals = new Set(["children", "feet", "geese", "men", "mice", "people", "teeth", "women"]);
-      const singularEndsInS = new Set(["bus", "dress", "class"]);
+      const singularEndsInS = new Set(["bus", "dress", "class", "cross"]);
       const isPluralNoun = value => {
         const word = norm(value);
         return irregularPlurals.has(word) || (word.endsWith("s") && !singularEndsInS.has(word));
@@ -984,6 +983,28 @@ export function checkFreshRetry(bank, blueprint) {
   return { pass: phases.every(phase => phase.pass), phases };
 }
 
+// Reserve content must survive a failed retention sitting too. Use the same
+// item, option and scoring-evidence comparisons as the actual administrator.
+export function checkFreshRetentionRetry(bank) {
+  const signatures = [];
+  const duplicates = [];
+  const repeatedFormalScenes = [];
+  const formalScenes = new Set(bank.filter(item => !item.retentionOnly)
+    .map(item => sittingQuestionSignatures(item).evidence).filter(Boolean));
+  const eligible = bank.filter(item => item.retentionOnly && !item.nonGating);
+  for (const item of eligible) {
+    const signature = sittingQuestionSignatures(item);
+    if (repeatsSittingQuestion(item, signatures)) duplicates.push(item.id);
+    else signatures.push(signature);
+    if (signature.evidence && formalScenes.has(signature.evidence)) repeatedFormalScenes.push(item.id);
+  }
+  const sizes = [Math.min(RETENTION_RULE.items, signatures.length),
+    Math.min(RETENTION_RULE.items, Math.max(0, signatures.length - RETENTION_RULE.items))];
+  return { required: RETENTION_RULE.items, eligible: eligible.length, independent: signatures.length,
+    sizes, duplicates, repeatedFormalScenes,
+    pass: sizes.every(size => size === RETENTION_RULE.items) && !duplicates.length && !repeatedFormalScenes.length };
+}
+
 // Challenge each length tell independently. A prior lexical strategy must
 // never hide a length leak. Ties contribute exact expected credit, not a
 // random seed; hidden-label and construction responses have no printed choices.
@@ -993,14 +1014,18 @@ export function independentLengthShortcuts(bank) {
     for (const phase of [1, 2]) {
       const items = bank.filter(item => item.level === level && item.phase === phase && !item.retentionOnly);
       for (const metric of ["words", "characters"]) {
-        for (const direction of ["longest", "shortest"]) {
+        for (const direction of ["longest", "shortest", "second_longest", "second_shortest"]) {
           let expectedCorrect = 0;
           let evaluated = 0;
           for (const item of items) {
             if (!item.choices?.length || item.hideWrittenLabels || item.soundTiles?.length || item.letterTiles?.length) continue;
             const lengths = item.choices.map(choice => metric === "words"
               ? String(choice).trim().split(/\s+/).filter(Boolean).length : String(choice).length);
-            const extreme = direction === "longest" ? Math.max(...lengths) : Math.min(...lengths);
+            const ordered = [...lengths].sort((a, b) => a - b);
+            const position = direction === "longest" ? ordered.length - 1
+              : direction === "second_longest" ? Math.max(0, ordered.length - 2)
+                : direction === "second_shortest" ? Math.min(1, ordered.length - 1) : 0;
+            const extreme = ordered[position];
             const candidates = item.choices.filter((_, index) => lengths[index] === extreme);
             expectedCorrect += candidates.some(choice => norm(choice) === norm(item.answer)) ? 1 / candidates.length : 0;
             evaluated++;

@@ -8985,9 +8985,9 @@ export const questions = [
   "formatType": "R_CONTROLLED_PATTERN",
   "templateType": "R_CONTROLLED_PATTERN",
   "questionType": "multiple_choice",
-  "prompt": "Listen again. Which two letters complete f__st?",
-  "question": "Listen again. Which two letters complete f__st?",
-  "spokenPrompt": "First. Which letters complete the word?",
+  "prompt": "Listen to the word first. Which two letters complete sk__t?",
+  "question": "Listen to the word first. Which two letters complete sk__t?",
+  "spokenPrompt": "Skirt. Which letters complete the word?",
   "choices": [
    "ur",
    "er",
@@ -9031,7 +9031,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "first",
+  "targetWord": "skirt",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -9052,7 +9052,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the blank now assesses the keyed ir spelling in first"
+  "notes": "Fresh skirt replaces a repeat of ordinary first; all three same-sound spellings compete."
  },
  {
   "id": "lp3.r_controlled_vowels.l2.R.ur.v7r",
@@ -9074,9 +9074,9 @@ export const questions = [
   "formatType": "R_CONTROLLED_PATTERN",
   "templateType": "R_CONTROLLED_PATTERN",
   "questionType": "multiple_choice",
-  "prompt": "Listen again. Which two letters complete n__se?",
-  "question": "Listen again. Which two letters complete n__se?",
-  "spokenPrompt": "Nurse. Which letters complete the word?",
+  "prompt": "Listen to the word first. Which two letters complete ch__ch?",
+  "question": "Listen to the word first. Which two letters complete ch__ch?",
+  "spokenPrompt": "Church. Which letters complete the word?",
   "choices": [
    "ur",
    "er",
@@ -9120,7 +9120,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "nurse",
+  "targetWord": "church",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -9141,7 +9141,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the blank now assesses the keyed ur spelling in nurse"
+  "notes": "Fresh church tests ur between two consonant digraphs without repeating the nurse target."
  },
  {
   "id": "lp3.r_controlled_vowels.l2.R.ir.v8r",
@@ -9502,5 +9502,539 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "pirse, perse and poase are not conventional spellings"
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.R.ir.v11r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "ir",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete d__ty?",
+  "question": "Listen to the word first. Which two letters complete d__ty?",
+  "spokenPrompt": "Dirty. Which letters complete the word?",
+  "choices": [
+   "ir",
+   "er",
+   "ur",
+   "or"
+  ],
+  "answerOptions": [
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   }
+  ],
+  "answer": "ir",
+  "correctAnswer": "ir",
+  "distractorRationales": {
+   "ur": "D-PATTERN-TRAP",
+   "or": "D-PATTERN-TRAP",
+   "er": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "dirty",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.R.ir.v11r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "A familiar describing word extends ir beyond the ordinary concrete nouns."
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.R.er.v8r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "er",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete ladd__?",
+  "question": "Listen to the word first. Which two letters complete ladd__?",
+  "spokenPrompt": "Ladder. Which letters complete the word?",
+  "choices": [
+   "ar",
+   "er",
+   "ir",
+   "ur"
+  ],
+  "answerOptions": [
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   }
+  ],
+  "answer": "er",
+  "correctAnswer": "er",
+  "distractorRationales": {
+   "ir": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP",
+   "ar": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "ladder",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.R.er.v8r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "A familiar new target uses final unstressed er; the complete recording pins the word."
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.R.ar.v15r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "ar",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete h__vest?",
+  "question": "Listen to the word first. Which two letters complete h__vest?",
+  "spokenPrompt": "Harvest. Which letters complete the word?",
+  "choices": [
+   "or",
+   "er",
+   "ur",
+   "ar"
+  ],
+  "answerOptions": [
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   }
+  ],
+  "answer": "ar",
+  "correctAnswer": "ar",
+  "distractorRationales": {
+   "ur": "D-PATTERN-TRAP",
+   "or": "D-VOWEL",
+   "er": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "harvest",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.R.ar.v15r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer ar into the first syllable of a new two-syllable word."
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.R.or.v15r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "or",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete airp__t?",
+  "question": "Listen to the word first. Which two letters complete airp__t?",
+  "spokenPrompt": "Airport. Which letters complete the word?",
+  "choices": [
+   "or",
+   "ar",
+   "er",
+   "ur"
+  ],
+  "answerOptions": [
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   }
+  ],
+  "answer": "or",
+  "correctAnswer": "or",
+  "distractorRationales": {
+   "ar": "D-VOWEL",
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "airport",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.R.or.v15r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The blank assesses or in port; the other vowel spelling stays outside the scored gap."
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.R.er.v11r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "er",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete supp__?",
+  "question": "Listen to the word first. Which two letters complete supp__?",
+  "spokenPrompt": "Supper. Which letters complete the word?",
+  "choices": [
+   "ar",
+   "er",
+   "ir",
+   "ur"
+  ],
+  "answerOptions": [
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   }
+  ],
+  "answer": "er",
+  "correctAnswer": "er",
+  "distractorRationales": {
+   "ar": "D-PATTERN-TRAP",
+   "ir": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "supper",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.R.er.v11r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Choose conventional final er against both same-sound spelling rivals."
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.R.ir.v11r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "phonics_pattern",
+  "itemKey": "ir",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete b__thday?",
+  "question": "Listen to the word first. Which two letters complete b__thday?",
+  "spokenPrompt": "Birthday. Which letters complete the word?",
+  "choices": [
+   "ur",
+   "ar",
+   "ir",
+   "er"
+  ],
+  "answerOptions": [
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   }
+  ],
+  "answer": "ir",
+  "correctAnswer": "ir",
+  "distractorRationales": {
+   "ar": "D-PATTERN-TRAP",
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "birthday",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.R.ir.v11r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "A new compound requires ir in its first part, with same-sound rivals still available."
  }
 ];

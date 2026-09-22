@@ -21,6 +21,15 @@ const sources = Object.fromEntries(await Promise.all(skillIds.map(async skillId 
 const key = item => item.choices.find(choice => choice.k)?.t;
 const label = (skillId, item) => `${skillId}/L${item.lvl}/${item.u}/v${item.v}`;
 
+test("printed oo sound comparisons exclude words with accepted short and long variants", () => {
+  // room and broom can have either /uː/ or /ʊ/ in accepted English accents;
+  // hearing the anchor does not fix the pronunciation of printed options.
+  const variable = new Set(["room", "broom"]);
+  for (const item of sources.vowel_teams.items.filter(item => item.u === "oo")) {
+    assert.ok(item.choices.every(choice => !variable.has(choice.t.toLowerCase())), label("vowel_teams", item));
+  }
+});
+
 test("every phonics phase can deliver two complete fresh sittings without using reserves", () => {
   for (const [skillId, source] of Object.entries(sources)) {
     const blueprint = getSkillBlueprint(skillId);

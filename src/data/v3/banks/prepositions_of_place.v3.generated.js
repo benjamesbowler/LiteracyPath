@@ -6477,43 +6477,43 @@ export const questions = [
   "formatType": "PREPOSITION_SCENE_CHOICE",
   "templateType": "PREPOSITION_SCENE_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which phrase tells where the ball is?",
-  "question": "Which phrase tells where the ball is?",
-  "spokenPrompt": "Which phrase tells where the ball is?",
+  "prompt": "Where is the blue hat?",
+  "question": "Where is the blue hat?",
+  "spokenPrompt": "Where is the blue hat?",
   "choices": [
-   "under the chair",
-   "in the chair",
-   "behind the chair",
-   "on the chair"
+   "under the stool",
+   "behind the stool",
+   "next to the stool",
+   "on the stool"
   ],
   "answerOptions": [
    {
-    "value": "under the chair",
-    "label": "under the chair",
-    "text": "under the chair"
+    "value": "under the stool",
+    "label": "under the stool",
+    "text": "under the stool"
    },
    {
-    "value": "in the chair",
-    "label": "in the chair",
-    "text": "in the chair"
+    "value": "behind the stool",
+    "label": "behind the stool",
+    "text": "behind the stool"
    },
    {
-    "value": "behind the chair",
-    "label": "behind the chair",
-    "text": "behind the chair"
+    "value": "next to the stool",
+    "label": "next to the stool",
+    "text": "next to the stool"
    },
    {
-    "value": "on the chair",
-    "label": "on the chair",
-    "text": "on the chair"
+    "value": "on the stool",
+    "label": "on the stool",
+    "text": "on the stool"
    }
   ],
-  "answer": "on the chair",
-  "correctAnswer": "on the chair",
+  "answer": "on the stool",
+  "correctAnswer": "on the stool",
   "distractorRationales": {
-   "in the chair": "D-FUNCTION-SWAP",
-   "behind the chair": "D-FUNCTION-SWAP",
-   "under the chair": "D-FUNCTION-SWAP"
+   "behind the stool": "D-FUNCTION-SWAP",
+   "next to the stool": "D-FUNCTION-SWAP",
+   "under the stool": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -6523,7 +6523,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": true,
-  "targetWord": "ball_on_chair",
+  "targetWord": "hat-on-stool",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -6532,14 +6532,14 @@ export const questions = [
    "itemId": "lp3.prepositions_of_place.l1.R.on.v5r",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/release-media/ball-on-chair-f5c50c79.webp"
+    "/images/assessment/grammar-scenes/hat-on-stool.webp"
    ],
-   "alt": "A ball and a chair.",
+   "alt": "A blue hat and red stool.",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "ball_on_chair",
-  "stimulusMediaId": "ball_on_chair",
+  "requiredImageAssetKey": "hat-on-stool",
+  "stimulusMediaId": "hat-on-stool",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6549,13 +6549,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the retained item measures on directly rather than re-keying an inverse under relation",
-  "imagePath": "/images/assessment/release-media/ball-on-chair-f5c50c79.webp",
-  "imageUrl": "/images/assessment/release-media/ball-on-chair-f5c50c79.webp",
-  "targetImage": "/images/assessment/release-media/ball-on-chair-f5c50c79.webp",
-  "targetImagePath": "/images/assessment/release-media/ball-on-chair-f5c50c79.webp",
-  "resolvedImageAssetKey": "ball_on_chair",
-  "imageAlt": "A ball and a chair."
+  "notes": "",
+  "imagePath": "/images/assessment/grammar-scenes/hat-on-stool.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/hat-on-stool.webp",
+  "targetImage": "/images/assessment/grammar-scenes/hat-on-stool.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/hat-on-stool.webp",
+  "resolvedImageAssetKey": "hat-on-stool",
+  "imageAlt": "A blue hat and red stool."
  },
  {
   "id": "lp3.prepositions_of_place.l1.R.between.v5r",
@@ -6577,43 +6577,43 @@ export const questions = [
   "formatType": "PREPOSITION_SCENE_CHOICE",
   "templateType": "PREPOSITION_SCENE_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which phrase tells where the cup is?",
-  "question": "Which phrase tells where the cup is?",
-  "spokenPrompt": "Which phrase tells where the cup is?",
+  "prompt": "Where is the green apple?",
+  "question": "Where is the green apple?",
+  "spokenPrompt": "Where is the green apple?",
   "choices": [
-   "between the books",
-   "on the books",
-   "under the books",
-   "above the books"
+   "between the cups",
+   "on the cups",
+   "under the cups",
+   "inside a cup"
   ],
   "answerOptions": [
    {
-    "value": "between the books",
-    "label": "between the books",
-    "text": "between the books"
+    "value": "between the cups",
+    "label": "between the cups",
+    "text": "between the cups"
    },
    {
-    "value": "on the books",
-    "label": "on the books",
-    "text": "on the books"
+    "value": "on the cups",
+    "label": "on the cups",
+    "text": "on the cups"
    },
    {
-    "value": "under the books",
-    "label": "under the books",
-    "text": "under the books"
+    "value": "under the cups",
+    "label": "under the cups",
+    "text": "under the cups"
    },
    {
-    "value": "above the books",
-    "label": "above the books",
-    "text": "above the books"
+    "value": "inside a cup",
+    "label": "inside a cup",
+    "text": "inside a cup"
    }
   ],
-  "answer": "between the books",
-  "correctAnswer": "between the books",
+  "answer": "between the cups",
+  "correctAnswer": "between the cups",
   "distractorRationales": {
-   "above the books": "D-FUNCTION-SWAP",
-   "on the books": "D-FUNCTION-SWAP",
-   "under the books": "D-FUNCTION-SWAP"
+   "inside a cup": "D-FUNCTION-SWAP",
+   "on the cups": "D-FUNCTION-SWAP",
+   "under the cups": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -6623,7 +6623,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": true,
-  "targetWord": "cup_between_books",
+  "targetWord": "apple-between-cups",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -6632,14 +6632,14 @@ export const questions = [
    "itemId": "lp3.prepositions_of_place.l1.R.between.v5r",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/release-media/cup-between-books-017aa912.webp"
+    "/images/assessment/grammar-scenes/apple-between-cups.webp"
    ],
-   "alt": "A cup and two books.",
+   "alt": "A green apple and two blue cups.",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "cup_between_books",
-  "stimulusMediaId": "cup_between_books",
+  "requiredImageAssetKey": "apple-between-cups",
+  "stimulusMediaId": "apple-between-cups",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6649,13 +6649,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the retained item measures between directly rather than re-keying the books' next-to relation",
-  "imagePath": "/images/assessment/release-media/cup-between-books-017aa912.webp",
-  "imageUrl": "/images/assessment/release-media/cup-between-books-017aa912.webp",
-  "targetImage": "/images/assessment/release-media/cup-between-books-017aa912.webp",
-  "targetImagePath": "/images/assessment/release-media/cup-between-books-017aa912.webp",
-  "resolvedImageAssetKey": "cup_between_books",
-  "imageAlt": "A cup and two books."
+  "notes": "",
+  "imagePath": "/images/assessment/grammar-scenes/apple-between-cups.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/apple-between-cups.webp",
+  "targetImage": "/images/assessment/grammar-scenes/apple-between-cups.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/apple-between-cups.webp",
+  "resolvedImageAssetKey": "apple-between-cups",
+  "imageAlt": "A green apple and two blue cups."
  },
  {
   "id": "lp3.prepositions_of_place.l1.R.in.v5r",
@@ -6674,46 +6674,46 @@ export const questions = [
   "form": "R",
   "itemType": "grammar_concept",
   "itemKey": "in",
-  "formatType": "PREPOSITION_TEXT_CHOICE",
-  "templateType": "PREPOSITION_TEXT_CHOICE",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word tells where: The goat waits ___ the barn.",
-  "question": "Which word tells where: The goat waits ___ the barn.",
-  "spokenPrompt": "Which word tells where? The goat waits … the barn.",
+  "prompt": "Where is the kitten?",
+  "question": "Where is the kitten?",
+  "spokenPrompt": "Where is the kitten?",
   "choices": [
-   "behind",
-   "in",
-   "on",
-   "next to"
+   "behind the basket",
+   "in the basket",
+   "under the basket",
+   "next to the basket"
   ],
   "answerOptions": [
    {
-    "value": "behind",
-    "label": "behind",
-    "text": "behind"
+    "value": "behind the basket",
+    "label": "behind the basket",
+    "text": "behind the basket"
    },
    {
-    "value": "in",
-    "label": "in",
-    "text": "in"
+    "value": "in the basket",
+    "label": "in the basket",
+    "text": "in the basket"
    },
    {
-    "value": "on",
-    "label": "on",
-    "text": "on"
+    "value": "under the basket",
+    "label": "under the basket",
+    "text": "under the basket"
    },
    {
-    "value": "next to",
-    "label": "next to",
-    "text": "next to"
+    "value": "next to the basket",
+    "label": "next to the basket",
+    "text": "next to the basket"
    }
   ],
-  "answer": "in",
-  "correctAnswer": "in",
+  "answer": "in the basket",
+  "correctAnswer": "in the basket",
   "distractorRationales": {
-   "on": "D-FUNCTION-SWAP",
-   "next to": "D-FUNCTION-SWAP",
-   "behind": "D-FUNCTION-SWAP"
+   "under the basket": "D-FUNCTION-SWAP",
+   "next to the basket": "D-FUNCTION-SWAP",
+   "behind the basket": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -6723,7 +6723,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": true,
-  "targetWord": "goat_inside_barn",
+  "targetWord": "kitten-in-basket",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -6732,14 +6732,14 @@ export const questions = [
    "itemId": "lp3.prepositions_of_place.l1.R.in.v5r",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/release-media/goat-inside-barn-23d973f1.webp"
+    "/images/assessment/grammar-scenes/kitten-in-basket.webp"
    ],
-   "alt": "A goat and a barn.",
+   "alt": "A ginger kitten and wicker basket.",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "goat_inside_barn",
-  "stimulusMediaId": "goat_inside_barn",
+  "requiredImageAssetKey": "kitten-in-basket",
+  "stimulusMediaId": "kitten-in-basket",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6750,12 +6750,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/assessment/release-media/goat-inside-barn-23d973f1.webp",
-  "imageUrl": "/images/assessment/release-media/goat-inside-barn-23d973f1.webp",
-  "targetImage": "/images/assessment/release-media/goat-inside-barn-23d973f1.webp",
-  "targetImagePath": "/images/assessment/release-media/goat-inside-barn-23d973f1.webp",
-  "resolvedImageAssetKey": "goat_inside_barn",
-  "imageAlt": "A goat and a barn."
+  "imagePath": "/images/assessment/grammar-scenes/kitten-in-basket.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/kitten-in-basket.webp",
+  "targetImage": "/images/assessment/grammar-scenes/kitten-in-basket.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/kitten-in-basket.webp",
+  "resolvedImageAssetKey": "kitten-in-basket",
+  "imageAlt": "A ginger kitten and wicker basket."
  },
  {
   "id": "lp3.prepositions_of_place.l1.R.under.v5r",
@@ -6774,46 +6774,46 @@ export const questions = [
   "form": "R",
   "itemType": "grammar_concept",
   "itemKey": "under",
-  "formatType": "PREPOSITION_TEXT_CHOICE",
-  "templateType": "PREPOSITION_TEXT_CHOICE",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word tells where: The dog rests ___ the table.",
-  "question": "Which word tells where: The dog rests ___ the table.",
-  "spokenPrompt": "Which word tells where? The dog rests … the table.",
+  "prompt": "Where is the football?",
+  "question": "Where is the football?",
+  "spokenPrompt": "Where is the football?",
   "choices": [
-   "above",
-   "behind",
-   "under",
-   "on"
+   "above the table",
+   "behind the table",
+   "under the table",
+   "on the table"
   ],
   "answerOptions": [
    {
-    "value": "above",
-    "label": "above",
-    "text": "above"
+    "value": "above the table",
+    "label": "above the table",
+    "text": "above the table"
    },
    {
-    "value": "behind",
-    "label": "behind",
-    "text": "behind"
+    "value": "behind the table",
+    "label": "behind the table",
+    "text": "behind the table"
    },
    {
-    "value": "under",
-    "label": "under",
-    "text": "under"
+    "value": "under the table",
+    "label": "under the table",
+    "text": "under the table"
    },
    {
-    "value": "on",
-    "label": "on",
-    "text": "on"
+    "value": "on the table",
+    "label": "on the table",
+    "text": "on the table"
    }
   ],
-  "answer": "under",
-  "correctAnswer": "under",
+  "answer": "under the table",
+  "correctAnswer": "under the table",
   "distractorRationales": {
-   "on": "D-FUNCTION-SWAP",
-   "above": "D-FUNCTION-SWAP",
-   "behind": "D-FUNCTION-SWAP"
+   "on the table": "D-FUNCTION-SWAP",
+   "above the table": "D-FUNCTION-SWAP",
+   "behind the table": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -6823,7 +6823,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": true,
-  "targetWord": "dog_under_table",
+  "targetWord": "football-under-table",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -6832,14 +6832,14 @@ export const questions = [
    "itemId": "lp3.prepositions_of_place.l1.R.under.v5r",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/release-media/dog-under-table-cf3e17f2.webp"
+    "/images/assessment/grammar-scenes/football-under-table.webp"
    ],
-   "alt": "A dog and a table.",
+   "alt": "A football and blue table.",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "dog_under_table",
-  "stimulusMediaId": "dog_under_table",
+  "requiredImageAssetKey": "football-under-table",
+  "stimulusMediaId": "football-under-table",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6850,12 +6850,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/assessment/release-media/dog-under-table-cf3e17f2.webp",
-  "imageUrl": "/images/assessment/release-media/dog-under-table-cf3e17f2.webp",
-  "targetImage": "/images/assessment/release-media/dog-under-table-cf3e17f2.webp",
-  "targetImagePath": "/images/assessment/release-media/dog-under-table-cf3e17f2.webp",
-  "resolvedImageAssetKey": "dog_under_table",
-  "imageAlt": "A dog and a table."
+  "imagePath": "/images/assessment/grammar-scenes/football-under-table.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/football-under-table.webp",
+  "targetImage": "/images/assessment/grammar-scenes/football-under-table.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/football-under-table.webp",
+  "resolvedImageAssetKey": "football-under-table",
+  "imageAlt": "A football and blue table."
  },
  {
   "id": "lp3.prepositions_of_place.l1.R.above.v5r",
@@ -6874,46 +6874,46 @@ export const questions = [
   "form": "R",
   "itemType": "grammar_concept",
   "itemKey": "above",
-  "formatType": "PREPOSITION_TEXT_CHOICE",
-  "templateType": "PREPOSITION_TEXT_CHOICE",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word tells where: The clock hangs ___ the door.",
-  "question": "Which word tells where: The clock hangs ___ the door.",
-  "spokenPrompt": "Which word tells where? The clock hangs … the door.",
+  "prompt": "Where is the red clock?",
+  "question": "Where is the red clock?",
+  "spokenPrompt": "Where is the red clock?",
   "choices": [
-   "under",
-   "behind",
-   "next to",
-   "above"
+   "under the picture",
+   "behind the picture",
+   "inside the picture",
+   "above the picture"
   ],
   "answerOptions": [
    {
-    "value": "under",
-    "label": "under",
-    "text": "under"
+    "value": "under the picture",
+    "label": "under the picture",
+    "text": "under the picture"
    },
    {
-    "value": "behind",
-    "label": "behind",
-    "text": "behind"
+    "value": "behind the picture",
+    "label": "behind the picture",
+    "text": "behind the picture"
    },
    {
-    "value": "next to",
-    "label": "next to",
-    "text": "next to"
+    "value": "inside the picture",
+    "label": "inside the picture",
+    "text": "inside the picture"
    },
    {
-    "value": "above",
-    "label": "above",
-    "text": "above"
+    "value": "above the picture",
+    "label": "above the picture",
+    "text": "above the picture"
    }
   ],
-  "answer": "above",
-  "correctAnswer": "above",
+  "answer": "above the picture",
+  "correctAnswer": "above the picture",
   "distractorRationales": {
-   "behind": "D-FUNCTION-SWAP",
-   "next to": "D-FUNCTION-SWAP",
-   "under": "D-FUNCTION-SWAP"
+   "behind the picture": "D-FUNCTION-SWAP",
+   "inside the picture": "D-FUNCTION-SWAP",
+   "under the picture": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -6923,7 +6923,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": true,
-  "targetWord": "clock_above_door",
+  "targetWord": "clock-above-picture",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -6932,14 +6932,14 @@ export const questions = [
    "itemId": "lp3.prepositions_of_place.l1.R.above.v5r",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/release-media/clock-above-door-038c8846.webp"
+    "/images/assessment/grammar-scenes/clock-above-picture.webp"
    ],
-   "alt": "A clock and a door.",
+   "alt": "A red clock and framed picture.",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "clock_above_door",
-  "stimulusMediaId": "clock_above_door",
+  "requiredImageAssetKey": "clock-above-picture",
+  "stimulusMediaId": "clock-above-picture",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6950,12 +6950,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/assessment/release-media/clock-above-door-038c8846.webp",
-  "imageUrl": "/images/assessment/release-media/clock-above-door-038c8846.webp",
-  "targetImage": "/images/assessment/release-media/clock-above-door-038c8846.webp",
-  "targetImagePath": "/images/assessment/release-media/clock-above-door-038c8846.webp",
-  "resolvedImageAssetKey": "clock_above_door",
-  "imageAlt": "A clock and a door."
+  "imagePath": "/images/assessment/grammar-scenes/clock-above-picture.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/clock-above-picture.webp",
+  "targetImage": "/images/assessment/grammar-scenes/clock-above-picture.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/clock-above-picture.webp",
+  "resolvedImageAssetKey": "clock-above-picture",
+  "imageAlt": "A red clock and framed picture."
  },
  {
   "id": "lp3.prepositions_of_place.l1.R.next_to.v5r",
@@ -6974,46 +6974,46 @@ export const questions = [
   "form": "R",
   "itemType": "grammar_concept",
   "itemKey": "next_to",
-  "formatType": "PREPOSITION_TEXT_CHOICE",
-  "templateType": "PREPOSITION_TEXT_CHOICE",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word tells where: The rabbit sits ___ the basket.",
-  "question": "Which word tells where: The rabbit sits ___ the basket.",
-  "spokenPrompt": "Which word tells where? The rabbit sits … the basket.",
+  "prompt": "Where is the bicycle?",
+  "question": "Where is the bicycle?",
+  "spokenPrompt": "Where is the bicycle?",
   "choices": [
-   "next to",
-   "under",
-   "above",
-   "inside"
+   "next to the lamppost",
+   "under the lamppost",
+   "above the lamppost",
+   "inside the lamppost"
   ],
   "answerOptions": [
    {
-    "value": "next to",
-    "label": "next to",
-    "text": "next to"
+    "value": "next to the lamppost",
+    "label": "next to the lamppost",
+    "text": "next to the lamppost"
    },
    {
-    "value": "under",
-    "label": "under",
-    "text": "under"
+    "value": "under the lamppost",
+    "label": "under the lamppost",
+    "text": "under the lamppost"
    },
    {
-    "value": "above",
-    "label": "above",
-    "text": "above"
+    "value": "above the lamppost",
+    "label": "above the lamppost",
+    "text": "above the lamppost"
    },
    {
-    "value": "inside",
-    "label": "inside",
-    "text": "inside"
+    "value": "inside the lamppost",
+    "label": "inside the lamppost",
+    "text": "inside the lamppost"
    }
   ],
-  "answer": "next to",
-  "correctAnswer": "next to",
+  "answer": "next to the lamppost",
+  "correctAnswer": "next to the lamppost",
   "distractorRationales": {
-   "under": "D-FUNCTION-SWAP",
-   "above": "D-FUNCTION-SWAP",
-   "inside": "D-FUNCTION-SWAP"
+   "under the lamppost": "D-FUNCTION-SWAP",
+   "above the lamppost": "D-FUNCTION-SWAP",
+   "inside the lamppost": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -7023,7 +7023,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": true,
-  "targetWord": "rabbit_beside_basket",
+  "targetWord": "bicycle-next-to-lamppost",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -7032,14 +7032,14 @@ export const questions = [
    "itemId": "lp3.prepositions_of_place.l1.R.next_to.v5r",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp"
+    "/images/assessment/grammar-scenes/bicycle-next-to-lamppost.webp"
    ],
-   "alt": "A rabbit and a basket.",
+   "alt": "A yellow bicycle and green lamppost.",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "rabbit_beside_basket",
-  "stimulusMediaId": "rabbit_beside_basket",
+  "requiredImageAssetKey": "bicycle-next-to-lamppost",
+  "stimulusMediaId": "bicycle-next-to-lamppost",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7050,12 +7050,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp",
-  "imageUrl": "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp",
-  "targetImage": "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp",
-  "targetImagePath": "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp",
-  "resolvedImageAssetKey": "rabbit_beside_basket",
-  "imageAlt": "A rabbit and a basket."
+  "imagePath": "/images/assessment/grammar-scenes/bicycle-next-to-lamppost.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/bicycle-next-to-lamppost.webp",
+  "targetImage": "/images/assessment/grammar-scenes/bicycle-next-to-lamppost.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/bicycle-next-to-lamppost.webp",
+  "resolvedImageAssetKey": "bicycle-next-to-lamppost",
+  "imageAlt": "A yellow bicycle and green lamppost."
  },
  {
   "id": "lp3.prepositions_of_place.l2.R.over.v5r",
@@ -7077,13 +7077,13 @@ export const questions = [
   "formatType": "PREPOSITION_SENTENCE_FIT",
   "templateType": "PREPOSITION_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which word tells where: The horse is jumping ___ the gate.",
-  "question": "Which word tells where: The horse is jumping ___ the gate.",
-  "spokenPrompt": "Which word tells where? The horse is jumping … the gate.",
-  "sentence": "The horse is jumping ___ the gate.",
+  "prompt": "Which word tells where: The eagle flies ___ the mountain.",
+  "question": "Which word tells where: The eagle flies ___ the mountain.",
+  "spokenPrompt": "Which word tells where? The eagle flies … the mountain.",
+  "sentence": "The eagle flies ___ the mountain.",
   "choices": [
    "inside",
-   "between",
+   "through",
    "over",
    "under"
   ],
@@ -7094,9 +7094,9 @@ export const questions = [
     "text": "inside"
    },
    {
-    "value": "between",
-    "label": "between",
-    "text": "between"
+    "value": "through",
+    "label": "through",
+    "text": "through"
    },
    {
     "value": "over",
@@ -7113,7 +7113,7 @@ export const questions = [
   "correctAnswer": "over",
   "distractorRationales": {
    "inside": "D-FUNCTION-SWAP",
-   "between": "D-FUNCTION-SWAP",
+   "through": "D-FUNCTION-SWAP",
    "under": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
@@ -7124,8 +7124,8 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": true,
-  "sentenceText": "The horse is jumping ___ the gate.",
-  "targetWord": "horse_over_gate",
+  "sentenceText": "The eagle flies ___ the mountain.",
+  "targetWord": "eagle-over-mountain",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -7134,14 +7134,14 @@ export const questions = [
    "itemId": "lp3.prepositions_of_place.l2.R.over.v5r",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/release-media/horse-over-gate-7ddfc247.webp"
+    "/images/assessment/grammar-scenes/eagle-over-mountain.webp"
    ],
    "constructReview": "approved",
    "answerNeutral": "approved",
-   "alt": "A horse and a gate."
+   "alt": "An eagle and mountain."
   },
-  "requiredImageAssetKey": "horse_over_gate",
-  "stimulusMediaId": "horse_over_gate",
+  "requiredImageAssetKey": "eagle-over-mountain",
+  "stimulusMediaId": "eagle-over-mountain",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7151,13 +7151,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "The horse is visibly airborne above the gate.",
-  "imagePath": "/images/assessment/release-media/horse-over-gate-7ddfc247.webp",
-  "imageUrl": "/images/assessment/release-media/horse-over-gate-7ddfc247.webp",
-  "targetImage": "/images/assessment/release-media/horse-over-gate-7ddfc247.webp",
-  "targetImagePath": "/images/assessment/release-media/horse-over-gate-7ddfc247.webp",
-  "resolvedImageAssetKey": "horse_over_gate",
-  "imageAlt": "A horse and a gate."
+  "notes": "The eagle is visibly airborne above the peak.",
+  "imagePath": "/images/assessment/grammar-scenes/eagle-over-mountain.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/eagle-over-mountain.webp",
+  "targetImage": "/images/assessment/grammar-scenes/eagle-over-mountain.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/eagle-over-mountain.webp",
+  "resolvedImageAssetKey": "eagle-over-mountain",
+  "imageAlt": "An eagle and mountain."
  },
  {
   "id": "lp3.prepositions_of_place.l2.R.through.v5r",
@@ -7179,10 +7179,10 @@ export const questions = [
   "formatType": "PREPOSITION_SENTENCE_FIT",
   "templateType": "PREPOSITION_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which word tells where: The train is passing ___ the tunnel.",
-  "question": "Which word tells where: The train is passing ___ the tunnel.",
-  "spokenPrompt": "Which word tells where? The train is passing … the tunnel.",
-  "sentence": "The train is passing ___ the tunnel.",
+  "prompt": "Which word tells where: The mouse is passing ___ the hole.",
+  "question": "Which word tells where: The mouse is passing ___ the hole.",
+  "spokenPrompt": "Which word tells where? The mouse is passing … the hole.",
+  "sentence": "The mouse is passing ___ the hole.",
   "choices": [
    "over",
    "behind",
@@ -7226,8 +7226,8 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": true,
-  "sentenceText": "The train is passing ___ the tunnel.",
-  "targetWord": "train_through_tunnel",
+  "sentenceText": "The mouse is passing ___ the hole.",
+  "targetWord": "mouse-through-wall",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -7236,14 +7236,14 @@ export const questions = [
    "itemId": "lp3.prepositions_of_place.l2.R.through.v5r",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp"
+    "/images/assessment/grammar-scenes/mouse-through-wall.webp"
    ],
    "constructReview": "approved",
    "answerNeutral": "approved",
-   "alt": "A train and a tunnel."
+   "alt": "A mouse and wall with an opening."
   },
-  "requiredImageAssetKey": "train_through_tunnel",
-  "stimulusMediaId": "train_through_tunnel",
+  "requiredImageAssetKey": "mouse-through-wall",
+  "stimulusMediaId": "mouse-through-wall",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7253,13 +7253,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "The train enters the tunnel opening.",
-  "imagePath": "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp",
-  "imageUrl": "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp",
-  "targetImage": "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp",
-  "targetImagePath": "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp",
-  "resolvedImageAssetKey": "train_through_tunnel",
-  "imageAlt": "A train and a tunnel."
+  "notes": "The mouse body traverses the wall opening.",
+  "imagePath": "/images/assessment/grammar-scenes/mouse-through-wall.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/mouse-through-wall.webp",
+  "targetImage": "/images/assessment/grammar-scenes/mouse-through-wall.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/mouse-through-wall.webp",
+  "resolvedImageAssetKey": "mouse-through-wall",
+  "imageAlt": "A mouse and wall with an opening."
  },
  {
   "id": "lp3.prepositions_of_place.l2.R.near.v5r",
@@ -7281,10 +7281,10 @@ export const questions = [
   "formatType": "PREPOSITION_PRECISION",
   "templateType": "PREPOSITION_PRECISION",
   "questionType": "multiple_choice",
-  "prompt": "Which word tells exactly where? A short path links home and school: home is ___ school.",
-  "question": "Which word tells exactly where? A short path links home and school: home is ___ school.",
-  "spokenPrompt": "Which word tells exactly where? A short path links home and school: home is … school.",
-  "sentence": "A short path links home and school: home is ___ school.",
+  "prompt": "Which word tells exactly where? The kettle stands ___ the sink.",
+  "question": "Which word tells exactly where? The kettle stands ___ the sink.",
+  "spokenPrompt": "Which word tells exactly where? The kettle stands … the sink.",
+  "sentence": "The kettle stands ___ the sink.",
   "choices": [
    "near",
    "far from",
@@ -7328,8 +7328,8 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": true,
-  "sentenceText": "A short path links home and school: home is ___ school.",
-  "targetWord": "house_near_school",
+  "sentenceText": "The kettle stands ___ the sink.",
+  "targetWord": "kettle-near-sink",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -7338,14 +7338,14 @@ export const questions = [
    "itemId": "lp3.prepositions_of_place.l2.R.near.v5r",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/release-media/house-near-school-131b7950.webp"
+    "/images/assessment/grammar-scenes/kettle-near-sink.webp"
    ],
    "constructReview": "approved",
    "answerNeutral": "approved",
-   "alt": "A house, a school and a path."
+   "alt": "A red kettle and blue sink."
   },
-  "requiredImageAssetKey": "house_near_school",
-  "stimulusMediaId": "house_near_school",
+  "requiredImageAssetKey": "kettle-near-sink",
+  "stimulusMediaId": "kettle-near-sink",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7355,13 +7355,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "The short path pins near.",
-  "imagePath": "/images/assessment/release-media/house-near-school-131b7950.webp",
-  "imageUrl": "/images/assessment/release-media/house-near-school-131b7950.webp",
-  "targetImage": "/images/assessment/release-media/house-near-school-131b7950.webp",
-  "targetImagePath": "/images/assessment/release-media/house-near-school-131b7950.webp",
-  "resolvedImageAssetKey": "house_near_school",
-  "imageAlt": "A house, a school and a path."
+  "notes": "The kettle stands close beside the sink.",
+  "imagePath": "/images/assessment/grammar-scenes/kettle-near-sink.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/kettle-near-sink.webp",
+  "targetImage": "/images/assessment/grammar-scenes/kettle-near-sink.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/kettle-near-sink.webp",
+  "resolvedImageAssetKey": "kettle-near-sink",
+  "imageAlt": "A red kettle and blue sink."
  },
  {
   "id": "lp3.prepositions_of_place.l2.R.among.v5r",
@@ -7383,10 +7383,10 @@ export const questions = [
   "formatType": "PREPOSITION_PRECISION",
   "templateType": "PREPOSITION_PRECISION",
   "questionType": "multiple_choice",
-  "prompt": "Which word tells exactly where? The single red tulip stands ___ the yellow tulips.",
-  "question": "Which word tells exactly where? The single red tulip stands ___ the yellow tulips.",
-  "spokenPrompt": "Which word tells exactly where? The single red tulip stands … the yellow tulips.",
-  "sentence": "The single red tulip stands ___ the yellow tulips.",
+  "prompt": "Which word tells exactly where? The green pear sits ___ the red apples.",
+  "question": "Which word tells exactly where? The green pear sits ___ the red apples.",
+  "spokenPrompt": "Which word tells exactly where? The green pear sits … the red apples.",
+  "sentence": "The green pear sits ___ the red apples.",
   "choices": [
    "outside",
    "among",
@@ -7430,8 +7430,8 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": true,
-  "sentenceText": "The single red tulip stands ___ the yellow tulips.",
-  "targetWord": "red_tulip_among_yellow_tulips",
+  "sentenceText": "The green pear sits ___ the red apples.",
+  "targetWord": "pear-among-apples",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -7440,14 +7440,14 @@ export const questions = [
    "itemId": "lp3.prepositions_of_place.l2.R.among.v5r",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp"
+    "/images/assessment/grammar-scenes/pear-among-apples.webp"
    ],
    "constructReview": "approved",
    "answerNeutral": "approved",
-   "alt": "A red tulip and several yellow tulips."
+   "alt": "A green pear and five red apples."
   },
-  "requiredImageAssetKey": "red_tulip_among_yellow_tulips",
-  "stimulusMediaId": "red_tulip_among_yellow_tulips",
+  "requiredImageAssetKey": "pear-among-apples",
+  "stimulusMediaId": "pear-among-apples",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7457,13 +7457,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Several yellow tulips surround the red one, which pins among.",
-  "imagePath": "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp",
-  "imageUrl": "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp",
-  "targetImage": "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp",
-  "targetImagePath": "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp",
-  "resolvedImageAssetKey": "red_tulip_among_yellow_tulips",
-  "imageAlt": "A red tulip and several yellow tulips."
+  "notes": "Red apples surround the pear.",
+  "imagePath": "/images/assessment/grammar-scenes/pear-among-apples.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/pear-among-apples.webp",
+  "targetImage": "/images/assessment/grammar-scenes/pear-among-apples.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/pear-among-apples.webp",
+  "resolvedImageAssetKey": "pear-among-apples",
+  "imageAlt": "A green pear and five red apples."
  },
  {
   "id": "lp3.prepositions_of_place.l2.R.around.v5r",
@@ -7485,10 +7485,10 @@ export const questions = [
   "formatType": "PREPOSITION_SENTENCE_FIT",
   "templateType": "PREPOSITION_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which word tells where: The fence curves ___ the garden.",
-  "question": "Which word tells where: The fence curves ___ the garden.",
-  "spokenPrompt": "Which word tells where? The fence curves … the garden.",
-  "sentence": "The fence curves ___ the garden.",
+  "prompt": "Which word tells where: The toy track curves ___ the castle.",
+  "question": "Which word tells where: The toy track curves ___ the castle.",
+  "spokenPrompt": "Which word tells where? The toy track curves … the castle.",
+  "sentence": "The toy track curves ___ the castle.",
   "choices": [
    "onto",
    "above",
@@ -7532,8 +7532,8 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": true,
-  "sentenceText": "The fence curves ___ the garden.",
-  "targetWord": "fence_around_garden",
+  "sentenceText": "The toy track curves ___ the castle.",
+  "targetWord": "track-around-castle",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -7542,14 +7542,14 @@ export const questions = [
    "itemId": "lp3.prepositions_of_place.l2.R.around.v5r",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/release-media/fence-around-garden-fd900b5e.webp"
+    "/images/assessment/grammar-scenes/track-around-castle.webp"
    ],
    "constructReview": "approved",
    "answerNeutral": "approved",
-   "alt": "A fence and a garden."
+   "alt": "A toy track, train and castle."
   },
-  "requiredImageAssetKey": "fence_around_garden",
-  "stimulusMediaId": "fence_around_garden",
+  "requiredImageAssetKey": "track-around-castle",
+  "stimulusMediaId": "track-around-castle",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7559,13 +7559,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "The fence encloses the garden.",
-  "imagePath": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
-  "imageUrl": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
-  "targetImage": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
-  "targetImagePath": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
-  "resolvedImageAssetKey": "fence_around_garden",
-  "imageAlt": "A fence and a garden."
+  "notes": "The closed track loop encloses the castle.",
+  "imagePath": "/images/assessment/grammar-scenes/track-around-castle.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/track-around-castle.webp",
+  "targetImage": "/images/assessment/grammar-scenes/track-around-castle.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/track-around-castle.webp",
+  "resolvedImageAssetKey": "track-around-castle",
+  "imageAlt": "A toy track, train and castle."
  },
  {
   "id": "lp3.prepositions_of_place.l2.R.inside_outside.v5r",
@@ -7587,14 +7587,14 @@ export const questions = [
   "formatType": "PREPOSITION_SENTENCE_FIT",
   "templateType": "PREPOSITION_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which word tells where: The children stay dry ___ the house.",
-  "question": "Which word tells where: The children stay dry ___ the house.",
-  "spokenPrompt": "Which word tells where? The children stay dry … the house.",
-  "sentence": "The children stay dry ___ the house.",
+  "prompt": "Which word tells where: The child sits ___ the bus.",
+  "question": "Which word tells where: The child sits ___ the bus.",
+  "spokenPrompt": "Which word tells where? The child sits … the bus.",
+  "sentence": "The child sits ___ the bus.",
   "choices": [
    "outside",
    "under",
-   "between",
+   "above",
    "inside"
   ],
   "answerOptions": [
@@ -7609,9 +7609,9 @@ export const questions = [
     "text": "under"
    },
    {
-    "value": "between",
-    "label": "between",
-    "text": "between"
+    "value": "above",
+    "label": "above",
+    "text": "above"
    },
    {
     "value": "inside",
@@ -7624,7 +7624,7 @@ export const questions = [
   "distractorRationales": {
    "outside": "D-FUNCTION-SWAP",
    "under": "D-FUNCTION-SWAP",
-   "between": "D-FUNCTION-SWAP"
+   "above": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -7634,8 +7634,8 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": true,
-  "sentenceText": "The children stay dry ___ the house.",
-  "targetWord": "children_inside_house_in_rain",
+  "sentenceText": "The child sits ___ the bus.",
+  "targetWord": "child-inside-bus",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -7644,14 +7644,14 @@ export const questions = [
    "itemId": "lp3.prepositions_of_place.l2.R.inside_outside.v5r",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp"
+    "/images/assessment/grammar-scenes/child-inside-bus.webp"
    ],
    "constructReview": "approved",
    "answerNeutral": "approved",
-   "alt": "Children, a house and rain."
+   "alt": "A child and yellow bus."
   },
-  "requiredImageAssetKey": "children_inside_house_in_rain",
-  "stimulusMediaId": "children_inside_house_in_rain",
+  "requiredImageAssetKey": "child-inside-bus",
+  "stimulusMediaId": "child-inside-bus",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7661,13 +7661,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "The house walls enclose the children while rain falls outdoors.",
-  "imagePath": "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp",
-  "imageUrl": "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp",
-  "targetImage": "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp",
-  "targetImagePath": "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp",
-  "resolvedImageAssetKey": "children_inside_house_in_rain",
-  "imageAlt": "Children, a house and rain."
+  "notes": "The bus body encloses the seated child.",
+  "imagePath": "/images/assessment/grammar-scenes/child-inside-bus.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/child-inside-bus.webp",
+  "targetImage": "/images/assessment/grammar-scenes/child-inside-bus.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/child-inside-bus.webp",
+  "resolvedImageAssetKey": "child-inside-bus",
+  "imageAlt": "A child and yellow bus."
  },
  {
   "id": "lp3.prepositions_of_place.l2.C.among.v6",
@@ -8076,5 +8076,409 @@ export const questions = [
   "targetImagePath": "/images/assessment/grammar-scenes/apple-inside-lunchbox.webp",
   "resolvedImageAssetKey": "apple-inside-lunchbox",
   "imageAlt": "An apple and an open lunchbox."
+ },
+ {
+  "id": "lp3.prepositions_of_place.l1.R.on.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prepositions_of_place",
+  "assessmentSkillId": "prepositions_of_place",
+  "skillName": "Prepositions of Place",
+  "skill": "Prepositions of Place",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "on",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Where is the red scarf?",
+  "question": "Where is the red scarf?",
+  "spokenPrompt": "Where is the red scarf?",
+  "choices": [
+   "next to the chair",
+   "on the chair",
+   "under the chair",
+   "behind the chair"
+  ],
+  "answerOptions": [
+   {
+    "value": "next to the chair",
+    "label": "next to the chair",
+    "text": "next to the chair"
+   },
+   {
+    "value": "on the chair",
+    "label": "on the chair",
+    "text": "on the chair"
+   },
+   {
+    "value": "under the chair",
+    "label": "under the chair",
+    "text": "under the chair"
+   },
+   {
+    "value": "behind the chair",
+    "label": "behind the chair",
+    "text": "behind the chair"
+   }
+  ],
+  "answer": "on the chair",
+  "correctAnswer": "on the chair",
+  "distractorRationales": {
+   "under the chair": "D-FUNCTION-SWAP",
+   "behind the chair": "D-FUNCTION-SWAP",
+   "next to the chair": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
+  "targetWord": "scarf-on-chair",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.R.on.v31r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/grammar-scenes/scarf-on-chair.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "A red scarf and a blue chair."
+  },
+  "requiredImageAssetKey": "scarf-on-chair",
+  "stimulusMediaId": "scarf-on-chair",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The scarf rests in contact with the chair seat.",
+  "imagePath": "/images/assessment/grammar-scenes/scarf-on-chair.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/scarf-on-chair.webp",
+  "targetImage": "/images/assessment/grammar-scenes/scarf-on-chair.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/scarf-on-chair.webp",
+  "resolvedImageAssetKey": "scarf-on-chair",
+  "imageAlt": "A red scarf and a blue chair."
+ },
+ {
+  "id": "lp3.prepositions_of_place.l1.R.between.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prepositions_of_place",
+  "assessmentSkillId": "prepositions_of_place",
+  "skillName": "Prepositions of Place",
+  "skill": "Prepositions of Place",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "between",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Where is the blue balloon?",
+  "question": "Where is the blue balloon?",
+  "spokenPrompt": "Where is the blue balloon?",
+  "choices": [
+   "under the kites",
+   "inside a kite",
+   "between the kites",
+   "above the kites"
+  ],
+  "answerOptions": [
+   {
+    "value": "under the kites",
+    "label": "under the kites",
+    "text": "under the kites"
+   },
+   {
+    "value": "inside a kite",
+    "label": "inside a kite",
+    "text": "inside a kite"
+   },
+   {
+    "value": "between the kites",
+    "label": "between the kites",
+    "text": "between the kites"
+   },
+   {
+    "value": "above the kites",
+    "label": "above the kites",
+    "text": "above the kites"
+   }
+  ],
+  "answer": "between the kites",
+  "correctAnswer": "between the kites",
+  "distractorRationales": {
+   "under the kites": "D-FUNCTION-SWAP",
+   "inside a kite": "D-FUNCTION-SWAP",
+   "above the kites": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
+  "targetWord": "balloon-between-kites",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.R.between.v31r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/grammar-scenes/balloon-between-kites.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "A blue balloon and two yellow kites."
+  },
+  "requiredImageAssetKey": "balloon-between-kites",
+  "stimulusMediaId": "balloon-between-kites",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Two kites visibly flank the balloon at the same height.",
+  "imagePath": "/images/assessment/grammar-scenes/balloon-between-kites.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/balloon-between-kites.webp",
+  "targetImage": "/images/assessment/grammar-scenes/balloon-between-kites.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/balloon-between-kites.webp",
+  "resolvedImageAssetKey": "balloon-between-kites",
+  "imageAlt": "A blue balloon and two yellow kites."
+ },
+ {
+  "id": "lp3.prepositions_of_place.l2.R.near.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prepositions_of_place",
+  "assessmentSkillId": "prepositions_of_place",
+  "skillName": "Prepositions of Place",
+  "skill": "Prepositions of Place",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "near",
+  "formatType": "PREPOSITION_PRECISION",
+  "templateType": "PREPOSITION_PRECISION",
+  "questionType": "multiple_choice",
+  "prompt": "Which word tells exactly where? The wheelbarrow is ___ the gate.",
+  "question": "Which word tells exactly where? The wheelbarrow is ___ the gate.",
+  "spokenPrompt": "Which word tells exactly where? The wheelbarrow is … the gate.",
+  "sentence": "The wheelbarrow is ___ the gate.",
+  "choices": [
+   "near",
+   "far from",
+   "above",
+   "through"
+  ],
+  "answerOptions": [
+   {
+    "value": "near",
+    "label": "near",
+    "text": "near"
+   },
+   {
+    "value": "far from",
+    "label": "far from",
+    "text": "far from"
+   },
+   {
+    "value": "above",
+    "label": "above",
+    "text": "above"
+   },
+   {
+    "value": "through",
+    "label": "through",
+    "text": "through"
+   }
+  ],
+  "answer": "near",
+  "correctAnswer": "near",
+  "distractorRationales": {
+   "far from": "D-PLAUSIBLE-UNSUPPORTED",
+   "above": "D-PLAUSIBLE-UNSUPPORTED",
+   "through": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
+  "sentenceText": "The wheelbarrow is ___ the gate.",
+  "targetWord": "wheelbarrow-near-gate",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.R.near.v31r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/grammar-scenes/wheelbarrow-near-gate.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "A red wheelbarrow and a white gate."
+  },
+  "requiredImageAssetKey": "wheelbarrow-near-gate",
+  "stimulusMediaId": "wheelbarrow-near-gate",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The wheelbarrow stands beside the gate with a small gap; no competing next-to option is offered.",
+  "imagePath": "/images/assessment/grammar-scenes/wheelbarrow-near-gate.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/wheelbarrow-near-gate.webp",
+  "targetImage": "/images/assessment/grammar-scenes/wheelbarrow-near-gate.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/wheelbarrow-near-gate.webp",
+  "resolvedImageAssetKey": "wheelbarrow-near-gate",
+  "imageAlt": "A red wheelbarrow and a white gate."
+ },
+ {
+  "id": "lp3.prepositions_of_place.l2.R.among.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prepositions_of_place",
+  "assessmentSkillId": "prepositions_of_place",
+  "skillName": "Prepositions of Place",
+  "skill": "Prepositions of Place",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "among",
+  "formatType": "PREPOSITION_PRECISION",
+  "templateType": "PREPOSITION_PRECISION",
+  "questionType": "multiple_choice",
+  "prompt": "Which word tells exactly where? The yellow duck swims ___ the white geese.",
+  "question": "Which word tells exactly where? The yellow duck swims ___ the white geese.",
+  "spokenPrompt": "Which word tells exactly where? The yellow duck swims … the white geese.",
+  "sentence": "The yellow duck swims ___ the white geese.",
+  "choices": [
+   "far from",
+   "among",
+   "above",
+   "under"
+  ],
+  "answerOptions": [
+   {
+    "value": "far from",
+    "label": "far from",
+    "text": "far from"
+   },
+   {
+    "value": "among",
+    "label": "among",
+    "text": "among"
+   },
+   {
+    "value": "above",
+    "label": "above",
+    "text": "above"
+   },
+   {
+    "value": "under",
+    "label": "under",
+    "text": "under"
+   }
+  ],
+  "answer": "among",
+  "correctAnswer": "among",
+  "distractorRationales": {
+   "above": "D-PLAUSIBLE-UNSUPPORTED",
+   "under": "D-PLAUSIBLE-UNSUPPORTED",
+   "far from": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
+  "sentenceText": "The yellow duck swims ___ the white geese.",
+  "targetWord": "duck-among-geese",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.R.among.v31r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/grammar-scenes/duck-among-geese.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "A yellow duck and several white geese."
+  },
+  "requiredImageAssetKey": "duck-among-geese",
+  "stimulusMediaId": "duck-among-geese",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Geese surround the duck on the same pond surface.",
+  "imagePath": "/images/assessment/grammar-scenes/duck-among-geese.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/duck-among-geese.webp",
+  "targetImage": "/images/assessment/grammar-scenes/duck-among-geese.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/duck-among-geese.webp",
+  "resolvedImageAssetKey": "duck-among-geese",
+  "imageAlt": "A yellow duck and several white geese."
  }
 ];

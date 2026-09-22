@@ -161,18 +161,19 @@ export function normalizeV3Question(question, assessmentSkillId) {
   return normalized;
 }
 
-async function loadCurrentBank(skillId) {
+async function loadCurrentBank(skillId, { retention = false } = {}) {
   const assessmentSkillId = normalizeSkillId(skillId);
   if (!isV3PublishedSkill(assessmentSkillId)) return [];
-  if (!bankCache.has(assessmentSkillId)) {
-    bankCache.set(assessmentSkillId, importV3Bank(assessmentSkillId).then(bank =>
+  const cacheKey = `${assessmentSkillId}:${retention ? "retention" : "formal"}`;
+  if (!bankCache.has(cacheKey)) {
+    bankCache.set(cacheKey, importV3Bank(assessmentSkillId).then(bank =>
       bank
-        .filter(question => !question.retentionOnly)
-        .map(question => normalizeV3Question(question, assessmentSkillId))
-        .filter(question => getV3RuntimeEligibilityIssues(question, assessmentSkillId).length === 0)
+        .filter(question => Boolean(question.retentionOnly) === retention)
+        .map(question => normalizeV3Question(retention ? { ...question, retentionAdministration: true } : question, assessmentSkillId))
+        .filter(question => getV3RuntimeEligibilityIssues(question, assessmentSkillId, { retention }).length === 0)
     ));
   }
-  return bankCache.get(assessmentSkillId);
+  return bankCache.get(cacheKey);
 }
 
 export function getAssessmentSkillGroup(skillId) {
@@ -215,8 +216,8 @@ export function getAssessmentSkillPublicationStatus(skillId = "") {
   };
 }
 
-export async function loadAssessmentSkillBank(skillId) {
-  return loadCurrentBank(skillId);
+export async function loadAssessmentSkillBank(skillId, options) {
+  return loadCurrentBank(skillId, options);
 }
 
 export function preloadAssessmentSkillBank(skillId) {

@@ -367,6 +367,15 @@ export default {
       { sun: "D-ONSET", seal: "D-ONSET", sheep: "D-ONSET" },
       "voicing panel: /z/ key against three /s/ starters"),
 
+    // Additional unseen anchors complete two eight-item retention sittings.
+    { ...heard("d", 1, 1, 20, "dig", ["d", "t", "p", "g"], ["D-ONSET", "D-VISUAL-NEIGHBOR", "D-POSITION"]), retention: true },
+    { ...heard("f", 1, 1, 20, "fig", ["f", "v", "t", "g"], ["D-ONSET", "D-VISUAL-NEIGHBOR", "D-POSITION"]), retention: true },
+    { ...heard("p", 1, 2, 20, "pet", ["p", "b", "q", "t"], ["D-ONSET", "D-VISUAL-NEIGHBOR", "D-POSITION"]), retention: true },
+    { ...heard("l", 1, 1, 20, "leaf", ["l", "r", "i", "f"], ["D-ONSET", "D-VISUAL-NEIGHBOR", "D-POSITION"]), retention: true },
+    { ...heard("h", 2, 1, 20, "headphones", ["h", "f", "n", "z"], ["D-ONSET", "D-VISUAL-NEIGHBOR", "D-POSITION"]), retention: true },
+    { ...heard("l", 2, 1, 20, "ladder", ["l", "r", "i", "d"], ["D-ONSET", "D-VISUAL-NEIGHBOR", "D-DEVELOPMENTAL"]), retention: true,
+      note: "two-syllable heard onset; d is an internal-consonant error, not a claimed final phoneme" },
+
     // ---------------- Retention reserve (form R)
     heard("a", 2, 1, 7, "ankle", ["a", "e", "i", "k"], ["D-VOWEL", "D-VOWEL", "D-DEVELOPMENTAL"]),
     heard("e", 2, 1, 7, "empty", ["e", "i", "o", "p"], ["D-VOWEL", "D-VOWEL", "D-DEVELOPMENTAL"]),

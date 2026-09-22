@@ -62,11 +62,12 @@ export function AssessmentAudioButton({
     if (feedbackTimerRef.current) clearTimeout(feedbackTimerRef.current);
     setAudioState("loading");
     try {
-      await speakText(text, approvedAudioPath, {
-        allowBrowserFallback: !approvedAudioPath,
-        requireApprovedAudio: Boolean(approvedAudioPath),
+      const delivery = await speakText(text, approvedAudioPath, {
+        allowBrowserFallback: false,
+        requireApprovedAudio: true,
         audioRole
       });
+      if (delivery?.ok === false) { setAudioState("idle"); return; }
       setAudioState("playing");
       feedbackTimerRef.current = setTimeout(() => setAudioState("idle"), 1200);
     } catch {

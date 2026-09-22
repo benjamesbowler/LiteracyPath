@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
-import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import "../styles/assessment.css";
 import "./activities/woodland-activity.css";
@@ -91,8 +91,8 @@ const COMPREHENSION_PASSAGE_SKILL_IDS = new Set([
 ]);
 
 function getApprovedAudioPath(text = "", audioPath = "") {
-  return getLedaInstructionAudioPath(text)
-    || getLedaWordAudioPath(text)
+  return getLedaWordAudioPath(text)
+    || getLedaInstructionAudioPath(text)
     || audioPath
     || "";
 }
@@ -188,6 +188,7 @@ function ComprehensionPassageCard({ text, currentQuestion, speakText }) {
               currentQuestion.passageAudioPath || currentQuestion.audioPath || ""
             )}
             speakText={speakText}
+            audioRole="passage"
             label="Listen to passage"
             className="mini-audio-button"
             showDisabled
@@ -342,7 +343,7 @@ function AssessmentEvidenceImage({
       className={className || undefined}
       data-assessment-media-kind="evidence"
       data-assessment-media-role={role}
-      loading="lazy"
+      loading="eager"
       decoding="async"
       onError={() => onEvidenceImageError?.({
         questionId: currentQuestion?.id || "",
@@ -902,6 +903,7 @@ function IxlStyleTemplateQuestion({
                   text={label}
                   audioPath={audioPath}
                   speakText={speakText}
+                  audioRole={isGraphemeChoiceItem ? "phoneme" : "choice"}
                   label={`Hear ${label}`}
                   className="initial-sound-card-audio"
                   showDisabled
@@ -1112,14 +1114,9 @@ function AssessmentStimulus({
   const isComprehensionPassageItem = isComprehensionPassageQuestion(currentQuestion);
   const isHfwQuestion = String(currentQuestion.skillId || "").toLowerCase().startsWith("hfw_");
   const stimulusAudioText = getAssessmentStimulusAudioText(currentQuestion);
-  const approvedStimulusAudioPath = isHfwQuestion
-    ? ""
-    : isListenChooseVowel
-    ? getTargetWordAudioPath(currentQuestion.targetWord || currentQuestion.audioText, currentQuestion.audioPath || currentQuestion.audioUrl || "")
-    : getApprovedAudioPath(
-      stimulusAudioText,
-      isRhymingPictureItem ? "" : currentQuestion.audioPath
-    );
+  const approvedStimulusAudioPath = isHfwQuestion ? "" : getTargetWordAudioPath(
+    stimulusAudioText, isRhymingPictureItem ? "" : currentQuestion.audioPath || currentQuestion.audioUrl || ""
+  );
   const rawStimulusAudioPath = isHfwQuestion || isRhymingPictureItem ? "" : currentQuestion.audioPath || currentQuestion.audioUrl || "";
   const isFinalSoundsEndingItem = isFinalSoundsEndingQuestion(currentQuestion);
   const targetObjectImage = getTargetObjectImage(currentQuestion);
@@ -1857,7 +1854,7 @@ export function CheckpointDecisionPage({
   const primaryPassedLabel = completedLevelOne || completedLevelTwo || pathStatus.finalStepComplete
     ? `Move to next skill${checkpoint.nextSkillLabel ? `: ${checkpoint.nextSkillLabel}` : ""}`
     : pathStatus.nextActionLabel;
-  const retryLabel = checkpoint.accuracyPassed
+  const retryLabel = checkpoint.assessmentMode === "retention" ? "Retry retention check" : checkpoint.accuracyPassed
     ? `Continue ${pathStatus.label}`
     : `Retry ${pathStatus.label}`;
 
@@ -1869,11 +1866,13 @@ export function CheckpointDecisionPage({
         <div className="level-mastery-callout checkpoint-path-callout">
           <strong>{pathStatus.label}</strong>
           <p>
-            {checkpoint.passed
+            {checkpoint.assessmentMode === "retention"
+              ? checkpoint.passed ? "The retention check passed. This skill is Secure." : "This retention check needs more practice. You can try it again."
+              : checkpoint.passed
               ? completedLevelOne
-                ? "Phase 1 is complete. Move to the next skill, or choose the optional Phase 2 extension."
+                ? "Level 1 is complete. Move to the next skill, or try the optional Level 2 extension."
                 : completedLevelTwo || pathStatus.finalStepComplete
-                  ? "Both optional Level 2 phases are complete. The next formal step is the next skill."
+                  ? "Both Level 2 phases are complete. A retention check opens after three days. You can move to the next skill now."
                   : `Next formal step: ${pathStatus.nextActionLabel}.`
               : `Stay on ${pathStatus.label} until this phase is passed.`}
           </p>
@@ -1888,7 +1887,7 @@ export function CheckpointDecisionPage({
             </strong>
             <p>
               {currentLevelMastered && initialLevel === 1
-                ? "The next skill is unlocked. Phase 2 is available as an optional harder challenge."
+                ? "The next skill is unlocked. Level 2 is available as an optional harder challenge."
                 : levelOneMastered && initialLevel === 2
                   ? "Level 2 is using harder words after Level 1 mastery."
                   : "Pass both Level 1 phases at 70% to unlock the next skill."}
@@ -1923,7 +1922,7 @@ export function CheckpointDecisionPage({
 
         {checkpoint.blockedPassReason && (
           <div className="level-mastery-callout">
-            <strong>More coverage needed</strong>
+            <strong>Practice needed</strong>
             <p>{checkpoint.blockedPassReason}</p>
           </div>
         )}
@@ -2026,6 +2025,16 @@ export function CheckpointDecisionPage({
           )}
         </div>
 
+        {checkpoint.skillStatus?.level2?.passed && (
+          <div className="level-mastery-callout">
+            <strong>{checkpoint.skillStatus.retention?.passed ? "Secure" : "Retention check"}</strong>
+            {!checkpoint.skillStatus.retention?.passed && <p>{checkpoint.skillStatus.retention?.eligible
+              ? "The retention check is ready."
+              : `Available from ${new Date(checkpoint.skillStatus.retention?.unlockAt).toLocaleDateString()}. Open this skill again on that date.`}</p>}
+            {checkpoint.skillStatus.retention?.eligible && !checkpoint.skillStatus.retention?.passed && <button className="report-button" onClick={continueSkill} type="button">Start retention check</button>}
+          </div>
+        )}
+
         <div className="button-row checkpoint-decision-actions">
           {checkpoint.passed ? (
             <>
@@ -2050,7 +2059,7 @@ export function CheckpointDecisionPage({
                   onClick={continueSkill}
                   type="button"
                 >
-                  Try optional Phase 2 Round 1
+                  Try optional Level 2 Phase 1
                 </button>
               )}
 
@@ -2602,6 +2611,7 @@ export function AssessmentPage({
   currentStage,
   setFeedback,
   pickQuestion,
+  restartAssessment = null,
   roundAnswers,
   roundLength,
   roundProgress,
@@ -2628,6 +2638,20 @@ export function AssessmentPage({
   sessionNotice = null
 }) {
   const reducedMotion = useReducedMotion();
+  const evidenceCardRef = useRef(null);
+  const [evidenceReadyQuestion, setEvidenceReadyQuestion] = useState("");
+  const evidenceReady = !currentQuestion || evidenceReadyQuestion === currentQuestion.id;
+  const evidenceQuestionId = currentQuestion?.id || "";
+  const checkEvidenceImages = useCallback(() => {
+    if (evidenceCardRef.current?.dataset.assessmentQuestionId !== evidenceQuestionId) return;
+    const images = evidenceCardRef.current?.querySelectorAll('img[data-assessment-media-kind="evidence"]');
+    if (images && [...images].every(image => image.complete && image.naturalWidth > 0)) {
+      setEvidenceReadyQuestion(evidenceQuestionId);
+    }
+  }, [evidenceQuestionId]);
+  useLayoutEffect(() => {
+    checkEvidenceImages();
+  }, [checkEvidenceImages]);
   const hasCurrentQuestion = Boolean(currentQuestion);
   const safeSkillId =
     currentQuestion?.skillId ??
@@ -2694,7 +2718,7 @@ export function AssessmentPage({
       <div className="assessment-meta">
         <span>{studentName || "Unnamed student"}</span>
         <h1>
-          {independentAssessment
+          {assessmentMode === "retention" ? `Retention check · ${safeCurrentStage.label}` : independentAssessment
             ? `Skills Assessment · ${safeCurrentStage.label}`
             : assessmentMode === "targetedReview"
             ? "Targeted Review"
@@ -2807,7 +2831,7 @@ export function AssessmentPage({
       </div>
     </div>
   );
-  const renderAssessmentLoadingCard = ({ title = "Getting the assessment ready...", actionLabel = "" } = {}) => (
+  const renderAssessmentLoadingCard = ({ title = "Getting the assessment ready...", actionLabel = "", restart = false } = {}) => (
     <div className="card assessment-card assessment-loading-card">
       <div className="assessment-loading-mark" aria-hidden="true">
         <span></span>
@@ -2818,7 +2842,7 @@ export function AssessmentPage({
       {message && <p className="message">{message}</p>}
       {actionLabel && (
         <div className="button-row assessment-start-row">
-          <button className="main-button" onClick={pickQuestion} type="button">
+          <button className="main-button" onClick={restart && restartAssessment ? restartAssessment : () => pickQuestion()} type="button">
             {actionLabel}
           </button>
           {!independentAssessment && (
@@ -2881,7 +2905,9 @@ export function AssessmentPage({
       <main className={assessmentShellClassName}>
         {sessionNotice}
         {renderAssessmentLoadingCard({
-          actionLabel: roundAnswers.length === 0
+          title: message ? "Let’s get your check ready" : "Getting the assessment ready...",
+          restart: Boolean(message && restartAssessment),
+          actionLabel: message && restartAssessment ? "Try loading the check again" : roundAnswers.length === 0
             ? independentAssessment ? "Start" : "Start Skill Round"
             : "Next Question"
         })}
@@ -2991,6 +3017,14 @@ export function AssessmentPage({
   return (
     <main className={assessmentShellClassName}>
       {renderAssessmentTopbar()}
+      {currentQuestion && !evidenceReady && <div role="status" className="assessment-media-loading">
+        <p>Loading the pictures…</p>
+        <button className="report-button" type="button" onClick={() => {
+          const missing = [...(evidenceCardRef.current?.querySelectorAll('img[data-assessment-media-kind="evidence"]') || [])]
+            .find(image => !image.complete || !image.naturalWidth);
+          if (missing) onEvidenceImageError?.({ questionId: currentQuestion.id, src: missing.getAttribute("src"), role: missing.dataset.assessmentMediaRole });
+        }}>Pictures not loading? Try another question</button>
+      </div>}
 
       {!currentQuestion && !feedback && (
         <div className="button-row assessment-start-row">
@@ -3017,8 +3051,10 @@ export function AssessmentPage({
             ].filter(Boolean).join(" ")}
             key={currentQuestion.id}
             data-assessment-question-id={currentQuestion.id}
-            aria-busy={isAssessmentTransitioning}
-            inert={isAssessmentTransitioning}
+            ref={evidenceCardRef}
+            onLoadCapture={checkEvidenceImages}
+            aria-busy={isAssessmentTransitioning || !evidenceReady}
+            inert={isAssessmentTransitioning || !evidenceReady}
             initial={reducedMotion ? false : { y: 12, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={reducedMotion ? { opacity: 1 } : { y: -8, opacity: 0 }}
@@ -3029,6 +3065,7 @@ export function AssessmentPage({
                 text={promptAudioText}
                 audioPath={promptAudioPath || rawPromptAudioPath}
                 speakText={speakText}
+                audioRole="instruction"
                 label="Listen to question"
                 displayLabel="Listen"
                 className={isPairSelection ? "mini-audio-button instruction-audio-button" : "mini-audio-button"}
@@ -3116,6 +3153,7 @@ export function AssessmentPage({
                         text={getChoiceAudioText(choice)}
                         audioPath={textChoiceAudioPaths[choice.value]}
                         speakText={speakText}
+                        audioRole={isListenChooseVowelItem || isGraphemeChoiceItem ? "phoneme" : "choice"}
                         label={audioOnlyChoices ? `Hear choice ${index + 1}` : `Listen to ${choice.label}`}
                         displayLabel={audioOnlyChoices ? `Hear ${index + 1}` : ""}
                         className="choice-audio"

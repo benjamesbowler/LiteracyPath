@@ -1210,8 +1210,8 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Lunch starts at six o'clock. Which printed word fills the blank?",
-  "sentence": "Lunch starts ___ six o'clock.",
+  "spokenPrompt": "Listen to the whole sentence. Dinner starts at six o'clock. Which printed word fills the blank?",
+  "sentence": "Dinner starts ___ six o'clock.",
   "choices": [
    "of",
    "at",
@@ -1255,7 +1255,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Lunch starts ___ six o'clock.",
+  "sentenceText": "Dinner starts ___ six o'clock.",
   "targetWord": "at",
   "v3AuthoredMedia": {
    "target": false,
@@ -11824,5 +11824,521 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": ""
+ },
+ {
+  "id": "lp3.hfw_1_25.l1.R.on.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_1_25",
+  "assessmentSkillId": "hfw_1_25",
+  "skillName": "High-Frequency Words 1–25",
+  "skill": "High-Frequency Words 1–25",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "on",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Put the lid on top of the box. Which printed word fills the blank?",
+  "sentence": "Put the lid ___ top of the box.",
+  "choices": [
+   "of",
+   "as",
+   "from",
+   "on"
+  ],
+  "answerOptions": [
+   {
+    "value": "of",
+    "label": "of",
+    "text": "of"
+   },
+   {
+    "value": "as",
+    "label": "as",
+    "text": "as"
+   },
+   {
+    "value": "from",
+    "label": "from",
+    "text": "from"
+   },
+   {
+    "value": "on",
+    "label": "on",
+    "text": "on"
+   }
+  ],
+  "answer": "on",
+  "correctAnswer": "on",
+  "distractorRationales": {
+   "of": "D-FUNCTION-SWAP",
+   "as": "D-FUNCTION-SWAP",
+   "from": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Put the lid ___ top of the box.",
+  "targetWord": "on",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.R.on.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_1_25.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The fixed phrase on top of pins a new spatial use, unlike the ordinary turn-on questions."
+ },
+ {
+  "id": "lp3.hfw_1_25.l1.R.is.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_1_25",
+  "assessmentSkillId": "hfw_1_25",
+  "skillName": "High-Frequency Words 1–25",
+  "skill": "High-Frequency Words 1–25",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "is",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Why is the lid stuck? Which printed word fills the blank?",
+  "sentence": "Why ___ the lid stuck?",
+  "choices": [
+   "is",
+   "are",
+   "be",
+   "have"
+  ],
+  "answerOptions": [
+   {
+    "value": "is",
+    "label": "is",
+    "text": "is"
+   },
+   {
+    "value": "are",
+    "label": "are",
+    "text": "are"
+   },
+   {
+    "value": "be",
+    "label": "be",
+    "text": "be"
+   },
+   {
+    "value": "have",
+    "label": "have",
+    "text": "have"
+   }
+  ],
+  "answer": "is",
+  "correctAnswer": "is",
+  "distractorRationales": {
+   "are": "D-DEVELOPMENTAL",
+   "be": "D-DEVELOPMENTAL",
+   "have": "D-DEVELOPMENTAL"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Why ___ the lid stuck?",
+  "targetWord": "is",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.R.is.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_1_25.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "A singular subject in an inverted question requires is among these choices."
+ },
+ {
+  "id": "lp3.hfw_1_25.l2.R.are.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_1_25",
+  "assessmentSkillId": "hfw_1_25",
+  "skillName": "High-Frequency Words 1–25",
+  "skill": "High-Frequency Words 1–25",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "are",
+  "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
+  "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Listen, then build the missing word: Both bins ___ full now.",
+  "question": "Listen, then build the missing word: Both bins ___ full now.",
+  "spokenPrompt": "Listen to the whole sentence. Both bins are full now. Build the missing word.",
+  "sentence": "Both bins ___ full now.",
+  "choices": [
+   "are"
+  ],
+  "answerOptions": [
+   {
+    "value": "are",
+    "label": "are",
+    "text": "are"
+   }
+  ],
+  "answer": "are",
+  "correctAnswer": "are",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "letterTiles": [
+   "a",
+   "r",
+   "e",
+   "u",
+   "i"
+  ],
+  "letterBank": [
+   "a",
+   "r",
+   "e",
+   "u",
+   "i"
+  ],
+  "sentenceText": "Both bins are full now.",
+  "targetWord": "are",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.R.are.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_1_25.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The recording pins are; the printed frame contains no copy of its letters as a word."
+ },
+ {
+  "id": "lp3.hfw_1_25.l2.R.have.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_1_25",
+  "assessmentSkillId": "hfw_1_25",
+  "skillName": "High-Frequency Words 1–25",
+  "skill": "High-Frequency Words 1–25",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "have",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen, then build the missing word: We ___ lost the key.",
+  "question": "Listen, then build the missing word: We ___ lost the key.",
+  "spokenPrompt": "Listen to the whole sentence. We have lost the key. Build the missing word.",
+  "sentence": "We ___ lost the key.",
+  "choices": [
+   "have"
+  ],
+  "answerOptions": [
+   {
+    "value": "have",
+    "label": "have",
+    "text": "have"
+   }
+  ],
+  "answer": "have",
+  "correctAnswer": "have",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "letterTiles": [
+   "h",
+   "a",
+   "v",
+   "e",
+   "f",
+   "i"
+  ],
+  "letterBank": [
+   "h",
+   "a",
+   "v",
+   "e",
+   "f",
+   "i"
+  ],
+  "sentenceText": "We have lost the key.",
+  "targetWord": "have",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.R.have.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_1_25.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Spell have in a present-perfect sentence, extending the ordinary possession contexts."
+ },
+ {
+  "id": "lp3.hfw_1_25.l2.R.on.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_1_25",
+  "assessmentSkillId": "hfw_1_25",
+  "skillName": "High-Frequency Words 1–25",
+  "skill": "High-Frequency Words 1–25",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "on",
+  "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
+  "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Listen, then build the missing word: The shoes are ___ the mat.",
+  "question": "Listen, then build the missing word: The shoes are ___ the mat.",
+  "spokenPrompt": "Listen to the whole sentence. The shoes are on the mat. Build the missing word.",
+  "sentence": "The shoes are ___ the mat.",
+  "choices": [
+   "on"
+  ],
+  "answerOptions": [
+   {
+    "value": "on",
+    "label": "on",
+    "text": "on"
+   }
+  ],
+  "answer": "on",
+  "correctAnswer": "on",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "letterTiles": [
+   "o",
+   "n",
+   "a",
+   "m"
+  ],
+  "letterBank": [
+   "o",
+   "n",
+   "a",
+   "m"
+  ],
+  "sentenceText": "The shoes are on the mat.",
+  "targetWord": "on",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.R.on.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_1_25.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recorded on specifies the spelling; position is not guessed from text alone."
+ },
+ {
+  "id": "lp3.hfw_1_25.l2.R.that.v7r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_1_25",
+  "assessmentSkillId": "hfw_1_25",
+  "skillName": "High-Frequency Words 1–25",
+  "skill": "High-Frequency Words 1–25",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "sight_word",
+  "itemKey": "that",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen, then build the missing word: I hope ___ you can come.",
+  "question": "Listen, then build the missing word: I hope ___ you can come.",
+  "spokenPrompt": "Listen to the whole sentence. I hope that you can come. Build the missing word.",
+  "sentence": "I hope ___ you can come.",
+  "choices": [
+   "that"
+  ],
+  "answerOptions": [
+   {
+    "value": "that",
+    "label": "that",
+    "text": "that"
+   }
+  ],
+  "answer": "that",
+  "correctAnswer": "that",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "letterTiles": [
+   "t",
+   "h",
+   "a",
+   "t",
+   "d",
+   "e"
+  ],
+  "letterBank": [
+   "t",
+   "h",
+   "a",
+   "t",
+   "d",
+   "e"
+  ],
+  "sentenceText": "I hope that you can come.",
+  "targetWord": "that",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.R.that.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_1_25.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The heard complement word is built with both required t tiles."
  }
 ];

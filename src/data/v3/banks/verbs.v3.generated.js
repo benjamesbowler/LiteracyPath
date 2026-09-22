@@ -6634,5 +6634,541 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": ""
+ },
+ {
+  "id": "lp3.verbs.l1.R.verb_action_body.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_action_body",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word tells the action? I nod my head slowly.",
+  "question": "Which word tells the action? I nod my head slowly.",
+  "spokenPrompt": "Which word tells the action? I nod my head slowly.",
+  "sentence": "I nod my head slowly.",
+  "choices": [
+   "slowly",
+   "nod",
+   "my",
+   "head"
+  ],
+  "answerOptions": [
+   {
+    "value": "slowly",
+    "label": "slowly",
+    "text": "slowly"
+   },
+   {
+    "value": "nod",
+    "label": "nod",
+    "text": "nod"
+   },
+   {
+    "value": "my",
+    "label": "my",
+    "text": "my"
+   },
+   {
+    "value": "head",
+    "label": "head",
+    "text": "head"
+   }
+  ],
+  "answer": "nod",
+  "correctAnswer": "nod",
+  "distractorRationales": {
+   "my": "D-FUNCTION-SWAP",
+   "head": "D-FUNCTION-SWAP",
+   "slowly": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "I nod my head slowly.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.R.verb_action_body.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Identify the action among words from the same sentence."
+ },
+ {
+  "id": "lp3.verbs.l1.R.verb_action_object.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_action_object",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word tells the action? We peel the ripe orange.",
+  "question": "Which word tells the action? We peel the ripe orange.",
+  "spokenPrompt": "Which word tells the action? We peel the ripe orange.",
+  "sentence": "We peel the ripe orange.",
+  "choices": [
+   "ripe",
+   "orange",
+   "peel",
+   "we"
+  ],
+  "answerOptions": [
+   {
+    "value": "ripe",
+    "label": "ripe",
+    "text": "ripe"
+   },
+   {
+    "value": "orange",
+    "label": "orange",
+    "text": "orange"
+   },
+   {
+    "value": "peel",
+    "label": "peel",
+    "text": "peel"
+   },
+   {
+    "value": "we",
+    "label": "we",
+    "text": "we"
+   }
+  ],
+  "answer": "peel",
+  "correctAnswer": "peel",
+  "distractorRationales": {
+   "we": "D-FUNCTION-SWAP",
+   "ripe": "D-FUNCTION-SWAP",
+   "orange": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "We peel the ripe orange.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.R.verb_action_object.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Identify the action among words from the same sentence."
+ },
+ {
+  "id": "lp3.verbs.l1.R.verb_everyday.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_everyday",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word tells the action? We tidy our room daily.",
+  "question": "Which word tells the action? We tidy our room daily.",
+  "spokenPrompt": "Which word tells the action? We tidy our room daily.",
+  "sentence": "We tidy our room daily.",
+  "choices": [
+   "our",
+   "room",
+   "daily",
+   "tidy"
+  ],
+  "answerOptions": [
+   {
+    "value": "our",
+    "label": "our",
+    "text": "our"
+   },
+   {
+    "value": "room",
+    "label": "room",
+    "text": "room"
+   },
+   {
+    "value": "daily",
+    "label": "daily",
+    "text": "daily"
+   },
+   {
+    "value": "tidy",
+    "label": "tidy",
+    "text": "tidy"
+   }
+  ],
+  "answer": "tidy",
+  "correctAnswer": "tidy",
+  "distractorRationales": {
+   "room": "D-FUNCTION-SWAP",
+   "daily": "D-FUNCTION-SWAP",
+   "our": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "We tidy our room daily.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.R.verb_everyday.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Identify the action among words from the same sentence."
+ },
+ {
+  "id": "lp3.verbs.l2.R.verb_in_sentence.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_in_sentence",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which word tells the action in ‘Our neighbour repairs bicycles’?",
+  "question": "Which word tells the action in ‘Our neighbour repairs bicycles’?",
+  "spokenPrompt": "Which word tells the action in ‘Our neighbour repairs bicycles’?",
+  "choices": [
+   "neighbour",
+   "bicycles",
+   "repairs",
+   "our"
+  ],
+  "answerOptions": [
+   {
+    "value": "neighbour",
+    "label": "neighbour",
+    "text": "neighbour"
+   },
+   {
+    "value": "bicycles",
+    "label": "bicycles",
+    "text": "bicycles"
+   },
+   {
+    "value": "repairs",
+    "label": "repairs",
+    "text": "repairs"
+   },
+   {
+    "value": "our",
+    "label": "our",
+    "text": "our"
+   }
+  ],
+  "answer": "repairs",
+  "correctAnswer": "repairs",
+  "distractorRationales": {
+   "bicycles": "D-FUNCTION-SWAP",
+   "our": "D-FUNCTION-SWAP",
+   "neighbour": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.R.verb_in_sentence.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.verbs.l2.R.verb_vs_noun.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_vs_noun",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which word tells the action in ‘A drummer drums loudly’?",
+  "question": "Which word tells the action in ‘A drummer drums loudly’?",
+  "spokenPrompt": "Which word tells the action in ‘A drummer drums loudly’?",
+  "choices": [
+   "drummer",
+   "a",
+   "loudly",
+   "drums"
+  ],
+  "answerOptions": [
+   {
+    "value": "drummer",
+    "label": "drummer",
+    "text": "drummer"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "loudly",
+    "label": "loudly",
+    "text": "loudly"
+   },
+   {
+    "value": "drums",
+    "label": "drums",
+    "text": "drums"
+   }
+  ],
+  "answer": "drums",
+  "correctAnswer": "drums",
+  "distractorRationales": {
+   "drummer": "D-FUNCTION-SWAP",
+   "a": "D-FUNCTION-SWAP",
+   "loudly": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.R.verb_vs_noun.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.verbs.l2.R.verb_precision.v31r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "R",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_precision",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which doing word fits best: She ___ a little soup to taste it.",
+  "question": "Which doing word fits best: She ___ a little soup to taste it.",
+  "spokenPrompt": "Which doing word fits best? She … a little soup to taste it.",
+  "sentence": "She ___ a little soup to taste it.",
+  "choices": [
+   "sipped",
+   "stirred",
+   "served",
+   "spilled"
+  ],
+  "answerOptions": [
+   {
+    "value": "sipped",
+    "label": "sipped",
+    "text": "sipped"
+   },
+   {
+    "value": "stirred",
+    "label": "stirred",
+    "text": "stirred"
+   },
+   {
+    "value": "served",
+    "label": "served",
+    "text": "served"
+   },
+   {
+    "value": "spilled",
+    "label": "spilled",
+    "text": "spilled"
+   }
+  ],
+  "answer": "sipped",
+  "correctAnswer": "sipped",
+  "distractorRationales": {
+   "stirred": "D-PLAUSIBLE-UNSUPPORTED",
+   "served": "D-PLAUSIBLE-UNSUPPORTED",
+   "spilled": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "She ___ a little soup to taste it.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.R.verb_precision.v31r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Taste requires taking a small amount into the mouth; preparing or spilling it does not."
  }
 ];
