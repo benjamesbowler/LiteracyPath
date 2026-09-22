@@ -36,7 +36,7 @@ for (const difficulty of ['easy', 'medium', 'hard']) {
     await page.clock.fastForward(2500);
     await expect(page.getByRole('alertdialog', { name: 'Sound Beat complete', exact: true })).toBeVisible();
     await page.setViewportSize({width:568,height:320});
-    for (const name of ['Next level','Replay level','Back to Arcade']) {
+    for (const name of ['Next set','Play this again','Back to Arcade']) {
       const action=page.getByRole('button',{name,exact:true}); const box=await action.boundingBox();
       expect(box.height).toBeGreaterThanOrEqual(56);expect(box.y).toBeGreaterThanOrEqual(0);expect(box.y+box.height).toBeLessThanOrEqual(320);
     }

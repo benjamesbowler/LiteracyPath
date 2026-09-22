@@ -1,0 +1,20 @@
+{
+  "creator": "Quaternius",
+  "license": "CC0-1.0",
+  "sourceUrl": "https://quaternius.com/packs/ultimatestylizednature.html",
+  "downloadUrl": "https://drive.google.com/file/d/12WwC98OOyOZzXUqjAC4NEKtR05k0JmW9/view",
+  "downloadSha256": "6dbd16ccc5bbbf5f59306c4e49fa875552d35fd95a7bfc84f521af8fb35a60cd",
+  "selectedObjects": [
+    "NormalTree_1",
+    "NormalTree_3",
+    "MapleTree_1",
+    "Rock_1",
+    "Grass_Small"
+  ],
+  "modifications": [
+    "Selected five editable mesh objects from the official Blender collection.",
+    "Repaired missing external image links from official textures.",
+    "Resized color textures to 512px and normals to 256px; packed complete dependencies."
+  ],
+  "retainedSha256": "f751aeb44892941fea4e1fa088b05493b91ebf0503c713ce532e2e0f7aa97477"
+}

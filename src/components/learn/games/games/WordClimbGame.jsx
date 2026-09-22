@@ -1,3 +1,4 @@
+import { gameRandom } from "../../../../utils/gameReplay.js";
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { playCelebrationFanfare, playCorrectChime, playSoftBuzz, playTapSound } from "../../../../utils/audio/gameSfx";
 import { cancelSpeech, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
@@ -15,7 +16,7 @@ import "./WordClimbGame.css";
 function safeSfx(enabled, effect) { if (enabled) { try { effect(); } catch { /* Playback is optional. */ } } }
 
 export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onScoreUpdate,
-  onProgressUpdate, onComplete, onCheckpoint, onEngineReady, onSessionStart, onRequestNextLevel, onRequestReplay, sessionSeed = 0, isSoundEnabled = true, progressScopeKey = "default" }) {
+  onProgressUpdate, onComplete, onCheckpoint, onEngineReady, onSessionStart, onRequestNextLevel, onRequestReplay, sessionSeed = 0, journey = null, isSoundEnabled = true, progressScopeKey = "default" }) {
   const sessionKey = climbSessionKey(progressScopeKey,difficulty);
   const [saved] = useState(() => {
     const checkpoint = loadLearnGamesProgress(progressScopeKey).games["word-climb"]?.checkpoints?.[difficulty];
@@ -23,8 +24,8 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
     return value?.world.journey?value:null;
   });
   const [version,setVersion] = useState(0);
-  const [stageIndex,setStageIndex]=useState(saved?.world.journey.stageIndex ?? (({easy:0,medium:1,hard:2}[difficulty] ?? 0) + Math.max(0,Number(sessionSeed)||0)*3));
-  const session = useMemo(() => version===0&&saved ? saved.session : {...createWordClimbSession(difficulty),stageIndex}, [difficulty,saved,version,stageIndex]);
+  const [stageIndex,setStageIndex]=useState(saved?.world.journey.stageIndex ?? (({easy:0,medium:1,hard:2}[difficulty] ?? 0) + (journey?.index ?? Math.max(0,Number(sessionSeed)||0))*3));
+  const session = useMemo(() => version===0&&saved ? saved.session : {...createWordClimbSession(difficulty,gameRandom(`${sessionSeed}:${stageIndex}`)),stageIndex}, [difficulty,saved,version,stageIndex,sessionSeed]);
   const world = useMemo(() => version===0&&saved ? saved.world : createClimbJourney(session,stageIndex,version===0 ? Number(startLevel)||0 : 0), [session,startLevel,saved,version,stageIndex]);
   const [frame, setFrame] = useState(0);
   const [finished,setFinished] = useState(false);

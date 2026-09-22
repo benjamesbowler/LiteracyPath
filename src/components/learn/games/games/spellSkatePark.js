@@ -1,5 +1,23 @@
 import * as THREE from 'three';
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+// Two outward printed faces share one texture. A DoubleSide plane exposes the
+// same UVs from behind and mirrors every letter when the skater turns around.
+export function createSkateTextSign(texture, width, height) {
+  const x=width/2,y=height/2,z=.025;
+  const geometry=new THREE.BufferGeometry();
+  geometry.setAttribute('position',new THREE.Float32BufferAttribute([
+    -x,y,z, -x,-y,z, x,y,z, x,-y,z,
+    x,y,-z, x,-y,-z, -x,y,-z, -x,-y,-z
+  ],3));
+  geometry.setAttribute('uv',new THREE.Float32BufferAttribute([
+    0,1, 0,0, 1,1, 1,0, 0,1, 0,0, 1,1, 1,0
+  ],2));
+  geometry.setIndex([0,1,2,2,1,3,4,5,6,6,5,7]);
+  geometry.computeVertexNormals();geometry.computeBoundingSphere();
+  return new THREE.Mesh(geometry,new THREE.MeshBasicMaterial({map:texture,transparent:true,side:THREE.FrontSide}));
+}
+
 export function skateLocalPoint(x, z, zone) {
   const dx = x - zone.x,
     dz = z - zone.z,
@@ -196,6 +214,7 @@ export function createSkateParkDressing(theme, difficulty) {
     const trunk = mesh(new THREE.LatheGeometry(trunkPoints, 16), timber);
     trunk.position.y = .8;
     trunk.rotation.z = x < 0 ? .06 : -.06;
+    trunk.userData.gardenTreeFallback = true;
     island.add(trunk);
     const foliage = new THREE.BufferGeometry();
     const vs = [],
@@ -218,7 +237,8 @@ export function createSkateParkDressing(theme, difficulty) {
     foliage.setAttribute('position', new THREE.Float32BufferAttribute(vs, 3));
     foliage.setIndex(ix);
     foliage.computeVertexNormals();
-    island.add(mesh(foliage, leaf));
+    const canopyTree = mesh(foliage, leaf); canopyTree.userData.gardenTreeFallback = true;
+    island.add(canopyTree);
     root.add(island);
     const bench = new THREE.Group();
     bench.position.set(x + (x < 0 ? 7 : -7), 0, z + 1);
@@ -422,6 +442,13 @@ export function skateSteering(position,yaw,route){
   const wanted=Math.atan2(route[0].x-position.x,route[0].z-position.z);
   const delta=Math.atan2(Math.sin(wanted-yaw),Math.cos(wanted-yaw));
   return {turn:clamp(delta*2,-1,1),push:Math.abs(delta)<.65?1:0,brake:Math.abs(delta)>.65?1:0,limit:Math.abs(delta)>.65?0:Math.abs(delta)>.25?7:14};
+}
+export function skateAction(player, nearRail = false) {
+  if (player.stun > 0) return 'none';
+  if (player.grind > 0) return 'pop-out';
+  if (nearRail && Math.abs(player.speed) >= 3) return 'grind';
+  if (player.onGround) return 'ollie';
+  return (player.airTricks || 0) < 2 ? 'spin' : 'none';
 }
 export function skateMotion(state,controls,dt){
   let {speed,yaw}=state;

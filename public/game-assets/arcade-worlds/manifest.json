@@ -1,0 +1,470 @@
+{
+  "schemaVersion": 1,
+  "blender": "5.2.0 LTS",
+  "source": "source-art/arcade/garden-plaza/Garden-and-Plaza.blend",
+  "sourceSha256": "4997a3a7bd49d28a8192f391c7f2c020a5e2f4b3364447da55844621b504cc45",
+  "authoring": "tools/blender/build_arcade_garden_plaza.py",
+  "authoringSha256": "22b7c5eab0aaa0c2d70bb14ae7f44e977a4dc1c1201b5bf12facc59eb6f22def",
+  "models": [
+    {
+      "id": "park-house",
+      "url": "/game-assets/arcade-worlds/park-house.glb",
+      "bytes": 80388,
+      "sha256": "5b929bebfe292bd5ccea4f394a6da9d3a39cfcb8544591a57bf46b14c0ee44b2",
+      "source": {
+        "creator": "Kenney",
+        "license": "CC0-1.0",
+        "pack": "City Kit Suburban 2.0",
+        "input": "imports/building-type-a.glb",
+        "sourceUrl": "https://kenney.nl/assets/city-kit-suburban"
+      },
+      "bounds": {
+        "min": [
+          -0.6499999761581421,
+          0.0,
+          -0.5140689015388489
+        ],
+        "max": [
+          0.6499999761581421,
+          0.8335409760475159,
+          0.5140689015388489
+        ]
+      }
+    },
+    {
+      "id": "park-workshop",
+      "url": "/game-assets/arcade-worlds/park-workshop.glb",
+      "bytes": 76640,
+      "sha256": "c1ad0d25b7f9ed617fba635f64f77c03c0b14d712e8dbf4fdcd204bcadcf0662",
+      "source": {
+        "creator": "Kenney",
+        "license": "CC0-1.0",
+        "pack": "City Kit Suburban 2.0",
+        "input": "imports/building-type-g.glb",
+        "sourceUrl": "https://kenney.nl/assets/city-kit-suburban"
+      },
+      "bounds": {
+        "min": [
+          -0.7250000238418579,
+          0.0,
+          -0.5889999866485596
+        ],
+        "max": [
+          0.7250000238418579,
+          0.76820969581604,
+          0.5889999866485596
+        ]
+      }
+    },
+    {
+      "id": "park-cafe",
+      "url": "/game-assets/arcade-worlds/park-cafe.glb",
+      "bytes": 73588,
+      "sha256": "fdebe1ec3f6d1592ac7d35ebb0194e3e16cc9af46a4cca0180aa8e988fc89b1b",
+      "source": {
+        "creator": "Kenney",
+        "license": "CC0-1.0",
+        "pack": "City Kit Suburban 2.0",
+        "input": "imports/building-type-k.glb",
+        "sourceUrl": "https://kenney.nl/assets/city-kit-suburban"
+      },
+      "bounds": {
+        "min": [
+          -0.46046897768974304,
+          0.0,
+          -0.5099999904632568
+        ],
+        "max": [
+          0.46046900749206543,
+          1.1495962142944336,
+          0.5099999904632568
+        ]
+      }
+    },
+    {
+      "id": "garden-rover",
+      "url": "/game-assets/arcade-worlds/garden-rover.glb",
+      "bytes": 1171260,
+      "sha256": "24376eec156daa6969ac94598d056c1df9e7f15b8a521274d82ce81b53cae4e1",
+      "source": {
+        "creator": "Literacy Guide",
+        "license": "Project-owned",
+        "input": "build_arcade_garden_plaza.py",
+        "characterSource": "public/game-assets/sound-racer/models/pip-kart.glb"
+      },
+      "bounds": {
+        "min": [
+          -1.4800000190734863,
+          -0.020500004291534424,
+          -1.8450000286102295
+        ],
+        "max": [
+          1.4800000190734863,
+          3.0500001907348633,
+          1.8049999475479126
+        ]
+      }
+    },
+    {
+      "id": "birch-canopy",
+      "url": "/game-assets/arcade-worlds/birch-canopy.glb",
+      "bytes": 414904,
+      "sha256": "37cc370958ddd8f844bf05f659e8ec98b3951397b23a78d2f512a1a6b361413c",
+      "source": {
+        "creator": "Quaternius",
+        "license": "CC0-1.0",
+        "pack": "Ultimate Stylized Nature",
+        "input": "imports/quaternius/BirchTree_1.gltf",
+        "sourceUrl": "https://quaternius.com/packs/ultimatestylizednature.html"
+      },
+      "bounds": {
+        "min": [
+          -1.341935396194458,
+          -0.01774914562702179,
+          -0.8737319111824036
+        ],
+        "max": [
+          1.3658959865570068,
+          5.43514347076416,
+          1.068799376487732
+        ]
+      },
+      "sprite": {
+        "url": "/game-assets/arcade-worlds/sprites/birch-canopy.webp",
+        "registration": "cropped-alpha-bottom-centre",
+        "bytes": 35794,
+        "sha256": "f0fd590f796178b1308efe800fb36bf1e14ba9228f8e2d27ac20bb7a432348d4"
+      }
+    },
+    {
+      "id": "birch-tall",
+      "url": "/game-assets/arcade-worlds/birch-tall.glb",
+      "bytes": 651036,
+      "sha256": "afea7a51c8ac6b17828ed5a8c3f6b25ba3e44452c38ab5aa8a8c1bb616da36f7",
+      "source": {
+        "creator": "Quaternius",
+        "license": "CC0-1.0",
+        "pack": "Ultimate Stylized Nature",
+        "input": "imports/quaternius/BirchTree_3.gltf",
+        "sourceUrl": "https://quaternius.com/packs/ultimatestylizednature.html"
+      },
+      "bounds": {
+        "min": [
+          -1.66342294216156,
+          -0.008469140157103539,
+          -0.9253931045532227
+        ],
+        "max": [
+          1.7693895101547241,
+          5.745725154876709,
+          1.3416640758514404
+        ]
+      }
+    },
+    {
+      "id": "flowering-shrub",
+      "url": "/game-assets/arcade-worlds/flowering-shrub.glb",
+      "bytes": 225764,
+      "sha256": "a725ffa2c6e5a9f8fc057d520c7f1e9789bcb66154942c7f88e74ee9f80732ac",
+      "source": {
+        "creator": "Quaternius",
+        "license": "CC0-1.0",
+        "pack": "Ultimate Stylized Nature",
+        "input": "imports/quaternius/Bush_Large_Flowers.gltf",
+        "sourceUrl": "https://quaternius.com/packs/ultimatestylizednature.html"
+      },
+      "bounds": {
+        "min": [
+          -1.3339216709136963,
+          -0.828044056892395,
+          -1.273568868637085
+        ],
+        "max": [
+          1.3612760305404663,
+          1.6686501502990723,
+          1.2279119491577148
+        ]
+      },
+      "sprite": {
+        "url": "/game-assets/arcade-worlds/sprites/flowering-shrub.webp",
+        "registration": "cropped-alpha-bottom-centre",
+        "bytes": 37852,
+        "sha256": "c6d55f492c00661b3a8e7717471a747053b73f240325622416d8c17e76bc06ba"
+      }
+    },
+    {
+      "id": "mossy-rock",
+      "url": "/game-assets/arcade-worlds/mossy-rock.glb",
+      "bytes": 7580,
+      "sha256": "e37ef5241de384f8075d33e8537bf06cdc12af12af7fffe1f2b4e0a7f2e3de91",
+      "source": {
+        "creator": "Kenney",
+        "license": "CC0-1.0",
+        "pack": "Nature Kit 2.1",
+        "input": "imports/rock_largeA.glb",
+        "sourceUrl": "https://kenney.nl/assets/nature-kit"
+      },
+      "bounds": {
+        "min": [
+          -0.3924533426761627,
+          -0.05000000074505806,
+          -0.5077307224273682
+        ],
+        "max": [
+          0.3924533426761627,
+          0.20977596938610077,
+          0.5077307224273682
+        ]
+      }
+    },
+    {
+      "id": "broadleaf-tree",
+      "url": "/game-assets/arcade-worlds/broadleaf-tree.glb",
+      "bytes": 1086072,
+      "sha256": "f14b09c7cdde0ef72038f9db61a8edf56b919e60e0102e22b884a5821bfc0e47",
+      "source": {
+        "creator": "Quaternius",
+        "license": "CC0-1.0",
+        "pack": "Ultimate Stylized Nature",
+        "input": "imports/quaternius/woodland-selection.blend",
+        "sourceObject": "NormalTree_1",
+        "sourceUrl": "https://quaternius.com/packs/ultimatestylizednature.html"
+      },
+      "bounds": {
+        "min": [
+          -2.1308679580688477,
+          -0.009869025088846684,
+          -6.142247200012207
+        ],
+        "max": [
+          1.9202561378479004,
+          6.856752395629883,
+          -3.3982644081115723
+        ]
+      },
+      "sprite": {
+        "url": "/game-assets/arcade-worlds/sprites/broadleaf-tree.webp",
+        "registration": "cropped-alpha-bottom-centre",
+        "bytes": 36554,
+        "sha256": "19be982f677fe6ce6056bca5dce0146f40c5e5c5434ab601f5d4fc1644054314"
+      }
+    },
+    {
+      "id": "broadleaf-tall",
+      "url": "/game-assets/arcade-worlds/broadleaf-tall.glb",
+      "bytes": 980328,
+      "sha256": "7eb420c14a83f1927eb50f8c80f64e504c6bb7b577a91266c9a646f01745e463",
+      "source": {
+        "creator": "Quaternius",
+        "license": "CC0-1.0",
+        "pack": "Ultimate Stylized Nature",
+        "input": "imports/quaternius/woodland-selection.blend",
+        "sourceObject": "NormalTree_3",
+        "sourceUrl": "https://quaternius.com/packs/ultimatestylizednature.html"
+      },
+      "bounds": {
+        "min": [
+          8.023116111755371,
+          -0.010010122321546078,
+          -6.023784160614014
+        ],
+        "max": [
+          13.062195777893066,
+          5.271028518676758,
+          -3.1442089080810547
+        ]
+      }
+    },
+    {
+      "id": "maple-tree",
+      "url": "/game-assets/arcade-worlds/maple-tree.glb",
+      "bytes": 862324,
+      "sha256": "d0b76f701b92f46f9c6969191fcf0d915d54c46b210ca4d6e9c9faedf9b9747e",
+      "source": {
+        "creator": "Quaternius",
+        "license": "CC0-1.0",
+        "pack": "Ultimate Stylized Nature",
+        "input": "imports/quaternius/woodland-selection.blend",
+        "sourceObject": "MapleTree_1",
+        "sourceUrl": "https://quaternius.com/packs/ultimatestylizednature.html"
+      },
+      "bounds": {
+        "min": [
+          6.382375240325928,
+          0.0006941246683709323,
+          -11.25664234161377
+        ],
+        "max": [
+          12.61146354675293,
+          6.644845962524414,
+          -6.352890968322754
+        ]
+      }
+    },
+    {
+      "id": "woodland-rock",
+      "url": "/game-assets/arcade-worlds/woodland-rock.glb",
+      "bytes": 338096,
+      "sha256": "dea0503679e313e6bd2c4aa05da42298e6706a4282d123ec16597a82a3ba8e7d",
+      "source": {
+        "creator": "Quaternius",
+        "license": "CC0-1.0",
+        "pack": "Ultimate Stylized Nature",
+        "input": "imports/quaternius/woodland-selection.blend",
+        "sourceObject": "Rock_1",
+        "sourceUrl": "https://quaternius.com/packs/ultimatestylizednature.html"
+      },
+      "bounds": {
+        "min": [
+          5.630358695983887,
+          -0.10538484156131744,
+          -0.2864292562007904
+        ],
+        "max": [
+          6.341033458709717,
+          0.9771034121513367,
+          0.6009662747383118
+        ]
+      },
+      "sprite": {
+        "url": "/game-assets/arcade-worlds/sprites/woodland-rock.webp",
+        "registration": "cropped-alpha-bottom-centre",
+        "bytes": 8878,
+        "sha256": "8348c34b084988efb58975b344f7c7761b0506b4b25460b2234ff668e0faa2a2"
+      }
+    },
+    {
+      "id": "meadow-grass",
+      "url": "/game-assets/arcade-worlds/meadow-grass.glb",
+      "bytes": 213508,
+      "sha256": "8167c69f271a15655ab7c7486375cb47aa1c8f634e1b6dbb8d2386710e024128",
+      "source": {
+        "creator": "Quaternius",
+        "license": "CC0-1.0",
+        "pack": "Ultimate Stylized Nature",
+        "input": "imports/quaternius/woodland-selection.blend",
+        "sourceObject": "Grass_Small",
+        "sourceUrl": "https://quaternius.com/packs/ultimatestylizednature.html"
+      },
+      "bounds": {
+        "min": [
+          7.270182132720947,
+          -0.005486309062689543,
+          -8.963301658630371
+        ],
+        "max": [
+          7.740225791931152,
+          0.3886142075061798,
+          -8.685765266418457
+        ]
+      },
+      "sprite": {
+        "url": "/game-assets/arcade-worlds/sprites/meadow-grass.webp",
+        "registration": "cropped-alpha-bottom-centre",
+        "bytes": 16726,
+        "sha256": "0890a6033e4fac13bfbacae6645db40a2853511308340d89fe0b7a5295fdc3ca"
+      }
+    }
+  ],
+  "textures": [
+    {
+      "url": "/game-assets/arcade-worlds/textures/bark.webp",
+      "bytes": 5158,
+      "sha256": "db19b75dfb7a181332a968166aa5e5be9b656407462a6cd6f9ca13a3f6379ea9"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "source-art/arcade/garden-plaza/imports/building-type-a.glb",
+      "sha256": "49f32e20b9dcd24b1c8f6d6488807b8c8cb684cbb595bfb0bb36ad903e470faa"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/building-type-g.glb",
+      "sha256": "f497a7bc3a8e6b6273ba99f090042d1cfb3141da57d3c51998c57a479a0ece11"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/suburban-LICENSE.txt",
+      "sha256": "d778fa769a89a7d9f167bc337fdf8fc2144e47d9abb0c35eb6ad897c0ee24d0a"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/nature-LICENSE.txt",
+      "sha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/rock_largeA.glb",
+      "sha256": "6dd15390fd96501dcd1454765a17ba61dbbd8d47705dfe5149c8dd92b353ce25"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/building-type-k.glb",
+      "sha256": "c1b819a526bbcf9663bc40c98e22337cded7fff7c50c14679132d5d98d75f583"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/quaternius/BirchTree_3.gltf",
+      "sha256": "0b8c042a35073de46c4e73c81c23df9af412460d59f90178e4491d9353bb2b9c"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/quaternius/Bush_Leaves.png",
+      "sha256": "195e1335c1ce20e67ad4c23166f808f350930779d2db321c2d1fcc7a05db59c3"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/quaternius/BirchTree_Bark_Normal.png",
+      "sha256": "ac53052a65083365d09d22e4dfa1d8267313ead9f25f84e345e6b6b32150e047"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/quaternius/woodland-selection.blend",
+      "sha256": "f751aeb44892941fea4e1fa088b05493b91ebf0503c713ce532e2e0f7aa97477"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/quaternius/BirchTree_1.bin",
+      "sha256": "a1b14d1c82ebb8153991de4156b77ceaa1143d64469679147c0ee249c8b90b83"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/quaternius/provenance.json",
+      "sha256": "cedf20013639acf9c654706c926fa3c9ac8868114e9ba3a5d6315407d34802a4"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/quaternius/Flowers.png",
+      "sha256": "7749d27170d2edfeade7fed6cf35c3ce721e0cea482ff32f8f225c9c3a0fa207"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/quaternius/BirchTree_3.bin",
+      "sha256": "98d3a00145beeab868c0e7eb8dbb1118115cb00a44a8a801244eae837805d602"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/quaternius/woodland-selection.json",
+      "sha256": "c78dfe4d74cb33ed8a2ae14db9c1b29e8713c9ff4dd504b37e6b3359f675c4b0"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/quaternius/Bush_Large_Flowers.gltf",
+      "sha256": "cc63ec8946ee072b06d4d57e845042ed9df46efaef8de26b0a640fbe557dda12"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/quaternius/Bush_Large_Flowers.bin",
+      "sha256": "780b50270f5bb264c5642eae514191a372a7799eafc444cc9afb5ce501b9109a"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/quaternius/BirchTree_Bark.jpg",
+      "sha256": "9fe8eb1cfc76ecab60f6fcb920921fafeb01ba5c16cde9f071eb1193ef3a4709"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/quaternius/BirchTree_Leaves.png",
+      "sha256": "01a5998c5231c17d92cdb66d8d0193cfeaa14334e3a2349d2822cfa141cb0867"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/quaternius/BirchTree_1.gltf",
+      "sha256": "8dbf9fd8b6402bfffdbe370a8c4337e8dae27fa3da5fbacbfd4fae6482ad50fa"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/quaternius/LICENSE.txt",
+      "sha256": "de990ef6fc68cffd7fd1ae342c4d0c823b541b8848d8f76bca5d3339f4de6f6e"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/quaternius/woodland-textures.json",
+      "sha256": "6f396d6ff30be19d3fb170d8be3cabbbf5ae76f32c2b078971cfbe405cf165ae"
+    },
+    {
+      "path": "source-art/arcade/garden-plaza/imports/Textures/colormap.png",
+      "sha256": "9b5de86078c25ef02351a80d35ff3c978693a1044565b73eedd9ae9b5b80665d"
+    }
+  ]
+}

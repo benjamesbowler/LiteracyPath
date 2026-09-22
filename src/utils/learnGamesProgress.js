@@ -1,3 +1,4 @@
+import { finishArcadeChapter } from "./arcadeJourneys.js";
 import { queueProgressSave } from "./progressSync.js";
 import { applyCheckpoint, removeCheckpoint, readCheckpoint } from "./gameCheckpoints.js";
 import { normalizeAudioPreferences } from "./audio/audioPreferences.js";
@@ -118,10 +119,10 @@ export function saveLearnGameBestSplit(
   return next;
 }
 
-export function saveLearnGameResult(progressScopeKey = DEFAULT_SCOPE, gameId, stars = 0, score = 0, wordsCompleted = 0, evidence = null, difficulty) {
+export function saveLearnGameResult(progressScopeKey = DEFAULT_SCOPE, gameId, stars = 0, score = 0, wordsCompleted = 0, evidence = null, difficulty, chapter) {
   const current = loadLearnGamesProgress(progressScopeKey);
   const previous = getLearnGameProgress(current, gameId);
-  const nextGame = {
+  let nextGame = {
     ...previous,
     stars: Math.max(previous.stars || 0, stars || 0),
     highScore: Math.max(previous.highScore || 0, score || 0),
@@ -145,6 +146,7 @@ export function saveLearnGameResult(progressScopeKey = DEFAULT_SCOPE, gameId, st
       }]
     });
   }
+  nextGame = finishArcadeChapter(nextGame, gameId, difficulty, chapter);
   const games = { ...current.games, [gameId]: nextGame };
   // Omitted difficulty preserves the legacy utility contract. Player saves
   // retire only the finished ladder in the SAME write as its result/evidence.
@@ -159,9 +161,9 @@ export function loadGameCheckpoint(progressScopeKey = DEFAULT_SCOPE, gameId, dif
   return readCheckpoint(loadLearnGamesProgress(progressScopeKey).games, gameId, difficulty);
 }
 
-export function saveGameCheckpoint(progressScopeKey = DEFAULT_SCOPE, gameId, difficulty, level = 0, totalLevels = 0, sessionSeed) {
+export function saveGameCheckpoint(progressScopeKey = DEFAULT_SCOPE, gameId, difficulty, level = 0, totalLevels = 0, sessionSeed, chapter) {
   const current = loadLearnGamesProgress(progressScopeKey);
-  const next = { ...current, games: applyCheckpoint(current.games, gameId, difficulty, level, totalLevels, sessionSeed) };
+  const next = { ...current, games: applyCheckpoint(current.games, gameId, difficulty, level, totalLevels, sessionSeed, chapter) };
   saveLearnGamesProgress(progressScopeKey, next);
   return next;
 }

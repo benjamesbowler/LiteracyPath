@@ -1087,6 +1087,7 @@ function drawSafari(ctx, state, config, theme, images, w, h, blenderWorld, reduc
   drawWorldAtmosphere(ctx, state, theme, w, h);
   drawHabitatFloor(ctx, state, theme, w, h);
   drawWorldGeometry(ctx, state, theme, w, h, "back");
+  blenderWorld?.drawLandscape(ctx,{width:w,height:h,ground:h*.88,time:state.time,world:state.level?.world,reducedMotion:reduceMotion,paused:state.paused});
   drawWorldMotion(ctx, state, theme, w, h);
   drawWorldGeometry(ctx, state, theme, w, h, "front");
   const campSize = Math.min(290, h * .5);
@@ -1121,7 +1122,7 @@ function drawSafari(ctx, state, config, theme, images, w, h, blenderWorld, reduc
 }
 
 function startSoundSafariArcadeGame(mount, options) {
-  const blenderWorld = createBlenderWorldSprite("sound-safari", mount);
+  const blenderWorld = createBlenderWorldSprite("sound-safari", mount, { landscape: true });
   const config = CONFIG[options.kind] || CONFIG["sound-safari"];
   const ladder = config.ladder(options.difficulty, options.sessionSeed);
   const images = {
@@ -1238,7 +1239,7 @@ function startSoundSafariArcadeGame(mount, options) {
     state.bursts = [];
     state.wordClearT = 0;
     state.pendingAdvance = false;
-    state.waveSeed = state.stage * 9;
+    state.waveSeed = state.stage * 9 + (options.journey?.route || 0) * 5;
     state.countdown = 0;
     setupTask();
     state.countdownTarget = countdownTarget();
@@ -1667,7 +1668,7 @@ function startSoundSafariArcadeGame(mount, options) {
 export default function SoundSafariArcadeGame({
   kind,
   difficulty = "easy",
-  sessionSeed = 0,
+  sessionSeed = 0, journey = null,
   startLevel = 0,
   onScoreUpdate,
   onProgressUpdate,
@@ -1705,7 +1706,7 @@ export default function SoundSafariArcadeGame({
     const engine = startSoundSafariArcadeGame(mountRef.current, {
       kind,
       difficulty,
-      sessionSeed,
+      sessionSeed, journey,
       startLevel,
       onScoreUpdate: score => handlersRef.current.onScoreUpdate?.(score),
       onProgressUpdate: (current, total) => handlersRef.current.onProgressUpdate?.(current, total),
@@ -1715,7 +1716,7 @@ export default function SoundSafariArcadeGame({
       getSound: () => soundRef.current
     });
     return () => engine.destroy();
-  }, [kind, difficulty, sessionSeed, startLevel]);
+  }, [kind, difficulty, sessionSeed, startLevel, journey]);
 
   return (
     <div

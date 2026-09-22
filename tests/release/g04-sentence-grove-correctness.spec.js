@@ -27,6 +27,11 @@ test('Sentence Grove shows the actual cat and keeps movement live with sound off
 
 test('a physically driven nearby tree always accepts the advertised cut', async ({ page }) => {
   test.setTimeout(90000);
+  await page.addInitScript(() => {
+    localStorage.setItem('literacy-guide-learn-games:fullscreen-overlay-preview', JSON.stringify({
+      games: { 'star-gallery': { checkpoints: { easy: { level: 0, totalLevels: 10, sessionSeed: 0 } } } }
+    }));
+  });
   await page.clock.install();
   await page.goto('/preview/game-overlay.html?game=star-gallery&sound=0&music=0');
   await expect(page.locator('[data-role="cut"]')).toBeVisible();
@@ -51,4 +56,17 @@ test('a physically driven nearby tree always accepts the advertised cut', async 
   state=await snapshot(page);
   expect(state.correct+state.mistakes).toBe(before+1);
   expect(state.correct).toBe(1);
+});
+
+
+test('missing garden artwork retains the original rover and usable answer trees', async ({ page }) => {
+  await page.route('**/game-assets/arcade-worlds/*.glb', route => route.abort());
+  await page.goto('/preview/game-overlay.html?game=star-gallery&sound=0&music=0');
+  await expect(page.locator('[data-garden-world-state]')).toHaveAttribute('data-garden-world-state','fallback');
+  const before=await snapshot(page);
+  expect(before.tokens.length).toBeGreaterThan(0);
+  await page.keyboard.down('ArrowUp');
+  await expect.poll(async () => (await snapshot(page)).player.z).not.toBe(before.player.z);
+  await page.keyboard.up('ArrowUp');
+  await expect(page.getByRole('button',{name:'Cut the nearby answer tree',exact:true})).toBeVisible();
 });

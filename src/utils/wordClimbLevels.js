@@ -47,6 +47,6 @@ export function createWordClimbSession(difficulty, random = Math.random) {
     difficulty,
     summit,
     target,
-    round: buildRocketRunRound(target, { count: summit, difficulty })
+    round: buildRocketRunRound(target, { count: summit, difficulty, random })
   };
 }

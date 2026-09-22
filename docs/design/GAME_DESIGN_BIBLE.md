@@ -12,6 +12,18 @@ This document separates **research-backed requirements** from **LiteracyPath pro
 
 The product owner restored the continuous Arcade engines on 2026-09-10. Preserve each game's movement, aiming, catching, steering and real-time play. Fix learning validity and accessibility inside that gameplay; do not replace it with staged select/confirm rounds or a shared practice shell without an explicit request to change the game.
 
+## Arcade saved journeys
+
+The 22 September 2026 Arcade upgrade extends all thirteen Arcade games into twelve saved outings per selected difficulty. The runtime authority is `src/utils/arcadeJourneys.js`; individual mechanics, routes and evidence boundaries are recorded in `src/components/learn/games/shared/arcadeVerticalSliceBriefs.js`.
+
+Keep the current literacy band when choosing the next outing. Fresh seeds and game-specific route/content families provide replay variation. Spell & Skate has three ten-word banks per difficulty; SoundKeys uses three eight-word bands per performance; Rocket Run covers all ten target rounds. Existing longer ladders remain intact. These are saved journeys with natural stopping points, not compulsory hour-long sessions. Duration depends on the learner and must not be asserted from stage counts alone.
+
+A trail stamp is a completion/continuity fact, never a mastery claim. Save it with the existing settled literacy receipt before showing continuation. An unfinished checkpoint retains chapter, difficulty, stage and content seed. Replay cannot duplicate a stamp; failed saving must remain recoverable before changing the engine. Completing all twelve gives a clear journey milestone and permits fresh replay.
+
+### Journey data minimisation review
+
+The only new stored values are a bounded set of completed chapter indices (0–11) under each existing game/difficulty record and an optional bounded chapter index in its existing checkpoint. No new identifier, child text, recording, service, analytics event or network destination is introduced. Existing learner scope, progress sync, reset, export/deletion and access controls continue to own these values. Merge uses the existing monotonic union of achievements; checkpoint ownership remains local. Scope/failed-save/merge tests exercise these boundaries. Art downloads happen at build time and contain no learner data; delivered artwork is same-origin.
+
 ## Immediate activity access
 
 Games, assessments, Cycle Practice and phonics activities accept input without compulsory instruction cards, demonstrations, narration completion or get-ready countdowns. Keep help and replay accessible without covering the playfield. A learner can begin while instructions play. Actual audio-delivery evidence remains truthful; do not claim an unheard target was delivered. Pause, save recovery and loading essential question media remain distinct from instruction gates.
@@ -352,7 +364,7 @@ unknown until each changed build is exercised on a real supported iPad.
 #### Spell & Skate 2.0
 
 - **Age/reading band and construct:** early to developing readers encode a spoken word with ordered graphemes, then recognise the completed word. Skating is the non-target demand.
-- **Controls:** Arrow keys or W/A/S/D skate, Space/Enter performs a trick, Shift/B boosts, and the on-screen movement, replay and action controls meet the 56-pixel floor.
+- **Controls:** Five on-screen skating controls: forward, back, left, right and Jump / Trick, each at least 56 pixels. Arrow keys or W/A/S/D steer; forward builds speed automatically. Space/Enter shares the contextual action: ollie from the ground/ramp, grind beside a rail, pop out of a grind, or press again in the air for up to two visible spins. Extra tricks never reset gravity or grant literacy credit. Park banners have independently readable front and back faces.
 - **Level ladder and prompt/audio:** ten levels per difficulty introduce single-letter spellings, digraphs, vowel teams and split digraphs before increasing movement pressure.
 - **Generator and ambiguity:** `grammarGrindLevels.js` rebuilds three unique grapheme choices at every step and one correct final gate; `gameSurfaces.test.js` exercises every difficulty and repeated-error rule.
 - **Feedback and reward:** the first miss teaches the contrast; a repeated miss points to the correct spelling. Score, combo and stars reflect completed word builds and recoveries.

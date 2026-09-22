@@ -9,6 +9,7 @@ import { createClimbWorld, jumpToClimbPlatform, advanceClimbWorld } from "../../
 import { createWordClimbSession } from "../../src/utils/wordClimbLevels.js";
 import { climbSessionKey, readClimbSession, writeClimbSession, clearClimbSession } from "../../src/components/learn/games/games/wordClimbSession.js";
 import { gunzipSync } from "node:zlib";
+import { disposeObject } from "../../src/components/learn/games/shared/threeShell.js";
 import { climbViewportMetrics } from "../../src/components/learn/games/games/wordClimbView.js";
 
 function memory(){const values=new Map();return{getItem:k=>values.get(k),setItem:(k,v)=>values.set(k,v),removeItem:k=>values.delete(k)};}
@@ -41,12 +42,14 @@ test("completed but unreported summit restores once at the parent final checkpoi
   assert.equal(readClimbSession(storage,"pending",session.summit-1,true).world.completed,true);
   assert.equal(readClimbSession(storage,"pending",session.summit-1,false),null);
 });
-test("authored Moonwood kit has finite geometry at portrait and short-screen proportions",()=>{
+test("authored Moonwood kit has finite geometry at portrait and short-screen proportions",t=>{
+  t.mock.method(THREE.TextureLoader.prototype,"load",()=>new THREE.Texture());
+  const errors=t.mock.method(console,"error",()=>{});
   const session=createWordClimbSession("hard"),world=createClimbJourney(session);
   for(const [width,height] of [[230,30],[1500,120]]){
     const scene=createClimbSceneKit(world.platforms,world.summit,width,height,world.journey);let meshes=0;
     scene.traverse(m=>{if(!m.isMesh)return;meshes++;m.geometry.computeBoundingBox();assert.ok(Number.isFinite(m.geometry.boundingBox.min.x));assert.ok(Number.isFinite(m.geometry.boundingBox.max.y));});
-    assert.ok(meshes>0);scene.updateMatrixWorld(true);
+    assert.ok(meshes>0);assert.equal(errors.mock.calls.length,0,"batching must not silently drop incompatible geometry");scene.updateMatrixWorld(true);
     const camera=new THREE.OrthographicCamera(-width/2,width/2,350,0,1,1400);camera.position.z=450;
     for(const y of [0,world.summitHeight/2,world.summitHeight-250]){
       camera.position.y=y;camera.updateMatrixWorld();
@@ -56,6 +59,9 @@ test("authored Moonwood kit has finite geometry at portrait and short-screen pro
     }
     for(const p of world.platforms){const ledge=scene.getObjectByName(`moss-capped-branch-shelf-${p.row}`);assert.ok(ledge);}
     assert.ok(scene.getObjectByName("summit-lantern-landmark"));
+    const canopies=scene.getObjectByName("Blender distant woodland canopy");
+    let released=0;canopies.addEventListener("dispose",()=>released++);
+    disposeObject(scene);assert.equal(released,1,"leaving releases the instanced canopy buffer as well as its geometry");
   }
 });
 test("canonical Pip asset has seven independent climbing clips and grounded boot contacts",async()=>{

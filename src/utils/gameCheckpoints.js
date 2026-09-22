@@ -1,15 +1,17 @@
+import { validArcadeChapter } from "./arcadeJourneys.js";
 // Pure reducers for arcade "resume where you left off" checkpoints. Kept free of
 // localStorage/React so the level-tracking logic can be unit-tested: a checkpoint
 // is stored PER game AND difficulty (easy/medium/hard are different ladders), and
 // only a level > 0 counts as resumable (level 0 = start, nothing to resume).
 
-export function applyCheckpoint(games = {}, gameId, difficulty, level, totalLevels, sessionSeed) {
+export function applyCheckpoint(games = {}, gameId, difficulty, level, totalLevels, sessionSeed, chapter) {
   const key = String(difficulty || "");
   const prev = games[gameId] || {};
   const checkpoints = {
     ...(prev.checkpoints || {}),
     [key]: {
       level: Math.max(0, Number(level) || 0), totalLevels: Math.max(0, Number(totalLevels) || 0),
+      ...(validArcadeChapter(chapter) ? { chapter } : {}),
       ...(Number.isInteger(sessionSeed) && sessionSeed >= 0 ? { sessionSeed } : {})
     }
   };
@@ -34,6 +36,7 @@ export function readCheckpoint(games = {}, gameId, difficulty) {
   if (level <= 0) return null;
   return {
     level, totalLevels: Math.max(0, Number(cp.totalLevels) || 0),
+    ...(validArcadeChapter(cp.chapter) ? { chapter: cp.chapter } : {}),
     ...(Number.isInteger(cp.sessionSeed) && cp.sessionSeed >= 0 ? { sessionSeed: cp.sessionSeed } : {})
   };
 }

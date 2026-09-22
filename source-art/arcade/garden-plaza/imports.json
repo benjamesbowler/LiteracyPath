@@ -1,0 +1,38 @@
+[
+  {
+    "id": "rock_largeA",
+    "pack": "nature",
+    "sourceUrl": "https://kenney.nl/assets/nature-kit",
+    "creator": "Kenney",
+    "license": "CC0-1.0",
+    "sourceFile": "source-art/arcade/garden-plaza/imports/rock_largeA.glb",
+    "sha256": "6dd15390fd96501dcd1454765a17ba61dbbd8d47705dfe5149c8dd92b353ce25"
+  },
+  {
+    "id": "building-type-a",
+    "pack": "suburban",
+    "sourceUrl": "https://kenney.nl/assets/city-kit-suburban",
+    "creator": "Kenney",
+    "license": "CC0-1.0",
+    "sourceFile": "source-art/arcade/garden-plaza/imports/building-type-a.glb",
+    "sha256": "49f32e20b9dcd24b1c8f6d6488807b8c8cb684cbb595bfb0bb36ad903e470faa"
+  },
+  {
+    "id": "building-type-g",
+    "pack": "suburban",
+    "sourceUrl": "https://kenney.nl/assets/city-kit-suburban",
+    "creator": "Kenney",
+    "license": "CC0-1.0",
+    "sourceFile": "source-art/arcade/garden-plaza/imports/building-type-g.glb",
+    "sha256": "f497a7bc3a8e6b6273ba99f090042d1cfb3141da57d3c51998c57a479a0ece11"
+  },
+  {
+    "id": "building-type-k",
+    "pack": "suburban",
+    "sourceUrl": "https://kenney.nl/assets/city-kit-suburban",
+    "creator": "Kenney",
+    "license": "CC0-1.0",
+    "sourceFile": "source-art/arcade/garden-plaza/imports/building-type-k.glb",
+    "sha256": "c1b819a526bbcf9663bc40c98e22337cded7fff7c50c14679132d5d98d75f583"
+  }
+]

@@ -17,13 +17,13 @@ test('Sound Racer steering drives a real three-lap race and catches fresh words'
   const errors=[];page.on('pageerror',error=>errors.push(error.message));
   await page.setViewportSize({width:960,height:600});
   await page.emulateMedia({reducedMotion:'reduce'});
-  await page.addInitScript(() => localStorage.setItem('literacy-guide-learn-games:fullscreen-overlay-preview', JSON.stringify({games:{'sound-racer':{checkpoints:{easy:{level:9,totalLevels:10}}}}})));
+  await page.addInitScript(() => localStorage.setItem('literacy-guide-learn-games:fullscreen-overlay-preview', JSON.stringify({games:{'sound-racer':{checkpoints:{easy:{level:9,totalLevels:10,sessionSeed:0,chapter:0}}}}})));
+  await page.clock.install();
   await page.goto('/preview/game-overlay.html?game=sound-racer&sound=0&music=0');
   await page.getByRole('button',{name:'Continue',exact:true}).click();
   const hud=page.locator('[data-sound-racer-position]');
   await expect(hud).toBeVisible({timeout:45000});
   await expect(hud).toHaveAttribute('data-sound-racer-asset','ready',{timeout:30000});
-  await page.clock.install();
   const track=buildTrack(soundRacerLadder('easy')[9],{difficulty:'easy',seed:9});
   let held='',left=0,right=0,lastProgress=0;
   for(let i=0;i<3200;i++) {
@@ -52,16 +52,18 @@ test('Sound Racer steering drives a real three-lap race and catches fresh words'
   expect(lastProgress).toBeGreaterThanOrEqual(track.raceLength);
   expect(left).toBeGreaterThan(20);expect(right).toBeGreaterThan(20);
   await expect(page.locator('[data-sr="words"]')).toHaveText(`${track.needed} / ${track.needed} words`);
-  await expect(page.getByRole('button',{name:'Next level',exact:true})).toBeVisible();
+  await expect(page.getByRole('button',{name:'Next circuit',exact:true})).toBeVisible();
   expect(errors).toEqual([]);
   fs.writeFileSync(testInfo.outputPath('finished-route.json'),JSON.stringify({state:JSON.parse(await hud.getAttribute('data-sound-racer-position')),render:await page.locator('.sound-racer').evaluate(node=>node.racerInspection)},null,2));
   await testInfo.attach('race-render-metrics',{body:JSON.stringify(await page.locator('.sound-racer').evaluate(node=>node.racerInspection)),contentType:'application/json'});
   await testInfo.attach('race-result',{body:await hud.getAttribute('data-sound-racer-position'),contentType:'application/json'});
   await page.screenshot({path:testInfo.outputPath('full-circuit.png')});
-  await page.getByRole('button',{name:'Next level',exact:true}).click();
+  await page.getByRole('button',{name:'Next circuit',exact:true}).click();
   await page.clock.runFor(400);
-  await expect(page.locator('[data-sr="words"]')).toHaveText(`0 / ${buildTrack(soundRacerLadder('medium')[0],{difficulty:'medium',seed:0}).needed} words`);
-  await expect(page.locator('[data-sr="target"]')).not.toHaveText(soundRacerLadder('easy')[9]);
+  await expect(page.locator('[data-sr="words"]')).toHaveText(`0 / ${buildTrack(soundRacerLadder('easy')[0],{difficulty:'easy',seed:0}).needed} words`);
+  await expect(page.locator('[data-journey-chapter]')).toHaveAttribute('data-journey-chapter','1');
+  const journal=await page.evaluate(()=>JSON.parse(localStorage.getItem('literacy-guide-learn-games:fullscreen-overlay-preview')).games['sound-racer'].journeys);
+  expect(journal.easy.completed).toEqual([0]);expect(journal.medium).toBeUndefined();
 });
 
 test('Sound Racer pointer steering changes heading, releases, pauses and recovers',async({page})=>{

@@ -1,3 +1,4 @@
+import { gameRandom } from '../../../../utils/gameReplay.js';
 import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
 import { useEffect, useRef } from "react";
 import "./LetterLeapGame.css";
@@ -201,7 +202,7 @@ function letterLeapGroundHeight(height) {
 }
 
 function startGame(mount, opts) {
-  const blenderWorld = createBlenderWorldSprite("letter-leap", mount);
+  const blenderWorld = createBlenderWorldSprite("letter-leap", mount, { landscape: true });
   const world = worldForGameDifficulty(opts.difficulty);
   const theme = WORLD_THEME[world] || WORLD_THEME.meadow;
   mount.dataset.world = world;
@@ -430,14 +431,14 @@ function startGame(mount, opts) {
   }
   elHear?.addEventListener("click", speakTarget);
 
-  function shuffleArr(a) { for (let i = a.length - 1; i > 0; i -= 1) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+  function shuffleArr(a, random = Math.random) { for (let i = a.length - 1; i > 0; i -= 1) { const j = Math.floor(random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 
-  function makeLevel(levelWords, worldKey, levelIndex) {
+  function makeLevel(levelWords, worldKey, levelIndex, route = 0, random = Math.random) {
     const plats = [], bubbles = [], blocks = [], pickups = [], letterX = [];
     const pits = [], foes = [], trailSprings = [], trailCoins = [], sections = [];
     const bump = { meadow: 0, dino: 2, moonwood: 4 }[worldKey] || 0;
     const hard = worldKey !== "meadow";
-    const choicePlan = buildLetterLeapChoicePlan(levelWords, worldKey, levelIndex);
+    const choicePlan = buildLetterLeapChoicePlan(levelWords, worldKey, levelIndex, random);
 
     // Place each grapheme once in the authored route.  Pickups are persistent
     // world objects: they never regroup, chase the player or move through a
@@ -468,7 +469,7 @@ function startGame(mount, opts) {
           });
         }
         letterX.push(cx, cx + 170); cx += SEG;
-        const trail = buildLetterLeapTrail(cx, groundY(), levelIndex, bubbles.length / 2 - 1, worldKey);
+        const trail = buildLetterLeapTrail(cx, groundY(), levelIndex + route, bubbles.length / 2 - 1, worldKey);
         plats.push(...trail.plats); pits.push(...trail.pits);
         trailSprings.push(...trail.springs); trailCoins.push(...trail.coins);
         sections.push(...trail.sections);
@@ -484,7 +485,7 @@ function startGame(mount, opts) {
           const hopW = 104;
           plats.push({ x: left + wRav * 0.22 - hopW / 2, y: groundY() - 92, w: hopW });
           const hop2 = { x: left + wRav * 0.62 - hopW / 2, y: groundY() - 138, w: hopW };
-          if (levelIndex >= 4) { const xm = hard && wRav > 290; hop2.baseX = hop2.x; hop2.baseY = hop2.y; hop2.move = { axis: xm ? "x" : "y", range: xm ? 60 : 34, speed: 1.4, t: Math.random() * 6 }; }
+          if (levelIndex >= 4) { const xm = hard && wRav > 290; hop2.baseX = hop2.x; hop2.baseY = hop2.y; hop2.move = { axis: xm ? "x" : "y", range: xm ? 60 : 34, speed: 1.4, t: random() * 6 }; }
           plats.push(hop2);
           cx += wRav + WORD_GAP * 0.5;
         } else {
@@ -505,7 +506,7 @@ function startGame(mount, opts) {
       if (pits.some(q => mid > q[0] - 80 && mid < q[1] + 80)) continue;
       hazardSlots.push(mid);
     }
-    shuffleArr(hazardSlots);
+    shuffleArr(hazardSlots, random);
 
     const foeCount = 4 + Math.round(levelIndex * 0.9) + bump;
     const blockCount = 2 + Math.round(levelIndex * 0.4);
@@ -514,14 +515,14 @@ function startGame(mount, opts) {
       const c = hazardSlots.pop();
       foes.push({
         type: pickFoeType(worldKey, levelIndex, k),
-        x0: c - 70, x1: c + 70, x: c, dir: Math.random() < 0.5 ? -1 : 1,
-        y: groundY() - 20, baseY: groundY() - 20, t: Math.random() * 6
+        x0: c - 70, x1: c + 70, x: c, dir: random() < 0.5 ? -1 : 1,
+        y: groundY() - 20, baseY: groundY() - 20, t: random() * 6
       });
     }
     for (let k = 0; k < blockCount && hazardSlots.length; k += 1) {
       const c = hazardSlots.pop();
-      const n = 1 + Math.floor(Math.random() * 2);
-      for (let j = 0; j < n; j += 1) blocks.push({ x: c + j * 46 - 23, y: groundY() - 140, w: 44, h: 40, type: Math.random() < 0.3 ? "prize" : "brick", broken: false, used: false });
+      const n = 1 + Math.floor(random() * 2);
+      for (let j = 0; j < n; j += 1) blocks.push({ x: c + j * 46 - 23, y: groundY() - 140, w: 44, h: 40, type: random() < 0.3 ? "prize" : "brick", broken: false, used: false });
     }
     for (let k = 0; k < heartCount && hazardSlots.length; k += 1) {
       const c = hazardSlots.pop();
@@ -568,7 +569,7 @@ function startGame(mount, opts) {
     words = (legs ? legs[0] : allStageWords[stageIdx]).slice();
     wIx = 0; word = words[0] || ""; nextIx = 0;
     wordTransitionT = 0;
-    level = makeLevel(words, world, stageIdx);
+    level = makeLevel(words, world, stageIdx, opts.journey?.route || 0, gameRandom(`${opts.sessionSeed}:stage:${stageIdx}`));
     player = { x: 70, y: groundY() - 46, w: 32, h: 46, vx: 0, vy: 0, onGround: true, face: 1, anim: 0, spawnX: 70, squash: 0 };
     hearts = 3; cam = 0; camY = 0; invuln = 0; particles = [];
     spores = []; for (let i = 0; i < 26; i += 1) spores.push({ x: Math.random() * 2400, y: Math.random() * H, s: 1 + Math.random() * 2.4, ph: Math.random() * 6 });
@@ -674,7 +675,7 @@ function startGame(mount, opts) {
     words = legs[legIx].slice();
     wIx = 0; word = words[0] || ""; nextIx = 0;
     wordTransitionT = 0;
-    level = makeLevel(words, world, stageIdx);
+    level = makeLevel(words, world, stageIdx, opts.journey?.route || 0, gameRandom(`${opts.sessionSeed}:stage:${stageIdx}`));
     player.x = 70; player.y = groundY() - 46; player.vx = 0; player.vy = 0; player.spawnX = 70; cam = 0;
     elLab.dataset.goal = legs[legIx].join(" ");
     sfx(playTapSound);
@@ -1283,6 +1284,7 @@ function startGame(mount, opts) {
       drawDepthScenery(t);
       treeRow(theme.treeDark, 0.2, groundY() + 6, 150, 90, 0.28); treeRow(theme.tree, 0.45, groundY() + 14, 220, 140, 0.6);
     }
+    blenderWorld.drawLandscape(ctx,{width:W,height:H,ground:groundY(),camera:cam,time:t,world,reducedMotion:reduceMotion,paused:paused||!running,variation:opts.journey?.variation});
     const landmarkSize = Math.min(330, H * .67);
     const landmarkX = W * .62 - ((cam * .18) % (W + landmarkSize));
     blenderWorld.draw(ctx, landmarkX, groundY() - landmarkSize * .94, landmarkSize, landmarkSize, t, { reducedMotion: reduceMotion, paused: paused || !running, opacity: .92 });
@@ -1425,7 +1427,7 @@ function startGame(mount, opts) {
   return { teardown, pause, resume, refreshSoundState: renderWord };
 }
 
-export default function LetterLeapGame({ difficulty = "easy", sessionSeed = 0,
+export default function LetterLeapGame({ difficulty = "easy", sessionSeed = 0, journey = null,
   startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
   const mountRef = useRef(null);
   const engineRef = useRef(null);
@@ -1443,7 +1445,7 @@ export default function LetterLeapGame({ difficulty = "easy", sessionSeed = 0,
     if (!mountRef.current) return undefined;
     const api = startGame(mountRef.current, {
       difficulty,
-      sessionSeed,
+      sessionSeed, journey,
       startLevel,
       onScoreUpdate,
       onProgressUpdate,

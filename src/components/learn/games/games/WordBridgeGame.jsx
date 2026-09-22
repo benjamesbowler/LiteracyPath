@@ -205,7 +205,7 @@ function liquidWaveY(x, baseY, amp, freq, phase) {
 
 export default function WordBridgeGame({
   difficulty = "easy",
-  sessionSeed = 0,
+  sessionSeed = 0, journey = null,
   startLevel = 0,
   onScoreUpdate,
   onProgressUpdate,
@@ -227,7 +227,7 @@ export default function WordBridgeGame({
     try {
       api = startGame(mountRef.current, {
         difficulty,
-        sessionSeed,
+        sessionSeed, journey,
         startLevel,
         onScoreUpdate,
         onProgressUpdate,
@@ -266,7 +266,7 @@ export default function WordBridgeGame({
 }
 
 function startGame(mount, opts) {
-  const blenderWorld = createBlenderWorldSprite("word-bridge", mount);
+  const blenderWorld = createBlenderWorldSprite("word-bridge", mount, { landscape: true });
   const difficulty = String(opts.difficulty || "easy").toLowerCase();
   const world = worldForGameDifficulty(difficulty);
   const theme = WORLD_THEME[world] || WORLD_THEME.meadow;
@@ -2118,6 +2118,7 @@ function startGame(mount, opts) {
     drawSky();
     drawMountains();
     const workshopSize = Math.min(300, H * .57);
+    blenderWorld.drawLandscape(ctx,{width:W,height:H,ground:GROUND_Y,camera:cameraX,time:now,world,variation:opts.journey?.variation,reducedMotion:reduceMotion});
     blenderWorld.draw(ctx, gap.x - workshopSize - 90 - cameraX, GROUND_Y - workshopSize * .89 - 28, workshopSize, workshopSize, now, { reducedMotion: reduceMotion });
     ctx.save();
     ctx.translate(-cameraX, 0);

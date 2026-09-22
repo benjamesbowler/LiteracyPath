@@ -13,8 +13,8 @@ async function playToken(page, token) {
   throw new Error(`No instrument key for ${token}`);
 }
 for(const difficulty of ['easy','medium','hard']) test(`SoundKeys ${difficulty} complete performance through physical keys`, async({page})=>{
-  test.setTimeout(90000); await open(page,difficulty);
-  for(let round=0;round<10;round++) {
+  test.setTimeout(180000); await open(page,difficulty);
+  for(let round=0;round<24;round++) {
     await expect(page.locator('.sk-stage')).toHaveAttribute('data-round',String(round));
     const id=await page.locator('.sk-stage').getAttribute('data-target');
     const tokens=await page.evaluate(async id=>(await import('/src/features/soundkeys/content.js')).SOUNDKEY_WORDS.find(w=>w.id===id).tokens,id);
@@ -49,9 +49,9 @@ for(const size of [{width:390,height:844},{width:844,height:390}]) test(`SoundKe
 });
 test('SoundKeys resumes the saved final phrase and number keys play digraphs',async({page})=>{
   await open(page,'hard');
-  await page.evaluate(async()=>{const {saveGameCheckpoint}=await import('/src/utils/learnGamesProgress.js');saveGameCheckpoint('fullscreen-overlay-preview','soundkeys','hard',9,10);});
+  await page.evaluate(async()=>{const {saveGameCheckpoint}=await import('/src/utils/learnGamesProgress.js');saveGameCheckpoint('fullscreen-overlay-preview','soundkeys','hard',23,24);});
   await page.reload();await page.getByRole('button',{name:'Continue',exact:true}).click();
-  await expect(page.locator('.sk-stage')).toHaveAttribute('data-round','9');
+  await expect(page.locator('.sk-stage')).toHaveAttribute('data-round','23');
   const id=await page.locator('.sk-stage').getAttribute('data-target');
   const tokens=await page.evaluate(async id=>(await import('/src/features/soundkeys/content.js')).SOUNDKEY_WORDS.find(w=>w.id===id).tokens,id);
   for(const token of tokens){

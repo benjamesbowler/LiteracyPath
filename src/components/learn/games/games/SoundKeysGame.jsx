@@ -8,18 +8,18 @@ import { speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { CAST } from "../../../../features/soundSeekers/v3/content/cast.js";
 import "./SoundKeysGame.css";
 
-const ROUNDS = 10;
+const ROUNDS = 24;
 const ALL_KEYS = [...SOUNDKEY_PROFILES.cvc, ...SOUNDKEY_PROFILES.digraphs];
 const DEFAULT_MAPPING = Object.fromEntries(ALL_KEYS.map((token, index) => [String(48 + index), token]));
 const BANDS = ["Meadow duet", "Hollow trio", "Moonwood ensemble"];
 
-export default function SoundKeysGame({ difficulty = "easy", sessionSeed = 0, seed = sessionSeed, startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
+export default function SoundKeysGame({ difficulty = "easy", sessionSeed = 0, journey = null, seed = sessionSeed, startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
   const rounds = useMemo(() => buildSoundKeySession(difficulty, seed, ROUNDS), [difficulty, seed]);
   const [round, setRound] = useState(() => Math.max(0, Math.min(Number(startLevel) || 0, ROUNDS - 1)));
   const [tokens, setTokens] = useState([]);
   const [feedback, setFeedback] = useState("");
   const [freePlay, setFreePlay] = useState(false);
-  const [voice, setVoice] = useState("bells");
+  const [voice, setVoice] = useState(journey?.variation === 1 ? "reeds" : "bells");
   const [bank, setBank] = useState(0);
   const [pressed, setPressed] = useState([]);
   const [celebrating, setCelebrating] = useState(false);
@@ -46,7 +46,7 @@ export default function SoundKeysGame({ difficulty = "easy", sessionSeed = 0, se
   const banks = Math.ceil(availableKeys.length / 8);
   const visibleKeys = availableKeys.slice(bank * 8, bank * 8 + 8);
   useEffect(() => { keyboardKeys.current = visibleKeys; }, [visibleKeys]);
-  const band = Math.min(2, Math.floor(round / 4));
+  const band = Math.min(2, Math.floor(round / 8));
   const cast = band === 0 ? [CAST.speedy, CAST.clucky] : band === 1 ? [CAST.chompy, CAST.sunny, CAST.dozy] : [CAST.pip, CAST.wren, CAST.fern];
 
   const stopSounds = useCallback(() => { cue.current?.abort(); cue.current = null; instrument.current?.stop(); held.current.clear(); window.clearTimeout(pulseTimer.current); setPlayingPulse(false); setPressed([]); }, []);
@@ -162,7 +162,7 @@ export default function SoundKeysGame({ difficulty = "easy", sessionSeed = 0, se
       <div className="soundkeys-game-board sk-phrase">
         <img className="sk-word-image" src={target.image} alt={target.alt} />
         <div className="soundkeys-game-word"><h2>{freePlay ? "Make your own music" : target.display}</h2><div className="soundkeys-token-row" aria-label="Sounds selected">{target.tokens.map((token, i) => <span key={i} className={tokens[i] ? "is-filled" : i === tokens.length ? "is-next" : ""}>{tokens[i] || "·"}</span>)}</div></div>
-        <button type="button" className="soundkeys-listen" aria-label={`Hear ${target.display} again`} disabled={!isSoundEnabled} onClick={() => speak(target.id)}>Hear ♪</button>
+        <button type="button" className="soundkeys-listen" aria-label={isSoundEnabled ? `Hear ${target.display} again` : "Word replay unavailable while sound is off"} disabled={!isSoundEnabled} onClick={() => speak(target.id)}>{isSoundEnabled ? "Hear word" : "Sound off"}</button>
       </div>
     </div>
     <div className="sk-feedback" role="status">{feedback || midiMessage || (freePlay ? "Explore every sound. Your word is saved." : "Play the sounds. Build the word.")}</div>

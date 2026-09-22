@@ -1,3 +1,4 @@
+import BlenderGardenBackdrop from "../shared/BlenderGardenBackdrop.jsx";
 import BlenderWorldVignette from '../shared/BlenderWorldVignette.jsx';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { buildLevel, WORLD_BY_DIFFICULTY, LEVELS_PER_LINE } from "../../../../utils/sentenceExpressLevels.js";
@@ -109,6 +110,7 @@ function TrainCar({ kind = "wagon", tone = 0, word, ghost = false, lit = false, 
 function Scenery({ world, isPaused }) {
   return <>
     <div className="sx-landscape" aria-hidden="true" />
+      <BlenderGardenBackdrop gameId="sentence-express" isPaused={isPaused} world={world} />
     <BlenderWorldVignette gameId="sentence-express" isPaused={isPaused} />
     {world === "moonwood" && [18, 38, 65, 84].map((left, i) =>
       <span key={left} className="sx-glowbug" aria-hidden="true" style={{ left: `${left}%`, top: `${31 + i * 4}%`, animationDelay: `${i * .7}s` }} />)}
@@ -196,7 +198,7 @@ export default function SentenceExpressGame({
   startLevel = 0,
   sessionKey,
   resumeEligible = false,
-  sessionSeed = 0,
+  sessionSeed = 0, journey: arcadeJourney = null,
   isSoundEnabled = true,
   onComplete = () => {},
   onQuit = () => {},
@@ -761,7 +763,7 @@ export default function SentenceExpressGame({
             <span>Delays <b>{mistakes ? `+${mistakes} min` : "none"}</b></span>
           </div>
           <button ref={ticketButton} type="button" className="sx-golden" onClick={finished ? (onRequestNextLevel || replayLine) : nextLevel}>
-            {finished ? (onRequestNextLevel ? "Next level" : "Play again") : levelIndex + 1 < LEVELS_PER_LINE ? "NEXT DEPARTURE ->" : "FINISH THE LINE"}
+            {finished ? (onRequestNextLevel ? (arcadeJourney ? "Next line" : "Next level") : "Play again") : levelIndex + 1 < LEVELS_PER_LINE ? "NEXT DEPARTURE ->" : "FINISH THE LINE"}
           </button>
           {finished && onRequestNextLevel && <button type="button" className="sx-golden" onClick={replayLine}>Replay level</button>}
         </section>

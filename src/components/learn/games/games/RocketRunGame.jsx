@@ -1,3 +1,4 @@
+import { gameRandom, replayWithinBands } from "../../../../utils/gameReplay.js";
 import { useEffect, useRef, useState } from "react";
 import {
   playCorrectChime,
@@ -43,7 +44,7 @@ import {
 // same bundled Three.js module as the other 3D games, so it remains offline
 // without downloading a second legacy runtime.
 const LANES = [-2.2, 0, 2.2];
-const ROUNDS_PER_GAME = 8;
+const ROUNDS_PER_GAME = 10;
 const SHIP_BASE_SCALE = 0.74;
 const CAMERA_FOV = 66;
 const BOOST_FOV = 78;
@@ -167,7 +168,8 @@ function startGame(THREE, mount, opts) {
   const laneX = lane => LANES[lane] * laneSpread();
   const count = difficultyCount(opts.difficulty);
   // Ramped, no-repeat sound targets for this difficulty (framework ladder).
-  const ladder = rocketRunLadder(opts.difficulty);
+  const random = gameRandom(opts.sessionSeed || 0);
+  const ladder = replayWithinBands(rocketRunLadder(opts.difficulty), opts.sessionSeed, target => target.length);
   const targets = ladder.length ? ladder : rocketRunTargets();
   const sfx = fn => { if (opts.getSound ? opts.getSound() : opts.isSoundEnabled) { try { fn(); } catch { /* audio optional */ } } };
   // Speech rides the same live sound gate as sfx and is purely additive —
@@ -1178,7 +1180,7 @@ function startGame(THREE, mount, opts) {
 
   function startRound() {
     clearApproachCue();
-    theme = ROUND_THEMES[roundIx % ROUND_THEMES.length];       // themed sector
+    theme = ROUND_THEMES[(roundIx + (opts.journey?.route || 0)) % ROUND_THEMES.length];       // themed sector
     fogTarget.set(theme.fog); ambientTarget.set(theme.ambient); // tweened in tick
     // Recolour the world so each sector looks distinct — stars, rails, backdrop sun.
     for (const layer of starLayers) layer.material.color.setHex(theme.star);
@@ -1231,7 +1233,7 @@ function startGame(THREE, mount, opts) {
     });
     const target = targets[roundIx % targets.length]; // walk the ramped ladder, no repeats
     roundTarget = target;
-    const round = buildRocketRunRound(target, { count, difficulty: opts.difficulty });
+    const round = buildRocketRunRound(target, { count, difficulty: opts.difficulty, random });
     el("letter").textContent = target;
     el("copy").innerHTML = "Catch the <b>" + target + "</b> words!";
     syncHearTargetControl();
@@ -1380,7 +1382,7 @@ function startGame(THREE, mount, opts) {
     // The round can't be passed without catching `needed` correct words. If the
     // queue empties short, top it back up so the child keeps getting chances
     // (plus a heart) — the round loops until they've caught enough or run out of hearts.
-    const round = buildRocketRunRound(roundTarget, { count, difficulty: opts.difficulty });
+    const round = buildRocketRunRound(roundTarget, { count, difficulty: opts.difficulty, random });
     for (const item of round.sequence) queue.push({ word: item.word, correct: item.correct });
     queue.splice(Math.floor(Math.random() * (queue.length + 1)), 0, { heart: true });
   }
@@ -1417,7 +1419,7 @@ function startGame(THREE, mount, opts) {
       finishGame();
       return;
     }
-    const nextTheme = ROUND_THEMES[roundIx % ROUND_THEMES.length];
+    const nextTheme = ROUND_THEMES[(roundIx + (opts.journey?.route || 0)) % ROUND_THEMES.length];
     const overlay = showOverlay(
       '<div><div style="font-size:2rem;font-weight:700;margin-bottom:4px">Planet reached!</div>' +
       '<div style="opacity:.85;margin-bottom:12px">Entering the <b>' + nextTheme.name + '</b></div>' +
@@ -1447,7 +1449,7 @@ function startGame(THREE, mount, opts) {
       '<div data-rr="rstars" style="font-size:2.3rem;letter-spacing:8px;min-height:2.5rem">✩✩✩</div>' +
       '<div style="font-size:1.15rem;opacity:.9">Score <b data-rr="rscore">0</b></div>' +
       '<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;width:100%;max-width:520px">' +
-      '<button type="button" data-rr="next" style="' + overlayButtonStyle + ';padding:10px 12px;font-size:.95rem;letter-spacing:0;text-transform:none;flex:1 1 130px">Next level</button>' +
+      '<button type="button" data-rr="next" style="' + overlayButtonStyle + ';padding:10px 12px;font-size:.95rem;letter-spacing:0;text-transform:none;flex:1 1 130px">Next trail</button>' +
       '<button type="button" data-rr="replay" style="' + overlayButtonStyle + ';padding:10px 12px;font-size:.95rem;letter-spacing:0;text-transform:none;flex:1 1 130px">Replay level</button>' +
       '<button type="button" data-rr="done" style="' + overlayButtonStyle + ';padding:10px 12px;font-size:.95rem;letter-spacing:0;text-transform:none;flex:1 1 130px">Back to Arcade</button>' +
       '</div>' +
@@ -1778,7 +1780,7 @@ function startGame(THREE, mount, opts) {
   return { teardown, pause, resume };
 }
 
-export default function RocketRunGame({ difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, onExit, onRequestNextLevel, onRequestReplay, isSoundEnabled = true }) {
+export default function RocketRunGame({ difficulty = "easy", sessionSeed = 0, journey = null, startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, onExit, onRequestNextLevel, onRequestReplay, isSoundEnabled = true }) {
   const mountRef = useRef(null);
   const [status, setStatus] = useState("loading");
   const soundRef = useRef(isSoundEnabled);
@@ -1794,7 +1796,7 @@ export default function RocketRunGame({ difficulty = "easy", startLevel = 0, onS
       .then(THREE => {
         if (cancelled || !mountRef.current || !THREE) return;
         try {
-          api = startGame(THREE, mountRef.current, { difficulty, startLevel, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onExit, onRequestNextLevel, onRequestReplay, getSound: () => soundRef.current });
+          api = startGame(THREE, mountRef.current, { difficulty, sessionSeed, journey, startLevel, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onExit, onRequestNextLevel, onRequestReplay, getSound: () => soundRef.current });
           if (onEngineReady) onEngineReady(api);
           setStatus("playing");
         } catch (err) {
@@ -1812,7 +1814,7 @@ export default function RocketRunGame({ difficulty = "easy", startLevel = 0, onS
       try { api.teardown(); } catch { /* ignore */ }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [difficulty]);
+  }, [difficulty, sessionSeed]);
 
   return (
     <div

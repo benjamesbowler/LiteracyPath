@@ -1,7 +1,8 @@
+import { arcadeJourneyChapter, completedArcadeChapters, nextArcadeChapter, validArcadeChapter } from "../../../utils/arcadeJourneys.js";
 import { useActivityMusic } from "../../../utils/audio/useActivityMusic.js";
 import { newGameSeed } from "../../../utils/gameReplay.js";
 import { nextWordMatchBoard, replayWordMatchBoard } from '../../../utils/wordMatchProgression.js';
-import { Component, Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { Component, Suspense, useCallback, useEffect, useRef, useState, useMemo } from "react";
 import { createPortal } from "react-dom";
 import { GAME_LIST } from "../../../data/learnGamesData";
 import { cancelSpeech, hasRecordedSpeech, speak } from "../../../utils/learnGamesAudio";
@@ -95,6 +96,12 @@ export function GamePlayer({
   const [musicEnabled, onMusicEnabledChange] = useActivityMusic(`${progressScopeKey}:${game.id}`);
   const [difficulty, setDifficulty] = useState(initialDifficulty);
   const [runIndex, setRunIndex] = useState(0);
+  const [chapterIndex, setChapterIndex] = useState(() => {
+    const record=loadLearnGamesProgress(progressScopeKey).games?.[game.id];
+    const chapter=record?.checkpoints?.[initialDifficulty]?.chapter;
+    return validArcadeChapter(chapter)?chapter:nextArcadeChapter(record,initialDifficulty);
+  });
+  const journey=useMemo(() => arcadeJourneyChapter(game.id,chapterIndex), [game.id,chapterIndex]);
   const [memoryStartBoard, setMemoryStartBoard] = useState(() => game.id === 'sight-word-memory'
     ? nextWordMatchBoard(loadLearnGamesProgress(progressScopeKey)) : 0);
   const [sessionSeed, setSessionSeed] = useState(() => {
@@ -108,6 +115,8 @@ export function GamePlayer({
   const [completed, setCompleted] = useState(false);
   const [completionResult, setCompletionResult] = useState(null);
   const [saveRecovery, setSaveRecovery] = useState(false);
+  const completedTrails=completionResult&&journey?completedArcadeChapters(loadLearnGamesProgress(progressScopeKey).games?.[game.id],difficulty).length:0;
+  const finishedJourney=Boolean(journey&&completedTrails===journey.total);
   const [progressStatus, setProgressStatus] = useState({ current: 0, total: 1 });
   // Resume the initially selected course. Continuing after completion can move
   // to another difficulty without leaving the game. resumePoint set => show the
@@ -368,7 +377,7 @@ export function GamePlayer({
     };
     pendingResultRef.current = {
       receipt,
-      args: [progressScopeKey, game.id, stars, settledScore, wordsCompleted, receipt.evidence, difficulty],
+      args: [progressScopeKey, game.id, stars, settledScore, wordsCompleted, receipt.evidence, difficulty, journey?.index],
       presentCompletion
     };
     return retryResultSave();
@@ -403,7 +412,7 @@ export function GamePlayer({
       setMemoryStartBoard(advance ? nextWordMatchBoard(loadLearnGamesProgress(progressScopeKey))
         : replayWordMatchBoard(savedResultRef.current.evidence, memoryStartBoard));
     }
-    const nextDifficulty = advance
+    const nextDifficulty = advance && !journey
       ? ({ easy: "medium", medium: "hard", hard: "hard" }[difficulty] || difficulty)
       : difficulty;
     cancelSpeech();
@@ -412,6 +421,7 @@ export function GamePlayer({
     engineRef.current = null;
     handleSessionStart();
     setDifficulty(nextDifficulty);
+    if(journey && advance)setChapterIndex(nextArcadeChapter(loadLearnGamesProgress(progressScopeKey).games?.[game.id],difficulty,chapterIndex));
     const checkpoint = advance && nextDifficulty !== difficulty
       ? loadGameCheckpoint(progressScopeKey, game.id, nextDifficulty) : null;
     setResumePoint(checkpoint);
@@ -427,8 +437,8 @@ export function GamePlayer({
   // froze games and reshuffled answer options every frame.
   const handleCheckpoint = useCallback((level, total) => {
     if (pendingResultRef.current || savedResultRef.current) return;
-    saveGameCheckpoint(progressScopeKey, game.id, difficulty, level, total, sessionSeed);
-  }, [progressScopeKey, game.id, difficulty, sessionSeed]);
+    saveGameCheckpoint(progressScopeKey, game.id, difficulty, level, total, sessionSeed, journey?.index);
+  }, [progressScopeKey, game.id, difficulty, sessionSeed, journey?.index]);
 
   function continueGame() {
     setStartLevel(resumePoint ? resumePoint.level : 0);
@@ -488,6 +498,8 @@ export function GamePlayer({
       aria-label={activeGameSurfaceName}
       data-surface-name={activeGameSurfaceName}
       data-pal-world={world.id}
+      data-journey-chapter={journey?.index}
+      data-journey-name={journey?.name}
       data-fullbleed={game.fullBleed ? "" : undefined}
       style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft, ...worldStyle(world), "--pal-scene": `url(${scene})` }}
     >
@@ -495,7 +507,7 @@ export function GamePlayer({
       <header className="lg-game-player-header" inert={hasBlockingOverlay || hasEngineOwnedCompletion ? true : undefined}>
         <div className="lg-game-title-chip">
           <strong>{game.title}</strong>
-          <span>{difficulty}</span>
+          <span>{journey ? `${journey.label} ${journey.index+1} / ${journey.total}` : difficulty}</span>
         </div>
         <div className="lg-game-player-center">
           {premiumProfile && <p className="lg-game-mission">{premiumProfile.mission}</p>}
@@ -550,6 +562,7 @@ export function GamePlayer({
                 key={`${game.id}:${difficulty}:${runIndex}`}
                 difficulty={difficulty}
                 sessionSeed={sessionSeed}
+                journey={journey}
                 startLevel={startLevel}
                 memoryStartBoard={memoryStartBoard}
                 progressScopeKey={progressScopeKey}
@@ -650,6 +663,7 @@ export function GamePlayer({
           <div>
             <span className="lg-premium-guide-kicker">Mission · v{premiumProfile.version}</span>
             <h2>{premiumProfile.mission}</h2>
+            {journey && <p>{journey.name} · {journey.label} {journey.index+1} of {journey.total}. Your place is saved as you play.</p>}
             <dl>
               <div><dt>What you are practising</dt><dd>{premiumProfile.objective}</dd></div>
               <div><dt>Game action</dt><dd>{premiumProfile.action}</dd></div>
@@ -677,17 +691,18 @@ export function GamePlayer({
           aria-label={`${game.title} complete`}
         >
           <div>
-            <span className="lg-premium-guide-kicker">Mission debrief</span>
-            <h2>{premiumProfile.completionTitle}</h2>
+            <span className="lg-premium-guide-kicker">{journey?.name || "Mission debrief"}</span>
+            <h2>{finishedJourney ? "Journey complete!" : premiumProfile.completionTitle}</h2>
             <ProgressStars stars={completionResult.stars} size="lg" />
-            <p>You earned {completionResult.score} points.</p>
+            <p className="lg-completion-score">You earned {completionResult.score} points.</p>
+            {journey && <p className="lg-completion-journey">{completedTrails} of {journey.total} {journey.label.toLowerCase()}s completed. {finishedJourney ? "You can explore again with fresh challenges." : "Your next adventure is ready."}</p>}
             <div className="lg-premium-complete-stat">
               <strong>{completionResult.words}</strong>
               <span>{premiumProfile.rewardLabel}</span>
             </div>
             <div className="lg-completion-actions">
-              <button type="button" className="primary" ref={completionActionRef} onClick={() => startAnotherRun(true)}>Next level</button>
-              <button type="button" onClick={() => startAnotherRun(false)}>Replay level</button>
+              <button type="button" className="primary" ref={completionActionRef} onClick={() => startAnotherRun(true)}>{finishedJourney ? "Explore again" : journey ? `Next ${journey.label.toLowerCase()}` : "Next level"}</button>
+              <button type="button" onClick={() => startAnotherRun(false)}>{journey ? "Play this again" : "Replay level"}</button>
               <button type="button" onClick={closePlayer}>Back to Arcade</button>
             </div>
           </div>

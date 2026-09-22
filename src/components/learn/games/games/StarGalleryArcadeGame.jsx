@@ -1,3 +1,5 @@
+import { createGardenWorld } from '../shared/arcadeGardenWorlds.js';
+import { arcadeSurfaceTexture, createGrovePaths } from '../shared/arcadeWorldSurfaces.js';
 import { createBlenderLandmarks } from '../shared/arcadeBlenderLandmarks.js';
 import { groveVehicleYaw, nearestCuttableTree } from "./sentenceGroveContact.js";
 import "../shared/arcadeMissionHud.css";
@@ -410,14 +412,15 @@ function makeGround(theme, world) {
     const x = position.getX(i);
     const z = position.getZ(i);
     const ripple = Math.sin(x * 0.13 + seed) * Math.cos(z * 0.11 - seed) * 0.86 + Math.sin((x + z) * 0.045) * 0.34;
-    position.setY(i, ripple - 0.16);
+    position.setY(i, -0.02);
     const light = clamp(0.44 + ripple * 0.16 + Math.sin(x * 0.04 - z * 0.035 + seed) * 0.18, 0, 1);
     const color = base.clone().lerp(light > 0.52 ? ridge : shadow, Math.abs(light - 0.52) * 1.45);
+    color.lerp(new THREE.Color("#ffffff"), .7);
     colors.push(color.r, color.g, color.b);
   }
   geometry.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
   geometry.computeVertexNormals();
-  const ground = new THREE.Mesh(geometry, material(theme.ground, { vertexColors: true }));
+  const ground = new THREE.Mesh(geometry, material("#ffffff", { vertexColors: true, map: arcadeSurfaceTexture("grass", world) }));
   ground.receiveShadow = true;
   return ground;
 }
@@ -757,23 +760,6 @@ function makeCourse(root, theme) {
   const bounds = { ...MAP_BOUNDS };
   const railMat = emissiveMaterial(theme.accent, 0.2);
   const postMat = material(theme.trim);
-  const clearingMat = material(theme.road, { roughness: 0.92, metalness: 0.01, transparent: true, opacity: 0.46 });
-  const clearings = [
-    [0, 66, 11, 7, 0],
-    [-52, 16, 12, 8, 0.3],
-    [38, -24, 11, 7, -0.4],
-    [86, 34, 10, 6, 0.6],
-    [-82, -44, 12, 7, -0.2]
-  ];
-  for (const [x, z, sx, sz, angle] of clearings) {
-    const clearing = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 0.06, 18), clearingMat);
-    clearing.scale.set(sx, 1, sz);
-    clearing.position.set(x, 0.02, z);
-    clearing.rotation.y = angle;
-    clearing.receiveShadow = true;
-    root.add(clearing);
-  }
-
   const addFencePost = (x, z, angle) => {
     const post = new THREE.Mesh(new THREE.BoxGeometry(0.34, 1.15, 0.34), postMat);
     post.position.set(x, 0.58, z);
@@ -1085,6 +1071,7 @@ function makeToken(label, isCorrect, answer, theme, position) {
     labelMesh,
     baseScale: labelMesh.scale.clone(),
     beacon,
+    treeFallback: [stump, trunk, lower, mid, top],
     glow,
     cutMark,
     signRail,
@@ -1335,6 +1322,7 @@ function createStarGalleryEngine(mount, options) {
   function reassessQualityTier() {
     premiumRender.setTier(detectQualityTier());
     qualityTier = premiumRender.effectiveTier;
+    gardenWorld?.setQuality(qualityTier);
     applyQualityTier(renderer, qualityTier, { floor: 1 });
     if (renderer.shadowMap) {
       renderer.shadowMap.type = THREE.PCFShadowMap;
@@ -1382,8 +1370,10 @@ function createStarGalleryEngine(mount, options) {
   }
 
   let blenderLandmarks;
+  let gardenWorld;
   mount.dataset.blenderWorld = "star-gallery";
   function clearLevel() {
+    gardenWorld?.dispose();
     blenderLandmarks?.dispose();
     if (state.levelRoot) {
       state.levelRoot.traverse(node => {
@@ -1423,9 +1413,9 @@ function createStarGalleryEngine(mount, options) {
       new THREE.Color(theme.sky).lerp(new THREE.Color("#fff4dc"), 0.18),
       world === "moonwood" ? 0.24 : 0.34
     );
-    const hemi = new THREE.HemisphereLight(theme.sky, theme.ground2, 1.42);
+    const hemi = new THREE.HemisphereLight("#dbe9ee", "#49553e", .95);
     root.add(ambient, hemi);
-    const sun = new THREE.DirectionalLight("#fff3cc", world === "moonwood" ? 2.0 : 2.45);
+    const sun = new THREE.DirectionalLight("#fff3cc", world === "moonwood" ? 1.35 : 1.8);
     sun.position.set(-18, 24, 18);
     sun.castShadow = qualityTier !== "low";
     sun.shadow.mapSize.set(1024, 1024);
@@ -1446,6 +1436,7 @@ function createStarGalleryEngine(mount, options) {
     state.worldRoot = worldRoot;
     root.add(worldRoot);
     worldRoot.add(makeGround(theme, world));
+    worldRoot.add(createGrovePaths(world, options.journey?.route || 0));
     const map = makeCourse(worldRoot, theme, world);
     state.mapBounds = map.bounds;
     const greenhousePlacements = [-1, 1].flatMap(side => [-.5, .5].map(depth => ({
@@ -1455,7 +1446,19 @@ function createStarGalleryEngine(mount, options) {
     }))).concat([-38, 40].map(x => ({ x, z: map.bounds.minZ - 20, height: 24, yaw: Math.PI })));
     blenderLandmarks = createBlenderLandmarks("star-gallery", greenhousePlacements, { onReady: group => premiumRender.prepareObject(group) });
     worldRoot.add(blenderLandmarks.root);
-    addScenery(worldRoot, theme, world, state.sceneryActors);
+    const sceneryFallback = new THREE.Group();
+    addScenery(sceneryFallback, theme, world, state.sceneryActors);
+    worldRoot.add(sceneryFallback);
+    gardenWorld = createGardenWorld('star-gallery', { world, route:options.journey?.route || 0, onReady: group => {
+      sceneryFallback.visible = false;
+      gardenWorld.attachRover(state.vehicle);
+      state.tokens.forEach(token => gardenWorld.attachTree(token));
+      gardenWorld.setQuality(qualityTier);
+      startCamp.visible = false;
+      premiumRender.prepareObject(group);
+      premiumRender.prepareObject(state.vehicle);
+    } });
+    worldRoot.add(gardenWorld.root);
 
     state.frameGroup = makeFrame(theme, { x: placement.frame[0], z: placement.frame[1], yaw: 0 });
     worldRoot.add(state.frameGroup);
@@ -1488,6 +1491,7 @@ function createStarGalleryEngine(mount, options) {
 
   function clearTokens() {
     if (!state.tokenRoot) return;
+    state.tokens.forEach(token => gardenWorld?.detachTree(token));
     for (const child of [...state.tokenRoot.children]) {
       state.tokenRoot.remove(child);
       disposeObject(child);
@@ -1513,7 +1517,7 @@ function createStarGalleryEngine(mount, options) {
     if (!rotatedChoices.some(entry => entry.isCorrect)) {
       rotatedChoices[rotatedChoices.length - 1] = { choice: repair.answer, copy: 0, isCorrect: true };
     }
-    const slots = rotate(SPREAD_FOREST_TOKEN_SLOTS, state.stage * 7 + state.itemIndex * 5 + state.gateSerial * 3);
+    const slots = rotate(SPREAD_FOREST_TOKEN_SLOTS, state.stage * 7 + state.itemIndex * 5 + state.gateSerial * 3 + (options.journey?.route || 0) * 4);
     const positions = assignTokenPositions(rotatedChoices, slots, state);
     state.gateLocked = false;
     state.selectedAnswer = "";
@@ -1525,6 +1529,7 @@ function createStarGalleryEngine(mount, options) {
       const token = makeToken(String(entry.choice), entry.isCorrect, String(entry.choice), theme, position);
       token.choice = entry.choice;
       state.tokenRoot.add(token.group);
+      gardenWorld?.attachTree(token);
       return token;
     });
     premiumRender.prepareObject(scene);
@@ -1711,6 +1716,7 @@ function createStarGalleryEngine(mount, options) {
     state.player.yaw += steerInput * turnPower * dt * (state.player.speed >= 0 ? 1 : -1);
     state.player.x += Math.sin(state.player.yaw) * state.player.speed * dt;
     state.player.z += Math.cos(state.player.yaw) * state.player.speed * dt;
+    gardenWorld?.resolvePosition(state.player);
     const clamped = clampPointToBounds(state.player, state.mapBounds, 3.4);
     const clampedX = clamped.x;
     const clampedZ = clamped.z;
@@ -1981,6 +1987,7 @@ function createStarGalleryEngine(mount, options) {
     if (state.paused || state.ended) return;
     dt = Math.min(0.05, dt);
     blenderLandmarks?.update(dt);
+    gardenWorld?.update(dt);
     if (state.countdown > 0) {
       state.countdown = Math.max(0, state.countdown - dt);
       updateScenery(dt);
@@ -2010,11 +2017,14 @@ function createStarGalleryEngine(mount, options) {
   function animate(now) {
     const dt = readFrameDelta(now);
     update(dt);
+    mount.dataset.gardenWorldState = gardenWorld?.root.userData.assetState || 'loading';
+    mount.dataset.gardenVehicle = state.vehicle?.userData.authoredAsset || 'fallback';
     mount.dataset.blenderWorldState = blenderLandmarks?.root.userData.assetState || "loading";
     mount.dataset.blenderWorldTime = String(blenderLandmarks?.root.userData.animationTime || 0);
     const renderedTier = premiumRender.render(dt);
     if (renderedTier !== qualityTier) {
       qualityTier = renderedTier;
+      gardenWorld?.setQuality(qualityTier);
       applyQualityTier(renderer, qualityTier, { floor: 1 });
     }
   }
@@ -2253,7 +2263,7 @@ function createStarGalleryEngine(mount, options) {
 export default function StarGalleryArcadeGame({
   kind,
   difficulty = "easy",
-  sessionSeed = 0,
+  sessionSeed = 0, journey = null,
   startLevel = 0,
   onScoreUpdate,
   onProgressUpdate,
@@ -2292,7 +2302,7 @@ export default function StarGalleryArcadeGame({
     const engine = createStarGalleryEngine(mountRef.current, {
       kind,
       difficulty,
-      sessionSeed,
+      sessionSeed, journey,
       startLevel,
       debugGlobalName,
       getSound: () => soundRef.current,
@@ -2303,7 +2313,7 @@ export default function StarGalleryArcadeGame({
       onEngineReady: api => handlersRef.current.onEngineReady?.(api)
     });
     return () => engine.destroy();
-  }, [kind, difficulty, sessionSeed, startLevel, debugGlobalName]);
+  }, [kind, difficulty, sessionSeed, startLevel, debugGlobalName, journey]);
 
   return (
     <div

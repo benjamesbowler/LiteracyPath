@@ -1,3 +1,4 @@
+import * as arcadeJourneys from "../../src/utils/arcadeJourneys.js";
 import assert from "node:assert/strict";
 import test from "node:test";
 import { readFileSync } from "node:fs";
@@ -67,6 +68,11 @@ function setup(t, gameId = "rhyme-pop") {
       const i = cursor++;
       return slots[i] ??= { current: initial };
     },
+    useMemo(fn, deps) {
+      const i=cursor++;
+      if(!slots[i]||changed(slots[i].deps,deps))slots[i]={value:fn(),deps};
+      return slots[i].value;
+    },
     useCallback(fn, deps) {
       const i = cursor++;
       if (!slots[i] || changed(slots[i].deps, deps)) slots[i] = { fn, deps };
@@ -89,7 +95,7 @@ function setup(t, gameId = "rhyme-pop") {
   let paused = false;
   const api = { pause() { paused = true; }, resume() { paused = false; } };
   const imports = {
-    ...hooks, ...progress, ...surfaceNames, ...wordMatchProgression, element,
+    ...hooks, ...progress, ...surfaceNames, ...wordMatchProgression, ...arcadeJourneys, element,
     useActivityMusic: () => hooks.useState(false), newGameSeed,
     Component: class {}, Suspense: "Suspense", createPortal: content => content,
     GAME_LIST, LEARN_GAMES: { [gameId]: Engine }, premiumProfileForGame,
@@ -159,7 +165,7 @@ for (const game of GAME_LIST) {
     h.flush();
     assert.equal(h.engine().onRequestNextLevel(), true);
     h.flush();
-    assert.equal(h.engine().difficulty, "medium");
+    assert.equal(h.engine().difficulty, arcadeJourneys.ARCADE_JOURNEYS[game.id] ? "easy" : "medium");
     assert.notEqual(h.engine().sessionSeed, firstSeed);
     const secondSeed = h.engine().sessionSeed;
     assert.equal(h.closed, 0);
@@ -168,7 +174,7 @@ for (const game of GAME_LIST) {
     assert.equal(h.read().plays, 2);
     assert.equal(h.engine().onRequestReplay(), true);
     h.flush();
-    assert.equal(h.engine().difficulty, "medium");
+    assert.equal(h.engine().difficulty, arcadeJourneys.ARCADE_JOURNEYS[game.id] ? "easy" : "medium");
     assert.notEqual(h.engine().sessionSeed, secondSeed);
     assert.equal(h.closed, 0);
     h.engine().onComplete(3, 130, 6, evidence());
@@ -189,12 +195,12 @@ test("next/replay cannot replace a failed result and advancing preserves another
   assert.equal(h.engine().sessionSeed, firstSeed);
   h.reject(() => false);
   h.click(/try saving again/i);
-  h.click(/Next level/);
+  h.click(/Next trail/);
   assert.equal(h.read().plays, 1);
   assert.deepEqual(h.read().checkpoints.medium, { level: 3, totalLevels: 10 });
-  h.click(/^Continue$/);
-  assert.equal(h.engine().startLevel, 3);
-  assert.equal(h.engine().difficulty, "medium");
+  assert.equal(h.engine().startLevel, 0);
+  assert.equal(h.engine().difficulty, "easy");
+  assert.equal(h.engine().journey.index, 1);
 });
 
 test("result and matching checkpoint cleanup share one atomic write; old callers retain checkpoints", t => {
@@ -225,7 +231,7 @@ test("failed final-action save returns false, pauses, and explicitly retries the
   assert.equal(h.recovery().props["aria-label"], "Save game progress");
   assert.equal(h.paused, true);
   assert.equal(h.read().plays || 0, 0);
-  assert.deepEqual(h.read().checkpoints.easy, { level: 2, totalLevels: 5, sessionSeed: h.engine().sessionSeed });
+  assert.deepEqual(h.read().checkpoints.easy, { level: 2, totalLevels: 5, sessionSeed: h.engine().sessionSeed, chapter:0 });
   assert.equal(h.missions.length, 0);
   assert.equal(h.updates.length, 0);
   assert.equal(h.dialogs().length, 1);

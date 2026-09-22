@@ -14,6 +14,9 @@ import { buildSoundRacerRace } from '../../src/utils/soundRacerRace.js';
 const root = new URL('../../', import.meta.url);
 const manifest = JSON.parse(fs.readFileSync(new URL('public/game-assets/arcade-blender/manifest.json', root)));
 const bytesFor = url => fs.readFileSync(new URL(`public${url}`, root));
+// Node supplies geometry/animation proof; browser tests render texture pixels.
+globalThis.self=globalThis;
+globalThis.createImageBitmap=async()=>({width:512,height:512,close(){}});
 const parse = bytes => new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength), '');
 
 test('owned Blender GLBs are complete, small, traceable and valid through the runtime loader', async () => {
@@ -48,7 +51,7 @@ test('owned Blender GLBs are complete, small, traceable and valid through the ru
 test('landmarks and foliage retain their actual exported footprint outside every adjacent bend', async () => {
   const radii = {};
   for (const [name, url] of Object.entries(RACER_SCENERY_URLS)) {
-    if (!url.includes('/arcade-blender/')) continue;
+    if (!url.includes('/arcade-blender/') && !url.includes('/arcade-worlds/')) continue;
     const gltf = await parse(bytesFor(url));
     const size = new THREE.Box3().setFromObject(gltf.scene).getSize(new THREE.Vector3());
     radii[name] = Math.hypot(size.x, size.z) / size.y / 2;

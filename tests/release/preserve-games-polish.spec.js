@@ -11,6 +11,7 @@ test.afterEach(async ({ page }, info) => {
 });
 
 async function exposeReadOnlyState(page, kind) {
+  await page.clock.install();
   const file = kind === 'rhyme-pop' ? 'RhymePopArcadeGame' : 'ReelReadGame';
   await page.route(`**/src/components/learn/games/games/${file}.jsx*`, async route => {
     const response = await route.fetch();
@@ -37,7 +38,7 @@ async function exposeReadOnlyState(page, kind) {
 
 async function resumeAt(page, game, difficulty, level) {
   await page.addInitScript(({ game, difficulty, level }) => {
-    localStorage.setItem('literacy-guide-learn-games:fullscreen-overlay-preview', JSON.stringify({ games: { [game]: { checkpoints: { [difficulty]: { level, totalLevels: 10 } } } } }));
+    localStorage.setItem('literacy-guide-learn-games:fullscreen-overlay-preview', JSON.stringify({ games: { [game]: { checkpoints: { [difficulty]: { level, totalLevels: 10, sessionSeed: 0 } } } } }));
   }, { game, difficulty, level });
 }
 
@@ -95,7 +96,6 @@ test('Rhyme Pop easy judges a physically hit wrong balloon without consuming a r
   await exposeReadOnlyState(page, 'rhyme-pop');
   await page.goto('/preview/game-overlay.html?game=rhyme-pop&difficulty=easy&sound=0&music=0');
   await page.waitForFunction(() => window.__rhymeReview);
-  await page.clock.install();
   expect((await page.evaluate(() => window.__rhymeReview.debugSnapshot())).countdown).toBe(0);
   await page.clock.runFor(1800);
   const canvas = page.locator('canvas').first();
@@ -123,7 +123,6 @@ test('Reel narrow HUD, reachable rod tip and held-input pause remain usable', as
   await exposeReadOnlyState(page, 'reel-read');
   await page.goto('/preview/game-overlay.html?game=reel-read&difficulty=easy&sound=0&music=0');
   await page.waitForFunction(() => window.__reelInspect);
-  await page.clock.install();
   await page.screenshot({ path: info.outputPath('reel-narrow.png') });
   const panels = await page.evaluate(() => Object.values(window.__reelPanels));
   for (let i = 0; i < panels.length; i++) for (let j = i + 1; j < panels.length; j++) {
@@ -181,8 +180,7 @@ for (const [difficulty, level, target] of [['medium', 4, 'noisy'], ['hard', 3, '
     await page.goto(`/preview/game-overlay.html?game=reel-read&difficulty=${difficulty}&sound=0&music=0`);
     await page.getByRole('button', { name: /Continue/i }).click();
     await page.waitForFunction(() => window.__reelInspect);
-    await page.clock.install();
-    const initial = await page.evaluate(() => window.__reelInspect());
+      const initial = await page.evaluate(() => window.__reelInspect());
     expect(initial.level.target).toBe(target);
     expect(initial.level.correctWords).toHaveLength(2);
     const result = await catchThroughInput(page, level);
@@ -198,17 +196,17 @@ test('Reel full easy outing measures active fishing and stays available for the 
   await exposeReadOnlyState(page, 'reel-read');
   await page.goto('/preview/game-overlay.html?game=reel-read&difficulty=easy&sound=0&music=0');
   await page.waitForFunction(() => window.__reelInspect);
-  await page.clock.install();
-  const result = await catchThroughInput(page, 9, { maximumSteps: 2400, progressPath: info.outputPath('fishing-progress.json') });
+  const result = await catchThroughInput(page, 9, { maximumSteps: 4200, progressPath: info.outputPath('fishing-progress.json') });
   expect(result.visited).toHaveLength(10);
   expect(result.state.phase).toBe('finished');
   expect(result.simulatedSeconds).toBeGreaterThanOrEqual(120);
   expect(result.state.landedFights).toHaveLength(23);
   await writeFile(info.outputPath('full-fishing-outing.json'), JSON.stringify(result, null, 2));
   await page.screenshot({ path: info.outputPath('full-fishing-outing.png') });
-  await expect(page.getByRole('button', { name: 'Next level', exact: true })).toBeVisible();
-  await page.getByRole('button', { name: 'Next level', exact: true }).click();
-  await page.waitForFunction(() => window.__reelInspect?.().level.world === 'dino');
+  await expect(page.getByRole('button', { name: 'Next trail', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Next trail', exact: true }).click();
+  await expect(page.locator('[data-journey-chapter]')).toHaveAttribute('data-journey-chapter', '1');
+  await page.waitForFunction(() => window.__reelInspect?.().level.world === 'meadow');
   expect((await page.evaluate(() => window.__reelInspect())).phase).toBe('playing');
 });
 
@@ -220,16 +218,15 @@ test('Reel resumed final encounter scores only its played catches and offers rep
   await page.goto('/preview/game-overlay.html?game=reel-read&difficulty=easy&sound=0&music=0');
   await page.getByRole('button', { name: 'Continue', exact: true }).click();
   await page.waitForFunction(() => window.__reelInspect);
-  await page.clock.install();
   const result = await catchThroughInput(page, 9);
   expect(result.state.phase).toBe('finished');
   expect(result.state.wordsCaught).toBe(2);
   expect(result.state.mistakes).toBeLessThanOrEqual(1);
-  await expect(page.getByRole('button', { name: 'Replay level', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Play this again', exact: true })).toBeVisible();
   const record = await page.evaluate(() => JSON.parse(localStorage.getItem('literacy-guide-learn-games:fullscreen-overlay-preview')).games['reel-read']);
   expect(record.stars).toBe(3);
   await writeFile(info.outputPath('resumed-reel-score.json'), JSON.stringify({ result, record }, null, 2));
-  await page.getByRole('button', { name: 'Replay level', exact: true }).click();
+  await page.getByRole('button', { name: 'Play this again', exact: true }).click();
   await page.waitForFunction(() => window.__reelInspect?.().levelIndex === 0);
 });
 
@@ -239,14 +236,13 @@ test('Rhyme full easy festival measures real shots and keeps next-level play ava
   await exposeReadOnlyState(page, 'rhyme-pop');
   await page.goto('/preview/game-overlay.html?game=rhyme-pop&difficulty=easy&sound=0&music=0');
   await page.waitForFunction(() => window.__rhymeReview);
-  await page.clock.install();
   const visited = new Set();
   let seconds = 0;
   for (let step = 0; step < 700; step++) {
     const first = await page.evaluate(() => window.__rhymeReview.debugSnapshot());
     visited.add(first.stage);
     if (step % 10 === 0) await writeFile(info.outputPath('rhyme-progress.json'), JSON.stringify({ step, seconds, visited: [...visited], state: first }, null, 2));
-    if (await page.getByRole('button', { name: 'Next level', exact: true }).count()) break;
+    if (await page.getByRole('button', { name: 'Next trail', exact: true }).count()) break;
     if (first.roundPendingAdvance || first.shots) {
       await page.clock.runFor(300); seconds += .3; continue;
     }
@@ -268,10 +264,14 @@ test('Rhyme full easy festival measures real shots and keeps next-level play ava
   await writeFile(info.outputPath('full-rhyme-festival.json'), JSON.stringify({ seconds, visited: [...visited], final }, null, 2));
   expect(visited.size).toBe(24);
   expect(final.elapsedSeconds).toBeGreaterThanOrEqual(120);
-  await expect(page.getByRole('button', { name: 'Next level', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Next trail', exact: true })).toBeVisible();
   await page.screenshot({ path: info.outputPath('full-rhyme-festival.png') });
-  await page.getByRole('button', { name: 'Next level', exact: true }).click();
-  await page.waitForFunction(() => window.__rhymeReview?.debugSnapshot().backgroundSrc.includes('dino'));
+  await page.getByRole('button', { name: 'Next trail', exact: true }).click();
+  await expect(page.locator('[data-journey-chapter]')).toHaveAttribute('data-journey-chapter', '1');
+  await page.waitForFunction(() => window.__rhymeReview?.debugSnapshot().stage === 0);
+  const record = await page.evaluate(() => JSON.parse(localStorage.getItem('literacy-guide-learn-games:fullscreen-overlay-preview')).games['rhyme-pop']);
+  expect(record.journeys.easy.completed).toEqual([0]);
+  expect(record.journeys.medium).toBeUndefined();
   expect((await page.evaluate(() => window.__rhymeReview.debugSnapshot())).stage).toBe(0);
 });
 
@@ -281,7 +281,6 @@ test('Reel physical fight follows the line, freezes on pause and lands through t
   await exposeReadOnlyState(page, 'reel-read');
   await page.goto('/preview/game-overlay.html?game=reel-read&difficulty=easy&sound=0&music=0');
   await page.waitForFunction(() => window.__reelInspect);
-  await page.clock.install();
   const hooked = await catchThroughInput(page, 0, { stopOnHook: true });
   expect(hooked.state.boat.hookState).toBe('reeling');
   expect(hooked.state.caught).toEqual([]);
@@ -335,7 +334,6 @@ test('Reel deep pull escape preserves literacy progress and the required fish', 
   await page.goto('/preview/game-overlay.html?game=reel-read&difficulty=easy&sound=0&music=0');
   await page.getByRole('button', { name: /^Continue/ }).click();
   await page.waitForFunction(() => window.__reelInspect);
-  await page.clock.install();
   const firstLanded = await catchThroughInput(page, 9, { stopAfterCatches: 1 });
   expect(firstLanded.state.caught).toHaveLength(1);
   await page.keyboard.up('Space');
@@ -367,7 +365,6 @@ test('Reel 100ms rendering frames preserve active line timing', async ({ page },
   await exposeReadOnlyState(page, 'reel-read');
   await page.goto('/preview/game-overlay.html?game=reel-read&difficulty=easy&sound=0&music=0');
   await page.waitForFunction(() => window.__reelInspect);
-  await page.clock.install();
   const hooked = await catchThroughInput(page, 0, { stopOnHook: true });
   await page.keyboard.down('Space');
   const before = await page.evaluate(() => window.__reelInspect());

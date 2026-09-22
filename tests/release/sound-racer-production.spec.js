@@ -61,8 +61,9 @@ test('low quality and missing primary GLB retain the exact skinned driver', asyn
   test.setTimeout(60000);
   const hud = await launch(page, 'hard', { low: true, failAsset: true });
   await page.clock.install();
-  await page.keyboard.down('ArrowRight'); await page.clock.runFor(280); await page.keyboard.up('ArrowRight');
+  await page.keyboard.down('ArrowRight'); await page.clock.runFor(280);
   await expect(hud).toHaveAttribute('data-sound-racer-driver', 'turn_right');
+  await page.keyboard.up('ArrowRight');
   const inspection = await page.locator('.sound-racer').evaluate(node => node.racerInspection);
   expect(inspection.tier).toBe('low');
   expect(inspection.kart.recoveredAsset).toBe(true);
