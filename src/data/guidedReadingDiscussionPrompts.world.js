@@ -14,35 +14,35 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
   }),
   "meadow-pals-02-woolly-cant-sleep": Object.freeze({
     oral: Object.freeze({
-      prompt: "How does Woolly finally manage to fall asleep?",
-      listenFor: "Notice that Woolly stops attending to the wind, bug, and moo."
+      prompt: "What does Woolly do after listening to all the noises?",
+      listenFor: "She takes a slow breath, nestles in the straw and falls asleep."
     }),
     visual: Object.freeze({
       page: 8,
-      prompt: "How can you tell Woolly has stopped listening for every sound?",
-      lookFor: "Find Woolly resting quietly instead of reacting to another noise."
+      prompt: "How is Woolly resting now?",
+      lookFor: "She is curled low in the straw instead of sitting up and listening."
     })
   }),
   "meadow-pals-03-clucky-lays-an-egg": Object.freeze({
     oral: Object.freeze({
-      prompt: "What makes the dry corner a safer nest than Clucky's other choices?",
-      listenFor: "The child may compare the soft straw with the high, hard, small, or tipping places."
+      prompt: "Why is the final nest better than Clucky's other choices?",
+      listenFor: "It is in a dry corner with soft straw rather than a high, hard, small or tipping place."
     }),
     visual: Object.freeze({
-      page: 7,
-      prompt: "What does the farmer add to make Clucky's corner ready?",
-      lookFor: "See the farmer bringing soft straw into Clucky's dry corner."
+      page: 8,
+      prompt: "Where does Clucky's egg rest?",
+      lookFor: "The egg is settled in the soft straw beside Clucky."
     })
   }),
   "meadow-pals-04-bouncy-wont-stop": Object.freeze({
     oral: Object.freeze({
-      prompt: "What does Bouncy change so she can keep hopping without hurting anyone?",
-      listenFor: "Listen for Bouncy stopping first and then hopping past without another bump."
+      prompt: "What does Bouncy do after spilling the water and eggs?",
+      listenFor: "She fetches water, gathers the eggs and then hops around her friends."
     }),
     visual: Object.freeze({
       page: 6,
-      prompt: "Why are Bouncy's friends watching her while she stands still?",
-      lookFor: "Point out Bouncy stopped on the path with her friends looking on."
+      prompt: "What has Bouncy put back for her friends?",
+      lookFor: "The pail is full of water again and the intact eggs are being returned to the upright basket."
     })
   }),
   "meadow-pals-05-grumpy-gets-a-surprise": Object.freeze({
@@ -58,13 +58,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
   }),
   "meadow-pals-06-sleepy-cant-wake-up": Object.freeze({
     oral: Object.freeze({
-      prompt: "Which attempt wakes Sleepy when tapping, a bell, and a loud call do not?",
-      listenFor: "The key event is Sleepy smelling hot toast and joining the table."
+      prompt: "What finally gets Sleepy to breakfast?",
+      listenFor: "Sleepy smells the hot toast and sits at the breakfast table."
     }),
     visual: Object.freeze({
-      page: 8,
-      prompt: "What reaches Sleepy from the breakfast table?",
-      lookFor: "Notice Sleepy smelling the hot toast while still near the bed."
+      page: 9,
+      prompt: "What is different from the first page?",
+      lookFor: "Sleepy is sitting at the table with Noisy instead of lying in bed."
     })
   }),
   "meadow-pals-07-noisy-tries-to-be-quiet": Object.freeze({
@@ -113,13 +113,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
   }),
   "meadow-pals-11-brave-climbs-the-hay-bale": Object.freeze({
     oral: Object.freeze({
-      prompt: "What new route lets Brave reach the top of the hay bale?",
-      listenFor: "The important change is leaving the steep side and finding a lower step."
+      prompt: "What helps Brave climb up after falling twice?",
+      listenFor: "A lower step gives him a different way up, and he uses that route to come down."
     }),
     visual: Object.freeze({
       page: 7,
-      prompt: "Which part of the hay bale gives Brave an easier place to climb?",
-      lookFor: "Identify the lower step Brave can use instead of the steep side."
+      prompt: "Where can Brave put a foot?",
+      lookFor: "A small lower foothold sticks out of the hay bale."
     })
   }),
   "meadow-pals-12-hungry-eats-everything": Object.freeze({
@@ -135,13 +135,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
   }),
   "meadow-pals-13-splashy-finds-a-puddle": Object.freeze({
     oral: Object.freeze({
-      prompt: "How does Splashy make things right after her big splash upsets her friends?",
-      listenFor: "A complete retell includes drying Clucky's hat and bed, then choosing open space."
+      prompt: "How does Splashy respond to the wet friends?",
+      listenFor: "Splashy dries Grumpy and the hat, then chooses a puddle with open space."
     }),
     visual: Object.freeze({
       page: 8,
-      prompt: "Which wet things is Splashy taking care of after the accident?",
-      lookFor: "Find Splashy drying both Clucky's dripping hat and the soaked bed."
+      prompt: "What shows that Splashy is helping both friends?",
+      lookFor: "A towel is on Grumpy and Splashy is wiping the red hat for Clucky."
     })
   }),
   "meadow-pals-14-speedy-slows-down": Object.freeze({
@@ -349,8 +349,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
     }),
     visual: Object.freeze({
       page: 7,
-      prompt: "Why is Tiny turning the oval berry sideways at the root?",
-      lookFor: "Compare the berry's narrow end with the opening beside the raised root."
+      prompt: "How has Tiny turned the berry to get it past the root?",
+      lookFor: "The oval berry is turned with its narrower end toward the gap."
     })
   }),
   "meadow-pals-33-braves-beetle-bridge": Object.freeze({
@@ -366,13 +366,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
   }),
   "meadow-pals-34-grumpys-sun-clock": Object.freeze({
     oral: Object.freeze({
-      prompt: "How do the stone marks help Grumpy keep lunch cool until noon?",
-      listenFor: "Listen for Grumpy tracking the moving shade and predicting its noon position."
+      prompt: "Why does Grumpy keep moving his lunch, and where does he finally put it?",
+      listenFor: "The shade moves and sunlight reaches his lunch. He pulls it beside the trunk, which is still shaded."
     }),
     visual: Object.freeze({
       page: 6,
-      prompt: "What is Grumpy comparing when he studies the two stones under the oak?",
-      lookFor: "Find the separate shadow-edge marks showing how far the shade has moved."
+      prompt: "Where can Grumpy still find shade?",
+      lookFor: "The ground close to the trunk remains shaded, beyond his earlier marks."
     })
   }),
   "meadow-pals-35-gigglys-round-wheel": Object.freeze({
@@ -422,18 +422,18 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
   "moonwood-tales-c-04": Object.freeze({
     oral: Object.freeze({
       prompt: "How does Glimmer solve the seed-pouch problem without ever making a flame?",
-      listenFor: "A strong response explains how steady cinnamon warmth swirls leaves and startles the fox."
+      listenFor: "Connects the cinnamon breath reaching the fox's nose with its sneeze and the dropped seed pouch."
     }),
     visual: Object.freeze({
       page: 11,
-      prompt: "What does Glimmer's warm breath move across the fox's path?",
-      lookFor: "Trace the dry leaves swirling between Glimmer and the fox as the pouch drops."
+      prompt: "What makes the fox let go of Fern's pouch?",
+      lookFor: "Notices the sneeze as Glimmer's warm breath reaches the fox and the pouch falls."
     })
   }),
   "moonwood-tales-c-05": Object.freeze({
     oral: Object.freeze({
       prompt: "What does Wren learn from reading the backwards spell too quickly?",
-      listenFor: "Listen for checking every mark, following the direction arrow, and choosing a safe step stool."
+      listenFor: "Connects the overlooked direction arrow with reading the spell backward, and Luna holding the curled page so Wren can finish."
     }),
     visual: Object.freeze({
       page: 5,
@@ -455,23 +455,23 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
   "moonwood-tales-c-07": Object.freeze({
     oral: Object.freeze({
       prompt: "How does Dewdrop help Ripple move from boasting to telling a real story?",
-      listenFor: "Listen for calm questions, checked records, an honest admission, and facts about the cold spring."
+      listenFor: "Connects Burrow's dry tunnels with Dewdrop's calm question, the fish admitting its lie, and the real cold-spring discovery."
     }),
     visual: Object.freeze({
       page: 9,
-      prompt: "What does Ripple's blue stripe lead Dewdrop to notice beneath the root?",
-      lookFor: "Follow the stripe toward tiny bubbles flashing under the twisting root."
+      prompt: "What small sign beneath the root does the fish show Dewdrop?",
+      lookFor: "Finds the bubbles flashing under the root as Dewdrop listens to the fish's real observation."
     })
   }),
   "moonwood-tales-c-08": Object.freeze({
     oral: Object.freeze({
-      prompt: "How does Burrow use Hollow Oak itself to work out the hidden door's rule?",
-      listenFor: "The solution comes from matching the carved roots to the real root that points north."
+      prompt: "How do Luna and Burrow find a way to open the hidden door?",
+      listenFor: "Follows the gold line to a deep notch and explains how Burrow's digging claw reaches the latch."
     }),
     visual: Object.freeze({
       page: 8,
-      prompt: "Which real root does Burrow compare with the marks carved into the door?",
-      lookFor: "Identify the north-pointing root and Burrow pressing its matching carved symbol."
+      prompt: "What part of Burrow's paw fits into the notch?",
+      lookFor: "Finds one digging claw pressing into the narrow notch at the end of the glowing carved root."
     })
   }),
   "moonwood-tales-c-09": Object.freeze({
@@ -481,8 +481,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
     }),
     visual: Object.freeze({
       page: 12,
-      prompt: "What three recipe details does Wren verify before making the remedy?",
-      lookFor: "Locate the correct leaf picture, direction arrow, and three-drop dose in her book."
+      prompt: "How do Wren and Spark share the work of making the leaf wash?",
+      lookFor: "Finds Wren measuring at the recipe book while Spark gathers leaves and carries the finished bowl."
     })
   }),
   "moonwood-tales-c-10": Object.freeze({
@@ -521,12 +521,12 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
   "moonwood-tales-c-13": Object.freeze({
     oral: Object.freeze({
       prompt: "What changes when Glimmer and Spark replace their crowded lessons with one small action?",
-      listenFor: "Listen for one floating boot, five gliding steps, and a repeatable warm breath."
+      listenFor: "Connects the spell supporting one relaxed leg with Spark noticing Glimmer's steady gliding breath and using it to warm his hands."
     }),
     visual: Object.freeze({
       page: 8,
-      prompt: "What happens when Spark stops waving and slowly raises just one boot?",
-      lookFor: "See the single boot hovering steadily above the grass while his wand stays lowered."
+      prompt: "How can we tell that Spark's boot is being held up by the spell?",
+      lookFor: "Finds the gold curl supporting the raised boot while Spark relaxes his leg."
     })
   }),
   "moonwood-tales-c-14": Object.freeze({
@@ -542,24 +542,24 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
   }),
   "moonwood-tales-c-15": Object.freeze({
     oral: Object.freeze({
-      prompt: "How does the Story Gallery reveal the correct order of its pictures?",
-      listenFor: "As Luna tells each part, the matching carving glows and passes light to the next."
+      prompt: "How does Burrow work out which part of the gallery story comes first?",
+      listenFor: "Compares the trees' sizes, then follows the fallen acorn, buried seed and tree growing around the rabbit's doorway."
     }),
     visual: Object.freeze({
       page: 11,
-      prompt: "What carries Luna's story from one wall carving to another?",
-      lookFor: "Follow the clear path of light joining each newly brightened picture."
+      prompt: "What does Burrow recognize in the final tree picture?",
+      lookFor: "Finds the little round rabbit doorway inside the huge oak and connects it with Hollow Oak."
     })
   }),
   "moonwood-tales-c-16": Object.freeze({
     oral: Object.freeze({
       prompt: "Which clues show Pip and Glimmer that Burrow moved the objects while asleep?",
-      listenFor: "A supported account connects the tipped bench, pocketed biscuits, muddy trail, and dirty boot."
+      listenFor: "Connects the tipped bench, Burrow carrying the boots with closed eyes, biscuit crumbs and the muddy footprints."
     }),
     visual: Object.freeze({
       page: 11,
       prompt: "How do the muddy footprints connect Burrow to Pip's missing boots?",
-      lookFor: "Compare the trail across the clearing with the mud on Burrow's boot."
+      lookFor: "Traces the footprints toward Burrow and the boots, alongside the crumbs he discovers in his pockets."
     })
   }),
   "moonwood-tales-c-17": Object.freeze({
@@ -570,13 +570,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
     visual: Object.freeze({
       page: 9,
       prompt: "How do the marching plants respond when Fern begins the slow root-song?",
-      lookFor: "See every pot stop, turn toward Fern's voice, and wait."
+      lookFor: "Notices the bare-root plants stop walking and turn toward Fern as she sings."
     })
   }),
   "moonwood-tales-c-18": Object.freeze({
     oral: Object.freeze({
       prompt: "What helps Stone act even though he still dislikes getting wet?",
-      listenFor: "The fish's danger matters enough for Stone to breathe slowly and grip the dry rock edge."
+      listenFor: "The trapped fish's need draws Stone back to the water; he grips the dry rock top, lowers his fingers and keeps his hand there despite the cold."
     }),
     visual: Object.freeze({
       page: 9,
@@ -686,7 +686,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
   "moonwood-tales-c-28": Object.freeze({
     oral: Object.freeze({
       prompt: "Why does Fern stop singing and begin using three separate taps?",
-      listenFor: "Each sung note creates another loop, while spaced taps guide one curve toward the frame."
+      listenFor: "Contrasts long notes that tighten loops with brief taps that draw the root toward a sound and onto the supporting frame."
     }),
     visual: Object.freeze({
       page: 9,
@@ -713,7 +713,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
     visual: Object.freeze({
       page: 8,
       prompt: "Which shape do the seven reflected lights form after Luna checks the real sky?",
-      lookFor: "Trace one clear owl outline made from exactly seven ceiling lights."
+      lookFor: "Trace the owl outline made from exactly seven reflected lights."
     })
   }),
   "moonwood-tales-c-31": Object.freeze({
@@ -762,13 +762,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WORLD = Object.freeze({
   }),
   "moonwood-tales-c-35": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why do Pip and Stone choose a different tapping object for each root chime?",
-      listenFor: "Listen for matching weight and touch to chime size so four notes stay clear and separate."
+      prompt: "Why do Pip and Stone try more than one kind of touch on the chimes?",
+      listenFor: "Connects the heavy pebble's harsh strikes with the gentler acorn, leaf stem, smooth stone and fingertip making separate notes."
     }),
     visual: Object.freeze({
       page: 6,
       prompt: "Which four touches make clean sounds from the four differently sized chimes?",
-      lookFor: "Match the smooth stone, acorn, leaf stem, and Pip's fingertip to their chimes."
+      lookFor: "Matches the acorn to the largest chime, leaf stem and stone to the middle pair, and Pip's finger to the smallest."
     })
   }),
 });

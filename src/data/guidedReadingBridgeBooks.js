@@ -85,7 +85,7 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     ),
     rows: [
       ["Maya opens her lunchbox and finds Samir's blue cup.", "At the school oak table, Maya opens her yellow lunchbox with Samir's blue lidded cup inside; Samir's open green box contains Maya's green apple. The silver spoon lies beside Samir's folded orange napkin between them. Each box stays with its owner."],
-      ["Maya checks the labels beside each lunchbox.", "Maya compares blank cream label patches on both open lunchbox lids. The blue cup stays inside her yellow box and the green apple inside Samir's green box; spoon and orange napkin stay together on the table. No readable lettering."],
+      ["Maya checks the labels on both lunchboxes.", "Maya compares blank cream label patches on both open lunchbox lids. The blue cup stays inside her yellow box and the green apple inside Samir's green box; spoon and orange napkin stay together on the table. No readable lettering."],
       ["Samir checks the labels and spots Maya's green apple.", "Samir points from the blank label on his open green box to Maya's green apple inside. Maya's open yellow box still contains the blue cup. Spoon and orange napkin remain on the table between them."],
       ["They swap the things, but one spoon stays behind.", "Maya hands the blue cup to Samir while he hands her the green apple. Their open empty yellow and green lunchboxes stay in front of their respective owners. The silver spoon remains on the table beside Samir's folded orange napkin; no duplicate contents."],
       ["Maya sees the spoon beside Samir's folded napkin.", "Maya notices the silver spoon resting beside Samir's folded orange napkin; Samir pauses with his blue cup, and the yellow and green lunchboxes remain by their owners with the contents corrected."],
@@ -105,19 +105,19 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     coverBrief: "Illustrated Willow Street Library entrance, Zoe holding an empty blue book bag while Leo studies a trail of dry leaves leading toward the return bench; afternoon light, worried but capable expressions, no readable lettering.",
     storyBibleReview: fictionReview(
       "Zoe and Leo retrace their library visit to find a missing borrowed book.",
-      "Looking only on the shelves fails because Zoe left the book near the return bench.",
+      "Searching under the table, between books and beside the window seat does not find the missing book.",
       "A leaf caught in the bag points them back to the bench, where the librarian has kept the book safe.",
       ["WILLOW-ZOE", "WILLOW-LEO"]
     ),
     rows: [
       ["Zoe's library book is missing from her blue bag.", "Illustrated close medium view inside Willow Street Library: Zoe, with two puff buns and coral jacket, holds open an empty blue book bag; Leo stands beside her, and a clear book-shaped gap is visible."],
-      ["They look under the reading table first.", "Low angle beneath the round oak reading table as Zoe and Leo peer under chairs and cushions; the space is clearly empty, with library shelves softly framed behind them."],
+      ["Zoe and Leo look under the reading table first.", "Low angle beneath the round oak reading table as Zoe and Leo peer under chairs and cushions; the space is clearly empty, with library shelves softly framed behind them."],
       ["They look between the animal books next.", "Front view of Zoe and Leo carefully scanning a child-height shelf marked only by animal picture symbols; Leo separates two books while Zoe checks the gap, with no lost book visible."],
       ["They look beside the window seat too.", "Willow Street Library window nook with green cushion: both children lift the cushion edge and check beside the seat; late-afternoon light shows the place is empty and orderly."],
       ["A dry leaf falls from Zoe's bag.", "Close-up of a crisp brown leaf dropping from Zoe's blue book bag onto the library floor; Zoe notices it while Leo recalls the leafy return bench outside."],
-      ["The leaf reminds Leo of the outside bench.", "Leo points through the glass doors toward the oak return bench under a plane tree; Zoe follows his gaze, holding the leaf and blue bag, making the clue visually explicit."],
-      ["The librarian found their book on that bench.", "At the library desk, the librarian offers Zoe the familiar green-covered book found on the outside bench; Leo smiles, and the blue bag remains open to receive it."],
-      ["Zoe puts the book safely inside her bag.", "Resolved close medium view: Zoe slides the green-covered library book fully into the blue bag and closes its flap; Leo and the librarian watch approvingly in the warm library entrance." ]
+      ["Leo remembers the bench. They ask the librarian.", "Leo points through the glass doors toward the oak return bench under a plane tree; Zoe follows his gaze, holding the leaf and blue bag, making the clue visually explicit."],
+      ["“I found it there!” She hands Zoe her book.", "At the library desk, the librarian offers Zoe the familiar green-covered book found on the outside bench; Leo smiles, and the blue bag remains open to receive it."],
+      ["Zoe closes the bag with her book inside.", "Resolved close medium view: Zoe slides the green-covered library book fully into the blue bag and closes its flap; Leo and the librarian watch approvingly in the warm library entrance." ]
     ]
   }),
   makeBook({
@@ -139,11 +139,11 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
       ["The wind lifts one corner of their picnic cloth.", "Wide park view: Maya, Zoe, and Leo kneel around a red-and-cream striped picnic cloth as one corner rises sharply in the breeze; basket stays closed and trees lean consistently."],
       ["Maya holds the cloth, while Zoe opens the basket.", "Maya grips two cloth corners with both hands while Zoe carefully opens the wicker basket; Leo watches loose napkins near the top, and gusting grass shows wind direction."],
       ["The wind lifts three napkins into the air.", "Three plain cream napkins spiral upward from the basket in a single gust; Zoe reaches toward them, Maya still anchors the cloth, and Leo turns to follow their path."],
-      ["Leo catches two, but one crosses the path.", "Leo catches two napkins against his yellow rain vest while the third skims across the paved park path; Maya and Zoe remain by the cloth in the background."],
-      ["They move beside the tall, quiet hedge.", "The friends carry the folded cloth and closed basket together toward the sheltered side of a tall green hedge; the exposed trees still bend while leaves beside the hedge remain calm."],
+      ["Leo catches two napkins, then chases the last one.", "Leo catches two napkins against his yellow rain vest while the third skims across the paved park path; Maya and Zoe remain by the cloth in the background."],
+      ["With all three napkins, they move behind the hedge.", "The friends carry the folded cloth and closed basket together toward the sheltered side of a tall green hedge; the exposed trees still bend while leaves beside the hedge remain calm."],
       ["Four food boxes hold the cloth corners down.", "Overhead view of the striped cloth spread beside the hedge, with four closed reusable food boxes safely weighting its corners; all three children check that nothing can blow away."],
       ["The napkins stay still beside the basket.", "Close view of the three recovered napkins tucked beneath the basket handle on the secured cloth; Maya points to their still edges as Zoe and Leo smile."],
-      ["Now the friends enjoy their calm, windy picnic.", "Wide resolved picnic scene beside the hedge: Maya, Zoe, and Leo share fruit and sandwiches from reusable boxes; the distant treetops move, but their cloth and napkins stay secure." ]
+      ["Now Maya can eat without holding the cloth!", "Wide resolved picnic scene beside the hedge: Maya, Zoe, and Leo share fruit and sandwiches from reusable boxes; the distant treetops move, but their cloth and napkins stay secure." ]
     ]
   }),
   makeBook({
@@ -153,23 +153,23 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     bridgeGenre: "everyday-fiction",
     visualTreatment: "willow-street-illustrated",
     cast: ["WILLOW-LEO", "WILLOW-SAMIR"],
-    repeatedLanguage: "Their plan",
+    repeatedLanguage: "the stones",
     coverBrief: "Illustrated Willow Street garden path after rain, Leo and Samir studying a broad shallow puddle with two orange cones and a dry curved edge visible; boots, reflections, and determined faces, no lettering.",
     storyBibleReview: fictionReview(
-      "Leo and Samir need to reach the garden shed without splashing through a large puddle.",
-      "Their first straight route reaches deeper water and must be abandoned.",
-      "They test the dry edge, mark it with cones, and guide their friends around safely.",
+      "Leo and Samir need a dry way past a puddle on the garden path.",
+      "Leo tests the edge, but his shoe sinks into sticky mud.",
+      "They test dry stones, mark the route with cones and help Maya cross with dry shoes.",
       ["WILLOW-LEO", "WILLOW-SAMIR"]
     ),
     rows: [
       ["A wide puddle blocks the garden path.", "Illustrated wide view of the Willow Street community garden after rain: a broad shallow puddle spans the main path; Leo and Samir stop in boots before the water, with the shed beyond."],
-      ["Their plan starts along the shortest edge.", "Leo points to the near straight edge while Samir holds two small orange cones; ripples and darker mud show this route is wet despite appearing short."],
-      ["Leo's boot sinks into soft, sticky mud.", "Close side view of Leo testing one boot at the puddle edge; it presses into soft mud without danger, while Samir stays on firm ground and notices the problem."],
-      ["Their plan changes toward the dry stones.", "Samir points to a curved line of pale dry paving stones around the puddle; Leo lifts his muddy boot back onto firm ground, and the orange cones remain ready."],
-      ["Samir tests each stone with one careful step.", "Samir takes a careful step along the dry curved stones while Leo watches from firm ground; show stable flat stones, shallow water, and no jumping or risky balancing."],
-      ["Leo places cones beside the safe dry way.", "Leo sets the two orange cones on firm ground beside the curved dry route; Samir stands near the shed end, clearly showing the complete safe path around the puddle."],
-      ["Their plan guides Maya around the puddle.", "Maya approaches and follows the cone-marked dry stones while Leo gestures along the route and Samir waits ahead; her shoes stay dry and the puddle remains undisturbed."],
-      ["Everyone reaches the garden by the safe, dry path.", "Resolved garden view beyond the puddle: Maya, Leo, and Samir stand by the shed; Leo keeps his muddy boot while the others stay dry, and the safe coned route remains visible." ]
+      ["Leo points to the edge. “Let’s try over there.”", "Leo points to the near straight edge while Samir holds two small orange cones; ripples and darker mud show this route is wet despite appearing short."],
+      ["Leo’s foot sinks into the soft, sticky mud.", "Close side view of Leo testing one boot at the puddle edge; it presses into soft mud without danger, while Samir stays on firm ground and notices the problem."],
+      ["Samir spots some dry stones beside the muddy patch.", "Samir points to a curved line of pale dry paving stones around the puddle; Leo lifts his muddy boot back onto firm ground, and the orange cones remain ready."],
+      ["He tests each stone. It stays still under his foot.", "Samir takes a careful step along the dry curved stones while Leo watches from firm ground; show stable flat stones, shallow water, and no jumping or risky balancing."],
+      ["Leo puts cones beside the stones to mark the way.", "Leo sets the two orange cones on firm ground beside the curved dry route; Samir stands near the shed end, clearly showing the complete safe path around the puddle."],
+      ["Maya follows the stones. Her shoes stay dry.", "Maya approaches and follows the cone-marked dry stones while Leo gestures along the route and Samir waits ahead; her shoes stay dry and the puddle remains undisturbed."],
+      ["Three friends reach the garden. Only Leo has a muddy shoe!", "Resolved garden view beyond the puddle: Maya, Leo, and Samir stand by the shed; Leo keeps his muddy boot while the others stay dry, and the safe coned route remains visible." ]
     ]
   }),
   makeBook({
@@ -183,19 +183,19 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     coverBrief: "Illustrated Willow Street community garden, Zoe and Samir beside a small green handcart with one front wheel marked by motion lines; adult gardener carrying a safe oil bottle approaches, warm daylight, no text or brands.",
     storyBibleReview: fictionReview(
       "Zoe and Samir investigate a squeaking garden cart instead of forcing it.",
-      "Pushing harder makes the dry wheel louder and does not solve the cause.",
+      "No trapped stone explains the noise; a second try makes the wheel squeak louder.",
       "They ask the adult gardener, who oils the axle before they test the quiet cart.",
       ["WILLOW-ZOE", "WILLOW-SAMIR"]
     ),
     rows: [
       ["The wheel squeaks when Zoe pushes the garden cart.", "Illustrated garden path: Zoe pushes an empty low green handcart while its front-left wheel shows gentle squeak motion lines; Samir looks down at the wheel, with no heavy load present."],
       ["Samir checks for stones caught beside the wheel.", "Samir kneels at a safe distance to look around the stopped cart wheel without touching the axle; Zoe holds the handle steady, and the path around the wheel is clear."],
-      ["The wheel squeaks louder when they push harder.", "Side view of both children giving the empty cart one careful test push; the same front-left wheel shows stronger motion lines, their faces concerned rather than comic or reckless."],
+      ["Zoe tries again. The wheel squeaks even louder.", "Side view of both children giving the empty cart one careful test push; the same front-left wheel shows stronger motion lines, their faces concerned rather than comic or reckless."],
       ["They stop the cart and ask the gardener.", "Zoe and Samir park the cart flat beside the path and raise a hand to the adult community gardener; the adult approaches with a small plain maintenance bottle kept out of children's reach."],
-      ["The gardener puts one drop on the axle.", "Close adult-supervised view: the gardener applies one drop of oil to the metal axle while Zoe and Samir stand back watching; wheel, bottle, and hands are mechanically plausible."],
+      ["The gardener drips oil onto the wheel’s axle.", "Close adult-supervised view: the gardener applies one drop of oil to the metal axle while Zoe and Samir stand back watching; wheel, bottle, and hands are mechanically plausible."],
       ["The gardener turns the wheel several times.", "The adult gardener safely spins the lifted wheel by hand to spread the oil; the cart is stable and empty, while the children observe from beside the handles."],
       ["The wheel rolls quietly along the path.", "Zoe gives the cart a gentle test push as the repaired front-left wheel rolls smoothly without motion marks; Samir listens and gives a pleased thumbs-up."],
-      ["Zoe and Samir carry seedlings without a squeak.", "Resolved wide view: Zoe and Samir pull the quiet green cart loaded lightly with seedling trays toward the garden beds; the gardener waves, and the repaired wheel stays visually consistent." ]
+      ["Zoe and Samir roll the seedlings down the quiet path.", "Resolved wide view: Zoe and Samir pull the quiet green cart loaded lightly with seedling trays toward the garden beds; the gardener waves, and the repaired wheel stays visually consistent." ]
     ]
   }),
   makeBook({
@@ -247,7 +247,7 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
       ["Nani folds another, and Maya copies carefully.", "Maya folds a second cooled chapati into the same triangle beside Nani's completed one; their hands and the two shapes are clearly distinct and the table remains tidy."],
       ["The folded chapatis fit beside the lentil pot.", "Overhead tiffin view: folded chapati triangles sit neatly beside the sealed small lentil pot, leaving an exact open space; Maya points to the successful arrangement."],
       ["Maya adds cool cucumber slices to the top.", "Maya places pre-cut cucumber slices into the upper tiffin tier using clean tongs; Nani closes the lower tier, and no child handles knives or the hot pan."],
-      ["At lunch, everyone shares Nani's clever packed meal.", "Warm family lunch scene at the Willow Street kitchen table: Maya, Nani, and family members share chapatis, lentils, and cucumber from the open tiffin, with joyful natural interaction and no ceremonial tokenism." ]
+      ["Maya opens the tin. Lunch for everyone fits inside!", "Warm family lunch scene at the Willow Street kitchen table: Maya, Nani, and family members share chapatis, lentils, and cucumber from the open tiffin, with joyful natural interaction and no ceremonial tokenism." ]
     ]
   }),
   makeBook({
@@ -257,23 +257,23 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     bridgeGenre: "culture-community",
     visualTreatment: "willow-street-illustrated",
     cast: ["WILLOW-ZOE", "WILLOW-AUNT-MEI"],
-    repeatedLanguage: "Zoe pinches",
+    repeatedLanguage: "wrapper",
     coverBrief: "Illustrated New Year family kitchen, Zoe and Aunt Mei shaping crescent dumplings at a flour-dusted table with red paper decorations high on the wall; adult tends the steaming pot, warm lantern light, no readable characters.",
     storyBibleReview: fictionReview(
       "Zoe learns to seal dumplings for her family's New Year meal.",
-      "Her first wrapper holds too much filling and opens on the tray.",
-      "She uses less filling, pinches the edge firmly, and adds a sealed dumpling to the shared plate.",
+      "Her first wrapper holds too much filling for its edges to meet.",
+      "She uses less filling and pinches the edges together; her cooked dumpling keeps its filling inside.",
       ["WILLOW-ZOE", "WILLOW-AUNT-MEI"]
     ),
     rows: [
       ["Zoe's family makes dumplings for their New Year meal.", "Illustrated family kitchen: Zoe in coral jacket with sleeves rolled safely joins Aunt Mei at a clean table set with round wrappers and vegetable filling; red decorations hang high without readable writing."],
-      ["Aunt Mei places one small spoonful in the middle.", "Close overhead view of Aunt Mei placing a modest spoonful of vegetable filling in the center of one round wrapper; Zoe watches, and ingredients remain separated in tidy bowls."],
-      ["Zoe adds too much, and her wrapper opens.", "Zoe's first wrapper lies open on the tray because a large mound of filling prevents the edges meeting; her expression shows surprise, while Aunt Mei responds calmly."],
-      ["Aunt Mei shows a smaller spoonful this time.", "Aunt Mei removes extra filling and demonstrates the smaller amount beside Zoe; show both wrappers for a clear comparison and keep the cooking pot distant with another adult."],
-      ["Zoe pinches the curved edge from end to end.", "Close view of Zoe folding the wrapper into a crescent and pinching its curved edge carefully from left to right; filling stays enclosed and Aunt Mei's guiding hand remains nearby."],
-      ["Zoe pinches another dumpling without any gaps.", "Zoe holds a second fully sealed crescent dumpling up for Aunt Mei to inspect; the smooth unbroken edge is clearly visible, with several family-made dumplings on the tray."],
-      ["An adult cooks the dumplings until they are ready.", "Aunt Mei uses a long slotted spoon at the adult stove, fingers outside the steam zone and pot handles inward. Zoe watches with both hands on a separate cool preparation table beside raw crescent dumplings; a clear aisle separates her from the hot station. Keep green cabinets, red decorations and established clothing."],
-      ["The family shares their dumplings around one bright table.", "Celebratory but everyday family meal: Zoe and relatives share cooked dumplings at one bright table with red decorations and oranges; warm connection, culturally grounded details, and no readable symbols." ]
+      ["Aunt Mei spoons filling onto the middle of a wrapper.", "Close overhead view of Aunt Mei placing a modest spoonful of vegetable filling in the center of one round wrapper; Zoe watches, and ingredients remain separated in tidy bowls."],
+      ["Zoe adds a heap. Her wrapper will not close.", "Zoe's first wrapper lies open on the tray because a large mound of filling prevents the edges meeting; her expression shows surprise, while Aunt Mei responds calmly."],
+      ["“Just a little,” says Aunt Mei, showing a smaller spoonful.", "Aunt Mei removes extra filling and demonstrates the smaller amount beside Zoe; show both wrappers for a clear comparison and keep the cooking pot distant with another adult."],
+      ["Zoe folds her wrapper and pinches the edges together.", "Close view of Zoe folding the wrapper into a crescent and pinching its curved edge carefully from left to right; filling stays enclosed and Aunt Mei's guiding hand remains nearby."],
+      ["She holds it up. No gaps this time!", "Zoe holds a second fully sealed crescent dumpling up for Aunt Mei to inspect; the smooth unbroken edge is clearly visible, with several family-made dumplings on the tray."],
+      ["Aunt Mei lowers the dumplings into a pot of boiling water.", "Aunt Mei uses a long slotted spoon at the adult stove, fingers outside the steam zone and pot handles inward. Zoe watches with both hands on a separate cool preparation table beside raw crescent dumplings; a clear aisle separates her from the hot station. Keep green cabinets, red decorations and established clothing."],
+      ["Zoe takes a bite. Her filling stays tucked inside!", "Celebratory but everyday family meal: Zoe and relatives share cooked dumplings at one bright table with red decorations and oranges; warm connection, culturally grounded details, and no readable symbols." ]
     ]
   }),
   makeBook({
@@ -283,23 +283,23 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     bridgeGenre: "culture-community",
     visualTreatment: "willow-street-illustrated",
     cast: ["WILLOW-LEO", "WILLOW-MR-BAPTISTE"],
-    repeatedLanguage: "Leo plays",
+    repeatedLanguage: "call",
     coverBrief: "Illustrated Willow Street community hall rehearsal, Leo with a small hand drum beside bandleader Mr Baptiste and a mixed-age percussion group; colorful fabric banners, instruments correctly held, lively but controlled motion, no logos or text.",
     storyBibleReview: fictionReview(
       "Leo wants to join a community Carnival rehearsal and must learn where his drum part fits.",
-      "Playing continuously covers the leader's call and breaks the group's pattern.",
+      "Starting too soon covers the leader's call and interrupts the group's pattern.",
       "Leo listens for the call, plays the answering beat, and marches with the group.",
       ["WILLOW-LEO", "WILLOW-MR-BAPTISTE"]
     ),
     rows: [
       ["Leo brings his small drum to Carnival practice.", "Illustrated community hall: Leo, in yellow rain vest over striped shirt, enters carrying a child-size hand drum; Mr Baptiste and a mixed-age neighborhood percussion group prepare beneath colorful fabric banners."],
-      ["Mr Baptiste plays a call for everyone.", "Bandleader Mr Baptiste raises one hand and plays a short call on a barrel drum; the circle watches attentively, instruments held correctly, with Leo ready but not yet playing."],
-      ["Leo plays all through the answering beat.", "Leo enthusiastically continues drumming while the group begins its answer; overlapping motion lines and concerned listening faces show the rhythm has become crowded without shaming him."],
-      ["The group stops, and Leo listens again.", "The whole percussion circle becomes still as Mr Baptiste calmly repeats the call with a hand cue; Leo lowers his sticks and leans forward to listen closely."],
-      ["Leo plays only when the answering beat begins.", "Mr Baptiste finishes the call and points to the group; Leo joins exactly as the answering beat starts, matching the neighbors' hand drums in coordinated motion."],
-      ["Leo plays softly, then strongly, with the group.", "The percussion group follows two visible hand cues: a small low hand for soft playing and raised open hand for strong playing; Leo mirrors both dynamics attentively."],
-      ["Their shared rhythm fills the community hall.", "Wide hall view: Leo, Mr Baptiste, and the full community group sustain one coordinated rhythm; families watch beside bright banners, with joyful expressions and mechanically plausible instruments."],
-      ["Leo marches outside, keeping his part steady.", "Resolved daylight procession outside the community hall: Leo marches safely within the supervised group, keeping his small drum beat steady beneath colorful fabric streamers, with neighbors lining the pedestrian square." ]
+      ["Mr. Baptiste plays first. Everyone waits to answer.", "Bandleader Mr Baptiste raises one hand and plays a short call on a barrel drum; the circle watches attentively, instruments held correctly, with Leo ready but not yet playing."],
+      ["Leo starts too soon. His drum covers the call.", "Leo enthusiastically continues drumming while the group begins its answer; overlapping motion lines and concerned listening faces show the rhythm has become crowded without shaming him."],
+      ["Mr. Baptiste raises his hand. The group stops.", "The whole percussion circle becomes still as Mr Baptiste calmly repeats the call with a hand cue; Leo lowers his sticks and leans forward to listen closely."],
+      ["This time, Leo waits for the call to end.", "Mr Baptiste finishes the call and points to the group; Leo joins exactly as the answering beat starts, matching the neighbors' hand drums in coordinated motion."],
+      ["Then Leo answers with the group. Softly, then loudly.", "The percussion group follows two visible hand cues: a small low hand for soft playing and raised open hand for strong playing; Leo mirrors both dynamics attentively."],
+      ["In the hall, their drums answer Mr. Baptiste together.", "Wide hall view: Leo, Mr Baptiste, and the full community group sustain one coordinated rhythm; families watch beside bright banners, with joyful expressions and mechanically plausible instruments."],
+      ["Outside, Leo marches beside Mr. Baptiste. Call, wait, answer!", "Resolved daylight procession outside the community hall: Leo marches safely within the supervised group, keeping his small drum beat steady beneath colorful fabric streamers, with neighbors lining the pedestrian square." ]
     ]
   }),
   makeBook({
@@ -374,7 +374,7 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
       ["Lay two light sticks across the diamond.", "Overhead view of Samir placing one long and one short lightweight stick in a cross on the blue paper diamond; their meeting point is centered and scissors are absent."],
       ["Tape both sticks firmly to the paper.", "Samir presses four short tape strips over the stick ends and one at the crossing; the diamond stays flat, supports remain straight, and adult supervision is visible."],
       ["Tie a ribbon tail to the bottom.", "Close view of the adult helping Samir tie a long soft ribbon tail through a reinforced hole at the kite's bottom point; frame and blue paper remain unchanged."],
-      ["Add the flying line at the center.", "Adult hands attach the kite string securely around the crossed sticks at the center while Samir holds the spool; show a simple safe knot and no string around fingers."],
+      ["Ask an adult to tie the line where the sticks cross.", "Adult hands attach the kite string securely around the crossed sticks at the center while Samir holds the spool; show a simple safe knot and no string around fingers."],
       ["Check the kite's tape, tail, and line together.", "Samir and the adult inspect every connection before leaving: tape strips flat, ribbon tail secure, flying line centered, paper unbroken; present all checks in one uncluttered view."],
       ["Choose open ground, far from roads and wires.", "Wide Willow Street Park field with Samir and adult selecting open grass; roads, trees, and any utility lines are far beyond the flying area, under moderate wind."],
       ["Face the breeze and let the kite rise.", "Samir faces the breeze while the adult stands beside him; the blue diamond kite rises on a controlled line, ribbon tail streaming steadily, with safe open space in every direction." ]
@@ -527,13 +527,13 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     ),
     rows: [
       ["Clean used paper is collected for recycling.", "Photorealistic community recycling point: plain newspapers without legible print, office paper, and cardboard enter a paper-only bin; clean dry materials, adult hands, no food or plastic contamination."],
-      ["Workers sort the paper and remove wrong materials.", "Photorealistic sorting conveyor: trained adult workers and mechanical separators remove plastic film and metal objects from mixed paper; guarded machinery, realistic protective equipment, no brand marks."],
+      ["Workers sort the paper, picking out anything that is not paper.", "Photorealistic sorting conveyor: trained adult workers and mechanical separators remove plastic film and metal objects from mixed paper; guarded machinery, realistic protective equipment, no brand marks."],
       ["The paper mixes with water to make wet pulp.", "Photorealistic mill pulper seen through a safe viewing panel: paper and water form a thick fibrous slurry under mechanical mixing; accurate vessel, guards, and neutral industrial light."],
       ["Screens catch staples, tape, and larger unwanted pieces.", "Photorealistic close process view of wet pulp passing through metal screens while staples and tape fragments collect separately; fiber slurry texture and scale are technically plausible."],
       ["The pulp is cleaned before making new sheets.", "Photorealistic mill cleaning stage: pale pulp flows through covered pipes and tanks designed to remove inks and tiny dirt; sample jars show cleaner fibers without impossible pure whiteness."],
       ["Rollers press water from the thin pulp layer.", "Photorealistic paper machine: an even wet fiber mat travels between broad press rollers as water drains below; safety guards in place, no worker near moving parts."],
       ["Heated rollers dry the long sheet of paper.", "Photorealistic guarded drying section where the continuous paper web passes over large heated cylinders and becomes smooth and dry; realistic tension, scale, and warm industrial light."],
-      ["The new paper becomes boxes, notebooks, and more.", "Photorealistic final table with unbranded cardboard boxes, plain notebooks, paper bags, and a large recycled paper roll; fiber color remains naturally off-white, no labels or claims printed." ]
+      ["The old paper is now new boxes, bags, and notebooks.", "Photorealistic final table with unbranded cardboard boxes, plain notebooks, paper bags, and a large recycled paper roll; fiber color remains naturally off-white, no labels or claims printed." ]
     ]
   }),
   makeBook({
@@ -553,13 +553,13 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     ),
     rows: [
       ["By day, the snail rests in a cool shelter.", "Photorealistic daytime macro beneath a low garden stone: one garden snail rests withdrawn in shade on damp soil, shell opening protected, natural scale and no staged human objects."],
-      ["After dusk, damp air helps the snail emerge.", "Photorealistic blue-hour macro: the same shell and markings as page one, with the snail's body slowly extending onto a wet leaf as fine moisture beads collect nearby."],
+      ["At dusk, the snail comes out into the damp air.", "Photorealistic blue-hour macro: the same shell and markings as page one, with the snail's body slowly extending onto a wet leaf as fine moisture beads collect nearby."],
       ["The snail's tentacles feel and smell its surroundings.", "Anatomically accurate photorealistic head close-up: two long upper tentacles and two shorter lower tentacles extended toward a leaf edge, with natural skin texture and shallow depth of field."],
       ["Tiny eyes sit at the longer tentacles' tips.", "Extreme but plausible macro of the snail's two upper tentacles showing dark eye spots at their tips; lower sensory tentacles remain visible, with no enlarged fantasy eyes."],
       ["The snail glides on one strong, muscular foot.", "Photorealistic low side view through glass-like wet leaf surface: broad muscular foot makes wave-like contact while the shell rides steadily above, anatomically correct and not floating."],
-      ["A thin slime trail reduces rubbing as it moves.", "Photorealistic moonlit macro behind the moving snail: a narrow glistening mucus trail follows the foot across a rough leaf, showing how the moist layer separates body from surface."],
+      ["Slime under its foot helps it slide over rough ground.", "Photorealistic moonlit macro behind the moving snail: a narrow glistening mucus trail follows the foot across a rough leaf, showing how the moist layer separates body from surface."],
       ["The snail scrapes soft plants and decaying leaves.", "Photorealistic feeding close-up: the snail's mouth meets the softened edge of a decaying leaf with tiny scrape marks visible; no oversized teeth, damaged crop, or harmful bait."],
-      ["Before warm daylight, the snail hides from drying air.", "Photorealistic dawn scene: the same snail moves beneath dense low leaves as the sky brightens; moist shade remains under foliage while exposed ground begins to dry." ]
+      ["At dawn, it shelters under leaves so it won’t dry out.", "Photorealistic dawn scene: the same snail moves beneath dense low leaves as the sky brightens; moist shade remains under foliage while exposed ground begins to dry." ]
     ]
   }),
   makeBook({

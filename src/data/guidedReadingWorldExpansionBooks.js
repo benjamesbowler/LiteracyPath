@@ -254,10 +254,10 @@ const books = [
     targetSkills: ["art-process", "materials"], sightWords: ["a", "the", "she", "down", "every", "her"],
     pages: [
       ["Woolly wants to make a cloud.", "Woolly studies a clean low wooden board with a simple cloud shape laid in loose shed wool."],
-      ["She picks up soft shed wool.", "Woolly gathers only loose shed wool into a small neat pile; her coat remains full."],
+      ["She gathers tufts of soft wool.", "Woolly gathers only loose shed wool into a small neat pile; her coat remains full."],
       ["Whoosh! Wind blows it all off.", "A breeze lifts the loose wool pieces away from the bare board in different directions."],
       ["Woolly runs for the loose wool.", "Woolly trots after the last drifting pieces beside the barn."],
-      ["Muddy spreads thin mud on wood.", "Muddy uses one hoof to spread a thin even mud layer over the same board."],
+      ["Muddy spreads mud on the board.", "Muddy uses one hoof to spread a thin even mud layer over the same board."],
       ["Woolly pats the wool down.", "Woolly presses the recovered wool pieces into a clear cloud silhouette on wet mud."],
       ["The sun dries the wet mud.", "Warm sunshine dries the board while every wool piece remains fixed in place."],
       ["Her cloud stays put.", "Woolly and Muddy view the finished tactile cloud picture standing firmly by the barn."]
@@ -276,7 +276,7 @@ const books = [
       ["Shy sees rings on the pond.", "Tiny gray Shy notices three clean circular ripples on otherwise still pond water."],
       ["What swims below?", "Shy peers toward the rings from the grassy bank without any creature visible."],
       ["Shy creeps along the bank.", "Shy takes one cautious step along the bank toward the fading rings."],
-      ["Shy's stone plops in the pond.", "One small pebble slips beneath Shy's paw and plops into the pond."],
+      ["Plop! Shy knocks a stone in.", "Shy accidentally knocks a small pebble from the bank into the pond."],
       ["The pond goes still.", "The pond surface becomes completely still while Shy pauses and watches."],
       ["Shy waits behind tall grass.", "Shy sits quietly concealed behind tall grass with a clear view of the water."],
       ["A green frog pops up.", "One small ordinary green frog surfaces at the exact center of new ripples."],
@@ -327,19 +327,19 @@ const books = [
     world: "meadow", bookNumber: 32, id: "meadow-pals-32-tinys-giant-berry", title: "Tiny's Giant Berry",
     theme: "using a pebble wedge and a sideways turn to roll a berry", cast: ["tiny"], canonIds: ["MEADOW-TINY"], location: "the gentle hill path between the berry hedge and big oak",
     storyPromise: "Tiny must roll a giant berry home before dusk, but one raised root sends it backward downhill.",
-    storySpine: "Tiny pushes a berry straight at a root and loses ground, then wedges it, turns it sideways and rolls it home.",
+    storySpine: "Tiny cannot push the wide side of an oval berry past a root. He props it with a pebble, turns it, and rolls it past.",
     failedAttempt: "A direct push cannot lift the berry over the root and it rolls backward.", turningPoint: "Tiny sees that the berry is narrower from one side and blocks the rollback with a pebble.",
     resolution: "The wedged berry turns sideways, rolls through the root gap and reaches home.", landing: "Tiny arrives home with the berry before dusk.",
     duplicateAudit: "Distinct from key and hat retrievals: Tiny solves a transport geometry problem without crawling into a small space.",
     targetSkills: ["shape", "simple-machines"], sightWords: ["a", "the", "he", "one", "with", "past"],
     pages: [
-      ["Tiny finds a giant berry.", "Very small Tiny stands beside one oval red berry several times his body size."],
+      ["Tiny finds a big oval berry.", "Very small Tiny stands beside one oval red berry several times his body size."],
       ["He rolls it toward home.", "Tiny pushes the giant berry along the gentle hill path toward the big oak."],
-      ["A root blocks the berry.", "The wide side of the berry stops against one raised oak root."],
+      ["Its wide side hits a root.", "The wide side of the berry stops against one raised oak root."],
       ["Tiny pushes with both paws.", "Tiny braces both paws against the berry while it remains blocked by the root."],
       ["Whoops! It rolls back downhill.", "The berry rolls a short safe distance backward as Tiny steps aside."],
-      ["Tiny wedges a flat pebble.", "Tiny places one flat pebble behind the berry to prevent another rollback."],
-      ["He turns the berry sideways.", "Tiny rotates the oval berry so its narrow end faces the root gap."],
+      ["Tiny props it with a pebble.", "Tiny places one flat pebble behind the berry to prevent another rollback."],
+      ["He turns it. It rolls past!", "Tiny rotates the oval berry so its narrow end faces the root gap."],
       ["Tiny rolls the berry home!", "Tiny and the giant berry arrive home beside the big oak before dusk."]
     ]
   },
@@ -364,23 +364,23 @@ const books = [
     ]
   },
   {
-    world: "meadow", bookNumber: 34, id: "meadow-pals-34-grumpys-sun-clock", title: "Grumpy's Sun Clock",
-    theme: "tracking the oak shadow to keep lunch cool", cast: ["grumpy"], canonIds: ["MEADOW-GRUMPY"], location: "the big oak and its moving daylight shadow across flat meadow stones",
-    storyPromise: "Grumpy must keep lunch cool until noon, but the oak's shadow keeps moving away from his basket.",
-    storySpine: "Grumpy moves lunch after one morning shadow and loses shade again, then tracks the shade and moves lunch to its noon spot.",
-    failedAttempt: "Dragging the basket to the current shadow works briefly before sunlight reaches it again.", turningPoint: "Grumpy notices the shadow edge crossing the ground in one steady direction.",
-    resolution: "Grumpy tracks the shade's path and moves lunch to the noon shade.", landing: "At noon, his lunch stays cool in the predicted shade.",
-    duplicateAudit: "Distinct from quiet-rest and garden secrecy: the engine is observing predictable shadow movement over time.",
-    targetSkills: ["light-shadow", "prediction"], sightWords: ["the", "at", "he", "one", "his", "in"],
+    world: "meadow", bookNumber: 34, id: "meadow-pals-34-grumpys-sun-clock", title: "Grumpy's Lunch Spot",
+    theme: "finding a lunch spot away from the moving edge of a tree shadow", cast: ["grumpy"], canonIds: ["MEADOW-GRUMPY"], location: "the big oak and its moving daylight shadow across flat meadow stones",
+    storyPromise: "Grumpy wants lunch in the shade, but the moving edge keeps leaving his basket in the sun.",
+    storySpine: "Grumpy follows the edge of a moving shadow twice, then finds lasting shade beside the trunk and settles there to eat.",
+    failedAttempt: "Dragging the basket to the current shadow works briefly before sunlight reaches it again.", turningPoint: "Grumpy notices that the trunk is still shaded while the outer edge has moved.",
+    resolution: "Grumpy brings his basket beside the shaded trunk and eats there.", landing: "Grumpy eats in the cool shade beside the trunk.",
+    duplicateAudit: "Distinct from quiet-rest and garden secrecy: Grumpy stops chasing the shadow edge and chooses a spot close to the trunk.",
+    targetSkills: ["light-shadow", "observation"], sightWords: ["the", "at", "he", "one", "his", "in"],
     pages: [
-      ["Grumpy keeps lunch for noon.", "Grumpy places one closed lunch basket in the big oak's cool morning shadow."],
-      ["He marks the shade at dawn.", "Grumpy sets one pale stone exactly at the shadow's edge."],
+      ["Grumpy puts lunch in the shade.", "Grumpy places one closed lunch basket in the big oak's cool morning shadow."],
+      ["He marks the shady edge.", "Grumpy marks the edge of the oak's shade with one pale stone."],
       ["The sun warms his lunch.", "The oak shadow has moved beyond the basket and warm light touches its lid."],
-      ["Grumpy drags lunch to shade.", "Grumpy pulls the same basket into the shadow's new position."],
-      ["The shade moves once more.", "The shadow edge moves past a second time while Grumpy watches closely."],
-      ["Grumpy sees the shade move.", "Grumpy compares two stone marks and traces the shade's steady path."],
-      ["He drags lunch to noon shade.", "Grumpy moves the closed basket to the oak's predicted noon shade beside a third stone."],
-      ["At noon his lunch stays cool.", "At overhead noon light the basket rests in oak shade beside the predicted stone."]
+      ["He drags lunch into shade again.", "Grumpy pulls the same basket into the shadow's new position."],
+      ["Soon the shade moves again.", "The shadow edge moves past a second time while Grumpy watches closely."],
+      ["The trunk is still in shade.", "Grumpy pauses beside the shaded trunk; the stone marks lie beyond the moving edge of shade."],
+      ["Grumpy pulls lunch beside the trunk.", "Grumpy pulls his closed basket close to the trunk, away from the outer stone marks."],
+      ["Grumpy eats in the cool shade.", "Grumpy rests beside his open lunch basket in the cool shade close to the trunk."]
     ]
   },
   {
@@ -399,7 +399,7 @@ const books = [
       ["Flowers bounce onto soft grass.", "All eight pots tumble safely onto grass without breaking while the cart stops."],
       ["Giggly stops. What went wrong?", "Giggly pauses beside the broken wheel and studies its flat edge."],
       ["A round wood slice fits.", "Giggly aligns one smooth round wood slice on the empty axle."],
-      ["Now the cart rolls smoothly.", "The repaired round wheel turns smoothly with all eight pots upright again."],
+      ["Giggly puts the flowers back.", "The repaired round wheel turns smoothly with all eight pots upright again."],
       ["All eight flowers arrive!", "Giggly arrives at the red barn with eight intact flowers and the round wheel visible."]
     ]
   },
@@ -435,11 +435,11 @@ const books = [
     targetSkills: ["evidence", "safety"], sightWords: ["the", "one", "under", "before", "where", "every"],
     pages: [
       ["Bubbles rise in Shy's path.", "Dino Shy studies small water bubbles rising through a muddy patch in Fernwood."],
-      ["Pals need a safe path for their full baskets.", "Several filled berry baskets wait in the distance while Shy checks the route."],
+      ["The Pals need to carry their berries across.", "Several filled berry baskets wait in the distance while Shy checks the route."],
       ["Shy lays one flat stone on the wet spot.", "Shy carefully places one broad flat stone over the suspicious patch."],
       ["Glug! The stone sinks. Mud hides the old path.", "The testing stone sinks visibly below mud while Shy remains on firm ground."],
-      ["Small beetles walk past the mud. Shy looks.", "A clear line of ordinary beetles follows dry ground around the muddy patch."],
-      ["Their dry tracks bend past the deep mud.", "Shy traces the firm curved beetle route with one claw."],
+      ["Shy spots beetles walking along the edge of the mud.", "A clear line of ordinary beetles follows dry ground around the muddy patch."],
+      ["He follows them. Here, the ground is dry.", "Shy traces the firm curved beetle route with one claw."],
       ["Shy marks the safe track with bright yellow leaves.", "Bright yellow leaves form an unmistakable detour around the mud."],
       ["Each Pal takes a basket down Shy's dry path.", "Dino Pals carry baskets along the marked dry curve while Shy watches quietly."]
     ]
@@ -454,34 +454,34 @@ const books = [
     duplicateAudit: "Distinct from high-branch flight and general storm preparation: the engine is aerodynamic drag and reshaping one delivery object.",
     targetSkills: ["air-resistance", "delivery"], sightWords: ["the", "one", "before", "he", "with", "under"],
     pages: [
-      ["Rain is coming. Flappy carries one wide roof fern.", "Flappy holds one very broad fern near the stream as dark rain clouds gather."],
+      ["Rain is coming. Flappy brings a fern for the roof.", "Flappy holds one very broad fern near the stream as dark rain clouds gather."],
       ["He grips the middle and glides low.", "Flappy launches into a plausible low glide holding the fern's center."],
       ["Whoosh! Wind catches both sides. Flappy spins around.", "A crosswind turns the open leaf and Flappy in one controlled airborne half-circle."],
-      ["Flappy lands safely. The fern blocks his view.", "Flappy stands safely while the broad fern blocks most of his forward view."],
+      ["Flappy lands. He cannot see past the fern.", "Flappy stands safely while the broad fern blocks most of his forward view."],
       ["He rolls the wide fern into a narrow bundle.", "Flappy rolls the same intact fern lengthwise into a tight narrow cylinder."],
       ["Wiggly ties it with one long grass loop.", "Wiggly secures the rolled fern with one visible long grass tie."],
-      ["Now Flappy glides straight. The bundle hangs below.", "Flappy makes a straight low glide with the narrow bundle hanging beneath him."],
-      ["Just in time! The fern roof keeps Cozy Cave dry.", "The opened fern forms a dry small awning at Cozy Cave as first drops fall beyond it."]
+      ["The rolled fern hangs below. Flappy glides straight to Cozy Cave.", "Flappy makes a straight low glide with the narrow bundle hanging beneath him."],
+      ["Rain patters on their new roof. Not a drop gets inside!", "The opened fern forms a dry small awning at Cozy Cave as first drops fall beyond it."]
     ]
   },
   {
     world: "dino", bookNumber: 24, id: "dino-pals-24-clumsys-steady-bowls", title: "Clumsy's Steady Bowls",
-    theme: "matching water-bowl size to stable ground", cast: ["clumsy"], canonIds: ["DINO-CLUMSY"], location: "the long meadow route from the stream to Big Flat Rock",
+    theme: "carrying bowls safely and choosing flat ground", cast: ["clumsy"], canonIds: ["DINO-CLUMSY"], location: "the long meadow route from the stream to Big Flat Rock",
     storyPromise: "Clumsy must place four water bowls before the games begin, but carrying them stacked sends every bowl rolling.",
-    storySpine: "Clumsy stacks four bowls and loses them on a turn, then observes where each stops and places them by size and terrain.",
-    failedAttempt: "One turn tips the four-bowl stack and sends differently sized bowls rolling downhill.", turningPoint: "Clumsy notices each bowl naturally stops at ground that fits its width.",
-    resolution: "One-at-a-time delivery places the wide bowl on rock and smaller bowls between steady roots.", landing: "The whole drinking route remains upright through the games.",
-    duplicateAudit: "Distinct from pillow retrieval and generic accidents: the failure reveals a size-and-surface pattern that Clumsy deliberately applies.",
-    targetSkills: ["sorting", "stability"], sightWords: ["the", "four", "one", "each", "where", "between"],
+    storySpine: "Clumsy loses a tall stack of bowls on a turn, finds where they stopped, and brings them back one at a time.",
+    failedAttempt: "One turn tips the four-bowl stack and sends differently sized bowls rolling downhill.", turningPoint: "The fallen bowls settle on rock and between roots; Clumsy retrieves them without making another tower.",
+    resolution: "Clumsy carries one bowl at a time and sets all four on flat ground.", landing: "Four full bowls stand ready for the games.",
+    duplicateAudit: "Clumsy changes both his overloaded carry and the final resting place of the bowls.",
+    targetSkills: ["sequencing", "stability"], sightWords: ["the", "four", "one", "each", "where", "between"],
     pages: [
       ["Clumsy must set out four water bowls before the games.", "Tall Clumsy stands by four clean empty bowls of visibly different widths near the stream."],
-      ["He stacks all four bowls across his back.", "Four nested but unstable bowls sit high across Clumsy's back as he starts walking."],
+      ["He stacks all four bowls on his back.", "Four nested but unstable bowls sit high across Clumsy's back as he starts walking."],
       ["Clatter! One turn sends every bowl downhill.", "All four bowls roll harmlessly apart on grass after Clumsy turns."],
       ["Clumsy follows. Where does each bowl stop?", "Clumsy observes four bowls stopped at different terrain features down the slope."],
-      ["The widest bowl rests beside Big Flat Rock.", "The widest bowl sits level against Big Flat Rock's stable edge."],
-      ["Smaller bowls sit snug between the roots.", "The smaller bowls nest securely in separate shallow spaces between roots."],
-      ["Now Clumsy carries one filled bowl at a time.", "Clumsy carefully carries a single water-filled bowl low and level."],
-      ["Four full bowls stay steady through every game.", "Four filled upright bowls remain stable along the meadow route during the games."]
+      ["The big bowl lands on Big Flat Rock.", "The widest bowl sits on top of Big Flat Rock."],
+      ["Roots stop the small bowls. At last, they stop rolling.", "The smaller bowls nest securely in separate shallow spaces between roots."],
+      ["Clumsy brings them back, one at a time.", "Clumsy carefully carries a single water-filled bowl low and level."],
+      ["This time he sets them on flat ground. Ready for the games!", "Four filled bowls stand in a row on flat ground, ready for the games."]
     ]
   },
   {
@@ -498,7 +498,7 @@ const books = [
       ["Sneezy must clear it before Dozy's nap.", "Sneezy stands ready outside while Dozy approaches carrying his blue pillow."],
       ["\"Stand back!\" Sneezy gives one careful sneeze.", "Sneezy signals Sunny and Dozy back before directing one sneeze away from them."],
       ["Poof! The fluff bursts into a bigger cloud.", "The sneeze disperses the dry seed fluff across the entire cave entrance."],
-      ["Wet seeds stick beside the stream. Sneezy looks.", "Sneezy examines a small patch of identical fluff held fast on a damp stream stone."],
+      ["By the stream, Sneezy spots seeds stuck to a wet rock.", "Sneezy examines a small patch of identical fluff held fast on a damp stream stone."],
       ["Sunny dips one broad leaf into the stream.", "Sunny dips one large clean fern leaf edge into the clear stream."],
       ["Sneezy sweeps the fluff onto the damp leaf.", "Sneezy uses the damp leaf to collect the loose fluff into one contained layer."],
       ["Dozy enters the clear cave. Sneezy plants the seeds.", "Dozy carries his pillow into the clear cave as Sneezy tips seeds onto bare soil outside."]
@@ -534,14 +534,14 @@ const books = [
     duplicateAudit: "Distinct from Bossy's overloaded picnic and storm plans: this is an accessibility design problem where equality fails and fit matters.",
     targetSkills: ["accessibility", "measurement"], sightWords: ["the", "every", "before", "one", "three", "without"],
     pages: [
-      ["Bossy plans eight stepping stones across Muddy Puddle Pool.", "Bossy holds her leaf clipboard beside a row of eight equally spaced stepping stones."],
-      ["The equal gaps fit Zippy's quick feet.", "Zippy crosses the regular gaps easily with his rainbow scarf fixed in place."],
+      ["Bossy makes a stone path across Muddy Puddle Pool.", "Bossy holds her leaf clipboard beside a row of eight equally spaced stepping stones."],
+      ["Zippy hops from stone to stone without a splash.", "Zippy crosses the regular gaps easily with his rainbow scarf fixed in place."],
       ["Grumpy reaches the middle. He cannot step farther.", "Low heavy Grumpy pauses safely on a broad middle stone before a gap too wide for him."],
-      ["One perfect row fits only one Pal.", "Bossy studies Zippy across the pool and Grumpy paused halfway on the same route."],
-      ["Bossy asks each Pal to test one easy step.", "Bossy records measured test steps from differently sized Pals on her carried clipboard."],
-      ["Close stones, one branch, and the shallow edge make three paths.", "Three clearly different routes use close stones, one stable branch and the shallow edge."],
+      ["Zippy waits on the bank. Grumpy stares at the gap.", "Zippy waits on the far bank while Grumpy looks at the gap ahead of his stone."],
+      ["Bossy watches Grumpy step. He needs the stones much closer.", "Bossy records measured test steps from differently sized Pals on her carried clipboard."],
+      ["They add close stones, a branch, and a path along the edge.", "Three clearly different routes use close stones, one stable branch and the shallow edge."],
       ["Bossy draws all three paths on her clipboard.", "Bossy's leaf clipboard carries three simple non-letter route diagrams matching the crossings."],
-      ["Big feet. Quick feet. Every Pal finds a safe path!", "Grumpy, Zippy and other varied Pals use different dry routes successfully."],
+      ["Grumpy steps across. Zippy hops. No one splashes!", "Grumpy, Zippy and other varied Pals use different dry routes successfully."],
     ]
   },
   {
@@ -558,28 +558,28 @@ const books = [
       ["Which tunnel reaches the stream? Honky wants to know.", "Honky compares the entrances while a small airflow bends one nearby fern."],
       ["HONK! His biggest call fills the chamber.", "Honky releases one powerful call from his fixed rainbow crest while standing at the junction."],
       ["BOOM! Crashing echoes come from every tunnel.", "Visible vibration ripples rebound chaotically from every visible tunnel mouth as Honky covers his ears."],
-      ["Honky taps one short note near each branch.", "Honky tests one branch at a time with a brief controlled note."],
-      ["The closed branches boom. Their echoes rush back.", "Closed tunnel mouths show tight returning ripple patterns against visible end walls."],
-      ["One branch answers softly. Cool stream air lifts a fern.", "One open tunnel shows a faint receding ripple and cool air lifting a fern toward Honky."],
-      ["Honky finds it! He marks the stream tunnel with a bright stone.", "Honky places one bright stone at the airy branch then safely walks back toward Cozy Cave."],
+      ["Honky tries a short, soft call at each tunnel.", "Honky tests one branch at a time with a brief controlled note."],
+      ["Two tunnels boom back at him. He tries the last one.", "Closed tunnel mouths show tight returning ripple patterns against visible end walls."],
+      ["A faint echo. A fern stirs in cool air from the stream.", "One open tunnel shows a faint receding ripple and cool air lifting a fern toward Honky."],
+      ["Honky returns from the stream. He marks the tunnel with a bright stone.", "Honky places one bright stone at the airy branch then safely walks back toward Cozy Cave."],
     ]
   },
   {
     world: "dino", bookNumber: 29, id: "dino-pals-29-cheekys-shadow-show", title: "Cheeky's Shadow Show",
     theme: "moving a shadow screen to catch low sunlight", cast: ["cheeky", "fancy", "wiggly"], canonIds: ["DINO-CHEEKY", "DINO-FANCY", "DINO-WIGGLY"], location: "Big Flat Rock and the western hill from noon to sunset",
     storyPromise: "Cheeky must make a giant shadow dinosaur before the evening show, but noon light falls straight down behind his leaf screen.",
-    storySpine: "Cheeky performs behind a noon-lit leaf and produces no useful shadow, then moves the screen west for long evening light.",
+    storySpine: "Cheeky cannot make a big shadow on his screen at noon. When he notices the long evening shadows, he turns the screen to face the low sun.",
     failedAttempt: "Waving harder beneath overhead light shows only Cheeky's feet at the bottom of the screen.", turningPoint: "Cheeky notices the western hill shadows stretching as the sun lowers.",
     resolution: "The relocated screen catches a long silhouette that Fancy and Wiggly enlarge.", landing: "Their giant shadow dinosaur bows to the invited audience.",
     duplicateAudit: "Distinct from prank stories and races: the humour is a consent-based performance built from changing light angle.",
     targetSkills: ["shadow", "performance"], sightWords: ["the", "a", "one", "behind", "beside", "their"],
     pages: [
       ["Cheeky plans a shadow show beside Big Flat Rock.", "Cheeky sets one broad upright leaf screen beside Big Flat Rock with show props neatly ready."],
-      ["He makes a fun dino shape behind the leaf.", "Cheeky poses behind the screen with harmless branch shapes forming playful ears."],
-      ["The noon sun beams straight down. His shadow will not fill the screen.", "Overhead sun leaves the leaf face bright and almost blank despite Cheeky's pose."],
-      ["Cheeky waves his arms. Just foot shadows show.", "Only Cheeky's small foot shadows appear at the screen's bottom while he waves."],
-      ["By sunset, long tree shadows stretch. Cheeky spots the clue.", "Cheeky studies long clear tree shadows stretching from the western hill."],
-      ["He pulls the leaf screen to the west hill.", "Cheeky relocates the same screen to catch low amber sunlight from behind."],
+      ["He holds up branches for big dino ears.", "Cheeky poses behind the screen with harmless branch shapes forming playful ears."],
+      ["At noon, his shadow lies on the ground. The screen stays blank.", "Overhead sun leaves the leaf face bright and almost blank despite Cheeky's pose."],
+      ["He waves and waves. Only tiny shadows reach the screen.", "Only tiny shadows appear at the bottom of the screen while Cheeky waves behind it."],
+      ["Then the sun sinks lower. Long shadows stretch across the hill.", "Cheeky studies long clear tree shadows stretching from the western hill."],
+      ["Cheeky turns the screen toward the low sun.", "Cheeky moves the same screen to face the low amber sun."],
       ["Fancy adds ears. Wiggly adds a long tail.", "Cheeky, Fancy and Wiggly combine readable silhouettes with Fancy's plates and Wiggly's long tail."],
       ["The big dino shadow takes a bow!", "One huge playful dinosaur silhouette bows on the screen before a delighted seated audience."],
     ]
@@ -598,10 +598,10 @@ const books = [
       ["He props it against his blue pillow.", "The melon rests against the clearly visible blue pillow on sloped grass."],
       ["Dozy has a stretch. The melon bumps his pillow.", "Dozy stretches gently as the melon begins pushing the pillow downhill."],
       ["Bump, bump! Both roll down the long meadow.", "The round melon and blue pillow roll together down a broad safe grassy slope."],
-      ["Zippy runs up and taps it. The melon rolls fast.", "Zippy reaches the melon and accidentally taps it faster while his scarf streams behind."],
-      ["The pillow slows near the dip. Dozy heads straight there.", "Dozy takes a calm diagonal route toward a visible narrow dip below the rolling objects."],
-      ["He lays his blue pillow in the dip.", "Dozy retrieves and lays the blue pillow securely across the dip before the melon arrives."],
-      ["Soft stop! Dozy's pillow catches the melon. Zippy slows down.", "The melon settles softly against the pillow while Dozy rests beside it and Zippy slows."],
+      ["Zippy tries to stop the melon. His tap sends it faster!", "Zippy reaches the melon and accidentally taps it faster while his scarf streams behind."],
+      ["The pillow catches in a dip. Dozy scrambles after it.", "Dozy takes a calm diagonal route toward a visible narrow dip below the rolling objects."],
+      ["He spreads the pillow across the dip and waits.", "Dozy retrieves and lays the blue pillow securely across the dip before the melon arrives."],
+      ["The melon lands on Dozy's pillow. Dozy lands there too.", "The melon rests on the blue pillow. Dozy settles his head beside it while Zippy watches."],
     ]
   },
 

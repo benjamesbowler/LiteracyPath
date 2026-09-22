@@ -14,13 +14,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "gr-a-27": Object.freeze({
     oral: Object.freeze({
-      prompt: "What are two ways the Sun helps living things on Earth?",
-      listenFor: "Its light supports plants, and its warmth heats land and water."
+      prompt: "What are two ways the Sun helps living things?",
+      listenFor: "Sunlight helps plants make food, and the Sun warms land and water."
     }),
     visual: Object.freeze({
       page: 6,
-      prompt: "How can you tell that sunlight is reaching the children outdoors?",
-      lookFor: "Bright sunshine over the children and the outdoor play area."
+      prompt: "How are living things sharing the Sun’s light and warmth here?",
+      lookFor: "The child, rabbit, plants and birds share the sunlit outdoor space."
     })
   }),
   "gr-a-28": Object.freeze({
@@ -58,13 +58,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "gr-b-32": Object.freeze({
     oral: Object.freeze({
-      prompt: "How can fruit feel different when you bite or touch it?",
-      listenFor: "An apple can feel crisp, a banana soft, and an orange peel bumpy."
+      prompt: "How are these fruits different, and how do they begin?",
+      listenFor: "They differ in feel and appearance; each fruit develops from a flower."
     }),
     visual: Object.freeze({
-      page: 4,
-      prompt: "Which detail lets you almost imagine how this orange peel would feel?",
-      lookFor: "The many small bumps covering the orange skin."
+      page: 6,
+      prompt: "How can you see fruit growing from a flower on this branch?",
+      lookFor: "The branch shows flowers beside developing fruit."
     })
   }),
   "gr-b-33": Object.freeze({
@@ -102,13 +102,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "gr-c-37": Object.freeze({
     oral: Object.freeze({
-      prompt: "What can make liquid water change into ice or vapor?",
-      listenFor: "Cold freezes water into ice, while warmth turns it into vapor."
+      prompt: "How are ice, liquid water and water vapor connected?",
+      listenFor: "They are different forms of water."
     }),
     visual: Object.freeze({
       page: 3,
-      prompt: "What on this page suggests that the water has been warmed?",
-      lookFor: "Mist rises above the hot cup of water."
+      prompt: "Where is the tray of water, and what is shining on it?",
+      lookFor: "A shallow tray sits by a bright window; water vapor itself is invisible."
     })
   }),
   "gr-c-38": Object.freeze({
@@ -135,13 +135,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "gr-d-42": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why does the book call Earth our shared home?",
-      listenFor: "People, plants, and animals all depend on Earth's land, water, and habitats."
+      prompt: "How is the little park connected to the mountains and oceans?",
+      listenFor: "They are all places on the same Earth."
     }),
     visual: Object.freeze({
       page: 2,
-      prompt: "Where do the land and ocean meet in this view?",
-      lookFor: "A clear coastline separates the green land from the blue water."
+      prompt: "Where do land and sea meet?",
+      lookFor: "The curved coastline separates green land and blue water."
     })
   }),
   "gr-d-43": Object.freeze({
@@ -157,24 +157,24 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "gr-d-44": Object.freeze({
     oral: Object.freeze({
-      prompt: "How do a burrow and a web help their animals in different ways?",
-      listenFor: "A rabbit hides from danger underground; a spider uses sticky silk to catch prey."
+      prompt: "How is a nest different from a whole habitat?",
+      listenFor: "A nest shelters eggs and chicks; a habitat includes food, water and shelter."
     }),
     visual: Object.freeze({
-      page: 4,
-      prompt: "Where could the rabbit disappear if danger came near?",
-      lookFor: "The dark burrow entrance beside the rabbit leads underground."
+      page: 6,
+      prompt: "What different shelter places can you find in this woodland?",
+      lookFor: "A bird nest, tree hollow and ground-level sheltered spaces form parts of the wider habitat."
     })
   }),
   "gr-d-45": Object.freeze({
     oral: Object.freeze({
-      prompt: "How are Earth's journey and the Moon's journey connected?",
-      listenFor: "Earth travels around the Sun while the Moon circles Earth."
+      prompt: "Which is closer to Earth: our Moon or the other stars?",
+      listenFor: "Our Moon is nearby compared with other stars."
     }),
     visual: Object.freeze({
       page: 5,
-      prompt: "What makes the astronaut look as though they are floating?",
-      lookFor: "The astronaut hangs away from the spacecraft with empty space all around."
+      prompt: "Where is this spacecraft compared with Earth?",
+      lookFor: "The spacecraft and person inside it are shown above nearby Earth."
     })
   }),
   "gr-e-46": Object.freeze({
@@ -190,13 +190,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "gr-e-47": Object.freeze({
     oral: Object.freeze({
-      prompt: "Which changes in the book create a completely new form of life?",
-      listenFor: "A tadpole develops into a frog, and a caterpillar emerges as a butterfly."
+      prompt: "How does growing change more than just size?",
+      listenFor: "Tadpoles grow legs and become frogs; caterpillars become butterflies."
     }),
     visual: Object.freeze({
-      page: 4,
-      prompt: "What stages in the picture reveal the tadpole becoming a frog?",
-      lookFor: "The sequence shows a tail, growing legs, and a frog-shaped body."
+      page: 6,
+      prompt: "How do these living things change as they grow bigger?",
+      lookFor: "The plant gets taller and gains leaves; the tadpole develops legs and a frog body."
     })
   }),
   "gr-e-48": Object.freeze({
@@ -311,13 +311,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-level-a-08-my-pet": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why does each kind of pet need its own suitable place?",
-      listenFor: "A fish needs a tank, a bird a perch, and resting pets need safe beds or mats."
+      prompt: "What does the dog need at the beginning and at the end?",
+      listenFor: "It rests in a soft bed first and later wants to play."
     }),
     visual: Object.freeze({
-      page: 3,
-      prompt: "What makes this tank a place where the fish can swim?",
-      lookFor: "Water surrounds the fish inside the clear tank walls."
+      page: 7,
+      prompt: "What shows that the dog is ready for a game?",
+      lookFor: "The dog carries a ball toward the child outdoors."
     })
   }),
   "first-facts-level-a-09-hot-and-cold": Object.freeze({
@@ -333,24 +333,24 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-level-a-10-shapes": Object.freeze({
     oral: Object.freeze({
-      prompt: "How do the shapes help us describe everyday objects?",
-      listenFor: "A ball is round, a box face is square, and a door is rectangular."
+      prompt: "Which objects have round or square outlines?",
+      listenFor: "The ball and wheel look round; the box lid is square."
     }),
     visual: Object.freeze({
-      page: 4,
-      prompt: "Follow the pie slice's edges. What makes its outline triangular?",
-      lookFor: "Three straight edges meet at three corners around the slice."
+      page: 2,
+      prompt: "Which part of the box looks square?",
+      lookFor: "The upright lid has a square outline."
     })
   }),
   "first-facts-level-a-11-at-the-farm": Object.freeze({
     oral: Object.freeze({
-      prompt: "What makes this farm busy even when the barn stands still?",
-      listenFor: "Animals call, eat, and run around the barn, grass, and hay."
+      prompt: "What do the animals find on this farm?",
+      listenFor: "Places to live and food such as hay, alongside other animals."
     }),
     visual: Object.freeze({
       page: 5,
-      prompt: "How can you distinguish the fresh grass from the cut hay?",
-      lookFor: "Green blades grow from the ground beside a dry bundle or pile."
+      prompt: "Which part is hay and which part is growing grass?",
+      lookFor: "Dry bundled hay lies beside green grass rooted in the field."
     })
   }),
   "first-facts-level-a-12-in-the-sea": Object.freeze({
@@ -465,13 +465,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-a-02-the-four-seasons": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why does spring's return make the seasons a cycle rather than a straight line?",
-      listenFor: "After summer, fall, and winter, spring begins the same yearly pattern again."
+      prompt: "How do a squirrel and people get ready for colder weather?",
+      listenFor: "The squirrel stores nuts; people put on warm coats and hats."
     }),
     visual: Object.freeze({
-      page: 5,
-      prompt: "Which leaves show that the tree is moving from summer into fall?",
-      lookFor: "Green leaves mix with yellow, orange, or red ones on the branches and ground."
+      page: 6,
+      prompt: "What is the squirrel doing among the fallen leaves?",
+      lookFor: "It is near the ground with nuts, storing food."
     })
   }),
   "first-facts-a-03-little-seeds-grow": Object.freeze({
@@ -531,13 +531,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-a-08-animals-in-the-ocean": Object.freeze({
     oral: Object.freeze({
-      prompt: "Which ocean animals must reach air even though they swim underwater?",
-      listenFor: "Whales and dolphins breathe air, unlike fish that stay beneath the surface."
+      prompt: "Which ocean animals in the book breathe air?",
+      listenFor: "Whales and dolphins come to the surface for air."
     }),
     visual: Object.freeze({
-      page: 6,
-      prompt: "How does the seahorse hold its place among the plants?",
-      lookFor: "Its curled tail wraps around a plant stem beneath the water."
+      page: 3,
+      prompt: "What shows how whales come up for air?",
+      lookFor: "The blue whale is at the water surface with a visible blow above it."
     })
   }),
   "first-facts-a-09-animals-at-night": Object.freeze({
@@ -553,13 +553,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-a-10-bugs-all-around-us": Object.freeze({
     oral: Object.freeze({
-      prompt: "How do small creatures help the places where they live?",
-      listenFor: "They move pollen, hunt plant pests, loosen soil, and become food for other animals."
+      prompt: "Where can small creatures find food and shelter around these flowers?",
+      listenFor: "Among flowers and leaves, in underground nests, in soil and around stones."
     }),
     visual: Object.freeze({
-      page: 3,
-      prompt: "Where might pollen cling as the bee moves between blooms?",
-      lookFor: "Yellow pollen dots the flower and dusts the bee's legs."
+      page: 5,
+      prompt: "What is inside the ant nest?",
+      lookFor: "Ants and their young occupy chambers below ground."
     })
   }),
   "first-facts-a-11-pets-we-love": Object.freeze({
@@ -575,13 +575,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-a-12-shapes-everywhere": Object.freeze({
     oral: Object.freeze({
-      prompt: "What shape clues help you tell a square from a rectangle?",
-      listenFor: "Both have four corners, but the square has four equal sides."
+      prompt: "How can looking at an object from one side help us find a flat shape?",
+      listenFor: "A wheel looks circular from the side; window and door outlines show flat shapes."
     }),
     visual: Object.freeze({
-      page: 6,
-      prompt: "How does the egg outline differ from a perfect circle?",
-      lookFor: "The curved oval is stretched and narrower at one end."
+      page: 1,
+      prompt: "What shape do the wheels look like from this side?",
+      lookFor: "Both wheel outlines look like circles."
     })
   }),
   "first-facts-a-13-big-and-small": Object.freeze({
@@ -641,13 +641,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-a-18-the-moon": Object.freeze({
     oral: Object.freeze({
-      prompt: "Where does moonlight come from if the Moon makes no light?",
-      listenFor: "Sunlight hits the rocky surface and reflects back toward Earth."
+      prompt: "Why can gray Moon rocks look bright to us?",
+      listenFor: "Sunlight reflects from the surface toward Earth."
     }),
     visual: Object.freeze({
-      page: 3,
-      prompt: "How much of the Moon's round face is sunlit in this crescent view?",
-      lookFor: "A narrow bright curve borders a much darker portion of the Moon."
+      page: 6,
+      prompt: "What does the sunlit ground look like around the astronaut?",
+      lookFor: "The exposed ground is gray and rocky with lit areas and shadows."
     })
   }),
   "first-facts-a-19-day-and-night": Object.freeze({
@@ -674,13 +674,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-a-21-how-i-grow": Object.freeze({
     oral: Object.freeze({
-      prompt: "How does practice connect the baby's early movements with later play?",
-      listenFor: "Sitting and crawling lead to standing, walking, running, and jumping over time."
+      prompt: "What helps this child grow and learn new movements?",
+      listenFor: "Practice and help, along with food, play and sleep."
     }),
     visual: Object.freeze({
       page: 2,
-      prompt: "Compare how the child learns to sit and crawl on this page.",
-      lookFor: "An upright seated body changes to hands and knees for crawling."
+      prompt: "What does the baby use to crawl before learning to stand?",
+      lookFor: "Hands and knees support the baby learning to crawl across the floor."
     })
   }),
   "first-facts-a-22-staying-healthy": Object.freeze({
@@ -696,35 +696,35 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "first-facts-a-23-my-body": Object.freeze({
     oral: Object.freeze({
-      prompt: "How can several body parts cooperate during one ordinary activity?",
-      listenFor: "An example linking sensing, thinking, reaching, holding, walking, or digestion."
+      prompt: "What can the child do to protect the body used for play?",
+      listenFor: "Put sunscreen on skin and wear a helmet to protect the head."
     }),
     visual: Object.freeze({
-      page: 5,
-      prompt: "Where are the three clue-gathering parts on this face?",
-      lookFor: "Eyes, ears, and nose are all visible in their distinct positions."
+      page: 8,
+      prompt: "Which part of the body does this helmet cover?",
+      lookFor: "The helmet sits over the head while the child adjusts its strap."
     })
   }),
   "first-facts-a-24-rocks-and-pebbles": Object.freeze({
     oral: Object.freeze({
-      prompt: "How can a rough piece of rock become a smooth pebble?",
-      listenFor: "Moving water repeatedly rubs and wears down the rock's sharp edges."
+      prompt: "How can large rocks become small smooth pebbles?",
+      listenFor: "Water wears and rubs rock, and smaller pieces collect in streams."
     }),
     visual: Object.freeze({
-      page: 3,
-      prompt: "Which surfaces show where water has worn this pebble smooth?",
-      lookFor: "Rounded edges and a polished surface sit within or beside flowing water."
+      page: 5,
+      prompt: "What shape from a living thing is preserved here?",
+      lookFor: "A ridged shell shape is preserved in the rock."
     })
   }),
   "first-facts-a-25-water-everywhere": Object.freeze({
     oral: Object.freeze({
-      prompt: "How does water move from clouds into living things and human use?",
-      listenFor: "Rain refills rivers, then fresh water supports drinking, plants, animals, washing, and crops."
+      prompt: "Where can you find water on Earth, both nearby and from space?",
+      listenFor: "Rain, rivers, drinking water, gardens, oceans and clouds."
     }),
     visual: Object.freeze({
-      page: 8,
-      prompt: "How is rainwater being saved for the plants in this picture?",
-      lookFor: "A container catches or stores runoff near the garden instead of letting it drain away."
+      page: 9,
+      prompt: "Which colors help you find water in this view of Earth?",
+      lookFor: "Blue oceans and white clouds are visible."
     })
   }),
   "level-c-nonfiction-01-bees": Object.freeze({
@@ -751,24 +751,24 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "level-c-nonfiction-03-penguins": Object.freeze({
     oral: Object.freeze({
-      prompt: "How do emperor penguin parents share the work of keeping a chick alive?",
-      listenFor: "The father warms the egg while the mother hunts, then both return food and warmth."
+      prompt: "How can the same penguin blend in from two different directions?",
+      listenFor: "Its dark back blends with deeper water from above; its pale belly blends with the bright surface from below."
     }),
     visual: Object.freeze({
-      page: 3,
-      prompt: "How is the egg kept away from the Antarctic ice?",
-      lookFor: "It rests on the father's feet beneath a fold of warm belly skin."
+      page: 8,
+      prompt: "Compare the penguins against the water behind each one.",
+      lookFor: "A dark back is against darker water, while a pale belly is seen toward brighter surface light."
     })
   }),
   "level-c-nonfiction-04-the-moon": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why does the Moon seem to change shape although its round body stays the same?",
-      listenFor: "As it travels, we see changing portions of the half lit by the Sun."
+      prompt: "What are different ways people learn about the Moon?",
+      listenFor: "Watching it, comparing its size, noticing its effects, visiting and studying returned rocks."
     }),
     visual: Object.freeze({
-      page: 4,
-      prompt: "What evidence of ancient impacts remains on the Moon's surface?",
-      lookFor: "Round, bowl-shaped craters of different sizes cover the rocky ground."
+      page: 7,
+      prompt: "What is the scientist studying, and where did it come from?",
+      lookFor: "A Moon-rock sample is handled in an enclosed laboratory cabinet; astronauts brought samples back."
     })
   }),
   "level-c-nonfiction-05-how-seeds-grow": Object.freeze({
@@ -795,35 +795,35 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_CORE = Object.freeze({
   }),
   "level-c-nonfiction-07-under-the-ocean": Object.freeze({
     oral: Object.freeze({
-      prompt: "How do light, temperature, and pressure change as a diver travels deeper?",
-      listenFor: "Sunlight fades, water becomes colder, and pressure rises with depth."
+      prompt: "How do sunlight and pressure change deeper in the ocean?",
+      listenFor: "Sunlight fades and pressure increases with depth."
     }),
     visual: Object.freeze({
       page: 6,
-      prompt: "Which animal-made light breaks through the deep ocean darkness?",
-      lookFor: "A glowing part of the fish stands out against nearly black water."
+      prompt: "Which light comes from an animal?",
+      lookFor: "A glowing part of the fish stands out against dark water."
     })
   }),
   "level-c-nonfiction-08-butterflies": Object.freeze({
     oral: Object.freeze({
-      prompt: "What is changing inside the chrysalis before the monarch can fly?",
-      listenFor: "The caterpillar's body reorganizes through metamorphosis into an adult butterfly."
+      prompt: "How do the four life stages begin again?",
+      listenFor: "An adult female lays new eggs on milkweed, beginning another egg-caterpillar-chrysalis-butterfly cycle."
     }),
     visual: Object.freeze({
-      page: 7,
-      prompt: "What shows that the newly emerged butterfly is not ready to fly yet?",
-      lookFor: "Its wet, wrinkled wings hang small or folded beside the opened chrysalis."
+      page: 9,
+      prompt: "Where is the new egg attached?",
+      lookFor: "The tiny pale egg is against the underside of a milkweed leaf beneath the female butterfly."
     })
   }),
   "level-c-nonfiction-09-caves": Object.freeze({
     oral: Object.freeze({
-      prompt: "How can repeated drops of water carve a cave and later build stone inside it?",
-      listenFor: "Acidic water widens limestone cracks, then mineral-rich drips leave growing formations."
+      prompt: "What can show that people visited a cave long ago?",
+      listenFor: "A painting of an animal on a cave wall."
     }),
     visual: Object.freeze({
-      page: 6,
-      prompt: "Where have the ceiling and floor formations finally joined?",
-      lookFor: "A continuous stone column connects a downward stalactite to an upward stalagmite."
+      page: 9,
+      prompt: "Which part of this wall was changed by people?",
+      lookFor: "The painted animal outline is a human-made mark on the rock."
     })
   }),
   "level-c-nonfiction-10-frogs": Object.freeze({

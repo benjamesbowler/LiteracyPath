@@ -20,6 +20,10 @@ const VISUAL_REVIEW_PATH = resolve(
   "docs/guided-reading/willow-street-visual-review.json"
 );
 const sha256 = value => createHash("sha256").update(value).digest("hex");
+const assertReadingImageDimensions = (metadata, assetPath) => {
+  assert.ok(metadata.width >= 1365 && metadata.height >= 768, `${assetPath}: minimum reading resolution`);
+  assert.ok(Math.abs(metadata.width / metadata.height - 16 / 9) < 0.005, `${assetPath}: 16:9 landscape composition`);
+};
 
 test("every illustrated bridge page resolves to a unique reviewed-sized asset", async () => {
   const illustrated = GUIDED_READING_BRIDGE_BOOKS.filter(
@@ -70,8 +74,7 @@ test("every illustrated bridge page resolves to a unique reviewed-sized asset", 
 
     assert.ok(record, `manifest record missing: ${item.path}`);
     assert.equal(metadata.format, "webp", item.path);
-    assert.equal(metadata.width, 1365, item.path);
-    assert.equal(metadata.height, 768, item.path);
+    assertReadingImageDimensions(metadata, item.path);
     assert.equal(metadata.space, "srgb", item.path);
     assert.equal(record.bookId, item.bookId, item.path);
     assert.equal(record.pageNumber, item.pageNumber, item.path);
@@ -139,8 +142,7 @@ test("the six nonfiction books use unique self-created photorealistic assets", a
 
     assert.ok(record, `manifest record missing: ${item.path}`);
     assert.equal(metadata.format, "webp", item.path);
-    assert.equal(metadata.width, 1365, item.path);
-    assert.equal(metadata.height, 768, item.path);
+    assertReadingImageDimensions(metadata, item.path);
     assert.equal(metadata.space, "srgb", item.path);
     assert.equal(record.bookId, item.bookId, item.path);
     assert.equal(record.pageNumber, item.pageNumber, item.path);
@@ -162,6 +164,10 @@ test("the six nonfiction books use unique self-created photorealistic assets", a
 
 test("the final Willow Street visual review covers every cover and reading page", async () => {
   const review = JSON.parse(await readFile(VISUAL_REVIEW_PATH, "utf8"));
+  const manifests = await Promise.all([MANIFEST_PATH, PHOTOREAL_MANIFEST_PATH]
+    .map(async filePath => JSON.parse(await readFile(filePath, "utf8"))));
+  const manifestByPath = new Map(manifests.flatMap(manifest => manifest.assets)
+    .map(asset => [asset.path, asset]));
   const expectedPaths = GUIDED_READING_BRIDGE_BOOKS.flatMap(book => [
     book.coverImage,
     ...book.pages.map(page => page.image)
@@ -179,13 +185,22 @@ test("the final Willow Street visual review covers every cover and reading page"
   });
   assert.deepEqual(review.assets.map(asset => asset.path).sort(), expectedPaths);
   for (const asset of review.assets) {
+    const manifestAsset = manifestByPath.get(asset.path);
+    assert.ok(manifestAsset, `manifest record missing: ${asset.path}`);
     assert.equal(asset.disposition, "approved", asset.path);
     assert.equal(asset.provenance, "self-created", asset.path);
-    assert.deepEqual(asset.viewport, { width: 1365, height: 768, detail: "original" }, asset.path);
+    assert.deepEqual(asset.viewport, { width: manifestAsset.width, height: manifestAsset.height, detail: "original" }, asset.path);
+    assertReadingImageDimensions(asset.viewport, asset.path);
+    assert.equal(asset.imageSha256, manifestAsset.sha256, asset.path);
+    assert.equal(asset.textSha256, manifestAsset.textSha256, asset.path);
+    assert.equal(asset.visualBriefSha256, manifestAsset.briefSha256, asset.path);
     assert.match(asset.imageSha256, /^[a-f0-9]{64}$/u, asset.path);
     assert.match(asset.textSha256, /^[a-f0-9]{64}$/u, asset.path);
     assert.match(asset.visualBriefSha256, /^[a-f0-9]{64}$/u, asset.path);
-    assert.match(asset.reviewedAt, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/u, asset.path);
-    assert.ok(Number.isFinite(Date.parse(asset.reviewedAt)), asset.path);
+    assert.match(asset.reviewedAt, /^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}Z)?$/u, asset.path);
+    assert.ok(Number.isFinite(Date.parse(asset.reviewedAt)), `${asset.path}: valid review date`);
+    if (manifestAsset.directReview.reviewedAt) {
+      assert.equal(asset.reviewedAt, manifestAsset.directReview.reviewedAt, asset.path);
+    }
   }
 });

@@ -172,7 +172,11 @@ async function synthesize(accessToken, record) {
   }
 }
 
-const inventory = buildGuidedReadingAudioInventory(selectedBooks, repositoryRoot);
+// Shared read-aloud books have their own character-dialogue manifests.
+// Their visible words still receive tap support below.
+const inventory = buildGuidedReadingAudioInventory(
+  selectedBooks.filter(book => book.readingBandProfile !== "read-aloud"), repositoryRoot
+);
 if (previousPageText && guidedReadingBooks.some(book => (book.pages || []).some(page =>
   page.active !== false && normalizeLedaAudioText(readablePageText(page)) === normalizeLedaAudioText(previousPageText)
 ))) {

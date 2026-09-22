@@ -111,11 +111,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-03::10": {
-    "displayedText": "From the top, silver water curved around bays, cliffs and a fishing village.",
+    "displayedText": "From the top, they traced their route below. \"There's the beach!\" said Betty. Aiden found the tiny harbor.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-03::11": {
-    "displayedText": "That evening, salty fries tasted best beside the sea. \"Maybe rain isn't so bad,\" Aiden said.",
+    "displayedText": "At supper, Aiden held up a fry. \"I'm going to draw the whole trip. Even the rain!\" Betty laughed.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-03::12": {
@@ -123,11 +123,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-03::13": {
-    "displayedText": "On the drive home, Betty held her pebble. Aiden said, \"Next time, I'm bringing two notebooks.\"",
+    "displayedText": "On the drive home, Betty held her pebble. \"Your map got us there,\" Aiden said. \"Can I keep it?\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-03::2": {
-    "displayedText": "Mom opened the cottage page. \"One week by the sea,\" she said. Betty whooped.",
+    "displayedText": "Mom opened the cottage brochure. \"One week by the sea.\" Betty traced the coast. \"Can we visit all these places?\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-03::3": {
@@ -151,11 +151,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-03::8": {
-    "displayedText": "On Wednesday, rain hammered the windows. No beach. No lighthouse. Aiden slumped over the board game.",
+    "displayedText": "Rain rattled the window. Aiden slumped over the board game. Betty drew their route: beach, harbor, then lighthouse.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-03::9": {
-    "displayedText": "When the rain cleared, they climbed all one hundred and forty-seven lighthouse steps.",
+    "displayedText": "The rain stopped. Betty led them along her route. At the lighthouse, Aiden counted all 147 steps.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-04::1": {
@@ -167,7 +167,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-04::11": {
-    "displayedText": "So they made a new routine: harness on its peg, quiet hellos, and a safe bed near Aiden.",
+    "displayedText": "Next morning, Aiden crouched beside Socks. This time, Socks came close enough for both children to stroke him.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-04::12": {
@@ -179,7 +179,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-04::14": {
-    "displayedText": "Aiden wrote, Socks sleeps by my flashlight. Socks rested his chin on the page. He was home.",
+    "displayedText": "Aiden drew Socks beside his flashlight. Socks settled on his blanket, close enough to hear the scratch of Aiden's pencil.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-04::2": {
@@ -283,7 +283,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-06::12": {
-    "displayedText": "That night, Aiden wrote six fair-test rules in his notebook. Socks watched every pen stroke.",
+    "displayedText": "Aiden numbered the days in his notebook. Socks followed every stroke of the pencil. \"Are you checking my work?\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-06::13": {
@@ -295,23 +295,19 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-06::3": {
-    "displayedText": "They chose safe crystal growing and ordered a kit. Waiting four days felt like forty.",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "ab-c-06::4": {
-    "displayedText": "With Mom supervising, they wore goggles and followed every safe instruction.",
+    "displayedText": "Their crystal kit arrived. Mom read the instructions with them, then mixed the powder and water.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-06::5": {
-    "displayedText": "Morning one: no crystals. Morning two: still none. Socks stared up at the high shelf.",
+    "displayedText": "Nothing on morning one. Nothing on morning two. Mom moved the jar above Socks's nose. Aiden wanted to start again.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-06::6": {
-    "displayedText": "\"Start over?\" Aiden asked. \"No. Keep watching,\" Betty said. They photographed the same jar each day.",
+    "displayedText": "\"Let's wait,\" Betty said. Days later, blue crystals filled the jar. Aiden photographed them, and Betty recorded the date.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-06::7": {
-    "displayedText": "Then sharp blue crystals began to climb the sides of the jar.",
+    "displayedText": "They lined up the photographs beside Betty's chart. Each day's crystals were taller. \"Look!\" Aiden said. \"They kept growing.\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-06::8": {
@@ -323,7 +319,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-07::1": {
-    "displayedText": "Ding-dong! Socks saw Uncle Eddie and spun in circles for forty-five seconds.",
+    "displayedText": "Ding-dong! Socks saw Uncle Eddie and spun in circles. His tail thumped the door.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-07::10": {
@@ -339,7 +335,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-07::13": {
-    "displayedText": "\"I think this is his home now,\" Betty said. Socks curled tighter at Aiden's feet.",
+    "displayedText": "\"We forgot one animal,\" Betty said. Socks snored between their chairs. Aiden grinned. \"Our guide!\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-07::2": {
@@ -351,7 +347,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-07::4": {
-    "displayedText": "Betty found the bird blind, binoculars, a logbook, and a board with twelve species.",
+    "displayedText": "Betty opened the bird blind's logbook. She wanted to fill a page, but the reeds hardly moved.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-07::5": {
@@ -359,19 +355,19 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-07::6": {
-    "displayedText": "Then Socks pulled toward the footbridge. Uncle Eddie checked the map and clipped on his leash.",
+    "displayedText": "They waited. No more birds came. Socks tugged toward the bridge, so Uncle Eddie picked up his leash.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-07::7": {
-    "displayedText": "Across the river, Socks followed the sounds through tall grass and into thicker trees.",
+    "displayedText": "Across the bridge, they followed the path beside the water. Socks tugged again. Somewhere ahead, wings buzzed.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-07::8": {
-    "displayedText": "He stopped at a clear spring pool. Dragonflies zipped above tiny swimmers. \"Good find, Socks!\"",
+    "displayedText": "Dragonflies skimmed a pool. Beneath them, little beetles paddled. Aiden crouched. \"There's a whole other world down there!\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-07::9": {
-    "displayedText": "Back at the hide, Betty logged each creature. Uncle Eddie helped name the tiny swimmers.",
+    "displayedText": "Back in the bird blind, Betty drew a dragonfly and beetles. The empty page was full of legs and wings.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-08::1": {
@@ -379,19 +375,19 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-08::10": {
-    "displayedText": "Betty bumped his shoulder with hers. \"I heard you,\" she said.",
+    "displayedText": "Betty bumped his shoulder with hers. \"You told her,\" she said. \"We told her,\" Aiden said.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-08::11": {
-    "displayedText": "A week later, Marcus bumped Aiden's tray. \"Sorry, Aiden,\" he said. Aiden nodded.",
+    "displayedText": "At lunch, Marcus stepped aside. \"After you, Aiden.\" Aiden carried his tray past him. His hands stayed steady.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-08::12": {
-    "displayedText": "Miss Okafor told the class, \"If unkindness keeps happening, speak, move away, and tell an adult.\"",
+    "displayedText": "Miss Okafor spoke to Marcus. \"No more name-calling.\" She checked on Aiden at lunch and playtime all week.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-08::13": {
-    "displayedText": "Then she knelt by Aiden. \"You were brave to ask for help. This was never your fault.\"",
+    "displayedText": "Miss Okafor listened. \"You did nothing wrong,\" she said. \"I'll speak to Marcus and stay close at lunch.\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-08::2": {
@@ -399,31 +395,31 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-08::3": {
-    "displayedText": "\"Say your name. Say stop. Walk away. Then tell Miss Okafor,\" Betty said.",
+    "displayedText": "\"Want me to come with you?\" Betty asked. Aiden nodded. \"I want to tell him to stop first.\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-08::4": {
-    "displayedText": "Aiden practiced the plan aloud while Socks stayed beside him.",
+    "displayedText": "Aiden tried the words aloud. They sounded small in his bedroom. Socks looked up. Aiden tried once more.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-08::5": {
-    "displayedText": "On Friday, Marcus started again. Betty stepped beside Aiden. \"His name is Aiden. Stop.\"",
+    "displayedText": "At lunch, Marcus did it again. Betty stepped beside Aiden. \"He asked you to stop.\" Marcus shrugged.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-08::6": {
-    "displayedText": "\"Thanks,\" Aiden said. \"Next time, I want to say it.\" Betty nodded.",
+    "displayedText": "\"Come on,\" Betty said. \"We'll tell Miss Okafor.\" This time, Aiden went with her. His lunch could wait.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-08::7": {
-    "displayedText": "On Monday, Marcus repeated it. Aiden said clearly, \"My name is Aiden. Stop.\"",
+    "displayedText": "Next morning, Marcus started again. \"Stop calling me that,\" Aiden said. Marcus laughed, and Aiden looked away.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-08::8": {
-    "displayedText": "His voice shook, but he walked away with Betty and told Miss Okafor everything.",
+    "displayedText": "Aiden's voice shook outside the classroom. Betty stayed beside him. Together, they went in.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-08::9": {
-    "displayedText": "That evening, Aiden wrote the words once more. This time, his hand did not shake.",
+    "displayedText": "That evening, Aiden wrote about the week. He added one more line: No names today.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-09::1": {
@@ -487,15 +483,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-10::11": {
-    "displayedText": "At the shop, Betty chose a model. Aiden found a picture book showing the dark room clearly.",
+    "displayedText": "At the shop, Betty chose a model. Aiden found a book with a picture of the dark room.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-10::12": {
-    "displayedText": "In the car, they checked their clues: moat, hall, lookout, arrow slit-and the dark room's secret.",
+    "displayedText": "\"It held food!\" Aiden told Betty in the car. \"Barrels and sacks. That dark room was a storeroom!\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-10::13": {
-    "displayedText": "At home, Aiden used the picture book to finish his clue page. No blank space left!",
+    "displayedText": "At home, Aiden added barrels to his drawing. Now his castle had somewhere to keep its winter food.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-10::2": {
@@ -519,7 +515,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-10::7": {
-    "displayedText": "Downstairs, dim light hid the old details. Aiden could not find a clue to draw.",
+    "displayedText": "Downstairs, Aiden peered into a dark stone room. \"What was this for?\" The display picture was too dark to tell.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-10::8": {
@@ -547,7 +543,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-01::5": {
-    "displayedText": "Bob and Nan meet.",
+    "displayedText": "Now Bob runs with Nan.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-01::6": {
@@ -559,7 +555,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-02-park::1": {
-    "displayedText": "Bob and Nan reach the park.",
+    "displayedText": "Can Bob see the whole park?",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-02-park::2": {
@@ -571,11 +567,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-02-park::4": {
-    "displayedText": "Bob swings on his own.",
+    "displayedText": "Bob swings up high.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-02-park::5": {
-    "displayedText": "Nan swings with Bob.",
+    "displayedText": "The trees block their view.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-02-park::6": {
@@ -583,7 +579,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-02-park::7": {
-    "displayedText": "Both reach the top!",
+    "displayedText": "Now they see the whole park!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-03-fluff::1": {
@@ -623,11 +619,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-04-beach::3": {
-    "displayedText": "Bob digs the wall.",
+    "displayedText": "Bob builds a long wall.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-04-beach::4": {
-    "displayedText": "Nan digs the tower.",
+    "displayedText": "Nan makes a sand tower.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-04-beach::5": {
@@ -635,11 +631,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-04-beach::6": {
-    "displayedText": "They build again together.",
+    "displayedText": "They build farther from the waves.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-04-beach::7": {
-    "displayedText": "The new fort stands!",
+    "displayedText": "This fort stays dry!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-05-school::1": {
@@ -703,7 +699,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-07-birthday::1": {
-    "displayedText": "Today is Bob's birthday.",
+    "displayedText": "Bob wants a birthday game.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-07-birthday::2": {
@@ -723,15 +719,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-07-birthday::6": {
-    "displayedText": "They share the big cake.",
+    "displayedText": "Cake first. Then time to play!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-07-birthday::7": {
-    "displayedText": "They run and hop.",
+    "displayedText": "Bob hits. Nan gets the ball.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-07-birthday::8": {
-    "displayedText": "Bob rests beside Nan and Fluff.",
+    "displayedText": "Now the bat rests too.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-08-sick::1": {
@@ -743,11 +739,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-08-sick::3": {
-    "displayedText": "Nan rests beside Fluff.",
+    "displayedText": "Nan feels ill too.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-08-sick::4": {
-    "displayedText": "Fluff stays close beside them.",
+    "displayedText": "Nan falls asleep beside Fluff.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-08-sick::5": {
@@ -763,7 +759,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-08-sick::8": {
-    "displayedText": "Later they walk with Fluff.",
+    "displayedText": "Now they run with Fluff!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-09-read::1": {
@@ -859,7 +855,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-01-chompys-big-lunch::8": {
-    "displayedText": "Under the stars, Chompy rests with one quiet tummy.",
+    "displayedText": "Under the stars, Chompy listens. Not one rumble.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-02-sunnys-rainy-day::1": {
@@ -867,7 +863,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-02-sunnys-rainy-day::2": {
-    "displayedText": "Grumpy, Dozy, and Wiggly hide in leaf shade.",
+    "displayedText": "Grumpy, Dozy, and Wiggly huddle under broad leaves.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-02-sunnys-rainy-day::3": {
@@ -891,7 +887,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-02-sunnys-rainy-day::8": {
-    "displayedText": "The sun shines on four wet tracks.",
+    "displayedText": "Dozy steps in too. Sunny makes room in the puddle.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-03-dozy-wont-wake-up::1": {
@@ -955,7 +951,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-04-grumpy-needs-help::8": {
-    "displayedText": "Grumpy checks his tail. \"That was the right help.\"",
+    "displayedText": "Grumpy swings his free tail. \"Much better. Thank you.\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-05-bossy-makes-a-plan::1": {
@@ -979,15 +975,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-05-bossy-makes-a-plan::6": {
-    "displayedText": "Bossy's first plan is one big mess.",
+    "displayedText": "Bossy stops reading. \"Show me your best jobs,\" she says.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-05-bossy-makes-a-plan::7": {
-    "displayedText": "Bossy stops. \"Which job fits you?\" she asks.",
+    "displayedText": "Sunny spreads leaves. Wiggly brings a basket. Chompy fetches fruit.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-05-bossy-makes-a-plan::8": {
-    "displayedText": "Bossy marks the new jobs. Lunch fills the rock.",
+    "displayedText": "Bossy marks three new jobs. Chompy waits for everyone.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-06-bouncy-bumps-into-everything::1": {
@@ -1019,7 +1015,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-06-bouncy-bumps-into-everything::8": {
-    "displayedText": "He takes the stone path to the wide, bare field.",
+    "displayedText": "In the empty field, Bouncy takes one enormous bounce.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-07-wigglys-messy-day::1": {
@@ -1043,11 +1039,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-07-wigglys-messy-day::6": {
-    "displayedText": "Wiggly sighs. \"My tail needs more room.\"",
+    "displayedText": "Wiggly calls, \"Sorry, Fancy! My tail needs more room.\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-07-wigglys-messy-day::7": {
-    "displayedText": "Fancy comes back. Dozy marks a wide spot.",
+    "displayedText": "Fancy keeps clear. Dozy marks a wide spot for Wiggly.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-07-wigglys-messy-day::8": {
@@ -1055,7 +1051,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-08-zippy-slows-down::1": {
-    "displayedText": "Zippy races out to find a picnic path.",
+    "displayedText": "Zippy knows a shortcut home. Off he goes!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-08-zippy-slows-down::2": {
@@ -1071,11 +1067,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-08-zippy-slows-down::5": {
-    "displayedText": "Three blue flowers point toward a bent tree.",
+    "displayedText": "Zippy spots three blue flowers. \"I passed those!\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-08-zippy-slows-down::6": {
-    "displayedText": "Zippy follows them slowly and finds the path.",
+    "displayedText": "He walks toward the bent tree, one slow step at a time.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-08-zippy-slows-down::7": {
@@ -1083,39 +1079,39 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-08-zippy-slows-down::8": {
-    "displayedText": "They walk home. Together, they name each turn.",
+    "displayedText": "Sunny follows. Zippy leads her home past the waterfall.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-09-honkys-inside-voice::1": {
-    "displayedText": "Honky calls. Leaves drop on the food.",
+    "displayedText": "Honky calls the Pals to breakfast. Leaves tumble onto the fruit.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-09-honkys-inside-voice::2": {
-    "displayedText": "Grumpy looks at the food. \"That voice is too big.\"",
+    "displayedText": "Grumpy brushes them off. \"Not so loud!\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-09-honkys-inside-voice::3": {
-    "displayedText": "Bossy shows one small call and one big call.",
+    "displayedText": "Bossy whispers. \"Try it like this.\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-09-honkys-inside-voice::4": {
-    "displayedText": "Honky greets Chompy. The bowls stay still.",
+    "displayedText": "Honky calls softly. Chompy sits beside the bowls.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-09-honkys-inside-voice::5": {
-    "displayedText": "He cheers too soon. The leaves fly.",
+    "displayedText": "Honky cheers. Another shower of leaves lands on breakfast.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-09-honkys-inside-voice::6": {
-    "displayedText": "BOOM! Dozy jumps. Rain floods the paths.",
+    "displayedText": "Thunder booms. Dozy bolts inside. Rain splashes over the food.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-09-honkys-inside-voice::7": {
-    "displayedText": "Honky's big call brings all Pals to Cozy Cave.",
+    "displayedText": "Honky calls across the rain. \"Breakfast in the cave!\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-09-honkys-inside-voice::8": {
-    "displayedText": "In the cave, Honky says, \"We are all here.\"",
+    "displayedText": "Honky sets the rescued fruit down. \"Breakfast,\" he whispers.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-10-cheekys-prank-goes-wrong::1": {
@@ -1123,7 +1119,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-10-cheekys-prank-goes-wrong::2": {
-    "displayedText": "He hides a soft leaf hat on Wiggly's path.",
+    "displayedText": "He ties a leaf hat above Wiggly's path.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-10-cheekys-prank-goes-wrong::3": {
@@ -1155,11 +1151,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-11-shys-secret-gift::10": {
-    "displayedText": "Sunny says, \"Thank you, Shy. I can wait here.\"",
+    "displayedText": "Sunny stays by the fern. \"Is this one for me?\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-11-shys-secret-gift::11": {
-    "displayedText": "Shy sits near Sunny, with the rock between them.",
+    "displayedText": "Shy sits across the rock. \"I made it for you.\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-11-shys-secret-gift::12": {
@@ -1203,15 +1199,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-12-fancys-bad-day::10": {
-    "displayedText": "Fancy steers his tail over the fan. The fold lifts.",
+    "displayedText": "Fancy presses the damp fan with her tail. The fold flattens.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-12-fancys-bad-day::11": {
-    "displayedText": "Fancy sees her straight leaf fan in the pool.",
+    "displayedText": "The fan is flat again. Fancy dips it beside her smiling reflection.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-12-fancys-bad-day::12": {
-    "displayedText": "Fancy gives Wiggly the bracelet. His tail holds it.",
+    "displayedText": "Fancy slips a bracelet onto Wiggly's tail. \"For you.\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-12-fancys-bad-day::2": {
@@ -1239,11 +1235,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-12-fancys-bad-day::8": {
-    "displayedText": "Wiggly nods toward warm water and a flat rock.",
+    "displayedText": "Wiggly leads Fancy to warm water and a flat rock.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-12-fancys-bad-day::9": {
-    "displayedText": "He brings the water. His tail stays off Fancy.",
+    "displayedText": "He fills a bowl. Fancy wets the folded leaves.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-13-clumsy-to-the-rescue::1": {
@@ -1255,7 +1251,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-13-clumsy-to-the-rescue::11": {
-    "displayedText": "Dozy hugs it and falls asleep at once.",
+    "displayedText": "Dozy hugs the soggy pillow. His eyes close at once.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-13-clumsy-to-the-rescue::12": {
@@ -1267,11 +1263,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-13-clumsy-to-the-rescue::3": {
-    "displayedText": "Bossy's map is full of red marks.",
+    "displayedText": "Bossy marks the map. \"We've looked everywhere!\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-13-clumsy-to-the-rescue::4": {
-    "displayedText": "\"Not from up here,\" says tall Clumsy.",
+    "displayedText": "Clumsy lifts his head. \"I'll look from up here.\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-13-clumsy-to-the-rescue::5": {
@@ -1307,7 +1303,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-14-what-is-flappy::12": {
-    "displayedText": "Flappy climbs, glides, and lands neatly beside the nest.",
+    "displayedText": "From the branch above, Flappy glides down into the nest.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-14-what-is-flappy::2": {
@@ -1315,31 +1311,31 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-14-what-is-flappy::3": {
-    "displayedText": "Bossy flies high. Grumpy does not know why.",
+    "displayedText": "Bossy flies overhead. Flappy flaps just as hard, but stays down.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-14-what-is-flappy::4": {
-    "displayedText": "Sunny cheers. Flappy still wants a real answer.",
+    "displayedText": "Sunny studies the feathered wings. \"Try a jump,\" she says.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-14-what-is-flappy::5": {
-    "displayedText": "Flappy tries roaring. Only a small squawk comes.",
+    "displayedText": "Flappy gives one angry squawk. A feather drifts down.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-14-what-is-flappy::6": {
-    "displayedText": "Flappy tries stomping. Small feet make small thumps.",
+    "displayedText": "Flappy stamps. Small claws dig into the soft ground.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-14-what-is-flappy::7": {
-    "displayedText": "Small feet grip the tree. Flappy builds a nest.",
+    "displayedText": "Those claws grip bark too. Flappy climbs and makes a nest.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-14-what-is-flappy::8": {
-    "displayedText": "Flappy glides past one branch and catches an insect.",
+    "displayedText": "An insect drifts past. Flappy spreads both wings and glides after it.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-14-what-is-flappy::9": {
-    "displayedText": "Flappy shows Grumpy the useful feet and feathers.",
+    "displayedText": "\"I climb up,\" Flappy tells Grumpy, \"and glide down!\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-15-sneezy-and-the-waterfall::1": {
@@ -1439,51 +1435,51 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-17-the-sunny-hollow-games::1": {
-    "displayedText": "Bossy starts the first Games in the Hollow.",
+    "displayedText": "Bossy plans the Games. She wants one winner.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-17-the-sunny-hollow-games::10": {
-    "displayedText": "Fancy's neat display wins one bright bow.",
+    "displayedText": "Fancy sorts the scattered fruit into patterns. Another bow!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-17-the-sunny-hollow-games::11": {
-    "displayedText": "Sneezy blows one leaf past the last flag.",
+    "displayedText": "Sneezy blows a leaf past every flag. One more bow!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-17-the-sunny-hollow-games::12": {
-    "displayedText": "Bossy fills each line. Bright bows fill the board.",
+    "displayedText": "Bossy adds the last bow. Her board is full of different winners.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-17-the-sunny-hollow-games::2": {
-    "displayedText": "Bossy's board has one blank line: ONE WINNER.",
+    "displayedText": "She leaves one blank space on her board.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-17-the-sunny-hollow-games::3": {
-    "displayedText": "Zippy wins the race. Bossy blinks.",
+    "displayedText": "Zippy wins the race. Bossy starts to write.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-17-the-sunny-hollow-games::4": {
-    "displayedText": "Bouncy jumps high, then bumps all the flags.",
+    "displayedText": "Bouncy jumps farthest, then picks up his fallen flags.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-17-the-sunny-hollow-games::5": {
-    "displayedText": "Honky honks. The trees go bare.",
+    "displayedText": "Honky's blast shakes the trees. A third winner?",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-17-the-sunny-hollow-games::6": {
-    "displayedText": "Wiggly sorts the fruit. His tail flings it wide.",
+    "displayedText": "Wiggly tries tidying. Whoosh! His tail scatters the fruit.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-17-the-sunny-hollow-games::7": {
-    "displayedText": "Shy's pebble row stays neat by the rock.",
+    "displayedText": "Shy gathers pebbles into one neat row. Another winner!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-17-the-sunny-hollow-games::8": {
-    "displayedText": "Cheeky picks Grumpy's best scowl.",
+    "displayedText": "Bossy changes her plan. Each game gets its own winner.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-17-the-sunny-hollow-games::9": {
-    "displayedText": "Dozy sleeps straight through the lunch bell.",
+    "displayedText": "Dozy gets a bow for the longest yawn.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-18-dozys-wonderful-dream::1": {
@@ -1491,15 +1487,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-18-dozys-wonderful-dream::10": {
-    "displayedText": "Together they shape one sturdy shared cloud.",
+    "displayedText": "Dozy spreads a thin cloud on the rock. Sunny curls up beside him.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-18-dozys-wonderful-dream::11": {
-    "displayedText": "Dozy wakes. His friends sit close by.",
+    "displayedText": "Dozy wakes beside his friends. \"Stay here,\" he murmurs.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-18-dozys-wonderful-dream::12": {
-    "displayedText": "Dozy pulls everyone close for one shared dream.",
+    "displayedText": "His friends settle around his pillow. Dozy closes his eyes again.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-18-dozys-wonderful-dream::2": {
@@ -1507,31 +1503,31 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-18-dozys-wonderful-dream::3": {
-    "displayedText": "Dozy dreams of a warm cloud bed for everyone.",
+    "displayedText": "Dozy dreams of finding a soft place to sleep.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-18-dozys-wonderful-dream::4": {
-    "displayedText": "The first cloud lifts much too high.",
+    "displayedText": "His first cloud bed blows high above the ground.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-18-dozys-wonderful-dream::5": {
-    "displayedText": "Chompy's food-cloud breaks into mist.",
+    "displayedText": "Chompy bites a cloud. A great hole opens in it.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-18-dozys-wonderful-dream::6": {
-    "displayedText": "Grumpy's seat-cloud sinks under him.",
+    "displayedText": "Grumpy's cloud sags. His bottom nearly touches the ground.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-18-dozys-wonderful-dream::7": {
-    "displayedText": "Bouncy's cloud springs away with one BOING!",
+    "displayedText": "Bouncy lands on another cloud. BOING! It throws him off.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-18-dozys-wonderful-dream::8": {
-    "displayedText": "A gold stream points towards a warm peak.",
+    "displayedText": "Dozy follows a golden stream down toward a rocky peak.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-18-dozys-wonderful-dream::9": {
-    "displayedText": "Dozy finds his friends waiting there.",
+    "displayedText": "His friends stand on the peak. The rock does not wobble.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-19-zippys-race::1": {
@@ -1547,7 +1543,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-19-zippys-race::12": {
-    "displayedText": "One slow lap is enough. Sunny counts each marker.",
+    "displayedText": "Next morning, Zippy runs one easy lap. Then he stops beside Sunny.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-19-zippys-race::2": {
@@ -1599,15 +1595,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-20-the-big-storm::2": {
-    "displayedText": "Grumpy reads the clouds. \"A big storm comes.\"",
+    "displayedText": "\"Storm coming,\" says Grumpy. \"A big one.\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-20-the-big-storm::3": {
-    "displayedText": "Bossy reads her long plan. The Pals mix up their jobs.",
+    "displayedText": "Bossy's list trails to the ground. \"Wait. Who has the rugs?\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-20-the-big-storm::4": {
-    "displayedText": "Clumsy looks east. Bossy gives each Pal one job.",
+    "displayedText": "\"One job each,\" says Bossy. Clumsy watches the clouds.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-20-the-big-storm::5": {
@@ -1615,15 +1611,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-20-the-big-storm::6": {
-    "displayedText": "Honky's call brings each Pal back.",
+    "displayedText": "Honky calls the scattered Pals back to the rock.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-20-the-big-storm::7": {
-    "displayedText": "Wiggly sweeps all loose things off Big Flat Rock.",
+    "displayedText": "Wiggly clears the rock with one long sweep.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-20-the-big-storm::8": {
-    "displayedText": "Zippy brings food, rugs, and lamps.",
+    "displayedText": "Zippy stacks the supplies by the cave. \"That's the lot!\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-20-the-big-storm::9": {
@@ -1667,7 +1663,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-22-shys-sinking-path::2": {
-    "displayedText": "Pals need a safe path for their full baskets.",
+    "displayedText": "The Pals need to carry their berries across.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-22-shys-sinking-path::3": {
@@ -1679,11 +1675,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-22-shys-sinking-path::5": {
-    "displayedText": "Small beetles walk past the mud. Shy looks.",
+    "displayedText": "Shy spots beetles walking along the edge of the mud.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-22-shys-sinking-path::6": {
-    "displayedText": "Their dry tracks bend past the deep mud.",
+    "displayedText": "He follows them. Here, the ground is dry.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-22-shys-sinking-path::7": {
@@ -1695,7 +1691,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-23-flappys-fern-delivery::1": {
-    "displayedText": "Rain is coming. Flappy carries one wide roof fern.",
+    "displayedText": "Rain is coming. Flappy brings a fern for the roof.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-23-flappys-fern-delivery::2": {
@@ -1707,7 +1703,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-23-flappys-fern-delivery::4": {
-    "displayedText": "Flappy lands safely. The fern blocks his view.",
+    "displayedText": "Flappy lands. He cannot see past the fern.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-23-flappys-fern-delivery::5": {
@@ -1719,11 +1715,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-23-flappys-fern-delivery::7": {
-    "displayedText": "Now Flappy glides straight. The bundle hangs below.",
+    "displayedText": "The rolled fern hangs below. Flappy glides straight to Cozy Cave.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-23-flappys-fern-delivery::8": {
-    "displayedText": "Just in time! The fern roof keeps Cozy Cave dry.",
+    "displayedText": "Rain patters on their new roof. Not a drop gets inside!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-24-clumsys-steady-bowls::1": {
@@ -1731,7 +1727,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-24-clumsys-steady-bowls::2": {
-    "displayedText": "He stacks all four bowls across his back.",
+    "displayedText": "He stacks all four bowls on his back.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-24-clumsys-steady-bowls::3": {
@@ -1743,19 +1739,19 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-24-clumsys-steady-bowls::5": {
-    "displayedText": "The widest bowl rests beside Big Flat Rock.",
+    "displayedText": "The big bowl lands on Big Flat Rock.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-24-clumsys-steady-bowls::6": {
-    "displayedText": "Smaller bowls sit snug between the roots.",
+    "displayedText": "Roots stop the small bowls. At last, they stop rolling.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-24-clumsys-steady-bowls::7": {
-    "displayedText": "Now Clumsy carries one filled bowl at a time.",
+    "displayedText": "Clumsy brings them back, one at a time.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-24-clumsys-steady-bowls::8": {
-    "displayedText": "Four full bowls stay steady through every game.",
+    "displayedText": "This time he sets them on flat ground. Ready for the games!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-25-sneezys-seed-cloud::1": {
@@ -1775,7 +1771,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-25-sneezys-seed-cloud::5": {
-    "displayedText": "Wet seeds stick beside the stream. Sneezy looks.",
+    "displayedText": "By the stream, Sneezy spots seeds stuck to a wet rock.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-25-sneezys-seed-cloud::6": {
@@ -1823,11 +1819,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-27-bossys-three-paths::1": {
-    "displayedText": "Bossy plans eight stepping stones across Muddy Puddle Pool.",
+    "displayedText": "Bossy makes a stone path across Muddy Puddle Pool.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-27-bossys-three-paths::2": {
-    "displayedText": "The equal gaps fit Zippy's quick feet.",
+    "displayedText": "Zippy hops from stone to stone without a splash.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-27-bossys-three-paths::3": {
@@ -1835,15 +1831,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-27-bossys-three-paths::4": {
-    "displayedText": "One perfect row fits only one Pal.",
+    "displayedText": "Zippy waits on the bank. Grumpy stares at the gap.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-27-bossys-three-paths::5": {
-    "displayedText": "Bossy asks each Pal to test one easy step.",
+    "displayedText": "Bossy watches Grumpy step. He needs the stones much closer.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-27-bossys-three-paths::6": {
-    "displayedText": "Close stones, one branch, and the shallow edge make three paths.",
+    "displayedText": "They add close stones, a branch, and a path along the edge.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-27-bossys-three-paths::7": {
@@ -1851,7 +1847,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-27-bossys-three-paths::8": {
-    "displayedText": "Big feet. Quick feet. Every Pal finds a safe path!",
+    "displayedText": "Grumpy steps across. Zippy hops. No one splashes!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-28-honkys-echo-tunnel::1": {
@@ -1871,19 +1867,19 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-28-honkys-echo-tunnel::5": {
-    "displayedText": "Honky taps one short note near each branch.",
+    "displayedText": "Honky tries a short, soft call at each tunnel.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-28-honkys-echo-tunnel::6": {
-    "displayedText": "The closed branches boom. Their echoes rush back.",
+    "displayedText": "Two tunnels boom back at him. He tries the last one.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-28-honkys-echo-tunnel::7": {
-    "displayedText": "One branch answers softly. Cool stream air lifts a fern.",
+    "displayedText": "A faint echo. A fern stirs in cool air from the stream.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-28-honkys-echo-tunnel::8": {
-    "displayedText": "Honky finds it! He marks the stream tunnel with a bright stone.",
+    "displayedText": "Honky returns from the stream. He marks the tunnel with a bright stone.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-29-cheekys-shadow-show::1": {
@@ -1891,23 +1887,23 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-29-cheekys-shadow-show::2": {
-    "displayedText": "He makes a fun dino shape behind the leaf.",
+    "displayedText": "He holds up branches for big dino ears.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-29-cheekys-shadow-show::3": {
-    "displayedText": "The noon sun beams straight down. His shadow will not fill the screen.",
+    "displayedText": "At noon, his shadow lies on the ground. The screen stays blank.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-29-cheekys-shadow-show::4": {
-    "displayedText": "Cheeky waves his arms. Just foot shadows show.",
+    "displayedText": "He waves and waves. Only tiny shadows reach the screen.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-29-cheekys-shadow-show::5": {
-    "displayedText": "By sunset, long tree shadows stretch. Cheeky spots the clue.",
+    "displayedText": "Then the sun sinks lower. Long shadows stretch across the hill.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-29-cheekys-shadow-show::6": {
-    "displayedText": "He pulls the leaf screen to the west hill.",
+    "displayedText": "Cheeky turns the screen toward the low sun.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-29-cheekys-shadow-show::7": {
@@ -1935,19 +1931,19 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-30-dozy-stops-the-melon::5": {
-    "displayedText": "Zippy runs up and taps it. The melon rolls fast.",
+    "displayedText": "Zippy tries to stop the melon. His tap sends it faster!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-30-dozy-stops-the-melon::6": {
-    "displayedText": "The pillow slows near the dip. Dozy heads straight there.",
+    "displayedText": "The pillow catches in a dip. Dozy scrambles after it.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-30-dozy-stops-the-melon::7": {
-    "displayedText": "He lays his blue pillow in the dip.",
+    "displayedText": "He spreads the pillow across the dip and waits.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-30-dozy-stops-the-melon::8": {
-    "displayedText": "Soft stop! Dozy's pillow catches the melon. Zippy slows down.",
+    "displayedText": "The melon lands on Dozy's pillow. Dozy lands there too.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-01-look-at-the-colors::1": {
@@ -1999,7 +1995,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-02-the-four-seasons::6": {
-    "displayedText": "Animals prepare for cold in many ways.",
+    "displayedText": "This squirrel hides nuts for winter.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-02-the-four-seasons::7": {
@@ -2007,7 +2003,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-02-the-four-seasons::8": {
-    "displayedText": "People and animals find ways to stay warm.",
+    "displayedText": "We pull on warm coats and hats.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-02-the-four-seasons::9": {
@@ -2103,7 +2099,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-05-flowers-and-trees::8": {
-    "displayedText": "Flowers and trees need light, rain, soil, and space.",
+    "displayedText": "Flowers and trees need light, water, and room to grow.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-06-baby-animals::1": {
@@ -2179,7 +2175,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-08-animals-in-the-ocean::3": {
-    "displayedText": "Blue whales are Earth's biggest animals, yet they breathe air.",
+    "displayedText": "Blue whales are Earth's biggest animals. They come up for air.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-08-animals-in-the-ocean::4": {
@@ -2227,11 +2223,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-10-bugs-all-around-us::1": {
-    "displayedText": "Look down. Small creatures work near us.",
+    "displayedText": "Look closely. Who lives among these flowers?",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-10-bugs-all-around-us::2": {
-    "displayedText": "A butterfly flies on four broad wings.",
+    "displayedText": "A butterfly rests on a flower.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-10-bugs-all-around-us::3": {
@@ -2243,19 +2239,19 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-10-bugs-all-around-us::5": {
-    "displayedText": "Ants share jobs inside their nests.",
+    "displayedText": "Ants keep their young in underground nests.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-10-bugs-all-around-us::6": {
-    "displayedText": "Earthworms dig through soil.",
+    "displayedText": "Earthworms tunnel through the soil below the plants.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-10-bugs-all-around-us::7": {
-    "displayedText": "Snails glide on one strong foot.",
+    "displayedText": "A snail glides over a stone on one broad foot.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-10-bugs-all-around-us::8": {
-    "displayedText": "Small creatures help flowers, soil, and other animals.",
+    "displayedText": "Above ground and below, small creatures find food and shelter here.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-11-pets-we-love::1": {
@@ -2287,7 +2283,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-12-shapes-everywhere::1": {
-    "displayedText": "A circle has no straight sides. This wheel face is round.",
+    "displayedText": "A circle has no straight sides. This wheel looks like a circle.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-12-shapes-everywhere::2": {
@@ -2471,7 +2467,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-18-the-moon::6": {
-    "displayedText": "People have walked on the Moon.",
+    "displayedText": "The Moon's sunlit ground looks gray up close.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-18-the-moon::7": {
@@ -2559,7 +2555,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-21-how-i-grow::6": {
-    "displayedText": "Food, sleep, activity, and care support growth.",
+    "displayedText": "I need food, play, and sleep to help me grow.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-21-how-i-grow::7": {
@@ -2595,7 +2591,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-23-my-body::1": {
-    "displayedText": "My head holds my brain and face.",
+    "displayedText": "My brain is inside my head. It helps me think.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-23-my-body::2": {
@@ -2615,19 +2611,19 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-23-my-body::6": {
-    "displayedText": "All my parts work together through the day.",
+    "displayedText": "I spread my arms to help me balance.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-23-my-body::7": {
-    "displayedText": "I care for my body every day.",
+    "displayedText": "I rub sunscreen on my skin.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-23-my-body::8": {
-    "displayedText": "This is my body. It belongs to me.",
+    "displayedText": "My helmet protects my head. This body belongs to me.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-24-rocks-and-pebbles::1": {
-    "displayedText": "Rocks can be hard, large, or small.",
+    "displayedText": "A rock can be huge or small.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-24-rocks-and-pebbles::2": {
@@ -2643,7 +2639,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-24-rocks-and-pebbles::5": {
-    "displayedText": "Look closely. What colors and layers do you see?",
+    "displayedText": "This shell shape is a fossil. A sea animal left it long ago.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-24-rocks-and-pebbles::6": {
@@ -2651,7 +2647,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-24-rocks-and-pebbles::7": {
-    "displayedText": "Each rock holds clues from Earth's long story.",
+    "displayedText": "Water wears down big rocks. Small pebbles collect in streams.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-25-water-everywhere::1": {
@@ -2663,7 +2659,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-25-water-everywhere::3": {
-    "displayedText": "Plants and animals need fresh water to live.",
+    "displayedText": "This deer drinks fresh water from the river.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-25-water-everywhere::4": {
@@ -2687,7 +2683,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-25-water-everywhere::9": {
-    "displayedText": "Water shapes and supports life on our blue planet.",
+    "displayedText": "See the blue oceans and white clouds? Both hold water.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-01-colors::1": {
@@ -2887,31 +2883,31 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-08-my-pet::1": {
-    "displayedText": "A dog sleeps in a bed.",
+    "displayedText": "This dog needs a soft bed.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-08-my-pet::2": {
-    "displayedText": "A cat rests on a mat.",
+    "displayedText": "This cat needs quiet to rest.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-08-my-pet::3": {
-    "displayedText": "A fish swims in a tank.",
+    "displayedText": "This fish needs clean water.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-08-my-pet::4": {
-    "displayedText": "A bird sings from its perch.",
+    "displayedText": "This bird needs a perch.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-08-my-pet::5": {
-    "displayedText": "A rabbit has soft fur.",
+    "displayedText": "This rabbit needs space to hop.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-08-my-pet::6": {
-    "displayedText": "This dog enjoys a gentle cuddle.",
+    "displayedText": "This dog likes a gentle cuddle.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-08-my-pet::7": {
-    "displayedText": "Every pet needs gentle care.",
+    "displayedText": "Now this dog wants to play.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-09-hot-and-cold::1": {
@@ -2947,7 +2943,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-10-shapes::2": {
-    "displayedText": "A box face is square.",
+    "displayedText": "The lid is a square.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-10-shapes::3": {
@@ -2963,7 +2959,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-10-shapes::6": {
-    "displayedText": "Wheels are circles.",
+    "displayedText": "This wheel looks like a circle.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-10-shapes::7": {
@@ -2987,7 +2983,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-11-at-the-farm::5": {
-    "displayedText": "Green grass grows beside hay.",
+    "displayedText": "This hay is food for animals.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-11-at-the-farm::6": {
@@ -2995,7 +2991,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-11-at-the-farm::7": {
-    "displayedText": "Together they make a busy farm.",
+    "displayedText": "These animals live on the farm.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-12-in-the-sea::1": {
@@ -3279,7 +3275,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-a-27::2": {
-    "displayedText": "Its light makes daytime on our side.",
+    "displayedText": "Sunlight brings daytime to our side of Earth.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-a-27::3": {
@@ -3375,7 +3371,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-b-32::2": {
-    "displayedText": "A ripe banana feels soft and sweet.",
+    "displayedText": "A ripe banana feels soft and tastes sweet.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-b-32::3": {
@@ -3387,11 +3383,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-b-32::5": {
-    "displayedText": "Fruits come in many colors, shapes, and sizes.",
+    "displayedText": "These fruits look different. How does a fruit begin?",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-b-32::6": {
-    "displayedText": "A flower can grow into a fruit.",
+    "displayedText": "A fruit grows from a flower.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-b-33::1": {
@@ -3479,15 +3475,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-c-37::4": {
-    "displayedText": "Plants take in water through their roots.",
+    "displayedText": "Plants take in liquid water through their roots.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-c-37::5": {
-    "displayedText": "People and other animals need water.",
+    "displayedText": "People and other animals drink liquid water.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-c-37::6": {
-    "displayedText": "Water changes form. Life on Earth still needs it.",
+    "displayedText": "Ice, liquid water, and vapor are water in different forms.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-c-38::1": {
@@ -3559,7 +3555,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-d-42::6": {
-    "displayedText": "We can help keep our shared home clean.",
+    "displayedText": "Mountains, oceans, forests, and this little park are all parts of Earth.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-d-43::1": {
@@ -3587,27 +3583,27 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-d-44::1": {
-    "displayedText": "Many birds build nests to hold eggs and young.",
+    "displayedText": "A nest is a shelter for eggs and chicks.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-d-44::2": {
-    "displayedText": "Some bears rest in dens.",
+    "displayedText": "A den is a shelter for a bear.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-d-44::3": {
-    "displayedText": "Fish find food and shelter in ponds.",
+    "displayedText": "A pond has food and hiding places for fish.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-d-44::4": {
-    "displayedText": "Rabbits hide from danger inside burrows.",
+    "displayedText": "A burrow gives a rabbit a place to hide.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-d-44::5": {
-    "displayedText": "Some spiders catch prey in sticky webs.",
+    "displayedText": "A spider's web catches food.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-d-44::6": {
-    "displayedText": "A habitat gives an animal food, water, and shelter.",
+    "displayedText": "A habitat has food, water, and shelter. A nest is just one part.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-d-45::1": {
@@ -3627,11 +3623,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-d-45::5": {
-    "displayedText": "Astronauts travel through space in spacecraft.",
+    "displayedText": "Astronauts can travel around Earth in a spacecraft.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-d-45::6": {
-    "displayedText": "Space stretches far beyond our view.",
+    "displayedText": "Our Moon is nearby. Other planets and stars are much farther away.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-e-46::1": {
@@ -3679,7 +3675,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-e-47::6": {
-    "displayedText": "Growing takes time and care.",
+    "displayedText": "Living things grow bigger. Some change shape too.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-e-48::1": {
@@ -3855,7 +3851,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-08::10": {
-    "displayedText": "James folds his arms. Anna says, \"Rest. The flowers need space.\"",
+    "displayedText": "James holds Bella's lead. Anna props up the bent flowers.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-08::11": {
@@ -3951,7 +3947,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-10::10": {
-    "displayedText": "Dad switches on the light. The fox trots away.",
+    "displayedText": "Dad steps outside. The fox bolts across the lawn.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-10::11": {
@@ -3963,11 +3959,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-10::13": {
-    "displayedText": "They last all night! Hot toast tastes wonderful in the morning.",
+    "displayedText": "Dad brings toast. \"Breakfast in bed!\" says James.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-10::14": {
-    "displayedText": "Mom waits at the door. Chips grabs the zip. Anna pulls it free.",
+    "displayedText": "Anna presses on a patch. Chips sniffs it. \"Don't!\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-10::2": {
@@ -3979,7 +3975,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-10::5": {
-    "displayedText": "At dusk, marshmallows toast over Dad's safe fire dish.",
+    "displayedText": "Dad watches the little fire. They turn their marshmallow sticks.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-10::6": {
@@ -3991,7 +3987,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-10::9": {
-    "displayedText": "Anna reaches for the horn. Dad says, \"Wait.\"",
+    "displayedText": "Anna lifts the horn. \"Wait!\" calls Dad from the house.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-01-space::1": {
@@ -3999,23 +3995,23 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-01-space::10": {
-    "displayedText": "In their game, bright planets sweep past the window.",
+    "displayedText": "In their game, the rocket lands on the Moon.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-01-space::11": {
-    "displayedText": "Their garden becomes the pale, quiet Moon.",
+    "displayedText": "A little green alien waves. \"I'm Zim! Come and jump!\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-01-space::12": {
-    "displayedText": "They imagine Zim and bounce together across the Moon.",
+    "displayedText": "James jumps. Anna jumps. Their feet hardly touch the ground!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-01-space::13": {
-    "displayedText": "Their game turns the rocket towards home.",
+    "displayedText": "\"Home!\" calls James. They wave to Zim and blast off.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-01-space::14": {
-    "displayedText": "They open their eyes in the garden. Mom brings cake.",
+    "displayedText": "Mom brings cake. The astronauts tumble onto the grass.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-01-space::2": {
@@ -4039,11 +4035,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-01-space::8": {
-    "displayedText": "Anna opens her star map. \"Close your eyes,\" she says.",
+    "displayedText": "\"Let's pretend!\" says Anna. Up, up goes their rocket.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-02-chips::1": {
-    "displayedText": "Meet Chips, their small white goat with big brown patches.",
+    "displayedText": "This is Chips. James wants to teach him \"Drop!\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-02-chips::10": {
@@ -4051,43 +4047,43 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-02-chips::11": {
-    "displayedText": "Crunch! Chips grabs one woolly sleeve.",
+    "displayedText": "Chomp! Chips pulls the sleeve. James holds out his hand.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-02-chips::12": {
-    "displayedText": "\"Drop it, Chips!\" James points. Chips lets go. Jingle!",
+    "displayedText": "\"Drop!\" says James. Down goes the sweater. Jingle, jingle!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-02-chips::2": {
-    "displayedText": "Jingle, jingle! His blue bell warns everyone: trouble is coming.",
+    "displayedText": "Chips hears James. He trots straight past. Jingle, jingle!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-02-chips::3": {
-    "displayedText": "Chips eats grass, bark, and Dad's best hat.",
+    "displayedText": "Chips grabs Dad's hat. Chomp! That is not grass.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-02-chips::4": {
-    "displayedText": "\"Chips!\" Dad points. Chips chews and looks away.",
+    "displayedText": "\"Drop!\" says Dad. Chips lets go. Dad grabs his hat.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-02-chips::5": {
-    "displayedText": "James clips on a rope lead. Walk time!",
+    "displayedText": "James clips on the lead. \"My turn to try!\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-02-chips::6": {
-    "displayedText": "Jingle, jingle! Chips munches grass along the lane.",
+    "displayedText": "Chips eats grass. James has nothing to rescue.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-02-chips::7": {
-    "displayedText": "Snap! Chips bolts free and bites the rose bush.",
+    "displayedText": "Chips pulls free. He tugs at a rose bush.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-02-chips::8": {
-    "displayedText": "Anna pulls him back. Chips licks her nose.",
+    "displayedText": "Anna frees the rose. Chips licks her nose.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-02-chips::9": {
-    "displayedText": "At home, James fills his bowl with grass and apple.",
+    "displayedText": "At home, James fills his bowl. Chips leaves the flowers alone.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-03-shopping::1": {
@@ -4135,11 +4131,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-03-shopping::9": {
-    "displayedText": "Mom holds up one finger. They check the list.",
+    "displayedText": "\"Check first,\" says Mom. They tick off every item.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-04-dentist::1": {
-    "displayedText": "James frowns at the dentist card. Anna grips her sleeve.",
+    "displayedText": "A dental checkup today! James frowns. Anna folds her arms.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-04-dentist::10": {
@@ -4147,7 +4143,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-04-dentist::11": {
-    "displayedText": "The dentist sings. Anna keeps her mouth wide.",
+    "displayedText": "The dentist sings. Anna opens wide for the last tooth.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-04-dentist::12": {
@@ -4159,7 +4155,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-04-dentist::2": {
-    "displayedText": "Mom kneels beside them. \"The dentist only checks your teeth.\"",
+    "displayedText": "Mom kneels beside them. \"I'm coming in with you.\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-04-dentist::3": {
@@ -4195,7 +4191,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-05-tree-house::11": {
-    "displayedText": "Blue walls. Yellow door. Red star. Their plan is real!",
+    "displayedText": "\"Can we sleep up there?\" James asks Dad.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-05-tree-house::12": {
@@ -4219,7 +4215,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-05-tree-house::5": {
-    "displayedText": "Dad works up high. They pass each tool safely.",
+    "displayedText": "Dad climbs the ladder. James passes up the hammer.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-05-tree-house::7": {
@@ -4227,7 +4223,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-05-tree-house::8": {
-    "displayedText": "Dad guides James's saw. A little window appears.",
+    "displayedText": "Dad guides the saw. James cuts wood for the window.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-05-tree-house::9": {
@@ -4335,7 +4331,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-03-penguins::8": {
-    "displayedText": "A dark back hides from above. A pale belly hides from below. This camouflage is called countershading.",
+    "displayedText": "Seen from above, a dark back blends into deep water. From below, a pale belly blends into the bright surface.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-03-penguins::9": {
@@ -4343,39 +4339,39 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-04-the-moon::1": {
-    "displayedText": "Look up: our Moon is always traveling around Earth.",
+    "displayedText": "Our Moon circles Earth. How can we learn about a world so far away?",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-04-the-moon::2": {
-    "displayedText": "The Moon cannot make light. Sunlight bounces from its rocky surface.",
+    "displayedText": "Its surface reflects sunlight. That light lets us see mountains and dark patches through a telescope.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-04-the-moon::3": {
-    "displayedText": "As the Moon moves, we see different parts of its sunlit half.",
+    "displayedText": "Watch for a month. As the Moon circles Earth, we see different parts of its sunlit half.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-04-the-moon::4": {
-    "displayedText": "Space rocks struck the Moon long ago, leaving bowl-shaped craters.",
+    "displayedText": "To learn more, we look closer. Bowl-shaped craters mark places where space rocks struck the Moon.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-04-the-moon::5": {
-    "displayedText": "Apollo 11 astronauts first walked on the Moon in 1969.",
+    "displayedText": "In 1969, Apollo 11 astronauts walked across that rocky ground. They brought samples home.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-04-the-moon::6": {
-    "displayedText": "The Moon's gravity pulls on Earth's oceans and helps make tides.",
+    "displayedText": "The Moon also affects our shores. Its gravity helps make the ocean tides rise and fall.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-04-the-moon::7": {
-    "displayedText": "Moon rocks brought home by astronauts hold clues to its past.",
+    "displayedText": "Scientists study those Moon rocks to learn how the Moon formed and changed.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-04-the-moon::8": {
-    "displayedText": "The Moon is about one quarter as wide as Earth.",
+    "displayedText": "We can measure it from Earth. The Moon is about one quarter as wide as our planet.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-04-the-moon::9": {
-    "displayedText": "Even when we cannot see it, the Moon keeps circling Earth.",
+    "displayedText": "From a telescope to a tiny rock, each clue helps us understand the Moon above us.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-05-how-seeds-grow::1": {
@@ -4455,7 +4451,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-07-under-the-ocean::2": {
-    "displayedText": "Dive down. The water grows colder, and the sunlight fades.",
+    "displayedText": "The ocean has layers. Let's begin in the sunlit water near the surface.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-07-under-the-ocean::3": {
@@ -4479,7 +4475,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-07-under-the-ocean::8": {
-    "displayedText": "Far above, sunlit plankton make about half the oxygen in Earth's air.",
+    "displayedText": "Far above, tiny plankton float in sunlight. Some make food and release oxygen, just as land plants do.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-07-under-the-ocean::9": {
@@ -4515,11 +4511,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-08-butterflies::8": {
-    "displayedText": "Soon its wings harden, and a long proboscis sips nectar.",
+    "displayedText": "Its wings harden. The butterfly uncoils its long mouthpart, called a proboscis, to sip nectar.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-08-butterflies::9": {
-    "displayedText": "Monarchs cross a continent. No one butterfly makes the whole round trip. New generations carry it on.",
+    "displayedText": "Now a female lays new eggs on milkweed. Each egg can become another butterfly.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-09-caves::1": {
@@ -4555,7 +4551,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-09-caves::9": {
-    "displayedText": "From dripping stone to ancient art, caves hold clues from long ago.",
+    "displayedText": "Animals are not the only visitors. People painted creatures on some cave walls thousands of years ago.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-10-frogs::1": {
@@ -4655,11 +4651,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-02-woolly-cant-sleep::7": {
-    "displayedText": "Woolly is still awake.",
+    "displayedText": "Woolly takes a slow breath.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-02-woolly-cant-sleep::8": {
-    "displayedText": "Woolly stops listening.",
+    "displayedText": "She nestles in the straw.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-02-woolly-cant-sleep::9": {
@@ -4695,7 +4691,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-03-clucky-lays-an-egg::8": {
-    "displayedText": "Clucky lays one safe egg.",
+    "displayedText": "Clucky's egg rests in soft straw.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-04-bouncy-wont-stop::1": {
@@ -4703,11 +4699,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-04-bouncy-wont-stop::2": {
-    "displayedText": "Bouncy hops down the path.",
+    "displayedText": "Bouncy hops fast down the path.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-04-bouncy-wont-stop::3": {
-    "displayedText": "Splash! She bumps Grumpy's bucket.",
+    "displayedText": "Splash! She tips Grumpy's full pail.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-04-bouncy-wont-stop::4": {
@@ -4715,15 +4711,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-04-bouncy-wont-stop::5": {
-    "displayedText": "Bouncy bumps Clucky's basket.",
+    "displayedText": "Bouncy spills Clucky's eggs. They roll.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-04-bouncy-wont-stop::6": {
-    "displayedText": "Bouncy stops. Her friends watch.",
+    "displayedText": "Bouncy fetches water and gathers eggs.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-04-bouncy-wont-stop::7": {
-    "displayedText": "Bouncy hops by. No more bumps!",
+    "displayedText": "Bouncy hops around her friends.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-05-grumpy-gets-a-surprise::1": {
@@ -4799,7 +4795,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-06-sleepy-cant-wake-up::9": {
-    "displayedText": "Sleepy joins the table.",
+    "displayedText": "Sleepy sits down for breakfast.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-07-noisy-tries-to-be-quiet::1": {
@@ -4851,7 +4847,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-08-tiny-is-very-small::3": {
-    "displayedText": "A big hoof cannot fit.",
+    "displayedText": "Grumpy cannot reach the key.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-08-tiny-is-very-small::4": {
@@ -4955,11 +4951,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-11-brave-climbs-the-hay-bale::10": {
-    "displayedText": "Brave climbs down safely.",
+    "displayedText": "Brave steps down the same way.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-11-brave-climbs-the-hay-bale::2": {
-    "displayedText": "Brave wants the top.",
+    "displayedText": "Brave wants to climb up.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-11-brave-climbs-the-hay-bale::3": {
@@ -5034,10 +5030,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedText": "Splashy jumps up high.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "meadow-pals-13-splashy-finds-a-puddle::5": {
-    "displayedText": "Splash! Drops fly far and wide.",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "meadow-pals-13-splashy-finds-a-puddle::6": {
     "displayedText": "Grumpy gets wet. He scowls.",
     "voice": "en-US-Chirp3-HD-Leda"
@@ -5047,7 +5039,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-13-splashy-finds-a-puddle::8": {
-    "displayedText": "Splashy dries the hat and bed.",
+    "displayedText": "Splashy dries Grumpy and the hat.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-13-splashy-finds-a-puddle::9": {
@@ -5575,7 +5567,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-28-woollys-wool-cloud::2": {
-    "displayedText": "She picks up soft shed wool.",
+    "displayedText": "She gathers tufts of soft wool.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-28-woollys-wool-cloud::3": {
@@ -5587,7 +5579,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-28-woollys-wool-cloud::5": {
-    "displayedText": "Muddy spreads thin mud on wood.",
+    "displayedText": "Muddy spreads mud on the board.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-28-woollys-wool-cloud::6": {
@@ -5615,7 +5607,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-29-shys-pond-rings::4": {
-    "displayedText": "Shy's stone plops in the pond.",
+    "displayedText": "Plop! Shy knocks a stone in.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-29-shys-pond-rings::5": {
@@ -5699,7 +5691,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-32-tinys-giant-berry::1": {
-    "displayedText": "Tiny finds a giant berry.",
+    "displayedText": "Tiny finds a big oval berry.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-32-tinys-giant-berry::2": {
@@ -5707,7 +5699,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-32-tinys-giant-berry::3": {
-    "displayedText": "A root blocks the berry.",
+    "displayedText": "Its wide side hits a root.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-32-tinys-giant-berry::4": {
@@ -5719,11 +5711,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-32-tinys-giant-berry::6": {
-    "displayedText": "Tiny wedges a flat pebble.",
+    "displayedText": "Tiny props it with a pebble.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-32-tinys-giant-berry::7": {
-    "displayedText": "He turns the berry sideways.",
+    "displayedText": "He turns it. It rolls past!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-32-tinys-giant-berry::8": {
@@ -5763,11 +5755,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::1": {
-    "displayedText": "Grumpy keeps lunch for noon.",
+    "displayedText": "Grumpy puts lunch in the shade.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::2": {
-    "displayedText": "He marks the shade at dawn.",
+    "displayedText": "He marks the shady edge.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::3": {
@@ -5775,23 +5767,23 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::4": {
-    "displayedText": "Grumpy drags lunch to shade.",
+    "displayedText": "He drags lunch into shade again.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::5": {
-    "displayedText": "The shade moves once more.",
+    "displayedText": "Soon the shade moves again.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::6": {
-    "displayedText": "Grumpy sees the shade move.",
+    "displayedText": "The trunk is still in shade.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::7": {
-    "displayedText": "He drags lunch to noon shade.",
+    "displayedText": "Grumpy pulls lunch beside the trunk.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::8": {
-    "displayedText": "At noon his lunch stays cool.",
+    "displayedText": "Grumpy eats in the cool shade.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-35-gigglys-round-wheel::1": {
@@ -5819,7 +5811,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-35-gigglys-round-wheel::7": {
-    "displayedText": "Now the cart rolls smoothly.",
+    "displayedText": "Giggly puts the flowers back.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-35-gigglys-round-wheel::8": {
@@ -5827,7 +5819,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-01::1": {
-    "displayedText": "Pip walked along a quiet Moonwood path, wondering what adventure might find him that day. His boot tapped a tiny stone that shone with soft gold light.",
+    "displayedText": "Pip walked along the Moonwood path with his hands in his pockets. His boot struck a little stone. Gold light flickered beneath it, bright enough to stop him.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-01::10": {
@@ -5835,11 +5827,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-01::11": {
-    "displayedText": "Burrow turned the plain stone over and reminded Pip what happened. The stone did not climb the wall or follow the marsh markers; Pip did.",
+    "displayedText": "Burrow held the dull stone up to the light. \"Where did you keep it while you climbed?\" he asked. Pip looked down at the pocket on his belt.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-01::12": {
-    "displayedText": "Pip remembered every careful choice he made while fear was still there. He kept the ordinary stone as a reminder of what his own hands could do.",
+    "displayedText": "Pip turned the plain stone over once more. He slipped it into his pocket. \"Come on, Burrow,\" he said. \"I'll show you the way back.\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-01::2": {
@@ -5883,7 +5875,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-02::11": {
-    "displayedText": "Luna walked along the narrow clear path to make sure nothing blocked it. Beside her, Fern carefully watered the roots until the tired plant settled.",
+    "displayedText": "Luna stepped through the cleared doorway and shook a leaf from her feathers. Fern knelt beside the roots. \"One song was enough,\" she murmured, watering the earth.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-02::12": {
@@ -5927,11 +5919,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-03::10": {
-    "displayedText": "Together they crossed back, one strong rope and one careful step at a time. Burrow stayed still in Stone's hands while Pip guided them forward.",
+    "displayedText": "On the way back, Stone held Burrow in one arm and gripped the rope with his free hand. Pip walked just ahead. Board by board, the far bank drew closer.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-03::11": {
-    "displayedText": "On the near bank, Burrow adjusted his round glasses while Stone caught his breath. Both friends smiled as Stone placed both feet on solid ground.",
+    "displayedText": "Stone set Burrow on the grass and let go of the rope. Burrow straightened his glasses. Behind them, the empty bridge still swayed over Crystal Stream.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-03::12": {
@@ -5967,27 +5959,27 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-03::9": {
-    "displayedText": "Stone reached the far bank, where Burrow was still searching the grass. He gently lifted the little mole with both hands and turned toward home.",
+    "displayedText": "Stone reached Burrow and bent close to the grass. \"Up you come.\" He lifted the little mole against his chest, leaving one hand free for the rope.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-04::1": {
-    "displayedText": "Every morning, Glimmer practiced breathing fire inside a wide circle of stones. The empty ground kept the lesson safe, even when sparks jumped sideways.",
+    "displayedText": "Glimmer stood in the bare practice patch between two piles of leaves. Fern had left her seed pouch nearby. \"One flame,\" Glimmer muttered, moving the leaves farther away.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-04::10": {
-    "displayedText": "Glimmer reached the open forest path and planted both feet firmly. \"Drop Fern's seeds!\" they warned as the fox ran toward the far trees.",
+    "displayedText": "Glimmer caught up on the open path. \"Those are seeds, not buns!\" they called. The fox looked back but kept the pouch clamped in its teeth.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-04::11": {
-    "displayedText": "Glimmer blew one steady cinnamon-warm breath. Dry leaves swirled across the path, so the fox dropped the pouch and darted away at once.",
+    "displayedText": "Glimmer blew across the fox's nose. Cinnamon warmth curled around it, but there was nothing to eat. The fox sneezed, dropped the pouch and fled into the ferns.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-04::12": {
-    "displayedText": "Glimmer brought Fern's seeds safely home. Their useful warm breath had solved a real problem, even without making a flame. Pip and Fern cheered.",
+    "displayedText": "Fern counted every seed back into her pouch. Glimmer sat beside the empty practice patch and yawned. \"No more today,\" they said, and Pip sat down beside them.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-04::2": {
-    "displayedText": "Glimmer planted all four feet and took the first careful breath. A round cloud of gray smoke appeared, but there was no flame inside it.",
+    "displayedText": "Glimmer planted their feet and puffed out a breath. A round cloud of gray smoke rolled over the bare ground. They peered through it, hunting for one orange flicker.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-04::3": {
@@ -5995,15 +5987,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-04::4": {
-    "displayedText": "Spark told Glimmer to push harder on the next breath. Thick smoke rolled across the stone circle, making both friends cough and wave their hands.",
+    "displayedText": "Spark stood outside the bare patch and called, \"Harder!\" Glimmer blew until thick smoke rolled between the trees. Both friends coughed and waved the smoke away.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-04::5": {
-    "displayedText": "Glimmer tried a slower breath after the smoke cleared. This time, gentle warmth floated out with a sweet cinnamon smell, but no fire appeared.",
+    "displayedText": "After the smoke cleared, Glimmer tried a slower breath. Warm air curled past Pip, carrying a sweet cinnamon smell. Something rustled in the ferns beyond the practice patch.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-04::6": {
-    "displayedText": "Pip called the warm breath real, useful progress, but Glimmer lowered their head. \"Warmth is useful,\" Glimmer said, \"but I still want a flame.\"",
+    "displayedText": "\"That smells like buns,\" Pip said, sniffing the warm air. Glimmer scowled at the empty space before their nose. \"Buns are not fire,\" they said, and tried again.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-04::7": {
@@ -6015,7 +6007,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-04::9": {
-    "displayedText": "While the friends rested, a marsh fox darted from the trees with Fern's seed pouch. Glimmer saw the stolen seeds and raced after it.",
+    "displayedText": "Following the cinnamon smell, a fox nosed into Fern's seed pouch. It snatched the pouch and bolted. Glimmer sprang after it, calling to Pip behind them.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-05::1": {
@@ -6031,7 +6023,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-05::12": {
-    "displayedText": "Wren shelved the risky spell and chose a book about safe step stools. Soon she could reach the high shelf without changing her size at all.",
+    "displayedText": "Wren put the spell away and opened a book about building a step stool. \"Four legs,\" she read. \"At least those stay the same size.\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-05::2": {
@@ -6051,7 +6043,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-05::6": {
-    "displayedText": "Following the arrow, Wren started at the silver moon and read each word forward. The page hummed, but she was still too small to finish safely.",
+    "displayedText": "Wren followed the arrow from the silver moon. Halfway across, the page curled beneath her feet. She slid back toward the spine before she could read the last word.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-05::7": {
@@ -6059,7 +6051,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-05::8": {
-    "displayedText": "Wren explained the arrow, so Luna held the heavy book flat with one wing. Standing safely on the page, Wren finished the forward spell.",
+    "displayedText": "Luna pressed one wing across the curling page. Wren scrambled to the final word and shouted it. This time, she reached the end of the spell.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-05::9": {
@@ -6119,15 +6111,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-07::10": {
-    "displayedText": "The fish led Dewdrop beneath a twisting root beside the stream. There, fresh water bubbled from a hidden spring and chilled the bright pebbles.",
+    "displayedText": "The fish swam beneath the root, and Dewdrop followed along the bank. Cold water bubbled up between the pebbles. It was a spring she had never noticed.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-07::11": {
-    "displayedText": "Dewdrop dipped one finger into the bubbling spring and felt its icy water. The fish then shared smaller facts about the current that she could check.",
+    "displayedText": "Dewdrop touched the spring water and drew back her fingers. \"Cold!\" The fish circled the bubbling stones. \"I found it with my nose,\" it said.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-07::12": {
-    "displayedText": "When Pip arrived, the fish finally offered one simple truth. \"My name is Ripple,\" it said, and began a real story about the cold spring.",
+    "displayedText": "Pip leaned over the root and asked his new friend's name. \"Ripple,\" said the fish. \"Want to see what I found under here?\" Dewdrop moved closer to look.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-07::2": {
@@ -6135,23 +6127,23 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-07::3": {
-    "displayedText": "The small visitor claimed to be the oldest fish in all Moonwood. Dewdrop noticed its young face, but she listened before asking any questions.",
+    "displayedText": "\"I'm the oldest fish in Moonwood,\" announced the stranger, flicking its blue-striped tail. Dewdrop settled beside the pool. She had never heard an old fish introduce itself quite like that.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-07::4": {
-    "displayedText": "Next, the striped fish boasted that it knew Hollow Oak's oldest secret. It also claimed to have explored the deepest tunnels beneath the Deep Dark.",
+    "displayedText": "\"I swam right under Hollow Oak,\" the fish boasted. \"Its deepest tunnel has a sandy floor.\" Dewdrop knew Burrow lived there; she decided to ask him.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-07::5": {
-    "displayedText": "Dewdrop asked the fish to show one clue from the oldest story it claimed to remember. The visitor looked away and could not name a single detail.",
+    "displayedText": "\"What did the moles look like?\" Dewdrop asked. \"Blue, with long tails,\" said the fish. Dewdrop stopped trailing her fingers through the water and looked at the visitor.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-07::6": {
-    "displayedText": "Burrow checked his careful tunnel records for Dewdrop. He had never drawn the blue-striped fish or found its name beside a single underground path.",
+    "displayedText": "Burrow spread his tunnel map across the table. \"Water never reaches that passage,\" he said. \"I'm the only mole under Hollow Oak.\" Dewdrop looked from her brown friend to the map.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-07::7": {
-    "displayedText": "Back at the stream, Dewdrop calmly shared exactly what she discovered. \"Why do your stories lead to places you have never visited?\" she asked.",
+    "displayedText": "Dewdrop returned to the stream. \"Burrow's tunnels are dry,\" she said. \"A fish couldn't swim through them.\" She waited for an answer, but the visitor said nothing.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-07::8": {
@@ -6159,7 +6151,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-07::9": {
-    "displayedText": "As Ripple turned, the blue stripe led Dewdrop's eye towards bubbles beneath a twisting root. Tiny bubbles flashed below the stripe in the clear stream.",
+    "displayedText": "Dewdrop waited beside the root. \"Tell me something you've really seen.\" The fish turned toward a string of bubbles. \"I found those this morning,\" it said.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-08::1": {
@@ -6179,7 +6171,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-08::13": {
-    "displayedText": "The new picture began to glow beside the older memories on the wall. Burrow smiled because that day's Moonwood now had a place in the room.",
+    "displayedText": "Burrow stepped back from his chalk tree. A gold line crept up its trunk and spread along each branch. Beside the old pictures, the tree he knew began to shine.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-08::2": {
@@ -6203,11 +6195,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-08::7": {
-    "displayedText": "Luna traced every deep carved root with one careful wing tip. Warm gold light followed her touch, yet the wooden door stayed firmly closed.",
+    "displayedText": "Luna traced a carved root with her wingtip. Gold light followed her touch, then stopped at a deep notch. \"Something goes in here,\" she said, stepping aside.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-08::8": {
-    "displayedText": "Burrow looked up at Hollow Oak's real roots and compared them with the carving. He found the root pointing north and pressed its matching mark.",
+    "displayedText": "Burrow examined the notch Luna had found. It was just wide enough for one digging claw. He pressed his claw inside, and a wooden latch clicked behind the door.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-08::9": {
@@ -6219,23 +6211,23 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-09::10": {
-    "displayedText": "Spark carefully dropped his wand so no more magic could escape through it. \"Please count every nearby changed fish with me,\" he asked Dewdrop.",
+    "displayedText": "Spark laid his wand on the bank and knelt beside Dewdrop. \"They're supposed to be silver,\" she said. Spark swallowed and kept both hands away from his wand.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-09::11": {
-    "displayedText": "Dewdrop pointed out each nearby purple fish while Spark checked the stream. \"We restore every one before you cast another spell,\" she said firmly.",
+    "displayedText": "Dewdrop called the fish into a quiet pool. \"Stay here,\" she told them. Spark watched the purple fins gather, then ran to find Wren and her leaf wash.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-09::12": {
-    "displayedText": "Wren searched her remedy book instead of guessing at a potion. She checked the correct leaf picture, the direction arrow, and the three-drop dose twice.",
+    "displayedText": "Spark fetched leaves while Wren measured the water for her wash. He carried the finished bowl carefully between both hands. His wand could wait by the stream.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-09::13": {
-    "displayedText": "Wren added exactly three drops to the stream, and the remedy spread outward. The fish, flowers, water, and Spark's clear nose returned to normal.",
+    "displayedText": "Wren dripped the wash into the stream. Spark carried another bowlful to the blue flowers and rinsed their petals. Silver fish flashed through the clear water again.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-09::14": {
-    "displayedText": "When Spark felt one final tickle, he turned away and sneezed into Fern's cloth. Nothing changed, so Dewdrop happily checked off every ordinary fish.",
+    "displayedText": "Spark's nose tickled again. He buried it in Fern's cloth and sneezed. Across the bank, the flowers stayed pink and yellow; below them, silver fish kept swimming.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-09::2": {
@@ -6243,7 +6235,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-09::3": {
-    "displayedText": "Wren caught the flying breakfast and checked Spark's bright red nose. She asked him to warn everyone as soon as he felt the next tickle.",
+    "displayedText": "Wren caught the flying bowl. \"There's a leaf wash for stray sneeze spells,\" she said. Spark sniffed and reached for his wand again with his free hand.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-09::4": {
@@ -6251,7 +6243,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-09::5": {
-    "displayedText": "Spark apologized to the field of blue flowers and lowered his wand. Before he could plan a repair, another strong tickle started inside his nose.",
+    "displayedText": "Spark knelt beside a blue flower and rubbed its petals. The blue stayed. \"That was yellow,\" he said, just as another tickle climbed up his nose.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-09::6": {
@@ -6275,15 +6267,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-10::10": {
-    "displayedText": "Luna opened the lid and found twelve first-tree seeds inside. Each round seed glowed with steady gold light, waiting for a place in the soil.",
+    "displayedText": "Fern leaned closer as Luna lifted the lid. Twelve round seeds shone inside the box, bright as candle flames. Luna counted them once; none had cracked in the cold water.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-10::11": {
-    "displayedText": "As Luna touched one seed, she remembered why she had saved them. \"The tired old trees need young neighbors to grow beside them,\" she explained.",
+    "displayedText": "Luna looked up through Hollow Oak's old branches. She had saved the seeds to grow young trees beside them. Now twelve small lights waited in her open box.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-10::12": {
-    "displayedText": "Luna carried the box back to the friends waiting near Hollow Oak. She gave one glowing seed to each helper and showed them where to dig.",
+    "displayedText": "Luna set the open box on the ground outside Hollow Oak. She gave each helper a seed and pointed to a bare patch beneath the old branches.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-10::13": {
@@ -6291,7 +6283,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-10::14": {
-    "displayedText": "After the last seed was planted, Luna gathered her friends around the new ring. She thanked them for helping her remember and finish the important task before sunset.",
+    "displayedText": "Luna settled beside the last small mound. Above her, the old leaves rustled; below, twelve seeds rested in damp soil. She listened until the light left the clearing.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-10::2": {
@@ -6323,7 +6315,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-10::9": {
-    "displayedText": "The cold silver box touched Luna's soft feathers. She checked the twelve seeds and carefully unfolded the planting plan tucked beneath them.",
+    "displayedText": "Luna held the cold box against her feathers. Water dripped from its corners. She carried it back to Hollow Oak before opening the little silver latch.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-11::1": {
@@ -6359,7 +6351,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-11::6": {
-    "displayedText": "As Pip and Stone followed the sound, tall reeds began to shake nearby. Dark water circled their boots, and the next call seemed very close.",
+    "displayedText": "As Pip and Stone followed the sound, tall reeds shook beside the path. Stone stopped. Something rustled behind the reeds, and the next call was close.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-11::7": {
@@ -6387,7 +6379,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-12::12": {
-    "displayedText": "At Hollow Oak, Pip heard Crystal Stream singing before Fern and Dewdrop appeared. He followed the returning music outside and welcomed both friends home.",
+    "displayedText": "Pip heard the stream from Hollow Oak and ran to the door. Fern and Dewdrop were still climbing the path. \"Your song got here before you!\" he called.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-12::2": {
@@ -6395,11 +6387,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-12::3": {
-    "displayedText": "Fern and Dewdrop followed the narrowing stream toward its oldest source. With every bend, the water grew quieter and the forest became more still.",
+    "displayedText": "Fern and Dewdrop followed the narrowing stream toward its oldest source. With every bend, the water grew shallower. Fern could see dry pebbles along both banks.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-12::4": {
-    "displayedText": "Farther upstream, ancient roots spread wider across the banks and under the water. The friends followed them while the last faint stream note disappeared.",
+    "displayedText": "Farther upstream, old roots stretched across the banks and under the water. The friends followed the thin trickle between them. Soon even its splashing over the roots grew faint.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-12::5": {
@@ -6423,19 +6415,19 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-13::1": {
-    "displayedText": "Spark offered Glimmer fire lessons if they helped test his floating spell. Glimmer liked the trade, so they placed one claw in Spark's hand and sealed the deal.",
+    "displayedText": "Spark offered to help Glimmer make a steady warm breath. In return, Glimmer would help test his floating spell. They shook hands and spread their lesson plans on the grass.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-13::10": {
-    "displayedText": "Glimmer ran across the clearing, opened both wings, and jumped. The air caught them, and they glided five whole steps before landing. 'That was real flying!' Spark cried.",
+    "displayedText": "Glimmer ran three steps, opened their wings and glided past Spark. This time, Spark watched their breathing. The long, even breath continued after their feet touched the grass.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-13::11": {
-    "displayedText": "For one last fire lesson, Spark cupped his hands near Glimmer's nose. 'Breathe slowly into this little space,' he said. Cinnamon warmth filled the gap between them.",
+    "displayedText": "Spark cupped his hands near Glimmer's nose. \"That breath,\" he said. \"Just like the glide.\" Glimmer breathed out slowly, and cinnamon warmth filled the space between Spark's palms.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-13::12": {
-    "displayedText": "Spark counted their repeatable successes: one floating boot, five gliding steps, and one warm breath. Glimmer tapped one claw against Spark's hand. They had kept their deal.",
+    "displayedText": "Glimmer sniffed Spark's warm fingers. \"Now you smell like cinnamon too.\" Spark laughed and held out his hands again. This time, Glimmer needed no chart.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-13::2": {
@@ -6459,15 +6451,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-13::7": {
-    "displayedText": "Glimmer pushed the crowded charts aside. 'Let's try one small thing,' they said. They told Spark to lift one boot and notice the cool air underneath it.",
+    "displayedText": "Glimmer nudged the charts aside. \"Can your spell lift just a boot?\" they asked. Spark looked down at his feet and slowly raised one knee.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-13::8": {
-    "displayedText": "Spark lowered his wand, stopped waving, and slowly raised one boot. For one steady second it floated above the grass. Both friends stared, then cheered at the same time.",
+    "displayedText": "Spark cast his spell under the raised boot, then let his leg go loose. The boot stayed up. A thin curl of gold held it above the grass.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-13::9": {
-    "displayedText": "Now Spark asked Glimmer to practice moving through the air. 'Run first,' Glimmer suggested. 'Open your wings when you feel the wind, and let it carry you.'",
+    "displayedText": "Spark sat down beside Glimmer. \"When you glide, your breath goes out slowly,\" he said. \"Show me again.\" Glimmer spread their wings and backed toward the edge of the clearing.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-14::1": {
@@ -6483,7 +6475,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-14::12": {
-    "displayedText": "When both travelers stepped safely into the meadow, the final mushroom behind them grew dim. Wren and Flint looked back at its quiet glow, then smiled at each other.",
+    "displayedText": "Flint folded the map beside his lunch. The final mushroom's light slowly faded. Wren touched its cap with one finger. \"Thanks for waiting for us,\" she whispered.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-14::2": {
@@ -6523,15 +6515,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-15::10": {
-    "displayedText": "Luna settled beneath the first glowing carving and began its tale. Burrow sat beside her, listening as the pictured characters seemed to move in the light.",
+    "displayedText": "The next carving showed rain falling over the tunnel. The rabbit had pushed the acorn aside and covered it with earth. A tiny green shoot rose from that spot.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-15::11": {
-    "displayedText": "When Luna reached the next part, another carving glowed. Then the next picture brightened, until a clear path of light carried the story around the room.",
+    "displayedText": "Burrow followed the glowing line to a huge tree around a little round doorway. \"That is Hollow Oak,\" he said. \"It grew around the rabbit's front door.\" Luna nodded.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-15::12": {
-    "displayedText": "Night came while Burrow and Luna were still listening belowground. Many carvings remained dark, but the hidden Story Gallery was no longer lost.",
+    "displayedText": "Burrow looked from the old carving to the tunnel he had dug. He brushed earth from his paws. \"I hope my doorway lasts that long,\" he said.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-15::2": {
@@ -6543,7 +6535,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-15::4": {
-    "displayedText": "Burrow studied each picture and tried to find where the story began. No carving had words or numbers, so their order remained a complete mystery.",
+    "displayedText": "Burrow followed the carved trees around the wall. Some were tiny shoots; others spread tall branches. He tried both directions, but could not find where Hollow Oak's story began.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-15::5": {
@@ -6551,19 +6543,19 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-15::6": {
-    "displayedText": "At the gallery doorway, Luna noticed a familiar carved root. The same mark appeared inside the Memory Room, but this one pointed farther underground.",
+    "displayedText": "Luna stopped beside the gallery door and looked along the carved roots. They curled under every picture. \"A tree doesn't begin at the top,\" she said, crouching beside Burrow.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-15::7": {
-    "displayedText": "As Luna stepped inside, one wing brushed a carving. Blue and gold lines woke around the picture, spreading warm light across the dark stone wall.",
+    "displayedText": "Luna brushed one raised carving with her wing. Gold light outlined a deer beneath a tall tree. Burrow noticed a smaller rabbit beside a much younger tree.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-15::8": {
-    "displayedText": "Burrow stared at the shining picture. 'Have you been here before?' he asked. Luna touched the stone gently, as if greeting a friend she remembered.",
+    "displayedText": "Burrow pointed to the rabbit beside the smallest tree. \"Does this part come first?\" he asked. Luna settled beside him and began to read the pictures.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-15::9": {
-    "displayedText": "'This is the Story Gallery behind the Memory Room,' Luna explained. 'Its carvings keep the longer stories safe.' Burrow listened closely beside her.",
+    "displayedText": "Luna pointed to a carved rabbit beside a fallen acorn. \"The first oak seed rolled into this rabbit's doorway.\" Burrow leaned closer. \"I see what happened next.\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-16::1": {
@@ -6571,15 +6563,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-16::10": {
-    "displayedText": "Still asleep, Burrow leaned against the mushroom where Pip and Glimmer were hiding. His loud snore shook the cap, and both watchers had to move aside.",
+    "displayedText": "Burrow leaned against the mushroom and began to snore. Pip gathered the boots beside him. Glimmer kept watch while Pip moved the biscuit bowl out of reach.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-16::11": {
-    "displayedText": "At sunrise, Burrow finally woke. Pip and Glimmer showed him the tipped bench, missing biscuits, and muddy footprints matching his dirty boot.",
+    "displayedText": "At sunrise, Burrow found crumbs in his pockets and Pip's boots beside him. Pip showed him the muddy footprints. Burrow stared at the overturned bench. \"Was that me?\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-16::12": {
-    "displayedText": "Burrow placed the dirty boot beside his door as a reminder. 'If it starts walking tonight, please wake me first,' he said. Pip and Glimmer promised they would.",
+    "displayedText": "Burrow set the bench upright and returned Pip's boots. He shook crumbs from his pockets, then checked another boot beside the door. \"No biscuits in this one, either.\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-16::2": {
@@ -6619,15 +6611,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-17::10": {
-    "displayedText": "Wren hurried between the waiting pots and sprinkled them with stream water. One by one, the plants walked back toward their own patches of garden soil.",
+    "displayedText": "Wren hurried between the waiting plants and sprinkled them with stream water. One by one, they walked back toward the holes they had left in the garden.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-17::11": {
-    "displayedText": "The smallest pot returned last and settled into its empty patch. Its roots curled safely beneath the soil, and Fern gently pressed the earth around them.",
+    "displayedText": "The smallest plant returned last and settled into its empty patch. Its roots curled beneath the soil, and Fern gently pressed the earth around them.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-17::12": {
-    "displayedText": "When every plant was home, Wren placed the green and purple recipes in separate books. She set both books beside the empty cauldron. 'I skipped three important words,' she admitted. The garden stood still around them.",
+    "displayedText": "Wren put the green and purple recipes in separate books. \"Next time, show me before you pour,\" said Fern. Wren nodded and wiped purple drops from the path.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-17::2": {
@@ -6639,11 +6631,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-17::4": {
-    "displayedText": "Wren decided to pour it anyway. One flowerpot straightened, leaned toward the path, and stepped out of its soil. Fern stared as its roots began walking.",
+    "displayedText": "Wren decided to pour it anyway. One flower straightened, leaned toward the path, and tugged its roots out of the soil. Fern stared as it began walking.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-17::5": {
-    "displayedText": "Within moments, every pot was marching politely around the garden. Some plants followed the path, while others circled Fern and Wren in a leafy parade.",
+    "displayedText": "Within moments, every plant was marching around the garden on its roots. Some followed the path, while others circled Fern and Wren in a leafy parade.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-17::6": {
@@ -6651,7 +6643,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-17::7": {
-    "displayedText": "Several pots entered Hollow Oak, and the smallest one waddled toward Burrow's tunnel. Burrow jumped aside as its roots tapped past his door.",
+    "displayedText": "Several plants entered Hollow Oak, and the smallest one waddled toward Burrow's tunnel. Burrow jumped aside as its muddy roots tapped past his door.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-17::8": {
@@ -6671,11 +6663,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-18::11": {
-    "displayedText": "Stone stood dripping beside Dewdrop while the fish circled them once. His shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path.",
+    "displayedText": "Stone sat dripping beside Dewdrop while the fish circled them once. His shoulders relaxed when he saw it swimming strongly, with no rocks blocking its path.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-18::12": {
-    "displayedText": "Beyond the shallows, the fish lifted its head above the stream. Stone gave one small nod and said, 'Good.' Getting soaked had been worth it.",
+    "displayedText": "Beyond the shallows, the fish lifted its head above the stream. Stone gave one small nod and said, \"Good.\" Water dripped from the end of his nose.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-18::2": {
@@ -6699,11 +6691,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-18::7": {
-    "displayedText": "Stone rolled up one sleeve and studied both rocks carefully. One was buried deep, but the other had a dry upper edge and loose mud underneath.",
+    "displayedText": "Stone spread his broad fingers and studied both rocks carefully. One was buried deep, but the other had a dry upper edge and loose mud underneath.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-18::8": {
-    "displayedText": "Taking a slow breath, Stone put his hand into the stream and gripped the dry edge. Cold water swirled around his wrist, but he held on.",
+    "displayedText": "Stone spread his palm across the rock's dry top. Then he curled his fingers down into the water. His hand stayed there, although the stream felt cold.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-18::9": {
@@ -6719,7 +6711,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-19::11": {
-    "displayedText": "Luna touched one shallow root and felt it tremble. 'We should leave them here,' she said. The young plants needed soil, water, and room to grow.",
+    "displayedText": "Luna touched one shallow root and felt it tremble. \"We can mark the paths from here,\" she said. Fern showed everyone where to stand without crushing the new plants.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-19::12": {
@@ -6727,7 +6719,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-19::2": {
-    "displayedText": "Without the glow seeds, Moonwood's paths might become dark that night. Luna called the friends together and explained why they had to find every missing seed.",
+    "displayedText": "The paths near Hollow Oak needed the glow seeds for their evening light. Luna called the friends together. They had to find the seeds before nightfall.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-19::3": {
@@ -6735,23 +6727,23 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-19::4": {
-    "displayedText": "Pip searched Fog Marsh and found only sticky mud. Flint explored three unmapped turns, drew them neatly, and returned without seeing a single seed.",
+    "displayedText": "Pip followed a gold trail all the way to Fog Marsh. It ended in sticky mud, with no seeds. Flint marked the empty trail on his map.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-19::5": {
-    "displayedText": "Wren and Spark tried search spells in the clearing. Their arrows pointed at each other, so both wizards lowered their wands and searched by hand.",
+    "displayedText": "Wren and Spark tried search spells beside the empty box. Both arrows pointed at the wizards' dusty sleeves. \"Seed dust,\" said Wren, brushing it off with a sigh.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-19::6": {
-    "displayedText": "Burrow checked every tunnel beneath Hollow Oak. He searched old shelves, fresh piles of earth, and secret corners, but came back with two empty paws.",
+    "displayedText": "Burrow searched below Hollow Oak and came back empty-handed. The tunnel floors were dry. If rain had carried the seeds away, they must still be aboveground.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-19::7": {
-    "displayedText": "Dewdrop followed one rain channel while Fern listened near her garden. Beneath a thick layer of wet leaves, Fern heard a faint hum nearby.",
+    "displayedText": "Dewdrop followed water running downhill from the oak. Fern listened beside the channel. From under the wet leaves in her garden came a faint, familiar hum.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-19::8": {
-    "displayedText": "The soft sound came from beneath a layer of leaves in Fern's garden. When she lifted them, small gold-green shoots glowed, and their new roots hummed together.",
+    "displayedText": "Fern lifted the wet leaves. Small gold-green shoots glowed underneath, and their new roots hummed together. She called for Luna, keeping her hands clear of the delicate stems.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-19::9": {
@@ -6783,7 +6775,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-20::4": {
-    "displayedText": "Every fragment brightened when Luna turned it towards the sky. High above the trees, the matching constellations answered with faint white flashes.",
+    "displayedText": "Every fragment brightened when Luna turned it toward the sky. High above the trees, the matching constellations answered with faint white flashes.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-20::5": {
@@ -6815,11 +6807,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-21::11": {
-    "displayedText": "Fern leaned through the tiny doorway and called to the others. 'Twig found her spectacles, and she would like some visitors!' The friends cheered from outside.",
+    "displayedText": "Fern stepped back into Hollow Oak's main room with Twig beside her. \"We found the spectacles,\" she said. Pip hurried to make room at the little table.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-21::12": {
-    "displayedText": "Together they widened the doorway, then shared one biscuit in Twig's warm room. When visiting time ended, Twig waved happily and closed her own little door.",
+    "displayedText": "Twig shared a biscuit with her new neighbors around the table. Then she gathered the crumbs in her hand and went home. Her own little door clicked shut.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-21::2": {
@@ -6835,11 +6827,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-21::5": {
-    "displayedText": "Burrow sniffed along the moss until his nose stopped at one thick patch. Hidden behind it was a root door so tiny that Pip could not enter.",
+    "displayedText": "Burrow sniffed along the moss until his nose stopped at one thick patch. Fern brushed it aside and found a wooden door tangled in tight roots.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-21::6": {
-    "displayedText": "Fern folded her wings, squeezed through the narrow doorway, and called back. 'There is a whole room inside, and someone is searching through a very large collection!'",
+    "displayedText": "Fern pressed one palm against the roots until they loosened. She pulled the door open, slipped inside, and called back. \"There is a whole room in here!\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-21::7": {
@@ -6855,23 +6847,23 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-22::1": {
-    "displayedText": "Luna marked a long race from Hollow Oak to Crystal Stream, around Tumblerock Cliffs, and back. Every racer gathered beside the starting line, ready to follow the trail markers.",
+    "displayedText": "Luna marked a race from Hollow Oak to Crystal Stream, around Tumblerock Cliffs, and back. Wren stood at the starting line, clutching her spell book. She wanted to win.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-22::10": {
-    "displayedText": "Dewdrop turned around and followed the markers back. She found Flint, Spark, Stone, and soggy Pip, then guided the tired racers safely to Hollow Oak.",
+    "displayedText": "Dewdrop followed Wren's leaf arrows back along the path. She found Flint, Spark, Stone, and soggy Pip, then led them past each bright marker toward Hollow Oak.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-22::11": {
-    "displayedText": "Luna counted everyone as Burrow tunneled up beside the finish line. Wren apologized for scattering the racers with her spell. Then the whole group thanked Dewdrop for coming back.",
+    "displayedText": "Luna counted everyone as Burrow tunneled up beside the finish line. Wren waited for the last tired racer. \"I'm sorry about my spell,\" she said, tucking the book away.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-22::12": {
-    "displayedText": "Luna gave Dewdrop one leaf for finishing first and a second leaf for returning. Dewdrop held both leaves against her blue-green glow. Every racer cheered beside her.",
+    "displayedText": "Luna gave Dewdrop two golden leaves: one for finishing first and one for coming back. Wren cheered with the others, though her own hands were empty.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-22::2": {
-    "displayedText": "At Luna's signal, Pip ran, Fern flew, and Stone began a steady trot. Wren opened her spell book while the other racers followed the first markers.",
+    "displayedText": "At Luna's signal, the racers shot away from Hollow Oak. Dewdrop skimmed beside the path, counting the markers. Wren ran with one finger tucked into her book.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-22::3": {
@@ -6879,7 +6871,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-22::4": {
-    "displayedText": "Wren cast a wide-circle speed spell to help everyone. The nearby racers suddenly shot forward, but Wren stayed behind and realized the spell had missed its caster.",
+    "displayedText": "Wren cast a speed spell in a wide circle around herself. Everyone in the circle shot forward, except Wren in the middle. She stared after them.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-22::5": {
@@ -6891,11 +6883,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-22::7": {
-    "displayedText": "Pip slid into Crystal Stream with a splash. He climbed out dripping, found the next bright marker, and kept running instead of taking another risky shortcut.",
+    "displayedText": "Pip shot past a turn and slid into Crystal Stream with a splash. He climbed out dripping, found the next marker, and started walking before he could slip again.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-22::8": {
-    "displayedText": "Wren saw the scattered racers and closed her spell book. She followed the marked trail on foot, determined not to cause another tumble with hurried magic.",
+    "displayedText": "Wren shut her book and followed the scattered racers. At each confusing turn, she laid bright leaves pointing toward home. She had stopped thinking about winning.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-22::9": {
@@ -6955,15 +6947,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-24::10": {
-    "displayedText": "Glimmer looked from the bright lanterns to the stone practice ring. The path was glowing, but the stones remained cool and nothing nearby had burned.",
+    "displayedText": "Glimmer turned to the friends waiting behind the ring. \"All those lights?\" they asked, looking back along the path. Pip finally let out the cheer he had been holding.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-24::11": {
-    "displayedText": "Luna smiled at the young dragon. 'One careful flame lit the whole path,' she said. Glimmer's eyes shone as brightly as the nearest lantern.",
+    "displayedText": "Luna settled beside Glimmer under the golden lanterns. \"How does it feel?\" she asked. Glimmer opened their mouth to answer, then closed it and grinned.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-24::12": {
-    "displayedText": "Glimmer closed their mouth and beamed while Luna checked every stone again. All were cool, and the friends celebrated a safe first flame under the golden lights.",
+    "displayedText": "Pip wrapped his arms around Glimmer while the others crowded closer. The young dragon leaned into the hug. Above them, the first lantern burned with a small, steady flame.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-24::2": {
@@ -6975,7 +6967,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-24::4": {
-    "displayedText": "Pip covered his mouth to hold back a cheer. Luna checked the ring and nodded. 'The flame stayed inside,' she told Glimmer. 'That was careful.'",
+    "displayedText": "Pip covered his mouth to hold back a cheer. \"You saw that?\" Glimmer whispered, looking up at Luna. She nodded, and the young dragon gave a tiny grin.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-24::5": {
@@ -6987,7 +6979,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-24::7": {
-    "displayedText": "After one long breath, Glimmer faced the magic lantern inside the circle. They aimed one small, steady flame at its waiting wick, following the lantern's old rule.",
+    "displayedText": "Luna set a lantern inside the circle. \"One flame will wake the whole row,\" she said. Glimmer took a long breath, then aimed a small flame at the wick.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-24::8": {
@@ -7087,11 +7079,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-27::1": {
-    "displayedText": "Fern cupped one glassleaf bud as the moon rose over her garden. The bud needed moonlight before it closed, but old branches shaded the flower bed.",
+    "displayedText": "Fern cupped one glassleaf bud as the moon rose over her garden. The flowers needed moonlight to open, but old branches shaded their bed.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-27::10": {
-    "displayedText": "Tiny moon shapes danced across Stone's broad hands as the glassleaf bells opened. He held perfectly still so the beam stayed in place. The silver patterns shimmered.",
+    "displayedText": "Tiny moon shapes danced across Stone's broad hands as the glassleaf bells opened. He turned his palms toward Fern, and she traced one shining crescent with her finger.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-27::2": {
@@ -7123,7 +7115,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-27::9": {
-    "displayedText": "The reflected moonlight slid across the flower bed from one end to the other. Each glassleaf bud opened into a shining bell. Warm gold light filled every flower.",
+    "displayedText": "Stone propped the wet rock against a root. Reflected moonlight slid across the flower bed. Each glassleaf bud opened into a bell filled with golden light.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-28::1": {
@@ -7131,11 +7123,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-28::10": {
-    "displayedText": "The silver root rested around the frame as a living arch. One by one, Luna's young owls walked beneath it. Fern listened to their happy hoots.",
+    "displayedText": "Luna's young owls walked beneath the arch, hooting as they went. The root hummed along and tightened its grip on the frame. Fern stepped through after the last owl.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-28::2": {
-    "displayedText": "The silver root hummed whenever a forest sound crossed the clearing. Tiny vibration rings traveled along its shining surface. Fern listened and recognized each copied note.",
+    "displayedText": "The silver root hummed along with the birds in the clearing. When a bird held a long note, one curve began to tighten. Fern leaned closer to listen.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-28::3": {
@@ -7155,15 +7147,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-28::7": {
-    "displayedText": "Beside the step stood an empty wooden frame, safely clear of the doorway. Fern tapped the frame once, making one small vibration. Then she waited.",
+    "displayedText": "Beside the step stood an empty wooden frame. Fern gave it one quick tap. The root stretched toward the brief sound, then stopped before it could curl.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-28::8": {
-    "displayedText": "Fern waited until the root became still again. Then she tapped once more near the frame. The root followed that single vibration without making extra loops.",
+    "displayedText": "Fern tapped the ground beside the frame. The root unwound from the rail and slid toward her finger. She waited for it to stop moving.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-28::9": {
-    "displayedText": "Fern gave one final tap, making three slow taps in all. The root followed the three vibrations around the wooden frame. Soon the front step was clear.",
+    "displayedText": "Fern tapped higher on the frame. The root climbed toward her finger and gripped the wood. Its last loose curve slid away from the step.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-29::1": {
@@ -7223,7 +7215,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-30::4": {
-    "displayedText": "Light from the mobile cast a straight row of bright spots on the ceiling. Luna studied the pattern and shook her head. The row did not show any constellation.",
+    "displayedText": "Light from the mobile cast a straight row of bright spots on the curved wall. Luna studied the pattern and shook her head. The row did not show any constellation.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-30::5": {
@@ -7235,7 +7227,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-30::7": {
-    "displayedText": "Luna turned one hanging thread, then another, while watching the ceiling. Each reflected light moved closer to its place in the sky. The pattern slowly formed.",
+    "displayedText": "Luna turned one hanging thread, then another, while watching the wall. Each reflected light moved closer to its place in the sky. The pattern slowly formed.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-30::8": {
@@ -7247,7 +7239,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-31::1": {
-    "displayedText": "Before planting began, Burrow planned a short tunnel from Hollow Oak to Fern's garden. His simple map showed one straight line. He picked up his shovel.",
+    "displayedText": "Burrow spread out his map of the clearing. The path to Fern's garden took a long bend around a stump. He picked up his shovel to make a shortcut.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-31::10": {
@@ -7263,7 +7255,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-31::4": {
-    "displayedText": "The root curved farther and farther until Burrow suddenly popped aboveground. His own shovel stood beside him. He had dug a complete circle back to the start.",
+    "displayedText": "The root curved farther and farther until Burrow popped aboveground beside the same old stump. He looked down at his starting hole. All that digging had brought him back here.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-31::5": {
@@ -7291,19 +7283,19 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-32::10": {
-    "displayedText": "Flint tested the lantern two more times before gathering his maps. One shadow appeared each time. Satisfied, he carried the steady light into Deep Dark.",
+    "displayedText": "Flint gathered his maps and followed the path into Deep Dark. Behind him, Pip brushed a fern leaf from his collar. \"You brought some forest back,\" he called.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-32::2": {
-    "displayedText": "Flint lifted the lantern and frowned at the ground. Every root cast two shadows in different directions. A guide light should show one clear way around each root.",
+    "displayedText": "Two shadows stretched across the path from every root. Flint lifted his foot, then hesitated. He could not tell which dark shapes hid real roots.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-32::3": {
-    "displayedText": "Flint covered one glass panel with his gloved hand. He expected one shadow to vanish, but both remained. The problem was not inside that panel.",
+    "displayedText": "Flint turned the lantern to shine between the roots. The shadows turned too. He tilted it the other way, but two dark shapes still stretched across the path.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-32::4": {
-    "displayedText": "Flint chose the darker shadow and followed it beside the known path. After only a few steps, he walked straight into a thick fern wall. The shadow had misled him.",
+    "displayedText": "Flint tried stepping around all the dark shapes. He edged farther from the path until his face brushed a fern. Now he could not see the path at all.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-32::5": {
@@ -7319,11 +7311,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-32::8": {
-    "displayedText": "Flint picked up the crystal and wrapped it inside his brown explorer pouch. He fastened the pouch tightly. This time, no crystal could slip back into the light.",
+    "displayedText": "Flint picked up the crystal and tucked it inside his brown explorer pouch. He closed the flap, then lifted the lantern. The extra shadows had gone.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-32::9": {
-    "displayedText": "Flint lifted the lantern low and tested every nearby root again. Each root now cast one clear shadow away from the path. The guide light worked properly.",
+    "displayedText": "The lantern lit the path between the roots. Each root had just one shadow, and Flint could see where to put his feet. He stepped back onto the path.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-33::1": {
@@ -7347,11 +7339,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-33::5": {
-    "displayedText": "Glimmer stepped away from the table and measured three tail-lengths across the floor. Direct warmth was too strong. They needed the heat to rise slowly.",
+    "displayedText": "Glimmer stared at the curled star, then stepped back from the table. Blowing on the paper had made things worse. They needed to warm the sap underneath.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-33::6": {
-    "displayedText": "From that safe distance, Glimmer warmed one flat rock with gentle breath. They kept the rock far from the paper. Soon its surface felt evenly warm.",
+    "displayedText": "Glimmer chose a flat rock and blew gentle warmth across its surface. Luna checked it with one claw. The rock was warm enough to touch.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-33::7": {
@@ -7363,15 +7355,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-33::9": {
-    "displayedText": "Glimmer lifted one paper star, then another, while Luna held the stack steady. Every layer came apart cleanly. Not one star point tore.",
+    "displayedText": "Glimmer lifted the loosened stars apart while Luna held the stack. They smoothed the curled points against the tabletop. Soon every paper star lay flat again.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-34::1": {
-    "displayedText": "Before moonrise, Spark found the lowest lantern hanging beside a broken curved hook. Hollow Oak needed a matching replacement. Spark studied the good hook above it.",
+    "displayedText": "Before moonrise, Spark found a broken hook beside the lowest lantern. Hollow Oak needed a matching replacement. Spark set the lantern down and studied the good hook above it.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-34::10": {
-    "displayedText": "Spark hung the lantern on the new root-fiber hook, then counted aloud. \"Ten, eleven, twelve!\" The hook remained solid, even after the last gold dot faded.",
+    "displayedText": "Spark hung the lantern on the new root-fiber hook, then counted aloud. \"Ten, eleven, twelve!\" The hook stayed firm, and the lantern kept shining.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-34::2": {
@@ -7383,7 +7375,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-34::4": {
-    "displayedText": "When Spark called \"ten,\" the golden hook vanished without warning. The lantern dropped, but Luna caught it safely. Spark stared at the empty rail.",
+    "displayedText": "When Spark called \"ten,\" the golden hook vanished, just as it always did. The lantern dropped, but Luna caught it. Spark stared at the empty rail.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-34::5": {
@@ -7403,7 +7395,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-34::9": {
-    "displayedText": "When the root fiber dried, Fern lifted a solid hook from the mold. Its curve matched the good hook exactly. Spark carried it to the lowest rail.",
+    "displayedText": "When the root fiber dried, Spark lifted a solid hook from the mold. Its curve matched the good hook exactly. He carried it to the lowest rail.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-35::1": {
@@ -7427,19 +7419,19 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-35::5": {
-    "displayedText": "Pip laid out an acorn, a leaf stem, a smooth stone, and his own fingertip. He tested each touch on a different chime. Stone listened closely.",
+    "displayedText": "Pip laid out an acorn, a leaf stem, and a smooth stone. He tried each on the chimes, then tapped the smallest with his fingertip. Stone listened.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-35::6": {
-    "displayedText": "The large chime rang clearly beneath the smooth stone. The acorn, leaf stem, and fingertip brought clean notes from the others. Pip had found four matches.",
+    "displayedText": "The acorn brought a deep note from the largest chime. The leaf stem and smooth stone suited the middle pair. Pip's fingertip made the smallest chime tinkle.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-35::7": {
-    "displayedText": "Stone used one enormous finger to steady the smallest chime without bending it. Pip gently straightened the twisted cord. Soon the little chime hung evenly again.",
+    "displayedText": "Stone pointed to the smallest chime, still tilted on its cord. Pip reached up and untwisted it. Stone steadied the chime until it hung straight again.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-35::8": {
-    "displayedText": "Pip placed each matching object beneath its chime so they would remember the pattern. Stone checked every pair. Then they stood ready to play together.",
+    "displayedText": "Pip placed the acorn, leaf stem, and stone beneath their matching chimes. Beside the smallest one, he held up his finger. They were ready to play.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-35::9": {
@@ -7451,7 +7443,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-a-snail-comes-out-at-night::2": {
-    "displayedText": "After dusk, damp air helps the snail emerge.",
+    "displayedText": "At dusk, the snail comes out into the damp air.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-a-snail-comes-out-at-night::3": {
@@ -7467,7 +7459,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-a-snail-comes-out-at-night::6": {
-    "displayedText": "A thin slime trail reduces rubbing as it moves.",
+    "displayedText": "Slime under its foot helps it slide over rough ground.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-a-snail-comes-out-at-night::7": {
@@ -7475,7 +7467,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-a-snail-comes-out-at-night::8": {
-    "displayedText": "Before warm daylight, the snail hides from drying air.",
+    "displayedText": "At dawn, it shelters under leaves so it won't dry out.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-build-a-cardboard-ramp::1": {
@@ -7515,31 +7507,31 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-drums-for-carnival::2": {
-    "displayedText": "Mr Baptiste plays a call for everyone.",
+    "displayedText": "Mr. Baptiste plays first. Everyone waits to answer.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-drums-for-carnival::3": {
-    "displayedText": "Leo plays all through the answering beat.",
+    "displayedText": "Leo starts too soon. His drum covers the call.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-drums-for-carnival::4": {
-    "displayedText": "The group stops, and Leo listens again.",
+    "displayedText": "Mr. Baptiste raises his hand. The group stops.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-drums-for-carnival::5": {
-    "displayedText": "Leo plays only when the answering beat begins.",
+    "displayedText": "This time, Leo waits for the call to end.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-drums-for-carnival::6": {
-    "displayedText": "Leo plays softly, then strongly, with the group.",
+    "displayedText": "Then Leo answers with the group. Softly, then loudly.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-drums-for-carnival::7": {
-    "displayedText": "Their shared rhythm fills the community hall.",
+    "displayedText": "In the hall, their drums answer Mr. Baptiste together.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-drums-for-carnival::8": {
-    "displayedText": "Leo marches outside, keeping his part steady.",
+    "displayedText": "Outside, Leo marches beside Mr. Baptiste. Call, wait, answer!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-dumplings-for-new-year::1": {
@@ -7547,31 +7539,31 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-dumplings-for-new-year::2": {
-    "displayedText": "Aunt Mei places one small spoonful in the middle.",
+    "displayedText": "Aunt Mei spoons filling onto the middle of a wrapper.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-dumplings-for-new-year::3": {
-    "displayedText": "Zoe adds too much, and her wrapper opens.",
+    "displayedText": "Zoe adds a heap. Her wrapper will not close.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-dumplings-for-new-year::4": {
-    "displayedText": "Aunt Mei shows a smaller spoonful this time.",
+    "displayedText": "\"Just a little,\" says Aunt Mei, showing a smaller spoonful.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-dumplings-for-new-year::5": {
-    "displayedText": "Zoe pinches the curved edge from end to end.",
+    "displayedText": "Zoe folds her wrapper and pinches the edges together.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-dumplings-for-new-year::6": {
-    "displayedText": "Zoe pinches another dumpling without any gaps.",
+    "displayedText": "She holds it up. No gaps this time!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-dumplings-for-new-year::7": {
-    "displayedText": "An adult cooks the dumplings until they are ready.",
+    "displayedText": "Aunt Mei lowers the dumplings into a pot of boiling water.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-dumplings-for-new-year::8": {
-    "displayedText": "The family shares their dumplings around one bright table.",
+    "displayedText": "Zoe takes a bite. Her filling stays tucked inside!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-eid-morning-with-samir::1": {
@@ -7707,7 +7699,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-how-paper-is-recycled::2": {
-    "displayedText": "Workers sort the paper and remove wrong materials.",
+    "displayedText": "Workers sort the paper, picking out anything that is not paper.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-how-paper-is-recycled::3": {
@@ -7731,7 +7723,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-how-paper-is-recycled::8": {
-    "displayedText": "The new paper becomes boxes, notebooks, and more.",
+    "displayedText": "The old paper is now new boxes, bags, and notebooks.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-inside-a-fire-station::1": {
@@ -7783,7 +7775,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-make-a-paper-kite::5": {
-    "displayedText": "Add the flying line at the center.",
+    "displayedText": "Ask an adult to tie the line where the sticks cross.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-make-a-paper-kite::6": {
@@ -7859,7 +7851,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-nanis-chapati-lunch::8": {
-    "displayedText": "At lunch, everyone shares Nani's clever packed meal.",
+    "displayedText": "Maya opens the tin. Lunch for everyone fits inside!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-garden-gate::1": {
@@ -7899,7 +7891,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-lost-library-book::2": {
-    "displayedText": "They look under the reading table first.",
+    "displayedText": "Zoe and Leo look under the reading table first.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-lost-library-book::3": {
@@ -7915,15 +7907,15 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-lost-library-book::6": {
-    "displayedText": "The leaf reminds Leo of the outside bench.",
+    "displayedText": "Leo remembers the bench. They ask the librarian.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-lost-library-book::7": {
-    "displayedText": "The librarian found their book on that bench.",
+    "displayedText": "\"I found it there!\" She hands Zoe her book.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-lost-library-book::8": {
-    "displayedText": "Zoe puts the book safely inside her bag.",
+    "displayedText": "Zoe closes the bag with her book inside.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-lunchbox-mix-up::1": {
@@ -7931,7 +7923,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-lunchbox-mix-up::2": {
-    "displayedText": "Maya checks the labels beside each lunchbox.",
+    "displayedText": "Maya checks the labels on both lunchboxes.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-lunchbox-mix-up::3": {
@@ -7963,31 +7955,31 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-puddle-plan::2": {
-    "displayedText": "Their plan starts along the shortest edge.",
+    "displayedText": "Leo points to the edge. \"Let's try over there.\"",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-puddle-plan::3": {
-    "displayedText": "Leo's boot sinks into soft, sticky mud.",
+    "displayedText": "Leo's foot sinks into the soft, sticky mud.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-puddle-plan::4": {
-    "displayedText": "Their plan changes toward the dry stones.",
+    "displayedText": "Samir spots some dry stones beside the muddy patch.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-puddle-plan::5": {
-    "displayedText": "Samir tests each stone with one careful step.",
+    "displayedText": "He tests each stone. It stays still under his foot.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-puddle-plan::6": {
-    "displayedText": "Leo places cones beside the safe dry way.",
+    "displayedText": "Leo puts cones beside the stones to mark the way.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-puddle-plan::7": {
-    "displayedText": "Their plan guides Maya around the puddle.",
+    "displayedText": "Maya follows the stones. Her shoes stay dry.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-puddle-plan::8": {
-    "displayedText": "Everyone reaches the garden by the safe, dry path.",
+    "displayedText": "Three friends reach the garden. Only Leo has a muddy shoe!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-squeaky-wheel::1": {
@@ -7999,7 +7991,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-squeaky-wheel::3": {
-    "displayedText": "The wheel squeaks louder when they push harder.",
+    "displayedText": "Zoe tries again. The wheel squeaks even louder.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-squeaky-wheel::4": {
@@ -8007,7 +7999,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-squeaky-wheel::5": {
-    "displayedText": "The gardener puts one drop on the axle.",
+    "displayedText": "The gardener drips oil onto the wheel's axle.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-squeaky-wheel::6": {
@@ -8019,7 +8011,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-squeaky-wheel::8": {
-    "displayedText": "Zoe and Samir carry seedlings without a squeak.",
+    "displayedText": "Zoe and Samir roll the seedlings down the quiet path.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-windy-picnic::1": {
@@ -8035,11 +8027,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-windy-picnic::4": {
-    "displayedText": "Leo catches two, but one crosses the path.",
+    "displayedText": "Leo catches two napkins, then chases the last one.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-windy-picnic::5": {
-    "displayedText": "They move beside the tall, quiet hedge.",
+    "displayedText": "With all three napkins, they move behind the hedge.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-windy-picnic::6": {
@@ -8051,7 +8043,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-windy-picnic::8": {
-    "displayedText": "Now the friends enjoy their calm, windy picnic.",
+    "displayedText": "Now Maya can eat without holding the cloth!",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-where-rainwater-goes::1": {

@@ -232,30 +232,37 @@ if (unflaggedGuidedPagesWithoutExactAudio.length) {
   );
 }
 
-const blockedGuidedBooks = activeBooks.filter(book =>
-  GUIDED_READING_RELEASE_READINESS.blockedBooks.includes(book.id)
+const readinessGuidedBooks = activeBooks.filter(book =>
+  GUIDED_READING_RELEASE_READINESS.bookIds.includes(book.id)
 );
-const blockedGuidedIds = new Set(blockedGuidedBooks.map(book => book.id));
-const unknownBlockedIds = GUIDED_READING_RELEASE_READINESS.blockedBooks.filter(id =>
+const readinessGuidedIds = new Set(readinessGuidedBooks.map(book => book.id));
+const authorityBookIds = new Set([
+  ...GUIDED_READING_RELEASE_READINESS.bookIds,
+  ...GUIDED_READING_RELEASE_READINESS.blockedBooks
+]);
+const unknownBlockedIds = [...authorityBookIds].filter(id =>
   !activeBooks.some(book => book.id === id)
 );
 if (unknownBlockedIds.length) {
   addError(`guided-reading release authority names inactive books: ${unknownBlockedIds.join(", ")}`);
 }
-if (GUIDED_READING_RELEASE_READINESS.status !== "approved") {
-  const missingImages = blockedGuidedBooks.reduce((count, book) =>
-    count
-    + (hasNonEmptyPublicFile(book.coverImage) ? 0 : 1)
-    + (book.pages || []).filter(page => !hasNonEmptyPublicFile(page.image)).length,
-  0);
-  const missingNarrationPages = guidedAudioInventory.pages.filter(page =>
-    blockedGuidedIds.has(page.bookId) && !page.exactLedaAudioResolves
-  ).length;
+const missingImages = readinessGuidedBooks.reduce((count, book) =>
+  count
+  + (hasNonEmptyPublicFile(book.coverImage) ? 0 : 1)
+  + (book.pages || []).filter(page => !hasNonEmptyPublicFile(page.image)).length,
+0);
+const missingNarrationPages = guidedAudioInventory.pages.filter(page =>
+  readinessGuidedIds.has(page.bookId) && !page.exactLedaAudioResolves
+).length;
+if (missingImages || missingNarrationPages) {
+  addError(`guided-reading Willow Street media integrity: ${missingImages} missing images and ${missingNarrationPages} missing exact-text narrations`);
+}
+if (!["accepted", "approved"].includes(GUIDED_READING_RELEASE_READINESS.status)
+  || GUIDED_READING_RELEASE_READINESS.blockedBooks.length) {
   releaseBlocks.push(
-    `guided-reading Willow Street: ${GUIDED_READING_RELEASE_READINESS.status}; content manuscripts are approved, `
-    + `${GUIDED_READING_RELEASE_READINESS.expectedImages - missingImages}/${GUIDED_READING_RELEASE_READINESS.expectedImages} images are present and directly reviewed, `
-    + `${GUIDED_READING_RELEASE_READINESS.expectedNarrationPages - missingNarrationPages}/${GUIDED_READING_RELEASE_READINESS.expectedNarrationPages} exact-text narrations resolve, `
-    + `and ${GUIDED_READING_RELEASE_READINESS.humanListeningPendingPages} page clips still require direct human listening`
+    `guided-reading Willow Street: ${GUIDED_READING_RELEASE_READINESS.status}; `
+    + `${GUIDED_READING_RELEASE_READINESS.blockedBooks.length} books have a recorded release block. `
+    + GUIDED_READING_RELEASE_READINESS.reason
   );
 }
 

@@ -3,57 +3,57 @@
 export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   "bob-and-nan-01": Object.freeze({
     oral: Object.freeze({
-      prompt: "How do Bob and Nan show that they are pals?",
-      listenFor: "Brings together their running, resting, and standing side by side at the end."
+      prompt: "How do Bob and Nan each find a running pal?",
+      listenFor: "Both begin by running alone. Then they run and rest together."
     }),
     visual: Object.freeze({
       page: 7,
-      prompt: "What do Nan's arm and the children's smiles tell us about Bob and Nan?",
-      lookFor: "Notices Nan's arm around Bob's shoulder and both friends smiling in front of their houses."
+      prompt: "What do Bob's arm and the children's smiles tell us about their friendship?",
+      lookFor: "Notices Bob's arm around Nan's shoulder and both friends smiling in front of their houses."
     })
   }),
   "bob-and-nan-02-park": Object.freeze({
     oral: Object.freeze({
-      prompt: "Which parts of the park day seem most fun for Bob and Nan?",
-      listenFor: "Chooses from racing, swinging, and climbing the hill, with a reason grounded in the story."
+      prompt: "Why do Bob and Nan climb the hill?",
+      listenFor: "The trees block their view from the swings. From the hill they can see the whole park."
     }),
     visual: Object.freeze({
       page: 7,
-      prompt: "How can we tell Bob and Nan feel proud at the top of the hill?",
-      lookFor: "Finds their raised arms, broad smiles, and the park spread below them."
+      prompt: "What can Bob and Nan see from here that they could not see on the swings?",
+      lookFor: "The park spread out below the hill, beyond the trees."
     })
   }),
   "bob-and-nan-03-fluff": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why do Bob and Nan decide to call the puppy Fluff?",
-      listenFor: "Recalls how the friendly pup runs over, accepts their pats, and settles happily between them."
+      prompt: "What helps Fluff settle down with Bob and Nan?",
+      listenFor: "Nan pats Fluff calmly. Bob tries the same gentle pats, and Fluff sits between them."
     }),
     visual: Object.freeze({
       page: 4,
       prompt: "Which details show that the pup likes Nan's gentle pat?",
-      lookFor: "Points out the closed eyes and wagging tail as Nan kneels beside the small brown dog."
+      lookFor: "Fluff sits close to Nan and looks up at her while she rests a hand gently on his head."
     })
   }),
   "bob-and-nan-04-beach": Object.freeze({
     oral: Object.freeze({
-      prompt: "How does getting wet become part of Bob and Nan's beach fun?",
-      listenFor: "Explains that the children laugh and splash after the waves reach them."
+      prompt: "What do Bob and Nan change after the wave knocks their fort down?",
+      listenFor: "They build farther from the waves, where the new fort stays dry."
     }),
     visual: Object.freeze({
-      page: 6,
-      prompt: "What shows that Nan enjoys the water instead of minding the splash?",
-      lookFor: "Uses Nan's delighted grin, outstretched arms, and the sea splashing around her."
+      page: 7,
+      prompt: "How can you tell the new fort is away from the waves?",
+      lookFor: "The fort stands on dry sand with the water farther away."
     })
   }),
   "bob-and-nan-05-school": Object.freeze({
     oral: Object.freeze({
-      prompt: "What helps Bob and Nan change from worried to happy on their first school day?",
-      listenFor: "Connects their nervous walk with sitting together, exploring the classroom, and leaving with smiles."
+      prompt: "What helps Bob feel ready to join the class?",
+      listenFor: "Nan smiles at Bob. They sit together at one table and begin drawing side by side."
     }),
     visual: Object.freeze({
       page: 6,
-      prompt: "What might Bob and Nan be discovering as they sit at their new desks?",
-      lookFor: "Refers to the bright classroom, their side-by-side desks, and their wide, curious eyes."
+      prompt: "What shows that Bob and Nan can work together here?",
+      lookFor: "They sit beside each other at the same table, looking relaxed and ready to begin."
     })
   }),
   "bob-and-nan-06-zoo": Object.freeze({
@@ -69,19 +69,19 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "bob-and-nan-07-birthday": Object.freeze({
     oral: Object.freeze({
-      prompt: "What makes Bob call his birthday the best day?",
-      listenFor: "Draws on Nan's red bat gift, the six candles, cake, and playing together afterward."
+      prompt: "How does Nan’s gift become Bob’s birthday game?",
+      listenFor: "Bob gets the wrapping off, finds the bat, and uses it to play ball with Nan."
     }),
     visual: Object.freeze({
-      page: 3,
-      prompt: "How does Bob react when the wrapping reveals the red cricket bat?",
-      lookFor: "Describes the torn paper, bright red bat, and Bob's delighted face."
+      page: 7,
+      prompt: "What is each child doing with the new gift?",
+      lookFor: "Bob holds the red bat after hitting the ball. Nan reaches to collect the ball."
     })
   }),
   "bob-and-nan-08-sick": Object.freeze({
     oral: Object.freeze({
       prompt: "What do Nan and Bob do while their bodies get well again?",
-      listenFor: "Retells the naps, warm drinks, quiet sipping, and rest before they can run outside."
+      listenFor: "Retells their sleep, drinking water, and two days of rest before they can run with Fluff again."
     }),
     visual: Object.freeze({
       page: 4,
@@ -103,7 +103,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   "bob-and-nan-10-vet": Object.freeze({
     oral: Object.freeze({
       prompt: "Why do Nan and Bob take Fluff to the vet, and how does the visit help?",
-      listenFor: "Links Fluff's sore leg to the examination, jab, treat, and his return to running."
+      listenFor: "Links Fluff's sore leg to the vet's check, medicine, and rest before he runs again weeks later."
     }),
     visual: Object.freeze({
       page: 5,
@@ -113,8 +113,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "james-and-anna-01-space": Object.freeze({
     oral: Object.freeze({
-      prompt: "Where does the real rocket-building end and James and Anna's imagined space trip begin?",
-      listenFor: "Places the change after the cardboard rocket is painted and the countdown starts inside it."
+      prompt: "How do James and Anna make their rocket fly when it stays still?",
+      listenFor: "They decide to pretend. In their game they visit the Moon, jump with Zim, then return home for cake."
     }),
     visual: Object.freeze({
       page: 3,
@@ -124,8 +124,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "james-and-anna-02-chips": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why can James and Anna not stay cross with Chips, even after his mischief?",
-      listenFor: "Balances the eaten hat, rose bush, and jumper with the children's affection for their cheeky goat."
+      prompt: "What does James learn when Dad gets his hat back from Chips?",
+      listenFor: "Dad says “Drop!” and Chips lets go. James later uses the same word to get his sweater back."
     }),
     visual: Object.freeze({
       page: 10,
@@ -135,8 +135,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "james-and-anna-03-shopping": Object.freeze({
     oral: Object.freeze({
-      prompt: "How do James and Anna share the jobs that help Mom finish the shopping?",
-      listenFor: "Mentions James reading the list and guarding the eggs while Anna carries bags and finds bread."
+      prompt: "Why does Mom say “Check first” when they find the cakes?",
+      listenFor: "They need to make sure every item on the shopping list is in the cart before choosing treats."
     }),
     visual: Object.freeze({
       page: 12,
@@ -146,8 +146,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "james-and-anna-04-dentist": Object.freeze({
     oral: Object.freeze({
-      prompt: "What helps James and Anna manage their worry before seeing the dentist?",
-      listenFor: "Includes holding hands, watching fish, reading about sharks, and discovering the chair feels like a ride."
+      prompt: "What helps James and Anna get through their dental checks?",
+      listenFor: "Mom comes with them; the fish and book occupy them while waiting. James breathes in, and the dentist sings during Anna’s check."
     }),
     visual: Object.freeze({
       page: 9,
@@ -157,8 +157,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "james-and-anna-05-tree-house": Object.freeze({
     oral: Object.freeze({
-      prompt: "How do the plan and list help James, Anna, and Dad build the tree house?",
-      listenFor: "Orders the materials and jobs from drawing through frame, floor, walls, paint, flag, and ladder."
+      prompt: "What nearly holds up the tree house, and how do they fix it?",
+      listenFor: "Chips steals the paint lid. They retrieve it and move the paint out of his reach before finishing."
     }),
     visual: Object.freeze({
       page: 11,
@@ -168,8 +168,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "ja-b-06": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why does Grandma say Chips fits in well at the farm?",
-      listenFor: "Links the goat's bean-plant feast with Percy's escape and the day's other lively animal surprises."
+      prompt: "How do Grandma and James get Chips away from things he should not eat?",
+      listenFor: "Grandma leads Chips out of the beans. Later, James offers hay when Chips bites the fence."
     }),
     visual: Object.freeze({
       page: 9,
@@ -190,13 +190,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "ja-b-08": Object.freeze({
     oral: Object.freeze({
-      prompt: "How does the play date move from wild chaos to friendship for Chips and Bella?",
-      listenFor: "Moves from chasing, splashing, and scattered petals to the tired animals licking each other on the lawn."
+      prompt: "How do James and Anna help put things right after the chase?",
+      listenFor: "James holds Bella’s lead to keep the pets out of the bed while Anna supports the bent flowers."
     }),
     visual: Object.freeze({
-      page: 6,
-      prompt: "Who is surprised by Bella's crash into the paddling pool, and who stays dry?",
-      lookFor: "Distinguishes drenched James and Anna, the exploding water, and dry Chips nearby."
+      page: 10,
+      prompt: "What is Anna doing to help the bent flowers?",
+      lookFor: "She supports the bent stems with small sticks while the pets rest away from the bed."
     })
   }),
   "ja-b-09": Object.freeze({
@@ -212,24 +212,24 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "ja-b-10": Object.freeze({
     oral: Object.freeze({
-      prompt: "How does Chips make the garden camp harder and funnier for everyone?",
-      listenFor: "Selects from the eaten pegs, marshmallow stick, cards, tent corner, and final door zip."
+      prompt: "How do they deal with the night noise and the damage to the tent?",
+      listenFor: "They stay inside and Dad checks the fox outside. In the morning Anna patches the place Chips chewed."
     }),
     visual: Object.freeze({
-      page: 11,
-      prompt: "Why is nobody comfortable in the sleeping-bag pile inside the tent?",
-      lookFor: "Follows Chips leaning on James, James pressing Anna, and Anna squashed against the tent wall."
+      page: 14,
+      prompt: "What stops Chips from spoiling Anna’s repair?",
+      lookFor: "Dad holds Chips’s lead while Anna presses the patch over the hole."
     })
   }),
   "ab-c-01": Object.freeze({
     oral: Object.freeze({
       prompt: "What changes Aiden's mind about Grade 1 during his first day?",
-      listenFor: "Connects Betty's joke, Mom's note, the word puzzles, a correct answer, and the science activity."
+      listenFor: "Connects Betty's joke, Mom's note, the number puzzles, a correct answer, and the science activity."
     }),
     visual: Object.freeze({
       page: 7,
       prompt: "How does Betty use her own handwriting page to help Aiden feel less embarrassed?",
-      lookFor: "Notices the two imperfect pages, Betty leaning over quietly, and Aiden laughing as his face relaxes."
+      lookFor: "Betty holds up her looping handwriting page, and Aiden looks at it with a broad smile."
     })
   }),
   "ab-c-02": Object.freeze({
@@ -245,8 +245,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "ab-c-03": Object.freeze({
     oral: Object.freeze({
-      prompt: "Which holiday experience might explain why Aiden feels different when he gets home?",
-      listenFor: "Chooses a meaningful coastal moment, such as studying rock pools, climbing the lighthouse, or seeing the vast sea."
+      prompt: "How does Betty’s rainy-day plan change their trip?",
+      listenFor: "Her map joins the beach, harbor and lighthouse into a route they follow. Aiden wants to keep the map at the end."
     }),
     visual: Object.freeze({
       page: 10,
@@ -256,8 +256,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "ab-c-04": Object.freeze({
     oral: Object.freeze({
-      prompt: "How does Socks gradually make himself part of Aiden and Betty's home?",
-      listenFor: "Combines his harness peg, door greeting, newspaper routine, food mat, and habit of resting near the family."
+      prompt: "How can you tell Socks is beginning to trust his new home?",
+      listenFor: "He starts curled in the carrier. Later he approaches the children for a stroke and settles close to Aiden drawing."
     }),
     visual: Object.freeze({
       page: 5,
@@ -278,35 +278,35 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "ab-c-06": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why do the judges value Betty's explanation as well as the crystals themselves?",
-      listenFor: "Understands that her chart, daily observations, photographs, and account of why growth occurred show careful method."
+      prompt: "Why is Betty’s suggestion to wait useful, even when the jar seems unchanged?",
+      listenFor: "Crystals need time to grow. Their dated photographs and chart show the changes they would have missed by starting again."
     }),
     visual: Object.freeze({
       page: 7,
-      prompt: "What visible change finally rewards Aiden and Betty for waiting and watching the jar?",
-      lookFor: "Finds sharp blue crystals beginning to climb the jar's sides."
+      prompt: "How could these photographs and the chart help someone understand what happened?",
+      lookFor: "They record how the crystals changed over several days instead of showing only the finished jar."
     })
   }),
   "ab-c-07": Object.freeze({
     oral: Object.freeze({
-      prompt: "What makes Aiden agree that Socks has decided this house is home?",
-      listenFor: "Reflects on Socks's goodbye at the window, his head resting on Aiden's lap, and his settled place at their feet."
+      prompt: "Why do the children call Socks their guide?",
+      listenFor: "When no more birds appear, Socks leads them along the path toward dragonflies and water beetles to record."
     }),
     visual: Object.freeze({
       page: 5,
-      prompt: "Why does Betty need to close her eyes after seeing the kingfisher?",
-      lookFor: "Highlights the sudden blue-orange bird darting above the reeds and Betty's amazed pause with the binoculars."
+      prompt: "Which things in the picture help Betty spot and record the bird?",
+      lookFor: "Finds the binoculars, the open logbook and Betty's pencil, with the blue-and-orange kingfisher outside."
     })
   }),
   "ab-c-08": Object.freeze({
     oral: Object.freeze({
-      prompt: "How does Aiden grow from needing Betty's words to speaking up for himself?",
-      listenFor: "Traces Betty's first support, their plan, Aiden's clear request to stop, walking away, and telling Miss Okafor."
+      prompt: "What happens when Aiden’s request to stop does not stop Marcus?",
+      listenFor: "Aiden and Betty tell Miss Okafor. She says Aiden did nothing wrong, speaks to Marcus, and checks on Aiden all week."
     }),
     visual: Object.freeze({
-      page: 7,
-      prompt: "What about Aiden's posture and Betty's position could show he is ready to use his own voice?",
-      lookFor: "Looks for Aiden facing Marcus steadily while Betty remains nearby without speaking for him."
+      page: 13,
+      prompt: "How can you tell Aiden has someone listening to him here?",
+      lookFor: "Miss Okafor kneels beside Aiden, faces him, and gives him her attention."
     })
   }),
   "ab-c-09": Object.freeze({
@@ -316,36 +316,36 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
     }),
     visual: Object.freeze({
       page: 11,
-      prompt: "What does Aiden notice when Betty says the new gap makes him look older?",
-      lookFor: "Finds Aiden examining his front-tooth gap in the mirror and beginning to smile."
+      prompt: "What clues suggest Aiden is less worried about his changing smile?",
+      lookFor: "Aiden smiles at his reflection while Betty stands beside him smiling too."
     })
   }),
   "ab-c-10": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why do Aiden and Betty choose different favourite parts of the castle?",
-      listenFor: "Contrasts Aiden's interest in worn stone and historical clues with Betty's interest in the broad tower view."
+      prompt: "What question does Aiden bring away from the castle, and how does he answer it?",
+      listenFor: "He wonders what the dark room was used for. A book reveals a food storeroom, so he adds barrels to his drawing."
     }),
     visual: Object.freeze({
-      page: 4,
-      prompt: "What can the smooth floor stones tell Aiden about people in the great hall long ago?",
-      lookFor: "Examines the worn walking surface beneath Aiden in the tall, cool hall."
+      page: 13,
+      prompt: "How is Aiden using the book to finish his own drawing?",
+      lookFor: "The open reference book shows the food storeroom; Aiden adds barrels to his separate castle drawing."
     })
   }),
   "dino-pals-01-chompys-big-lunch": Object.freeze({
     oral: Object.freeze({
-      prompt: "What do Chompy's first thoughts in the morning and last thoughts at night have in common?",
-      listenFor: "Recognises that food stays on Chompy's mind from hungry breakfast wishes through wondering about the next meal."
+      prompt: "How is Chompy's tummy different at the beginning and the end?",
+      listenFor: "Connects the repeated morning rumble with Sunny sharing her lunch and the quiet tummy at night."
     }),
     visual: Object.freeze({
       page: 6,
       prompt: "How does Chompy look after eating berries, leaves, and Sunny's lunch?",
-      lookFor: "Notices his very large tummy even while he says he is still a little hungry."
+      lookFor: "Notices his rounded tummy and relaxed face after the rumbling finally stops."
     })
   }),
   "dino-pals-02-sunnys-rainy-day": Object.freeze({
     oral: Object.freeze({
       prompt: "How does Sunny change the other Dino Pals' idea of a rainy day?",
-      listenFor: "Contrasts their first complaints with Sunny's puddle invitation and Grumpy deciding the play is not terrible."
+      listenFor: "Compares the three friends sheltering under leaves with their choice to enter after Sunny makes a small splash."
     }),
     visual: Object.freeze({
       page: 6,
@@ -356,7 +356,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   "dino-pals-03-dozy-wont-wake-up": Object.freeze({
     oral: Object.freeze({
       prompt: "Why does Chompy's idea wake Dozy when the loud calls do not?",
-      listenFor: "Explains that the smell of the biggest lunch catches sleepy Dozy's attention."
+      listenFor: "Explains that the smell of hot berry buns catches sleepy Dozy's attention."
     }),
     visual: Object.freeze({
       page: 7,
@@ -377,19 +377,19 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "dino-pals-05-bossy-makes-a-plan": Object.freeze({
     oral: Object.freeze({
-      prompt: "What does Bossy learn when the first picnic plan becomes a mess?",
-      listenFor: "Explains why combining Bossy's ideas with the others' ways works better than giving orders alone."
+      prompt: "Why does Bossy change the picnic jobs?",
+      listenFor: "Names the trouble with the first jobs and explains how the Pals show jobs they can do."
     }),
     visual: Object.freeze({
       page: 8,
-      prompt: "What change does Bossy add to the clipboard after the group succeeds?",
-      lookFor: "Locates the new reminder to ask nicely as Bossy reflects on the revised plan."
+      prompt: "What new jobs can Bossy put on her board?",
+      lookFor: "Connects the finished picnic with Sunny spreading leaves, Wiggly bringing a basket and Chompy fetching fruit."
     })
   }),
   "dino-pals-06-bouncy-bumps-into-everything": Object.freeze({
     oral: Object.freeze({
       prompt: "How does Bouncy turn repeated accidents into a safer choice?",
-      listenFor: "Moves from collisions and apologies to listening, naming what he needs, and choosing the empty meadow."
+      listenFor: "Connects Bouncy helping clear each mess with checking the path and choosing an empty field for the final bounce."
     }),
     visual: Object.freeze({
       page: 8,
@@ -399,8 +399,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "dino-pals-07-wigglys-messy-day": Object.freeze({
     oral: Object.freeze({
-      prompt: "What helps Wiggly stop seeing the long tail only as a problem?",
-      listenFor: "Includes Dozy noticing its cool breeze and the bright-stone idea for judging safe space."
+      prompt: "How do Wiggly and Dozy make room for the long tail?",
+      listenFor: "Describes Wiggly apologizing to Fancy, Dozy marking a wide space, and slow swishes inside the stones."
     }),
     visual: Object.freeze({
       page: 8,
@@ -411,7 +411,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   "dino-pals-08-zippy-slows-down": Object.freeze({
     oral: Object.freeze({
       prompt: "What becomes possible for Zippy only after he stops running?",
-      listenFor: "Connects slowing down with finding the flowers, breathing calmly, and noticing the route home."
+      listenFor: "Explains how recognizing the blue flowers and walking slowly lead Zippy back to the bent tree and the route home."
     }),
     visual: Object.freeze({
       page: 5,
@@ -422,7 +422,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   "dino-pals-09-honkys-inside-voice": Object.freeze({
     oral: Object.freeze({
       prompt: "When is Honky's big voice unhelpful, and when does everyone need it?",
-      listenFor: "Compares leaves shaking at breakfast with the storm warning reaching Pals across the Hollow."
+      listenFor: "Contrasts leaves shaken onto breakfast with the loud call through rain that brings the meal into the cave."
     }),
     visual: Object.freeze({
       page: 7,
@@ -433,7 +433,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   "dino-pals-10-cheekys-prank-goes-wrong": Object.freeze({
     oral: Object.freeze({
       prompt: "How does slipping in his own mud help Cheeky rethink the pranks?",
-      listenFor: "Links his muddy fall with noticing hurt feelings, apologising, and asking friends what they enjoy."
+      listenFor: "Connects Cheeky and Fancy slipping with helping her up, scrubbing the rock, and asking both friends what makes them laugh."
     }),
     visual: Object.freeze({
       page: 3,
@@ -444,7 +444,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   "dino-pals-11-shys-secret-gift": Object.freeze({
     oral: Object.freeze({
       prompt: "How do the Pals return Shy's quiet kindness once they discover the secret?",
-      listenFor: "Explains the shift from receiving personal gifts to making eleven gifts especially for Shy."
+      listenFor: "Connects the secret presents with a gift from every Pal waiting for Shy the next morning."
     }),
     visual: Object.freeze({
       page: 9,
@@ -454,13 +454,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "dino-pals-12-fancys-bad-day": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why is Wiggly's approach the one Fancy finally agrees to try?",
-      listenFor: "Contrasts sitting, bouncing, softness, and shouting with gently dampening and pressing the bent sail."
+      prompt: "How do Fancy and Wiggly flatten the folded leaf fan?",
+      listenFor: "Explains that Wiggly brings water, Fancy wets the leaves, and her own tail presses the damp fold flat."
     }),
     visual: Object.freeze({
       page: 10,
-      prompt: "How does Wiggly handle Fancy's sail differently from the earlier suggestions?",
-      lookFor: "Follows careful water and soft pressure as the bent sail slowly straightens."
+      prompt: "What does Fancy do after wetting the folded leaves?",
+      lookFor: "Finds Fancy pressing the damp fan against the rock with her tail; Wiggly does not press it for her."
     })
   }),
   "dino-pals-13-clumsy-to-the-rescue": Object.freeze({
@@ -471,18 +471,18 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
     visual: Object.freeze({
       page: 10,
       prompt: "What can Wiggly reach even though the deep pool stops the other Pals?",
-      lookFor: "Tracks Wiggly's neck stretching down to the submerged pillow while the tail sweeps behind."
+      lookFor: "Follows Wiggly reaching the blue pillow in the waterfall pool and lifting it out."
     })
   }),
   "dino-pals-14-what-is-flappy": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why does Grumpy's answer satisfy Flappy better than simply calling him wonderful?",
-      listenFor: "Understands that Grumpy accepts Flappy's unique mix of wings, feathers, nesting, and life in Sunny Hollow."
+      prompt: "How does Flappy reach the nest even though flapping straight up does not work?",
+      listenFor: "Links claws gripping the ground and bark with climbing up, then gliding down from a higher branch."
     }),
     visual: Object.freeze({
       page: 12,
-      prompt: "What achievement lets Flappy see Sunny Hollow from a new place?",
-      lookFor: "Finds Flappy balanced neatly on a high branch after three wing-flaps."
+      prompt: "Where does Flappy glide from to reach the nest?",
+      lookFor: "Traces the short downward glide from the branch above into the nest."
     })
   }),
   "dino-pals-15-sneezy-and-the-waterfall": Object.freeze({
@@ -493,13 +493,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
     visual: Object.freeze({
       page: 11,
       prompt: "Which changes show the force and result of Sneezy's enormous sneeze?",
-      lookFor: "Follows scattered rocks, surging water, the restored waterfall, and a new rainbow."
+      lookFor: "Sees the rocks flying away from the blockage as the trapped water begins to rush through."
     })
   }),
   "dino-pals-16-chompy-and-grumpys-day-out": Object.freeze({
     oral: Object.freeze({
-      prompt: "What does Grumpy's final warning about a good-looking bush reveal about the friendship?",
-      listenFor: "Infers that Grumpy has begun caring for Chompy despite wanting a quiet meadow trip alone."
+      prompt: "What does Grumpy's last call about the berries tell us about his day with Chompy?",
+      listenFor: "Uses the better-berries invitation to explain how Grumpy chooses to share after rescuing Chompy."
     }),
     visual: Object.freeze({
       page: 9,
@@ -509,30 +509,30 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "dino-pals-17-the-sunny-hollow-games": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why does Bossy decide that everyone has won the Sunny Hollow Games?",
-      listenFor: "Describes how each Pal's own strength or habit becomes an event worth celebrating."
+      prompt: "Why does Bossy need more than one space for winners?",
+      listenFor: "Names different Pals winning different games and connects them with the change from one winner to a winner for each game."
     }),
     visual: Object.freeze({
       page: 7,
-      prompt: "What makes Shy's hidden pebble arrangement worthy of the tidiest-corner prize?",
-      lookFor: "Counts twelve carefully arranged pebbles tucked out of sight behind one rock."
+      prompt: "What has Shy done with the pebbles?",
+      lookFor: "Points to the neat row as a different kind of success from running, jumping or honking."
     })
   }),
   "dino-pals-18-dozys-wonderful-dream": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why does Dozy say the dream was exactly like Sunny Hollow, only cloudier?",
-      listenFor: "Recognises familiar friends and places transformed into clouds and golden light without losing their usual personalities."
+      prompt: "What makes Dozy's last cloud bed better than the earlier clouds?",
+      listenFor: "Explains how the solid rock stops the thin cloud bed from drifting, sagging or bouncing; Sunny can rest beside Dozy."
     }),
     visual: Object.freeze({
       page: 8,
-      prompt: "How has Dozy's dream transformed Rainbow Waterfall?",
-      lookFor: "Sees Dozy floating past a waterfall made of warm golden light instead of water."
+      prompt: "Where does the golden stream lead Dozy?",
+      lookFor: "Follows the golden water toward the solid rocky peak below the drifting clouds."
     })
   }),
   "dino-pals-19-zippys-race": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why does winning by only a heartbeat unsettle Zippy?",
-      listenFor: "Explains that the close runner challenges Zippy's expectation of easy victory and leads to extra practice."
+      prompt: "What does Zippy do differently on the morning after the race?",
+      listenFor: "Contrasts five tiring practice loops with one easy lap and stopping beside Sunny."
     }),
     visual: Object.freeze({
       page: 10,
@@ -548,7 +548,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
     visual: Object.freeze({
       page: 11,
       prompt: "Which contrasts make Cozy Cave feel safe while the storm arrives outside?",
-      lookFor: "Sets the loud, wild weather against fifteen Pals gathered warmly together in the deep cave."
+      lookFor: "Contrasts the rain outside with the sheltered Pals and Dozy's dry blue pillow."
     })
   }),
   "dino-pals-21-fancys-moonleaf-arch": Object.freeze({
@@ -581,18 +581,18 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
     visual: Object.freeze({
       page: 3,
       prompt: "What does the crosswind do to Flappy and the open fern?",
-      lookFor: "Observes both the broad leaf and Flappy turning together in a controlled half-circle above the stream."
+      lookFor: "Notices the broad fern catching the wind and carrying Flappy around with it."
     })
   }),
   "dino-pals-24-clumsys-steady-bowls": Object.freeze({
     oral: Object.freeze({
-      prompt: "What two lessons does Clumsy learn when all four stacked bowls roll downhill?",
-      listenFor: "Matches bowl widths to stable rock or root spaces and switches to carrying filled bowls one at a time."
+      prompt: "What does Clumsy change after the stacked bowls roll away?",
+      listenFor: "He brings them back one at a time and sets them on flat ground for the games."
     }),
     visual: Object.freeze({
-      page: 4,
-      prompt: "What can Clumsy discover by studying where each fallen bowl stopped?",
-      lookFor: "Compares four differently sized bowls resting against separate ground features down the slope."
+      page: 5,
+      prompt: "Where has the largest bowl stopped rolling?",
+      lookFor: "It rests on the broad, flat top of Big Flat Rock."
     })
   }),
   "dino-pals-25-sneezys-seed-cloud": Object.freeze({
@@ -619,8 +619,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "dino-pals-27-bossys-three-paths": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why does Bossy replace one perfect crossing with three different paths?",
-      listenFor: "Explains that Zippy's quick feet and Grumpy's larger steps need different gaps and surfaces."
+      prompt: "Why does Bossy add more ways across the pool?",
+      listenFor: "Zippy can hop over the first gaps, but Grumpy needs closer stones. The branch and edge path give other ways across."
     }),
     visual: Object.freeze({
       page: 6,
@@ -636,13 +636,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
     visual: Object.freeze({
       page: 7,
       prompt: "Which two signs identify the open branch that reaches the stream?",
-      lookFor: "Finds a faint ripple travelling away and cool air lifting a fern toward Honky."
+      lookFor: "Finds faint echo lines inside the tunnel and a fern moving in the air from it."
     })
   }),
   "dino-pals-29-cheekys-shadow-show": Object.freeze({
     oral: Object.freeze({
-      prompt: "What does Cheeky learn from the tree shadows before trying the show again?",
-      listenFor: "Connects the long sunset shadows with moving the leaf screen west to catch low light behind the performers."
+      prompt: "Why does Cheeky try his show again when the sun is low?",
+      listenFor: "The low sun makes long shadows. Turning the screen toward it lets the shadows reach the screen."
     }),
     visual: Object.freeze({
       page: 7,
@@ -652,13 +652,13 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_SERIES = Object.freeze({
   }),
   "dino-pals-30-dozy-stops-the-melon": Object.freeze({
     oral: Object.freeze({
-      prompt: "Why does Dozy head for the grassy dip instead of chasing the rolling melon?",
-      listenFor: "Explains that the dip supplies a natural stopping place where his blue pillow can cushion the melon."
+      prompt: "How does Dozy’s pillow help stop the melon?",
+      listenFor: "It catches in a dip. Dozy spreads it out there, and the melon lands on it."
     }),
     visual: Object.freeze({
       page: 8,
-      prompt: "What makes the melon's stop gentle rather than a crash?",
-      lookFor: "Shows the round melon settled against the pillow inside the dip as Zippy slows nearby."
+      prompt: "What has landed on the pillow at the end?",
+      lookFor: "The melon and Dozy share the pillow while Zippy watches nearby."
     })
   })
 });
