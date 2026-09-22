@@ -21,7 +21,13 @@ function trackedAndUntrackedFiles(root) {
   ).split("\0").filter(Boolean);
 }
 
-function withoutProgrammingPrimitives(content) {
+function withoutProgrammingPrimitives(content, relativePath = "") {
+  // Blender authoring uses Python's standard numerical module. Exempt only
+  // its actual import/member syntax; product copy in the same file still fails.
+  if (relativePath.endsWith(".py") && /^import math\s*$/m.test(content)) {
+    content = content.replace(/^import math[ \t]*$/gm, "")
+      .replace(/\bmath\.[A-Za-z_][\w]*/g, "");
+  }
   return content
     .replace(/\b(?:Phaser\.)?Math\.[A-Za-z_$][\w$]*/g, "")
     .replace(/\bMath\\\.[A-Za-z_$][\w$]*/g, "")
@@ -55,7 +61,7 @@ export function validateLiteracyOnlyDomain({ root = repoRoot, files } = {}) {
     }
     if (RETIRED_PATH.test(normalized)) issues.push(`${normalized}: retired domain term remains in its path`);
     if (!TEXT_EXTENSION.test(normalized)) continue;
-    const content = withoutProgrammingPrimitives(fs.readFileSync(absolutePath, "utf8"));
+    const content = withoutProgrammingPrimitives(fs.readFileSync(absolutePath, "utf8"), normalized);
     const match = RETIRED_CONTENT.exec(content);
     if (match) {
       const line = content.slice(0, match.index).split("\n").length;

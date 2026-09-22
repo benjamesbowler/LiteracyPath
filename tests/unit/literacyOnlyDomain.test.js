@@ -48,3 +48,11 @@ test("the cleanup tombstone may drop retired objects but never recreate them", (
   });
   assert.ok(validateLiteracyOnlyDomain({ root: badRoot, files: [relativePath] }).some(issue => /never recreate/.test(issue)));
 });
+
+test("Blender Python numerical imports are allowed while retired product copy still fails", () => {
+  const file = "tools/blender/scene.py";
+  const root = fixture({ [file]: "import math\nangle = math.pi / 2\nheight = math.sin(angle)\n" });
+  assert.deepEqual(validateLiteracyOnlyDomain({ root, files: [file] }), []);
+  fs.appendFileSync(path.join(root, file), "label = 'Math lesson'\n");
+  assert.ok(validateLiteracyOnlyDomain({ root, files: [file] }).some(issue => /retired domain term/.test(issue)));
+});

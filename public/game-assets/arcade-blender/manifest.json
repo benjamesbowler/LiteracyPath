@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "creator": "Literacy Guide",
+  "origin": "Original project-authored geometry; no external model or texture inputs.",
+  "tool": "Blender 5.2.0 LTS",
+  "source": "tools/blender/build_arcade_assets.py",
+  "sourceSha256": "9bbb8d0c8258548a1e7da6b709f68c263ff6c0672c0b1f4f94a37e263579aa7c",
+  "license": "Project-owned original assets; same terms as the Literacy Guide project.",
+  "assets": [
+    {
+      "id": "meadow-windmill",
+      "url": "/game-assets/arcade-blender/meadow-windmill.glb",
+      "bytes": 74800,
+      "sha256": "b6b819ee6ff2d6ef114c36c203d0b6881676712ac4730464abb9f1a1049c7bd4",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": []
+    },
+    {
+      "id": "meadow-copse",
+      "url": "/game-assets/arcade-blender/meadow-copse.glb",
+      "bytes": 69608,
+      "sha256": "7a7b5080e0a7bc58fb596c72405b5aecb8a7bb1992ebb6c11a96c2d7ec88b906",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": []
+    },
+    {
+      "id": "dino-cycads",
+      "url": "/game-assets/arcade-blender/dino-cycads.glb",
+      "bytes": 179864,
+      "sha256": "8070f151d4457e05d0b2b0d4df8e147a5489a2ec4c5f7fdae5c592609a541e7f",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": []
+    },
+    {
+      "id": "moonwood-mushrooms",
+      "url": "/game-assets/arcade-blender/moonwood-mushrooms.glb",
+      "bytes": 69992,
+      "sha256": "67e930123dcc242a3da6c9e753516573844e7925b2eb5d7f66d7a6ff615dd04d",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": []
+    },
+    {
+      "id": "dino-fossil-arch",
+      "url": "/game-assets/arcade-blender/dino-fossil-arch.glb",
+      "bytes": 125360,
+      "sha256": "a0733a93721a0c7e9701a5cdd660aa9cfee4ba3d37a25eac6e4a91102281a93c",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": []
+    },
+    {
+      "id": "moonwood-observatory",
+      "url": "/game-assets/arcade-blender/moonwood-observatory.glb",
+      "bytes": 80164,
+      "sha256": "325a4ad8268d17651fe8caeef321f179bf3c255ccd8a0a8e0a09f7a5fbc01a35",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": []
+    },
+    {
+      "id": "rocket-courier",
+      "url": "/game-assets/arcade-blender/rocket-courier.glb",
+      "bytes": 85828,
+      "sha256": "8fbb3f8f234e2788eaf3617dc6f2493b1f2682baa0cbbbff5449ce84e1543c5c",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": []
+    },
+    {
+      "id": "space-observatory",
+      "url": "/game-assets/arcade-blender/space-observatory.glb",
+      "bytes": 62132,
+      "sha256": "e2dcc381b2447bdaa7964811c2181fc56d01deeba71151a34e2480f1a560cbbb",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": []
+    },
+    {
+      "id": "solar-outpost",
+      "url": "/game-assets/arcade-blender/solar-outpost.glb",
+      "bytes": 132020,
+      "sha256": "ec45118d027c5c039fec2cfe12acd87e57eb7d4920e21744706e6bde093396be",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": []
+    },
+    {
+      "id": "crystal-asteroid",
+      "url": "/game-assets/arcade-blender/crystal-asteroid.glb",
+      "bytes": 15424,
+      "sha256": "5163a259c444f88a7c8b08335b71d47805725eb5caa44ff667905134d866f6b1",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": []
+    }
+  ]
+}

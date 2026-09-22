@@ -2622,6 +2622,7 @@ function startGame(THREE, mount, opts) {
       return;
     }
 
+    racerScenery?.update(dt, reduceMotion);
     if (countdownT > 0) {
       countdownT -= dt;
       updateCountdown();

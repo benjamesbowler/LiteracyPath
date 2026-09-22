@@ -496,10 +496,10 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
       errorFeedback: "A wrong caught word is named with its actual onset while the target stays visible."
     },
     world: {
-      artDirection: "Authored Meadow, Dino Valley and Moonwood racing circuits with coherent low-poly scenery, lighting and atmosphere.",
+      artDirection: "Blender-authored windmills and flower copses in Meadow, fossil arches and cycads in Dino, lantern observatories and mushroom groves in Moonwood; instanced scenery is kept outside the physical circuit.",
       route: "Track, collision lanes, gate centres, ship route and camera use the same three-lane coordinate system.",
-      character: "The current player vehicle remains distinctive and readable against every world palette.",
-      assetFallback: "Procedural geometry, labels, track and complete low-tier scenery remain playable without decorative assets."
+      character: "The existing animated Pip kart stays recognisable against each world palette.",
+      assetFallback: "Missing decorative GLBs retain the complete road, kerbs, gates and labels; the existing Pip kart has its own identical compressed recovery asset."
     },
     state: {
       pauseResume: "Pause freezes route and animation time; resume resets the frame clock without advancing a gate.",
@@ -507,7 +507,7 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
       completion: "Existing score, stars, completed-word count and resumable track checkpoint remain the only progress state."
     },
     accessibility: {
-      reducedMotion: "Optical flow, shake and bursts are reduced while steering, gate labels and feedback remain immediate.",
+      reducedMotion: "Windmill rotors stop in reduced motion; optical flow, shake and bursts are reduced while steering, gate labels and feedback remain immediate.",
       soundOff: "The target grapheme, word labels, match count and specific feedback remain printed.",
       nonColourCue: "Target, shield, correct feedback and wrong feedback use words, symbols, position and shape as well as colour.",
       semanticFallback: "Named steer and replay buttons, focused onboarding and Arcade mission help expose the goal outside WebGL."
@@ -515,7 +515,7 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
     performance: {
       lowPowerFallback: "The shared Three.js quality tier caps pixel ratio and removes nonessential shadows and particle density first.",
       inputSafety: "Steer zones, swipes and keyboard share one lane action and every pointer path has up, cancel and lost-capture handling.",
-      assetFailure: "The procedural ship, track, gates and labels remain a complete playable race if decorative assets fail."
+      assetFailure: "The existing animated Pip kart, road, gates and labels remain playable when decorative assets fail. Pending scenery loads cannot reattach after disposal."
     },
     privacy: {
       dataWritten: ["Existing score", "Existing stars", "Completed-word count", "Existing resumable track checkpoint"],
@@ -524,8 +524,8 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
       newExternalService: false
     },
     validation: {
-      unit: ["tests/unit/soundRacerTracks.test.js", "tests/unit/premiumGameStandard.test.js"],
-      browser: ["tests/release/sound-racer-tutorial.spec.js", "tests/release/arcade-ipad-controls.spec.js", "tests/release/student-activity-viewport.spec.js"],
+      unit: ["tests/unit/soundRacerTracks.test.js", "tests/unit/premiumGameStandard.test.js", "tests/unit/arcadeBlenderAssets.test.js", "tests/unit/soundRacerProduction.test.js"],
+      browser: ["tests/release/sound-racer-production.spec.js", "tests/release/sound-racer-circuit.spec.js", "tests/release/sound-racer-tutorial.spec.js", "tests/release/arcade-ipad-controls.spec.js", "tests/release/student-activity-viewport.spec.js"],
       physicalDevice: {
         status: "unknown",
         note: "A real supported iPad playtest is still required; browser emulation is not recorded as a hardware pass."

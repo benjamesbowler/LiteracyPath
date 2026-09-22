@@ -125,15 +125,9 @@ test("Rocket Run engine-owned completion is a focused modal that isolates gamepl
   await page.goto("/preview/game-overlay.html?game=rocket-run&sound=0&music=0");
   const player = page.getByRole("dialog", { name: "Rocket Run", exact: true });
   await player.locator(".lg-game-loading").waitFor({ state: "hidden", timeout: 20_000 });
-  const launch = player.locator('[data-rr="intro-play"]');
-  await expect(launch).toHaveAttribute("type", "button");
-  await expect(player.getByRole("dialog", { name: "Rocket Run instructions", exact: true })).toBeVisible();
-  await expect(launch).toBeFocused();
-  const launchBox = await launch.boundingBox();
-  expect(launchBox?.height).toBeGreaterThanOrEqual(56);
-  await page.keyboard.press("Tab");
-  await expect(launch).toBeFocused();
-  await launch.click();
+  // Arcade now opens directly into the game; its optional mission guide owns
+  // instructions. Exercise completion from the actual current play state.
+  await expect(player.getByRole("button", { name: "Steer left", exact: true })).toBeVisible();
 
   const contract = await player.evaluate(async root => {
     const { isolateRocketRunCompletion } = await import("/src/components/learn/games/shared/rocketRunCompletion.js");

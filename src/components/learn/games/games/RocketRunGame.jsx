@@ -14,6 +14,7 @@ import {
   rocketRunStars,
   rocketRunLadder
 } from "../../../../utils/rocketRunRounds.js";
+import { attachRocketCourier } from "./rocketCourierAsset.js";
 import { starRubric } from "../../../../utils/starRubric.js";
 import { preloadWordAudio, wordAudioDuration, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { rocketWordSpeed, rocketCueLead, rocketWordSpacing } from "../shared/rocketApproach.js";
@@ -123,17 +124,12 @@ function attachRocketPressControl(element, onActivate) {
   };
 }
 
-// CC0 KayKit scenery already ships in the owned runtime library. Rocket Run
-// uses it as environmental storytelling rather than a collision surface, so a
-// late or failed model load can never block the literacy mechanic. The
-// procedural corridor below remains the low-tier and load-failure fallback.
+// Locally authored Blender landmarks. Static geometry is merged by material,
+// and the complete procedural corridor remains available during failed loads.
 const OWNED_SPACE_SETPIECES = Object.freeze([
-  { url: "/models/library/kaykit/space/models/basemodule_A.gltf", height: 2.9 },
-  { url: "/models/library/kaykit/space/models/cargodepot_A.gltf", height: 2.5 },
-  { url: "/models/library/kaykit/space/models/lander_A.gltf", height: 2.7 },
-  { url: "/models/library/kaykit/space/models/drill_structure.gltf", height: 3.8 },
-  { url: "/models/library/kaykit/space/models/windturbine_tall.gltf", height: 4.4 },
-  { url: "/models/library/kaykit/space/models/cargo_A_stacked.gltf", height: 1.8 }
+  { url: "/game-assets/arcade-blender/space-observatory.glb", height: 3.4 },
+  { url: "/game-assets/arcade-blender/solar-outpost.glb", height: 3.2 },
+  { url: "/game-assets/arcade-blender/crystal-asteroid.glb", height: 3.6 }
 ]);
 
 // Each round flies through a themed sector (Wipeout-style). Fog + ambient tint
@@ -834,6 +830,14 @@ function startGame(THREE, mount, opts) {
   nozzle.rotation.x = Math.PI / 2;
   nozzle.position.z = 1.16;
   ship.add(nozzle);
+  const fallbackHull = [...ship.children];
+  const courier = attachRocketCourier(ship, {
+    onReady: model => {
+      fallbackHull.forEach(part => { part.visible = false; });
+      premiumRender.prepareObject(model);
+      renderer.domElement.dataset.arcadeHeroAsset = "blender";
+    }
+  });
   const plumeMat = new THREE.MeshBasicMaterial({ color: 0x7fd8ff, transparent: true, opacity: 0.75, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide });
   const plume = new THREE.Mesh(new THREE.ConeGeometry(0.22, 1.22, 16, 1, true), plumeMat);
   plume.rotation.x = Math.PI / 2; // apex trails behind (+z)
@@ -1743,6 +1747,7 @@ function startGame(THREE, mount, opts) {
     hearTargetButton?.removeEventListener("click", replayTarget);
     detachResize();
     for (const b of bubbles) { scene.remove(b); disposeGroup(b); }
+    courier.dispose();
     scene.remove(ship); disposeGroup(ship);
     scene.remove(shipShadow); disposeGroup(shipShadow);
     for (const layer of starLayers) { scene.remove(layer); disposeGroup(layer); }

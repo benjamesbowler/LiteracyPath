@@ -4,13 +4,24 @@ import { disposeObject } from '../shared/threeShell.js';
 import { sampleCircuitPath, offsetCircuitPoint, RACER_ROAD_WIDTH } from '../../../../utils/soundRacerPhysics.js';
 
 const ASSETS = {
-  treeA: { height: 4.2, radius: 2.5 }, treeB: { height: 3.8, radius: 2.4 },
+  treeB: { height: 3.8, radius: 2.4, foliage: true },
+  meadowCopse: { height: 5.8, radius: 2.8, foliage: true },
+  dinoCycads: { height: 5, radius: 4.8, foliage: true },
+  moonMushrooms: { height: 5.5, radius: 3, foliage: true },
   bush: { height: 1.2, radius: 1 }, lamp: { height: 4.5, radius: .5 },
-  houseA: { height: 7, radius: 4 }, houseB: { height: 9, radius: 4 },
-  bridge: { height: 5, radius: 5 }, flag: { height: 3.5, radius: .8 },
-  hero: { height: 1.8, radius: 2.2 }
+  flag: { height: 3.5, radius: .8 },
+  hero: { height: 1.8, radius: 2.2 },
+  windmill: { height: 8, radius: 4.5 }, fossil: { height: 6.2, radius: 4.5 }, moonTower: { height: 8, radius: 3 }
 };
-export const RACER_SCENERY_URLS = Object.fromEntries(Object.keys(ASSETS).map(name => [name, `/game-assets/sound-racer/models/${name}.glb`]));
+export const RACER_SCENERY_URLS = {
+  ...Object.fromEntries(Object.keys(ASSETS).filter(name => !['windmill', 'fossil', 'moonTower', 'meadowCopse', 'dinoCycads', 'moonMushrooms'].includes(name)).map(name => [name, `/game-assets/sound-racer/models/${name}.glb`])),
+  meadowCopse: '/game-assets/arcade-blender/meadow-copse.glb',
+  dinoCycads: '/game-assets/arcade-blender/dino-cycads.glb',
+  moonMushrooms: '/game-assets/arcade-blender/moonwood-mushrooms.glb',
+  windmill: '/game-assets/arcade-blender/meadow-windmill.glb',
+  fossil: '/game-assets/arcade-blender/dino-fossil-arch.glb',
+  moonTower: '/game-assets/arcade-blender/moonwood-observatory.glb'
+};
 
 // One indexed surface follows the exact physical road samples. Alternating
 // kerbs and broad verge strips show the tyre boundary through the whole turn.
@@ -44,21 +55,22 @@ export function circuitClearance(path, x, z) {
 export function racerSceneryPlacements(track, world, tier = 'high') {
   const count = tier === 'low' ? 30 : tier === 'medium' ? 64 : 96;
   const result = [];
+  const worldFoliage = world === 'meadow' ? 'meadowCopse' : world === 'dino' ? 'dinoCycads' : 'moonMushrooms';
   for (let i = 0; i < count; i++) {
     const distance = (i + .35) / count * track.totalLength;
     const point = sampleCircuitPath(track.path, distance);
     const side = i % 2 ? -1 : 1;
-    let name = i % 7 === 0 ? 'lamp' : i % 5 === 0 ? 'bush' : i % 3 ? 'treeA' : 'treeB';
-    if (i % 13 === 2) name = world === 'meadow' ? 'houseA' : world === 'moonwood' ? 'houseB' : 'bridge';
+    let name = i % 7 === 0 ? 'lamp' : i % 5 === 0 ? 'bush' : i % 3 ? worldFoliage : 'treeB';
+    if (i % 13 === 2) name = world === 'meadow' ? 'windmill' : world === 'moonwood' ? 'moonTower' : 'fossil';
     if (i === 0) name = 'hero';
     if (i % 17 === 1) name = 'flag';
     const asset = ASSETS[name];
-    let offset = side * (name === 'lamp' || name === 'flag' ? 7.4 : name.startsWith('tree') ? 24 + (i % 4) * 4 : 11 + (i % 4) * 4);
+    let offset = side * (name === 'lamp' || name === 'flag' ? 7.4 : asset.foliage ? 18 + (i % 4) * 4 : 11 + (i % 4) * 4);
     let p = offsetCircuitPoint(point, offset);
-    if (name.startsWith('tree')) for (let attempt = 0; attempt < 2 && circuitClearance(track.path, p.x, p.z) < RACER_ROAD_WIDTH / 2 + asset.radius + 1; attempt++) { offset += side * 8; p = offsetCircuitPoint(point, offset); }
+    if (asset.foliage) for (let attempt = 0; attempt < 2 && circuitClearance(track.path, p.x, p.z) < RACER_ROAD_WIDTH / 2 + asset.radius + 1; attempt++) { offset += side * 8; p = offsetCircuitPoint(point, offset); }
     // Broad props on one bend must not intrude into its neighbouring hairpin.
     if (circuitClearance(track.path, p.x, p.z) < RACER_ROAD_WIDTH / 2 + asset.radius + 1) continue;
-    result.push({ name, x: p.x, z: p.z, y: Math.max(-.2, p.y - .05), heading: -point.heading + (name.startsWith('house') ? -side * Math.PI / 2 : i * 1.73), height: asset.height, distance });
+    result.push({ name, x: p.x, z: p.z, y: Math.max(-.2, p.y - .05), heading: -point.heading + (['windmill', 'fossil', 'moonTower'].includes(name) ? -side * Math.PI / 2 : i * 1.73), height: asset.height, distance });
   }
   return result;
 }
@@ -68,6 +80,9 @@ export function createRacerScenery(track, world, tier) {
   const details = new THREE.Group(); details.name = 'OptionalFarScenery'; root.add(details);
   let disposed = false;
   const resources = new Set();
+  const rotors = [];
+  let rotorAngle = 0;
+  let currentTier = tier;
   const pale = new THREE.MeshStandardMaterial({ color: 0xffedca, roughness: .72, metalness: .12 });
   const kerb = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: .87 });
   const verge = new THREE.MeshStandardMaterial({ color: world === 'dino' ? 0xb98658 : world === 'moonwood' ? 0x5a577b : 0x729b57, roughness: .98 });
@@ -110,8 +125,12 @@ export function createRacerScenery(track, world, tier) {
       if (!mesh.isMesh) return;
       const instance = new THREE.InstancedMesh(mesh.geometry, mesh.material, locations.length);
       instance.userData.capacity = locations.length;
+      instance.userData.foliage = ASSETS[name].foliage || name === 'bush';
       instance.name = `Retained_${name}_${mesh.name}`;
       instance.castShadow = tier !== 'low'; instance.receiveShadow = true;
+      const rotor = mesh.name.startsWith('WindmillRotor') || mesh.parent?.name === 'WindmillRotor';
+      instance.userData.windmillRotor = rotor;
+      const rotorBases = [];
       locations.forEach((p, index) => {
         const transform = new THREE.Matrix4().makeTranslation(p.x, p.y, p.z)
           .multiply(new THREE.Matrix4().makeRotationY(p.heading))
@@ -119,22 +138,38 @@ export function createRacerScenery(track, world, tier) {
           .multiply(new THREE.Matrix4().makeTranslation(-center.x, -bounds.min.y, -center.z))
           .multiply(mesh.matrixWorld);
         instance.setMatrixAt(index, transform);
+        if (rotor) rotorBases.push(transform.clone());
       });
       instance.instanceMatrix.needsUpdate = true; instance.computeBoundingSphere();
       details.add(instance);
+      if (rotor) rotors.push({ instance, bases: rotorBases });
     });
   })).then(results => {
     root.userData.assetState = results.some(result => result.status === 'rejected') ? 'partial' : 'ready';
     root.userData.failedAssets = results.filter(result => result.status === 'rejected').map(result => String(result.reason));
+    if (!disposed) setTier(currentTier);
     return !disposed;
   });
   function setTier(next) {
+    currentTier = next;
     details.traverse(node => {
       if (!node.isMesh) return;
       node.castShadow = next !== 'low';
-      if (node.isInstancedMesh && /Retained_(tree|bush)/.test(node.name)) node.count = Math.max(1, Math.ceil(node.userData.capacity * (next === 'low' ? .42 : next === 'medium' ? .72 : 1)));
+      if (node.isInstancedMesh && node.userData.foliage) node.count = Math.max(1, Math.ceil(node.userData.capacity * (next === 'low' ? .42 : next === 'medium' ? .72 : 1)));
     });
     root.userData.qualityTier = next;
+  }
+  const rotorTurn = new THREE.Matrix4();
+  const rotorTransform = new THREE.Matrix4();
+  function update(dt, reducedMotion = false) {
+    if (disposed || reducedMotion || !rotors.length) return;
+    rotorAngle = (rotorAngle + Math.min(.05, Math.max(0, dt)) * (Math.PI / 10)) % (Math.PI * 2);
+    rotorTurn.makeRotationZ(rotorAngle);
+    for (const { instance, bases } of rotors) {
+      bases.forEach((base, index) => instance.setMatrixAt(index, rotorTransform.multiplyMatrices(base, rotorTurn)));
+      instance.instanceMatrix.needsUpdate = true;
+    }
+    root.userData.rotorAngle = rotorAngle;
   }
   function dispose() {
     disposed = true;
@@ -145,8 +180,9 @@ export function createRacerScenery(track, world, tier) {
     details.clear();
     for (const resource of resources) disposeObject(resource);
     resources.clear();
+    rotors.length = 0;
     root.traverse(node => { if (node.isInstancedMesh) node.dispose(); });
     disposeObject(root);
   }
-  return { root, ready, setTier, dispose };
+  return { root, ready, setTier, update, dispose };
 }
