@@ -10,6 +10,7 @@ import { AssessmentPage } from "./components/AppPages.jsx";
 import { StudentSessionNotice } from "./components/student-sessions/StudentSessionNotice.jsx";
 import { refillAssessmentRoundAfterMediaFailure } from "./policy/assessmentMediaEvidence.js";
 import { importV3Bank } from "./data/v3/v3Registry.js";
+import { normalizeV3Question } from "./data/loadAssessmentSkillBank.js";
 import { createAssessmentRoundController } from "./appState/assessmentRoundController.js";
 import { buildAssessmentAttemptRecord } from "./data/assessmentHistoryStore.js";
 
@@ -85,6 +86,7 @@ const FAILED_QUESTION = {
   prompt: "Listen and find the word.",
   answer: "cat",
   correctAnswer: "cat",
+  targetWord: "cat",
   choices: ["cat", "dog"],
   choiceImages: {
     cat: {
@@ -104,6 +106,7 @@ const SHARED_FAILURE_QUESTION = {
   choices: ["cat", "map"],
   answer: "map",
   correctAnswer: "map",
+  targetWord: "map",
   choiceImages: {
     cat: {
       image: BROKEN_SOURCE,
@@ -121,6 +124,7 @@ const SAFE_QUESTION = {
   id: "replacement-picture-item",
   answer: "sun",
   correctAnswer: "sun",
+  targetWord: "sun",
   choices: ["sun", "map"],
   choiceImages: {
     sun: {
@@ -138,6 +142,7 @@ const SAFE_REFILL = {
   id: "second-safe-picture-item",
   answer: "dog",
   correctAnswer: "dog",
+  targetWord: "dog",
   choices: ["dog", "cat"],
   choiceImages: {
     dog: {
@@ -169,6 +174,7 @@ export function AssessmentMediaEvidencePreview({ inspectedQuestion = null }) {
   const [savingAnswer, setSavingAnswer] = useState(false);
   const [answerCount, setAnswerCount] = useState(0);
   const [lastAnswer, setLastAnswer] = useState("");
+  const [lastAudioRequest, setLastAudioRequest] = useState("");
   const answerInFlightRef = useRef(false);
   const handledQuestionIds = useRef(new Set());
 
@@ -229,6 +235,7 @@ export function AssessmentMediaEvidencePreview({ inspectedQuestion = null }) {
       data-failure-count={failureCount}
       data-answer-count={answerCount}
       data-last-answer={lastAnswer}
+      data-last-audio-request={lastAudioRequest}
       data-round-question-ids={round.map(question => question.id).join(",")}
     >
       <AssessmentPage
@@ -247,7 +254,11 @@ export function AssessmentMediaEvidencePreview({ inspectedQuestion = null }) {
         roundProgress={IS_COMPACT_VISUAL_GRID ? 10 : inspectedQuestion ? 100 : 0}
         shouldShowImage={() => false}
         answerQuestion={previewAnswer}
-        speakText={() => {}}
+        speakText={(text, audioPath, options) => {
+          // Capture the actual production button request. This is wiring
+          // evidence, not a claim of audible playback in this preview.
+          setLastAudioRequest(JSON.stringify({ text, audioPath, ...options }));
+        }}
         message=""
         endAssessment={() => {}}
         returnToStudentOverview={() => {}}
@@ -341,7 +352,8 @@ if (PREVIEW_PARAMS.get("scenario") === "completion-recovery") {
   root.render(<AssessmentCompletionPreview />);
 } else if (REQUESTED_SKILL) {
   const questions = await importV3Bank(REQUESTED_SKILL);
-  const inspectedQuestion = questions.find(question => question.id === REQUESTED_ITEM_ID) || questions[0] || null;
+  const authoredQuestion = questions.find(question => question.id === REQUESTED_ITEM_ID) || questions[0] || null;
+  const inspectedQuestion = authoredQuestion ? normalizeV3Question(authoredQuestion, REQUESTED_SKILL) : null;
   root.render(<AssessmentMediaEvidencePreview inspectedQuestion={inspectedQuestion} />);
 } else {
   root.render(<AssessmentMediaEvidencePreview />);

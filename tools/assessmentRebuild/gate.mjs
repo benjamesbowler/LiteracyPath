@@ -18,9 +18,9 @@ import { execSync } from "node:child_process";
 import {
   ROOT, AUTHORING_DIR, BANKS_DIR, STATUS_FILE, REPORT_DIR,
   expandBank, generatedBankSource, lintBank, lintPerceptualMediaIndependence, simulate, simulateRegression, scannerAnswer, writeGeneratedBank, loadLexicon,
-  norm, makeImageResolver, mediaDecisionContractIssues
+  norm, makeImageResolver, mediaDecisionContractIssues, checkFreshRetry, independentLengthShortcuts
 } from "./lib.mjs";
-import { skillBlueprints, ASSESSMENT_REBUILD_STANDARD_VERSION } from "../../src/content/blueprints/skillBlueprints.js";
+import { skillBlueprints, ASSESSMENT_REBUILD_STANDARD_VERSION, PHASE_PASS_RULE } from "../../src/content/blueprints/skillBlueprints.js";
 import * as policy from "../../src/policy/skillStatusPolicy.js";
 import { getLedaWordAudioPath } from "../../src/data/ledaProductionAudio.js";
 import { getAssessmentSceneMediaDecision } from "../../src/content/assessments/v3/assessmentSceneMediaDecisions.js";
@@ -147,8 +147,13 @@ function requiredAudioIssues(items) {
   };
 
   for (const item of items) {
-    if (item.mediaTier === "audio-required") {
-      requireWord(item, item.targetWord || item.answer, "target-word");
+    if (item.mediaTier === "audio-required" && item.evidenceModality !== "audio") {
+      requireWord(item, item.targetWord, "target-word");
+    }
+
+    if (item.evidenceModality === "audio") {
+      if (item.targetWord) requireWord(item, item.targetWord, "spoken-anchor");
+      for (const choice of item.choices || []) requireWord(item, choice, "spoken-choice");
     }
 
     if (item.hideWrittenLabels && item.evidenceModality === "audio+image") {
@@ -367,6 +372,7 @@ for (const file of authoringFiles) {
       leakyItems: scannerLeaks.length,
       leakShare: items.length ? scannerLeaks.length / items.length : 0
     };
+    detail.sims.independentLengthShortcuts = independentLengthShortcuts(items);
 
     const regression = await simulateRegression(items, blueprint, { policy });
     detail.sims.regression = {
@@ -380,14 +386,17 @@ for (const file of authoringFiles) {
     };
     gates.G4_mastery_logic = passOk
       && detail.sims.scanner.leakShare < 0.05
+      && detail.sims.independentLengthShortcuts.every(result => result.expectedAccuracy < PHASE_PASS_RULE.accuracyMin)
       && regression.pass;
 
     // G5 — no repeats and no undersized "completed" sittings across the pass
     // budget + retention. A bank that runs out after 4 questions cannot claim
     // to support a fixed 10-question administration.
+    detail.sims.freshRetry = checkFreshRetry(items, blueprint);
     gates.G5_no_repeats =
       perfect.repeats.length === 0
-      && perfect.shortSittings.length === 0;
+      && perfect.shortSittings.length === 0
+      && detail.sims.freshRetry.pass;
 
     // G6 — runtime progression, class reports and student reports must all
     // consume the same pure status reducer.

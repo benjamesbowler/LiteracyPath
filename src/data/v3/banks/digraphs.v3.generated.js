@@ -1967,7 +1967,7 @@ export const questions = [
   "questionType": "visual_card_choice",
   "prompt": "Which word has the same starting sound?",
   "question": "Which word has the same starting sound?",
-  "spokenPrompt": "Thumb. Which word has the same starting sound?",
+  "spokenPrompt": "Thin. Which word has the same starting sound?",
   "choices": [
    "thorn",
    "chick",
@@ -2014,7 +2014,7 @@ export const questions = [
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "thumb",
+  "targetWord": "thin",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -2041,7 +2041,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
+  "notes": "a different heard anchor uses an approved thorn picture instead of the rejected thumbs-up gesture",
   "imageCards": [
    {
     "id": "lp3.digraphs.l1.B.th.v2_card_thorn",
@@ -5332,6 +5332,2932 @@ export const questions = [
     "imageAlt": "tooth"
    }
   ]
+ },
+ {
+  "id": "lp3.digraphs.l1.B.ch.v5",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "ch",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Select the missing letters for __in.",
+  "question": "Select the missing letters for __in.",
+  "spokenPrompt": "Chin. Choose the missing letters.",
+  "choices": [
+   "ch",
+   "sh",
+   "th",
+   "wh"
+  ],
+  "answerOptions": [
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   }
+  ],
+  "answer": "ch",
+  "correctAnswer": "ch",
+  "distractorRationales": {
+   "wh": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "chin",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.B.ch.v5",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "chin: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l1.C.ch.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ch",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Select the missing letters for __at.",
+  "question": "Select the missing letters for __at.",
+  "spokenPrompt": "Chat. Choose the missing letters.",
+  "choices": [
+   "sh",
+   "th",
+   "wh",
+   "ch"
+  ],
+  "answerOptions": [
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   }
+  ],
+  "answer": "ch",
+  "correctAnswer": "ch",
+  "distractorRationales": {
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP",
+   "wh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "chat",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.C.ch.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "chat: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l1.C.ch.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ch",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Select the missing letters for __op.",
+  "question": "Select the missing letters for __op.",
+  "spokenPrompt": "Chop. Choose the missing letters.",
+  "choices": [
+   "ch",
+   "sh",
+   "th",
+   "wh"
+  ],
+  "answerOptions": [
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   }
+  ],
+  "answer": "ch",
+  "correctAnswer": "ch",
+  "distractorRationales": {
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP",
+   "wh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "chop",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.C.ch.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "chop: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l1.B.sh.v5",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "sh",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __op.",
+  "question": "Choose the missing letters for __op.",
+  "spokenPrompt": "Shop. Choose the missing letters.",
+  "choices": [
+   "wh",
+   "sh",
+   "ch",
+   "th"
+  ],
+  "answerOptions": [
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   }
+  ],
+  "answer": "sh",
+  "correctAnswer": "sh",
+  "distractorRationales": {
+   "wh": "D-PATTERN-TRAP",
+   "ch": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "shop",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.B.sh.v5",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "shop: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l1.C.sh.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "sh",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __ed.",
+  "question": "Choose the missing letters for __ed.",
+  "spokenPrompt": "Shed. Choose the missing letters.",
+  "choices": [
+   "wh",
+   "sh",
+   "ch",
+   "th"
+  ],
+  "answerOptions": [
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   }
+  ],
+  "answer": "sh",
+  "correctAnswer": "sh",
+  "distractorRationales": {
+   "ch": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP",
+   "wh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "shed",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.C.sh.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "shed: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l1.C.sh.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "sh",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __ark.",
+  "question": "Choose the missing letters for __ark.",
+  "spokenPrompt": "Shark. Choose the missing letters.",
+  "choices": [
+   "th",
+   "wh",
+   "sh",
+   "ch"
+  ],
+  "answerOptions": [
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   }
+  ],
+  "answer": "sh",
+  "correctAnswer": "sh",
+  "distractorRationales": {
+   "ch": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP",
+   "wh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "shark",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.C.sh.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "shark: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l1.B.th.v5",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "th",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __in.",
+  "question": "Choose the missing letters for __in.",
+  "spokenPrompt": "Thin. Choose the missing letters.",
+  "choices": [
+   "sh",
+   "wh",
+   "th",
+   "ch"
+  ],
+  "answerOptions": [
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   }
+  ],
+  "answer": "th",
+  "correctAnswer": "th",
+  "distractorRationales": {
+   "sh": "D-PATTERN-TRAP",
+   "wh": "D-PATTERN-TRAP",
+   "ch": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "thin",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.B.th.v5",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "thin: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l1.C.th.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "th",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __ick.",
+  "question": "Choose the missing letters for __ick.",
+  "spokenPrompt": "Thick. Choose the missing letters.",
+  "choices": [
+   "ch",
+   "sh",
+   "wh",
+   "th"
+  ],
+  "answerOptions": [
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   }
+  ],
+  "answer": "th",
+  "correctAnswer": "th",
+  "distractorRationales": {
+   "ch": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP",
+   "wh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "thick",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.C.th.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "thick: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l1.B.wh.v5",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "wh",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __en.",
+  "question": "Choose the missing letters for __en.",
+  "spokenPrompt": "When. Choose the missing letters.",
+  "choices": [
+   "ch",
+   "sh",
+   "th",
+   "wh"
+  ],
+  "answerOptions": [
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   }
+  ],
+  "answer": "wh",
+  "correctAnswer": "wh",
+  "distractorRationales": {
+   "th": "D-PATTERN-TRAP",
+   "ch": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "when",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.B.wh.v5",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "when: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l1.C.wh.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "wh",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __ip.",
+  "question": "Choose the missing letters for __ip.",
+  "spokenPrompt": "Whip. Choose the missing letters.",
+  "choices": [
+   "wh",
+   "ch",
+   "sh",
+   "th"
+  ],
+  "answerOptions": [
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   }
+  ],
+  "answer": "wh",
+  "correctAnswer": "wh",
+  "distractorRationales": {
+   "ch": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "whip",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.C.wh.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "whip: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l1.C.wh.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "wh",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __ite.",
+  "question": "Choose the missing letters for __ite.",
+  "spokenPrompt": "White. Choose the missing letters.",
+  "choices": [
+   "th",
+   "wh",
+   "ch",
+   "sh"
+  ],
+  "answerOptions": [
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   }
+  ],
+  "answer": "wh",
+  "correctAnswer": "wh",
+  "distractorRationales": {
+   "ch": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "white",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.C.wh.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "white: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l1.B.ph.v5",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "ph",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __rase.",
+  "question": "Choose the missing letters for __rase.",
+  "spokenPrompt": "Phrase. Choose the missing letters.",
+  "choices": [
+   "ph",
+   "ch",
+   "sh",
+   "th"
+  ],
+  "answerOptions": [
+   {
+    "value": "ph",
+    "label": "ph",
+    "text": "ph"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   }
+  ],
+  "answer": "ph",
+  "correctAnswer": "ph",
+  "distractorRationales": {
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP",
+   "ch": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "phrase",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.B.ph.v5",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "phrase: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l1.C.ph.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ph",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __onics.",
+  "question": "Choose the missing letters for __onics.",
+  "spokenPrompt": "Phonics. Choose the missing letters.",
+  "choices": [
+   "sh",
+   "th",
+   "ph",
+   "ch"
+  ],
+  "answerOptions": [
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "ph",
+    "label": "ph",
+    "text": "ph"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   }
+  ],
+  "answer": "ph",
+  "correctAnswer": "ph",
+  "distractorRationales": {
+   "ch": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "phonics",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.C.ph.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "phonics: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l1.C.ph.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ph",
+  "formatType": "DIGRAPH_IMAGE_CHOICE",
+  "templateType": "DIGRAPH_IMAGE_CHOICE",
+  "questionType": "visual_card_choice",
+  "prompt": "Which word has the same starting sound?",
+  "question": "Which word has the same starting sound?",
+  "spokenPrompt": "Photograph. Which word has the same starting sound?",
+  "choices": [
+   "van",
+   "tooth",
+   "cheese",
+   "feather"
+  ],
+  "answerOptions": [
+   {
+    "value": "van",
+    "label": "van",
+    "text": "van"
+   },
+   {
+    "value": "tooth",
+    "label": "tooth",
+    "text": "tooth"
+   },
+   {
+    "value": "cheese",
+    "label": "cheese",
+    "text": "cheese"
+   },
+   {
+    "value": "feather",
+    "label": "feather",
+    "text": "feather"
+   }
+  ],
+  "answer": "feather",
+  "correctAnswer": "feather",
+  "distractorRationales": {
+   "van": "D-ONSET",
+   "tooth": "D-PATTERN-TRAP",
+   "cheese": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "image-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "digraph_sound_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "photograph",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.C.ph.v9",
+   "role": "answer-cards",
+   "paths": [
+    "/images/assessment/objective-words/van.webp",
+    "/images/assessment/objective-words/tooth.webp",
+    "/images/assessment/objective-words/cheese.webp",
+    "/images/assessment/generated/initial-sounds-l2/feather.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "Picture choices: van, tooth, cheese, feather"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the photograph anchor is heard; a printed second ph cannot reveal the spelling choice",
+  "imageCards": [
+   {
+    "id": "lp3.digraphs.l1.C.ph.v9_card_van",
+    "word": "van",
+    "value": "van",
+    "label": "van",
+    "image": "/images/assessment/objective-words/van.webp",
+    "imagePath": "/images/assessment/objective-words/van.webp",
+    "imageAlt": "van"
+   },
+   {
+    "id": "lp3.digraphs.l1.C.ph.v9_card_tooth",
+    "word": "tooth",
+    "value": "tooth",
+    "label": "tooth",
+    "image": "/images/assessment/objective-words/tooth.webp",
+    "imagePath": "/images/assessment/objective-words/tooth.webp",
+    "imageAlt": "tooth"
+   },
+   {
+    "id": "lp3.digraphs.l1.C.ph.v9_card_cheese",
+    "word": "cheese",
+    "value": "cheese",
+    "label": "cheese",
+    "image": "/images/assessment/objective-words/cheese.webp",
+    "imagePath": "/images/assessment/objective-words/cheese.webp",
+    "imageAlt": "cheese"
+   },
+   {
+    "id": "lp3.digraphs.l1.C.ph.v9_card_feather",
+    "word": "feather",
+    "value": "feather",
+    "label": "feather",
+    "image": "/images/assessment/generated/initial-sounds-l2/feather.webp",
+    "imagePath": "/images/assessment/generated/initial-sounds-l2/feather.webp",
+    "imageAlt": "feather"
+   }
+  ]
+ },
+ {
+  "id": "lp3.digraphs.l1.B.ck.v5",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "ck",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for lo__.",
+  "question": "Choose the missing letters for lo__.",
+  "spokenPrompt": "Lock. Choose the missing letters.",
+  "choices": [
+   "th",
+   "ck",
+   "ch",
+   "sh"
+  ],
+  "answerOptions": [
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "ck",
+    "label": "ck",
+    "text": "ck"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   }
+  ],
+  "answer": "ck",
+  "correctAnswer": "ck",
+  "distractorRationales": {
+   "ch": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "lock",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.B.ck.v5",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "lock: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l1.C.ck.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ck",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for pa__.",
+  "question": "Choose the missing letters for pa__.",
+  "spokenPrompt": "Pack. Choose the missing letters.",
+  "choices": [
+   "ck",
+   "ch",
+   "sh",
+   "th"
+  ],
+  "answerOptions": [
+   {
+    "value": "ck",
+    "label": "ck",
+    "text": "ck"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   }
+  ],
+  "answer": "ck",
+  "correctAnswer": "ck",
+  "distractorRationales": {
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP",
+   "ch": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "pack",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.C.ck.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "pack: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l2.B.ch.v5",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "ch",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Select the missing letters for spee__.",
+  "question": "Select the missing letters for spee__.",
+  "spokenPrompt": "Speech. Choose the missing letters.",
+  "choices": [
+   "wh",
+   "ch",
+   "sh",
+   "th"
+  ],
+  "answerOptions": [
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   }
+  ],
+  "answer": "ch",
+  "correctAnswer": "ch",
+  "distractorRationales": {
+   "th": "D-PATTERN-TRAP",
+   "wh": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "speech",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.B.ch.v5",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "speech: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l2.C.ch.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ch",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Select the missing letters for pea__.",
+  "question": "Select the missing letters for pea__.",
+  "spokenPrompt": "Peach. Choose the missing letters.",
+  "choices": [
+   "th",
+   "wh",
+   "ch",
+   "sh"
+  ],
+  "answerOptions": [
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   }
+  ],
+  "answer": "ch",
+  "correctAnswer": "ch",
+  "distractorRationales": {
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP",
+   "wh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "peach",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.C.ch.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "peach: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l2.C.ch.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ch",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Select the missing letters for coa__.",
+  "question": "Select the missing letters for coa__.",
+  "spokenPrompt": "Coach. Choose the missing letters.",
+  "choices": [
+   "sh",
+   "th",
+   "wh",
+   "ch"
+  ],
+  "answerOptions": [
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   }
+  ],
+  "answer": "ch",
+  "correctAnswer": "ch",
+  "distractorRationales": {
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP",
+   "wh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "coach",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.C.ch.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "coach: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l2.B.sh.v5",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "sh",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for cra__.",
+  "question": "Choose the missing letters for cra__.",
+  "spokenPrompt": "Crash. Choose the missing letters.",
+  "choices": [
+   "th",
+   "wh",
+   "sh",
+   "ch"
+  ],
+  "answerOptions": [
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   }
+  ],
+  "answer": "sh",
+  "correctAnswer": "sh",
+  "distractorRationales": {
+   "th": "D-PATTERN-TRAP",
+   "wh": "D-PATTERN-TRAP",
+   "ch": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "crash",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.B.sh.v5",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "crash: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l2.C.sh.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "sh",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for fini__.",
+  "question": "Choose the missing letters for fini__.",
+  "spokenPrompt": "Finish. Choose the missing letters.",
+  "choices": [
+   "sh",
+   "ch",
+   "th",
+   "wh"
+  ],
+  "answerOptions": [
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   }
+  ],
+  "answer": "sh",
+  "correctAnswer": "sh",
+  "distractorRationales": {
+   "ch": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP",
+   "wh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "finish",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.C.sh.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "finish: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l2.C.sh.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "sh",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for fre__.",
+  "question": "Choose the missing letters for fre__.",
+  "spokenPrompt": "Fresh. Choose the missing letters.",
+  "choices": [
+   "wh",
+   "sh",
+   "ch",
+   "th"
+  ],
+  "answerOptions": [
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   }
+  ],
+  "answer": "sh",
+  "correctAnswer": "sh",
+  "distractorRationales": {
+   "ch": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP",
+   "wh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "fresh",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.C.sh.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "fresh: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l2.B.th.v5",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "th",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for pa__.",
+  "question": "Choose the missing letters for pa__.",
+  "spokenPrompt": "Path. Choose the missing letters.",
+  "choices": [
+   "ch",
+   "sh",
+   "wh",
+   "th"
+  ],
+  "answerOptions": [
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   }
+  ],
+  "answer": "th",
+  "correctAnswer": "th",
+  "distractorRationales": {
+   "wh": "D-PATTERN-TRAP",
+   "ch": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "path",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.B.th.v5",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "path: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l2.C.th.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "th",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for tee__.",
+  "question": "Choose the missing letters for tee__.",
+  "spokenPrompt": "Teeth. Choose the missing letters.",
+  "choices": [
+   "sh",
+   "wh",
+   "th",
+   "ch"
+  ],
+  "answerOptions": [
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   }
+  ],
+  "answer": "th",
+  "correctAnswer": "th",
+  "distractorRationales": {
+   "ch": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP",
+   "wh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "teeth",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.C.th.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "teeth: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l2.B.wh.v5",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "wh",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __isper.",
+  "question": "Choose the missing letters for __isper.",
+  "spokenPrompt": "Whisper. Choose the missing letters.",
+  "choices": [
+   "wh",
+   "ch",
+   "sh",
+   "th"
+  ],
+  "answerOptions": [
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   }
+  ],
+  "answer": "wh",
+  "correctAnswer": "wh",
+  "distractorRationales": {
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP",
+   "ch": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "whisper",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.B.wh.v5",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "whisper: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l2.C.wh.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "wh",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __isk.",
+  "question": "Choose the missing letters for __isk.",
+  "spokenPrompt": "Whisk. Choose the missing letters.",
+  "choices": [
+   "ch",
+   "sh",
+   "th",
+   "wh"
+  ],
+  "answerOptions": [
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   }
+  ],
+  "answer": "wh",
+  "correctAnswer": "wh",
+  "distractorRationales": {
+   "ch": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "whisk",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.C.wh.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "whisk: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l2.C.wh.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "wh",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __enever.",
+  "question": "Choose the missing letters for __enever.",
+  "spokenPrompt": "Whenever. Choose the missing letters.",
+  "choices": [
+   "wh",
+   "ch",
+   "sh",
+   "th"
+  ],
+  "answerOptions": [
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   }
+  ],
+  "answer": "wh",
+  "correctAnswer": "wh",
+  "distractorRationales": {
+   "ch": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "whenever",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.C.wh.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "whenever: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l2.B.ph.v5",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "ph",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for al__abet.",
+  "question": "Choose the missing letters for al__abet.",
+  "spokenPrompt": "Alphabet. Choose the missing letters.",
+  "choices": [
+   "th",
+   "ph",
+   "ch",
+   "sh"
+  ],
+  "answerOptions": [
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "ph",
+    "label": "ph",
+    "text": "ph"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   }
+  ],
+  "answer": "ph",
+  "correctAnswer": "ph",
+  "distractorRationales": {
+   "th": "D-PATTERN-TRAP",
+   "ch": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "medial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "alphabet",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.B.ph.v5",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "alphabet: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l2.C.ph.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ph",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for tro__y.",
+  "question": "Choose the missing letters for tro__y.",
+  "spokenPrompt": "Trophy. Choose the missing letters.",
+  "choices": [
+   "th",
+   "ph",
+   "ch",
+   "sh"
+  ],
+  "answerOptions": [
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "ph",
+    "label": "ph",
+    "text": "ph"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   }
+  ],
+  "answer": "ph",
+  "correctAnswer": "ph",
+  "distractorRationales": {
+   "ch": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "medial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "trophy",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.C.ph.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "trophy: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l2.C.ph.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ph",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for tele__one.",
+  "question": "Choose the missing letters for tele__one.",
+  "spokenPrompt": "Telephone. Choose the missing letters.",
+  "choices": [
+   "sh",
+   "th",
+   "ph",
+   "ch"
+  ],
+  "answerOptions": [
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "ph",
+    "label": "ph",
+    "text": "ph"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   }
+  ],
+  "answer": "ph",
+  "correctAnswer": "ph",
+  "distractorRationales": {
+   "ch": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "medial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "telephone",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.C.ph.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "telephone: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l2.B.ck.v5",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "ck",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for po__et.",
+  "question": "Choose the missing letters for po__et.",
+  "spokenPrompt": "Pocket. Choose the missing letters.",
+  "choices": [
+   "sh",
+   "th",
+   "ck",
+   "ch"
+  ],
+  "answerOptions": [
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "ck",
+    "label": "ck",
+    "text": "ck"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   }
+  ],
+  "answer": "ck",
+  "correctAnswer": "ck",
+  "distractorRationales": {
+   "ch": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "medial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "pocket",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.B.ck.v5",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "pocket: the blank hides the digraph, so nothing leaks in print"
+ },
+ {
+  "id": "lp3.digraphs.l2.C.ck.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ck",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for sna__.",
+  "question": "Choose the missing letters for sna__.",
+  "spokenPrompt": "Snack. Choose the missing letters.",
+  "choices": [
+   "ch",
+   "sh",
+   "th",
+   "ck"
+  ],
+  "answerOptions": [
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "ck",
+    "label": "ck",
+    "text": "ck"
+   }
+  ],
+  "answer": "ck",
+  "correctAnswer": "ck",
+  "distractorRationales": {
+   "th": "D-PATTERN-TRAP",
+   "ch": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "snack",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.C.ck.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "snack: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l1.R.ch.v7r",

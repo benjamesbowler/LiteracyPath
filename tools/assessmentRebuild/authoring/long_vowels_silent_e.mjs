@@ -7,6 +7,7 @@
 import { makeImageResolver } from "../lib.mjs";
 
 const P = (t, r) => ({ t, r });                      // distractor
+const fresh = item => ({ ...item, retention: false });
 const K = t => ({ t, r: "KEY", k: true });          // key
 const PATTERNS = { a: "a_e", i: "i_e", o: "o_e", u: "u_e", e: "e_e" };
 const sentenceCase = value => value ? `${value[0].toUpperCase()}${value.slice(1)}` : value;
@@ -23,24 +24,44 @@ const pat = (u, lvl, ph, v, _img, blanked, spokenWord, distractors, extra = {}) 
   ...extra
 });
 
-// Silent-e transform: word building (add e) — all choices real words.
+// Hear a long-vowel word and distinguish it from its short-vowel partner.
 const add = (u, lvl, ph, v, base, made, distractors, note = "") => ({
   u, lvl, ph, v, fmt: "SILENT_E_TRANSFORM",
-  prompt: `Add e to the end of ${base}. What word do you make?`,
-  spoken: `Add e to the end of ${base}. What word do you make?`,
+  prompt: "Which printed word matches the recording?",
+  spoken: `${sentenceCase(made)}. Which printed word matches the recording?`,
   choices: [K(made), ...distractors],
-  media: "text",
-  note: note || `${base} → ${made}; the no-change trap catches ignoring the e`
+  media: "audio-required",
+  target: made,
+  audioRole: "target_word",
+  evidenceModality: "audio+print",
+  constructClaim: "silent_e_vowel_contrast",
+  note: note || `${base} and ${made} contrast vowel sounds; hearing the word is necessary`
 });
 
-// Reverse transform (L2): take the e away.
+// L2 reverses the contrast: identify the heard short-vowel partner.
 const strip = (u, lvl, ph, v, made, base, distractors) => ({
   u, lvl, ph, v, fmt: "SILENT_E_TRANSFORM",
-  prompt: `Take the silent e away from ${made}. What word is left?`,
-  spoken: `Take the silent e away from ${made}. What word is left?`,
+  prompt: "Which printed word matches the recording?",
+  spoken: `${sentenceCase(base)}. Which printed word matches the recording?`,
   choices: [K(base), ...distractors],
-  media: "text",
-  note: `${made} → ${base}; scanner picks the unchanged word and fails`
+  media: "audio-required",
+  target: base,
+  audioRole: "target_word",
+  evidenceModality: "audio+print",
+  constructClaim: "silent_e_vowel_contrast",
+  note: `${made} and ${base} contrast vowel sounds; hearing the word is necessary`
+});
+
+// Real-word recognition contrasts keep the onset similar so identifying only
+// the first sound cannot answer the question.
+const recognize = (u, lvl, ph, v, word, alternatives) => ({
+  u, lvl, ph, v, fmt: "SILENT_E_TRANSFORM",
+  prompt: "Which printed word matches the recording?",
+  spoken: `${sentenceCase(word)}. Which printed word matches the recording?`,
+  choices: [K(word), ...alternatives.map(w => P(w, "D-VOWEL"))],
+  media: "audio-required", target: word, audioRole: "target_word",
+  evidenceModality: "audio+print", constructClaim: "silent_e_vowel_contrast",
+  note: "heard target, real-word alternatives and no printed add/delete instruction"
 });
 
 // Cross-pattern select (L2, legacy-eligibility CPS): find the long-vowel word.
@@ -136,6 +157,56 @@ export default {
     pat("u_e", 2, 2, 5, "flute", "fl_t_", "flute", ["a", "i", "o"]),
     pat("u_e", 2, 2, 6, "huge", "h_g_", "huge", ["o", "a", "i"]),
 
+    // Fresh transfer words for two complete sittings in each phase.
+    fresh(pat("a_e", 1, 1, 9, "lane", "l_n_", "lane", ["i", "o", "u"])),
+    fresh(pat("a_e", 1, 1, 10, "wave", "w_v_", "wave", ["i", "o", "u"])),
+    fresh(pat("a_e", 1, 1, 11, "lace", "l_c_", "lace", ["i", "o", "u"])),
+    fresh(recognize("a_e", 1, 1, 12, "cane", ["can", "cone", "coin"])),
+    fresh(recognize("a_e", 1, 1, 13, "made", ["mad", "mud", "mood"])),
+    fresh(recognize("a_e", 1, 1, 14, "rate", ["rat", "rot", "rut"])),
+    fresh(pat("i_e", 1, 1, 9, "line", "l_n_", "line", ["a", "o", "u"])),
+    fresh(pat("i_e", 1, 1, 10, "tile", "t_l_", "tile", ["a", "o", "u"])),
+    fresh(pat("i_e", 1, 1, 11, "time", "t_m_", "time", ["a", "o", "u"])),
+    fresh(recognize("i_e", 1, 1, 12, "dime", ["dim", "dome", "dame"])),
+    fresh(recognize("i_e", 1, 1, 13, "bite", ["bit", "boat", "boot"])),
+    fresh(recognize("i_e", 1, 1, 14, "ripe", ["rip", "rope", "rap"])),
+    fresh(pat("o_e", 1, 2, 9, "dome", "d_m_", "dome", ["a", "i", "u"])),
+    fresh(pat("o_e", 1, 2, 10, "pole", "p_l_", "pole", ["a", "i", "u"])),
+    fresh(pat("o_e", 1, 2, 11, "hole", "h_l_", "hole", ["a", "i", "u"])),
+    fresh(recognize("o_e", 1, 2, 12, "mole", ["mall", "mill", "mule"])),
+    fresh(recognize("o_e", 1, 2, 13, "cope", ["cop", "cap", "cup"])),
+    fresh(recognize("o_e", 1, 2, 14, "slope", ["slop", "slap", "slip"])),
+    fresh(pat("u_e", 1, 2, 9, "dune", "d_n_", "dune", ["a", "i", "o"])),
+    fresh(pat("u_e", 1, 2, 10, "tune", "t_n_", "tune", ["a", "i", "o"])),
+    fresh(pat("u_e", 1, 2, 11, "rule", "r_l_", "rule", ["a", "i", "o"])),
+    fresh(recognize("u_e", 1, 2, 12, "flute", ["flat", "fleet", "float"])),
+    fresh(recognize("u_e", 1, 2, 13, "duke", ["duck", "deck", "dock"])),
+    fresh(recognize("u_e", 1, 2, 14, "fuse", ["fuss", "fine", "face"])),
+    fresh(pat("a_e", 2, 1, 9, "brave", "br_v_", "brave", ["i", "o", "u"])),
+    fresh(pat("a_e", 2, 1, 10, "flame", "fl_m_", "flame", ["i", "o", "u"])),
+    fresh(pat("a_e", 2, 1, 11, "shape", "sh_p_", "shape", ["i", "o", "u"])),
+    fresh(recognize("a_e", 2, 1, 12, "skate", ["scat", "skit", "skirt"])),
+    fresh(recognize("a_e", 2, 1, 13, "space", ["spice", "spies", "spit"])),
+    fresh(recognize("a_e", 2, 1, 14, "trade", ["tread", "trod", "tried"])),
+    fresh(pat("i_e", 2, 1, 9, "spine", "sp_n_", "spine", ["a", "o", "u"])),
+    fresh(pat("i_e", 2, 1, 10, "stripe", "str_p_", "stripe", ["a", "o", "u"])),
+    fresh(pat("i_e", 2, 1, 11, "drive", "dr_v_", "drive", ["a", "o", "u"])),
+    fresh(recognize("i_e", 2, 1, 12, "chime", ["chum", "chain", "charm"])),
+    fresh(recognize("i_e", 2, 1, 13, "slice", ["slick", "slack", "sleet"])),
+    fresh(recognize("i_e", 2, 1, 14, "while", ["whale", "wheel", "whirl"])),
+    fresh(pat("o_e", 2, 2, 9, "globe", "gl_b_", "globe", ["a", "i", "u"])),
+    fresh(pat("o_e", 2, 2, 10, "smoke", "sm_k_", "smoke", ["a", "i", "u"])),
+    fresh(pat("o_e", 2, 2, 11, "stove", "st_v_", "stove", ["a", "i", "u"])),
+    fresh(recognize("o_e", 2, 2, 12, "stroke", ["struck", "strike", "streak"])),
+    fresh(recognize("o_e", 2, 2, 13, "those", ["these", "this", "that"])),
+    fresh(recognize("o_e", 2, 2, 14, "close", ["claws", "clues", "class"])),
+    fresh(pat("u_e", 2, 2, 9, "prune", "pr_n_", "prune", ["a", "i", "o"])),
+    fresh(pat("u_e", 2, 2, 10, "perfume", "perf_m_", "perfume", ["a", "i", "o"])),
+    fresh(pat("u_e", 2, 2, 11, "excuse", "exc_s_", "excuse", ["a", "i", "o"])),
+    fresh(recognize("u_e", 2, 2, 12, "amuse", ["amaze", "among", "amount"])),
+    fresh(recognize("u_e", 2, 2, 13, "use", ["us", "ease", "eyes"])),
+    fresh(recognize("u_e", 2, 2, 14, "rude", ["red", "rod", "ride"])),
+
     // ------------------------------ Retention reserve (form R, never in sittings)
     pat("a_e", 1, 1, 7, "lake", "l_k_", "lake", ["i", "o", "u"], { retention: true }),
     add("a_e", 1, 1, 8, "pan", "pane", [P("pan", "D-PATTERN-TRAP"), P("pine", "D-VOWEL"), P("pen", "D-VOWEL")]),
@@ -155,7 +226,7 @@ export default {
     strip("u_e", 2, 2, 8, "tube", "tub", [P("tube", "D-PATTERN-TRAP"), P("top", "D-VOWEL"), P("ten", "D-VOWEL")])
   ].map(item => {
     // Retention flags for the v7/v8 variants authored above.
-    if (item.v >= 7) item.retention = true;
+    if (item.v >= 7 && item.retention !== false) item.retention = true;
     return item;
   })
 };

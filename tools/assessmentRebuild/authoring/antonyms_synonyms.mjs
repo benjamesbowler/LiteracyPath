@@ -29,14 +29,16 @@ const lptc = (u, lvl, ph, v, prompt, words, rationales, note = "") => ({
   note
 });
 
-const gic = (u, lvl, ph, v, img, prompt, words, rationales, note = "") => ({
-  u, lvl, ph, v, fmt: "WORD_RELATION_TEXT_CHOICE",
-  prompt,
-  spoken: prompt,
-  choices: words.map((w, i) => (i === 0 ? K(w) : P(w, rationales[i - 1]))),
-  media: "text",
-  note
-});
+// Pair recognition differs from applying a relation to a supplied sentence.
+const gic = (u, lvl, ph, v, target, _prompt, words, rationales, note = "") => {
+  const prompt = u.startsWith("antonym")
+    ? "Which pair has opposite meanings?"
+    : "Find two words that mean the same.";
+  const stimulus = ({ sun: "bright", rock: "hard", snow: "cold", ant: "tiny", lamp: "glows" })[target] || target;
+  return { u, lvl, ph, v, fmt: "WORD_RELATION_TEXT_CHOICE", prompt, spoken: prompt,
+    choices: words.map((w, i) => i === 0 ? K(`${stimulus} — ${w}`) : P(`${stimulus} — ${w}`, rationales[i - 1])),
+    media: "text", note: note || "Compare both members of each word pair." };
+};
 
 const lpisc = (u, lvl, ph, v, img, prompt, words, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "LANGUAGE_PAIR_TEXT_CHOICE",
@@ -49,7 +51,7 @@ const lpisc = (u, lvl, ph, v, img, prompt, words, rationales, note = "") => ({
 
 const wiss = (u, lvl, ph, v, sentence, words, rationales, note = "") => {
   const task = u === "synonym_shade"
-    ? "Which more precise word fits"
+    ? "Which same-meaning word fits best"
     : u.startsWith("synonym")
       ? "Which same-meaning word fits"
       : "Which opposite word fits";
@@ -64,6 +66,25 @@ const wiss = (u, lvl, ph, v, sentence, words, rationales, note = "") => {
   };
 };
 
+const freshPhaseItems = [
+  gic("antonym_concrete", 1, 1, 9, "push", "", ["pull", "press", "shove", "nudge"], [OPP, TA, SAME]),
+  lpisc("antonym_concrete", 1, 1, 10, "fast", "A fast car moves quickly. Choose the opposite of fast.", ["slow", "speedy", "quick", "rapid"], [OPP, TA, SAME]),
+  gic("synonym_concrete", 1, 1, 9, "near", "", ["close", "far", "above", "behind"], [OPP, TA, SAME]),
+  lpisc("synonym_concrete", 1, 1, 10, "strong", "The rope is strong. Which word means the same here?", ["tough", "weak", "thick", "stiff"], [OPP, TA, SAME]),
+  gic("antonym_picture", 1, 2, 8, "soft", "", ["hard", "fluffy", "squishy", "spongy"], [OPP, TA, SAME]),
+  lpisc("antonym_picture", 1, 2, 9, "smooth", "The stone feels smooth. Choose the opposite of smooth.", ["rough", "silky", "slick", "even"], [OPP, TA, SAME]),
+  gic("synonym_picture", 1, 2, 8, "close", "", ["shut", "open", "lift", "turn"], [OPP, TA, SAME]),
+  lpisc("synonym_picture", 1, 2, 9, "ill", "The child feels ill. Which word means the same here?", ["sick", "well", "tired", "hungry"], [OPP, TA, SAME]),
+  lptc("antonym_precise", 2, 1, 9, "Which word is the opposite of 'carefully'?", ["carelessly", "gently", "slowly", "neatly"], [OPP, TA, SAME]),
+  wiss("antonym_precise", 2, 1, 10, "The towel was soaked. Its opposite is completely ___.", ["dry", "wet", "damp", "dripping"], [OPP, TA, SAME]),
+  lptc("synonym_shade", 2, 1, 9, "Which word is closest to 'furious'?", ["angry", "pleased", "worried", "upset"], [OPP, TA, SAME]),
+  wiss("synonym_shade", 2, 1, 10, "The puppy was exhausted, meaning very ___.", ["tired", "lively", "calm", "quiet"], [OPP, TA, SAME]),
+  lptc("antonym_in_context", 2, 2, 8, "The box is heavy. Which pair reverses that meaning?", ["heavy — light", "heavy — solid", "heavy — large", "heavy — full"], [OPP, TA, SAME]),
+  wiss("antonym_in_context", 2, 2, 9, "The water rose. Later it did the opposite: it ___.", ["fell", "climbed", "flowed", "rippled"], [OPP, TA, SAME]),
+  lptc("synonym_in_context", 2, 2, 8, "The child was brave. Which pair means the same here?", ["brave — bold", "brave — fearful", "brave — careful", "brave — loud"], [OPP, TA, SAME]),
+  wiss("synonym_in_context", 2, 2, 9, "He spoke in a quiet voice: a ___ voice.", ["soft", "loud", "deep", "high"], [OPP, TA, SAME])
+];
+
 export default {
   skillId: "antonyms_synonyms",
   skillName: "Antonyms & Synonyms",
@@ -77,11 +98,11 @@ export default {
       ["down", "high", "under", "top"], [OPP, TA, SAME]),
     lpisc("antonym_concrete", 1, 1, 4, "wet", "What is the opposite of wet?",
       ["dry", "soaked", "damp", "dripping"], [OPP, TA, SAME]),
-    lpisc("antonym_concrete", 1, 1, 5, "hot", "Which word is the opposite of hot?",
-      ["cold", "boiling", "warm", "steaming"], [OPP, TA, SAME],
-      "cold is the only temperature opposite; the remaining words all reinforce heat"),
-    lpisc("antonym_concrete", 1, 1, 6, "whale", "Which word is the opposite of big?",
-      ["small", "huge", "wide", "tall"], [OPP, TA, SAME]),
+    lpisc("antonym_concrete", 1, 1, 5, "full", "The cup is full. Which word is its opposite?",
+      ["empty", "filled", "packed", "overflowing"], [OPP, TA, SAME],
+      "empty reverses full; the other options describe contents rather than absence"),
+    lpisc("antonym_concrete", 1, 1, 6, "wide", "This gate is wide. Which word is its opposite?",
+      ["narrow", "broad", "deep", "thick"], [OPP, TA, SAME]),
 
     // ================= L1 phase 1: synonym_concrete =================
     gic("synonym_concrete", 1, 1, 1, "happy", "Which word means about the same as happy?",
@@ -100,9 +121,9 @@ export default {
       ["damp", "dry", "cold", "muddy"], [OPP, TA, SAME]),
 
     // ================= L1 phase 2: antonym_picture =================
-    gic("antonym_picture", 1, 2, 1, "up", "Which word is the opposite of up?",
-      ["down", "high", "above", "top"], [OPP, TA, SAME],
-      "arrow gifts ow to down; opposite gifts op to top — tie"),
+    gic("antonym_picture", 1, 2, 1, "awake", "Which word is the opposite of awake?",
+      ["asleep", "alert", "lively", "watchful"], [OPP, TA, SAME],
+      "Asleep reverses awake; alert, lively and watchful do not."),
     gic("antonym_picture", 1, 2, 2, "night", "Which word is the opposite of night?",
       ["day", "dark", "moon", "midnight"], [OPP, TA, SAME]),
     gic("antonym_picture", 1, 2, 3, "new", "Which word is the opposite of new?",
@@ -110,26 +131,26 @@ export default {
       "shoes gifts sh to fresh and shiny — a tied distractor pair"),
     lpisc("antonym_picture", 1, 2, 4, "open", "Which word is the opposite of open?",
       ["shut", "wide", "unlocked", "empty"], [OPP, TA, SAME]),
-    lpisc("antonym_picture", 1, 2, 5, "day", "What is the opposite of day?",
-      ["night", "morning", "bright", "noon"], [TA, OPP, SAME],
-      "word gifts or to morning — a distractor tops, never the key"),
+    lpisc("antonym_picture", 1, 2, 5, "clean", "The towel is clean. Choose the opposite of clean.",
+      ["dirty", "washed", "spotless", "fresh"], [TA, OPP, SAME],
+      "Dirty reverses clean; the other descriptions are compatible with cleanliness."),
     lpisc("antonym_picture", 1, 2, 6, "tall", "What is the opposite of tall?",
       ["short", "giant", "long", "high"], [OPP, TA, SAME],
       "short alone reverses height; giant, long, and high remain plausible size words"),
 
     // ================= L1 phase 2: synonym_picture =================
     gic("synonym_picture", 1, 2, 1, "sun", "The sun is bright. Which word is closest to 'bright'?",
-      ["shiny", "dark", "hot", "white"], [OPP, TA, SAME],
-      "which gifts hi to shiny — white carries it too and ties"),
+      ["light", "dark", "dim", "gloomy"], [OPP, TA, SAME],
+      "Bright and light describe illumination; the other pairs contrast illumination."),
     gic("synonym_picture", 1, 2, 2, "rock", "The rock is hard. Which word is closest to 'hard'?",
       ["solid", "soft", "heavy", "hot"], [OPP, TA, SAME]),
     gic("synonym_picture", 1, 2, 3, "snow", "Snow is cold. Which word is closest to 'cold'?",
-      ["chilly", "warm", "white", "wet"], [OPP, TA, SAME],
-      "which gifts ch to chilly and hi to white — tie"),
+      ["chilly", "warm", "mild", "hot"], [OPP, TA, SAME],
+      "Chilly means cold; warm, mild and hot do not."),
     lpisc("synonym_picture", 1, 2, 4, "ant", "The ant is tiny. Which word is closest to 'tiny'?",
       ["small", "giant", "thin", "wide"], [OPP, TA, SAME],
       "ant gifts an to giant; which gifts hi to thin — tied distractors"),
-    lpisc("synonym_picture", 1, 2, 5, "quick", "Which word means about the same as quick?",
+    lpisc("synonym_picture", 1, 2, 5, "quick", "Pick a word that means quick.",
       ["fast", "slow", "steady", "early"], [OPP, TA, SAME],
       "closest gifts st to fast — steady carries st too and ties"),
     lpisc("synonym_picture", 1, 2, 6, "sleepy", "Which word means about the same as sleepy?",
@@ -138,12 +159,12 @@ export default {
     // ================= L2 phase 1: antonym_precise =================
     lptc("antonym_precise", 2, 1, 1, "Which is the exact opposite of 'whisper'?",
       ["shout", "talk", "mumble", "sing"], [TA, OPP, SAME]),
-    lptc("antonym_precise", 2, 1, 2, "What is the exact antonym for 'freezing'?",
+    lptc("antonym_precise", 2, 1, 2, "Which word means the opposite of 'freezing cold'?",
       ["boiling", "freezing cold", "icy", "chilly"], [TA, OPP, SAME],
       "boiling is the only hot extreme; icy and cold reinforce freezing"),
     lptc("antonym_precise", 2, 1, 3, "Which is the exact opposite of 'giant'?",
       ["tiny", "huge", "long", "tall"], [OPP, TA, SAME]),
-    lptc("antonym_precise", 2, 1, 4, "Pick the antonym of 'noisy'.",
+    lptc("antonym_precise", 2, 1, 4, "Pick the opposite of 'noisy'.",
       ["silent", "loud", "busy", "musical"], [OPP, TA, SAME],
       "silent is the only choice about an absence of sound"),
     wiss("antonym_precise", 2, 1, 5, "The kitten is tame. The tiger is ___.",
@@ -164,12 +185,12 @@ export default {
     lptc("synonym_shade", 2, 1, 4, "Which word is closest to 'grin'?",
       ["smile", "frown", "cry", "laugh"], [OPP, TA, SAME],
       "smile alone matches the facial expression; laugh remains a related but distinct response"),
-    wiss("synonym_shade", 2, 1, 5, "The mouse fit inside a teacup. It was ___.",
-      ["tiny", "big", "round", "soft"], [OPP, SAME, TA],
-      "mouse gifts ou to round — a distractor tops; tiny is the step beyond small the frame demands"),
-    wiss("synonym_shade", 2, 1, 6, "Not just cold — the pond was ___ this morning.",
-      ["frozen", "cool", "warm", "wet"], [TA, OPP, SAME],
-      "cool is weaker than cold, not stronger; was gifts wa to warm, a distractor tops"),
+    wiss("synonym_shade", 2, 1, 5, "The mouse was very small: it was ___.",
+      ["tiny", "huge", "short", "slim"], [OPP, SAME, TA],
+      "Tiny matches very small; short and slim describe different dimensions."),
+    wiss("synonym_shade", 2, 1, 6, "The lake was icy: its surface was ___.",
+      ["frozen", "melted", "cool", "chilly"], [TA, OPP, SAME],
+      "Icy describes a frozen surface; cool and chilly do not require ice."),
 
     // ================= L2 phase 2: antonym_in_context =================
     wiss("antonym_in_context", 2, 2, 1, "The morning was noisy. The night was ___.",
@@ -181,12 +202,12 @@ export default {
       "slow gifts sl to sleepy; opposite gifts te to late — tied distractors"),
     wiss("antonym_in_context", 2, 2, 4, "My hands were dirty. Now they are ___.",
       ["clean", "muddy", "dry", "wet"], [OPP, TA, SAME]),
-    lptc("antonym_in_context", 2, 2, 5, "Which word is the opposite of 'above'?",
+    wiss("antonym_in_context", 2, 2, 5, "The kite rose above us. Its opposite is ___.",
       ["below", "beside", "over", "near"], [TA, OPP, SAME],
       "opposite gifts si to beside — a distractor tops, never the key"),
-    lptc("antonym_in_context", 2, 2, 6, "Which word is the opposite of 'early'?",
-      ["late", "soon", "first", "yesterday"], [TA, OPP, SAME],
-      "late alone reverses timing; soon, first, and yesterday remain time words"),
+    wiss("antonym_in_context", 2, 2, 6, "We arrived early. The opposite of early is ___.",
+      ["late", "soon", "first", "promptly"], [TA, OPP, SAME],
+      "Late reverses early; soon, first and promptly remain time-related distractors."),
 
     // ================= L2 phase 2: synonym_in_context =================
     wiss("synonym_in_context", 2, 2, 1, "Dad fixed the gate. In the same way, he ___ the fence.",
@@ -200,9 +221,9 @@ export default {
     wiss("synonym_in_context", 2, 2, 4, "The ribbon was narrow, or ___.",
       ["thin", "wide", "long", "smooth"], [OPP, SAME, TA],
       "Thin is the only same-meaning description of the ribbon's width."),
-    lptc("synonym_in_context", 2, 2, 5, "Which word is closest to 'angry'?",
-      ["mad", "calm", "sad", "lost"], [OPP, TA, SAME]),
-    lptc("synonym_in_context", 2, 2, 6, "Which word is closest to 'friend'?",
+    wiss("synonym_in_context", 2, 2, 5, "The angry child stamped a foot. Angry means ___.",
+      ["mad", "calm", "sad", "afraid"], [OPP, TA, SAME]),
+    wiss("synonym_in_context", 2, 2, 6, "Jo is my friend. Jo is my ___.",
       ["pal", "enemy", "teacher", "teammate"], [OPP, SAME, TA],
       "friend gifts en to enemy; which gifts ch to teacher — tied distractors"),
 
@@ -240,5 +261,5 @@ export default {
   ].map(item => {
     if (item.v >= 7) item.retention = true;
     return item;
-  })
+  }).concat(freshPhaseItems)
 };

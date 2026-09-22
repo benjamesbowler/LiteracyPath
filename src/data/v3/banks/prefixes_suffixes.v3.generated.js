@@ -288,43 +288,43 @@ export const questions = [
   "formatType": "MORPHEME_TRANSFER",
   "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "Mia feels sad. Which word also means not happy?",
-  "question": "Mia feels sad. Which word also means not happy?",
-  "spokenPrompt": "Mia feels sad. Which word also means not happy?",
+  "prompt": "The room is messy. Which word means not tidy?",
+  "question": "The room is messy. Which word means not tidy?",
+  "spokenPrompt": "The room is messy. Which word means not tidy?",
   "choices": [
-   "unhappy",
-   "unfair",
-   "joyful",
-   "painter"
+   "untidy",
+   "tidy",
+   "retied",
+   "untie"
   ],
   "answerOptions": [
    {
-    "value": "unhappy",
-    "label": "unhappy",
-    "text": "unhappy"
+    "value": "untidy",
+    "label": "untidy",
+    "text": "untidy"
    },
    {
-    "value": "unfair",
-    "label": "unfair",
-    "text": "unfair"
+    "value": "tidy",
+    "label": "tidy",
+    "text": "tidy"
    },
    {
-    "value": "joyful",
-    "label": "joyful",
-    "text": "joyful"
+    "value": "retied",
+    "label": "retied",
+    "text": "retied"
    },
    {
-    "value": "painter",
-    "label": "painter",
-    "text": "painter"
+    "value": "untie",
+    "label": "untie",
+    "text": "untie"
    }
   ],
-  "answer": "unhappy",
-  "correctAnswer": "unhappy",
+  "answer": "untidy",
+  "correctAnswer": "untidy",
   "distractorRationales": {
-   "unfair": "D-OPPOSITE",
-   "joyful": "D-PATTERN-TRAP",
-   "painter": "D-SEMANTIC"
+   "tidy": "D-OPPOSITE",
+   "retied": "D-PATTERN-TRAP",
+   "untie": "D-SEMANTIC"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -377,43 +377,43 @@ export const questions = [
   "formatType": "MORPHEME_TRANSFER",
   "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "The game is not fair. Which word means not fair?",
-  "question": "The game is not fair. Which word means not fair?",
-  "spokenPrompt": "The game is not fair. Which word means not fair?",
+  "prompt": "Lee feels sick. Which word means not well?",
+  "question": "Lee feels sick. Which word means not well?",
+  "spokenPrompt": "Lee feels sick. Which word means not well?",
   "choices": [
-   "careful",
-   "remake",
-   "painter",
-   "unfair"
+   "well",
+   "wellness",
+   "replay",
+   "unwell"
   ],
   "answerOptions": [
    {
-    "value": "careful",
-    "label": "careful",
-    "text": "careful"
+    "value": "well",
+    "label": "well",
+    "text": "well"
    },
    {
-    "value": "remake",
-    "label": "remake",
-    "text": "remake"
+    "value": "wellness",
+    "label": "wellness",
+    "text": "wellness"
    },
    {
-    "value": "painter",
-    "label": "painter",
-    "text": "painter"
+    "value": "replay",
+    "label": "replay",
+    "text": "replay"
    },
    {
-    "value": "unfair",
-    "label": "unfair",
-    "text": "unfair"
+    "value": "unwell",
+    "label": "unwell",
+    "text": "unwell"
    }
   ],
-  "answer": "unfair",
-  "correctAnswer": "unfair",
+  "answer": "unwell",
+  "correctAnswer": "unwell",
   "distractorRationales": {
-   "careful": "D-OPPOSITE",
-   "remake": "D-PATTERN-TRAP",
-   "painter": "D-SEMANTIC"
+   "well": "D-OPPOSITE",
+   "wellness": "D-PATTERN-TRAP",
+   "replay": "D-SEMANTIC"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -466,43 +466,43 @@ export const questions = [
   "formatType": "MORPHEME_TRANSFER",
   "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "The words were not kind. Which word means not kind?",
-  "question": "The words were not kind. Which word means not kind?",
-  "spokenPrompt": "The words were not kind. Which word means not kind?",
+  "prompt": "Which word means opening something that was locked?",
+  "question": "Which word means opening something that was locked?",
+  "spokenPrompt": "Which word means opening something that was locked?",
   "choices": [
-   "reread",
-   "helper",
-   "unkind",
-   "joyful"
+   "lock",
+   "locked",
+   "unlock",
+   "relock"
   ],
   "answerOptions": [
    {
-    "value": "reread",
-    "label": "reread",
-    "text": "reread"
+    "value": "lock",
+    "label": "lock",
+    "text": "lock"
    },
    {
-    "value": "helper",
-    "label": "helper",
-    "text": "helper"
+    "value": "locked",
+    "label": "locked",
+    "text": "locked"
    },
    {
-    "value": "unkind",
-    "label": "unkind",
-    "text": "unkind"
+    "value": "unlock",
+    "label": "unlock",
+    "text": "unlock"
    },
    {
-    "value": "joyful",
-    "label": "joyful",
-    "text": "joyful"
+    "value": "relock",
+    "label": "relock",
+    "text": "relock"
    }
   ],
-  "answer": "unkind",
-  "correctAnswer": "unkind",
+  "answer": "unlock",
+  "correctAnswer": "unlock",
   "distractorRationales": {
-   "joyful": "D-OPPOSITE",
-   "reread": "D-PATTERN-TRAP",
-   "helper": "D-SEMANTIC"
+   "relock": "D-OPPOSITE",
+   "lock": "D-PATTERN-TRAP",
+   "locked": "D-SEMANTIC"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -822,43 +822,43 @@ export const questions = [
   "formatType": "MORPHEME_TRANSFER",
   "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "The picture went wrong. I will make it again. Which word fits?",
-  "question": "The picture went wrong. I will make it again. Which word fits?",
-  "spokenPrompt": "The picture went wrong. I will make it again. Which word fits?",
+  "prompt": "The jug is empty. Which word means fill again?",
+  "question": "The jug is empty. Which word means fill again?",
+  "spokenPrompt": "The jug is empty. Which word means fill again?",
   "choices": [
-   "maker",
-   "making",
-   "remake",
-   "unmake"
+   "filler",
+   "filling",
+   "refill",
+   "unfilled"
   ],
   "answerOptions": [
    {
-    "value": "maker",
-    "label": "maker",
-    "text": "maker"
+    "value": "filler",
+    "label": "filler",
+    "text": "filler"
    },
    {
-    "value": "making",
-    "label": "making",
-    "text": "making"
+    "value": "filling",
+    "label": "filling",
+    "text": "filling"
    },
    {
-    "value": "remake",
-    "label": "remake",
-    "text": "remake"
+    "value": "refill",
+    "label": "refill",
+    "text": "refill"
    },
    {
-    "value": "unmake",
-    "label": "unmake",
-    "text": "unmake"
+    "value": "unfilled",
+    "label": "unfilled",
+    "text": "unfilled"
    }
   ],
-  "answer": "remake",
-  "correctAnswer": "remake",
+  "answer": "refill",
+  "correctAnswer": "refill",
   "distractorRationales": {
-   "maker": "D-PATTERN-TRAP",
-   "making": "D-SEMANTIC",
-   "unmake": "D-OPPOSITE"
+   "filler": "D-PATTERN-TRAP",
+   "filling": "D-SEMANTIC",
+   "unfilled": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -911,43 +911,43 @@ export const questions = [
   "formatType": "MORPHEME_TRANSFER",
   "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "I missed the page. I will read it again. Which word fits?",
-  "question": "I missed the page. I will read it again. Which word fits?",
-  "spokenPrompt": "I missed the page. I will read it again. Which word fits?",
+  "prompt": "Tell the story again. Which word means that?",
+  "question": "Tell the story again. Which word means that?",
+  "spokenPrompt": "Tell the story again. Which word means that?",
   "choices": [
-   "unread",
-   "reread",
-   "reader",
-   "reading"
+   "untold",
+   "retell",
+   "telling",
+   "teller"
   ],
   "answerOptions": [
    {
-    "value": "unread",
-    "label": "unread",
-    "text": "unread"
+    "value": "untold",
+    "label": "untold",
+    "text": "untold"
    },
    {
-    "value": "reread",
-    "label": "reread",
-    "text": "reread"
+    "value": "retell",
+    "label": "retell",
+    "text": "retell"
    },
    {
-    "value": "reader",
-    "label": "reader",
-    "text": "reader"
+    "value": "telling",
+    "label": "telling",
+    "text": "telling"
    },
    {
-    "value": "reading",
-    "label": "reading",
-    "text": "reading"
+    "value": "teller",
+    "label": "teller",
+    "text": "teller"
    }
   ],
-  "answer": "reread",
-  "correctAnswer": "reread",
+  "answer": "retell",
+  "correctAnswer": "retell",
   "distractorRationales": {
-   "reading": "D-PATTERN-TRAP",
-   "unread": "D-SEMANTIC",
-   "reader": "D-OPPOSITE"
+   "teller": "D-PATTERN-TRAP",
+   "untold": "D-SEMANTIC",
+   "telling": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -1000,43 +1000,43 @@ export const questions = [
   "formatType": "MORPHEME_TRANSFER",
   "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "We loved the song. We will play it again. Which word fits?",
-  "question": "We loved the song. We will play it again. Which word fits?",
-  "spokenPrompt": "We loved the song. We will play it again. Which word fits?",
+  "prompt": "Use the bag again. Which word means that?",
+  "question": "Use the bag again. Which word means that?",
+  "spokenPrompt": "Use the bag again. Which word means that?",
   "choices": [
-   "replay",
-   "player",
-   "playful",
-   "unplayed"
+   "reuse",
+   "unused",
+   "useful",
+   "user"
   ],
   "answerOptions": [
    {
-    "value": "replay",
-    "label": "replay",
-    "text": "replay"
+    "value": "reuse",
+    "label": "reuse",
+    "text": "reuse"
    },
    {
-    "value": "player",
-    "label": "player",
-    "text": "player"
+    "value": "unused",
+    "label": "unused",
+    "text": "unused"
    },
    {
-    "value": "playful",
-    "label": "playful",
-    "text": "playful"
+    "value": "useful",
+    "label": "useful",
+    "text": "useful"
    },
    {
-    "value": "unplayed",
-    "label": "unplayed",
-    "text": "unplayed"
+    "value": "user",
+    "label": "user",
+    "text": "user"
    }
   ],
-  "answer": "replay",
-  "correctAnswer": "replay",
+  "answer": "reuse",
+  "correctAnswer": "reuse",
   "distractorRationales": {
-   "playful": "D-PATTERN-TRAP",
-   "unplayed": "D-SEMANTIC",
-   "player": "D-OPPOSITE"
+   "useful": "D-PATTERN-TRAP",
+   "user": "D-SEMANTIC",
+   "unused": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -1356,43 +1356,43 @@ export const questions = [
   "formatType": "MORPHEME_TRANSFER",
   "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "Ava helps her friend. Which word describes Ava?",
-  "question": "Ava helps her friend. Which word describes Ava?",
-  "spokenPrompt": "Ava helps her friend. Which word describes Ava?",
+  "prompt": "The kitten loves games. Which word means full of play?",
+  "question": "The kitten loves games. Which word means full of play?",
+  "spokenPrompt": "The kitten loves games. Which word means full of play?",
   "choices": [
-   "helpful",
-   "helpless",
-   "replay",
-   "singer"
+   "playful",
+   "player",
+   "played",
+   "replay"
   ],
   "answerOptions": [
    {
-    "value": "helpful",
-    "label": "helpful",
-    "text": "helpful"
+    "value": "playful",
+    "label": "playful",
+    "text": "playful"
    },
    {
-    "value": "helpless",
-    "label": "helpless",
-    "text": "helpless"
+    "value": "player",
+    "label": "player",
+    "text": "player"
+   },
+   {
+    "value": "played",
+    "label": "played",
+    "text": "played"
    },
    {
     "value": "replay",
     "label": "replay",
     "text": "replay"
-   },
-   {
-    "value": "singer",
-    "label": "singer",
-    "text": "singer"
    }
   ],
-  "answer": "helpful",
-  "correctAnswer": "helpful",
+  "answer": "playful",
+  "correctAnswer": "playful",
   "distractorRationales": {
-   "helpless": "D-OPPOSITE",
-   "replay": "D-PATTERN-TRAP",
-   "singer": "D-SEMANTIC"
+   "player": "D-OPPOSITE",
+   "played": "D-PATTERN-TRAP",
+   "replay": "D-SEMANTIC"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -1445,43 +1445,43 @@ export const questions = [
   "formatType": "MORPHEME_TRANSFER",
   "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "Noah smiles with joy. Which word describes Noah?",
-  "question": "Noah smiles with joy. Which word describes Noah?",
-  "spokenPrompt": "Noah smiles with joy. Which word describes Noah?",
+  "prompt": "Jo says thanks for the gift. How does Jo feel?",
+  "question": "Jo says thanks for the gift. How does Jo feel?",
+  "spokenPrompt": "Jo says thanks for the gift. How does Jo feel?",
   "choices": [
-   "joyless",
-   "unfair",
-   "reader",
-   "joyful"
+   "thankless",
+   "careless",
+   "hopeless",
+   "thankful"
   ],
   "answerOptions": [
    {
-    "value": "joyless",
-    "label": "joyless",
-    "text": "joyless"
+    "value": "thankless",
+    "label": "thankless",
+    "text": "thankless"
    },
    {
-    "value": "unfair",
-    "label": "unfair",
-    "text": "unfair"
+    "value": "careless",
+    "label": "careless",
+    "text": "careless"
    },
    {
-    "value": "reader",
-    "label": "reader",
-    "text": "reader"
+    "value": "hopeless",
+    "label": "hopeless",
+    "text": "hopeless"
    },
    {
-    "value": "joyful",
-    "label": "joyful",
-    "text": "joyful"
+    "value": "thankful",
+    "label": "thankful",
+    "text": "thankful"
    }
   ],
-  "answer": "joyful",
-  "correctAnswer": "joyful",
+  "answer": "thankful",
+  "correctAnswer": "thankful",
   "distractorRationales": {
-   "reader": "D-SEMANTIC",
-   "joyless": "D-OPPOSITE",
-   "unfair": "D-PATTERN-TRAP"
+   "hopeless": "D-SEMANTIC",
+   "thankless": "D-OPPOSITE",
+   "careless": "D-PATTERN-TRAP"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -1534,43 +1534,43 @@ export const questions = [
   "formatType": "MORPHEME_TRANSFER",
   "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "Kim carries the glass slowly. Which word describes Kim?",
-  "question": "Kim carries the glass slowly. Which word describes Kim?",
-  "spokenPrompt": "Kim carries the glass slowly. Which word describes Kim?",
+  "prompt": "Her shirt has many colors. Which word describes it?",
+  "question": "Her shirt has many colors. Which word describes it?",
+  "spokenPrompt": "Her shirt has many colors. Which word describes it?",
   "choices": [
-   "remake",
-   "teacher",
    "careful",
-   "careless"
+   "playful",
+   "colorful",
+   "colorless"
   ],
   "answerOptions": [
-   {
-    "value": "remake",
-    "label": "remake",
-    "text": "remake"
-   },
-   {
-    "value": "teacher",
-    "label": "teacher",
-    "text": "teacher"
-   },
    {
     "value": "careful",
     "label": "careful",
     "text": "careful"
    },
    {
-    "value": "careless",
-    "label": "careless",
-    "text": "careless"
+    "value": "playful",
+    "label": "playful",
+    "text": "playful"
+   },
+   {
+    "value": "colorful",
+    "label": "colorful",
+    "text": "colorful"
+   },
+   {
+    "value": "colorless",
+    "label": "colorless",
+    "text": "colorless"
    }
   ],
-  "answer": "careful",
-  "correctAnswer": "careful",
+  "answer": "colorful",
+  "correctAnswer": "colorful",
   "distractorRationales": {
-   "careless": "D-OPPOSITE",
-   "remake": "D-PATTERN-TRAP",
-   "teacher": "D-SEMANTIC"
+   "colorless": "D-OPPOSITE",
+   "careful": "D-PATTERN-TRAP",
+   "playful": "D-SEMANTIC"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -1890,43 +1890,43 @@ export const questions = [
   "formatType": "MORPHEME_TRANSFER",
   "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "The tiny butterfly cannot hurt you. Which word describes it?",
-  "question": "The tiny butterfly cannot hurt you. Which word describes it?",
-  "spokenPrompt": "The tiny butterfly cannot hurt you. Which word describes it?",
+  "prompt": "The baby has no teeth. Which word describes the baby?",
+  "question": "The baby has no teeth. Which word describes the baby?",
+  "spokenPrompt": "The baby has no teeth. Which word describes the baby?",
   "choices": [
-   "helpful",
-   "replay",
-   "harmless",
-   "harmful"
+   "teething",
+   "toothy",
+   "toothless",
+   "toothed"
   ],
   "answerOptions": [
    {
-    "value": "helpful",
-    "label": "helpful",
-    "text": "helpful"
+    "value": "teething",
+    "label": "teething",
+    "text": "teething"
    },
    {
-    "value": "replay",
-    "label": "replay",
-    "text": "replay"
+    "value": "toothy",
+    "label": "toothy",
+    "text": "toothy"
    },
    {
-    "value": "harmless",
-    "label": "harmless",
-    "text": "harmless"
+    "value": "toothless",
+    "label": "toothless",
+    "text": "toothless"
    },
    {
-    "value": "harmful",
-    "label": "harmful",
-    "text": "harmful"
+    "value": "toothed",
+    "label": "toothed",
+    "text": "toothed"
    }
   ],
-  "answer": "harmless",
-  "correctAnswer": "harmless",
+  "answer": "toothless",
+  "correctAnswer": "toothless",
   "distractorRationales": {
-   "replay": "D-SEMANTIC",
-   "harmful": "D-OPPOSITE",
-   "helpful": "D-PATTERN-TRAP"
+   "toothy": "D-SEMANTIC",
+   "toothed": "D-OPPOSITE",
+   "teething": "D-PATTERN-TRAP"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -1979,43 +1979,43 @@ export const questions = [
   "formatType": "MORPHEME_TRANSFER",
   "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "Leo is not afraid to try. Which word describes Leo?",
-  "question": "Leo is not afraid to try. Which word describes Leo?",
-  "spokenPrompt": "Leo is not afraid to try. Which word describes Leo?",
+  "prompt": "Which word means ‘without sleep’?",
+  "question": "Which word means ‘without sleep’?",
+  "spokenPrompt": "Which word means ‘without sleep’?",
   "choices": [
-   "reader",
-   "fearless",
-   "fearful",
-   "helper"
+   "asleep",
+   "sleepless",
+   "sleepy",
+   "sleeping"
   ],
   "answerOptions": [
    {
-    "value": "reader",
-    "label": "reader",
-    "text": "reader"
+    "value": "asleep",
+    "label": "asleep",
+    "text": "asleep"
    },
    {
-    "value": "fearless",
-    "label": "fearless",
-    "text": "fearless"
+    "value": "sleepless",
+    "label": "sleepless",
+    "text": "sleepless"
    },
    {
-    "value": "fearful",
-    "label": "fearful",
-    "text": "fearful"
+    "value": "sleepy",
+    "label": "sleepy",
+    "text": "sleepy"
    },
    {
-    "value": "helper",
-    "label": "helper",
-    "text": "helper"
+    "value": "sleeping",
+    "label": "sleeping",
+    "text": "sleeping"
    }
   ],
-  "answer": "fearless",
-  "correctAnswer": "fearless",
+  "answer": "sleepless",
+  "correctAnswer": "sleepless",
   "distractorRationales": {
-   "reader": "D-SEMANTIC",
-   "fearful": "D-OPPOSITE",
-   "helper": "D-PATTERN-TRAP"
+   "asleep": "D-SEMANTIC",
+   "sleepy": "D-OPPOSITE",
+   "sleeping": "D-PATTERN-TRAP"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -2068,20 +2068,25 @@ export const questions = [
   "formatType": "MORPHEME_TRANSFER",
   "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "The team thinks it cannot win. Which word describes the team?",
-  "question": "The team thinks it cannot win. Which word describes the team?",
-  "spokenPrompt": "The team thinks it cannot win. Which word describes the team?",
+  "prompt": "The trapped pup cannot help itself. Which word describes it?",
+  "question": "The trapped pup cannot help itself. Which word describes it?",
+  "spokenPrompt": "The trapped pup cannot help itself. Which word describes it?",
   "choices": [
-   "hopeless",
+   "helpless",
+   "helpful",
    "hopeful",
-   "joyful",
-   "painter"
+   "playful"
   ],
   "answerOptions": [
    {
-    "value": "hopeless",
-    "label": "hopeless",
-    "text": "hopeless"
+    "value": "helpless",
+    "label": "helpless",
+    "text": "helpless"
+   },
+   {
+    "value": "helpful",
+    "label": "helpful",
+    "text": "helpful"
    },
    {
     "value": "hopeful",
@@ -2089,22 +2094,17 @@ export const questions = [
     "text": "hopeful"
    },
    {
-    "value": "joyful",
-    "label": "joyful",
-    "text": "joyful"
-   },
-   {
-    "value": "painter",
-    "label": "painter",
-    "text": "painter"
+    "value": "playful",
+    "label": "playful",
+    "text": "playful"
    }
   ],
-  "answer": "hopeless",
-  "correctAnswer": "hopeless",
+  "answer": "helpless",
+  "correctAnswer": "helpless",
   "distractorRationales": {
-   "painter": "D-SEMANTIC",
-   "hopeful": "D-OPPOSITE",
-   "joyful": "D-PATTERN-TRAP"
+   "playful": "D-SEMANTIC",
+   "helpful": "D-OPPOSITE",
+   "hopeful": "D-PATTERN-TRAP"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -2691,43 +2691,43 @@ export const questions = [
   "formatType": "MORPHEME_BUILD",
   "templateType": "MORPHEME_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Add -s to hen.",
-  "question": "Add -s to hen.",
-  "spokenPrompt": "Add -s to hen.",
+  "prompt": "Complete ‘I clap; she ___’.",
+  "question": "Complete ‘I clap; she ___’.",
+  "spokenPrompt": "Complete ‘I clap; she … ’.",
   "choices": [
-   "pens",
-   "eggs",
-   "hens",
-   "hen"
+   "clapping",
+   "clapper",
+   "claps",
+   "clap"
   ],
   "answerOptions": [
    {
-    "value": "pens",
-    "label": "pens",
-    "text": "pens"
+    "value": "clapping",
+    "label": "clapping",
+    "text": "clapping"
    },
    {
-    "value": "eggs",
-    "label": "eggs",
-    "text": "eggs"
+    "value": "clapper",
+    "label": "clapper",
+    "text": "clapper"
    },
    {
-    "value": "hens",
-    "label": "hens",
-    "text": "hens"
+    "value": "claps",
+    "label": "claps",
+    "text": "claps"
    },
    {
-    "value": "hen",
-    "label": "hen",
-    "text": "hen"
+    "value": "clap",
+    "label": "clap",
+    "text": "clap"
    }
   ],
-  "answer": "hens",
-  "correctAnswer": "hens",
+  "answer": "claps",
+  "correctAnswer": "claps",
   "distractorRationales": {
-   "pens": "D-FUNCTION-SWAP",
-   "eggs": "D-PATTERN-TRAP",
-   "hen": "D-FUNCTION-SWAP"
+   "clapping": "D-FUNCTION-SWAP",
+   "clapper": "D-PATTERN-TRAP",
+   "clap": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -2779,43 +2779,43 @@ export const questions = [
   "formatType": "MORPHEME_BUILD",
   "templateType": "MORPHEME_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Add -es to fox.",
-  "question": "Add -es to fox.",
-  "spokenPrompt": "Add -es to fox.",
+  "prompt": "Change ‘I brush’ to ‘He ___’.",
+  "question": "Change ‘I brush’ to ‘He ___’.",
+  "spokenPrompt": "Change ‘I brush’ to ‘He … ’.",
   "choices": [
-   "fox",
-   "boxes",
-   "dishes",
-   "foxes"
+   "brush",
+   "brushing",
+   "brushed",
+   "brushes"
   ],
   "answerOptions": [
    {
-    "value": "fox",
-    "label": "fox",
-    "text": "fox"
+    "value": "brush",
+    "label": "brush",
+    "text": "brush"
    },
    {
-    "value": "boxes",
-    "label": "boxes",
-    "text": "boxes"
+    "value": "brushing",
+    "label": "brushing",
+    "text": "brushing"
    },
    {
-    "value": "dishes",
-    "label": "dishes",
-    "text": "dishes"
+    "value": "brushed",
+    "label": "brushed",
+    "text": "brushed"
    },
    {
-    "value": "foxes",
-    "label": "foxes",
-    "text": "foxes"
+    "value": "brushes",
+    "label": "brushes",
+    "text": "brushes"
    }
   ],
-  "answer": "foxes",
-  "correctAnswer": "foxes",
+  "answer": "brushes",
+  "correctAnswer": "brushes",
   "distractorRationales": {
-   "fox": "D-FUNCTION-SWAP",
-   "boxes": "D-FUNCTION-SWAP",
-   "dishes": "D-PATTERN-TRAP"
+   "brush": "D-FUNCTION-SWAP",
+   "brushing": "D-FUNCTION-SWAP",
+   "brushed": "D-PATTERN-TRAP"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -2864,46 +2864,46 @@ export const questions = [
   "form": "C",
   "itemType": "morpheme",
   "itemKey": "suffix_s_es",
-  "formatType": "MORPHEME_BUILD",
-  "templateType": "MORPHEME_BUILD",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "Add -s to cup.",
-  "question": "Add -s to cup.",
-  "spokenPrompt": "Add -s to cup.",
+  "prompt": "Birds sing now. One bird ___ while the others listen.",
+  "question": "Birds sing now. One bird ___ while the others listen.",
+  "spokenPrompt": "Birds sing now. One bird … while the others listen.",
   "choices": [
-   "cups",
-   "cup",
-   "caps",
-   "mugs"
+   "sings",
+   "sing",
+   "singing",
+   "singer"
   ],
   "answerOptions": [
    {
-    "value": "cups",
-    "label": "cups",
-    "text": "cups"
+    "value": "sings",
+    "label": "sings",
+    "text": "sings"
    },
    {
-    "value": "cup",
-    "label": "cup",
-    "text": "cup"
+    "value": "sing",
+    "label": "sing",
+    "text": "sing"
    },
    {
-    "value": "caps",
-    "label": "caps",
-    "text": "caps"
+    "value": "singing",
+    "label": "singing",
+    "text": "singing"
    },
    {
-    "value": "mugs",
-    "label": "mugs",
-    "text": "mugs"
+    "value": "singer",
+    "label": "singer",
+    "text": "singer"
    }
   ],
-  "answer": "cups",
-  "correctAnswer": "cups",
+  "answer": "sings",
+  "correctAnswer": "sings",
   "distractorRationales": {
-   "caps": "D-FUNCTION-SWAP",
-   "mugs": "D-PATTERN-TRAP",
-   "cup": "D-FUNCTION-SWAP"
+   "singing": "D-PATTERN-TRAP",
+   "singer": "D-SEMANTIC",
+   "sing": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -2955,10 +2955,10 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word fits: Every day, Dad ___ the car.",
-  "question": "Which word fits: Every day, Dad ___ the car.",
-  "spokenPrompt": "Which word fits? Every day, Dad … the car.",
-  "sentence": "Every day, Dad ___ the car.",
+  "prompt": "Which word fits: Now Dad ___ the car as we watch.",
+  "question": "Which word fits: Now Dad ___ the car as we watch.",
+  "spokenPrompt": "Which word fits? Now Dad … the car as we watch.",
+  "sentence": "Now Dad ___ the car as we watch.",
   "choices": [
    "wash",
    "washing",
@@ -3002,7 +3002,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Every day, Dad ___ the car.",
+  "sentenceText": "Now Dad ___ the car as we watch.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3045,10 +3045,10 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word fits: My cat ___ on the mat each day.",
-  "question": "Which word fits: My cat ___ on the mat each day.",
-  "spokenPrompt": "Which word fits? My cat … on the mat each day.",
-  "sentence": "My cat ___ on the mat each day.",
+  "prompt": "Which word fits: While I watch, my cat ___ on the mat.",
+  "question": "Which word fits: While I watch, my cat ___ on the mat.",
+  "spokenPrompt": "Which word fits? While I watch, my cat … on the mat.",
+  "sentence": "While I watch, my cat ___ on the mat.",
   "choices": [
    "naps",
    "nap",
@@ -3092,7 +3092,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "My cat ___ on the mat each day.",
+  "sentenceText": "While I watch, my cat ___ on the mat.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3135,10 +3135,10 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word fits: Grandma ___ bread every Sunday.",
-  "question": "Which word fits: Grandma ___ bread every Sunday.",
-  "spokenPrompt": "Which word fits? Grandma … bread every Sunday.",
-  "sentence": "Grandma ___ bread every Sunday.",
+  "prompt": "Which word fits: Today Grandma ___ bread while I help her.",
+  "question": "Which word fits: Today Grandma ___ bread while I help her.",
+  "spokenPrompt": "Which word fits? Today Grandma … bread while I help her.",
+  "sentence": "Today Grandma ___ bread while I help her.",
   "choices": [
    "baked",
    "bakes",
@@ -3182,7 +3182,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Grandma ___ bread every Sunday.",
+  "sentenceText": "Today Grandma ___ bread while I help her.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3398,46 +3398,46 @@ export const questions = [
   "form": "C",
   "itemType": "morpheme",
   "itemKey": "suffix_ing",
-  "formatType": "MORPHEME_BUILD",
-  "templateType": "MORPHEME_BUILD",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "Add -ing to play.",
-  "question": "Add -ing to play.",
-  "spokenPrompt": "Add -ing to play.",
+  "prompt": "She is ___, making music with her voice.",
+  "question": "She is ___, making music with her voice.",
+  "spokenPrompt": "She is …, making music with her voice.",
   "choices": [
-   "played",
-   "doing",
-   "playing",
-   "plays"
+   "sang",
+   "singer",
+   "singing",
+   "sings"
   ],
   "answerOptions": [
    {
-    "value": "played",
-    "label": "played",
-    "text": "played"
+    "value": "sang",
+    "label": "sang",
+    "text": "sang"
    },
    {
-    "value": "doing",
-    "label": "doing",
-    "text": "doing"
+    "value": "singer",
+    "label": "singer",
+    "text": "singer"
    },
    {
-    "value": "playing",
-    "label": "playing",
-    "text": "playing"
+    "value": "singing",
+    "label": "singing",
+    "text": "singing"
    },
    {
-    "value": "plays",
-    "label": "plays",
-    "text": "plays"
+    "value": "sings",
+    "label": "sings",
+    "text": "sings"
    }
   ],
-  "answer": "playing",
-  "correctAnswer": "playing",
+  "answer": "singing",
+  "correctAnswer": "singing",
   "distractorRationales": {
-   "played": "D-FUNCTION-SWAP",
-   "doing": "D-PATTERN-TRAP",
-   "plays": "D-FUNCTION-SWAP"
+   "sang": "D-PATTERN-TRAP",
+   "singer": "D-SEMANTIC",
+   "sings": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -3932,17 +3932,17 @@ export const questions = [
   "form": "C",
   "itemType": "morpheme",
   "itemKey": "suffix_ed",
-  "formatType": "MORPHEME_BUILD",
-  "templateType": "MORPHEME_BUILD",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "Add -ed to jump.",
-  "question": "Add -ed to jump.",
-  "spokenPrompt": "Add -ed to jump.",
+  "prompt": "Yesterday we ___ down from a low wall.",
+  "question": "Yesterday we ___ down from a low wall.",
+  "spokenPrompt": "Yesterday we … down from a low wall.",
   "choices": [
    "jumped",
-   "jumping",
+   "jump",
    "jumps",
-   "landed"
+   "jumping"
   ],
   "answerOptions": [
    {
@@ -3951,9 +3951,9 @@ export const questions = [
     "text": "jumped"
    },
    {
-    "value": "jumping",
-    "label": "jumping",
-    "text": "jumping"
+    "value": "jump",
+    "label": "jump",
+    "text": "jump"
    },
    {
     "value": "jumps",
@@ -3961,17 +3961,17 @@ export const questions = [
     "text": "jumps"
    },
    {
-    "value": "landed",
-    "label": "landed",
-    "text": "landed"
+    "value": "jumping",
+    "label": "jumping",
+    "text": "jumping"
    }
   ],
   "answer": "jumped",
   "correctAnswer": "jumped",
   "distractorRationales": {
-   "landed": "D-PATTERN-TRAP",
-   "jumping": "D-FUNCTION-SWAP",
-   "jumps": "D-FUNCTION-SWAP"
+   "jumping": "D-SEMANTIC",
+   "jump": "D-OPPOSITE",
+   "jumps": "D-PATTERN-TRAP"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -4121,7 +4121,7 @@ export const questions = [
    "cried",
    "cries",
    "crying",
-   "called"
+   "cry"
   ],
   "answerOptions": [
    {
@@ -4140,9 +4140,9 @@ export const questions = [
     "text": "crying"
    },
    {
-    "value": "called",
-    "label": "called",
-    "text": "called"
+    "value": "cry",
+    "label": "cry",
+    "text": "cry"
    }
   ],
   "answer": "cried",
@@ -4150,7 +4150,7 @@ export const questions = [
   "distractorRationales": {
    "cries": "D-FUNCTION-SWAP",
    "crying": "D-FUNCTION-SWAP",
-   "called": "D-PATTERN-TRAP"
+   "cry": "D-PATTERN-TRAP"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -4469,10 +4469,10 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word fits: Ben is tall, but Ana is even ___.",
-  "question": "Which word fits: Ben is tall, but Ana is even ___.",
-  "spokenPrompt": "Which word fits? Ben is tall, but Ana is even ….",
-  "sentence": "Ben is tall, but Ana is even ___.",
+  "prompt": "Which word fits: Ana is ___ than Ben in height.",
+  "question": "Which word fits: Ana is ___ than Ben in height.",
+  "spokenPrompt": "Which word fits? Ana is … than Ben in height.",
+  "sentence": "Ana is ___ than Ben in height.",
   "choices": [
    "tall",
    "faster",
@@ -4516,7 +4516,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Ben is tall, but Ana is even ___.",
+  "sentenceText": "Ana is ___ than Ben in height.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4559,10 +4559,10 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word fits: Rex won every race, so he was the ___.",
-  "question": "Which word fits: Rex won every race, so he was the ___.",
-  "spokenPrompt": "Which word fits? Rex won every race, so he was the ….",
-  "sentence": "Rex won every race, so he was the ___.",
+  "prompt": "Which word fits: Rex ran faster than everyone else. He was the ___.",
+  "question": "Which word fits: Rex ran faster than everyone else. He was the ___.",
+  "spokenPrompt": "Which word fits? Rex ran faster than everyone else. He was the ….",
+  "sentence": "Rex ran faster than everyone else. He was the ___.",
   "choices": [
    "tallest",
    "fastest",
@@ -4606,7 +4606,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Rex won every race, so he was the ___.",
+  "sentenceText": "Rex ran faster than everyone else. He was the ___.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4649,43 +4649,43 @@ export const questions = [
   "formatType": "MORPHEME_TRANSFER",
   "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "Ben is tall. Ana has more height. Which word describes Ana?",
-  "question": "Ben is tall. Ana has more height. Which word describes Ana?",
-  "spokenPrompt": "Ben is tall. Ana has more height. Which word describes Ana?",
+  "prompt": "One bag weighs more than the other. It is ___.",
+  "question": "One bag weighs more than the other. It is ___.",
+  "spokenPrompt": "One bag weighs more than the other. It is ….",
   "choices": [
-   "tall",
-   "slowest",
-   "taller",
-   "tallest"
+   "heavy",
+   "heavily",
+   "heavier",
+   "heaviest"
   ],
   "answerOptions": [
    {
-    "value": "tall",
-    "label": "tall",
-    "text": "tall"
+    "value": "heavy",
+    "label": "heavy",
+    "text": "heavy"
    },
    {
-    "value": "slowest",
-    "label": "slowest",
-    "text": "slowest"
+    "value": "heavily",
+    "label": "heavily",
+    "text": "heavily"
    },
    {
-    "value": "taller",
-    "label": "taller",
-    "text": "taller"
+    "value": "heavier",
+    "label": "heavier",
+    "text": "heavier"
    },
    {
-    "value": "tallest",
-    "label": "tallest",
-    "text": "tallest"
+    "value": "heaviest",
+    "label": "heaviest",
+    "text": "heaviest"
    }
   ],
-  "answer": "taller",
-  "correctAnswer": "taller",
+  "answer": "heavier",
+  "correctAnswer": "heavier",
   "distractorRationales": {
-   "slowest": "D-SEMANTIC",
-   "tallest": "D-OPPOSITE",
-   "tall": "D-PATTERN-TRAP"
+   "heavily": "D-SEMANTIC",
+   "heaviest": "D-OPPOSITE",
+   "heavy": "D-PATTERN-TRAP"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -5001,10 +5001,10 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word fits: Set the eggs down ___, with no bumps.",
-  "question": "Which word fits: Set the eggs down ___, with no bumps.",
-  "spokenPrompt": "Which word fits? Set the eggs down …, with no bumps.",
-  "sentence": "Set the eggs down ___, with no bumps.",
+  "prompt": "Which word fits: Set the eggs down ___, in a gentle way.",
+  "question": "Which word fits: Set the eggs down ___, in a gentle way.",
+  "spokenPrompt": "Which word fits? Set the eggs down …, in a gentle way.",
+  "sentence": "Set the eggs down ___, in a gentle way.",
   "choices": [
    "gently",
    "gentle",
@@ -5048,7 +5048,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Set the eggs down ___, with no bumps.",
+  "sentenceText": "Set the eggs down ___, in a gentle way.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -5091,10 +5091,10 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word fits: The mouse crept ___ past the cat.",
-  "question": "Which word fits: The mouse crept ___ past the cat.",
-  "spokenPrompt": "Which word fits? The mouse crept … past the cat.",
-  "sentence": "The mouse crept ___ past the cat.",
+  "prompt": "Which word fits: The mouse crept ___, without making a sound.",
+  "question": "Which word fits: The mouse crept ___, without making a sound.",
+  "spokenPrompt": "Which word fits? The mouse crept …, without making a sound.",
+  "sentence": "The mouse crept ___, without making a sound.",
   "choices": [
    "quiet",
    "quieter",
@@ -5138,7 +5138,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The mouse crept ___ past the cat.",
+  "sentenceText": "The mouse crept ___, without making a sound.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -6423,43 +6423,43 @@ export const questions = [
   "formatType": "MORPHEME_BUILD",
   "templateType": "MORPHEME_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Add -es to bus.",
-  "question": "Add -es to bus.",
-  "spokenPrompt": "Add -es to bus.",
+  "prompt": "Finish ‘I catch; she ___’.",
+  "question": "Finish ‘I catch; she ___’.",
+  "spokenPrompt": "Finish ‘I catch; she … ’.",
   "choices": [
-   "bus",
-   "boxes",
-   "foxes",
-   "buses"
+   "catch",
+   "catching",
+   "catcher",
+   "catches"
   ],
   "answerOptions": [
    {
-    "value": "bus",
-    "label": "bus",
-    "text": "bus"
+    "value": "catch",
+    "label": "catch",
+    "text": "catch"
    },
    {
-    "value": "boxes",
-    "label": "boxes",
-    "text": "boxes"
+    "value": "catching",
+    "label": "catching",
+    "text": "catching"
    },
    {
-    "value": "foxes",
-    "label": "foxes",
-    "text": "foxes"
+    "value": "catcher",
+    "label": "catcher",
+    "text": "catcher"
    },
    {
-    "value": "buses",
-    "label": "buses",
-    "text": "buses"
+    "value": "catches",
+    "label": "catches",
+    "text": "catches"
    }
   ],
-  "answer": "buses",
-  "correctAnswer": "buses",
+  "answer": "catches",
+  "correctAnswer": "catches",
   "distractorRationales": {
-   "foxes": "D-PATTERN-TRAP",
-   "bus": "D-FUNCTION-SWAP",
-   "boxes": "D-FUNCTION-SWAP"
+   "catcher": "D-PATTERN-TRAP",
+   "catch": "D-FUNCTION-SWAP",
+   "catching": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -6917,6 +6917,1248 @@ export const questions = [
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.prefixes_suffixes.l2.R.prefix_pre.v7r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l1.B.prefix_un.v8",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "morpheme",
+  "itemKey": "prefix_un",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
+  "questionType": "multiple_choice",
+  "prompt": "A cup is not used yet. Which word describes it?",
+  "question": "A cup is not used yet. Which word describes it?",
+  "spokenPrompt": "A cup is not used yet. Which word describes it?",
+  "choices": [
+   "unused",
+   "useful",
+   "reuse",
+   "using"
+  ],
+  "answerOptions": [
+   {
+    "value": "unused",
+    "label": "unused",
+    "text": "unused"
+   },
+   {
+    "value": "useful",
+    "label": "useful",
+    "text": "useful"
+   },
+   {
+    "value": "reuse",
+    "label": "reuse",
+    "text": "reuse"
+   },
+   {
+    "value": "using",
+    "label": "using",
+    "text": "using"
+   }
+  ],
+  "answer": "unused",
+  "correctAnswer": "unused",
+  "distractorRationales": {
+   "using": "D-SEMANTIC",
+   "useful": "D-OPPOSITE",
+   "reuse": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.B.prefix_un.v8",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l1.B.suffix_ful.v8",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "morpheme",
+  "itemKey": "suffix_ful",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
+  "questionType": "multiple_choice",
+  "prompt": "The room is full of peace. Which word fits?",
+  "question": "The room is full of peace. Which word fits?",
+  "spokenPrompt": "The room is full of peace. Which word fits?",
+  "choices": [
+   "fearful",
+   "peaceful",
+   "peacemaker",
+   "piece"
+  ],
+  "answerOptions": [
+   {
+    "value": "fearful",
+    "label": "fearful",
+    "text": "fearful"
+   },
+   {
+    "value": "peaceful",
+    "label": "peaceful",
+    "text": "peaceful"
+   },
+   {
+    "value": "peacemaker",
+    "label": "peacemaker",
+    "text": "peacemaker"
+   },
+   {
+    "value": "piece",
+    "label": "piece",
+    "text": "piece"
+   }
+  ],
+  "answer": "peaceful",
+  "correctAnswer": "peaceful",
+  "distractorRationales": {
+   "peacemaker": "D-OPPOSITE",
+   "piece": "D-PATTERN-TRAP",
+   "fearful": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.B.suffix_ful.v8",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l1.B.suffix_less.v8",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "morpheme",
+  "itemKey": "suffix_less",
+  "formatType": "MORPHEME_MEANING_CONTEXT",
+  "templateType": "MORPHEME_MEANING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "A broken tool has no use. It is ___.",
+  "question": "A broken tool has no use. It is ___.",
+  "spokenPrompt": "A broken tool has no use. It is ….",
+  "choices": [
+   "used",
+   "using",
+   "useless",
+   "useful"
+  ],
+  "answerOptions": [
+   {
+    "value": "used",
+    "label": "used",
+    "text": "used"
+   },
+   {
+    "value": "using",
+    "label": "using",
+    "text": "using"
+   },
+   {
+    "value": "useless",
+    "label": "useless",
+    "text": "useless"
+   },
+   {
+    "value": "useful",
+    "label": "useful",
+    "text": "useful"
+   }
+  ],
+  "answer": "useless",
+  "correctAnswer": "useless",
+  "distractorRationales": {
+   "useful": "D-OPPOSITE",
+   "used": "D-PATTERN-TRAP",
+   "using": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.B.suffix_less.v8",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l1.C.suffix_less.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "morpheme",
+  "itemKey": "suffix_less",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
+  "questionType": "multiple_choice",
+  "prompt": "The sky has no clouds. Which word describes it?",
+  "question": "The sky has no clouds. Which word describes it?",
+  "spokenPrompt": "The sky has no clouds. Which word describes it?",
+  "choices": [
+   "cloudy",
+   "clouded",
+   "clouding",
+   "cloudless"
+  ],
+  "answerOptions": [
+   {
+    "value": "cloudy",
+    "label": "cloudy",
+    "text": "cloudy"
+   },
+   {
+    "value": "clouded",
+    "label": "clouded",
+    "text": "clouded"
+   },
+   {
+    "value": "clouding",
+    "label": "clouding",
+    "text": "clouding"
+   },
+   {
+    "value": "cloudless",
+    "label": "cloudless",
+    "text": "cloudless"
+   }
+  ],
+  "answer": "cloudless",
+  "correctAnswer": "cloudless",
+  "distractorRationales": {
+   "clouded": "D-PATTERN-TRAP",
+   "clouding": "D-SEMANTIC",
+   "cloudy": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.C.suffix_less.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l1.A.suffix_less.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "morpheme",
+  "itemKey": "suffix_less",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
+  "questionType": "multiple_choice",
+  "prompt": "The dog has no home. Which word describes it?",
+  "question": "The dog has no home. Which word describes it?",
+  "spokenPrompt": "The dog has no home. Which word describes it?",
+  "choices": [
+   "homemade",
+   "homeless",
+   "homeward",
+   "homely"
+  ],
+  "answerOptions": [
+   {
+    "value": "homemade",
+    "label": "homemade",
+    "text": "homemade"
+   },
+   {
+    "value": "homeless",
+    "label": "homeless",
+    "text": "homeless"
+   },
+   {
+    "value": "homeward",
+    "label": "homeward",
+    "text": "homeward"
+   },
+   {
+    "value": "homely",
+    "label": "homely",
+    "text": "homely"
+   }
+  ],
+  "answer": "homeless",
+  "correctAnswer": "homeless",
+  "distractorRationales": {
+   "homeward": "D-OPPOSITE",
+   "homely": "D-PATTERN-TRAP",
+   "homemade": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.A.suffix_less.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l1.A.suffix_less.v11",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "morpheme",
+  "itemKey": "suffix_less",
+  "formatType": "MORPHEME_MEANING_CONTEXT",
+  "templateType": "MORPHEME_MEANING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "The clock makes no sound. It is ___.",
+  "question": "The clock makes no sound. It is ___.",
+  "spokenPrompt": "The clock makes no sound. It is ….",
+  "choices": [
+   "soundly",
+   "resound",
+   "soundless",
+   "sounding"
+  ],
+  "answerOptions": [
+   {
+    "value": "soundly",
+    "label": "soundly",
+    "text": "soundly"
+   },
+   {
+    "value": "resound",
+    "label": "resound",
+    "text": "resound"
+   },
+   {
+    "value": "soundless",
+    "label": "soundless",
+    "text": "soundless"
+   },
+   {
+    "value": "sounding",
+    "label": "sounding",
+    "text": "sounding"
+   }
+  ],
+  "answer": "soundless",
+  "correctAnswer": "soundless",
+  "distractorRationales": {
+   "resound": "D-SEMANTIC",
+   "sounding": "D-OPPOSITE",
+   "soundly": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.A.suffix_less.v11",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l1.B.suffix_er_person.v8",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "morpheme",
+  "itemKey": "suffix_er_person",
+  "formatType": "MORPHEME_MEANING_CONTEXT",
+  "templateType": "MORPHEME_MEANING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Who drives the bus?",
+  "question": "Who drives the bus?",
+  "spokenPrompt": "Who drives the bus?",
+  "choices": [
+   "driving",
+   "drives",
+   "driven",
+   "driver"
+  ],
+  "answerOptions": [
+   {
+    "value": "driving",
+    "label": "driving",
+    "text": "driving"
+   },
+   {
+    "value": "drives",
+    "label": "drives",
+    "text": "drives"
+   },
+   {
+    "value": "driven",
+    "label": "driven",
+    "text": "driven"
+   },
+   {
+    "value": "driver",
+    "label": "driver",
+    "text": "driver"
+   }
+  ],
+  "answer": "driver",
+  "correctAnswer": "driver",
+  "distractorRationales": {
+   "drives": "D-PATTERN-TRAP",
+   "driven": "D-SEMANTIC",
+   "driving": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.B.suffix_er_person.v8",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l1.C.suffix_er_person.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "morpheme",
+  "itemKey": "suffix_er_person",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
+  "questionType": "multiple_choice",
+  "prompt": "Which word names a person who builds?",
+  "question": "Which word names a person who builds?",
+  "spokenPrompt": "Which word names a person who builds?",
+  "choices": [
+   "builder",
+   "building",
+   "rebuild",
+   "built"
+  ],
+  "answerOptions": [
+   {
+    "value": "builder",
+    "label": "builder",
+    "text": "builder"
+   },
+   {
+    "value": "building",
+    "label": "building",
+    "text": "building"
+   },
+   {
+    "value": "rebuild",
+    "label": "rebuild",
+    "text": "rebuild"
+   },
+   {
+    "value": "built",
+    "label": "built",
+    "text": "built"
+   }
+  ],
+  "answer": "builder",
+  "correctAnswer": "builder",
+  "distractorRationales": {
+   "rebuild": "D-PATTERN-TRAP",
+   "built": "D-SEMANTIC",
+   "building": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.C.suffix_er_person.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l1.A.suffix_er_person.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "morpheme",
+  "itemKey": "suffix_er_person",
+  "formatType": "MORPHEME_MEANING_CONTEXT",
+  "templateType": "MORPHEME_MEANING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "A person who swims is a…",
+  "question": "A person who swims is a…",
+  "spokenPrompt": "A person who swims is a…",
+  "choices": [
+   "swimming",
+   "swims",
+   "swam",
+   "swimmer"
+  ],
+  "answerOptions": [
+   {
+    "value": "swimming",
+    "label": "swimming",
+    "text": "swimming"
+   },
+   {
+    "value": "swims",
+    "label": "swims",
+    "text": "swims"
+   },
+   {
+    "value": "swam",
+    "label": "swam",
+    "text": "swam"
+   },
+   {
+    "value": "swimmer",
+    "label": "swimmer",
+    "text": "swimmer"
+   }
+  ],
+  "answer": "swimmer",
+  "correctAnswer": "swimmer",
+  "distractorRationales": {
+   "swimming": "D-OPPOSITE",
+   "swims": "D-PATTERN-TRAP",
+   "swam": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.A.suffix_er_person.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l1.A.suffix_er_person.v11",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "morpheme",
+  "itemKey": "suffix_er_person",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
+  "questionType": "multiple_choice",
+  "prompt": "Who grows food on a farm?",
+  "question": "Who grows food on a farm?",
+  "spokenPrompt": "Who grows food on a farm?",
+  "choices": [
+   "grower",
+   "growing",
+   "grown",
+   "regrow"
+  ],
+  "answerOptions": [
+   {
+    "value": "grower",
+    "label": "grower",
+    "text": "grower"
+   },
+   {
+    "value": "growing",
+    "label": "growing",
+    "text": "growing"
+   },
+   {
+    "value": "grown",
+    "label": "grown",
+    "text": "grown"
+   },
+   {
+    "value": "regrow",
+    "label": "regrow",
+    "text": "regrow"
+   }
+  ],
+  "answer": "grower",
+  "correctAnswer": "grower",
+  "distractorRationales": {
+   "regrow": "D-SEMANTIC",
+   "growing": "D-OPPOSITE",
+   "grown": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.A.suffix_er_person.v11",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l2.B.suffix_ing.v8",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "morpheme",
+  "itemKey": "suffix_ing",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
+  "questionType": "multiple_choice",
+  "prompt": "A dog is ___ after its ball right now.",
+  "question": "A dog is ___ after its ball right now.",
+  "spokenPrompt": "A dog is … after its ball right now.",
+  "choices": [
+   "chases",
+   "chased",
+   "chase",
+   "chasing"
+  ],
+  "answerOptions": [
+   {
+    "value": "chases",
+    "label": "chases",
+    "text": "chases"
+   },
+   {
+    "value": "chased",
+    "label": "chased",
+    "text": "chased"
+   },
+   {
+    "value": "chase",
+    "label": "chase",
+    "text": "chase"
+   },
+   {
+    "value": "chasing",
+    "label": "chasing",
+    "text": "chasing"
+   }
+  ],
+  "answer": "chasing",
+  "correctAnswer": "chasing",
+  "distractorRationales": {
+   "chases": "D-OPPOSITE",
+   "chased": "D-PATTERN-TRAP",
+   "chase": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.B.suffix_ing.v8",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l2.B.suffix_ed.v8",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "morpheme",
+  "itemKey": "suffix_ed",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
+  "questionType": "multiple_choice",
+  "prompt": "Yesterday the class ___ seeds. Today shoots are growing.",
+  "question": "Yesterday the class ___ seeds. Today shoots are growing.",
+  "spokenPrompt": "Yesterday the class … seeds. Today shoots are growing.",
+  "choices": [
+   "planted",
+   "plants",
+   "planting",
+   "plant"
+  ],
+  "answerOptions": [
+   {
+    "value": "planted",
+    "label": "planted",
+    "text": "planted"
+   },
+   {
+    "value": "plants",
+    "label": "plants",
+    "text": "plants"
+   },
+   {
+    "value": "planting",
+    "label": "planting",
+    "text": "planting"
+   },
+   {
+    "value": "plant",
+    "label": "plant",
+    "text": "plant"
+   }
+  ],
+  "answer": "planted",
+  "correctAnswer": "planted",
+  "distractorRationales": {
+   "plant": "D-SEMANTIC",
+   "plants": "D-OPPOSITE",
+   "planting": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.B.suffix_ed.v8",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l2.B.suffix_er_est.v8",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "morpheme",
+  "itemKey": "suffix_er_est",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
+  "questionType": "multiple_choice",
+  "prompt": "All five jars are tall. This jar is taller than every other: the ___.",
+  "question": "All five jars are tall. This jar is taller than every other: the ___.",
+  "spokenPrompt": "All five jars are tall. This jar is taller than every other: the ….",
+  "choices": [
+   "tallness",
+   "tallest",
+   "taller",
+   "tall"
+  ],
+  "answerOptions": [
+   {
+    "value": "tallness",
+    "label": "tallness",
+    "text": "tallness"
+   },
+   {
+    "value": "tallest",
+    "label": "tallest",
+    "text": "tallest"
+   },
+   {
+    "value": "taller",
+    "label": "taller",
+    "text": "taller"
+   },
+   {
+    "value": "tall",
+    "label": "tall",
+    "text": "tall"
+   }
+  ],
+  "answer": "tallest",
+  "correctAnswer": "tallest",
+  "distractorRationales": {
+   "taller": "D-OPPOSITE",
+   "tall": "D-PATTERN-TRAP",
+   "tallness": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.B.suffix_er_est.v8",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l2.B.suffix_ly.v8",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "morpheme",
+  "itemKey": "suffix_ly",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
+  "questionType": "multiple_choice",
+  "prompt": "She waited patiently. How did she wait?",
+  "question": "She waited patiently. How did she wait?",
+  "spokenPrompt": "She waited patiently. How did she wait?",
+  "choices": [
+   "before waiting",
+   "without any patience",
+   "in a patient way",
+   "with a patient"
+  ],
+  "answerOptions": [
+   {
+    "value": "before waiting",
+    "label": "before waiting",
+    "text": "before waiting"
+   },
+   {
+    "value": "without any patience",
+    "label": "without any patience",
+    "text": "without any patience"
+   },
+   {
+    "value": "in a patient way",
+    "label": "in a patient way",
+    "text": "in a patient way"
+   },
+   {
+    "value": "with a patient",
+    "label": "with a patient",
+    "text": "with a patient"
+   }
+  ],
+  "answer": "in a patient way",
+  "correctAnswer": "in a patient way",
+  "distractorRationales": {
+   "with a patient": "D-OPPOSITE",
+   "before waiting": "D-PATTERN-TRAP",
+   "without any patience": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.B.suffix_ly.v8",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",

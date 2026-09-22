@@ -251,6 +251,10 @@ function buildBalancedShortVowelChoices(question = {}, answerWord = "") {
 }
 
 function shouldBalanceShortVowelChoices(question = {}, skillId = "") {
+  // V3 choices are reviewed minimal contrasts with their own rationales and
+  // balanced positions. Shared consonants are intentional evidence, not a
+  // legacy shortcut to repair at runtime.
+  if (question.v3AuthoredMedia) return false;
   if (skillId !== "short_vowel_discrimination") return false;
   if (isGraphemeChoiceQuestion(question)) return false;
   const choices = question.choices || question.answerOptions || [];

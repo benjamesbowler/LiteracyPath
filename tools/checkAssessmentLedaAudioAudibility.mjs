@@ -3,6 +3,7 @@
 import { spawn } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
+import { normalizeSpokenCloze as spokenCloze } from "../src/utils/assessmentSpokenText.js";
 
 import { getLedaProductionAudioPath } from "../src/data/ledaProductionAudio.js";
 import {
@@ -13,14 +14,6 @@ import {
 const root = path.resolve(import.meta.dirname, "..");
 const peakFloorDb = -40;
 const concurrency = 12;
-
-function spokenCloze(text) {
-  return String(text || "")
-    .replace(/\s*(?:_{2,}|\bhmm\b|\bblank\b)\s*/gi, " … ")
-    .replace(/\s+/g, " ")
-    .replace(/\s+([?.!,;:])/g, "$1")
-    .trim();
-}
 
 function inspectAudio(publicPath) {
   return new Promise(resolve => {
@@ -57,7 +50,7 @@ const texts = [...new Set(banks.flatMap(items => items.flatMap(item => [
   item.passage || "",
   ...(item.imageCards || []).map(card => card.word),
   ...(item.choices || []),
-  item.targetWord && !/[/_]/.test(item.targetWord) ? item.targetWord : ""
+  !item.suppressStimulusAudio && item.targetWord && !/[/_]/.test(item.targetWord) ? item.targetWord : ""
 ])).map(text => String(text || "").trim()).filter(Boolean))];
 const unresolvedTexts = texts.filter(text => !getLedaProductionAudioPath(text));
 const publicPaths = [...new Set(texts

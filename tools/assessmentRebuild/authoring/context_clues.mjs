@@ -1,19 +1,5 @@
-// Context Clues — v3 authored bank (wave W2). One target word per passage,
-// never repeated, always tier-2 (outside the K-2 familiar list — the sanctioned
-// C-5 exception). Cells are clue TYPES. Reviewer test honoured: cover the
-// target word and its meaning is still recoverable from the passage alone.
-// Keys are child-worded meanings; distractors are plausible wrong meanings that
-// fit the sentence grammar (D-PLAUSIBLE-UNSUPPORTED) plus one opposite.
-//
-// Target words used (unique): drowsy, gobble, enormous, fragile, soggy,
-// gleaming, grumble, timid, sturdy, vanish, feast, chilly, glide, murmur,
-// weary, dazzling, plead, scamper, hollow, drift, jagged, mend, snug, swift,
-// tremble, faint, ancient, clutter, brisk, scent, gaze, bitter, slumber,
-// commotion, drenched, nibble, gigantic, delicate, spotless, grumpy, shy-less
-// (bold), rickety, disappear-less (loiter), banquet, frigid, soar, whisper-2
-// (mutter), exhausted, brilliant, beg-2 (implore→skip), dash, empty-2 (bare),
-// float-2 (bob), spiky, repair-2 (patch), cozy-2 (toasty), rapid, shiver,
-// dim, elderly, mess-2 (jumble), lively, aroma, stare-2 (peer).
+// Meaning from definitions, examples, actions, contrast and implied contextual evidence.
+// Every level contains 32 mastery items (16 per phase) and 8 reserves.
 
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
@@ -33,56 +19,35 @@ export default {
   items: [
     // ============ LEVEL 1 · definition_clue (8) ============
     it("definition_clue", 1, 1, 1,
-      "By eight o'clock Tara was drowsy — so sleepy that her eyes kept sliding shut in the middle of her favorite program.",
+      "Tara felt drowsy during her favorite show. Drowsy means so sleepy you can hardly stay awake. Her eyes kept closing before the show ended.",
       "drowsy",
-      [K("very sleepy"),
-       P("very hungry", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("wide awake", "D-OPPOSITE"),
-       P("quite angry", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("very sleepy"), P("very hungry", "D-PLAUSIBLE-UNSUPPORTED"), P("wide awake", "D-PLAUSIBLE-UNSUPPORTED"), P("quite angry", "D-OPPOSITE")]),
     it("definition_clue", 1, 1, 2,
-      "The vase was fragile, which means it could break very easily, so Mom carried it across the room with two careful hands.",
+      "The vase was fragile, or easy to break. Mom held it carefully with both hands. She put it where no one could knock it.",
       "fragile",
-      [K("easily broken"),
-       P("very heavy", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("impossible to break", "D-OPPOSITE"),
-       P("full of flowers", "D-TOPIC-ADJACENT")]),
+      [K("easily broken"), P("hard to lift", "D-PLAUSIBLE-UNSUPPORTED"), P("hard to break", "D-PLAUSIBLE-UNSUPPORTED"), P("easily cleaned", "D-OPPOSITE")]),
     it("definition_clue", 1, 1, 3,
-      "Our new tent is sturdy — strongly made and hard to knock over. Even the wild wind on the hilltop could not flatten it.",
+      "Our tent is sturdy, which means strongly made. Strong wind blew against it on the hill. The tent stayed up all through the night.",
       "sturdy",
-      [K("strong and well made"),
-       P("bright and colorful", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("weak and floppy", "D-OPPOSITE"),
-       P("brand new", "D-TOPIC-ADJACENT")]),
+      [K("strong and well made"), P("light and easy to move", "D-PLAUSIBLE-UNSUPPORTED"), P("weak and poorly made", "D-PLAUSIBLE-UNSUPPORTED"), P("new and brightly painted", "D-OPPOSITE")]),
     it("definition_clue", 1, 1, 4,
-      "A murmur is a soft, low sound of voices. From the top of the stairs, Lila could hear the murmur of the grown-ups talking downstairs.",
+      "A murmur is a quiet sound of voices. Lila heard a murmur from downstairs. The adults were talking softly while the baby slept.",
       "murmur",
-      [K("a soft sound of talking"),
-       P("a loud crash", "D-OPPOSITE"),
-       P("a kind of stair", "D-TOPIC-ADJACENT"),
-       P("a bright light", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("a soft sound of talking"), P("a sharp sound of shouting", "D-PLAUSIBLE-UNSUPPORTED"), P("a steady sound of footsteps", "D-PLAUSIBLE-UNSUPPORTED"), P("a deep sound of rumbling", "D-OPPOSITE")]),
     it("definition_clue", 1, 2, 5,
-      "The path was covered in jagged stones — sharp, pointy ones with rough edges — so everyone kept their shoes on all the way to the waterfall.",
+      "Jagged stones have sharp points and rough edges. The path was covered in jagged stones. We wore shoes to keep our feet safe.",
       "jagged",
-      [K("sharp and rough at the edges"),
-       P("smooth and round", "D-OPPOSITE"),
-       P("wet and shiny", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("small and light", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("sharp and rough at the edges"), P("smooth and round at the edges", "D-PLAUSIBLE-UNSUPPORTED"), P("soft and light in the middle", "D-PLAUSIBLE-UNSUPPORTED"), P("flat and slippery on the top", "D-OPPOSITE")]),
     it("definition_clue", 1, 2, 6,
-      "Hollow means empty inside. The old log by the fence was hollow, and a whole family of mice had moved into the space within it.",
+      "Hollow means empty inside. The log beside the fence was hollow. Mice made a nest in that empty space.",
       "hollow",
-      [K("empty on the inside"),
-       P("solid all the way through", "D-OPPOSITE"),
-       P("covered in leaves", "D-TOPIC-ADJACENT"),
-       P("very long", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("empty on the inside"), P("solid all the way through", "D-PLAUSIBLE-UNSUPPORTED"), P("rough around the outside", "D-PLAUSIBLE-UNSUPPORTED"), P("narrow from side to side", "D-OPPOSITE")]),
     it("definition_clue", 1, 2, 7,
-      "The lane was chilly that morning — cold enough to make your fingers ache — so Pip pulled his sleeves down over his hands.",
+      "The lane was chilly, which means a little cold. Pip pulled his sleeves down over his fingers. The morning air felt cold against his face.",
       "chilly",
-      [K("uncomfortably cold"),
-       P("nice and warm", "D-OPPOSITE"),
-       P("very narrow", "D-TOPIC-ADJACENT"),
-       P("too dark", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("a little cold"), P("a little warm", "D-PLAUSIBLE-UNSUPPORTED"), P("very windy", "D-PLAUSIBLE-UNSUPPORTED"), P("very wet", "D-OPPOSITE")]),
     it("definition_clue", 1, 2, 8,
-      "To mend something is to fix it. Grandpa mended the torn net with a needle and green string, and by dinnertime it was good as new.",
+      "To mend something is to fix it. Grandpa mended the torn net with green string. Then we could use the net to play again.",
       "mend",
       [K("to fix something"),
        P("to throw something away", "D-OPPOSITE"),
@@ -91,56 +56,38 @@ export default {
 
     // ============ LEVEL 1 · example_clue (8) ============
     it("example_clue", 1, 1, 1,
-      "The picnic was a real feast: sandwiches, sausage rolls, two kinds of cake, a bowl of cherries, and a jug of cold lemonade that never seemed to empty.",
+      "Our picnic was a feast. We had sandwiches, rolls and two big cakes. Bowls of cherries stood beside jugs of lemonade. There was plenty for every guest.",
       "feast",
-      [K("a big special meal"),
-       P("a small snack", "D-OPPOSITE"),
-       P("a kind of basket", "D-TOPIC-ADJACENT"),
-       P("a long walk", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("a large and special meal"), P("a small and quick snack", "D-PLAUSIBLE-UNSUPPORTED"), P("a long and difficult journey", "D-PLAUSIBLE-UNSUPPORTED"), P("a quiet and early breakfast", "D-OPPOSITE")]),
     it("example_clue", 1, 1, 2,
-      "Milo's desk was full of clutter — old wrappers, dried-up pens, a single glove, broken crayons, and three notes from last term he never took home.",
+      "Milo's desk was full of clutter. Old wrappers hid broken crayons and dried pens. A glove covered three notes from last term. There was no space for his work.",
       "clutter",
-      [K("a mess of things not needed"),
-       P("a neat row of books", "D-OPPOSITE"),
-       P("a set of school rules", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("a kind of desk", "D-TOPIC-ADJACENT")]),
+      [K("a mess of unwanted objects"), P("a neat collection of useful tools", "D-PLAUSIBLE-UNSUPPORTED"), P("a group of well-kept drawings", "D-PLAUSIBLE-UNSUPPORTED"), P("a set of brand-new supplies", "D-OPPOSITE")]),
     it("example_clue", 1, 1, 3,
-      "Enormous things filled the museum hall: a whale skeleton longer than a bus, a boulder taller than Dad, and a footprint big enough for Nia to sit inside.",
+      "Enormous things filled the museum hall. A whale skeleton was longer than a bus. A boulder stood taller than Dad. Nia could sit inside the model footprint.",
       "enormous",
-      [K("very, very big"),
-       P("very old", "D-TOPIC-ADJACENT"),
-       P("tiny and light", "D-OPPOSITE"),
-       P("made of stone", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("very large in size"), P("very old in age", "D-PLAUSIBLE-UNSUPPORTED"), P("very bright in colour", "D-PLAUSIBLE-UNSUPPORTED"), P("very heavy to lift", "D-OPPOSITE")]),
     it("example_clue", 1, 1, 4,
-      "Everything about the morning was gleaming: the polished trumpet, the wet road after rain, the foil stars on the classroom window, and Dad's freshly washed car.",
+      "Many things were gleaming after the school cleanup. The polished trumpet shone beside the window. Sunlight flashed on clean glass and silver stars. Even the wet floor looked bright.",
       "gleaming",
-      [K("shining brightly"),
-       P("dull and dirty", "D-OPPOSITE"),
-       P("out of tune", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("very expensive", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("shining with reflected light"), P("darkened with a thick coating", "D-PLAUSIBLE-UNSUPPORTED"), P("covered with bright paint", "D-PLAUSIBLE-UNSUPPORTED"), P("newly made and unused", "D-OPPOSITE")]),
     it("example_clue", 1, 2, 5,
-      "Timid creatures live in the hedge: the mouse that bolts at a footstep, the wren that hides deep in the leaves, and the rabbit that thumps once and vanishes down its hole.",
+      "Timid animals lived in the hedge. A mouse ran away at one footstep. A wren hid when people passed. The rabbit stayed near its safe hole.",
       "timid",
-      [K("easily frightened"),
-       P("bold and fierce", "D-OPPOSITE"),
-       P("green and leafy", "D-TOPIC-ADJACENT"),
-       P("very hungry", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("easily frightened"), P("quickly angered", "D-PLAUSIBLE-UNSUPPORTED"), P("usually hungry", "D-PLAUSIBLE-UNSUPPORTED"), P("often sleepy", "D-OPPOSITE")]),
     it("example_clue", 1, 2, 6,
-      "Swift things flashed past the window throughout the journey: racing motorcycles, a hawk swooping after a sparrow, and express trains that were gone almost before you saw them.",
+      "Swift things passed our train window. A motorbike sped along the road. A hawk rushed past after a small bird. Another train was gone in a moment.",
       "swift",
       [K("very fast"),
        P("very slow", "D-OPPOSITE"),
        P("very loud", "D-PLAUSIBLE-UNSUPPORTED"),
        P("far away", "D-TOPIC-ADJACENT")]),
     it("example_clue", 1, 2, 7,
-      "Ancient things filled Great-Uncle Ho's shelf: a coin worn smooth by a thousand years of thumbs, a map of countries that no longer exist, and a cracked pot older than the town itself.",
+      "Ancient things stood on Great-Uncle Ho's shelf. One coin was a thousand years old. A map showed places that no longer existed. A cracked pot was older than our town.",
       "ancient",
-      [K("very old"),
-       P("brand new", "D-OPPOSITE"),
-       P("very valuable", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("made of clay", "D-TOPIC-ADJACENT")]),
+      [K("from a very long time ago"), P("from a place far away", "D-PLAUSIBLE-UNSUPPORTED"), P("worth a great deal of money", "D-PLAUSIBLE-UNSUPPORTED"), P("kept in very good condition", "D-OPPOSITE")]),
     it("example_clue", 1, 2, 8,
-      "All the soggy things went by the radiator: Ken's socks after the puddle, the towel from swimming, and the newspaper that had spent the night on the wet step.",
+      "We put the soggy things by the radiator. Ken's socks dripped after his jump in a puddle. The swimming towel left a wet patch. Rain had soaked the newspaper on the step.",
       "soggy",
       [K("wet through"),
        P("dry and crisp", "D-OPPOSITE"),
@@ -149,348 +96,701 @@ export default {
 
     // ============ LEVEL 1 · action_clue (8) ============
     it("action_clue", 1, 1, 1,
-      "The hungry puppy did not chew politely. He gobbled his whole dinner in four huge mouthfuls and then licked the empty bowl across the floor.",
+      "The hungry puppy gobbled his dinner. He took four huge mouthfuls without pausing to chew. In moments, the bowl was empty. Then he licked it across the floor.",
       "gobbled",
-      [K("ate very fast"),
-       P("buried in the garden", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("ate very slowly", "D-OPPOSITE"),
-       P("sniffed carefully", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("ate with great speed"), P("ate in small slow bites", "D-PLAUSIBLE-UNSUPPORTED"), P("sniffed without tasting anything", "D-PLAUSIBLE-UNSUPPORTED"), P("chewed one mouthful for ages", "D-OPPOSITE")]),
     it("action_clue", 1, 1, 2,
-      "The swans glided across the lake. Their bodies barely disturbed the water, making no splash, while their feet paddled secretly below.",
+      "The swans glided across the lake. Their bodies moved smoothly without making a splash. Their feet paddled below the water. Small ripples spread behind them as they passed.",
       "glided",
-      [K("moved smoothly along"),
-       P("splashed noisily", "D-OPPOSITE"),
-       P("sank slowly", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("flew high up", "D-TOPIC-ADJACENT")]),
+      [K("travelled in a steady, flowing way"), P("moved in a loud, splashing way", "D-PLAUSIBLE-UNSUPPORTED"), P("sank below the lake’s surface", "D-PLAUSIBLE-UNSUPPORTED"), P("flew high above the lake", "D-OPPOSITE")]),
     it("action_clue", 1, 1, 3,
-      "The squirrel scampered along the fence — quick light steps, a leap, more quick steps — and was up the oak tree before Milo could point.",
+      "A squirrel scampered along the fence. It took quick, light steps, then leaped. More quick steps carried it up a tree. Milo barely had time to point.",
       "scampered",
-      [K("darted along"),
-       P("climbed into a tree", "D-TOPIC-ADJACENT"),
-       P("crawled very slowly", "D-OPPOSITE"),
-       P("dug a deep hole", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("ran lightly and rapidly"), P("stood still on the fence", "D-PLAUSIBLE-UNSUPPORTED"), P("climbed slowly up the tree", "D-PLAUSIBLE-UNSUPPORTED"), P("took one enormous leap down", "D-OPPOSITE")]),
     it("action_clue", 1, 1, 4,
-      "'Please, please, PLEASE can we keep him?' Sol pleaded, hands pressed together, following Mom from room to room with enormous hopeful eyes.",
+      "Sol pleaded to keep the lost puppy. He pressed his hands together and asked again. He followed Mom, saying please over and over. He hoped she would agree.",
       "pleaded",
-      [K("begged with all his heart"),
-       P("shouted angrily", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("whispered a secret", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("gave up quietly", "D-OPPOSITE")]),
+      [K("begged with great feeling"), P("spoke with a cross voice", "D-PLAUSIBLE-UNSUPPORTED"), P("stopped asking for the puppy", "D-PLAUSIBLE-UNSUPPORTED"), P("shared a secret with Mom", "D-OPPOSITE")]),
     it("action_clue", 1, 2, 5,
-      "Thunder boomed, and Pepper the cat trembled under the bed — her whole small body shaking like a leaf in the wind until the storm rolled away.",
+      "Thunder boomed, and Pepper the cat trembled. Her small body shook under the bed. She stayed there until the loud storm passed. Then she came out for her food.",
       "trembled",
-      [K("shook with fear"),
-       P("purred happily", "D-OPPOSITE"),
-       P("stretched out flat", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("hid under the bed", "D-DETAIL-AS-MAIN")]),
+      [K("shook with fear"), P("stretched out slowly", "D-PLAUSIBLE-UNSUPPORTED"), P("hid in a small space", "D-PLAUSIBLE-UNSUPPORTED"), P("jumped onto a high place", "D-OPPOSITE")]),
     it("action_clue", 1, 2, 6,
-      "Grandpa grumbled all the way up the hill — a low, angry mutter about his knees, the weather, and whoever had invented hills in the first place.",
+      "Grandpa grumbled as he walked up the hill. He complained quietly about his sore knees. He complained about the wind too. His voice was low and cross.",
       "grumbled",
-      [K("complained in a low voice"),
-       P("sang a cheerful song", "D-OPPOSITE"),
-       P("climbed very fast", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("waved at neighbors", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("muttered crossly about problems"), P("sang a song about the hill", "D-PLAUSIBLE-UNSUPPORTED"), P("called loudly to his neighbours", "D-PLAUSIBLE-UNSUPPORTED"), P("laughed about his sore knees", "D-OPPOSITE")]),
     it("action_clue", 1, 2, 7,
-      "One by one the soap bubbles drifted over the wall — floating wherever the breeze carried them, in no hurry to be anywhere at all.",
+      "Soap bubbles drifted over the wall. The light breeze carried them slowly along. They went wherever the wind pushed them. No bubble moved quickly or in a straight line.",
       "drifted",
-      [K("floated slowly along"),
-       P("popped at once", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("shot up like rockets", "D-OPPOSITE"),
-       P("turned to rain", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("were carried gently by air"), P("fell quickly beside the wall", "D-PLAUSIBLE-UNSUPPORTED"), P("turned sharply against the breeze", "D-PLAUSIBLE-UNSUPPORTED"), P("burst loudly above the wall", "D-OPPOSITE")]),
     it("action_clue", 1, 2, 8,
-      "Baby Yara gazed at the fish mobile above her crib — eyes wide, mouth open, watching the slow silver fish go round and round for a whole quiet hour.",
+      "Baby Yara gazed at the hanging toy fish. She watched them turn slowly above her bed. Her eyes stayed on them for ages. She did not look away when Dad passed.",
       "gazed",
-      [K("looked for a long time"),
-       P("glanced away quickly", "D-OPPOSITE"),
-       P("cried loudly", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("reached and grabbed", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("kept her eyes on something"), P("looked away after a moment", "D-PLAUSIBLE-UNSUPPORTED"), P("searched quickly all around", "D-PLAUSIBLE-UNSUPPORTED"), P("closed her eyes to rest", "D-OPPOSITE")]),
 
     // ============ LEVEL 2 · synonym_clue (8) ============
     it("synonym_clue", 2, 1, 1,
-      "The fireworks were dazzling. The display was so bright that people shielded their eyes, and so brilliant that even the streetlights seemed dim afterwards.",
+      "The fireworks were dazzling. Their light was so brilliant that people covered their eyes. Even the bright streetlights seemed dull beside the display.",
       "dazzling",
-      [K("blindingly bright"),
-       P("disappointingly small", "D-OPPOSITE"),
-       P("dangerously loud", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("over too quickly", "D-TOPIC-ADJACENT")]),
+      [K("very bright to look at"), P("very loud to listen to", "D-PLAUSIBLE-UNSUPPORTED"), P("very quick to finish", "D-PLAUSIBLE-UNSUPPORTED"), P("very far away from people", "D-OPPOSITE")]),
     it("synonym_clue", 2, 1, 2,
-      "After the mountain walk, the hikers were weary. Exhausted, worn out, completely tired — they dropped their packs at the hut door and nobody spoke for ten minutes.",
+      "The hikers were weary after their mountain walk. They were tired and worn out from the climb. They dropped their heavy bags and sat down without speaking.",
       "weary",
-      [K("having no energy left"),
-       P("full of energy", "D-OPPOSITE"),
-       P("very thirsty", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("lost on the path", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("lacking energy after effort"), P("ready for more hard work", "D-PLAUSIBLE-UNSUPPORTED"), P("in need of a cool drink", "D-PLAUSIBLE-UNSUPPORTED"), P("unsure of the way back", "D-OPPOSITE")]),
     it("synonym_clue", 2, 1, 3,
-      "A strange commotion filled the yard — such an uproar, such a racket of clanging and squawking, that three teachers hurried out to see what the fuss could be.",
+      "A commotion began outside the classroom. A noisy uproar of bangs and squawks came from the yard. Three teachers went to find out what caused the racket.",
       "commotion",
-      [K("a noisy disturbance"),
-       P("a peaceful hush", "D-OPPOSITE"),
-       P("a kind of bird", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("a school lesson", "D-TOPIC-ADJACENT")]),
+      [K("a lot of noisy activity"), P("a long quiet wait", "D-PLAUSIBLE-UNSUPPORTED"), P("a short break for food", "D-PLAUSIBLE-UNSUPPORTED"), P("a slow walk in pairs", "D-OPPOSITE")]),
     it("synonym_clue", 2, 1, 4,
-      "Caught in the downpour without a coat, Priya arrived drenched — soaked to the skin, wet through, dripping a little lake onto the doormat.",
+      "Priya came home drenched by the sudden rain. Her clothes were soaked through and her hair dripped. She left a wet patch on the doormat.",
       "drenched",
-      [K("completely soaked"),
-       P("perfectly dry", "D-OPPOSITE"),
-       P("very late", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("out of breath", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("soaking wet in every part"), P("dry on every outer layer", "D-PLAUSIBLE-UNSUPPORTED"), P("cold without getting wet", "D-PLAUSIBLE-UNSUPPORTED"), P("creased from being folded", "D-OPPOSITE")]),
     it("synonym_clue", 2, 2, 5,
-      "The mouse nibbled the cheese — tiny bite after tiny bite, nothing like the dog, who would have swallowed it whole in one gulp.",
+      "The mouse nibbled the cheese. It took small bites, eating just a little each time. The dog would have swallowed that piece in one gulp.",
       "nibbled",
-      [K("ate with small bites"),
-       P("swallowed in one go", "D-OPPOSITE"),
-       P("pushed away", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("sniffed and left", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("took tiny mouthfuls to eat it"), P("gulped the whole piece at once", "D-PLAUSIBLE-UNSUPPORTED"), P("pushed the food aside", "D-PLAUSIBLE-UNSUPPORTED"), P("sniffed it without eating", "D-OPPOSITE")]),
     it("synonym_clue", 2, 2, 6,
-      "The baker kept his kitchen spotless. Not a crumb on the counters, not a smudge on the steel — so perfectly clean that the health inspector once asked for his secret.",
+      "The baker kept his kitchen spotless. Every counter was perfectly clean, without a single crumb or mark. He wiped up flour as soon as it spilled.",
       "spotless",
-      [K("completely free of dirt"),
-       P("covered in flour", "D-OPPOSITE"),
-       P("very small", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("closed on Sundays", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("clean with no marks at all"), P("tidy and neatly arranged", "D-PLAUSIBLE-UNSUPPORTED"), P("empty with nothing inside", "D-PLAUSIBLE-UNSUPPORTED"), P("shiny from fresh paint", "D-OPPOSITE")]),
     it("synonym_clue", 2, 2, 7,
-      "The kestrel soared over the cliff — rising higher and higher on the warm air, climbing without a single wing-beat until it was only a speck.",
+      "The kestrel soared above the cliff. It flew higher and higher on warm rising air. Soon the bird looked like a tiny spot in the sky.",
       "soared",
-      [K("flew high upward"),
-       P("dived to the ground", "D-OPPOSITE"),
-       P("built a nest", "D-TOPIC-ADJACENT"),
-       P("called loudly", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("rose and flew high in the air"), P("dived swiftly downward", "D-PLAUSIBLE-UNSUPPORTED"), P("stayed still above the cliff", "D-PLAUSIBLE-UNSUPPORTED"), P("skimmed low across the ground", "D-OPPOSITE")]),
     it("synonym_clue", 2, 2, 8,
-      "The soup was bitter — harsh and not at all sweet, though it was not sour like lemon juice — and Jonah's whole face folded up at the first spoonful.",
+      "The soup was bitter. Its taste was harsh and unsweet, but not sour like lemon. Jonah made a face and put down his spoon.",
       "bitter",
-      [K("a harsh, unsweet taste"),
-       P("sweet as honey", "D-OPPOSITE"),
-       P("sharp and sour like lemon", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("too hot to eat", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("a harsh taste without sweetness"), P("a sweet taste like honey", "D-PLAUSIBLE-UNSUPPORTED"), P("a sour taste like lemon", "D-PLAUSIBLE-UNSUPPORTED"), P("a gentle taste without much flavour", "D-OPPOSITE")]),
 
     // ============ LEVEL 2 · antonym_contrast_clue (8) ============
     it("antonym_contrast_clue", 2, 1, 1,
-      "Unlike her sister, who charged into every new place shouting hello, Faye was bashful, hanging back by the door until someone gently waved her in.",
+      "Faye's sister said hello loudly whenever they met new people. Faye was bashful instead, waiting quietly behind her sister. She only stepped forward when someone gently welcomed her.",
       "bashful",
-      [K("shy around new people"),
-       P("loud and confident", "D-OPPOSITE"),
-       P("angry at her sister", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("tired of visiting", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("shy about meeting others"), P("confident when greeting strangers", "D-PLAUSIBLE-UNSUPPORTED"), P("annoyed about sharing attention", "D-PLAUSIBLE-UNSUPPORTED"), P("impatient to leave the gathering", "D-OPPOSITE")]),
     it("antonym_contrast_clue", 2, 1, 2,
-      "The new bridge stood firm in any storm, but the old rope bridge was rickety — it wobbled and creaked at every single step, and two planks were missing.",
+      "The new bridge stayed firm through the storm. The old bridge was rickety, shaking at every step. Two loose boards creaked, and another board was missing.",
       "rickety",
-      [K("shaky and likely to break"),
-       P("solid and safe", "D-OPPOSITE"),
-       P("newly painted", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("too high to cross", "D-TOPIC-ADJACENT")]),
+      [K("unstable and poorly supported"), P("firmly built and dependable", "D-PLAUSIBLE-UNSUPPORTED"), P("too steep for most walkers", "D-PLAUSIBLE-UNSUPPORTED"), P("narrow but strongly built", "D-OPPOSITE")]),
     it("antonym_contrast_clue", 2, 1, 3,
-      "While the town square buzzed all evening, the side streets were bare — no stalls, no lanterns, not a single person — as if the party had gathered every soul into one place.",
+      "The town square was full of people and market stalls. The side streets were bare. They had no stalls, lanterns or people. Everyone had gathered in the square.",
       "bare",
-      [K("empty, with nothing there"),
-       P("crowded and busy", "D-OPPOSITE"),
-       P("dark green", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("freshly swept", "D-TOPIC-ADJACENT")]),
+      [K("empty of the things usually there"), P("crowded with many different things", "D-PLAUSIBLE-UNSUPPORTED"), P("covered with a thin layer of dust", "D-PLAUSIBLE-UNSUPPORTED"), P("freshly cleaned for a special event", "D-OPPOSITE")]),
     it("antonym_contrast_clue", 2, 1, 4,
-      "Everyone expected the principal's office to be warm, but it was frigid in there — so cold that she kept a blanket on her chair while the hallway outside stayed warm.",
+      "The hall was warm, but the office was frigid. The principal wore a coat and wrapped herself in a blanket. She rubbed her cold fingers while waiting for the heater.",
       "frigid",
       [K("extremely cold"),
        P("comfortably warm", "D-OPPOSITE"),
        P("strangely quiet", "D-PLAUSIBLE-UNSUPPORTED"),
        P("very tidy", "D-PLAUSIBLE-UNSUPPORTED")]),
     it("antonym_contrast_clue", 2, 2, 5,
-      "Dad strolls on Sundays, but on school mornings his pace is brisk — quick enough that Ida has to trot every few steps just to stay level.",
+      "Dad walks slowly on Sundays. On school mornings, his pace is brisk instead. Ida has to take quick little running steps to keep up.",
       "brisk",
-      [K("fast and energetic"),
-       P("slow and lazy", "D-OPPOSITE"),
-       P("quiet and careful", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("lost and confused", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("quick and full of energy"), P("slow and without much effort", "D-PLAUSIBLE-UNSUPPORTED"), P("quiet and careful at each step", "D-PLAUSIBLE-UNSUPPORTED"), P("uneven and likely to stumble", "D-OPPOSITE")]),
     it("antonym_contrast_clue", 2, 2, 6,
-      "The twins could not have sounded more different: Ade spoke up clearly for the whole hall to hear, while Bola preferred to mutter so softly that only she could hear the words.",
+      "Ade spoke clearly so everyone in the hall could hear. Bola chose to mutter instead. Her low, unclear words could hardly be heard nearby.",
       "mutter",
-      [K("speak low and unclearly"),
-       P("shout to the whole hall", "D-OPPOSITE"),
-       P("sing in tune", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("stay silent", "D-TOPIC-ADJACENT")]),
+      [K("speak softly without clear words"), P("call out loudly and clearly", "D-PLAUSIBLE-UNSUPPORTED"), P("repeat something in a steady rhythm", "D-PLAUSIBLE-UNSUPPORTED"), P("explain something slowly and carefully", "D-OPPOSITE")]),
     it("antonym_contrast_clue", 2, 2, 7,
-      "By day the harbor was lively, but at midnight it fell still: not one engine, not one voice, only rope against mast and the slow breathing of the sea.",
+      "The harbor was lively during the day. Boats came and went while workers called across the dock. At midnight it was still, with no engines or voices.",
       "lively",
-      [K("full of activity"),
-       P("silent and still", "D-OPPOSITE"),
-       P("deep under water", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("closed for winter", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("busy with things happening"), P("quiet and still", "D-PLAUSIBLE-UNSUPPORTED"), P("crowded with stored tools", "D-PLAUSIBLE-UNSUPPORTED"), P("unsafe because of deep water", "D-OPPOSITE")]),
     it("antonym_contrast_clue", 2, 2, 8,
-      "Instead of the sharp midday light, the lamp gave only a dim glow — so faint that Noor had to hold her book almost against the bulb to read at all.",
+      "The midday sun filled the room with bright light. That evening, the old lamp gave only a dim glow. Noor had to move her book close to see the words.",
       "dim",
-      [K("giving very little light"),
-       P("blindingly bright", "D-OPPOSITE"),
-       P("warm to touch", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("newly bought", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("producing only a weak light"), P("producing a dazzling bright light", "D-PLAUSIBLE-UNSUPPORTED"), P("changing between several different colours", "D-PLAUSIBLE-UNSUPPORTED"), P("flashing on and off very quickly", "D-OPPOSITE")]),
 
     // ============ LEVEL 2 · inference_clue (8) ============
     it("inference_clue", 2, 1, 1,
-      "When the magician clapped, the coin seemed to vanish. One moment it flashed between his fingers; the next his hands were empty, and the children searched the stage floor for a coin that simply was not there.",
+      "The magician held a coin between his fingers. After he clapped, it seemed to vanish. He showed both empty hands and turned them over. The children could not find the coin anywhere.",
       "vanish",
       [K("disappear completely"),
        P("grow much bigger", "D-PLAUSIBLE-UNSUPPORTED"),
        P("shine more brightly", "D-TOPIC-ADJACENT"),
        P("stay in plain sight", "D-OPPOSITE")]),
     it("inference_clue", 2, 1, 2,
-      "The bear's winter slumber lasted for months. Snow piled over the den mouth, storms came and went, and still nothing inside stirred until the first warm week of spring.",
+      "Leo settled into a slumber after his long hike. His eyes closed, and his breathing became slow and quiet. An hour later, he woke when Dad called him for supper.",
       "slumber",
-      [K("a long deep sleep"),
-       P("a hunting trip", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("a loud growl", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("a morning walk", "D-OPPOSITE")]),
+      [K("a period of rest while asleep"), P("a slow search for something to eat", "D-PLAUSIBLE-UNSUPPORTED"), P("a long time watching the view", "D-PLAUSIBLE-UNSUPPORTED"), P("a short walk to cool down", "D-OPPOSITE")]),
     it("inference_clue", 2, 1, 3,
-      "One whiff of the scent drifting from the kitchen told Omar everything: cinnamon, warm sugar, a promise of apples. His homework could wait.",
+      "A sweet scent reached Omar from the kitchen. He lifted his nose and breathed in again. He could tell Mom was cooking apples with cinnamon.",
       "scent",
-      [K("a smell in the air"),
-       P("a loud timer", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("a kind of pie", "D-TOPIC-ADJACENT"),
-       P("a cold draft", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("an odour carried through the air"), P("a sound travelling through the house", "D-PLAUSIBLE-UNSUPPORTED"), P("a taste left inside the mouth", "D-PLAUSIBLE-UNSUPPORTED"), P("a breeze coming through the window", "D-OPPOSITE")]),
     it("inference_clue", 2, 1, 4,
-      "The path was steep and the day was hot, but the view from the top repaid every step: the whole valley lay below them like a green map, and nobody regretted the climb.",
+      "The steep climb left everyone hot and tired. At the top, the wide valley repaid their effort. They smiled at the view and were glad they had climbed.",
       "repaid",
-      [K("made the effort worth it"),
-       P("cost extra money", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("ruined completely", "D-OPPOSITE"),
-       P("measured exactly", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("provided a reward for their effort"), P("returned money they had borrowed", "D-PLAUSIBLE-UNSUPPORTED"), P("required another difficult climb", "D-PLAUSIBLE-UNSUPPORTED"), P("made the effort seem wasted", "D-OPPOSITE")]),
     it("inference_clue", 2, 2, 5,
-      "Dev peered through the keyhole, then through the gap under the door, then through the frosted glass — anything for a glimpse of the birthday preparations he was strictly banned from seeing.",
+      "Dev peered through a keyhole to see the birthday preparations. He brought his eye very close and narrowed it. Then he tried a crack beside the door for another glimpse.",
       "peered",
-      [K("looked hard and closely"),
-       P("knocked politely", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("walked away", "D-OPPOSITE"),
-       P("listened carefully", "D-TOPIC-ADJACENT")]),
+      [K("looked closely with effort"), P("listened closely without looking", "D-PLAUSIBLE-UNSUPPORTED"), P("glanced briefly while passing", "D-PLAUSIBLE-UNSUPPORTED"), P("knocked gently before entering", "D-OPPOSITE")]),
     it("inference_clue", 2, 2, 6,
-      "The old rowboat bobbed by the dock — up with each small wave, down again after it, gentle as a cork, never drifting from its rope.",
+      "The little boat bobbed beside the dock. A small wave lifted its nose, then let it fall. The next wave lifted it once more. Its rope kept it from moving away.",
       "bobbed",
-      [K("floated up and down"),
-       P("sank to the bottom", "D-OPPOSITE"),
-       P("sped across the lake", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("leaked at the seams", "D-TOPIC-ADJACENT")]),
+      [K("rose and fell on the water"), P("travelled quickly away from the shore", "D-PLAUSIBLE-UNSUPPORTED"), P("turned steadily around in a circle", "D-PLAUSIBLE-UNSUPPORTED"), P("slid sideways along the edge of the dock", "D-OPPOSITE")]),
     it("inference_clue", 2, 2, 7,
-      "Roz patched the knee of her jeans with a square of star-print cloth. The hole disappeared under the stars, the stitches held through every playtime, and the jeans lasted the whole year after all.",
+      "Roz patched the hole in her jeans. She sewed a square of cloth over the torn knee. Her skin no longer showed, and the hole stopped getting bigger.",
       "patched",
-      [K("covered a hole to fix it"),
-       P("cut a bigger hole", "D-OPPOSITE"),
-       P("washed in hot water", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("folded and put away", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("mended by adding a covering piece"), P("enlarged by cutting around the edge", "D-PLAUSIBLE-UNSUPPORTED"), P("cleaned by soaking in hot water", "D-PLAUSIBLE-UNSUPPORTED"), P("shaped by folding the material over", "D-OPPOSITE")]),
     it("inference_clue", 2, 2, 8,
-      "At the first drops, everyone dashed for the park shelter — coats over heads, strollers bumping, ice cream cones abandoned — and reached its roof just as the sky truly opened.",
+      "The first heavy drops hit the picnic blanket. Everyone dashed toward the shelter before their food got wet. They reached the roof breathing hard, leaving muddy footprints behind.",
       "dashed",
-      [K("ran very quickly"),
-       P("strolled slowly", "D-OPPOSITE"),
-       P("danced in circles", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("walked slowly", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("ran there very quickly"), P("walked there very slowly", "D-PLAUSIBLE-UNSUPPORTED"), P("jumped around in place", "D-PLAUSIBLE-UNSUPPORTED"), P("stood still and waited", "D-OPPOSITE")]),
 
     // ============ RETENTION RESERVE (8 L1 + 8 L2) ============
     it("definition_clue", 1, 1, 9,
-      "Snug means warm, comfortable and safe. Inside her blanket nest with a book and the rain outside, Mia felt perfectly snug.",
+      "Snug means warm and comfortable. Mia sat in a snug nest of blankets. Outside, rain tapped the window. Inside, she stayed warm while reading her book.",
       "snug",
       [K("warm and comfortable"),
        P("cold and damp", "D-OPPOSITE"),
        P("bored and restless", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("half asleep", "D-TOPIC-ADJACENT")]),
+       P("half asleep", "D-TOPIC-ADJACENT")], { retention: true }),
     it("definition_clue", 1, 2, 10,
-      "A faint sound is one so quiet you can barely hear it. From two gardens away came the faint tinkle of a wind chime.",
+      "A faint sound is very quiet. We heard a faint chime from far away. Everyone stopped talking to hear it. The next small ring was almost too quiet.",
       "faint",
       [K("very quiet"),
        P("booming loud", "D-OPPOSITE"),
        P("out of tune", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("far too slow", "D-PLAUSIBLE-UNSUPPORTED")]),
+       P("far too slow", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),
     it("example_clue", 1, 1, 9,
-      "Gigantic things filled Theo's dinosaur book: legs like tree trunks, teeth as long as rulers, and one footprint that could have held his whole paddling pool.",
+      "Our tiny boat passed a gigantic ship. Its tall side blocked the harbor from view. Trucks on its deck looked like small toys. Hundreds of windows rose above our heads.",
       "gigantic",
-      [K("huge beyond belief"),
-       P("tiny and neat", "D-OPPOSITE"),
-       P("scaly and green", "D-TOPIC-ADJACENT"),
-       P("very fierce", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("very large in size"), P("very old in age", "D-PLAUSIBLE-UNSUPPORTED"), P("very loud to hear", "D-PLAUSIBLE-UNSUPPORTED"), P("very slow to move", "D-OPPOSITE")], { retention: true }),
     it("example_clue", 1, 2, 10,
-      "Everything delicate went on the top shelf: the paper lanterns, Grandma's thin glass cups, a model airplane made of paper, and a tiny clay bird.",
+      "We kept delicate things on the high shelf. Thin glass cups could break with a knock. The paper lanterns could tear in rough hands. We lifted each thing with care.",
       "delicate",
       [K("easily damaged"),
        P("hard to damage", "D-OPPOSITE"),
        P("very expensive", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("high up", "D-TOPIC-ADJACENT")]),
+       P("high up", "D-TOPIC-ADJACENT")], { retention: true }),
     it("action_clue", 1, 1, 9,
-      "All through dinner Uncle Ray was grumpy — he frowned at the peas, sighed at the weather, and answered every question with a single flat word.",
+      "Uncle Ray seemed grumpy during dinner. He frowned at his peas and sighed. When people asked him questions, he answered sharply. Even his favorite pudding brought no smile.",
       "grumpy",
       [K("in a bad mood"),
        P("full of jokes", "D-OPPOSITE"),
        P("very hungry", "D-PLAUSIBLE-UNSUPPORTED"),
        P("fast asleep", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),
     it("action_clue", 1, 2, 10,
-      "The lizard darted across the hot stone path — there one blink, gone the next — and vanished under the rosemary bush before anyone could crouch for a look.",
+      "The lizard darted across the hot path. One moment it was on a stone. A moment later it was under the bush. Nobody could follow its quick movement.",
       "darted",
-      [K("moved suddenly and fast"),
-       P("slept in the sun", "D-OPPOSITE"),
-       P("changed its color", "D-TOPIC-ADJACENT"),
-       P("hissed a warning", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),
+      [K("moved with a sudden rush"), P("moved with a slow crawl", "D-PLAUSIBLE-UNSUPPORTED"), P("rested without any movement", "D-PLAUSIBLE-UNSUPPORTED"), P("turned slowly in a circle", "D-OPPOSITE")], { retention: true }),
     it("definition_clue", 1, 1, 11,
-      "Elderly means old, especially for a person. The elderly man at number nine has lived on our street longer than anyone else.",
+      "Elderly means old in age. Our elderly neighbor is nearly ninety. He has lived here longer than anyone else. He remembers when our road had no shops.",
       "elderly",
-      [K("old in age"),
-       P("very young", "D-OPPOSITE"),
-       P("new to the street", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("tall and thin", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),
+      [K("old in age"), P("very young", "D-PLAUSIBLE-UNSUPPORTED"), P("newly arrived", "D-PLAUSIBLE-UNSUPPORTED"), P("quite tall", "D-OPPOSITE")], { retention: true }),
     it("example_clue", 1, 1, 11,
-      "The junk drawer was a jumble: rubber bands around old keys, a flashlight tangled in string, batteries mixed with buttons, and somewhere underneath, the missing bicycle bell.",
+      "The junk drawer held a jumble. Old keys lay mixed with buttons and string. Batteries were tangled in rubber bands. Finding the missing bicycle bell took a long time.",
       "jumble",
-      [K("a disordered collection"),
-       P("a tidy line", "D-OPPOSITE"),
-       P("a locked box", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("a shopping list", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),
+      [K("a mixed-up pile of things"), P("a neat row of things", "D-PLAUSIBLE-UNSUPPORTED"), P("a set of brand-new things", "D-PLAUSIBLE-UNSUPPORTED"), P("a box of matching things", "D-OPPOSITE")], { retention: true }),
     it("synonym_clue", 2, 1, 9,
-      "The stray kitten was famished — starving, truly hollow-bellied — and it emptied the saucer of food before Ella had even stood back up.",
+      "The stray kitten was famished. It was so hungry that it ate the whole saucerful. Ella had barely stood up before it began looking for more.",
       "famished",
-      [K("extremely hungry"),
-       P("completely full", "D-OPPOSITE"),
-       P("soft and fluffy", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("afraid of people", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("extremely hungry"), P("completely full", "D-PLAUSIBLE-UNSUPPORTED"), P("very frightened", "D-PLAUSIBLE-UNSUPPORTED"), P("quite exhausted", "D-OPPOSITE")], { retention: true }),
     it("synonym_clue", 2, 2, 10,
-      "The riddle baffled the whole family. It puzzled Dad, confused Grandma, and stumped even Priya, who does the crossword in pen.",
+      "The riddle baffled the family. Dad was puzzled, and Grandma could not work it out. Even Priya kept changing her answer and shaking her head.",
       "baffled",
-      [K("completely puzzled"),
-       P("bored quickly", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("made everyone laugh", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("was solved at once", "D-OPPOSITE")]),
+      [K("left everyone unable to work it out"), P("made everyone unwilling to try at all", "D-PLAUSIBLE-UNSUPPORTED"), P("helped everyone agree on one clear answer", "D-PLAUSIBLE-UNSUPPORTED"), P("made everyone laugh at the same mistake", "D-OPPOSITE")], { retention: true }),
     it("antonym_contrast_clue", 2, 1, 9,
-      "Most days the sea slapped the rocks in fury, but this morning it was placid — flat, quiet water without one white wave from the beach to the buoy.",
+      "Most days, rough waves crashed against the harbor wall. Today the sea was placid. Boats rested on quiet, smooth water without rocking from side to side.",
       "placid",
-      [K("calm and peaceful"),
-       P("wild and stormy", "D-OPPOSITE"),
-       P("deep and cold", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("full of boats", "D-TOPIC-ADJACENT")]),
+      [K("calm with little movement"), P("rough with powerful waves", "D-PLAUSIBLE-UNSUPPORTED"), P("cold with pieces of ice", "D-PLAUSIBLE-UNSUPPORTED"), P("shallow with a muddy bottom", "D-OPPOSITE")], { retention: true }),
     it("antonym_contrast_clue", 2, 2, 10,
-      "The first clue was simple enough for anyone, but the last was so cunning that even the puzzle club's champion chewed her pencil over it until the bell.",
+      "The first clue was plain and simple to solve. The final clue was cunning instead. Even the puzzle club champion had to think carefully about it.",
       "cunning",
-      [K("cleverly tricky"),
-       P("plain and easy", "D-OPPOSITE"),
-       P("written in ink", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("missing a piece", "D-PLAUSIBLE-UNSUPPORTED")]),
+      [K("cleverly difficult to work out"), P("simple and quick to understand", "D-PLAUSIBLE-UNSUPPORTED"), P("long but familiar to everyone", "D-PLAUSIBLE-UNSUPPORTED"), P("incomplete because parts were missing", "D-OPPOSITE")], { retention: true }),
     it("inference_clue", 2, 1, 9,
-      "The parcel was so cumbersome that Jai had to carry it with both arms wrapped right around, walking sideways through doorways and resting at every corner.",
+      "The parcel was cumbersome. Jai wrapped both arms around it to keep hold. He had to turn sideways to fit through doorways. He stopped often to rest his arms.",
       "cumbersome",
-      [K("big and awkward to carry"),
-       P("light as a feather", "D-OPPOSITE"),
-       P("tied with ribbon", "D-TOPIC-ADJACENT"),
-       P("full of books", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),
+      [K("large and difficult to handle"), P("light and simple to lift", "D-PLAUSIBLE-UNSUPPORTED"), P("small but very valuable", "D-PLAUSIBLE-UNSUPPORTED"), P("soft and easy to squeeze", "D-OPPOSITE")], { retention: true }),
     it("inference_clue", 2, 2, 10,
-      "One sniff of the butter made Asha wince and hold the dish at arm's length. It had turned rancid after being left in a warm place for days.",
+      "Asha sniffed the butter, then held it away from her face. It smelled bad after several days in the warm kitchen. The butter had turned rancid, so she threw it away.",
       "rancid",
-      [K("gone bad and smelly"),
-       P("fresh and creamy", "D-OPPOSITE"),
-       P("frozen solid", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("watered down", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),
+      [K("spoiled and unpleasant to smell"), P("fresh and pleasant to spread", "D-PLAUSIBLE-UNSUPPORTED"), P("hard after becoming very cold", "D-PLAUSIBLE-UNSUPPORTED"), P("thin after mixing with water", "D-OPPOSITE")], { retention: true }),
     it("synonym_clue", 2, 1, 11,
-      "Loyal to the end, the old sheepdog shadowed Farmer Bell everywhere — faithful through rain, market days, and even trips to the vet.",
+      "The dog was loyal to Farmer Bell. It stayed by his side and never left him behind. Even in heavy rain, the dog followed him along the path.",
       "loyal",
-      [K("always faithful"),
-       P("quick to run off", "D-OPPOSITE"),
-       P("afraid of sheep", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("very old", "D-TOPIC-ADJACENT")], { retention: true }),
+      [K("staying true to someone"), P("staying afraid of someone", "D-PLAUSIBLE-UNSUPPORTED"), P("staying hidden from someone", "D-PLAUSIBLE-UNSUPPORTED"), P("staying angry with someone", "D-OPPOSITE")], { retention: true }),
     it("inference_clue", 2, 1, 11,
-      "The classroom fell silent as the results were read, and when her name came last — first place — Zainab beamed, a smile so wide it seemed to light the room.",
+      "Zainab waited quietly while the judge read the results. At last, she heard her name as the winner. She beamed at her family. Her wide smile stayed through the whole prize giving.",
       "beamed",
-      [K("smiled hugely"),
-       P("burst into tears", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("frowned crossly", "D-OPPOSITE"),
-       P("left the room", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true })
-  ]
+      [K("smiled very broadly"), P("frowned with annoyance", "D-PLAUSIBLE-UNSUPPORTED"), P("stared without expression", "D-PLAUSIBLE-UNSUPPORTED"), P("laughed with a loud noise", "D-OPPOSITE")], { retention: true }),
+    // Fresh retry stock: four additional questions in each phase.
+    {
+      "u": "definition_clue",
+      "lvl": 1,
+      "ph": 1,
+      "v": 20,
+      "fmt": "COMPREHENSION",
+      "cell": "definition_clue",
+      "passage": "The path was narrow, with little space across it. We had to walk in a line.",
+      "prompt": "What does \"narrow\" mean here?",
+      "choices": [
+        {
+          "t": "not very wide",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "not very smooth",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "not very straight",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "not very long",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "example_clue",
+      "lvl": 1,
+      "ph": 1,
+      "v": 20,
+      "fmt": "COMPREHENSION",
+      "cell": "example_clue",
+      "passage": "We sorted the fasteners into trays. Buttons went here, and zips went there. Hooks and buckles filled the last tray.",
+      "prompt": "What are \"fasteners\"?",
+      "choices": [
+        {
+          "t": "things that hold clothing closed",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "things that make clothing warmer",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "things that wash clothing clean",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "things that change clothing colour",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "action_clue",
+      "lvl": 1,
+      "ph": 1,
+      "v": 20,
+      "fmt": "COMPREHENSION",
+      "cell": "action_clue",
+      "passage": "Tia peered through the tiny hole. She moved closer and squinted to see inside.",
+      "prompt": "What does \"peered\" mean?",
+      "choices": [
+        {
+          "t": "looked with careful effort",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "spoke in a quiet voice",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "moved at a quick pace",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "reached with both hands",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "example_clue",
+      "lvl": 1,
+      "ph": 1,
+      "v": 21,
+      "fmt": "COMPREHENSION",
+      "cell": "example_clue",
+      "passage": "We packed utensils for the picnic. Each bag had a spoon, fork, and knife.",
+      "prompt": "What are \"utensils\" here?",
+      "choices": [
+        {
+          "t": "tools used for eating food",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "bags used for carrying food",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "cloths used for covering food",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "boxes used for storing food",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "action_clue",
+      "lvl": 1,
+      "ph": 2,
+      "v": 21,
+      "fmt": "COMPREHENSION",
+      "cell": "action_clue",
+      "passage": "The puppy nudged my knee with its nose. My leg moved a little from the gentle push.",
+      "prompt": "What does \"nudged\" mean?",
+      "choices": [
+        {
+          "t": "pushed lightly",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "bit sharply",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "looked closely",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "called loudly",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "definition_clue",
+      "lvl": 1,
+      "ph": 2,
+      "v": 21,
+      "fmt": "COMPREHENSION",
+      "cell": "definition_clue",
+      "passage": "The cloth was absorbent; it soaked up spilled water. Soon, the table was dry.",
+      "prompt": "What does \"absorbent\" mean?",
+      "choices": [
+        {
+          "t": "able to take in liquid",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "able to keep out dust",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "able to let light through",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "able to stretch without tearing",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "example_clue",
+      "lvl": 1,
+      "ph": 2,
+      "v": 22,
+      "fmt": "COMPREHENSION",
+      "cell": "example_clue",
+      "passage": "The box held keepsakes from our trip. There was a ticket, postcard, and tiny shell. Each one helped us remember a special day.",
+      "prompt": "What are \"keepsakes\"?",
+      "choices": [
+        {
+          "t": "objects saved to remember something",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "objects collected to sell in shops",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "objects borrowed to finish a job",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "objects thrown away after a trip",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "action_clue",
+      "lvl": 1,
+      "ph": 2,
+      "v": 22,
+      "fmt": "COMPREHENSION",
+      "cell": "action_clue",
+      "passage": "Jo fumbled with the wet soap. It slipped between her fingers twice. She could not get a firm grip.",
+      "prompt": "What does \"fumbled\" mean?",
+      "choices": [
+        {
+          "t": "handled in a clumsy way",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "washed in a careful way",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "dried in a gentle way",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "carried in a steady way",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "synonym_clue",
+      "lvl": 2,
+      "ph": 1,
+      "v": 20,
+      "fmt": "COMPREHENSION",
+      "cell": "synonym_clue",
+      "passage": "The guide described the route as circular. It formed a loop and ended where it began.",
+      "prompt": "What does \"circular\" mean?",
+      "choices": [
+        {
+          "t": "going around and returning to the start",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "going straight on without changing direction",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "going upward until reaching the highest point",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "going back only along the same track",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "antonym_contrast_clue",
+      "lvl": 2,
+      "ph": 1,
+      "v": 20,
+      "fmt": "COMPREHENSION",
+      "cell": "antonym_contrast_clue",
+      "passage": "The first cushion was rigid, but the second bent easily. Mia chose the flexible one for the curved seat.",
+      "prompt": "What does \"rigid\" mean?",
+      "choices": [
+        {
+          "t": "stiff and hard to bend",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "soft and easy to squeeze",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "rough and painful to touch",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "thin and easy to tear",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "inference_clue",
+      "lvl": 2,
+      "ph": 1,
+      "v": 20,
+      "fmt": "COMPREHENSION",
+      "cell": "inference_clue",
+      "passage": "The hinge was corroded after years of rain. Orange flakes fell off, and the metal broke when pressed.",
+      "prompt": "What does \"corroded\" mean here?",
+      "choices": [
+        {
+          "t": "damaged as the metal slowly rusted",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "bent into a shape for a new use",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "covered with a fresh layer of paint",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "heated until the metal became soft",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "inference_clue",
+      "lvl": 2,
+      "ph": 1,
+      "v": 21,
+      "fmt": "COMPREHENSION",
+      "cell": "inference_clue",
+      "passage": "The instructions were concise. I read them in half a minute and knew each step. Nothing important was missing.",
+      "prompt": "What does \"concise\" mean?",
+      "choices": [
+        {
+          "t": "brief while still giving what is needed",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "long because every detail is repeated",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "unclear because important steps are missing",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "careful to avoid giving a direct answer",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "antonym_contrast_clue",
+      "lvl": 2,
+      "ph": 2,
+      "v": 21,
+      "fmt": "COMPREHENSION",
+      "cell": "antonym_contrast_clue",
+      "passage": "The loose rope sagged between the posts. Dan pulled it taut, so it ran straight without drooping.",
+      "prompt": "What does \"taut\" mean?",
+      "choices": [
+        {
+          "t": "pulled tight",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "hanging low",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "cut short",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "tied loosely",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "synonym_clue",
+      "lvl": 2,
+      "ph": 2,
+      "v": 21,
+      "fmt": "COMPREHENSION",
+      "cell": "synonym_clue",
+      "passage": "We needed to postpone the outdoor show. We moved it to the following week because of rain.",
+      "prompt": "What does \"postpone\" mean?",
+      "choices": [K("move it to a later date"), P("cancel it completely", "D-PLAUSIBLE-UNSUPPORTED"), P("change its location", "D-PLAUSIBLE-UNSUPPORTED"), P("hold it earlier", "D-OPPOSITE")],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "inference_clue",
+      "lvl": 2,
+      "ph": 2,
+      "v": 22,
+      "fmt": "COMPREHENSION",
+      "cell": "inference_clue",
+      "passage": "Eli was meticulous when building the model. He measured each piece twice and checked every tiny join.",
+      "prompt": "What does \"meticulous\" mean?",
+      "choices": [
+        {
+          "t": "very careful about small details",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "very quick to finish a task",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "very keen to change the plan",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "very willing to share materials",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "inference_clue",
+      "lvl": 2,
+      "ph": 2,
+      "v": 23,
+      "fmt": "COMPREHENSION",
+      "cell": "inference_clue",
+      "passage": "The roof was permeable. After a shower, drops passed through tiny spaces and wet the floor.",
+      "prompt": "What does \"permeable\" mean?",
+      "choices": [
+        {
+          "t": "allowing water to pass through",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "able to fold into a small space",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "strong enough to hold heavy objects",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "able to reflect light from its surface",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    }
+]
 };

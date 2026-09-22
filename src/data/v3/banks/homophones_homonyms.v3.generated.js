@@ -175,7 +175,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "means gifts ea to sea — a distractor tops, never the key"
+  "notes": "Can requires the base verb see; saw is past tense and sea is the homophone."
  },
  {
   "id": "lp3.homophones_homonyms.l1.C.sea_see.v3",
@@ -553,21 +553,21 @@ export const questions = [
   "formatType": "HOMOPHONE_CONTEXT_CLOZE",
   "templateType": "HOMOPHONE_CONTEXT_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Which spelling fits: The ___ rose over the hill at dawn.",
-  "question": "Which spelling fits: The ___ rose over the hill at dawn.",
-  "spokenPrompt": "Which spelling fits? The … rose over the hill at dawn.",
-  "sentence": "The ___ rose over the hill at dawn.",
+  "prompt": "Which spelling fits: The ___ lit the sky at dawn.",
+  "question": "Which spelling fits: The ___ lit the sky at dawn.",
+  "spokenPrompt": "Which spelling fits? The … lit the sky at dawn.",
+  "sentence": "The ___ lit the sky at dawn.",
   "choices": [
-   "sofa",
+   "shade",
    "sun",
    "son",
-   "spoon"
+   "sunset"
   ],
   "answerOptions": [
    {
-    "value": "sofa",
-    "label": "sofa",
-    "text": "sofa"
+    "value": "shade",
+    "label": "shade",
+    "text": "shade"
    },
    {
     "value": "sun",
@@ -580,17 +580,17 @@ export const questions = [
     "text": "son"
    },
    {
-    "value": "spoon",
-    "label": "spoon",
-    "text": "spoon"
+    "value": "sunset",
+    "label": "sunset",
+    "text": "sunset"
    }
   ],
   "answer": "sun",
   "correctAnswer": "sun",
   "distractorRationales": {
-   "sofa": "D-SEMANTIC",
+   "shade": "D-SEMANTIC",
    "son": "D-HOMOPHONE",
-   "spoon": "D-SEMANTIC"
+   "sunset": "D-SEMANTIC"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -600,7 +600,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The ___ rose over the hill at dawn.",
+  "sentenceText": "The ___ lit the sky at dawn.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -621,7 +621,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "spoon and sofa parse and are absurd — no rising rival like moon or star"
+  "notes": "The sun lights the sky at dawn; sunset is the end of daylight."
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.sun_son.v4",
@@ -643,21 +643,21 @@ export const questions = [
   "formatType": "HOMOPHONE_CONTEXT_CLOZE",
   "templateType": "HOMOPHONE_CONTEXT_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Which spelling fits: Grandpa hugged his ___ at the gate.",
-  "question": "Which spelling fits: Grandpa hugged his ___ at the gate.",
-  "spokenPrompt": "Which spelling fits? Grandpa hugged his … at the gate.",
-  "sentence": "Grandpa hugged his ___ at the gate.",
+  "prompt": "Which spelling fits: Grandpa hugged his baby boy, his ___.",
+  "question": "Which spelling fits: Grandpa hugged his baby boy, his ___.",
+  "spokenPrompt": "Which spelling fits? Grandpa hugged his baby boy, his ….",
+  "sentence": "Grandpa hugged his baby boy, his ___.",
   "choices": [
-   "spoon",
+   "soon",
    "son",
    "sun",
-   "sock"
+   "sons"
   ],
   "answerOptions": [
    {
-    "value": "spoon",
-    "label": "spoon",
-    "text": "spoon"
+    "value": "soon",
+    "label": "soon",
+    "text": "soon"
    },
    {
     "value": "son",
@@ -670,17 +670,17 @@ export const questions = [
     "text": "sun"
    },
    {
-    "value": "sock",
-    "label": "sock",
-    "text": "sock"
+    "value": "sons",
+    "label": "sons",
+    "text": "sons"
    }
   ],
   "answer": "son",
   "correctAnswer": "son",
   "distractorRationales": {
    "sun": "D-HOMOPHONE",
-   "sock": "D-SEMANTIC",
-   "spoon": "D-SEMANTIC"
+   "sons": "D-SEMANTIC",
+   "soon": "D-SEMANTIC"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -690,7 +690,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Grandpa hugged his ___ at the gate.",
+  "sentenceText": "Grandpa hugged his baby boy, his ___.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -914,21 +914,21 @@ export const questions = [
   "spokenPrompt": "Which spelling fits? A buzzing … landed on the flower.",
   "sentence": "A buzzing ___ landed on the flower.",
   "choices": [
-   "sock",
-   "spoon",
+   "seed",
+   "stem",
    "bee",
    "be"
   ],
   "answerOptions": [
    {
-    "value": "sock",
-    "label": "sock",
-    "text": "sock"
+    "value": "seed",
+    "label": "seed",
+    "text": "seed"
    },
    {
-    "value": "spoon",
-    "label": "spoon",
-    "text": "spoon"
+    "value": "stem",
+    "label": "stem",
+    "text": "stem"
    },
    {
     "value": "bee",
@@ -945,8 +945,8 @@ export const questions = [
   "correctAnswer": "bee",
   "distractorRationales": {
    "be": "D-HOMOPHONE",
-   "sock": "D-SEMANTIC",
-   "spoon": "D-SEMANTIC"
+   "seed": "D-SEMANTIC",
+   "stem": "D-SEMANTIC"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -977,7 +977,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "on gifts its chunk to spoon — a distractor tops; no landing rival like bug or leaf"
+  "notes": "Buzzing identifies the insect, and be is the paired homophone."
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.be_bee.v4",
@@ -999,10 +999,10 @@ export const questions = [
   "formatType": "HOMOPHONE_CONTEXT_CLOZE",
   "templateType": "HOMOPHONE_CONTEXT_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Which spelling fits: I will ___ seven on my next birthday.",
-  "question": "Which spelling fits: I will ___ seven on my next birthday.",
-  "spokenPrompt": "Which spelling fits? I will … seven on my next birthday.",
-  "sentence": "I will ___ seven on my next birthday.",
+  "prompt": "Which spelling fits: On my next birthday, my age will ___ seven.",
+  "question": "Which spelling fits: On my next birthday, my age will ___ seven.",
+  "spokenPrompt": "Which spelling fits? On my next birthday, my age will … seven.",
+  "sentence": "On my next birthday, my age will ___ seven.",
   "choices": [
    "bee",
    "draw",
@@ -1046,7 +1046,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "I will ___ seven on my next birthday.",
+  "sentenceText": "On my next birthday, my age will ___ seven.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1067,7 +1067,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "draw seven parses (the numeral) and is defensibly wrong for an age"
+  "notes": "The subject is age, so be is the linking verb; drawing a numeral cannot fit."
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.no_know.v1",
@@ -1889,9 +1889,9 @@ export const questions = [
   "formatType": "HOMOPHONE_MEANING",
   "templateType": "HOMOPHONE_MEANING",
   "questionType": "multiple_choice",
-  "prompt": "Pick the spelling for ‘I ___ my lunch’.",
-  "question": "Pick the spelling for ‘I ___ my lunch’.",
-  "spokenPrompt": "Pick the spelling for ‘I … my lunch’.",
+  "prompt": "Pick the spelling for ‘Yesterday I ___ my lunch’.",
+  "question": "Pick the spelling for ‘Yesterday I ___ my lunch’.",
+  "spokenPrompt": "Pick the spelling for ‘Yesterday I … my lunch’.",
   "choices": [
    "ate",
    "eight",
@@ -1955,7 +1955,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "that gifts at to key and eat together — tie"
+  "notes": "Yesterday requires the past form ate, while eight is its homophone."
  },
  {
   "id": "lp3.homophones_homonyms.l1.C.ate_eight.v3",
@@ -2067,10 +2067,10 @@ export const questions = [
   "formatType": "HOMOPHONE_CONTEXT_CLOZE",
   "templateType": "HOMOPHONE_CONTEXT_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Which spelling fits: There are ___ legs on a spider.",
-  "question": "Which spelling fits: There are ___ legs on a spider.",
-  "spokenPrompt": "Which spelling fits? There are … legs on a spider.",
-  "sentence": "There are ___ legs on a spider.",
+  "prompt": "Which spelling fits: The card shows 8. Write the number word: ___.",
+  "question": "Which spelling fits: The card shows 8. Write the number word: ___.",
+  "spokenPrompt": "Which spelling fits? The card shows 8. Write the number word: ….",
+  "sentence": "The card shows 8. Write the number word: ___.",
   "choices": [
    "sixty",
    "eight",
@@ -2114,7 +2114,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "There are ___ legs on a spider.",
+  "sentenceText": "The card shows 8. Write the number word: ___.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -2135,7 +2135,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "six parses but a spider has eight — the fact pins it"
+  "notes": "The printed numeral supplies the number directly; no animal facts are required."
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.hear_here.v1",
@@ -2338,21 +2338,21 @@ export const questions = [
   "spokenPrompt": "Which spelling fits? I can … the owl calling outside.",
   "sentence": "I can ___ the owl calling outside.",
   "choices": [
-   "am",
-   "was",
+   "heard",
+   "hears",
    "hear",
    "here"
   ],
   "answerOptions": [
    {
-    "value": "am",
-    "label": "am",
-    "text": "am"
+    "value": "heard",
+    "label": "heard",
+    "text": "heard"
    },
    {
-    "value": "was",
-    "label": "was",
-    "text": "was"
+    "value": "hears",
+    "label": "hears",
+    "text": "hears"
    },
    {
     "value": "hear",
@@ -2369,8 +2369,8 @@ export const questions = [
   "correctAnswer": "hear",
   "distractorRationales": {
    "here": "D-HOMOPHONE",
-   "am": "D-FUNCTION-SWAP",
-   "was": "D-FUNCTION-SWAP"
+   "heard": "D-FUNCTION-SWAP",
+   "hears": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2689,10 +2689,10 @@ export const questions = [
   "formatType": "HOMOPHONE_CONTEXT_CLOZE",
   "templateType": "HOMOPHONE_CONTEXT_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Which spelling fits: The wind ___ my hat into the pond!",
-  "question": "Which spelling fits: The wind ___ my hat into the pond!",
-  "spokenPrompt": "Which spelling fits? The wind … my hat into the pond!",
-  "sentence": "The wind ___ my hat into the pond!",
+  "prompt": "Which spelling fits: Yesterday, the wind ___ my hat into the pond!",
+  "question": "Which spelling fits: Yesterday, the wind ___ my hat into the pond!",
+  "spokenPrompt": "Which spelling fits? Yesterday, the wind … my hat into the pond!",
+  "sentence": "Yesterday, the wind ___ my hat into the pond!",
   "choices": [
    "blue",
    "blows",
@@ -2736,7 +2736,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The wind ___ my hat into the pond!",
+  "sentenceText": "Yesterday, the wind ___ my hat into the pond!",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -2847,7 +2847,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the color of the sea pins blue — loud and tall parse and contradict it"
+  "notes": "A clear daytime sky provides a familiar color clue."
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.to_two_too.v1",
@@ -4029,10 +4029,10 @@ export const questions = [
   "formatType": "HOMOPHONE_CONTEXT_CLOZE",
   "templateType": "HOMOPHONE_CONTEXT_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Which spelling fits: I ___ the answer before anyone else.",
-  "question": "Which spelling fits: I ___ the answer before anyone else.",
-  "spokenPrompt": "Which spelling fits? I … the answer before anyone else.",
-  "sentence": "I ___ the answer before anyone else.",
+  "prompt": "Which spelling fits: Yesterday, I ___ the answer before anyone else.",
+  "question": "Which spelling fits: Yesterday, I ___ the answer before anyone else.",
+  "spokenPrompt": "Which spelling fits? Yesterday, I … the answer before anyone else.",
+  "sentence": "Yesterday, I ___ the answer before anyone else.",
   "choices": [
    "knows",
    "knew",
@@ -4076,7 +4076,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "I ___ the answer before anyone else.",
+  "sentenceText": "Yesterday, I ___ the answer before anyone else.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4097,7 +4097,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "know and knows clash with the before-past frame"
+  "notes": "Yesterday requires knew rather than a present-tense form."
  },
  {
   "id": "lp3.homophones_homonyms.l2.C.new_knew.v3",
@@ -4295,14 +4295,14 @@ export const questions = [
   "formatType": "HOMOPHONE_CONTEXT_CLOZE",
   "templateType": "HOMOPHONE_CONTEXT_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Which spelling fits: The cake bakes for one ___.",
-  "question": "Which spelling fits: The cake bakes for one ___.",
-  "spokenPrompt": "Which spelling fits? The cake bakes for one ….",
-  "sentence": "The cake bakes for one ___.",
+  "prompt": "Which spelling fits: The cake bakes for sixty minutes: one ___.",
+  "question": "Which spelling fits: The cake bakes for sixty minutes: one ___.",
+  "spokenPrompt": "Which spelling fits? The cake bakes for sixty minutes: one ….",
+  "sentence": "The cake bakes for sixty minutes: one ___.",
   "choices": [
    "our",
    "hours",
-   "week",
+   "minute",
    "hour"
   ],
   "answerOptions": [
@@ -4317,9 +4317,9 @@ export const questions = [
     "text": "hours"
    },
    {
-    "value": "week",
-    "label": "week",
-    "text": "week"
+    "value": "minute",
+    "label": "minute",
+    "text": "minute"
    },
    {
     "value": "hour",
@@ -4331,7 +4331,7 @@ export const questions = [
   "correctAnswer": "hour",
   "distractorRationales": {
    "hours": "D-FUNCTION-SWAP",
-   "week": "D-SEMANTIC",
+   "minute": "D-SEMANTIC",
    "our": "D-HOMOPHONE"
   },
   "mediaTier": "text",
@@ -4342,7 +4342,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The cake bakes for one ___.",
+  "sentenceText": "The cake bakes for sixty minutes: one ___.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4363,7 +4363,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "one hours breaks agreement; a one-week cake bake is defensibly absurd"
+  "notes": "Sixty minutes equals one hour; hours breaks singular agreement."
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.hour_our.v2",
@@ -4741,10 +4741,10 @@ export const questions = [
   "formatType": "HOMOPHONE_CONTEXT_CLOZE",
   "templateType": "HOMOPHONE_CONTEXT_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Which spelling fits: A bee landed on the pink ___.",
-  "question": "Which spelling fits: A bee landed on the pink ___.",
-  "spokenPrompt": "Which spelling fits? A bee landed on the pink ….",
-  "sentence": "A bee landed on the pink ___.",
+  "prompt": "Which spelling fits: A pink ___ grew from a seed.",
+  "question": "Which spelling fits: A pink ___ grew from a seed.",
+  "spokenPrompt": "Which spelling fits? A pink … grew from a seed.",
+  "sentence": "A pink ___ grew from a seed.",
   "choices": [
    "flour",
    "floor",
@@ -4788,7 +4788,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "A bee landed on the pink ___.",
+  "sentenceText": "A pink ___ grew from a seed.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4809,7 +4809,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "landed gifts la to flag — a distractor tops, never the key"
+  "notes": "Only a flower grows from a seed."
  },
  {
   "id": "lp3.homophones_homonyms.l2.C.flower_flour.v3",
@@ -5453,21 +5453,21 @@ export const questions = [
   "formatType": "HOMOPHONE_CONTEXT_CLOZE",
   "templateType": "HOMOPHONE_CONTEXT_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Which spelling fits: In the old story, the palace ___ swept the hall.",
-  "question": "Which spelling fits: In the old story, the palace ___ swept the hall.",
-  "spokenPrompt": "Which spelling fits? In the old story, the palace … swept the hall.",
-  "sentence": "In the old story, the palace ___ swept the hall.",
+  "prompt": "Which spelling fits: In the story, the palace ___ was a woman who cleaned.",
+  "question": "Which spelling fits: In the story, the palace ___ was a woman who cleaned.",
+  "spokenPrompt": "Which spelling fits? In the story, the palace … was a woman who cleaned.",
+  "sentence": "In the story, the palace ___ was a woman who cleaned.",
   "choices": [
-   "moon",
+   "make",
    "maid",
    "made",
-   "mouse"
+   "maids"
   ],
   "answerOptions": [
    {
-    "value": "moon",
-    "label": "moon",
-    "text": "moon"
+    "value": "make",
+    "label": "make",
+    "text": "make"
    },
    {
     "value": "maid",
@@ -5480,16 +5480,16 @@ export const questions = [
     "text": "made"
    },
    {
-    "value": "mouse",
-    "label": "mouse",
-    "text": "mouse"
+    "value": "maids",
+    "label": "maids",
+    "text": "maids"
    }
   ],
   "answer": "maid",
   "correctAnswer": "maid",
   "distractorRationales": {
-   "mouse": "D-SEMANTIC",
-   "moon": "D-SEMANTIC",
+   "maids": "D-SEMANTIC",
+   "make": "D-SEMANTIC",
    "made": "D-HOMOPHONE"
   },
   "mediaTier": "text",
@@ -5500,7 +5500,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "In the old story, the palace ___ swept the hall.",
+  "sentenceText": "In the story, the palace ___ was a woman who cleaned.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -5521,7 +5521,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "floor gifts oo to moon — a distractor tops; no sweeping rival like cook"
+  "notes": "The story defines the cleaner role; maid is singular and made is the homophone."
  },
  {
   "id": "lp3.homophones_homonyms.l2.C.made_maid.v3",
@@ -5631,9 +5631,9 @@ export const questions = [
   "formatType": "HOMOPHONE_MEANING",
   "templateType": "HOMOPHONE_MEANING",
   "questionType": "multiple_choice",
-  "prompt": "Which spelling names a helper in an old castle story?",
-  "question": "Which spelling names a helper in an old castle story?",
-  "spokenPrompt": "Which spelling names a helper in an old castle story?",
+  "prompt": "Which spelling names a woman who cleans homes as her job?",
+  "question": "Which spelling names a woman who cleans homes as her job?",
+  "spokenPrompt": "Which spelling names a woman who cleans homes as her job?",
   "choices": [
    "mad",
    "map",
@@ -5759,7 +5759,7 @@ export const questions = [
   },
   "mediaTier": "text",
   "hadPTD": false,
-  "nonGating": false,
+  "nonGating": true,
   "retentionOnly": false,
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
@@ -5813,7 +5813,7 @@ export const questions = [
   "choices": [
    "A baby bat clung to its mother.",
    "The bat hung from the branch by its feet.",
-   "Mia gripped the bat and faced the pitcher.",
+   "Mia swung the bat to hit the ball.",
    "The bat flew out at dusk to catch moths."
   ],
   "answerOptions": [
@@ -5828,9 +5828,9 @@ export const questions = [
     "text": "The bat hung from the branch by its feet."
    },
    {
-    "value": "Mia gripped the bat and faced the pitcher.",
-    "label": "Mia gripped the bat and faced the pitcher.",
-    "text": "Mia gripped the bat and faced the pitcher."
+    "value": "Mia swung the bat to hit the ball.",
+    "label": "Mia swung the bat to hit the ball.",
+    "text": "Mia swung the bat to hit the ball."
    },
    {
     "value": "The bat flew out at dusk to catch moths.",
@@ -5838,8 +5838,8 @@ export const questions = [
     "text": "The bat flew out at dusk to catch moths."
    }
   ],
-  "answer": "Mia gripped the bat and faced the pitcher.",
-  "correctAnswer": "Mia gripped the bat and faced the pitcher.",
+  "answer": "Mia swung the bat to hit the ball.",
+  "correctAnswer": "Mia swung the bat to hit the ball.",
   "distractorRationales": {
    "The bat flew out at dusk to catch moths.": "D-SEMANTIC",
    "A baby bat clung to its mother.": "D-SEMANTIC",
@@ -5847,7 +5847,7 @@ export const questions = [
   },
   "mediaTier": "text",
   "hadPTD": false,
-  "nonGating": false,
+  "nonGating": true,
   "retentionOnly": false,
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
@@ -5935,7 +5935,7 @@ export const questions = [
   },
   "mediaTier": "text",
   "hadPTD": false,
-  "nonGating": false,
+  "nonGating": true,
   "retentionOnly": false,
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
@@ -6023,7 +6023,7 @@ export const questions = [
   },
   "mediaTier": "text",
   "hadPTD": false,
-  "nonGating": false,
+  "nonGating": true,
   "retentionOnly": false,
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
@@ -6517,9 +6517,9 @@ export const questions = [
   "formatType": "HOMOPHONE_MEANING",
   "templateType": "HOMOPHONE_MEANING",
   "questionType": "multiple_choice",
-  "prompt": "Which spelling names the number of arms an octopus has?",
-  "question": "Which spelling names the number of arms an octopus has?",
-  "spokenPrompt": "Which spelling names the number of arms an octopus has?",
+  "prompt": "Which word spells the number 8?",
+  "question": "Which word spells the number 8?",
+  "spokenPrompt": "Which word spells the number 8?",
   "choices": [
    "eight",
    "ate",
@@ -6605,10 +6605,10 @@ export const questions = [
   "formatType": "HOMOPHONE_CONTEXT_CLOZE",
   "templateType": "HOMOPHONE_CONTEXT_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Which spelling fits: Stand still and you can ___ the waves.",
-  "question": "Which spelling fits: Stand still and you can ___ the waves.",
-  "spokenPrompt": "Which spelling fits? Stand still and you can … the waves.",
-  "sentence": "Stand still and you can ___ the waves.",
+  "prompt": "Which spelling fits: Use your ears to ___ the crashing waves.",
+  "question": "Which spelling fits: Use your ears to ___ the crashing waves.",
+  "spokenPrompt": "Which spelling fits? Use your ears to … the crashing waves.",
+  "sentence": "Use your ears to ___ the crashing waves.",
   "choices": [
    "name",
    "hear",
@@ -6652,7 +6652,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Stand still and you can ___ the waves.",
+  "sentenceText": "Use your ears to ___ the crashing waves.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -6673,7 +6673,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "stand and can gift an to name — a distractor tops, never the key"
+  "notes": "Using ears identifies hearing; holding and naming do not use the sense of hearing."
  },
  {
   "id": "lp3.homophones_homonyms.l1.R.blue_blew.v5r",
@@ -7107,6 +7107,1444 @@ export const questions = [
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.homophones_homonyms.l2.R.made_maid.v5r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l1.C.sea_see.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "homophone_set",
+  "itemKey": "sea_see",
+  "formatType": "HOMOPHONE_CONTEXT_CLOZE",
+  "templateType": "HOMOPHONE_CONTEXT_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling fits: At the beach, waves rolled in from the ___.",
+  "question": "Which spelling fits: At the beach, waves rolled in from the ___.",
+  "spokenPrompt": "Which spelling fits? At the beach, waves rolled in from the ….",
+  "sentence": "At the beach, waves rolled in from the ___.",
+  "choices": [
+   "sea",
+   "see",
+   "seat",
+   "seed"
+  ],
+  "answerOptions": [
+   {
+    "value": "sea",
+    "label": "sea",
+    "text": "sea"
+   },
+   {
+    "value": "see",
+    "label": "see",
+    "text": "see"
+   },
+   {
+    "value": "seat",
+    "label": "seat",
+    "text": "seat"
+   },
+   {
+    "value": "seed",
+    "label": "seed",
+    "text": "seed"
+   }
+  ],
+  "answer": "sea",
+  "correctAnswer": "sea",
+  "distractorRationales": {
+   "seat": "D-VISUAL-NEIGHBOR",
+   "seed": "D-VISUAL-NEIGHBOR",
+   "see": "D-HOMOPHONE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "At the beach, waves rolled in from the ___.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.C.sea_see.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l1.C.sun_son.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "homophone_set",
+  "itemKey": "sun_son",
+  "formatType": "HOMOPHONE_CONTEXT_CLOZE",
+  "templateType": "HOMOPHONE_CONTEXT_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling fits: Their baby boy is their ___.",
+  "question": "Which spelling fits: Their baby boy is their ___.",
+  "spokenPrompt": "Which spelling fits? Their baby boy is their ….",
+  "sentence": "Their baby boy is their ___.",
+  "choices": [
+   "song",
+   "son",
+   "sun",
+   "some"
+  ],
+  "answerOptions": [
+   {
+    "value": "song",
+    "label": "song",
+    "text": "song"
+   },
+   {
+    "value": "son",
+    "label": "son",
+    "text": "son"
+   },
+   {
+    "value": "sun",
+    "label": "sun",
+    "text": "sun"
+   },
+   {
+    "value": "some",
+    "label": "some",
+    "text": "some"
+   }
+  ],
+  "answer": "son",
+  "correctAnswer": "son",
+  "distractorRationales": {
+   "sun": "D-HOMOPHONE",
+   "some": "D-FUNCTION-SWAP",
+   "song": "D-VISUAL-NEIGHBOR"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Their baby boy is their ___.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.C.sun_son.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l1.C.be_bee.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "homophone_set",
+  "itemKey": "be_bee",
+  "formatType": "HOMOPHONE_CONTEXT_CLOZE",
+  "templateType": "HOMOPHONE_CONTEXT_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling fits: Please ___ quiet during the story.",
+  "question": "Which spelling fits: Please ___ quiet during the story.",
+  "spokenPrompt": "Which spelling fits? Please … quiet during the story.",
+  "sentence": "Please ___ quiet during the story.",
+  "choices": [
+   "been",
+   "being",
+   "be",
+   "bee"
+  ],
+  "answerOptions": [
+   {
+    "value": "been",
+    "label": "been",
+    "text": "been"
+   },
+   {
+    "value": "being",
+    "label": "being",
+    "text": "being"
+   },
+   {
+    "value": "be",
+    "label": "be",
+    "text": "be"
+   },
+   {
+    "value": "bee",
+    "label": "bee",
+    "text": "bee"
+   }
+  ],
+  "answer": "be",
+  "correctAnswer": "be",
+  "distractorRationales": {
+   "being": "D-FUNCTION-SWAP",
+   "bee": "D-HOMOPHONE",
+   "been": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Please ___ quiet during the story.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.C.be_bee.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l1.C.no_know.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "homophone_set",
+  "itemKey": "no_know",
+  "formatType": "HOMOPHONE_CONTEXT_CLOZE",
+  "templateType": "HOMOPHONE_CONTEXT_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling fits: Now I ___ every word of this song.",
+  "question": "Which spelling fits: Now I ___ every word of this song.",
+  "spokenPrompt": "Which spelling fits? Now I … every word of this song.",
+  "sentence": "Now I ___ every word of this song.",
+  "choices": [
+   "no",
+   "knew",
+   "known",
+   "know"
+  ],
+  "answerOptions": [
+   {
+    "value": "no",
+    "label": "no",
+    "text": "no"
+   },
+   {
+    "value": "knew",
+    "label": "knew",
+    "text": "knew"
+   },
+   {
+    "value": "known",
+    "label": "known",
+    "text": "known"
+   },
+   {
+    "value": "know",
+    "label": "know",
+    "text": "know"
+   }
+  ],
+  "answer": "know",
+  "correctAnswer": "know",
+  "distractorRationales": {
+   "knew": "D-VISUAL-NEIGHBOR",
+   "known": "D-VISUAL-NEIGHBOR",
+   "no": "D-HOMOPHONE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Now I ___ every word of this song.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.C.no_know.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l1.C.one_won.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "homophone_set",
+  "itemKey": "one_won",
+  "formatType": "HOMOPHONE_CONTEXT_CLOZE",
+  "templateType": "HOMOPHONE_CONTEXT_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling fits: There is only ___ seat left.",
+  "question": "Which spelling fits: There is only ___ seat left.",
+  "spokenPrompt": "Which spelling fits? There is only … seat left.",
+  "sentence": "There is only ___ seat left.",
+  "choices": [
+   "one",
+   "won",
+   "once",
+   "ones"
+  ],
+  "answerOptions": [
+   {
+    "value": "one",
+    "label": "one",
+    "text": "one"
+   },
+   {
+    "value": "won",
+    "label": "won",
+    "text": "won"
+   },
+   {
+    "value": "once",
+    "label": "once",
+    "text": "once"
+   },
+   {
+    "value": "ones",
+    "label": "ones",
+    "text": "ones"
+   }
+  ],
+  "answer": "one",
+  "correctAnswer": "one",
+  "distractorRationales": {
+   "once": "D-VISUAL-NEIGHBOR",
+   "ones": "D-FUNCTION-SWAP",
+   "won": "D-HOMOPHONE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "There is only ___ seat left.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.C.one_won.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l1.C.ate_eight.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "homophone_set",
+  "itemKey": "ate_eight",
+  "formatType": "HOMOPHONE_CONTEXT_CLOZE",
+  "templateType": "HOMOPHONE_CONTEXT_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling fits: Last night, we ___ the last slice.",
+  "question": "Which spelling fits: Last night, we ___ the last slice.",
+  "spokenPrompt": "Which spelling fits? Last night, we … the last slice.",
+  "sentence": "Last night, we ___ the last slice.",
+  "choices": [
+   "eaten",
+   "ate",
+   "eight",
+   "eat"
+  ],
+  "answerOptions": [
+   {
+    "value": "eaten",
+    "label": "eaten",
+    "text": "eaten"
+   },
+   {
+    "value": "ate",
+    "label": "ate",
+    "text": "ate"
+   },
+   {
+    "value": "eight",
+    "label": "eight",
+    "text": "eight"
+   },
+   {
+    "value": "eat",
+    "label": "eat",
+    "text": "eat"
+   }
+  ],
+  "answer": "ate",
+  "correctAnswer": "ate",
+  "distractorRationales": {
+   "eaten": "D-FUNCTION-SWAP",
+   "eight": "D-HOMOPHONE",
+   "eat": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Last night, we ___ the last slice.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.C.ate_eight.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l1.C.hear_here.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "homophone_set",
+  "itemKey": "hear_here",
+  "formatType": "HOMOPHONE_CONTEXT_CLOZE",
+  "templateType": "HOMOPHONE_CONTEXT_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling fits: Come ___, right beside me.",
+  "question": "Which spelling fits: Come ___, right beside me.",
+  "spokenPrompt": "Which spelling fits? Come …, right beside me.",
+  "sentence": "Come ___, right beside me.",
+  "choices": [
+   "heard",
+   "her",
+   "here",
+   "hear"
+  ],
+  "answerOptions": [
+   {
+    "value": "heard",
+    "label": "heard",
+    "text": "heard"
+   },
+   {
+    "value": "her",
+    "label": "her",
+    "text": "her"
+   },
+   {
+    "value": "here",
+    "label": "here",
+    "text": "here"
+   },
+   {
+    "value": "hear",
+    "label": "hear",
+    "text": "hear"
+   }
+  ],
+  "answer": "here",
+  "correctAnswer": "here",
+  "distractorRationales": {
+   "heard": "D-VISUAL-NEIGHBOR",
+   "her": "D-VISUAL-NEIGHBOR",
+   "hear": "D-HOMOPHONE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Come ___, right beside me.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.C.hear_here.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l1.C.blue_blew.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "homophone_set",
+  "itemKey": "blue_blew",
+  "formatType": "HOMOPHONE_CONTEXT_CLOZE",
+  "templateType": "HOMOPHONE_CONTEXT_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling fits: Yesterday the boy ___ out the candle.",
+  "question": "Which spelling fits: Yesterday the boy ___ out the candle.",
+  "spokenPrompt": "Which spelling fits? Yesterday the boy … out the candle.",
+  "sentence": "Yesterday the boy ___ out the candle.",
+  "choices": [
+   "blue",
+   "blow",
+   "blowing",
+   "blew"
+  ],
+  "answerOptions": [
+   {
+    "value": "blue",
+    "label": "blue",
+    "text": "blue"
+   },
+   {
+    "value": "blow",
+    "label": "blow",
+    "text": "blow"
+   },
+   {
+    "value": "blowing",
+    "label": "blowing",
+    "text": "blowing"
+   },
+   {
+    "value": "blew",
+    "label": "blew",
+    "text": "blew"
+   }
+  ],
+  "answer": "blew",
+  "correctAnswer": "blew",
+  "distractorRationales": {
+   "blow": "D-FUNCTION-SWAP",
+   "blowing": "D-FUNCTION-SWAP",
+   "blue": "D-HOMOPHONE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Yesterday the boy ___ out the candle.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.C.blue_blew.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l2.C.to_two_too.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "homophone_set",
+  "itemKey": "to_two_too",
+  "formatType": "HOMOPHONE_MEANING",
+  "templateType": "HOMOPHONE_MEANING",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling means ‘also’ in ‘I want a turn ___’?",
+  "question": "Which spelling means ‘also’ in ‘I want a turn ___’?",
+  "spokenPrompt": "Which spelling means ‘also’ in ‘I want a turn … ’?",
+  "choices": [
+   "took",
+   "too",
+   "to",
+   "two"
+  ],
+  "answerOptions": [
+   {
+    "value": "took",
+    "label": "took",
+    "text": "took"
+   },
+   {
+    "value": "too",
+    "label": "too",
+    "text": "too"
+   },
+   {
+    "value": "to",
+    "label": "to",
+    "text": "to"
+   },
+   {
+    "value": "two",
+    "label": "two",
+    "text": "two"
+   }
+  ],
+  "answer": "too",
+  "correctAnswer": "too",
+  "distractorRationales": {
+   "took": "D-VISUAL-NEIGHBOR",
+   "to": "D-HOMOPHONE",
+   "two": "D-HOMOPHONE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.C.to_two_too.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l2.C.there_their.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "homophone_set",
+  "itemKey": "there_their",
+  "formatType": "HOMOPHONE_CONTEXT_CLOZE",
+  "templateType": "HOMOPHONE_CONTEXT_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling fits: The kittens licked ___ own paws.",
+  "question": "Which spelling fits: The kittens licked ___ own paws.",
+  "spokenPrompt": "Which spelling fits? The kittens licked … own paws.",
+  "sentence": "The kittens licked ___ own paws.",
+  "choices": [
+   "they",
+   "theirs",
+   "their",
+   "there"
+  ],
+  "answerOptions": [
+   {
+    "value": "they",
+    "label": "they",
+    "text": "they"
+   },
+   {
+    "value": "theirs",
+    "label": "theirs",
+    "text": "theirs"
+   },
+   {
+    "value": "their",
+    "label": "their",
+    "text": "their"
+   },
+   {
+    "value": "there",
+    "label": "there",
+    "text": "there"
+   }
+  ],
+  "answer": "their",
+  "correctAnswer": "their",
+  "distractorRationales": {
+   "theirs": "D-FUNCTION-SWAP",
+   "there": "D-HOMOPHONE",
+   "they": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The kittens licked ___ own paws.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.C.there_their.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l2.C.right_write.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "homophone_set",
+  "itemKey": "right_write",
+  "formatType": "HOMOPHONE_CONTEXT_CLOZE",
+  "templateType": "HOMOPHONE_CONTEXT_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling fits: For this task, ___ your name using a pen.",
+  "question": "Which spelling fits: For this task, ___ your name using a pen.",
+  "spokenPrompt": "Which spelling fits? For this task, … your name using a pen.",
+  "sentence": "For this task, ___ your name using a pen.",
+  "choices": [
+   "right",
+   "wrote",
+   "written",
+   "write"
+  ],
+  "answerOptions": [
+   {
+    "value": "right",
+    "label": "right",
+    "text": "right"
+   },
+   {
+    "value": "wrote",
+    "label": "wrote",
+    "text": "wrote"
+   },
+   {
+    "value": "written",
+    "label": "written",
+    "text": "written"
+   },
+   {
+    "value": "write",
+    "label": "write",
+    "text": "write"
+   }
+  ],
+  "answer": "write",
+  "correctAnswer": "write",
+  "distractorRationales": {
+   "wrote": "D-FUNCTION-SWAP",
+   "written": "D-FUNCTION-SWAP",
+   "right": "D-HOMOPHONE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "For this task, ___ your name using a pen.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.C.right_write.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l2.C.new_knew.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "homophone_set",
+  "itemKey": "new_knew",
+  "formatType": "HOMOPHONE_CONTEXT_CLOZE",
+  "templateType": "HOMOPHONE_CONTEXT_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling fits: These are ___ socks; I bought them today.",
+  "question": "Which spelling fits: These are ___ socks; I bought them today.",
+  "spokenPrompt": "Which spelling fits? These are … socks; I bought them today.",
+  "sentence": "These are ___ socks; I bought them today.",
+  "choices": [
+   "new",
+   "knew",
+   "news",
+   "newly"
+  ],
+  "answerOptions": [
+   {
+    "value": "new",
+    "label": "new",
+    "text": "new"
+   },
+   {
+    "value": "knew",
+    "label": "knew",
+    "text": "knew"
+   },
+   {
+    "value": "news",
+    "label": "news",
+    "text": "news"
+   },
+   {
+    "value": "newly",
+    "label": "newly",
+    "text": "newly"
+   }
+  ],
+  "answer": "new",
+  "correctAnswer": "new",
+  "distractorRationales": {
+   "news": "D-FUNCTION-SWAP",
+   "newly": "D-FUNCTION-SWAP",
+   "knew": "D-HOMOPHONE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "These are ___ socks; I bought them today.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.C.new_knew.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l2.C.hour_our.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "homophone_set",
+  "itemKey": "hour_our",
+  "formatType": "HOMOPHONE_CONTEXT_CLOZE",
+  "templateType": "HOMOPHONE_CONTEXT_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling fits: This class belongs to us. It is ___ class.",
+  "question": "Which spelling fits: This class belongs to us. It is ___ class.",
+  "spokenPrompt": "Which spelling fits? This class belongs to us. It is … class.",
+  "sentence": "This class belongs to us. It is ___ class.",
+  "choices": [
+   "out",
+   "our",
+   "hour",
+   "ours"
+  ],
+  "answerOptions": [
+   {
+    "value": "out",
+    "label": "out",
+    "text": "out"
+   },
+   {
+    "value": "our",
+    "label": "our",
+    "text": "our"
+   },
+   {
+    "value": "hour",
+    "label": "hour",
+    "text": "hour"
+   },
+   {
+    "value": "ours",
+    "label": "ours",
+    "text": "ours"
+   }
+  ],
+  "answer": "our",
+  "correctAnswer": "our",
+  "distractorRationales": {
+   "hour": "D-HOMOPHONE",
+   "ours": "D-FUNCTION-SWAP",
+   "out": "D-VISUAL-NEIGHBOR"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "This class belongs to us. It is ___ class.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.C.hour_our.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l2.C.flower_flour.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "homophone_set",
+  "itemKey": "flower_flour",
+  "formatType": "HOMOPHONE_CONTEXT_CLOZE",
+  "templateType": "HOMOPHONE_CONTEXT_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling fits: Wheat is ground to make ___ for bread.",
+  "question": "Which spelling fits: Wheat is ground to make ___ for bread.",
+  "spokenPrompt": "Which spelling fits? Wheat is ground to make … for bread.",
+  "sentence": "Wheat is ground to make ___ for bread.",
+  "choices": [
+   "floor",
+   "flown",
+   "flour",
+   "flower"
+  ],
+  "answerOptions": [
+   {
+    "value": "floor",
+    "label": "floor",
+    "text": "floor"
+   },
+   {
+    "value": "flown",
+    "label": "flown",
+    "text": "flown"
+   },
+   {
+    "value": "flour",
+    "label": "flour",
+    "text": "flour"
+   },
+   {
+    "value": "flower",
+    "label": "flower",
+    "text": "flower"
+   }
+  ],
+  "answer": "flour",
+  "correctAnswer": "flour",
+  "distractorRationales": {
+   "flower": "D-HOMOPHONE",
+   "floor": "D-VISUAL-NEIGHBOR",
+   "flown": "D-VISUAL-NEIGHBOR"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Wheat is ground to make ___ for bread.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.C.flower_flour.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l2.C.would_wood.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "homophone_set",
+  "itemKey": "would_wood",
+  "formatType": "HOMOPHONE_CONTEXT_CLOZE",
+  "templateType": "HOMOPHONE_CONTEXT_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling fits: If I had wings, I ___ fly.",
+  "question": "Which spelling fits: If I had wings, I ___ fly.",
+  "spokenPrompt": "Which spelling fits? If I had wings, I … fly.",
+  "sentence": "If I had wings, I ___ fly.",
+  "choices": [
+   "wood",
+   "wool",
+   "wound",
+   "would"
+  ],
+  "answerOptions": [
+   {
+    "value": "wood",
+    "label": "wood",
+    "text": "wood"
+   },
+   {
+    "value": "wool",
+    "label": "wool",
+    "text": "wool"
+   },
+   {
+    "value": "wound",
+    "label": "wound",
+    "text": "wound"
+   },
+   {
+    "value": "would",
+    "label": "would",
+    "text": "would"
+   }
+  ],
+  "answer": "would",
+  "correctAnswer": "would",
+  "distractorRationales": {
+   "wood": "D-HOMOPHONE",
+   "wool": "D-VISUAL-NEIGHBOR",
+   "wound": "D-VISUAL-NEIGHBOR"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "If I had wings, I ___ fly.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.C.would_wood.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.homophones_homonyms.l2.C.made_maid.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "homophones_homonyms",
+  "assessmentSkillId": "homophones_homonyms",
+  "skillName": "Homophones & Homonyms",
+  "skill": "Homophones & Homonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "homophone_set",
+  "itemKey": "made_maid",
+  "formatType": "HOMOPHONE_CONTEXT_CLOZE",
+  "templateType": "HOMOPHONE_CONTEXT_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Which spelling fits: Yesterday our class ___ paper hats.",
+  "question": "Which spelling fits: Yesterday our class ___ paper hats.",
+  "spokenPrompt": "Which spelling fits? Yesterday our class … paper hats.",
+  "sentence": "Yesterday our class ___ paper hats.",
+  "choices": [
+   "made",
+   "maid",
+   "making",
+   "makes"
+  ],
+  "answerOptions": [
+   {
+    "value": "made",
+    "label": "made",
+    "text": "made"
+   },
+   {
+    "value": "maid",
+    "label": "maid",
+    "text": "maid"
+   },
+   {
+    "value": "making",
+    "label": "making",
+    "text": "making"
+   },
+   {
+    "value": "makes",
+    "label": "makes",
+    "text": "makes"
+   }
+  ],
+  "answer": "made",
+  "correctAnswer": "made",
+  "distractorRationales": {
+   "makes": "D-FUNCTION-SWAP",
+   "maid": "D-HOMOPHONE",
+   "making": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Yesterday our class ___ paper hats.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.C.made_maid.v6",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",

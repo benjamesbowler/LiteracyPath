@@ -2,6 +2,43 @@ export const SHORT_VOWEL_LISTEN_PROMPT = "Listen to the word. What vowel sound c
 
 const VOWEL_CHOICES = ["a", "e", "i", "o", "u"];
 
+/** Only authored stimuli may be replayed. The scoring key is never a stimulus. */
+export function getAssessmentStimulusAudioText(question = {}) {
+  if (question?.suppressStimulusAudio) return "";
+  return String(question?.audioText || question?.targetWord || "").trim();
+}
+
+export function hasAudioOnlyChoices(question = {}) {
+  return question?.hideWrittenLabels === true && question?.evidenceModality === "audio";
+}
+
+const PRINT_RESPONSE_FORMATS = new Set([
+  "HFW_SENTENCE_CLOZE", "HFW_AUDIO_FIND_WORD", "HFW_READ_FIND_WORD",
+  "FIRST_SOUND", "ENDING_SOUND", "MISSING_VOWEL_CVC", "LISTEN_CHOOSE_VOWEL",
+  "PICTURE_TO_PRINT_MATCH", "SHORT_VOWEL_WORD", "LISTEN_FIND_WORD",
+  "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "BLEND_COMPLETE_WORD", "MPD",
+  "DIGRAPH_COMPLETE_WORD", "LONG_VOWEL_SILENT_E_PATTERN", "SILENT_E_TRANSFORM",
+  "LONG_VOWEL_TEAM_COMPLETE", "R_CONTROLLED_PATTERN", "PICTURE_AUDIO_TO_PATTERN"
+]);
+const PRINT_PHONICS_SKILLS = new Set([
+  "cvc_short_vowels", "blends", "digraphs", "long_vowels", "long_vowels_silent_e",
+  "vowel_teams", "r_controlled", "r_controlled_vowels"
+]);
+
+/** Spoken options must not perform the letter/word reading being assessed. */
+export function allowsAssessmentChoiceAudio(question = {}) {
+  if (hasAudioOnlyChoices(question)) return true;
+  const skill = String(question.assessmentSkillId || question.skillId || "").toLowerCase();
+  const format = String(question.formatType || question.templateType || "").toUpperCase();
+  if (skill.startsWith("hfw_")) return false;
+  if (PRINT_RESPONSE_FORMATS.has(format)) return false;
+  if (PRINT_PHONICS_SKILLS.has(skill) && ["CPS", "PTD"].includes(format)) return false;
+  // Spoken comparisons (including Final Sounds), vocabulary, grammar and
+  // comprehension retain their intended oral access. They do not claim that
+  // hearing an option proves independent word reading.
+  return true;
+}
+
 export function isGenericInstructionAudioPath(audioPath = "") {
   const value = String(audioPath || "").toLowerCase();
   return Boolean(value) && (

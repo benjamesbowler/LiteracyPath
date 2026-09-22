@@ -23,7 +23,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. The gate has been open all day. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. The gate has been open all day. Which printed word fills the blank?",
   "sentence": "The gate has ___ open all day.",
   "choices": [
    "been",
@@ -114,7 +114,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. The paint has been wet since lunch. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. The paint has been wet since lunch. Which printed word fills the blank?",
   "sentence": "The paint has ___ wet since lunch.",
   "choices": [
    "had",
@@ -210,7 +210,7 @@ export const questions = [
    "seen",
    "be",
    "been",
-   "bean"
+   "bend"
   ],
   "answerOptions": [
    {
@@ -229,15 +229,15 @@ export const questions = [
     "text": "been"
    },
    {
-    "value": "bean",
-    "label": "bean",
-    "text": "bean"
+    "value": "bend",
+    "label": "bend",
+    "text": "bend"
    }
   ],
   "answer": "been",
   "correctAnswer": "been",
   "distractorRationales": {
-   "bean": "D-HOMOPHONE",
+   "bend": "D-VISUAL-NEIGHBOR",
    "seen": "D-VISUAL-NEIGHBOR",
    "be": "D-VISUAL-NEIGHBOR"
   },
@@ -297,7 +297,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Mum called me, so my phone rang. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Mum called me, so my phone rang. Which printed word fills the blank?",
   "sentence": "Mum ___ me, so my phone rang.",
   "choices": [
    "had",
@@ -388,7 +388,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Pip is our new puppy. We called him Pip. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Pip is our new puppy. We called him Pip. Which printed word fills the blank?",
   "sentence": "Pip is our new puppy. We ___ him Pip.",
   "choices": [
    "had",
@@ -571,7 +571,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. We are inside waiting for you. Please come. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. We are inside waiting for you. Please come. Which printed word fills the blank?",
   "sentence": "We are inside waiting for you. Please ___.",
   "choices": [
    "look",
@@ -662,7 +662,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Please come inside; we are waiting for you. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Please come inside; we are waiting for you. Which printed word fills the blank?",
   "sentence": "Please ___ inside; we are waiting for you.",
   "choices": [
    "find",
@@ -845,7 +845,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. With a stool, I could reach the shelf yesterday. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. With a stool, I could reach the shelf yesterday. Which printed word fills the blank?",
   "sentence": "With a stool, I ___ reach the shelf yesterday.",
   "choices": [
    "may",
@@ -936,7 +936,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Yesterday, fog cleared; we could see the road. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Yesterday, fog cleared; we could see the road. Which printed word fills the blank?",
   "sentence": "Yesterday, fog cleared; we ___ see the road.",
   "choices": [
    "could",
@@ -1119,7 +1119,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. We played outside all day. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. We played outside all day. Which printed word fills the blank?",
   "sentence": "We played outside all ___.",
   "choices": [
    "day",
@@ -1210,7 +1210,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Each day, Dad walks the dog before school. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Each day, Dad walks the dog before school. Which printed word fills the blank?",
   "sentence": "Each ___, Dad walks the dog before school.",
   "choices": [
    "number",
@@ -1393,7 +1393,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Mia did her best in the race. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Mia did her best in the race. Which printed word fills the blank?",
   "sentence": "Mia ___ her best in the race.",
   "choices": [
    "was",
@@ -1484,7 +1484,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. We did our best to help. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. We did our best to help. Which printed word fills the blank?",
   "sentence": "We ___ our best to help.",
   "choices": [
    "made",
@@ -1667,7 +1667,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. The ball rolled down from top to bottom. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. The ball rolled down from top to bottom. Which printed word fills the blank?",
   "sentence": "The ball rolled ___ from top to bottom.",
   "choices": [
    "with",
@@ -1758,7 +1758,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. The lift went from ten down to one. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. The lift went from ten down to one. Which printed word fills the blank?",
   "sentence": "The lift went from ten ___ to one.",
   "choices": [
    "up",
@@ -1941,7 +1941,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Please find my hat. I lost it. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Please find my hat. I lost it. Which printed word fills the blank?",
   "sentence": "Please ___ my hat. I lost it.",
   "choices": [
    "look",
@@ -2032,7 +2032,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. We must find the ball we lost. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. We must find the ball we lost. Which printed word fills the blank?",
   "sentence": "We must ___ the ball we lost.",
   "choices": [
    "find",
@@ -2215,8 +2215,8 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Lia won because she was the first runner. Which printed word fills the …?",
-  "sentence": "Lia won because she was the ___ runner.",
+  "spokenPrompt": "Listen to the whole sentence. Lia came first in the race and won. Which printed word fills the blank?",
+  "sentence": "Lia came ___ in the race and won.",
   "choices": [
    "first",
    "other",
@@ -2260,7 +2260,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Lia won because she was the ___ runner.",
+  "sentenceText": "Lia came ___ in the race and won.",
   "targetWord": "first",
   "v3AuthoredMedia": {
    "target": false,
@@ -2306,7 +2306,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. The red team won because it finished first. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. The red team won because it finished first. Which printed word fills the blank?",
   "sentence": "The red team won because it finished ___.",
   "choices": [
    "up",
@@ -2489,7 +2489,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. My boots get wet in puddles. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. My boots get wet in puddles. Which printed word fills the blank?",
   "sentence": "My boots ___ wet in puddles.",
   "choices": [
    "make",
@@ -2580,7 +2580,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. The ducks get muddy in the rain. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. The ducks get muddy in the rain. Which printed word fills the blank?",
   "sentence": "The ducks ___ muddy in the rain.",
   "choices": [
    "find",
@@ -2763,7 +2763,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. The ten-metre rope was too long for the bag. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. The ten-metre rope was too long for the bag. Which printed word fills the blank?",
   "sentence": "The ten-metre rope was too ___ for the bag.",
   "choices": [
    "more",
@@ -2854,7 +2854,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Her hair reached her knees; it was very long. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Her hair reached her knees; it was very long. Which printed word fills the blank?",
   "sentence": "Her hair reached her knees; it was very ___.",
   "choices": [
    "more",
@@ -3037,7 +3037,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. We made a kite from paper. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. We made a kite from paper. Which printed word fills the blank?",
   "sentence": "We ___ a kite from paper.",
   "choices": [
    "called",
@@ -3128,7 +3128,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. The children made a snowman from three balls. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. The children made a snowman from three balls. Which printed word fills the blank?",
   "sentence": "The children ___ a snowman from three balls.",
   "choices": [
    "made",
@@ -3311,7 +3311,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. We are unsure; Mia may have missed the bus. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. We are unsure; Mia may have missed the bus. Which printed word fills the blank?",
   "sentence": "We are unsure; Mia ___ have missed the bus.",
   "choices": [
    "may",
@@ -3402,7 +3402,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. We are unsure; Dad may have left already. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. We are unsure; Dad may have left already. Which printed word fills the blank?",
   "sentence": "We are unsure; Dad ___ have left already.",
   "choices": [
    "were",
@@ -3585,7 +3585,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. I own these shoes; they are my shoes. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. I own these shoes; they are my shoes. Which printed word fills the blank?",
   "sentence": "I own these shoes; they are ___ shoes.",
   "choices": [
    "their",
@@ -3676,7 +3676,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. This bag belongs to me; it is my bag. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. This bag belongs to me; it is my bag. Which printed word fills the blank?",
   "sentence": "This bag belongs to me; it is ___ bag.",
   "choices": [
    "her",
@@ -3859,7 +3859,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. The empty box had no toys in it. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. The empty box had no toys in it. Which printed word fills the blank?",
   "sentence": "The empty box had ___ toys in it.",
   "choices": [
    "many",
@@ -3950,7 +3950,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Every apple was eaten, so no apples were left. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Every apple was eaten, so no apples were left. Which printed word fills the blank?",
   "sentence": "Every apple was eaten, so ___ apples were left.",
   "choices": [
    "all",
@@ -4133,7 +4133,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. The paint was wet before but is dry now. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. The paint was wet before but is dry now. Which printed word fills the blank?",
   "sentence": "The paint was wet before but is dry ___.",
   "choices": [
    "then",
@@ -4224,7 +4224,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. The baby slept before, but is awake now. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. The baby slept before, but is awake now. Which printed word fills the blank?",
   "sentence": "The baby slept before, but is awake ___.",
   "choices": [
    "now",
@@ -4407,7 +4407,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Write your phone number here. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Write your phone number here. Which printed word fills the blank?",
   "sentence": "Write your phone ___ here.",
   "choices": [
    "number",
@@ -4498,7 +4498,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Seven is my lucky number. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Seven is my lucky number. Which printed word fills the blank?",
   "sentence": "Seven is my lucky ___.",
   "choices": [
    "people",
@@ -4681,7 +4681,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. The chain squeaked until Dad added oil. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. The chain squeaked until Dad added oil. Which printed word fills the blank?",
   "sentence": "The chain squeaked until Dad added ___.",
   "choices": [
    "time",
@@ -4772,7 +4772,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. The cook spread the oil over the dry pan. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. The cook spread the oil over the dry pan. Which printed word fills the blank?",
   "sentence": "The cook spread the ___ over the dry pan.",
   "choices": [
    "number",
@@ -4955,7 +4955,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Mia played the part of the queen. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Mia played the part of the queen. Which printed word fills the blank?",
   "sentence": "Mia played the ___ of the queen.",
   "choices": [
    "time",
@@ -5046,7 +5046,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. This wheel is part of the bike. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. This wheel is part of the bike. Which printed word fills the blank?",
   "sentence": "This wheel is ___ of the bike.",
   "choices": [
    "way",
@@ -5229,7 +5229,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Many people waited for the bus. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Many people waited for the bus. Which printed word fills the blank?",
   "sentence": "Many ___ waited for the bus.",
   "choices": [
    "words",
@@ -5320,7 +5320,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. The hall was full of people who sang. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. The hall was full of people who sang. Which printed word fills the blank?",
   "sentence": "The hall was full of ___ who sang.",
   "choices": [
    "people",
@@ -5503,7 +5503,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Please sit still on this chair. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Please sit still on this chair. Which printed word fills the blank?",
   "sentence": "Please ___ still on this chair.",
   "choices": [
    "sit",
@@ -5594,7 +5594,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. The children sit on the mat for story time. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. The children sit on the mat for story time. Which printed word fills the blank?",
   "sentence": "The children ___ on the mat for story time.",
   "choices": [
    "make",
@@ -5777,7 +5777,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Sam ran farther than I did. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Sam ran farther than I did. Which printed word fills the blank?",
   "sentence": "Sam ran farther ___ I did.",
   "choices": [
    "from",
@@ -5868,7 +5868,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. This box weighs more than the red box does. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. This box weighs more than the red box does. Which printed word fills the blank?",
   "sentence": "This box weighs more ___ the red box does.",
   "choices": [
    "by",
@@ -6051,24 +6051,24 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. I was thirsty, so I drank some water. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. I was thirsty, so I drank some water. Which printed word fills the blank?",
   "sentence": "I was thirsty, so I drank some ___.",
   "choices": [
+   "time",
    "words",
-   "number",
    "water",
    "oil"
   ],
   "answerOptions": [
    {
+    "value": "time",
+    "label": "time",
+    "text": "time"
+   },
+   {
     "value": "words",
     "label": "words",
     "text": "words"
-   },
-   {
-    "value": "number",
-    "label": "number",
-    "text": "number"
    },
    {
     "value": "water",
@@ -6085,8 +6085,8 @@ export const questions = [
   "correctAnswer": "water",
   "distractorRationales": {
    "oil": "D-FUNCTION-SWAP",
-   "words": "D-FUNCTION-SWAP",
-   "number": "D-FUNCTION-SWAP"
+   "time": "D-FUNCTION-SWAP",
+   "words": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6142,12 +6142,12 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. The plants need water every day. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. The plants need water every day. Which printed word fills the blank?",
   "sentence": "The plants need ___ every day.",
   "choices": [
    "oil",
+   "number",
    "part",
-   "words",
    "water"
   ],
   "answerOptions": [
@@ -6157,14 +6157,14 @@ export const questions = [
     "text": "oil"
    },
    {
+    "value": "number",
+    "label": "number",
+    "text": "number"
+   },
+   {
     "value": "part",
     "label": "part",
     "text": "part"
-   },
-   {
-    "value": "words",
-    "label": "words",
-    "text": "words"
    },
    {
     "value": "water",
@@ -6175,9 +6175,9 @@ export const questions = [
   "answer": "water",
   "correctAnswer": "water",
   "distractorRationales": {
-   "words": "D-FUNCTION-SWAP",
+   "part": "D-FUNCTION-SWAP",
    "oil": "D-FUNCTION-SWAP",
-   "part": "D-FUNCTION-SWAP"
+   "number": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6325,7 +6325,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Show me the way home. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Show me the way home. Which printed word fills the blank?",
   "sentence": "Show me the ___ home.",
   "choices": [
    "time",
@@ -6416,7 +6416,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Which way leads to the beach? Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Which way leads to the beach? Which printed word fills the blank?",
   "sentence": "Which ___ leads to the beach?",
   "choices": [
    "way",
@@ -6599,7 +6599,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Someone knocked. Tell me who it was. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Someone knocked. Tell me who it was. Which printed word fills the blank?",
   "sentence": "Someone knocked. Tell me ___ it was.",
   "choices": [
    "who",
@@ -6690,7 +6690,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Someone won the race. Tell me who it was. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Someone won the race. Tell me who it was. Which printed word fills the blank?",
   "sentence": "Someone won the race. Tell me ___ it was.",
   "choices": [
    "there",
@@ -10436,10 +10436,10 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Listen, then build the missing word: Ice is colder ___ snow.",
-  "question": "Listen, then build the missing word: Ice is colder ___ snow.",
-  "spokenPrompt": "Listen to the whole sentence. Ice is colder than snow. Build the missing word.",
-  "sentence": "Ice is colder ___ snow.",
+  "prompt": "Listen, then build the missing word: A bus is bigger ___ a car.",
+  "question": "Listen, then build the missing word: A bus is bigger ___ a car.",
+  "spokenPrompt": "Listen to the whole sentence. A bus is bigger than a car. Build the missing word.",
+  "sentence": "A bus is bigger ___ a car.",
   "choices": [
    "than"
   ],
@@ -10475,7 +10475,7 @@ export const questions = [
    "n",
    "e"
   ],
-  "sentenceText": "Ice is colder than snow.",
+  "sentenceText": "A bus is bigger than a car.",
   "targetWord": "than",
   "v3AuthoredMedia": {
    "target": false,
@@ -11015,7 +11015,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Last night, the gate opened; we could leave then. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Last night, the gate opened; we could leave then. Which printed word fills the blank?",
   "sentence": "Last night, the gate opened; we ___ leave then.",
   "choices": [
    "was",
@@ -11106,7 +11106,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. It has been a long day. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. It has been a long day. Which printed word fills the blank?",
   "sentence": "It has ___ a long day.",
   "choices": [
    "is",
@@ -11365,7 +11365,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Someone has the key. who has it? Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Someone has the key. who has it? Which printed word fills the blank?",
   "sentence": "Someone has the key. ___ has it?",
   "choices": [
    "how",
@@ -11456,7 +11456,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Listen to the sentence. Which printed word fills the blank?",
   "question": "Listen to the sentence. Which printed word fills the blank?",
-  "spokenPrompt": "Listen to the whole sentence. Feathers are lighter than stones. Which printed word fills the …?",
+  "spokenPrompt": "Listen to the whole sentence. Feathers are lighter than stones. Which printed word fills the blank?",
   "sentence": "Feathers are lighter ___ stones.",
   "choices": [
    "than",

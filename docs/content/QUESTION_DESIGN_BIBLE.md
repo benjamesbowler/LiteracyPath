@@ -1,6 +1,7 @@
 # LiteracyPath Question Design Bible
 
 **Policy version:** `2026-08-01.1`
+**Assessment v3 clarification:** `2026-09-22` — explicit stimulus roles, construct-specific media, full fresh retries and three-event sequencing, aligned with the current [mastery standard](../skills-assessment-rebuild/MASTERY_SYSTEM.md).
 **Applies to:** assessments, Story Quest questions, EL Quest stations, arcade literacy tasks, worksheets, animations with scored questions, and teacher-authored question generators. Scored Guided Reading quizzes are retired; optional teacher discussion support is not a scored question system and is outside this policy gate.
 **Permanent gate:** `npm run check:question-design-policy`
 
@@ -61,9 +62,10 @@ Age is a design constraint, not a substitute for the learner’s actual reading 
 
 For the 30 two-level assessment skills:
 
-- **Level 1 = Band A / kindergarten-entry ESL.** Concrete, image-led, automatically speakable, one action, familiar words. It establishes access to the construct.
+- **Level 1 = Band A / kindergarten-entry ESL.** Concrete, oral-first, automatically speakable, one action, familiar words. Use meaningful images when they carry the evidence or support access without revealing the answer; use the declared text/audio conditions in §9 when those are the measured evidence. It establishes access to the construct.
 - **Level 2 = Band B / Grade 1 extension.** A visible increase in word structure, grammatical contrast, text evidence or transfer. It is never the same question with swapped nouns or a longer sentence.
 - Each level has Phase 1 and Phase 2. A phase is passed at 70%; otherwise it repeats. Passing Level 1 Phase 2 offers the learner either the next skill or harder Level 2 work. The item bank must not make access to later skills depend on completing Level 2.
+- Each skill, level and phase must support two full sittings at the existing blueprint length: an initial sitting and a fresh retry. Retention reserves are separate. Renamed or token-swapped copies do not count as fresh questions; verify complete sittings and the existing no-repeat/originality checks, not merely different IDs.
 
 ## 6. The non-negotiable item contract
 
@@ -71,9 +73,9 @@ Every scored question must satisfy all of these:
 
 1. **One construct.** The intended skill, unit, level and evidence claim are explicit. Incidental decoding, vocabulary, memory or motor demand may not determine the score.
 2. **One defensible key.** Under the literal prompt, supplied image/audio/text and the child’s likely interpretation, exactly one answer is correct.
-3. **A complete stimulus.** Nothing needed to answer exists only in the author’s imagination. Spatial, sequence and visual-detail questions show the scene. Reading questions supply the relevant text or image.
+3. **A complete stimulus.** Nothing needed to answer exists only in the author's imagination. Spatial and visual-detail questions show the scene. Sequence questions supply the actual events in text, audio or pictures according to their evidence contract. Reading questions supply the relevant text or image.
 4. **Clear language.** The stem asks a direct question or gives one direct action. Remove unnecessary story dressing, technical labels and adult vocabulary.
-5. **Accessible delivery.** Every child-facing question has a speaker/replay path. All 30 assessment skills also have at least one meaningful image per question; a passage illustration or a complete set of picture choices counts.
+5. **Accessible delivery.** Every child-facing question has a speaker/replay path and the complete visual, printed or spoken evidence required by its declared construct. Assessment media follows §9: required images remain mandatory; text/audio cases require an explicit reviewed media decision and complete readable/audible evidence.
 6. **Independent options.** Options are mutually exclusive, grammatically parallel, similar in length/register and independently plausible to a learner with the named misconception.
 7. **Recorded rationale.** Assessment distractors name the misconception they diagnose. If runtime enrichment changes an option, it must update its rationale in the same operation.
 8. **No leakage.** Capitalization, option length, repeated prompt words, image quality, grammar or answer position must not reveal the key.
@@ -88,11 +90,13 @@ Every scored question must satisfy all of these:
 - Do not say “Wait for it to flash” unless the tested interface deterministically flashes and the event is verified by a browser test.
 - Do not ask a sound question with a spelling answer. Name the unit: “last sound,” “last letter,” “ending letters,” “vowel team” or “word part.”
 - Provide a worked, unscored example when the response mechanic changes or is unfamiliar.
-- Spoken instructions and visible instructions must require the same action. Audio may clarify pronunciation; it may not add a clue absent from the visual task.
+- Spoken instructions and visible instructions must require the same action. An explicitly declared listening construct may supply its stimulus only in audio; printing it must not create a shortcut. Outside that declared stimulus, audio must not add an answer clue absent from the task's evidence.
+- When the response assesses recognition of printed letters, words or spellings, do not pronounce the answer options. Keep the instruction and authored stimulus replayable. Spoken rhyme and sound comparisons retain their choice recordings; grammar and comprehension may retain oral access without claiming independent word reading.
 
 ## 8. Answer and distractor rules
 
 - Use **three options by default**; use four only when the fourth is as plausible and diagnostic as the others.
+- In Skills Sequencing Level 1, the three-event `story_event_order` format uses the three actual events from its supplied story. Exactly one answers the requested first/middle/last position. The other two diagnose order confusion; an invented fourth event is not an acceptable distractor. Other Skills formats retain their current blueprint/schema counts.
 - Normalize case and punctuation when checking semantic duplicates. Preserve the exact feature only when case or punctuation is the declared construct (for example, a capital-letter or apostrophe item). Two visually different strings that mean the same thing are duplicate answers unless that visible difference is precisely what the item measures.
 - Every distractor must be wrong for a specific reason visible in the evidence. “Silly” is not a rationale.
 - Do not place `d` beside `nd`, `l` beside `ll`, `s` beside `ss`, or another overlapping unit when the stem merely says “sound.”
@@ -104,10 +108,12 @@ Every scored question must satisfy all of these:
 
 ## 9. Media and accessibility rules
 
-- **Assessment image rule:** every assessment item has a meaningful target, scene, sequence or answer-card image. Decorative icons do not count.
+- **Assessment evidence rule:** apply the current v3 [mastery media rule](../skills-assessment-rebuild/MASTERY_SYSTEM.md#media-rule). Every item declares the evidence needed to measure its construct. A picture-matching, visual-detail, pictured-sequence or spatial-relation task must include the exact meaningful target, scene, sequence or answer-card images. Required evidence cannot exist only in the author's imagined scene. Decorative icons or unrelated illustrations do not count.
+- **Construct-specific text/audio cases:** printed grammar, affix and spelling contrasts may use text when a picture would substitute for the required word analysis or reveal the answer; reading/comprehension questions may use their supplied passage; heard phonics contrasts may use an explicitly authored spoken stimulus. In each case, the source must declare the modality and construct, and the current item media registry must contain an explicit reviewed decision for that item with construct and answer-neutrality checks. The actual readable or audible stimulus must fully support the question. This does not permit a missing, failed or ambiguous required image to be relabelled away. It does not waive any image's visual-quality requirements.
 - **Rendering rule:** assessment art uses a clean, smooth storybook-cartoon finish: crisp contours, simple readable silhouettes, flat-to-soft shading and controlled detail. Do not use canvas/paper grain, embossed or bevelled edges, gritty noise, faux paint texture, photoreal material texture or heavy cinematic surface effects.
 - At child-viewing size, the relevant object, action or relationship must remain obvious. Texture and decoration may never compete with the evidence needed for the question.
 - **Audio rule:** every question exposes a speaker button; Band A instructions can auto-play once and always remain replayable. Target-word audio and instruction audio are separate roles.
+- A target replay uses only explicitly authored `audioText` or `targetWord`, never `answer`, the keyed choice or an image filename. An image-only scene with no spoken target suppresses target replay (`suppressStimulusAudio: true`) while retaining the spoken task instruction. Passage and choice replay also remain distinct from target audio.
 - Audio uses an approved human-quality recording where available. Browser speech may be an access fallback, never the only evidence for a pronunciation-sensitive release claim.
 - Image alt text identifies the object or scene without announcing the answer. If the image itself is the assessed stimulus, accessible alternatives must preserve the construct rather than leak the key.
 - Images must be unambiguous at child-device size, culturally ordinary, answer-neutral and consistent with the named object/action.
@@ -120,6 +126,7 @@ Every scored question must satisfy all of these:
 - Spoken stimulus first; print is optional and may not reveal the rime/onset being tested.
 - Initial/final/medial sound questions use pictures or audio with an approved pronunciation.
 - Rhyming compares spoken word endings, not merely matching printed letter chunks.
+- During scored rhyme responses, hide the anchor's written spelling and all written choice labels. Picture choices must unambiguously represent their exact spoken words. A spoken-only rhyme item explicitly declares `evidenceModality: "audio"`, `hideWrittenLabels: true` and its spoken-rhyme construct; it provides numbered replay/select choices and approved recordings for the target, where applicable, and every option. The child must compare the sounds rather than printed rimes or the appearance of the cards.
 - Accent-dependent pairs are excluded or accept all valid pronunciations.
 
 ### 10.2 Phonics and decoding
@@ -160,7 +167,7 @@ Every scored question must satisfy all of these:
 
 - The answer is supported by the supplied text/image. Direct questions cite explicit evidence; inference questions have at least two converging clues.
 - Main-idea distractors may be true details but cannot also summarize the whole text.
-- Sequence options use events that actually occurred, with only order changed.
+- Sequence options use events that actually occurred, with only their order or the requested ordinal position changed. Three-event Level 1 stories use three true event choices; the story remains available as the declared text/audio evidence during the response.
 - Cause/effect questions distinguish correlation, cause and result.
 - Context-clue questions include usable definition, example, contrast or restatement clues.
 - Theme questions distinguish transferable message from plot summary and avoid preachy abstractions beyond the age band.
@@ -194,7 +201,7 @@ The permanent gate checks:
 - all 30 assessment skills are present and non-empty;
 - stable IDs, levels, phases, prompts, answer membership and unique options;
 - Level 1/2 language ceilings and visible difficulty separation;
-- assessment speaker text and meaningful visual evidence on every item;
+- assessment speaker text and complete evidence for the declared construct, including the required images or the explicit text/audio decision in §9;
 - distractor rationales after runtime enrichment;
 - banned option/stem patterns and negative-stem restrictions;
 - media paths and accessible labels where applicable;
@@ -212,7 +219,7 @@ Passing means the machine-verifiable policy checks found zero failures. It does 
 - Are the distractors plausible but clearly false?
 - Is the wording inside the learner band?
 - Does Level 2 require genuinely harder thinking than Level 1?
-- Is audio available and is the visual meaningful?
+- Is audio available, is the declared stimulus complete, and is every required visual meaningful?
 - Do sound/spelling terms name the same unit the answers use?
 - Will the full runtime item—not merely its source template—pass the gate?
 

@@ -9,7 +9,7 @@
 // closed instead of silently receiving style metadata.
 
 export const OBJECTIVE_ASSESSMENT_IMAGE_REVIEW_VERSION =
-  "objective-word-direct-review-2026-09-01-v5";
+  "objective-word-direct-review-2026-09-22-v6";
 
 // A review applies to these exact inspected pixels. The recorder must never
 // turn a later overwrite into a fresh approval merely because the path and
@@ -34,7 +34,7 @@ export const OBJECTIVE_ASSESSMENT_IMAGE_EXPECTED_SHA256_BY_WORD = Object.freeze(
   "butterfly": "2de8f61e6e97adfe79f6d6badf46e7a3d9f57901457d9e8b63928337100bf741",
   "cake": "1fec68196ba8f069a7a16cd66dbc8d4719f64098758b845fed2d8f3bcc3d4ed9",
   "cap": "0655a8f3b7e6466d979296c2752945381468ff4e230c75f0d65500356d647c91",
-  "cat": "e8548c01c0703264eb724b9d7ebae943426833bfad0f97ed6508c721bbd3615b",
+  "cat": "8904a2e78213c906eaa7d1a86e9a7c380466886274475523602417f0269426aa",
   "caterpillar": "6548c7d12d2597eb29e7b092d18fde2a908bf43d62c8a0f3489ebc2051769f41",
   "cheese": "a3a8eb1041eeba41b93bdf880d5046d22017a3006c2aba7b8e64ac7659b5b42f",
   "cherry": "a223d63dfc089f82afc483983e29b12f1a9b64fbc203cb702cc5325b7767006c",
@@ -44,7 +44,7 @@ export const OBJECTIVE_ASSESSMENT_IMAGE_EXPECTED_SHA256_BY_WORD = Object.freeze(
   "cone": "fc8fed27e420ac6b9b365c4b63308f44ea5d555467188766f79a9b867dc7b032",
   "corn": "2532ec599fb191ff4af93a821bbb080c8f7c9a603d96714d97a997d6fd994f1f",
   "crown": "a56dd8d1f6e7500738110d6b49b91a8f05155ef81eb8806991904c8cdbd7a377",
-  "cup": "3518e5049eb90be0ef12dba751e7a42787e0365c72ee05cbe61fa01384319c1b",
+  "cup": "d722ec534c3cbcab3d851f00823c7a23c949a0e3b7d6ef93e81ff06ceb20239c",
   "cube": "07068674e9097e1846a06f89f6c5b31994b27d0109c2abf392556bef12274d50",
   "deer": "c52590233be8d364ccd34307e8511b3ddd17cca4aa81677d4d2236864a8c6761",
   "dish": "cd0e9dbffa38c4d9109f5e55893a38bfb053a290f961d192de86d96579f86ea1",
@@ -148,6 +148,8 @@ const PROFESSIONAL_RASTER_WORDS = new Set([
   "tie", "tooth", "watch", "wheel", "zebra"
 ]);
 
+const STYLE_REPAIRS = new Set(["cat", "cup"]);
+
 const REJECTED_WORDS = Object.freeze({
   bath: {
     failedCriteria: ["nameability", "objectivity"],
@@ -240,23 +242,23 @@ const approvedReview = targetWord => ({
   path: `/images/assessment/objective-words/${targetWord}.webp`,
   targetWord,
   status: "approved",
-  reviewedAt: CROP_REMEDIATION_WORDS.has(targetWord) ? "2026-09-01" : "2026-08-31",
+  reviewedAt: STYLE_REPAIRS.has(targetWord) ? "2026-09-22" : CROP_REMEDIATION_WORDS.has(targetWord) ? "2026-09-01" : "2026-08-31",
   reviewMode: "direct-contact-sheet-and-individual-pixel-review",
   cropReview: "approved-referent-complete-with-padding",
   nameabilityReview: "approved-direct-child-label",
   objectivityReview: "approved-directly-observable",
   complexityReview: "approved-single-focus",
   styleReview: "approved-clear-professional-2d-raster",
-  styleProfile: PROFESSIONAL_RASTER_WORDS.has(targetWord)
+  styleProfile: !STYLE_REPAIRS.has(targetWord) && PROFESSIONAL_RASTER_WORDS.has(targetWord)
     ? "professionally-rendered-storybook-raster"
     : "classic-flat-2d-raster",
-  sourceSheet: CROP_REMEDIATION_WORDS.has(targetWord)
+  sourceSheet: STYLE_REPAIRS.has(targetWord) ? "individual-flat-cartoon-repair-2026-09-22" : CROP_REMEDIATION_WORDS.has(targetWord)
     ? "proper-raster-image-generation-2026-09-01"
     : PROFESSIONAL_RASTER_WORDS.has(targetWord)
       ? "proper-raster-image-generation-2026-08-31"
       : "objective-word-direct-review-2026-08-31",
   textReview: "approved-no-text-or-symbol-cue",
-  reviewNote: CROP_REMEDIATION_WORDS.has(targetWord)
+  reviewNote: STYLE_REPAIRS.has(targetWord) ? "Directly inspected isolated flat cartoon replacement; complete recognizable subject, no photoreal shading, competing props, text or labels." : CROP_REMEDIATION_WORDS.has(targetWord)
     ? "Regenerated as one complete isolated referent after rejecting crop-contaminated legacy pixels; no adjacent panel, competing scene, or inferred relationship."
     : "One direct referent; no adjacent-panel crop, competing scene, or inferred relationship."
 });

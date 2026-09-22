@@ -677,7 +677,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/clock.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "clock",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1099,7 +1099,7 @@ export const questions = [
    "paths": [
     "/images/assessment/blends/flag.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "flag",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2305,7 +2305,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/bread.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "bread",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2727,7 +2727,7 @@ export const questions = [
    "paths": [
     "/images/assessment/blends/crab.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "crab",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3377,7 +3377,7 @@ export const questions = [
    "frog",
    "flag",
    "ring",
-   "sit"
+   "fish"
   ],
   "answerOptions": [
    {
@@ -3396,9 +3396,9 @@ export const questions = [
     "text": "ring"
    },
    {
-    "value": "sit",
-    "label": "sit",
-    "text": "sit"
+    "value": "fish",
+    "label": "fish",
+    "text": "fish"
    }
   ],
   "answer": "frog",
@@ -3406,7 +3406,7 @@ export const questions = [
   "distractorRationales": {
    "flag": "D-PATTERN-TRAP",
    "ring": "D-ONSET",
-   "sit": "D-RIME-NEAR"
+   "fish": "D-DEVELOPMENTAL"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -3431,7 +3431,7 @@ export const questions = [
     "/images/assessment/blends/frog.webp",
     "/images/assessment/blends/flag.webp",
     "/images/assessment/rhyming/variants/ing/ring-02.webp",
-    "/images/assessment/rhyming/variants/it/sit-02.webp"
+    "/images/assessment/digraphs/fish.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -3446,7 +3446,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "sit carries the anchor's it letters — the scanner tie",
+  "notes": "fish keeps /f/ but drops the /r/ from the target onset",
   "imageCards": [
    {
     "id": "lp3.blends.l1.B.fr.v2_card_frog",
@@ -3476,13 +3476,13 @@ export const questions = [
     "imageAlt": "ring"
    },
    {
-    "id": "lp3.blends.l1.B.fr.v2_card_sit",
-    "word": "sit",
-    "value": "sit",
-    "label": "sit",
-    "image": "/images/assessment/rhyming/variants/it/sit-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/it/sit-02.webp",
-    "imageAlt": "sit"
+    "id": "lp3.blends.l1.B.fr.v2_card_fish",
+    "word": "fish",
+    "value": "fish",
+    "label": "fish",
+    "image": "/images/assessment/digraphs/fish.webp",
+    "imagePath": "/images/assessment/digraphs/fish.webp",
+    "imageAlt": "fish"
    }
   ]
  },
@@ -3563,7 +3563,7 @@ export const questions = [
    "paths": [
     "/images/assessment/blends/frog.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "frog",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -4399,7 +4399,7 @@ export const questions = [
    "paths": [
     "/images/assessment/rhyming/variants/ar/star-02.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "star",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -5470,7 +5470,7 @@ export const questions = [
    "paths": [
     "/images/assessment/blends/skateboard.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "skateboard",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -6220,7 +6220,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/snake.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "snake",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -6599,7 +6599,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/spoon.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "spoon",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -7720,7 +7720,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/tent.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "tent",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -8099,7 +8099,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/lamp.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "lamp",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -8478,7 +8478,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/ink.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "ink",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -8857,7 +8857,7 @@ export const questions = [
    "paths": [
     "/images/assessment/blends/belt.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "belt",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -9236,7 +9236,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/gift.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "gift",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },

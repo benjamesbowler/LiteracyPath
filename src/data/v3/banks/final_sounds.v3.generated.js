@@ -64,10 +64,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "web",
   "v3AuthoredMedia": {
    "target": true,
@@ -79,7 +82,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/web.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "web",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -301,10 +304,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "web",
   "v3AuthoredMedia": {
    "target": true,
@@ -316,7 +322,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/web.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "web",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -402,10 +408,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "tub",
   "v3AuthoredMedia": {
    "target": true,
@@ -417,7 +426,7 @@ export const questions = [
    "paths": [
     "/images/assessment/release-media/tub-9c34a66d.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "tub",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -503,10 +512,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "bed",
   "v3AuthoredMedia": {
    "target": true,
@@ -518,7 +530,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/bed.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "bed",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -740,10 +752,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "lid",
   "v3AuthoredMedia": {
    "target": true,
@@ -755,7 +770,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/lid.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "lid",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -841,10 +856,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "lid",
   "v3AuthoredMedia": {
    "target": true,
@@ -856,7 +874,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/lid.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "lid",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -942,10 +960,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "dog",
   "v3AuthoredMedia": {
    "target": true,
@@ -957,7 +978,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/dog.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "dog",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1179,10 +1200,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "pig",
   "v3AuthoredMedia": {
    "target": true,
@@ -1194,7 +1218,7 @@ export const questions = [
    "paths": [
     "/images/assessment/rhyming/variants/ig/pig-02.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "pig",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1280,10 +1304,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "log",
   "v3AuthoredMedia": {
    "target": true,
@@ -1295,7 +1322,7 @@ export const questions = [
    "paths": [
     "/images/assessment/rhyming/variants/og/log-02.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "log",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1381,10 +1408,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "wheel",
   "v3AuthoredMedia": {
    "target": true,
@@ -1396,7 +1426,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/wheel.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "wheel",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1618,10 +1648,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "bell",
   "v3AuthoredMedia": {
    "target": true,
@@ -1633,7 +1666,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/bell.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "bell",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1719,10 +1752,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "wheel",
   "v3AuthoredMedia": {
    "target": true,
@@ -1734,7 +1770,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/wheel.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "wheel",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1820,10 +1856,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "jam",
   "v3AuthoredMedia": {
    "target": true,
@@ -1835,7 +1874,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/jam.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "jam",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2057,10 +2096,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "ham",
   "v3AuthoredMedia": {
    "target": true,
@@ -2072,7 +2114,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/ham.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "ham",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2158,10 +2200,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "ham",
   "v3AuthoredMedia": {
    "target": true,
@@ -2173,7 +2218,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/ham.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "ham",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2259,10 +2304,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "sun",
   "v3AuthoredMedia": {
    "target": true,
@@ -2274,7 +2322,7 @@ export const questions = [
    "paths": [
     "/images/assessment/rhyming/variants/sun/sun-02.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "sun",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2496,10 +2544,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "hen",
   "v3AuthoredMedia": {
    "target": true,
@@ -2511,7 +2562,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/hen.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "hen",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2597,10 +2648,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "ten",
   "v3AuthoredMedia": {
    "target": true,
@@ -2612,7 +2666,7 @@ export const questions = [
    "paths": [
     "/images/assessment/rhyming/variants/en/ten-02.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "ten",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2698,10 +2752,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "map",
   "v3AuthoredMedia": {
    "target": true,
@@ -2713,7 +2770,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/map.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "map",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2935,10 +2992,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "mop",
   "v3AuthoredMedia": {
    "target": true,
@@ -2950,7 +3010,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/mop.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "mop",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3036,10 +3096,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "mop",
   "v3AuthoredMedia": {
    "target": true,
@@ -3051,7 +3114,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/mop.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "mop",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3137,10 +3200,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "cat",
   "v3AuthoredMedia": {
    "target": true,
@@ -3152,7 +3218,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/cat.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "cat",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3374,10 +3440,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "hat",
   "v3AuthoredMedia": {
    "target": true,
@@ -3389,7 +3458,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/hat.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "hat",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3475,10 +3544,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "wet",
   "v3AuthoredMedia": {
    "target": true,
@@ -3490,7 +3562,7 @@ export const questions = [
    "paths": [
     "/images/assessment/rhyming/variants/et/wet-02.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "wet",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3533,9 +3605,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes fi__?",
-  "question": "Which letter pair completes fi__?",
-  "spokenPrompt": "Fish. Which two ending letters complete the word?",
+  "prompt": "Which letters complete fi__?",
+  "question": "Which letters complete fi__?",
+  "spokenPrompt": "Fish. Which letters complete the ending?",
   "choices": [
    "f",
    "sh",
@@ -3571,15 +3643,18 @@ export const questions = [
    "f": "D-POSITION",
    "ch": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "fish",
   "v3AuthoredMedia": {
    "target": false,
@@ -3623,9 +3698,9 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same two ending letters as wish?",
-  "question": "Which word has the same two ending letters as wish?",
-  "spokenPrompt": "Wish. Which word has the same two ending letters?",
+  "prompt": "Which word has the same ending sound or sounds?",
+  "question": "Which word has the same ending sound or sounds?",
+  "spokenPrompt": "Wish. Which word has the same ending sound or sounds?",
   "choices": [
    "fish",
    "whisk",
@@ -3661,15 +3736,18 @@ export const questions = [
    "glass": "D-RIME-NEAR",
    "whisk": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "wish",
   "v3AuthoredMedia": {
    "target": false,
@@ -3713,9 +3791,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes bru__?",
-  "question": "Which letter pair completes bru__?",
-  "spokenPrompt": "Brush. Which two ending letters complete the word?",
+  "prompt": "Which letters complete bru__?",
+  "question": "Which letters complete bru__?",
+  "spokenPrompt": "Brush. Which letters complete the ending?",
   "choices": [
    "ch",
    "th",
@@ -3751,15 +3829,18 @@ export const questions = [
    "b": "D-POSITION",
    "ch": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "brush",
   "v3AuthoredMedia": {
    "target": false,
@@ -3803,9 +3884,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes spla__?",
-  "question": "Which letter pair completes spla__?",
-  "spokenPrompt": "Splash. Which two ending letters complete the word?",
+  "prompt": "Which letters complete spla__?",
+  "question": "Which letters complete spla__?",
+  "spokenPrompt": "Splash. Which letters complete the ending?",
   "choices": [
    "s",
    "ck",
@@ -3841,15 +3922,18 @@ export const questions = [
    "s": "D-DEVELOPMENTAL",
    "ck": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "splash",
   "v3AuthoredMedia": {
    "target": false,
@@ -3893,9 +3977,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes mo__?",
-  "question": "Which letter pair completes mo__?",
-  "spokenPrompt": "Moth. Which two ending letters complete the word?",
+  "prompt": "Which letters complete mo__?",
+  "question": "Which letters complete mo__?",
+  "spokenPrompt": "Moth. Which letters complete the ending?",
   "choices": [
    "sh",
    "f",
@@ -3931,15 +4015,18 @@ export const questions = [
    "sh": "D-PATTERN-TRAP",
    "f": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "moth",
   "v3AuthoredMedia": {
    "target": false,
@@ -3983,9 +4070,9 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same two ending letters as bath?",
-  "question": "Which word has the same two ending letters as bath?",
-  "spokenPrompt": "Bath. Which word has the same two ending letters?",
+  "prompt": "Which word has the same ending sound or sounds?",
+  "question": "Which word has the same ending sound or sounds?",
+  "spokenPrompt": "Bath. Which word has the same ending sound or sounds?",
   "choices": [
    "toe",
    "moth",
@@ -4021,15 +4108,18 @@ export const questions = [
    "boat": "D-POSITION",
    "ring": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "bath",
   "v3AuthoredMedia": {
    "target": false,
@@ -4073,9 +4163,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes ba__?",
-  "question": "Which letter pair completes ba__?",
-  "spokenPrompt": "Bath. Which two ending letters complete the word?",
+  "prompt": "Which letters complete ba__?",
+  "question": "Which letters complete ba__?",
+  "spokenPrompt": "Bath. Which letters complete the ending?",
   "choices": [
    "th",
    "f",
@@ -4111,15 +4201,18 @@ export const questions = [
    "f": "D-DEVELOPMENTAL",
    "b": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "bath",
   "v3AuthoredMedia": {
    "target": false,
@@ -4163,9 +4256,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes clo__?",
-  "question": "Which letter pair completes clo__?",
-  "spokenPrompt": "Cloth. Which two ending letters complete the word?",
+  "prompt": "Which letters complete clo__?",
+  "question": "Which letters complete clo__?",
+  "spokenPrompt": "Cloth. Which letters complete the ending?",
   "choices": [
    "th",
    "ch",
@@ -4201,15 +4294,18 @@ export const questions = [
    "s": "D-DEVELOPMENTAL",
    "c": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "cloth",
   "v3AuthoredMedia": {
    "target": false,
@@ -4253,9 +4349,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes be__?",
-  "question": "Which letter pair completes be__?",
-  "spokenPrompt": "Bell. Which two ending letters complete the word?",
+  "prompt": "Which letters complete be__?",
+  "question": "Which letters complete be__?",
+  "spokenPrompt": "Bell. Which letters complete the ending?",
   "choices": [
    "b",
    "ll",
@@ -4291,15 +4387,18 @@ export const questions = [
    "sh": "D-PATTERN-TRAP",
    "ng": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "bell",
   "v3AuthoredMedia": {
    "target": false,
@@ -4343,9 +4442,9 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same two ending letters as shell?",
-  "question": "Which word has the same two ending letters as shell?",
-  "spokenPrompt": "Shell. Which word has the same two ending letters?",
+  "prompt": "Which word has the same ending sound or sounds?",
+  "question": "Which word has the same ending sound or sounds?",
+  "spokenPrompt": "Shell. Which word has the same ending sound or sounds?",
   "choices": [
    "shed",
    "moth",
@@ -4381,15 +4480,18 @@ export const questions = [
    "yellow": "D-PATTERN-TRAP",
    "shed": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "shell",
   "v3AuthoredMedia": {
    "target": false,
@@ -4433,9 +4535,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes hi__?",
-  "question": "Which letter pair completes hi__?",
-  "spokenPrompt": "Hill. Which two ending letters complete the word?",
+  "prompt": "Which letters complete hi__?",
+  "question": "Which letters complete hi__?",
+  "spokenPrompt": "Hill. Which letters complete the ending?",
   "choices": [
    "h",
    "ll",
@@ -4471,15 +4573,18 @@ export const questions = [
    "sh": "D-PATTERN-TRAP",
    "ng": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "hill",
   "v3AuthoredMedia": {
    "target": false,
@@ -4523,9 +4628,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes sma__?",
-  "question": "Which letter pair completes sma__?",
-  "spokenPrompt": "Small. Which two ending letters complete the word?",
+  "prompt": "Which letters complete sma__?",
+  "question": "Which letters complete sma__?",
+  "spokenPrompt": "Small. Which letters complete the ending?",
   "choices": [
    "ng",
    "s",
@@ -4561,15 +4666,18 @@ export const questions = [
    "ng": "D-PATTERN-TRAP",
    "s": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "small",
   "v3AuthoredMedia": {
    "target": false,
@@ -4613,9 +4721,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes ri__?",
-  "question": "Which letter pair completes ri__?",
-  "spokenPrompt": "Ring. Which two ending letters complete the word?",
+  "prompt": "Which letters complete ri__?",
+  "question": "Which letters complete ri__?",
+  "spokenPrompt": "Ring. Which letters complete the ending?",
   "choices": [
    "n",
    "nk",
@@ -4651,15 +4759,18 @@ export const questions = [
    "r": "D-POSITION",
    "n": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "ring",
   "v3AuthoredMedia": {
    "target": false,
@@ -4703,9 +4814,9 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same two ending letters as song?",
-  "question": "Which word has the same two ending letters as song?",
-  "spokenPrompt": "Song. Which word has the same two ending letters?",
+  "prompt": "Which word has the same ending sound or sounds?",
+  "question": "Which word has the same ending sound or sounds?",
+  "spokenPrompt": "Song. Which word has the same ending sound or sounds?",
   "choices": [
    "pin",
    "sock",
@@ -4741,15 +4852,18 @@ export const questions = [
    "rock": "D-RIME-NEAR",
    "pin": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "song",
   "v3AuthoredMedia": {
    "target": false,
@@ -4793,9 +4907,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes ki__?",
-  "question": "Which letter pair completes ki__?",
-  "spokenPrompt": "King. Which two ending letters complete the word?",
+  "prompt": "Which letters complete ki__?",
+  "question": "Which letters complete ki__?",
+  "spokenPrompt": "King. Which letters complete the ending?",
   "choices": [
    "th",
    "k",
@@ -4831,15 +4945,18 @@ export const questions = [
    "k": "D-POSITION",
    "n": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "king",
   "v3AuthoredMedia": {
    "target": false,
@@ -4883,9 +5000,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes swi__?",
-  "question": "Which letter pair completes swi__?",
-  "spokenPrompt": "Swing. Which two ending letters complete the word?",
+  "prompt": "Which letters complete swi__?",
+  "question": "Which letters complete swi__?",
+  "spokenPrompt": "Swing. Which letters complete the ending?",
   "choices": [
    "ng",
    "n",
@@ -4921,15 +5038,18 @@ export const questions = [
    "nk": "D-PATTERN-TRAP",
    "s": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "swing",
   "v3AuthoredMedia": {
    "target": false,
@@ -4973,9 +5093,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes ha__?",
-  "question": "Which letter pair completes ha__?",
-  "spokenPrompt": "Hand. Which two ending letters complete the word?",
+  "prompt": "Which letters complete ha__?",
+  "question": "Which letters complete ha__?",
+  "spokenPrompt": "Hand. Which letters complete the ending?",
   "choices": [
    "h",
    "nd",
@@ -5011,15 +5131,18 @@ export const questions = [
    "nk": "D-PATTERN-TRAP",
    "h": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "hand",
   "v3AuthoredMedia": {
    "target": false,
@@ -5063,9 +5186,9 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same two ending letters as hand?",
-  "question": "Which word has the same two ending letters as hand?",
-  "spokenPrompt": "Hand. Which word has the same two ending letters?",
+  "prompt": "Which word has the same ending sound or sounds?",
+  "question": "Which word has the same ending sound or sounds?",
+  "spokenPrompt": "Hand. Which word has the same ending sound or sounds?",
   "choices": [
    "pond",
    "candle",
@@ -5101,15 +5224,18 @@ export const questions = [
    "nut": "D-RIME-NEAR",
    "hen": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "hand",
   "v3AuthoredMedia": {
    "target": false,
@@ -5153,9 +5279,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes po__?",
-  "question": "Which letter pair completes po__?",
-  "spokenPrompt": "Pond. Which two ending letters complete the word?",
+  "prompt": "Which letters complete po__?",
+  "question": "Which letters complete po__?",
+  "spokenPrompt": "Pond. Which letters complete the ending?",
   "choices": [
    "nt",
    "n",
@@ -5191,15 +5317,18 @@ export const questions = [
    "n": "D-DEVELOPMENTAL",
    "g": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "pond",
   "v3AuthoredMedia": {
    "target": false,
@@ -5243,9 +5372,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes wi__?",
-  "question": "Which letter pair completes wi__?",
-  "spokenPrompt": "Wind. Which two ending letters complete the word?",
+  "prompt": "Which letters complete wi__?",
+  "question": "Which letters complete wi__?",
+  "spokenPrompt": "Wind. Which letters complete the ending?",
   "choices": [
    "mp",
    "w",
@@ -5281,15 +5410,18 @@ export const questions = [
    "w": "D-POSITION",
    "nt": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "wind",
   "v3AuthoredMedia": {
    "target": false,
@@ -5333,9 +5465,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes dri__?",
-  "question": "Which letter pair completes dri__?",
-  "spokenPrompt": "Drink. Which two ending letters complete the word?",
+  "prompt": "Which letters complete dri__?",
+  "question": "Which letters complete dri__?",
+  "spokenPrompt": "Drink. Which letters complete the ending?",
   "choices": [
    "ng",
    "nt",
@@ -5371,15 +5503,18 @@ export const questions = [
    "d": "D-POSITION",
    "ng": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "drink",
   "v3AuthoredMedia": {
    "target": false,
@@ -5423,9 +5558,9 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same two ending letters as tank?",
-  "question": "Which word has the same two ending letters as tank?",
-  "spokenPrompt": "Tank. Which word has the same two ending letters?",
+  "prompt": "Which word has the same ending sound or sounds?",
+  "question": "Which word has the same ending sound or sounds?",
+  "spokenPrompt": "Tank. Which word has the same ending sound or sounds?",
   "choices": [
    "ring",
    "drink",
@@ -5461,15 +5596,18 @@ export const questions = [
    "ring": "D-RIME-NEAR",
    "monkey": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "tank",
   "v3AuthoredMedia": {
    "target": false,
@@ -5513,9 +5651,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes tru__?",
-  "question": "Which letter pair completes tru__?",
-  "spokenPrompt": "Trunk. Which two ending letters complete the word?",
+  "prompt": "Which letters complete tru__?",
+  "question": "Which letters complete tru__?",
+  "spokenPrompt": "Trunk. Which letters complete the ending?",
   "choices": [
    "nk",
    "ng",
@@ -5551,15 +5689,18 @@ export const questions = [
    "t": "D-POSITION",
    "ng": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "trunk",
   "v3AuthoredMedia": {
    "target": false,
@@ -5603,9 +5744,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes bli__?",
-  "question": "Which letter pair completes bli__?",
-  "spokenPrompt": "Blink. Which two ending letters complete the word?",
+  "prompt": "Which letters complete bli__?",
+  "question": "Which letters complete bli__?",
+  "spokenPrompt": "Blink. Which letters complete the ending?",
   "choices": [
    "nk",
    "nt",
@@ -5641,15 +5782,18 @@ export const questions = [
    "b": "D-POSITION",
    "g": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "blink",
   "v3AuthoredMedia": {
    "target": false,
@@ -5693,9 +5837,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes ne__?",
-  "question": "Which letter pair completes ne__?",
-  "spokenPrompt": "Nest. Which two ending letters complete the word?",
+  "prompt": "Which letters complete ne__?",
+  "question": "Which letters complete ne__?",
+  "spokenPrompt": "Nest. Which letters complete the ending?",
   "choices": [
    "n",
    "st",
@@ -5731,15 +5875,18 @@ export const questions = [
    "n": "D-POSITION",
    "sk": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "nest",
   "v3AuthoredMedia": {
    "target": false,
@@ -5783,9 +5930,9 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same two ending letters as list?",
-  "question": "Which word has the same two ending letters as list?",
-  "spokenPrompt": "List. Which word has the same two ending letters?",
+  "prompt": "Which word has the same ending sound or sounds?",
+  "question": "Which word has the same ending sound or sounds?",
+  "spokenPrompt": "List. Which word has the same ending sound or sounds?",
   "choices": [
    "dish",
    "lemon",
@@ -5821,15 +5968,18 @@ export const questions = [
    "lemon": "D-RIME-NEAR",
    "desk": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "list",
   "v3AuthoredMedia": {
    "target": false,
@@ -5873,9 +6023,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes ve__?",
-  "question": "Which letter pair completes ve__?",
-  "spokenPrompt": "Vest. Which two ending letters complete the word?",
+  "prompt": "Which letters complete ve__?",
+  "question": "Which letters complete ve__?",
+  "spokenPrompt": "Vest. Which letters complete the ending?",
   "choices": [
    "v",
    "st",
@@ -5911,15 +6061,18 @@ export const questions = [
    "v": "D-POSITION",
    "sk": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "vest",
   "v3AuthoredMedia": {
    "target": false,
@@ -5963,9 +6116,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes li__?",
-  "question": "Which letter pair completes li__?",
-  "spokenPrompt": "List. Which two ending letters complete the word?",
+  "prompt": "Which letters complete li__?",
+  "question": "Which letters complete li__?",
+  "spokenPrompt": "List. Which letters complete the ending?",
   "choices": [
    "ss",
    "l",
@@ -6001,15 +6154,18 @@ export const questions = [
    "ss": "D-PATTERN-TRAP",
    "l": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "list",
   "v3AuthoredMedia": {
    "target": false,
@@ -6053,9 +6209,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes de__?",
-  "question": "Which letter pair completes de__?",
-  "spokenPrompt": "Desk. Which two ending letters complete the word?",
+  "prompt": "Which letters complete de__?",
+  "question": "Which letters complete de__?",
+  "spokenPrompt": "Desk. Which letters complete the ending?",
   "choices": [
    "st",
    "ck",
@@ -6091,15 +6247,18 @@ export const questions = [
    "ck": "D-PATTERN-TRAP",
    "d": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "desk",
   "v3AuthoredMedia": {
    "target": false,
@@ -6143,9 +6302,9 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same two ending letters as desk?",
-  "question": "Which word has the same two ending letters as desk?",
-  "spokenPrompt": "Desk. Which word has the same two ending letters?",
+  "prompt": "Which word has the same ending sound or sounds?",
+  "question": "Which word has the same ending sound or sounds?",
+  "spokenPrompt": "Desk. Which word has the same ending sound or sounds?",
   "choices": [
    "basket",
    "nest",
@@ -6181,15 +6340,18 @@ export const questions = [
    "nest": "D-RIME-NEAR",
    "dish": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "desk",
   "v3AuthoredMedia": {
    "target": false,
@@ -6233,9 +6395,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes ma__?",
-  "question": "Which letter pair completes ma__?",
-  "spokenPrompt": "Mask. Which two ending letters complete the word?",
+  "prompt": "Which letters complete ma__?",
+  "question": "Which letters complete ma__?",
+  "spokenPrompt": "Mask. Which letters complete the ending?",
   "choices": [
    "ng",
    "f",
@@ -6271,15 +6433,18 @@ export const questions = [
    "ng": "D-PATTERN-TRAP",
    "f": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "mask",
   "v3AuthoredMedia": {
    "target": false,
@@ -6323,9 +6488,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes tu__?",
-  "question": "Which letter pair completes tu__?",
-  "spokenPrompt": "Tusk. Which two ending letters complete the word?",
+  "prompt": "Which letters complete tu__?",
+  "question": "Which letters complete tu__?",
+  "spokenPrompt": "Tusk. Which letters complete the ending?",
   "choices": [
    "sk",
    "st",
@@ -6361,15 +6526,18 @@ export const questions = [
    "m": "D-VISUAL-NEIGHBOR",
    "st": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "tusk",
   "v3AuthoredMedia": {
    "target": false,
@@ -6413,9 +6581,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes gi__?",
-  "question": "Which letter pair completes gi__?",
-  "spokenPrompt": "Gift. Which two ending letters complete the word?",
+  "prompt": "Which letters complete gi__?",
+  "question": "Which letters complete gi__?",
+  "spokenPrompt": "Gift. Which letters complete the ending?",
   "choices": [
    "g",
    "ft",
@@ -6451,15 +6619,18 @@ export const questions = [
    "ck": "D-PATTERN-TRAP",
    "g": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "gift",
   "v3AuthoredMedia": {
    "target": false,
@@ -6503,9 +6674,9 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same two ending letters as raft?",
-  "question": "Which word has the same two ending letters as raft?",
-  "spokenPrompt": "Raft. Which word has the same two ending letters?",
+  "prompt": "Which word has the same ending sound or sounds?",
+  "question": "Which word has the same ending sound or sounds?",
+  "spokenPrompt": "Raft. Which word has the same ending sound or sounds?",
   "choices": [
    "gift",
    "after",
@@ -6541,15 +6712,18 @@ export const questions = [
    "rain": "D-POSITION",
    "mask": "D-RIME-NEAR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "raft",
   "v3AuthoredMedia": {
    "target": false,
@@ -6593,9 +6767,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes le__?",
-  "question": "Which letter pair completes le__?",
-  "spokenPrompt": "Left. Which two ending letters complete the word?",
+  "prompt": "Which letters complete le__?",
+  "question": "Which letters complete le__?",
+  "spokenPrompt": "Left. Which letters complete the ending?",
   "choices": [
    "sk",
    "mp",
@@ -6631,15 +6805,18 @@ export const questions = [
    "mp": "D-PATTERN-TRAP",
    "l": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "left",
   "v3AuthoredMedia": {
    "target": false,
@@ -6683,9 +6860,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes ra__?",
-  "question": "Which letter pair completes ra__?",
-  "spokenPrompt": "Raft. Which two ending letters complete the word?",
+  "prompt": "Which letters complete ra__?",
+  "question": "Which letters complete ra__?",
+  "spokenPrompt": "Raft. Which letters complete the ending?",
   "choices": [
    "nd",
    "r",
@@ -6721,15 +6898,18 @@ export const questions = [
    "r": "D-POSITION",
    "sk": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "raft",
   "v3AuthoredMedia": {
    "target": false,
@@ -6773,9 +6953,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes me__?",
-  "question": "Which letter pair completes me__?",
-  "spokenPrompt": "Melt. Which two ending letters complete the word?",
+  "prompt": "Which letters complete me__?",
+  "question": "Which letters complete me__?",
+  "spokenPrompt": "Melt. Which letters complete the ending?",
   "choices": [
    "ft",
    "sk",
@@ -6811,15 +6991,18 @@ export const questions = [
    "ft": "D-PATTERN-TRAP",
    "sk": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "melt",
   "v3AuthoredMedia": {
    "target": false,
@@ -6863,9 +7046,9 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same two ending letters as belt?",
-  "question": "Which word has the same two ending letters as belt?",
-  "spokenPrompt": "Belt. Which word has the same two ending letters?",
+  "prompt": "Which word has the same ending sound or sounds?",
+  "question": "Which word has the same ending sound or sounds?",
+  "spokenPrompt": "Belt. Which word has the same ending sound or sounds?",
   "choices": [
    "ring",
    "melt",
@@ -6901,15 +7084,18 @@ export const questions = [
    "salty": "D-PATTERN-TRAP",
    "book": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "belt",
   "v3AuthoredMedia": {
    "target": false,
@@ -6953,9 +7139,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes sa__?",
-  "question": "Which letter pair completes sa__?",
-  "spokenPrompt": "Salt. Which two ending letters complete the word?",
+  "prompt": "Which letters complete sa__?",
+  "question": "Which letters complete sa__?",
+  "spokenPrompt": "Salt. Which letters complete the ending?",
   "choices": [
    "lt",
    "ft",
@@ -6991,15 +7177,18 @@ export const questions = [
    "ft": "D-PATTERN-TRAP",
    "th": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "salt",
   "v3AuthoredMedia": {
    "target": false,
@@ -7043,9 +7232,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes fe__?",
-  "question": "Which letter pair completes fe__?",
-  "spokenPrompt": "Felt. Which two ending letters complete the word?",
+  "prompt": "Which letters complete fe__?",
+  "question": "Which letters complete fe__?",
+  "spokenPrompt": "Felt. Which letters complete the ending?",
   "choices": [
    "lt",
    "sk",
@@ -7081,15 +7270,18 @@ export const questions = [
    "ng": "D-PATTERN-TRAP",
    "f": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "felt",
   "v3AuthoredMedia": {
    "target": false,
@@ -7112,6 +7304,805 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "fe+sk/ng/f are non-words (fell and fed stay out of the set)"
+ },
+ {
+  "id": "lp3.final_sounds.l1.C.b.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "final_sound",
+  "itemKey": "b",
+  "formatType": "ENDING_SOUND",
+  "templateType": "ENDING_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter completes ri__?",
+  "question": "Which letter completes ri__?",
+  "spokenPrompt": "Rib. Which letter matches the final sound?",
+  "choices": [
+   "r",
+   "d",
+   "b",
+   "p"
+  ],
+  "answerOptions": [
+   {
+    "value": "r",
+    "label": "r",
+    "text": "r"
+   },
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
+   },
+   {
+    "value": "b",
+    "label": "b",
+    "text": "b"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   }
+  ],
+  "answer": "b",
+  "correctAnswer": "b",
+  "distractorRationales": {
+   "p": "D-RIME-NEAR",
+   "r": "D-POSITION",
+   "d": "D-VISUAL-NEIGHBOR"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "rib",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.C.b.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.final_sounds.l1.C.d.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "final_sound",
+  "itemKey": "d",
+  "formatType": "ENDING_SOUND",
+  "templateType": "ENDING_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter completes mu__?",
+  "question": "Which letter completes mu__?",
+  "spokenPrompt": "Mud. Which letter matches the final sound?",
+  "choices": [
+   "t",
+   "m",
+   "b",
+   "d"
+  ],
+  "answerOptions": [
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "m",
+    "label": "m",
+    "text": "m"
+   },
+   {
+    "value": "b",
+    "label": "b",
+    "text": "b"
+   },
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
+   }
+  ],
+  "answer": "d",
+  "correctAnswer": "d",
+  "distractorRationales": {
+   "b": "D-VISUAL-NEIGHBOR",
+   "t": "D-RIME-NEAR",
+   "m": "D-POSITION"
+  },
+  "mediaTier": "image-optional",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "mud",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.C.d.v6",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/mud-4f3d05c0.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "mud"
+  },
+  "requiredImageAssetKey": "mud",
+  "stimulusMediaId": "mud",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "",
+  "imagePath": "/images/assessment/release-media/mud-4f3d05c0.webp",
+  "imageUrl": "/images/assessment/release-media/mud-4f3d05c0.webp",
+  "targetImage": "/images/assessment/release-media/mud-4f3d05c0.webp",
+  "targetImagePath": "/images/assessment/release-media/mud-4f3d05c0.webp",
+  "resolvedImageAssetKey": "mud",
+  "imageAlt": "mud"
+ },
+ {
+  "id": "lp3.final_sounds.l1.C.g.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "final_sound",
+  "itemKey": "g",
+  "formatType": "ENDING_SOUND",
+  "templateType": "ENDING_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter completes ba__?",
+  "question": "Which letter completes ba__?",
+  "spokenPrompt": "Bag. Which letter matches the final sound?",
+  "choices": [
+   "g",
+   "k",
+   "b",
+   "q"
+  ],
+  "answerOptions": [
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
+   {
+    "value": "k",
+    "label": "k",
+    "text": "k"
+   },
+   {
+    "value": "b",
+    "label": "b",
+    "text": "b"
+   },
+   {
+    "value": "q",
+    "label": "q",
+    "text": "q"
+   }
+  ],
+  "answer": "g",
+  "correctAnswer": "g",
+  "distractorRationales": {
+   "k": "D-RIME-NEAR",
+   "b": "D-POSITION",
+   "q": "D-VISUAL-NEIGHBOR"
+  },
+  "mediaTier": "image-optional",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "bag",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.C.g.v6",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/bag.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "bag"
+  },
+  "requiredImageAssetKey": "bag",
+  "stimulusMediaId": "bag",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/bag.webp",
+  "imageUrl": "/images/assessment/objective-words/bag.webp",
+  "targetImage": "/images/assessment/objective-words/bag.webp",
+  "targetImagePath": "/images/assessment/objective-words/bag.webp",
+  "resolvedImageAssetKey": "bag",
+  "imageAlt": "bag"
+ },
+ {
+  "id": "lp3.final_sounds.l1.C.l.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "final_sound",
+  "itemKey": "l",
+  "formatType": "ENDING_SOUND_WORD_MATCH",
+  "templateType": "ENDING_SOUND_WORD_MATCH",
+  "questionType": "multiple_choice",
+  "prompt": "Which word has the same final sound?",
+  "question": "Which word has the same final sound?",
+  "spokenPrompt": "Tail. Which word has the same final sound?",
+  "choices": [
+   "duck",
+   "pool",
+   "train",
+   "leaf"
+  ],
+  "answerOptions": [
+   {
+    "value": "duck",
+    "label": "duck",
+    "text": "duck"
+   },
+   {
+    "value": "pool",
+    "label": "pool",
+    "text": "pool"
+   },
+   {
+    "value": "train",
+    "label": "train",
+    "text": "train"
+   },
+   {
+    "value": "leaf",
+    "label": "leaf",
+    "text": "leaf"
+   }
+  ],
+  "answer": "pool",
+  "correctAnswer": "pool",
+  "distractorRationales": {
+   "duck": "D-RIME-NEAR",
+   "train": "D-RIME-NEAR",
+   "leaf": "D-POSITION"
+  },
+  "mediaTier": "image-optional",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "tail",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.C.l.v6",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "tail"
+  },
+  "requiredImageAssetKey": "tail",
+  "stimulusMediaId": "tail",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
+  "resolvedImageAssetKey": "tail",
+  "imageAlt": "tail"
+ },
+ {
+  "id": "lp3.final_sounds.l1.C.m.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "final_sound",
+  "itemKey": "m",
+  "formatType": "ENDING_SOUND",
+  "templateType": "ENDING_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter completes ra__?",
+  "question": "Which letter completes ra__?",
+  "spokenPrompt": "Ram. Which letter matches the final sound?",
+  "choices": [
+   "r",
+   "w",
+   "m",
+   "n"
+  ],
+  "answerOptions": [
+   {
+    "value": "r",
+    "label": "r",
+    "text": "r"
+   },
+   {
+    "value": "w",
+    "label": "w",
+    "text": "w"
+   },
+   {
+    "value": "m",
+    "label": "m",
+    "text": "m"
+   },
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   }
+  ],
+  "answer": "m",
+  "correctAnswer": "m",
+  "distractorRationales": {
+   "r": "D-POSITION",
+   "w": "D-VISUAL-NEIGHBOR",
+   "n": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "ram",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.C.m.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the heard word pins the final sound; a sheep picture cannot objectively specify ram"
+ },
+ {
+  "id": "lp3.final_sounds.l1.C.n.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "final_sound",
+  "itemKey": "n",
+  "formatType": "ENDING_SOUND",
+  "templateType": "ENDING_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter completes pa__?",
+  "question": "Which letter completes pa__?",
+  "spokenPrompt": "Pan. Which letter matches the final sound?",
+  "choices": [
+   "m",
+   "p",
+   "u",
+   "n"
+  ],
+  "answerOptions": [
+   {
+    "value": "m",
+    "label": "m",
+    "text": "m"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   }
+  ],
+  "answer": "n",
+  "correctAnswer": "n",
+  "distractorRationales": {
+   "m": "D-RIME-NEAR",
+   "p": "D-POSITION",
+   "u": "D-VISUAL-NEIGHBOR"
+  },
+  "mediaTier": "image-optional",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "pan",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.C.n.v6",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/pan.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "pan"
+  },
+  "requiredImageAssetKey": "pan",
+  "stimulusMediaId": "pan",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/pan.webp",
+  "imageUrl": "/images/assessment/objective-words/pan.webp",
+  "targetImage": "/images/assessment/objective-words/pan.webp",
+  "targetImagePath": "/images/assessment/objective-words/pan.webp",
+  "resolvedImageAssetKey": "pan",
+  "imageAlt": "pan"
+ },
+ {
+  "id": "lp3.final_sounds.l1.C.p.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "final_sound",
+  "itemKey": "p",
+  "formatType": "ENDING_SOUND",
+  "templateType": "ENDING_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter completes ca__?",
+  "question": "Which letter completes ca__?",
+  "spokenPrompt": "Cap. Which letter matches the final sound?",
+  "choices": [
+   "p",
+   "b",
+   "c",
+   "q"
+  ],
+  "answerOptions": [
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   },
+   {
+    "value": "b",
+    "label": "b",
+    "text": "b"
+   },
+   {
+    "value": "c",
+    "label": "c",
+    "text": "c"
+   },
+   {
+    "value": "q",
+    "label": "q",
+    "text": "q"
+   }
+  ],
+  "answer": "p",
+  "correctAnswer": "p",
+  "distractorRationales": {
+   "q": "D-VISUAL-NEIGHBOR",
+   "b": "D-RIME-NEAR",
+   "c": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "cap",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.C.p.v6",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the exact spoken cap target avoids depending on cap versus hat picture naming"
+ },
+ {
+  "id": "lp3.final_sounds.l1.C.t.v6",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "final_sound",
+  "itemKey": "t",
+  "formatType": "ENDING_SOUND",
+  "templateType": "ENDING_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter completes po__?",
+  "question": "Which letter completes po__?",
+  "spokenPrompt": "Pot. Which letter matches the final sound?",
+  "choices": [
+   "f",
+   "t",
+   "d",
+   "p"
+  ],
+  "answerOptions": [
+   {
+    "value": "f",
+    "label": "f",
+    "text": "f"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   }
+  ],
+  "answer": "t",
+  "correctAnswer": "t",
+  "distractorRationales": {
+   "f": "D-VISUAL-NEIGHBOR",
+   "d": "D-RIME-NEAR",
+   "p": "D-POSITION"
+  },
+  "mediaTier": "image-optional",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "pot",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.C.t.v6",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/pot.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "pot"
+  },
+  "requiredImageAssetKey": "pot",
+  "stimulusMediaId": "pot",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/pot.webp",
+  "imageUrl": "/images/assessment/objective-words/pot.webp",
+  "targetImage": "/images/assessment/objective-words/pot.webp",
+  "targetImagePath": "/images/assessment/objective-words/pot.webp",
+  "resolvedImageAssetKey": "pot",
+  "imageAlt": "pot"
  },
  {
   "id": "lp3.final_sounds.l1.R.b.v5r",
@@ -7176,10 +8167,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "web",
   "v3AuthoredMedia": {
    "target": true,
@@ -7191,7 +8185,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/web.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "web",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -7277,10 +8271,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "mud",
   "v3AuthoredMedia": {
    "target": true,
@@ -7292,7 +8289,7 @@ export const questions = [
    "paths": [
     "/images/assessment/release-media/mud-4f3d05c0.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "mud",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -7335,12 +8332,12 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter completes dru__?",
-  "question": "Which letter completes dru__?",
-  "spokenPrompt": "Drum. Which letter matches the final sound?",
+  "prompt": "Which letter completes gu__?",
+  "question": "Which letter completes gu__?",
+  "spokenPrompt": "Gum. Which letter matches the final sound?",
   "choices": [
    "n",
-   "d",
+   "g",
    "w",
    "m"
   ],
@@ -7351,9 +8348,9 @@ export const questions = [
     "text": "n"
    },
    {
-    "value": "d",
-    "label": "d",
-    "text": "d"
+    "value": "g",
+    "label": "g",
+    "text": "g"
    },
    {
     "value": "w",
@@ -7370,35 +8367,33 @@ export const questions = [
   "correctAnswer": "m",
   "distractorRationales": {
    "n": "D-RIME-NEAR",
-   "d": "D-POSITION",
+   "g": "D-POSITION",
    "w": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "drum",
+  "audioRole": "target_word",
+  "targetWord": "gum",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.final_sounds.l1.R.m.v5r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/drum.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "drum",
-  "stimulusMediaId": "drum",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7408,13 +8403,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "n is the nasal neighbour; d is the word's own first sound",
-  "imagePath": "/images/assessment/blends/drum.webp",
-  "imageUrl": "/images/assessment/blends/drum.webp",
-  "targetImage": "/images/assessment/blends/drum.webp",
-  "targetImagePath": "/images/assessment/blends/drum.webp",
-  "resolvedImageAssetKey": "drum",
-  "imageAlt": "drum"
+  "notes": "n is the nasal neighbour; g is the word's own first sound"
  },
  {
   "id": "lp3.final_sounds.l1.R.t.v5r",
@@ -7479,10 +8468,13 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "hat",
   "v3AuthoredMedia": {
    "target": true,
@@ -7494,7 +8486,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/hat.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "hat",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -7673,9 +8665,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes di__?",
-  "question": "Which letter pair completes di__?",
-  "spokenPrompt": "Dish. Which two ending letters complete the word?",
+  "prompt": "Which letters complete di__?",
+  "question": "Which letters complete di__?",
+  "spokenPrompt": "Dish. Which letters complete the ending?",
   "choices": [
    "sh",
    "ch",
@@ -7711,15 +8703,18 @@ export const questions = [
    "ch": "D-PATTERN-TRAP",
    "th": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "dish",
   "v3AuthoredMedia": {
    "target": false,
@@ -7763,9 +8758,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes sti__?",
-  "question": "Which letter pair completes sti__?",
-  "spokenPrompt": "Sting. Which two ending letters complete the word?",
+  "prompt": "Which letters complete sti__?",
+  "question": "Which letters complete sti__?",
+  "spokenPrompt": "Sting. Which letters complete the ending?",
   "choices": [
    "s",
    "ng",
@@ -7801,15 +8796,18 @@ export const questions = [
    "n": "D-DEVELOPMENTAL",
    "nd": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "sting",
   "v3AuthoredMedia": {
    "target": false,
@@ -7853,9 +8851,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes twi__?",
-  "question": "Which letter pair completes twi__?",
-  "spokenPrompt": "Twist. Which two ending letters complete the word?",
+  "prompt": "Which letters complete twi__?",
+  "question": "Which letters complete twi__?",
+  "spokenPrompt": "Twist. Which letters complete the ending?",
   "choices": [
    "ss",
    "f",
@@ -7891,15 +8889,18 @@ export const questions = [
    "sk": "D-PATTERN-TRAP",
    "ss": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "twist",
   "v3AuthoredMedia": {
    "target": false,
@@ -7943,9 +8944,9 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same two ending letters as melt?",
-  "question": "Which word has the same two ending letters as melt?",
-  "spokenPrompt": "Melt. Which word has the same two ending letters?",
+  "prompt": "Which word has the same ending sound or sounds?",
+  "question": "Which word has the same ending sound or sounds?",
+  "spokenPrompt": "Melt. Which word has the same ending sound or sounds?",
   "choices": [
    "salty",
    "moth",
@@ -7981,15 +8982,18 @@ export const questions = [
    "moth": "D-POSITION",
    "ring": "D-RIME-NEAR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "melt",
   "v3AuthoredMedia": {
    "target": false,
@@ -8033,9 +9037,9 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter pair completes thi__?",
-  "question": "Which letter pair completes thi__?",
-  "spokenPrompt": "Think. Which two ending letters complete the word?",
+  "prompt": "Which letters complete thi__?",
+  "question": "Which letters complete thi__?",
+  "spokenPrompt": "Think. Which letters complete the ending?",
   "choices": [
    "nk",
    "nt",
@@ -8071,15 +9075,18 @@ export const questions = [
    "nt": "D-PATTERN-TRAP",
    "d": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "final_sound_grapheme_mapping",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "think",
   "v3AuthoredMedia": {
    "target": false,

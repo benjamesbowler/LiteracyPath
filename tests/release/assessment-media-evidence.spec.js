@@ -1,5 +1,9 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
+import fs from "node:fs/promises";
+import { createHash } from "node:crypto";
+import { getLedaInstructionAudioPath } from "../../src/data/ledaProductionAudio.js";
+import { importV3Bank } from "../../src/data/v3/v3Registry.js";
 
 function blockingViolations(result) {
   return result.violations
@@ -9,6 +13,79 @@ function blockingViolations(result) {
       targets: violation.nodes.map(node => node.target.join(" "))
     }));
 }
+
+test("printed recognition answers cannot be solved by replaying the options", async ({ page }) => {
+  test.setTimeout(60_000);
+  for (const [skill, format] of [
+    ["hfw_1_25", "HFW_SENTENCE_CLOZE"], ["hfw_26_50", "HFW_AUDIO_FIND_WORD"],
+    ["hfw_51_75", "HFW_SENTENCE_CLOZE"], ["hfw_76_100", "HFW_AUDIO_FIND_WORD"],
+    ["initial_sounds", "FIRST_SOUND"], ["final_sounds", "ENDING_SOUND"],
+    ["cvc_short_vowels", "MISSING_VOWEL_CVC"], ["short_vowel_discrimination", "LISTEN_CHOOSE_VOWEL"],
+    ["blends", "BLEND_COMPLETE_WORD"], ["digraphs", "DIGRAPH_COMPLETE_WORD"],
+    ["long_vowels_silent_e", "SILENT_E_TRANSFORM"], ["vowel_teams", "LISTEN_FIND_WORD"],
+    ["r_controlled_vowels", "PICTURE_AUDIO_TO_PATTERN"]
+  ]) {
+    const item = (await importV3Bank(skill)).find(question => question.formatType === format);
+    const choiceCount = item.choices.length;
+    await page.goto(`/preview/assessment-media-evidence.html?skill=${skill}&item=${item.id}`);
+    const question = page.locator("[data-assessment-question-id]");
+    await expect(question).toBeVisible();
+    await expect(question.locator(".choice-audio, .ixl-answer-card .initial-sound-card-audio")).toHaveCount(0);
+    await expect(question.getByRole("button", { name: "Listen to question", exact: true })).toBeVisible();
+    await expect(question.locator(".assessment-answer-card, .ixl-answer-button")).toHaveCount(choiceCount);
+  }
+});
+
+test("repaired cloze replay requests and serves the new recording bytes", async ({ page }) => {
+  const id = "lp3.prefixes_suffixes.l2.A.suffix_s_es.v1";
+  const item = (await importV3Bank("prefixes_suffixes")).find(question => question.id === id);
+  const expectedPath = getLedaInstructionAudioPath(item.spokenPrompt);
+  await page.goto(`/preview/assessment-media-evidence.html?skill=prefixes_suffixes&item=${id}`);
+  await page.getByRole("button", { name: "Listen to question", exact: true }).click();
+  const request = JSON.parse(await page.locator('[data-preview-surface="assessment-media-evidence"]').getAttribute("data-last-audio-request"));
+  expect(request.audioPath).toBe(expectedPath);
+  const response = await page.request.get(request.audioPath);
+  expect(response.ok()).toBe(true);
+  const hash = bytes => createHash("sha256").update(bytes).digest("hex");
+  expect(hash(await response.body())).toBe(hash(await fs.readFile(`public${expectedPath}`)));
+});
+
+test("category questions never offer their keyed answer as a listening stimulus", async ({ page }) => {
+  for (const [skill, id] of [
+    ["adjectives", "lp3.adjectives.l1.A.adj_size.v4"],
+    ["prefixes_suffixes", "lp3.prefixes_suffixes.l1.A.prefix_un.v1"],
+    ["rhyming", "lp3.rhyming.l2.C.ing.v3"],
+    ["long_vowels_silent_e", "lp3.long_vowels_silent_e.l2.A.a_e.v1"]
+  ]) {
+    await page.goto(`/preview/assessment-media-evidence.html?skill=${skill}&item=${id}`);
+    const question = page.locator(`[data-assessment-question-id="${id}"]`);
+    await expect(question).toBeVisible();
+    await expect(question.locator(".assessment-stimulus-audio, .assessment-word-replay")).toHaveCount(0);
+    await question.getByRole("button", { name: "Listen to question", exact: true }).click();
+    const request = JSON.parse(await page.locator('[data-preview-surface="assessment-media-evidence"]').getAttribute("data-last-audio-request"));
+    expect(request.text.split(/\s+/).length).toBeGreaterThan(2);
+    expect(request.audioRole).not.toBe("target_word");
+  }
+});
+
+test("spoken rhyming choices hide print and replay each choice independently", async ({ page }) => {
+  for (const id of ["lp3.rhyming.l2.C.or.v3", "lp3.rhyming.l1.B.up.v2"]) {
+  await page.goto(`/preview/assessment-media-evidence.html?skill=rhyming&item=${id}`);
+  const question = page.locator(`[data-assessment-question-id="${id}"]`);
+  await expect(question).toBeVisible();
+  if (id.includes(".l2.")) await expect(question.locator(".assessment-word-replay")).toHaveCount(0);
+  await expect(question.locator(".assessment-answer-card")).toHaveText(["Choose 1", "Choose 2", "Choose 3", "Choose 4"]);
+  const requests = [];
+  for (let choice = 1; choice <= 4; choice++) {
+    await question.getByRole("button", { name: `Hear choice ${choice}`, exact: true }).click();
+    const request = JSON.parse(await page.locator('[data-preview-surface="assessment-media-evidence"]').getAttribute("data-last-audio-request"));
+    expect(request.audioPath).toMatch(/\/audio\//);
+    expect(request.requireApprovedAudio).toBe(true);
+    requests.push(request.text);
+  }
+  expect(new Set(requests).size).toBe(4);
+  }
+});
 
 async function expectGeneratedPictureQuestion(page, {
   itemId,

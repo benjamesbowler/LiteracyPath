@@ -24,6 +24,10 @@ import { ASSESSMENT_ITEM_MEDIA_DECISIONS } from "../../src/content/assessments/v
 const args = process.argv.slice(2);
 const skillIndex = args.indexOf("--skill");
 const skillId = skillIndex >= 0 ? args[skillIndex + 1] : "";
+// A separate explicit receipt is required for newly reviewed question IDs.
+// It never approves images; every path still needs its own pixel review.
+const receiptIndex = args.indexOf("--reviewed-new-items");
+const reviewedNewItems = new Set(receiptIndex < 0 ? [] : JSON.parse(fs.readFileSync(args[receiptIndex + 1], "utf8")));
 
 if (!skillId || !skillBlueprints[skillId]) {
   throw new Error("Pass a valid --skill <skillId>");
@@ -60,6 +64,7 @@ for (const [index, item] of items.entries()) {
     item,
     authoredItem: source.items[index],
     decision,
+    reviewedNewItem: reviewedNewItems.has(item.id),
     actualPaths: paths,
     styleDecisions: ASSESSMENT_IMAGE_STYLE_DECISIONS
   });

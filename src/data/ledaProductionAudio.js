@@ -31,12 +31,13 @@ export function getLedaProductionAudioPath(
   const normalized = normalizeLedaAudioText(text);
   if (!normalized) return "";
   for (const role of roles || []) {
-    const path = role === "supplemental"
+    // Exact repairs in the supplemental assessment map can replace an older
+    // production recording with a new URL, including shared instruction roles.
+    const path = ASSESSMENT_LEDA_GAP_AUDIO_BY_ROLE[role]?.[normalized] || (role === "supplemental"
       ? LEDA_RUNTIME_SUPPLEMENT_AUDIO[normalized]
       : role === "story_page"
         ? STORY_QUEST_LEDA_AUDIO[normalized] || LEDA_PRODUCTION_AUDIO_BY_ROLE.story_page?.[normalized]
-        : LEDA_PRODUCTION_AUDIO_BY_ROLE[role]?.[normalized]
-          || ASSESSMENT_LEDA_GAP_AUDIO_BY_ROLE[role]?.[normalized];
+        : LEDA_PRODUCTION_AUDIO_BY_ROLE[role]?.[normalized]);
     if (path) return path;
   }
   return "";

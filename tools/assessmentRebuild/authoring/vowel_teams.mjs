@@ -16,6 +16,7 @@
 
 import { makeImageResolver } from "../lib.mjs";
 
+const fresh = item => ({ ...item, retention: false });
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
 const sentenceCase = value => value ? `${value[0].toUpperCase()}${value.slice(1)}` : value;
@@ -23,11 +24,10 @@ const sentenceCase = value => value ? `${value[0].toUpperCase()}${value.slice(1)
 const resolver = makeImageResolver(["long-vowels", "blends", "digraphs", "hfw", "cvc", "rhyming"]);
 
 const cw = (u, lvl, ph, v, word, blanked, patterns, note = "") => {
-  const letterCount = u === "igh" ? "three" : "two";
   return {
     u, lvl, ph, v, fmt: "LONG_VOWEL_TEAM_COMPLETE",
-    prompt: `Which ${letterCount} letters complete ${blanked}?`,
-    spoken: `${sentenceCase(word)}. Which ${letterCount} letters complete the word?`,
+    prompt: `Which letters complete ${blanked}?`,
+    spoken: `${sentenceCase(word)}. Which letters complete the word?`,
     choices: patterns.map((p, i) => (i === 0 ? K(p) : P(p, "D-PATTERN-TRAP"))),
     media: "audio-required",
     target: word,
@@ -222,6 +222,26 @@ export default {
     ptdSpell("aw", 2, 2, 5, "draw", ["saw", "straw", "yawn"]),
     ptdSpell("aw", 2, 2, 6, "yawn", ["draw", "saw", "paw"]),
 
+    // New words and sound contrasts for a complete fresh retry.
+    fresh(cw("ai", 1, 1, 9, "snail", "sn__l", ["ai", "ay", "ee", "oa"])),
+    fresh(cw("ai", 1, 1, 10, "trail", "tr__l", ["ai", "ea", "oo", "igh"])),
+    fresh(cw("ay", 1, 1, 9, "stay", "st__", ["ay", "ai", "ee", "oa"])),
+    fresh(cw("ay", 1, 1, 10, "clay", "cl__", ["ay", "ea", "oo", "igh"])),
+    fresh(cw("ee", 1, 1, 9, "seed", "s__d", ["ee", "ai", "oa", "igh"])),
+    fresh(cw("ee", 1, 1, 10, "cheek", "ch__k", ["ee", "ea", "ay", "oa"])),
+    fresh(cw("ea", 1, 2, 9, "bean", "b__n", ["ea", "ee", "ai", "oa"])),
+    fresh(cw("ea", 1, 2, 10, "dream", "dr__m", ["ea", "ee", "oo", "ay"])),
+    fresh(cw("oa", 1, 2, 9, "loaf", "l__f", ["oa", "ee", "ai", "igh"])),
+    fresh(cw("oa", 1, 2, 10, "foam", "f__m", ["oa", "ea", "oo", "ay"])),
+    fresh(cw("igh", 1, 2, 9, "bright", "br__t", ["igh", "ai", "ee", "oa"])),
+    fresh(cw("igh", 1, 2, 10, "flight", "fl__t", ["igh", "oa", "ea", "oo"])),
+    fresh(cw("oy", 2, 2, 9, "enjoy", "enj__", ["oy", "oi", "ay", "aw"])),
+    fresh(cw("oy", 2, 2, 10, "royal", "r__al", ["oy", "oi", "oo", "ou"])),
+    fresh(cw("ew", 2, 2, 9, "blew", "bl__", ["ew", "aw", "ow", "ay"])),
+    fresh(cw("ew", 2, 2, 10, "grew", "gr__", ["ew", "aw", "ow", "oy"])),
+    fresh(cw("aw", 2, 2, 9, "claw", "cl__", ["aw", "ew", "ow", "ay"])),
+    fresh(cw("aw", 2, 2, 10, "straw", "str__", ["aw", "ew", "ow", "oy"])),
+
     // ================= Retention reserve (form R) =================
     cw("ai", 1, 1, 7, "tail", "t__l", ["ai", "ay", "ee", "oa"],
       "tayl, teel and toal are non-words"),
@@ -244,7 +264,7 @@ export default {
     cw("aw", 2, 2, 8, "crawl", "cr__l", ["aw", "ow", "ee", "oo"],
       "crowl, creel and crool are non-words")
   ].map(item => {
-    if (item.v >= 7) item.retention = true;
+    if (item.v >= 7 && item.retention !== false) item.retention = true;
     return item;
   })
 };

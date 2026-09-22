@@ -10,6 +10,7 @@ import {
   getTargetWordAudioPath,
   SHORT_VOWEL_LISTEN_PROMPT
 } from "../utils/assessmentAudioRoles";
+import { allowsAssessmentChoiceAudio, getAssessmentStimulusAudioText, hasAudioOnlyChoices } from "../utils/assessmentAudioPolicy.js";
 import {
   getApprovedCardAudioPath
 } from "../assessmentContentValidation";
@@ -750,7 +751,7 @@ function IxlStyleTemplateQuestion({
     isCompactLetterOptions ? "letter-options" : "",
     isShortVowelWordChoiceItem ? "short-vowel-ixl-word-choice-grid" : ""
   ].filter(Boolean).join(" ");
-  const showOptionAudio = normalizedAnswerOptions.length > 0;
+  const showOptionAudio = normalizedAnswerOptions.length > 0 && allowsAssessmentChoiceAudio(currentQuestion);
 
   useEffect(() => {
     setSelectedTiles([]);
@@ -1027,7 +1028,8 @@ function isFinalSoundsEndingQuestion(question = {}) {
 }
 
 function isRhymingPictureQuestion(question = {}) {
-  return String(question?.skillId || "").toLowerCase() === "rhyming" &&
+  return Boolean(question.imageCards?.length) && !hasAudioOnlyChoices(question) &&
+    String(question?.skillId || "").toLowerCase() === "rhyming" &&
     ["RHYMING_PICTURE", "RHYME_MATCH_PICTURE"].includes(
       String(question?.formatType || question?.templateType || "").toUpperCase()
     );
@@ -1109,7 +1111,7 @@ function AssessmentStimulus({
   const isHfwLetterBuildItem = isHfwLetterBuildQuestion(currentQuestion);
   const isComprehensionPassageItem = isComprehensionPassageQuestion(currentQuestion);
   const isHfwQuestion = String(currentQuestion.skillId || "").toLowerCase().startsWith("hfw_");
-  const stimulusAudioText = currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer;
+  const stimulusAudioText = getAssessmentStimulusAudioText(currentQuestion);
   const approvedStimulusAudioPath = isHfwQuestion
     ? ""
     : isListenChooseVowel
@@ -1162,6 +1164,7 @@ function AssessmentStimulus({
     });
   }
   const shouldShowListeningVisual =
+    Boolean(stimulusAudioText) &&
     !hasPromptImages &&
     !hasPassage &&
     !hasMainImage &&
@@ -1204,7 +1207,7 @@ function AssessmentStimulus({
           {isRhymingPictureItem && currentQuestion.targetWord && (
             <strong className="rhyming-target-word">{currentQuestion.targetWord}</strong>
           )}
-          {!isRhymingPictureItem && !currentQuestion.suppressStimulusAudio && (
+          {!isRhymingPictureItem && Boolean(stimulusAudioText) && (
             <AssessmentAudioButton
               text={stimulusAudioText}
               audioPath={approvedStimulusAudioPath || rawStimulusAudioPath}
@@ -2947,6 +2950,7 @@ export function AssessmentPage({
     }
   }
   const visiblePrompt = getStudentVisiblePrompt(currentQuestion);
+  const audioOnlyChoices = hasAudioOnlyChoices(currentQuestion);
   const promptAudioText =
     currentQuestion?.spokenPrompt ||
     visiblePrompt ||
@@ -2978,6 +2982,7 @@ export function AssessmentPage({
     ])
   );
   const showTextChoiceAudio =
+    allowsAssessmentChoiceAudio(currentQuestion) &&
     !isPairSelection &&
     !isVisualCardChoice &&
     !isIxlStyleTemplate &&
@@ -3111,7 +3116,8 @@ export function AssessmentPage({
                         text={getChoiceAudioText(choice)}
                         audioPath={textChoiceAudioPaths[choice.value]}
                         speakText={speakText}
-                        label={`Listen to ${choice.label}`}
+                        label={audioOnlyChoices ? `Hear choice ${index + 1}` : `Listen to ${choice.label}`}
+                        displayLabel={audioOnlyChoices ? `Hear ${index + 1}` : ""}
                         className="choice-audio"
                         showDisabled
                       />
@@ -3132,7 +3138,7 @@ export function AssessmentPage({
                           className="visual-word-choice-image"
                         />
                       )}
-                      <span>{choice.label}</span>
+                      <span>{audioOnlyChoices ? `Choose ${index + 1}` : choice.label}</span>
                     </ActivityButton>
                   </div>
                   );

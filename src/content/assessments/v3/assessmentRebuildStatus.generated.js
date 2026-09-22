@@ -6,9 +6,9 @@ export const assessmentRebuildStatusBySkillId = {
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 60,
-   "level1": 24,
-   "level2": 24,
+   "total": 76,
+   "level1": 32,
+   "level2": 32,
    "retention": 12
   },
   "gates": {
@@ -23,17 +23,17 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.697Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "antonyms_synonyms": {
   "skillId": "antonyms_synonyms",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 60,
-   "level1": 24,
-   "level2": 24,
+   "total": 76,
+   "level1": 32,
+   "level2": 32,
    "retention": 12
   },
   "gates": {
@@ -48,8 +48,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.697Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "blends": {
   "skillId": "blends",
@@ -73,17 +73,17 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-07T02:04:03.605Z",
-  "commit": "af75b1609"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "cause_effect": {
   "skillId": "cause_effect",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 64,
-   "level1": 24,
-   "level2": 24,
+   "total": 80,
+   "level1": 32,
+   "level2": 32,
    "retention": 16
   },
   "gates": {
@@ -98,18 +98,18 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.697Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "context_clues": {
   "skillId": "context_clues",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 64,
-   "level1": 28,
-   "level2": 28,
-   "retention": 8
+   "total": 80,
+   "level1": 32,
+   "level2": 32,
+   "retention": 16
   },
   "gates": {
    "G1_structure": "pass",
@@ -123,66 +123,16 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.697Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "cvc_short_vowels": {
   "skillId": "cvc_short_vowels",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 70,
-   "level1": 30,
-   "level2": 30,
-   "retention": 10
-  },
-  "gates": {
-   "G1_structure": "pass",
-   "G2_originality": "pass",
-   "G3_answer_integrity": "pass",
-   "G4_mastery_logic": "pass",
-   "G5_no_repeats": "pass",
-   "G6_one_report": "pass",
-   "G7_construct_validity": "pass",
-   "G8_media_independence": "pass",
-   "G9_required_audio": "pass",
-   "G10_visual_policy": "pass"
-  },
-  "generatedAt": "2026-09-01T05:00:00.697Z",
-  "commit": "08f7e48ba"
- },
- "digraphs": {
-  "skillId": "digraphs",
-  "cutover": true,
-  "standardVersion": "v3-2026.08-validity-3",
-  "counts": {
-   "total": 60,
-   "level1": 24,
-   "level2": 24,
-   "retention": 12
-  },
-  "gates": {
-   "G1_structure": "pass",
-   "G2_originality": "pass",
-   "G3_answer_integrity": "pass",
-   "G4_mastery_logic": "pass",
-   "G5_no_repeats": "pass",
-   "G6_one_report": "pass",
-   "G7_construct_validity": "pass",
-   "G8_media_independence": "pass",
-   "G9_required_audio": "pass",
-   "G10_visual_policy": "pass"
-  },
-  "generatedAt": "2026-09-01T05:00:00.697Z",
-  "commit": "08f7e48ba"
- },
- "final_sounds": {
-  "skillId": "final_sounds",
-  "cutover": true,
-  "standardVersion": "v3-2026.08-validity-3",
-  "counts": {
-   "total": 82,
-   "level1": 32,
+   "total": 90,
+   "level1": 40,
    "level2": 40,
    "retention": 10
   },
@@ -198,8 +148,58 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T06:24:44.760Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
+ },
+ "digraphs": {
+  "skillId": "digraphs",
+  "cutover": true,
+  "standardVersion": "v3-2026.08-validity-3",
+  "counts": {
+   "total": 92,
+   "level1": 40,
+   "level2": 40,
+   "retention": 12
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G6_one_report": "pass",
+   "G7_construct_validity": "pass",
+   "G8_media_independence": "pass",
+   "G9_required_audio": "pass",
+   "G10_visual_policy": "pass"
+  },
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
+ },
+ "final_sounds": {
+  "skillId": "final_sounds",
+  "cutover": true,
+  "standardVersion": "v3-2026.08-validity-3",
+  "counts": {
+   "total": 90,
+   "level1": 40,
+   "level2": 40,
+   "retention": 10
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G6_one_report": "pass",
+   "G7_construct_validity": "pass",
+   "G8_media_independence": "pass",
+   "G9_required_audio": "pass",
+   "G10_visual_policy": "pass"
+  },
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "hfw_1_25": {
   "skillId": "hfw_1_25",
@@ -223,8 +223,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.697Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "hfw_26_50": {
   "skillId": "hfw_26_50",
@@ -248,8 +248,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.697Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "hfw_51_75": {
   "skillId": "hfw_51_75",
@@ -273,8 +273,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.697Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "hfw_76_100": {
   "skillId": "hfw_76_100",
@@ -298,17 +298,17 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.697Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "homophones_homonyms": {
   "skillId": "homophones_homonyms",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 80,
-   "level1": 32,
-   "level2": 36,
+   "total": 96,
+   "level1": 40,
+   "level2": 44,
    "retention": 12
   },
   "gates": {
@@ -323,18 +323,18 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.697Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "inference": {
   "skillId": "inference",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 64,
-   "level1": 28,
-   "level2": 28,
-   "retention": 8
+   "total": 80,
+   "level1": 32,
+   "level2": 32,
+   "retention": 16
   },
   "gates": {
    "G1_structure": "pass",
@@ -348,8 +348,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.697Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "initial_sounds": {
   "skillId": "initial_sounds",
@@ -373,18 +373,18 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-04T02:21:10.792Z",
-  "commit": "b89cd0250"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "key_details": {
   "skillId": "key_details",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 71,
+   "total": 80,
    "level1": 32,
-   "level2": 24,
-   "retention": 15
+   "level2": 32,
+   "retention": 16
   },
   "gates": {
    "G1_structure": "pass",
@@ -398,17 +398,17 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-15T01:23:40.859Z",
-  "commit": "45ec44c04"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "long_vowels_silent_e": {
   "skillId": "long_vowels_silent_e",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 68,
-   "level1": 28,
-   "level2": 24,
+   "total": 116,
+   "level1": 52,
+   "level2": 48,
    "retention": 16
   },
   "gates": {
@@ -423,17 +423,17 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.697Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "main_idea": {
   "skillId": "main_idea",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 64,
-   "level1": 24,
-   "level2": 24,
+   "total": 80,
+   "level1": 32,
+   "level2": 32,
    "retention": 16
   },
   "gates": {
@@ -448,17 +448,17 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.697Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "nouns": {
   "skillId": "nouns",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 60,
-   "level1": 24,
-   "level2": 24,
+   "total": 76,
+   "level1": 32,
+   "level2": 32,
    "retention": 12
   },
   "gates": {
@@ -473,17 +473,17 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.698Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "plurals": {
   "skillId": "plurals",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 60,
-   "level1": 26,
-   "level2": 24,
+   "total": 74,
+   "level1": 32,
+   "level2": 32,
    "retention": 10
   },
   "gates": {
@@ -498,17 +498,17 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.698Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "prefixes_suffixes": {
   "skillId": "prefixes_suffixes",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 78,
-   "level1": 30,
-   "level2": 36,
+   "total": 92,
+   "level1": 40,
+   "level2": 40,
    "retention": 12
   },
   "gates": {
@@ -523,17 +523,17 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.698Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "prepositions_of_place": {
   "skillId": "prepositions_of_place",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 76,
+   "total": 80,
    "level1": 36,
-   "level2": 28,
+   "level2": 32,
    "retention": 12
   },
   "gates": {
@@ -548,17 +548,17 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.698Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "r_controlled_vowels": {
   "skillId": "r_controlled_vowels",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 70,
-   "level1": 30,
-   "level2": 30,
+   "total": 106,
+   "level1": 48,
+   "level2": 48,
    "retention": 10
   },
   "gates": {
@@ -573,8 +573,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.698Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "rhyming": {
   "skillId": "rhyming",
@@ -598,17 +598,17 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.698Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "sentence_comprehension": {
   "skillId": "sentence_comprehension",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 72,
+   "total": 80,
    "level1": 32,
-   "level2": 24,
+   "level2": 32,
    "retention": 16
   },
   "gates": {
@@ -623,18 +623,18 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.698Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "sequencing": {
   "skillId": "sequencing",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 62,
-   "level1": 24,
-   "level2": 24,
-   "retention": 14
+   "total": 80,
+   "level1": 32,
+   "level2": 32,
+   "retention": 16
   },
   "gates": {
    "G1_structure": "pass",
@@ -648,17 +648,17 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.698Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "short_vowel_discrimination": {
   "skillId": "short_vowel_discrimination",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 70,
-   "level1": 30,
-   "level2": 30,
+   "total": 90,
+   "level1": 40,
+   "level2": 40,
    "retention": 10
   },
   "gates": {
@@ -673,18 +673,18 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.698Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "theme_higher_comprehension": {
   "skillId": "theme_higher_comprehension",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 64,
-   "level1": 28,
-   "level2": 28,
-   "retention": 8
+   "total": 80,
+   "level1": 32,
+   "level2": 32,
+   "retention": 16
   },
   "gates": {
    "G1_structure": "pass",
@@ -698,17 +698,17 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.698Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "verbs": {
   "skillId": "verbs",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 58,
-   "level1": 24,
-   "level2": 24,
+   "total": 74,
+   "level1": 32,
+   "level2": 32,
    "retention": 10
   },
   "gates": {
@@ -723,17 +723,17 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.698Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  },
  "vowel_teams": {
   "skillId": "vowel_teams",
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 90,
-   "level1": 36,
-   "level2": 42,
+   "total": 108,
+   "level1": 48,
+   "level2": 48,
    "retention": 12
   },
   "gates": {
@@ -748,7 +748,7 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.698Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-22T05:23:21.260Z",
+  "commit": "8912f7ec0"
  }
 };

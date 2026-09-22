@@ -176,17 +176,20 @@ function getExtension(filePath) {
   return path.posix.extname(lower);
 }
 
-function isTempOrSourcePath(filePath) {
+export function isTempOrSourcePath(filePath) {
   const basename = path.posix.basename(filePath).toLowerCase();
   const ext = getExtension(filePath);
+  // Speech filenames contain real words such as "attempt" and "temperature".
+  // Only a separate temp/tmp marker denotes staging; include directory names
+  // so a clean-looking filename inside a staging folder remains blocked.
+  const hasTemporaryMarker = /(?:^|[/._\s-])(?:temp|tmp)(?=$|[/._\s-])/i.test(filePath);
 
   return (
     TEMP_SOURCE_BASENAMES.has(basename) ||
     TEMP_SOURCE_EXTENSIONS.has(ext) ||
     basename.includes("reference") ||
     basename.includes("source") ||
-    basename.includes("temp") ||
-    basename.includes("tmp")
+    hasTemporaryMarker
   );
 }
 
@@ -352,4 +355,4 @@ function main() {
   }
 }
 
-main();
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();

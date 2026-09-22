@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { access } from "node:fs/promises";
 import path from "node:path";
 import test from "node:test";
+import { normalizeSpokenCloze as spokenCloze } from "../../src/utils/assessmentSpokenText.js";
 
 import {
   getLedaProductionAudioPath,
@@ -15,11 +16,6 @@ import {
 const repositoryRoot = process.cwd();
 
 test("every assessment prompt, passage, word, and answer choice has committed Leda audio", async () => {
-  const spokenCloze = text => String(text || "")
-    .replace(/\s*(?:_{2,}|\bhmm\b|\bblank\b)\s*/gi, " … ")
-    .replace(/\s+/g, " ")
-    .replace(/\s+([?.!,;:])/g, "$1")
-    .trim();
   const banks = await Promise.all(listV3PublishedSkillIds().map(importV3Bank));
   const records = banks.flatMap(items => items.flatMap(item => [
     spokenCloze(item.spokenPrompt || item.prompt),
@@ -27,7 +23,7 @@ test("every assessment prompt, passage, word, and answer choice has committed Le
     item.passage || "",
     ...(item.imageCards || []).map(card => card.word),
     ...(item.choices || []),
-    ...(item.targetWord && !/[/_]/.test(item.targetWord) ? [item.targetWord] : [])
+    ...(!item.suppressStimulusAudio && item.targetWord && !/[/_]/.test(item.targetWord) ? [item.targetWord] : [])
   ])).map(text => String(text || "").trim()).filter(Boolean);
   const uniqueTexts = [...new Set(records)];
   const missing = [];

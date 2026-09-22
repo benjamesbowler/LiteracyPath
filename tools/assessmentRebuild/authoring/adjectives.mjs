@@ -19,7 +19,7 @@ const L1_SENTENCES = {
   "Which one is tiny?": "The ___ button was smaller than my fingernail.",
   "Which one is very tall?": "The ___ tree rose above every roof.",
   "Which one is green?": "The leaf matched fresh grass: it was ___.",
-  "Which one is yellow?": "The banana matched sunshine: it was ___.",
+  "Which one is yellow?": "The ripe banana had a ___ skin.",
   "Which one feels soft?": "The ___ blanket felt gentle on my cheek.",
   "Which one feels wet?": "The ___ towel dripped onto the floor.",
   "Which one feels hard?": "The ___ stone stayed firm when squeezed.",
@@ -48,7 +48,7 @@ const gwc = (u, lvl, ph, v, prompt, words, rationales, note = "") => ({
 });
 
 const gsf = (u, lvl, ph, v, sentence, words, rationales, note = "") => {
-  const task = u === "adj_precision" ? "Which adjective fits best" : "Which adjective fits";
+  const task = u === "adj_precision" ? "Which describing word fits best" : "Which describing word fits";
   return {
     u, lvl, ph, v, fmt: "GRAMMAR_SENTENCE_FIT",
     prompt: `${task}: ${sentence}`,
@@ -72,6 +72,34 @@ const gct = (u, lvl, ph, v, prompt, words, rationales, note = "") => ({
 const FS = "D-FUNCTION-SWAP";
 const PU = "D-PLAUSIBLE-UNSUPPORTED";
 
+// Identify a descriptor in context, with every option present in that context.
+const extract = (u, lvl, ph, v, sentence, words) => ({
+  u, lvl, ph, v, fmt: lvl === 1 ? "GRAMMAR_WORD_CHOICE" : "GRAMMAR_CONTRAST",
+  prompt: `Which word describes something? ${sentence}`,
+  spoken: `Which word describes something? ${sentence}`,
+  sentence, choices: words.map((w, i) => i === 0 ? K(w) : P(w, FS)), media: "text",
+  note: "Distinguish the descriptor from the naming, action and linking words in context."
+});
+
+const freshPhaseItems = [
+  extract("adj_size", 1, 1, 9, "The wide gate opened.", ["wide", "gate", "opened", "the"]),
+  extract("adj_size", 1, 1, 10, "A short rope snapped.", ["short", "rope", "snapped", "a"]),
+  extract("adj_color", 1, 1, 8, "The orange balloon floated.", ["orange", "balloon", "floated", "the"]),
+  extract("adj_color", 1, 1, 9, "A purple flower grew.", ["purple", "flower", "grew", "a"]),
+  extract("adj_texture_state", 1, 2, 9, "The smooth pebble shone.", ["smooth", "pebble", "shone", "the"]),
+  extract("adj_texture_state", 1, 2, 10, "A sticky sweet melted.", ["sticky", "sweet", "melted", "a"]),
+  extract("adj_feeling", 1, 2, 9, "The worried children waited.", ["worried", "children", "waited", "the"]),
+  extract("adj_feeling", 1, 2, 10, "An excited puppy followed.", ["excited", "puppy", "followed", "an"]),
+  extract("adj_vs_noun_verb", 2, 2, 10, "The footpath became slippery after rain.", ["slippery", "footpath", "became", "rain"]),
+  extract("adj_vs_noun_verb", 2, 2, 11, "Her hands felt numb in the wind.", ["numb", "hands", "felt", "wind"]),
+  extract("adj_vs_noun_verb", 2, 2, 12, "The empty bottle rolled away.", ["empty", "bottle", "rolled", "away"]),
+  extract("adj_vs_noun_verb", 2, 2, 13, "The room stayed quiet during lunch.", ["quiet", "room", "stayed", "lunch"]),
+  gsf("adj_vs_noun_verb", 2, 2, 14, "Her ___ voice could be heard across the field.", ["powerful", "power", "powers", "powerfully"], [FS, FS, FS]),
+  gsf("adj_vs_noun_verb", 2, 2, 15, "A ___ lid keeps the water in.", ["tight", "tightly", "tighten", "tightness"], [FS, FS, FS]),
+  gsf("adj_vs_noun_verb", 2, 2, 16, "The ___ dancer thanked the crowd.", ["graceful", "grace", "gracefully", "graces"], [FS, FS, FS]),
+  gsf("adj_vs_noun_verb", 2, 2, 17, "The bed felt ___ after our long walk.", ["comfortable", "comfort", "comfortably", "comforts"], [FS, FS, FS])
+];
+
 export default {
   skillId: "adjectives",
   skillName: "Adjectives",
@@ -93,7 +121,7 @@ export default {
     gic("adj_color", 1, 1, 1, "Which one is green?",
       ["green", "red", "blue", "brown"], "green", {}),
     gic("adj_color", 1, 1, 2, "Which one is yellow?",
-      ["yellow", "purple", "blue", "black"], "yellow", {}),
+      ["yellow", "purple", "blue", "pink"], "yellow", {}),
     gwc("adj_color", 1, 1, 3, "Which word is a color word?",
       ["red", "bed", "ten", "run"], [FS, FS, FS]),
     gwc("adj_color", 1, 1, 4, "Which word is a color word?",
@@ -121,8 +149,8 @@ export default {
     gwc("adj_feeling", 1, 2, 2, "Which word is a feeling word?",
       ["sad", "sat", "sand", "said"], [FS, FS, FS]),
     gwc("adj_feeling", 1, 2, 3, "Which word is a feeling word?",
-      ["happy", "hoppy", "hippo", "puppy"], [FS, FS, FS],
-      "hoppy is the developmental spelling neighbour — real word, wrong class"),
+      ["happy", "happen", "hippo", "puppy"], [FS, FS, FS],
+      "happen names an event occurring; happy names the feeling"),
     gwc("adj_feeling", 1, 2, 4, "Which word is a feeling word?",
       ["tired", "tied", "tries", "tiger"], [FS, FS, FS]),
     gwc("adj_feeling", 1, 2, 5, "Which word is a feeling word?",
@@ -155,7 +183,7 @@ export default {
     gsf("adj_precision", 2, 1, 1, "The path was ___ after days of rain.",
       ["muddy", "dusty", "sunny", "tidy"], [PU, PU, PU],
       "days of rain pins muddy — dusty is its dry opposite"),
-    gsf("adj_precision", 2, 1, 2, "The lemonade was ___ and made our mouths pucker.",
+    gsf("adj_precision", 2, 1, 2, "The lemonade was ___, making every mouth pucker.",
       ["sour", "sweet", "warm", "pale"], [PU, PU, PU]),
     gsf("adj_precision", 2, 1, 3, "The old stairs were ___ and groaned under our feet.",
       ["creaky", "quiet", "fresh", "damp"], [PU, PU, PU]),
@@ -167,7 +195,7 @@ export default {
       ["warm", "stale", "frozen", "salty"], [PU, PU, PU]),
     gsf("adj_precision", 2, 1, 7, "The ___ knife went through the pumpkin easily.",
       ["sharp", "blunt", "clean", "bent"], [PU, PU, PU]),
-    gsf("adj_precision", 2, 1, 8, "Our tent felt ___ with five of us in it.",
+    gsf("adj_precision", 2, 1, 8, "There was no space to move in our ___ tent.",
       ["crowded", "roomy", "airy", "bare"], [PU, PU, PU]),
     // ================= L2 · adj_vs_noun_verb (phase 2) =================
     gct("adj_vs_noun_verb", 2, 2, 1, "Which word describes something in ‘The soft blanket covered the bed’?",
@@ -208,14 +236,14 @@ export default {
       ["wide", "wade", "wind", "web"], [FS, FS, FS]),
     gic("adj_texture_state", 1, 2, 8, "Which one feels bumpy?",
       ["bumpy", "smooth", "soft", "flat"], "bumpy", {}),
-    gsf("adj_in_sentence", 2, 1, 10, "The ___ moth circled the lamp.",
-      ["dusty", "dust", "dusts", "dusted"], [FS, FS, FS]),
-    gct("adj_precision", 2, 1, 10, "Which describing word fits best for socks left out in the snow?",
+    gct("adj_in_sentence", 2, 1, 10, "Which word describes the moth in ‘The dusty moth circled the lamp’?",
+      ["dusty", "moth", "circled", "lamp"], [FS, FS, FS]),
+    gct("adj_precision", 2, 1, 10, "Which describing word fits best for wet socks now stiff with ice?",
       ["frozen", "warm", "clean", "striped"], [PU, PU, PU]),
     gwc("adj_feeling", 1, 2, 8, "Which word is a feeling word?",
       ["upset", "under", "up", "sunset"], [FS, FS, FS])
   ].map(item => {
     if ((item.lvl === 1 && item.v >= 7) || (item.lvl === 2 && item.v >= 9)) item.retention = true;
     return item;
-  })
+  }).concat(freshPhaseItems)
 };

@@ -71,7 +71,40 @@ const gct = (u, lvl, ph, v, prompt, words, rationales, note = "") => ({
   note
 });
 
+const gnp = (u, lvl, ph, v, sentence, pairs, note = "Identify both naming words, rather than spotting just one.") => ({
+  u, lvl, ph, v, fmt: "GRAMMAR_SENTENCE_FIT",
+  prompt: `Which pair completes both naming words? ${sentence}`,
+  spoken: `Which pair completes both naming words? ${sentence.replaceAll("___", "hmm")}`,
+  sentence,
+  choices: pairs.map((w, i) => i === 0 ? K(w) : P(w, "D-FUNCTION-SWAP")),
+  media: "text", note
+});
+
 const FS = "D-FUNCTION-SWAP";
+
+// Separate contexts for a fresh full phase retry; these are not retention items.
+const freshPhaseItems = [
+  gwc("noun_person", 1, 1, 9, "Which word names someone who flies a plane?", ["pilot", "fly", "high", "quickly"], [FS, FS, FS]),
+  gwc("noun_person", 1, 1, 10, "Which word names someone in your family?", ["sister", "sleep", "kind", "slowly"], [FS, FS, FS]),
+  gwc("noun_animal", 1, 1, 9, "Which naming word is an animal?", ["tiger", "tired", "tickle", "quietly"], [FS, FS, FS]),
+  gwc("noun_animal", 1, 1, 10, "Which word names an animal with a shell?", ["turtle", "turn", "tiny", "gently"], [FS, FS, FS]),
+  gwc("noun_place", 1, 2, 8, "Which naming word is a place to borrow books?", ["library", "read", "quiet", "carefully"], [FS, FS, FS]),
+  gwc("noun_place", 1, 2, 9, "Which word names a place where people swim?", ["pool", "splash", "deep", "slowly"], [FS, FS, FS]),
+  gwc("noun_thing", 1, 2, 8, "Which word names something that opens a lock?", ["key", "keep", "kind", "quickly"], [FS, FS, FS]),
+  gwc("noun_thing", 1, 2, 9, "Which naming word means something you can read?", ["book", "read", "bright", "quietly"], [FS, FS, FS]),
+  gct("noun_two_step", 2, 2, 11, "Which sentence has exactly TWO naming words?",
+    ["Rain filled the bucket.", "Rain fell softly.", "Rain filled the bucket and tub.", "It fell all around."], [FS, FS, FS]),
+  gct("noun_two_step", 2, 2, 12, "Which sentence has exactly TWO naming words?",
+    ["The child opened a parcel.", "The child smiled.", "The child put a toy in the parcel.", "She smiled and waved."], [FS, FS, FS]),
+  gct("noun_two_step", 2, 2, 13, "Which sentence has exactly TWO naming words?",
+    ["My scarf covered my chin.", "My scarf was warm.", "My scarf covered my chin and neck.", "I was very warm."], [FS, FS, FS]),
+  gct("noun_two_step", 2, 2, 14, "Which sentence has exactly TWO naming words?",
+    ["A seed grew into a flower.", "A seed grew slowly.", "A seed grew into a flower in our garden.", "It grew very quickly."], [FS, FS, FS]),
+  gnp("noun_two_step", 2, 2, 15, "The ___ passed the ___.", ["bus and shop", "bus and passed", "passed and shop", "the and passed"]),
+  gnp("noun_two_step", 2, 2, 16, "A ___ lifted the ___.", ["wave and boat", "a and lifted", "wave and lifted", "lifted and boat"]),
+  gnp("noun_two_step", 2, 2, 17, "The ___ carried a ___.", ["girl and basket", "girl and carried", "carried and basket", "the and carried"]),
+  gnp("noun_two_step", 2, 2, 18, "___ shook the ___.", ["wind and leaves", "wind and shook", "shook and leaves", "the and shook"])
+];
 
 export default {
   skillId: "nouns",
@@ -170,30 +203,29 @@ export default {
     gsf("noun_vs_verb", 2, 1, 8, "Our ___ reads to us after lunch.",
       ["teacher", "teach", "taught", "teaches"], [FS, FS, FS]),
     // ================= L2 · noun_two_step (phase 2) =================
-    gct("noun_two_step", 2, 2, 1, "Which sentence names TWO things?",
-      ["The cat sat on the mat.", "Run fast and jump high.", "She is very happy.", "We went out late."],
+    gct("noun_two_step", 2, 2, 1, "Which sentence has exactly TWO naming words?",
+      ["The cat sat on the mat.", "The cat sat quietly.", "The cat, dog and hen slept.", "We sat very still."],
       [FS, FS, FS],
-      "cat + mat; the others name one thing or none"),
-    gct("noun_two_step", 2, 2, 2, "Which sentence names TWO things?",
-      ["The dog dug up a bone.", "He hops and skips well.", "They are so tall.", "I ran off quickly."],
+      "cat + mat; the distractors contain one, three and zero naming words"),
+    gct("noun_two_step", 2, 2, 2, "Which sentence has exactly TWO naming words?",
+      ["The dog dug up a bone.", "The dog dug quickly.", "The dog took a bone to its bowl.", "They dug all day."],
       [FS, FS, FS]),
-    gct("noun_two_step", 2, 2, 3, "Which sentence names TWO things?",
-      ["A frog sat on a log.", "She sang and danced.", "It is too cold.", "You did so well."],
+    gct("noun_two_step", 2, 2, 3, "Which sentence has exactly TWO naming words?",
+      ["A frog sat on a log.", "The frog jumped away.", "A frog and a toad sat on a log.", "It jumped up high."],
       [FS, FS, FS]),
-    gsf("noun_two_step", 2, 2, 4, "The cat and the ___ hid in the barn.",
-      ["mouse", "ran", "wet", "hid"], [FS, FS, FS],
-      "finish the two-thing list — only a naming word can join the and"),
-    gct("noun_two_step", 2, 2, 5, "Which sentence names TWO things?",
-      ["My hat fell in the mud.", "Sit down and rest up.", "It was so loud.", "They ran and hid."],
+    gnp("noun_two_step", 2, 2, 4, "The ___ chased a ___.",
+      ["cat and mouse", "cat and chased", "chased and mouse", "the and a"]),
+    gct("noun_two_step", 2, 2, 5, "Which sentence has exactly TWO naming words?",
+      ["My hat fell in the mud.", "My hat fell down.", "My hat and coat fell in mud.", "It fell down slowly."],
       [FS, FS, FS]),
-    gct("noun_two_step", 2, 2, 6, "Which sentence names TWO things?",
-      ["The bee flew to the rose.", "Come in and dry off.", "She is quite quick.", "He will not stop."],
+    gct("noun_two_step", 2, 2, 6, "Which sentence has exactly TWO naming words?",
+      ["The bee flew to the rose.", "The bee flew away.", "The bee flew from a rose to a tree.", "It flew away fast."],
       [FS, FS, FS]),
-    gct("noun_two_step", 2, 2, 7, "Which sentence names TWO things?",
-      ["A crab hid under a rock.", "Hop up and hold on.", "It got very dark.", "You may go in."],
+    gct("noun_two_step", 2, 2, 7, "Which sentence has exactly TWO naming words?",
+      ["A crab hid under a rock.", "A crab hid there.", "A crab and a fish hid under a rock.", "They hid very well."],
       [FS, FS, FS]),
-    gsf("noun_two_step", 2, 2, 8, "A fork and a ___ sat by the plate.",
-      ["spoon", "eat", "clean", "cut"], [FS, FS, FS]),
+    gnp("noun_two_step", 2, 2, 8, "A ___ scratched the ___.",
+      ["fork and plate", "fork and scratched", "scratched and plate", "a and the"]),
 
     // ================= Retention reserve (form R) =================
     gic("noun_person", 1, 1, 7, "Which one shows a person?",
@@ -203,13 +235,13 @@ export default {
     gwc("noun_place", 1, 2, 7, "Which word names a place?",
       ["park", "pull", "pink", "peck"], [FS, FS, FS]),
     gwc("noun_thing", 1, 2, 7, "Which word names a thing?",
-      ["brush", "brave", "bump", "blow"], [FS, FS, FS]),
+      ["brush", "brave", "quickly", "gently"], [FS, FS, FS]),
     gsf("noun_in_sentence", 2, 1, 9, "The ___ chimed at noon.",
       ["clock", "rang", "loud", "slow"], [FS, FS, FS]),
     gsf("noun_vs_verb", 2, 1, 9, "The bird slept in its ___.",
       ["nest", "built", "perched", "pecked"], [FS, FS, FS]),
-    gct("noun_two_step", 2, 2, 9, "Which sentence names TWO things?",
-      ["The hen laid an egg.", "Duck down and creep in.", "It is far too wet.", "She may not come."],
+    gct("noun_two_step", 2, 2, 9, "Which sentence has exactly TWO naming words?",
+      ["The hen laid an egg.", "The hen clucked loudly.", "The hen laid an egg in straw.", "It was so loud."],
       [FS, FS, FS]),
     gwc("noun_person", 1, 1, 8, "Which word names a person?",
       ["baker", "bake", "water", "mix"], [FS, FS, FS],
@@ -220,11 +252,11 @@ export default {
       ["bird", "flew", "small", "sang"], [FS, FS, FS]),
     gct("noun_vs_verb", 2, 1, 10, "Which word is a naming word in ‘The children splash in the pond’?",
       ["pond", "splash", "in", "the"], [FS, FS, FS]),
-    gct("noun_two_step", 2, 2, 10, "Which sentence names TWO things?",
-      ["The moth flew at the lamp.", "Spin round and sit down.", "He was not there.", "You can all go."],
+    gct("noun_two_step", 2, 2, 10, "Which sentence has exactly TWO naming words?",
+      ["The moth flew at the lamp.", "The moth flew inside.", "The moth flew past a lamp and a clock.", "It flew in quietly."],
       [FS, FS, FS])
   ].map(item => {
     if ((item.lvl === 1 && item.v >= 7) || (item.lvl === 2 && item.v >= 9)) item.retention = true;
     return item;
-  })
+  }).concat(freshPhaseItems)
 };

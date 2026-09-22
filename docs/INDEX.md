@@ -46,7 +46,7 @@ A dated document must never override current code.
 - [Story Quest authoring rules](STORY_QUEST_REWRITE_2026-07-26.md)
 
 The Skills assessment has one current progression threshold: the 70% phase rule in
-`src/content/blueprints/skillBlueprints.js`. Publication is controlled by the six
+`src/content/blueprints/skillBlueprints.js`. Publication is controlled by the ten
 automated v3 gates. There is no personal approval switch, legacy-bank fallback,
 random-guess percentage, or separate 80%, 85%, or 90% assessment pass rule.
 

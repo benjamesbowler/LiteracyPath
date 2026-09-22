@@ -15,6 +15,7 @@
 
 import { makeImageResolver } from "../lib.mjs";
 
+const fresh = item => ({ ...item, retention: false });
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
 const sentenceCase = value => value ? `${value[0].toUpperCase()}${value.slice(1)}` : value;
@@ -72,16 +73,18 @@ export default {
     lcv("short_a", 1, 1, 2, "ram", ["a", "u", "e", "i"]),
     lcv("short_a", 1, 1, 3, "tap", ["a", "o", "i", "e"]),
     pp("short_a", 1, 1, 4, "tap", ["tap", "tip", "top", "ten"]),
-    pp("short_a", 1, 1, 5, "bad", ["bad", "bed", "bud", "bid"]),
+    pp("short_a", 1, 1, 5, "bad", ["bad", "bed", "bud", "bag"],
+      { bed: "D-VOWEL", bud: "D-VOWEL", bag: "D-RIME-NEAR" },
+      "bed and bud preserve the vowel contrast; bag checks the heard final consonant without the excluded word bid"),
     pp("short_a", 1, 1, 6, "ram", ["ram", "rim", "ran", "run"],
       { rim: "D-VOWEL", ran: "D-VISUAL-NEIGHBOR", run: "D-VOWEL" }),
     lcv("short_a", 2, 1, 1, "hand", ["a", "e", "o", "u"]),
     lcv("short_a", 2, 1, 2, "flag", ["a", "u", "o", "e"]),
-    pp("short_a", 2, 1, 3, "hand", ["hand", "band", "bend", "sand"],
-      { band: "D-VISUAL-NEIGHBOR", bend: "D-VOWEL", sand: "D-VISUAL-NEIGHBOR" }),
-    pp("short_a", 2, 1, 4, "flag", ["flag", "flip", "flop", "flap"],
-      { flip: "D-VOWEL", flop: "D-VOWEL", flap: "D-VISUAL-NEIGHBOR" },
-      "flag/flap differ by one letter; flip/flop swap the vowel"),
+    pp("short_a", 2, 1, 3, "band", ["band", "bend", "bind", "bond"],
+      { bend: "D-VOWEL", bind: "D-VOWEL", bond: "D-VOWEL" }),
+    pp("short_a", 2, 1, 4, "flap", ["flap", "flip", "flop", "flag"],
+      { flip: "D-VOWEL", flop: "D-VOWEL", flag: "D-VISUAL-NEIGHBOR" },
+      "flip and flop differ only in the medial vowel; flag checks the ending"),
     gs("short_a", 2, 1, 5, "a", ["bag", "bed", "pig", "dog"], "bag"),
     gs("short_a", 2, 1, 6, "a", ["ham", "net", "pin", "mop"], "ham"),
 
@@ -94,14 +97,14 @@ export default {
     pp("short_e", 1, 1, 6, "leg", ["leg", "lag", "log", "lug"]),
     lcv("short_e", 2, 1, 1, "nest", ["e", "i", "a", "o"]),
     lcv("short_e", 2, 1, 2, "shell", ["e", "a", "o", "u"]),
-    pp("short_e", 2, 1, 3, "nest", ["nest", "vest", "mast", "mist"],
-      { vest: "D-RIME-NEAR", mast: "D-VOWEL", mist: "D-VOWEL" },
-      "vest rhymes with the key and ties its es/goes overlap"),
+    pp("short_e", 2, 1, 3, "best", ["best", "bust", "beast", "belt"],
+      { bust: "D-VOWEL", beast: "D-VOWEL", belt: "D-VISUAL-NEIGHBOR" },
+      "the shared onset requires attending to the vowel, including the long-e contrast"),
     pp("short_e", 2, 1, 4, "belt", ["belt", "bolt", "built", "bell"],
       { bolt: "D-VOWEL", built: "D-VOWEL", bell: "D-DEVELOPMENTAL" },
       "bell drops the final t — cluster reduction"),
     gs("short_e", 2, 1, 5, "e", ["bed", "bag", "pig", "sun"], "bed"),
-    gs("short_e", 2, 1, 6, "e", ["ten", "cap", "tub", "dog"], "ten"),
+    gs("short_e", 2, 1, 6, "e", ["web", "cap", "tub", "dog"], "web"),
 
     // ================= short_i =================
     lcv("short_i", 1, 1, 1, "bin", ["i", "e", "a", "u"]),
@@ -116,11 +119,11 @@ export default {
       { zap: "D-VOWEL", lip: "D-VISUAL-NEIGHBOR", lap: "D-VOWEL" }),
     lcv("short_i", 2, 1, 1, "brick", ["i", "e", "a", "o"]),
     lcv("short_i", 2, 1, 2, "gift", ["i", "e", "u", "a"]),
-    pp("short_i", 2, 1, 3, "gift", ["gift", "lift", "left", "loft"],
-      { lift: "D-VISUAL-NEIGHBOR", left: "D-VOWEL", loft: "D-VOWEL" }),
-    pp("short_i", 2, 1, 4, "brick", ["brick", "black", "block", "click"],
-      { black: "D-VOWEL", block: "D-VOWEL", click: "D-VISUAL-NEIGHBOR" },
-      "click ties the ic/which overlap"),
+    pp("short_i", 2, 1, 3, "lift", ["lift", "left", "loft", "list"],
+      { left: "D-VOWEL", loft: "D-VOWEL", list: "D-VISUAL-NEIGHBOR" }),
+    pp("short_i", 2, 1, 4, "click", ["click", "clock", "cluck", "cliff"],
+      { clock: "D-VOWEL", cluck: "D-VOWEL", cliff: "D-VISUAL-NEIGHBOR" },
+      "all choices share the complete onset; clock and cluck isolate the vowel"),
     gs("short_i", 2, 1, 5, "i", ["brick", "fan", "log", "cup"], "brick",
       "a concrete brick target replaces the less distinctive fin card"),
     gs("short_i", 2, 1, 6, "i", ["pig", "dog", "bag", "sun"], "pig"),
@@ -156,12 +159,35 @@ export default {
       { rag: "D-VOWEL", rig: "D-VOWEL", ram: "D-VISUAL-NEIGHBOR" }),
     lcv("short_u", 2, 2, 1, "drum", ["u", "o", "a", "i"]),
     lcv("short_u", 2, 2, 2, "brush", ["u", "a", "o", "e"]),
-    pp("short_u", 2, 2, 3, "plug", ["plug", "plan", "plot", "plum"],
-      { plan: "D-VOWEL", plot: "D-VOWEL", plum: "D-VISUAL-NEIGHBOR" }),
+    pp("short_u", 2, 2, 3, "clump", ["clump", "clamp", "clip", "clap"],
+      { clamp: "D-VOWEL", clip: "D-VOWEL", clap: "D-VOWEL" },
+      "clamp keeps both consonant clusters, requiring the medial-vowel contrast"),
     pp("short_u", 2, 2, 4, "truck", ["truck", "track", "trick", "trunk"],
       { track: "D-VOWEL", trick: "D-VOWEL", trunk: "D-VISUAL-NEIGHBOR" }),
     gs("short_u", 2, 2, 5, "u", ["bug", "bag", "pot", "pen"], "bug"),
     gs("short_u", 2, 2, 6, "u", ["mug", "mat", "pig", "hen"], "mug"),
+
+    // Unseen listening stimuli and real minimal-pair contrasts for a fresh retry.
+    fresh(lcv("short_a", 1, 1, 9, "pan", ["a", "e", "i", "u"])),
+    fresh(pp("short_a", 1, 2, 10, "bag", ["bag", "beg", "big", "bog"])),
+    fresh(lcv("short_e", 1, 1, 9, "pen", ["e", "i", "a", "u"])),
+    fresh(pp("short_e", 1, 2, 10, "net", ["net", "nut", "not", "nap"])),
+    fresh(lcv("short_i", 1, 1, 9, "sip", ["i", "e", "a", "o"])),
+    fresh(pp("short_i", 1, 2, 10, "rim", ["rim", "ram", "room", "rip"], { rip: "D-RIME-NEAR" })),
+    fresh(lcv("short_o", 1, 1, 9, "cot", ["o", "a", "u", "e"])),
+    fresh(pp("short_o", 1, 2, 10, "mop", ["mop", "map", "mob", "mug"], { mob: "D-RIME-NEAR" })),
+    fresh(lcv("short_u", 1, 1, 9, "fun", ["u", "o", "a", "i"])),
+    fresh(pp("short_u", 1, 2, 10, "hut", ["hut", "hat", "hot", "hit"])),
+    fresh(lcv("short_a", 2, 1, 9, "trap", ["a", "e", "o", "u"])),
+    fresh(pp("short_a", 2, 2, 10, "clap", ["clap", "clip", "clop", "clam"], { clam: "D-RIME-NEAR" })),
+    fresh(lcv("short_e", 2, 1, 9, "desk", ["e", "a", "i", "o"])),
+    fresh(pp("short_e", 2, 2, 10, "step", ["step", "stop", "stamp", "stem"], { stem: "D-RIME-NEAR" })),
+    fresh(lcv("short_i", 2, 1, 9, "swim", ["i", "e", "a", "u"])),
+    fresh(pp("short_i", 2, 2, 10, "slip", ["slip", "slap", "slop", "slid"], { slid: "D-RIME-NEAR" })),
+    fresh(lcv("short_o", 2, 1, 9, "spot", ["o", "a", "u", "i"])),
+    fresh(pp("short_o", 2, 2, 10, "stomp", ["stomp", "stamp", "stump", "stop"], { stop: "D-DEVELOPMENTAL" })),
+    fresh(lcv("short_u", 2, 1, 9, "plum", ["u", "a", "o", "e"])),
+    fresh(pp("short_u", 2, 2, 10, "stump", ["stump", "stamp", "stomp", "stub"], { stub: "D-DEVELOPMENTAL" })),
 
     // ================= Retention reserve (form R) =================
     lcv("short_e", 1, 1, 7, "hen", ["e", "i", "o", "a"]),
@@ -178,7 +204,8 @@ export default {
     gs("short_e", 2, 1, 7, "e", ["hen", "hat", "log", "bug"], "hen"),
     gs("short_o", 2, 2, 7, "o", ["log", "jam", "pin", "cup"], "log")
   ].map(item => {
-    if (item.v >= 7) item.retention = true;
+    if (item.v >= 7 && item.retention !== false) item.retention = true;
+    if (!item.retention) item.ph = item.v <= 3 || item.v === 9 ? 1 : 2;
     return item;
   })
 };

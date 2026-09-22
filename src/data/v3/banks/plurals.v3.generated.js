@@ -66,7 +66,7 @@ export const questions = [
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
-  "suppressStimulusAudio": false,
+  "suppressStimulusAudio": true,
   "targetWord": "forks",
   "v3AuthoredMedia": {
    "target": true,
@@ -78,7 +78,7 @@ export const questions = [
    "paths": [
     "/images/assessment/language/variants/plurals/fork-forks-01.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "forks",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -166,7 +166,7 @@ export const questions = [
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
-  "suppressStimulusAudio": false,
+  "suppressStimulusAudio": true,
   "targetWord": "books",
   "v3AuthoredMedia": {
    "target": true,
@@ -178,7 +178,7 @@ export const questions = [
    "paths": [
     "/images/assessment/language/variants/plurals/book-books-01.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "books",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -221,43 +221,43 @@ export const questions = [
   "formatType": "PLURAL_IMAGE_SPELLING",
   "templateType": "PLURAL_IMAGE_SPELLING",
   "questionType": "multiple_choice",
-  "prompt": "What does the picture show?",
-  "question": "What does the picture show?",
-  "spokenPrompt": "What does the picture show?",
+  "prompt": "Pick a word for this picture.",
+  "question": "Pick a word for this picture.",
+  "spokenPrompt": "Pick a word for this picture.",
   "choices": [
-   "cups",
-   "cup",
-   "books",
-   "book"
+   "brushes",
+   "brush",
+   "pencils",
+   "pencil"
   ],
   "answerOptions": [
    {
-    "value": "cups",
-    "label": "cups",
-    "text": "cups"
+    "value": "brushes",
+    "label": "brushes",
+    "text": "brushes"
    },
    {
-    "value": "cup",
-    "label": "cup",
-    "text": "cup"
+    "value": "brush",
+    "label": "brush",
+    "text": "brush"
    },
    {
-    "value": "books",
-    "label": "books",
-    "text": "books"
+    "value": "pencils",
+    "label": "pencils",
+    "text": "pencils"
    },
    {
-    "value": "book",
-    "label": "book",
-    "text": "book"
+    "value": "pencil",
+    "label": "pencil",
+    "text": "pencil"
    }
   ],
-  "answer": "books",
-  "correctAnswer": "books",
+  "answer": "pencils",
+  "correctAnswer": "pencils",
   "distractorRationales": {
-   "book": "D-FUNCTION-SWAP",
-   "cups": "D-SEMANTIC",
-   "cup": "D-SEMANTIC"
+   "pencil": "D-FUNCTION-SWAP",
+   "brushes": "D-SEMANTIC",
+   "brush": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -266,8 +266,8 @@ export const questions = [
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
-  "suppressStimulusAudio": false,
-  "targetWord": "books",
+  "suppressStimulusAudio": true,
+  "targetWord": "four-pencils",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -276,14 +276,14 @@ export const questions = [
    "itemId": "lp3.plurals.l1.C.plural_add_s.v3",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/language/variants/plurals/book-books-01.webp"
+    "/images/assessment/grammar-scenes/four-pencils.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "four pencils",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "books",
-  "stimulusMediaId": "books",
+  "requiredImageAssetKey": "four-pencils",
+  "stimulusMediaId": "four-pencils",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -293,13 +293,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "does carries es — safe here because no option ends in es",
-  "imagePath": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "resolvedImageAssetKey": "books",
-  "imageAlt": "books"
+  "notes": "",
+  "imagePath": "/images/assessment/grammar-scenes/four-pencils.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/four-pencils.webp",
+  "targetImage": "/images/assessment/grammar-scenes/four-pencils.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/four-pencils.webp",
+  "resolvedImageAssetKey": "four-pencils",
+  "imageAlt": "four pencils"
  },
  {
   "id": "lp3.plurals.l1.A.plural_add_s.v4",
@@ -321,43 +321,43 @@ export const questions = [
   "formatType": "PLURAL_IMAGE_SPELLING",
   "templateType": "PLURAL_IMAGE_SPELLING",
   "questionType": "multiple_choice",
-  "prompt": "Which word fits the picture?",
-  "question": "Which word fits the picture?",
-  "spokenPrompt": "Which word fits the picture?",
+  "prompt": "Pick a word for this picture.",
+  "question": "Pick a word for this picture.",
+  "spokenPrompt": "Pick a word for this picture.",
   "choices": [
-   "lion",
-   "forks",
    "fork",
-   "lions"
+   "spoons",
+   "spoon",
+   "forks"
   ],
   "answerOptions": [
-   {
-    "value": "lion",
-    "label": "lion",
-    "text": "lion"
-   },
-   {
-    "value": "forks",
-    "label": "forks",
-    "text": "forks"
-   },
    {
     "value": "fork",
     "label": "fork",
     "text": "fork"
    },
    {
-    "value": "lions",
-    "label": "lions",
-    "text": "lions"
+    "value": "spoons",
+    "label": "spoons",
+    "text": "spoons"
+   },
+   {
+    "value": "spoon",
+    "label": "spoon",
+    "text": "spoon"
+   },
+   {
+    "value": "forks",
+    "label": "forks",
+    "text": "forks"
    }
   ],
-  "answer": "forks",
-  "correctAnswer": "forks",
+  "answer": "spoons",
+  "correctAnswer": "spoons",
   "distractorRationales": {
-   "lion": "D-SEMANTIC",
-   "fork": "D-FUNCTION-SWAP",
-   "lions": "D-SEMANTIC"
+   "fork": "D-SEMANTIC",
+   "spoon": "D-FUNCTION-SWAP",
+   "forks": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -366,8 +366,8 @@ export const questions = [
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
-  "suppressStimulusAudio": false,
-  "targetWord": "forks",
+  "suppressStimulusAudio": true,
+  "targetWord": "three-spoons",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -376,14 +376,14 @@ export const questions = [
    "itemId": "lp3.plurals.l1.A.plural_add_s.v4",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/language/variants/plurals/fork-forks-01.webp"
+    "/images/assessment/grammar-scenes/three-spoons.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "three spoons",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "forks",
-  "stimulusMediaId": "forks",
+  "requiredImageAssetKey": "three-spoons",
+  "stimulusMediaId": "three-spoons",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -394,12 +394,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
-  "resolvedImageAssetKey": "forks",
-  "imageAlt": "forks"
+  "imagePath": "/images/assessment/grammar-scenes/three-spoons.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/three-spoons.webp",
+  "targetImage": "/images/assessment/grammar-scenes/three-spoons.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/three-spoons.webp",
+  "resolvedImageAssetKey": "three-spoons",
+  "imageAlt": "three spoons"
  },
  {
   "id": "lp3.plurals.l1.B.plural_add_s.v5",
@@ -826,7 +826,7 @@ export const questions = [
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
-  "suppressStimulusAudio": false,
+  "suppressStimulusAudio": true,
   "targetWord": "cat",
   "v3AuthoredMedia": {
    "target": true,
@@ -838,7 +838,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/cat.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "cat",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -926,7 +926,7 @@ export const questions = [
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
-  "suppressStimulusAudio": false,
+  "suppressStimulusAudio": true,
   "targetWord": "apples",
   "v3AuthoredMedia": {
    "target": true,
@@ -938,7 +938,7 @@ export const questions = [
    "paths": [
     "/images/assessment/language/variants/plurals/apple-apples-01.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "apples",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -981,43 +981,43 @@ export const questions = [
   "formatType": "PLURAL_IMAGE_SPELLING",
   "templateType": "PLURAL_IMAGE_SPELLING",
   "questionType": "multiple_choice",
-  "prompt": "Which word matches the picture of more than one object?",
-  "question": "Which word matches the picture of more than one object?",
-  "spokenPrompt": "Which word matches the picture of more than one object?",
+  "prompt": "Pick a word for this picture.",
+  "question": "Pick a word for this picture.",
+  "spokenPrompt": "Pick a word for this picture.",
   "choices": [
-   "forks",
-   "fork",
-   "stars",
-   "star"
+   "socks",
+   "sock",
+   "gloves",
+   "glove"
   ],
   "answerOptions": [
    {
-    "value": "forks",
-    "label": "forks",
-    "text": "forks"
+    "value": "socks",
+    "label": "socks",
+    "text": "socks"
    },
    {
-    "value": "fork",
-    "label": "fork",
-    "text": "fork"
+    "value": "sock",
+    "label": "sock",
+    "text": "sock"
    },
    {
-    "value": "stars",
-    "label": "stars",
-    "text": "stars"
+    "value": "gloves",
+    "label": "gloves",
+    "text": "gloves"
    },
    {
-    "value": "star",
-    "label": "star",
-    "text": "star"
+    "value": "glove",
+    "label": "glove",
+    "text": "glove"
    }
   ],
-  "answer": "forks",
-  "correctAnswer": "forks",
+  "answer": "socks",
+  "correctAnswer": "socks",
   "distractorRationales": {
-   "star": "D-SEMANTIC",
-   "fork": "D-FUNCTION-SWAP",
-   "stars": "D-SEMANTIC"
+   "glove": "D-SEMANTIC",
+   "sock": "D-FUNCTION-SWAP",
+   "gloves": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1026,8 +1026,8 @@ export const questions = [
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
-  "suppressStimulusAudio": false,
-  "targetWord": "forks",
+  "suppressStimulusAudio": true,
+  "targetWord": "two-socks",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -1036,14 +1036,14 @@ export const questions = [
    "itemId": "lp3.plurals.l1.C.plural_concept.v3",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/language/variants/plurals/fork-forks-01.webp"
+    "/images/assessment/grammar-scenes/two-socks.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "two socks",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "forks",
-  "stimulusMediaId": "forks",
+  "requiredImageAssetKey": "two-socks",
+  "stimulusMediaId": "two-socks",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1053,13 +1053,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the repeated concrete objects make singular-versus-plural evidence direct",
-  "imagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
-  "resolvedImageAssetKey": "forks",
-  "imageAlt": "forks"
+  "notes": "",
+  "imagePath": "/images/assessment/grammar-scenes/two-socks.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/two-socks.webp",
+  "targetImage": "/images/assessment/grammar-scenes/two-socks.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/two-socks.webp",
+  "resolvedImageAssetKey": "two-socks",
+  "imageAlt": "two socks"
  },
  {
   "id": "lp3.plurals.l1.A.plural_concept.v4",
@@ -1126,7 +1126,7 @@ export const questions = [
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
-  "suppressStimulusAudio": false,
+  "suppressStimulusAudio": true,
   "targetWord": "cup",
   "v3AuthoredMedia": {
    "target": true,
@@ -1138,7 +1138,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/cup.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "cup",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1586,7 +1586,7 @@ export const questions = [
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
-  "suppressStimulusAudio": false,
+  "suppressStimulusAudio": true,
   "targetWord": "boxes",
   "v3AuthoredMedia": {
    "target": true,
@@ -1598,7 +1598,7 @@ export const questions = [
    "paths": [
     "/images/assessment/language/variants/plurals/box-boxes-01.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "boxes",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1686,7 +1686,7 @@ export const questions = [
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
-  "suppressStimulusAudio": false,
+  "suppressStimulusAudio": true,
   "targetWord": "brushes",
   "v3AuthoredMedia": {
    "target": true,
@@ -1698,7 +1698,7 @@ export const questions = [
    "paths": [
     "/images/assessment/language/variants/plurals/brush-brushes-01.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "brushes",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1741,43 +1741,43 @@ export const questions = [
   "formatType": "PLURAL_IMAGE_SPELLING",
   "templateType": "PLURAL_IMAGE_SPELLING",
   "questionType": "multiple_choice",
-  "prompt": "Which word tells what you see?",
-  "question": "Which word tells what you see?",
-  "spokenPrompt": "Which word tells what you see?",
+  "prompt": "Pick a word for this picture.",
+  "question": "Pick a word for this picture.",
+  "spokenPrompt": "Pick a word for this picture.",
   "choices": [
-   "foxes",
-   "fox",
-   "brushes",
-   "brush"
+   "apples",
+   "apple",
+   "peaches",
+   "peach"
   ],
   "answerOptions": [
    {
-    "value": "foxes",
-    "label": "foxes",
-    "text": "foxes"
+    "value": "apples",
+    "label": "apples",
+    "text": "apples"
    },
    {
-    "value": "fox",
-    "label": "fox",
-    "text": "fox"
+    "value": "apple",
+    "label": "apple",
+    "text": "apple"
    },
    {
-    "value": "brushes",
-    "label": "brushes",
-    "text": "brushes"
+    "value": "peaches",
+    "label": "peaches",
+    "text": "peaches"
    },
    {
-    "value": "brush",
-    "label": "brush",
-    "text": "brush"
+    "value": "peach",
+    "label": "peach",
+    "text": "peach"
    }
   ],
-  "answer": "brushes",
-  "correctAnswer": "brushes",
+  "answer": "peaches",
+  "correctAnswer": "peaches",
   "distractorRationales": {
-   "fox": "D-SEMANTIC",
-   "brush": "D-FUNCTION-SWAP",
-   "foxes": "D-SEMANTIC"
+   "apple": "D-SEMANTIC",
+   "peach": "D-FUNCTION-SWAP",
+   "apples": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1786,8 +1786,8 @@ export const questions = [
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
-  "suppressStimulusAudio": false,
-  "targetWord": "brushes",
+  "suppressStimulusAudio": true,
+  "targetWord": "three-peaches",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -1796,14 +1796,14 @@ export const questions = [
    "itemId": "lp3.plurals.l1.C.plural_add_es.v3",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/language/variants/plurals/brush-brushes-01.webp"
+    "/images/assessment/grammar-scenes/three-peaches.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "three peaches",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "brushes",
-  "stimulusMediaId": "brushes",
+  "requiredImageAssetKey": "three-peaches",
+  "stimulusMediaId": "three-peaches",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1814,12 +1814,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/brush-brushes-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/brush-brushes-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/brush-brushes-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/brush-brushes-01.webp",
-  "resolvedImageAssetKey": "brushes",
-  "imageAlt": "brushes"
+  "imagePath": "/images/assessment/grammar-scenes/three-peaches.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/three-peaches.webp",
+  "targetImage": "/images/assessment/grammar-scenes/three-peaches.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/three-peaches.webp",
+  "resolvedImageAssetKey": "three-peaches",
+  "imageAlt": "three peaches"
  },
  {
   "id": "lp3.plurals.l1.A.plural_add_es.v4",
@@ -2291,10 +2291,10 @@ export const questions = [
   "formatType": "PLURAL_SPELLING_CONTEXT",
   "templateType": "PLURAL_SPELLING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word fits: The newborn ___ giggled in their cribs.",
-  "question": "Which word fits: The newborn ___ giggled in their cribs.",
-  "spokenPrompt": "Which word fits? The newborn … giggled in their cribs.",
-  "sentence": "The newborn ___ giggled in their cribs.",
+  "prompt": "Which word fits: The ___ giggled in their cribs.",
+  "question": "Which word fits: The ___ giggled in their cribs.",
+  "spokenPrompt": "Which word fits? The … giggled in their cribs.",
+  "sentence": "The ___ giggled in their cribs.",
   "choices": [
    "city",
    "babies",
@@ -2338,7 +2338,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The newborn ___ giggled in their cribs.",
+  "sentenceText": "The ___ giggled in their cribs.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4470,7 +4470,7 @@ export const questions = [
   "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
-  "suppressStimulusAudio": false,
+  "suppressStimulusAudio": true,
   "targetWord": "boys",
   "v3AuthoredMedia": {
    "target": true,
@@ -4482,7 +4482,7 @@ export const questions = [
    "paths": [
     "/images/assessment/language/variants/plurals/boy-boys-01.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "boys",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -4705,43 +4705,43 @@ export const questions = [
   "formatType": "PLURAL_IMAGE_SPELLING",
   "templateType": "PLURAL_IMAGE_SPELLING",
   "questionType": "multiple_choice",
-  "prompt": "Which word tells what you see?",
-  "question": "Which word tells what you see?",
-  "spokenPrompt": "Which word tells what you see?",
+  "prompt": "Pick a word for this picture.",
+  "question": "Pick a word for this picture.",
+  "spokenPrompt": "Pick a word for this picture.",
   "choices": [
-   "cat",
-   "boxes",
-   "box",
-   "cats"
+   "truck",
+   "buses",
+   "bus",
+   "trucks"
   ],
   "answerOptions": [
    {
-    "value": "cat",
-    "label": "cat",
-    "text": "cat"
+    "value": "truck",
+    "label": "truck",
+    "text": "truck"
    },
    {
-    "value": "boxes",
-    "label": "boxes",
-    "text": "boxes"
+    "value": "buses",
+    "label": "buses",
+    "text": "buses"
    },
    {
-    "value": "box",
-    "label": "box",
-    "text": "box"
+    "value": "bus",
+    "label": "bus",
+    "text": "bus"
    },
    {
-    "value": "cats",
-    "label": "cats",
-    "text": "cats"
+    "value": "trucks",
+    "label": "trucks",
+    "text": "trucks"
    }
   ],
-  "answer": "boxes",
-  "correctAnswer": "boxes",
+  "answer": "buses",
+  "correctAnswer": "buses",
   "distractorRationales": {
-   "box": "D-FUNCTION-SWAP",
-   "cats": "D-SEMANTIC",
-   "cat": "D-SEMANTIC"
+   "bus": "D-FUNCTION-SWAP",
+   "trucks": "D-SEMANTIC",
+   "truck": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -4750,8 +4750,8 @@ export const questions = [
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
-  "suppressStimulusAudio": false,
-  "targetWord": "boxes",
+  "suppressStimulusAudio": true,
+  "targetWord": "three-buses",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -4760,14 +4760,14 @@ export const questions = [
    "itemId": "lp3.plurals.l1.A.plural_add_es.v10",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/language/variants/plurals/box-boxes-01.webp"
+    "/images/assessment/grammar-scenes/three-buses.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "three buses",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "boxes",
-  "stimulusMediaId": "boxes",
+  "requiredImageAssetKey": "three-buses",
+  "stimulusMediaId": "three-buses",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4778,12 +4778,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/box-boxes-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/box-boxes-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/box-boxes-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/box-boxes-01.webp",
-  "resolvedImageAssetKey": "boxes",
-  "imageAlt": "boxes"
+  "imagePath": "/images/assessment/grammar-scenes/three-buses.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/three-buses.webp",
+  "targetImage": "/images/assessment/grammar-scenes/three-buses.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/three-buses.webp",
+  "resolvedImageAssetKey": "three-buses",
+  "imageAlt": "three buses"
  },
  {
   "id": "lp3.plurals.l1.R.plural_concept.v9r",
@@ -4895,43 +4895,43 @@ export const questions = [
   "formatType": "PLURAL_IMAGE_SPELLING",
   "templateType": "PLURAL_IMAGE_SPELLING",
   "questionType": "multiple_choice",
-  "prompt": "Which word matches the picture of more than one object?",
-  "question": "Which word matches the picture of more than one object?",
-  "spokenPrompt": "Which word matches the picture of more than one object?",
+  "prompt": "Pick a word for this picture.",
+  "question": "Pick a word for this picture.",
+  "spokenPrompt": "Pick a word for this picture.",
   "choices": [
-   "books",
-   "book",
-   "hens",
-   "hen"
+   "benches",
+   "bench",
+   "chairs",
+   "chair"
   ],
   "answerOptions": [
    {
-    "value": "books",
-    "label": "books",
-    "text": "books"
+    "value": "benches",
+    "label": "benches",
+    "text": "benches"
    },
    {
-    "value": "book",
-    "label": "book",
-    "text": "book"
+    "value": "bench",
+    "label": "bench",
+    "text": "bench"
    },
    {
-    "value": "hens",
-    "label": "hens",
-    "text": "hens"
+    "value": "chairs",
+    "label": "chairs",
+    "text": "chairs"
    },
    {
-    "value": "hen",
-    "label": "hen",
-    "text": "hen"
+    "value": "chair",
+    "label": "chair",
+    "text": "chair"
    }
   ],
-  "answer": "books",
-  "correctAnswer": "books",
+  "answer": "benches",
+  "correctAnswer": "benches",
   "distractorRationales": {
-   "book": "D-FUNCTION-SWAP",
-   "hens": "D-SEMANTIC",
-   "hen": "D-SEMANTIC"
+   "bench": "D-FUNCTION-SWAP",
+   "chairs": "D-SEMANTIC",
+   "chair": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -4940,8 +4940,8 @@ export const questions = [
   "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
-  "suppressStimulusAudio": false,
-  "targetWord": "books",
+  "suppressStimulusAudio": true,
+  "targetWord": "two-benches",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -4950,14 +4950,14 @@ export const questions = [
    "itemId": "lp3.plurals.l1.R.plural_concept.v10r",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/language/variants/plurals/book-books-01.webp"
+    "/images/assessment/grammar-scenes/two-benches.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "two benches",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "books",
-  "stimulusMediaId": "books",
+  "requiredImageAssetKey": "two-benches",
+  "stimulusMediaId": "two-benches",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4968,12 +4968,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "resolvedImageAssetKey": "books",
-  "imageAlt": "books"
+  "imagePath": "/images/assessment/grammar-scenes/two-benches.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/two-benches.webp",
+  "targetImage": "/images/assessment/grammar-scenes/two-benches.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/two-benches.webp",
+  "resolvedImageAssetKey": "two-benches",
+  "imageAlt": "two benches"
  },
  {
   "id": "lp3.plurals.l2.R.plural_y_to_ies.v7r",
@@ -5510,5 +5510,1259 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "chirped gifts ch to chicks and chick alike"
+ },
+ {
+  "id": "lp3.plurals.l1.A.plural_add_es.v11",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_add_es",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits: We bought two ___ to wear.",
+  "question": "Which word fits: We bought two ___ to wear.",
+  "spokenPrompt": "Which word fits? We bought two … to wear.",
+  "sentence": "We bought two ___ to wear.",
+  "choices": [
+   "dressed",
+   "dressing",
+   "dresses",
+   "dress"
+  ],
+  "answerOptions": [
+   {
+    "value": "dressed",
+    "label": "dressed",
+    "text": "dressed"
+   },
+   {
+    "value": "dressing",
+    "label": "dressing",
+    "text": "dressing"
+   },
+   {
+    "value": "dresses",
+    "label": "dresses",
+    "text": "dresses"
+   },
+   {
+    "value": "dress",
+    "label": "dress",
+    "text": "dress"
+   }
+  ],
+  "answer": "dresses",
+  "correctAnswer": "dresses",
+  "distractorRationales": {
+   "dressed": "D-SEMANTIC",
+   "dressing": "D-SEMANTIC",
+   "dress": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "We bought two ___ to wear.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.A.plural_add_es.v11",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l1.A.plural_add_es.v12",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_add_es",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits: The two ___ meet in different rooms.",
+  "question": "Which word fits: The two ___ meet in different rooms.",
+  "spokenPrompt": "Which word fits? The two … meet in different rooms.",
+  "sentence": "The two ___ meet in different rooms.",
+  "choices": [
+   "class",
+   "classroom",
+   "lesson",
+   "classes"
+  ],
+  "answerOptions": [
+   {
+    "value": "class",
+    "label": "class",
+    "text": "class"
+   },
+   {
+    "value": "classroom",
+    "label": "classroom",
+    "text": "classroom"
+   },
+   {
+    "value": "lesson",
+    "label": "lesson",
+    "text": "lesson"
+   },
+   {
+    "value": "classes",
+    "label": "classes",
+    "text": "classes"
+   }
+  ],
+  "answer": "classes",
+  "correctAnswer": "classes",
+  "distractorRationales": {
+   "lesson": "D-SEMANTIC",
+   "class": "D-FUNCTION-SWAP",
+   "classroom": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The two ___ meet in different rooms.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.A.plural_add_es.v12",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l1.A.plural_add_es.v13",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_add_es",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits: Both sandy ___ had waves and seashells.",
+  "question": "Which word fits: Both sandy ___ had waves and seashells.",
+  "spokenPrompt": "Which word fits? Both sandy … had waves and seashells.",
+  "sentence": "Both sandy ___ had waves and seashells.",
+  "choices": [
+   "beaches",
+   "beach",
+   "bucket",
+   "umbrella"
+  ],
+  "answerOptions": [
+   {
+    "value": "beaches",
+    "label": "beaches",
+    "text": "beaches"
+   },
+   {
+    "value": "beach",
+    "label": "beach",
+    "text": "beach"
+   },
+   {
+    "value": "bucket",
+    "label": "bucket",
+    "text": "bucket"
+   },
+   {
+    "value": "umbrella",
+    "label": "umbrella",
+    "text": "umbrella"
+   }
+  ],
+  "answer": "beaches",
+  "correctAnswer": "beaches",
+  "distractorRationales": {
+   "beach": "D-FUNCTION-SWAP",
+   "bucket": "D-SEMANTIC",
+   "umbrella": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Both sandy ___ had waves and seashells.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.A.plural_add_es.v13",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l1.A.plural_add_es.v14",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_add_es",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits: Three rose ___ grew in the soil.",
+  "question": "Which word fits: Three rose ___ grew in the soil.",
+  "spokenPrompt": "Which word fits? Three rose … grew in the soil.",
+  "sentence": "Three rose ___ grew in the soil.",
+  "choices": [
+   "brush",
+   "bushes",
+   "bush",
+   "hedge"
+  ],
+  "answerOptions": [
+   {
+    "value": "brush",
+    "label": "brush",
+    "text": "brush"
+   },
+   {
+    "value": "bushes",
+    "label": "bushes",
+    "text": "bushes"
+   },
+   {
+    "value": "bush",
+    "label": "bush",
+    "text": "bush"
+   },
+   {
+    "value": "hedge",
+    "label": "hedge",
+    "text": "hedge"
+   }
+  ],
+  "answer": "bushes",
+  "correctAnswer": "bushes",
+  "distractorRationales": {
+   "bush": "D-FUNCTION-SWAP",
+   "hedge": "D-SEMANTIC",
+   "brush": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Three rose ___ grew in the soil.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.A.plural_add_es.v14",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l1.A.plural_add_es.v15",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_add_es",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits: We packed two ___ to eat at noon.",
+  "question": "Which word fits: We packed two ___ to eat at noon.",
+  "spokenPrompt": "Which word fits? We packed two … to eat at noon.",
+  "sentence": "We packed two ___ to eat at noon.",
+  "choices": [
+   "sandwich",
+   "snack",
+   "lunches",
+   "lunch"
+  ],
+  "answerOptions": [
+   {
+    "value": "sandwich",
+    "label": "sandwich",
+    "text": "sandwich"
+   },
+   {
+    "value": "snack",
+    "label": "snack",
+    "text": "snack"
+   },
+   {
+    "value": "lunches",
+    "label": "lunches",
+    "text": "lunches"
+   },
+   {
+    "value": "lunch",
+    "label": "lunch",
+    "text": "lunch"
+   }
+  ],
+  "answer": "lunches",
+  "correctAnswer": "lunches",
+  "distractorRationales": {
+   "sandwich": "D-SEMANTIC",
+   "snack": "D-SEMANTIC",
+   "lunch": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "We packed two ___ to eat at noon.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.A.plural_add_es.v15",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l1.A.plural_add_es.v16",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_add_es",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits: Two ___ hold people at the bus stop.",
+  "question": "Which word fits: Two ___ hold people at the bus stop.",
+  "spokenPrompt": "Which word fits? Two … hold people at the bus stop.",
+  "sentence": "Two ___ hold people at the bus stop.",
+  "choices": [
+   "bench",
+   "cushion",
+   "chair",
+   "benches"
+  ],
+  "answerOptions": [
+   {
+    "value": "bench",
+    "label": "bench",
+    "text": "bench"
+   },
+   {
+    "value": "cushion",
+    "label": "cushion",
+    "text": "cushion"
+   },
+   {
+    "value": "chair",
+    "label": "chair",
+    "text": "chair"
+   },
+   {
+    "value": "benches",
+    "label": "benches",
+    "text": "benches"
+   }
+  ],
+  "answer": "benches",
+  "correctAnswer": "benches",
+  "distractorRationales": {
+   "chair": "D-SEMANTIC",
+   "bench": "D-FUNCTION-SWAP",
+   "cushion": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Two ___ hold people at the bus stop.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.A.plural_add_es.v16",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l2.C.plural_y_to_ies.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_y_to_ies",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits: We read three fairy ___ before bedtime.",
+  "question": "Which word fits: We read three fairy ___ before bedtime.",
+  "spokenPrompt": "Which word fits? We read three fairy … before bedtime.",
+  "sentence": "We read three fairy ___ before bedtime.",
+  "choices": [
+   "story",
+   "store",
+   "storing",
+   "stories"
+  ],
+  "answerOptions": [
+   {
+    "value": "story",
+    "label": "story",
+    "text": "story"
+   },
+   {
+    "value": "store",
+    "label": "store",
+    "text": "store"
+   },
+   {
+    "value": "storing",
+    "label": "storing",
+    "text": "storing"
+   },
+   {
+    "value": "stories",
+    "label": "stories",
+    "text": "stories"
+   }
+  ],
+  "answer": "stories",
+  "correctAnswer": "stories",
+  "distractorRationales": {
+   "story": "D-FUNCTION-SWAP",
+   "store": "D-SEMANTIC",
+   "storing": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "We read three fairy ___ before bedtime.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.C.plural_y_to_ies.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l2.A.plural_y_to_ies.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_y_to_ies",
+  "formatType": "PLURAL_TEXT_CHOICE",
+  "templateType": "PLURAL_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which is the plural of berry?",
+  "question": "Which is the plural of berry?",
+  "spokenPrompt": "Which is the plural of berry?",
+  "choices": [
+   "cherry",
+   "berries",
+   "berry",
+   "cherries"
+  ],
+  "answerOptions": [
+   {
+    "value": "cherry",
+    "label": "cherry",
+    "text": "cherry"
+   },
+   {
+    "value": "berries",
+    "label": "berries",
+    "text": "berries"
+   },
+   {
+    "value": "berry",
+    "label": "berry",
+    "text": "berry"
+   },
+   {
+    "value": "cherries",
+    "label": "cherries",
+    "text": "cherries"
+   }
+  ],
+  "answer": "berries",
+  "correctAnswer": "berries",
+  "distractorRationales": {
+   "berry": "D-FUNCTION-SWAP",
+   "cherries": "D-SEMANTIC",
+   "cherry": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.A.plural_y_to_ies.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l2.C.plural_irregular.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_irregular",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits: The flock held twenty woolly ___.",
+  "question": "Which word fits: The flock held twenty woolly ___.",
+  "spokenPrompt": "Which word fits? The flock held twenty woolly ….",
+  "sentence": "The flock held twenty woolly ___.",
+  "choices": [
+   "sheep",
+   "lamb",
+   "goat",
+   "cow"
+  ],
+  "answerOptions": [
+   {
+    "value": "sheep",
+    "label": "sheep",
+    "text": "sheep"
+   },
+   {
+    "value": "lamb",
+    "label": "lamb",
+    "text": "lamb"
+   },
+   {
+    "value": "goat",
+    "label": "goat",
+    "text": "goat"
+   },
+   {
+    "value": "cow",
+    "label": "cow",
+    "text": "cow"
+   }
+  ],
+  "answer": "sheep",
+  "correctAnswer": "sheep",
+  "distractorRationales": {
+   "cow": "D-FUNCTION-SWAP",
+   "lamb": "D-FUNCTION-SWAP",
+   "goat": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The flock held twenty woolly ___.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.C.plural_irregular.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l2.A.plural_irregular.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_irregular",
+  "formatType": "PLURAL_TEXT_CHOICE",
+  "templateType": "PLURAL_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which is the plural of goose?",
+  "question": "Which is the plural of goose?",
+  "spokenPrompt": "Which is the plural of goose?",
+  "choices": [
+   "moose",
+   "mouse",
+   "geese",
+   "goose"
+  ],
+  "answerOptions": [
+   {
+    "value": "moose",
+    "label": "moose",
+    "text": "moose"
+   },
+   {
+    "value": "mouse",
+    "label": "mouse",
+    "text": "mouse"
+   },
+   {
+    "value": "geese",
+    "label": "geese",
+    "text": "geese"
+   },
+   {
+    "value": "goose",
+    "label": "goose",
+    "text": "goose"
+   }
+  ],
+  "answer": "geese",
+  "correctAnswer": "geese",
+  "distractorRationales": {
+   "mouse": "D-SEMANTIC",
+   "goose": "D-FUNCTION-SWAP",
+   "moose": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.A.plural_irregular.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l2.B.plural_f_to_ves.v8",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_f_to_ves",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits: The carpenter fitted two ___ for our books.",
+  "question": "Which word fits: The carpenter fitted two ___ for our books.",
+  "spokenPrompt": "Which word fits? The carpenter fitted two … for our books.",
+  "sentence": "The carpenter fitted two ___ for our books.",
+  "choices": [
+   "shelves",
+   "shelf",
+   "cabinet",
+   "cupboard"
+  ],
+  "answerOptions": [
+   {
+    "value": "shelves",
+    "label": "shelves",
+    "text": "shelves"
+   },
+   {
+    "value": "shelf",
+    "label": "shelf",
+    "text": "shelf"
+   },
+   {
+    "value": "cabinet",
+    "label": "cabinet",
+    "text": "cabinet"
+   },
+   {
+    "value": "cupboard",
+    "label": "cupboard",
+    "text": "cupboard"
+   }
+  ],
+  "answer": "shelves",
+  "correctAnswer": "shelves",
+  "distractorRationales": {
+   "shelf": "D-FUNCTION-SWAP",
+   "cabinet": "D-SEMANTIC",
+   "cupboard": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The carpenter fitted two ___ for our books.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.B.plural_f_to_ves.v8",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l2.C.plural_f_to_ves.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_f_to_ves",
+  "formatType": "PLURAL_TEXT_CHOICE",
+  "templateType": "PLURAL_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which is the plural of half?",
+  "question": "Which is the plural of half?",
+  "spokenPrompt": "Which is the plural of half?",
+  "choices": [
+   "calf",
+   "halves",
+   "half",
+   "calves"
+  ],
+  "answerOptions": [
+   {
+    "value": "calf",
+    "label": "calf",
+    "text": "calf"
+   },
+   {
+    "value": "halves",
+    "label": "halves",
+    "text": "halves"
+   },
+   {
+    "value": "half",
+    "label": "half",
+    "text": "half"
+   },
+   {
+    "value": "calves",
+    "label": "calves",
+    "text": "calves"
+   }
+  ],
+  "answer": "halves",
+  "correctAnswer": "halves",
+  "distractorRationales": {
+   "calf": "D-SEMANTIC",
+   "half": "D-FUNCTION-SWAP",
+   "calves": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.C.plural_f_to_ves.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l2.B.plural_in_sentence.v8",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_in_sentence",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits: One child entered; four more joined: five ___ altogether.",
+  "question": "Which word fits: One child entered; four more joined: five ___ altogether.",
+  "spokenPrompt": "Which word fits? One child entered; four more joined: five … altogether.",
+  "sentence": "One child entered; four more joined: five ___ altogether.",
+  "choices": [
+   "childhood",
+   "children",
+   "child",
+   "childish"
+  ],
+  "answerOptions": [
+   {
+    "value": "childhood",
+    "label": "childhood",
+    "text": "childhood"
+   },
+   {
+    "value": "children",
+    "label": "children",
+    "text": "children"
+   },
+   {
+    "value": "child",
+    "label": "child",
+    "text": "child"
+   },
+   {
+    "value": "childish",
+    "label": "childish",
+    "text": "childish"
+   }
+  ],
+  "answer": "children",
+  "correctAnswer": "children",
+  "distractorRationales": {
+   "childhood": "D-SEMANTIC",
+   "child": "D-FUNCTION-SWAP",
+   "childish": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "One child entered; four more joined: five ___ altogether.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.B.plural_in_sentence.v8",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l2.C.plural_in_sentence.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_in_sentence",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits: There are two ___. Each one has six strings.",
+  "question": "Which word fits: There are two ___. Each one has six strings.",
+  "spokenPrompt": "Which word fits? There are two …. Each one has six strings.",
+  "sentence": "There are two ___. Each one has six strings.",
+  "choices": [
+   "piano",
+   "flute",
+   "guitars",
+   "guitar"
+  ],
+  "answerOptions": [
+   {
+    "value": "piano",
+    "label": "piano",
+    "text": "piano"
+   },
+   {
+    "value": "flute",
+    "label": "flute",
+    "text": "flute"
+   },
+   {
+    "value": "guitars",
+    "label": "guitars",
+    "text": "guitars"
+   },
+   {
+    "value": "guitar",
+    "label": "guitar",
+    "text": "guitar"
+   }
+  ],
+  "answer": "guitars",
+  "correctAnswer": "guitars",
+  "distractorRationales": {
+   "flute": "D-SEMANTIC",
+   "guitar": "D-FUNCTION-SWAP",
+   "piano": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "There are two ___. Each one has six strings.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.C.plural_in_sentence.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
  }
 ];

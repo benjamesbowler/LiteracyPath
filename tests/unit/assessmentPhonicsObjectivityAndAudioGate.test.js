@@ -28,26 +28,31 @@ const byId = (skillId, id) => {
 };
 
 test("P1 phonics repairs keep bank identities while removing non-objective scoring pictures", () => {
-  assert.deepEqual(Object.fromEntries(sources.map(source => [source.skillId, source.items.length])), {
+  const minimumReviewedCounts = {
     rhyming: 145,
-    cvc_short_vowels: 70,
-    short_vowel_discrimination: 70,
+    cvc_short_vowels: 90,
+    short_vowel_discrimination: 90,
     blends: 106
-  });
+  };
+  for (const source of sources) {
+    assert.ok(source.items.length >= minimumReviewedCounts[source.skillId],
+      `${source.skillId} must retain its reviewed pool while allowing further genuine expansion`);
+    const ids = expandedBySkill[source.skillId].map(item => item.id);
+    assert.equal(new Set(ids).size, ids.length, `${source.skillId} must preserve unique stable identities`);
+  }
 
   const concreteRhymingKeys = {
     "lp3.rhyming.l1.A.ub.v1": "tub",
     "lp3.rhyming.l1.B.ub.v2": "tub",
     "lp3.rhyming.l1.C.ub.v3": "tub",
     "lp3.rhyming.l1.C.et.v3": "net",
-    "lp3.rhyming.l1.B.ig.v2": "pig",
+    "lp3.rhyming.l1.B.ig.v2": "wig",
     "lp3.rhyming.l1.C.ig.v3": "pig",
     "lp3.rhyming.l1.A.ock.v1": "clock",
-    "lp3.rhyming.l1.B.ock.v2": "clock",
-    "lp3.rhyming.l1.C.ock.v3": "clock",
+    "lp3.rhyming.l1.B.ock.v2": "sock",
+    "lp3.rhyming.l1.C.ock.v3": "rock",
     "lp3.rhyming.l1.C.ot.v3": "pot",
     "lp3.rhyming.l1.B.un.v2": "sun",
-    "lp3.rhyming.l1.B.up.v2": "cup",
     "lp3.rhyming.l1.C.up.v3": "cup",
     "lp3.rhyming.l1.B.ut.v2": "nut",
     "lp3.rhyming.l1.C.ut.v3": "nut"
@@ -57,6 +62,13 @@ test("P1 phonics repairs keep bank identities while removing non-objective scori
     assert.equal(item.answer, expectedKey, `${id} must key an independently nameable concrete noun`);
     assert.equal(item.imageCards.some(card => card.word === expectedKey && card.image), true);
   }
+  const spokenPupRhyme = byId("rhyming", "lp3.rhyming.l1.B.up.v2");
+  assert.equal(spokenPupRhyme.answer, "pup");
+  assert.equal(spokenPupRhyme.hideWrittenLabels, true);
+  assert.equal(spokenPupRhyme.evidenceModality, "audio");
+  assert.equal(spokenPupRhyme.mediaTier, "audio-required");
+  assert.equal(spokenPupRhyme.imageCards, undefined);
+  assert.deepEqual(new Set(spokenPupRhyme.choices), new Set(["pup", "cap", "mug", "sun"]));
 
   assert.equal(byId("cvc_short_vowels", "lp3.cvc_short_vowels.l2.C.short_i.v3").targetWord, "brick");
   assert.deepEqual(
@@ -64,7 +76,9 @@ test("P1 phonics repairs keep bank identities while removing non-objective scori
     new Set(["brick", "black", "block", "click"])
   );
   assert.equal(byId("cvc_short_vowels", "lp3.cvc_short_vowels.l2.B.short_i.v5").targetWord, "gift");
-  assert.equal(byId("cvc_short_vowels", "lp3.cvc_short_vowels.l2.R.short_u.v8r").targetWord, "brush");
+  const heardShortUReserve = byId("cvc_short_vowels", "lp3.cvc_short_vowels.l2.R.short_u.v8r");
+  assert.equal(heardShortUReserve.mediaTier, "audio-required");
+  assert.equal(heardShortUReserve.targetWord, heardShortUReserve.answer);
   assert.equal(byId("short_vowel_discrimination", "lp3.short_vowel_discrimination.l2.C.short_i.v6").answer, "pig");
 
   const rejectedBlendPictures = new Set(["draw", "ground", "swim", "smile", "spring", "stop"]);
@@ -86,13 +100,21 @@ test("every authored audio-dependent item in the repaired banks resolves product
   for (const source of sources) {
     for (const item of expandedBySkill[source.skillId]) {
       const requirements = [];
-      if (item.mediaTier === "audio-required") {
-        requirements.push(["target-word", item.targetWord || item.answer]);
+      if (item.mediaTier === "audio-required" && item.evidenceModality !== "audio") {
+        assert.ok(item.targetWord, `${item.id} needs an explicitly authored listening target`);
+        requirements.push(["target-word", item.targetWord]);
       }
       if (item.hideWrittenLabels) {
-        assert.equal(item.evidenceModality, "audio+image", `${item.id} must declare its hidden-label modality`);
+        assert.ok(["audio+image", "audio"].includes(item.evidenceModality),
+          `${item.id} must declare its hidden-label modality`);
         if (item.targetWord) requirements.push(["spoken-anchor", item.targetWord]);
-        for (const card of item.imageCards || []) requirements.push(["answer-card", card.word || card.label]);
+        if (item.evidenceModality === "audio") {
+          assert.ok(item.choices.length > 1, `${item.id} needs spoken answer choices`);
+          for (const choice of item.choices) requirements.push(["spoken-choice", choice]);
+        } else {
+          assert.ok(item.imageCards?.length > 1, `${item.id} needs named picture choices`);
+          for (const card of item.imageCards) requirements.push(["answer-card", card.word || card.label]);
+        }
       }
       for (const [role, word] of requirements) {
         const audioPath = getLedaWordAudioPath(word);
@@ -103,10 +125,12 @@ test("every authored audio-dependent item in the repaired banks resolves product
   }
 });
 
-test("G9 fails for missing audio-required targets and hidden-label answer cards", t => {
+test("G9 fails for missing listening targets, picture labels, and spoken-only choices", t => {
   const scenarios = [
     { skillId: "blends", word: "block", role: "target-word" },
-    { skillId: "short_vowel_discrimination", word: "sun", role: "answer-card" }
+    { skillId: "short_vowel_discrimination", word: "sun", role: "answer-card" },
+    { skillId: "rhyming", word: "pup", role: "spoken-choice" },
+    { skillId: "rhyming", word: "torn", role: "spoken-choice" }
   ];
 
   for (const { skillId, word, role } of scenarios) {

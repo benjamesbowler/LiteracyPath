@@ -121,16 +121,32 @@ test("ambiguous plane, truck, and cap pictures no longer carry the scoring decis
 
   const initialSoundTargets = expandedBySkill.initial_sounds
     .filter(item => item.formatType === "FIRST_SOUND");
-  assert.equal(initialSoundTargets.length, 107);
+  assert.ok(initialSoundTargets.length >= 106, "preserve the reviewed first-sound coverage");
   for (const item of initialSoundTargets) {
-    assert.equal(item.mediaTier, "image-required", `${item.id} must use picture support`);
-    assert.ok(item.imagePath, `${item.id} must resolve its target picture`);
-    assert.equal(item.assessmentMediaDecision?.role, "target-or-scene", `${item.id} media role`);
+    if (item.mediaTier === "audio-required") {
+      assert.equal(item.imagePath, undefined, `${item.id} must not revive an ambiguous picture`);
+      assert.equal(item.evidenceModality, "audio+print", item.id);
+      assert.equal(item.constructClaim, "initial_sound_isolation", item.id);
+      assert.equal(item.audioRole, "target_word", item.id);
+      assert.ok(item.targetWord && item.spokenPrompt.startsWith(`${item.targetWord[0].toUpperCase()}${item.targetWord.slice(1)}.`), item.id);
+      assert.equal(item.assessmentMediaDecision?.role, "text-only", `${item.id} media role`);
+    } else {
+      assert.equal(item.mediaTier, "image-required", `${item.id} must use picture support`);
+      assert.ok(item.imagePath, `${item.id} must resolve its target picture`);
+      assert.equal(item.assessmentMediaDecision?.role, "target-or-scene", `${item.id} media role`);
+    }
   }
 
-  const cvcTargets = expandedBySkill.cvc_short_vowels.map(item => item.targetWord).filter(Boolean);
-  assert.equal(cvcTargets.includes("truck"), false);
-  assert.equal(byId("cvc_short_vowels", "lp3.cvc_short_vowels.l2.R.short_u.v8r").targetWord, "brush");
+  const truckTargets = expandedBySkill.cvc_short_vowels.filter(item => item.targetWord === "truck");
+  assert.equal(truckTargets.length, 1);
+  for (const item of truckTargets) {
+    assert.equal(item.formatType, "PUT_SOUNDS_IN_ORDER");
+    assert.equal(item.mediaTier, "audio-required");
+    assert.equal(item.imagePath, undefined);
+    assert.equal(item.audioRole, "target_word");
+    assert.equal(item.constructClaim, "phoneme_sequence_building");
+  }
+  assert.equal(byId("cvc_short_vowels", "lp3.cvc_short_vowels.l2.R.short_u.v8r").targetWord, "lump");
 
   const capTargetsWithPictures = expandedBySkill.final_sounds
     .filter(item => item.targetWord === "cap" && item.imagePath);

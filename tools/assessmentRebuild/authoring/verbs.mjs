@@ -28,21 +28,25 @@ const L1_SENTENCES = {
 };
 
 const L1_WORD_SENTENCES = {
-  jump: "We ___ over a puddle.",
-  run: "We ___ around the track.",
-  kick: "I ___ the ball toward the goal.",
-  skip: "We ___ down the path.",
-  cut: "Please ___ the paper in half.",
-  pour: "Please ___ the milk into the cup.",
-  fold: "Please ___ the card in half.",
-  lift: "Please ___ the heavy rug.",
-  sing: "We ___ a song together.",
-  wash: "We ___ our hands before lunch.",
-  nap: "Babies ___ after lunch.",
-  brush: "We ___ our teeth each morning.",
-  stretch: "We ___ before a race.",
-  yawn: "We ___ when we feel tired.",
-  wrap: "We ___ the gift with ribbon."
+  jump: ["I jump over a puddle.", ["I", "over", "puddle"]],
+  run: ["We run around the track.", ["we", "around", "track"]],
+  kick: ["I kick the ball hard.", ["I", "ball", "hard"]],
+  skip: ["We skip down the path.", ["we", "down", "path"]],
+  cut: ["I cut the paper carefully.", ["I", "paper", "carefully"]],
+  pour: ["We pour milk into cups.", ["milk", "into", "cups"]],
+  fold: ["I fold the red card.", ["I", "red", "card"]],
+  lift: ["We lift the heavy rug.", ["we", "heavy", "rug"]],
+  sing: ["We sing a happy song.", ["we", "happy", "song"]],
+  wash: ["I wash my muddy hands.", ["my", "muddy", "hands"]],
+  nap: ["Babies nap after their lunch.", ["babies", "after", "lunch"]],
+  brush: ["We brush our teeth daily.", ["our", "teeth", "daily"]],
+  stretch: ["I stretch before breakfast.", ["I", "before", "breakfast"]],
+  yawn: ["We yawn after a long day.", ["we", "long", "day"]],
+  wrap: ["We wrap a small gift.", ["we", "small", "gift"]],
+  breathe: ["We breathe air through our noses.", ["we", "through", "noses"]],
+  listen: ["We listen to a bedtime story.", ["we", "bedtime", "story"]],
+  dress: ["I dress myself each morning.", ["I", "myself", "morning"]],
+  comb: ["I comb my long hair.", ["my", "long", "hair"]]
 };
 
 const gic = (u, lvl, ph, v, prompt, cards, keyWord, rationales, note = "") => ({
@@ -55,17 +59,13 @@ const gic = (u, lvl, ph, v, prompt, cards, keyWord, rationales, note = "") => ({
   note: note || "language context, not a category-revealing picture, provides the evidence"
 });
 
-const gwc = (u, lvl, ph, v, _prompt, words, rationales, note = "") => {
-  const sentence = L1_WORD_SENTENCES[words[0]];
-  return {
-    u, lvl, ph, v, fmt: "GRAMMAR_WORD_CHOICE",
-    prompt: `Which doing word fits: ${sentence}`,
-    spoken: `Which doing word fits? ${sentence.replace("___", "hmm")}`,
-    sentence,
-    choices: words.map((w, i) => (i === 0 ? K(w) : P(w, rationales[i - 1]))),
-    media: "text",
-    note
-  };
+const gwc = (u, lvl, ph, v, _prompt, words, _rationales, note = "") => {
+  const key = words[0];
+  const [sentence, foils] = L1_WORD_SENTENCES[key];
+  const prompt = `Which word tells the action? ${sentence}`;
+  return { u, lvl, ph, v, fmt: "GRAMMAR_WORD_CHOICE", prompt, spoken: prompt,
+    sentence, choices: [K(key), ...foils.map(w => P(w, "D-FUNCTION-SWAP"))],
+    media: "text", note: note || "Identify the action among words from the same sentence." };
 };
 
 const gsf = (u, lvl, ph, v, sentence, words, rationales, note = "") => {
@@ -93,6 +93,26 @@ const gct = (u, lvl, ph, v, prompt, words, rationales, note = "") => ({
 const FS = "D-FUNCTION-SWAP";
 const PU = "D-PLAUSIBLE-UNSUPPORTED";
 
+// Fresh everyday actions and semantic contrasts for the second full sitting.
+const freshPhaseItems = [
+  gsf("verb_everyday", 1, 2, 11, "Please ___ your nose using a tissue.", ["wipe", "soft", "paper", "gently"], [FS, FS, FS]),
+  gsf("verb_everyday", 1, 2, 12, "We ___ our bags before school.", ["pack", "lunch", "books", "heavy"], [FS, FS, FS]),
+  gsf("verb_everyday", 1, 2, 13, "I ___ my shoes with a bow.", ["tie", "ribbon", "laces", "tight"], [FS, FS, FS]),
+  gsf("verb_everyday", 1, 2, 14, "Please ___ the pencil back to me.", ["give", "handful", "mine", "gently"], [FS, FS, FS]),
+  gwc("verb_everyday", 1, 2, 15, "", ["breathe"], []),
+  gwc("verb_everyday", 1, 2, 16, "", ["listen"], []),
+  gwc("verb_everyday", 1, 2, 17, "", ["dress"], []),
+  gwc("verb_everyday", 1, 2, 18, "", ["comb"], []),
+  gsf("verb_precision", 2, 2, 11, "She ___ the sponge, pressing water out.", ["squeezed", "dipped", "soaked", "dried"], [PU, PU, PU]),
+  gsf("verb_precision", 2, 2, 12, "He ___ the sack along the floor without lifting it.", ["dragged", "carried", "raised", "threw"], [PU, PU, PU]),
+  gct("verb_precision", 2, 2, 13, "Which action means speaking so softly only someone close can hear?", ["whispering", "shouting", "chanting", "calling"], [PU, PU, PU]),
+  gsf("verb_precision", 2, 2, 14, "Gentle rain ___ in tiny, fine drops.", ["drizzled", "poured", "splashed", "gushed"], [PU, PU, PU]),
+  gsf("verb_precision", 2, 2, 15, "The rubber band ___ longer as we pulled it.", ["stretched", "snapped", "shrunk", "twisted"], [PU, PU, PU]),
+  gct("verb_precision", 2, 2, 16, "Which action means a quick look through a small gap?", ["peeking", "staring", "watching", "searching"], [PU, PU, PU]),
+  gsf("verb_precision", 2, 2, 17, "We ___ the blocks one on top of another.", ["stacked", "scattered", "spread", "lined"], [PU, PU, PU]),
+  gsf("verb_precision", 2, 2, 18, "She ___ the pan, rubbing hard with a brush.", ["scrubbed", "rinsed", "soaked", "dried"], [PU, PU, PU])
+];
+
 export default {
   skillId: "verbs",
   skillName: "Verbs",
@@ -103,13 +123,13 @@ export default {
     gic("verb_action_body", 1, 1, 2, "Which one shows a doing word — something you do?",
       ["hop", "belt", "clock", "spoon"], "hop", {}),
     gic("verb_action_body", 1, 1, 3, "Which one shows a doing word — something you do?",
-      ["clap", "drum", "tent", "fork"], "clap", {},
-      "the drum is the trap — you PLAY it, but the card names a thing"),
+      ["clap", "drummer", "tent", "fork"], "clap", {},
+      "drummer names the person; clap alone can fill the action slot"),
     gwc("verb_action_body", 1, 1, 4, "Which word is a doing word?",
       ["jump", "bed", "red", "hat"], [FS, FS, FS]),
     gwc("verb_action_body", 1, 1, 5, "Which word is a doing word?",
       ["run", "sun", "fun", "bun"], [FS, FS, FS],
-      "a rhyming panel — only the grammar separates them"),
+      "Run names the action; the remaining choices give the people, relation and place."),
     gwc("verb_action_body", 1, 1, 6, "Which word is a doing word?",
       ["kick", "shoe", "leg", "shin"], [FS, FS, FS]),
     gic("verb_action_body", 1, 1, 7, "Which one shows a doing word — something you do?",
@@ -148,7 +168,7 @@ export default {
       ["nap", "cot", "rug", "pup"], [FS, FS, FS]),
     gic("verb_everyday", 1, 2, 7, "Which one shows a doing word — something you do every day?",
       ["drink", "cup", "hat", "jug"], "drink", {},
-      "pin ties the in/doing overlap"),
+      "Drink names the action that fits water and thirst."),
     gwc("verb_everyday", 1, 2, 8, "Which word is a doing word?",
       ["brush", "teeth", "soap", "hair"], [FS, FS, FS],
       "no second action word competes with brush"),
@@ -159,7 +179,7 @@ export default {
     gsf("verb_in_sentence", 2, 1, 2, "The twins ___ over the puddle.",
       ["leap", "mud", "deep", "wide"], [FS, FS, FS]),
     gsf("verb_in_sentence", 2, 1, 3, "Please ___ the door quietly.",
-      ["shut", "loud", "hinge", "knob"], [FS, FS, FS]),
+      ["shut", "loud", "hinges", "doorknob"], [FS, FS, FS]),
     gsf("verb_in_sentence", 2, 1, 4, "Owls ___ after dark.",
       ["hunt", "moon", "sky", "feathers"], [FS, FS, FS],
       "after dark, not sunset — sunset contains un and would gift the key a chunk"),
@@ -193,7 +213,7 @@ export default {
     gsf("verb_precision", 2, 2, 1, "The frog ___ over the log in one big spring.",
       ["jumped", "walked", "slept", "sat"], [PU, PU, PU],
       "all four are grammatical — one big spring pins jumped"),
-    gsf("verb_precision", 2, 2, 2, "The soup ___ in the pot until bubbles rose.",
+    gsf("verb_precision", 2, 2, 2, "The soup ___, making bubbles as it got very hot.",
       ["boiled", "froze", "sat", "spilled"], [PU, PU, PU],
       "bubbles pin boiled"),
     gct("verb_precision", 2, 2, 3, "Which doing word fits best for water falling drop by drop?",
@@ -203,7 +223,7 @@ export default {
       ["folded", "read", "wrote", "lost"], [PU, PU, PU],
       "in half and half again pins folded"),
     gsf("verb_precision", 2, 2, 5, "The snail ___ slowly, leaving a silver line.",
-      ["crawled", "raced", "hopped", "flew"], [PU, PU, PU]),
+      ["crawled", "rested", "hid", "waited"], [PU, PU, PU]),
     gsf("verb_precision", 2, 2, 6, "He ___ up the balloon until it nearly burst.",
       ["blew", "tied", "popped", "held"], [PU, PU, PU],
       "nearly burst pins blew — popped would mean it DID burst"),
@@ -215,7 +235,7 @@ export default {
     // ================= Retention reserve (form R) =================
     gwc("verb_action_body", 1, 1, 9, "Which word is a doing word?",
       ["stretch", "arm", "mat", "chin"], [FS, FS, FS],
-      "chin ties the ch/which overlap"),
+      "The complete sentence distinguishes the action from its surrounding words."),
     gic("verb_action_object", 1, 1, 9, "Which one shows a doing word — something you do to things?",
       ["chop", "cloth", "brick", "belt"], "chop", {}),
     gwc("verb_everyday", 1, 2, 9, "Which word is a doing word?",
@@ -224,8 +244,8 @@ export default {
       ["drift", "wings", "sweet", "hive"], [FS, FS, FS]),
     gct("verb_vs_noun", 2, 1, 9, "Which word is the doing word in ‘We dance to the music’?",
       ["dance", "we", "music", "to"], [FS, FS, FS]),
-    gsf("verb_precision", 2, 2, 9, "The ice ___ slowly in the warm sun.",
-      ["melted", "grew", "sang", "slept"], [PU, PU, PU]),
+    gsf("verb_precision", 2, 2, 9, "The ice ___ into water in the sun.",
+      ["melted", "froze", "cracked", "drifted"], [PU, PU, PU]),
     gwc("verb_action_object", 1, 1, 10, "Which word is a doing word?",
       ["wrap", "hat", "cup", "sun"], [FS, FS, FS]),
     gic("verb_everyday", 1, 2, 10, "Which one shows a doing word — something you do every day?",
@@ -237,5 +257,5 @@ export default {
   ].map(item => {
     if (item.v >= 9) item.retention = true;
     return item;
-  })
+  }).concat(freshPhaseItems)
 };

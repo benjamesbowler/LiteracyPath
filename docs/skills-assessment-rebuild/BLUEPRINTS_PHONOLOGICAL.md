@@ -2,7 +2,7 @@
 
 **Standard.** Per-skill authoring specs. Read MASTERY_SYSTEM.md (rules) and AUTHORING_STANDARDS.md (item craft) first; this file only states what is specific to each skill. Counts marked *(bank)* are minimums the gates enforce.
 
-Shared for this family: itemTypes already in use (`initial_sound`, `final_sound`, `rhyming_family`) are kept so existing ledger rows survive. Sitting = 10. Spoken anchors and hidden-label answer cards use approved production word audio now; print is shown only when the construct legitimately assesses print. Browser speech is not primary assessment evidence.
+Shared for this family: itemTypes already in use (`initial_sound`, `final_sound`, `rhyming_family`) are kept so existing ledger rows survive. Sittings contain 10 items for Initial Sounds and Final Sounds, and 8 for Rhyming, as defined in `skillBlueprints.js`. Spoken anchors and hidden-label answer cards use approved production word audio now; print is shown only when the construct legitimately assesses print. Browser speech is not primary assessment evidence.
 
 ---
 
@@ -60,13 +60,13 @@ Shared for this family: itemTypes already in use (`initial_sound`, `final_sound`
 
 **Verified faults.** All 656 published items are one format (`RHYMING_PICTURE`) with the prompt and choices printed, so `-at` chunk-matching solves them without any phonology (SIM-SCANNER strategy 1); audio is deliberately suppressed in the UI; 222 duplicate prompt+answer groups; 0/45 units mastery-eligible; L1/L2 split 476/180 is quota noise.
 
-**Construct, restated.** L1: **hear** that two words rhyme (phonological). L2: work with rhyme in print — recognize written rhyme families and generalize to less-imageable words (orthographic, a legitimately different construct, named honestly).
+**Construct.** Both levels assess spoken rhyme. L1 uses familiar short-vowel families; L2 generalizes to harder and less-imageable families. The response hides printed word spellings so letter-chunk matching cannot replace listening.
 
 **Units.** L1: 21 simple short-vowel rime families (`at an ap am ag ub ed en et eg ig in ip ock og op ot ug un up ut`). Level 1 `ock` remains an audio-first phonological rime: its written `ck` is hidden, so it does not introduce an orthographic shortcut. L2: the 24 configured harder families (`ing ang ong ink ock ack ick ill all ell ash ish uck ake ame ide ight oat eep ouse ird urn ar or` — keep the ank/unk media holdout). Evidence keys are level-qualified, so L1 and L2 `ock` remain separate mastery units. Rule family **D-large** at L1 (21 units), **D-large** at L2.
 
 **Formats.**
-- L1: `RHYME_MATCH_PICTURE` — the unprinted anchor and all hidden-label answer cards have approved production word audio. The visible instruction asks which word rhymes; the imageability whitelist contains only concrete, directly nameable words whose current assets pass the media gate.
-- L2 text tier: `READ_FIND_RHYME` (printed words, labels intentional — the orthographic construct) and `RHYME_ODD_ONE_OUT` (4 printed words, one doesn't rhyme). Print giveaway is legal here BY DESIGN — but distractors must include a `D-PATTERN-TRAP` (visual rime, different sound: *cow/snow*-class, *ear/bear*) so chunk-matching alone still fails SIM-SCANNER.
+- L1: `RHYME_MATCH_PICTURE` uses an unprinted spoken anchor and hidden-label answer cards with exact word audio. Reviewed, directly nameable pictures may support the words. Explicit `audio` evidence items use four numbered replay/select cards when pictures would misrepresent a word.
+- L2: the retained format IDs `READ_FIND_RHYME` and `RHYME_ODD_ONE_OUT` render spoken choices with hidden written labels. The first matches an unprinted spoken anchor; the second selects the one word outside the spoken rhyme group. All choices require exact approved word recordings. Spelling is never the answer cue.
 
 **Bank.** L1: 21 × 3 = 63 + R 16. L2: 24 × 3 = 72 + R 16. Total ≤ 167. **Prune 656 → ~167** (75% cut). Rebuild items fresh; the 222-duplicate legacy pool is not worth salvaging item-by-item.
 

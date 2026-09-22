@@ -24,7 +24,7 @@ export const questions = [
   "prompt": "How does Sami most likely feel?",
   "question": "How does Sami most likely feel?",
   "spokenPrompt": "How does Sami most likely feel?",
-  "passage": "Sami stood in the wings holding his recorder. He wiped his hands on his shirt three times. Through the curtain he could see all the chairs were full. He peeped at the audience, then quickly stepped back and checked his music again.",
+  "passage": "Sami waited behind the curtain with his recorder. All the seats were full. He wiped his damp hands on his shirt. He checked his music for the third time.",
   "cell": "feeling_from_evidence",
   "choices": [
    "nervous",
@@ -89,7 +89,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "wiping hands + re-checking music kills every rival reading"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.B.feeling_from_evidence.v2",
@@ -114,7 +114,7 @@ export const questions = [
   "prompt": "How does Lena feel at the end?",
   "question": "How does Lena feel at the end?",
   "spokenPrompt": "How does Lena feel at the end?",
-  "passage": "Lena's cat had been at the vet all day. When Mom's phone finally rang, Lena froze. Mom listened, then smiled and gave a thumbs up. Lena let out a long breath and relaxed against the sofa.",
+  "passage": "Lena's cat was at the vet all day. When the phone rang, Lena froze. Mom listened, smiled, and gave a thumbs up. Lena let out a breath and relaxed.",
   "cell": "feeling_from_evidence",
   "choices": [
    "angry",
@@ -179,7 +179,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "worried is TRUE earlier — the long breath and flop mark the change; classic before/after trap"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.C.feeling_from_evidence.v3",
@@ -204,7 +204,7 @@ export const questions = [
   "prompt": "How does Dara feel about finishing?",
   "question": "How does Dara feel about finishing?",
   "spokenPrompt": "How does Dara feel about finishing?",
-  "passage": "Everyone else had finished the race. Dara was still running, last by a whole lap. She kept her eyes on the finish line and pumped her arms. When she crossed it, she punched the air as if she had come first.",
+  "passage": "Dara was last in the race. She kept running toward the finish line. At the end, she punched the air. She showed everyone her finisher's ribbon.",
   "cell": "feeling_from_evidence",
   "choices": [
    "confused",
@@ -269,7 +269,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "punching the air kills 'ashamed', the tempting reading of finishing last"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.A.feeling_from_evidence.v4",
@@ -294,7 +294,7 @@ export const questions = [
   "prompt": "How does Ivo most likely feel?",
   "question": "How does Ivo most likely feel?",
   "spokenPrompt": "How does Ivo most likely feel?",
-  "passage": "At the new school gate, Ivo held Dad's hand a little too hard. He watched the other children stream past, laughing in small groups. He did not know a single name. He practiced saying 'hello' very quietly to himself.",
+  "passage": "Ivo stood at his new school gate. He held Dad's hand tightly. He knew none of the children passing by. He quietly practiced saying hello.",
   "cell": "feeling_from_evidence",
   "choices": [
    "tired",
@@ -359,7 +359,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the too-hard grip and whispered practice are the clues"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.B.feeling_from_evidence.v5",
@@ -384,7 +384,7 @@ export const questions = [
   "prompt": "How does Bea feel?",
   "question": "How does Bea feel?",
   "spokenPrompt": "How does Bea feel?",
-  "passage": "Bea's balloon slipped off her wrist at the fair. She watched the red dot get smaller and smaller in the sky. Her lip wobbled. Then she looked down at the string still in her hand and quickly wiped one eye with her sleeve.",
+  "passage": "Bea's balloon slipped from her hand at the fair. She watched it float away. Her lip wobbled. She wiped one eye with her sleeve.",
   "cell": "feeling_from_evidence",
   "choices": [
    "hungry",
@@ -449,7 +449,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "wobbling lip + wiped eye; 'thrilled' tempts because fairs are fun"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.C.feeling_from_evidence.v6",
@@ -474,19 +474,19 @@ export const questions = [
   "prompt": "How does Kofi most likely feel?",
   "question": "How does Kofi most likely feel?",
   "spokenPrompt": "How does Kofi most likely feel?",
-  "passage": "Kofi had studied his spelling words all week. When Miss Reed handed back the tests, she gave his desk a little tap and a wink. Kofi looked at the top of his page, sat up very straight, and could not stop smiling for the whole lesson.",
+  "passage": "Kofi studied hard for his spelling test. He hoped to get every word right. His test came back with six mistakes. His smile faded as he looked at the marks.",
   "cell": "feeling_from_evidence",
   "choices": [
-   "disappointed",
+   "proud",
    "jealous",
-   "nervous",
-   "proud"
+   "curious",
+   "disappointed"
   ],
   "answerOptions": [
    {
-    "value": "disappointed",
-    "label": "disappointed",
-    "text": "disappointed"
+    "value": "proud",
+    "label": "proud",
+    "text": "proud"
    },
    {
     "value": "jealous",
@@ -494,22 +494,22 @@ export const questions = [
     "text": "jealous"
    },
    {
-    "value": "nervous",
-    "label": "nervous",
-    "text": "nervous"
+    "value": "curious",
+    "label": "curious",
+    "text": "curious"
    },
    {
-    "value": "proud",
-    "label": "proud",
-    "text": "proud"
+    "value": "disappointed",
+    "label": "disappointed",
+    "text": "disappointed"
    }
   ],
-  "answer": "proud",
-  "correctAnswer": "proud",
+  "answer": "disappointed",
+  "correctAnswer": "disappointed",
   "distractorRationales": {
-   "disappointed": "D-OPPOSITE",
+   "proud": "D-PLAUSIBLE-UNSUPPORTED",
    "jealous": "D-PLAUSIBLE-UNSUPPORTED",
-   "nervous": "D-SEQUENCE-SWAP"
+   "curious": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -539,7 +539,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "nervous fits BEFORE results; the wink and straight back mark after"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.A.feeling_from_evidence.v7",
@@ -564,42 +564,42 @@ export const questions = [
   "prompt": "How does Noor most likely feel while she waits?",
   "question": "How does Noor most likely feel while she waits?",
   "spokenPrompt": "How does Noor most likely feel while she waits?",
-  "passage": "The tour guide switched off the lights inside the cave. The dark was thicker than any night. Noor squeezed her flashlight but did not turn it on. 'One minute of true dark,' the guide had promised. Noor counted slowly and kept both feet very still.",
+  "passage": "The guide turned off the cave lights. Noor gripped her torch tightly. She counted slowly, waiting for the light. She stayed still, though she wanted to run.",
   "cell": "feeling_from_evidence",
   "choices": [
-   "bored",
-   "completely calm",
-   "nervous but in control",
-   "terrified and running"
+   "angry",
+   "delighted",
+   "nervous",
+   "bored"
   ],
   "answerOptions": [
+   {
+    "value": "angry",
+    "label": "angry",
+    "text": "angry"
+   },
+   {
+    "value": "delighted",
+    "label": "delighted",
+    "text": "delighted"
+   },
+   {
+    "value": "nervous",
+    "label": "nervous",
+    "text": "nervous"
+   },
    {
     "value": "bored",
     "label": "bored",
     "text": "bored"
-   },
-   {
-    "value": "completely calm",
-    "label": "completely calm",
-    "text": "completely calm"
-   },
-   {
-    "value": "nervous but in control",
-    "label": "nervous but in control",
-    "text": "nervous but in control"
-   },
-   {
-    "value": "terrified and running",
-    "label": "terrified and running",
-    "text": "terrified and running"
    }
   ],
-  "answer": "nervous but in control",
-  "correctAnswer": "nervous but in control",
+  "answer": "nervous",
+  "correctAnswer": "nervous",
   "distractorRationales": {
-   "terrified and running": "D-OPPOSITE",
    "bored": "D-PLAUSIBLE-UNSUPPORTED",
-   "completely calm": "D-PLAUSIBLE-UNSUPPORTED"
+   "angry": "D-PLAUSIBLE-UNSUPPORTED",
+   "delighted": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -629,7 +629,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the tight grip shows nerves; counting and staying still show control"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.B.feeling_from_evidence.v8",
@@ -654,7 +654,7 @@ export const questions = [
   "prompt": "How does Ren most likely feel?",
   "question": "How does Ren most likely feel?",
   "spokenPrompt": "How does Ren most likely feel?",
-  "passage": "Ren watched his sister open her birthday parcel. Inside was the robot he had wanted for months. He clapped along with everyone else, but his clap was slow. He kept looking at the robot, then at his own empty hands.",
+  "passage": "Ren's sister got a robot for her birthday. It was the one Ren wanted. Ren clapped slowly with the others. He stared at the robot and sighed.",
   "cell": "feeling_from_evidence",
   "choices": [
    "delighted",
@@ -719,7 +719,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "slow clap + empty hands; delighted is the surface reading of a party"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.A.where_am_i.v1",
@@ -744,7 +744,7 @@ export const questions = [
   "prompt": "Where does this take place?",
   "question": "Where does this take place?",
   "spokenPrompt": "Where does this take place?",
-  "passage": "Everything smelled of warm bread. Rows of buns sat behind curved glass. A bell above the door jingled, and a lady in a floury apron called out, 'Next, please!'",
+  "passage": "Warm bread filled the air with a sweet smell. Buns sat behind the glass counter. The worker took more loaves from an oven. She put them out for sale.",
   "cell": "where_am_i",
   "choices": [
    "a library",
@@ -809,7 +809,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "smell + glass counter + floury apron"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.B.where_am_i.v2",
@@ -834,7 +834,7 @@ export const questions = [
   "prompt": "Where is Mara?",
   "question": "Where is Mara?",
   "spokenPrompt": "Where is Mara?",
-  "passage": "Mara tightened her swim goggles. The air smelled of chlorine, and shouts echoed off the high ceiling. Somewhere a whistle blew, and swimmers splashed through marked lanes.",
+  "passage": "Mara put on her goggles. Swimmers splashed along marked lanes under a high roof. A coach blew a whistle from the edge. Mara climbed down the ladder into the water.",
   "cell": "where_am_i",
   "choices": [
    "a swimming pool",
@@ -899,7 +899,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "a whistle also fits soccer; chlorine, goggles, and marked swim lanes decide"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.C.where_am_i.v3",
@@ -924,7 +924,7 @@ export const questions = [
   "prompt": "Where does this take place?",
   "question": "Where does this take place?",
   "spokenPrompt": "Where does this take place?",
-  "passage": "Hush hung over the long tables. Pages turned with tiny whispers. A cart of books rolled softly past, and a librarian stamped a date inside a cover. 'Two weeks,' she mouthed, almost silently.",
+  "passage": "People read quietly at the long tables. A worker scanned the books Mira chose. She said Mira could borrow them for two weeks. Mira left without paying.",
   "cell": "where_am_i",
   "choices": [
    "a library",
@@ -989,7 +989,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "bookstore is the near-miss; the date stamp and borrowing decide"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.A.where_am_i.v4",
@@ -1014,7 +1014,7 @@ export const questions = [
   "prompt": "Where is Tia?",
   "question": "Where is Tia?",
   "spokenPrompt": "Where is Tia?",
-  "passage": "Straw crunched under Tia's boots. Something warm and huge breathed near her shoulder, smelling of grass. A bucket clanked, and a man in muddy overalls said, 'She likes you. Want to hold the brush?'",
+  "passage": "Straw covered the floor. A horse stood in its stall beside Tia. She brushed its mane. Fresh hay hung in a net by its head.",
   "cell": "where_am_i",
   "choices": [
    "a stable",
@@ -1079,7 +1079,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "straw + huge warm animal + brush"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.B.where_am_i.v5",
@@ -1104,7 +1104,7 @@ export const questions = [
   "prompt": "Where does this take place?",
   "question": "Where does this take place?",
   "spokenPrompt": "Where does this take place?",
-  "passage": "The floor hummed under their feet. Fields slid past the window, faster and faster. A voice from the ceiling said the next stop was in ten minutes, and a snack cart squeaked up the aisle.",
+  "passage": "Fields slid past the window. Wheels rattled along the tracks below their seats. A voice announced the next stop. A worker pushed a snack cart down the aisle.",
   "cell": "where_am_i",
   "choices": [
    "an elevator",
@@ -1169,7 +1169,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "a bus is close; announced stops, an aisle cart, and sliding fields decide"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.C.where_am_i.v6",
@@ -1194,7 +1194,7 @@ export const questions = [
   "prompt": "Where are they?",
   "question": "Where are they?",
   "spokenPrompt": "Where are they?",
-  "passage": "Blue light rippled across everyone's faces. A long shadow glided by behind the glass, and a hundred silver shapes turned at once like one creature. 'No flash photos,' whispered the guide.",
+  "passage": "A shark swam behind a thick glass wall. Smaller fish turned together in the blue water. The guide pointed to a tank of jellyfish. Children pressed closer to watch.",
   "cell": "where_am_i",
   "choices": [
    "a cave",
@@ -1259,7 +1259,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "a movie theater shares darkness and glow; the glass and gliding shapes decide"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.A.where_am_i.v7",
@@ -1284,7 +1284,7 @@ export const questions = [
   "prompt": "Where is Omar?",
   "question": "Where is Omar?",
   "spokenPrompt": "Where is Omar?",
-  "passage": "Trays clattered somewhere behind the counter. The smell of gravy filled the hall. Omar slid his tray along the rails, said 'yes please' to the peas, and looked for an empty seat beside his friends.",
+  "passage": "The lunch bell rang at school. Omar slid his tray along the counter. A worker served him peas and rice. He sat at a long table with his class.",
   "cell": "where_am_i",
   "choices": [
    "the school library",
@@ -1349,7 +1349,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "tray rails + choosing peas + finding a seat"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.B.where_am_i.v8",
@@ -1374,7 +1374,7 @@ export const questions = [
   "prompt": "Where does this take place?",
   "question": "Where does this take place?",
   "spokenPrompt": "Where does this take place?",
-  "passage": "Gulls called overhead. Wind tugged the flags on the sandcastles. Somewhere an ice cream truck played its tune, and Dad rubbed sunscreen on Zoe's nose because the sun was strong.",
+  "passage": "Waves washed up near Zoe's sandcastle. Gulls called overhead. Dad rubbed sunscreen on her nose. Zoe ran back to collect shells by the water.",
   "cell": "where_am_i",
   "choices": [
    "a forest",
@@ -1439,7 +1439,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "truck music tempts an amusement park; gulls, sandcastles, and sunscreen decide"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.A.what_happens_next.v1",
@@ -1464,7 +1464,7 @@ export const questions = [
   "prompt": "What will most likely happen next?",
   "question": "What will most likely happen next?",
   "spokenPrompt": "What will most likely happen next?",
-  "passage": "Black clouds rolled over the park. The wind flipped the picnic blanket corner over the sandwiches. Far away, thunder grumbled. Mom started packing the food back into the basket, fast.",
+  "passage": "Black clouds covered the park. Thunder rumbled above the picnic. Mom packed the food quickly. Dad pointed toward their car.",
   "cell": "what_happens_next",
   "choices": [
    "the family will go swimming",
@@ -1529,7 +1529,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "packing fast + thunder = leaving; barbecue reverses the evidence"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.B.what_happens_next.v2",
@@ -1554,7 +1554,7 @@ export const questions = [
   "prompt": "What will most likely happen next?",
   "question": "What will most likely happen next?",
   "spokenPrompt": "What will most likely happen next?",
-  "passage": "Theo filled the tub with warm water. He fetched the dog shampoo and an old towel. Then he opened the back door and called, 'Biscuit! Here, boy!' From the garden came the sound of happy, muddy paws.",
+  "passage": "Theo filled a tub with warm water. He fetched dog shampoo and an old towel. His muddy dog waited by the door. Theo called the dog over.",
   "cell": "what_happens_next",
   "choices": [
    "Theo will take a bath himself",
@@ -1619,7 +1619,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "dog shampoo is the deciding detail against 'his own bath'"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.C.what_happens_next.v3",
@@ -1644,7 +1644,7 @@ export const questions = [
   "prompt": "What will most likely happen next?",
   "question": "What will most likely happen next?",
   "spokenPrompt": "What will most likely happen next?",
-  "passage": "The smell of toast turned sharp and smoky. A thin gray wisp curled out of the toaster. Dad sniffed twice, dropped his newspaper, and ran for the kitchen.",
+  "passage": "Smoke rose from the toaster. Dad sniffed and dropped his newspaper. He ran toward the kitchen. The toast was still inside.",
   "cell": "what_happens_next",
   "choices": [
    "Dad will eat the toast happily",
@@ -1709,7 +1709,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "reading the paper is what he was doing BEFORE — the swap trap"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.A.what_happens_next.v4",
@@ -1734,7 +1734,7 @@ export const questions = [
   "prompt": "What will most likely happen next?",
   "question": "What will most likely happen next?",
   "spokenPrompt": "What will most likely happen next?",
-  "passage": "Aya counted her money twice. She put on her coat and checked the shopping note. 'Back soon,' she called. 'We need honey for the pancakes!'",
+  "passage": "Aya counted her money and put on her coat. She checked the shopping note. They needed honey for their pancakes. Aya called goodbye and opened the front door.",
   "cell": "what_happens_next",
   "choices": [
    "Aya will throw the shopping note away",
@@ -1799,7 +1799,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "money + shopping note + 'we need honey' point one way"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.B.what_happens_next.v5",
@@ -1824,7 +1824,7 @@ export const questions = [
   "prompt": "What will most likely happen next?",
   "question": "What will most likely happen next?",
   "spokenPrompt": "What will most likely happen next?",
-  "passage": "The flashlight blinked, went dim, then died. Raj shook it, but the dark stayed. He remembered the drawer in the kitchen where the batteries were kept, and he felt his way toward the stairs.",
+  "passage": "Raj's torch grew dim and went out. Shaking it did not help. He remembered the spare batteries in the kitchen drawer. He walked toward the kitchen.",
   "cell": "what_happens_next",
   "choices": [
    "Raj will get new batteries",
@@ -1889,7 +1889,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "remembering the battery drawer is the plan"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.C.what_happens_next.v6",
@@ -1914,7 +1914,7 @@ export const questions = [
   "prompt": "What will most likely happen next?",
   "question": "What will most likely happen next?",
   "spokenPrompt": "What will most likely happen next?",
-  "passage": "Nell's baby brother finally fell asleep in his crib. Mom tiptoed out. Just then, Nell's music box began to play loudly in her pocket. Mom turned around with wide eyes.",
+  "passage": "Nell's baby brother had just fallen asleep. Her music box suddenly played loudly. Mom pointed at the baby and raised one finger. Nell reached into her pocket for the box.",
   "cell": "what_happens_next",
   "choices": [
    "Nell will turn the music up",
@@ -1979,7 +1979,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "sleeping baby + wide eyes = silence needed"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.A.what_happens_next.v7",
@@ -2004,7 +2004,7 @@ export const questions = [
   "prompt": "What will most likely happen next?",
   "question": "What will most likely happen next?",
   "spokenPrompt": "What will most likely happen next?",
-  "passage": "Frost had covered the path with ice overnight. Grandpa tested it with one boot and slid. 'Not today,' he said, looking at the bag of salt by the gate.",
+  "passage": "The icy path was too slippery to walk on. Salt had melted the ice there before. Grandpa fetched the salt bag and a scoop. He stood beside the path.",
   "cell": "what_happens_next",
   "choices": [
    "Grandpa will spread salt on the icy path",
@@ -2069,7 +2069,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the glance at the salt sets the plan"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.B.what_happens_next.v8",
@@ -2091,45 +2091,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What most likely happened to the sandwich?",
-  "question": "What most likely happened to the sandwich?",
-  "spokenPrompt": "What most likely happened to the sandwich?",
-  "passage": "The jam sandwich was gone. Only crumbs led away across the kitchen floor, and the cat flap was still swinging gently. Outside, a magpie sat on the fence with something red and sticky on its beak.",
+  "prompt": "What will the bird most likely do next?",
+  "question": "What will the bird most likely do next?",
+  "spokenPrompt": "What will the bird most likely do next?",
+  "passage": "A bird watched Jo's sandwich on the bench. Jo went to fetch her drink. The bird hopped closer and opened its beak. No one was near the food.",
   "cell": "what_happens_next",
   "choices": [
-   "the mail carrier ate it",
-   "a bird took it",
-   "Mom put it away",
-   "it is still on the plate"
+   "wait for Jo to sit down",
+   "take a bite of the sandwich",
+   "bring Jo a piece of bread",
+   "leave to look for a nest"
   ],
   "answerOptions": [
    {
-    "value": "the mail carrier ate it",
-    "label": "the mail carrier ate it",
-    "text": "the mail carrier ate it"
+    "value": "wait for Jo to sit down",
+    "label": "wait for Jo to sit down",
+    "text": "wait for Jo to sit down"
    },
    {
-    "value": "a bird took it",
-    "label": "a bird took it",
-    "text": "a bird took it"
+    "value": "take a bite of the sandwich",
+    "label": "take a bite of the sandwich",
+    "text": "take a bite of the sandwich"
    },
    {
-    "value": "Mom put it away",
-    "label": "Mom put it away",
-    "text": "Mom put it away"
+    "value": "bring Jo a piece of bread",
+    "label": "bring Jo a piece of bread",
+    "text": "bring Jo a piece of bread"
    },
    {
-    "value": "it is still on the plate",
-    "label": "it is still on the plate",
-    "text": "it is still on the plate"
+    "value": "leave to look for a nest",
+    "label": "leave to look for a nest",
+    "text": "leave to look for a nest"
    }
   ],
-  "answer": "a bird took it",
-  "correctAnswer": "a bird took it",
+  "answer": "take a bite of the sandwich",
+  "correctAnswer": "take a bite of the sandwich",
   "distractorRationales": {
-   "it is still on the plate": "D-OPPOSITE",
-   "the mail carrier ate it": "D-PLAUSIBLE-UNSUPPORTED",
-   "Mom put it away": "D-PLAUSIBLE-UNSUPPORTED"
+   "leave to look for a nest": "D-PLAUSIBLE-UNSUPPORTED",
+   "wait for Jo to sit down": "D-OPPOSITE",
+   "bring Jo a piece of bread": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2159,7 +2159,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "crumb trail + swinging flap + sticky beak"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.A.why_did_they.v1",
@@ -2184,7 +2184,7 @@ export const questions = [
   "prompt": "Why did Mom change the plans?",
   "question": "Why did Mom change the plans?",
   "spokenPrompt": "Why did Mom change the plans?",
-  "passage": "Mom put two umbrellas by the door instead of one. She checked the window again, then rolled up the picnic blanket and slid it back on top of the cabinet. 'We'll do the indoor museum instead,' she said, 'and take the bus, not walk.'",
+  "passage": "Mom watched dark clouds gather outside. She put two umbrellas by the door. Then she put the picnic basket away. She chose the indoor museum for their trip instead.",
   "cell": "why_did_they",
   "choices": [
    "she had lost the picnic blanket",
@@ -2249,7 +2249,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "two umbrellas + window checks; the blanket is put away, not lost"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.B.why_did_they.v2",
@@ -2274,7 +2274,7 @@ export const questions = [
   "prompt": "Why did Marco give Lily his orange?",
   "question": "Why did Marco give Lily his orange?",
   "spokenPrompt": "Why did Marco give Lily his orange?",
-  "passage": "At lunch, Marco slid his orange across to Lily without a word. Lily's lunchbox had fallen in a puddle that morning, and everyone had seen her empty tray. Marco kept his eyes on his own sandwich, as if nothing had happened.",
+  "passage": "Lily's lunchbox had fallen in a puddle. Her tray was empty at lunchtime. Marco slid his orange across to her without speaking. He looked at his sandwich while the other children chatted.",
   "cell": "why_did_they",
   "choices": [
    "he wanted to help her without a fuss",
@@ -2339,7 +2339,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "'without a word' and looking away kill the showing-off reading"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.C.why_did_they.v3",
@@ -2364,7 +2364,7 @@ export const questions = [
   "prompt": "Why did Pia walk instead of ride?",
   "question": "Why did Pia walk instead of ride?",
   "spokenPrompt": "Why did Pia walk instead of ride?",
-  "passage": "Pia usually raced her scooter down Hill Lane. Today she got off at the top and walked it down slowly, holding the brake lever the whole way. Halfway down, she stepped carefully around a patch where city workers had spread wet, shining asphalt.",
+  "passage": "Pia usually rode her scooter down Hill Lane. Workers had left loose stones across the steep road today. Pia got off at the top. She walked down, holding the brake to control the scooter.",
   "cell": "why_did_they",
   "choices": [
    "her scooter was stolen",
@@ -2429,7 +2429,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "she still has the scooter; the wet asphalt is the mechanism"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.A.why_did_they.v4",
@@ -2454,7 +2454,7 @@ export const questions = [
   "prompt": "Why did Grandma go to the hallway?",
   "question": "Why did Grandma go to the hallway?",
   "spokenPrompt": "Why did Grandma go to the hallway?",
-  "passage": "Grandma turned the television down when the phone rang. She carried the phone to the quiet hallway and shut the kitchen door behind her. 'Yes, doctor, I can hear you clearly now,' she said.",
+  "passage": "The television was loud when Grandma answered the phone. She asked the caller to repeat three words. Then she went into the hall and closed the door. She could hear every word there.",
   "cell": "why_did_they",
   "choices": [
    "the kitchen was too cold",
@@ -2519,7 +2519,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "'I can hear you clearly now' confirms the mechanism"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.B.why_did_they.v5",
@@ -2544,7 +2544,7 @@ export const questions = [
   "prompt": "Why did the coach move Jonah?",
   "question": "Why did the coach move Jonah?",
   "spokenPrompt": "Why did the coach move Jonah?",
-  "passage": "Coach Adams moved Jonah from forward to goalkeeper for the final game. Some parents were unsure. But in practice all week, Jonah had stopped every shot, diving low and reaching high. When the final whistle blew, the other team had not scored once.",
+  "passage": "Coach Adams moved Jonah from forward to goalkeeper for the final. Jonah had stopped every shot during practice that week. Some parents doubted the change. In the final, the other team did not score.",
   "cell": "why_did_they",
   "choices": [
    "the parents asked for the change",
@@ -2609,7 +2609,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the practice detail is the evidence; the parents were unsure about the change"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.C.why_did_they.v6",
@@ -2634,42 +2634,42 @@ export const questions = [
   "prompt": "Why does Auntie Fern use sealed jars?",
   "question": "Why does Auntie Fern use sealed jars?",
   "spokenPrompt": "Why does Auntie Fern use sealed jars?",
-  "passage": "Auntie Fern always kept her seed packets in old glass jars with the lids screwed tight. 'One flood in this workshop was enough,' she would say, tapping a jar. On the top shelf, a faded brown water mark still ran along the wooden wall.",
+  "passage": "Flood water had once soaked Auntie Fern's paper seed packets. None of those seeds had grown. Now she keeps the packets in jars with tight lids. She checks the lids before leaving the workshop.",
   "cell": "why_did_they",
   "choices": [
-   "a flood once ruined her seeds",
-   "she likes collecting jars",
-   "the jars look pretty on the shelf",
-   "seeds grow better inside glass"
+   "to protect seeds from another flood",
+   "to show visitors her empty jars",
+   "to help seeds sprout in water",
+   "to leave seeds open to the air"
   ],
   "answerOptions": [
    {
-    "value": "a flood once ruined her seeds",
-    "label": "a flood once ruined her seeds",
-    "text": "a flood once ruined her seeds"
+    "value": "to protect seeds from another flood",
+    "label": "to protect seeds from another flood",
+    "text": "to protect seeds from another flood"
    },
    {
-    "value": "she likes collecting jars",
-    "label": "she likes collecting jars",
-    "text": "she likes collecting jars"
+    "value": "to show visitors her empty jars",
+    "label": "to show visitors her empty jars",
+    "text": "to show visitors her empty jars"
    },
    {
-    "value": "the jars look pretty on the shelf",
-    "label": "the jars look pretty on the shelf",
-    "text": "the jars look pretty on the shelf"
+    "value": "to help seeds sprout in water",
+    "label": "to help seeds sprout in water",
+    "text": "to help seeds sprout in water"
    },
    {
-    "value": "seeds grow better inside glass",
-    "label": "seeds grow better inside glass",
-    "text": "seeds grow better inside glass"
+    "value": "to leave seeds open to the air",
+    "label": "to leave seeds open to the air",
+    "text": "to leave seeds open to the air"
    }
   ],
-  "answer": "a flood once ruined her seeds",
-  "correctAnswer": "a flood once ruined her seeds",
+  "answer": "to protect seeds from another flood",
+  "correctAnswer": "to protect seeds from another flood",
   "distractorRationales": {
-   "seeds grow better inside glass": "D-PLAUSIBLE-UNSUPPORTED",
-   "she likes collecting jars": "D-TOPIC-ADJACENT",
-   "the jars look pretty on the shelf": "D-PLAUSIBLE-UNSUPPORTED"
+   "to leave seeds open to the air": "D-OPPOSITE",
+   "to show visitors her empty jars": "D-PLAUSIBLE-UNSUPPORTED",
+   "to help seeds sprout in water": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2699,7 +2699,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the tide mark corroborates her one-line explanation"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.A.why_did_they.v7",
@@ -2721,45 +2721,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Why did Asha sit at the front with her ticket out?",
-  "question": "Why did Asha sit at the front with her ticket out?",
-  "spokenPrompt": "Why did Asha sit at the front with her ticket out?",
-  "passage": "On the first bus ride to school by herself, Asha sat directly behind the driver, even though the back seats were empty and her friends always said the back was best. She held her ticket in her hand the whole way instead of putting it in her bag.",
+  "prompt": "Why did Asha stay close to the driver?",
+  "question": "Why did Asha stay close to the driver?",
+  "spokenPrompt": "Why did Asha stay close to the driver?",
+  "passage": "Asha was taking the bus to school alone for the first time. The back seats were empty, but she sat behind the driver. She kept her ticket ready in her hand. She checked each stop against the list Dad had given her.",
   "cell": "why_did_they",
   "choices": [
-   "the back seats were broken",
-   "she wanted to annoy her friends",
-   "the driver was her uncle",
-   "being new to riding alone, she wanted to feel safe and ready"
+   "she was saving the back seats for Dad",
+   "she had promised to collect the other tickets",
+   "she hoped to avoid seeing any of her stops",
+   "she wanted support on her first solo journey"
   ],
   "answerOptions": [
    {
-    "value": "the back seats were broken",
-    "label": "the back seats were broken",
-    "text": "the back seats were broken"
+    "value": "she was saving the back seats for Dad",
+    "label": "she was saving the back seats for Dad",
+    "text": "she was saving the back seats for Dad"
    },
    {
-    "value": "she wanted to annoy her friends",
-    "label": "she wanted to annoy her friends",
-    "text": "she wanted to annoy her friends"
+    "value": "she had promised to collect the other tickets",
+    "label": "she had promised to collect the other tickets",
+    "text": "she had promised to collect the other tickets"
    },
    {
-    "value": "the driver was her uncle",
-    "label": "the driver was her uncle",
-    "text": "the driver was her uncle"
+    "value": "she hoped to avoid seeing any of her stops",
+    "label": "she hoped to avoid seeing any of her stops",
+    "text": "she hoped to avoid seeing any of her stops"
    },
    {
-    "value": "being new to riding alone, she wanted to feel safe and ready",
-    "label": "being new to riding alone, she wanted to feel safe and ready",
-    "text": "being new to riding alone, she wanted to feel safe and ready"
+    "value": "she wanted support on her first solo journey",
+    "label": "she wanted support on her first solo journey",
+    "text": "she wanted support on her first solo journey"
    }
   ],
-  "answer": "being new to riding alone, she wanted to feel safe and ready",
-  "correctAnswer": "being new to riding alone, she wanted to feel safe and ready",
+  "answer": "she wanted support on her first solo journey",
+  "correctAnswer": "she wanted support on her first solo journey",
   "distractorRationales": {
-   "she wanted to annoy her friends": "D-OPPOSITE",
-   "the driver was her uncle": "D-PLAUSIBLE-UNSUPPORTED",
-   "the back seats were broken": "D-PLAUSIBLE-UNSUPPORTED"
+   "she had promised to collect the other tickets": "D-PLAUSIBLE-UNSUPPORTED",
+   "she hoped to avoid seeing any of her stops": "D-OPPOSITE",
+   "she was saving the back seats for Dad": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2789,7 +2789,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "first-time-alone frames both choices; nothing supports the rivals"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.B.why_did_they.v8",
@@ -2814,7 +2814,7 @@ export const questions = [
   "prompt": "Why did Mr Okafor keep moving the ladder?",
   "question": "Why did Mr Okafor keep moving the ladder?",
   "spokenPrompt": "Why did Mr Okafor keep moving the ladder?",
-  "passage": "Mr. Okafor propped his ladder against the wall, then moved it twice before climbing. Each time he pushed the feet a little farther from the wall and pressed down on a rung with his boot. Only when the ladder did not wobble at all did he pick up his paintbrush.",
+  "passage": "Mr Okafor placed his ladder against the wall. He pressed a foot onto the lowest rung, and it wobbled. He moved it until both feet stood firmly on level ground. Only then did he climb up with his paintbrush.",
   "cell": "why_did_they",
   "choices": [
    "he was trying to break the ladder",
@@ -2879,7 +2879,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the wobble test is the mechanism; the brush comes AFTER by design"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.A.what_went_unsaid.v1",
@@ -2901,10 +2901,10 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What must have happened before Jess came in?",
-  "question": "What must have happened before Jess came in?",
-  "spokenPrompt": "What must have happened before Jess came in?",
-  "passage": "When Jess came in from the garden, a dripping umbrella already stood open in the bathtub. Two coats hung on a drying rack, and Mom was stuffing newspaper into a pair of dark, wet boots.",
+  "prompt": "What most likely happened before they came inside?",
+  "question": "What most likely happened before they came inside?",
+  "spokenPrompt": "What most likely happened before they came inside?",
+  "passage": "Their coats dripped onto the mat as they came inside. Dad shook water from the folded umbrella. Leaves stuck to the wet boots by the door. The bathroom floor was dry.",
   "cell": "what_went_unsaid",
   "choices": [
    "someone had been out in heavy rain",
@@ -2969,7 +2969,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "three water clues point outdoors; overflow explains only one of them"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.B.what_went_unsaid.v2",
@@ -2994,42 +2994,42 @@ export const questions = [
   "prompt": "What must have happened overnight?",
   "question": "What must have happened overnight?",
   "spokenPrompt": "What must have happened overnight?",
-  "passage": "The classroom hamster wheel was still spinning slowly when the children arrived. The food bowl, full last night, held only two pellets, and the tissue-paper mountain in the corner now had a perfectly round doorway.",
+  "passage": "The children had left the hamster's food bowl full. Next morning, only two pieces of food remained. The wheel was still turning when they arrived. A new tunnel ran through the pile of paper.",
   "cell": "what_went_unsaid",
   "choices": [
-   "a child fed the hamster at dawn",
-   "the custodian cleaned the cage",
-   "the hamster slept all night",
-   "the hamster was busy while everyone was away"
+   "a child filled the food bowl again",
+   "a cleaner washed the paper from the cage",
+   "the hamster rested without moving or eating",
+   "the hamster ate and moved about"
   ],
   "answerOptions": [
    {
-    "value": "a child fed the hamster at dawn",
-    "label": "a child fed the hamster at dawn",
-    "text": "a child fed the hamster at dawn"
+    "value": "a child filled the food bowl again",
+    "label": "a child filled the food bowl again",
+    "text": "a child filled the food bowl again"
    },
    {
-    "value": "the custodian cleaned the cage",
-    "label": "the custodian cleaned the cage",
-    "text": "the custodian cleaned the cage"
+    "value": "a cleaner washed the paper from the cage",
+    "label": "a cleaner washed the paper from the cage",
+    "text": "a cleaner washed the paper from the cage"
    },
    {
-    "value": "the hamster slept all night",
-    "label": "the hamster slept all night",
-    "text": "the hamster slept all night"
+    "value": "the hamster rested without moving or eating",
+    "label": "the hamster rested without moving or eating",
+    "text": "the hamster rested without moving or eating"
    },
    {
-    "value": "the hamster was busy while everyone was away",
-    "label": "the hamster was busy while everyone was away",
-    "text": "the hamster was busy while everyone was away"
+    "value": "the hamster ate and moved about",
+    "label": "the hamster ate and moved about",
+    "text": "the hamster ate and moved about"
    }
   ],
-  "answer": "the hamster was busy while everyone was away",
-  "correctAnswer": "the hamster was busy while everyone was away",
+  "answer": "the hamster ate and moved about",
+  "correctAnswer": "the hamster ate and moved about",
   "distractorRationales": {
-   "a child fed the hamster at dawn": "D-PLAUSIBLE-UNSUPPORTED",
-   "the custodian cleaned the cage": "D-PLAUSIBLE-UNSUPPORTED",
-   "the hamster slept all night": "D-OPPOSITE"
+   "a child filled the food bowl again": "D-PLAUSIBLE-UNSUPPORTED",
+   "a cleaner washed the paper from the cage": "D-PLAUSIBLE-UNSUPPORTED",
+   "the hamster rested without moving or eating": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3059,7 +3059,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "spinning wheel + eaten food + built doorway"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.C.what_went_unsaid.v3",
@@ -3084,7 +3084,7 @@ export const questions = [
   "prompt": "What went wrong while they were out?",
   "question": "What went wrong while they were out?",
   "spokenPrompt": "What went wrong while they were out?",
-  "passage": "Dad met them at the door wearing one oven mitt and a guilty smile. The kitchen window was wide open in the cold, a dish towel was flapping below the smoke alarm, and a very dark cake sat in the trash.",
+  "passage": "Dad met them at the door wearing an oven mitt. A black cake lay in the bin. Cold air blew through the open kitchen window. Dad waved a towel below the beeping smoke alarm.",
   "cell": "what_went_unsaid",
   "choices": [
    "the oven had never worked",
@@ -3149,7 +3149,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "each clue is smoke management; the cake in the trash completes it"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.A.what_went_unsaid.v4",
@@ -3174,7 +3174,7 @@ export const questions = [
   "prompt": "What had happened at home?",
   "question": "What had happened at home?",
   "spokenPrompt": "What had happened at home?",
-  "passage": "Marta's recorder case felt strangely light on the walk to school. At music time she opened it and found it empty. That morning, recorder music had come from her little brother's room while he called his toy pirates to attention.",
+  "passage": "Marta had put her only recorder in its case last night. This morning, music came from her little brother's room. At school, Marta opened the case. It was empty.",
   "cell": "what_went_unsaid",
   "choices": [
    "Marta forgot she owned a recorder",
@@ -3239,7 +3239,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the empty case and recorder music from her brother's room imply the event without stating it"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.B.what_went_unsaid.v5",
@@ -3264,13 +3264,13 @@ export const questions = [
   "prompt": "Who has most likely been moving the gnome?",
   "question": "Who has most likely been moving the gnome?",
   "spokenPrompt": "Who has most likely been moving the gnome?",
-  "passage": "The garden gnome had moved again. On Monday he faced the pond; by Friday he was under the rose bush, wearing a doll's scarf. Grandpa swore he never touched him. From the fence, the little girl next door watched with a very serious face, and one more doll's scarf in her hand.",
+  "passage": "The garden gnome moved from the pond to the rose bush. It now wore a tiny doll's scarf. Grandpa said he had left it by the pond. The girl next door held a doll with a matching hat.",
   "cell": "what_went_unsaid",
   "choices": [
    "the girl next door",
-   "Grandpa, though he swore he never touched him",
-   "the wind",
-   "a gardener moved it while working"
+   "Grandpa by the pond",
+   "the neighbour mowing grass",
+   "a worker fixing the fence"
   ],
   "answerOptions": [
    {
@@ -3279,27 +3279,27 @@ export const questions = [
     "text": "the girl next door"
    },
    {
-    "value": "Grandpa, though he swore he never touched him",
-    "label": "Grandpa, though he swore he never touched him",
-    "text": "Grandpa, though he swore he never touched him"
+    "value": "Grandpa by the pond",
+    "label": "Grandpa by the pond",
+    "text": "Grandpa by the pond"
    },
    {
-    "value": "the wind",
-    "label": "the wind",
-    "text": "the wind"
+    "value": "the neighbour mowing grass",
+    "label": "the neighbour mowing grass",
+    "text": "the neighbour mowing grass"
    },
    {
-    "value": "a gardener moved it while working",
-    "label": "a gardener moved it while working",
-    "text": "a gardener moved it while working"
+    "value": "a worker fixing the fence",
+    "label": "a worker fixing the fence",
+    "text": "a worker fixing the fence"
    }
   ],
   "answer": "the girl next door",
   "correctAnswer": "the girl next door",
   "distractorRationales": {
-   "Grandpa, though he swore he never touched him": "D-OPPOSITE",
-   "the wind": "D-PLAUSIBLE-UNSUPPORTED",
-   "a gardener moved it while working": "D-PLAUSIBLE-UNSUPPORTED"
+   "Grandpa by the pond": "D-PLAUSIBLE-UNSUPPORTED",
+   "the neighbour mowing grass": "D-PLAUSIBLE-UNSUPPORTED",
+   "a worker fixing the fence": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3329,7 +3329,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the matching scarf is the fingerprint"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.C.what_went_unsaid.v6",
@@ -3354,7 +3354,7 @@ export const questions = [
   "prompt": "What most likely visited in the night?",
   "question": "What most likely visited in the night?",
   "spokenPrompt": "What most likely visited in the night?",
-  "passage": "By morning the bird feeder lay on the grass, split open and licked clean. The pole it hung from was bent in a smooth curve, like a drinking straw. In the flower bed below, deep five-toed prints led away toward the woods, each one wider than Dad's boot.",
+  "passage": "The bird feeder lay broken and empty below its bent pole. Deep paw prints led away into the woods. Each print was wider than Dad's boot. The gate was still locked.",
   "cell": "what_went_unsaid",
   "choices": [
    "a naughty child from next door",
@@ -3419,7 +3419,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "bent metal + wide prints rule out the small and the bodiless"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.A.what_went_unsaid.v7",
@@ -3444,42 +3444,42 @@ export const questions = [
   "prompt": "What had Mom been doing?",
   "question": "What had Mom been doing?",
   "spokenPrompt": "What had Mom been doing?",
-  "passage": "The whole apartment smelled of paint, though the walls were the same color as ever. Newspaper covered the balcony floor, and tiny silver spots dotted Mom's glasses. Ela's old bicycle stood there drying, newly silver from wheel to wheel.",
+  "passage": "The apartment smelled of paint, but its walls were unchanged. Mom had silver spots on her hands and glasses. Ela's old red bicycle stood on newspaper on the balcony. It was now silver, and its paint was still wet.",
   "cell": "what_went_unsaid",
   "choices": [
-   "cleaning her glasses",
-   "buying a brand-new bicycle",
-   "spray-painting Ela's bicycle as a surprise",
-   "painting the apartment walls a new color"
+   "cleaning old paint off her glasses",
+   "buying a silver bike for Ela",
+   "putting new paint on the bicycle",
+   "putting fresh paint on the walls"
   ],
   "answerOptions": [
    {
-    "value": "cleaning her glasses",
-    "label": "cleaning her glasses",
-    "text": "cleaning her glasses"
+    "value": "cleaning old paint off her glasses",
+    "label": "cleaning old paint off her glasses",
+    "text": "cleaning old paint off her glasses"
    },
    {
-    "value": "buying a brand-new bicycle",
-    "label": "buying a brand-new bicycle",
-    "text": "buying a brand-new bicycle"
+    "value": "buying a silver bike for Ela",
+    "label": "buying a silver bike for Ela",
+    "text": "buying a silver bike for Ela"
    },
    {
-    "value": "spray-painting Ela's bicycle as a surprise",
-    "label": "spray-painting Ela's bicycle as a surprise",
-    "text": "spray-painting Ela's bicycle as a surprise"
+    "value": "putting new paint on the bicycle",
+    "label": "putting new paint on the bicycle",
+    "text": "putting new paint on the bicycle"
    },
    {
-    "value": "painting the apartment walls a new color",
-    "label": "painting the apartment walls a new color",
-    "text": "painting the apartment walls a new color"
+    "value": "putting fresh paint on the walls",
+    "label": "putting fresh paint on the walls",
+    "text": "putting fresh paint on the walls"
    }
   ],
-  "answer": "spray-painting Ela's bicycle as a surprise",
-  "correctAnswer": "spray-painting Ela's bicycle as a surprise",
+  "answer": "putting new paint on the bicycle",
+  "correctAnswer": "putting new paint on the bicycle",
   "distractorRationales": {
-   "buying a brand-new bicycle": "D-PLAUSIBLE-UNSUPPORTED",
-   "painting the apartment walls a new color": "D-TOPIC-ADJACENT",
-   "cleaning her glasses": "D-DETAIL-AS-MAIN"
+   "buying a silver bike for Ela": "D-OPPOSITE",
+   "putting fresh paint on the walls": "D-PLAUSIBLE-UNSUPPORTED",
+   "cleaning old paint off her glasses": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3509,7 +3509,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same-color walls eliminate the wall reading; silver spots and silver bike join up"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.B.what_went_unsaid.v8",
@@ -3531,45 +3531,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What must have happened while they were out?",
-  "question": "What must have happened while they were out?",
-  "spokenPrompt": "What must have happened while they were out?",
-  "passage": "When the lights came back on, the ice cream tub on the counter was soft as soup, and the freezer drawers stood in puddles. The oven clock blinked 00:00, and every radio in the house had forgotten its stations.",
+  "prompt": "What best explains all these clues?",
+  "question": "What best explains all these clues?",
+  "spokenPrompt": "What best explains all these clues?",
+  "passage": "They came home to blinking clocks all through the house. The closed freezer held melted ice cream. The lamp had just come back on by itself. Their neighbour said her lights had only just returned too.",
   "cell": "what_went_unsaid",
   "choices": [
-   "a burglar reset the clocks",
-   "the electricity had been off for a long time",
-   "someone left the freezer drawers hanging open",
-   "the family bought soft ice cream"
+   "someone had forgotten to switch on the lamp",
+   "the electricity had stopped for some time",
+   "the family had left their freezer open",
+   "a clock had run out of batteries"
   ],
   "answerOptions": [
    {
-    "value": "a burglar reset the clocks",
-    "label": "a burglar reset the clocks",
-    "text": "a burglar reset the clocks"
+    "value": "someone had forgotten to switch on the lamp",
+    "label": "someone had forgotten to switch on the lamp",
+    "text": "someone had forgotten to switch on the lamp"
    },
    {
-    "value": "the electricity had been off for a long time",
-    "label": "the electricity had been off for a long time",
-    "text": "the electricity had been off for a long time"
+    "value": "the electricity had stopped for some time",
+    "label": "the electricity had stopped for some time",
+    "text": "the electricity had stopped for some time"
    },
    {
-    "value": "someone left the freezer drawers hanging open",
-    "label": "someone left the freezer drawers hanging open",
-    "text": "someone left the freezer drawers hanging open"
+    "value": "the family had left their freezer open",
+    "label": "the family had left their freezer open",
+    "text": "the family had left their freezer open"
    },
    {
-    "value": "the family bought soft ice cream",
-    "label": "the family bought soft ice cream",
-    "text": "the family bought soft ice cream"
+    "value": "a clock had run out of batteries",
+    "label": "a clock had run out of batteries",
+    "text": "a clock had run out of batteries"
    }
   ],
-  "answer": "the electricity had been off for a long time",
-  "correctAnswer": "the electricity had been off for a long time",
+  "answer": "the electricity had stopped for some time",
+  "correctAnswer": "the electricity had stopped for some time",
   "distractorRationales": {
-   "a burglar reset the clocks": "D-PLAUSIBLE-UNSUPPORTED",
-   "someone left the freezer drawers hanging open": "D-TOPIC-ADJACENT",
-   "the family bought soft ice cream": "D-PLAUSIBLE-UNSUPPORTED"
+   "someone had forgotten to switch on the lamp": "D-OPPOSITE",
+   "the family had left their freezer open": "D-PLAUSIBLE-UNSUPPORTED",
+   "a clock had run out of batteries": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3599,7 +3599,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "blinking clocks + forgetful radios only fit a power outage, not an open freezer"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.A.evidence_pick.v1",
@@ -3624,42 +3624,42 @@ export const questions = [
   "prompt": "Which detail best shows that Tilly is disappointed?",
   "question": "Which detail best shows that Tilly is disappointed?",
   "spokenPrompt": "Which detail best shows that Tilly is disappointed?",
-  "passage": "Tilly said she did not mind missing the trip. She said it twice, in a bright voice. But all through art she drew the same picture: a little bus on a long road, with a girl waving from the window seat.",
+  "passage": "Tilly said she did not mind missing the school trip. At art time, she drew herself on the trip's bus. She rubbed out the picture and drew it again. The other children were making birthday cards.",
   "cell": "evidence_pick",
   "choices": [
-   "she said twice, in a bright voice, that she did not mind missing it",
-   "it was time for art",
-   "her voice was bright",
-   "she drew a girl waving from the bus window"
+   "Tilly said she did not mind missing it",
+   "the other children were making birthday cards",
+   "the class had an art lesson together",
+   "Tilly kept drawing herself on the trip"
   ],
   "answerOptions": [
    {
-    "value": "she said twice, in a bright voice, that she did not mind missing it",
-    "label": "she said twice, in a bright voice, that she did not mind missing it",
-    "text": "she said twice, in a bright voice, that she did not mind missing it"
+    "value": "Tilly said she did not mind missing it",
+    "label": "Tilly said she did not mind missing it",
+    "text": "Tilly said she did not mind missing it"
    },
    {
-    "value": "it was time for art",
-    "label": "it was time for art",
-    "text": "it was time for art"
+    "value": "the other children were making birthday cards",
+    "label": "the other children were making birthday cards",
+    "text": "the other children were making birthday cards"
    },
    {
-    "value": "her voice was bright",
-    "label": "her voice was bright",
-    "text": "her voice was bright"
+    "value": "the class had an art lesson together",
+    "label": "the class had an art lesson together",
+    "text": "the class had an art lesson together"
    },
    {
-    "value": "she drew a girl waving from the bus window",
-    "label": "she drew a girl waving from the bus window",
-    "text": "she drew a girl waving from the bus window"
+    "value": "Tilly kept drawing herself on the trip",
+    "label": "Tilly kept drawing herself on the trip",
+    "text": "Tilly kept drawing herself on the trip"
    }
   ],
-  "answer": "she drew a girl waving from the bus window",
-  "correctAnswer": "she drew a girl waving from the bus window",
+  "answer": "Tilly kept drawing herself on the trip",
+  "correctAnswer": "Tilly kept drawing herself on the trip",
   "distractorRationales": {
-   "she said twice, in a bright voice, that she did not mind missing it": "D-OPPOSITE",
-   "it was time for art": "D-DETAIL-AS-MAIN",
-   "her voice was bright": "D-DETAIL-AS-MAIN"
+   "Tilly said she did not mind missing it": "D-PLAUSIBLE-UNSUPPORTED",
+   "the other children were making birthday cards": "D-PLAUSIBLE-UNSUPPORTED",
+   "the class had an art lesson together": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3689,7 +3689,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the drawing contradicts the words — evidence beats statements"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.B.evidence_pick.v2",
@@ -3714,42 +3714,42 @@ export const questions = [
   "prompt": "Which detail best shows that Ba wanted that terrier?",
   "question": "Which detail best shows that Ba wanted that terrier?",
   "spokenPrompt": "Which detail best shows that Ba wanted that terrier?",
-  "passage": "'Any dog would do,' said Ba, shrugging at the shelter. Then a gray terrier pressed its nose to the bars. Ba knelt down for a long time. On the way home he asked twice whether terriers like long walks, and he kept the shelter's flyer in his pocket all week.",
+  "passage": "Ba said any dog at the shelter would do. A grey terrier pressed its nose against his hand. At home, Ba pinned that dog's photo above his bed. The shelter's number was printed below the picture.",
   "cell": "evidence_pick",
   "choices": [
-   "the terrier was gray",
-   "they went home",
-   "he kept the shelter's flyer all week",
-   "he shrugged at the shelter and said any dog would do"
+   "the shelter printed its number below the picture",
+   "the terrier pressed its nose against his hand",
+   "Ba put that dog's photo above his bed",
+   "Ba said any dog would do at the shelter"
   ],
   "answerOptions": [
    {
-    "value": "the terrier was gray",
-    "label": "the terrier was gray",
-    "text": "the terrier was gray"
+    "value": "the shelter printed its number below the picture",
+    "label": "the shelter printed its number below the picture",
+    "text": "the shelter printed its number below the picture"
    },
    {
-    "value": "they went home",
-    "label": "they went home",
-    "text": "they went home"
+    "value": "the terrier pressed its nose against his hand",
+    "label": "the terrier pressed its nose against his hand",
+    "text": "the terrier pressed its nose against his hand"
    },
    {
-    "value": "he kept the shelter's flyer all week",
-    "label": "he kept the shelter's flyer all week",
-    "text": "he kept the shelter's flyer all week"
+    "value": "Ba put that dog's photo above his bed",
+    "label": "Ba put that dog's photo above his bed",
+    "text": "Ba put that dog's photo above his bed"
    },
    {
-    "value": "he shrugged at the shelter and said any dog would do",
-    "label": "he shrugged at the shelter and said any dog would do",
-    "text": "he shrugged at the shelter and said any dog would do"
+    "value": "Ba said any dog would do at the shelter",
+    "label": "Ba said any dog would do at the shelter",
+    "text": "Ba said any dog would do at the shelter"
    }
   ],
-  "answer": "he kept the shelter's flyer all week",
-  "correctAnswer": "he kept the shelter's flyer all week",
+  "answer": "Ba put that dog's photo above his bed",
+  "correctAnswer": "Ba put that dog's photo above his bed",
   "distractorRationales": {
-   "the terrier was gray": "D-DETAIL-AS-MAIN",
-   "they went home": "D-DETAIL-AS-MAIN",
-   "he shrugged at the shelter and said any dog would do": "D-OPPOSITE"
+   "the shelter printed its number below the picture": "D-PLAUSIBLE-UNSUPPORTED",
+   "the terrier pressed its nose against his hand": "D-OPPOSITE",
+   "Ba said any dog would do at the shelter": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3779,7 +3779,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "shrug words vs pocket evidence"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.C.evidence_pick.v3",
@@ -3804,42 +3804,42 @@ export const questions = [
   "prompt": "Which clue points to Femi?",
   "question": "Which clue points to Femi?",
   "spokenPrompt": "Which clue points to Femi?",
-  "passage": "Nobody saw who tidied the book corner. But Miss Diaz noticed that the shelves were sorted by color, exactly like Femi sorts his pencil case, and that the beanbag was patted into a neat square, just the way Femi leaves his chair cushion after lunch.",
+  "passage": "Nobody saw who tidied the book corner before lunch. Femi always sorts his pencils into matching colour groups. Now the books were sorted by colour too. The other children usually sorted them by size.",
   "cell": "evidence_pick",
   "choices": [
-   "nobody saw who tidied the book corner shelves",
-   "the classroom has a book corner",
-   "it happened after lunch",
-   "the shelves were sorted the way Femi sorts his pencils"
+   "the corner was tidied before lunchtime began",
+   "the other children usually sorted books by size",
+   "nobody had seen anyone tidying the book corner",
+   "the books matched his usual way of sorting"
   ],
   "answerOptions": [
    {
-    "value": "nobody saw who tidied the book corner shelves",
-    "label": "nobody saw who tidied the book corner shelves",
-    "text": "nobody saw who tidied the book corner shelves"
+    "value": "the corner was tidied before lunchtime began",
+    "label": "the corner was tidied before lunchtime began",
+    "text": "the corner was tidied before lunchtime began"
    },
    {
-    "value": "the classroom has a book corner",
-    "label": "the classroom has a book corner",
-    "text": "the classroom has a book corner"
+    "value": "the other children usually sorted books by size",
+    "label": "the other children usually sorted books by size",
+    "text": "the other children usually sorted books by size"
    },
    {
-    "value": "it happened after lunch",
-    "label": "it happened after lunch",
-    "text": "it happened after lunch"
+    "value": "nobody had seen anyone tidying the book corner",
+    "label": "nobody had seen anyone tidying the book corner",
+    "text": "nobody had seen anyone tidying the book corner"
    },
    {
-    "value": "the shelves were sorted the way Femi sorts his pencils",
-    "label": "the shelves were sorted the way Femi sorts his pencils",
-    "text": "the shelves were sorted the way Femi sorts his pencils"
+    "value": "the books matched his usual way of sorting",
+    "label": "the books matched his usual way of sorting",
+    "text": "the books matched his usual way of sorting"
    }
   ],
-  "answer": "the shelves were sorted the way Femi sorts his pencils",
-  "correctAnswer": "the shelves were sorted the way Femi sorts his pencils",
+  "answer": "the books matched his usual way of sorting",
+  "correctAnswer": "the books matched his usual way of sorting",
   "distractorRationales": {
-   "nobody saw who tidied the book corner shelves": "D-OPPOSITE",
-   "the classroom has a book corner": "D-DETAIL-AS-MAIN",
-   "it happened after lunch": "D-PLAUSIBLE-UNSUPPORTED"
+   "the corner was tidied before lunchtime began": "D-PLAUSIBLE-UNSUPPORTED",
+   "the other children usually sorted books by size": "D-PLAUSIBLE-UNSUPPORTED",
+   "nobody had seen anyone tidying the book corner": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3869,7 +3869,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "matching habits are the fingerprint"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.A.evidence_pick.v4",
@@ -3894,42 +3894,42 @@ export const questions = [
   "prompt": "Which detail best shows that the win mattered to Harri?",
   "question": "Which detail best shows that the win mattered to Harri?",
   "spokenPrompt": "Which detail best shows that the win mattered to Harri?",
-  "passage": "Harri claimed the win did not matter. Yet the medal hung over his bed, polished every Sunday. The race photograph moved from the drawer, to the shelf, to a frame on the wall. And whenever visitors came, somehow the talk always found its way to that rainy field day.",
+  "passage": "Harri said winning the race did not matter to him. His medal hung above his bed. Every Sunday, he carefully polished it with a soft cloth. The race had taken place on a rainy day.",
   "cell": "evidence_pick",
   "choices": [
-   "the medal was polished every Sunday",
-   "Harri claimed the win did not matter at all",
-   "field day was rainy",
-   "visitors came to the house"
+   "he carefully cleaned his prize every week",
+   "he said the win did not matter",
+   "the race took place on a rainy day",
+   "he kept a soft cloth in his room"
   ],
   "answerOptions": [
    {
-    "value": "the medal was polished every Sunday",
-    "label": "the medal was polished every Sunday",
-    "text": "the medal was polished every Sunday"
+    "value": "he carefully cleaned his prize every week",
+    "label": "he carefully cleaned his prize every week",
+    "text": "he carefully cleaned his prize every week"
    },
    {
-    "value": "Harri claimed the win did not matter at all",
-    "label": "Harri claimed the win did not matter at all",
-    "text": "Harri claimed the win did not matter at all"
+    "value": "he said the win did not matter",
+    "label": "he said the win did not matter",
+    "text": "he said the win did not matter"
    },
    {
-    "value": "field day was rainy",
-    "label": "field day was rainy",
-    "text": "field day was rainy"
+    "value": "the race took place on a rainy day",
+    "label": "the race took place on a rainy day",
+    "text": "the race took place on a rainy day"
    },
    {
-    "value": "visitors came to the house",
-    "label": "visitors came to the house",
-    "text": "visitors came to the house"
+    "value": "he kept a soft cloth in his room",
+    "label": "he kept a soft cloth in his room",
+    "text": "he kept a soft cloth in his room"
    }
   ],
-  "answer": "the medal was polished every Sunday",
-  "correctAnswer": "the medal was polished every Sunday",
+  "answer": "he carefully cleaned his prize every week",
+  "correctAnswer": "he carefully cleaned his prize every week",
   "distractorRationales": {
-   "visitors came to the house": "D-DETAIL-AS-MAIN",
-   "Harri claimed the win did not matter at all": "D-OPPOSITE",
-   "field day was rainy": "D-DETAIL-AS-MAIN"
+   "he kept a soft cloth in his room": "D-OPPOSITE",
+   "he said the win did not matter": "D-PLAUSIBLE-UNSUPPORTED",
+   "the race took place on a rainy day": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3959,7 +3959,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "actions over words again — the polishing habit"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.B.evidence_pick.v5",
@@ -3981,45 +3981,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which detail best shows that the new boy had played chess?",
-  "question": "Which detail best shows that the new boy had played chess?",
-  "spokenPrompt": "Which detail best shows that the new boy had played chess?",
-  "passage": "The new boy said he had never played chess before. Then he set up every piece without looking at the box lid. He moved his knight in that funny L-shape straight away, and when Mr Salt's queen crept forward, the new boy smiled a small, knowing smile.",
+  "prompt": "Which detail shows the boy knows how to play chess?",
+  "question": "Which detail shows the boy knows how to play chess?",
+  "spokenPrompt": "Which detail shows the boy knows how to play chess?",
+  "passage": "The new boy said he had never played chess. He set up all the pieces without checking the instructions. Then he showed Mia a legal move for each piece. The board was on a small table beside the window.",
   "cell": "evidence_pick",
   "choices": [
-   "he said he had never played",
-   "there was a box lid",
-   "Mr Salt had a queen",
-   "he set up every piece without looking"
+   "he said he had never played chess",
+   "he sat beside Mia near the window",
+   "the board rested on a small table",
+   "he arranged the pieces without needing instructions"
   ],
   "answerOptions": [
    {
-    "value": "he said he had never played",
-    "label": "he said he had never played",
-    "text": "he said he had never played"
+    "value": "he said he had never played chess",
+    "label": "he said he had never played chess",
+    "text": "he said he had never played chess"
    },
    {
-    "value": "there was a box lid",
-    "label": "there was a box lid",
-    "text": "there was a box lid"
+    "value": "he sat beside Mia near the window",
+    "label": "he sat beside Mia near the window",
+    "text": "he sat beside Mia near the window"
    },
    {
-    "value": "Mr Salt had a queen",
-    "label": "Mr Salt had a queen",
-    "text": "Mr Salt had a queen"
+    "value": "the board rested on a small table",
+    "label": "the board rested on a small table",
+    "text": "the board rested on a small table"
    },
    {
-    "value": "he set up every piece without looking",
-    "label": "he set up every piece without looking",
-    "text": "he set up every piece without looking"
+    "value": "he arranged the pieces without needing instructions",
+    "label": "he arranged the pieces without needing instructions",
+    "text": "he arranged the pieces without needing instructions"
    }
   ],
-  "answer": "he set up every piece without looking",
-  "correctAnswer": "he set up every piece without looking",
+  "answer": "he arranged the pieces without needing instructions",
+  "correctAnswer": "he arranged the pieces without needing instructions",
   "distractorRationales": {
-   "Mr Salt had a queen": "D-DETAIL-AS-MAIN",
-   "he said he had never played": "D-OPPOSITE",
-   "there was a box lid": "D-DETAIL-AS-MAIN"
+   "the board rested on a small table": "D-OPPOSITE",
+   "he said he had never played chess": "D-PLAUSIBLE-UNSUPPORTED",
+   "he sat beside Mia near the window": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4049,7 +4049,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "setup knowledge is the giveaway"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.C.evidence_pick.v6",
@@ -4074,42 +4074,42 @@ export const questions = [
   "prompt": "Which detail best shows that Mom fell asleep?",
   "question": "Which detail best shows that Mom fell asleep?",
   "spokenPrompt": "Which detail best shows that Mom fell asleep?",
-  "passage": "Mom insisted she was wide awake for the movie. Halfway through, her mug tipped gently in her hand, and Leo caught it. By the big ending, her head rested on the cushion, and the credits rolled to the sound of long, slow breathing.",
+  "passage": "Mom said she would stay awake for the whole film. Leo sat beside her with his mug of tea. At the ending, Mom's eyes were shut and she was snoring. The film ended with a song.",
   "cell": "evidence_pick",
   "choices": [
-   "her breathing was slow when the film finished",
-   "she insisted she was wide awake for the whole film",
-   "they watched a film",
-   "Leo sat beside her"
+   "her eyes were shut and she was snoring",
+   "she said she would stay awake all evening",
+   "Leo sat beside her with some warm tea",
+   "the film they watched ended with a song"
   ],
   "answerOptions": [
    {
-    "value": "her breathing was slow when the film finished",
-    "label": "her breathing was slow when the film finished",
-    "text": "her breathing was slow when the film finished"
+    "value": "her eyes were shut and she was snoring",
+    "label": "her eyes were shut and she was snoring",
+    "text": "her eyes were shut and she was snoring"
    },
    {
-    "value": "she insisted she was wide awake for the whole film",
-    "label": "she insisted she was wide awake for the whole film",
-    "text": "she insisted she was wide awake for the whole film"
+    "value": "she said she would stay awake all evening",
+    "label": "she said she would stay awake all evening",
+    "text": "she said she would stay awake all evening"
    },
    {
-    "value": "they watched a film",
-    "label": "they watched a film",
-    "text": "they watched a film"
+    "value": "Leo sat beside her with some warm tea",
+    "label": "Leo sat beside her with some warm tea",
+    "text": "Leo sat beside her with some warm tea"
    },
    {
-    "value": "Leo sat beside her",
-    "label": "Leo sat beside her",
-    "text": "Leo sat beside her"
+    "value": "the film they watched ended with a song",
+    "label": "the film they watched ended with a song",
+    "text": "the film they watched ended with a song"
    }
   ],
-  "answer": "her breathing was slow when the film finished",
-  "correctAnswer": "her breathing was slow when the film finished",
+  "answer": "her eyes were shut and she was snoring",
+  "correctAnswer": "her eyes were shut and she was snoring",
   "distractorRationales": {
-   "Leo sat beside her": "D-PLAUSIBLE-UNSUPPORTED",
-   "she insisted she was wide awake for the whole film": "D-OPPOSITE",
-   "they watched a film": "D-DETAIL-AS-MAIN"
+   "the film they watched ended with a song": "D-OPPOSITE",
+   "she said she would stay awake all evening": "D-PLAUSIBLE-UNSUPPORTED",
+   "Leo sat beside her with some warm tea": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4139,7 +4139,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the breathing detail settles it"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.A.evidence_pick.v7",
@@ -4161,45 +4161,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which detail best shows that the custodian cares for the cat?",
-  "question": "Which detail best shows that the custodian cares for the cat?",
-  "spokenPrompt": "Which detail best shows that the custodian cares for the cat?",
-  "passage": "The custodian grumbled that the school cat was 'nothing but a nuisance.' But the cat had a cushion in the utility room, a bowl marked C-A-T in the custodian's own careful letters, and on cold mornings, the first warm lap it looked for was his.",
+  "prompt": "Which detail best shows that the caretaker cares for the cat?",
+  "question": "Which detail best shows that the caretaker cares for the cat?",
+  "spokenPrompt": "Which detail best shows that the caretaker cares for the cat?",
+  "passage": "The caretaker called the school cat a nuisance. He filled its bowl with warm food every cold morning. The bowl stood in the store room beside his tools. Children often stopped at the door to see the cat.",
   "cell": "evidence_pick",
   "choices": [
-   "mornings were cold",
-   "a bowl marked C-A-T in his own careful letters",
-   "he grumbled that the cat was nothing but a nuisance",
-   "the school had a utility room"
+   "children came to see it near the door",
+   "he fed it warm meals on cold mornings",
+   "he called it a nuisance at the school",
+   "the bowl stood beside tools in the store room"
   ],
   "answerOptions": [
    {
-    "value": "mornings were cold",
-    "label": "mornings were cold",
-    "text": "mornings were cold"
+    "value": "children came to see it near the door",
+    "label": "children came to see it near the door",
+    "text": "children came to see it near the door"
    },
    {
-    "value": "a bowl marked C-A-T in his own careful letters",
-    "label": "a bowl marked C-A-T in his own careful letters",
-    "text": "a bowl marked C-A-T in his own careful letters"
+    "value": "he fed it warm meals on cold mornings",
+    "label": "he fed it warm meals on cold mornings",
+    "text": "he fed it warm meals on cold mornings"
    },
    {
-    "value": "he grumbled that the cat was nothing but a nuisance",
-    "label": "he grumbled that the cat was nothing but a nuisance",
-    "text": "he grumbled that the cat was nothing but a nuisance"
+    "value": "he called it a nuisance at the school",
+    "label": "he called it a nuisance at the school",
+    "text": "he called it a nuisance at the school"
    },
    {
-    "value": "the school had a utility room",
-    "label": "the school had a utility room",
-    "text": "the school had a utility room"
+    "value": "the bowl stood beside tools in the store room",
+    "label": "the bowl stood beside tools in the store room",
+    "text": "the bowl stood beside tools in the store room"
    }
   ],
-  "answer": "a bowl marked C-A-T in his own careful letters",
-  "correctAnswer": "a bowl marked C-A-T in his own careful letters",
+  "answer": "he fed it warm meals on cold mornings",
+  "correctAnswer": "he fed it warm meals on cold mornings",
   "distractorRationales": {
-   "the school had a utility room": "D-DETAIL-AS-MAIN",
-   "mornings were cold": "D-DETAIL-AS-MAIN",
-   "he grumbled that the cat was nothing but a nuisance": "D-OPPOSITE"
+   "the bowl stood beside tools in the store room": "D-PLAUSIBLE-UNSUPPORTED",
+   "children came to see it near the door": "D-OPPOSITE",
+   "he called it a nuisance at the school": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4229,7 +4229,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the hand-lettered bowl is devotion in evidence form"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.B.evidence_pick.v8",
@@ -4254,42 +4254,42 @@ export const questions = [
   "prompt": "Which detail best shows that Priti was scared of the thunder?",
   "question": "Which detail best shows that Priti was scared of the thunder?",
   "spokenPrompt": "Which detail best shows that Priti was scared of the thunder?",
-  "passage": "Priti told everyone the thunder did not scare her one bit. Still, at the first rumble she turned her music up very loud. At the second, she found a reason to visit the kitchen, where Grandma was. At the third, she decided the safest place to read was under her blanket with a flashlight.",
+  "passage": "Priti said the thunder did not scare her. At the first crash, she jumped and covered her ears. Grandma was cooking in the kitchen. Priti's book lay open on the sofa.",
   "cell": "evidence_pick",
   "choices": [
-   "she hid away to read under a blanket",
-   "she told everyone the thunder did not scare her one bit",
-   "she owned some music",
-   "Grandma was in the kitchen"
+   "she jumped and covered her ears at the crash",
+   "she said the thunder did not scare her",
+   "Grandma cooked a meal in the kitchen nearby",
+   "her book lay open on the sofa cushions"
   ],
   "answerOptions": [
    {
-    "value": "she hid away to read under a blanket",
-    "label": "she hid away to read under a blanket",
-    "text": "she hid away to read under a blanket"
+    "value": "she jumped and covered her ears at the crash",
+    "label": "she jumped and covered her ears at the crash",
+    "text": "she jumped and covered her ears at the crash"
    },
    {
-    "value": "she told everyone the thunder did not scare her one bit",
-    "label": "she told everyone the thunder did not scare her one bit",
-    "text": "she told everyone the thunder did not scare her one bit"
+    "value": "she said the thunder did not scare her",
+    "label": "she said the thunder did not scare her",
+    "text": "she said the thunder did not scare her"
    },
    {
-    "value": "she owned some music",
-    "label": "she owned some music",
-    "text": "she owned some music"
+    "value": "Grandma cooked a meal in the kitchen nearby",
+    "label": "Grandma cooked a meal in the kitchen nearby",
+    "text": "Grandma cooked a meal in the kitchen nearby"
    },
    {
-    "value": "Grandma was in the kitchen",
-    "label": "Grandma was in the kitchen",
-    "text": "Grandma was in the kitchen"
+    "value": "her book lay open on the sofa cushions",
+    "label": "her book lay open on the sofa cushions",
+    "text": "her book lay open on the sofa cushions"
    }
   ],
-  "answer": "she hid away to read under a blanket",
-  "correctAnswer": "she hid away to read under a blanket",
+  "answer": "she jumped and covered her ears at the crash",
+  "correctAnswer": "she jumped and covered her ears at the crash",
   "distractorRationales": {
-   "she told everyone the thunder did not scare her one bit": "D-OPPOSITE",
-   "she owned some music": "D-DETAIL-AS-MAIN",
-   "Grandma was in the kitchen": "D-DETAIL-AS-MAIN"
+   "she said the thunder did not scare her": "D-PLAUSIBLE-UNSUPPORTED",
+   "Grandma cooked a meal in the kitchen nearby": "D-PLAUSIBLE-UNSUPPORTED",
+   "her book lay open on the sofa cushions": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4319,10 +4319,10 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "escalating avoidance behaviours are the evidence chain"
+  "notes": ""
  },
  {
-  "id": "lp3.inference.l1.C.feeling_from_evidence.v9",
+  "id": "lp3.inference.l1.R.feeling_from_evidence.v9r",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "inference",
@@ -4335,7 +4335,7 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_1_phase_1",
-  "form": "C",
+  "form": "R",
   "itemType": "inference_cell",
   "itemKey": "feeling_from_evidence",
   "formatType": "COMPREHENSION",
@@ -4344,48 +4344,48 @@ export const questions = [
   "prompt": "How does Milo feel at the end?",
   "question": "How does Milo feel at the end?",
   "spokenPrompt": "How does Milo feel at the end?",
-  "passage": "The splinter was tiny but it was IN Milo's finger. He looked away while Dad held the tweezers. 'Done,' said Dad, before Milo had even squeezed his eyes shut properly. Milo stared at his finger, then laughed out loud.",
+  "passage": "Milo looked away as Dad lifted out the splinter. Dad said it was done. Milo stared at his finger and laughed. He had expected it to hurt for ages.",
   "cell": "feeling_from_evidence",
   "choices": [
-   "surprised it was so easy",
-   "still terrified",
-   "angry with Dad",
-   "sleepy"
+   "angry",
+   "surprised",
+   "worried",
+   "disappointed"
   ],
   "answerOptions": [
    {
-    "value": "surprised it was so easy",
-    "label": "surprised it was so easy",
-    "text": "surprised it was so easy"
+    "value": "angry",
+    "label": "angry",
+    "text": "angry"
    },
    {
-    "value": "still terrified",
-    "label": "still terrified",
-    "text": "still terrified"
+    "value": "surprised",
+    "label": "surprised",
+    "text": "surprised"
    },
    {
-    "value": "angry with Dad",
-    "label": "angry with Dad",
-    "text": "angry with Dad"
+    "value": "worried",
+    "label": "worried",
+    "text": "worried"
    },
    {
-    "value": "sleepy",
-    "label": "sleepy",
-    "text": "sleepy"
+    "value": "disappointed",
+    "label": "disappointed",
+    "text": "disappointed"
    }
   ],
-  "answer": "surprised it was so easy",
-  "correctAnswer": "surprised it was so easy",
+  "answer": "surprised",
+  "correctAnswer": "surprised",
   "distractorRationales": {
-   "still terrified": "D-SEQUENCE-SWAP",
-   "angry with Dad": "D-OPPOSITE",
-   "sleepy": "D-PLAUSIBLE-UNSUPPORTED"
+   "disappointed": "D-PLAUSIBLE-UNSUPPORTED",
+   "angry": "D-OPPOSITE",
+   "worried": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": false,
-  "evidenceRole": "mastery",
+  "retentionOnly": true,
+  "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
@@ -4394,11 +4394,11 @@ export const questions = [
    "cards": false
   },
   "assessmentMediaDecision": {
-   "itemId": "lp3.inference.l1.C.feeling_from_evidence.v9",
+   "itemId": "lp3.inference.l1.R.feeling_from_evidence.v9r",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",
-   "answerNeutral": "approved-empty-setting"
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -4412,7 +4412,7 @@ export const questions = [
   "notes": ""
  },
  {
-  "id": "lp3.inference.l1.A.feeling_from_evidence.v10",
+  "id": "lp3.inference.l1.R.feeling_from_evidence.v10r",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "inference",
@@ -4425,7 +4425,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_1_phase_2",
-  "form": "A",
+  "form": "R",
   "itemType": "inference_cell",
   "itemKey": "feeling_from_evidence",
   "formatType": "COMPREHENSION",
@@ -4434,48 +4434,48 @@ export const questions = [
   "prompt": "How does Wren most likely feel?",
   "question": "How does Wren most likely feel?",
   "spokenPrompt": "How does Wren most likely feel?",
-  "passage": "Wren had saved her money for six weeks. At the register, the cashier counted her coins slowly and slid the paint set across the counter. Wren carried the bag with both hands all the way home, checking inside at every corner.",
+  "passage": "Wren had saved for a paint set for weeks. At last, she bought it. On the way home she bounced along. She kept saying she could not wait to paint.",
   "cell": "feeling_from_evidence",
   "choices": [
-   "worried about losing her coins",
-   "proud",
-   "sorry she bought it",
-   "frightened of the store"
+   "worried",
+   "jealous",
+   "excited",
+   "disappointed"
   ],
   "answerOptions": [
    {
-    "value": "worried about losing her coins",
-    "label": "worried about losing her coins",
-    "text": "worried about losing her coins"
+    "value": "worried",
+    "label": "worried",
+    "text": "worried"
    },
    {
-    "value": "proud",
-    "label": "proud",
-    "text": "proud"
+    "value": "jealous",
+    "label": "jealous",
+    "text": "jealous"
    },
    {
-    "value": "sorry she bought it",
-    "label": "sorry she bought it",
-    "text": "sorry she bought it"
+    "value": "excited",
+    "label": "excited",
+    "text": "excited"
    },
    {
-    "value": "frightened of the store",
-    "label": "frightened of the store",
-    "text": "frightened of the store"
+    "value": "disappointed",
+    "label": "disappointed",
+    "text": "disappointed"
    }
   ],
-  "answer": "proud",
-  "correctAnswer": "proud",
+  "answer": "excited",
+  "correctAnswer": "excited",
   "distractorRationales": {
-   "sorry she bought it": "D-OPPOSITE",
-   "frightened of the store": "D-PLAUSIBLE-UNSUPPORTED",
-   "worried about losing her coins": "D-PLAUSIBLE-UNSUPPORTED"
+   "worried": "D-PLAUSIBLE-UNSUPPORTED",
+   "jealous": "D-OPPOSITE",
+   "disappointed": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": false,
-  "evidenceRole": "mastery",
+  "retentionOnly": true,
+  "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
@@ -4484,11 +4484,11 @@ export const questions = [
    "cards": false
   },
   "assessmentMediaDecision": {
-   "itemId": "lp3.inference.l1.A.feeling_from_evidence.v10",
+   "itemId": "lp3.inference.l1.R.feeling_from_evidence.v10r",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",
-   "answerNeutral": "approved-empty-setting"
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -4502,7 +4502,7 @@ export const questions = [
   "notes": ""
  },
  {
-  "id": "lp3.inference.l1.C.where_am_i.v9",
+  "id": "lp3.inference.l1.R.where_am_i.v9r",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "inference",
@@ -4515,7 +4515,7 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_1_phase_1",
-  "form": "C",
+  "form": "R",
   "itemType": "inference_cell",
   "itemKey": "where_am_i",
   "formatType": "COMPREHENSION",
@@ -4524,25 +4524,15 @@ export const questions = [
   "prompt": "Where is Ana?",
   "question": "Where is Ana?",
   "spokenPrompt": "Where is Ana?",
-  "passage": "Rows of red seats sloped down toward the glowing screen. Ana balanced the popcorn on her knees. The lights dimmed slowly, and a hush spread as the first music swelled.",
+  "passage": "Rows of seats faced a huge screen. Ana held popcorn on her knees. The lights went down. A film began playing on the screen.",
   "cell": "where_am_i",
   "choices": [
-   "a stadium",
-   "a movie theater",
    "a live theater with actors on stage",
-   "her bedroom"
+   "her bedroom",
+   "a stadium",
+   "a movie theater"
   ],
   "answerOptions": [
-   {
-    "value": "a stadium",
-    "label": "a stadium",
-    "text": "a stadium"
-   },
-   {
-    "value": "a movie theater",
-    "label": "a movie theater",
-    "text": "a movie theater"
-   },
    {
     "value": "a live theater with actors on stage",
     "label": "a live theater with actors on stage",
@@ -4552,20 +4542,30 @@ export const questions = [
     "value": "her bedroom",
     "label": "her bedroom",
     "text": "her bedroom"
+   },
+   {
+    "value": "a stadium",
+    "label": "a stadium",
+    "text": "a stadium"
+   },
+   {
+    "value": "a movie theater",
+    "label": "a movie theater",
+    "text": "a movie theater"
    }
   ],
   "answer": "a movie theater",
   "correctAnswer": "a movie theater",
   "distractorRationales": {
+   "a stadium": "D-PLAUSIBLE-UNSUPPORTED",
    "a live theater with actors on stage": "D-TOPIC-ADJACENT",
-   "her bedroom": "D-PLAUSIBLE-UNSUPPORTED",
-   "a stadium": "D-PLAUSIBLE-UNSUPPORTED"
+   "her bedroom": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": false,
-  "evidenceRole": "mastery",
+  "retentionOnly": true,
+  "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
@@ -4574,11 +4574,11 @@ export const questions = [
    "cards": false
   },
   "assessmentMediaDecision": {
-   "itemId": "lp3.inference.l1.C.where_am_i.v9",
+   "itemId": "lp3.inference.l1.R.where_am_i.v9r",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",
-   "answerNeutral": "approved-empty-setting"
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -4592,7 +4592,7 @@ export const questions = [
   "notes": ""
  },
  {
-  "id": "lp3.inference.l1.A.where_am_i.v10",
+  "id": "lp3.inference.l1.R.where_am_i.v10r",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "inference",
@@ -4605,7 +4605,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_1_phase_2",
-  "form": "A",
+  "form": "R",
   "itemType": "inference_cell",
   "itemKey": "where_am_i",
   "formatType": "COMPREHENSION",
@@ -4614,25 +4614,15 @@ export const questions = [
   "prompt": "Where are they?",
   "question": "Where are they?",
   "spokenPrompt": "Where are they?",
-  "passage": "Everything here had a price sticker and a tall stack of cans. A voice announced that spilled grapes were being cleaned on aisle four. Mom checked the last thing off her list and steered the rattling cart toward the shortest line.",
+  "passage": "Mom pushed a cart past rows of tinned food. She added milk and grapes. Every item had a price label. Then she joined the line at the checkout.",
   "cell": "where_am_i",
   "choices": [
-   "a kitchen",
-   "a garage",
    "a grocery store",
-   "a street market"
+   "a street market",
+   "a kitchen",
+   "a garage"
   ],
   "answerOptions": [
-   {
-    "value": "a kitchen",
-    "label": "a kitchen",
-    "text": "a kitchen"
-   },
-   {
-    "value": "a garage",
-    "label": "a garage",
-    "text": "a garage"
-   },
    {
     "value": "a grocery store",
     "label": "a grocery store",
@@ -4642,20 +4632,30 @@ export const questions = [
     "value": "a street market",
     "label": "a street market",
     "text": "a street market"
+   },
+   {
+    "value": "a kitchen",
+    "label": "a kitchen",
+    "text": "a kitchen"
+   },
+   {
+    "value": "a garage",
+    "label": "a garage",
+    "text": "a garage"
    }
   ],
   "answer": "a grocery store",
   "correctAnswer": "a grocery store",
   "distractorRationales": {
+   "a street market": "D-TOPIC-ADJACENT",
    "a kitchen": "D-PLAUSIBLE-UNSUPPORTED",
-   "a garage": "D-OPPOSITE",
-   "a street market": "D-TOPIC-ADJACENT"
+   "a garage": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": false,
-  "evidenceRole": "mastery",
+  "retentionOnly": true,
+  "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
@@ -4664,11 +4664,11 @@ export const questions = [
    "cards": false
   },
   "assessmentMediaDecision": {
-   "itemId": "lp3.inference.l1.A.where_am_i.v10",
+   "itemId": "lp3.inference.l1.R.where_am_i.v10r",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",
-   "answerNeutral": "approved-empty-setting"
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -4704,42 +4704,42 @@ export const questions = [
   "prompt": "What will most likely happen next?",
   "question": "What will most likely happen next?",
   "spokenPrompt": "What will most likely happen next?",
-  "passage": "Kip's tummy growled in the quiet classroom, loud as a bear. The clock said one minute until the lunch bell. He slid his workbook into his tray and looked at the door.",
+  "passage": "Kip's tummy growled during class. The lunch bell was about to ring. He put his book away. He held his lunchbox and watched the door.",
   "cell": "what_happens_next",
   "choices": [
-   "Kip will fall asleep",
-   "Kip will go to lunch when the bell rings",
-   "Kip will sit in the quiet classroom doing worksheets",
-   "Kip will go home for the day"
+   "Kip will stay sitting after the lunch bell",
+   "Kip will leave to eat his meal",
+   "Kip will put his lunchbox away unopened",
+   "Kip will take his book home for the day"
   ],
   "answerOptions": [
    {
-    "value": "Kip will fall asleep",
-    "label": "Kip will fall asleep",
-    "text": "Kip will fall asleep"
+    "value": "Kip will stay sitting after the lunch bell",
+    "label": "Kip will stay sitting after the lunch bell",
+    "text": "Kip will stay sitting after the lunch bell"
    },
    {
-    "value": "Kip will go to lunch when the bell rings",
-    "label": "Kip will go to lunch when the bell rings",
-    "text": "Kip will go to lunch when the bell rings"
+    "value": "Kip will leave to eat his meal",
+    "label": "Kip will leave to eat his meal",
+    "text": "Kip will leave to eat his meal"
    },
    {
-    "value": "Kip will sit in the quiet classroom doing worksheets",
-    "label": "Kip will sit in the quiet classroom doing worksheets",
-    "text": "Kip will sit in the quiet classroom doing worksheets"
+    "value": "Kip will put his lunchbox away unopened",
+    "label": "Kip will put his lunchbox away unopened",
+    "text": "Kip will put his lunchbox away unopened"
    },
    {
-    "value": "Kip will go home for the day",
-    "label": "Kip will go home for the day",
-    "text": "Kip will go home for the day"
+    "value": "Kip will take his book home for the day",
+    "label": "Kip will take his book home for the day",
+    "text": "Kip will take his book home for the day"
    }
   ],
-  "answer": "Kip will go to lunch when the bell rings",
-  "correctAnswer": "Kip will go to lunch when the bell rings",
+  "answer": "Kip will leave to eat his meal",
+  "correctAnswer": "Kip will leave to eat his meal",
   "distractorRationales": {
-   "Kip will sit in the quiet classroom doing worksheets": "D-OPPOSITE",
-   "Kip will go home for the day": "D-PLAUSIBLE-UNSUPPORTED",
-   "Kip will fall asleep": "D-PLAUSIBLE-UNSUPPORTED"
+   "Kip will put his lunchbox away unopened": "D-PLAUSIBLE-UNSUPPORTED",
+   "Kip will take his book home for the day": "D-PLAUSIBLE-UNSUPPORTED",
+   "Kip will stay sitting after the lunch bell": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4794,7 +4794,7 @@ export const questions = [
   "prompt": "What will Josh most likely do?",
   "question": "What will Josh most likely do?",
   "spokenPrompt": "What will Josh most likely do?",
-  "passage": "Snow had fallen all night, thick and perfect. Two carrots, a scarf, and a bag of black buttons waited by the back door. Josh pulled on his mittens and pushed the door open into the white yard.",
+  "passage": "Fresh snow covered the garden. Josh took a carrot, scarf, and buttons outside. He rolled a large snowball. Then he began rolling a smaller one.",
   "cell": "what_happens_next",
   "choices": [
    "go back to bed",
@@ -4884,7 +4884,7 @@ export const questions = [
   "prompt": "How did Ola feel about the slide by the end?",
   "question": "How did Ola feel about the slide by the end?",
   "spokenPrompt": "How did Ola feel about the slide by the end?",
-  "passage": "It was Ola's turn on the tall slide at last. From the top, the ground looked very far away. She gripped the rail, sang her favorite song under her breath, and let go. At the bottom she shouted, 'AGAIN!'",
+  "passage": "Ola waited at the top of the tall slide. She gripped the rail and took a breath. Then she let go. At the bottom, she shouted for another turn.",
   "cell": "feeling_from_evidence",
   "choices": [
    "too scared to try again",
@@ -4974,7 +4974,7 @@ export const questions = [
   "prompt": "Where does this take place?",
   "question": "Where does this take place?",
   "spokenPrompt": "Where does this take place?",
-  "passage": "White coats hurried past on soft shoes. A machine somewhere beeped a steady, patient beep. Grandma sat up in the high bed and smiled at the grapes they had brought her.",
+  "passage": "Grandma sat up in a bed with tall sides. A nurse came to check her bandage. A machine beside the bed beeped steadily. The doctor said Grandma could go home tomorrow.",
   "cell": "where_am_i",
   "choices": [
    "a hospital",
@@ -5042,7 +5042,7 @@ export const questions = [
   "notes": ""
  },
  {
-  "id": "lp3.inference.l2.C.why_did_they.v9",
+  "id": "lp3.inference.l2.R.why_did_they.v9r",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "inference",
@@ -5055,7 +5055,7 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_2_phase_1",
-  "form": "C",
+  "form": "R",
   "itemType": "inference_cell",
   "itemKey": "why_did_they",
   "formatType": "COMPREHENSION",
@@ -5064,20 +5064,15 @@ export const questions = [
   "prompt": "Why did Ade hide the dinosaur?",
   "question": "Why did Ade hide the dinosaur?",
   "spokenPrompt": "Why did Ade hide the dinosaur?",
-  "passage": "Half an hour before the guests arrived, Ade hid his favorite dinosaur under his pillow. His baby cousins were coming, and last time, the smallest one had chewed the tail of his second-favorite dinosaur into a soggy stump.",
+  "passage": "Ade hid his favourite toy dinosaur before his baby cousins arrived. On their last visit, a cousin chewed another dinosaur's tail. Ade checked that the hidden toy was out of reach. Then he took out a box of soft baby toys.",
   "cell": "why_did_they",
   "choices": [
-   "he wanted to sleep with it",
    "to keep it safe from his little cousins",
    "he was tired of dinosaurs",
-   "his mom told him to clean his whole room"
+   "his mom told him to clean his whole room",
+   "he wanted to sleep with it"
   ],
   "answerOptions": [
-   {
-    "value": "he wanted to sleep with it",
-    "label": "he wanted to sleep with it",
-    "text": "he wanted to sleep with it"
-   },
    {
     "value": "to keep it safe from his little cousins",
     "label": "to keep it safe from his little cousins",
@@ -5092,20 +5087,25 @@ export const questions = [
     "value": "his mom told him to clean his whole room",
     "label": "his mom told him to clean his whole room",
     "text": "his mom told him to clean his whole room"
+   },
+   {
+    "value": "he wanted to sleep with it",
+    "label": "he wanted to sleep with it",
+    "text": "he wanted to sleep with it"
    }
   ],
   "answer": "to keep it safe from his little cousins",
   "correctAnswer": "to keep it safe from his little cousins",
   "distractorRationales": {
+   "he was tired of dinosaurs": "D-OPPOSITE",
    "his mom told him to clean his whole room": "D-PLAUSIBLE-UNSUPPORTED",
-   "he wanted to sleep with it": "D-PLAUSIBLE-UNSUPPORTED",
-   "he was tired of dinosaurs": "D-OPPOSITE"
+   "he wanted to sleep with it": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": false,
-  "evidenceRole": "mastery",
+  "retentionOnly": true,
+  "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
@@ -5114,11 +5114,11 @@ export const questions = [
    "cards": false
   },
   "assessmentMediaDecision": {
-   "itemId": "lp3.inference.l2.C.why_did_they.v9",
+   "itemId": "lp3.inference.l2.R.why_did_they.v9r",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",
-   "answerNeutral": "approved-empty-setting"
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -5132,7 +5132,7 @@ export const questions = [
   "notes": ""
  },
  {
-  "id": "lp3.inference.l2.A.why_did_they.v10",
+  "id": "lp3.inference.l2.R.why_did_they.v10r",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "inference",
@@ -5145,7 +5145,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_2_phase_2",
-  "form": "A",
+  "form": "R",
   "itemType": "inference_cell",
   "itemKey": "why_did_they",
   "formatType": "COMPREHENSION",
@@ -5154,48 +5154,48 @@ export const questions = [
   "prompt": "Why did the owner most likely make these changes?",
   "question": "Why did the owner most likely make these changes?",
   "spokenPrompt": "Why did the owner most likely make these changes?",
-  "passage": "The cafe owner started opening one hour earlier, at six. She put out a basket of day-old rolls marked 'help yourself' and left the outside light on in the dark mornings. Sanitation workers, the mail carrier, and night-shift nurses began to wave through the window like old friends.",
+  "passage": "The cafe began opening at six instead of seven. Early workers often passed before other shops opened. The owner offered them free rolls and a warm seat. The workers began stopping there after their night shifts.",
   "cell": "why_did_they",
   "choices": [
-   "because she could not sleep",
-   "because the council made her",
-   "to look after the town's early workers",
-   "to sell her rolls for more money"
+   "to close the cafe before the workers arrived",
+   "to provide comfort for people working unusual hours",
+   "to sell the leftover rolls at a higher price",
+   "to stop the workers sitting inside the cafe"
   ],
   "answerOptions": [
    {
-    "value": "because she could not sleep",
-    "label": "because she could not sleep",
-    "text": "because she could not sleep"
+    "value": "to close the cafe before the workers arrived",
+    "label": "to close the cafe before the workers arrived",
+    "text": "to close the cafe before the workers arrived"
    },
    {
-    "value": "because the council made her",
-    "label": "because the council made her",
-    "text": "because the council made her"
+    "value": "to provide comfort for people working unusual hours",
+    "label": "to provide comfort for people working unusual hours",
+    "text": "to provide comfort for people working unusual hours"
    },
    {
-    "value": "to look after the town's early workers",
-    "label": "to look after the town's early workers",
-    "text": "to look after the town's early workers"
+    "value": "to sell the leftover rolls at a higher price",
+    "label": "to sell the leftover rolls at a higher price",
+    "text": "to sell the leftover rolls at a higher price"
    },
    {
-    "value": "to sell her rolls for more money",
-    "label": "to sell her rolls for more money",
-    "text": "to sell her rolls for more money"
+    "value": "to stop the workers sitting inside the cafe",
+    "label": "to stop the workers sitting inside the cafe",
+    "text": "to stop the workers sitting inside the cafe"
    }
   ],
-  "answer": "to look after the town's early workers",
-  "correctAnswer": "to look after the town's early workers",
+  "answer": "to provide comfort for people working unusual hours",
+  "correctAnswer": "to provide comfort for people working unusual hours",
   "distractorRationales": {
-   "to sell her rolls for more money": "D-OPPOSITE",
-   "because she could not sleep": "D-PLAUSIBLE-UNSUPPORTED",
-   "because the council made her": "D-PLAUSIBLE-UNSUPPORTED"
+   "to close the cafe before the workers arrived": "D-OPPOSITE",
+   "to sell the leftover rolls at a higher price": "D-PLAUSIBLE-UNSUPPORTED",
+   "to stop the workers sitting inside the cafe": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": false,
-  "evidenceRole": "mastery",
+  "retentionOnly": true,
+  "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
@@ -5204,11 +5204,11 @@ export const questions = [
    "cards": false
   },
   "assessmentMediaDecision": {
-   "itemId": "lp3.inference.l2.A.why_did_they.v10",
+   "itemId": "lp3.inference.l2.R.why_did_they.v10r",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",
-   "answerNeutral": "approved-empty-setting"
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -5222,7 +5222,7 @@ export const questions = [
   "notes": ""
  },
  {
-  "id": "lp3.inference.l2.C.what_went_unsaid.v9",
+  "id": "lp3.inference.l2.R.what_went_unsaid.v9r",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "inference",
@@ -5235,7 +5235,7 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_2_phase_1",
-  "form": "C",
+  "form": "R",
   "itemType": "inference_cell",
   "itemKey": "what_went_unsaid",
   "formatType": "COMPREHENSION",
@@ -5244,7 +5244,7 @@ export const questions = [
   "prompt": "What must have happened?",
   "question": "What must have happened?",
   "spokenPrompt": "What must have happened?",
-  "passage": "The trail of tiny muddy paw prints began at the cat flap. It crossed the clean kitchen floor, climbed impossibly onto the counter, and ended in the middle of the fresh white birthday cake — where one candle now leaned at a guilty angle.",
+  "passage": "Small muddy paw prints led from the cat flap. They crossed the kitchen floor and went onto a chair. More prints marked the table and the cake. The cat was licking cream from one paw.",
   "cell": "what_went_unsaid",
   "choices": [
    "the baker made the cake wrong",
@@ -5277,15 +5277,15 @@ export const questions = [
   "answer": "the cat walked through mud and over the cake",
   "correctAnswer": "the cat walked through mud and over the cake",
   "distractorRationales": {
+   "the baker made the cake wrong": "D-OPPOSITE",
    "a candle fell by itself": "D-DETAIL-AS-MAIN",
-   "someone dropped the birthday cake on the floor": "D-PLAUSIBLE-UNSUPPORTED",
-   "the baker made the cake wrong": "D-OPPOSITE"
+   "someone dropped the birthday cake on the floor": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": false,
-  "evidenceRole": "mastery",
+  "retentionOnly": true,
+  "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
@@ -5294,11 +5294,11 @@ export const questions = [
    "cards": false
   },
   "assessmentMediaDecision": {
-   "itemId": "lp3.inference.l2.C.what_went_unsaid.v9",
+   "itemId": "lp3.inference.l2.R.what_went_unsaid.v9r",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",
-   "answerNeutral": "approved-empty-setting"
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -5312,7 +5312,7 @@ export const questions = [
   "notes": ""
  },
  {
-  "id": "lp3.inference.l2.A.what_went_unsaid.v10",
+  "id": "lp3.inference.l2.R.what_went_unsaid.v10r",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "inference",
@@ -5325,7 +5325,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_2_phase_2",
-  "form": "A",
+  "form": "R",
   "itemType": "inference_cell",
   "itemKey": "what_went_unsaid",
   "formatType": "COMPREHENSION",
@@ -5334,48 +5334,48 @@ export const questions = [
   "prompt": "What is Dad most likely hiding?",
   "question": "What is Dad most likely hiding?",
   "spokenPrompt": "What is Dad most likely hiding?",
-  "passage": "Dad came home from the community garden whistling, which he never did. His muddy bag, usually flat, bulged in one huge round shape. He hid it behind his back through the kitchen, then asked, far too casually, 'Is the community fair still on Saturday?'",
+  "passage": "Dad came home from his vegetable patch with a bulging bag. A huge round orange shape showed through the thin cloth. He found the entry form for the biggest pumpkin contest. Then he carried the bag carefully to the scales.",
   "cell": "what_went_unsaid",
   "choices": [
-   "his usual flat and empty muddy bag",
-   "a lost kitten",
-   "his gardening gloves",
-   "a giant vegetable he grew for the show"
+   "a new orange football from a sports shop",
+   "a sack of small potatoes for his dinner",
+   "a pile of tools for digging his patch",
+   "a very large pumpkin from his garden"
   ],
   "answerOptions": [
    {
-    "value": "his usual flat and empty muddy bag",
-    "label": "his usual flat and empty muddy bag",
-    "text": "his usual flat and empty muddy bag"
+    "value": "a new orange football from a sports shop",
+    "label": "a new orange football from a sports shop",
+    "text": "a new orange football from a sports shop"
    },
    {
-    "value": "a lost kitten",
-    "label": "a lost kitten",
-    "text": "a lost kitten"
+    "value": "a sack of small potatoes for his dinner",
+    "label": "a sack of small potatoes for his dinner",
+    "text": "a sack of small potatoes for his dinner"
    },
    {
-    "value": "his gardening gloves",
-    "label": "his gardening gloves",
-    "text": "his gardening gloves"
+    "value": "a pile of tools for digging his patch",
+    "label": "a pile of tools for digging his patch",
+    "text": "a pile of tools for digging his patch"
    },
    {
-    "value": "a giant vegetable he grew for the show",
-    "label": "a giant vegetable he grew for the show",
-    "text": "a giant vegetable he grew for the show"
+    "value": "a very large pumpkin from his garden",
+    "label": "a very large pumpkin from his garden",
+    "text": "a very large pumpkin from his garden"
    }
   ],
-  "answer": "a giant vegetable he grew for the show",
-  "correctAnswer": "a giant vegetable he grew for the show",
+  "answer": "a very large pumpkin from his garden",
+  "correctAnswer": "a very large pumpkin from his garden",
   "distractorRationales": {
-   "his gardening gloves": "D-PLAUSIBLE-UNSUPPORTED",
-   "his usual flat and empty muddy bag": "D-OPPOSITE",
-   "a lost kitten": "D-PLAUSIBLE-UNSUPPORTED"
+   "a sack of small potatoes for his dinner": "D-PLAUSIBLE-UNSUPPORTED",
+   "a pile of tools for digging his patch": "D-OPPOSITE",
+   "a new orange football from a sports shop": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": false,
-  "evidenceRole": "mastery",
+  "retentionOnly": true,
+  "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
@@ -5384,11 +5384,11 @@ export const questions = [
    "cards": false
   },
   "assessmentMediaDecision": {
-   "itemId": "lp3.inference.l2.A.what_went_unsaid.v10",
+   "itemId": "lp3.inference.l2.R.what_went_unsaid.v10r",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",
-   "answerNeutral": "approved-empty-setting"
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -5424,42 +5424,42 @@ export const questions = [
   "prompt": "Which detail best shows that Sol cared about the lambs?",
   "question": "Which detail best shows that Sol cared about the lambs?",
   "spokenPrompt": "Which detail best shows that Sol cared about the lambs?",
-  "passage": "Sol said the baby lambs were 'fine, whatever.' But he was first up in the cold every morning to warm their bottles. He gave up Saturday soccer when the smallest lamb was sick, and he kept a photo of it standing up for the first time.",
+  "passage": "Sol said the lambs were fine, but not very interesting. Yet he rose early every day to warm their bottles. He wore his old coat in the cold barn. His football boots stood beside the door.",
   "cell": "evidence_pick",
   "choices": [
-   "he was first up every morning to warm their bottles",
-   "he said the baby lambs were fine, whatever",
-   "there was soccer on Saturday",
-   "mornings were cold"
+   "Sol woke early to prepare their milk every day",
+   "Sol said the lambs were not very interesting",
+   "Sol wore his old coat in the cold barn",
+   "Sol kept his football boots beside the door"
   ],
   "answerOptions": [
    {
-    "value": "he was first up every morning to warm their bottles",
-    "label": "he was first up every morning to warm their bottles",
-    "text": "he was first up every morning to warm their bottles"
+    "value": "Sol woke early to prepare their milk every day",
+    "label": "Sol woke early to prepare their milk every day",
+    "text": "Sol woke early to prepare their milk every day"
    },
    {
-    "value": "he said the baby lambs were fine, whatever",
-    "label": "he said the baby lambs were fine, whatever",
-    "text": "he said the baby lambs were fine, whatever"
+    "value": "Sol said the lambs were not very interesting",
+    "label": "Sol said the lambs were not very interesting",
+    "text": "Sol said the lambs were not very interesting"
    },
    {
-    "value": "there was soccer on Saturday",
-    "label": "there was soccer on Saturday",
-    "text": "there was soccer on Saturday"
+    "value": "Sol wore his old coat in the cold barn",
+    "label": "Sol wore his old coat in the cold barn",
+    "text": "Sol wore his old coat in the cold barn"
    },
    {
-    "value": "mornings were cold",
-    "label": "mornings were cold",
-    "text": "mornings were cold"
+    "value": "Sol kept his football boots beside the door",
+    "label": "Sol kept his football boots beside the door",
+    "text": "Sol kept his football boots beside the door"
    }
   ],
-  "answer": "he was first up every morning to warm their bottles",
-  "correctAnswer": "he was first up every morning to warm their bottles",
+  "answer": "Sol woke early to prepare their milk every day",
+  "correctAnswer": "Sol woke early to prepare their milk every day",
   "distractorRationales": {
-   "mornings were cold": "D-DETAIL-AS-MAIN",
-   "he said the baby lambs were fine, whatever": "D-OPPOSITE",
-   "there was soccer on Saturday": "D-DETAIL-AS-MAIN"
+   "Sol kept his football boots beside the door": "D-OPPOSITE",
+   "Sol said the lambs were not very interesting": "D-PLAUSIBLE-UNSUPPORTED",
+   "Sol wore his old coat in the cold barn": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5514,42 +5514,42 @@ export const questions = [
   "prompt": "Which detail shows someone expected to catch a mouse?",
   "question": "Which detail shows someone expected to catch a mouse?",
   "spokenPrompt": "Which detail shows someone expected to catch a mouse?",
-  "passage": "The principal announced that the school definitely did not have a mouse. Meanwhile, the custodian carried a humane trap and a jar of peanut butter toward the storage room. In the kitchen, the cook continued rolling bread dough below the flour shelf.",
+  "passage": "The principal said the school had no mice. The caretaker carried a mouse trap toward the store room. He put peanut butter in it and set it down. The cook rolled bread dough in the kitchen.",
   "cell": "evidence_pick",
   "choices": [
-   "the cook rolled bread dough",
-   "the caretaker brought bait and catching equipment",
-   "the principal said the school had no mouse",
-   "the school had a storage room"
+   "the caretaker walked along the hall toward a room",
+   "the caretaker set a trap with food in it",
+   "the principal said there were no mice at school",
+   "the cook continued rolling bread dough in the kitchen"
   ],
   "answerOptions": [
    {
-    "value": "the cook rolled bread dough",
-    "label": "the cook rolled bread dough",
-    "text": "the cook rolled bread dough"
+    "value": "the caretaker walked along the hall toward a room",
+    "label": "the caretaker walked along the hall toward a room",
+    "text": "the caretaker walked along the hall toward a room"
    },
    {
-    "value": "the caretaker brought bait and catching equipment",
-    "label": "the caretaker brought bait and catching equipment",
-    "text": "the caretaker brought bait and catching equipment"
+    "value": "the caretaker set a trap with food in it",
+    "label": "the caretaker set a trap with food in it",
+    "text": "the caretaker set a trap with food in it"
    },
    {
-    "value": "the principal said the school had no mouse",
-    "label": "the principal said the school had no mouse",
-    "text": "the principal said the school had no mouse"
+    "value": "the principal said there were no mice at school",
+    "label": "the principal said there were no mice at school",
+    "text": "the principal said there were no mice at school"
    },
    {
-    "value": "the school had a storage room",
-    "label": "the school had a storage room",
-    "text": "the school had a storage room"
+    "value": "the cook continued rolling bread dough in the kitchen",
+    "label": "the cook continued rolling bread dough in the kitchen",
+    "text": "the cook continued rolling bread dough in the kitchen"
    }
   ],
-  "answer": "the caretaker brought bait and catching equipment",
-  "correctAnswer": "the caretaker brought bait and catching equipment",
+  "answer": "the caretaker set a trap with food in it",
+  "correctAnswer": "the caretaker set a trap with food in it",
   "distractorRationales": {
-   "the principal said the school had no mouse": "D-OPPOSITE",
-   "the school had a storage room": "D-DETAIL-AS-MAIN",
-   "the cook rolled bread dough": "D-DETAIL-AS-MAIN"
+   "the principal said there were no mice at school": "D-PLAUSIBLE-UNSUPPORTED",
+   "the cook continued rolling bread dough in the kitchen": "D-PLAUSIBLE-UNSUPPORTED",
+   "the caretaker walked along the hall toward a room": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5604,7 +5604,7 @@ export const questions = [
   "prompt": "Why did Nina wrap the book?",
   "question": "Why did Nina wrap the book?",
   "spokenPrompt": "Why did Nina wrap the book?",
-  "passage": "Nina wrapped her library book in a plastic bag before putting it in her backpack, even though the sky was blue. Her water bottle had leaked once before and soaked her spelling homework. The librarian had reminded the class that books must stay dry.",
+  "passage": "Nina's water bottle once leaked and soaked her homework. Today she wrapped a library book in a waterproof bag. She put it beside the same bottle in her backpack. The sky was clear, and she would travel by car.",
   "cell": "why_did_they",
   "choices": [
    "to hide the book from her friends",
@@ -5694,7 +5694,7 @@ export const questions = [
   "prompt": "What makes the plants lean?",
   "question": "What makes the plants lean?",
   "spokenPrompt": "What makes the plants lean?",
-  "passage": "Every plant on the windowsill leaned toward the same side. The cactus alone stood straight. Grandma turned each pot halfway around, and by the next week, the other plants were leaning toward the window again.",
+  "passage": "The plants leaned toward the only bright window. Grandma turned their pots so they faced away. A week later, new growth bent back toward that window. Nothing had pushed the stems, and no breeze entered the room.",
   "cell": "what_went_unsaid",
   "choices": [
    "Grandma turning the pots knocks each plant sideways",
@@ -5760,5 +5760,1445 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": ""
+ },
+ {
+  "id": "lp3.inference.l1.A.feeling_from_evidence.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "feeling_from_evidence",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "How does Maya most likely feel?",
+  "question": "How does Maya most likely feel?",
+  "spokenPrompt": "How does Maya most likely feel?",
+  "passage": "Maya tried to join the same pieces five times. Each time, her model fell apart. She sighed loudly and pushed the pieces away.",
+  "cell": "feeling_from_evidence",
+  "choices": [
+   "calm",
+   "frustrated",
+   "grateful",
+   "jealous"
+  ],
+  "answerOptions": [
+   {
+    "value": "calm",
+    "label": "calm",
+    "text": "calm"
+   },
+   {
+    "value": "frustrated",
+    "label": "frustrated",
+    "text": "frustrated"
+   },
+   {
+    "value": "grateful",
+    "label": "grateful",
+    "text": "grateful"
+   },
+   {
+    "value": "jealous",
+    "label": "jealous",
+    "text": "jealous"
+   }
+  ],
+  "answer": "frustrated",
+  "correctAnswer": "frustrated",
+  "distractorRationales": {
+   "jealous": "D-PLAUSIBLE-UNSUPPORTED",
+   "calm": "D-OPPOSITE",
+   "grateful": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.feeling_from_evidence.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.inference.l1.A.feeling_from_evidence.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "feeling_from_evidence",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "How does Luis most likely feel?",
+  "question": "How does Luis most likely feel?",
+  "spokenPrompt": "How does Luis most likely feel?",
+  "passage": "A strange tapping came from the empty box. Luis tilted his head and moved closer. He asked what could be making the sound.",
+  "cell": "feeling_from_evidence",
+  "choices": [
+   "disappointed",
+   "lonely",
+   "curious",
+   "proud"
+  ],
+  "answerOptions": [
+   {
+    "value": "disappointed",
+    "label": "disappointed",
+    "text": "disappointed"
+   },
+   {
+    "value": "lonely",
+    "label": "lonely",
+    "text": "lonely"
+   },
+   {
+    "value": "curious",
+    "label": "curious",
+    "text": "curious"
+   },
+   {
+    "value": "proud",
+    "label": "proud",
+    "text": "proud"
+   }
+  ],
+  "answer": "curious",
+  "correctAnswer": "curious",
+  "distractorRationales": {
+   "proud": "D-PLAUSIBLE-UNSUPPORTED",
+   "disappointed": "D-PLAUSIBLE-UNSUPPORTED",
+   "lonely": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.feeling_from_evidence.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.inference.l1.A.where_am_i.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "where_am_i",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Where are we most likely?",
+  "question": "Where are we most likely?",
+  "spokenPrompt": "Where are we most likely?",
+  "passage": "A worker checked our tickets at the tall gate. We found numbered seats around a huge playing field. Two teams ran out as the crowd cheered.",
+  "cell": "where_am_i",
+  "choices": [
+   "at a swimming lesson",
+   "at a cinema entrance",
+   "at a school library",
+   "at a sports stadium"
+  ],
+  "answerOptions": [
+   {
+    "value": "at a swimming lesson",
+    "label": "at a swimming lesson",
+    "text": "at a swimming lesson"
+   },
+   {
+    "value": "at a cinema entrance",
+    "label": "at a cinema entrance",
+    "text": "at a cinema entrance"
+   },
+   {
+    "value": "at a school library",
+    "label": "at a school library",
+    "text": "at a school library"
+   },
+   {
+    "value": "at a sports stadium",
+    "label": "at a sports stadium",
+    "text": "at a sports stadium"
+   }
+  ],
+  "answer": "at a sports stadium",
+  "correctAnswer": "at a sports stadium",
+  "distractorRationales": {
+   "at a swimming lesson": "D-PLAUSIBLE-UNSUPPORTED",
+   "at a cinema entrance": "D-PLAUSIBLE-UNSUPPORTED",
+   "at a school library": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.where_am_i.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.inference.l1.A.what_happens_next.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "what_happens_next",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What will Jo most likely do next?",
+  "question": "What will Jo most likely do next?",
+  "spokenPrompt": "What will Jo most likely do next?",
+  "passage": "The page tore as Jo turned it. She found clear tape and small scissors. She placed the torn edges neatly together.",
+  "cell": "what_happens_next",
+  "choices": [
+   "repair the damaged sheet",
+   "cut the torn page into strips",
+   "put the clear tape away untouched",
+   "close the torn book without fixing it"
+  ],
+  "answerOptions": [
+   {
+    "value": "repair the damaged sheet",
+    "label": "repair the damaged sheet",
+    "text": "repair the damaged sheet"
+   },
+   {
+    "value": "cut the torn page into strips",
+    "label": "cut the torn page into strips",
+    "text": "cut the torn page into strips"
+   },
+   {
+    "value": "put the clear tape away untouched",
+    "label": "put the clear tape away untouched",
+    "text": "put the clear tape away untouched"
+   },
+   {
+    "value": "close the torn book without fixing it",
+    "label": "close the torn book without fixing it",
+    "text": "close the torn book without fixing it"
+   }
+  ],
+  "answer": "repair the damaged sheet",
+  "correctAnswer": "repair the damaged sheet",
+  "distractorRationales": {
+   "cut the torn page into strips": "D-PLAUSIBLE-UNSUPPORTED",
+   "put the clear tape away untouched": "D-PLAUSIBLE-UNSUPPORTED",
+   "close the torn book without fixing it": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.what_happens_next.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.inference.l1.A.feeling_from_evidence.v22",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "feeling_from_evidence",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "How does Ari most likely feel?",
+  "question": "How does Ari most likely feel?",
+  "spokenPrompt": "How does Ari most likely feel?",
+  "passage": "Ari waved at someone he thought was his uncle. The stranger looked puzzled. Ari’s cheeks grew hot, and he looked down.",
+  "cell": "feeling_from_evidence",
+  "choices": [
+   "jealous",
+   "embarrassed",
+   "excited",
+   "grateful"
+  ],
+  "answerOptions": [
+   {
+    "value": "jealous",
+    "label": "jealous",
+    "text": "jealous"
+   },
+   {
+    "value": "embarrassed",
+    "label": "embarrassed",
+    "text": "embarrassed"
+   },
+   {
+    "value": "excited",
+    "label": "excited",
+    "text": "excited"
+   },
+   {
+    "value": "grateful",
+    "label": "grateful",
+    "text": "grateful"
+   }
+  ],
+  "answer": "embarrassed",
+  "correctAnswer": "embarrassed",
+  "distractorRationales": {
+   "excited": "D-PLAUSIBLE-UNSUPPORTED",
+   "grateful": "D-PLAUSIBLE-UNSUPPORTED",
+   "jealous": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.feeling_from_evidence.v22",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.inference.l1.A.feeling_from_evidence.v23",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "feeling_from_evidence",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "How does Lea most likely feel?",
+  "question": "How does Lea most likely feel?",
+  "spokenPrompt": "How does Lea most likely feel?",
+  "passage": "Lea’s neighbour found her lost bracelet. Lea held it tightly and smiled at him. She thanked him twice and offered a hug.",
+  "cell": "feeling_from_evidence",
+  "choices": [
+   "jealous",
+   "bored",
+   "grateful",
+   "frightened"
+  ],
+  "answerOptions": [
+   {
+    "value": "jealous",
+    "label": "jealous",
+    "text": "jealous"
+   },
+   {
+    "value": "bored",
+    "label": "bored",
+    "text": "bored"
+   },
+   {
+    "value": "grateful",
+    "label": "grateful",
+    "text": "grateful"
+   },
+   {
+    "value": "frightened",
+    "label": "frightened",
+    "text": "frightened"
+   }
+  ],
+  "answer": "grateful",
+  "correctAnswer": "grateful",
+  "distractorRationales": {
+   "bored": "D-OPPOSITE",
+   "frightened": "D-PLAUSIBLE-UNSUPPORTED",
+   "jealous": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.feeling_from_evidence.v23",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.inference.l1.A.where_am_i.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "where_am_i",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Where is this most likely?",
+  "question": "Where is this most likely?",
+  "spokenPrompt": "Where is this most likely?",
+  "passage": "Rows of tomato plants grew under a glass roof. It felt warm, though frost covered the ground outside. A gardener opened a roof vent.",
+  "cell": "where_am_i",
+  "choices": [
+   "inside a fruit shop",
+   "inside a garden shed",
+   "inside a kitchen",
+   "inside a greenhouse"
+  ],
+  "answerOptions": [
+   {
+    "value": "inside a fruit shop",
+    "label": "inside a fruit shop",
+    "text": "inside a fruit shop"
+   },
+   {
+    "value": "inside a garden shed",
+    "label": "inside a garden shed",
+    "text": "inside a garden shed"
+   },
+   {
+    "value": "inside a kitchen",
+    "label": "inside a kitchen",
+    "text": "inside a kitchen"
+   },
+   {
+    "value": "inside a greenhouse",
+    "label": "inside a greenhouse",
+    "text": "inside a greenhouse"
+   }
+  ],
+  "answer": "inside a greenhouse",
+  "correctAnswer": "inside a greenhouse",
+  "distractorRationales": {
+   "inside a garden shed": "D-PLAUSIBLE-UNSUPPORTED",
+   "inside a kitchen": "D-OPPOSITE",
+   "inside a fruit shop": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.where_am_i.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.inference.l1.A.what_happens_next.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "what_happens_next",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What will Dad most likely do next?",
+  "question": "What will Dad most likely do next?",
+  "spokenPrompt": "What will Dad most likely do next?",
+  "passage": "The wind blew a kite into a low branch. Mai could not reach its string. Dad fetched a long pole and walked over.",
+  "cell": "what_happens_next",
+  "choices": [
+   "try to free the kite",
+   "paint the garden fence",
+   "fly a second kite",
+   "plant a new tree"
+  ],
+  "answerOptions": [
+   {
+    "value": "try to free the kite",
+    "label": "try to free the kite",
+    "text": "try to free the kite"
+   },
+   {
+    "value": "paint the garden fence",
+    "label": "paint the garden fence",
+    "text": "paint the garden fence"
+   },
+   {
+    "value": "fly a second kite",
+    "label": "fly a second kite",
+    "text": "fly a second kite"
+   },
+   {
+    "value": "plant a new tree",
+    "label": "plant a new tree",
+    "text": "plant a new tree"
+   }
+  ],
+  "answer": "try to free the kite",
+  "correctAnswer": "try to free the kite",
+  "distractorRationales": {
+   "fly a second kite": "D-PLAUSIBLE-UNSUPPORTED",
+   "plant a new tree": "D-OPPOSITE",
+   "paint the garden fence": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.what_happens_next.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.inference.l2.A.why_did_they.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "why_did_they",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Why did Mina add the bells?",
+  "question": "Why did Mina add the bells?",
+  "spokenPrompt": "Why did Mina add the bells?",
+  "passage": "Mina put small bells on the kitten’s collar. The kitten was tiny and often hid silently behind large furniture. Now Mina could hear it even when she could not see it.",
+  "cell": "why_did_they",
+  "choices": [
+   "to make the kitten sleep throughout the day",
+   "to stop the kitten from growing any larger",
+   "to locate the kitten when it was hidden",
+   "to teach the kitten to climb the furniture"
+  ],
+  "answerOptions": [
+   {
+    "value": "to make the kitten sleep throughout the day",
+    "label": "to make the kitten sleep throughout the day",
+    "text": "to make the kitten sleep throughout the day"
+   },
+   {
+    "value": "to stop the kitten from growing any larger",
+    "label": "to stop the kitten from growing any larger",
+    "text": "to stop the kitten from growing any larger"
+   },
+   {
+    "value": "to locate the kitten when it was hidden",
+    "label": "to locate the kitten when it was hidden",
+    "text": "to locate the kitten when it was hidden"
+   },
+   {
+    "value": "to teach the kitten to climb the furniture",
+    "label": "to teach the kitten to climb the furniture",
+    "text": "to teach the kitten to climb the furniture"
+   }
+  ],
+  "answer": "to locate the kitten when it was hidden",
+  "correctAnswer": "to locate the kitten when it was hidden",
+  "distractorRationales": {
+   "to stop the kitten from growing any larger": "D-OPPOSITE",
+   "to teach the kitten to climb the furniture": "D-PLAUSIBLE-UNSUPPORTED",
+   "to make the kitten sleep throughout the day": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.why_did_they.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.inference.l2.A.what_went_unsaid.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "what_went_unsaid",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What did Pip most likely do?",
+  "question": "What did Pip most likely do?",
+  "spokenPrompt": "What did Pip most likely do?",
+  "passage": "The flour bag sat open beside white footprints on the floor. The prints led across the kitchen to Pip’s stool. His socks were dusted white, and his bowl held sticky dough.",
+  "cell": "what_went_unsaid",
+  "choices": [
+   "paint white marks onto the kitchen counter",
+   "leave his socks outside during a snowstorm",
+   "wash the counter without touching the flour",
+   "step in spilled flour while making dough"
+  ],
+  "answerOptions": [
+   {
+    "value": "paint white marks onto the kitchen counter",
+    "label": "paint white marks onto the kitchen counter",
+    "text": "paint white marks onto the kitchen counter"
+   },
+   {
+    "value": "leave his socks outside during a snowstorm",
+    "label": "leave his socks outside during a snowstorm",
+    "text": "leave his socks outside during a snowstorm"
+   },
+   {
+    "value": "wash the counter without touching the flour",
+    "label": "wash the counter without touching the flour",
+    "text": "wash the counter without touching the flour"
+   },
+   {
+    "value": "step in spilled flour while making dough",
+    "label": "step in spilled flour while making dough",
+    "text": "step in spilled flour while making dough"
+   }
+  ],
+  "answer": "step in spilled flour while making dough",
+  "correctAnswer": "step in spilled flour while making dough",
+  "distractorRationales": {
+   "paint white marks onto the kitchen counter": "D-PLAUSIBLE-UNSUPPORTED",
+   "leave his socks outside during a snowstorm": "D-PLAUSIBLE-UNSUPPORTED",
+   "wash the counter without touching the flour": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.what_went_unsaid.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.inference.l2.A.evidence_pick.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "evidence_pick",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which detail shows the old house still matters to Jas?",
+  "question": "Which detail shows the old house still matters to Jas?",
+  "spokenPrompt": "Which detail shows the old house still matters to Jas?",
+  "passage": "Jas said she was happy to leave the old house. Yet she kept its front-door key on a necklace. Each night she looked through photos of her old room. Her new home had a larger garden.",
+  "cell": "evidence_pick",
+  "choices": [
+   "she wears its old key as a keepsake",
+   "she says she is happy to leave it",
+   "her new home has a much larger garden",
+   "she has moved her things into another house"
+  ],
+  "answerOptions": [
+   {
+    "value": "she wears its old key as a keepsake",
+    "label": "she wears its old key as a keepsake",
+    "text": "she wears its old key as a keepsake"
+   },
+   {
+    "value": "she says she is happy to leave it",
+    "label": "she says she is happy to leave it",
+    "text": "she says she is happy to leave it"
+   },
+   {
+    "value": "her new home has a much larger garden",
+    "label": "her new home has a much larger garden",
+    "text": "her new home has a much larger garden"
+   },
+   {
+    "value": "she has moved her things into another house",
+    "label": "she has moved her things into another house",
+    "text": "she has moved her things into another house"
+   }
+  ],
+  "answer": "she wears its old key as a keepsake",
+  "correctAnswer": "she wears its old key as a keepsake",
+  "distractorRationales": {
+   "she has moved her things into another house": "D-OPPOSITE",
+   "she says she is happy to leave it": "D-PLAUSIBLE-UNSUPPORTED",
+   "her new home has a much larger garden": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.evidence_pick.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.inference.l2.A.why_did_they.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "why_did_they",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Why did they move the seedlings?",
+  "question": "Why did they move the seedlings?",
+  "spokenPrompt": "Why did they move the seedlings?",
+  "passage": "The class moved their seedlings away from the cold window overnight. Last week, leaves touching that glass had gone brown. Plants on the warmer shelf had stayed healthy.",
+  "cell": "why_did_they",
+  "choices": [
+   "to stop the healthy leaves from growing",
+   "to prevent damage from the cold glass",
+   "to hide the plants from the morning sun",
+   "to make space for seedlings needing frost"
+  ],
+  "answerOptions": [
+   {
+    "value": "to stop the healthy leaves from growing",
+    "label": "to stop the healthy leaves from growing",
+    "text": "to stop the healthy leaves from growing"
+   },
+   {
+    "value": "to prevent damage from the cold glass",
+    "label": "to prevent damage from the cold glass",
+    "text": "to prevent damage from the cold glass"
+   },
+   {
+    "value": "to hide the plants from the morning sun",
+    "label": "to hide the plants from the morning sun",
+    "text": "to hide the plants from the morning sun"
+   },
+   {
+    "value": "to make space for seedlings needing frost",
+    "label": "to make space for seedlings needing frost",
+    "text": "to make space for seedlings needing frost"
+   }
+  ],
+  "answer": "to prevent damage from the cold glass",
+  "correctAnswer": "to prevent damage from the cold glass",
+  "distractorRationales": {
+   "to hide the plants from the morning sun": "D-PLAUSIBLE-UNSUPPORTED",
+   "to make space for seedlings needing frost": "D-PLAUSIBLE-UNSUPPORTED",
+   "to stop the healthy leaves from growing": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.why_did_they.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.inference.l2.A.what_went_unsaid.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "what_went_unsaid",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What most likely damaged the drawing?",
+  "question": "What most likely damaged the drawing?",
+  "spokenPrompt": "What most likely damaged the drawing?",
+  "passage": "The chalk outline on the ground was wet and partly gone. Nearby, a bucket lay on its side in a spreading puddle. Dan held a dripping brush and looked at his ruined drawing.",
+  "cell": "what_went_unsaid",
+  "choices": [
+   "Dan drawing the outline with a different colour",
+   "sunlight making the chalk grow much darker",
+   "water spilling from the fallen bucket",
+   "someone rubbing it away with a dry cloth"
+  ],
+  "answerOptions": [
+   {
+    "value": "Dan drawing the outline with a different colour",
+    "label": "Dan drawing the outline with a different colour",
+    "text": "Dan drawing the outline with a different colour"
+   },
+   {
+    "value": "sunlight making the chalk grow much darker",
+    "label": "sunlight making the chalk grow much darker",
+    "text": "sunlight making the chalk grow much darker"
+   },
+   {
+    "value": "water spilling from the fallen bucket",
+    "label": "water spilling from the fallen bucket",
+    "text": "water spilling from the fallen bucket"
+   },
+   {
+    "value": "someone rubbing it away with a dry cloth",
+    "label": "someone rubbing it away with a dry cloth",
+    "text": "someone rubbing it away with a dry cloth"
+   }
+  ],
+  "answer": "water spilling from the fallen bucket",
+  "correctAnswer": "water spilling from the fallen bucket",
+  "distractorRationales": {
+   "sunlight making the chalk grow much darker": "D-OPPOSITE",
+   "someone rubbing it away with a dry cloth": "D-PLAUSIBLE-UNSUPPORTED",
+   "Dan drawing the outline with a different colour": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.what_went_unsaid.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.inference.l2.A.evidence_pick.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "evidence_pick",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which detail best shows Noel may want to join?",
+  "question": "Which detail best shows Noel may want to join?",
+  "spokenPrompt": "Which detail best shows Noel may want to join?",
+  "passage": "Noel said he had no interest in joining the band. But he learned the audition tune after school every day. The music room was beside the hall. The band rehearsed there on Tuesdays.",
+  "cell": "evidence_pick",
+  "choices": [
+   "he says he has no interest in joining the band",
+   "the music room stands beside the school’s main hall",
+   "the band rehearses together every Tuesday after school",
+   "he keeps practicing the tune needed for the audition"
+  ],
+  "answerOptions": [
+   {
+    "value": "he says he has no interest in joining the band",
+    "label": "he says he has no interest in joining the band",
+    "text": "he says he has no interest in joining the band"
+   },
+   {
+    "value": "the music room stands beside the school’s main hall",
+    "label": "the music room stands beside the school’s main hall",
+    "text": "the music room stands beside the school’s main hall"
+   },
+   {
+    "value": "the band rehearses together every Tuesday after school",
+    "label": "the band rehearses together every Tuesday after school",
+    "text": "the band rehearses together every Tuesday after school"
+   },
+   {
+    "value": "he keeps practicing the tune needed for the audition",
+    "label": "he keeps practicing the tune needed for the audition",
+    "text": "he keeps practicing the tune needed for the audition"
+   }
+  ],
+  "answer": "he keeps practicing the tune needed for the audition",
+  "correctAnswer": "he keeps practicing the tune needed for the audition",
+  "distractorRationales": {
+   "he says he has no interest in joining the band": "D-PLAUSIBLE-UNSUPPORTED",
+   "the music room stands beside the school’s main hall": "D-PLAUSIBLE-UNSUPPORTED",
+   "the band rehearses together every Tuesday after school": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.evidence_pick.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.inference.l2.A.why_did_they.v22",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "why_did_they",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Why did the guide count the children twice?",
+  "question": "Why did the guide count the children twice?",
+  "spokenPrompt": "Why did the guide count the children twice?",
+  "passage": "The guide counted the children before leaving the beach. She counted them again after everyone boarded the bus. One child had wandered behind a rock earlier that day.",
+  "cell": "why_did_they",
+  "choices": [
+   "to check that nobody was left behind",
+   "to decide who could sit near a window",
+   "to see which children had collected the most shells",
+   "to find out whether the bus was running late"
+  ],
+  "answerOptions": [
+   {
+    "value": "to check that nobody was left behind",
+    "label": "to check that nobody was left behind",
+    "text": "to check that nobody was left behind"
+   },
+   {
+    "value": "to decide who could sit near a window",
+    "label": "to decide who could sit near a window",
+    "text": "to decide who could sit near a window"
+   },
+   {
+    "value": "to see which children had collected the most shells",
+    "label": "to see which children had collected the most shells",
+    "text": "to see which children had collected the most shells"
+   },
+   {
+    "value": "to find out whether the bus was running late",
+    "label": "to find out whether the bus was running late",
+    "text": "to find out whether the bus was running late"
+   }
+  ],
+  "answer": "to check that nobody was left behind",
+  "correctAnswer": "to check that nobody was left behind",
+  "distractorRationales": {
+   "to decide who could sit near a window": "D-PLAUSIBLE-UNSUPPORTED",
+   "to see which children had collected the most shells": "D-PLAUSIBLE-UNSUPPORTED",
+   "to find out whether the bus was running late": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.why_did_they.v22",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.inference.l2.A.what_went_unsaid.v22",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "what_went_unsaid",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What most likely happened before Ada arrived?",
+  "question": "What most likely happened before Ada arrived?",
+  "spokenPrompt": "What most likely happened before Ada arrived?",
+  "passage": "The library’s floor was dry except for a trail from the door. Ada shook drops from her umbrella into the outside stand. Her coat was damp, and grey clouds filled the sky.",
+  "cell": "what_went_unsaid",
+  "choices": [
+   "she spilled a drink beside the book shelves",
+   "she walked through a shower of rain",
+   "she washed the library floor with a mop",
+   "she left her umbrella inside a warm cupboard"
+  ],
+  "answerOptions": [
+   {
+    "value": "she spilled a drink beside the book shelves",
+    "label": "she spilled a drink beside the book shelves",
+    "text": "she spilled a drink beside the book shelves"
+   },
+   {
+    "value": "she walked through a shower of rain",
+    "label": "she walked through a shower of rain",
+    "text": "she walked through a shower of rain"
+   },
+   {
+    "value": "she washed the library floor with a mop",
+    "label": "she washed the library floor with a mop",
+    "text": "she washed the library floor with a mop"
+   },
+   {
+    "value": "she left her umbrella inside a warm cupboard",
+    "label": "she left her umbrella inside a warm cupboard",
+    "text": "she left her umbrella inside a warm cupboard"
+   }
+  ],
+  "answer": "she walked through a shower of rain",
+  "correctAnswer": "she walked through a shower of rain",
+  "distractorRationales": {
+   "she left her umbrella inside a warm cupboard": "D-PLAUSIBLE-UNSUPPORTED",
+   "she spilled a drink beside the book shelves": "D-OPPOSITE",
+   "she washed the library floor with a mop": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.what_went_unsaid.v22",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
  }
 ];

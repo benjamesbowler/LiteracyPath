@@ -2,6 +2,8 @@ import { skillTree } from "../skillTree.js";
 import { enrichInitialSoundPairQuestion } from "./initialSoundPairAssets.js";
 import { enrichQuestionWithExistingMedia } from "./questionMediaResolver.js";
 import { normalizeRhymingQuestionChoices } from "./rhymingDistractors.js";
+import { getAssessmentStimulusAudioText } from "../utils/assessmentAudioPolicy.js";
+import { getLedaInstructionAudioPath } from "./ledaProductionAudio.js";
 import {
   getV3PublicationStatus,
   getV3RuntimeEligibilityIssues,
@@ -98,7 +100,7 @@ function groupForSkill(skillId) {
   return ASSESSMENT_SKILL_GROUPS.find(group => group.skillIds.includes(normalized)) || null;
 }
 
-function normalizeV3Question(question, assessmentSkillId) {
+export function normalizeV3Question(question, assessmentSkillId) {
   const authoredMedia = question.v3AuthoredMedia || {};
   const authoredImage = question.imagePath || question.imageUrl || question.targetImage || question.targetImagePath || "";
   const enriched = enrichQuestionWithExistingMedia(
@@ -118,6 +120,23 @@ function normalizeV3Question(question, assessmentSkillId) {
     _sourceFile: `src/data/v3/banks/${assessmentSkillId}.v3.generated.js`
   });
 
+  // Generic legacy enrichment may infer a word from the scoring key. V3
+  // stimuli are explicit: only the authored target or audio text may replay.
+  for (const field of ["targetWord", "audioText"]) {
+    if (question[field]) normalized[field] = question[field];
+    else delete normalized[field];
+  }
+  if (!getAssessmentStimulusAudioText(question)) {
+    for (const field of ["audio", "audioUrl", "audioPath"]) delete normalized[field];
+  }
+  // This module loads only when assessment content is requested. Resolve the
+  // CVC instruction's spoken vowel anchor here; startup eligibility checks
+  // can then validate its recording without importing all narration.
+  if (assessmentSkillId === "cvc_short_vowels" && question.formatType === "SHORT_VOWEL_WORD") {
+    normalized.instructionAudioText = question.spokenPrompt || "";
+    normalized.instructionAudioPath = getLedaInstructionAudioPath(question.spokenPrompt);
+  }
+
   // The generic media resolver may add useful audio. It may not invent a
   // target image for a v3 item whose authored record explicitly has none.
   if (!authoredMedia.target && !authoredImage) {
@@ -126,6 +145,18 @@ function normalizeV3Question(question, assessmentSkillId) {
     delete normalized.targetImage;
     delete normalized.targetImagePath;
     delete normalized.image;
+  }
+  // The same rule applies to choices. Legacy listen-and-find enrichment can
+  // otherwise turn a heard spelling contrast into an unreviewed picture test.
+  if (authoredMedia.cards === false) {
+    delete normalized.imageCards;
+    delete normalized.choiceImages;
+    if (Array.isArray(normalized.answerOptions)) normalized.answerOptions = normalized.answerOptions.map(option => {
+      if (!option || typeof option !== "object") return option;
+      const textOption = { ...option };
+      for (const field of ["image", "imageUrl", "imagePath", "targetImage", "targetImagePath", "imageAlt"]) delete textOption[field];
+      return textOption;
+    });
   }
   return normalized;
 }

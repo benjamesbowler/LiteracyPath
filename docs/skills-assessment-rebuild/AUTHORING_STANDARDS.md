@@ -1,70 +1,68 @@
 # Item Authoring Standards v3 — how every new question is written and proven
 
-**Standard.** Companion to MASTERY_SYSTEM.md. Every item authored in the rebuild must satisfy this file plus its skill's blueprint. These standards extend (never contradict) `docs/instructional/instructional_standards.md` — the anchor words, banned formats, ESL rules, and PTD rules there remain binding; this file adds the machine-checkable layer the old bank never had.
+**Standard.** Companion to MASTERY_SYSTEM.md. Every item authored in the rebuild must satisfy this file plus its skill's blueprint and the current Question Design Bible. `docs/instructional/instructional_standards.md` governs the boundaries between teaching, supported practice and independent assessment; the active blueprint governs the skill's units and formats. This file distinguishes the checks implemented in `tools/assessmentRebuild/lib.mjs` and `gate.mjs` from the editorial judgments those checks cannot make.
 
-The one-sentence version: **an item is a hand-written measurement instrument with a paper trail — original content, one defensible key, three diagnosable wrong answers, and lints that prove it.**
+Every item needs original content, one defensible key, plausible distractors tied to actual misconceptions, and evidence from the applicable checks. A passing lint is not proof of meaning, child clarity or educational validity.
 
 ---
 
-## 1. Item schema v3 (bankStandardVersion: 3)
+## 1. Authoring source and runtime schema v3
+
+Write compact items in `tools/assessmentRebuild/authoring/<skill>.mjs`. For example:
 
 ```jsonc
 {
-  "id": "lp3.rhyming.l1.A.at.v1",        // lp3.<skill>.<l1|l2>.<form>.<unitKey>.<variant>
-  "bankStandardVersion": 3,
-  "skillId": "rhyming",
-  "level": 1,
-  "form": "A",                            // A | B | C | R
-  "itemType": "rhyming_family",           // existing itemType vocabulary, per blueprint
-  "itemKey": "at",                        // THE EVIDENCE UNIT. Never a per-question key.
-  "secondaryKeys": [],                    // optional extra units evidenced (rare; both must be defensible)
-  "cell": null,                           // comprehension only: "fiction.explicit_detail" etc.
-  "formatType": "LISTEN_FIND_RHYME",      // from the blueprint's allowed list
-  "mediaTier": "image-optional",          // text | image-optional | image-required | audio-required
-  "difficultyBand": 1,                    // 1 = on-level entry, 2 = on-level stretch (within its Level)
-  "prompt": "Which picture rhymes with cat?",
-  "spokenPrompt": "Which one rhymes with cat?",  // required whenever mediaTier != text
-  "passage": null,                        // comprehension only; counted words recorded below
+  "u": "at",                             // blueprint evidence unit, not a per-question key
+  "lvl": 1,
+  "ph": 1,
+  "v": 1,
+  "fmt": "RHYME_MATCH_PICTURE",
+  "media": "image-required",
+  "evidenceModality": "audio+image",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "prompt": "Which word rhymes with the word you hear?",
+  "spoken": "Cat. Which word rhymes with it?",
+  "target": "cat",                       // authored stimulus; never inferred from answer
+  "hideWrittenLabels": true,
+  "cards": ["hat", "cake", "pot", "jam"], // exact image paths resolved and reviewed separately
   "choices": [
-    { "text": "bat", "isKey": true,  "rationale": "KEY" },
-    { "text": "bed", "isKey": false, "rationale": "D-VOWEL"   },   // same onset family feel, vowel changes
-    { "text": "cap", "isKey": false, "rationale": "D-ONSET"   },   // shares onset with target, no rime
-    { "text": "sun", "isKey": false, "rationale": "D-SEMANTIC" }   // topically adjacent, phonologically far
+    { "t": "hat", "k": true, "r": "KEY" },
+    { "t": "cake", "r": "D-ONSET" },
+    { "t": "pot", "r": "D-VOWEL" },
+    { "t": "jam", "r": "D-RIME-NEAR" }
   ],
-  "answer": "bat",
-  "readability": { "promptWords": 5, "passageWords": 0, "maxSentenceWords": 5 },
-  "provenance": { "generatedBy": "assessment-rebuild-gate",
-                  "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
-                  "standardVersion": "v3" },
-  "notes": "why this item exists / what misconception it separates (1 line, author-facing)"
+  "note": "Compare spoken endings; cake shares the onset but not the rime."
 }
 ```
 
-Hard schema rules (lint `L-SCHEMA`):
+`expandBank` derives the stable ID, `bankStandardVersion: 3`, form, runtime string choices, `answer`, `distractorRationales`, media paths and other runtime fields. Do not hand-edit `src/data/v3/banks/*.v3.generated.js`.
 
-- Exactly one `isKey: true`. 4 choices for choice formats (spelling/typing formats have `choices: []` and a `letterBank` per their blueprint).
-- `itemKey` must be in the blueprint's unit inventory for that skill+level; `formatType` in its allowed list; `cell` in its cell list (comprehension).
-- Every distractor carries a `rationale` code from §4, valid for that skill family.
-- `id` embeds skill/level/form/unit — collisions and cross-filed items become impossible to miss.
+Authoring requirements and current schema checks:
+
+- Mark exactly one authored choice with `k: true`. Ordinary choice formats use 4 choices except the scoped Sequencing Level 1 `COMPREHENSION` format with `constructClaim: "story_event_order"`, which uses 3: the three actual events in the supplied story. Its two distractors are true events at the wrong ordinal position; never invent a fourth event to fill a quota. This implements the Question Design Bible's existing three-or-four-option rule. Construction formats supply their required `soundTiles` or `letterTiles`; follow the current format's source and blueprint rather than forcing a multiple-choice shape.
+- Use the correct blueprint unit, level, phase, format and comprehension cell. `L-SCHEMA` checks duplicate IDs, answer membership, supported option counts, construction-tile coverage, unit membership in the skill inventory and allowed formats for the level. It does not replace review of whether the item actually measures that unit/cell.
+- Every distractor has an accurate `r` code. `L-DIST` checks that runtime rationale codes are present and recognized, plus the antonym/synonym restrictions described in §4; it does not infer the semantic rationale from the wording.
+- IDs embed skill/level/form/unit. Duplicate detection catches ID collisions; authors must still check that the content is filed under the correct construct.
 
 ---
 
 ## 2. Originality rules (the anti-slop core)
 
-Verified context for why these exist: in the current published bank, Main Idea's 92 "different" passages reduce to **2** skeletons once names/locations are stripped ("Owen and Aunt Jo spent the morning at the fire station…" → "Ruby and Mr. Patel spent the morning at the forest trail…", same sentences, same answer); Inference L2 story 1 is Inference L1 story 1 with swapped tokens; Rhyming has 222 duplicate prompt+answer groups. None of the following is aspirational — each is a lint.
+Fresh content must change the evidence or thinking, not merely its ID or surface wording. Structural duplicate checks catch some repeated material; editorial comparison is still required for renamed stories, near-paraphrases and cosmetic Level 2 variants.
 
-- **O-1 One idea, one item.** No two items in a skill may share a sentence skeleton. Lint `L-UNIQ-SKEL`: strip proper nouns → 4-gram Jaccard between any two prompts+passages in the same skill < **0.35**. (The current Main Idea bank scores ~1.0 pairwise inside its clusters.)
-- **O-2 No token-swap variants.** Changing name/place/object does not create a new item. If a reviewer can produce item B from item A with find-and-replace, both die.
-- **O-3 Level 2 changes the thinking, not the wallpaper.** For every L2 item the author note must name the added cognitive demand (two-step inference, competing plausible theme, harder rime neighborhood, morphological transfer word…). "L1 passage + one extra sentence" is banned; lint `L-UNIQ-XLEVEL` runs O-1 across levels too.
-- **O-4 Option sets are unique** within a skill (lint reuses `getRepeatOptionSetSignature`). No stock distractor pools ("very sleepy / hungry / silly and giggly" appears in dozens of current Inference items — that pattern is dead).
-- **O-5 Answers rotate.** Across each skill+level+form: each choice position is key roughly equally (max share 35%) and no answer STRING keys more than 3× per form (lint `L-KEY-BALANCE`). (Current bank: "solving a small problem" keys 8 Main Idea items.)
-- **O-6 Passages are single-use.** One passage evidences one item, ever, across the whole product (comprehension blueprint relaxes this only for Sentence Comprehension's two-question sets, which the blueprint explicitly structures).
+- **O-1 One idea, one item.** Do not clone a sentence or story skeleton. `L-UNIQ-SKEL` compares normalized four-word shingles of qualifying passages/sentences within a skill, including across levels, and flags Jaccard similarity at or above the existing **0.35** cutoff. Its capitalization-based name normalization is a heuristic; it neither compares every short prompt nor understands whether two stories have the same underlying idea.
+- **O-2 No token-swap variants.** Changing name/place/object does not create a new item. Reject variants that a reviewer could produce by replacing a few tokens in the same story or sentence.
+- **O-3 Level 2 changes the thinking, not the wallpaper.** For every L2 item the author note must name the added cognitive demand (two-step inference, competing plausible theme, harder rime neighborhood, morphological transfer word…). "L1 passage + one extra sentence" is banned. The skeleton comparison can catch text reuse across levels; judging the added demand remains an editorial responsibility, not a separate `L-UNIQ-XLEVEL` check.
+- **O-4 Option sets are unique in open-set formats.** `L-UNIQ-OPT` uses `optionSetSignature` to detect recycled sets. Fixed sound, letter or relation inventories listed in `CLOSED_SET_FORMATS` necessarily reuse some options; construction tiles are also excluded from this comparison. Those exceptions do not permit cloned stimuli or stock padding. `L-UNIQ-PA` separately checks the combined prompt, passage, sentence, answer, target and option-set signature.
+- **O-5 Answers rotate.** `L-KEY-BALANCE` checks four-choice key positions within level/form buckets using the existing ceiling and the attainable rounding needed for small buckets. It also checks answer-string concentration at the level where the blueprint has a larger unit inventory. This is not a universal three-uses-per-form rule. Keep the exact limits in `lib.mjs`; runtime shuffling and a balanced bank do not establish answer validity.
+- **O-6 Passages are single-use.** Do not reuse a passage for another item unless the comprehension blueprint explicitly structures a permitted Sentence Comprehension set. Current duplicate/skeleton checks operate within the skill being built; they do not prove product-wide passage independence. Check intended reuse and other relevant banks editorially.
+- **O-7 A fresh retry is a complete sitting.** Each skill, level and phase must support two full sittings at the existing blueprint length: the initial sitting and a fresh retry. Count eligible phase questions separately from retention reserves. New IDs, renamed characters, swapped nouns or recycled option sets do not create new content. The fresh-retry check must compose both sittings without repeated item or prompt/answer signatures; all originality and option-set checks still apply.
 
 ---
 
 ## 3. Correctness rules (one defensible key)
 
-- **C-1** The key must be uniquely correct under a literal reading. Adversarial check at review: try to argue each distractor as correct; any semi-defensible distractor is replaced. (Current counter-example, Prepositions: `underneath` keyed against distractor `under` for "directly under something" — indefensible.)
+- **C-1** The key must be uniquely correct under a literal reading. Adversarial check at review: try to argue each distractor as correct; any semi-defensible distractor is replaced. For example, `underneath` cannot be keyed against `under` for "directly under something." Targeted ambiguity checks catch known failure patterns; they are not a general proof that every distractor is false.
 - **C-1a Child interpretation wins.** A distinction that is technically
   recoverable by an adult is still ambiguous if a five- or six-year-old can
   answer the printed or spoken wording literally. Never put bare `d` beside
@@ -75,26 +73,28 @@ Verified context for why these exist: in the current published bank, Main Idea's
   clearly false. Frames such as “Both ___ lost a tooth” cannot offer two
   plausible plural people words; location frames cannot rely on an
   unillustrated imagined scene.
-- **C-2** No construct leakage: an item may only require its own skill. Long Vowels items must not require vowel-team knowledge (the current L2 tests `ai/ay` inside "Long Vowels and Silent E" — moved to Vowel Teams by the blueprints); grammar items must not hinge on reading stamina; comprehension keys must not hinge on one vocabulary word unless the skill is Context Clues.
-- **C-3** Every phonics/word mapping is validated against the current pronunciation lexicon (`content/lexicon/approvedPhonics.json`). Lint `L-LEX` fails any item whose target word→pattern mapping is not in that checked-in source. Lexicon changes must pass the same automated content gates as bank changes; no personal approval flag controls publication.
-- **C-4** Prompts pass a grammar/wording lint `L-GRAM`: article agreement ("a adjective" — 30 published Adjectives prompts currently fail this), no truncated frames ("Choose the precise word means…" — 19 published Prepositions prompts), no meta-language at L1 where the standards require child words ("which word names a thing", not "which word is a noun"), explicit ordinals for sequencing.
-- **C-5** Reading load caps (ESL rule made checkable, `L-READ`): L1 prompt ≤ 12 words, sentence ≤ 9 words, passage ≤ 60 words; L2 prompt ≤ 16, sentence ≤ 12, passage ≤ 110. Vocabulary outside the K-2 familiar list needs a blueprint justification (Context Clues targets are the sanctioned exception).
+- **C-2** No construct leakage: an item may only require its own skill. Long Vowels and Silent E items must not require the vowel-team knowledge assigned to Vowel Teams by the blueprints; grammar items must not hinge on reading stamina; comprehension keys must not hinge on one vocabulary word unless the skill is Context Clues.
+- **C-2a Audio roles are authored evidence.** Instruction, passage, target and choice audio have separate roles. A target replay may speak only the explicitly authored `audioText` or `targetWord`; it must never fall back to `answer`, a correct-choice label or an image filename. If the item has no spoken target, omit that target replay; use `suppressStimulusAudio: true` when an image/scene identifier would otherwise be treated as speech. Keep instruction and passage replay available.
+- **C-2b Spoken rhyme stays spoken.** Hide the anchor's printed spelling and the written choice labels during the response. Exact, unambiguous picture choices may support the spoken words. A spoken-only item must explicitly declare `evidenceModality: "audio"`, `hideWrittenLabels: true` and its spoken-rhyme construct, with approved recordings for the authored target (where the format has one) and every choice. Numbered replay/select cards must not reveal the spelling or automatically identify the key. Apply the construct-specific media requirements in the Question Design Bible; missing or ambiguous required pictures cannot be silently downgraded to audio.
+- **C-3** Verify every phonics mapping against the taught correspondence and approved pronunciation. The current lexicon is `src/content/lexicon/approvedWords.json`, with `words`, `approvedDevErrors` and `phonics` fields. `L-LEX` checks a supplied target when its unit has an approved `phonics` list, including the explicit silent-e short-partner contract; it does not validate every pronunciation or every option automatically. Authors must review uncovered mappings and accent-dependent cases. Lexicon changes pass the same applicable content gates as bank changes; no personal approval flag controls publication.
+- **C-4** Use complete, grammatical, child-friendly prompts and explicit ordinals for sequencing. `L-GRAM` detects specific article patterns, the broken "precise word means" frame, double spaces and missing cloze blanks in applicable formats. The gate also runs targeted `L-PROMPT-WORDING` rules. Neither is a general grammar parser or proof of age-appropriate wording; read the full prompt and every completed option aloud during editorial review.
+- **C-5** `L-READ` counts prompt, sentence and passage words, including the longest passage sentence: L1 prompt ≤ 12 words, sentence ≤ 9 words, passage ≤ 60 words; L2 prompt ≤ 16, sentence ≤ 12, passage ≤ 110. Authors must also justify unfamiliar non-target vocabulary against the learner band and blueprint. Word counts and lexicon membership do not measure vocabulary familiarity or comprehension difficulty.
 
 ---
 
-## 4. Distractor taxonomy (three diagnosable wrong answers)
+## 4. Distractor taxonomy (diagnosable wrong answers)
 
-Every distractor must (a) be a real word / real sentence (no invented non-words — `staries`, `cloudies`, `boxies`, `foxs` all currently published in Plurals; lint `L-REALWORD` validates against the lexicon), (b) be the same part of speech / format class as the key, (c) encode a **named misconception**. Approved rationale codes:
+Every distractor must (a) be a real word or well-formed sentence except a blueprint-permitted developmental error, (b) match the part of speech or response class required by the construct, and (c) encode an actual misconception. `L-REALWORD` checks single-word options in the implemented word-choice formats against the loaded lexicon; it does not check every phrase, parse sentences or determine meaning. A recognized rationale code records the author's claim; it does not prove that claim. The accepted code list lives in `RATIONALE_CODES` in `lib.mjs`. Principal uses are:
 
-**Phonological/phonics** · `D-ONSET` shares onset, wrong rime · `D-RIME-NEAR` neighboring rime (cot→cat trap) · `D-VOWEL` vowel substitution · `D-PATTERN-TRAP` (PTD) contains the target letters without the target sound (*said* for `ai`) — required at L2 per instructional standards, capped at 1/item · `D-POSITION` right sound, wrong position (final vs initial) · `D-VISUAL-NEIGHBOR` letter-shape confusion (b/d, m/n) at L1 only · `D-SEMANTIC` may provide a topic control in a phonological item only, where meaning is deliberately irrelevant and the choice remains a real word.
+**Phonological/phonics** · `D-ONSET` shares onset, wrong rime · `D-RIME-NEAR` neighboring rime (cot→cat trap) · `D-VOWEL` vowel substitution · `D-PATTERN-TRAP` (PTD) contains the target letters without the target sound (*said* for `ai`); use it only where the taught contrast and current format justify that misconception · `D-POSITION` right sound, wrong position (final vs initial) · `D-VISUAL-NEIGHBOR` letter-shape confusion (b/d, m/n) appropriate to the learner's taught inventory · `D-SEMANTIC` may provide a topic control in a phonological item only, where meaning is deliberately irrelevant and the choice remains a real word. These codes do not by themselves establish the suitability or difficulty of an option.
 
-**Word knowledge (HFW, vocabulary, homophones, morphology)** · `D-FUNCTION-SWAP` same function class, wrong meaning slot (the current HFW banks' grammatically impossible fillers are replaced by these: every HFW cloze distractor must be the same part of speech as the key so grammar alone can't solve it — lint `L-CLOZE-FIT` machine-checks that each distractor parses in the frame) · `D-HOMOPHONE` sound-alike wrong spelling for the context · `D-MORPH-LITERAL` plausible but wrong morpheme reading (*careful* = "full of car" style traps at L2 only) · `D-SAME-DOMAIN` a real, same-part-of-speech word from the same semantic field that is neither the requested relation nor an absurd category giveaway (for *hot*: *warm* or *steaming*, never *green*) · `D-DEVELOPMENTAL` attested child error from the approved error list (`content/lexicon/approvedDevErrors.json`: *foots, mouses, runned, goed, sheeps, mans* …) — the ONLY sanctioned non-standard forms, allowed solely in error-recognition formats the blueprint names.
+**Word knowledge (HFW, vocabulary, homophones, morphology)** · `D-FUNCTION-SWAP` same function class, wrong meaning slot: insert every HFW cloze option into the full sentence and check grammar and meaning editorially so syntax alone cannot reveal the key; there is no general `L-CLOZE-FIT` parser · `D-HOMOPHONE` sound-alike wrong spelling for the context · `D-MORPH-LITERAL` plausible but wrong morpheme reading at Level 2 · `D-SAME-DOMAIN` a real, same-part-of-speech word from the same semantic field that is neither the requested relation nor an absurd category giveaway (for *hot*: *warm* or *steaming*, never *green*) · `D-DEVELOPMENTAL` an attested child error listed in the `approvedDevErrors` field of `src/content/lexicon/approvedWords.json`; this permits only the error-recognition use named by the blueprint, not presenting an incorrect form as ordinary vocabulary.
 
 For antonym and synonym items, `D-SEMANTIC` and unrelated same-part-of-speech padding are forbidden. Every wrong answer must test the relation inside the same meaning domain; a colour, sound, action, or object from another domain makes the correct answer visible without measuring vocabulary.
 
-**Comprehension** · `D-DETAIL-AS-MAIN` true detail from the passage posing as main idea · `D-TOPIC-ADJACENT` right topic, unsupported claim · `D-SEQUENCE-SWAP` real events, wrong order · `D-CAUSE-REVERSE` effect posing as cause · `D-PLAUSIBLE-UNSUPPORTED` sensible inference the text doesn't license · `D-OPPOSITE` contradicted by the text (max 1 per item; never the "obviously silly" register — "very sleepy / silly and giggly" filler is banned by `L-DIST-REGISTER`, which flags distractors ≥2 register bands below the key).
+**Comprehension** · `D-DETAIL-AS-MAIN` true detail from the passage posing as main idea · `D-TOPIC-ADJACENT` right topic, unsupported claim · `D-SEQUENCE-SWAP` real events, wrong order; `D-SEQUENCE-START`, `D-SEQUENCE-END` and `D-SEQUENCE-REVERSE` name the applicable ordinal confusion · `D-CAUSE-REVERSE` effect posing as cause · `D-PLAUSIBLE-UNSUPPORTED` sensible inference the text doesn't license · `D-OPPOSITE` a plausible claim contradicted by the evidence. More than one option may be contradicted when each tests a distinct, credible misreading; there is no one-per-item quota. Authors must reject absurd or conspicuously childish alternatives and match language/register across the options. No `L-DIST-REGISTER` classifier measures register bands.
 
-Per item: three distractors, ≥ 2 distinct codes, no code twice unless the blueprint says the format demands it. The SIM-SCANNER oracle (MASTERY_SYSTEM §9) is the runtime proof that the set doesn't leak; this taxonomy is the author-time recipe for passing it.
+Per item: three distractors, or two for the three-event Sequencing format in §1. Each must encode a plausible, distinct wrong response with an accurate rationale. Several alternatives may share a misconception family; changing labels just to increase the number of codes adds no validity. Check each response against the literal stimulus, then use the scanner and independent length strategies to find mechanical shortcuts. Passing those checks cannot establish semantic correctness by itself.
 
 ---
 
@@ -103,41 +103,40 @@ Per item: three distractors, ≥ 2 distinct codes, no code twice unless the blue
 Per skill, per level, in chunks of ~8 items:
 
 1. Read the skill blueprint. Open the unit/cell checklist for the form being filled.
-2. Draft 8 items directly in schema v3, each with its author note naming the misconception it separates.
-3. Self-review against §2–§4 (the checklist in §7 verbatim).
-4. Run the lints locally (`npm run check:bank-lints -- --skill rhyming`). Fix reds. A lint may only change with a documented standards reason and updated tests.
-5. Run SIM-SCANNER + SIM-NOREPEAT for the skill once a form completes.
-6. Commit the chunk with the lint output in the message. Move to the next chunk.
-7. When the skill's forms are complete, run the full gate (`check:audit:assessment-rebuild -- --skill X --write`). Publication occurs only when every automated hard gate passes.
+2. Draft 8 compact source items, each with its author note naming the misconception it separates.
+3. Self-review against §2–§4 and the Question Design Bible's author checklist.
+4. Run the skill gate locally (`node tools/assessmentRebuild/gate.mjs --skill rhyming`) and inspect its item lints. Fix reds. A lint may only change with a documented standards reason and updated tests.
+5. Inspect the gate's scanner, independent length, perfect-path, regression and fresh-retry results once a form completes.
+6. Keep generated reports in ignored `.artifacts/assessment-rebuild/`; retain only durable rules and handoff information in checked-in documentation. Follow the task's Git authorization when committing source changes.
+7. When the skill's forms are complete, run the full gate (`npm run check:audit:assessment-rebuild -- --skill X --write`). It writes generated outputs only through the gate; publication requires every applicable hard gate to pass.
 
-Chunked authoring matters: 8 items is small enough to keep each one genuinely distinct (the failure mode this whole rebuild exists to kill is "generate 92 at once").
+Review each chunk before expanding the bank so that weak templates or ambiguous keys do not spread through later items.
 
 ---
 
 ## 6. SIM-SCANNER leak oracle (what "no shortcuts" means, concretely)
 
-The oracle answers items using only these strategies — each must fail to beat chance overall:
+The current `scannerAnswer` implementation probes visible surface cues:
 
-1. Pick the option sharing the longest letter-chunk with a word in the prompt (kills printed-rime giveaway: current Rhyming "Which word rhymes with cat? → bat/bed/leg/ten" is solvable by `-at` matching).
-2. Pick the only option that is grammatical in the cloze frame (kills HFW function giveaways).
-3. Pick the option whose pattern letters appear in the prompt (kills "Choose the word that uses the 'ch' digraph" — the current Digraphs L1 template names its own answer).
-4. Pick the longest/most-detailed option (classic test-taking tell).
-5. Pick the option that repeats a passage word (comprehension surface-match).
+1. For word/phonics items, prefer a uniquely dominant letter chunk shared with the prompt, or a uniquely matching short prompt pattern.
+2. For HFW items, detect the exact target copied into visible question text.
+3. For passage items, prefer a dominant passage-word overlap or a conspicuously longer option.
+4. Probe option length where the item exposes printed choices. Hidden labels, construction tiles and declared picture-to-sentence evidence are handled according to what the child can actually see.
 
-Blueprints are designed so the honest strategy is the only reliable one; authors should mentally run the oracle before submitting a chunk.
+The gate also evaluates the independent length strategies separately for each level/phase against the existing shared phase-pass rule. Exact scanner limits and exclusions live in `gate.mjs` and `lib.mjs`; there is no separate authoring rule that each strategy must stay below chance. These heuristics do not parse grammar, measure register, understand a story or prove that a word is the only valid synonym. Authors must separately try every option in context and reject semantic shortcuts even when the scanner returns no finding.
 
 ---
 
 ## 7. Verification evidence
 
-The gate emits a machine-readable report with every item, lint result, simulation result, coverage count, media requirement, and current standard version. This reproducible evidence is the publication authority. Editorial review can still improve content, but it is not represented as an owner-specific switch and cannot silently override a failing gate.
+The gate emits machine-readable lint, simulation, coverage and media results with the current standard version under `.artifacts/assessment-rebuild/`. Those reports establish which automated checks ran and passed. Editorial review must also establish one defensible key, actual misconceptions, child clarity, accurate content and suitable images/audio where the checks cannot do so. Routine named sign-off is not a publication requirement, and editorial judgment cannot override a failing hard gate or excuse a known defect.
 
 ---
 
 ## 8. Banned pattern classes
 
 - Token-swap or skeleton-cloned items.
-- Stock distractor sets reused across questions.
+- Stock distractor padding in open-set formats; fixed blueprint inventories remain subject to the distinct-stimulus rules in O-4.
 - Prompts that reveal their own answers.
 - Printed-pattern shortcuts in listening constructs.
 - Unapproved non-word distractors.

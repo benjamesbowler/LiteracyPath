@@ -21,9 +21,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete r__n?",
-  "question": "Which two letters complete r__n?",
-  "spokenPrompt": "Rain. Which two letters complete the word?",
+  "prompt": "Which letters complete r__n?",
+  "question": "Which letters complete r__n?",
+  "spokenPrompt": "Rain. Which letters complete the word?",
   "choices": [
    "ay",
    "ee",
@@ -110,9 +110,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete tr__n?",
-  "question": "Which two letters complete tr__n?",
-  "spokenPrompt": "Train. Which two letters complete the word?",
+  "prompt": "Which letters complete tr__n?",
+  "question": "Which letters complete tr__n?",
+  "spokenPrompt": "Train. Which letters complete the word?",
   "choices": [
    "oa",
    "igh",
@@ -559,9 +559,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete pl__?",
-  "question": "Which two letters complete pl__?",
-  "spokenPrompt": "Play. Which two letters complete the word?",
+  "prompt": "Which letters complete pl__?",
+  "question": "Which letters complete pl__?",
+  "spokenPrompt": "Play. Which letters complete the word?",
   "choices": [
    "oa",
    "ay",
@@ -648,9 +648,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete tr__?",
-  "question": "Which two letters complete tr__?",
-  "spokenPrompt": "Tray. Which two letters complete the word?",
+  "prompt": "Which letters complete tr__?",
+  "question": "Which letters complete tr__?",
+  "spokenPrompt": "Tray. Which letters complete the word?",
   "choices": [
    "ay",
    "ai",
@@ -1097,9 +1097,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete sh__p?",
-  "question": "Which two letters complete sh__p?",
-  "spokenPrompt": "Sheep. Which two letters complete the word?",
+  "prompt": "Which letters complete sh__p?",
+  "question": "Which letters complete sh__p?",
+  "spokenPrompt": "Sheep. Which letters complete the word?",
   "choices": [
    "ea",
    "ai",
@@ -1186,9 +1186,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete gr__n?",
-  "question": "Which two letters complete gr__n?",
-  "spokenPrompt": "Green. Which two letters complete the word?",
+  "prompt": "Which letters complete gr__n?",
+  "question": "Which letters complete gr__n?",
+  "spokenPrompt": "Green. Which letters complete the word?",
   "choices": [
    "ai",
    "oo",
@@ -1635,9 +1635,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete l__f?",
-  "question": "Which two letters complete l__f?",
-  "spokenPrompt": "Leaf. Which two letters complete the word?",
+  "prompt": "Which letters complete l__f?",
+  "question": "Which letters complete l__f?",
+  "spokenPrompt": "Leaf. Which letters complete the word?",
   "choices": [
    "oa",
    "ea",
@@ -1724,9 +1724,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete p__ch?",
-  "question": "Which two letters complete p__ch?",
-  "spokenPrompt": "Peach. Which two letters complete the word?",
+  "prompt": "Which letters complete p__ch?",
+  "question": "Which letters complete p__ch?",
+  "spokenPrompt": "Peach. Which letters complete the word?",
   "choices": [
    "ea",
    "ee",
@@ -2169,9 +2169,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete b__t?",
-  "question": "Which two letters complete b__t?",
-  "spokenPrompt": "Boat. Which two letters complete the word?",
+  "prompt": "Which letters complete b__t?",
+  "question": "Which letters complete b__t?",
+  "spokenPrompt": "Boat. Which letters complete the word?",
   "choices": [
    "ee",
    "ai",
@@ -2258,9 +2258,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete g__t?",
-  "question": "Which two letters complete g__t?",
-  "spokenPrompt": "Goat. Which two letters complete the word?",
+  "prompt": "Which letters complete g__t?",
+  "question": "Which letters complete g__t?",
+  "spokenPrompt": "Goat. Which letters complete the word?",
   "choices": [
    "ai",
    "ee",
@@ -2707,9 +2707,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which three letters complete l__t?",
-  "question": "Which three letters complete l__t?",
-  "spokenPrompt": "Light. Which three letters complete the word?",
+  "prompt": "Which letters complete l__t?",
+  "question": "Which letters complete l__t?",
+  "spokenPrompt": "Light. Which letters complete the word?",
   "choices": [
    "oa",
    "igh",
@@ -2796,9 +2796,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which three letters complete n__t?",
-  "question": "Which three letters complete n__t?",
-  "spokenPrompt": "Night. Which three letters complete the word?",
+  "prompt": "Which letters complete n__t?",
+  "question": "Which letters complete n__t?",
+  "spokenPrompt": "Night. Which letters complete the word?",
   "choices": [
    "igh",
    "ai",
@@ -3245,9 +3245,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete m__n?",
-  "question": "Which two letters complete m__n?",
-  "spokenPrompt": "Moon. Which two letters complete the word?",
+  "prompt": "Which letters complete m__n?",
+  "question": "Which letters complete m__n?",
+  "spokenPrompt": "Moon. Which letters complete the word?",
   "choices": [
    "oa",
    "ou",
@@ -3334,9 +3334,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete sp__n?",
-  "question": "Which two letters complete sp__n?",
-  "spokenPrompt": "Spoon. Which two letters complete the word?",
+  "prompt": "Which letters complete sp__n?",
+  "question": "Which letters complete sp__n?",
+  "spokenPrompt": "Spoon. Which letters complete the word?",
   "choices": [
    "ew",
    "oa",
@@ -3781,9 +3781,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete sn__?",
-  "question": "Which two letters complete sn__?",
-  "spokenPrompt": "Snow. Which two letters complete the word?",
+  "prompt": "Which letters complete sn__?",
+  "question": "Which letters complete sn__?",
+  "spokenPrompt": "Snow. Which letters complete the word?",
   "choices": [
    "ow",
    "ou",
@@ -3870,9 +3870,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete gr__?",
-  "question": "Which two letters complete gr__?",
-  "spokenPrompt": "Grow. Which two letters complete the word?",
+  "prompt": "Which letters complete gr__?",
+  "question": "Which letters complete gr__?",
+  "spokenPrompt": "Grow. Which letters complete the word?",
   "choices": [
    "aw",
    "ow",
@@ -4317,9 +4317,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete cl__d?",
-  "question": "Which two letters complete cl__d?",
-  "spokenPrompt": "Cloud. Which two letters complete the word?",
+  "prompt": "Which letters complete cl__d?",
+  "question": "Which letters complete cl__d?",
+  "spokenPrompt": "Cloud. Which letters complete the word?",
   "choices": [
    "oo",
    "oa",
@@ -4406,9 +4406,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete h__se?",
-  "question": "Which two letters complete h__se?",
-  "spokenPrompt": "House. Which two letters complete the word?",
+  "prompt": "Which letters complete h__se?",
+  "question": "Which letters complete h__se?",
+  "spokenPrompt": "House. Which letters complete the word?",
   "choices": [
    "ow",
    "oo",
@@ -4853,9 +4853,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete c__n?",
-  "question": "Which two letters complete c__n?",
-  "spokenPrompt": "Coin. Which two letters complete the word?",
+  "prompt": "Which letters complete c__n?",
+  "question": "Which letters complete c__n?",
+  "spokenPrompt": "Coin. Which letters complete the word?",
   "choices": [
    "oi",
    "oy",
@@ -4942,9 +4942,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete b__l?",
-  "question": "Which two letters complete b__l?",
-  "spokenPrompt": "Boil. Which two letters complete the word?",
+  "prompt": "Which letters complete b__l?",
+  "question": "Which letters complete b__l?",
+  "spokenPrompt": "Boil. Which letters complete the word?",
   "choices": [
    "oo",
    "oi",
@@ -5397,9 +5397,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete b__?",
-  "question": "Which two letters complete b__?",
-  "spokenPrompt": "Boy. Which two letters complete the word?",
+  "prompt": "Which letters complete b__?",
+  "question": "Which letters complete b__?",
+  "spokenPrompt": "Boy. Which letters complete the word?",
   "choices": [
    "ai",
    "ay",
@@ -5486,9 +5486,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete j__?",
-  "question": "Which two letters complete j__?",
-  "spokenPrompt": "Joy. Which two letters complete the word?",
+  "prompt": "Which letters complete j__?",
+  "question": "Which letters complete j__?",
+  "spokenPrompt": "Joy. Which letters complete the word?",
   "choices": [
    "oi",
    "ai",
@@ -5941,9 +5941,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete scr__?",
-  "question": "Which two letters complete scr__?",
-  "spokenPrompt": "Screw. Which two letters complete the word?",
+  "prompt": "Which letters complete scr__?",
+  "question": "Which letters complete scr__?",
+  "spokenPrompt": "Screw. Which letters complete the word?",
   "choices": [
    "ew",
    "oo",
@@ -6030,9 +6030,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete ch__?",
-  "question": "Which two letters complete ch__?",
-  "spokenPrompt": "Chew. Which two letters complete the word?",
+  "prompt": "Which letters complete ch__?",
+  "question": "Which letters complete ch__?",
+  "spokenPrompt": "Chew. Which letters complete the word?",
   "choices": [
    "aw",
    "ew",
@@ -6485,9 +6485,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete dr__?",
-  "question": "Which two letters complete dr__?",
-  "spokenPrompt": "Draw. Which two letters complete the word?",
+  "prompt": "Which letters complete dr__?",
+  "question": "Which letters complete dr__?",
+  "spokenPrompt": "Draw. Which letters complete the word?",
   "choices": [
    "ow",
    "oa",
@@ -6574,9 +6574,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete y__n?",
-  "question": "Which two letters complete y__n?",
-  "spokenPrompt": "Yawn. Which two letters complete the word?",
+  "prompt": "Which letters complete y__n?",
+  "question": "Which letters complete y__n?",
+  "spokenPrompt": "Yawn. Which letters complete the word?",
   "choices": [
    "ew",
    "oo",
@@ -7010,6 +7010,1608 @@ export const questions = [
   "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
+  "id": "lp3.vowel_teams.l1.C.ai.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ai",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete sn__l?",
+  "question": "Which letters complete sn__l?",
+  "spokenPrompt": "Snail. Which letters complete the word?",
+  "choices": [
+   "oa",
+   "ai",
+   "ay",
+   "ee"
+  ],
+  "answerOptions": [
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
+   {
+    "value": "ai",
+    "label": "ai",
+    "text": "ai"
+   },
+   {
+    "value": "ay",
+    "label": "ay",
+    "text": "ay"
+   },
+   {
+    "value": "ee",
+    "label": "ee",
+    "text": "ee"
+   }
+  ],
+  "answer": "ai",
+  "correctAnswer": "ai",
+  "distractorRationales": {
+   "ay": "D-PATTERN-TRAP",
+   "ee": "D-PATTERN-TRAP",
+   "oa": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "snail",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.ai.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.vowel_teams.l1.A.ai.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ai",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete tr__l?",
+  "question": "Which letters complete tr__l?",
+  "spokenPrompt": "Trail. Which letters complete the word?",
+  "choices": [
+   "ea",
+   "oo",
+   "igh",
+   "ai"
+  ],
+  "answerOptions": [
+   {
+    "value": "ea",
+    "label": "ea",
+    "text": "ea"
+   },
+   {
+    "value": "oo",
+    "label": "oo",
+    "text": "oo"
+   },
+   {
+    "value": "igh",
+    "label": "igh",
+    "text": "igh"
+   },
+   {
+    "value": "ai",
+    "label": "ai",
+    "text": "ai"
+   }
+  ],
+  "answer": "ai",
+  "correctAnswer": "ai",
+  "distractorRationales": {
+   "ea": "D-PATTERN-TRAP",
+   "oo": "D-PATTERN-TRAP",
+   "igh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "trail",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.ai.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.vowel_teams.l1.C.ay.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ay",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete st__?",
+  "question": "Which letters complete st__?",
+  "spokenPrompt": "Stay. Which letters complete the word?",
+  "choices": [
+   "ee",
+   "oa",
+   "ay",
+   "ai"
+  ],
+  "answerOptions": [
+   {
+    "value": "ee",
+    "label": "ee",
+    "text": "ee"
+   },
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
+   {
+    "value": "ay",
+    "label": "ay",
+    "text": "ay"
+   },
+   {
+    "value": "ai",
+    "label": "ai",
+    "text": "ai"
+   }
+  ],
+  "answer": "ay",
+  "correctAnswer": "ay",
+  "distractorRationales": {
+   "ai": "D-PATTERN-TRAP",
+   "ee": "D-PATTERN-TRAP",
+   "oa": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "stay",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.ay.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.vowel_teams.l1.A.ay.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ay",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete cl__?",
+  "question": "Which letters complete cl__?",
+  "spokenPrompt": "Clay. Which letters complete the word?",
+  "choices": [
+   "ay",
+   "ea",
+   "oo",
+   "igh"
+  ],
+  "answerOptions": [
+   {
+    "value": "ay",
+    "label": "ay",
+    "text": "ay"
+   },
+   {
+    "value": "ea",
+    "label": "ea",
+    "text": "ea"
+   },
+   {
+    "value": "oo",
+    "label": "oo",
+    "text": "oo"
+   },
+   {
+    "value": "igh",
+    "label": "igh",
+    "text": "igh"
+   }
+  ],
+  "answer": "ay",
+  "correctAnswer": "ay",
+  "distractorRationales": {
+   "ea": "D-PATTERN-TRAP",
+   "oo": "D-PATTERN-TRAP",
+   "igh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "clay",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.ay.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.vowel_teams.l1.C.ee.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ee",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete s__d?",
+  "question": "Which letters complete s__d?",
+  "spokenPrompt": "Seed. Which letters complete the word?",
+  "choices": [
+   "ai",
+   "oa",
+   "igh",
+   "ee"
+  ],
+  "answerOptions": [
+   {
+    "value": "ai",
+    "label": "ai",
+    "text": "ai"
+   },
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
+   {
+    "value": "igh",
+    "label": "igh",
+    "text": "igh"
+   },
+   {
+    "value": "ee",
+    "label": "ee",
+    "text": "ee"
+   }
+  ],
+  "answer": "ee",
+  "correctAnswer": "ee",
+  "distractorRationales": {
+   "ai": "D-PATTERN-TRAP",
+   "oa": "D-PATTERN-TRAP",
+   "igh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "seed",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.ee.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.vowel_teams.l1.A.ee.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ee",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete ch__k?",
+  "question": "Which letters complete ch__k?",
+  "spokenPrompt": "Cheek. Which letters complete the word?",
+  "choices": [
+   "oa",
+   "ee",
+   "ea",
+   "ay"
+  ],
+  "answerOptions": [
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
+   {
+    "value": "ee",
+    "label": "ee",
+    "text": "ee"
+   },
+   {
+    "value": "ea",
+    "label": "ea",
+    "text": "ea"
+   },
+   {
+    "value": "ay",
+    "label": "ay",
+    "text": "ay"
+   }
+  ],
+  "answer": "ee",
+  "correctAnswer": "ee",
+  "distractorRationales": {
+   "ea": "D-PATTERN-TRAP",
+   "ay": "D-PATTERN-TRAP",
+   "oa": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "cheek",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.ee.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.vowel_teams.l1.C.ea.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ea",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete b__n?",
+  "question": "Which letters complete b__n?",
+  "spokenPrompt": "Bean. Which letters complete the word?",
+  "choices": [
+   "ea",
+   "ee",
+   "ai",
+   "oa"
+  ],
+  "answerOptions": [
+   {
+    "value": "ea",
+    "label": "ea",
+    "text": "ea"
+   },
+   {
+    "value": "ee",
+    "label": "ee",
+    "text": "ee"
+   },
+   {
+    "value": "ai",
+    "label": "ai",
+    "text": "ai"
+   },
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   }
+  ],
+  "answer": "ea",
+  "correctAnswer": "ea",
+  "distractorRationales": {
+   "ee": "D-PATTERN-TRAP",
+   "ai": "D-PATTERN-TRAP",
+   "oa": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "bean",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.ea.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.vowel_teams.l1.A.ea.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ea",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete dr__m?",
+  "question": "Which letters complete dr__m?",
+  "spokenPrompt": "Dream. Which letters complete the word?",
+  "choices": [
+   "oo",
+   "ay",
+   "ea",
+   "ee"
+  ],
+  "answerOptions": [
+   {
+    "value": "oo",
+    "label": "oo",
+    "text": "oo"
+   },
+   {
+    "value": "ay",
+    "label": "ay",
+    "text": "ay"
+   },
+   {
+    "value": "ea",
+    "label": "ea",
+    "text": "ea"
+   },
+   {
+    "value": "ee",
+    "label": "ee",
+    "text": "ee"
+   }
+  ],
+  "answer": "ea",
+  "correctAnswer": "ea",
+  "distractorRationales": {
+   "ee": "D-PATTERN-TRAP",
+   "oo": "D-PATTERN-TRAP",
+   "ay": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "dream",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.ea.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.vowel_teams.l1.C.oa.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "oa",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete l__f?",
+  "question": "Which letters complete l__f?",
+  "spokenPrompt": "Loaf. Which letters complete the word?",
+  "choices": [
+   "igh",
+   "oa",
+   "ee",
+   "ai"
+  ],
+  "answerOptions": [
+   {
+    "value": "igh",
+    "label": "igh",
+    "text": "igh"
+   },
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
+   {
+    "value": "ee",
+    "label": "ee",
+    "text": "ee"
+   },
+   {
+    "value": "ai",
+    "label": "ai",
+    "text": "ai"
+   }
+  ],
+  "answer": "oa",
+  "correctAnswer": "oa",
+  "distractorRationales": {
+   "igh": "D-PATTERN-TRAP",
+   "ee": "D-PATTERN-TRAP",
+   "ai": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "loaf",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.oa.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.vowel_teams.l1.A.oa.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "oa",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete f__m?",
+  "question": "Which letters complete f__m?",
+  "spokenPrompt": "Foam. Which letters complete the word?",
+  "choices": [
+   "ea",
+   "oo",
+   "ay",
+   "oa"
+  ],
+  "answerOptions": [
+   {
+    "value": "ea",
+    "label": "ea",
+    "text": "ea"
+   },
+   {
+    "value": "oo",
+    "label": "oo",
+    "text": "oo"
+   },
+   {
+    "value": "ay",
+    "label": "ay",
+    "text": "ay"
+   },
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   }
+  ],
+  "answer": "oa",
+  "correctAnswer": "oa",
+  "distractorRationales": {
+   "ay": "D-PATTERN-TRAP",
+   "ea": "D-PATTERN-TRAP",
+   "oo": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "foam",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.oa.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.vowel_teams.l1.C.igh.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "igh",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete br__t?",
+  "question": "Which letters complete br__t?",
+  "spokenPrompt": "Bright. Which letters complete the word?",
+  "choices": [
+   "ee",
+   "oa",
+   "igh",
+   "ai"
+  ],
+  "answerOptions": [
+   {
+    "value": "ee",
+    "label": "ee",
+    "text": "ee"
+   },
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
+   {
+    "value": "igh",
+    "label": "igh",
+    "text": "igh"
+   },
+   {
+    "value": "ai",
+    "label": "ai",
+    "text": "ai"
+   }
+  ],
+  "answer": "igh",
+  "correctAnswer": "igh",
+  "distractorRationales": {
+   "oa": "D-PATTERN-TRAP",
+   "ai": "D-PATTERN-TRAP",
+   "ee": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "bright",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.igh.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.vowel_teams.l1.A.igh.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "igh",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete fl__t?",
+  "question": "Which letters complete fl__t?",
+  "spokenPrompt": "Flight. Which letters complete the word?",
+  "choices": [
+   "igh",
+   "oa",
+   "ea",
+   "oo"
+  ],
+  "answerOptions": [
+   {
+    "value": "igh",
+    "label": "igh",
+    "text": "igh"
+   },
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
+   {
+    "value": "ea",
+    "label": "ea",
+    "text": "ea"
+   },
+   {
+    "value": "oo",
+    "label": "oo",
+    "text": "oo"
+   }
+  ],
+  "answer": "igh",
+  "correctAnswer": "igh",
+  "distractorRationales": {
+   "oo": "D-PATTERN-TRAP",
+   "oa": "D-PATTERN-TRAP",
+   "ea": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "flight",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.igh.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.vowel_teams.l2.C.oy.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "oy",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete enj__?",
+  "question": "Which letters complete enj__?",
+  "spokenPrompt": "Enjoy. Which letters complete the word?",
+  "choices": [
+   "ay",
+   "aw",
+   "oy",
+   "oi"
+  ],
+  "answerOptions": [
+   {
+    "value": "ay",
+    "label": "ay",
+    "text": "ay"
+   },
+   {
+    "value": "aw",
+    "label": "aw",
+    "text": "aw"
+   },
+   {
+    "value": "oy",
+    "label": "oy",
+    "text": "oy"
+   },
+   {
+    "value": "oi",
+    "label": "oi",
+    "text": "oi"
+   }
+  ],
+  "answer": "oy",
+  "correctAnswer": "oy",
+  "distractorRationales": {
+   "ay": "D-PATTERN-TRAP",
+   "aw": "D-PATTERN-TRAP",
+   "oi": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "enjoy",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.C.oy.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.vowel_teams.l2.A.oy.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "oy",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete r__al?",
+  "question": "Which letters complete r__al?",
+  "spokenPrompt": "Royal. Which letters complete the word?",
+  "choices": [
+   "oy",
+   "oi",
+   "oo",
+   "ou"
+  ],
+  "answerOptions": [
+   {
+    "value": "oy",
+    "label": "oy",
+    "text": "oy"
+   },
+   {
+    "value": "oi",
+    "label": "oi",
+    "text": "oi"
+   },
+   {
+    "value": "oo",
+    "label": "oo",
+    "text": "oo"
+   },
+   {
+    "value": "ou",
+    "label": "ou",
+    "text": "ou"
+   }
+  ],
+  "answer": "oy",
+  "correctAnswer": "oy",
+  "distractorRationales": {
+   "oi": "D-PATTERN-TRAP",
+   "oo": "D-PATTERN-TRAP",
+   "ou": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "royal",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.oy.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.vowel_teams.l2.C.ew.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ew",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete bl__?",
+  "question": "Which letters complete bl__?",
+  "spokenPrompt": "Blew. Which letters complete the word?",
+  "choices": [
+   "aw",
+   "ow",
+   "ay",
+   "ew"
+  ],
+  "answerOptions": [
+   {
+    "value": "aw",
+    "label": "aw",
+    "text": "aw"
+   },
+   {
+    "value": "ow",
+    "label": "ow",
+    "text": "ow"
+   },
+   {
+    "value": "ay",
+    "label": "ay",
+    "text": "ay"
+   },
+   {
+    "value": "ew",
+    "label": "ew",
+    "text": "ew"
+   }
+  ],
+  "answer": "ew",
+  "correctAnswer": "ew",
+  "distractorRationales": {
+   "ow": "D-PATTERN-TRAP",
+   "ay": "D-PATTERN-TRAP",
+   "aw": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "blew",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.C.ew.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.vowel_teams.l2.A.ew.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ew",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete gr__?",
+  "question": "Which letters complete gr__?",
+  "spokenPrompt": "Grew. Which letters complete the word?",
+  "choices": [
+   "oy",
+   "ew",
+   "aw",
+   "ow"
+  ],
+  "answerOptions": [
+   {
+    "value": "oy",
+    "label": "oy",
+    "text": "oy"
+   },
+   {
+    "value": "ew",
+    "label": "ew",
+    "text": "ew"
+   },
+   {
+    "value": "aw",
+    "label": "aw",
+    "text": "aw"
+   },
+   {
+    "value": "ow",
+    "label": "ow",
+    "text": "ow"
+   }
+  ],
+  "answer": "ew",
+  "correctAnswer": "ew",
+  "distractorRationales": {
+   "aw": "D-PATTERN-TRAP",
+   "ow": "D-PATTERN-TRAP",
+   "oy": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "grew",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.ew.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.vowel_teams.l2.C.aw.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "aw",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete cl__?",
+  "question": "Which letters complete cl__?",
+  "spokenPrompt": "Claw. Which letters complete the word?",
+  "choices": [
+   "aw",
+   "ew",
+   "ow",
+   "ay"
+  ],
+  "answerOptions": [
+   {
+    "value": "aw",
+    "label": "aw",
+    "text": "aw"
+   },
+   {
+    "value": "ew",
+    "label": "ew",
+    "text": "ew"
+   },
+   {
+    "value": "ow",
+    "label": "ow",
+    "text": "ow"
+   },
+   {
+    "value": "ay",
+    "label": "ay",
+    "text": "ay"
+   }
+  ],
+  "answer": "aw",
+  "correctAnswer": "aw",
+  "distractorRationales": {
+   "ow": "D-PATTERN-TRAP",
+   "ay": "D-PATTERN-TRAP",
+   "ew": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "claw",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.C.aw.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.vowel_teams.l2.A.aw.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "aw",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete str__?",
+  "question": "Which letters complete str__?",
+  "spokenPrompt": "Straw. Which letters complete the word?",
+  "choices": [
+   "ow",
+   "oy",
+   "aw",
+   "ew"
+  ],
+  "answerOptions": [
+   {
+    "value": "ow",
+    "label": "ow",
+    "text": "ow"
+   },
+   {
+    "value": "oy",
+    "label": "oy",
+    "text": "oy"
+   },
+   {
+    "value": "aw",
+    "label": "aw",
+    "text": "aw"
+   },
+   {
+    "value": "ew",
+    "label": "ew",
+    "text": "ew"
+   }
+  ],
+  "answer": "aw",
+  "correctAnswer": "aw",
+  "distractorRationales": {
+   "ew": "D-PATTERN-TRAP",
+   "ow": "D-PATTERN-TRAP",
+   "oy": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "straw",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.aw.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
   "id": "lp3.vowel_teams.l1.R.ai.v7r",
   "bankStandardVersion": 3,
   "grade": "K-2",
@@ -7029,9 +8631,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete t__l?",
-  "question": "Which two letters complete t__l?",
-  "spokenPrompt": "Tail. Which two letters complete the word?",
+  "prompt": "Which letters complete t__l?",
+  "question": "Which letters complete t__l?",
+  "spokenPrompt": "Tail. Which letters complete the word?",
   "choices": [
    "ee",
    "oa",
@@ -7118,9 +8720,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete t__st?",
-  "question": "Which two letters complete t__st?",
-  "spokenPrompt": "Toast. Which two letters complete the word?",
+  "prompt": "Which letters complete t__st?",
+  "question": "Which letters complete t__st?",
+  "spokenPrompt": "Toast. Which letters complete the word?",
   "choices": [
    "ee",
    "ai",
@@ -7566,9 +9168,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete r__d?",
-  "question": "Which two letters complete r__d?",
-  "spokenPrompt": "Road. Which two letters complete the word?",
+  "prompt": "Which letters complete r__d?",
+  "question": "Which letters complete r__d?",
+  "spokenPrompt": "Road. Which letters complete the word?",
   "choices": [
    "ai",
    "igh",
@@ -7746,9 +9348,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete n__?",
-  "question": "Which two letters complete n__?",
-  "spokenPrompt": "New. Which two letters complete the word?",
+  "prompt": "Which letters complete n__?",
+  "question": "Which letters complete n__?",
+  "spokenPrompt": "New. Which letters complete the word?",
   "choices": [
    "ow",
    "oy",
@@ -8014,9 +9616,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Which two letters complete cr__l?",
-  "question": "Which two letters complete cr__l?",
-  "spokenPrompt": "Crawl. Which two letters complete the word?",
+  "prompt": "Which letters complete cr__l?",
+  "question": "Which letters complete cr__l?",
+  "spokenPrompt": "Crawl. Which letters complete the word?",
   "choices": [
    "oo",
    "aw",

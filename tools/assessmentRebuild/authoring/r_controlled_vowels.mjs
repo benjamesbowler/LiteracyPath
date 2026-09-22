@@ -17,6 +17,7 @@
 
 import { makeImageResolver } from "../lib.mjs";
 
+const fresh = item => ({ ...item, retention: false });
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
 const sentenceCase = value => value ? `${value[0].toUpperCase()}${value.slice(1)}` : value;
@@ -40,8 +41,8 @@ const rcp = (u, lvl, ph, v, word, blanked, patterns, note = "", promptLead = "Li
 
 const patp = (u, lvl, ph, v, word, patterns, note = "") => ({
   u, lvl, ph, v, fmt: "PICTURE_AUDIO_TO_PATTERN",
-  prompt: "Which letters spell the r-controlled part in the word you hear?",
-  spoken: `${sentenceCase(word)}. Which letters spell the r-controlled part in this word?`,
+  prompt: "Which letters spell the vowel sound in the word you hear?",
+  spoken: `${sentenceCase(word)}. Which letters spell the vowel sound in this word?`,
   choices: patterns.map((p, i) => (i === 0 ? K(p) : P(p, "D-PATTERN-TRAP"))),
   media: "audio-required",
   target: word,
@@ -145,7 +146,7 @@ export default {
     cps("er", 2, 2, 5, "er (as in her)", ["herd", "here", "hard", "hop"], "herd",
       { here: "D-PATTERN-TRAP", hard: "D-PATTERN-TRAP", hop: "D-VOWEL" },
       "herd and here both carry the her letters — the scanner ties"),
-    cps("er", 2, 2, 6, "er (as in her)", ["letter", "very", "corn", "cart"], "letter",
+    cps("er", 2, 2, 6, "er (as in her)", ["term", "very", "corn", "cart"], "term",
       { very: "D-PATTERN-TRAP", corn: "D-PATTERN-TRAP", cart: "D-PATTERN-TRAP" },
       "very has er letters with the short sound"),
 
@@ -200,6 +201,44 @@ export default {
       { north: "D-PATTERN-TRAP", win: "D-VOWEL", nut: "D-VOWEL" },
       "win ties the in-chunk"),
 
+    // New lexical examples, including longer L2 words and competing er/ir/ur spellings.
+    fresh(rcp("ar", 1, 1, 9, "arm", "__m", ["ar", "or", "er", "ur"])),
+    fresh(rcp("ar", 1, 1, 10, "bark", "b__k", ["ar", "or", "er", "ur"])),
+    fresh(rcp("ar", 1, 1, 11, "card", "c__d", ["ar", "or", "er", "ur"])),
+    fresh(rcp("ar", 1, 1, 12, "dark", "d__k", ["ar", "or", "er", "ur"])),
+    fresh(rcp("ar", 1, 1, 13, "yarn", "y__n", ["ar", "or", "er", "ur"])),
+    fresh(rcp("ar", 1, 1, 14, "hard", "h__d", ["ar", "or", "er", "ur"])),
+    fresh(rcp("or", 1, 1, 9, "north", "n__th", ["or", "ar", "er", "ur"])),
+    fresh(rcp("or", 1, 1, 10, "torch", "t__ch", ["or", "ar", "er", "ur"])),
+    fresh(rcp("or", 1, 1, 11, "sport", "sp__t", ["or", "ar", "er", "ur"])),
+    fresh(rcp("or", 1, 1, 12, "sort", "s__t", ["or", "ar", "er", "ur"])),
+    fresh(rcp("or", 1, 1, 13, "born", "b__n", ["or", "ar", "er", "ur"])),
+    fresh(rcp("or", 1, 1, 14, "worn", "w__n", ["or", "ar", "er", "ur"])),
+    fresh(rcp("er", 1, 2, 9, "term", "t__m", ["er", "ir", "ur", "ar"])),
+    fresh(rcp("er", 1, 2, 10, "verb", "v__b", ["er", "ir", "ur", "ar"])),
+    fresh(rcp("ir", 1, 2, 9, "stir", "st__", ["ir", "er", "ur", "ar"])),
+    fresh(rcp("ir", 1, 2, 10, "firm", "f__m", ["ir", "er", "ur", "ar"])),
+    fresh(rcp("ur", 1, 2, 9, "turn", "t__n", ["ur", "er", "ir", "ar"])),
+    fresh(rcp("ur", 1, 2, 10, "burst", "b__st", ["ur", "er", "ir", "ar"])),
+    fresh(rcp("ar", 2, 1, 9, "spark", "sp__k", ["ar", "or", "er", "ur"])),
+    fresh(rcp("ar", 2, 1, 10, "charm", "ch__m", ["ar", "or", "er", "ur"])),
+    fresh(rcp("ar", 2, 1, 11, "start", "st__t", ["ar", "or", "er", "ur"])),
+    fresh(rcp("ar", 2, 1, 12, "carpet", "c__pet", ["ar", "or", "er", "ur"])),
+    fresh(rcp("ar", 2, 1, 13, "garden", "g__den", ["ar", "or", "er", "ur"])),
+    fresh(rcp("ar", 2, 1, 14, "market", "m__ket", ["ar", "or", "er", "ur"])),
+    fresh(rcp("or", 2, 1, 9, "porch", "p__ch", ["or", "ar", "er", "ur"])),
+    fresh(rcp("or", 2, 1, 10, "storm", "st__m", ["or", "ar", "er", "ur"])),
+    fresh(rcp("or", 2, 1, 11, "sword", "sw__d", ["or", "ar", "er", "ur"])),
+    fresh(rcp("or", 2, 1, 12, "morning", "m__ning", ["or", "ar", "er", "ur"])),
+    fresh(rcp("or", 2, 1, 13, "corner", "c__ner", ["or", "ar", "er", "ur"])),
+    fresh(rcp("or", 2, 1, 14, "forget", "f__get", ["or", "ar", "er", "ur"])),
+    fresh(rcp("er", 2, 2, 9, "person", "p__son", ["er", "ir", "ur", "ar"])),
+    fresh(rcp("er", 2, 2, 10, "perfect", "p__fect", ["er", "ir", "ur", "ar"])),
+    fresh(rcp("ir", 2, 2, 9, "thirsty", "th__sty", ["ir", "er", "ur", "ar"])),
+    fresh(rcp("ir", 2, 2, 10, "thirteen", "th__teen", ["ir", "er", "ur", "ar"])),
+    fresh(rcp("ur", 2, 2, 9, "purple", "p__ple", ["ur", "er", "ir", "ar"])),
+    fresh(rcp("ur", 2, 2, 10, "curtain", "c__tain", ["ur", "er", "ir", "ar"])),
+
     // ================= Retention reserve (form R) =================
     rcp("ar", 1, 1, 7, "jar", "j__", ["ar", "or", "ir", "er"],
       "jor, jir and jer are non-words"),
@@ -220,7 +259,7 @@ export default {
     rcp("ur", 1, 2, 8, "purse", "p__se", ["ur", "ir", "er", "oa"],
       "pirse, perse and poase are not conventional spellings"),
   ].map(item => {
-    if (item.v >= 7) item.retention = true;
+    if (item.v >= 7 && item.retention !== false) item.retention = true;
     return item;
   })
 };

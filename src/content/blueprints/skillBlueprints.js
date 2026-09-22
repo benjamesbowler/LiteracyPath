@@ -139,7 +139,7 @@ export const skillBlueprints = Object.freeze(Object.fromEntries([
     },
     variantsPerUnit: { 1: 3, 2: 3 },
     passBudgetSittings: 7,
-    mediaTierNote: "audio-first rhyme evidence with pictures; written labels stay hidden"
+    mediaTierNote: "audio-first rhyme evidence with reviewed pictures or explicit spoken choices; written labels stay hidden"
   }),
   bp("cvc_short_vowels", {
     itemType: "short_vowel",

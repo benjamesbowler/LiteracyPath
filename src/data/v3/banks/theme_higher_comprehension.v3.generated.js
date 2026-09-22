@@ -24,42 +24,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Jory borrowed Ann's comic and left it out in the rain. The pages wrinkled and stuck together. He wanted to hide it under his bed. Instead he showed Ann, said sorry, and spent his saved money on a new copy. Ann was sad about the comic — but glad he had told the truth.",
+  "passage": "Jory left Ann's comic in the rain. The pages stuck together. He wanted to hide it, but told Ann instead. He bought a new copy with his savings. Ann thanked him for being honest.",
   "cell": "lesson_mistake_fixed",
   "choices": [
-   "a comic was left out in the rain",
-   "never lend anything to anyone",
-   "comics can cost saved money",
-   "owning up to a mistake is better than hiding it"
+   "Saving patiently can help you reach a goal.",
+   "A careful plan can protect valuable belongings.",
+   "Save up before buying something you want.",
+   "Own up and try to put mistakes right."
   ],
   "answerOptions": [
    {
-    "value": "a comic was left out in the rain",
-    "label": "a comic was left out in the rain",
-    "text": "a comic was left out in the rain"
+    "value": "Saving patiently can help you reach a goal.",
+    "label": "Saving patiently can help you reach a goal.",
+    "text": "Saving patiently can help you reach a goal."
    },
    {
-    "value": "never lend anything to anyone",
-    "label": "never lend anything to anyone",
-    "text": "never lend anything to anyone"
+    "value": "A careful plan can protect valuable belongings.",
+    "label": "A careful plan can protect valuable belongings.",
+    "text": "A careful plan can protect valuable belongings."
    },
    {
-    "value": "comics can cost saved money",
-    "label": "comics can cost saved money",
-    "text": "comics can cost saved money"
+    "value": "Save up before buying something you want.",
+    "label": "Save up before buying something you want.",
+    "text": "Save up before buying something you want."
    },
    {
-    "value": "owning up to a mistake is better than hiding it",
-    "label": "owning up to a mistake is better than hiding it",
-    "text": "owning up to a mistake is better than hiding it"
+    "value": "Own up and try to put mistakes right.",
+    "label": "Own up and try to put mistakes right.",
+    "text": "Own up and try to put mistakes right."
    }
   ],
-  "answer": "owning up to a mistake is better than hiding it",
-  "correctAnswer": "owning up to a mistake is better than hiding it",
+  "answer": "Own up and try to put mistakes right.",
+  "correctAnswer": "Own up and try to put mistakes right.",
   "distractorRationales": {
-   "a comic was left out in the rain": "D-DETAIL-AS-MAIN",
-   "never lend anything to anyone": "D-OPPOSITE",
-   "comics can cost saved money": "D-TOPIC-ADJACENT"
+   "Saving patiently can help you reach a goal.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A careful plan can protect valuable belongings.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Save up before buying something you want.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -114,42 +114,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Bel's first batch of cookies came out black as coal. She nearly threw her apron in the trash. Instead she read the recipe again and found her mistake — the oven had been far too hot. The second batch came out golden, and the kitchen smelled wonderful.",
+  "passage": "Bel's first cookies burned. She nearly gave up. Then she checked the recipe and found her mistake. The oven had been too hot. Her next batch cooked well at the right heat.",
   "cell": "lesson_mistake_fixed",
   "choices": [
-   "baking always goes wrong",
-   "ovens can be hot",
-   "a mistake can teach you how to do better",
-   "the first cookies burned black"
+   "Listening to others can help settle an argument.",
+   "Following friends is better than deciding alone.",
+   "Learning from mistakes helps you improve.",
+   "Sharing successful work can make other people happy."
   ],
   "answerOptions": [
    {
-    "value": "baking always goes wrong",
-    "label": "baking always goes wrong",
-    "text": "baking always goes wrong"
+    "value": "Listening to others can help settle an argument.",
+    "label": "Listening to others can help settle an argument.",
+    "text": "Listening to others can help settle an argument."
    },
    {
-    "value": "ovens can be hot",
-    "label": "ovens can be hot",
-    "text": "ovens can be hot"
+    "value": "Following friends is better than deciding alone.",
+    "label": "Following friends is better than deciding alone.",
+    "text": "Following friends is better than deciding alone."
    },
    {
-    "value": "a mistake can teach you how to do better",
-    "label": "a mistake can teach you how to do better",
-    "text": "a mistake can teach you how to do better"
+    "value": "Learning from mistakes helps you improve.",
+    "label": "Learning from mistakes helps you improve.",
+    "text": "Learning from mistakes helps you improve."
    },
    {
-    "value": "the first cookies burned black",
-    "label": "the first cookies burned black",
-    "text": "the first cookies burned black"
+    "value": "Sharing successful work can make other people happy.",
+    "label": "Sharing successful work can make other people happy.",
+    "text": "Sharing successful work can make other people happy."
    }
   ],
-  "answer": "a mistake can teach you how to do better",
-  "correctAnswer": "a mistake can teach you how to do better",
+  "answer": "Learning from mistakes helps you improve.",
+  "correctAnswer": "Learning from mistakes helps you improve.",
   "distractorRationales": {
-   "the first cookies burned black": "D-DETAIL-AS-MAIN",
-   "baking always goes wrong": "D-OPPOSITE",
-   "ovens can be hot": "D-TOPIC-ADJACENT"
+   "Sharing successful work can make other people happy.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Listening to others can help settle an argument.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Following friends is better than deciding alone.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -204,42 +204,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Kit snapped the blue crayon and quickly slid it back in the tin, broken ends together. All morning it bothered him like a stone in a shoe. At last he told Miss May. She smiled, taped the crayon, and said broken things mend easier than secrets.",
+  "passage": "Kit broke the class crayon and hid it. Later, he told Miss May what had happened. She showed him how to tape it together. He wished he had told her sooner.",
   "cell": "lesson_mistake_fixed",
   "choices": [
-   "tape can fix many things",
-   "telling the truth about a mistake makes it easier to fix",
-   "a blue crayon got snapped",
-   "crayons should never be shared"
+   "New supplies are always better than old ones.",
+   "Telling the truth can help solve a problem.",
+   "Taking turns gives everyone a fair chance.",
+   "A patient friend can help you gain confidence."
   ],
   "answerOptions": [
    {
-    "value": "tape can fix many things",
-    "label": "tape can fix many things",
-    "text": "tape can fix many things"
+    "value": "New supplies are always better than old ones.",
+    "label": "New supplies are always better than old ones.",
+    "text": "New supplies are always better than old ones."
    },
    {
-    "value": "telling the truth about a mistake makes it easier to fix",
-    "label": "telling the truth about a mistake makes it easier to fix",
-    "text": "telling the truth about a mistake makes it easier to fix"
+    "value": "Telling the truth can help solve a problem.",
+    "label": "Telling the truth can help solve a problem.",
+    "text": "Telling the truth can help solve a problem."
    },
    {
-    "value": "a blue crayon got snapped",
-    "label": "a blue crayon got snapped",
-    "text": "a blue crayon got snapped"
+    "value": "Taking turns gives everyone a fair chance.",
+    "label": "Taking turns gives everyone a fair chance.",
+    "text": "Taking turns gives everyone a fair chance."
    },
    {
-    "value": "crayons should never be shared",
-    "label": "crayons should never be shared",
-    "text": "crayons should never be shared"
+    "value": "A patient friend can help you gain confidence.",
+    "label": "A patient friend can help you gain confidence.",
+    "text": "A patient friend can help you gain confidence."
    }
   ],
-  "answer": "telling the truth about a mistake makes it easier to fix",
-  "correctAnswer": "telling the truth about a mistake makes it easier to fix",
+  "answer": "Telling the truth can help solve a problem.",
+  "correctAnswer": "Telling the truth can help solve a problem.",
   "distractorRationales": {
-   "a blue crayon got snapped": "D-DETAIL-AS-MAIN",
-   "crayons should never be shared": "D-OPPOSITE",
-   "tape can fix many things": "D-TOPIC-ADJACENT"
+   "Taking turns gives everyone a fair chance.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A patient friend can help you gain confidence.": "D-PLAUSIBLE-UNSUPPORTED",
+   "New supplies are always better than old ones.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -294,42 +294,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Ravi moved to another bus seat to avoid sitting next to a new boy. At the school gate, Ravi's bag strap broke and his books spilled. The new boy gathered every book and helped carry the bag inside. The next day Ravi chose the seat beside him.",
+  "passage": "Ravi would not sit beside the new boy. Then Ravi's bag broke and his books fell out. The new boy helped gather and carry them. Next day, Ravi chose to sit with him.",
   "cell": "lesson_mistake_fixed",
   "choices": [
-   "do not judge someone before you know them",
-   "Ravi's bag strap broke",
-   "always sit away from someone new",
-   "school gates are meeting places"
+   "Get to know people before judging them.",
+   "Preparing carefully helps protect important belongings.",
+   "Sharing responsibility can make a large job easier.",
+   "Working alone is easier than accepting help."
   ],
   "answerOptions": [
    {
-    "value": "do not judge someone before you know them",
-    "label": "do not judge someone before you know them",
-    "text": "do not judge someone before you know them"
+    "value": "Get to know people before judging them.",
+    "label": "Get to know people before judging them.",
+    "text": "Get to know people before judging them."
    },
    {
-    "value": "Ravi's bag strap broke",
-    "label": "Ravi's bag strap broke",
-    "text": "Ravi's bag strap broke"
+    "value": "Preparing carefully helps protect important belongings.",
+    "label": "Preparing carefully helps protect important belongings.",
+    "text": "Preparing carefully helps protect important belongings."
    },
    {
-    "value": "always sit away from someone new",
-    "label": "always sit away from someone new",
-    "text": "always sit away from someone new"
+    "value": "Sharing responsibility can make a large job easier.",
+    "label": "Sharing responsibility can make a large job easier.",
+    "text": "Sharing responsibility can make a large job easier."
    },
    {
-    "value": "school gates are meeting places",
-    "label": "school gates are meeting places",
-    "text": "school gates are meeting places"
+    "value": "Working alone is easier than accepting help.",
+    "label": "Working alone is easier than accepting help.",
+    "text": "Working alone is easier than accepting help."
    }
   ],
-  "answer": "do not judge someone before you know them",
-  "correctAnswer": "do not judge someone before you know them",
+  "answer": "Get to know people before judging them.",
+  "correctAnswer": "Get to know people before judging them.",
   "distractorRationales": {
-   "always sit away from someone new": "D-OPPOSITE",
-   "school gates are meeting places": "D-TOPIC-ADJACENT",
-   "Ravi's bag strap broke": "D-DETAIL-AS-MAIN"
+   "Sharing responsibility can make a large job easier.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Working alone is easier than accepting help.": "D-OPPOSITE",
+   "Preparing carefully helps protect important belongings.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -384,42 +384,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Lena bragged that her wobbly tooth would come out first, before Sam's. She wiggled it all day just to win. It came out at last — but it hurt, and there was no prize, only Sam saying 'well done' kindly. Lena wished she had let it happen in its own time.",
+  "passage": "Lena raced Sam to finish their drawings first. She rushed and tore her paper. Sam worked slowly and made a neat picture. Lena started again, taking care this time.",
   "cell": "lesson_mistake_fixed",
   "choices": [
-   "Lena's tooth was wobbly",
-   "teeth should never come out",
-   "Sam said well done",
-   "racing to be first can spoil the fun"
+   "A patient friend can help you feel welcome.",
+   "Sharing supplies lets more people join an activity.",
+   "A short task needs no planning at all.",
+   "Careful work matters more than finishing first."
   ],
   "answerOptions": [
    {
-    "value": "Lena's tooth was wobbly",
-    "label": "Lena's tooth was wobbly",
-    "text": "Lena's tooth was wobbly"
+    "value": "A patient friend can help you feel welcome.",
+    "label": "A patient friend can help you feel welcome.",
+    "text": "A patient friend can help you feel welcome."
    },
    {
-    "value": "teeth should never come out",
-    "label": "teeth should never come out",
-    "text": "teeth should never come out"
+    "value": "Sharing supplies lets more people join an activity.",
+    "label": "Sharing supplies lets more people join an activity.",
+    "text": "Sharing supplies lets more people join an activity."
    },
    {
-    "value": "Sam said well done",
-    "label": "Sam said well done",
-    "text": "Sam said well done"
+    "value": "A short task needs no planning at all.",
+    "label": "A short task needs no planning at all.",
+    "text": "A short task needs no planning at all."
    },
    {
-    "value": "racing to be first can spoil the fun",
-    "label": "racing to be first can spoil the fun",
-    "text": "racing to be first can spoil the fun"
+    "value": "Careful work matters more than finishing first.",
+    "label": "Careful work matters more than finishing first.",
+    "text": "Careful work matters more than finishing first."
    }
   ],
-  "answer": "racing to be first can spoil the fun",
-  "correctAnswer": "racing to be first can spoil the fun",
+  "answer": "Careful work matters more than finishing first.",
+  "correctAnswer": "Careful work matters more than finishing first.",
   "distractorRationales": {
-   "Lena's tooth was wobbly": "D-DETAIL-AS-MAIN",
-   "teeth should never come out": "D-OPPOSITE",
-   "Sam said well done": "D-DETAIL-AS-MAIN"
+   "A patient friend can help you feel welcome.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Sharing supplies lets more people join an activity.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A short task needs no planning at all.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -474,42 +474,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Min fed the class goldfish twice, then once more, because it always looked hungry. The tank turned cloudy and the fish went slow and sad. A pet store worker explained: too much food can hurt a fish. Min learned to feed only the measured amount, and the water cleared.",
+  "passage": "Min gave the fish extra food every day. Uneaten food made the water cloudy. An adult helped Min measure the right amount. With less waste, the tank stayed clean.",
   "cell": "lesson_mistake_fixed",
   "choices": [
-   "goldfish should not be fed",
-   "pet stores sell fish food",
-   "too much of a good thing can do harm",
-   "the tank water turned cloudy"
+   "Trying new things can reveal a hidden talent.",
+   "Doing more always gives a better result.",
+   "Too much of something useful can cause harm.",
+   "Taking turns makes a shared task more fair."
   ],
   "answerOptions": [
    {
-    "value": "goldfish should not be fed",
-    "label": "goldfish should not be fed",
-    "text": "goldfish should not be fed"
+    "value": "Trying new things can reveal a hidden talent.",
+    "label": "Trying new things can reveal a hidden talent.",
+    "text": "Trying new things can reveal a hidden talent."
    },
    {
-    "value": "pet stores sell fish food",
-    "label": "pet stores sell fish food",
-    "text": "pet stores sell fish food"
+    "value": "Doing more always gives a better result.",
+    "label": "Doing more always gives a better result.",
+    "text": "Doing more always gives a better result."
    },
    {
-    "value": "too much of a good thing can do harm",
-    "label": "too much of a good thing can do harm",
-    "text": "too much of a good thing can do harm"
+    "value": "Too much of something useful can cause harm.",
+    "label": "Too much of something useful can cause harm.",
+    "text": "Too much of something useful can cause harm."
    },
    {
-    "value": "the tank water turned cloudy",
-    "label": "the tank water turned cloudy",
-    "text": "the tank water turned cloudy"
+    "value": "Taking turns makes a shared task more fair.",
+    "label": "Taking turns makes a shared task more fair.",
+    "text": "Taking turns makes a shared task more fair."
    }
   ],
-  "answer": "too much of a good thing can do harm",
-  "correctAnswer": "too much of a good thing can do harm",
+  "answer": "Too much of something useful can cause harm.",
+  "correctAnswer": "Too much of something useful can cause harm.",
   "distractorRationales": {
-   "goldfish should not be fed": "D-OPPOSITE",
-   "pet stores sell fish food": "D-TOPIC-ADJACENT",
-   "the tank water turned cloudy": "D-DETAIL-AS-MAIN"
+   "Trying new things can reveal a hidden talent.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Doing more always gives a better result.": "D-OPPOSITE",
+   "Taking turns makes a shared task more fair.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -564,42 +564,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "In the quiet library, Posy whispered a joke, then a story, then a song. The librarian did not scold. She just pointed at the reading corner, where a small boy had lost his place three times. Posy saw his angry face — and understood without one word being said.",
+  "passage": "Posy sang softly in the quiet library. A boy kept losing his place while reading. Posy noticed him cover his ears. She stopped singing, and he began reading again.",
   "cell": "lesson_mistake_fixed",
   "choices": [
-   "librarians point at corners",
-   "your noise can spoil things for others",
-   "Posy whispered a song",
-   "libraries should ban jokes"
+   "Finish your own task before noticing anyone else.",
+   "Think about how your actions affect others.",
+   "Regular practice can improve a difficult skill.",
+   "Sharing favourite stories can build a friendship."
   ],
   "answerOptions": [
    {
-    "value": "librarians point at corners",
-    "label": "librarians point at corners",
-    "text": "librarians point at corners"
+    "value": "Finish your own task before noticing anyone else.",
+    "label": "Finish your own task before noticing anyone else.",
+    "text": "Finish your own task before noticing anyone else."
    },
    {
-    "value": "your noise can spoil things for others",
-    "label": "your noise can spoil things for others",
-    "text": "your noise can spoil things for others"
+    "value": "Think about how your actions affect others.",
+    "label": "Think about how your actions affect others.",
+    "text": "Think about how your actions affect others."
    },
    {
-    "value": "Posy whispered a song",
-    "label": "Posy whispered a song",
-    "text": "Posy whispered a song"
+    "value": "Regular practice can improve a difficult skill.",
+    "label": "Regular practice can improve a difficult skill.",
+    "text": "Regular practice can improve a difficult skill."
    },
    {
-    "value": "libraries should ban jokes",
-    "label": "libraries should ban jokes",
-    "text": "libraries should ban jokes"
+    "value": "Sharing favourite stories can build a friendship.",
+    "label": "Sharing favourite stories can build a friendship.",
+    "text": "Sharing favourite stories can build a friendship."
    }
   ],
-  "answer": "your noise can spoil things for others",
-  "correctAnswer": "your noise can spoil things for others",
+  "answer": "Think about how your actions affect others.",
+  "correctAnswer": "Think about how your actions affect others.",
   "distractorRationales": {
-   "librarians point at corners": "D-TOPIC-ADJACENT",
-   "Posy whispered a song": "D-DETAIL-AS-MAIN",
-   "libraries should ban jokes": "D-OPPOSITE"
+   "Finish your own task before noticing anyone else.": "D-OPPOSITE",
+   "Regular practice can improve a difficult skill.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Sharing favourite stories can build a friendship.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -654,42 +654,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Dara promised to water her neighbor's plum tree during school break, then forgot for a whole hot week. The leaves curled. She followed the watering directions every day after that, and by the end of summer the tree stood green again — and Dara never made a promise carelessly again.",
+  "passage": "Dara promised to water her neighbour's tree. She forgot, and its leaves began to curl. She made a daily reminder and followed it. Soon the tree had healthy new leaves.",
   "cell": "lesson_mistake_fixed",
   "choices": [
-   "a promise matters even when it is hard to keep",
-   "the plum leaves curled up",
-   "never help your neighbors",
-   "summer weeks can be hot"
+   "Keeping a promise takes care and action.",
+   "Sharing ideas can make a plan better.",
+   "Patient practice can help you learn new skills.",
+   "Accept every task, even without time for it."
   ],
   "answerOptions": [
    {
-    "value": "a promise matters even when it is hard to keep",
-    "label": "a promise matters even when it is hard to keep",
-    "text": "a promise matters even when it is hard to keep"
+    "value": "Keeping a promise takes care and action.",
+    "label": "Keeping a promise takes care and action.",
+    "text": "Keeping a promise takes care and action."
    },
    {
-    "value": "the plum leaves curled up",
-    "label": "the plum leaves curled up",
-    "text": "the plum leaves curled up"
+    "value": "Sharing ideas can make a plan better.",
+    "label": "Sharing ideas can make a plan better.",
+    "text": "Sharing ideas can make a plan better."
    },
    {
-    "value": "never help your neighbors",
-    "label": "never help your neighbors",
-    "text": "never help your neighbors"
+    "value": "Patient practice can help you learn new skills.",
+    "label": "Patient practice can help you learn new skills.",
+    "text": "Patient practice can help you learn new skills."
    },
    {
-    "value": "summer weeks can be hot",
-    "label": "summer weeks can be hot",
-    "text": "summer weeks can be hot"
+    "value": "Accept every task, even without time for it.",
+    "label": "Accept every task, even without time for it.",
+    "text": "Accept every task, even without time for it."
    }
   ],
-  "answer": "a promise matters even when it is hard to keep",
-  "correctAnswer": "a promise matters even when it is hard to keep",
+  "answer": "Keeping a promise takes care and action.",
+  "correctAnswer": "Keeping a promise takes care and action.",
   "distractorRationales": {
-   "summer weeks can be hot": "D-TOPIC-ADJACENT",
-   "the plum leaves curled up": "D-DETAIL-AS-MAIN",
-   "never help your neighbors": "D-OPPOSITE"
+   "Accept every task, even without time for it.": "D-OPPOSITE",
+   "Sharing ideas can make a plan better.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Patient practice can help you learn new skills.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -744,42 +744,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Every wet morning, Iris carried her little brother's boots so he could climb the bus steps. One icy day, Iris slipped and her books flew everywhere. Before she could blink, her brother and three of his small friends were gathering pages from every puddle.",
+  "passage": "Iris often helped her brother climb the bus steps. One morning, Iris slipped and dropped her books. Her brother hurried over with his friends. Together they picked up every book for her.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "icy days are for staying home",
-   "little brothers are a nuisance",
-   "kindness you give comes back to you",
-   "books flew into the puddles"
+   "Learning from mistakes helps your work improve.",
+   "Practicing a skill makes difficult work easier.",
+   "People who receive help may offer help too.",
+   "Preparing carefully helps prevent a difficult problem."
   ],
   "answerOptions": [
    {
-    "value": "icy days are for staying home",
-    "label": "icy days are for staying home",
-    "text": "icy days are for staying home"
+    "value": "Learning from mistakes helps your work improve.",
+    "label": "Learning from mistakes helps your work improve.",
+    "text": "Learning from mistakes helps your work improve."
    },
    {
-    "value": "little brothers are a nuisance",
-    "label": "little brothers are a nuisance",
-    "text": "little brothers are a nuisance"
+    "value": "Practicing a skill makes difficult work easier.",
+    "label": "Practicing a skill makes difficult work easier.",
+    "text": "Practicing a skill makes difficult work easier."
    },
    {
-    "value": "kindness you give comes back to you",
-    "label": "kindness you give comes back to you",
-    "text": "kindness you give comes back to you"
+    "value": "People who receive help may offer help too.",
+    "label": "People who receive help may offer help too.",
+    "text": "People who receive help may offer help too."
    },
    {
-    "value": "books flew into the puddles",
-    "label": "books flew into the puddles",
-    "text": "books flew into the puddles"
+    "value": "Preparing carefully helps prevent a difficult problem.",
+    "label": "Preparing carefully helps prevent a difficult problem.",
+    "text": "Preparing carefully helps prevent a difficult problem."
    }
   ],
-  "answer": "kindness you give comes back to you",
-  "correctAnswer": "kindness you give comes back to you",
+  "answer": "People who receive help may offer help too.",
+  "correctAnswer": "People who receive help may offer help too.",
   "distractorRationales": {
-   "books flew into the puddles": "D-DETAIL-AS-MAIN",
-   "icy days are for staying home": "D-TOPIC-ADJACENT",
-   "little brothers are a nuisance": "D-OPPOSITE"
+   "Preparing carefully helps prevent a difficult problem.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Learning from mistakes helps your work improve.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Practicing a skill makes difficult work easier.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -834,42 +834,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "The new girl ate lunch alone, so Bo moved his tray next to hers and shared his grapes. Weeks later, when Bo broke his arm and could not cut his food, a tray slid quietly next to his — and the new girl cut his dinner into pieces without being asked.",
+  "passage": "The new girl always ate alone. Bo sat beside her and shared his grapes. Later, Bo broke his arm. She helped cut his lunch and stayed to chat.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "broken arms make eating hard",
-   "small kindnesses grow into friendship",
-   "Bo shared his grapes",
-   "eat lunch alone if you can"
+   "Saying sorry is the way to repair trust.",
+   "Small acts of care can start a friendship.",
+   "Practicing daily can make a hard task easier.",
+   "Keeping a promise can build trust over time."
   ],
   "answerOptions": [
    {
-    "value": "broken arms make eating hard",
-    "label": "broken arms make eating hard",
-    "text": "broken arms make eating hard"
+    "value": "Saying sorry is the way to repair trust.",
+    "label": "Saying sorry is the way to repair trust.",
+    "text": "Saying sorry is the way to repair trust."
    },
    {
-    "value": "small kindnesses grow into friendship",
-    "label": "small kindnesses grow into friendship",
-    "text": "small kindnesses grow into friendship"
+    "value": "Small acts of care can start a friendship.",
+    "label": "Small acts of care can start a friendship.",
+    "text": "Small acts of care can start a friendship."
    },
    {
-    "value": "Bo shared his grapes",
-    "label": "Bo shared his grapes",
-    "text": "Bo shared his grapes"
+    "value": "Practicing daily can make a hard task easier.",
+    "label": "Practicing daily can make a hard task easier.",
+    "text": "Practicing daily can make a hard task easier."
    },
    {
-    "value": "eat lunch alone if you can",
-    "label": "eat lunch alone if you can",
-    "text": "eat lunch alone if you can"
+    "value": "Keeping a promise can build trust over time.",
+    "label": "Keeping a promise can build trust over time.",
+    "text": "Keeping a promise can build trust over time."
    }
   ],
-  "answer": "small kindnesses grow into friendship",
-  "correctAnswer": "small kindnesses grow into friendship",
+  "answer": "Small acts of care can start a friendship.",
+  "correctAnswer": "Small acts of care can start a friendship.",
   "distractorRationales": {
-   "Bo shared his grapes": "D-DETAIL-AS-MAIN",
-   "eat lunch alone if you can": "D-OPPOSITE",
-   "broken arms make eating hard": "D-DETAIL-AS-MAIN"
+   "Practicing daily can make a hard task easier.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Keeping a promise can build trust over time.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Saying sorry is the way to repair trust.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -924,42 +924,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Grandpa Tan fixed umbrellas for the whole street and never took a penny. 'Rain falls on everyone,' he said. When his roof leaked in the big storm, half the street appeared at his door with ladders, buckets, and a hot dinner in a basket.",
+  "passage": "Grandpa Tan fixed his neighbours' umbrellas for free. A storm later damaged his roof. Those neighbours arrived with tools and warm food. They helped him until the roof was safe.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "Grandpa Tan fixed umbrellas",
-   "keep your pennies for yourself",
-   "storms can break roofs",
-   "a helper is never left to struggle alone"
+   "Careful planning can reduce the damage from storms.",
+   "Learning a useful skill can take many tries.",
+   "Saving money always matters more than sharing time.",
+   "A caring neighbour can receive kindness in return."
   ],
   "answerOptions": [
    {
-    "value": "Grandpa Tan fixed umbrellas",
-    "label": "Grandpa Tan fixed umbrellas",
-    "text": "Grandpa Tan fixed umbrellas"
+    "value": "Careful planning can reduce the damage from storms.",
+    "label": "Careful planning can reduce the damage from storms.",
+    "text": "Careful planning can reduce the damage from storms."
    },
    {
-    "value": "keep your pennies for yourself",
-    "label": "keep your pennies for yourself",
-    "text": "keep your pennies for yourself"
+    "value": "Learning a useful skill can take many tries.",
+    "label": "Learning a useful skill can take many tries.",
+    "text": "Learning a useful skill can take many tries."
    },
    {
-    "value": "storms can break roofs",
-    "label": "storms can break roofs",
-    "text": "storms can break roofs"
+    "value": "Saving money always matters more than sharing time.",
+    "label": "Saving money always matters more than sharing time.",
+    "text": "Saving money always matters more than sharing time."
    },
    {
-    "value": "a helper is never left to struggle alone",
-    "label": "a helper is never left to struggle alone",
-    "text": "a helper is never left to struggle alone"
+    "value": "A caring neighbour can receive kindness in return.",
+    "label": "A caring neighbour can receive kindness in return.",
+    "text": "A caring neighbour can receive kindness in return."
    }
   ],
-  "answer": "a helper is never left to struggle alone",
-  "correctAnswer": "a helper is never left to struggle alone",
+  "answer": "A caring neighbour can receive kindness in return.",
+  "correctAnswer": "A caring neighbour can receive kindness in return.",
   "distractorRationales": {
-   "Grandpa Tan fixed umbrellas": "D-DETAIL-AS-MAIN",
-   "keep your pennies for yourself": "D-OPPOSITE",
-   "storms can break roofs": "D-TOPIC-ADJACENT"
+   "Careful planning can reduce the damage from storms.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Learning a useful skill can take many tries.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Saving money always matters more than sharing time.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1014,42 +1014,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "At the fair, Nia's last coin rolled under the lost-and-found table. The boy behind the table crawled in the dust to fetch it, and Nia used it to buy two candy apples — one for herself, and one for a dusty, grinning boy.",
+  "passage": "Nia dropped her last coin under a table. A boy crawled underneath and found it. Nia bought two small apples with the coin. She gave one to the boy to thank him.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "a coin rolled under a table",
-   "keep both candy apples",
-   "fairs sell candy apples",
-   "sharing doubles a good moment"
+   "Careful practice helps you improve a new skill.",
+   "Waiting patiently can help you notice new things.",
+   "Keeping a secret can protect a good friendship.",
+   "Sharing can show thanks for a kind act."
   ],
   "answerOptions": [
    {
-    "value": "a coin rolled under a table",
-    "label": "a coin rolled under a table",
-    "text": "a coin rolled under a table"
+    "value": "Careful practice helps you improve a new skill.",
+    "label": "Careful practice helps you improve a new skill.",
+    "text": "Careful practice helps you improve a new skill."
    },
    {
-    "value": "keep both candy apples",
-    "label": "keep both candy apples",
-    "text": "keep both candy apples"
+    "value": "Waiting patiently can help you notice new things.",
+    "label": "Waiting patiently can help you notice new things.",
+    "text": "Waiting patiently can help you notice new things."
    },
    {
-    "value": "fairs sell candy apples",
-    "label": "fairs sell candy apples",
-    "text": "fairs sell candy apples"
+    "value": "Keeping a secret can protect a good friendship.",
+    "label": "Keeping a secret can protect a good friendship.",
+    "text": "Keeping a secret can protect a good friendship."
    },
    {
-    "value": "sharing doubles a good moment",
-    "label": "sharing doubles a good moment",
-    "text": "sharing doubles a good moment"
+    "value": "Sharing can show thanks for a kind act.",
+    "label": "Sharing can show thanks for a kind act.",
+    "text": "Sharing can show thanks for a kind act."
    }
   ],
-  "answer": "sharing doubles a good moment",
-  "correctAnswer": "sharing doubles a good moment",
+  "answer": "Sharing can show thanks for a kind act.",
+  "correctAnswer": "Sharing can show thanks for a kind act.",
   "distractorRationales": {
-   "keep both candy apples": "D-OPPOSITE",
-   "fairs sell candy apples": "D-TOPIC-ADJACENT",
-   "a coin rolled under a table": "D-DETAIL-AS-MAIN"
+   "Waiting patiently can help you notice new things.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Keeping a secret can protect a good friendship.": "D-OPPOSITE",
+   "Careful practice helps you improve a new skill.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1104,42 +1104,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Wren was the quietest singer in choir, so quiet her words were mostly shapes. Ana stood beside her every week and sang a little softer, so Wren could hear her own voice. At the concert, two voices rose together — and one of them had never sounded so brave.",
+  "passage": "Wren was afraid to sing for the choir. Ana practiced quietly beside her every week. Wren began singing more clearly. At the concert, they stood together and both sang.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "loud singers matter most",
-   "choirs give concerts",
-   "gentle support helps courage grow",
-   "Wren sang very quietly"
+   "Listening carefully can help solve an argument.",
+   "Good friends always enjoy the same activities.",
+   "Patient support can help someone gain confidence.",
+   "A fair contest gives everyone a chance."
   ],
   "answerOptions": [
    {
-    "value": "loud singers matter most",
-    "label": "loud singers matter most",
-    "text": "loud singers matter most"
+    "value": "Listening carefully can help solve an argument.",
+    "label": "Listening carefully can help solve an argument.",
+    "text": "Listening carefully can help solve an argument."
    },
    {
-    "value": "choirs give concerts",
-    "label": "choirs give concerts",
-    "text": "choirs give concerts"
+    "value": "Good friends always enjoy the same activities.",
+    "label": "Good friends always enjoy the same activities.",
+    "text": "Good friends always enjoy the same activities."
    },
    {
-    "value": "gentle support helps courage grow",
-    "label": "gentle support helps courage grow",
-    "text": "gentle support helps courage grow"
+    "value": "Patient support can help someone gain confidence.",
+    "label": "Patient support can help someone gain confidence.",
+    "text": "Patient support can help someone gain confidence."
    },
    {
-    "value": "Wren sang very quietly",
-    "label": "Wren sang very quietly",
-    "text": "Wren sang very quietly"
+    "value": "A fair contest gives everyone a chance.",
+    "label": "A fair contest gives everyone a chance.",
+    "text": "A fair contest gives everyone a chance."
    }
   ],
-  "answer": "gentle support helps courage grow",
-  "correctAnswer": "gentle support helps courage grow",
+  "answer": "Patient support can help someone gain confidence.",
+  "correctAnswer": "Patient support can help someone gain confidence.",
   "distractorRationales": {
-   "Wren sang very quietly": "D-DETAIL-AS-MAIN",
-   "loud singers matter most": "D-OPPOSITE",
-   "choirs give concerts": "D-TOPIC-ADJACENT"
+   "A fair contest gives everyone a chance.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Listening carefully can help solve an argument.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Good friends always enjoy the same activities.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1194,42 +1194,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Old Mr Price's tractor sank in the mud, and he sat a long time, too proud to wave for help. The Okafor children saw anyway. They fetched planks, their mother, and a rope — and afterwards Mr Price's orchard gate, locked for years, stood open with a sign: APPLES, HELP YOURSELVES.",
+  "passage": "Mr Price could not move his wheelbarrow from mud. The children fetched an adult to help him. Together, they pushed it onto firm ground. He thanked them with apples from his orchard.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "helping without being asked opens hearts",
-   "a tractor sank in the mud",
-   "pride is always right",
-   "orchards grow apples"
+   "Offering help can bring people closer together.",
+   "Planning ahead can save time on difficult jobs.",
+   "Taking turns gives everyone a fair chance.",
+   "The best worker finishes every job without help."
   ],
   "answerOptions": [
    {
-    "value": "helping without being asked opens hearts",
-    "label": "helping without being asked opens hearts",
-    "text": "helping without being asked opens hearts"
+    "value": "Offering help can bring people closer together.",
+    "label": "Offering help can bring people closer together.",
+    "text": "Offering help can bring people closer together."
    },
    {
-    "value": "a tractor sank in the mud",
-    "label": "a tractor sank in the mud",
-    "text": "a tractor sank in the mud"
+    "value": "Planning ahead can save time on difficult jobs.",
+    "label": "Planning ahead can save time on difficult jobs.",
+    "text": "Planning ahead can save time on difficult jobs."
    },
    {
-    "value": "pride is always right",
-    "label": "pride is always right",
-    "text": "pride is always right"
+    "value": "Taking turns gives everyone a fair chance.",
+    "label": "Taking turns gives everyone a fair chance.",
+    "text": "Taking turns gives everyone a fair chance."
    },
    {
-    "value": "orchards grow apples",
-    "label": "orchards grow apples",
-    "text": "orchards grow apples"
+    "value": "The best worker finishes every job without help.",
+    "label": "The best worker finishes every job without help.",
+    "text": "The best worker finishes every job without help."
    }
   ],
-  "answer": "helping without being asked opens hearts",
-  "correctAnswer": "helping without being asked opens hearts",
+  "answer": "Offering help can bring people closer together.",
+  "correctAnswer": "Offering help can bring people closer together.",
   "distractorRationales": {
-   "pride is always right": "D-OPPOSITE",
-   "orchards grow apples": "D-TOPIC-ADJACENT",
-   "a tractor sank in the mud": "D-DETAIL-AS-MAIN"
+   "Taking turns gives everyone a fair chance.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The best worker finishes every job without help.": "D-OPPOSITE",
+   "Planning ahead can save time on difficult jobs.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1284,42 +1284,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Jude saw broken glass on the slide. He stood beside it to warn the younger children and called an adult, missing the soccer game while the slide was made safe. Nobody noticed — he thought. On Friday, a note appeared in his cubby: 'Thank you from the little ones. You didn't know we saw.'",
+  "passage": "Jude spotted broken glass on the slide. He warned younger children and called an adult. He missed his game while keeping them away. Later, the children gave him a thank-you note.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "quiet good deeds are still seen",
-   "there was glass on the slide",
-   "soccer matters more than safety",
-   "notes can go in cubbies"
+   "A helpful act can matter to other people.",
+   "Joining a group can help you make friends.",
+   "A new skill often takes many days of practice.",
+   "A prize matters more than the work behind it."
   ],
   "answerOptions": [
    {
-    "value": "quiet good deeds are still seen",
-    "label": "quiet good deeds are still seen",
-    "text": "quiet good deeds are still seen"
+    "value": "A helpful act can matter to other people.",
+    "label": "A helpful act can matter to other people.",
+    "text": "A helpful act can matter to other people."
    },
    {
-    "value": "there was glass on the slide",
-    "label": "there was glass on the slide",
-    "text": "there was glass on the slide"
+    "value": "Joining a group can help you make friends.",
+    "label": "Joining a group can help you make friends.",
+    "text": "Joining a group can help you make friends."
    },
    {
-    "value": "soccer matters more than safety",
-    "label": "soccer matters more than safety",
-    "text": "soccer matters more than safety"
+    "value": "A new skill often takes many days of practice.",
+    "label": "A new skill often takes many days of practice.",
+    "text": "A new skill often takes many days of practice."
    },
    {
-    "value": "notes can go in cubbies",
-    "label": "notes can go in cubbies",
-    "text": "notes can go in cubbies"
+    "value": "A prize matters more than the work behind it.",
+    "label": "A prize matters more than the work behind it.",
+    "text": "A prize matters more than the work behind it."
    }
   ],
-  "answer": "quiet good deeds are still seen",
-  "correctAnswer": "quiet good deeds are still seen",
+  "answer": "A helpful act can matter to other people.",
+  "correctAnswer": "A helpful act can matter to other people.",
   "distractorRationales": {
-   "notes can go in cubbies": "D-TOPIC-ADJACENT",
-   "there was glass on the slide": "D-DETAIL-AS-MAIN",
-   "soccer matters more than safety": "D-OPPOSITE"
+   "A prize matters more than the work behind it.": "D-OPPOSITE",
+   "Joining a group can help you make friends.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A new skill often takes many days of practice.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1374,42 +1374,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "One jump rope, eleven children. Quarrels every recess — until Fern started counting everyone in: two turns each, jumpers become turners, turners become jumpers. The rope never rested, the line sang the counting song, and recess stopped ending in tears.",
+  "passage": "Eleven children argued over one jump rope. Fern suggested two jumps each, then changing places. Everyone agreed and took a turn. This time, nobody was left out of the game.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "eleven children wanted one rope",
-   "the strongest should keep the rope",
-   "jumping rope has counting songs",
-   "fair sharing lets everyone enjoy more"
+   "Repairing old equipment can save useful materials.",
+   "Keeping a promise can rebuild someone’s trust.",
+   "Having many children makes every game more fun.",
+   "Sharing fairly helps people have fun together."
   ],
   "answerOptions": [
    {
-    "value": "eleven children wanted one rope",
-    "label": "eleven children wanted one rope",
-    "text": "eleven children wanted one rope"
+    "value": "Repairing old equipment can save useful materials.",
+    "label": "Repairing old equipment can save useful materials.",
+    "text": "Repairing old equipment can save useful materials."
    },
    {
-    "value": "the strongest should keep the rope",
-    "label": "the strongest should keep the rope",
-    "text": "the strongest should keep the rope"
+    "value": "Keeping a promise can rebuild someone’s trust.",
+    "label": "Keeping a promise can rebuild someone’s trust.",
+    "text": "Keeping a promise can rebuild someone’s trust."
    },
    {
-    "value": "jumping rope has counting songs",
-    "label": "jumping rope has counting songs",
-    "text": "jumping rope has counting songs"
+    "value": "Having many children makes every game more fun.",
+    "label": "Having many children makes every game more fun.",
+    "text": "Having many children makes every game more fun."
    },
    {
-    "value": "fair sharing lets everyone enjoy more",
-    "label": "fair sharing lets everyone enjoy more",
-    "text": "fair sharing lets everyone enjoy more"
+    "value": "Sharing fairly helps people have fun together.",
+    "label": "Sharing fairly helps people have fun together.",
+    "text": "Sharing fairly helps people have fun together."
    }
   ],
-  "answer": "fair sharing lets everyone enjoy more",
-  "correctAnswer": "fair sharing lets everyone enjoy more",
+  "answer": "Sharing fairly helps people have fun together.",
+  "correctAnswer": "Sharing fairly helps people have fun together.",
   "distractorRationales": {
-   "jumping rope has counting songs": "D-TOPIC-ADJACENT",
-   "eleven children wanted one rope": "D-DETAIL-AS-MAIN",
-   "the strongest should keep the rope": "D-OPPOSITE"
+   "Having many children makes every game more fun.": "D-OPPOSITE",
+   "Repairing old equipment can save useful materials.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Keeping a promise can rebuild someone’s trust.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1464,42 +1464,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Pip's sunflower seed sat in the soil doing nothing while Marco's shot up like a green rocket. Pip watered anyway, every day, even when it felt silly. In week five, a late little stem appeared — and by August, Pip's flower was the tallest in the whole garden.",
+  "passage": "Pip's seed stayed hidden while other seeds sprouted. Pip checked the soil and watered when needed. At last, a small shoot appeared. With steady care, it grew into a tall sunflower.",
   "cell": "lesson_effort_pays",
   "choices": [
-   "sunflowers grow in gardens",
-   "keep trying when progress is slow",
-   "Marco's flower grew first",
-   "slow seeds never grow"
+   "Quick results matter more than careful daily work.",
+   "Keep caring for a goal when progress is slow.",
+   "Sharing something special can make others happy.",
+   "Trying a different plan can solve a problem."
   ],
   "answerOptions": [
    {
-    "value": "sunflowers grow in gardens",
-    "label": "sunflowers grow in gardens",
-    "text": "sunflowers grow in gardens"
+    "value": "Quick results matter more than careful daily work.",
+    "label": "Quick results matter more than careful daily work.",
+    "text": "Quick results matter more than careful daily work."
    },
    {
-    "value": "keep trying when progress is slow",
-    "label": "keep trying when progress is slow",
-    "text": "keep trying when progress is slow"
+    "value": "Keep caring for a goal when progress is slow.",
+    "label": "Keep caring for a goal when progress is slow.",
+    "text": "Keep caring for a goal when progress is slow."
    },
    {
-    "value": "Marco's flower grew first",
-    "label": "Marco's flower grew first",
-    "text": "Marco's flower grew first"
+    "value": "Sharing something special can make others happy.",
+    "label": "Sharing something special can make others happy.",
+    "text": "Sharing something special can make others happy."
    },
    {
-    "value": "slow seeds never grow",
-    "label": "slow seeds never grow",
-    "text": "slow seeds never grow"
+    "value": "Trying a different plan can solve a problem.",
+    "label": "Trying a different plan can solve a problem.",
+    "text": "Trying a different plan can solve a problem."
    }
   ],
-  "answer": "keep trying when progress is slow",
-  "correctAnswer": "keep trying when progress is slow",
+  "answer": "Keep caring for a goal when progress is slow.",
+  "correctAnswer": "Keep caring for a goal when progress is slow.",
   "distractorRationales": {
-   "slow seeds never grow": "D-OPPOSITE",
-   "sunflowers grow in gardens": "D-TOPIC-ADJACENT",
-   "Marco's flower grew first": "D-DETAIL-AS-MAIN"
+   "Trying a different plan can solve a problem.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Quick results matter more than careful daily work.": "D-OPPOSITE",
+   "Sharing something special can make others happy.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1554,42 +1554,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "The monkey bars defeated Ola all autumn. Each break she got one bar farther before dropping. Winter gloves, spring blisters, a hundred small tries. On the last day of term she swung across the whole row — and the playground burst into cheering she never expected.",
+  "passage": "Ola could reach only one monkey bar. She tried again at each break. After weeks, she reached halfway. By summer, she could cross the whole row.",
   "cell": "lesson_effort_pays",
   "choices": [
-   "many small tries add up to a big win",
-   "Ola wore winter gloves",
-   "give up after one autumn",
-   "playgrounds have monkey bars"
+   "Small improvements can build toward a big goal.",
+   "A team can finish work faster than one person.",
+   "Choosing safe equipment helps prevent an accident.",
+   "A promise is worth keeping even when forgotten."
   ],
   "answerOptions": [
    {
-    "value": "many small tries add up to a big win",
-    "label": "many small tries add up to a big win",
-    "text": "many small tries add up to a big win"
+    "value": "Small improvements can build toward a big goal.",
+    "label": "Small improvements can build toward a big goal.",
+    "text": "Small improvements can build toward a big goal."
    },
    {
-    "value": "Ola wore winter gloves",
-    "label": "Ola wore winter gloves",
-    "text": "Ola wore winter gloves"
+    "value": "A team can finish work faster than one person.",
+    "label": "A team can finish work faster than one person.",
+    "text": "A team can finish work faster than one person."
    },
    {
-    "value": "give up after one autumn",
-    "label": "give up after one autumn",
-    "text": "give up after one autumn"
+    "value": "Choosing safe equipment helps prevent an accident.",
+    "label": "Choosing safe equipment helps prevent an accident.",
+    "text": "Choosing safe equipment helps prevent an accident."
    },
    {
-    "value": "playgrounds have monkey bars",
-    "label": "playgrounds have monkey bars",
-    "text": "playgrounds have monkey bars"
+    "value": "A promise is worth keeping even when forgotten.",
+    "label": "A promise is worth keeping even when forgotten.",
+    "text": "A promise is worth keeping even when forgotten."
    }
   ],
-  "answer": "many small tries add up to a big win",
-  "correctAnswer": "many small tries add up to a big win",
+  "answer": "Small improvements can build toward a big goal.",
+  "correctAnswer": "Small improvements can build toward a big goal.",
   "distractorRationales": {
-   "give up after one autumn": "D-OPPOSITE",
-   "playgrounds have monkey bars": "D-TOPIC-ADJACENT",
-   "Ola wore winter gloves": "D-DETAIL-AS-MAIN"
+   "Choosing safe equipment helps prevent an accident.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A promise is worth keeping even when forgotten.": "D-OPPOSITE",
+   "A team can finish work faster than one person.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1644,42 +1644,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Tam wanted to fold one hundred paper cranes like the ones in the library book. By crane twenty his folds were crooked; by fifty, his thumbs ached. He folded on the bus, at breakfast, and after school. Crane one hundred sat perfectly on his windowsill before his birthday.",
+  "passage": "Tam wanted to fold one hundred paper birds. He made a few after school each day. His pile slowly grew. At last, he counted one hundred finished birds.",
   "cell": "lesson_effort_pays",
   "choices": [
-   "libraries have craft books",
-   "big goals are finished one small step at a time",
-   "his thumbs ached at fifty",
-   "one hundred is too many"
+   "Changing goals daily keeps a project on track.",
+   "Large tasks can be finished in small steps.",
+   "Helping someone may bring help back to you.",
+   "Asking for advice can prevent an early mistake."
   ],
   "answerOptions": [
    {
-    "value": "libraries have craft books",
-    "label": "libraries have craft books",
-    "text": "libraries have craft books"
+    "value": "Changing goals daily keeps a project on track.",
+    "label": "Changing goals daily keeps a project on track.",
+    "text": "Changing goals daily keeps a project on track."
    },
    {
-    "value": "big goals are finished one small step at a time",
-    "label": "big goals are finished one small step at a time",
-    "text": "big goals are finished one small step at a time"
+    "value": "Large tasks can be finished in small steps.",
+    "label": "Large tasks can be finished in small steps.",
+    "text": "Large tasks can be finished in small steps."
    },
    {
-    "value": "his thumbs ached at fifty",
-    "label": "his thumbs ached at fifty",
-    "text": "his thumbs ached at fifty"
+    "value": "Helping someone may bring help back to you.",
+    "label": "Helping someone may bring help back to you.",
+    "text": "Helping someone may bring help back to you."
    },
    {
-    "value": "one hundred is too many",
-    "label": "one hundred is too many",
-    "text": "one hundred is too many"
+    "value": "Asking for advice can prevent an early mistake.",
+    "label": "Asking for advice can prevent an early mistake.",
+    "text": "Asking for advice can prevent an early mistake."
    }
   ],
-  "answer": "big goals are finished one small step at a time",
-  "correctAnswer": "big goals are finished one small step at a time",
+  "answer": "Large tasks can be finished in small steps.",
+  "correctAnswer": "Large tasks can be finished in small steps.",
   "distractorRationales": {
-   "one hundred is too many": "D-OPPOSITE",
-   "libraries have craft books": "D-TOPIC-ADJACENT",
-   "his thumbs ached at fifty": "D-DETAIL-AS-MAIN"
+   "Asking for advice can prevent an early mistake.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Changing goals daily keeps a project on track.": "D-OPPOSITE",
+   "Helping someone may bring help back to you.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1734,42 +1734,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Nobody wanted to be goalkeeper, so quiet Emil took the gloves. He practiced alone against the garage wall all season — thud, catch, thud, catch. In the last game, with the score tied, Emil dove sideways and caught the final shot, and his name was the loudest word on the field.",
+  "passage": "Emil wanted to become a better goalkeeper. He practiced catching every evening. Some balls slipped past, but he tried again. In the final game, he saved a difficult shot.",
   "cell": "lesson_effort_pays",
   "choices": [
-   "goalkeepers never matter",
-   "games can end with a tied score",
-   "practice done quietly still shines in the end",
-   "Emil practiced against a garage wall"
+   "Good teamwork depends on sharing ideas with others.",
+   "Winning once means there is nothing left to learn.",
+   "Regular practice can prepare you for a challenge.",
+   "Accepting a fair decision shows respect for others."
   ],
   "answerOptions": [
    {
-    "value": "goalkeepers never matter",
-    "label": "goalkeepers never matter",
-    "text": "goalkeepers never matter"
+    "value": "Good teamwork depends on sharing ideas with others.",
+    "label": "Good teamwork depends on sharing ideas with others.",
+    "text": "Good teamwork depends on sharing ideas with others."
    },
    {
-    "value": "games can end with a tied score",
-    "label": "games can end with a tied score",
-    "text": "games can end with a tied score"
+    "value": "Winning once means there is nothing left to learn.",
+    "label": "Winning once means there is nothing left to learn.",
+    "text": "Winning once means there is nothing left to learn."
    },
    {
-    "value": "practice done quietly still shines in the end",
-    "label": "practice done quietly still shines in the end",
-    "text": "practice done quietly still shines in the end"
+    "value": "Regular practice can prepare you for a challenge.",
+    "label": "Regular practice can prepare you for a challenge.",
+    "text": "Regular practice can prepare you for a challenge."
    },
    {
-    "value": "Emil practiced against a garage wall",
-    "label": "Emil practiced against a garage wall",
-    "text": "Emil practiced against a garage wall"
+    "value": "Accepting a fair decision shows respect for others.",
+    "label": "Accepting a fair decision shows respect for others.",
+    "text": "Accepting a fair decision shows respect for others."
    }
   ],
-  "answer": "practice done quietly still shines in the end",
-  "correctAnswer": "practice done quietly still shines in the end",
+  "answer": "Regular practice can prepare you for a challenge.",
+  "correctAnswer": "Regular practice can prepare you for a challenge.",
   "distractorRationales": {
-   "Emil practiced against a garage wall": "D-DETAIL-AS-MAIN",
-   "goalkeepers never matter": "D-OPPOSITE",
-   "games can end with a tied score": "D-TOPIC-ADJACENT"
+   "Accepting a fair decision shows respect for others.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Good teamwork depends on sharing ideas with others.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Winning once means there is nothing left to learn.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1824,42 +1824,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "The first snow would not stick, and Ceri checked the window a hundred times. Grandma said watching would not hurry the sky, so Ceri stopped watching and got ready instead: gloves dried, sled waxed, carrot saved. When the deep snow finally came, she was first — and readiest — on the hill.",
+  "passage": "Ceri kept watching for snow. Grandma suggested getting ready while she waited. Ceri dried her gloves and checked her sled. When snow came, she was ready to play.",
   "cell": "lesson_effort_pays",
   "choices": [
-   "sleds go on hills",
-   "use waiting time to get ready",
-   "the first snow would not stick",
-   "watching the sky brings snow"
+   "Sharing a mistake makes a friendship stronger.",
+   "Waiting time can be used to get ready.",
+   "A kind act can brighten someone else’s day.",
+   "Asking for advice can help settle a disagreement."
   ],
   "answerOptions": [
    {
-    "value": "sleds go on hills",
-    "label": "sleds go on hills",
-    "text": "sleds go on hills"
+    "value": "Sharing a mistake makes a friendship stronger.",
+    "label": "Sharing a mistake makes a friendship stronger.",
+    "text": "Sharing a mistake makes a friendship stronger."
    },
    {
-    "value": "use waiting time to get ready",
-    "label": "use waiting time to get ready",
-    "text": "use waiting time to get ready"
+    "value": "Waiting time can be used to get ready.",
+    "label": "Waiting time can be used to get ready.",
+    "text": "Waiting time can be used to get ready."
    },
    {
-    "value": "the first snow would not stick",
-    "label": "the first snow would not stick",
-    "text": "the first snow would not stick"
+    "value": "A kind act can brighten someone else’s day.",
+    "label": "A kind act can brighten someone else’s day.",
+    "text": "A kind act can brighten someone else’s day."
    },
    {
-    "value": "watching the sky brings snow",
-    "label": "watching the sky brings snow",
-    "text": "watching the sky brings snow"
+    "value": "Asking for advice can help settle a disagreement.",
+    "label": "Asking for advice can help settle a disagreement.",
+    "text": "Asking for advice can help settle a disagreement."
    }
   ],
-  "answer": "use waiting time to get ready",
-  "correctAnswer": "use waiting time to get ready",
+  "answer": "Waiting time can be used to get ready.",
+  "correctAnswer": "Waiting time can be used to get ready.",
   "distractorRationales": {
-   "sleds go on hills": "D-TOPIC-ADJACENT",
-   "the first snow would not stick": "D-DETAIL-AS-MAIN",
-   "watching the sky brings snow": "D-OPPOSITE"
+   "Sharing a mistake makes a friendship stronger.": "D-OPPOSITE",
+   "A kind act can brighten someone else’s day.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Asking for advice can help settle a disagreement.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1914,42 +1914,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "The jigsaw puzzle's last corner piece was missing, and everyone gave up — except Ash, who liked finishing things. He searched the sofa, the stairs, the dog's bed, and finally the folded edge of a rug. The picture on the table was complete because one person would not stop looking.",
+  "passage": "One puzzle piece was missing. Ash looked under the sofa and behind the chair. He still did not find it. He checked the rug and found the piece there.",
   "cell": "lesson_effort_pays",
   "choices": [
-   "lost pieces stay lost",
-   "dogs sleep in beds",
-   "finishing takes one person who will not quit",
-   "the piece was under the folded edge of a rug"
+   "A careful promise can help someone trust you.",
+   "The quickest search always gives the best result.",
+   "Keep looking when the first try does not work.",
+   "A group can finish work faster by sharing it."
   ],
   "answerOptions": [
    {
-    "value": "lost pieces stay lost",
-    "label": "lost pieces stay lost",
-    "text": "lost pieces stay lost"
+    "value": "A careful promise can help someone trust you.",
+    "label": "A careful promise can help someone trust you.",
+    "text": "A careful promise can help someone trust you."
    },
    {
-    "value": "dogs sleep in beds",
-    "label": "dogs sleep in beds",
-    "text": "dogs sleep in beds"
+    "value": "The quickest search always gives the best result.",
+    "label": "The quickest search always gives the best result.",
+    "text": "The quickest search always gives the best result."
    },
    {
-    "value": "finishing takes one person who will not quit",
-    "label": "finishing takes one person who will not quit",
-    "text": "finishing takes one person who will not quit"
+    "value": "Keep looking when the first try does not work.",
+    "label": "Keep looking when the first try does not work.",
+    "text": "Keep looking when the first try does not work."
    },
    {
-    "value": "the piece was under the folded edge of a rug",
-    "label": "the piece was under the folded edge of a rug",
-    "text": "the piece was under the folded edge of a rug"
+    "value": "A group can finish work faster by sharing it.",
+    "label": "A group can finish work faster by sharing it.",
+    "text": "A group can finish work faster by sharing it."
    }
   ],
-  "answer": "finishing takes one person who will not quit",
-  "correctAnswer": "finishing takes one person who will not quit",
+  "answer": "Keep looking when the first try does not work.",
+  "correctAnswer": "Keep looking when the first try does not work.",
   "distractorRationales": {
-   "the piece was under the folded edge of a rug": "D-DETAIL-AS-MAIN",
-   "lost pieces stay lost": "D-OPPOSITE",
-   "dogs sleep in beds": "D-TOPIC-ADJACENT"
+   "A group can finish work faster by sharing it.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A careful promise can help someone trust you.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The quickest search always gives the best result.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2004,42 +2004,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Grandpa's old watch had stopped, so repairing it became Suvi's winter project. She studied the gears, sorted the tiny screws, and tried three careful adjustments. When the watch finally ticked the right time, Grandpa wore it proudly every day.",
+  "passage": "Grandpa helped Suvi repair his old toy train. She checked its wheels and cleaned each part. Her first repair did not work. After another careful check, the train ran again.",
   "cell": "lesson_effort_pays",
   "choices": [
-   "the watch had stopped",
-   "old watches cannot be fixed",
-   "winter is for projects",
-   "careful effort can bring an old thing back to use"
+   "Sharing your skills can help a neighbour succeed.",
+   "Finding a fair compromise can protect a friendship.",
+   "A good plan means you never need to change.",
+   "Patient work can make an old thing useful."
   ],
   "answerOptions": [
    {
-    "value": "the watch had stopped",
-    "label": "the watch had stopped",
-    "text": "the watch had stopped"
+    "value": "Sharing your skills can help a neighbour succeed.",
+    "label": "Sharing your skills can help a neighbour succeed.",
+    "text": "Sharing your skills can help a neighbour succeed."
    },
    {
-    "value": "old watches cannot be fixed",
-    "label": "old watches cannot be fixed",
-    "text": "old watches cannot be fixed"
+    "value": "Finding a fair compromise can protect a friendship.",
+    "label": "Finding a fair compromise can protect a friendship.",
+    "text": "Finding a fair compromise can protect a friendship."
    },
    {
-    "value": "winter is for projects",
-    "label": "winter is for projects",
-    "text": "winter is for projects"
+    "value": "A good plan means you never need to change.",
+    "label": "A good plan means you never need to change.",
+    "text": "A good plan means you never need to change."
    },
    {
-    "value": "careful effort can bring an old thing back to use",
-    "label": "careful effort can bring an old thing back to use",
-    "text": "careful effort can bring an old thing back to use"
+    "value": "Patient work can make an old thing useful.",
+    "label": "Patient work can make an old thing useful.",
+    "text": "Patient work can make an old thing useful."
    }
   ],
-  "answer": "careful effort can bring an old thing back to use",
-  "correctAnswer": "careful effort can bring an old thing back to use",
+  "answer": "Patient work can make an old thing useful.",
+  "correctAnswer": "Patient work can make an old thing useful.",
   "distractorRationales": {
-   "the watch had stopped": "D-DETAIL-AS-MAIN",
-   "old watches cannot be fixed": "D-OPPOSITE",
-   "winter is for projects": "D-TOPIC-ADJACENT"
+   "Sharing your skills can help a neighbour succeed.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Finding a fair compromise can protect a friendship.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A good plan means you never need to change.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2094,42 +2094,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "A fifth-grade class built a robot to pick up paper scraps, but it kept jamming. They tested it, found one problem at a time, widened the wheels, and moved the brush. After many fixes, the robot rolled down the hallway and collected every scrap without stopping.",
+  "passage": "A class built a robot to collect paper scraps. Its wheels kept getting stuck. The children tested and changed one part each time. After several changes, it rolled along collecting paper.",
   "cell": "lesson_effort_pays",
   "choices": [
-   "stop trying when a project jams",
-   "schools have hallways",
-   "testing and fixing one problem at a time can make an idea work",
-   "the class widened the robot's wheels"
+   "Accepting a fair result shows respect for others.",
+   "A new idea always works on its first try.",
+   "Testing and improving can make an idea work.",
+   "Good leaders make sure every voice is heard."
   ],
   "answerOptions": [
    {
-    "value": "stop trying when a project jams",
-    "label": "stop trying when a project jams",
-    "text": "stop trying when a project jams"
+    "value": "Accepting a fair result shows respect for others.",
+    "label": "Accepting a fair result shows respect for others.",
+    "text": "Accepting a fair result shows respect for others."
    },
    {
-    "value": "schools have hallways",
-    "label": "schools have hallways",
-    "text": "schools have hallways"
+    "value": "A new idea always works on its first try.",
+    "label": "A new idea always works on its first try.",
+    "text": "A new idea always works on its first try."
    },
    {
-    "value": "testing and fixing one problem at a time can make an idea work",
-    "label": "testing and fixing one problem at a time can make an idea work",
-    "text": "testing and fixing one problem at a time can make an idea work"
+    "value": "Testing and improving can make an idea work.",
+    "label": "Testing and improving can make an idea work.",
+    "text": "Testing and improving can make an idea work."
    },
    {
-    "value": "the class widened the robot's wheels",
-    "label": "the class widened the robot's wheels",
-    "text": "the class widened the robot's wheels"
+    "value": "Good leaders make sure every voice is heard.",
+    "label": "Good leaders make sure every voice is heard.",
+    "text": "Good leaders make sure every voice is heard."
    }
   ],
-  "answer": "testing and fixing one problem at a time can make an idea work",
-  "correctAnswer": "testing and fixing one problem at a time can make an idea work",
+  "answer": "Testing and improving can make an idea work.",
+  "correctAnswer": "Testing and improving can make an idea work.",
   "distractorRationales": {
-   "the class widened the robot's wheels": "D-DETAIL-AS-MAIN",
-   "stop trying when a project jams": "D-OPPOSITE",
-   "schools have hallways": "D-TOPIC-ADJACENT"
+   "Good leaders make sure every voice is heard.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Accepting a fair result shows respect for others.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A new idea always works on its first try.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2184,42 +2184,42 @@ export const questions = [
   "prompt": "Which lesson is best supported by the story?",
   "question": "Which lesson is best supported by the story?",
   "spokenPrompt": "Which lesson is best supported by the story?",
-  "passage": "Two watering cans sat by the garden: Jo's shiny new one and the old dented one her mom had used as a girl. Jo always chose the shiny can — until she noticed its wide spout soaked the path but missed the roots. The old can's long spout placed water exactly where each plant needed it. After that, Jo cared for both cans but reached for the dented one each morning.",
+  "passage": "Jo always chose the shiny new watering can. Its wide spout sent water onto the path instead of roots. The dented can's long spout watered each plant neatly. Jo began choosing that can for her daily watering.",
   "cell": "theme_among_rivals",
   "choices": [
-   "new things always work badly",
-   "the old can had a long spout",
-   "judge a tool by how well it works, not by how shiny it looks",
-   "family memories can make old things worth caring for"
+   "Sharing gardening tasks can help a family work together.",
+   "Replace familiar tools whenever something new becomes available.",
+   "Choose a tool for its usefulness, not just its appearance.",
+   "Family memories can give old objects a special meaning."
   ],
   "answerOptions": [
    {
-    "value": "new things always work badly",
-    "label": "new things always work badly",
-    "text": "new things always work badly"
+    "value": "Sharing gardening tasks can help a family work together.",
+    "label": "Sharing gardening tasks can help a family work together.",
+    "text": "Sharing gardening tasks can help a family work together."
    },
    {
-    "value": "the old can had a long spout",
-    "label": "the old can had a long spout",
-    "text": "the old can had a long spout"
+    "value": "Replace familiar tools whenever something new becomes available.",
+    "label": "Replace familiar tools whenever something new becomes available.",
+    "text": "Replace familiar tools whenever something new becomes available."
    },
    {
-    "value": "judge a tool by how well it works, not by how shiny it looks",
-    "label": "judge a tool by how well it works, not by how shiny it looks",
-    "text": "judge a tool by how well it works, not by how shiny it looks"
+    "value": "Choose a tool for its usefulness, not just its appearance.",
+    "label": "Choose a tool for its usefulness, not just its appearance.",
+    "text": "Choose a tool for its usefulness, not just its appearance."
    },
    {
-    "value": "family memories can make old things worth caring for",
-    "label": "family memories can make old things worth caring for",
-    "text": "family memories can make old things worth caring for"
+    "value": "Family memories can give old objects a special meaning.",
+    "label": "Family memories can give old objects a special meaning.",
+    "text": "Family memories can give old objects a special meaning."
    }
   ],
-  "answer": "judge a tool by how well it works, not by how shiny it looks",
-  "correctAnswer": "judge a tool by how well it works, not by how shiny it looks",
+  "answer": "Choose a tool for its usefulness, not just its appearance.",
+  "correctAnswer": "Choose a tool for its usefulness, not just its appearance.",
   "distractorRationales": {
-   "family memories can make old things worth caring for": "D-PLAUSIBLE-UNSUPPORTED",
-   "new things always work badly": "D-OPPOSITE",
-   "the old can had a long spout": "D-DETAIL-AS-MAIN"
+   "Family memories can give old objects a special meaning.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Sharing gardening tasks can help a family work together.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Replace familiar tools whenever something new becomes available.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2274,42 +2274,42 @@ export const questions = [
   "prompt": "Which lesson is best supported by the story?",
   "question": "Which lesson is best supported by the story?",
   "spokenPrompt": "Which lesson is best supported by the story?",
-  "passage": "Yusuf told everyone that his loud trumpet solo would be the concert's best part. His sister Amal said little and practiced the harp behind a closed door. Yusuf played well and bowed twice. Then Amal's gentle tune held the whole hall silent before the applause began. On the way home, Yusuf asked how she had made quiet music hold such a big room.",
+  "passage": "Yusuf said his loud trumpet would be the concert's best part. Amal practiced a quiet harp tune each day. Yusuf played well, but Amal's gentle music held everyone still. He asked her how soft music could have such power.",
   "cell": "theme_among_rivals",
   "choices": [
-   "regular practice helps a performer improve",
-   "loud music can never be beautiful",
-   "the hall stayed silent before applauding",
-   "something quiet can still have a powerful effect"
+   "Performing together can help people build lasting friendships.",
+   "A fair competition gives different skills an equal chance.",
+   "The loudest performer deserves the most attention.",
+   "Quiet work can make a strong impression."
   ],
   "answerOptions": [
    {
-    "value": "regular practice helps a performer improve",
-    "label": "regular practice helps a performer improve",
-    "text": "regular practice helps a performer improve"
+    "value": "Performing together can help people build lasting friendships.",
+    "label": "Performing together can help people build lasting friendships.",
+    "text": "Performing together can help people build lasting friendships."
    },
    {
-    "value": "loud music can never be beautiful",
-    "label": "loud music can never be beautiful",
-    "text": "loud music can never be beautiful"
+    "value": "A fair competition gives different skills an equal chance.",
+    "label": "A fair competition gives different skills an equal chance.",
+    "text": "A fair competition gives different skills an equal chance."
    },
    {
-    "value": "the hall stayed silent before applauding",
-    "label": "the hall stayed silent before applauding",
-    "text": "the hall stayed silent before applauding"
+    "value": "The loudest performer deserves the most attention.",
+    "label": "The loudest performer deserves the most attention.",
+    "text": "The loudest performer deserves the most attention."
    },
    {
-    "value": "something quiet can still have a powerful effect",
-    "label": "something quiet can still have a powerful effect",
-    "text": "something quiet can still have a powerful effect"
+    "value": "Quiet work can make a strong impression.",
+    "label": "Quiet work can make a strong impression.",
+    "text": "Quiet work can make a strong impression."
    }
   ],
-  "answer": "something quiet can still have a powerful effect",
-  "correctAnswer": "something quiet can still have a powerful effect",
+  "answer": "Quiet work can make a strong impression.",
+  "correctAnswer": "Quiet work can make a strong impression.",
   "distractorRationales": {
-   "regular practice helps a performer improve": "D-PLAUSIBLE-UNSUPPORTED",
-   "loud music can never be beautiful": "D-OPPOSITE",
-   "the hall stayed silent before applauding": "D-DETAIL-AS-MAIN"
+   "Performing together can help people build lasting friendships.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A fair competition gives different skills an equal chance.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The loudest performer deserves the most attention.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2364,42 +2364,42 @@ export const questions = [
   "prompt": "Which lesson is best supported by the story?",
   "question": "Which lesson is best supported by the story?",
   "spokenPrompt": "Which lesson is best supported by the story?",
-  "passage": "Milo and Dad disagreed about the night-light. Dad thought darkness would help Milo sleep, but Milo was frightened by shapes in the room. They agreed to keep a flashlight beside the bed. Milo used it the first night, held it the second, and by Friday left it untouched — because knowing he could switch it on made the dark feel manageable.",
+  "passage": "Milo feared the dark, so Dad left a torch beside him. At first, Milo used it every night. Later, knowing it was there was enough. He slept without switching it on.",
   "cell": "theme_among_rivals",
   "choices": [
-   "knowing help is near can build courage",
-   "a fair compromise can settle a family disagreement",
-   "feeling afraid means you cannot be brave",
-   "a flashlight sat beside the bed"
+   "Knowing support is nearby can help courage grow.",
+   "A steady routine can help people remember important tasks.",
+   "Listening to different opinions can make group decisions fairer.",
+   "Everyone gains confidence at exactly the same speed."
   ],
   "answerOptions": [
    {
-    "value": "knowing help is near can build courage",
-    "label": "knowing help is near can build courage",
-    "text": "knowing help is near can build courage"
+    "value": "Knowing support is nearby can help courage grow.",
+    "label": "Knowing support is nearby can help courage grow.",
+    "text": "Knowing support is nearby can help courage grow."
    },
    {
-    "value": "a fair compromise can settle a family disagreement",
-    "label": "a fair compromise can settle a family disagreement",
-    "text": "a fair compromise can settle a family disagreement"
+    "value": "A steady routine can help people remember important tasks.",
+    "label": "A steady routine can help people remember important tasks.",
+    "text": "A steady routine can help people remember important tasks."
    },
    {
-    "value": "feeling afraid means you cannot be brave",
-    "label": "feeling afraid means you cannot be brave",
-    "text": "feeling afraid means you cannot be brave"
+    "value": "Listening to different opinions can make group decisions fairer.",
+    "label": "Listening to different opinions can make group decisions fairer.",
+    "text": "Listening to different opinions can make group decisions fairer."
    },
    {
-    "value": "a flashlight sat beside the bed",
-    "label": "a flashlight sat beside the bed",
-    "text": "a flashlight sat beside the bed"
+    "value": "Everyone gains confidence at exactly the same speed.",
+    "label": "Everyone gains confidence at exactly the same speed.",
+    "text": "Everyone gains confidence at exactly the same speed."
    }
   ],
-  "answer": "knowing help is near can build courage",
-  "correctAnswer": "knowing help is near can build courage",
+  "answer": "Knowing support is nearby can help courage grow.",
+  "correctAnswer": "Knowing support is nearby can help courage grow.",
   "distractorRationales": {
-   "a fair compromise can settle a family disagreement": "D-PLAUSIBLE-UNSUPPORTED",
-   "feeling afraid means you cannot be brave": "D-OPPOSITE",
-   "a flashlight sat beside the bed": "D-DETAIL-AS-MAIN"
+   "A steady routine can help people remember important tasks.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Listening to different opinions can make group decisions fairer.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Everyone gains confidence at exactly the same speed.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2454,42 +2454,42 @@ export const questions = [
   "prompt": "Which lesson is best supported by the story?",
   "question": "Which lesson is best supported by the story?",
   "spokenPrompt": "Which lesson is best supported by the story?",
-  "passage": "Priya found the answer list for Friday's spelling test lying by the copier — every word, a day early. She looked at it a long moment, then slid it under the school office door. Her score on Friday was seven out of ten, her usual score. But when Mr. Field told the class someone had returned the list unread, Priya felt prouder than any unfair perfect score could have made her feel.",
+  "passage": "Priya found tomorrow's answer sheet beside the copier. She could see its heading but did not read the answers. She returned it and earned her usual seven points. She felt proud that her score was truly her own.",
   "cell": "theme_among_rivals",
   "choices": [
-   "hard work can improve a test score",
-   "a high score matters more than honesty",
-   "an answer list lay by the copier",
-   "being honest feels better than winning unfairly"
+   "Regular study can help you improve a difficult skill.",
+   "Helping a classmate learn can strengthen a friendship.",
+   "A kind gift can bring an unexpected friendship.",
+   "An honest result can matter more than an unfair victory."
   ],
   "answerOptions": [
    {
-    "value": "hard work can improve a test score",
-    "label": "hard work can improve a test score",
-    "text": "hard work can improve a test score"
+    "value": "Regular study can help you improve a difficult skill.",
+    "label": "Regular study can help you improve a difficult skill.",
+    "text": "Regular study can help you improve a difficult skill."
    },
    {
-    "value": "a high score matters more than honesty",
-    "label": "a high score matters more than honesty",
-    "text": "a high score matters more than honesty"
+    "value": "Helping a classmate learn can strengthen a friendship.",
+    "label": "Helping a classmate learn can strengthen a friendship.",
+    "text": "Helping a classmate learn can strengthen a friendship."
    },
    {
-    "value": "an answer list lay by the copier",
-    "label": "an answer list lay by the copier",
-    "text": "an answer list lay by the copier"
+    "value": "A kind gift can bring an unexpected friendship.",
+    "label": "A kind gift can bring an unexpected friendship.",
+    "text": "A kind gift can bring an unexpected friendship."
    },
    {
-    "value": "being honest feels better than winning unfairly",
-    "label": "being honest feels better than winning unfairly",
-    "text": "being honest feels better than winning unfairly"
+    "value": "An honest result can matter more than an unfair victory.",
+    "label": "An honest result can matter more than an unfair victory.",
+    "text": "An honest result can matter more than an unfair victory."
    }
   ],
-  "answer": "being honest feels better than winning unfairly",
-  "correctAnswer": "being honest feels better than winning unfairly",
+  "answer": "An honest result can matter more than an unfair victory.",
+  "correctAnswer": "An honest result can matter more than an unfair victory.",
   "distractorRationales": {
-   "an answer list lay by the copier": "D-DETAIL-AS-MAIN",
-   "hard work can improve a test score": "D-PLAUSIBLE-UNSUPPORTED",
-   "a high score matters more than honesty": "D-OPPOSITE"
+   "A kind gift can bring an unexpected friendship.": "D-OPPOSITE",
+   "Regular study can help you improve a difficult skill.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Helping a classmate learn can strengthen a friendship.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2544,42 +2544,42 @@ export const questions = [
   "prompt": "Which lesson is best supported by the story?",
   "question": "Which lesson is best supported by the story?",
   "spokenPrompt": "Which lesson is best supported by the story?",
-  "passage": "Etta found a young feathered bird hopping under the hedge after a storm. She wanted to carry it indoors, but her grandmother called a wildlife rescue line first. They were told to keep pets away and watch from a distance. Soon the parent bird returned with food, and the young bird followed it deeper into the hedge.",
+  "passage": "Etta found a young bird with feathers beneath a hedge. She wanted to take it indoors. A rescue worker advised keeping pets away and watching quietly. Etta followed that advice, and the bird's parent returned with food.",
   "cell": "theme_among_rivals",
   "choices": [
-   "the best help can support without taking over",
-   "quick action is always the best way to protect an animal",
-   "wild animals should become household pets",
-   "the parent bird returned with food"
+   "Good help should fit what someone actually needs.",
+   "Patience helps people develop new skills over time.",
+   "Preparing carefully can prevent a problem from happening.",
+   "Every difficult problem should be solved without outside advice."
   ],
   "answerOptions": [
    {
-    "value": "the best help can support without taking over",
-    "label": "the best help can support without taking over",
-    "text": "the best help can support without taking over"
+    "value": "Good help should fit what someone actually needs.",
+    "label": "Good help should fit what someone actually needs.",
+    "text": "Good help should fit what someone actually needs."
    },
    {
-    "value": "quick action is always the best way to protect an animal",
-    "label": "quick action is always the best way to protect an animal",
-    "text": "quick action is always the best way to protect an animal"
+    "value": "Patience helps people develop new skills over time.",
+    "label": "Patience helps people develop new skills over time.",
+    "text": "Patience helps people develop new skills over time."
    },
    {
-    "value": "wild animals should become household pets",
-    "label": "wild animals should become household pets",
-    "text": "wild animals should become household pets"
+    "value": "Preparing carefully can prevent a problem from happening.",
+    "label": "Preparing carefully can prevent a problem from happening.",
+    "text": "Preparing carefully can prevent a problem from happening."
    },
    {
-    "value": "the parent bird returned with food",
-    "label": "the parent bird returned with food",
-    "text": "the parent bird returned with food"
+    "value": "Every difficult problem should be solved without outside advice.",
+    "label": "Every difficult problem should be solved without outside advice.",
+    "text": "Every difficult problem should be solved without outside advice."
    }
   ],
-  "answer": "the best help can support without taking over",
-  "correctAnswer": "the best help can support without taking over",
+  "answer": "Good help should fit what someone actually needs.",
+  "correctAnswer": "Good help should fit what someone actually needs.",
   "distractorRationales": {
-   "quick action is always the best way to protect an animal": "D-PLAUSIBLE-UNSUPPORTED",
-   "wild animals should become household pets": "D-OPPOSITE",
-   "the parent bird returned with food": "D-DETAIL-AS-MAIN"
+   "Patience helps people develop new skills over time.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Preparing carefully can prevent a problem from happening.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Every difficult problem should be solved without outside advice.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2634,42 +2634,42 @@ export const questions = [
   "prompt": "Which lesson is best supported by the story?",
   "question": "Which lesson is best supported by the story?",
   "spokenPrompt": "Which lesson is best supported by the story?",
-  "passage": "The junior bake-off allowed one entry each. Zeke's jam roll collapsed just before judging, and he stood over the broken cake, out of time and hope. Nell knew her lemon cake might win, but helping Zeke would mean missing judging. She withdrew her entry and helped him turn the broken roll into dessert cups for the visitors. They won no prize, but every cup was eaten, and they left laughing together.",
+  "passage": "Nell was ready to enter her cake in the contest. Her friend Zeke dropped his cake and began to cry. Nell missed her turn while helping him make dessert cups. They won nothing, but laughed while sharing the cups with visitors.",
   "cell": "theme_among_rivals",
   "choices": [
-   "a jam roll collapsed before judging",
-   "friendship can matter more than prizes",
-   "creative reuse can turn a mistake into something useful",
-   "winning matters more than helping a friend"
+   "A mistake should make you abandon the whole activity.",
+   "Helping a friend can matter more than winning a prize.",
+   "Sharing ideas can help a team create a better design.",
+   "Learning from a mistake can improve your next attempt."
   ],
   "answerOptions": [
    {
-    "value": "a jam roll collapsed before judging",
-    "label": "a jam roll collapsed before judging",
-    "text": "a jam roll collapsed before judging"
+    "value": "A mistake should make you abandon the whole activity.",
+    "label": "A mistake should make you abandon the whole activity.",
+    "text": "A mistake should make you abandon the whole activity."
    },
    {
-    "value": "friendship can matter more than prizes",
-    "label": "friendship can matter more than prizes",
-    "text": "friendship can matter more than prizes"
+    "value": "Helping a friend can matter more than winning a prize.",
+    "label": "Helping a friend can matter more than winning a prize.",
+    "text": "Helping a friend can matter more than winning a prize."
    },
    {
-    "value": "creative reuse can turn a mistake into something useful",
-    "label": "creative reuse can turn a mistake into something useful",
-    "text": "creative reuse can turn a mistake into something useful"
+    "value": "Sharing ideas can help a team create a better design.",
+    "label": "Sharing ideas can help a team create a better design.",
+    "text": "Sharing ideas can help a team create a better design."
    },
    {
-    "value": "winning matters more than helping a friend",
-    "label": "winning matters more than helping a friend",
-    "text": "winning matters more than helping a friend"
+    "value": "Learning from a mistake can improve your next attempt.",
+    "label": "Learning from a mistake can improve your next attempt.",
+    "text": "Learning from a mistake can improve your next attempt."
    }
   ],
-  "answer": "friendship can matter more than prizes",
-  "correctAnswer": "friendship can matter more than prizes",
+  "answer": "Helping a friend can matter more than winning a prize.",
+  "correctAnswer": "Helping a friend can matter more than winning a prize.",
   "distractorRationales": {
-   "a jam roll collapsed before judging": "D-DETAIL-AS-MAIN",
-   "creative reuse can turn a mistake into something useful": "D-PLAUSIBLE-UNSUPPORTED",
-   "winning matters more than helping a friend": "D-OPPOSITE"
+   "A mistake should make you abandon the whole activity.": "D-OPPOSITE",
+   "Sharing ideas can help a team create a better design.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Learning from a mistake can improve your next attempt.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2724,42 +2724,42 @@ export const questions = [
   "prompt": "Which lesson is best supported by the story?",
   "question": "Which lesson is best supported by the story?",
   "spokenPrompt": "Which lesson is best supported by the story?",
-  "passage": "Every evening, Kofi's echo game in the stairwell — HELLO... hello... hello — annoyed the third floor. Mrs. Adjei came down, and everyone expected her to scold him. Instead she taught him the trick her own father taught her: the softer you call, the closer the echo leans in to listen. After that, Kofi played quiet echo games, and the third floor heard nothing at all.",
+  "passage": "Kofi's noisy stairwell game disturbed the neighbours. Mrs Adjei calmly explained that a baby nearby was sleeping. She helped him find an outdoor space for the game. Kofi moved there willingly and invited other children to join.",
   "cell": "theme_among_rivals",
   "choices": [
-   "calm guidance can solve a problem better than scolding",
-   "quiet games are a good choice in shared indoor spaces",
-   "anger is the only way to change behavior",
-   "Kofi played an echo game"
+   "Calm explanation can help people change their actions.",
+   "Offering equal turns can make a shared game fairer.",
+   "Preparing before an activity can help you avoid mistakes.",
+   "The best solution is always to stop playing altogether."
   ],
   "answerOptions": [
    {
-    "value": "calm guidance can solve a problem better than scolding",
-    "label": "calm guidance can solve a problem better than scolding",
-    "text": "calm guidance can solve a problem better than scolding"
+    "value": "Calm explanation can help people change their actions.",
+    "label": "Calm explanation can help people change their actions.",
+    "text": "Calm explanation can help people change their actions."
    },
    {
-    "value": "quiet games are a good choice in shared indoor spaces",
-    "label": "quiet games are a good choice in shared indoor spaces",
-    "text": "quiet games are a good choice in shared indoor spaces"
+    "value": "Offering equal turns can make a shared game fairer.",
+    "label": "Offering equal turns can make a shared game fairer.",
+    "text": "Offering equal turns can make a shared game fairer."
    },
    {
-    "value": "anger is the only way to change behavior",
-    "label": "anger is the only way to change behavior",
-    "text": "anger is the only way to change behavior"
+    "value": "Preparing before an activity can help you avoid mistakes.",
+    "label": "Preparing before an activity can help you avoid mistakes.",
+    "text": "Preparing before an activity can help you avoid mistakes."
    },
    {
-    "value": "Kofi played an echo game",
-    "label": "Kofi played an echo game",
-    "text": "Kofi played an echo game"
+    "value": "The best solution is always to stop playing altogether.",
+    "label": "The best solution is always to stop playing altogether.",
+    "text": "The best solution is always to stop playing altogether."
    }
   ],
-  "answer": "calm guidance can solve a problem better than scolding",
-  "correctAnswer": "calm guidance can solve a problem better than scolding",
+  "answer": "Calm explanation can help people change their actions.",
+  "correctAnswer": "Calm explanation can help people change their actions.",
   "distractorRationales": {
-   "anger is the only way to change behavior": "D-OPPOSITE",
-   "Kofi played an echo game": "D-DETAIL-AS-MAIN",
-   "quiet games are a good choice in shared indoor spaces": "D-PLAUSIBLE-UNSUPPORTED"
+   "Preparing before an activity can help you avoid mistakes.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The best solution is always to stop playing altogether.": "D-OPPOSITE",
+   "Offering equal turns can make a shared game fairer.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2814,42 +2814,42 @@ export const questions = [
   "prompt": "Which lesson is best supported by the story?",
   "question": "Which lesson is best supported by the story?",
   "spokenPrompt": "Which lesson is best supported by the story?",
-  "passage": "The class voted to spend the prize money on a party. Robin alone voted for new goal nets, and lost, nineteen to one. At the party, Robin neither sulked in the corner nor pretended the nets had been a silly idea. He handed out cake, laughed at the games — and in spring, when the nets budget came up again, nineteen hands remembered his good grace and went up with his.",
+  "passage": "Robin voted for goal nets, but the class chose a party. He still helped serve food and joined the games. Later, he explained again why the old nets needed replacing. Classmates listened because he had respected their earlier choice.",
   "cell": "theme_among_rivals",
   "choices": [
-   "the vote was nineteen to one",
-   "respecting a fair decision can earn other people's respect",
-   "speaking up for an unpopular idea can lead to change",
-   "losing a vote means your idea has no value"
+   "Speaking the loudest is the best way to change minds.",
+   "Respecting other decisions can help people respect your ideas.",
+   "Trying an unfamiliar activity can reveal a new interest.",
+   "Careful preparation can make a celebration run smoothly."
   ],
   "answerOptions": [
    {
-    "value": "the vote was nineteen to one",
-    "label": "the vote was nineteen to one",
-    "text": "the vote was nineteen to one"
+    "value": "Speaking the loudest is the best way to change minds.",
+    "label": "Speaking the loudest is the best way to change minds.",
+    "text": "Speaking the loudest is the best way to change minds."
    },
    {
-    "value": "respecting a fair decision can earn other people's respect",
-    "label": "respecting a fair decision can earn other people's respect",
-    "text": "respecting a fair decision can earn other people's respect"
+    "value": "Respecting other decisions can help people respect your ideas.",
+    "label": "Respecting other decisions can help people respect your ideas.",
+    "text": "Respecting other decisions can help people respect your ideas."
    },
    {
-    "value": "speaking up for an unpopular idea can lead to change",
-    "label": "speaking up for an unpopular idea can lead to change",
-    "text": "speaking up for an unpopular idea can lead to change"
+    "value": "Trying an unfamiliar activity can reveal a new interest.",
+    "label": "Trying an unfamiliar activity can reveal a new interest.",
+    "text": "Trying an unfamiliar activity can reveal a new interest."
    },
    {
-    "value": "losing a vote means your idea has no value",
-    "label": "losing a vote means your idea has no value",
-    "text": "losing a vote means your idea has no value"
+    "value": "Careful preparation can make a celebration run smoothly.",
+    "label": "Careful preparation can make a celebration run smoothly.",
+    "text": "Careful preparation can make a celebration run smoothly."
    }
   ],
-  "answer": "respecting a fair decision can earn other people's respect",
-  "correctAnswer": "respecting a fair decision can earn other people's respect",
+  "answer": "Respecting other decisions can help people respect your ideas.",
+  "correctAnswer": "Respecting other decisions can help people respect your ideas.",
   "distractorRationales": {
-   "losing a vote means your idea has no value": "D-OPPOSITE",
-   "the vote was nineteen to one": "D-DETAIL-AS-MAIN",
-   "speaking up for an unpopular idea can lead to change": "D-PLAUSIBLE-UNSUPPORTED"
+   "Careful preparation can make a celebration run smoothly.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Speaking the loudest is the best way to change minds.": "D-OPPOSITE",
+   "Trying an unfamiliar activity can reveal a new interest.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2901,45 +2901,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which option states the theme rather than a plot event?",
-  "question": "Which option states the theme rather than a plot event?",
-  "spokenPrompt": "Which option states the theme rather than a plot event?",
-  "passage": "Sana's telescope was the envy of the street, and she guarded it jealously — until the comet week, when she discovered that a wonder seen alone went quiet quickly. She chalked VIEWINGS, FREE on the sidewalk. Neighbors lined up past bedtime, gasping in turn, and Sana found that the comet felt more amazing every time someone new cried out at it.",
+  "prompt": "Which message does the whole story support?",
+  "question": "Which message does the whole story support?",
+  "spokenPrompt": "Which message does the whole story support?",
+  "passage": "Sana kept her telescope to herself. During comet week, she invited neighbours to look through it. Each person noticed something different and shared their excitement. Sana enjoyed the comet more while watching with them.",
   "cell": "theme_vs_plot",
   "choices": [
-   "a girl owned a telescope",
-   "wonders grow when they are shared",
-   "Sana chalked a sign and neighbors lined up",
-   "a comet passed during one week"
+   "Sana invited neighbours to look through her telescope during comet week.",
+   "Sharing an experience can make it more enjoyable.",
+   "Caring for valuable equipment helps it last longer.",
+   "Practicing a difficult skill can lead to improvement."
   ],
   "answerOptions": [
    {
-    "value": "a girl owned a telescope",
-    "label": "a girl owned a telescope",
-    "text": "a girl owned a telescope"
+    "value": "Sana invited neighbours to look through her telescope during comet week.",
+    "label": "Sana invited neighbours to look through her telescope during comet week.",
+    "text": "Sana invited neighbours to look through her telescope during comet week."
    },
    {
-    "value": "wonders grow when they are shared",
-    "label": "wonders grow when they are shared",
-    "text": "wonders grow when they are shared"
+    "value": "Sharing an experience can make it more enjoyable.",
+    "label": "Sharing an experience can make it more enjoyable.",
+    "text": "Sharing an experience can make it more enjoyable."
    },
    {
-    "value": "Sana chalked a sign and neighbors lined up",
-    "label": "Sana chalked a sign and neighbors lined up",
-    "text": "Sana chalked a sign and neighbors lined up"
+    "value": "Caring for valuable equipment helps it last longer.",
+    "label": "Caring for valuable equipment helps it last longer.",
+    "text": "Caring for valuable equipment helps it last longer."
    },
    {
-    "value": "a comet passed during one week",
-    "label": "a comet passed during one week",
-    "text": "a comet passed during one week"
+    "value": "Practicing a difficult skill can lead to improvement.",
+    "label": "Practicing a difficult skill can lead to improvement.",
+    "text": "Practicing a difficult skill can lead to improvement."
    }
   ],
-  "answer": "wonders grow when they are shared",
-  "correctAnswer": "wonders grow when they are shared",
+  "answer": "Sharing an experience can make it more enjoyable.",
+  "correctAnswer": "Sharing an experience can make it more enjoyable.",
   "distractorRationales": {
-   "a girl owned a telescope": "D-DETAIL-AS-MAIN",
-   "Sana chalked a sign and neighbors lined up": "D-DETAIL-AS-MAIN",
-   "a comet passed during one week": "D-DETAIL-AS-MAIN"
+   "Sana invited neighbours to look through her telescope during comet week.": "D-DETAIL-AS-MAIN",
+   "Caring for valuable equipment helps it last longer.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Practicing a difficult skill can lead to improvement.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2991,45 +2991,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which option states the theme rather than a plot event?",
-  "question": "Which option states the theme rather than a plot event?",
-  "spokenPrompt": "Which option states the theme rather than a plot event?",
-  "passage": "The wrong bus stop turned out to be the right one. Dropped a street early by a rain-blind driver, Marisol sheltered in a doorway that happened to belong to the town's tiny museum — free on Thursdays. She spent the hour among ship models and whale bones she had never known existed, and afterwards she sometimes got off early on purpose, just to see what else the town was hiding.",
+  "prompt": "Which message does the whole story support?",
+  "question": "Which message does the whole story support?",
+  "spokenPrompt": "Which message does the whole story support?",
+  "passage": "Marisol got off the bus one stop too early. While waiting for rain to stop, she entered a small museum. Its ship models interested her so much that she stayed. She returned the next week to learn more.",
   "cell": "theme_vs_plot",
   "choices": [
-   "the museum was free on Thursdays",
-   "Marisol saw whale bones",
-   "wrong turns can lead to good discoveries",
-   "a driver stopped a street early"
+   "Sharing a discovery can help other people learn.",
+   "Marisol entered a small museum after leaving her bus too early.",
+   "An unexpected change can lead to a good discovery.",
+   "Planning a journey carefully can save time and effort."
   ],
   "answerOptions": [
    {
-    "value": "the museum was free on Thursdays",
-    "label": "the museum was free on Thursdays",
-    "text": "the museum was free on Thursdays"
+    "value": "Sharing a discovery can help other people learn.",
+    "label": "Sharing a discovery can help other people learn.",
+    "text": "Sharing a discovery can help other people learn."
    },
    {
-    "value": "Marisol saw whale bones",
-    "label": "Marisol saw whale bones",
-    "text": "Marisol saw whale bones"
+    "value": "Marisol entered a small museum after leaving her bus too early.",
+    "label": "Marisol entered a small museum after leaving her bus too early.",
+    "text": "Marisol entered a small museum after leaving her bus too early."
    },
    {
-    "value": "wrong turns can lead to good discoveries",
-    "label": "wrong turns can lead to good discoveries",
-    "text": "wrong turns can lead to good discoveries"
+    "value": "An unexpected change can lead to a good discovery.",
+    "label": "An unexpected change can lead to a good discovery.",
+    "text": "An unexpected change can lead to a good discovery."
    },
    {
-    "value": "a driver stopped a street early",
-    "label": "a driver stopped a street early",
-    "text": "a driver stopped a street early"
+    "value": "Planning a journey carefully can save time and effort.",
+    "label": "Planning a journey carefully can save time and effort.",
+    "text": "Planning a journey carefully can save time and effort."
    }
   ],
-  "answer": "wrong turns can lead to good discoveries",
-  "correctAnswer": "wrong turns can lead to good discoveries",
+  "answer": "An unexpected change can lead to a good discovery.",
+  "correctAnswer": "An unexpected change can lead to a good discovery.",
   "distractorRationales": {
-   "a driver stopped a street early": "D-DETAIL-AS-MAIN",
-   "the museum was free on Thursdays": "D-DETAIL-AS-MAIN",
-   "Marisol saw whale bones": "D-DETAIL-AS-MAIN"
+   "Planning a journey carefully can save time and effort.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Sharing a discovery can help other people learn.": "D-TOPIC-ADJACENT",
+   "Marisol entered a small museum after leaving her bus too early.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3081,45 +3081,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which option states the theme rather than a plot event?",
-  "question": "Which option states the theme rather than a plot event?",
-  "spokenPrompt": "Which option states the theme rather than a plot event?",
-  "passage": "Every apology Tom had ever given was a mumbled 'sorry' with his eyes on his shoes. But after breaking Grandma's teapot — the one from her wedding — mumbled words felt too small. He wrote a letter instead: what he did, why it was careless, and how he would help replace it. Grandma kept the repaired teapot on the shelf. The letter she kept in her purse for years.",
+  "prompt": "Which message does the whole story support?",
+  "question": "Which message does the whole story support?",
+  "spokenPrompt": "Which message does the whole story support?",
+  "passage": "Tom broke Grandma's special teapot while playing carelessly. He explained what happened instead of muttering a quick apology. He offered his savings and helped repair the handle. Grandma thanked him for taking responsibility.",
   "cell": "theme_vs_plot",
   "choices": [
-   "the teapot was repaired",
-   "Grandma kept a letter in her purse",
-   "a sincere apology explains the wrong and tries to repair it",
-   "Tom broke his grandma's teapot"
+   "Patient work can give old belongings a new use.",
+   "Tom helped repair the handle of Grandma’s broken teapot.",
+   "A sincere apology includes trying to put things right.",
+   "Family objects can remind people of happy times."
   ],
   "answerOptions": [
    {
-    "value": "the teapot was repaired",
-    "label": "the teapot was repaired",
-    "text": "the teapot was repaired"
+    "value": "Patient work can give old belongings a new use.",
+    "label": "Patient work can give old belongings a new use.",
+    "text": "Patient work can give old belongings a new use."
    },
    {
-    "value": "Grandma kept a letter in her purse",
-    "label": "Grandma kept a letter in her purse",
-    "text": "Grandma kept a letter in her purse"
+    "value": "Tom helped repair the handle of Grandma’s broken teapot.",
+    "label": "Tom helped repair the handle of Grandma’s broken teapot.",
+    "text": "Tom helped repair the handle of Grandma’s broken teapot."
    },
    {
-    "value": "a sincere apology explains the wrong and tries to repair it",
-    "label": "a sincere apology explains the wrong and tries to repair it",
-    "text": "a sincere apology explains the wrong and tries to repair it"
+    "value": "A sincere apology includes trying to put things right.",
+    "label": "A sincere apology includes trying to put things right.",
+    "text": "A sincere apology includes trying to put things right."
    },
    {
-    "value": "Tom broke his grandma's teapot",
-    "label": "Tom broke his grandma's teapot",
-    "text": "Tom broke his grandma's teapot"
+    "value": "Family objects can remind people of happy times.",
+    "label": "Family objects can remind people of happy times.",
+    "text": "Family objects can remind people of happy times."
    }
   ],
-  "answer": "a sincere apology explains the wrong and tries to repair it",
-  "correctAnswer": "a sincere apology explains the wrong and tries to repair it",
+  "answer": "A sincere apology includes trying to put things right.",
+  "correctAnswer": "A sincere apology includes trying to put things right.",
   "distractorRationales": {
-   "Grandma kept a letter in her purse": "D-DETAIL-AS-MAIN",
-   "Tom broke his grandma's teapot": "D-DETAIL-AS-MAIN",
-   "the teapot was repaired": "D-DETAIL-AS-MAIN"
+   "Tom helped repair the handle of Grandma’s broken teapot.": "D-DETAIL-AS-MAIN",
+   "Family objects can remind people of happy times.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Patient work can give old belongings a new use.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3171,45 +3171,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which option states the theme rather than a plot event?",
-  "question": "Which option states the theme rather than a plot event?",
-  "spokenPrompt": "Which option states the theme rather than a plot event?",
-  "passage": "The lighthouse keeper kept a list of every ship that passed safely in the night. Nobody asked him to; the ships never knew. When he retired after forty years, the harbor master read the list's last page aloud — four thousand names — and everyone on the dock stood silent, understanding at last how his steady work had helped keep the route safe.",
+  "prompt": "Which message does the whole story support?",
+  "question": "Which message does the whole story support?",
+  "spokenPrompt": "Which message does the whole story support?",
+  "passage": "The lighthouse keeper checked the lamp each night for forty years. Most sailors never met him. When he retired, they thanked him for guiding their ships safely. He learned how much his quiet work had mattered.",
   "cell": "theme_vs_plot",
   "choices": [
-   "the harbor master read a list aloud",
-   "the keeper retired after forty years",
-   "unseen service can still be valuable",
-   "a keeper wrote down ships' names"
+   "Familiar routines can make new tasks less frightening.",
+   "The lighthouse keeper checked his lamp every night for forty years.",
+   "Helpful service matters even without an audience.",
+   "Teaching others can keep useful knowledge alive across generations."
   ],
   "answerOptions": [
    {
-    "value": "the harbor master read a list aloud",
-    "label": "the harbor master read a list aloud",
-    "text": "the harbor master read a list aloud"
+    "value": "Familiar routines can make new tasks less frightening.",
+    "label": "Familiar routines can make new tasks less frightening.",
+    "text": "Familiar routines can make new tasks less frightening."
    },
    {
-    "value": "the keeper retired after forty years",
-    "label": "the keeper retired after forty years",
-    "text": "the keeper retired after forty years"
+    "value": "The lighthouse keeper checked his lamp every night for forty years.",
+    "label": "The lighthouse keeper checked his lamp every night for forty years.",
+    "text": "The lighthouse keeper checked his lamp every night for forty years."
    },
    {
-    "value": "unseen service can still be valuable",
-    "label": "unseen service can still be valuable",
-    "text": "unseen service can still be valuable"
+    "value": "Helpful service matters even without an audience.",
+    "label": "Helpful service matters even without an audience.",
+    "text": "Helpful service matters even without an audience."
    },
    {
-    "value": "a keeper wrote down ships' names",
-    "label": "a keeper wrote down ships' names",
-    "text": "a keeper wrote down ships' names"
+    "value": "Teaching others can keep useful knowledge alive across generations.",
+    "label": "Teaching others can keep useful knowledge alive across generations.",
+    "text": "Teaching others can keep useful knowledge alive across generations."
    }
   ],
-  "answer": "unseen service can still be valuable",
-  "correctAnswer": "unseen service can still be valuable",
+  "answer": "Helpful service matters even without an audience.",
+  "correctAnswer": "Helpful service matters even without an audience.",
   "distractorRationales": {
-   "a keeper wrote down ships' names": "D-DETAIL-AS-MAIN",
-   "the harbor master read a list aloud": "D-DETAIL-AS-MAIN",
-   "the keeper retired after forty years": "D-DETAIL-AS-MAIN"
+   "Teaching others can keep useful knowledge alive across generations.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Familiar routines can make new tasks less frightening.": "D-TOPIC-ADJACENT",
+   "The lighthouse keeper checked his lamp every night for forty years.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3261,45 +3261,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which option states the theme rather than a plot event?",
-  "question": "Which option states the theme rather than a plot event?",
-  "spokenPrompt": "Which option states the theme rather than a plot event?",
-  "passage": "At the lantern festival, the prize always went to the biggest lantern — until the year of the great wind. One by one the giant paper palaces guttered and tore, while Amaya's stubby little lantern, built low and snug around its flame, bobbed on through the dark like a heartbeat. It crossed the finish line alone, the only light left on the river.",
+  "prompt": "Which message does the whole story support?",
+  "question": "Which message does the whole story support?",
+  "spokenPrompt": "Which message does the whole story support?",
+  "passage": "Amaya built a small lantern with a strong frame. Other children made much larger lanterns from thin paper. At the parade, strong wind tore the thin lanterns. Amaya's plain little lantern stayed together throughout the walk.",
   "cell": "theme_vs_plot",
   "choices": [
-   "a great wind blew at the festival",
-   "big lanterns tore one by one",
-   "one lantern crossed the line",
-   "what is built to last beats what is built to impress"
+   "Taking part together can make a celebration enjoyable.",
+   "A patient teacher can help beginners become confident.",
+   "Amaya’s small lantern stayed together while larger lanterns tore.",
+   "A strong design can matter more than an impressive size."
   ],
   "answerOptions": [
    {
-    "value": "a great wind blew at the festival",
-    "label": "a great wind blew at the festival",
-    "text": "a great wind blew at the festival"
+    "value": "Taking part together can make a celebration enjoyable.",
+    "label": "Taking part together can make a celebration enjoyable.",
+    "text": "Taking part together can make a celebration enjoyable."
    },
    {
-    "value": "big lanterns tore one by one",
-    "label": "big lanterns tore one by one",
-    "text": "big lanterns tore one by one"
+    "value": "A patient teacher can help beginners become confident.",
+    "label": "A patient teacher can help beginners become confident.",
+    "text": "A patient teacher can help beginners become confident."
    },
    {
-    "value": "one lantern crossed the line",
-    "label": "one lantern crossed the line",
-    "text": "one lantern crossed the line"
+    "value": "Amaya’s small lantern stayed together while larger lanterns tore.",
+    "label": "Amaya’s small lantern stayed together while larger lanterns tore.",
+    "text": "Amaya’s small lantern stayed together while larger lanterns tore."
    },
    {
-    "value": "what is built to last beats what is built to impress",
-    "label": "what is built to last beats what is built to impress",
-    "text": "what is built to last beats what is built to impress"
+    "value": "A strong design can matter more than an impressive size.",
+    "label": "A strong design can matter more than an impressive size.",
+    "text": "A strong design can matter more than an impressive size."
    }
   ],
-  "answer": "what is built to last beats what is built to impress",
-  "correctAnswer": "what is built to last beats what is built to impress",
+  "answer": "A strong design can matter more than an impressive size.",
+  "correctAnswer": "A strong design can matter more than an impressive size.",
   "distractorRationales": {
-   "a great wind blew at the festival": "D-DETAIL-AS-MAIN",
-   "big lanterns tore one by one": "D-DETAIL-AS-MAIN",
-   "one lantern crossed the line": "D-DETAIL-AS-MAIN"
+   "Taking part together can make a celebration enjoyable.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A patient teacher can help beginners become confident.": "D-TOPIC-ADJACENT",
+   "Amaya’s small lantern stayed together while larger lanterns tore.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3351,45 +3351,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which option states the theme rather than a plot event?",
-  "question": "Which option states the theme rather than a plot event?",
-  "spokenPrompt": "Which option states the theme rather than a plot event?",
-  "passage": "Priw the goldfish ate everything first — flakes meant for three fish vanished into one round mouth. He grew grand and golden while Tup and Lin thinned behind the pump. Then came the week the family forgot the flakes. Priw, who had never learned to hunt the tank's green threads, drifted hungry — and it was quick little Tup and Lin who nosed him toward the water-weed and showed him how.",
+  "prompt": "Which message does the whole story support?",
+  "question": "Which message does the whole story support?",
+  "spokenPrompt": "Which message does the whole story support?",
+  "passage": "Priw took all the simple jobs during the class project. Tup and Lin learned the harder jobs by practicing together. When Priw needed to join two boards, he could not start. He asked them to teach him and then practiced too.",
   "cell": "theme_vs_plot",
   "choices": [
-   "one goldfish ate the others' flakes",
-   "the family forgot to feed the fish",
-   "two fish ate water-weed",
-   "grabbing the most can leave you knowing the least"
+   "Sharing responsibilities can make a large task easier.",
+   "Accepting others’ ideas can help a group choose fairly.",
+   "Tup and Lin showed Priw how to join two boards.",
+   "Avoiding challenges can mean missing chances to learn."
   ],
   "answerOptions": [
    {
-    "value": "one goldfish ate the others' flakes",
-    "label": "one goldfish ate the others' flakes",
-    "text": "one goldfish ate the others' flakes"
+    "value": "Sharing responsibilities can make a large task easier.",
+    "label": "Sharing responsibilities can make a large task easier.",
+    "text": "Sharing responsibilities can make a large task easier."
    },
    {
-    "value": "the family forgot to feed the fish",
-    "label": "the family forgot to feed the fish",
-    "text": "the family forgot to feed the fish"
+    "value": "Accepting others’ ideas can help a group choose fairly.",
+    "label": "Accepting others’ ideas can help a group choose fairly.",
+    "text": "Accepting others’ ideas can help a group choose fairly."
    },
    {
-    "value": "two fish ate water-weed",
-    "label": "two fish ate water-weed",
-    "text": "two fish ate water-weed"
+    "value": "Tup and Lin showed Priw how to join two boards.",
+    "label": "Tup and Lin showed Priw how to join two boards.",
+    "text": "Tup and Lin showed Priw how to join two boards."
    },
    {
-    "value": "grabbing the most can leave you knowing the least",
-    "label": "grabbing the most can leave you knowing the least",
-    "text": "grabbing the most can leave you knowing the least"
+    "value": "Avoiding challenges can mean missing chances to learn.",
+    "label": "Avoiding challenges can mean missing chances to learn.",
+    "text": "Avoiding challenges can mean missing chances to learn."
    }
   ],
-  "answer": "grabbing the most can leave you knowing the least",
-  "correctAnswer": "grabbing the most can leave you knowing the least",
+  "answer": "Avoiding challenges can mean missing chances to learn.",
+  "correctAnswer": "Avoiding challenges can mean missing chances to learn.",
   "distractorRationales": {
-   "one goldfish ate the others' flakes": "D-DETAIL-AS-MAIN",
-   "the family forgot to feed the fish": "D-DETAIL-AS-MAIN",
-   "two fish ate water-weed": "D-DETAIL-AS-MAIN"
+   "Sharing responsibilities can make a large task easier.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Accepting others’ ideas can help a group choose fairly.": "D-TOPIC-ADJACENT",
+   "Tup and Lin showed Priw how to join two boards.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3441,45 +3441,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which option states the theme rather than a plot event?",
-  "question": "Which option states the theme rather than a plot event?",
-  "spokenPrompt": "Which option states the theme rather than a plot event?",
-  "passage": "Mud season soaked shoes all over the school, and the boot room filled with complaints. Ede said nothing. Each recess, she simply placed the wettest boots on the drying rack and turned them as they dried. Nobody knew for weeks. When the principal finally saw her and asked why, Ede said dry boots made people kinder all afternoon, and she liked the school kinder.",
+  "prompt": "Which message does the whole story support?",
+  "question": "Which message does the whole story support?",
+  "spokenPrompt": "Which message does the whole story support?",
+  "passage": "Wet boots filled the school boot room each morning. Ede quietly placed them on the drying rack and turned them. Children were happier when their boots were dry after lunch. When asked, Ede said helping made her day better too.",
   "cell": "theme_vs_plot",
   "choices": [
-   "mud season soaked the shoes",
-   "boots were placed on a drying rack",
-   "the principal saw Ede one day",
-   "small quiet care can change a whole place"
+   "A steady routine can help someone learn a skill.",
+   "Taking care of belongings can help them last longer.",
+   "Ede put the wet boots on the drying rack each morning.",
+   "Small helpful actions can improve a shared place."
   ],
   "answerOptions": [
    {
-    "value": "mud season soaked the shoes",
-    "label": "mud season soaked the shoes",
-    "text": "mud season soaked the shoes"
+    "value": "A steady routine can help someone learn a skill.",
+    "label": "A steady routine can help someone learn a skill.",
+    "text": "A steady routine can help someone learn a skill."
    },
    {
-    "value": "boots were placed on a drying rack",
-    "label": "boots were placed on a drying rack",
-    "text": "boots were placed on a drying rack"
+    "value": "Taking care of belongings can help them last longer.",
+    "label": "Taking care of belongings can help them last longer.",
+    "text": "Taking care of belongings can help them last longer."
    },
    {
-    "value": "the principal saw Ede one day",
-    "label": "the principal saw Ede one day",
-    "text": "the principal saw Ede one day"
+    "value": "Ede put the wet boots on the drying rack each morning.",
+    "label": "Ede put the wet boots on the drying rack each morning.",
+    "text": "Ede put the wet boots on the drying rack each morning."
    },
    {
-    "value": "small quiet care can change a whole place",
-    "label": "small quiet care can change a whole place",
-    "text": "small quiet care can change a whole place"
+    "value": "Small helpful actions can improve a shared place.",
+    "label": "Small helpful actions can improve a shared place.",
+    "text": "Small helpful actions can improve a shared place."
    }
   ],
-  "answer": "small quiet care can change a whole place",
-  "correctAnswer": "small quiet care can change a whole place",
+  "answer": "Small helpful actions can improve a shared place.",
+  "correctAnswer": "Small helpful actions can improve a shared place.",
   "distractorRationales": {
-   "mud season soaked the shoes": "D-DETAIL-AS-MAIN",
-   "boots were placed on a drying rack": "D-DETAIL-AS-MAIN",
-   "the principal saw Ede one day": "D-DETAIL-AS-MAIN"
+   "A steady routine can help someone learn a skill.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Taking care of belongings can help them last longer.": "D-TOPIC-ADJACENT",
+   "Ede put the wet boots on the drying rack each morning.": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3531,45 +3531,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which option states the theme rather than a plot event?",
-  "question": "Which option states the theme rather than a plot event?",
-  "spokenPrompt": "Which option states the theme rather than a plot event?",
-  "passage": "The twins divided the attic with a chalk line the day they stopped sharing: her books that side, his models this side. The line worked perfectly. It kept out borrowing, and mess, and quarrels — and stories read aloud, and glue passed at the right moment, and company on rainy days. By October the attic was the tidiest, quietest, loneliest room in the house, and the chalk was the first thing they washed away together.",
+  "prompt": "Which message does the whole story support?",
+  "question": "Which message does the whole story support?",
+  "spokenPrompt": "Which message does the whole story support?",
+  "passage": "The twins divided their attic room with a chalk line. They stopped sharing books and models, so arguments ended. But they also missed reading and making things together. They erased the line and agreed on rules for sharing.",
   "cell": "theme_vs_plot",
   "choices": [
-   "blocking trouble can also block friendship",
-   "twins drew a chalk line in the attic",
-   "the attic became very tidy",
-   "the chalk was washed away"
+   "Solving a problem should leave room for friendship.",
+   "Having your own space can help you concentrate.",
+   "A fair schedule can help people finish a shared task.",
+   "The twins erased the chalk line across their shared attic."
   ],
   "answerOptions": [
    {
-    "value": "blocking trouble can also block friendship",
-    "label": "blocking trouble can also block friendship",
-    "text": "blocking trouble can also block friendship"
+    "value": "Solving a problem should leave room for friendship.",
+    "label": "Solving a problem should leave room for friendship.",
+    "text": "Solving a problem should leave room for friendship."
    },
    {
-    "value": "twins drew a chalk line in the attic",
-    "label": "twins drew a chalk line in the attic",
-    "text": "twins drew a chalk line in the attic"
+    "value": "Having your own space can help you concentrate.",
+    "label": "Having your own space can help you concentrate.",
+    "text": "Having your own space can help you concentrate."
    },
    {
-    "value": "the attic became very tidy",
-    "label": "the attic became very tidy",
-    "text": "the attic became very tidy"
+    "value": "A fair schedule can help people finish a shared task.",
+    "label": "A fair schedule can help people finish a shared task.",
+    "text": "A fair schedule can help people finish a shared task."
    },
    {
-    "value": "the chalk was washed away",
-    "label": "the chalk was washed away",
-    "text": "the chalk was washed away"
+    "value": "The twins erased the chalk line across their shared attic.",
+    "label": "The twins erased the chalk line across their shared attic.",
+    "text": "The twins erased the chalk line across their shared attic."
    }
   ],
-  "answer": "blocking trouble can also block friendship",
-  "correctAnswer": "blocking trouble can also block friendship",
+  "answer": "Solving a problem should leave room for friendship.",
+  "correctAnswer": "Solving a problem should leave room for friendship.",
   "distractorRationales": {
-   "the chalk was washed away": "D-DETAIL-AS-MAIN",
-   "twins drew a chalk line in the attic": "D-DETAIL-AS-MAIN",
-   "the attic became very tidy": "D-DETAIL-AS-MAIN"
+   "The twins erased the chalk line across their shared attic.": "D-DETAIL-AS-MAIN",
+   "Having your own space can help you concentrate.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A fair schedule can help people finish a shared task.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3624,42 +3624,42 @@ export const questions = [
   "prompt": "Which new situation shows the SAME lesson?",
   "question": "Which new situation shows the SAME lesson?",
   "spokenPrompt": "Which new situation shows the SAME lesson?",
-  "passage": "Remember Pip, who watered a seed that showed nothing for five weeks and grew the garden's tallest sunflower? Keep Pip's lesson in mind.",
+  "passage": "Luca could not balance on one foot during his dance. He practiced a little after school each day. At first, he wobbled and stepped down. Weeks later, he could hold the pose throughout the music.",
   "cell": "apply_theme",
   "choices": [
-   "Ines keeps practicing her times tables that will not stick, until one day they do",
-   "Ines plants a sunflower seed in a pot on her own windowsill at home",
-   "Ines gives up learning the violin after one single squeaky week of lessons",
-   "Ines buys a violin after seeing a concert"
+   "Ines repeats hard sums regularly until she can solve them.",
+   "Ines lends dance shoes to a friend after school one day.",
+   "Ines admits losing a school book and offers to replace it.",
+   "Ines invites a new child to sit with her each lunchtime."
   ],
   "answerOptions": [
    {
-    "value": "Ines keeps practicing her times tables that will not stick, until one day they do",
-    "label": "Ines keeps practicing her times tables that will not stick, until one day they do",
-    "text": "Ines keeps practicing her times tables that will not stick, until one day they do"
+    "value": "Ines repeats hard sums regularly until she can solve them.",
+    "label": "Ines repeats hard sums regularly until she can solve them.",
+    "text": "Ines repeats hard sums regularly until she can solve them."
    },
    {
-    "value": "Ines plants a sunflower seed in a pot on her own windowsill at home",
-    "label": "Ines plants a sunflower seed in a pot on her own windowsill at home",
-    "text": "Ines plants a sunflower seed in a pot on her own windowsill at home"
+    "value": "Ines lends dance shoes to a friend after school one day.",
+    "label": "Ines lends dance shoes to a friend after school one day.",
+    "text": "Ines lends dance shoes to a friend after school one day."
    },
    {
-    "value": "Ines gives up learning the violin after one single squeaky week of lessons",
-    "label": "Ines gives up learning the violin after one single squeaky week of lessons",
-    "text": "Ines gives up learning the violin after one single squeaky week of lessons"
+    "value": "Ines admits losing a school book and offers to replace it.",
+    "label": "Ines admits losing a school book and offers to replace it.",
+    "text": "Ines admits losing a school book and offers to replace it."
    },
    {
-    "value": "Ines buys a violin after seeing a concert",
-    "label": "Ines buys a violin after seeing a concert",
-    "text": "Ines buys a violin after seeing a concert"
+    "value": "Ines invites a new child to sit with her each lunchtime.",
+    "label": "Ines invites a new child to sit with her each lunchtime.",
+    "text": "Ines invites a new child to sit with her each lunchtime."
    }
   ],
-  "answer": "Ines keeps practicing her times tables that will not stick, until one day they do",
-  "correctAnswer": "Ines keeps practicing her times tables that will not stick, until one day they do",
+  "answer": "Ines repeats hard sums regularly until she can solve them.",
+  "correctAnswer": "Ines repeats hard sums regularly until she can solve them.",
   "distractorRationales": {
-   "Ines gives up learning the violin after one single squeaky week of lessons": "D-OPPOSITE",
-   "Ines buys a violin after seeing a concert": "D-TOPIC-ADJACENT",
-   "Ines plants a sunflower seed in a pot on her own windowsill at home": "D-TOPIC-ADJACENT"
+   "Ines admits losing a school book and offers to replace it.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Ines invites a new child to sit with her each lunchtime.": "D-OPPOSITE",
+   "Ines lends dance shoes to a friend after school one day.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3714,42 +3714,42 @@ export const questions = [
   "prompt": "Which new situation shows the SAME lesson?",
   "question": "Which new situation shows the SAME lesson?",
   "spokenPrompt": "Which new situation shows the SAME lesson?",
-  "passage": "Remember Jory, who ruined Ann's comic in the rain and chose telling the truth over hiding it. Keep that lesson in mind.",
+  "passage": "Jo accidentally cracked a borrowed plant pot. He considered hiding it behind the shed. Instead, he told its owner and helped buy a replacement. The owner thanked him for explaining what had happened.",
   "cell": "apply_theme",
   "choices": [
-   "Cam saves his allowance for weeks to buy a brand-new comic",
-   "Cam scratches Dad's bike and leaves a note owning up before Dad sees",
-   "Cam reads comics carefully indoors",
-   "Cam hides the mug he broke behind the cereal boxes where nobody looks"
+   "Cam chooses a strong helmet instead of the most colourful one.",
+   "Cam admits scratching a bike and offers to help repair it.",
+   "Cam keeps practicing cycling until he can ride without wobbling.",
+   "Cam shares his bicycle with a visitor who has no bike."
   ],
   "answerOptions": [
    {
-    "value": "Cam saves his allowance for weeks to buy a brand-new comic",
-    "label": "Cam saves his allowance for weeks to buy a brand-new comic",
-    "text": "Cam saves his allowance for weeks to buy a brand-new comic"
+    "value": "Cam chooses a strong helmet instead of the most colourful one.",
+    "label": "Cam chooses a strong helmet instead of the most colourful one.",
+    "text": "Cam chooses a strong helmet instead of the most colourful one."
    },
    {
-    "value": "Cam scratches Dad's bike and leaves a note owning up before Dad sees",
-    "label": "Cam scratches Dad's bike and leaves a note owning up before Dad sees",
-    "text": "Cam scratches Dad's bike and leaves a note owning up before Dad sees"
+    "value": "Cam admits scratching a bike and offers to help repair it.",
+    "label": "Cam admits scratching a bike and offers to help repair it.",
+    "text": "Cam admits scratching a bike and offers to help repair it."
    },
    {
-    "value": "Cam reads comics carefully indoors",
-    "label": "Cam reads comics carefully indoors",
-    "text": "Cam reads comics carefully indoors"
+    "value": "Cam keeps practicing cycling until he can ride without wobbling.",
+    "label": "Cam keeps practicing cycling until he can ride without wobbling.",
+    "text": "Cam keeps practicing cycling until he can ride without wobbling."
    },
    {
-    "value": "Cam hides the mug he broke behind the cereal boxes where nobody looks",
-    "label": "Cam hides the mug he broke behind the cereal boxes where nobody looks",
-    "text": "Cam hides the mug he broke behind the cereal boxes where nobody looks"
+    "value": "Cam shares his bicycle with a visitor who has no bike.",
+    "label": "Cam shares his bicycle with a visitor who has no bike.",
+    "text": "Cam shares his bicycle with a visitor who has no bike."
    }
   ],
-  "answer": "Cam scratches Dad's bike and leaves a note owning up before Dad sees",
-  "correctAnswer": "Cam scratches Dad's bike and leaves a note owning up before Dad sees",
+  "answer": "Cam admits scratching a bike and offers to help repair it.",
+  "correctAnswer": "Cam admits scratching a bike and offers to help repair it.",
   "distractorRationales": {
-   "Cam reads comics carefully indoors": "D-TOPIC-ADJACENT",
-   "Cam hides the mug he broke behind the cereal boxes where nobody looks": "D-OPPOSITE",
-   "Cam saves his allowance for weeks to buy a brand-new comic": "D-TOPIC-ADJACENT"
+   "Cam keeps practicing cycling until he can ride without wobbling.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Cam shares his bicycle with a visitor who has no bike.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Cam chooses a strong helmet instead of the most colourful one.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3804,42 +3804,42 @@ export const questions = [
   "prompt": "Which new situation shows the SAME lesson?",
   "question": "Which new situation shows the SAME lesson?",
   "spokenPrompt": "Which new situation shows the SAME lesson?",
-  "passage": "Remember Etta and the young bird: she kept pets away and watched from a distance so its parent could return. Keep that lesson in mind.",
+  "passage": "A younger child struggled with a puzzle. Ray wanted to finish it for her. Instead, he showed her how to find the corner pieces. She did the rest herself and proudly showed the finished picture.",
   "cell": "apply_theme",
   "choices": [
-   "Ray stays with a lost toddler and calls a security guard",
-   "Ray builds every bird in the garden a wooden house",
-   "Ray carries a fallen chick home to raise it himself in a shoebox by his bed",
-   "Ray watches an egg hatch on television"
+   "Lee gives a useful hint, then lets his brother solve it.",
+   "Lee solves the whole sum while his brother watches quietly.",
+   "Lee shares his prize with his brother after a contest.",
+   "Lee tells his brother the truth about a broken toy."
   ],
   "answerOptions": [
    {
-    "value": "Ray stays with a lost toddler and calls a security guard",
-    "label": "Ray stays with a lost toddler and calls a security guard",
-    "text": "Ray stays with a lost toddler and calls a security guard"
+    "value": "Lee gives a useful hint, then lets his brother solve it.",
+    "label": "Lee gives a useful hint, then lets his brother solve it.",
+    "text": "Lee gives a useful hint, then lets his brother solve it."
    },
    {
-    "value": "Ray builds every bird in the garden a wooden house",
-    "label": "Ray builds every bird in the garden a wooden house",
-    "text": "Ray builds every bird in the garden a wooden house"
+    "value": "Lee solves the whole sum while his brother watches quietly.",
+    "label": "Lee solves the whole sum while his brother watches quietly.",
+    "text": "Lee solves the whole sum while his brother watches quietly."
    },
    {
-    "value": "Ray carries a fallen chick home to raise it himself in a shoebox by his bed",
-    "label": "Ray carries a fallen chick home to raise it himself in a shoebox by his bed",
-    "text": "Ray carries a fallen chick home to raise it himself in a shoebox by his bed"
+    "value": "Lee shares his prize with his brother after a contest.",
+    "label": "Lee shares his prize with his brother after a contest.",
+    "text": "Lee shares his prize with his brother after a contest."
    },
    {
-    "value": "Ray watches an egg hatch on television",
-    "label": "Ray watches an egg hatch on television",
-    "text": "Ray watches an egg hatch on television"
+    "value": "Lee tells his brother the truth about a broken toy.",
+    "label": "Lee tells his brother the truth about a broken toy.",
+    "text": "Lee tells his brother the truth about a broken toy."
    }
   ],
-  "answer": "Ray stays with a lost toddler and calls a security guard",
-  "correctAnswer": "Ray stays with a lost toddler and calls a security guard",
+  "answer": "Lee gives a useful hint, then lets his brother solve it.",
+  "correctAnswer": "Lee gives a useful hint, then lets his brother solve it.",
   "distractorRationales": {
-   "Ray carries a fallen chick home to raise it himself in a shoebox by his bed": "D-OPPOSITE",
-   "Ray watches an egg hatch on television": "D-TOPIC-ADJACENT",
-   "Ray builds every bird in the garden a wooden house": "D-TOPIC-ADJACENT"
+   "Lee shares his prize with his brother after a contest.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Lee tells his brother the truth about a broken toy.": "D-OPPOSITE",
+   "Lee solves the whole sum while his brother watches quietly.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3894,42 +3894,42 @@ export const questions = [
   "prompt": "Which new situation shows the SAME lesson?",
   "question": "Which new situation shows the SAME lesson?",
   "spokenPrompt": "Which new situation shows the SAME lesson?",
-  "passage": "Remember the lighthouse keeper's list — forty years of steady, unseen work that kept the sea-road open. Keep that lesson in mind.",
+  "passage": "Every morning, Evi checked the shared path for fallen branches. She moved small ones and reported large ones to an adult. Most walkers never saw her doing it. Her steady work helped them use the path safely.",
   "cell": "apply_theme",
   "choices": [
-   "a keeper who paints his lighthouse red",
-   "the custodian who salts the school steps before anyone arrives every icy morning",
-   "a singer who performs on television so that millions can applaud her name",
-   "a sailor who names his boat after a lighthouse"
+   "A gardener chooses strong tools because they will last longer.",
+   "A caretaker quietly clears icy steps before children reach school.",
+   "A singer practices a song to win a public talent contest.",
+   "A child returns money after noticing a shopkeeper made a mistake."
   ],
   "answerOptions": [
    {
-    "value": "a keeper who paints his lighthouse red",
-    "label": "a keeper who paints his lighthouse red",
-    "text": "a keeper who paints his lighthouse red"
+    "value": "A gardener chooses strong tools because they will last longer.",
+    "label": "A gardener chooses strong tools because they will last longer.",
+    "text": "A gardener chooses strong tools because they will last longer."
    },
    {
-    "value": "the custodian who salts the school steps before anyone arrives every icy morning",
-    "label": "the custodian who salts the school steps before anyone arrives every icy morning",
-    "text": "the custodian who salts the school steps before anyone arrives every icy morning"
+    "value": "A caretaker quietly clears icy steps before children reach school.",
+    "label": "A caretaker quietly clears icy steps before children reach school.",
+    "text": "A caretaker quietly clears icy steps before children reach school."
    },
    {
-    "value": "a singer who performs on television so that millions can applaud her name",
-    "label": "a singer who performs on television so that millions can applaud her name",
-    "text": "a singer who performs on television so that millions can applaud her name"
+    "value": "A singer practices a song to win a public talent contest.",
+    "label": "A singer practices a song to win a public talent contest.",
+    "text": "A singer practices a song to win a public talent contest."
    },
    {
-    "value": "a sailor who names his boat after a lighthouse",
-    "label": "a sailor who names his boat after a lighthouse",
-    "text": "a sailor who names his boat after a lighthouse"
+    "value": "A child returns money after noticing a shopkeeper made a mistake.",
+    "label": "A child returns money after noticing a shopkeeper made a mistake.",
+    "text": "A child returns money after noticing a shopkeeper made a mistake."
    }
   ],
-  "answer": "the custodian who salts the school steps before anyone arrives every icy morning",
-  "correctAnswer": "the custodian who salts the school steps before anyone arrives every icy morning",
+  "answer": "A caretaker quietly clears icy steps before children reach school.",
+  "correctAnswer": "A caretaker quietly clears icy steps before children reach school.",
   "distractorRationales": {
-   "a singer who performs on television so that millions can applaud her name": "D-OPPOSITE",
-   "a sailor who names his boat after a lighthouse": "D-TOPIC-ADJACENT",
-   "a keeper who paints his lighthouse red": "D-TOPIC-ADJACENT"
+   "A singer practices a song to win a public talent contest.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A child returns money after noticing a shopkeeper made a mistake.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A gardener chooses strong tools because they will last longer.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3984,42 +3984,42 @@ export const questions = [
   "prompt": "Which new situation shows the SAME lesson?",
   "question": "Which new situation shows the SAME lesson?",
   "spokenPrompt": "Which new situation shows the SAME lesson?",
-  "passage": "Remember Nell at the bake-off, who withdrew her own cake to help Zeke after his cake collapsed. Keep that lesson in mind.",
+  "passage": "Rafi was close to winning the treasure hunt. His partner fell and hurt her ankle. He stopped, called an adult, and stayed beside her. Another team won, but Rafi was glad his friend was safe.",
   "cell": "apply_theme",
   "choices": [
-   "On field day, Vic guards his bag of candy so that nobody else gets a single piece",
-   "Vic enters two contests in one day",
-   "On field day, Vic stops mid-race to help a fallen runner, finishing last together",
-   "Vic bakes a lemon cake for the fair"
+   "Vic admits that his foot crossed the line before the start.",
+   "Vic chooses sturdy shoes that will last through wet weather.",
+   "Vic misses his race to help a teammate who has fallen.",
+   "Vic practices running daily so he can beat his old time."
   ],
   "answerOptions": [
    {
-    "value": "On field day, Vic guards his bag of candy so that nobody else gets a single piece",
-    "label": "On field day, Vic guards his bag of candy so that nobody else gets a single piece",
-    "text": "On field day, Vic guards his bag of candy so that nobody else gets a single piece"
+    "value": "Vic admits that his foot crossed the line before the start.",
+    "label": "Vic admits that his foot crossed the line before the start.",
+    "text": "Vic admits that his foot crossed the line before the start."
    },
    {
-    "value": "Vic enters two contests in one day",
-    "label": "Vic enters two contests in one day",
-    "text": "Vic enters two contests in one day"
+    "value": "Vic chooses sturdy shoes that will last through wet weather.",
+    "label": "Vic chooses sturdy shoes that will last through wet weather.",
+    "text": "Vic chooses sturdy shoes that will last through wet weather."
    },
    {
-    "value": "On field day, Vic stops mid-race to help a fallen runner, finishing last together",
-    "label": "On field day, Vic stops mid-race to help a fallen runner, finishing last together",
-    "text": "On field day, Vic stops mid-race to help a fallen runner, finishing last together"
+    "value": "Vic misses his race to help a teammate who has fallen.",
+    "label": "Vic misses his race to help a teammate who has fallen.",
+    "text": "Vic misses his race to help a teammate who has fallen."
    },
    {
-    "value": "Vic bakes a lemon cake for the fair",
-    "label": "Vic bakes a lemon cake for the fair",
-    "text": "Vic bakes a lemon cake for the fair"
+    "value": "Vic practices running daily so he can beat his old time.",
+    "label": "Vic practices running daily so he can beat his old time.",
+    "text": "Vic practices running daily so he can beat his old time."
    }
   ],
-  "answer": "On field day, Vic stops mid-race to help a fallen runner, finishing last together",
-  "correctAnswer": "On field day, Vic stops mid-race to help a fallen runner, finishing last together",
+  "answer": "Vic misses his race to help a teammate who has fallen.",
+  "correctAnswer": "Vic misses his race to help a teammate who has fallen.",
   "distractorRationales": {
-   "Vic bakes a lemon cake for the fair": "D-TOPIC-ADJACENT",
-   "On field day, Vic guards his bag of candy so that nobody else gets a single piece": "D-OPPOSITE",
-   "Vic enters two contests in one day": "D-TOPIC-ADJACENT"
+   "Vic practices running daily so he can beat his old time.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Vic admits that his foot crossed the line before the start.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Vic chooses sturdy shoes that will last through wet weather.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4074,42 +4074,42 @@ export const questions = [
   "prompt": "Which new situation shows the SAME lesson?",
   "question": "Which new situation shows the SAME lesson?",
   "spokenPrompt": "Which new situation shows the SAME lesson?",
-  "passage": "Remember Amaya's little lantern, built low and snug around its flame, still burning when the grand paper palaces had torn. Keep that lesson in mind.",
+  "passage": "Mara needed a bag for her walking trip. One had shiny beads but thin straps. The plain one had strong straps and a waterproof cover. Mara chose it, and her clothes stayed dry throughout the rain.",
   "cell": "apply_theme",
   "choices": [
-   "Jo enters the festival every single year",
-   "Jo finishes a clear three-paragraph report",
-   "Jo starts building the biggest, grandest sandcastle the beach has ever seen",
-   "Jo carries a lantern on the camping trip"
+   "Jo chooses shoes because the shop advertises them most often.",
+   "Jo chooses sturdy shoes that last through many wet walks.",
+   "Jo chooses shoes in the colour her closest friend likes.",
+   "Jo chooses shiny shoes to match a special party dress."
   ],
   "answerOptions": [
    {
-    "value": "Jo enters the festival every single year",
-    "label": "Jo enters the festival every single year",
-    "text": "Jo enters the festival every single year"
+    "value": "Jo chooses shoes because the shop advertises them most often.",
+    "label": "Jo chooses shoes because the shop advertises them most often.",
+    "text": "Jo chooses shoes because the shop advertises them most often."
    },
    {
-    "value": "Jo finishes a clear three-paragraph report",
-    "label": "Jo finishes a clear three-paragraph report",
-    "text": "Jo finishes a clear three-paragraph report"
+    "value": "Jo chooses sturdy shoes that last through many wet walks.",
+    "label": "Jo chooses sturdy shoes that last through many wet walks.",
+    "text": "Jo chooses sturdy shoes that last through many wet walks."
    },
    {
-    "value": "Jo starts building the biggest, grandest sandcastle the beach has ever seen",
-    "label": "Jo starts building the biggest, grandest sandcastle the beach has ever seen",
-    "text": "Jo starts building the biggest, grandest sandcastle the beach has ever seen"
+    "value": "Jo chooses shoes in the colour her closest friend likes.",
+    "label": "Jo chooses shoes in the colour her closest friend likes.",
+    "text": "Jo chooses shoes in the colour her closest friend likes."
    },
    {
-    "value": "Jo carries a lantern on the camping trip",
-    "label": "Jo carries a lantern on the camping trip",
-    "text": "Jo carries a lantern on the camping trip"
+    "value": "Jo chooses shiny shoes to match a special party dress.",
+    "label": "Jo chooses shiny shoes to match a special party dress.",
+    "text": "Jo chooses shiny shoes to match a special party dress."
    }
   ],
-  "answer": "Jo finishes a clear three-paragraph report",
-  "correctAnswer": "Jo finishes a clear three-paragraph report",
+  "answer": "Jo chooses sturdy shoes that last through many wet walks.",
+  "correctAnswer": "Jo chooses sturdy shoes that last through many wet walks.",
   "distractorRationales": {
-   "Jo starts building the biggest, grandest sandcastle the beach has ever seen": "D-OPPOSITE",
-   "Jo carries a lantern on the camping trip": "D-TOPIC-ADJACENT",
-   "Jo enters the festival every single year": "D-TOPIC-ADJACENT"
+   "Jo chooses shoes in the colour her closest friend likes.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Jo chooses shiny shoes to match a special party dress.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Jo chooses shoes because the shop advertises them most often.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4139,7 +4139,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Transfer useful design over appearance to a new object; no prior item is needed."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.apply_theme.v7",
@@ -4164,42 +4164,42 @@ export const questions = [
   "prompt": "Which new situation shows the SAME lesson?",
   "question": "Which new situation shows the SAME lesson?",
   "spokenPrompt": "Which new situation shows the SAME lesson?",
-  "passage": "Remember Priya and the answer list she slid under the school office door unread, and how seven honest points felt better than ten unfair ones. Keep that lesson in mind.",
+  "passage": "Suri noticed that the scorer had given her an extra point. Nobody else had seen the mistake. She told the scorer, even though the change cost her victory. She was glad the result was fair.",
   "cell": "apply_theme",
   "choices": [
-   "Dev peeks at his sister's cards when she leaves the room, and wins the game",
-   "Dev posts a letter for his teacher",
-   "Dev's ball lands over the line; he calls it out himself, though no one saw",
-   "Dev studies spelling every Thursday night"
+   "Dev shares a spare bat with someone from the other team.",
+   "Dev helps a younger player learn to hold the bat.",
+   "Dev admits a rule break that could have helped him win.",
+   "Dev trains after school to improve his throwing and catching."
   ],
   "answerOptions": [
    {
-    "value": "Dev peeks at his sister's cards when she leaves the room, and wins the game",
-    "label": "Dev peeks at his sister's cards when she leaves the room, and wins the game",
-    "text": "Dev peeks at his sister's cards when she leaves the room, and wins the game"
+    "value": "Dev shares a spare bat with someone from the other team.",
+    "label": "Dev shares a spare bat with someone from the other team.",
+    "text": "Dev shares a spare bat with someone from the other team."
    },
    {
-    "value": "Dev posts a letter for his teacher",
-    "label": "Dev posts a letter for his teacher",
-    "text": "Dev posts a letter for his teacher"
+    "value": "Dev helps a younger player learn to hold the bat.",
+    "label": "Dev helps a younger player learn to hold the bat.",
+    "text": "Dev helps a younger player learn to hold the bat."
    },
    {
-    "value": "Dev's ball lands over the line; he calls it out himself, though no one saw",
-    "label": "Dev's ball lands over the line; he calls it out himself, though no one saw",
-    "text": "Dev's ball lands over the line; he calls it out himself, though no one saw"
+    "value": "Dev admits a rule break that could have helped him win.",
+    "label": "Dev admits a rule break that could have helped him win.",
+    "text": "Dev admits a rule break that could have helped him win."
    },
    {
-    "value": "Dev studies spelling every Thursday night",
-    "label": "Dev studies spelling every Thursday night",
-    "text": "Dev studies spelling every Thursday night"
+    "value": "Dev trains after school to improve his throwing and catching.",
+    "label": "Dev trains after school to improve his throwing and catching.",
+    "text": "Dev trains after school to improve his throwing and catching."
    }
   ],
-  "answer": "Dev's ball lands over the line; he calls it out himself, though no one saw",
-  "correctAnswer": "Dev's ball lands over the line; he calls it out himself, though no one saw",
+  "answer": "Dev admits a rule break that could have helped him win.",
+  "correctAnswer": "Dev admits a rule break that could have helped him win.",
   "distractorRationales": {
-   "Dev studies spelling every Thursday night": "D-TOPIC-ADJACENT",
-   "Dev peeks at his sister's cards when she leaves the room, and wins the game": "D-OPPOSITE",
-   "Dev posts a letter for his teacher": "D-TOPIC-ADJACENT"
+   "Dev trains after school to improve his throwing and catching.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Dev shares a spare bat with someone from the other team.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Dev helps a younger player learn to hold the bat.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4254,42 +4254,42 @@ export const questions = [
   "prompt": "Which new situation shows the SAME lesson?",
   "question": "Which new situation shows the SAME lesson?",
   "spokenPrompt": "Which new situation shows the SAME lesson?",
-  "passage": "Remember the twins' chalk line — how a wall that kept out mess and quarrels kept out company too, until washing it away was the happiest chore in the house. Keep that lesson in mind.",
+  "passage": "Mia stopped her brother entering her den after an argument. Her things stayed tidy, but she missed playing with him. She invited him back and explained which things needed care. They found a way to enjoy the den together again.",
   "cell": "apply_theme",
   "choices": [
-   "Mia chalks a hopscotch grid on the path",
-   "After a quarrel, Mia labels every pencil she owns so nobody can ever borrow one",
-   "Mia tidies the attic every Sunday",
-   "Mia opens the blocked den and welcomes her brother back"
+   "Ali tidies the workbench alone before starting her next picture.",
+   "Ali buys stronger scissors because they can cut through thick card.",
+   "Ali thanks a friend for helping finish a difficult craft model.",
+   "Ali welcomes her sister to a workbench with agreed sharing rules."
   ],
   "answerOptions": [
    {
-    "value": "Mia chalks a hopscotch grid on the path",
-    "label": "Mia chalks a hopscotch grid on the path",
-    "text": "Mia chalks a hopscotch grid on the path"
+    "value": "Ali tidies the workbench alone before starting her next picture.",
+    "label": "Ali tidies the workbench alone before starting her next picture.",
+    "text": "Ali tidies the workbench alone before starting her next picture."
    },
    {
-    "value": "After a quarrel, Mia labels every pencil she owns so nobody can ever borrow one",
-    "label": "After a quarrel, Mia labels every pencil she owns so nobody can ever borrow one",
-    "text": "After a quarrel, Mia labels every pencil she owns so nobody can ever borrow one"
+    "value": "Ali buys stronger scissors because they can cut through thick card.",
+    "label": "Ali buys stronger scissors because they can cut through thick card.",
+    "text": "Ali buys stronger scissors because they can cut through thick card."
    },
    {
-    "value": "Mia tidies the attic every Sunday",
-    "label": "Mia tidies the attic every Sunday",
-    "text": "Mia tidies the attic every Sunday"
+    "value": "Ali thanks a friend for helping finish a difficult craft model.",
+    "label": "Ali thanks a friend for helping finish a difficult craft model.",
+    "text": "Ali thanks a friend for helping finish a difficult craft model."
    },
    {
-    "value": "Mia opens the blocked den and welcomes her brother back",
-    "label": "Mia opens the blocked den and welcomes her brother back",
-    "text": "Mia opens the blocked den and welcomes her brother back"
+    "value": "Ali welcomes her sister to a workbench with agreed sharing rules.",
+    "label": "Ali welcomes her sister to a workbench with agreed sharing rules.",
+    "text": "Ali welcomes her sister to a workbench with agreed sharing rules."
    }
   ],
-  "answer": "Mia opens the blocked den and welcomes her brother back",
-  "correctAnswer": "Mia opens the blocked den and welcomes her brother back",
+  "answer": "Ali welcomes her sister to a workbench with agreed sharing rules.",
+  "correctAnswer": "Ali welcomes her sister to a workbench with agreed sharing rules.",
   "distractorRationales": {
-   "After a quarrel, Mia labels every pencil she owns so nobody can ever borrow one": "D-OPPOSITE",
-   "Mia tidies the attic every Sunday": "D-TOPIC-ADJACENT",
-   "Mia chalks a hopscotch grid on the path": "D-TOPIC-ADJACENT"
+   "Ali buys stronger scissors because they can cut through thick card.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Ali thanks a friend for helping finish a difficult craft model.": "D-OPPOSITE",
+   "Ali tidies the workbench alone before starting her next picture.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4322,7 +4322,7 @@ export const questions = [
   "notes": ""
  },
  {
-  "id": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v9",
+  "id": "lp3.theme_higher_comprehension.l1.R.lesson_mistake_fixed.v9r",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "theme_higher_comprehension",
@@ -4335,7 +4335,7 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_1_phase_1",
-  "form": "C",
+  "form": "R",
   "itemType": "theme_higher_comprehension_cell",
   "itemKey": "lesson_mistake_fixed",
   "formatType": "COMPREHENSION",
@@ -4344,48 +4344,48 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Zia copied Ola's homework to save time, and got the same three answers wrong. Worse, she could not explain them at the board. That night she did the page herself, slowly. Next test her answers were her own — and she could explain every one.",
+  "passage": "Zia copied answers so she could finish quickly. In class, she could not explain them. That night, she worked through the questions herself. Next day, she could explain how each answer worked.",
   "cell": "lesson_mistake_fixed",
   "choices": [
-   "Zia got three answers wrong",
-   "homework is a waste of time",
-   "teachers use whiteboards",
-   "copying steals your own chance to learn"
+   "Working together helps share a heavy task.",
+   "Taking turns is the best way to share equipment.",
+   "Doing your own work helps you learn.",
+   "A kind friend can encourage you to try."
   ],
   "answerOptions": [
    {
-    "value": "Zia got three answers wrong",
-    "label": "Zia got three answers wrong",
-    "text": "Zia got three answers wrong"
+    "value": "Working together helps share a heavy task.",
+    "label": "Working together helps share a heavy task.",
+    "text": "Working together helps share a heavy task."
    },
    {
-    "value": "homework is a waste of time",
-    "label": "homework is a waste of time",
-    "text": "homework is a waste of time"
+    "value": "Taking turns is the best way to share equipment.",
+    "label": "Taking turns is the best way to share equipment.",
+    "text": "Taking turns is the best way to share equipment."
    },
    {
-    "value": "teachers use whiteboards",
-    "label": "teachers use whiteboards",
-    "text": "teachers use whiteboards"
+    "value": "Doing your own work helps you learn.",
+    "label": "Doing your own work helps you learn.",
+    "text": "Doing your own work helps you learn."
    },
    {
-    "value": "copying steals your own chance to learn",
-    "label": "copying steals your own chance to learn",
-    "text": "copying steals your own chance to learn"
+    "value": "A kind friend can encourage you to try.",
+    "label": "A kind friend can encourage you to try.",
+    "text": "A kind friend can encourage you to try."
    }
   ],
-  "answer": "copying steals your own chance to learn",
-  "correctAnswer": "copying steals your own chance to learn",
+  "answer": "Doing your own work helps you learn.",
+  "correctAnswer": "Doing your own work helps you learn.",
   "distractorRationales": {
-   "teachers use whiteboards": "D-TOPIC-ADJACENT",
-   "Zia got three answers wrong": "D-DETAIL-AS-MAIN",
-   "homework is a waste of time": "D-OPPOSITE"
+   "Working together helps share a heavy task.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Taking turns is the best way to share equipment.": "D-OPPOSITE",
+   "A kind friend can encourage you to try.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": false,
-  "evidenceRole": "mastery",
+  "retentionOnly": true,
+  "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
@@ -4394,11 +4394,11 @@ export const questions = [
    "cards": false
   },
   "assessmentMediaDecision": {
-   "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v9",
+   "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_mistake_fixed.v9r",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",
-   "answerNeutral": "approved-empty-setting"
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -4412,7 +4412,7 @@ export const questions = [
   "notes": ""
  },
  {
-  "id": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v10",
+  "id": "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v10r",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "theme_higher_comprehension",
@@ -4425,7 +4425,7 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_1_phase_1",
-  "form": "A",
+  "form": "R",
   "itemType": "theme_higher_comprehension_cell",
   "itemKey": "lesson_kindness_returned",
   "formatType": "COMPREHENSION",
@@ -4434,48 +4434,48 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "On the coldest morning, Ffion cleared frost from her neighbor's windshield along with her mom's, just because she was out there anyway with the scraper. All winter after that, on trash day, Ffion's family cans came back up the driveway before they were even awake — wheeled by a neighbor who was out there anyway.",
+  "passage": "Ffion helped clear frost from her neighbour's car. Later, her family forgot to bring their bins in. The neighbour wheeled them back up the drive. Ffion smiled when she saw him helping.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "kindness between neighbors can come back around",
-   "a windshield had frost on it",
-   "trash cans should stay by the road",
-   "winter mornings are cold"
+   "Careful planning can prevent a repeated problem.",
+   "Daily practice can make a difficult skill easier.",
+   "Making a mistake helps you learn a skill.",
+   "Neighbours can return each other’s kindness."
   ],
   "answerOptions": [
    {
-    "value": "kindness between neighbors can come back around",
-    "label": "kindness between neighbors can come back around",
-    "text": "kindness between neighbors can come back around"
+    "value": "Careful planning can prevent a repeated problem.",
+    "label": "Careful planning can prevent a repeated problem.",
+    "text": "Careful planning can prevent a repeated problem."
    },
    {
-    "value": "a windshield had frost on it",
-    "label": "a windshield had frost on it",
-    "text": "a windshield had frost on it"
+    "value": "Daily practice can make a difficult skill easier.",
+    "label": "Daily practice can make a difficult skill easier.",
+    "text": "Daily practice can make a difficult skill easier."
    },
    {
-    "value": "trash cans should stay by the road",
-    "label": "trash cans should stay by the road",
-    "text": "trash cans should stay by the road"
+    "value": "Making a mistake helps you learn a skill.",
+    "label": "Making a mistake helps you learn a skill.",
+    "text": "Making a mistake helps you learn a skill."
    },
    {
-    "value": "winter mornings are cold",
-    "label": "winter mornings are cold",
-    "text": "winter mornings are cold"
+    "value": "Neighbours can return each other’s kindness.",
+    "label": "Neighbours can return each other’s kindness.",
+    "text": "Neighbours can return each other’s kindness."
    }
   ],
-  "answer": "kindness between neighbors can come back around",
-  "correctAnswer": "kindness between neighbors can come back around",
+  "answer": "Neighbours can return each other’s kindness.",
+  "correctAnswer": "Neighbours can return each other’s kindness.",
   "distractorRationales": {
-   "winter mornings are cold": "D-DETAIL-AS-MAIN",
-   "a windshield had frost on it": "D-DETAIL-AS-MAIN",
-   "trash cans should stay by the road": "D-TOPIC-ADJACENT"
+   "Daily practice can make a difficult skill easier.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Making a mistake helps you learn a skill.": "D-OPPOSITE",
+   "Careful planning can prevent a repeated problem.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": false,
-  "evidenceRole": "mastery",
+  "retentionOnly": true,
+  "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
@@ -4484,11 +4484,11 @@ export const questions = [
    "cards": false
   },
   "assessmentMediaDecision": {
-   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v10",
+   "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v10r",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",
-   "answerNeutral": "approved-empty-setting"
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -4502,7 +4502,7 @@ export const questions = [
   "notes": ""
  },
  {
-  "id": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v9",
+  "id": "lp3.theme_higher_comprehension.l1.R.lesson_effort_pays.v9r",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "theme_higher_comprehension",
@@ -4515,7 +4515,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_1_phase_2",
-  "form": "C",
+  "form": "R",
   "itemType": "theme_higher_comprehension_cell",
   "itemKey": "lesson_effort_pays",
   "formatType": "COMPREHENSION",
@@ -4524,48 +4524,48 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Rosa could not swim a stroke in June. She would not go in past her waist. All summer she practiced floating, then kicking, then one arm, then the other. On the last beach day, she swam out to the yellow buoy and back — not fast, not far, but every meter of it hers.",
+  "passage": "Rosa practiced swimming with her teacher all summer. First she learned to float, then to kick. Next, she practiced moving her arms. By summer's end, she could swim across the pool.",
   "cell": "lesson_effort_pays",
   "choices": [
-   "step-by-step effort builds real skill",
-   "Rosa touched the yellow buoy",
-   "stay out of the sea in June",
-   "beaches have buoys"
+   "Learning small steps can build a new skill.",
+   "Sharing a goal can bring friends closer together.",
+   "Helping someone can bring help back to you.",
+   "The first attempt shows all you can ever do."
   ],
   "answerOptions": [
    {
-    "value": "step-by-step effort builds real skill",
-    "label": "step-by-step effort builds real skill",
-    "text": "step-by-step effort builds real skill"
+    "value": "Learning small steps can build a new skill.",
+    "label": "Learning small steps can build a new skill.",
+    "text": "Learning small steps can build a new skill."
    },
    {
-    "value": "Rosa touched the yellow buoy",
-    "label": "Rosa touched the yellow buoy",
-    "text": "Rosa touched the yellow buoy"
+    "value": "Sharing a goal can bring friends closer together.",
+    "label": "Sharing a goal can bring friends closer together.",
+    "text": "Sharing a goal can bring friends closer together."
    },
    {
-    "value": "stay out of the sea in June",
-    "label": "stay out of the sea in June",
-    "text": "stay out of the sea in June"
+    "value": "Helping someone can bring help back to you.",
+    "label": "Helping someone can bring help back to you.",
+    "text": "Helping someone can bring help back to you."
    },
    {
-    "value": "beaches have buoys",
-    "label": "beaches have buoys",
-    "text": "beaches have buoys"
+    "value": "The first attempt shows all you can ever do.",
+    "label": "The first attempt shows all you can ever do.",
+    "text": "The first attempt shows all you can ever do."
    }
   ],
-  "answer": "step-by-step effort builds real skill",
-  "correctAnswer": "step-by-step effort builds real skill",
+  "answer": "Learning small steps can build a new skill.",
+  "correctAnswer": "Learning small steps can build a new skill.",
   "distractorRationales": {
-   "Rosa touched the yellow buoy": "D-DETAIL-AS-MAIN",
-   "stay out of the sea in June": "D-OPPOSITE",
-   "beaches have buoys": "D-TOPIC-ADJACENT"
+   "The first attempt shows all you can ever do.": "D-OPPOSITE",
+   "Sharing a goal can bring friends closer together.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Helping someone can bring help back to you.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": false,
-  "evidenceRole": "mastery",
+  "retentionOnly": true,
+  "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
@@ -4574,11 +4574,11 @@ export const questions = [
    "cards": false
   },
   "assessmentMediaDecision": {
-   "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v9",
+   "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_effort_pays.v9r",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",
-   "answerNeutral": "approved-empty-setting"
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -4592,7 +4592,7 @@ export const questions = [
   "notes": ""
  },
  {
-  "id": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v10",
+  "id": "lp3.theme_higher_comprehension.l1.R.lesson_mistake_fixed.v10r",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "theme_higher_comprehension",
@@ -4605,7 +4605,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_1_phase_2",
-  "form": "A",
+  "form": "R",
   "itemType": "theme_higher_comprehension_cell",
   "itemKey": "lesson_mistake_fixed",
   "formatType": "COMPREHENSION",
@@ -4614,48 +4614,48 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Ben teased Ollie about his taped glasses, and the laugh he expected never came — only a horrible quiet. Sorry felt impossible to say, so Ben did it the slow way: a saved seat, a defending word at soccer, and at last the words themselves. 'Took you long enough,' said Ollie — and moved over to make room.",
+  "passage": "Ben teased Ollie about his taped glasses. Ollie looked hurt and walked away. Ben said sorry and stopped the teasing. He treated Ollie kindly until they became friends again.",
   "cell": "lesson_mistake_fixed",
   "choices": [
-   "soccer happens at lunch",
-   "a wrong can be mended, even slowly",
-   "Ollie's glasses were taped",
-   "teasing makes people laugh"
+   "Working quickly leaves more time for other activities.",
+   "Kind actions can help put a wrong right.",
+   "Humour can help people enjoy spending time together.",
+   "Listening to advice can help a project improve."
   ],
   "answerOptions": [
    {
-    "value": "soccer happens at lunch",
-    "label": "soccer happens at lunch",
-    "text": "soccer happens at lunch"
+    "value": "Working quickly leaves more time for other activities.",
+    "label": "Working quickly leaves more time for other activities.",
+    "text": "Working quickly leaves more time for other activities."
    },
    {
-    "value": "a wrong can be mended, even slowly",
-    "label": "a wrong can be mended, even slowly",
-    "text": "a wrong can be mended, even slowly"
+    "value": "Kind actions can help put a wrong right.",
+    "label": "Kind actions can help put a wrong right.",
+    "text": "Kind actions can help put a wrong right."
    },
    {
-    "value": "Ollie's glasses were taped",
-    "label": "Ollie's glasses were taped",
-    "text": "Ollie's glasses were taped"
+    "value": "Humour can help people enjoy spending time together.",
+    "label": "Humour can help people enjoy spending time together.",
+    "text": "Humour can help people enjoy spending time together."
    },
    {
-    "value": "teasing makes people laugh",
-    "label": "teasing makes people laugh",
-    "text": "teasing makes people laugh"
+    "value": "Listening to advice can help a project improve.",
+    "label": "Listening to advice can help a project improve.",
+    "text": "Listening to advice can help a project improve."
    }
   ],
-  "answer": "a wrong can be mended, even slowly",
-  "correctAnswer": "a wrong can be mended, even slowly",
+  "answer": "Kind actions can help put a wrong right.",
+  "correctAnswer": "Kind actions can help put a wrong right.",
   "distractorRationales": {
-   "soccer happens at lunch": "D-TOPIC-ADJACENT",
-   "Ollie's glasses were taped": "D-DETAIL-AS-MAIN",
-   "teasing makes people laugh": "D-OPPOSITE"
+   "Listening to advice can help a project improve.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Working quickly leaves more time for other activities.": "D-OPPOSITE",
+   "Humour can help people enjoy spending time together.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": false,
-  "evidenceRole": "mastery",
+  "retentionOnly": true,
+  "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
@@ -4664,11 +4664,11 @@ export const questions = [
    "cards": false
   },
   "assessmentMediaDecision": {
-   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v10",
+   "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_mistake_fixed.v10r",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",
-   "answerNeutral": "approved-empty-setting"
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -4704,42 +4704,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "The crowded lunch line always squeezed out little Yani, last and smallest. Big Aron noticed and simply stood behind him each day like a friendly wall. Years later — Aron on crutches after an accident, the hallway crowded — it was a much taller Yani who walked behind him, all the way, like a friendly wall.",
+  "passage": "Aron helped little Yani through a crowded lunch line. Later, Aron needed crutches after hurting his leg. Yani walked beside him in the crowded hall. He helped make space so Aron could pass safely.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "small children should line up elsewhere",
-   "hallways get crowded",
-   "protection given is remembered and returned",
-   "the lunch line was crowded"
+   "Sharing a goal can make a group stronger.",
+   "Keeping a secret is the best way to help.",
+   "Help given can be remembered and returned.",
+   "Patient practice can help you overcome a difficulty."
   ],
   "answerOptions": [
    {
-    "value": "small children should line up elsewhere",
-    "label": "small children should line up elsewhere",
-    "text": "small children should line up elsewhere"
+    "value": "Sharing a goal can make a group stronger.",
+    "label": "Sharing a goal can make a group stronger.",
+    "text": "Sharing a goal can make a group stronger."
    },
    {
-    "value": "hallways get crowded",
-    "label": "hallways get crowded",
-    "text": "hallways get crowded"
+    "value": "Keeping a secret is the best way to help.",
+    "label": "Keeping a secret is the best way to help.",
+    "text": "Keeping a secret is the best way to help."
    },
    {
-    "value": "protection given is remembered and returned",
-    "label": "protection given is remembered and returned",
-    "text": "protection given is remembered and returned"
+    "value": "Help given can be remembered and returned.",
+    "label": "Help given can be remembered and returned.",
+    "text": "Help given can be remembered and returned."
    },
    {
-    "value": "the lunch line was crowded",
-    "label": "the lunch line was crowded",
-    "text": "the lunch line was crowded"
+    "value": "Patient practice can help you overcome a difficulty.",
+    "label": "Patient practice can help you overcome a difficulty.",
+    "text": "Patient practice can help you overcome a difficulty."
    }
   ],
-  "answer": "protection given is remembered and returned",
-  "correctAnswer": "protection given is remembered and returned",
+  "answer": "Help given can be remembered and returned.",
+  "correctAnswer": "Help given can be remembered and returned.",
   "distractorRationales": {
-   "hallways get crowded": "D-TOPIC-ADJACENT",
-   "the lunch line was crowded": "D-DETAIL-AS-MAIN",
-   "small children should line up elsewhere": "D-OPPOSITE"
+   "Keeping a secret is the best way to help.": "D-OPPOSITE",
+   "Patient practice can help you overcome a difficulty.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Sharing a goal can make a group stronger.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4794,42 +4794,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "The recorder squeaked for everyone, but for Dot it SCREECHED. Her family bought earplugs; the dog left the room. Dot practiced in the garage, ten minutes a day, no more, no matter what. By the spring concert, the screech was gone, and her daily practice had produced clear, steady notes.",
+  "passage": "Dot's recorder made squeaky notes at first. She practiced for ten minutes every day. Her teacher helped her fix each mistake. At the concert, she played a clear, steady tune.",
   "cell": "lesson_effort_pays",
   "choices": [
-   "the dog left the room",
-   "recorders are hopeless instruments",
-   "garages are for practicing",
-   "a little practice every day can build a skill"
+   "Choosing useful equipment helps you complete a task.",
+   "Listening to others helps a group make decisions.",
+   "A kind act can start a new friendship.",
+   "A little practice each day can build skill."
   ],
   "answerOptions": [
    {
-    "value": "the dog left the room",
-    "label": "the dog left the room",
-    "text": "the dog left the room"
+    "value": "Choosing useful equipment helps you complete a task.",
+    "label": "Choosing useful equipment helps you complete a task.",
+    "text": "Choosing useful equipment helps you complete a task."
    },
    {
-    "value": "recorders are hopeless instruments",
-    "label": "recorders are hopeless instruments",
-    "text": "recorders are hopeless instruments"
+    "value": "Listening to others helps a group make decisions.",
+    "label": "Listening to others helps a group make decisions.",
+    "text": "Listening to others helps a group make decisions."
    },
    {
-    "value": "garages are for practicing",
-    "label": "garages are for practicing",
-    "text": "garages are for practicing"
+    "value": "A kind act can start a new friendship.",
+    "label": "A kind act can start a new friendship.",
+    "text": "A kind act can start a new friendship."
    },
    {
-    "value": "a little practice every day can build a skill",
-    "label": "a little practice every day can build a skill",
-    "text": "a little practice every day can build a skill"
+    "value": "A little practice each day can build skill.",
+    "label": "A little practice each day can build skill.",
+    "text": "A little practice each day can build skill."
    }
   ],
-  "answer": "a little practice every day can build a skill",
-  "correctAnswer": "a little practice every day can build a skill",
+  "answer": "A little practice each day can build skill.",
+  "correctAnswer": "A little practice each day can build skill.",
   "distractorRationales": {
-   "the dog left the room": "D-DETAIL-AS-MAIN",
-   "recorders are hopeless instruments": "D-OPPOSITE",
-   "garages are for practicing": "D-TOPIC-ADJACENT"
+   "Choosing useful equipment helps you complete a task.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Listening to others helps a group make decisions.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A kind act can start a new friendship.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4884,42 +4884,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Nobody saw Wolf knock the class globe off its stand — but Wolf saw the dent, and Wolf knew. The secret felt like a marble in his shoe. When he finally told Mr Otieno, the telling took ten seconds, the gluing five minutes, and the marble was gone by lunch.",
+  "passage": "Wolf knocked the class globe off its stand. He hid the loose part all morning. Finally, he told his teacher. Together they fixed it, and Wolf stopped worrying.",
   "cell": "lesson_mistake_fixed",
   "choices": [
-   "confessing is quicker and lighter than hiding",
-   "the globe got a dent",
-   "globes should be bolted down",
-   "secrets keep you company"
+   "Asking honestly for help can ease a worry.",
+   "Sharing a special object can bring people together.",
+   "Checking your work carefully can prevent mistakes.",
+   "A difficult task should be finished without any help."
   ],
   "answerOptions": [
    {
-    "value": "confessing is quicker and lighter than hiding",
-    "label": "confessing is quicker and lighter than hiding",
-    "text": "confessing is quicker and lighter than hiding"
+    "value": "Asking honestly for help can ease a worry.",
+    "label": "Asking honestly for help can ease a worry.",
+    "text": "Asking honestly for help can ease a worry."
    },
    {
-    "value": "the globe got a dent",
-    "label": "the globe got a dent",
-    "text": "the globe got a dent"
+    "value": "Sharing a special object can bring people together.",
+    "label": "Sharing a special object can bring people together.",
+    "text": "Sharing a special object can bring people together."
    },
    {
-    "value": "globes should be bolted down",
-    "label": "globes should be bolted down",
-    "text": "globes should be bolted down"
+    "value": "Checking your work carefully can prevent mistakes.",
+    "label": "Checking your work carefully can prevent mistakes.",
+    "text": "Checking your work carefully can prevent mistakes."
    },
    {
-    "value": "secrets keep you company",
-    "label": "secrets keep you company",
-    "text": "secrets keep you company"
+    "value": "A difficult task should be finished without any help.",
+    "label": "A difficult task should be finished without any help.",
+    "text": "A difficult task should be finished without any help."
    }
   ],
-  "answer": "confessing is quicker and lighter than hiding",
-  "correctAnswer": "confessing is quicker and lighter than hiding",
+  "answer": "Asking honestly for help can ease a worry.",
+  "correctAnswer": "Asking honestly for help can ease a worry.",
   "distractorRationales": {
-   "secrets keep you company": "D-OPPOSITE",
-   "the globe got a dent": "D-DETAIL-AS-MAIN",
-   "globes should be bolted down": "D-TOPIC-ADJACENT"
+   "A difficult task should be finished without any help.": "D-OPPOSITE",
+   "Sharing a special object can bring people together.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Checking your work carefully can prevent mistakes.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4974,42 +4974,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Half Moon Lane flooded, and the corner store stood in brown water. Mrs. Vo had given credit, candy, and kind words for twenty years. By noon, without one phone call, the street filled with neighbors in rain boots, carrying and mopping — and by evening the store's OPEN sign was the driest thing on the street.",
+  "passage": "Mrs Vo had helped her neighbours for years. One day, flood water entered her shop. The neighbours came to carry stock and mop floors. By evening, their work had made the shop dry.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "floods can cover streets",
-   "long kindness may be repaid quickly",
-   "brown water entered the store",
-   "stores should not give credit"
+   "The newest building is always the safest building.",
+   "A caring community can support one another.",
+   "Planning carefully can protect things from damage.",
+   "A steady routine helps you learn a skill."
   ],
   "answerOptions": [
    {
-    "value": "floods can cover streets",
-    "label": "floods can cover streets",
-    "text": "floods can cover streets"
+    "value": "The newest building is always the safest building.",
+    "label": "The newest building is always the safest building.",
+    "text": "The newest building is always the safest building."
    },
    {
-    "value": "long kindness may be repaid quickly",
-    "label": "long kindness may be repaid quickly",
-    "text": "long kindness may be repaid quickly"
+    "value": "A caring community can support one another.",
+    "label": "A caring community can support one another.",
+    "text": "A caring community can support one another."
    },
    {
-    "value": "brown water entered the store",
-    "label": "brown water entered the store",
-    "text": "brown water entered the store"
+    "value": "Planning carefully can protect things from damage.",
+    "label": "Planning carefully can protect things from damage.",
+    "text": "Planning carefully can protect things from damage."
    },
    {
-    "value": "stores should not give credit",
-    "label": "stores should not give credit",
-    "text": "stores should not give credit"
+    "value": "A steady routine helps you learn a skill.",
+    "label": "A steady routine helps you learn a skill.",
+    "text": "A steady routine helps you learn a skill."
    }
   ],
-  "answer": "long kindness may be repaid quickly",
-  "correctAnswer": "long kindness may be repaid quickly",
+  "answer": "A caring community can support one another.",
+  "correctAnswer": "A caring community can support one another.",
   "distractorRationales": {
-   "brown water entered the store": "D-DETAIL-AS-MAIN",
-   "stores should not give credit": "D-OPPOSITE",
-   "floods can cover streets": "D-TOPIC-ADJACENT"
+   "Planning carefully can protect things from damage.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A steady routine helps you learn a skill.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The newest building is always the safest building.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5042,7 +5042,7 @@ export const questions = [
   "notes": ""
  },
  {
-  "id": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v9",
+  "id": "lp3.theme_higher_comprehension.l2.R.theme_among_rivals.v9r",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "theme_higher_comprehension",
@@ -5055,7 +5055,7 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_2_phase_1",
-  "form": "C",
+  "form": "R",
   "itemType": "theme_higher_comprehension_cell",
   "itemKey": "theme_among_rivals",
   "formatType": "COMPREHENSION",
@@ -5064,48 +5064,48 @@ export const questions = [
   "prompt": "Which lesson is best supported by the story?",
   "question": "Which lesson is best supported by the story?",
   "spokenPrompt": "Which lesson is best supported by the story?",
-  "passage": "The chess club's best player, Ines, could beat anyone — and said so often. The club shrank to three. A new teacher, Ms. Drew, asked Ines to spend one term coaching. At first Ines missed playing every game, but she set up practice boards, explained her moves, and helped beginners finish whole matches. By summer the club filled two classrooms. When one coached beginner finally beat her fairly, Ines was surprised to find she had never enjoyed chess more.",
+  "passage": "Ines won every chess game and often boasted about it. Soon, few children wanted to play. She began coaching beginners and praising their progress. The club grew, and she enjoyed seeing her pupils improve.",
   "cell": "theme_among_rivals",
   "choices": [
-   "skilled players should keep their ideas secret",
-   "the club filled two classrooms",
-   "teaching others can make success larger than winning alone",
-   "competition can help beginners improve"
+   "Patient practice can help people develop a difficult skill.",
+   "Fair rules give new competitors a chance to take part.",
+   "Making a task easier means nobody will learn from it.",
+   "Helping others improve can be more rewarding than winning alone."
   ],
   "answerOptions": [
    {
-    "value": "skilled players should keep their ideas secret",
-    "label": "skilled players should keep their ideas secret",
-    "text": "skilled players should keep their ideas secret"
+    "value": "Patient practice can help people develop a difficult skill.",
+    "label": "Patient practice can help people develop a difficult skill.",
+    "text": "Patient practice can help people develop a difficult skill."
    },
    {
-    "value": "the club filled two classrooms",
-    "label": "the club filled two classrooms",
-    "text": "the club filled two classrooms"
+    "value": "Fair rules give new competitors a chance to take part.",
+    "label": "Fair rules give new competitors a chance to take part.",
+    "text": "Fair rules give new competitors a chance to take part."
    },
    {
-    "value": "teaching others can make success larger than winning alone",
-    "label": "teaching others can make success larger than winning alone",
-    "text": "teaching others can make success larger than winning alone"
+    "value": "Making a task easier means nobody will learn from it.",
+    "label": "Making a task easier means nobody will learn from it.",
+    "text": "Making a task easier means nobody will learn from it."
    },
    {
-    "value": "competition can help beginners improve",
-    "label": "competition can help beginners improve",
-    "text": "competition can help beginners improve"
+    "value": "Helping others improve can be more rewarding than winning alone.",
+    "label": "Helping others improve can be more rewarding than winning alone.",
+    "text": "Helping others improve can be more rewarding than winning alone."
    }
   ],
-  "answer": "teaching others can make success larger than winning alone",
-  "correctAnswer": "teaching others can make success larger than winning alone",
+  "answer": "Helping others improve can be more rewarding than winning alone.",
+  "correctAnswer": "Helping others improve can be more rewarding than winning alone.",
   "distractorRationales": {
-   "skilled players should keep their ideas secret": "D-OPPOSITE",
-   "the club filled two classrooms": "D-DETAIL-AS-MAIN",
-   "competition can help beginners improve": "D-PLAUSIBLE-UNSUPPORTED"
+   "Patient practice can help people develop a difficult skill.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Fair rules give new competitors a chance to take part.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Making a task easier means nobody will learn from it.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": false,
-  "evidenceRole": "mastery",
+  "retentionOnly": true,
+  "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
@@ -5114,11 +5114,11 @@ export const questions = [
    "cards": false
   },
   "assessmentMediaDecision": {
-   "itemId": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v9",
+   "itemId": "lp3.theme_higher_comprehension.l2.R.theme_among_rivals.v9r",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",
-   "answerNeutral": "approved-empty-setting"
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -5132,7 +5132,7 @@ export const questions = [
   "notes": ""
  },
  {
-  "id": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v10",
+  "id": "lp3.theme_higher_comprehension.l2.R.theme_among_rivals.v10r",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "theme_higher_comprehension",
@@ -5145,7 +5145,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_2_phase_2",
-  "form": "A",
+  "form": "R",
   "itemType": "theme_higher_comprehension_cell",
   "itemKey": "theme_among_rivals",
   "formatType": "COMPREHENSION",
@@ -5154,48 +5154,48 @@ export const questions = [
   "prompt": "Which lesson is best supported by the story?",
   "question": "Which lesson is best supported by the story?",
   "spokenPrompt": "Which lesson is best supported by the story?",
-  "passage": "Papa's workshop looked messy beside the neighbor's neat rows of tools. Papa kept open baskets labeled BIKE, PAINT, and GARDEN, so each basket mixed tools of different shapes and sizes. When a bicycle chain broke, he lifted the BIKE basket and had the wrench, oil, and rag together in seconds. The neighbor stopped teasing and made a task basket of her own.",
+  "passage": "Papa grouped his tools by job instead of size. Each basket looked untidy but held everything for one task. When a bike chain broke, he found all he needed quickly. His neat neighbour copied the system after seeing it work.",
   "cell": "theme_among_rivals",
   "choices": [
-   "taking care of tools shows respect for shared things",
-   "organized systems make work harder",
-   "the bike basket held oil and a rag",
-   "a useful system can work well even when it does not look neat"
+   "A useful system need not look like other systems.",
+   "Taking care of tools can help them last longer.",
+   "Sharing equipment gives more people a chance to learn.",
+   "Following old habits is better than considering a new idea."
   ],
   "answerOptions": [
    {
-    "value": "taking care of tools shows respect for shared things",
-    "label": "taking care of tools shows respect for shared things",
-    "text": "taking care of tools shows respect for shared things"
+    "value": "A useful system need not look like other systems.",
+    "label": "A useful system need not look like other systems.",
+    "text": "A useful system need not look like other systems."
    },
    {
-    "value": "organized systems make work harder",
-    "label": "organized systems make work harder",
-    "text": "organized systems make work harder"
+    "value": "Taking care of tools can help them last longer.",
+    "label": "Taking care of tools can help them last longer.",
+    "text": "Taking care of tools can help them last longer."
    },
    {
-    "value": "the bike basket held oil and a rag",
-    "label": "the bike basket held oil and a rag",
-    "text": "the bike basket held oil and a rag"
+    "value": "Sharing equipment gives more people a chance to learn.",
+    "label": "Sharing equipment gives more people a chance to learn.",
+    "text": "Sharing equipment gives more people a chance to learn."
    },
    {
-    "value": "a useful system can work well even when it does not look neat",
-    "label": "a useful system can work well even when it does not look neat",
-    "text": "a useful system can work well even when it does not look neat"
+    "value": "Following old habits is better than considering a new idea.",
+    "label": "Following old habits is better than considering a new idea.",
+    "text": "Following old habits is better than considering a new idea."
    }
   ],
-  "answer": "a useful system can work well even when it does not look neat",
-  "correctAnswer": "a useful system can work well even when it does not look neat",
+  "answer": "A useful system need not look like other systems.",
+  "correctAnswer": "A useful system need not look like other systems.",
   "distractorRationales": {
-   "taking care of tools shows respect for shared things": "D-PLAUSIBLE-UNSUPPORTED",
-   "organized systems make work harder": "D-OPPOSITE",
-   "the bike basket held oil and a rag": "D-DETAIL-AS-MAIN"
+   "Following old habits is better than considering a new idea.": "D-OPPOSITE",
+   "Taking care of tools can help them last longer.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Sharing equipment gives more people a chance to learn.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": false,
-  "evidenceRole": "mastery",
+  "retentionOnly": true,
+  "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
@@ -5204,11 +5204,11 @@ export const questions = [
    "cards": false
   },
   "assessmentMediaDecision": {
-   "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v10",
+   "itemId": "lp3.theme_higher_comprehension.l2.R.theme_among_rivals.v10r",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",
-   "answerNeutral": "approved-empty-setting"
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -5222,7 +5222,7 @@ export const questions = [
   "notes": ""
  },
  {
-  "id": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v9",
+  "id": "lp3.theme_higher_comprehension.l2.R.theme_vs_plot.v9r",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "theme_higher_comprehension",
@@ -5235,57 +5235,57 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_2_phase_1",
-  "form": "C",
+  "form": "R",
   "itemType": "theme_higher_comprehension_cell",
   "itemKey": "theme_vs_plot",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which option states the theme rather than a plot event?",
-  "question": "Which option states the theme rather than a plot event?",
-  "spokenPrompt": "Which option states the theme rather than a plot event?",
-  "passage": "The school play needed a horse, and the horse costume needed two children who could move as one. Rehearsals were a disaster — front legs turning left, back legs right, the teachers crying with laughter. So Fen and Alba practiced everything together for a month: walking home, lining up, even yawning. On the night, the horse trotted, reared, and bowed — and two very different girls came out of one costume as best friends.",
+  "prompt": "Which message does the whole story support?",
+  "question": "Which message does the whole story support?",
+  "spokenPrompt": "Which message does the whole story support?",
+  "passage": "Fen and Alba shared a horse costume in the school play. At first, they turned in different directions and kept falling. They practiced listening and moving together for weeks. By the performance, they worked smoothly and had become close friends.",
   "cell": "theme_vs_plot",
   "choices": [
-   "a play needed a horse costume",
-   "rehearsals went badly at first",
-   "the horse bowed on the night",
-   "cooperation can build friendship"
+   "Fen and Alba practiced moving together inside the horse costume.",
+   "Working together can help a friendship grow.",
+   "Fair choices give every performer an equal chance.",
+   "Good advice can help someone face a fear."
   ],
   "answerOptions": [
    {
-    "value": "a play needed a horse costume",
-    "label": "a play needed a horse costume",
-    "text": "a play needed a horse costume"
+    "value": "Fen and Alba practiced moving together inside the horse costume.",
+    "label": "Fen and Alba practiced moving together inside the horse costume.",
+    "text": "Fen and Alba practiced moving together inside the horse costume."
    },
    {
-    "value": "rehearsals went badly at first",
-    "label": "rehearsals went badly at first",
-    "text": "rehearsals went badly at first"
+    "value": "Working together can help a friendship grow.",
+    "label": "Working together can help a friendship grow.",
+    "text": "Working together can help a friendship grow."
    },
    {
-    "value": "the horse bowed on the night",
-    "label": "the horse bowed on the night",
-    "text": "the horse bowed on the night"
+    "value": "Fair choices give every performer an equal chance.",
+    "label": "Fair choices give every performer an equal chance.",
+    "text": "Fair choices give every performer an equal chance."
    },
    {
-    "value": "cooperation can build friendship",
-    "label": "cooperation can build friendship",
-    "text": "cooperation can build friendship"
+    "value": "Good advice can help someone face a fear.",
+    "label": "Good advice can help someone face a fear.",
+    "text": "Good advice can help someone face a fear."
    }
   ],
-  "answer": "cooperation can build friendship",
-  "correctAnswer": "cooperation can build friendship",
+  "answer": "Working together can help a friendship grow.",
+  "correctAnswer": "Working together can help a friendship grow.",
   "distractorRationales": {
-   "a play needed a horse costume": "D-DETAIL-AS-MAIN",
-   "rehearsals went badly at first": "D-DETAIL-AS-MAIN",
-   "the horse bowed on the night": "D-DETAIL-AS-MAIN"
+   "Good advice can help someone face a fear.": "D-TOPIC-ADJACENT",
+   "Fen and Alba practiced moving together inside the horse costume.": "D-DETAIL-AS-MAIN",
+   "Fair choices give every performer an equal chance.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": false,
-  "evidenceRole": "mastery",
+  "retentionOnly": true,
+  "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
@@ -5294,11 +5294,11 @@ export const questions = [
    "cards": false
   },
   "assessmentMediaDecision": {
-   "itemId": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v9",
+   "itemId": "lp3.theme_higher_comprehension.l2.R.theme_vs_plot.v9r",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",
-   "answerNeutral": "approved-empty-setting"
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -5312,7 +5312,7 @@ export const questions = [
   "notes": ""
  },
  {
-  "id": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v10",
+  "id": "lp3.theme_higher_comprehension.l2.R.theme_vs_plot.v10r",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "theme_higher_comprehension",
@@ -5325,57 +5325,57 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_2_phase_2",
-  "form": "A",
+  "form": "R",
   "itemType": "theme_higher_comprehension_cell",
   "itemKey": "theme_vs_plot",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which option states the theme rather than a plot event?",
-  "question": "Which option states the theme rather than a plot event?",
-  "spokenPrompt": "Which option states the theme rather than a plot event?",
-  "passage": "Great-Aunt Bess left Callum her 'treasure', and the whole family imagined jewelry. The box held a trowel, seed packets, and a notebook: fifty years of what she had planted, for whom, and why — a tree for every new baby on the street, roses for every wedding. Callum was disappointed for exactly one spring. Then the first tree he planted blossomed outside the hospital's family courtyard, and he understood what kind of rich his aunt had been.",
+  "prompt": "Which message does the whole story support?",
+  "question": "Which message does the whole story support?",
+  "spokenPrompt": "Which message does the whole story support?",
+  "passage": "Bess left Callum a box of seeds and a gardening notebook. He had hoped for jewels and felt disappointed. The book described trees she had planted to celebrate other people. He planted a tree for a new baby and understood her joy.",
   "cell": "theme_vs_plot",
   "choices": [
-   "a life spent giving is its own treasure",
-   "a box held a trowel and seeds",
-   "the family expected jewelry",
-   "a tree blossomed in spring"
+   "Patient gardening can reward people after a long wait.",
+   "Callum found seeds and a notebook inside Bess’s box.",
+   "The chance to give can be a valuable gift.",
+   "Learning from older relatives can preserve useful knowledge."
   ],
   "answerOptions": [
    {
-    "value": "a life spent giving is its own treasure",
-    "label": "a life spent giving is its own treasure",
-    "text": "a life spent giving is its own treasure"
+    "value": "Patient gardening can reward people after a long wait.",
+    "label": "Patient gardening can reward people after a long wait.",
+    "text": "Patient gardening can reward people after a long wait."
    },
    {
-    "value": "a box held a trowel and seeds",
-    "label": "a box held a trowel and seeds",
-    "text": "a box held a trowel and seeds"
+    "value": "Callum found seeds and a notebook inside Bess’s box.",
+    "label": "Callum found seeds and a notebook inside Bess’s box.",
+    "text": "Callum found seeds and a notebook inside Bess’s box."
    },
    {
-    "value": "the family expected jewelry",
-    "label": "the family expected jewelry",
-    "text": "the family expected jewelry"
+    "value": "The chance to give can be a valuable gift.",
+    "label": "The chance to give can be a valuable gift.",
+    "text": "The chance to give can be a valuable gift."
    },
    {
-    "value": "a tree blossomed in spring",
-    "label": "a tree blossomed in spring",
-    "text": "a tree blossomed in spring"
+    "value": "Learning from older relatives can preserve useful knowledge.",
+    "label": "Learning from older relatives can preserve useful knowledge.",
+    "text": "Learning from older relatives can preserve useful knowledge."
    }
   ],
-  "answer": "a life spent giving is its own treasure",
-  "correctAnswer": "a life spent giving is its own treasure",
+  "answer": "The chance to give can be a valuable gift.",
+  "correctAnswer": "The chance to give can be a valuable gift.",
   "distractorRationales": {
-   "a box held a trowel and seeds": "D-DETAIL-AS-MAIN",
-   "the family expected jewelry": "D-DETAIL-AS-MAIN",
-   "a tree blossomed in spring": "D-DETAIL-AS-MAIN"
+   "Patient gardening can reward people after a long wait.": "D-TOPIC-ADJACENT",
+   "Callum found seeds and a notebook inside Bess’s box.": "D-DETAIL-AS-MAIN",
+   "Learning from older relatives can preserve useful knowledge.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": false,
-  "evidenceRole": "mastery",
+  "retentionOnly": true,
+  "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
@@ -5384,11 +5384,11 @@ export const questions = [
    "cards": false
   },
   "assessmentMediaDecision": {
-   "itemId": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v10",
+   "itemId": "lp3.theme_higher_comprehension.l2.R.theme_vs_plot.v10r",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",
-   "answerNeutral": "approved-empty-setting"
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -5424,42 +5424,42 @@ export const questions = [
   "prompt": "Which new situation shows the SAME lesson?",
   "question": "Which new situation shows the SAME lesson?",
   "spokenPrompt": "Which new situation shows the SAME lesson?",
-  "passage": "Remember Wolf and the dented globe — how confessing took ten seconds and carrying the secret had felt like a marble in his shoe. Keep that lesson in mind.",
+  "passage": "Tara lost a library game's smallest piece. She hid the box, worrying someone would find out. Finally, she told the librarian, who helped replace the piece. Tara could enjoy using the library again without keeping a secret.",
   "cell": "apply_theme",
   "choices": [
-   "Tess polishes the class globe until it shines",
-   "Tess quietly slides the juice-stained book to the very bottom of the returns pile",
-   "Tess reads with juice far away from books",
-   "Tess tells the librarian today about the juice she spilled on page nine"
+   "Tess practices reading a hard book until the words feel easy.",
+   "Tess lends a favourite book to a new child in class.",
+   "Tess sorts all the class books quietly before the others arrive.",
+   "Tess tells the librarian about juice spilled on a borrowed book."
   ],
   "answerOptions": [
    {
-    "value": "Tess polishes the class globe until it shines",
-    "label": "Tess polishes the class globe until it shines",
-    "text": "Tess polishes the class globe until it shines"
+    "value": "Tess practices reading a hard book until the words feel easy.",
+    "label": "Tess practices reading a hard book until the words feel easy.",
+    "text": "Tess practices reading a hard book until the words feel easy."
    },
    {
-    "value": "Tess quietly slides the juice-stained book to the very bottom of the returns pile",
-    "label": "Tess quietly slides the juice-stained book to the very bottom of the returns pile",
-    "text": "Tess quietly slides the juice-stained book to the very bottom of the returns pile"
+    "value": "Tess lends a favourite book to a new child in class.",
+    "label": "Tess lends a favourite book to a new child in class.",
+    "text": "Tess lends a favourite book to a new child in class."
    },
    {
-    "value": "Tess reads with juice far away from books",
-    "label": "Tess reads with juice far away from books",
-    "text": "Tess reads with juice far away from books"
+    "value": "Tess sorts all the class books quietly before the others arrive.",
+    "label": "Tess sorts all the class books quietly before the others arrive.",
+    "text": "Tess sorts all the class books quietly before the others arrive."
    },
    {
-    "value": "Tess tells the librarian today about the juice she spilled on page nine",
-    "label": "Tess tells the librarian today about the juice she spilled on page nine",
-    "text": "Tess tells the librarian today about the juice she spilled on page nine"
+    "value": "Tess tells the librarian about juice spilled on a borrowed book.",
+    "label": "Tess tells the librarian about juice spilled on a borrowed book.",
+    "text": "Tess tells the librarian about juice spilled on a borrowed book."
    }
   ],
-  "answer": "Tess tells the librarian today about the juice she spilled on page nine",
-  "correctAnswer": "Tess tells the librarian today about the juice she spilled on page nine",
+  "answer": "Tess tells the librarian about juice spilled on a borrowed book.",
+  "correctAnswer": "Tess tells the librarian about juice spilled on a borrowed book.",
   "distractorRationales": {
-   "Tess polishes the class globe until it shines": "D-TOPIC-ADJACENT",
-   "Tess quietly slides the juice-stained book to the very bottom of the returns pile": "D-OPPOSITE",
-   "Tess reads with juice far away from books": "D-TOPIC-ADJACENT"
+   "Tess practices reading a hard book until the words feel easy.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Tess lends a favourite book to a new child in class.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Tess sorts all the class books quietly before the others arrive.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5514,42 +5514,42 @@ export const questions = [
   "prompt": "Which new situation shows the SAME lesson?",
   "question": "Which new situation shows the SAME lesson?",
   "spokenPrompt": "Which new situation shows the SAME lesson?",
-  "passage": "Remember Ede placing wet boots on the school's drying rack — small quiet care that made a whole school kinder. Keep that lesson in mind.",
+  "passage": "Ojas noticed the shared pencils were always blunt at lesson time. Each morning, he sharpened a few before sitting down. Other children could start their work without a long wait. They did not know who had helped, but Ojas was pleased.",
   "cell": "apply_theme",
   "choices": [
-   "Ojas quietly sharpens the class pencils",
-   "Ojas wins the school kindness certificate on stage",
-   "Ojas dries only his own boots and leaves everyone else's dripping",
-   "Ojas buys new boots for himself"
+   "Lea sets out supplies so everyone can begin their painting easily.",
+   "Lea practices mixing colours until she can make a perfect green.",
+   "Lea chooses strong brushes instead of ones with shiny handles.",
+   "Lea admits spilling paint and helps wash it from the floor."
   ],
   "answerOptions": [
    {
-    "value": "Ojas quietly sharpens the class pencils",
-    "label": "Ojas quietly sharpens the class pencils",
-    "text": "Ojas quietly sharpens the class pencils"
+    "value": "Lea sets out supplies so everyone can begin their painting easily.",
+    "label": "Lea sets out supplies so everyone can begin their painting easily.",
+    "text": "Lea sets out supplies so everyone can begin their painting easily."
    },
    {
-    "value": "Ojas wins the school kindness certificate on stage",
-    "label": "Ojas wins the school kindness certificate on stage",
-    "text": "Ojas wins the school kindness certificate on stage"
+    "value": "Lea practices mixing colours until she can make a perfect green.",
+    "label": "Lea practices mixing colours until she can make a perfect green.",
+    "text": "Lea practices mixing colours until she can make a perfect green."
    },
    {
-    "value": "Ojas dries only his own boots and leaves everyone else's dripping",
-    "label": "Ojas dries only his own boots and leaves everyone else's dripping",
-    "text": "Ojas dries only his own boots and leaves everyone else's dripping"
+    "value": "Lea chooses strong brushes instead of ones with shiny handles.",
+    "label": "Lea chooses strong brushes instead of ones with shiny handles.",
+    "text": "Lea chooses strong brushes instead of ones with shiny handles."
    },
    {
-    "value": "Ojas buys new boots for himself",
-    "label": "Ojas buys new boots for himself",
-    "text": "Ojas buys new boots for himself"
+    "value": "Lea admits spilling paint and helps wash it from the floor.",
+    "label": "Lea admits spilling paint and helps wash it from the floor.",
+    "text": "Lea admits spilling paint and helps wash it from the floor."
    }
   ],
-  "answer": "Ojas quietly sharpens the class pencils",
-  "correctAnswer": "Ojas quietly sharpens the class pencils",
+  "answer": "Lea sets out supplies so everyone can begin their painting easily.",
+  "correctAnswer": "Lea sets out supplies so everyone can begin their painting easily.",
   "distractorRationales": {
-   "Ojas buys new boots for himself": "D-TOPIC-ADJACENT",
-   "Ojas wins the school kindness certificate on stage": "D-TOPIC-ADJACENT",
-   "Ojas dries only his own boots and leaves everyone else's dripping": "D-OPPOSITE"
+   "Lea admits spilling paint and helps wash it from the floor.": "D-OPPOSITE",
+   "Lea practices mixing colours until she can make a perfect green.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Lea chooses strong brushes instead of ones with shiny handles.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5604,42 +5604,42 @@ export const questions = [
   "prompt": "Which lesson is best supported by the story?",
   "question": "Which lesson is best supported by the story?",
   "spokenPrompt": "Which lesson is best supported by the story?",
-  "passage": "The school's quiet-hour challenge raised money for the library, and Vin, who loved to talk, was expected to find it hardest. He completed the challenge, but the surprise was what he noticed: Priw's chair squeaking because he needed a cushion, Lom quietly sharing a clever story idea, and a lonely boy by the window. Afterward Vin found Priw a cushion, asked Lom about the idea, and invited the lonely boy to join him.",
+  "passage": "Vin usually talked throughout group work. One day, he listened while the others shared their ideas. He heard a useful suggestion from quiet Lom. He also noticed a child needed help, and offered it.",
   "cell": "theme_among_rivals",
   "choices": [
-   "the challenge raised money for the library",
-   "listening helps you notice what other people need",
-   "finishing a difficult challenge can earn respect",
-   "talking is always wrong"
+   "Helping someone means finishing all of their work for them.",
+   "Listening can reveal ideas and needs you might otherwise miss.",
+   "A difficult challenge can reveal a skill you overlooked.",
+   "Sharing responsibility can make a large project easier."
   ],
   "answerOptions": [
    {
-    "value": "the challenge raised money for the library",
-    "label": "the challenge raised money for the library",
-    "text": "the challenge raised money for the library"
+    "value": "Helping someone means finishing all of their work for them.",
+    "label": "Helping someone means finishing all of their work for them.",
+    "text": "Helping someone means finishing all of their work for them."
    },
    {
-    "value": "listening helps you notice what other people need",
-    "label": "listening helps you notice what other people need",
-    "text": "listening helps you notice what other people need"
+    "value": "Listening can reveal ideas and needs you might otherwise miss.",
+    "label": "Listening can reveal ideas and needs you might otherwise miss.",
+    "text": "Listening can reveal ideas and needs you might otherwise miss."
    },
    {
-    "value": "finishing a difficult challenge can earn respect",
-    "label": "finishing a difficult challenge can earn respect",
-    "text": "finishing a difficult challenge can earn respect"
+    "value": "A difficult challenge can reveal a skill you overlooked.",
+    "label": "A difficult challenge can reveal a skill you overlooked.",
+    "text": "A difficult challenge can reveal a skill you overlooked."
    },
    {
-    "value": "talking is always wrong",
-    "label": "talking is always wrong",
-    "text": "talking is always wrong"
+    "value": "Sharing responsibility can make a large project easier.",
+    "label": "Sharing responsibility can make a large project easier.",
+    "text": "Sharing responsibility can make a large project easier."
    }
   ],
-  "answer": "listening helps you notice what other people need",
-  "correctAnswer": "listening helps you notice what other people need",
+  "answer": "Listening can reveal ideas and needs you might otherwise miss.",
+  "correctAnswer": "Listening can reveal ideas and needs you might otherwise miss.",
   "distractorRationales": {
-   "talking is always wrong": "D-OPPOSITE",
-   "the challenge raised money for the library": "D-DETAIL-AS-MAIN",
-   "finishing a difficult challenge can earn respect": "D-PLAUSIBLE-UNSUPPORTED"
+   "Sharing responsibility can make a large project easier.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Helping someone means finishing all of their work for them.": "D-OPPOSITE",
+   "A difficult challenge can reveal a skill you overlooked.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5694,42 +5694,42 @@ export const questions = [
   "prompt": "Which new situation shows the SAME lesson?",
   "question": "Which new situation shows the SAME lesson?",
   "spokenPrompt": "Which new situation shows the SAME lesson?",
-  "passage": "Remember the little lantern that finished alone because it was built for the wind, not for the judges. Keep that lesson in mind.",
+  "passage": "Bea needed a bridge for a model train. She chose thick card and tested how much it could hold. Another bridge looked grand but bent beneath the train. Bea's plain bridge carried it safely across every time.",
   "cell": "apply_theme",
   "choices": [
-   "Bea enters the lantern festival next year",
-   "Bea judges the fair with the teachers",
-   "Bea makes a small volcano that works every time",
-   "Bea spends every evening decorating her project with gold ribbon and glitter"
+   "Jem shares his building tools with a child who forgot them.",
+   "Jem admits breaking a borrowed tool and offers to replace it.",
+   "Jem builds a plain shelter that stays strong in heavy rain.",
+   "Jem decorates a shelter with the brightest ribbons in the class."
   ],
   "answerOptions": [
    {
-    "value": "Bea enters the lantern festival next year",
-    "label": "Bea enters the lantern festival next year",
-    "text": "Bea enters the lantern festival next year"
+    "value": "Jem shares his building tools with a child who forgot them.",
+    "label": "Jem shares his building tools with a child who forgot them.",
+    "text": "Jem shares his building tools with a child who forgot them."
    },
    {
-    "value": "Bea judges the fair with the teachers",
-    "label": "Bea judges the fair with the teachers",
-    "text": "Bea judges the fair with the teachers"
+    "value": "Jem admits breaking a borrowed tool and offers to replace it.",
+    "label": "Jem admits breaking a borrowed tool and offers to replace it.",
+    "text": "Jem admits breaking a borrowed tool and offers to replace it."
    },
    {
-    "value": "Bea makes a small volcano that works every time",
-    "label": "Bea makes a small volcano that works every time",
-    "text": "Bea makes a small volcano that works every time"
+    "value": "Jem builds a plain shelter that stays strong in heavy rain.",
+    "label": "Jem builds a plain shelter that stays strong in heavy rain.",
+    "text": "Jem builds a plain shelter that stays strong in heavy rain."
    },
    {
-    "value": "Bea spends every evening decorating her project with gold ribbon and glitter",
-    "label": "Bea spends every evening decorating her project with gold ribbon and glitter",
-    "text": "Bea spends every evening decorating her project with gold ribbon and glitter"
+    "value": "Jem decorates a shelter with the brightest ribbons in the class.",
+    "label": "Jem decorates a shelter with the brightest ribbons in the class.",
+    "text": "Jem decorates a shelter with the brightest ribbons in the class."
    }
   ],
-  "answer": "Bea makes a small volcano that works every time",
-  "correctAnswer": "Bea makes a small volcano that works every time",
+  "answer": "Jem builds a plain shelter that stays strong in heavy rain.",
+  "correctAnswer": "Jem builds a plain shelter that stays strong in heavy rain.",
   "distractorRationales": {
-   "Bea enters the lantern festival next year": "D-TOPIC-ADJACENT",
-   "Bea judges the fair with the teachers": "D-TOPIC-ADJACENT",
-   "Bea spends every evening decorating her project with gold ribbon and glitter": "D-OPPOSITE"
+   "Jem shares his building tools with a child who forgot them.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Jem admits breaking a borrowed tool and offers to replace it.": "D-OPPOSITE",
+   "Jem decorates a shelter with the brightest ribbons in the class.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5760,5 +5760,1445 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": ""
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "lesson_mistake_fixed",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What lesson does this story teach?",
+  "question": "What lesson does this story teach?",
+  "spokenPrompt": "What lesson does this story teach?",
+  "passage": "Alf guessed how much salt the soup needed. It tasted far too salty. Next time, he measured with the recipe’s small spoon. Everyone enjoyed that batch.",
+  "cell": "lesson_mistake_fixed",
+  "choices": [
+   "Careful checking can prevent repeating a mistake.",
+   "Sharing a meal can help new friends meet.",
+   "Patient practice helps you remember a difficult skill.",
+   "A difficult skill should be practiced without help."
+  ],
+  "answerOptions": [
+   {
+    "value": "Careful checking can prevent repeating a mistake.",
+    "label": "Careful checking can prevent repeating a mistake.",
+    "text": "Careful checking can prevent repeating a mistake."
+   },
+   {
+    "value": "Sharing a meal can help new friends meet.",
+    "label": "Sharing a meal can help new friends meet.",
+    "text": "Sharing a meal can help new friends meet."
+   },
+   {
+    "value": "Patient practice helps you remember a difficult skill.",
+    "label": "Patient practice helps you remember a difficult skill.",
+    "text": "Patient practice helps you remember a difficult skill."
+   },
+   {
+    "value": "A difficult skill should be practiced without help.",
+    "label": "A difficult skill should be practiced without help.",
+    "text": "A difficult skill should be practiced without help."
+   }
+  ],
+  "answer": "Careful checking can prevent repeating a mistake.",
+  "correctAnswer": "Careful checking can prevent repeating a mistake.",
+  "distractorRationales": {
+   "Sharing a meal can help new friends meet.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Patient practice helps you remember a difficult skill.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A difficult skill should be practiced without help.": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "lesson_kindness_returned",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What lesson does this story teach?",
+  "question": "What lesson does this story teach?",
+  "spokenPrompt": "What lesson does this story teach?",
+  "passage": "Luz helped her neighbour carry heavy shopping bags. The next week, Luz hurt her wrist. Her neighbour brought her schoolbooks home each afternoon. They both smiled at having someone to help.",
+  "cell": "lesson_kindness_returned",
+  "choices": [
+   "Practice matters more than choosing the right tools.",
+   "People can support each other at different times.",
+   "Careful preparation can make a hard journey easier.",
+   "Keeping a promise can build trust over time."
+  ],
+  "answerOptions": [
+   {
+    "value": "Practice matters more than choosing the right tools.",
+    "label": "Practice matters more than choosing the right tools.",
+    "text": "Practice matters more than choosing the right tools."
+   },
+   {
+    "value": "People can support each other at different times.",
+    "label": "People can support each other at different times.",
+    "text": "People can support each other at different times."
+   },
+   {
+    "value": "Careful preparation can make a hard journey easier.",
+    "label": "Careful preparation can make a hard journey easier.",
+    "text": "Careful preparation can make a hard journey easier."
+   },
+   {
+    "value": "Keeping a promise can build trust over time.",
+    "label": "Keeping a promise can build trust over time.",
+    "text": "Keeping a promise can build trust over time."
+   }
+  ],
+  "answer": "People can support each other at different times.",
+  "correctAnswer": "People can support each other at different times.",
+  "distractorRationales": {
+   "Careful preparation can make a hard journey easier.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Keeping a promise can build trust over time.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Practice matters more than choosing the right tools.": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "lesson_effort_pays",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What lesson does this story teach?",
+  "question": "What lesson does this story teach?",
+  "spokenPrompt": "What lesson does this story teach?",
+  "passage": "Han wanted to read a whole chapter alone. At first, he managed only one page. He practiced a little each evening. Soon, he finished the chapter without stopping.",
+  "cell": "lesson_effort_pays",
+  "choices": [
+   "Listening to friends can reveal an unexpected idea.",
+   "Asking questions means you have not tried enough.",
+   "Steady practice can help you reach a goal.",
+   "Sharing a story can help people feel connected."
+  ],
+  "answerOptions": [
+   {
+    "value": "Listening to friends can reveal an unexpected idea.",
+    "label": "Listening to friends can reveal an unexpected idea.",
+    "text": "Listening to friends can reveal an unexpected idea."
+   },
+   {
+    "value": "Asking questions means you have not tried enough.",
+    "label": "Asking questions means you have not tried enough.",
+    "text": "Asking questions means you have not tried enough."
+   },
+   {
+    "value": "Steady practice can help you reach a goal.",
+    "label": "Steady practice can help you reach a goal.",
+    "text": "Steady practice can help you reach a goal."
+   },
+   {
+    "value": "Sharing a story can help people feel connected.",
+    "label": "Sharing a story can help people feel connected.",
+    "text": "Sharing a story can help people feel connected."
+   }
+  ],
+  "answer": "Steady practice can help you reach a goal.",
+  "correctAnswer": "Steady practice can help you reach a goal.",
+  "distractorRationales": {
+   "Sharing a story can help people feel connected.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Listening to friends can reveal an unexpected idea.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Asking questions means you have not tried enough.": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "lesson_mistake_fixed",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What lesson does this story teach?",
+  "question": "What lesson does this story teach?",
+  "spokenPrompt": "What lesson does this story teach?",
+  "passage": "Sali took the wrong bag home from school. She found a name tag different from hers. She called the owner and arranged a swap. Next day, she checked her bag before leaving.",
+  "cell": "lesson_mistake_fixed",
+  "choices": [
+   "Keep trying until you master a difficult task.",
+   "A kind gift can help a new friendship grow.",
+   "Getting home quickly matters more than checking belongings.",
+   "Put mistakes right and learn how to avoid them."
+  ],
+  "answerOptions": [
+   {
+    "value": "Keep trying until you master a difficult task.",
+    "label": "Keep trying until you master a difficult task.",
+    "text": "Keep trying until you master a difficult task."
+   },
+   {
+    "value": "A kind gift can help a new friendship grow.",
+    "label": "A kind gift can help a new friendship grow.",
+    "text": "A kind gift can help a new friendship grow."
+   },
+   {
+    "value": "Getting home quickly matters more than checking belongings.",
+    "label": "Getting home quickly matters more than checking belongings.",
+    "text": "Getting home quickly matters more than checking belongings."
+   },
+   {
+    "value": "Put mistakes right and learn how to avoid them.",
+    "label": "Put mistakes right and learn how to avoid them.",
+    "text": "Put mistakes right and learn how to avoid them."
+   }
+  ],
+  "answer": "Put mistakes right and learn how to avoid them.",
+  "correctAnswer": "Put mistakes right and learn how to avoid them.",
+  "distractorRationales": {
+   "Getting home quickly matters more than checking belongings.": "D-OPPOSITE",
+   "Keep trying until you master a difficult task.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A kind gift can help a new friendship grow.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "lesson_kindness_returned",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What lesson does this story teach?",
+  "question": "What lesson does this story teach?",
+  "spokenPrompt": "What lesson does this story teach?",
+  "passage": "Finn helped a new player learn the team’s game. Later, Finn forgot his trainers for practice. The player lent him a spare pair. Finn thanked him, and they practiced together.",
+  "cell": "lesson_kindness_returned",
+  "choices": [
+   "Kind support can grow between teammates.",
+   "Fair rules give every player a chance.",
+   "Careful work can repair a damaged object.",
+   "Following a routine means nothing can go wrong."
+  ],
+  "answerOptions": [
+   {
+    "value": "Kind support can grow between teammates.",
+    "label": "Kind support can grow between teammates.",
+    "text": "Kind support can grow between teammates."
+   },
+   {
+    "value": "Fair rules give every player a chance.",
+    "label": "Fair rules give every player a chance.",
+    "text": "Fair rules give every player a chance."
+   },
+   {
+    "value": "Careful work can repair a damaged object.",
+    "label": "Careful work can repair a damaged object.",
+    "text": "Careful work can repair a damaged object."
+   },
+   {
+    "value": "Following a routine means nothing can go wrong.",
+    "label": "Following a routine means nothing can go wrong.",
+    "text": "Following a routine means nothing can go wrong."
+   }
+  ],
+  "answer": "Kind support can grow between teammates.",
+  "correctAnswer": "Kind support can grow between teammates.",
+  "distractorRationales": {
+   "Following a routine means nothing can go wrong.": "D-OPPOSITE",
+   "Fair rules give every player a chance.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Careful work can repair a damaged object.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "lesson_effort_pays",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What lesson does this story teach?",
+  "question": "What lesson does this story teach?",
+  "spokenPrompt": "What lesson does this story teach?",
+  "passage": "Ava’s first woven mat had loose, uneven strips. She looked closely at a finished example. She adjusted her weave and tried several small mats. Her next one lay flat and held together.",
+  "cell": "lesson_effort_pays",
+  "choices": [
+   "A good friend always chooses the same activity.",
+   "Learning from each try helps work improve.",
+   "Sharing materials can help everyone join in.",
+   "Listening to others helps a group decide fairly."
+  ],
+  "answerOptions": [
+   {
+    "value": "A good friend always chooses the same activity.",
+    "label": "A good friend always chooses the same activity.",
+    "text": "A good friend always chooses the same activity."
+   },
+   {
+    "value": "Learning from each try helps work improve.",
+    "label": "Learning from each try helps work improve.",
+    "text": "Learning from each try helps work improve."
+   },
+   {
+    "value": "Sharing materials can help everyone join in.",
+    "label": "Sharing materials can help everyone join in.",
+    "text": "Sharing materials can help everyone join in."
+   },
+   {
+    "value": "Listening to others helps a group decide fairly.",
+    "label": "Listening to others helps a group decide fairly.",
+    "text": "Listening to others helps a group decide fairly."
+   }
+  ],
+  "answer": "Learning from each try helps work improve.",
+  "correctAnswer": "Learning from each try helps work improve.",
+  "distractorRationales": {
+   "Listening to others helps a group decide fairly.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A good friend always chooses the same activity.": "D-OPPOSITE",
+   "Sharing materials can help everyone join in.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v22",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "lesson_effort_pays",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What lesson does this story teach?",
+  "question": "What lesson does this story teach?",
+  "spokenPrompt": "What lesson does this story teach?",
+  "passage": "Mo wanted to remember a long message for assembly. He learned one short part each day. Then he practiced joining the parts together. At assembly, he remembered the whole message.",
+  "cell": "lesson_effort_pays",
+  "choices": [
+   "Helping a friend can matter more than winning.",
+   "A short wait can make a good surprise better.",
+   "Small steps can make a large task manageable.",
+   "A fair group gives everyone time to speak."
+  ],
+  "answerOptions": [
+   {
+    "value": "Helping a friend can matter more than winning.",
+    "label": "Helping a friend can matter more than winning.",
+    "text": "Helping a friend can matter more than winning."
+   },
+   {
+    "value": "A short wait can make a good surprise better.",
+    "label": "A short wait can make a good surprise better.",
+    "text": "A short wait can make a good surprise better."
+   },
+   {
+    "value": "Small steps can make a large task manageable.",
+    "label": "Small steps can make a large task manageable.",
+    "text": "Small steps can make a large task manageable."
+   },
+   {
+    "value": "A fair group gives everyone time to speak.",
+    "label": "A fair group gives everyone time to speak.",
+    "text": "A fair group gives everyone time to speak."
+   }
+  ],
+  "answer": "Small steps can make a large task manageable.",
+  "correctAnswer": "Small steps can make a large task manageable.",
+  "distractorRationales": {
+   "A short wait can make a good surprise better.": "D-OPPOSITE",
+   "A fair group gives everyone time to speak.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Helping a friend can matter more than winning.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v22",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v22",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "lesson_mistake_fixed",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What lesson does this story teach?",
+  "question": "What lesson does this story teach?",
+  "spokenPrompt": "What lesson does this story teach?",
+  "passage": "Kit interrupted whenever someone shared an idea. Soon, his group stopped trying to speak. He began waiting and asking what others thought. Their next plan used ideas from every member.",
+  "cell": "lesson_mistake_fixed",
+  "choices": [
+   "Preparing carefully can make speaking feel easier.",
+   "Practicing regularly can improve a new skill.",
+   "Finishing quietly means never sharing your good ideas.",
+   "Listening gives everyone a chance to contribute."
+  ],
+  "answerOptions": [
+   {
+    "value": "Preparing carefully can make speaking feel easier.",
+    "label": "Preparing carefully can make speaking feel easier.",
+    "text": "Preparing carefully can make speaking feel easier."
+   },
+   {
+    "value": "Practicing regularly can improve a new skill.",
+    "label": "Practicing regularly can improve a new skill.",
+    "text": "Practicing regularly can improve a new skill."
+   },
+   {
+    "value": "Finishing quietly means never sharing your good ideas.",
+    "label": "Finishing quietly means never sharing your good ideas.",
+    "text": "Finishing quietly means never sharing your good ideas."
+   },
+   {
+    "value": "Listening gives everyone a chance to contribute.",
+    "label": "Listening gives everyone a chance to contribute.",
+    "text": "Listening gives everyone a chance to contribute."
+   }
+  ],
+  "answer": "Listening gives everyone a chance to contribute.",
+  "correctAnswer": "Listening gives everyone a chance to contribute.",
+  "distractorRationales": {
+   "Practicing regularly can improve a new skill.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Finishing quietly means never sharing your good ideas.": "D-OPPOSITE",
+   "Preparing carefully can make speaking feel easier.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v22",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "theme_among_rivals",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which lesson is best supported by the story?",
+  "question": "Which lesson is best supported by the story?",
+  "spokenPrompt": "Which lesson is best supported by the story?",
+  "passage": "Rae thought the youngest team member could not help with the map. The others became lost among paths that looked alike. The child noticed marks they had missed and found the right turn. Rae asked for her ideas throughout the rest of the walk.",
+  "cell": "theme_among_rivals",
+  "choices": [
+   "A careful plan can reduce mistakes during a journey.",
+   "Working toward a shared goal can help strangers become friends.",
+   "Growing older automatically makes someone better at every task.",
+   "Useful ideas can come from people you underestimate."
+  ],
+  "answerOptions": [
+   {
+    "value": "A careful plan can reduce mistakes during a journey.",
+    "label": "A careful plan can reduce mistakes during a journey.",
+    "text": "A careful plan can reduce mistakes during a journey."
+   },
+   {
+    "value": "Working toward a shared goal can help strangers become friends.",
+    "label": "Working toward a shared goal can help strangers become friends.",
+    "text": "Working toward a shared goal can help strangers become friends."
+   },
+   {
+    "value": "Growing older automatically makes someone better at every task.",
+    "label": "Growing older automatically makes someone better at every task.",
+    "text": "Growing older automatically makes someone better at every task."
+   },
+   {
+    "value": "Useful ideas can come from people you underestimate.",
+    "label": "Useful ideas can come from people you underestimate.",
+    "text": "Useful ideas can come from people you underestimate."
+   }
+  ],
+  "answer": "Useful ideas can come from people you underestimate.",
+  "correctAnswer": "Useful ideas can come from people you underestimate.",
+  "distractorRationales": {
+   "Growing older automatically makes someone better at every task.": "D-OPPOSITE",
+   "A careful plan can reduce mistakes during a journey.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Working toward a shared goal can help strangers become friends.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "theme_vs_plot",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which message does the whole story support?",
+  "question": "Which message does the whole story support?",
+  "spokenPrompt": "Which message does the whole story support?",
+  "passage": "Mika wanted to build a bench alone and refused advice. Her first frame wobbled when anyone sat on it. She asked a neighbour to show her stronger joints. Together they made a bench she was proud to share.",
+  "cell": "theme_vs_plot",
+  "choices": [
+   "Accepting help can make your own work stronger.",
+   "Repairing old things can reduce the waste people create.",
+   "Careful planning can help people use their time wisely.",
+   "Mika’s neighbour helped her make stronger joints for a bench."
+  ],
+  "answerOptions": [
+   {
+    "value": "Accepting help can make your own work stronger.",
+    "label": "Accepting help can make your own work stronger.",
+    "text": "Accepting help can make your own work stronger."
+   },
+   {
+    "value": "Repairing old things can reduce the waste people create.",
+    "label": "Repairing old things can reduce the waste people create.",
+    "text": "Repairing old things can reduce the waste people create."
+   },
+   {
+    "value": "Careful planning can help people use their time wisely.",
+    "label": "Careful planning can help people use their time wisely.",
+    "text": "Careful planning can help people use their time wisely."
+   },
+   {
+    "value": "Mika’s neighbour helped her make stronger joints for a bench.",
+    "label": "Mika’s neighbour helped her make stronger joints for a bench.",
+    "text": "Mika’s neighbour helped her make stronger joints for a bench."
+   }
+  ],
+  "answer": "Accepting help can make your own work stronger.",
+  "correctAnswer": "Accepting help can make your own work stronger.",
+  "distractorRationales": {
+   "Careful planning can help people use their time wisely.": "D-TOPIC-ADJACENT",
+   "Mika’s neighbour helped her make stronger joints for a bench.": "D-DETAIL-AS-MAIN",
+   "Repairing old things can reduce the waste people create.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l2.A.apply_theme.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "apply_theme",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which new situation shows the same lesson?",
+  "question": "Which new situation shows the same lesson?",
+  "spokenPrompt": "Which new situation shows the same lesson?",
+  "passage": "Hana saved the best ideas for herself during a group challenge. Her own model looked good, but the shared structure collapsed. In the next round, she explained her method to everyone. All their models fitted together, and the whole group succeeded.",
+  "cell": "apply_theme",
+  "choices": [
+   "A player chooses stronger shoes instead of more colourful ones.",
+   "A player shares a useful tactic so the whole team improves.",
+   "A player trains alone to beat her own fastest running time.",
+   "A player admits stepping over a line during an important game."
+  ],
+  "answerOptions": [
+   {
+    "value": "A player chooses stronger shoes instead of more colourful ones.",
+    "label": "A player chooses stronger shoes instead of more colourful ones.",
+    "text": "A player chooses stronger shoes instead of more colourful ones."
+   },
+   {
+    "value": "A player shares a useful tactic so the whole team improves.",
+    "label": "A player shares a useful tactic so the whole team improves.",
+    "text": "A player shares a useful tactic so the whole team improves."
+   },
+   {
+    "value": "A player trains alone to beat her own fastest running time.",
+    "label": "A player trains alone to beat her own fastest running time.",
+    "text": "A player trains alone to beat her own fastest running time."
+   },
+   {
+    "value": "A player admits stepping over a line during an important game.",
+    "label": "A player admits stepping over a line during an important game.",
+    "text": "A player admits stepping over a line during an important game."
+   }
+  ],
+  "answer": "A player shares a useful tactic so the whole team improves.",
+  "correctAnswer": "A player shares a useful tactic so the whole team improves.",
+  "distractorRationales": {
+   "A player trains alone to beat her own fastest running time.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A player admits stepping over a line during an important game.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A player chooses stronger shoes instead of more colourful ones.": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.apply_theme.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "theme_among_rivals",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which lesson is best supported by the story?",
+  "question": "Which lesson is best supported by the story?",
+  "spokenPrompt": "Which lesson is best supported by the story?",
+  "passage": "A weather forecast warned of heavy rain during the picnic. The class wanted to keep their original outdoor plan. Then they moved the games into the hall and enjoyed them there. They were glad they had changed plans before the storm arrived.",
+  "cell": "theme_among_rivals",
+  "choices": [
+   "Taking turns gives everyone a chance to enjoy an activity.",
+   "Letting one person decide is the fairest way to work.",
+   "Changing a plan sensibly can still lead to success.",
+   "Listening to every opinion can make a group decision fair."
+  ],
+  "answerOptions": [
+   {
+    "value": "Taking turns gives everyone a chance to enjoy an activity.",
+    "label": "Taking turns gives everyone a chance to enjoy an activity.",
+    "text": "Taking turns gives everyone a chance to enjoy an activity."
+   },
+   {
+    "value": "Letting one person decide is the fairest way to work.",
+    "label": "Letting one person decide is the fairest way to work.",
+    "text": "Letting one person decide is the fairest way to work."
+   },
+   {
+    "value": "Changing a plan sensibly can still lead to success.",
+    "label": "Changing a plan sensibly can still lead to success.",
+    "text": "Changing a plan sensibly can still lead to success."
+   },
+   {
+    "value": "Listening to every opinion can make a group decision fair.",
+    "label": "Listening to every opinion can make a group decision fair.",
+    "text": "Listening to every opinion can make a group decision fair."
+   }
+  ],
+  "answer": "Changing a plan sensibly can still lead to success.",
+  "correctAnswer": "Changing a plan sensibly can still lead to success.",
+  "distractorRationales": {
+   "Listening to every opinion can make a group decision fair.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Taking turns gives everyone a chance to enjoy an activity.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Letting one person decide is the fairest way to work.": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "theme_vs_plot",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which message does the whole story support?",
+  "question": "Which message does the whole story support?",
+  "spokenPrompt": "Which message does the whole story support?",
+  "passage": "Ben could finish the mural faster by painting over his partner’s work. Instead, he waited until she returned and asked about her design. They found a way to join both patterns. The finished wall showed ideas from both artists.",
+  "cell": "theme_vs_plot",
+  "choices": [
+   "Planning carefully can help a group finish on time.",
+   "Regular practice can help people express their ideas clearly.",
+   "Ben waited for his partner and asked about her mural design.",
+   "Respecting another person’s work can improve a shared result."
+  ],
+  "answerOptions": [
+   {
+    "value": "Planning carefully can help a group finish on time.",
+    "label": "Planning carefully can help a group finish on time.",
+    "text": "Planning carefully can help a group finish on time."
+   },
+   {
+    "value": "Regular practice can help people express their ideas clearly.",
+    "label": "Regular practice can help people express their ideas clearly.",
+    "text": "Regular practice can help people express their ideas clearly."
+   },
+   {
+    "value": "Ben waited for his partner and asked about her mural design.",
+    "label": "Ben waited for his partner and asked about her mural design.",
+    "text": "Ben waited for his partner and asked about her mural design."
+   },
+   {
+    "value": "Respecting another person’s work can improve a shared result.",
+    "label": "Respecting another person’s work can improve a shared result.",
+    "text": "Respecting another person’s work can improve a shared result."
+   }
+  ],
+  "answer": "Respecting another person’s work can improve a shared result.",
+  "correctAnswer": "Respecting another person’s work can improve a shared result.",
+  "distractorRationales": {
+   "Planning carefully can help a group finish on time.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Regular practice can help people express their ideas clearly.": "D-TOPIC-ADJACENT",
+   "Ben waited for his partner and asked about her mural design.": "D-DETAIL-AS-MAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l2.A.apply_theme.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "apply_theme",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which new situation shows the same lesson?",
+  "question": "Which new situation shows the same lesson?",
+  "spokenPrompt": "Which new situation shows the same lesson?",
+  "passage": "The class built a model town for the science fair. Their fountain looked impressive but leaked water across the roads. They repaired the seal before adding any more decorations. At the fair, the plain repaired fountain worked all afternoon.",
+  "cell": "apply_theme",
+  "choices": [
+   "Eli chooses a plain torch that keeps working in rain.",
+   "Eli offers a spare torch to a friend without one.",
+   "Eli practices using a map until he can find the route.",
+   "Eli admits losing a torch and offers to replace it."
+  ],
+  "answerOptions": [
+   {
+    "value": "Eli chooses a plain torch that keeps working in rain.",
+    "label": "Eli chooses a plain torch that keeps working in rain.",
+    "text": "Eli chooses a plain torch that keeps working in rain."
+   },
+   {
+    "value": "Eli offers a spare torch to a friend without one.",
+    "label": "Eli offers a spare torch to a friend without one.",
+    "text": "Eli offers a spare torch to a friend without one."
+   },
+   {
+    "value": "Eli practices using a map until he can find the route.",
+    "label": "Eli practices using a map until he can find the route.",
+    "text": "Eli practices using a map until he can find the route."
+   },
+   {
+    "value": "Eli admits losing a torch and offers to replace it.",
+    "label": "Eli admits losing a torch and offers to replace it.",
+    "text": "Eli admits losing a torch and offers to replace it."
+   }
+  ],
+  "answer": "Eli chooses a plain torch that keeps working in rain.",
+  "correctAnswer": "Eli chooses a plain torch that keeps working in rain.",
+  "distractorRationales": {
+   "Eli practices using a map until he can find the route.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Eli admits losing a torch and offers to replace it.": "D-OPPOSITE",
+   "Eli offers a spare torch to a friend without one.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.apply_theme.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v22",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "theme_among_rivals",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which lesson is best supported by the story?",
+  "question": "Which lesson is best supported by the story?",
+  "spokenPrompt": "Which lesson is best supported by the story?",
+  "passage": "The winning choir heard that another group’s bus had broken down. They could have started without those singers. Instead, they agreed to wait and shorten their own rehearsal. The late group arrived in time, and everyone performed.",
+  "cell": "theme_among_rivals",
+  "choices": [
+   "Winning matters most when other people have fewer chances.",
+   "Fairness can involve giving up a small advantage.",
+   "Practicing a performance together can make a group stronger.",
+   "Preparing a backup plan can help when transport goes wrong."
+  ],
+  "answerOptions": [
+   {
+    "value": "Winning matters most when other people have fewer chances.",
+    "label": "Winning matters most when other people have fewer chances.",
+    "text": "Winning matters most when other people have fewer chances."
+   },
+   {
+    "value": "Fairness can involve giving up a small advantage.",
+    "label": "Fairness can involve giving up a small advantage.",
+    "text": "Fairness can involve giving up a small advantage."
+   },
+   {
+    "value": "Practicing a performance together can make a group stronger.",
+    "label": "Practicing a performance together can make a group stronger.",
+    "text": "Practicing a performance together can make a group stronger."
+   },
+   {
+    "value": "Preparing a backup plan can help when transport goes wrong.",
+    "label": "Preparing a backup plan can help when transport goes wrong.",
+    "text": "Preparing a backup plan can help when transport goes wrong."
+   }
+  ],
+  "answer": "Fairness can involve giving up a small advantage.",
+  "correctAnswer": "Fairness can involve giving up a small advantage.",
+  "distractorRationales": {
+   "Practicing a performance together can make a group stronger.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Preparing a backup plan can help when transport goes wrong.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Winning matters most when other people have fewer chances.": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v22",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l2.A.apply_theme.v22",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "apply_theme",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which new situation shows the same lesson?",
+  "question": "Which new situation shows the same lesson?",
+  "spokenPrompt": "Which new situation shows the same lesson?",
+  "passage": "Asha planted flowers beside the shared path every year. She rarely saw who enjoyed them while she was at work. One day, neighbours left notes thanking her for the cheerful view. She realised her quiet care had brightened many daily walks.",
+  "cell": "apply_theme",
+  "choices": [
+   "A pupil admits forgetting a task and asks for another chance.",
+   "A pupil selects stronger paper for a model that must last.",
+   "A pupil quietly prepares shared art tools that everyone uses later.",
+   "A pupil practices drawing so her contest entry can win a prize."
+  ],
+  "answerOptions": [
+   {
+    "value": "A pupil admits forgetting a task and asks for another chance.",
+    "label": "A pupil admits forgetting a task and asks for another chance.",
+    "text": "A pupil admits forgetting a task and asks for another chance."
+   },
+   {
+    "value": "A pupil selects stronger paper for a model that must last.",
+    "label": "A pupil selects stronger paper for a model that must last.",
+    "text": "A pupil selects stronger paper for a model that must last."
+   },
+   {
+    "value": "A pupil quietly prepares shared art tools that everyone uses later.",
+    "label": "A pupil quietly prepares shared art tools that everyone uses later.",
+    "text": "A pupil quietly prepares shared art tools that everyone uses later."
+   },
+   {
+    "value": "A pupil practices drawing so her contest entry can win a prize.",
+    "label": "A pupil practices drawing so her contest entry can win a prize.",
+    "text": "A pupil practices drawing so her contest entry can win a prize."
+   }
+  ],
+  "answer": "A pupil quietly prepares shared art tools that everyone uses later.",
+  "correctAnswer": "A pupil quietly prepares shared art tools that everyone uses later.",
+  "distractorRationales": {
+   "A pupil selects stronger paper for a model that must last.": "D-OPPOSITE",
+   "A pupil practices drawing so her contest entry can win a prize.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A pupil admits forgetting a task and asks for another chance.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.apply_theme.v22",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
  }
 ];

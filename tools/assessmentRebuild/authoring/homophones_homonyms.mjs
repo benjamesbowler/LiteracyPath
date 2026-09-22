@@ -37,6 +37,26 @@ const hcc = (u, lvl, ph, v, sentence, words, rationales, note = "") => ({
   note
 });
 
+// A new natural context for each set; reserve variants stay separate.
+const freshPhaseItems = [
+  hcc("sea_see", 1, 1, 6, "At the beach, waves rolled in from the ___.", ["sea", "see", "seat", "seed"], [HOM, VN, VN]),
+  hcc("sun_son", 1, 1, 6, "Their baby boy is their ___.", ["son", "sun", "some", "song"], [HOM, FS, VN]),
+  hcc("be_bee", 1, 1, 6, "Please ___ quiet during the story.", ["be", "bee", "been", "being"], [HOM, FS, FS]),
+  hcc("no_know", 1, 1, 6, "Now I ___ every word of this song.", ["know", "no", "knew", "known"], [HOM, VN, VN]),
+  hcc("one_won", 1, 2, 6, "There is only ___ seat left.", ["one", "won", "once", "ones"], [HOM, VN, FS]),
+  hcc("ate_eight", 1, 2, 6, "Last night, we ___ the last slice.", ["ate", "eight", "eat", "eaten"], [HOM, FS, FS]),
+  hcc("hear_here", 1, 2, 6, "Come ___, right beside me.", ["here", "hear", "heard", "her"], [HOM, VN, VN]),
+  hcc("blue_blew", 1, 2, 6, "Yesterday the boy ___ out the candle.", ["blew", "blue", "blow", "blowing"], [HOM, FS, FS]),
+  hm("to_two_too", 2, 1, 6, "Which spelling means ‘also’ in ‘I want a turn ___’?", ["too", "to", "two", "took"], [HOM, HOM, VN]),
+  hcc("there_their", 2, 1, 6, "The kittens licked ___ own paws.", ["their", "there", "they", "theirs"], [HOM, FS, FS]),
+  hcc("right_write", 2, 1, 6, "For this task, ___ your name using a pen.", ["write", "right", "wrote", "written"], [HOM, FS, FS]),
+  hcc("new_knew", 2, 1, 6, "These are ___ socks; I bought them today.", ["new", "knew", "news", "newly"], [HOM, FS, FS]),
+  hcc("hour_our", 2, 2, 6, "This class belongs to us. It is ___ class.", ["our", "hour", "ours", "out"], [HOM, FS, VN]),
+  hcc("flower_flour", 2, 2, 6, "Wheat is ground to make ___ for bread.", ["flour", "flower", "floor", "flown"], [HOM, VN, VN]),
+  hcc("would_wood", 2, 2, 6, "If I had wings, I ___ fly.", ["would", "wood", "wool", "wound"], [HOM, VN, VN]),
+  hcc("made_maid", 2, 2, 6, "Yesterday our class ___ paper hats.", ["made", "maid", "making", "makes"], [HOM, FS, FS])
+];
+
 export default {
   skillId: "homophones_homonyms",
   skillName: "Homophones & Homonyms",
@@ -47,7 +67,7 @@ export default {
       "salty gifts sa to sand and say — tied distractors, key clean"),
     hm("sea_see", 1, 1, 2, "Which spelling completes ‘I can ___ the moon’?",
       ["see", "sea", "saw", "say"], [HOM, VN, VN],
-      "means gifts ea to sea — a distractor tops, never the key"),
+      "Can requires the base verb see; saw is past tense and sea is the homophone."),
     hcc("sea_see", 1, 1, 3, "We sailed far out on the deep blue ___.",
       ["sea", "see", "seat", "snow"], [HOM, VN, SEM],
       "deep gifts ee to the pair mate see — a distractor tops"),
@@ -58,22 +78,22 @@ export default {
       ["sun", "son", "sand", "sock"], [HOM, SEM, VN]),
     hm("sun_son", 1, 1, 2, "Which spelling means a male child in a family?",
       ["son", "sun", "sock", "sad"], [HOM, VN, SEM]),
-    hcc("sun_son", 1, 1, 3, "The ___ rose over the hill at dawn.",
-      ["sun", "son", "spoon", "sofa"], [HOM, SEM, SEM],
-      "spoon and sofa parse and are absurd — no rising rival like moon or star"),
-    hcc("sun_son", 1, 1, 4, "Grandpa hugged his ___ at the gate.",
-      ["son", "sun", "sock", "spoon"], [HOM, SEM, SEM]),
+    hcc("sun_son", 1, 1, 3, "The ___ lit the sky at dawn.",
+      ["sun", "son", "sunset", "shade"], [HOM, SEM, SEM],
+      "The sun lights the sky at dawn; sunset is the end of daylight."),
+    hcc("sun_son", 1, 1, 4, "Grandpa hugged his baby boy, his ___.",
+      ["son", "sun", "sons", "soon"], [HOM, SEM, SEM]),
 
     hm("be_bee", 1, 1, 1, "Which spelling is the buzzing insect?",
       ["bee", "be", "leaf", "bat"], [HOM, SEM, SEM]),
     hm("be_bee", 1, 1, 2, "Which spelling completes the phrase ‘Let it ___’?",
       ["be", "bee", "by", "bed"], [HOM, VN, VN]),
     hcc("be_bee", 1, 1, 3, "A buzzing ___ landed on the flower.",
-      ["bee", "be", "sock", "spoon"], [HOM, SEM, SEM],
-      "on gifts its chunk to spoon — a distractor tops; no landing rival like bug or leaf"),
-    hcc("be_bee", 1, 1, 4, "I will ___ seven on my next birthday.",
+      ["bee", "be", "seed", "stem"], [HOM, SEM, SEM],
+      "Buzzing identifies the insect, and be is the paired homophone."),
+    hcc("be_bee", 1, 1, 4, "On my next birthday, my age will ___ seven.",
       ["be", "bee", "draw", "sing"], [HOM, SEM, SEM],
-      "draw seven parses (the numeral) and is defensibly wrong for an age"),
+      "The subject is age, so be is the linking verb; drawing a numeral cannot fit."),
 
     hm("no_know", 1, 1, 1, "Which spelling is the word for 'not yes'?",
       ["no", "know", "now", "new"], [HOM, VN, VN],
@@ -100,15 +120,15 @@ export default {
     hm("ate_eight", 1, 2, 1, "Which spelling is the number after seven?",
       ["eight", "ate", "eighty", "ten"], [HOM, VN, SEM],
       "after gifts te to ate and ten — tied distractors, key clean"),
-    hm("ate_eight", 1, 2, 2, "Pick the spelling for ‘I ___ my lunch’.",
+    hm("ate_eight", 1, 2, 2, "Pick the spelling for ‘Yesterday I ___ my lunch’.",
       ["ate", "eight", "eat", "egg"], [HOM, FS, VN],
-      "that gifts at to key and eat together — tie"),
+      "Yesterday requires the past form ate, while eight is its homophone."),
     hcc("ate_eight", 1, 2, 3, "Ben ___ all his peas at dinner yesterday.",
       ["ate", "eight", "eat", "eats"], [HOM, FS, FS],
       "at gifts itself to key, eat and eats — three-way tie"),
-    hcc("ate_eight", 1, 2, 4, "There are ___ legs on a spider.",
+    hcc("ate_eight", 1, 2, 4, "The card shows 8. Write the number word: ___.",
       ["eight", "ate", "six", "sixty"], [HOM, SEM, SEM],
-      "six parses but a spider has eight — the fact pins it"),
+      "The printed numeral supplies the number directly; no animal facts are required."),
 
     hm("hear_here", 1, 2, 1, "Which spelling means to notice a sound?",
       ["hear", "here", "heart", "head"], [HOM, VN, VN],
@@ -117,7 +137,7 @@ export default {
       ["here", "hear", "there", "home"], [HOM, VN, SEM],
       "this gifts th to there — a distractor tops, never the key"),
     hcc("hear_here", 1, 2, 3, "I can ___ the owl calling outside.",
-      ["hear", "here", "am", "was"], [HOM, FS, FS]),
+      ["hear", "here", "heard", "hears"], [HOM, FS, FS]),
     hcc("hear_here", 1, 2, 4, "The bus stops right ___, where I am standing.",
       ["here", "hear", "there", "then"], [HOM, SEM, SEM]),
 
@@ -125,12 +145,12 @@ export default {
       ["blue", "blew", "black", "brown"], [HOM, SEM, SEM]),
     hm("blue_blew", 1, 2, 2, "Which spelling tells what the wind did?",
       ["blew", "blue", "blow", "grew"], [HOM, FS, VN]),
-    hcc("blue_blew", 1, 2, 3, "The wind ___ my hat into the pond!",
+    hcc("blue_blew", 1, 2, 3, "Yesterday, the wind ___ my hat into the pond!",
       ["blew", "blue", "blows", "grew"], [HOM, FS, SEM],
       "blows misses the story's past tense; grew is absurd"),
     hcc("blue_blew", 1, 2, 4, "Milo wore his ___ scarf, like a clear sky.",
       ["blue", "blew", "loud", "tall"], [HOM, SEM, SEM],
-      "the color of the sea pins blue — loud and tall parse and contradict it"),
+      "A clear daytime sky provides a familiar color clue."),
 
     // ================= L2 phase 1 =================
     hcc("to_two_too", 2, 1, 1, "May I come ___ the park with you?",
@@ -169,9 +189,9 @@ export default {
 
     hcc("new_knew", 2, 1, 1, "My shoes came straight from the box. They are ___.",
       ["new", "knew", "knee", "news"], [HOM, VN, VN]),
-    hcc("new_knew", 2, 1, 2, "I ___ the answer before anyone else.",
+    hcc("new_knew", 2, 1, 2, "Yesterday, I ___ the answer before anyone else.",
       ["knew", "new", "know", "knows"], [HOM, FS, FS],
-      "know and knows clash with the before-past frame"),
+      "Yesterday requires knew rather than a present-tense form."),
     hm("new_knew", 2, 1, 3, "Which spelling tells you understood it all along?",
       ["knew", "new", "now", "nod"], [HOM, VN, VN],
       "understood gifts od to nod — a distractor tops, never the key"),
@@ -179,9 +199,9 @@ export default {
       ["new", "knew", "now", "near"], [HOM, VN, VN]),
 
     // ================= L2 phase 2 =================
-    hcc("hour_our", 2, 2, 1, "The cake bakes for one ___.",
-      ["hour", "our", "hours", "week"], [HOM, FS, SEM],
-      "one hours breaks agreement; a one-week cake bake is defensibly absurd"),
+    hcc("hour_our", 2, 2, 1, "The cake bakes for sixty minutes: one ___.",
+      ["hour", "our", "hours", "minute"], [HOM, FS, SEM],
+      "Sixty minutes equals one hour; hours breaks singular agreement."),
     hcc("hour_our", 2, 2, 2, "That swing is ___ special spot.",
       ["our", "hour", "out", "oar"], [HOM, VN, VN]),
     hm("hour_our", 2, 2, 3, "Which spelling names a period of sixty minutes?",
@@ -191,9 +211,9 @@ export default {
 
     hcc("flower_flour", 2, 2, 1, "Sift the ___ into the bowl for the cake.",
       ["flour", "flower", "floor", "flow"], [HOM, VN, VN]),
-    hcc("flower_flour", 2, 2, 2, "A bee landed on the pink ___.",
+    hcc("flower_flour", 2, 2, 2, "A pink ___ grew from a seed.",
       ["flower", "flour", "floor", "flag"], [HOM, VN, SEM],
-      "landed gifts la to flag — a distractor tops, never the key"),
+      "Only a flower grows from a seed."),
     hm("flower_flour", 2, 2, 3, "Which spelling names a garden bloom?",
       ["flower", "flour", "floor", "four"], [HOM, VN, SEM]),
     hm("flower_flour", 2, 2, 4, "Which spelling names the powder used for baking?",
@@ -215,13 +235,13 @@ export default {
     hcc("made_maid", 2, 2, 1, "Yesterday Grandma ___ pancakes for breakfast.",
       ["made", "maid", "make", "makes"], [HOM, FS, FS],
       "pancakes gifts ke to make and makes — tied distractors, key clean"),
-    hcc("made_maid", 2, 2, 2, "In the old story, the palace ___ swept the hall.",
-      ["maid", "made", "mouse", "moon"], [HOM, SEM, SEM],
-      "floor gifts oo to moon — a distractor tops; no sweeping rival like cook"),
+    hcc("made_maid", 2, 2, 2, "In the story, the palace ___ was a woman who cleaned.",
+      ["maid", "made", "maids", "make"], [HOM, SEM, SEM],
+      "The story defines the cleaner role; maid is singular and made is the homophone."),
     hm("made_maid", 2, 2, 3, "Which spelling completes ‘Yesterday I ___ a tower’?",
       ["made", "maid", "make", "mend"], [HOM, FS, VN],
       "something gifts me to mend — a distractor tops, never the key"),
-    hm("made_maid", 2, 2, 4, "Which spelling names a helper in an old castle story?",
+    hm("made_maid", 2, 2, 4, "Which spelling names a woman who cleans homes as her job?",
       ["maid", "made", "mad", "map"], [HOM, VN, VN]),
 
     // ================= NonGating homonym exposure =================
@@ -232,7 +252,7 @@ export default {
        "Dad bought a new bat for baseball."], [SEM, SEM, SEM],
       "every sentence carries bat — the shared word ties all four"),
     hm("homonym_bat", 2, 1, 2, "Which sentence uses bat to mean sports equipment?",
-      ["Mia gripped the bat and faced the pitcher.",
+      ["Mia swung the bat to hit the ball.",
        "The bat flew out at dusk to catch moths.",
        "A baby bat clung to its mother.",
        "The bat hung from the branch by its feet."], [SEM, SEM, SEM]),
@@ -261,11 +281,11 @@ export default {
     hcc("one_won", 1, 2, 5, "We ___ the quiz by a single point!",
       ["won", "one", "when", "wins"], [HOM, VN, FS],
       "single and point gift in to wins — a distractor tops; lost would be defensibly true"),
-    hm("ate_eight", 1, 2, 5, "Which spelling names the number of arms an octopus has?",
+    hm("ate_eight", 1, 2, 5, "Which word spells the number 8?",
       ["eight", "ate", "six", "ten"], [HOM, SEM, SEM]),
-    hcc("hear_here", 1, 2, 5, "Stand still and you can ___ the waves.",
+    hcc("hear_here", 1, 2, 5, "Use your ears to ___ the crashing waves.",
       ["hear", "here", "hold", "name"], [HOM, SEM, SEM],
-      "stand and can gift an to name — a distractor tops, never the key"),
+      "Using ears identifies hearing; holding and naming do not use the sense of hearing."),
     hm("blue_blew", 1, 2, 5, "Which spelling is a color?",
       ["blue", "blew", "blow", "glue"], [HOM, VN, VN],
       "color gifts lo to blow — a distractor tops, never the key"),
@@ -280,6 +300,7 @@ export default {
       ["made", "maid", "make", "mad"], [HOM, FS, VN])
   ].map(item => {
     if (item.v >= 5) item.retention = true;
+    if (item.u.startsWith("homonym_")) item.nonGating = true;
     return item;
-  })
+  }).concat(freshPhaseItems)
 };

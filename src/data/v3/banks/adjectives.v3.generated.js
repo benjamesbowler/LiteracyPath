@@ -645,13 +645,13 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which description fits best: The banana matched sunshine: it was ___.",
-  "question": "Which description fits best: The banana matched sunshine: it was ___.",
-  "spokenPrompt": "Which description fits best? The banana matched sunshine: it was ….",
-  "sentence": "The banana matched sunshine: it was ___.",
+  "prompt": "Which description fits best: The ripe banana had a ___ skin.",
+  "question": "Which description fits best: The ripe banana had a ___ skin.",
+  "spokenPrompt": "Which description fits best? The ripe banana had a … skin.",
+  "sentence": "The ripe banana had a ___ skin.",
   "choices": [
    "blue",
-   "black",
+   "pink",
    "yellow",
    "purple"
   ],
@@ -662,9 +662,9 @@ export const questions = [
     "text": "blue"
    },
    {
-    "value": "black",
-    "label": "black",
-    "text": "black"
+    "value": "pink",
+    "label": "pink",
+    "text": "pink"
    },
    {
     "value": "yellow",
@@ -682,7 +682,7 @@ export const questions = [
   "distractorRationales": {
    "purple": "D-PLAUSIBLE-UNSUPPORTED",
    "blue": "D-PLAUSIBLE-UNSUPPORTED",
-   "black": "D-PLAUSIBLE-UNSUPPORTED"
+   "pink": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -692,7 +692,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The banana matched sunshine: it was ___.",
+  "sentenceText": "The ripe banana had a ___ skin.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1805,7 +1805,7 @@ export const questions = [
   "choices": [
    "puppy",
    "happy",
-   "hoppy",
+   "happen",
    "hippo"
   ],
   "answerOptions": [
@@ -1820,9 +1820,9 @@ export const questions = [
     "text": "happy"
    },
    {
-    "value": "hoppy",
-    "label": "hoppy",
-    "text": "hoppy"
+    "value": "happen",
+    "label": "happen",
+    "text": "happen"
    },
    {
     "value": "hippo",
@@ -1834,7 +1834,7 @@ export const questions = [
   "correctAnswer": "happy",
   "distractorRationales": {
    "puppy": "D-FUNCTION-SWAP",
-   "hoppy": "D-FUNCTION-SWAP",
+   "happen": "D-FUNCTION-SWAP",
    "hippo": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
@@ -1865,7 +1865,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "hoppy is the developmental spelling neighbour — real word, wrong class"
+  "notes": "happen names an event occurring; happy names the feeling"
  },
  {
   "id": "lp3.adjectives.l1.A.adj_feeling.v4",
@@ -2151,9 +2151,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which adjective fits: The ___ soup burned my lip.",
-  "question": "Which adjective fits: The ___ soup burned my lip.",
-  "spokenPrompt": "Which adjective fits? The … soup burned my lip.",
+  "prompt": "Which describing word fits: The ___ soup burned my lip.",
+  "question": "Which describing word fits: The ___ soup burned my lip.",
+  "spokenPrompt": "Which describing word fits? The … soup burned my lip.",
   "sentence": "The ___ soup burned my lip.",
   "choices": [
    "hot",
@@ -2241,9 +2241,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which adjective fits: My ___ boots let the rain in.",
-  "question": "Which adjective fits: My ___ boots let the rain in.",
-  "spokenPrompt": "Which adjective fits? My … boots let the rain in.",
+  "prompt": "Which describing word fits: My ___ boots let the rain in.",
+  "question": "Which describing word fits: My ___ boots let the rain in.",
+  "spokenPrompt": "Which describing word fits? My … boots let the rain in.",
   "sentence": "My ___ boots let the rain in.",
   "choices": [
    "warm",
@@ -2331,9 +2331,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which adjective fits: The ___ box weighed more than I could lift.",
-  "question": "Which adjective fits: The ___ box weighed more than I could lift.",
-  "spokenPrompt": "Which adjective fits? The … box weighed more than I could lift.",
+  "prompt": "Which describing word fits: The ___ box weighed more than I could lift.",
+  "question": "Which describing word fits: The ___ box weighed more than I could lift.",
+  "spokenPrompt": "Which describing word fits? The … box weighed more than I could lift.",
   "sentence": "The ___ box weighed more than I could lift.",
   "choices": [
    "tiny",
@@ -2421,9 +2421,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which adjective fits: We squinted in the ___ sunshine.",
-  "question": "Which adjective fits: We squinted in the ___ sunshine.",
-  "spokenPrompt": "Which adjective fits? We squinted in the … sunshine.",
+  "prompt": "Which describing word fits: We squinted in the ___ sunshine.",
+  "question": "Which describing word fits: We squinted in the ___ sunshine.",
+  "spokenPrompt": "Which describing word fits? We squinted in the … sunshine.",
   "sentence": "We squinted in the ___ sunshine.",
   "choices": [
    "gray",
@@ -2687,9 +2687,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which adjective fits: The ___ kitten slept through the storm.",
-  "question": "Which adjective fits: The ___ kitten slept through the storm.",
-  "spokenPrompt": "Which adjective fits? The … kitten slept through the storm.",
+  "prompt": "Which describing word fits: The ___ kitten slept through the storm.",
+  "question": "Which describing word fits: The ___ kitten slept through the storm.",
+  "spokenPrompt": "Which describing word fits? The … kitten slept through the storm.",
   "sentence": "The ___ kitten slept through the storm.",
   "choices": [
    "sleeps",
@@ -2777,9 +2777,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which adjective fits: Her ___ scarf trailed on the ground.",
-  "question": "Which adjective fits: Her ___ scarf trailed on the ground.",
-  "spokenPrompt": "Which adjective fits? Her … scarf trailed on the ground.",
+  "prompt": "Which describing word fits: Her ___ scarf trailed on the ground.",
+  "question": "Which describing word fits: Her ___ scarf trailed on the ground.",
+  "spokenPrompt": "Which describing word fits? Her … scarf trailed on the ground.",
   "sentence": "Her ___ scarf trailed on the ground.",
   "choices": [
    "length",
@@ -2867,9 +2867,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which adjective fits best: The path was ___ after days of rain.",
-  "question": "Which adjective fits best: The path was ___ after days of rain.",
-  "spokenPrompt": "Which adjective fits best? The path was … after days of rain.",
+  "prompt": "Which describing word fits best: The path was ___ after days of rain.",
+  "question": "Which describing word fits best: The path was ___ after days of rain.",
+  "spokenPrompt": "Which describing word fits best? The path was … after days of rain.",
   "sentence": "The path was ___ after days of rain.",
   "choices": [
    "dusty",
@@ -2957,10 +2957,10 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which adjective fits best: The lemonade was ___ and made our mouths pucker.",
-  "question": "Which adjective fits best: The lemonade was ___ and made our mouths pucker.",
-  "spokenPrompt": "Which adjective fits best? The lemonade was … and made our mouths pucker.",
-  "sentence": "The lemonade was ___ and made our mouths pucker.",
+  "prompt": "Which describing word fits best: The lemonade was ___, making every mouth pucker.",
+  "question": "Which describing word fits best: The lemonade was ___, making every mouth pucker.",
+  "spokenPrompt": "Which describing word fits best? The lemonade was …, making every mouth pucker.",
+  "sentence": "The lemonade was ___, making every mouth pucker.",
   "choices": [
    "sour",
    "sweet",
@@ -3004,7 +3004,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The lemonade was ___ and made our mouths pucker.",
+  "sentenceText": "The lemonade was ___, making every mouth pucker.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3047,9 +3047,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which adjective fits best: The old stairs were ___ and groaned under our feet.",
-  "question": "Which adjective fits best: The old stairs were ___ and groaned under our feet.",
-  "spokenPrompt": "Which adjective fits best? The old stairs were … and groaned under our feet.",
+  "prompt": "Which describing word fits best: The old stairs were ___ and groaned under our feet.",
+  "question": "Which describing word fits best: The old stairs were ___ and groaned under our feet.",
+  "spokenPrompt": "Which describing word fits best? The old stairs were … and groaned under our feet.",
   "sentence": "The old stairs were ___ and groaned under our feet.",
   "choices": [
    "creaky",
@@ -3137,9 +3137,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which adjective fits best: Wear the ___ coat to stay warm in the snow.",
-  "question": "Which adjective fits best: Wear the ___ coat to stay warm in the snow.",
-  "spokenPrompt": "Which adjective fits best? Wear the … coat to stay warm in the snow.",
+  "prompt": "Which describing word fits best: Wear the ___ coat to stay warm in the snow.",
+  "question": "Which describing word fits best: Wear the ___ coat to stay warm in the snow.",
+  "spokenPrompt": "Which describing word fits best? Wear the … coat to stay warm in the snow.",
   "sentence": "Wear the ___ coat to stay warm in the snow.",
   "choices": [
    "thick",
@@ -3403,9 +3403,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which adjective fits best: The ___ knife went through the pumpkin easily.",
-  "question": "Which adjective fits best: The ___ knife went through the pumpkin easily.",
-  "spokenPrompt": "Which adjective fits best? The … knife went through the pumpkin easily.",
+  "prompt": "Which describing word fits best: The ___ knife went through the pumpkin easily.",
+  "question": "Which describing word fits best: The ___ knife went through the pumpkin easily.",
+  "spokenPrompt": "Which describing word fits best? The … knife went through the pumpkin easily.",
   "sentence": "The ___ knife went through the pumpkin easily.",
   "choices": [
    "bent",
@@ -3493,10 +3493,10 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which adjective fits best: Our tent felt ___ with five of us in it.",
-  "question": "Which adjective fits best: Our tent felt ___ with five of us in it.",
-  "spokenPrompt": "Which adjective fits best? Our tent felt … with five of us in it.",
-  "sentence": "Our tent felt ___ with five of us in it.",
+  "prompt": "Which describing word fits best: There was no space to move in our ___ tent.",
+  "question": "Which describing word fits best: There was no space to move in our ___ tent.",
+  "spokenPrompt": "Which describing word fits best? There was no space to move in our … tent.",
+  "sentence": "There was no space to move in our ___ tent.",
   "choices": [
    "airy",
    "bare",
@@ -3540,7 +3540,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Our tent felt ___ with five of us in it.",
+  "sentenceText": "There was no space to move in our ___ tent.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3847,9 +3847,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which adjective fits: The ___ sea tossed the little boat.",
-  "question": "Which adjective fits: The ___ sea tossed the little boat.",
-  "spokenPrompt": "Which adjective fits? The … sea tossed the little boat.",
+  "prompt": "Which describing word fits: The ___ sea tossed the little boat.",
+  "question": "Which describing word fits: The ___ sea tossed the little boat.",
+  "spokenPrompt": "Which describing word fits? The … sea tossed the little boat.",
   "sentence": "The ___ sea tossed the little boat.",
   "choices": [
    "storm",
@@ -4113,9 +4113,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which adjective fits: A ___ morning is best for kites.",
-  "question": "Which adjective fits: A ___ morning is best for kites.",
-  "spokenPrompt": "Which adjective fits? A … morning is best for kites.",
+  "prompt": "Which describing word fits: A ___ morning is best for kites.",
+  "question": "Which describing word fits: A ___ morning is best for kites.",
+  "spokenPrompt": "Which describing word fits? A … morning is best for kites.",
   "sentence": "A ___ morning is best for kites.",
   "choices": [
    "breezy",
@@ -4645,9 +4645,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which adjective fits: The ___ floor squeaked with every step.",
-  "question": "Which adjective fits: The ___ floor squeaked with every step.",
-  "spokenPrompt": "Which adjective fits? The … floor squeaked with every step.",
+  "prompt": "Which describing word fits: The ___ floor squeaked with every step.",
+  "question": "Which describing word fits: The ___ floor squeaked with every step.",
+  "spokenPrompt": "Which describing word fits? The … floor squeaked with every step.",
   "sentence": "The ___ floor squeaked with every step.",
   "choices": [
    "shines",
@@ -4735,9 +4735,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which adjective fits best: The rope was too ___ to snap.",
-  "question": "Which adjective fits best: The rope was too ___ to snap.",
-  "spokenPrompt": "Which adjective fits best? The rope was too … to snap.",
+  "prompt": "Which describing word fits best: The rope was too ___ to snap.",
+  "question": "Which describing word fits best: The rope was too ___ to snap.",
+  "spokenPrompt": "Which describing word fits best? The rope was too … to snap.",
   "sentence": "The rope was too ___ to snap.",
   "choices": [
    "thin",
@@ -5088,18 +5088,17 @@ export const questions = [
   "form": "R",
   "itemType": "grammar_concept",
   "itemKey": "adj_in_sentence",
-  "formatType": "GRAMMAR_SENTENCE_FIT",
-  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which adjective fits: The ___ moth circled the lamp.",
-  "question": "Which adjective fits: The ___ moth circled the lamp.",
-  "spokenPrompt": "Which adjective fits? The … moth circled the lamp.",
-  "sentence": "The ___ moth circled the lamp.",
+  "prompt": "Which word describes the moth in ‘The dusty moth circled the lamp’?",
+  "question": "Which word describes the moth in ‘The dusty moth circled the lamp’?",
+  "spokenPrompt": "Which word describes the moth in ‘The dusty moth circled the lamp’?",
   "choices": [
    "dusty",
-   "dust",
-   "dusts",
-   "dusted"
+   "moth",
+   "circled",
+   "lamp"
   ],
   "answerOptions": [
    {
@@ -5108,27 +5107,27 @@ export const questions = [
     "text": "dusty"
    },
    {
-    "value": "dust",
-    "label": "dust",
-    "text": "dust"
+    "value": "moth",
+    "label": "moth",
+    "text": "moth"
    },
    {
-    "value": "dusts",
-    "label": "dusts",
-    "text": "dusts"
+    "value": "circled",
+    "label": "circled",
+    "text": "circled"
    },
    {
-    "value": "dusted",
-    "label": "dusted",
-    "text": "dusted"
+    "value": "lamp",
+    "label": "lamp",
+    "text": "lamp"
    }
   ],
   "answer": "dusty",
   "correctAnswer": "dusty",
   "distractorRationales": {
-   "dusts": "D-FUNCTION-SWAP",
-   "dusted": "D-FUNCTION-SWAP",
-   "dust": "D-FUNCTION-SWAP"
+   "circled": "D-FUNCTION-SWAP",
+   "lamp": "D-FUNCTION-SWAP",
+   "moth": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5138,7 +5137,6 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The ___ moth circled the lamp.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -5181,9 +5179,9 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which describing word fits best for socks left out in the snow?",
-  "question": "Which describing word fits best for socks left out in the snow?",
-  "spokenPrompt": "Which describing word fits best for socks left out in the snow?",
+  "prompt": "Which describing word fits best for wet socks now stiff with ice?",
+  "question": "Which describing word fits best for wet socks now stiff with ice?",
+  "spokenPrompt": "Which describing word fits best for wet socks now stiff with ice?",
   "choices": [
    "striped",
    "frozen",
@@ -5321,6 +5319,1446 @@ export const questions = [
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.R.adj_feeling.v8r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.adjectives.l1.C.adj_size.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_size",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes something? The wide gate opened.",
+  "question": "Which word describes something? The wide gate opened.",
+  "spokenPrompt": "Which word describes something? The wide gate opened.",
+  "sentence": "The wide gate opened.",
+  "choices": [
+   "gate",
+   "opened",
+   "the",
+   "wide"
+  ],
+  "answerOptions": [
+   {
+    "value": "gate",
+    "label": "gate",
+    "text": "gate"
+   },
+   {
+    "value": "opened",
+    "label": "opened",
+    "text": "opened"
+   },
+   {
+    "value": "the",
+    "label": "the",
+    "text": "the"
+   },
+   {
+    "value": "wide",
+    "label": "wide",
+    "text": "wide"
+   }
+  ],
+  "answer": "wide",
+  "correctAnswer": "wide",
+  "distractorRationales": {
+   "opened": "D-FUNCTION-SWAP",
+   "the": "D-FUNCTION-SWAP",
+   "gate": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The wide gate opened.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.C.adj_size.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Distinguish the descriptor from the naming, action and linking words in context."
+ },
+ {
+  "id": "lp3.adjectives.l1.A.adj_size.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_size",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes something? A short rope snapped.",
+  "question": "Which word describes something? A short rope snapped.",
+  "spokenPrompt": "Which word describes something? A short rope snapped.",
+  "sentence": "A short rope snapped.",
+  "choices": [
+   "a",
+   "short",
+   "rope",
+   "snapped"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "short",
+    "label": "short",
+    "text": "short"
+   },
+   {
+    "value": "rope",
+    "label": "rope",
+    "text": "rope"
+   },
+   {
+    "value": "snapped",
+    "label": "snapped",
+    "text": "snapped"
+   }
+  ],
+  "answer": "short",
+  "correctAnswer": "short",
+  "distractorRationales": {
+   "rope": "D-FUNCTION-SWAP",
+   "snapped": "D-FUNCTION-SWAP",
+   "a": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "A short rope snapped.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.A.adj_size.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Distinguish the descriptor from the naming, action and linking words in context."
+ },
+ {
+  "id": "lp3.adjectives.l1.B.adj_color.v8",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_color",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes something? The orange balloon floated.",
+  "question": "Which word describes something? The orange balloon floated.",
+  "spokenPrompt": "Which word describes something? The orange balloon floated.",
+  "sentence": "The orange balloon floated.",
+  "choices": [
+   "orange",
+   "balloon",
+   "floated",
+   "the"
+  ],
+  "answerOptions": [
+   {
+    "value": "orange",
+    "label": "orange",
+    "text": "orange"
+   },
+   {
+    "value": "balloon",
+    "label": "balloon",
+    "text": "balloon"
+   },
+   {
+    "value": "floated",
+    "label": "floated",
+    "text": "floated"
+   },
+   {
+    "value": "the",
+    "label": "the",
+    "text": "the"
+   }
+  ],
+  "answer": "orange",
+  "correctAnswer": "orange",
+  "distractorRationales": {
+   "floated": "D-FUNCTION-SWAP",
+   "the": "D-FUNCTION-SWAP",
+   "balloon": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The orange balloon floated.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.B.adj_color.v8",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Distinguish the descriptor from the naming, action and linking words in context."
+ },
+ {
+  "id": "lp3.adjectives.l1.C.adj_color.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_color",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes something? A purple flower grew.",
+  "question": "Which word describes something? A purple flower grew.",
+  "spokenPrompt": "Which word describes something? A purple flower grew.",
+  "sentence": "A purple flower grew.",
+  "choices": [
+   "purple",
+   "flower",
+   "grew",
+   "a"
+  ],
+  "answerOptions": [
+   {
+    "value": "purple",
+    "label": "purple",
+    "text": "purple"
+   },
+   {
+    "value": "flower",
+    "label": "flower",
+    "text": "flower"
+   },
+   {
+    "value": "grew",
+    "label": "grew",
+    "text": "grew"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   }
+  ],
+  "answer": "purple",
+  "correctAnswer": "purple",
+  "distractorRationales": {
+   "flower": "D-FUNCTION-SWAP",
+   "grew": "D-FUNCTION-SWAP",
+   "a": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "A purple flower grew.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.C.adj_color.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Distinguish the descriptor from the naming, action and linking words in context."
+ },
+ {
+  "id": "lp3.adjectives.l1.C.adj_texture_state.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_texture_state",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes something? The smooth pebble shone.",
+  "question": "Which word describes something? The smooth pebble shone.",
+  "spokenPrompt": "Which word describes something? The smooth pebble shone.",
+  "sentence": "The smooth pebble shone.",
+  "choices": [
+   "the",
+   "smooth",
+   "pebble",
+   "shone"
+  ],
+  "answerOptions": [
+   {
+    "value": "the",
+    "label": "the",
+    "text": "the"
+   },
+   {
+    "value": "smooth",
+    "label": "smooth",
+    "text": "smooth"
+   },
+   {
+    "value": "pebble",
+    "label": "pebble",
+    "text": "pebble"
+   },
+   {
+    "value": "shone",
+    "label": "shone",
+    "text": "shone"
+   }
+  ],
+  "answer": "smooth",
+  "correctAnswer": "smooth",
+  "distractorRationales": {
+   "shone": "D-FUNCTION-SWAP",
+   "the": "D-FUNCTION-SWAP",
+   "pebble": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The smooth pebble shone.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.C.adj_texture_state.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Distinguish the descriptor from the naming, action and linking words in context."
+ },
+ {
+  "id": "lp3.adjectives.l1.A.adj_texture_state.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_texture_state",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes something? A sticky sweet melted.",
+  "question": "Which word describes something? A sticky sweet melted.",
+  "spokenPrompt": "Which word describes something? A sticky sweet melted.",
+  "sentence": "A sticky sweet melted.",
+  "choices": [
+   "melted",
+   "a",
+   "sticky",
+   "sweet"
+  ],
+  "answerOptions": [
+   {
+    "value": "melted",
+    "label": "melted",
+    "text": "melted"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "sticky",
+    "label": "sticky",
+    "text": "sticky"
+   },
+   {
+    "value": "sweet",
+    "label": "sweet",
+    "text": "sweet"
+   }
+  ],
+  "answer": "sticky",
+  "correctAnswer": "sticky",
+  "distractorRationales": {
+   "sweet": "D-FUNCTION-SWAP",
+   "melted": "D-FUNCTION-SWAP",
+   "a": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "A sticky sweet melted.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.A.adj_texture_state.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Distinguish the descriptor from the naming, action and linking words in context."
+ },
+ {
+  "id": "lp3.adjectives.l1.C.adj_feeling.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_feeling",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes something? The worried children waited.",
+  "question": "Which word describes something? The worried children waited.",
+  "spokenPrompt": "Which word describes something? The worried children waited.",
+  "sentence": "The worried children waited.",
+  "choices": [
+   "waited",
+   "the",
+   "worried",
+   "children"
+  ],
+  "answerOptions": [
+   {
+    "value": "waited",
+    "label": "waited",
+    "text": "waited"
+   },
+   {
+    "value": "the",
+    "label": "the",
+    "text": "the"
+   },
+   {
+    "value": "worried",
+    "label": "worried",
+    "text": "worried"
+   },
+   {
+    "value": "children",
+    "label": "children",
+    "text": "children"
+   }
+  ],
+  "answer": "worried",
+  "correctAnswer": "worried",
+  "distractorRationales": {
+   "children": "D-FUNCTION-SWAP",
+   "waited": "D-FUNCTION-SWAP",
+   "the": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The worried children waited.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.C.adj_feeling.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Distinguish the descriptor from the naming, action and linking words in context."
+ },
+ {
+  "id": "lp3.adjectives.l1.A.adj_feeling.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_feeling",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes something? An excited puppy followed.",
+  "question": "Which word describes something? An excited puppy followed.",
+  "spokenPrompt": "Which word describes something? An excited puppy followed.",
+  "sentence": "An excited puppy followed.",
+  "choices": [
+   "puppy",
+   "followed",
+   "an",
+   "excited"
+  ],
+  "answerOptions": [
+   {
+    "value": "puppy",
+    "label": "puppy",
+    "text": "puppy"
+   },
+   {
+    "value": "followed",
+    "label": "followed",
+    "text": "followed"
+   },
+   {
+    "value": "an",
+    "label": "an",
+    "text": "an"
+   },
+   {
+    "value": "excited",
+    "label": "excited",
+    "text": "excited"
+   }
+  ],
+  "answer": "excited",
+  "correctAnswer": "excited",
+  "distractorRationales": {
+   "puppy": "D-FUNCTION-SWAP",
+   "followed": "D-FUNCTION-SWAP",
+   "an": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "An excited puppy followed.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.A.adj_feeling.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Distinguish the descriptor from the naming, action and linking words in context."
+ },
+ {
+  "id": "lp3.adjectives.l2.A.adj_vs_noun_verb.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_vs_noun_verb",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes something? The footpath became slippery after rain.",
+  "question": "Which word describes something? The footpath became slippery after rain.",
+  "spokenPrompt": "Which word describes something? The footpath became slippery after rain.",
+  "sentence": "The footpath became slippery after rain.",
+  "choices": [
+   "rain",
+   "slippery",
+   "footpath",
+   "became"
+  ],
+  "answerOptions": [
+   {
+    "value": "rain",
+    "label": "rain",
+    "text": "rain"
+   },
+   {
+    "value": "slippery",
+    "label": "slippery",
+    "text": "slippery"
+   },
+   {
+    "value": "footpath",
+    "label": "footpath",
+    "text": "footpath"
+   },
+   {
+    "value": "became",
+    "label": "became",
+    "text": "became"
+   }
+  ],
+  "answer": "slippery",
+  "correctAnswer": "slippery",
+  "distractorRationales": {
+   "became": "D-FUNCTION-SWAP",
+   "rain": "D-FUNCTION-SWAP",
+   "footpath": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The footpath became slippery after rain.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Distinguish the descriptor from the naming, action and linking words in context."
+ },
+ {
+  "id": "lp3.adjectives.l2.A.adj_vs_noun_verb.v11",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_vs_noun_verb",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes something? Her hands felt numb in the wind.",
+  "question": "Which word describes something? Her hands felt numb in the wind.",
+  "spokenPrompt": "Which word describes something? Her hands felt numb in the wind.",
+  "sentence": "Her hands felt numb in the wind.",
+  "choices": [
+   "felt",
+   "wind",
+   "numb",
+   "hands"
+  ],
+  "answerOptions": [
+   {
+    "value": "felt",
+    "label": "felt",
+    "text": "felt"
+   },
+   {
+    "value": "wind",
+    "label": "wind",
+    "text": "wind"
+   },
+   {
+    "value": "numb",
+    "label": "numb",
+    "text": "numb"
+   },
+   {
+    "value": "hands",
+    "label": "hands",
+    "text": "hands"
+   }
+  ],
+  "answer": "numb",
+  "correctAnswer": "numb",
+  "distractorRationales": {
+   "hands": "D-FUNCTION-SWAP",
+   "felt": "D-FUNCTION-SWAP",
+   "wind": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Her hands felt numb in the wind.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v11",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Distinguish the descriptor from the naming, action and linking words in context."
+ },
+ {
+  "id": "lp3.adjectives.l2.A.adj_vs_noun_verb.v12",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_vs_noun_verb",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes something? The empty bottle rolled away.",
+  "question": "Which word describes something? The empty bottle rolled away.",
+  "spokenPrompt": "Which word describes something? The empty bottle rolled away.",
+  "sentence": "The empty bottle rolled away.",
+  "choices": [
+   "bottle",
+   "rolled",
+   "away",
+   "empty"
+  ],
+  "answerOptions": [
+   {
+    "value": "bottle",
+    "label": "bottle",
+    "text": "bottle"
+   },
+   {
+    "value": "rolled",
+    "label": "rolled",
+    "text": "rolled"
+   },
+   {
+    "value": "away",
+    "label": "away",
+    "text": "away"
+   },
+   {
+    "value": "empty",
+    "label": "empty",
+    "text": "empty"
+   }
+  ],
+  "answer": "empty",
+  "correctAnswer": "empty",
+  "distractorRationales": {
+   "bottle": "D-FUNCTION-SWAP",
+   "rolled": "D-FUNCTION-SWAP",
+   "away": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The empty bottle rolled away.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v12",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Distinguish the descriptor from the naming, action and linking words in context."
+ },
+ {
+  "id": "lp3.adjectives.l2.A.adj_vs_noun_verb.v13",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_vs_noun_verb",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes something? The room stayed quiet during lunch.",
+  "question": "Which word describes something? The room stayed quiet during lunch.",
+  "spokenPrompt": "Which word describes something? The room stayed quiet during lunch.",
+  "sentence": "The room stayed quiet during lunch.",
+  "choices": [
+   "quiet",
+   "room",
+   "stayed",
+   "lunch"
+  ],
+  "answerOptions": [
+   {
+    "value": "quiet",
+    "label": "quiet",
+    "text": "quiet"
+   },
+   {
+    "value": "room",
+    "label": "room",
+    "text": "room"
+   },
+   {
+    "value": "stayed",
+    "label": "stayed",
+    "text": "stayed"
+   },
+   {
+    "value": "lunch",
+    "label": "lunch",
+    "text": "lunch"
+   }
+  ],
+  "answer": "quiet",
+  "correctAnswer": "quiet",
+  "distractorRationales": {
+   "lunch": "D-FUNCTION-SWAP",
+   "room": "D-FUNCTION-SWAP",
+   "stayed": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The room stayed quiet during lunch.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v13",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Distinguish the descriptor from the naming, action and linking words in context."
+ },
+ {
+  "id": "lp3.adjectives.l2.A.adj_vs_noun_verb.v14",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_vs_noun_verb",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which describing word fits: Her ___ voice could be heard across the field.",
+  "question": "Which describing word fits: Her ___ voice could be heard across the field.",
+  "spokenPrompt": "Which describing word fits? Her … voice could be heard across the field.",
+  "sentence": "Her ___ voice could be heard across the field.",
+  "choices": [
+   "powerfully",
+   "powerful",
+   "power",
+   "powers"
+  ],
+  "answerOptions": [
+   {
+    "value": "powerfully",
+    "label": "powerfully",
+    "text": "powerfully"
+   },
+   {
+    "value": "powerful",
+    "label": "powerful",
+    "text": "powerful"
+   },
+   {
+    "value": "power",
+    "label": "power",
+    "text": "power"
+   },
+   {
+    "value": "powers",
+    "label": "powers",
+    "text": "powers"
+   }
+  ],
+  "answer": "powerful",
+  "correctAnswer": "powerful",
+  "distractorRationales": {
+   "powers": "D-FUNCTION-SWAP",
+   "powerfully": "D-FUNCTION-SWAP",
+   "power": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Her ___ voice could be heard across the field.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v14",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.adjectives.l2.A.adj_vs_noun_verb.v15",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_vs_noun_verb",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which describing word fits: A ___ lid keeps the water in.",
+  "question": "Which describing word fits: A ___ lid keeps the water in.",
+  "spokenPrompt": "Which describing word fits? A … lid keeps the water in.",
+  "sentence": "A ___ lid keeps the water in.",
+  "choices": [
+   "tighten",
+   "tightness",
+   "tight",
+   "tightly"
+  ],
+  "answerOptions": [
+   {
+    "value": "tighten",
+    "label": "tighten",
+    "text": "tighten"
+   },
+   {
+    "value": "tightness",
+    "label": "tightness",
+    "text": "tightness"
+   },
+   {
+    "value": "tight",
+    "label": "tight",
+    "text": "tight"
+   },
+   {
+    "value": "tightly",
+    "label": "tightly",
+    "text": "tightly"
+   }
+  ],
+  "answer": "tight",
+  "correctAnswer": "tight",
+  "distractorRationales": {
+   "tightly": "D-FUNCTION-SWAP",
+   "tighten": "D-FUNCTION-SWAP",
+   "tightness": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "A ___ lid keeps the water in.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v15",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.adjectives.l2.A.adj_vs_noun_verb.v16",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_vs_noun_verb",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which describing word fits: The ___ dancer thanked the crowd.",
+  "question": "Which describing word fits: The ___ dancer thanked the crowd.",
+  "spokenPrompt": "Which describing word fits? The … dancer thanked the crowd.",
+  "sentence": "The ___ dancer thanked the crowd.",
+  "choices": [
+   "grace",
+   "gracefully",
+   "graces",
+   "graceful"
+  ],
+  "answerOptions": [
+   {
+    "value": "grace",
+    "label": "grace",
+    "text": "grace"
+   },
+   {
+    "value": "gracefully",
+    "label": "gracefully",
+    "text": "gracefully"
+   },
+   {
+    "value": "graces",
+    "label": "graces",
+    "text": "graces"
+   },
+   {
+    "value": "graceful",
+    "label": "graceful",
+    "text": "graceful"
+   }
+  ],
+  "answer": "graceful",
+  "correctAnswer": "graceful",
+  "distractorRationales": {
+   "grace": "D-FUNCTION-SWAP",
+   "gracefully": "D-FUNCTION-SWAP",
+   "graces": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The ___ dancer thanked the crowd.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v16",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.adjectives.l2.A.adj_vs_noun_verb.v17",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_vs_noun_verb",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which describing word fits: The bed felt ___ after our long walk.",
+  "question": "Which describing word fits: The bed felt ___ after our long walk.",
+  "spokenPrompt": "Which describing word fits? The bed felt … after our long walk.",
+  "sentence": "The bed felt ___ after our long walk.",
+  "choices": [
+   "comfortable",
+   "comfort",
+   "comfortably",
+   "comforts"
+  ],
+  "answerOptions": [
+   {
+    "value": "comfortable",
+    "label": "comfortable",
+    "text": "comfortable"
+   },
+   {
+    "value": "comfort",
+    "label": "comfort",
+    "text": "comfort"
+   },
+   {
+    "value": "comfortably",
+    "label": "comfortably",
+    "text": "comfortably"
+   },
+   {
+    "value": "comforts",
+    "label": "comforts",
+    "text": "comforts"
+   }
+  ],
+  "answer": "comfortable",
+  "correctAnswer": "comfortable",
+  "distractorRationales": {
+   "comforts": "D-FUNCTION-SWAP",
+   "comfort": "D-FUNCTION-SWAP",
+   "comfortably": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The bed felt ___ after our long walk.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v17",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",

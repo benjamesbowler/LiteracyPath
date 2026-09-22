@@ -24,42 +24,42 @@ export const questions = [
   "prompt": "What happened BECAUSE the nights were so cold?",
   "question": "What happened BECAUSE the nights were so cold?",
   "spokenPrompt": "What happened BECAUSE the nights were so cold?",
-  "passage": "All week the nights were freezing cold. By Saturday, gray ice covered the park pond. The ducks stood on top of it and slid on their flat orange feet.",
+  "passage": "The nights stayed below freezing all week. The pond water turned to solid ice. On Saturday, ducks stood on its frozen top. Their flat feet slid as they tried walking.",
   "cell": "find_effect",
   "choices": [
-   "the pond froze over",
-   "the ducks flew south",
-   "the park closed",
-   "the nights were freezing"
+   "ice covered the pond",
+   "ducks covered the pond",
+   "snow covered the pond",
+   "leaves covered the pond"
   ],
   "answerOptions": [
    {
-    "value": "the pond froze over",
-    "label": "the pond froze over",
-    "text": "the pond froze over"
+    "value": "ice covered the pond",
+    "label": "ice covered the pond",
+    "text": "ice covered the pond"
    },
    {
-    "value": "the ducks flew south",
-    "label": "the ducks flew south",
-    "text": "the ducks flew south"
+    "value": "ducks covered the pond",
+    "label": "ducks covered the pond",
+    "text": "ducks covered the pond"
    },
    {
-    "value": "the park closed",
-    "label": "the park closed",
-    "text": "the park closed"
+    "value": "snow covered the pond",
+    "label": "snow covered the pond",
+    "text": "snow covered the pond"
    },
    {
-    "value": "the nights were freezing",
-    "label": "the nights were freezing",
-    "text": "the nights were freezing"
+    "value": "leaves covered the pond",
+    "label": "leaves covered the pond",
+    "text": "leaves covered the pond"
    }
   ],
-  "answer": "the pond froze over",
-  "correctAnswer": "the pond froze over",
+  "answer": "ice covered the pond",
+  "correctAnswer": "ice covered the pond",
   "distractorRationales": {
-   "the nights were freezing": "D-CAUSE-REVERSE",
-   "the ducks flew south": "D-PLAUSIBLE-UNSUPPORTED",
-   "the park closed": "D-PLAUSIBLE-UNSUPPORTED"
+   "leaves covered the pond": "D-OPPOSITE",
+   "ducks covered the pond": "D-PLAUSIBLE-UNSUPPORTED",
+   "snow covered the pond": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -114,42 +114,42 @@ export const questions = [
   "prompt": "What happened because the seeds spilled on the path?",
   "question": "What happened because the seeds spilled on the path?",
   "spokenPrompt": "What happened because the seeds spilled on the path?",
-  "passage": "Zack tipped the seed packet too fast. Seeds sprayed all over the path instead of the flower bed. Within a minute, six pigeons landed and began pecking up every last one.",
+  "passage": "Zack tipped a seed packet too quickly. Seeds fell onto the path beside the flowers. Pigeons saw the seeds and flew down. They pecked at the food on the path.",
   "cell": "find_effect",
   "choices": [
-   "it began to rain",
-   "pigeons came to eat them",
-   "the flowers grew on the path",
-   "Zack tipped the packet fast"
+   "Zack moved seeds into the flowers",
+   "birds landed to eat the seeds",
+   "flowers grew across the path",
+   "Zack poured seeds from a packet"
   ],
   "answerOptions": [
    {
-    "value": "it began to rain",
-    "label": "it began to rain",
-    "text": "it began to rain"
+    "value": "Zack moved seeds into the flowers",
+    "label": "Zack moved seeds into the flowers",
+    "text": "Zack moved seeds into the flowers"
    },
    {
-    "value": "pigeons came to eat them",
-    "label": "pigeons came to eat them",
-    "text": "pigeons came to eat them"
+    "value": "birds landed to eat the seeds",
+    "label": "birds landed to eat the seeds",
+    "text": "birds landed to eat the seeds"
    },
    {
-    "value": "the flowers grew on the path",
-    "label": "the flowers grew on the path",
-    "text": "the flowers grew on the path"
+    "value": "flowers grew across the path",
+    "label": "flowers grew across the path",
+    "text": "flowers grew across the path"
    },
    {
-    "value": "Zack tipped the packet fast",
-    "label": "Zack tipped the packet fast",
-    "text": "Zack tipped the packet fast"
+    "value": "Zack poured seeds from a packet",
+    "label": "Zack poured seeds from a packet",
+    "text": "Zack poured seeds from a packet"
    }
   ],
-  "answer": "pigeons came to eat them",
-  "correctAnswer": "pigeons came to eat them",
+  "answer": "birds landed to eat the seeds",
+  "correctAnswer": "birds landed to eat the seeds",
   "distractorRationales": {
-   "the flowers grew on the path": "D-PLAUSIBLE-UNSUPPORTED",
-   "Zack tipped the packet fast": "D-CAUSE-REVERSE",
-   "it began to rain": "D-PLAUSIBLE-UNSUPPORTED"
+   "flowers grew across the path": "D-PLAUSIBLE-UNSUPPORTED",
+   "Zack poured seeds from a packet": "D-PLAUSIBLE-UNSUPPORTED",
+   "Zack moved seeds into the flowers": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -204,42 +204,42 @@ export const questions = [
   "prompt": "What happened BECAUSE Grandma oiled the hinge?",
   "question": "What happened BECAUSE Grandma oiled the hinge?",
   "spokenPrompt": "What happened BECAUSE Grandma oiled the hinge?",
-  "passage": "Grandma put three drops of oil on the door hinge. She swung the door back and forth to work the oil in. After that, the door opened without its awful screech, and the baby could nap in peace.",
+  "passage": "The door made a loud noise when opened. Grandma added oil to its stiff hinge. She moved the door to spread the oil. The door then opened quietly without waking Baby.",
   "cell": "find_effect",
   "choices": [
-   "Grandma bought a new door",
-   "the baby slept in a different room",
-   "the door stopped screeching",
-   "the door screeched louder"
+   "the door woke the sleeping baby",
+   "the door’s hinge fell onto the floor",
+   "the door made no noise",
+   "the door made a loud noise"
   ],
   "answerOptions": [
    {
-    "value": "Grandma bought a new door",
-    "label": "Grandma bought a new door",
-    "text": "Grandma bought a new door"
+    "value": "the door woke the sleeping baby",
+    "label": "the door woke the sleeping baby",
+    "text": "the door woke the sleeping baby"
    },
    {
-    "value": "the baby slept in a different room",
-    "label": "the baby slept in a different room",
-    "text": "the baby slept in a different room"
+    "value": "the door’s hinge fell onto the floor",
+    "label": "the door’s hinge fell onto the floor",
+    "text": "the door’s hinge fell onto the floor"
    },
    {
-    "value": "the door stopped screeching",
-    "label": "the door stopped screeching",
-    "text": "the door stopped screeching"
+    "value": "the door made no noise",
+    "label": "the door made no noise",
+    "text": "the door made no noise"
    },
    {
-    "value": "the door screeched louder",
-    "label": "the door screeched louder",
-    "text": "the door screeched louder"
+    "value": "the door made a loud noise",
+    "label": "the door made a loud noise",
+    "text": "the door made a loud noise"
    }
   ],
-  "answer": "the door stopped screeching",
-  "correctAnswer": "the door stopped screeching",
+  "answer": "the door made no noise",
+  "correctAnswer": "the door made no noise",
   "distractorRationales": {
-   "the baby slept in a different room": "D-PLAUSIBLE-UNSUPPORTED",
-   "the door screeched louder": "D-OPPOSITE",
-   "Grandma bought a new door": "D-PLAUSIBLE-UNSUPPORTED"
+   "the door’s hinge fell onto the floor": "D-OPPOSITE",
+   "the door made a loud noise": "D-PLAUSIBLE-UNSUPPORTED",
+   "the door woke the sleeping baby": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -294,42 +294,42 @@ export const questions = [
   "prompt": "What happened because the plant had no water?",
   "question": "What happened because the plant had no water?",
   "spokenPrompt": "What happened because the plant had no water?",
-  "passage": "Nobody watered the classroom plant during the school break. When the children came back, its leaves drooped, and the soil in the pot was hard and pale.",
+  "passage": "No one watered the plant during school break. Its soil became hard and dry. Without water, the leaves began to droop. Children saw the bent leaves when they returned.",
   "cell": "find_effect",
   "choices": [
-   "its flowers turned blue",
-   "its leaves drooped",
-   "it grew taller",
-   "the children came back"
+   "the soil stayed damp",
+   "the leaves hung down",
+   "the leaves grew larger",
+   "the pot grew heavier"
   ],
   "answerOptions": [
    {
-    "value": "its flowers turned blue",
-    "label": "its flowers turned blue",
-    "text": "its flowers turned blue"
+    "value": "the soil stayed damp",
+    "label": "the soil stayed damp",
+    "text": "the soil stayed damp"
    },
    {
-    "value": "its leaves drooped",
-    "label": "its leaves drooped",
-    "text": "its leaves drooped"
+    "value": "the leaves hung down",
+    "label": "the leaves hung down",
+    "text": "the leaves hung down"
    },
    {
-    "value": "it grew taller",
-    "label": "it grew taller",
-    "text": "it grew taller"
+    "value": "the leaves grew larger",
+    "label": "the leaves grew larger",
+    "text": "the leaves grew larger"
    },
    {
-    "value": "the children came back",
-    "label": "the children came back",
-    "text": "the children came back"
+    "value": "the pot grew heavier",
+    "label": "the pot grew heavier",
+    "text": "the pot grew heavier"
    }
   ],
-  "answer": "its leaves drooped",
-  "correctAnswer": "its leaves drooped",
+  "answer": "the leaves hung down",
+  "correctAnswer": "the leaves hung down",
   "distractorRationales": {
-   "it grew taller": "D-OPPOSITE",
-   "the children came back": "D-CAUSE-REVERSE",
-   "its flowers turned blue": "D-PLAUSIBLE-UNSUPPORTED"
+   "the leaves grew larger": "D-PLAUSIBLE-UNSUPPORTED",
+   "the pot grew heavier": "D-PLAUSIBLE-UNSUPPORTED",
+   "the soil stayed damp": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -384,42 +384,42 @@ export const questions = [
   "prompt": "What did the hot car do to the crayons?",
   "question": "What did the hot car do to the crayons?",
   "spokenPrompt": "What did the hot car do to the crayons?",
-  "passage": "Dad left the crayon box on the back seat of the car on the hottest day of summer. When Mina opened the door after lunch, the crayons had melted together into one rainbow lump.",
+  "passage": "Dad left crayons in the hot car. Heat softened their wax during the day. After lunch, Mina opened the crayon box. The crayons had melted into one colorful lump.",
   "cell": "find_effect",
   "choices": [
-   "made them longer",
-   "left them on the seat",
-   "melted them into one lump",
-   "snapped them in half"
+   "the box filled with rainwater",
+   "the box fell off the seat",
+   "the wax colors melted together",
+   "the wax colors broke apart"
   ],
   "answerOptions": [
    {
-    "value": "made them longer",
-    "label": "made them longer",
-    "text": "made them longer"
+    "value": "the box filled with rainwater",
+    "label": "the box filled with rainwater",
+    "text": "the box filled with rainwater"
    },
    {
-    "value": "left them on the seat",
-    "label": "left them on the seat",
-    "text": "left them on the seat"
+    "value": "the box fell off the seat",
+    "label": "the box fell off the seat",
+    "text": "the box fell off the seat"
    },
    {
-    "value": "melted them into one lump",
-    "label": "melted them into one lump",
-    "text": "melted them into one lump"
+    "value": "the wax colors melted together",
+    "label": "the wax colors melted together",
+    "text": "the wax colors melted together"
    },
    {
-    "value": "snapped them in half",
-    "label": "snapped them in half",
-    "text": "snapped them in half"
+    "value": "the wax colors broke apart",
+    "label": "the wax colors broke apart",
+    "text": "the wax colors broke apart"
    }
   ],
-  "answer": "melted them into one lump",
-  "correctAnswer": "melted them into one lump",
+  "answer": "the wax colors melted together",
+  "correctAnswer": "the wax colors melted together",
   "distractorRationales": {
-   "snapped them in half": "D-PLAUSIBLE-UNSUPPORTED",
-   "made them longer": "D-OPPOSITE",
-   "left them on the seat": "D-CAUSE-REVERSE"
+   "the wax colors broke apart": "D-PLAUSIBLE-UNSUPPORTED",
+   "the box filled with rainwater": "D-PLAUSIBLE-UNSUPPORTED",
+   "the box fell off the seat": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -474,42 +474,42 @@ export const questions = [
   "prompt": "What happened because Leah rubbed the balloon?",
   "question": "What happened because Leah rubbed the balloon?",
   "spokenPrompt": "What happened because Leah rubbed the balloon?",
-  "passage": "Leah rubbed the balloon on her sweater ten times. Then she held it just above her head. Her hair rose up toward the balloon in thin strands.",
+  "passage": "Leah rubbed a balloon against her sweater. Rubbing gave it a tiny electric charge. She held it near her head. The charge pulled her hair toward the balloon.",
   "cell": "find_effect",
   "choices": [
-   "the balloon popped",
-   "her sweater changed color",
-   "she held it above her head",
-   "her hair stuck up toward it"
+   "her hair fell across her face",
+   "her sweater pulled her arm down",
+   "her sweater made the balloon burst",
+   "her hair rose toward the balloon"
   ],
   "answerOptions": [
    {
-    "value": "the balloon popped",
-    "label": "the balloon popped",
-    "text": "the balloon popped"
+    "value": "her hair fell across her face",
+    "label": "her hair fell across her face",
+    "text": "her hair fell across her face"
    },
    {
-    "value": "her sweater changed color",
-    "label": "her sweater changed color",
-    "text": "her sweater changed color"
+    "value": "her sweater pulled her arm down",
+    "label": "her sweater pulled her arm down",
+    "text": "her sweater pulled her arm down"
    },
    {
-    "value": "she held it above her head",
-    "label": "she held it above her head",
-    "text": "she held it above her head"
+    "value": "her sweater made the balloon burst",
+    "label": "her sweater made the balloon burst",
+    "text": "her sweater made the balloon burst"
    },
    {
-    "value": "her hair stuck up toward it",
-    "label": "her hair stuck up toward it",
-    "text": "her hair stuck up toward it"
+    "value": "her hair rose toward the balloon",
+    "label": "her hair rose toward the balloon",
+    "text": "her hair rose toward the balloon"
    }
   ],
-  "answer": "her hair stuck up toward it",
-  "correctAnswer": "her hair stuck up toward it",
+  "answer": "her hair rose toward the balloon",
+  "correctAnswer": "her hair rose toward the balloon",
   "distractorRationales": {
-   "the balloon popped": "D-PLAUSIBLE-UNSUPPORTED",
-   "her sweater changed color": "D-PLAUSIBLE-UNSUPPORTED",
-   "she held it above her head": "D-CAUSE-REVERSE"
+   "her hair fell across her face": "D-PLAUSIBLE-UNSUPPORTED",
+   "her sweater pulled her arm down": "D-PLAUSIBLE-UNSUPPORTED",
+   "her sweater made the balloon burst": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -564,42 +564,42 @@ export const questions = [
   "prompt": "What happened because of the deep snow?",
   "question": "What happened because of the deep snow?",
   "spokenPrompt": "What happened because of the deep snow?",
-  "passage": "Snow fell all night without stopping. By morning it lay deeper than Papa's boots. A radio announcer read a list of closed schools, and Amini's school was third on the list.",
+  "passage": "Snow fell so deeply that roads became unsafe. The school could not open for lessons. Amini heard its name on the radio. Her school was listed among the closed schools.",
   "cell": "find_effect",
   "choices": [
-   "Papa lost his boots",
-   "snow fell all night",
-   "school was closed",
-   "the radio broke"
+   "Amini bought a warmer coat",
+   "Amini caught a different bus",
+   "Amini’s lessons were cancelled",
+   "Amini left her lessons early"
   ],
   "answerOptions": [
    {
-    "value": "Papa lost his boots",
-    "label": "Papa lost his boots",
-    "text": "Papa lost his boots"
+    "value": "Amini bought a warmer coat",
+    "label": "Amini bought a warmer coat",
+    "text": "Amini bought a warmer coat"
    },
    {
-    "value": "snow fell all night",
-    "label": "snow fell all night",
-    "text": "snow fell all night"
+    "value": "Amini caught a different bus",
+    "label": "Amini caught a different bus",
+    "text": "Amini caught a different bus"
    },
    {
-    "value": "school was closed",
-    "label": "school was closed",
-    "text": "school was closed"
+    "value": "Amini’s lessons were cancelled",
+    "label": "Amini’s lessons were cancelled",
+    "text": "Amini’s lessons were cancelled"
    },
    {
-    "value": "the radio broke",
-    "label": "the radio broke",
-    "text": "the radio broke"
+    "value": "Amini left her lessons early",
+    "label": "Amini left her lessons early",
+    "text": "Amini left her lessons early"
    }
   ],
-  "answer": "school was closed",
-  "correctAnswer": "school was closed",
+  "answer": "Amini’s lessons were cancelled",
+  "correctAnswer": "Amini’s lessons were cancelled",
   "distractorRationales": {
-   "the radio broke": "D-PLAUSIBLE-UNSUPPORTED",
-   "Papa lost his boots": "D-PLAUSIBLE-UNSUPPORTED",
-   "snow fell all night": "D-CAUSE-REVERSE"
+   "Amini left her lessons early": "D-PLAUSIBLE-UNSUPPORTED",
+   "Amini bought a warmer coat": "D-PLAUSIBLE-UNSUPPORTED",
+   "Amini caught a different bus": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -654,42 +654,42 @@ export const questions = [
   "prompt": "What happened because the lid was off?",
   "question": "What happened because the lid was off?",
   "spokenPrompt": "What happened because the lid was off?",
-  "passage": "Omar forgot to press the lid onto the popcorn pot. When the corn began to pop, it leapt from the pot like tiny white fireworks, bouncing off the counter and skittering across the kitchen floor.",
+  "passage": "Omar forgot the lid on the popcorn pot. The hot corn started to pop and jump. With no lid, pieces flew out. They landed on the counter and kitchen floor.",
   "cell": "find_effect",
   "choices": [
-   "the corn would not pop",
-   "the pot went cold",
-   "Omar pressed the lid on",
-   "popcorn jumped out of the pot"
+   "corn stayed under the pot’s lid",
+   "the pot stopped the corn popping",
+   "the lid fell onto the floor",
+   "corn spilled outside the pot"
   ],
   "answerOptions": [
    {
-    "value": "the corn would not pop",
-    "label": "the corn would not pop",
-    "text": "the corn would not pop"
+    "value": "corn stayed under the pot’s lid",
+    "label": "corn stayed under the pot’s lid",
+    "text": "corn stayed under the pot’s lid"
    },
    {
-    "value": "the pot went cold",
-    "label": "the pot went cold",
-    "text": "the pot went cold"
+    "value": "the pot stopped the corn popping",
+    "label": "the pot stopped the corn popping",
+    "text": "the pot stopped the corn popping"
    },
    {
-    "value": "Omar pressed the lid on",
-    "label": "Omar pressed the lid on",
-    "text": "Omar pressed the lid on"
+    "value": "the lid fell onto the floor",
+    "label": "the lid fell onto the floor",
+    "text": "the lid fell onto the floor"
    },
    {
-    "value": "popcorn jumped out of the pot",
-    "label": "popcorn jumped out of the pot",
-    "text": "popcorn jumped out of the pot"
+    "value": "corn spilled outside the pot",
+    "label": "corn spilled outside the pot",
+    "text": "corn spilled outside the pot"
    }
   ],
-  "answer": "popcorn jumped out of the pot",
-  "correctAnswer": "popcorn jumped out of the pot",
+  "answer": "corn spilled outside the pot",
+  "correctAnswer": "corn spilled outside the pot",
   "distractorRationales": {
-   "Omar pressed the lid on": "D-SEQUENCE-SWAP",
-   "the corn would not pop": "D-OPPOSITE",
-   "the pot went cold": "D-PLAUSIBLE-UNSUPPORTED"
+   "the lid fell onto the floor": "D-OPPOSITE",
+   "corn stayed under the pot’s lid": "D-PLAUSIBLE-UNSUPPORTED",
+   "the pot stopped the corn popping": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -741,45 +741,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "WHY did the kettle whistle?",
-  "question": "WHY did the kettle whistle?",
-  "spokenPrompt": "WHY did the kettle whistle?",
-  "passage": "The kettle began to whistle, high and loud. Auntie hurried in from the garden, still holding her trowel, and lifted it off the heat. The whistling faded to a sigh.",
+  "prompt": "What made the loud whistle sound?",
+  "question": "What made the loud whistle sound?",
+  "spokenPrompt": "What made the loud whistle sound?",
+  "passage": "Water boiled inside the kettle on the stove. Steam pushed through the whistle in its lid. The whistle made a loud sound. Auntie took the kettle off the heat.",
   "cell": "find_cause",
   "choices": [
-   "Auntie hurried inside",
-   "the garden was noisy",
-   "the trowel banged it",
-   "the water inside had boiled"
+   "water pouring out of the kettle",
+   "the lid falling onto the stove",
+   "Auntie lifting the kettle off the heat",
+   "steam rushing out through the lid"
   ],
   "answerOptions": [
    {
-    "value": "Auntie hurried inside",
-    "label": "Auntie hurried inside",
-    "text": "Auntie hurried inside"
+    "value": "water pouring out of the kettle",
+    "label": "water pouring out of the kettle",
+    "text": "water pouring out of the kettle"
    },
    {
-    "value": "the garden was noisy",
-    "label": "the garden was noisy",
-    "text": "the garden was noisy"
+    "value": "the lid falling onto the stove",
+    "label": "the lid falling onto the stove",
+    "text": "the lid falling onto the stove"
    },
    {
-    "value": "the trowel banged it",
-    "label": "the trowel banged it",
-    "text": "the trowel banged it"
+    "value": "Auntie lifting the kettle off the heat",
+    "label": "Auntie lifting the kettle off the heat",
+    "text": "Auntie lifting the kettle off the heat"
    },
    {
-    "value": "the water inside had boiled",
-    "label": "the water inside had boiled",
-    "text": "the water inside had boiled"
+    "value": "steam rushing out through the lid",
+    "label": "steam rushing out through the lid",
+    "text": "steam rushing out through the lid"
    }
   ],
-  "answer": "the water inside had boiled",
-  "correctAnswer": "the water inside had boiled",
+  "answer": "steam rushing out through the lid",
+  "correctAnswer": "steam rushing out through the lid",
   "distractorRationales": {
-   "the trowel banged it": "D-PLAUSIBLE-UNSUPPORTED",
-   "Auntie hurried inside": "D-CAUSE-REVERSE",
-   "the garden was noisy": "D-PLAUSIBLE-UNSUPPORTED"
+   "Auntie lifting the kettle off the heat": "D-OPPOSITE",
+   "water pouring out of the kettle": "D-PLAUSIBLE-UNSUPPORTED",
+   "the lid falling onto the stove": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -831,45 +831,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Why did Bruno bark before the knock?",
-  "question": "Why did Bruno bark before the knock?",
-  "spokenPrompt": "Why did Bruno bark before the knock?",
-  "passage": "Bruno barked before anyone knocked. Two seconds later, the doorbell rang, and a delivery worker stood on the step. Bruno had heard the gate creak long before any person did.",
+  "prompt": "Why did Bruno bark before the doorbell rang?",
+  "question": "Why did Bruno bark before the doorbell rang?",
+  "spokenPrompt": "Why did Bruno bark before the doorbell rang?",
+  "passage": "Bruno heard the gate creak outside the house. That noise made him bark. Then a delivery worker rang the doorbell. Bruno had barked before the worker reached the door.",
   "cell": "find_cause",
   "choices": [
-   "he noticed a noise outside first",
-   "he saw the doorbell ring",
-   "he smelled the dinner",
-   "the delivery worker called his name"
+   "he heard the gate open",
+   "he heard the doorbell ring",
+   "he saw food in a bowl",
+   "he saw someone at the window"
   ],
   "answerOptions": [
    {
-    "value": "he noticed a noise outside first",
-    "label": "he noticed a noise outside first",
-    "text": "he noticed a noise outside first"
+    "value": "he heard the gate open",
+    "label": "he heard the gate open",
+    "text": "he heard the gate open"
    },
    {
-    "value": "he saw the doorbell ring",
-    "label": "he saw the doorbell ring",
-    "text": "he saw the doorbell ring"
+    "value": "he heard the doorbell ring",
+    "label": "he heard the doorbell ring",
+    "text": "he heard the doorbell ring"
    },
    {
-    "value": "he smelled the dinner",
-    "label": "he smelled the dinner",
-    "text": "he smelled the dinner"
+    "value": "he saw food in a bowl",
+    "label": "he saw food in a bowl",
+    "text": "he saw food in a bowl"
    },
    {
-    "value": "the delivery worker called his name",
-    "label": "the delivery worker called his name",
-    "text": "the delivery worker called his name"
+    "value": "he saw someone at the window",
+    "label": "he saw someone at the window",
+    "text": "he saw someone at the window"
    }
   ],
-  "answer": "he noticed a noise outside first",
-  "correctAnswer": "he noticed a noise outside first",
+  "answer": "he heard the gate open",
+  "correctAnswer": "he heard the gate open",
   "distractorRationales": {
-   "the delivery worker called his name": "D-PLAUSIBLE-UNSUPPORTED",
-   "he saw the doorbell ring": "D-SEQUENCE-SWAP",
-   "he smelled the dinner": "D-PLAUSIBLE-UNSUPPORTED"
+   "he saw someone at the window": "D-OPPOSITE",
+   "he heard the doorbell ring": "D-PLAUSIBLE-UNSUPPORTED",
+   "he saw food in a bowl": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -924,42 +924,42 @@ export const questions = [
   "prompt": "Why did the rocket drawing disappear?",
   "question": "Why did the rocket drawing disappear?",
   "spokenPrompt": "Why did the rocket drawing disappear?",
-  "passage": "Hana's chalk drawing of a rocket covered the whole path. That night, rain fell for hours. In the morning only a faint pink cloud remained where the rocket had been.",
+  "passage": "Hana drew a chalk rocket on the path. Rain fell on it through the night. Water washed away most of the chalk. Only a faint pink mark remained next morning.",
   "cell": "find_cause",
   "choices": [
-   "the rain washed the chalk away",
-   "someone rubbed it out",
-   "the chalk was invisible",
-   "a faint cloud remained"
+   "rain carried the chalk away",
+   "feet rubbed the chalk away",
+   "Hana swept the chalk away",
+   "wind blew the chalk away"
   ],
   "answerOptions": [
    {
-    "value": "the rain washed the chalk away",
-    "label": "the rain washed the chalk away",
-    "text": "the rain washed the chalk away"
+    "value": "rain carried the chalk away",
+    "label": "rain carried the chalk away",
+    "text": "rain carried the chalk away"
    },
    {
-    "value": "someone rubbed it out",
-    "label": "someone rubbed it out",
-    "text": "someone rubbed it out"
+    "value": "feet rubbed the chalk away",
+    "label": "feet rubbed the chalk away",
+    "text": "feet rubbed the chalk away"
    },
    {
-    "value": "the chalk was invisible",
-    "label": "the chalk was invisible",
-    "text": "the chalk was invisible"
+    "value": "Hana swept the chalk away",
+    "label": "Hana swept the chalk away",
+    "text": "Hana swept the chalk away"
    },
    {
-    "value": "a faint cloud remained",
-    "label": "a faint cloud remained",
-    "text": "a faint cloud remained"
+    "value": "wind blew the chalk away",
+    "label": "wind blew the chalk away",
+    "text": "wind blew the chalk away"
    }
   ],
-  "answer": "the rain washed the chalk away",
-  "correctAnswer": "the rain washed the chalk away",
+  "answer": "rain carried the chalk away",
+  "correctAnswer": "rain carried the chalk away",
   "distractorRationales": {
-   "a faint cloud remained": "D-CAUSE-REVERSE",
-   "someone rubbed it out": "D-PLAUSIBLE-UNSUPPORTED",
-   "the chalk was invisible": "D-OPPOSITE"
+   "wind blew the chalk away": "D-OPPOSITE",
+   "feet rubbed the chalk away": "D-PLAUSIBLE-UNSUPPORTED",
+   "Hana swept the chalk away": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1014,42 +1014,42 @@ export const questions = [
   "prompt": "Why was the ice cream dripping?",
   "question": "Why was the ice cream dripping?",
   "spokenPrompt": "Why was the ice cream dripping?",
-  "passage": "The afternoon sun felt warm. By the end of the walk, Milly was carrying her ice cream cone at a slant and licking fast. White drips ran down her fingers and dotted the sidewalk.",
+  "passage": "Milly carried ice cream on a warm walk. The heat softened it until it started dripping. She licked fast to catch the drops. White drops still ran down onto her fingers.",
   "cell": "find_cause",
   "choices": [
-   "the warm day was melting it",
-   "the cone had a hole",
-   "Milly licked too fast",
-   "the pavement was sticky"
+   "heat turned the ice cream soft",
+   "licking made the cone turn soft",
+   "a hole let water through the cone",
+   "her fingers squeezed through the cone"
   ],
   "answerOptions": [
    {
-    "value": "the warm day was melting it",
-    "label": "the warm day was melting it",
-    "text": "the warm day was melting it"
+    "value": "heat turned the ice cream soft",
+    "label": "heat turned the ice cream soft",
+    "text": "heat turned the ice cream soft"
    },
    {
-    "value": "the cone had a hole",
-    "label": "the cone had a hole",
-    "text": "the cone had a hole"
+    "value": "licking made the cone turn soft",
+    "label": "licking made the cone turn soft",
+    "text": "licking made the cone turn soft"
    },
    {
-    "value": "Milly licked too fast",
-    "label": "Milly licked too fast",
-    "text": "Milly licked too fast"
+    "value": "a hole let water through the cone",
+    "label": "a hole let water through the cone",
+    "text": "a hole let water through the cone"
    },
    {
-    "value": "the pavement was sticky",
-    "label": "the pavement was sticky",
-    "text": "the pavement was sticky"
+    "value": "her fingers squeezed through the cone",
+    "label": "her fingers squeezed through the cone",
+    "text": "her fingers squeezed through the cone"
    }
   ],
-  "answer": "the warm day was melting it",
-  "correctAnswer": "the warm day was melting it",
+  "answer": "heat turned the ice cream soft",
+  "correctAnswer": "heat turned the ice cream soft",
   "distractorRationales": {
-   "the cone had a hole": "D-PLAUSIBLE-UNSUPPORTED",
-   "Milly licked too fast": "D-CAUSE-REVERSE",
-   "the pavement was sticky": "D-PLAUSIBLE-UNSUPPORTED"
+   "licking made the cone turn soft": "D-PLAUSIBLE-UNSUPPORTED",
+   "a hole let water through the cone": "D-PLAUSIBLE-UNSUPPORTED",
+   "her fingers squeezed through the cone": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1101,45 +1101,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Why did Finn's voice come back to him?",
-  "question": "Why did Finn's voice come back to him?",
-  "spokenPrompt": "Why did Finn's voice come back to him?",
-  "passage": "In the tunnel under the railway, Finn shouted 'HELLO!' His own voice bounced straight back at him, twice. He grinned and tried a bark, a whoop, and a tiny polite cough.",
+  "prompt": "What sent Finn's voice back to his ears?",
+  "question": "What sent Finn's voice back to his ears?",
+  "spokenPrompt": "What sent Finn's voice back to his ears?",
+  "passage": "Finn called hello inside an empty tunnel. His voice hit the hard walls. The sound bounced back toward his ears. Finn heard his own hello again.",
   "cell": "find_cause",
   "choices": [
-   "a train was passing",
-   "the tunnel walls bounced the sound",
-   "someone else was hiding there",
-   "he shouted hello"
+   "Finn calling again inside the tunnel",
+   "sound returning from the tunnel walls",
+   "a person speaking outside the tunnel",
+   "a train moving through the tunnel"
   ],
   "answerOptions": [
    {
-    "value": "a train was passing",
-    "label": "a train was passing",
-    "text": "a train was passing"
+    "value": "Finn calling again inside the tunnel",
+    "label": "Finn calling again inside the tunnel",
+    "text": "Finn calling again inside the tunnel"
    },
    {
-    "value": "the tunnel walls bounced the sound",
-    "label": "the tunnel walls bounced the sound",
-    "text": "the tunnel walls bounced the sound"
+    "value": "sound returning from the tunnel walls",
+    "label": "sound returning from the tunnel walls",
+    "text": "sound returning from the tunnel walls"
    },
    {
-    "value": "someone else was hiding there",
-    "label": "someone else was hiding there",
-    "text": "someone else was hiding there"
+    "value": "a person speaking outside the tunnel",
+    "label": "a person speaking outside the tunnel",
+    "text": "a person speaking outside the tunnel"
    },
    {
-    "value": "he shouted hello",
-    "label": "he shouted hello",
-    "text": "he shouted hello"
+    "value": "a train moving through the tunnel",
+    "label": "a train moving through the tunnel",
+    "text": "a train moving through the tunnel"
    }
   ],
-  "answer": "the tunnel walls bounced the sound",
-  "correctAnswer": "the tunnel walls bounced the sound",
+  "answer": "sound returning from the tunnel walls",
+  "correctAnswer": "sound returning from the tunnel walls",
   "distractorRationales": {
-   "he shouted hello": "D-CAUSE-REVERSE",
-   "a train was passing": "D-PLAUSIBLE-UNSUPPORTED",
-   "someone else was hiding there": "D-PLAUSIBLE-UNSUPPORTED"
+   "a train moving through the tunnel": "D-PLAUSIBLE-UNSUPPORTED",
+   "Finn calling again inside the tunnel": "D-OPPOSITE",
+   "a person speaking outside the tunnel": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1194,42 +1194,42 @@ export const questions = [
   "prompt": "Why did the bike get rusty?",
   "question": "Why did the bike get rusty?",
   "spokenPrompt": "Why did the bike get rusty?",
-  "passage": "Mo's bike had spent the whole winter outside under no cover. In spring, the chain was stiff and the handlebars wore freckles of orange rust that had not been there before.",
+  "passage": "Mo left his bike outside all winter. Rain kept wetting the bare metal. The wet metal slowly grew orange rust. By spring, the chain was stiff and rusty.",
   "cell": "find_cause",
   "choices": [
-   "someone painted it orange",
-   "it stood out in the wet all winter",
-   "Mo rode it too fast",
-   "the chain was stiff"
+   "Mo kept the chain away from rain",
+   "the metal stayed wet from rain",
+   "the metal dried in warm winter sun",
+   "Mo oiled the chain before every ride"
   ],
   "answerOptions": [
    {
-    "value": "someone painted it orange",
-    "label": "someone painted it orange",
-    "text": "someone painted it orange"
+    "value": "Mo kept the chain away from rain",
+    "label": "Mo kept the chain away from rain",
+    "text": "Mo kept the chain away from rain"
    },
    {
-    "value": "it stood out in the wet all winter",
-    "label": "it stood out in the wet all winter",
-    "text": "it stood out in the wet all winter"
+    "value": "the metal stayed wet from rain",
+    "label": "the metal stayed wet from rain",
+    "text": "the metal stayed wet from rain"
    },
    {
-    "value": "Mo rode it too fast",
-    "label": "Mo rode it too fast",
-    "text": "Mo rode it too fast"
+    "value": "the metal dried in warm winter sun",
+    "label": "the metal dried in warm winter sun",
+    "text": "the metal dried in warm winter sun"
    },
    {
-    "value": "the chain was stiff",
-    "label": "the chain was stiff",
-    "text": "the chain was stiff"
+    "value": "Mo oiled the chain before every ride",
+    "label": "Mo oiled the chain before every ride",
+    "text": "Mo oiled the chain before every ride"
    }
   ],
-  "answer": "it stood out in the wet all winter",
-  "correctAnswer": "it stood out in the wet all winter",
+  "answer": "the metal stayed wet from rain",
+  "correctAnswer": "the metal stayed wet from rain",
   "distractorRationales": {
-   "Mo rode it too fast": "D-PLAUSIBLE-UNSUPPORTED",
-   "the chain was stiff": "D-CAUSE-REVERSE",
-   "someone painted it orange": "D-OPPOSITE"
+   "the metal dried in warm winter sun": "D-PLAUSIBLE-UNSUPPORTED",
+   "Mo oiled the chain before every ride": "D-PLAUSIBLE-UNSUPPORTED",
+   "Mo kept the chain away from rain": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1284,42 +1284,42 @@ export const questions = [
   "prompt": "Why did the castle turn into a smooth hill?",
   "question": "Why did the castle turn into a smooth hill?",
   "spokenPrompt": "Why did the castle turn into a smooth hill?",
-  "passage": "At the beach, Rosa built her sandcastle close to the shining wet sand. She worked on it all afternoon. By late afternoon, the sea had moved up the beach, and her castle softened into a smooth little hill.",
+  "passage": "Rosa built a sandcastle near the sea. Later, the tide rose up the beach. Waves washed over the castle walls. Water flattened them into a smooth little hill.",
   "cell": "find_cause",
   "choices": [
-   "a dog dug it up",
-   "the tide came in over it",
-   "Rosa stamped on it",
-   "she built it all afternoon"
+   "a dog dug into the castle walls",
+   "waves covered the castle walls",
+   "wind lifted sand off the walls",
+   "Rosa stamped on the castle walls"
   ],
   "answerOptions": [
    {
-    "value": "a dog dug it up",
-    "label": "a dog dug it up",
-    "text": "a dog dug it up"
+    "value": "a dog dug into the castle walls",
+    "label": "a dog dug into the castle walls",
+    "text": "a dog dug into the castle walls"
    },
    {
-    "value": "the tide came in over it",
-    "label": "the tide came in over it",
-    "text": "the tide came in over it"
+    "value": "waves covered the castle walls",
+    "label": "waves covered the castle walls",
+    "text": "waves covered the castle walls"
    },
    {
-    "value": "Rosa stamped on it",
-    "label": "Rosa stamped on it",
-    "text": "Rosa stamped on it"
+    "value": "wind lifted sand off the walls",
+    "label": "wind lifted sand off the walls",
+    "text": "wind lifted sand off the walls"
    },
    {
-    "value": "she built it all afternoon",
-    "label": "she built it all afternoon",
-    "text": "she built it all afternoon"
+    "value": "Rosa stamped on the castle walls",
+    "label": "Rosa stamped on the castle walls",
+    "text": "Rosa stamped on the castle walls"
    }
   ],
-  "answer": "the tide came in over it",
-  "correctAnswer": "the tide came in over it",
+  "answer": "waves covered the castle walls",
+  "correctAnswer": "waves covered the castle walls",
   "distractorRationales": {
-   "Rosa stamped on it": "D-OPPOSITE",
-   "she built it all afternoon": "D-CAUSE-REVERSE",
-   "a dog dug it up": "D-PLAUSIBLE-UNSUPPORTED"
+   "wind lifted sand off the walls": "D-PLAUSIBLE-UNSUPPORTED",
+   "Rosa stamped on the castle walls": "D-PLAUSIBLE-UNSUPPORTED",
+   "a dog dug into the castle walls": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1371,45 +1371,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Why did one pair of curtains go pale?",
-  "question": "Why did one pair of curtains go pale?",
-  "spokenPrompt": "Why did one pair of curtains go pale?",
-  "passage": "All the curtains in the front room used to be deep blue. The pair by the big sunny window are now pale, almost gray, while the pair in the shady corner still look brand new.",
+  "prompt": "Why did one curtain become pale?",
+  "question": "Why did one curtain become pale?",
+  "spokenPrompt": "Why did one curtain become pale?",
+  "passage": "Two blue curtains hung in different windows. Sun shone on one for many years. The light slowly made its color fade. The curtain in the shade stayed dark blue.",
   "cell": "find_cause",
   "choices": [
-   "the shady corner protected them",
-   "someone swapped the curtains",
-   "years of sunlight faded them",
-   "they were washed wrong once"
+   "rainwater slowly stained one curtain",
+   "someone replaced one old curtain",
+   "sunlight slowly faded one curtain",
+   "washing slowly shrank one curtain"
   ],
   "answerOptions": [
    {
-    "value": "the shady corner protected them",
-    "label": "the shady corner protected them",
-    "text": "the shady corner protected them"
+    "value": "rainwater slowly stained one curtain",
+    "label": "rainwater slowly stained one curtain",
+    "text": "rainwater slowly stained one curtain"
    },
    {
-    "value": "someone swapped the curtains",
-    "label": "someone swapped the curtains",
-    "text": "someone swapped the curtains"
+    "value": "someone replaced one old curtain",
+    "label": "someone replaced one old curtain",
+    "text": "someone replaced one old curtain"
    },
    {
-    "value": "years of sunlight faded them",
-    "label": "years of sunlight faded them",
-    "text": "years of sunlight faded them"
+    "value": "sunlight slowly faded one curtain",
+    "label": "sunlight slowly faded one curtain",
+    "text": "sunlight slowly faded one curtain"
    },
    {
-    "value": "they were washed wrong once",
-    "label": "they were washed wrong once",
-    "text": "they were washed wrong once"
+    "value": "washing slowly shrank one curtain",
+    "label": "washing slowly shrank one curtain",
+    "text": "washing slowly shrank one curtain"
    }
   ],
-  "answer": "years of sunlight faded them",
-  "correctAnswer": "years of sunlight faded them",
+  "answer": "sunlight slowly faded one curtain",
+  "correctAnswer": "sunlight slowly faded one curtain",
   "distractorRationales": {
-   "they were washed wrong once": "D-PLAUSIBLE-UNSUPPORTED",
-   "the shady corner protected them": "D-CAUSE-REVERSE",
-   "someone swapped the curtains": "D-PLAUSIBLE-UNSUPPORTED"
+   "washing slowly shrank one curtain": "D-PLAUSIBLE-UNSUPPORTED",
+   "rainwater slowly stained one curtain": "D-PLAUSIBLE-UNSUPPORTED",
+   "someone replaced one old curtain": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1461,45 +1461,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence correctly explains the cause and effect?",
-  "question": "Which sentence correctly explains the cause and effect?",
-  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
-  "passage": "The moth circled the porch light for the tenth time. Round and round it went, tapping the warm glass, ignoring the whole dark garden behind it.",
+  "prompt": "Which sentence explains what made this happen?",
+  "question": "Which sentence explains what made this happen?",
+  "spokenPrompt": "Which sentence explains what made this happen?",
+  "passage": "A moth saw a bright porch light. The light drew it toward the house. It flew around the lamp again and again. The dark garden stayed behind it.",
   "cell": "because_sentence",
   "choices": [
-   "The moth circled because the garden was loud.",
-   "The moth slept because the light was warm.",
-   "The moth circled because the light attracted it.",
-   "The light glowed because the moth circled it."
+   "The moth approached because rain filled the garden.",
+   "The lamp dimmed because the moth left the garden.",
+   "The moth approached because the porch was bright.",
+   "The lamp shone because the moth flew around it."
   ],
   "answerOptions": [
    {
-    "value": "The moth circled because the garden was loud.",
-    "label": "The moth circled because the garden was loud.",
-    "text": "The moth circled because the garden was loud."
+    "value": "The moth approached because rain filled the garden.",
+    "label": "The moth approached because rain filled the garden.",
+    "text": "The moth approached because rain filled the garden."
    },
    {
-    "value": "The moth slept because the light was warm.",
-    "label": "The moth slept because the light was warm.",
-    "text": "The moth slept because the light was warm."
+    "value": "The lamp dimmed because the moth left the garden.",
+    "label": "The lamp dimmed because the moth left the garden.",
+    "text": "The lamp dimmed because the moth left the garden."
    },
    {
-    "value": "The moth circled because the light attracted it.",
-    "label": "The moth circled because the light attracted it.",
-    "text": "The moth circled because the light attracted it."
+    "value": "The moth approached because the porch was bright.",
+    "label": "The moth approached because the porch was bright.",
+    "text": "The moth approached because the porch was bright."
    },
    {
-    "value": "The light glowed because the moth circled it.",
-    "label": "The light glowed because the moth circled it.",
-    "text": "The light glowed because the moth circled it."
+    "value": "The lamp shone because the moth flew around it.",
+    "label": "The lamp shone because the moth flew around it.",
+    "text": "The lamp shone because the moth flew around it."
    }
   ],
-  "answer": "The moth circled because the light attracted it.",
-  "correctAnswer": "The moth circled because the light attracted it.",
+  "answer": "The moth approached because the porch was bright.",
+  "correctAnswer": "The moth approached because the porch was bright.",
   "distractorRationales": {
-   "The moth circled because the garden was loud.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The moth slept because the light was warm.": "D-OPPOSITE",
-   "The light glowed because the moth circled it.": "D-CAUSE-REVERSE"
+   "The moth approached because rain filled the garden.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The lamp dimmed because the moth left the garden.": "D-OPPOSITE",
+   "The lamp shone because the moth flew around it.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1551,45 +1551,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence correctly explains the cause and effect?",
-  "question": "Which sentence correctly explains the cause and effect?",
-  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
-  "passage": "Pia's shoes had fitted at the start of summer. Now her toes pressed the ends, and by home time her feet ached. Mom measured her feet: a whole size bigger.",
+  "prompt": "Which sentence explains what made this happen?",
+  "question": "Which sentence explains what made this happen?",
+  "spokenPrompt": "Which sentence explains what made this happen?",
+  "passage": "Pia's shoes fitted at the start of summer. Her feet grew during the following weeks. Now her toes pressed against the shoe ends. The tight shoes made her feet ache.",
   "cell": "because_sentence",
   "choices": [
-   "Pia's feet grew because her shoes hurt.",
-   "Pia's shoes hurt because they got wet.",
-   "Pia's feet ached because she skipped lunch.",
-   "Pia's shoes hurt because her feet had grown."
+   "Aching toes made the old shoes shrink.",
+   "The tight shoes made her feet grow.",
+   "Wet shoes made her toes feel cold.",
+   "Growing feet made the old shoes hurt."
   ],
   "answerOptions": [
    {
-    "value": "Pia's feet grew because her shoes hurt.",
-    "label": "Pia's feet grew because her shoes hurt.",
-    "text": "Pia's feet grew because her shoes hurt."
+    "value": "Aching toes made the old shoes shrink.",
+    "label": "Aching toes made the old shoes shrink.",
+    "text": "Aching toes made the old shoes shrink."
    },
    {
-    "value": "Pia's shoes hurt because they got wet.",
-    "label": "Pia's shoes hurt because they got wet.",
-    "text": "Pia's shoes hurt because they got wet."
+    "value": "The tight shoes made her feet grow.",
+    "label": "The tight shoes made her feet grow.",
+    "text": "The tight shoes made her feet grow."
    },
    {
-    "value": "Pia's feet ached because she skipped lunch.",
-    "label": "Pia's feet ached because she skipped lunch.",
-    "text": "Pia's feet ached because she skipped lunch."
+    "value": "Wet shoes made her toes feel cold.",
+    "label": "Wet shoes made her toes feel cold.",
+    "text": "Wet shoes made her toes feel cold."
    },
    {
-    "value": "Pia's shoes hurt because her feet had grown.",
-    "label": "Pia's shoes hurt because her feet had grown.",
-    "text": "Pia's shoes hurt because her feet had grown."
+    "value": "Growing feet made the old shoes hurt.",
+    "label": "Growing feet made the old shoes hurt.",
+    "text": "Growing feet made the old shoes hurt."
    }
   ],
-  "answer": "Pia's shoes hurt because her feet had grown.",
-  "correctAnswer": "Pia's shoes hurt because her feet had grown.",
+  "answer": "Growing feet made the old shoes hurt.",
+  "correctAnswer": "Growing feet made the old shoes hurt.",
   "distractorRationales": {
-   "Pia's shoes hurt because they got wet.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Pia's feet ached because she skipped lunch.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Pia's feet grew because her shoes hurt.": "D-CAUSE-REVERSE"
+   "The tight shoes made her feet grow.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Wet shoes made her toes feel cold.": "D-OPPOSITE",
+   "Aching toes made the old shoes shrink.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1641,45 +1641,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence correctly explains the cause and effect?",
-  "question": "Which sentence correctly explains the cause and effect?",
-  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
-  "passage": "Nobody wrapped the bread after breakfast. It sat on the board all day and all night. By morning the slices were hard at the edges and curled up like little rooftops.",
+  "prompt": "Which sentence explains what made this happen?",
+  "question": "Which sentence explains what made this happen?",
+  "spokenPrompt": "Which sentence explains what made this happen?",
+  "passage": "The bread stayed uncovered on the board overnight. Air dried out its soft edges. By morning, the slices felt hard. Dad wrapped the next loaf after breakfast.",
   "cell": "because_sentence",
   "choices": [
-   "The bread went hard because the board was old.",
-   "The bread stayed soft because it was covered.",
-   "The bread went hard because it was left uncovered.",
-   "The bread was left out because it went hard."
+   "The bread dried because the board got cold.",
+   "The bread stayed soft because Dad wrapped it.",
+   "The bread dried because it was left uncovered.",
+   "The bread was uncovered because it had dried."
   ],
   "answerOptions": [
    {
-    "value": "The bread went hard because the board was old.",
-    "label": "The bread went hard because the board was old.",
-    "text": "The bread went hard because the board was old."
+    "value": "The bread dried because the board got cold.",
+    "label": "The bread dried because the board got cold.",
+    "text": "The bread dried because the board got cold."
    },
    {
-    "value": "The bread stayed soft because it was covered.",
-    "label": "The bread stayed soft because it was covered.",
-    "text": "The bread stayed soft because it was covered."
+    "value": "The bread stayed soft because Dad wrapped it.",
+    "label": "The bread stayed soft because Dad wrapped it.",
+    "text": "The bread stayed soft because Dad wrapped it."
    },
    {
-    "value": "The bread went hard because it was left uncovered.",
-    "label": "The bread went hard because it was left uncovered.",
-    "text": "The bread went hard because it was left uncovered."
+    "value": "The bread dried because it was left uncovered.",
+    "label": "The bread dried because it was left uncovered.",
+    "text": "The bread dried because it was left uncovered."
    },
    {
-    "value": "The bread was left out because it went hard.",
-    "label": "The bread was left out because it went hard.",
-    "text": "The bread was left out because it went hard."
+    "value": "The bread was uncovered because it had dried.",
+    "label": "The bread was uncovered because it had dried.",
+    "text": "The bread was uncovered because it had dried."
    }
   ],
-  "answer": "The bread went hard because it was left uncovered.",
-  "correctAnswer": "The bread went hard because it was left uncovered.",
+  "answer": "The bread dried because it was left uncovered.",
+  "correctAnswer": "The bread dried because it was left uncovered.",
   "distractorRationales": {
-   "The bread went hard because the board was old.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The bread stayed soft because it was covered.": "D-OPPOSITE",
-   "The bread was left out because it went hard.": "D-CAUSE-REVERSE"
+   "The bread dried because the board got cold.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The bread stayed soft because Dad wrapped it.": "D-OPPOSITE",
+   "The bread was uncovered because it had dried.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1731,45 +1731,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence correctly explains the cause and effect?",
-  "question": "Which sentence correctly explains the cause and effect?",
-  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
-  "passage": "The little ramp was set up on the rug. Kip let go of the marble at the top. It rolled faster and faster, shot off the end, and did not stop until it clicked against the baseboard.",
+  "prompt": "Which sentence explains what made this happen?",
+  "question": "Which sentence explains what made this happen?",
+  "spokenPrompt": "Which sentence explains what made this happen?",
+  "passage": "Kip made a ramp that sloped down. He let go of a marble at the top. The slope made it roll toward the floor. It stopped when it hit the wall.",
   "cell": "because_sentence",
   "choices": [
-   "The ramp sloped because the marble rolled.",
-   "The marble rolled because the rug was red.",
-   "The marble stopped because Kip let go.",
-   "The marble rolled because the ramp sloped down."
+   "The marble made the ramp slope down.",
+   "The wall made the marble start rolling.",
+   "The rug made the marble roll upward.",
+   "The slope made the marble roll down."
   ],
   "answerOptions": [
    {
-    "value": "The ramp sloped because the marble rolled.",
-    "label": "The ramp sloped because the marble rolled.",
-    "text": "The ramp sloped because the marble rolled."
+    "value": "The marble made the ramp slope down.",
+    "label": "The marble made the ramp slope down.",
+    "text": "The marble made the ramp slope down."
    },
    {
-    "value": "The marble rolled because the rug was red.",
-    "label": "The marble rolled because the rug was red.",
-    "text": "The marble rolled because the rug was red."
+    "value": "The wall made the marble start rolling.",
+    "label": "The wall made the marble start rolling.",
+    "text": "The wall made the marble start rolling."
    },
    {
-    "value": "The marble stopped because Kip let go.",
-    "label": "The marble stopped because Kip let go.",
-    "text": "The marble stopped because Kip let go."
+    "value": "The rug made the marble roll upward.",
+    "label": "The rug made the marble roll upward.",
+    "text": "The rug made the marble roll upward."
    },
    {
-    "value": "The marble rolled because the ramp sloped down.",
-    "label": "The marble rolled because the ramp sloped down.",
-    "text": "The marble rolled because the ramp sloped down."
+    "value": "The slope made the marble roll down.",
+    "label": "The slope made the marble roll down.",
+    "text": "The slope made the marble roll down."
    }
   ],
-  "answer": "The marble rolled because the ramp sloped down.",
-  "correctAnswer": "The marble rolled because the ramp sloped down.",
+  "answer": "The slope made the marble roll down.",
+  "correctAnswer": "The slope made the marble roll down.",
   "distractorRationales": {
-   "The ramp sloped because the marble rolled.": "D-CAUSE-REVERSE",
-   "The marble rolled because the rug was red.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The marble stopped because Kip let go.": "D-SEQUENCE-SWAP"
+   "The marble made the ramp slope down.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The wall made the marble start rolling.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The rug made the marble roll upward.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1821,45 +1821,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence correctly explains the cause and effect?",
-  "question": "Which sentence correctly explains the cause and effect?",
-  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
-  "passage": "It rained hard all morning. When it stopped, the path through the grass was dotted with worms, dozens of them, stretched out on the wet stones.",
+  "prompt": "Which sentence explains what made this happen?",
+  "question": "Which sentence explains what made this happen?",
+  "spokenPrompt": "Which sentence explains what made this happen?",
+  "passage": "Rainwater washed a worm onto the busy path. A shoe nearly stepped on it. Lina used a leaf to move it away. This kept it safe from passing feet.",
   "cell": "because_sentence",
   "choices": [
-   "The worms came up because their soil filled with rain.",
-   "The rain fell because the worms came up.",
-   "The worms came up because the stones were warm.",
-   "The worms hid because the path was wet."
+   "Lina moved the worm to keep it safe.",
+   "The worm reached the path because Lina moved it.",
+   "Lina moved the worm because it needed some food.",
+   "Lina left the worm because the path was safe."
   ],
   "answerOptions": [
    {
-    "value": "The worms came up because their soil filled with rain.",
-    "label": "The worms came up because their soil filled with rain.",
-    "text": "The worms came up because their soil filled with rain."
+    "value": "Lina moved the worm to keep it safe.",
+    "label": "Lina moved the worm to keep it safe.",
+    "text": "Lina moved the worm to keep it safe."
    },
    {
-    "value": "The rain fell because the worms came up.",
-    "label": "The rain fell because the worms came up.",
-    "text": "The rain fell because the worms came up."
+    "value": "The worm reached the path because Lina moved it.",
+    "label": "The worm reached the path because Lina moved it.",
+    "text": "The worm reached the path because Lina moved it."
    },
    {
-    "value": "The worms came up because the stones were warm.",
-    "label": "The worms came up because the stones were warm.",
-    "text": "The worms came up because the stones were warm."
+    "value": "Lina moved the worm because it needed some food.",
+    "label": "Lina moved the worm because it needed some food.",
+    "text": "Lina moved the worm because it needed some food."
    },
    {
-    "value": "The worms hid because the path was wet.",
-    "label": "The worms hid because the path was wet.",
-    "text": "The worms hid because the path was wet."
+    "value": "Lina left the worm because the path was safe.",
+    "label": "Lina left the worm because the path was safe.",
+    "text": "Lina left the worm because the path was safe."
    }
   ],
-  "answer": "The worms came up because their soil filled with rain.",
-  "correctAnswer": "The worms came up because their soil filled with rain.",
+  "answer": "Lina moved the worm to keep it safe.",
+  "correctAnswer": "Lina moved the worm to keep it safe.",
   "distractorRationales": {
-   "The worms hid because the path was wet.": "D-OPPOSITE",
-   "The rain fell because the worms came up.": "D-CAUSE-REVERSE",
-   "The worms came up because the stones were warm.": "D-PLAUSIBLE-UNSUPPORTED"
+   "Lina left the worm because the path was safe.": "D-OPPOSITE",
+   "The worm reached the path because Lina moved it.": "D-SEQUENCE-SWAP",
+   "Lina moved the worm because it needed some food.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1911,45 +1911,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence correctly explains the cause and effect?",
-  "question": "Which sentence correctly explains the cause and effect?",
-  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
-  "passage": "The dog walked into the room wearing Dad's hat. Ivy laughed first. Then her brother, Dad, and Grandma all saw the dog and began laughing too.",
+  "prompt": "Which sentence explains what made this happen?",
+  "question": "Which sentence explains what made this happen?",
+  "spokenPrompt": "Which sentence explains what made this happen?",
+  "passage": "The dog came in wearing Dad's large hat. Ivy saw the hat and started laughing. Her family looked at the dog too. They also laughed at its funny hat.",
   "cell": "because_sentence",
   "choices": [
-   "The dog wore the hat because the family laughed.",
-   "The family laughed because the newspaper was funny.",
-   "Grandma stopped laughing because of Dad.",
-   "The family laughed because the dog wore Dad's hat."
+   "People laughing made the dog fetch the hat.",
+   "A joke in the newspaper made people laugh.",
+   "The hat falling down made the dog bark.",
+   "The hat on the dog made people laugh."
   ],
   "answerOptions": [
    {
-    "value": "The dog wore the hat because the family laughed.",
-    "label": "The dog wore the hat because the family laughed.",
-    "text": "The dog wore the hat because the family laughed."
+    "value": "People laughing made the dog fetch the hat.",
+    "label": "People laughing made the dog fetch the hat.",
+    "text": "People laughing made the dog fetch the hat."
    },
    {
-    "value": "The family laughed because the newspaper was funny.",
-    "label": "The family laughed because the newspaper was funny.",
-    "text": "The family laughed because the newspaper was funny."
+    "value": "A joke in the newspaper made people laugh.",
+    "label": "A joke in the newspaper made people laugh.",
+    "text": "A joke in the newspaper made people laugh."
    },
    {
-    "value": "Grandma stopped laughing because of Dad.",
-    "label": "Grandma stopped laughing because of Dad.",
-    "text": "Grandma stopped laughing because of Dad."
+    "value": "The hat falling down made the dog bark.",
+    "label": "The hat falling down made the dog bark.",
+    "text": "The hat falling down made the dog bark."
    },
    {
-    "value": "The family laughed because the dog wore Dad's hat.",
-    "label": "The family laughed because the dog wore Dad's hat.",
-    "text": "The family laughed because the dog wore Dad's hat."
+    "value": "The hat on the dog made people laugh.",
+    "label": "The hat on the dog made people laugh.",
+    "text": "The hat on the dog made people laugh."
    }
   ],
-  "answer": "The family laughed because the dog wore Dad's hat.",
-  "correctAnswer": "The family laughed because the dog wore Dad's hat.",
+  "answer": "The hat on the dog made people laugh.",
+  "correctAnswer": "The hat on the dog made people laugh.",
   "distractorRationales": {
-   "The dog wore the hat because the family laughed.": "D-CAUSE-REVERSE",
-   "The family laughed because the newspaper was funny.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Grandma stopped laughing because of Dad.": "D-OPPOSITE"
+   "People laughing made the dog fetch the hat.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A joke in the newspaper made people laugh.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The hat falling down made the dog bark.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2001,45 +2001,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence correctly explains the cause and effect?",
-  "question": "Which sentence correctly explains the cause and effect?",
-  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
-  "passage": "The candle flame stood tall and still until Dad opened the hallway door. Then it bent sideways, flickered wildly, and almost went out before the door clicked shut again.",
+  "prompt": "Which sentence explains what made this happen?",
+  "question": "Which sentence explains what made this happen?",
+  "spokenPrompt": "Which sentence explains what made this happen?",
+  "passage": "The candle flame stayed still in the hall. Dad opened the door and let air blow through. The moving air made the flame bend. It flickered until he shut the door.",
   "cell": "because_sentence",
   "choices": [
-   "The flame flickered because the door let in a draft.",
-   "The door opened because the flame flickered.",
-   "The flame flickered because the wax was old.",
-   "The flame grew taller because of the wind."
+   "Air from the open door bent the flame.",
+   "The bending flame pushed the door open.",
+   "Wax from the candle held the door open.",
+   "Dad shut the door to make wind blow."
   ],
   "answerOptions": [
    {
-    "value": "The flame flickered because the door let in a draft.",
-    "label": "The flame flickered because the door let in a draft.",
-    "text": "The flame flickered because the door let in a draft."
+    "value": "Air from the open door bent the flame.",
+    "label": "Air from the open door bent the flame.",
+    "text": "Air from the open door bent the flame."
    },
    {
-    "value": "The door opened because the flame flickered.",
-    "label": "The door opened because the flame flickered.",
-    "text": "The door opened because the flame flickered."
+    "value": "The bending flame pushed the door open.",
+    "label": "The bending flame pushed the door open.",
+    "text": "The bending flame pushed the door open."
    },
    {
-    "value": "The flame flickered because the wax was old.",
-    "label": "The flame flickered because the wax was old.",
-    "text": "The flame flickered because the wax was old."
+    "value": "Wax from the candle held the door open.",
+    "label": "Wax from the candle held the door open.",
+    "text": "Wax from the candle held the door open."
    },
    {
-    "value": "The flame grew taller because of the wind.",
-    "label": "The flame grew taller because of the wind.",
-    "text": "The flame grew taller because of the wind."
+    "value": "Dad shut the door to make wind blow.",
+    "label": "Dad shut the door to make wind blow.",
+    "text": "Dad shut the door to make wind blow."
    }
   ],
-  "answer": "The flame flickered because the door let in a draft.",
-  "correctAnswer": "The flame flickered because the door let in a draft.",
+  "answer": "Air from the open door bent the flame.",
+  "correctAnswer": "Air from the open door bent the flame.",
   "distractorRationales": {
-   "The door opened because the flame flickered.": "D-CAUSE-REVERSE",
-   "The flame flickered because the wax was old.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The flame grew taller because of the wind.": "D-OPPOSITE"
+   "The bending flame pushed the door open.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Wax from the candle held the door open.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Dad shut the door to make wind blow.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2091,45 +2091,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence correctly explains the cause and effect?",
-  "question": "Which sentence correctly explains the cause and effect?",
-  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
-  "passage": "Warm milk, a dim lamp, one last story. Halfway through the second page, Suki's eyes closed all by themselves, and Papa tiptoed out with the book still open in his hand.",
+  "prompt": "Which sentence explains what made this happen?",
+  "question": "Which sentence explains what made this happen?",
+  "spokenPrompt": "Which sentence explains what made this happen?",
+  "passage": "Suki had a calm bedtime routine. Papa dimmed the lamp and read a story. The quiet room helped her relax. Soon her eyes closed and she fell asleep.",
   "cell": "because_sentence",
   "choices": [
-   "Papa used the lamp because the milk was warm.",
-   "The bedtime routine relaxed Suki until she slept.",
-   "Papa read the story because Suki fell asleep.",
-   "Suki fell asleep because the story was scary."
+   "The bright lamp made her leap out of bed.",
+   "The quiet evening helped her go to sleep.",
+   "Her sleeping made the quiet evening begin.",
+   "Papa’s loud voice kept her awake all night."
   ],
   "answerOptions": [
    {
-    "value": "Papa used the lamp because the milk was warm.",
-    "label": "Papa used the lamp because the milk was warm.",
-    "text": "Papa used the lamp because the milk was warm."
+    "value": "The bright lamp made her leap out of bed.",
+    "label": "The bright lamp made her leap out of bed.",
+    "text": "The bright lamp made her leap out of bed."
    },
    {
-    "value": "The bedtime routine relaxed Suki until she slept.",
-    "label": "The bedtime routine relaxed Suki until she slept.",
-    "text": "The bedtime routine relaxed Suki until she slept."
+    "value": "The quiet evening helped her go to sleep.",
+    "label": "The quiet evening helped her go to sleep.",
+    "text": "The quiet evening helped her go to sleep."
    },
    {
-    "value": "Papa read the story because Suki fell asleep.",
-    "label": "Papa read the story because Suki fell asleep.",
-    "text": "Papa read the story because Suki fell asleep."
+    "value": "Her sleeping made the quiet evening begin.",
+    "label": "Her sleeping made the quiet evening begin.",
+    "text": "Her sleeping made the quiet evening begin."
    },
    {
-    "value": "Suki fell asleep because the story was scary.",
-    "label": "Suki fell asleep because the story was scary.",
-    "text": "Suki fell asleep because the story was scary."
+    "value": "Papa’s loud voice kept her awake all night.",
+    "label": "Papa’s loud voice kept her awake all night.",
+    "text": "Papa’s loud voice kept her awake all night."
    }
   ],
-  "answer": "The bedtime routine relaxed Suki until she slept.",
-  "correctAnswer": "The bedtime routine relaxed Suki until she slept.",
+  "answer": "The quiet evening helped her go to sleep.",
+  "correctAnswer": "The quiet evening helped her go to sleep.",
   "distractorRationales": {
-   "Papa read the story because Suki fell asleep.": "D-CAUSE-REVERSE",
-   "Suki fell asleep because the story was scary.": "D-OPPOSITE",
-   "Papa used the lamp because the milk was warm.": "D-PLAUSIBLE-UNSUPPORTED"
+   "Her sleeping made the quiet evening begin.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Papa’s loud voice kept her awake all night.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The bright lamp made her leap out of bed.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2181,45 +2181,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What happened RIGHT BEFORE the flour spilled?",
-  "question": "What happened RIGHT BEFORE the flour spilled?",
-  "spokenPrompt": "What happened RIGHT BEFORE the flour spilled?",
-  "passage": "A wasp smelled the open jam jar on the windowsill. It flew in through the kitchen window. Startled, Uncle Josh jumped back from the counter, knocked the flour bag with his elbow, and a white cloud settled slowly over the clean dishes.",
+  "prompt": "What happened DIRECTLY before the flour fell?",
+  "question": "What happened DIRECTLY before the flour fell?",
+  "spokenPrompt": "What happened DIRECTLY before the flour fell?",
+  "passage": "A wasp flew through the window toward an open jam jar. Uncle Josh jumped back when he saw it. His elbow hit a flour bag, tipping it over. Flour fell onto the dishes below. He put the jam away before cleaning the dishes.",
   "cell": "chain",
   "choices": [
-   "someone washed the dishes",
-   "a sudden bump knocked the bag",
-   "the wasp smelled the jam",
-   "flour settled on the dishes"
+   "he put away the open jam jar",
+   "his elbow tipped the flour bag over",
+   "the wasp flew toward the open jam",
+   "flour landed on the dishes below"
   ],
   "answerOptions": [
    {
-    "value": "someone washed the dishes",
-    "label": "someone washed the dishes",
-    "text": "someone washed the dishes"
+    "value": "he put away the open jam jar",
+    "label": "he put away the open jam jar",
+    "text": "he put away the open jam jar"
    },
    {
-    "value": "a sudden bump knocked the bag",
-    "label": "a sudden bump knocked the bag",
-    "text": "a sudden bump knocked the bag"
+    "value": "his elbow tipped the flour bag over",
+    "label": "his elbow tipped the flour bag over",
+    "text": "his elbow tipped the flour bag over"
    },
    {
-    "value": "the wasp smelled the jam",
-    "label": "the wasp smelled the jam",
-    "text": "the wasp smelled the jam"
+    "value": "the wasp flew toward the open jam",
+    "label": "the wasp flew toward the open jam",
+    "text": "the wasp flew toward the open jam"
    },
    {
-    "value": "flour settled on the dishes",
-    "label": "flour settled on the dishes",
-    "text": "flour settled on the dishes"
+    "value": "flour landed on the dishes below",
+    "label": "flour landed on the dishes below",
+    "text": "flour landed on the dishes below"
    }
   ],
-  "answer": "a sudden bump knocked the bag",
-  "correctAnswer": "a sudden bump knocked the bag",
+  "answer": "his elbow tipped the flour bag over",
+  "correctAnswer": "his elbow tipped the flour bag over",
   "distractorRationales": {
-   "the wasp smelled the jam": "D-SEQUENCE-SWAP",
-   "flour settled on the dishes": "D-SEQUENCE-SWAP",
-   "someone washed the dishes": "D-PLAUSIBLE-UNSUPPORTED"
+   "the wasp flew toward the open jam": "D-PLAUSIBLE-UNSUPPORTED",
+   "flour landed on the dishes below": "D-PLAUSIBLE-UNSUPPORTED",
+   "he put away the open jam jar": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2249,7 +2249,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "middle-link question: jam → wasp → jump → elbow → flour"
+  "notes": "Identify the immediate link in a four-event chain."
  },
  {
   "id": "lp3.cause_effect.l2.B.chain.v2",
@@ -2271,45 +2271,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Why did the rosemary tip over?",
-  "question": "Why did the rosemary tip over?",
-  "spokenPrompt": "Why did the rosemary tip over?",
-  "passage": "The night frost cracked the old clay pot on the balcony. Soil trickled out of the crack all week. With half its soil gone, the rosemary plant tipped over in the next strong wind, and the falling pot startled the pigeons off the rail.",
+  "prompt": "Why was the rosemary loose before the wind came?",
+  "question": "Why was the rosemary loose before the wind came?",
+  "spokenPrompt": "Why was the rosemary loose before the wind came?",
+  "passage": "Cold weather cracked the clay pot on the balcony. Soil fell through the crack during the week. Without enough soil holding it, the rosemary became loose. Wind then tipped the plant and pot over. The crash made pigeons fly away.",
   "cell": "chain",
   "choices": [
-   "its cracked pot had lost half its soil",
-   "the pigeons knocked it",
-   "it startled the pigeons",
-   "the frost landed on its leaves"
+   "too little soil held its roots",
+   "the flying pigeons hit its leaves",
+   "the falling pot frightened the pigeons",
+   "the frost made its leaves grow heavier"
   ],
   "answerOptions": [
    {
-    "value": "its cracked pot had lost half its soil",
-    "label": "its cracked pot had lost half its soil",
-    "text": "its cracked pot had lost half its soil"
+    "value": "too little soil held its roots",
+    "label": "too little soil held its roots",
+    "text": "too little soil held its roots"
    },
    {
-    "value": "the pigeons knocked it",
-    "label": "the pigeons knocked it",
-    "text": "the pigeons knocked it"
+    "value": "the flying pigeons hit its leaves",
+    "label": "the flying pigeons hit its leaves",
+    "text": "the flying pigeons hit its leaves"
    },
    {
-    "value": "it startled the pigeons",
-    "label": "it startled the pigeons",
-    "text": "it startled the pigeons"
+    "value": "the falling pot frightened the pigeons",
+    "label": "the falling pot frightened the pigeons",
+    "text": "the falling pot frightened the pigeons"
    },
    {
-    "value": "the frost landed on its leaves",
-    "label": "the frost landed on its leaves",
-    "text": "the frost landed on its leaves"
+    "value": "the frost made its leaves grow heavier",
+    "label": "the frost made its leaves grow heavier",
+    "text": "the frost made its leaves grow heavier"
    }
   ],
-  "answer": "its cracked pot had lost half its soil",
-  "correctAnswer": "its cracked pot had lost half its soil",
+  "answer": "too little soil held its roots",
+  "correctAnswer": "too little soil held its roots",
   "distractorRationales": {
-   "it startled the pigeons": "D-CAUSE-REVERSE",
-   "the frost landed on its leaves": "D-TOPIC-ADJACENT",
-   "the pigeons knocked it": "D-PLAUSIBLE-UNSUPPORTED"
+   "the falling pot frightened the pigeons": "D-PLAUSIBLE-UNSUPPORTED",
+   "the frost made its leaves grow heavier": "D-OPPOSITE",
+   "the flying pigeons hit its leaves": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2339,7 +2339,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Trace how the cracked pot changed the support around the roots."
  },
  {
   "id": "lp3.cause_effect.l2.C.chain.v3",
@@ -2361,45 +2361,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What happened RIGHT BEFORE the mark appeared on the ceiling?",
-  "question": "What happened RIGHT BEFORE the mark appeared on the ceiling?",
-  "spokenPrompt": "What happened RIGHT BEFORE the mark appeared on the ceiling?",
-  "passage": "Dee left the bath tap running while she answered the phone. The call was long. Water crept over the edge of the bath, found the gap by the pipe, and by the time Dee hung up, a brown ring was spreading on the kitchen ceiling below.",
+  "prompt": "What carried water to the ceiling below?",
+  "question": "What carried water to the ceiling below?",
+  "spokenPrompt": "What carried water to the ceiling below?",
+  "passage": "Dee left the bath tap running to answer her phone. Water rose over the bath's edge during the long call. It ran through a gap beside the pipe. The water then made a mark on the ceiling below. Dee saw the mark after ending the call.",
   "cell": "chain",
   "choices": [
-   "Dee answered the phone",
-   "Dee hung up the phone",
-   "the kitchen ceiling was painted",
-   "water found the gap by the pipe"
+   "Dee left the room to answer her phone",
+   "Dee ended the call and put her phone down",
+   "water rose to the edge of the bath",
+   "water ran through the gap by the pipe"
   ],
   "answerOptions": [
    {
-    "value": "Dee answered the phone",
-    "label": "Dee answered the phone",
-    "text": "Dee answered the phone"
+    "value": "Dee left the room to answer her phone",
+    "label": "Dee left the room to answer her phone",
+    "text": "Dee left the room to answer her phone"
    },
    {
-    "value": "Dee hung up the phone",
-    "label": "Dee hung up the phone",
-    "text": "Dee hung up the phone"
+    "value": "Dee ended the call and put her phone down",
+    "label": "Dee ended the call and put her phone down",
+    "text": "Dee ended the call and put her phone down"
    },
    {
-    "value": "the kitchen ceiling was painted",
-    "label": "the kitchen ceiling was painted",
-    "text": "the kitchen ceiling was painted"
+    "value": "water rose to the edge of the bath",
+    "label": "water rose to the edge of the bath",
+    "text": "water rose to the edge of the bath"
    },
    {
-    "value": "water found the gap by the pipe",
-    "label": "water found the gap by the pipe",
-    "text": "water found the gap by the pipe"
+    "value": "water ran through the gap by the pipe",
+    "label": "water ran through the gap by the pipe",
+    "text": "water ran through the gap by the pipe"
    }
   ],
-  "answer": "water found the gap by the pipe",
-  "correctAnswer": "water found the gap by the pipe",
+  "answer": "water ran through the gap by the pipe",
+  "correctAnswer": "water ran through the gap by the pipe",
   "distractorRationales": {
-   "Dee answered the phone": "D-SEQUENCE-SWAP",
-   "Dee hung up the phone": "D-SEQUENCE-SWAP",
-   "the kitchen ceiling was painted": "D-PLAUSIBLE-UNSUPPORTED"
+   "Dee left the room to answer her phone": "D-PLAUSIBLE-UNSUPPORTED",
+   "Dee ended the call and put her phone down": "D-PLAUSIBLE-UNSUPPORTED",
+   "water rose to the edge of the bath": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2429,7 +2429,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Locate the connecting link, not the start or later discovery."
  },
  {
   "id": "lp3.cause_effect.l2.A.chain.v4",
@@ -2451,45 +2451,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Why did so many balls land in the tomatoes?",
-  "question": "Why did so many balls land in the tomatoes?",
-  "spokenPrompt": "Why did so many balls land in the tomatoes?",
-  "passage": "The soccer field flooded on Friday, so Saturday's game moved to the school yard. The yard's hard ground made the ball bounce twice as high, and those high bounces sailed over the fence, which is how Mr. Njoku's tomatoes met seven soccer balls in one afternoon.",
+  "prompt": "What DIRECTLY made the balls bounce over the fence?",
+  "question": "What DIRECTLY made the balls bounce over the fence?",
+  "spokenPrompt": "What DIRECTLY made the balls bounce over the fence?",
+  "passage": "Rain flooded the field, so the game moved to the yard. The yard's hard ground made the balls bounce very high. Those high bounces carried balls over the fence. Seven balls landed among Mr. Njoku's tomato plants that afternoon.",
   "cell": "chain",
   "choices": [
-   "Mr Njoku threw them back",
-   "the tomatoes attracted the balls",
-   "the yard caused unusually high rebounds",
-   "the pitch flooded on Friday"
+   "the players planting tall tomato plants",
+   "the fence being moved nearer the field",
+   "the hard surface making high bounces",
+   "the muddy surface holding deep water"
   ],
   "answerOptions": [
    {
-    "value": "Mr Njoku threw them back",
-    "label": "Mr Njoku threw them back",
-    "text": "Mr Njoku threw them back"
+    "value": "the players planting tall tomato plants",
+    "label": "the players planting tall tomato plants",
+    "text": "the players planting tall tomato plants"
    },
    {
-    "value": "the tomatoes attracted the balls",
-    "label": "the tomatoes attracted the balls",
-    "text": "the tomatoes attracted the balls"
+    "value": "the fence being moved nearer the field",
+    "label": "the fence being moved nearer the field",
+    "text": "the fence being moved nearer the field"
    },
    {
-    "value": "the yard caused unusually high rebounds",
-    "label": "the yard caused unusually high rebounds",
-    "text": "the yard caused unusually high rebounds"
+    "value": "the hard surface making high bounces",
+    "label": "the hard surface making high bounces",
+    "text": "the hard surface making high bounces"
    },
    {
-    "value": "the pitch flooded on Friday",
-    "label": "the pitch flooded on Friday",
-    "text": "the pitch flooded on Friday"
+    "value": "the muddy surface holding deep water",
+    "label": "the muddy surface holding deep water",
+    "text": "the muddy surface holding deep water"
    }
   ],
-  "answer": "the yard caused unusually high rebounds",
-  "correctAnswer": "the yard caused unusually high rebounds",
+  "answer": "the hard surface making high bounces",
+  "correctAnswer": "the hard surface making high bounces",
   "distractorRationales": {
-   "the tomatoes attracted the balls": "D-CAUSE-REVERSE",
-   "the pitch flooded on Friday": "D-SEQUENCE-SWAP",
-   "Mr Njoku threw them back": "D-PLAUSIBLE-UNSUPPORTED"
+   "the fence being moved nearer the field": "D-OPPOSITE",
+   "the muddy surface holding deep water": "D-PLAUSIBLE-UNSUPPORTED",
+   "the players planting tall tomato plants": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2519,7 +2519,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "flood is the FIRST link, not the operative cause of the over-fence bounces"
+  "notes": "Ask explicitly for the immediate physical cause, not the upstream rain."
  },
  {
   "id": "lp3.cause_effect.l2.B.chain.v5",
@@ -2541,45 +2541,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What happened RIGHT BEFORE the pea bags froze together?",
-  "question": "What happened RIGHT BEFORE the pea bags froze together?",
-  "spokenPrompt": "What happened RIGHT BEFORE the pea bags froze together?",
-  "passage": "Someone propped the freezer door open with a yogurt cup during the party. Overnight the ice cream softened to milkshake. In the morning, the melting tub dripped through the shelf onto the peas, freezing the bags together in one block.",
+  "prompt": "What DIRECTLY made the pea bags stick together?",
+  "question": "What DIRECTLY made the pea bags stick together?",
+  "spokenPrompt": "What DIRECTLY made the pea bags stick together?",
+  "passage": "A cup held the freezer door open during the party. Ice cream melted and dripped onto two bags of peas. Dad removed the cup and shut the door. The freezer grew cold again. The drops froze, sticking the bags together.",
   "cell": "chain",
   "choices": [
-   "someone bought more peas",
-   "meltwater from above glued them into one block",
-   "the door was propped open",
-   "the party guests arrived"
+   "the guests putting peas in bags",
+   "the drops turning back into ice",
+   "the door staying open at first",
+   "Dad taking the cup off the shelf"
   ],
   "answerOptions": [
    {
-    "value": "someone bought more peas",
-    "label": "someone bought more peas",
-    "text": "someone bought more peas"
+    "value": "the guests putting peas in bags",
+    "label": "the guests putting peas in bags",
+    "text": "the guests putting peas in bags"
    },
    {
-    "value": "meltwater from above glued them into one block",
-    "label": "meltwater from above glued them into one block",
-    "text": "meltwater from above glued them into one block"
+    "value": "the drops turning back into ice",
+    "label": "the drops turning back into ice",
+    "text": "the drops turning back into ice"
    },
    {
-    "value": "the door was propped open",
-    "label": "the door was propped open",
-    "text": "the door was propped open"
+    "value": "the door staying open at first",
+    "label": "the door staying open at first",
+    "text": "the door staying open at first"
    },
    {
-    "value": "the party guests arrived",
-    "label": "the party guests arrived",
-    "text": "the party guests arrived"
+    "value": "Dad taking the cup off the shelf",
+    "label": "Dad taking the cup off the shelf",
+    "text": "Dad taking the cup off the shelf"
    }
   ],
-  "answer": "meltwater from above glued them into one block",
-  "correctAnswer": "meltwater from above glued them into one block",
+  "answer": "the drops turning back into ice",
+  "correctAnswer": "the drops turning back into ice",
   "distractorRationales": {
-   "someone bought more peas": "D-PLAUSIBLE-UNSUPPORTED",
-   "the door was propped open": "D-SEQUENCE-SWAP",
-   "the party guests arrived": "D-SEQUENCE-SWAP"
+   "the guests putting peas in bags": "D-OPPOSITE",
+   "the door staying open at first": "D-PLAUSIBLE-UNSUPPORTED",
+   "Dad taking the cup off the shelf": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2609,7 +2609,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Follow melting and refreezing as two different stages."
  },
  {
   "id": "lp3.cause_effect.l2.C.chain.v6",
@@ -2631,45 +2631,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Why was Priya late?",
-  "question": "Why was Priya late?",
-  "spokenPrompt": "Why was Priya late?",
-  "passage": "The elevator was crowded, and somebody's backpack pressed every button at once. The elevator began stopping at every floor. All the stopping made Priya late to the dentist upstairs, and her name was called just as she hurried out of the elevator.",
+  "prompt": "What delayed Priya on the way upstairs?",
+  "question": "What delayed Priya on the way upstairs?",
+  "spokenPrompt": "What delayed Priya on the way upstairs?",
+  "passage": "A backpack pressed several buttons in the crowded lift. That made the lift stop at every floor. Each stop took more time on Priya's trip upstairs. She reached the dentist after her appointment time. She heard her name as she left the lift.",
   "cell": "chain",
   "choices": [
-   "the elevator stopped at every floor",
-   "her name was called early",
-   "she pressed every button",
-   "she burst out of the doors"
+   "stops at every floor delayed her",
+   "a wrong button sent her downstairs",
+   "her dentist called before the agreed time",
+   "she forgot which floor the dentist used"
   ],
   "answerOptions": [
    {
-    "value": "the elevator stopped at every floor",
-    "label": "the elevator stopped at every floor",
-    "text": "the elevator stopped at every floor"
+    "value": "stops at every floor delayed her",
+    "label": "stops at every floor delayed her",
+    "text": "stops at every floor delayed her"
    },
    {
-    "value": "her name was called early",
-    "label": "her name was called early",
-    "text": "her name was called early"
+    "value": "a wrong button sent her downstairs",
+    "label": "a wrong button sent her downstairs",
+    "text": "a wrong button sent her downstairs"
    },
    {
-    "value": "she pressed every button",
-    "label": "she pressed every button",
-    "text": "she pressed every button"
+    "value": "her dentist called before the agreed time",
+    "label": "her dentist called before the agreed time",
+    "text": "her dentist called before the agreed time"
    },
    {
-    "value": "she burst out of the doors",
-    "label": "she burst out of the doors",
-    "text": "she burst out of the doors"
+    "value": "she forgot which floor the dentist used",
+    "label": "she forgot which floor the dentist used",
+    "text": "she forgot which floor the dentist used"
    }
   ],
-  "answer": "the elevator stopped at every floor",
-  "correctAnswer": "the elevator stopped at every floor",
+  "answer": "stops at every floor delayed her",
+  "correctAnswer": "stops at every floor delayed her",
   "distractorRationales": {
-   "she burst out of the doors": "D-CAUSE-REVERSE",
-   "her name was called early": "D-PLAUSIBLE-UNSUPPORTED",
-   "she pressed every button": "D-PLAUSIBLE-UNSUPPORTED"
+   "she forgot which floor the dentist used": "D-OPPOSITE",
+   "a wrong button sent her downstairs": "D-PLAUSIBLE-UNSUPPORTED",
+   "her dentist called before the agreed time": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2699,7 +2699,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Separate the time-consuming middle action from its trigger and consequence."
  },
  {
   "id": "lp3.cause_effect.l2.A.chain.v7",
@@ -2721,45 +2721,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Why did the string wrap around the flagpole?",
-  "question": "Why did the string wrap around the flagpole?",
-  "spokenPrompt": "Why did the string wrap around the flagpole?",
-  "passage": "A strong gust snapped the kite's thin tail. Without its tail, the kite began spinning instead of gliding. The spinning wound the string around the flagpole three times, and that is where the kite stayed, rattling like a trapped bird, until the custodian fetched his ladder.",
+  "prompt": "What wound the string around the flagpole?",
+  "question": "What wound the string around the flagpole?",
+  "spokenPrompt": "What wound the string around the flagpole?",
+  "passage": "A gust of wind broke the kite's tail. Without a tail, the kite started to spin. That spin wound its string around a flagpole. The kite stayed there until the school cleaner fetched a ladder.",
   "cell": "chain",
   "choices": [
-   "the custodian wound it there",
-   "the kite rattled like a bird",
-   "the string was too short",
-   "the tailless kite went into a spin"
+   "the cleaner wound its string around the pole",
+   "the wind blew the ladder into the string",
+   "the flagpole bent and caught the kite’s tail",
+   "its uncontrolled turning twisted the line"
   ],
   "answerOptions": [
    {
-    "value": "the custodian wound it there",
-    "label": "the custodian wound it there",
-    "text": "the custodian wound it there"
+    "value": "the cleaner wound its string around the pole",
+    "label": "the cleaner wound its string around the pole",
+    "text": "the cleaner wound its string around the pole"
    },
    {
-    "value": "the kite rattled like a bird",
-    "label": "the kite rattled like a bird",
-    "text": "the kite rattled like a bird"
+    "value": "the wind blew the ladder into the string",
+    "label": "the wind blew the ladder into the string",
+    "text": "the wind blew the ladder into the string"
    },
    {
-    "value": "the string was too short",
-    "label": "the string was too short",
-    "text": "the string was too short"
+    "value": "the flagpole bent and caught the kite’s tail",
+    "label": "the flagpole bent and caught the kite’s tail",
+    "text": "the flagpole bent and caught the kite’s tail"
    },
    {
-    "value": "the tailless kite went into a spin",
-    "label": "the tailless kite went into a spin",
-    "text": "the tailless kite went into a spin"
+    "value": "its uncontrolled turning twisted the line",
+    "label": "its uncontrolled turning twisted the line",
+    "text": "its uncontrolled turning twisted the line"
    }
   ],
-  "answer": "the tailless kite went into a spin",
-  "correctAnswer": "the tailless kite went into a spin",
+  "answer": "its uncontrolled turning twisted the line",
+  "correctAnswer": "its uncontrolled turning twisted the line",
   "distractorRationales": {
-   "the kite rattled like a bird": "D-CAUSE-REVERSE",
-   "the string was too short": "D-PLAUSIBLE-UNSUPPORTED",
-   "the custodian wound it there": "D-PLAUSIBLE-UNSUPPORTED"
+   "the wind blew the ladder into the string": "D-PLAUSIBLE-UNSUPPORTED",
+   "the flagpole bent and caught the kite’s tail": "D-OPPOSITE",
+   "the cleaner wound its string around the pole": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2789,7 +2789,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the middle motion linking damage to the tangled string."
  },
  {
   "id": "lp3.cause_effect.l2.B.chain.v8",
@@ -2811,45 +2811,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What happened RIGHT BEFORE Amir washed the mirror properly?",
-  "question": "What happened RIGHT BEFORE Amir washed the mirror properly?",
-  "spokenPrompt": "What happened RIGHT BEFORE Amir washed the mirror properly?",
-  "passage": "The bathroom mirror steamed up during Amir's hot shower. He wiped it with a towel, which left fine lint all over the glass. When the mirror dried, the lint showed clearly, so he washed the mirror properly.",
+  "prompt": "Why did Amir wash the mirror after wiping it?",
+  "question": "Why did Amir wash the mirror after wiping it?",
+  "spokenPrompt": "Why did Amir wash the mirror after wiping it?",
+  "passage": "Amir's hot shower made the bathroom mirror steam up. He wiped it with a towel. Small towel threads stayed on the damp glass. When the glass dried, he could see those threads. He washed the mirror to remove them.",
   "cell": "chain",
   "choices": [
-   "he cleaned the whole bathroom",
-   "the towel fell in the bath",
-   "the first wipe left visible lint behind",
-   "the shower steamed the mirror"
+   "water from the tap ran into the bath",
+   "soap from the shelf fell onto the towel",
+   "threads from the towel showed on the glass",
+   "steam from the shower covered the whole glass"
   ],
   "answerOptions": [
    {
-    "value": "he cleaned the whole bathroom",
-    "label": "he cleaned the whole bathroom",
-    "text": "he cleaned the whole bathroom"
+    "value": "water from the tap ran into the bath",
+    "label": "water from the tap ran into the bath",
+    "text": "water from the tap ran into the bath"
    },
    {
-    "value": "the towel fell in the bath",
-    "label": "the towel fell in the bath",
-    "text": "the towel fell in the bath"
+    "value": "soap from the shelf fell onto the towel",
+    "label": "soap from the shelf fell onto the towel",
+    "text": "soap from the shelf fell onto the towel"
    },
    {
-    "value": "the first wipe left visible lint behind",
-    "label": "the first wipe left visible lint behind",
-    "text": "the first wipe left visible lint behind"
+    "value": "threads from the towel showed on the glass",
+    "label": "threads from the towel showed on the glass",
+    "text": "threads from the towel showed on the glass"
    },
    {
-    "value": "the shower steamed the mirror",
-    "label": "the shower steamed the mirror",
-    "text": "the shower steamed the mirror"
+    "value": "steam from the shower covered the whole glass",
+    "label": "steam from the shower covered the whole glass",
+    "text": "steam from the shower covered the whole glass"
    }
   ],
-  "answer": "the first wipe left visible lint behind",
-  "correctAnswer": "the first wipe left visible lint behind",
+  "answer": "threads from the towel showed on the glass",
+  "correctAnswer": "threads from the towel showed on the glass",
   "distractorRationales": {
-   "the shower steamed the mirror": "D-SEQUENCE-SWAP",
-   "he cleaned the whole bathroom": "D-SEQUENCE-SWAP",
-   "the towel fell in the bath": "D-PLAUSIBLE-UNSUPPORTED"
+   "steam from the shower covered the whole glass": "D-PLAUSIBLE-UNSUPPORTED",
+   "water from the tap ran into the bath": "D-PLAUSIBLE-UNSUPPORTED",
+   "soap from the shelf fell onto the towel": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2879,7 +2879,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Combine the first repair with the new problem it caused."
  },
  {
   "id": "lp3.cause_effect.l2.A.multiple_causes.v1",
@@ -2901,45 +2901,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these was NOT a reason the fair did well?",
-  "question": "Which of these was NOT a reason the fair did well?",
-  "spokenPrompt": "Which of these was NOT a reason the fair did well?",
-  "passage": "The school fair made more money than ever this year. The weather was warm and dry, so crowds stayed all afternoon. The new bake-sale booth sold out twice. And because the fair fell on payday weekend, purses were a little fuller than usual.",
+  "prompt": "Which reason for success is NOT given?",
+  "question": "Which reason for success is NOT given?",
+  "spokenPrompt": "Which reason for success is NOT given?",
+  "passage": "The fair made more money than usual. Warm, dry weather kept visitors there all afternoon. A new cake stand was very popular and sold out. More families also came because it was a local holiday. The helpers counted the money after closing.",
   "cell": "multiple_causes",
   "choices": [
-   "the fair sold out of tickets early",
-   "the warm, dry weather",
-   "the popular bake-sale booth",
-   "payday weekend"
+   "the fair lowered all its prices",
+   "visitors stayed in the good weather",
+   "many people bought cakes at the stand",
+   "more families came on the holiday"
   ],
   "answerOptions": [
    {
-    "value": "the fair sold out of tickets early",
-    "label": "the fair sold out of tickets early",
-    "text": "the fair sold out of tickets early"
+    "value": "the fair lowered all its prices",
+    "label": "the fair lowered all its prices",
+    "text": "the fair lowered all its prices"
    },
    {
-    "value": "the warm, dry weather",
-    "label": "the warm, dry weather",
-    "text": "the warm, dry weather"
+    "value": "visitors stayed in the good weather",
+    "label": "visitors stayed in the good weather",
+    "text": "visitors stayed in the good weather"
    },
    {
-    "value": "the popular bake-sale booth",
-    "label": "the popular bake-sale booth",
-    "text": "the popular bake-sale booth"
+    "value": "many people bought cakes at the stand",
+    "label": "many people bought cakes at the stand",
+    "text": "many people bought cakes at the stand"
    },
    {
-    "value": "payday weekend",
-    "label": "payday weekend",
-    "text": "payday weekend"
+    "value": "more families came on the holiday",
+    "label": "more families came on the holiday",
+    "text": "more families came on the holiday"
    }
   ],
-  "answer": "the fair sold out of tickets early",
-  "correctAnswer": "the fair sold out of tickets early",
+  "answer": "the fair lowered all its prices",
+  "correctAnswer": "the fair lowered all its prices",
   "distractorRationales": {
-   "the warm, dry weather": "D-DETAIL-AS-MAIN",
-   "the popular bake-sale booth": "D-DETAIL-AS-MAIN",
-   "payday weekend": "D-DETAIL-AS-MAIN"
+   "visitors stayed in the good weather": "D-PLAUSIBLE-UNSUPPORTED",
+   "many people bought cakes at the stand": "D-PLAUSIBLE-UNSUPPORTED",
+   "more families came on the holiday": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2991,45 +2991,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these was NOT a reason Rui overslept?",
-  "question": "Which of these was NOT a reason Rui overslept?",
-  "spokenPrompt": "Which of these was NOT a reason Rui overslept?",
-  "passage": "Rui slept through his alarm for three reasons. He had stayed up late finishing his comic. His phone had died in the night, so the alarm never rang. And the thick new curtains kept his room as dark as a cave long past sunrise.",
+  "prompt": "Which reason for oversleeping is NOT given?",
+  "question": "Which reason for oversleeping is NOT given?",
+  "spokenPrompt": "Which reason for oversleeping is NOT given?",
+  "passage": "Rui stayed awake late reading his comic. His phone battery ran out, so its alarm did not ring. Thick curtains also kept his room dark after sunrise. Those things helped him sleep past his usual waking time.",
   "cell": "multiple_causes",
   "choices": [
-   "staying up late with his comic",
-   "his phone dying overnight",
-   "the thick dark curtains",
-   "his little sister woke him early"
+   "he was tired after staying up late",
+   "his phone alarm could not ring",
+   "his curtains kept the room dark",
+   "someone moved his clock to a later time"
   ],
   "answerOptions": [
    {
-    "value": "staying up late with his comic",
-    "label": "staying up late with his comic",
-    "text": "staying up late with his comic"
+    "value": "he was tired after staying up late",
+    "label": "he was tired after staying up late",
+    "text": "he was tired after staying up late"
    },
    {
-    "value": "his phone dying overnight",
-    "label": "his phone dying overnight",
-    "text": "his phone dying overnight"
+    "value": "his phone alarm could not ring",
+    "label": "his phone alarm could not ring",
+    "text": "his phone alarm could not ring"
    },
    {
-    "value": "the thick dark curtains",
-    "label": "the thick dark curtains",
-    "text": "the thick dark curtains"
+    "value": "his curtains kept the room dark",
+    "label": "his curtains kept the room dark",
+    "text": "his curtains kept the room dark"
    },
    {
-    "value": "his little sister woke him early",
-    "label": "his little sister woke him early",
-    "text": "his little sister woke him early"
+    "value": "someone moved his clock to a later time",
+    "label": "someone moved his clock to a later time",
+    "text": "someone moved his clock to a later time"
    }
   ],
-  "answer": "his little sister woke him early",
-  "correctAnswer": "his little sister woke him early",
+  "answer": "someone moved his clock to a later time",
+  "correctAnswer": "someone moved his clock to a later time",
   "distractorRationales": {
-   "his phone dying overnight": "D-DETAIL-AS-MAIN",
-   "the thick dark curtains": "D-DETAIL-AS-MAIN",
-   "staying up late with his comic": "D-DETAIL-AS-MAIN"
+   "his phone alarm could not ring": "D-PLAUSIBLE-UNSUPPORTED",
+   "his curtains kept the room dark": "D-OPPOSITE",
+   "he was tired after staying up late": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3081,45 +3081,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these was NOT a cause of the cactus dying?",
-  "question": "Which of these was NOT a cause of the cactus dying?",
-  "spokenPrompt": "Which of these was NOT a cause of the cactus dying?",
-  "passage": "The cactus on the windowsill turned soft and brown. Grandpa had watered it every single day, though a cactus needs water only occasionally. The pot had no hole, so the water sat around its roots. And the cold glass at night chilled it again and again.",
+  "prompt": "Which cause of damage is NOT described?",
+  "question": "Which cause of damage is NOT described?",
+  "spokenPrompt": "Which cause of damage is NOT described?",
+  "passage": "Grandpa watered his cactus much more often than it needed. Its pot had no hole to drain extra water. The roots stayed wet and began to rot. Cold air by the window made the plant weaker too.",
   "cell": "multiple_causes",
   "choices": [
-   "cold nights by the glass",
-   "too little water",
-   "daily watering",
-   "a pot with no drain hole"
+   "the window let cold air reach it",
+   "the cactus received too little water",
+   "the cactus received water too often",
+   "the pot kept water around the roots"
   ],
   "answerOptions": [
    {
-    "value": "cold nights by the glass",
-    "label": "cold nights by the glass",
-    "text": "cold nights by the glass"
+    "value": "the window let cold air reach it",
+    "label": "the window let cold air reach it",
+    "text": "the window let cold air reach it"
    },
    {
-    "value": "too little water",
-    "label": "too little water",
-    "text": "too little water"
+    "value": "the cactus received too little water",
+    "label": "the cactus received too little water",
+    "text": "the cactus received too little water"
    },
    {
-    "value": "daily watering",
-    "label": "daily watering",
-    "text": "daily watering"
+    "value": "the cactus received water too often",
+    "label": "the cactus received water too often",
+    "text": "the cactus received water too often"
    },
    {
-    "value": "a pot with no drain hole",
-    "label": "a pot with no drain hole",
-    "text": "a pot with no drain hole"
+    "value": "the pot kept water around the roots",
+    "label": "the pot kept water around the roots",
+    "text": "the pot kept water around the roots"
    }
   ],
-  "answer": "too little water",
-  "correctAnswer": "too little water",
+  "answer": "the cactus received too little water",
+  "correctAnswer": "the cactus received too little water",
   "distractorRationales": {
-   "daily watering": "D-DETAIL-AS-MAIN",
-   "a pot with no drain hole": "D-DETAIL-AS-MAIN",
-   "cold nights by the glass": "D-DETAIL-AS-MAIN"
+   "the cactus received water too often": "D-PLAUSIBLE-UNSUPPORTED",
+   "the pot kept water around the roots": "D-PLAUSIBLE-UNSUPPORTED",
+   "the window let cold air reach it": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3171,45 +3171,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these was NOT a reason the cold spread?",
-  "question": "Which of these was NOT a reason the cold spread?",
-  "spokenPrompt": "Which of these was NOT a reason the cold spread?",
-  "passage": "Half the class had colds by Friday. All week the rain had kept everyone crowded indoors at break. The window monitor was away, so no one aired the stuffy room. And two children had come in sniffing on Monday instead of resting at home.",
+  "prompt": "Which reason for spreading colds is NOT given?",
+  "question": "Which reason for spreading colds is NOT given?",
+  "spokenPrompt": "Which reason for spreading colds is NOT given?",
+  "passage": "Several children had colds when they came to school. Rain kept the class crowded indoors all week. The windows stayed shut, so little fresh air came inside. Germs could spread easily in the crowded room. By Friday, more children had colds.",
   "cell": "multiple_causes",
   "choices": [
-   "children coming in already sniffing",
-   "the class played outside too long",
-   "crowding indoors all week",
-   "the unaired, stuffy room"
+   "children had little fresh air indoors",
+   "children spent too much time outside",
+   "children with colds came into school",
+   "children crowded together in one room"
   ],
   "answerOptions": [
    {
-    "value": "children coming in already sniffing",
-    "label": "children coming in already sniffing",
-    "text": "children coming in already sniffing"
+    "value": "children had little fresh air indoors",
+    "label": "children had little fresh air indoors",
+    "text": "children had little fresh air indoors"
    },
    {
-    "value": "the class played outside too long",
-    "label": "the class played outside too long",
-    "text": "the class played outside too long"
+    "value": "children spent too much time outside",
+    "label": "children spent too much time outside",
+    "text": "children spent too much time outside"
    },
    {
-    "value": "crowding indoors all week",
-    "label": "crowding indoors all week",
-    "text": "crowding indoors all week"
+    "value": "children with colds came into school",
+    "label": "children with colds came into school",
+    "text": "children with colds came into school"
    },
    {
-    "value": "the unaired, stuffy room",
-    "label": "the unaired, stuffy room",
-    "text": "the unaired, stuffy room"
+    "value": "children crowded together in one room",
+    "label": "children crowded together in one room",
+    "text": "children crowded together in one room"
    }
   ],
-  "answer": "the class played outside too long",
-  "correctAnswer": "the class played outside too long",
+  "answer": "children spent too much time outside",
+  "correctAnswer": "children spent too much time outside",
   "distractorRationales": {
-   "children coming in already sniffing": "D-DETAIL-AS-MAIN",
-   "crowding indoors all week": "D-DETAIL-AS-MAIN",
-   "the unaired, stuffy room": "D-DETAIL-AS-MAIN"
+   "children had little fresh air indoors": "D-OPPOSITE",
+   "children with colds came into school": "D-PLAUSIBLE-UNSUPPORTED",
+   "children crowded together in one room": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3261,45 +3261,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these was NOT a cause of the snap?",
-  "question": "Which of these was NOT a cause of the snap?",
-  "spokenPrompt": "Which of these was NOT a cause of the snap?",
-  "passage": "The old rope swing finally snapped on Sunday. Years of rain and sun had worn the fibers. The knot rubbed the same branch groove every swing. And that afternoon, for the first time, two riders had squeezed on together.",
+  "prompt": "Which cause of the break is NOT mentioned?",
+  "question": "Which cause of the break is NOT mentioned?",
+  "spokenPrompt": "Which cause of the break is NOT mentioned?",
+  "passage": "The old swing rope was worn after years of weather. Its knot rubbed against a rough branch on every swing. On Sunday, two children sat on the seat together. The worn rope broke under their weight.",
   "cell": "multiple_causes",
   "choices": [
-   "someone cut the rope with scissors",
-   "years of weather wearing the fibers",
-   "the knot rubbing the branch",
-   "two riders at once"
+   "someone had cut part of the rope",
+   "rain and sun had worn the rope",
+   "the knot had rubbed against the branch",
+   "two riders had added weight together"
   ],
   "answerOptions": [
    {
-    "value": "someone cut the rope with scissors",
-    "label": "someone cut the rope with scissors",
-    "text": "someone cut the rope with scissors"
+    "value": "someone had cut part of the rope",
+    "label": "someone had cut part of the rope",
+    "text": "someone had cut part of the rope"
    },
    {
-    "value": "years of weather wearing the fibers",
-    "label": "years of weather wearing the fibers",
-    "text": "years of weather wearing the fibers"
+    "value": "rain and sun had worn the rope",
+    "label": "rain and sun had worn the rope",
+    "text": "rain and sun had worn the rope"
    },
    {
-    "value": "the knot rubbing the branch",
-    "label": "the knot rubbing the branch",
-    "text": "the knot rubbing the branch"
+    "value": "the knot had rubbed against the branch",
+    "label": "the knot had rubbed against the branch",
+    "text": "the knot had rubbed against the branch"
    },
    {
-    "value": "two riders at once",
-    "label": "two riders at once",
-    "text": "two riders at once"
+    "value": "two riders had added weight together",
+    "label": "two riders had added weight together",
+    "text": "two riders had added weight together"
    }
   ],
-  "answer": "someone cut the rope with scissors",
-  "correctAnswer": "someone cut the rope with scissors",
+  "answer": "someone had cut part of the rope",
+  "correctAnswer": "someone had cut part of the rope",
   "distractorRationales": {
-   "two riders at once": "D-DETAIL-AS-MAIN",
-   "years of weather wearing the fibers": "D-DETAIL-AS-MAIN",
-   "the knot rubbing the branch": "D-DETAIL-AS-MAIN"
+   "two riders had added weight together": "D-OPPOSITE",
+   "rain and sun had worn the rope": "D-PLAUSIBLE-UNSUPPORTED",
+   "the knot had rubbed against the branch": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3351,45 +3351,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these was NOT a reason for the long line?",
-  "question": "Which of these was NOT a reason for the long line?",
-  "spokenPrompt": "Which of these was NOT a reason for the long line?",
-  "passage": "The bakery line stretched around the corner on Saturday. A food show had filmed there on Tuesday, and clips were everywhere. The rival bakery across town was closed for repairs. Saturday was also the first day of the famous plum tarts.",
+  "prompt": "Which reason for the line is NOT given?",
+  "question": "Which reason for the line is NOT given?",
+  "spokenPrompt": "Which reason for the line is NOT given?",
+  "passage": "A food show put the bakery on television that week. The other bakery in town was closed for repairs. Saturday was also the first day for its special plum tarts. All these things brought a long line of customers.",
   "cell": "multiple_causes",
   "choices": [
-   "the rival bakery being shut",
-   "the first plum tarts of the year",
-   "the bakery had cut all its prices",
-   "the food show clips"
+   "the other bakery was closed for repairs",
+   "the special plum tarts went on sale",
+   "the bakery sold everything at half price",
+   "people had seen the bakery on television"
   ],
   "answerOptions": [
    {
-    "value": "the rival bakery being shut",
-    "label": "the rival bakery being shut",
-    "text": "the rival bakery being shut"
+    "value": "the other bakery was closed for repairs",
+    "label": "the other bakery was closed for repairs",
+    "text": "the other bakery was closed for repairs"
    },
    {
-    "value": "the first plum tarts of the year",
-    "label": "the first plum tarts of the year",
-    "text": "the first plum tarts of the year"
+    "value": "the special plum tarts went on sale",
+    "label": "the special plum tarts went on sale",
+    "text": "the special plum tarts went on sale"
    },
    {
-    "value": "the bakery had cut all its prices",
-    "label": "the bakery had cut all its prices",
-    "text": "the bakery had cut all its prices"
+    "value": "the bakery sold everything at half price",
+    "label": "the bakery sold everything at half price",
+    "text": "the bakery sold everything at half price"
    },
    {
-    "value": "the food show clips",
-    "label": "the food show clips",
-    "text": "the food show clips"
+    "value": "people had seen the bakery on television",
+    "label": "people had seen the bakery on television",
+    "text": "people had seen the bakery on television"
    }
   ],
-  "answer": "the bakery had cut all its prices",
-  "correctAnswer": "the bakery had cut all its prices",
+  "answer": "the bakery sold everything at half price",
+  "correctAnswer": "the bakery sold everything at half price",
   "distractorRationales": {
-   "the first plum tarts of the year": "D-DETAIL-AS-MAIN",
-   "the food show clips": "D-DETAIL-AS-MAIN",
-   "the rival bakery being shut": "D-DETAIL-AS-MAIN"
+   "the special plum tarts went on sale": "D-OPPOSITE",
+   "people had seen the bakery on television": "D-PLAUSIBLE-UNSUPPORTED",
+   "the other bakery was closed for repairs": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3441,45 +3441,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these was NOT a reason the ring went unheard?",
-  "question": "Which of these was NOT a reason the ring went unheard?",
-  "spokenPrompt": "Which of these was NOT a reason the ring went unheard?",
-  "passage": "Nobody heard the phone ring at lunch. The blender was roaring through a smoothie. The radio was playing loud music. The phone itself was buried under the sofa cushions.",
+  "prompt": "Which reason for missing the call is NOT given?",
+  "question": "Which reason for missing the call is NOT given?",
+  "spokenPrompt": "Which reason for missing the call is NOT given?",
+  "passage": "The phone rang while the family made lunch. A loud blender mixed a drink. The radio played music at full volume. Cushions also covered the phone, making its sound quieter. Nobody heard it above the other noises.",
   "cell": "multiple_causes",
   "choices": [
-   "the radio playing loud music",
-   "the phone buried in the sofa",
-   "the phone was switched off",
-   "the roaring blender"
+   "the radio was playing very loudly",
+   "cushions made the phone sound quieter",
+   "a loud drill was working next door",
+   "the blender made a lot of noise"
   ],
   "answerOptions": [
    {
-    "value": "the radio playing loud music",
-    "label": "the radio playing loud music",
-    "text": "the radio playing loud music"
+    "value": "the radio was playing very loudly",
+    "label": "the radio was playing very loudly",
+    "text": "the radio was playing very loudly"
    },
    {
-    "value": "the phone buried in the sofa",
-    "label": "the phone buried in the sofa",
-    "text": "the phone buried in the sofa"
+    "value": "cushions made the phone sound quieter",
+    "label": "cushions made the phone sound quieter",
+    "text": "cushions made the phone sound quieter"
    },
    {
-    "value": "the phone was switched off",
-    "label": "the phone was switched off",
-    "text": "the phone was switched off"
+    "value": "a loud drill was working next door",
+    "label": "a loud drill was working next door",
+    "text": "a loud drill was working next door"
    },
    {
-    "value": "the roaring blender",
-    "label": "the roaring blender",
-    "text": "the roaring blender"
+    "value": "the blender made a lot of noise",
+    "label": "the blender made a lot of noise",
+    "text": "the blender made a lot of noise"
    }
   ],
-  "answer": "the phone was switched off",
-  "correctAnswer": "the phone was switched off",
+  "answer": "a loud drill was working next door",
+  "correctAnswer": "a loud drill was working next door",
   "distractorRationales": {
-   "the radio playing loud music": "D-DETAIL-AS-MAIN",
-   "the phone buried in the sofa": "D-DETAIL-AS-MAIN",
-   "the roaring blender": "D-DETAIL-AS-MAIN"
+   "the radio was playing very loudly": "D-PLAUSIBLE-UNSUPPORTED",
+   "cushions made the phone sound quieter": "D-OPPOSITE",
+   "the blender made a lot of noise": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3531,45 +3531,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these was NOT a reason the rowing was hard?",
-  "question": "Which of these was NOT a reason the rowing was hard?",
-  "spokenPrompt": "Which of these was NOT a reason the rowing was hard?",
-  "passage": "The little boat was hard to row home. The tide had turned against them. The wind blew straight off the shore into their faces. And the afternoon's happy swimming had left both rowers with arms like wet spaghetti.",
+  "prompt": "Which reason for slow rowing is NOT given?",
+  "question": "Which reason for slow rowing is NOT given?",
+  "spokenPrompt": "Which reason for slow rowing is NOT given?",
+  "passage": "Rowing home was hard that afternoon. The tide moved against the little boat. Wind from the shore pushed against it too. Both rowers had tired arms after a long swim. They rested before trying the last part of the trip.",
   "cell": "multiple_causes",
   "choices": [
-   "tired arms from swimming",
-   "a leak let water into the boat",
-   "the tide against them",
-   "the wind in their faces"
+   "the rowers had tired arms from swimming",
+   "water leaked into the bottom of the boat",
+   "the tide moved against the little boat",
+   "wind pushed back against the little boat"
   ],
   "answerOptions": [
    {
-    "value": "tired arms from swimming",
-    "label": "tired arms from swimming",
-    "text": "tired arms from swimming"
+    "value": "the rowers had tired arms from swimming",
+    "label": "the rowers had tired arms from swimming",
+    "text": "the rowers had tired arms from swimming"
    },
    {
-    "value": "a leak let water into the boat",
-    "label": "a leak let water into the boat",
-    "text": "a leak let water into the boat"
+    "value": "water leaked into the bottom of the boat",
+    "label": "water leaked into the bottom of the boat",
+    "text": "water leaked into the bottom of the boat"
    },
    {
-    "value": "the tide against them",
-    "label": "the tide against them",
-    "text": "the tide against them"
+    "value": "the tide moved against the little boat",
+    "label": "the tide moved against the little boat",
+    "text": "the tide moved against the little boat"
    },
    {
-    "value": "the wind in their faces",
-    "label": "the wind in their faces",
-    "text": "the wind in their faces"
+    "value": "wind pushed back against the little boat",
+    "label": "wind pushed back against the little boat",
+    "text": "wind pushed back against the little boat"
    }
   ],
-  "answer": "a leak let water into the boat",
-  "correctAnswer": "a leak let water into the boat",
+  "answer": "water leaked into the bottom of the boat",
+  "correctAnswer": "water leaked into the bottom of the boat",
   "distractorRationales": {
-   "the tide against them": "D-DETAIL-AS-MAIN",
-   "the wind in their faces": "D-DETAIL-AS-MAIN",
-   "tired arms from swimming": "D-DETAIL-AS-MAIN"
+   "the tide moved against the little boat": "D-PLAUSIBLE-UNSUPPORTED",
+   "wind pushed back against the little boat": "D-PLAUSIBLE-UNSUPPORTED",
+   "the rowers had tired arms from swimming": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3624,42 +3624,42 @@ export const questions = [
   "prompt": "What caused the children and the cat to gather in the same place?",
   "question": "What caused the children and the cat to gather in the same place?",
   "spokenPrompt": "What caused the children and the cat to gather in the same place?",
-  "passage": "Wherever the school cat sat, children gathered. New visitors sometimes thought the children attracted the cat. The cafeteria staff knew better: the cat chose the sunniest spot first, and the children simply followed him to it.",
+  "passage": "Children often gathered wherever the school cat sat. A visitor thought their voices called the cat over. The teacher watched more carefully. The cat chose a sunny place first. Only then did children walk over to sit nearby.",
   "cell": "reversal_trap",
   "choices": [
-   "the children picked a spot and the cat followed",
-   "the cafeteria staff called them together",
-   "the sun followed the children",
-   "the cat picked a spot and children followed"
+   "the cat followed the children's choice",
+   "the teacher chose a place for both",
+   "the visitor called the cat to them",
+   "the children followed the cat's choice"
   ],
   "answerOptions": [
    {
-    "value": "the children picked a spot and the cat followed",
-    "label": "the children picked a spot and the cat followed",
-    "text": "the children picked a spot and the cat followed"
+    "value": "the cat followed the children's choice",
+    "label": "the cat followed the children's choice",
+    "text": "the cat followed the children's choice"
    },
    {
-    "value": "the cafeteria staff called them together",
-    "label": "the cafeteria staff called them together",
-    "text": "the cafeteria staff called them together"
+    "value": "the teacher chose a place for both",
+    "label": "the teacher chose a place for both",
+    "text": "the teacher chose a place for both"
    },
    {
-    "value": "the sun followed the children",
-    "label": "the sun followed the children",
-    "text": "the sun followed the children"
+    "value": "the visitor called the cat to them",
+    "label": "the visitor called the cat to them",
+    "text": "the visitor called the cat to them"
    },
    {
-    "value": "the cat picked a spot and children followed",
-    "label": "the cat picked a spot and children followed",
-    "text": "the cat picked a spot and children followed"
+    "value": "the children followed the cat's choice",
+    "label": "the children followed the cat's choice",
+    "text": "the children followed the cat's choice"
    }
   ],
-  "answer": "the cat picked a spot and children followed",
-  "correctAnswer": "the cat picked a spot and children followed",
+  "answer": "the children followed the cat's choice",
+  "correctAnswer": "the children followed the cat's choice",
   "distractorRationales": {
-   "the sun followed the children": "D-CAUSE-REVERSE",
-   "the children picked a spot and the cat followed": "D-CAUSE-REVERSE",
-   "the cafeteria staff called them together": "D-PLAUSIBLE-UNSUPPORTED"
+   "the visitor called the cat to them": "D-OPPOSITE",
+   "the cat followed the children's choice": "D-PLAUSIBLE-UNSUPPORTED",
+   "the teacher chose a place for both": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3714,42 +3714,42 @@ export const questions = [
   "prompt": "What does the passage suggest REALLY made Jo fast?",
   "question": "What does the passage suggest REALLY made Jo fast?",
   "spokenPrompt": "What does the passage suggest REALLY made Jo fast?",
-  "passage": "On field day, Jo wore her lucky red socks and won three races. 'The socks make me fast,' she told everyone. Her coach smiled and pointed at the training chart on the wall: every square of the last two months was marked.",
+  "passage": "Jo won three races while wearing her red socks. She said the socks had made her faster. Her coach showed her the training chart from two months. She had practiced on every marked day. The coach said that work had made her faster.",
   "cell": "reversal_trap",
   "choices": [
-   "winning three races",
-   "the coach's smile",
-   "her steady practice over many weeks",
-   "the lucky red socks"
+   "the prizes she received after racing",
+   "the cheering she heard after winning",
+   "the training she had done regularly",
+   "the red socks she wore that day"
   ],
   "answerOptions": [
    {
-    "value": "winning three races",
-    "label": "winning three races",
-    "text": "winning three races"
+    "value": "the prizes she received after racing",
+    "label": "the prizes she received after racing",
+    "text": "the prizes she received after racing"
    },
    {
-    "value": "the coach's smile",
-    "label": "the coach's smile",
-    "text": "the coach's smile"
+    "value": "the cheering she heard after winning",
+    "label": "the cheering she heard after winning",
+    "text": "the cheering she heard after winning"
    },
    {
-    "value": "her steady practice over many weeks",
-    "label": "her steady practice over many weeks",
-    "text": "her steady practice over many weeks"
+    "value": "the training she had done regularly",
+    "label": "the training she had done regularly",
+    "text": "the training she had done regularly"
    },
    {
-    "value": "the lucky red socks",
-    "label": "the lucky red socks",
-    "text": "the lucky red socks"
+    "value": "the red socks she wore that day",
+    "label": "the red socks she wore that day",
+    "text": "the red socks she wore that day"
    }
   ],
-  "answer": "her steady practice over many weeks",
-  "correctAnswer": "her steady practice over many weeks",
+  "answer": "the training she had done regularly",
+  "correctAnswer": "the training she had done regularly",
   "distractorRationales": {
-   "the lucky red socks": "D-CAUSE-REVERSE",
-   "winning three races": "D-CAUSE-REVERSE",
-   "the coach's smile": "D-PLAUSIBLE-UNSUPPORTED"
+   "the red socks she wore that day": "D-PLAUSIBLE-UNSUPPORTED",
+   "the prizes she received after racing": "D-PLAUSIBLE-UNSUPPORTED",
+   "the cheering she heard after winning": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3804,42 +3804,42 @@ export const questions = [
   "prompt": "What REALLY brought the food?",
   "question": "What REALLY brought the food?",
   "spokenPrompt": "What REALLY brought the food?",
-  "passage": "Every time the floorboard by the kitchen creaked, Biscuit the dog appeared, and moments later food hit his bowl. A visitor might think the creak fed the dog. In truth, Dad stepping on that board meant Dad was fetching the dog food tin from that exact cupboard.",
+  "passage": "A board creaked whenever Dad fetched the dog food. Biscuit heard it and came into the kitchen. A visitor thought the creak made food appear. Dad explained that his steps made the noise. He was bringing food because it was feeding time.",
   "cell": "reversal_trap",
   "choices": [
-   "the creaking floorboard itself",
-   "Biscuit appearing in the kitchen",
-   "the visitor watching",
-   "Dad going to the food cupboard"
+   "Biscuit’s arrival made the food bowl fill itself",
+   "the creaking board made food appear in the kitchen",
+   "the visitor’s steps opened the cupboard of dog food",
+   "the dog’s meal was due, so Dad fetched it"
   ],
   "answerOptions": [
    {
-    "value": "the creaking floorboard itself",
-    "label": "the creaking floorboard itself",
-    "text": "the creaking floorboard itself"
+    "value": "Biscuit’s arrival made the food bowl fill itself",
+    "label": "Biscuit’s arrival made the food bowl fill itself",
+    "text": "Biscuit’s arrival made the food bowl fill itself"
    },
    {
-    "value": "Biscuit appearing in the kitchen",
-    "label": "Biscuit appearing in the kitchen",
-    "text": "Biscuit appearing in the kitchen"
+    "value": "the creaking board made food appear in the kitchen",
+    "label": "the creaking board made food appear in the kitchen",
+    "text": "the creaking board made food appear in the kitchen"
    },
    {
-    "value": "the visitor watching",
-    "label": "the visitor watching",
-    "text": "the visitor watching"
+    "value": "the visitor’s steps opened the cupboard of dog food",
+    "label": "the visitor’s steps opened the cupboard of dog food",
+    "text": "the visitor’s steps opened the cupboard of dog food"
    },
    {
-    "value": "Dad going to the food cupboard",
-    "label": "Dad going to the food cupboard",
-    "text": "Dad going to the food cupboard"
+    "value": "the dog’s meal was due, so Dad fetched it",
+    "label": "the dog’s meal was due, so Dad fetched it",
+    "text": "the dog’s meal was due, so Dad fetched it"
    }
   ],
-  "answer": "Dad going to the food cupboard",
-  "correctAnswer": "Dad going to the food cupboard",
+  "answer": "the dog’s meal was due, so Dad fetched it",
+  "correctAnswer": "the dog’s meal was due, so Dad fetched it",
   "distractorRationales": {
-   "the visitor watching": "D-PLAUSIBLE-UNSUPPORTED",
-   "the creaking floorboard itself": "D-CAUSE-REVERSE",
-   "Biscuit appearing in the kitchen": "D-CAUSE-REVERSE"
+   "the visitor’s steps opened the cupboard of dog food": "D-OPPOSITE",
+   "Biscuit’s arrival made the food bowl fill itself": "D-PLAUSIBLE-UNSUPPORTED",
+   "the creaking board made food appear in the kitchen": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3894,42 +3894,42 @@ export const questions = [
   "prompt": "What does the passage say about the noise?",
   "question": "What does the passage say about the noise?",
   "spokenPrompt": "What does the passage say about the noise?",
-  "passage": "The louder the crowd sang, the harder the band played. And the harder the band played, the louder the crowd sang. By the last song, no one could say who was driving whom — the whole hall had become one big engine of noise.",
+  "passage": "The crowd sang loudly, encouraging the band to play harder. Hearing the louder band, the crowd sang even louder. The band responded by playing harder again. Both groups kept encouraging each other through the final song.",
   "cell": "reversal_trap",
   "choices": [
-   "crowd and band drove each other louder",
-   "only the band made the crowd loud",
-   "only the crowd made the band loud",
-   "the hall's engine made the noise"
+   "each group made the other get louder",
+   "only the band made the crowd louder",
+   "only the crowd made the band louder",
+   "each group became quieter as the other sang"
   ],
   "answerOptions": [
    {
-    "value": "crowd and band drove each other louder",
-    "label": "crowd and band drove each other louder",
-    "text": "crowd and band drove each other louder"
+    "value": "each group made the other get louder",
+    "label": "each group made the other get louder",
+    "text": "each group made the other get louder"
    },
    {
-    "value": "only the band made the crowd loud",
-    "label": "only the band made the crowd loud",
-    "text": "only the band made the crowd loud"
+    "value": "only the band made the crowd louder",
+    "label": "only the band made the crowd louder",
+    "text": "only the band made the crowd louder"
    },
    {
-    "value": "only the crowd made the band loud",
-    "label": "only the crowd made the band loud",
-    "text": "only the crowd made the band loud"
+    "value": "only the crowd made the band louder",
+    "label": "only the crowd made the band louder",
+    "text": "only the crowd made the band louder"
    },
    {
-    "value": "the hall's engine made the noise",
-    "label": "the hall's engine made the noise",
-    "text": "the hall's engine made the noise"
+    "value": "each group became quieter as the other sang",
+    "label": "each group became quieter as the other sang",
+    "text": "each group became quieter as the other sang"
    }
   ],
-  "answer": "crowd and band drove each other louder",
-  "correctAnswer": "crowd and band drove each other louder",
+  "answer": "each group made the other get louder",
+  "correctAnswer": "each group made the other get louder",
   "distractorRationales": {
-   "only the band made the crowd loud": "D-CAUSE-REVERSE",
-   "only the crowd made the band loud": "D-CAUSE-REVERSE",
-   "the hall's engine made the noise": "D-PLAUSIBLE-UNSUPPORTED"
+   "only the band made the crowd louder": "D-PLAUSIBLE-UNSUPPORTED",
+   "only the crowd made the band louder": "D-PLAUSIBLE-UNSUPPORTED",
+   "each group became quieter as the other sang": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3984,42 +3984,42 @@ export const questions = [
   "prompt": "Why do umbrellas and rain arrive together?",
   "question": "Why do umbrellas and rain arrive together?",
   "spokenPrompt": "Why do umbrellas and rain arrive together?",
-  "passage": "Umbrellas do not bring the rain, Grandma says, though it can look that way: the moment umbrellas open along the sidewalk, rain appears. Of course, everyone opens them because the first drops have already begun to fall.",
+  "passage": "Umbrellas opened all along the street as rain began. It might look as if opening umbrellas brought the rain. But the first drops landed before any umbrella opened. People opened them to keep those drops off their clothes.",
   "cell": "reversal_trap",
   "choices": [
-   "open umbrellas pull down the rain",
-   "Grandma signals the street",
-   "the pavement attracts clouds",
-   "first drops make people open umbrellas"
+   "opening umbrellas made the rain begin",
+   "people opened umbrellas to bring cooler air",
+   "opening umbrellas made the rain stop",
+   "the rain made people open umbrellas"
   ],
   "answerOptions": [
    {
-    "value": "open umbrellas pull down the rain",
-    "label": "open umbrellas pull down the rain",
-    "text": "open umbrellas pull down the rain"
+    "value": "opening umbrellas made the rain begin",
+    "label": "opening umbrellas made the rain begin",
+    "text": "opening umbrellas made the rain begin"
    },
    {
-    "value": "Grandma signals the street",
-    "label": "Grandma signals the street",
-    "text": "Grandma signals the street"
+    "value": "people opened umbrellas to bring cooler air",
+    "label": "people opened umbrellas to bring cooler air",
+    "text": "people opened umbrellas to bring cooler air"
    },
    {
-    "value": "the pavement attracts clouds",
-    "label": "the pavement attracts clouds",
-    "text": "the pavement attracts clouds"
+    "value": "opening umbrellas made the rain stop",
+    "label": "opening umbrellas made the rain stop",
+    "text": "opening umbrellas made the rain stop"
    },
    {
-    "value": "first drops make people open umbrellas",
-    "label": "first drops make people open umbrellas",
-    "text": "first drops make people open umbrellas"
+    "value": "the rain made people open umbrellas",
+    "label": "the rain made people open umbrellas",
+    "text": "the rain made people open umbrellas"
    }
   ],
-  "answer": "first drops make people open umbrellas",
-  "correctAnswer": "first drops make people open umbrellas",
+  "answer": "the rain made people open umbrellas",
+  "correctAnswer": "the rain made people open umbrellas",
   "distractorRationales": {
-   "open umbrellas pull down the rain": "D-CAUSE-REVERSE",
-   "Grandma signals the street": "D-PLAUSIBLE-UNSUPPORTED",
-   "the pavement attracts clouds": "D-CAUSE-REVERSE"
+   "opening umbrellas made the rain begin": "D-PLAUSIBLE-UNSUPPORTED",
+   "people opened umbrellas to bring cooler air": "D-PLAUSIBLE-UNSUPPORTED",
+   "opening umbrellas made the rain stop": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4074,42 +4074,42 @@ export const questions = [
   "prompt": "What REALLY explains Tam's four o'clock hunger?",
   "question": "What REALLY explains Tam's four o'clock hunger?",
   "spokenPrompt": "What REALLY explains Tam's four o'clock hunger?",
-  "passage": "Whenever the ice cream truck's tune started, Tam's stomach rumbled. Tam decided the tune made him hungry. Mom pointed out that the truck always came at four o'clock, hours after the very small lunch he had eaten.",
+  "passage": "Tam felt hungry when the ice cream music played. He thought the tune caused his hunger. Mom asked him to notice days without the truck. He was hungry at four on those days too. Lunch was early, and his body needed food again.",
   "cell": "reversal_trap",
   "choices": [
-   "hours had passed since his small lunch",
-   "the van's tune made him hungry",
-   "his rumbling tummy called the van",
-   "Mom's reminder made him hungry"
+   "a long gap since lunch made him hungry",
+   "the truck's music always made him hungry",
+   "hearing Mom's question made him need food",
+   "buying ice cream made the truck arrive"
   ],
   "answerOptions": [
    {
-    "value": "hours had passed since his small lunch",
-    "label": "hours had passed since his small lunch",
-    "text": "hours had passed since his small lunch"
+    "value": "a long gap since lunch made him hungry",
+    "label": "a long gap since lunch made him hungry",
+    "text": "a long gap since lunch made him hungry"
    },
    {
-    "value": "the van's tune made him hungry",
-    "label": "the van's tune made him hungry",
-    "text": "the van's tune made him hungry"
+    "value": "the truck's music always made him hungry",
+    "label": "the truck's music always made him hungry",
+    "text": "the truck's music always made him hungry"
    },
    {
-    "value": "his rumbling tummy called the van",
-    "label": "his rumbling tummy called the van",
-    "text": "his rumbling tummy called the van"
+    "value": "hearing Mom's question made him need food",
+    "label": "hearing Mom's question made him need food",
+    "text": "hearing Mom's question made him need food"
    },
    {
-    "value": "Mom's reminder made him hungry",
-    "label": "Mom's reminder made him hungry",
-    "text": "Mom's reminder made him hungry"
+    "value": "buying ice cream made the truck arrive",
+    "label": "buying ice cream made the truck arrive",
+    "text": "buying ice cream made the truck arrive"
    }
   ],
-  "answer": "hours had passed since his small lunch",
-  "correctAnswer": "hours had passed since his small lunch",
+  "answer": "a long gap since lunch made him hungry",
+  "correctAnswer": "a long gap since lunch made him hungry",
   "distractorRationales": {
-   "the van's tune made him hungry": "D-CAUSE-REVERSE",
-   "his rumbling tummy called the van": "D-CAUSE-REVERSE",
-   "Mom's reminder made him hungry": "D-PLAUSIBLE-UNSUPPORTED"
+   "the truck's music always made him hungry": "D-PLAUSIBLE-UNSUPPORTED",
+   "hearing Mom's question made him need food": "D-PLAUSIBLE-UNSUPPORTED",
+   "buying ice cream made the truck arrive": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4164,42 +4164,42 @@ export const questions = [
   "prompt": "Which explanation does the passage support?",
   "question": "Which explanation does the passage support?",
   "spokenPrompt": "Which explanation does the passage support?",
-  "passage": "The rooster crowed, and the sun came up. It happened every morning, in that order. The farmer joked that his rooster raised the sun. The vet explained that the first gray light wakes the rooster, and the crowing follows.",
+  "passage": "A rooster crowed as the sky began to brighten. The farmer joked that its crow had lifted the sun. But dawn came on quiet mornings too. The rooster noticed the early light and began crowing.",
   "cell": "reversal_trap",
   "choices": [
-   "the vet taught the rooster to crow",
-   "dawn light wakes the rooster, so he crows",
-   "the rooster's crow raises the sun",
-   "the farmer wakes the rooster"
+   "the fading daylight made the rooster call",
+   "the brightening sky prompted the bird’s call",
+   "the rooster’s crow brought the morning light",
+   "the farmer’s joke made the sky grow bright"
   ],
   "answerOptions": [
    {
-    "value": "the vet taught the rooster to crow",
-    "label": "the vet taught the rooster to crow",
-    "text": "the vet taught the rooster to crow"
+    "value": "the fading daylight made the rooster call",
+    "label": "the fading daylight made the rooster call",
+    "text": "the fading daylight made the rooster call"
    },
    {
-    "value": "dawn light wakes the rooster, so he crows",
-    "label": "dawn light wakes the rooster, so he crows",
-    "text": "dawn light wakes the rooster, so he crows"
+    "value": "the brightening sky prompted the bird’s call",
+    "label": "the brightening sky prompted the bird’s call",
+    "text": "the brightening sky prompted the bird’s call"
    },
    {
-    "value": "the rooster's crow raises the sun",
-    "label": "the rooster's crow raises the sun",
-    "text": "the rooster's crow raises the sun"
+    "value": "the rooster’s crow brought the morning light",
+    "label": "the rooster’s crow brought the morning light",
+    "text": "the rooster’s crow brought the morning light"
    },
    {
-    "value": "the farmer wakes the rooster",
-    "label": "the farmer wakes the rooster",
-    "text": "the farmer wakes the rooster"
+    "value": "the farmer’s joke made the sky grow bright",
+    "label": "the farmer’s joke made the sky grow bright",
+    "text": "the farmer’s joke made the sky grow bright"
    }
   ],
-  "answer": "dawn light wakes the rooster, so he crows",
-  "correctAnswer": "dawn light wakes the rooster, so he crows",
+  "answer": "the brightening sky prompted the bird’s call",
+  "correctAnswer": "the brightening sky prompted the bird’s call",
   "distractorRationales": {
-   "the rooster's crow raises the sun": "D-CAUSE-REVERSE",
-   "the farmer wakes the rooster": "D-PLAUSIBLE-UNSUPPORTED",
-   "the vet taught the rooster to crow": "D-PLAUSIBLE-UNSUPPORTED"
+   "the rooster’s crow brought the morning light": "D-PLAUSIBLE-UNSUPPORTED",
+   "the farmer’s joke made the sky grow bright": "D-PLAUSIBLE-UNSUPPORTED",
+   "the fading daylight made the rooster call": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4254,42 +4254,42 @@ export const questions = [
   "prompt": "According to the poster, which event caused the other?",
   "question": "According to the poster, which event caused the other?",
   "spokenPrompt": "According to the poster, which event caused the other?",
-  "passage": "Large fires usually need more firefighters than small fires. Looking only at that, you might decide firefighters make fires bigger. Ana's project poster explained the cause: the bigger the fire already is, the more firefighters get sent to it.",
+  "passage": "Big fires often have more firefighters than small fires. Ana wondered which event happened first. Her poster showed that a fire grows before extra crews arrive. More crews are called because a fire has become large.",
   "cell": "reversal_trap",
   "choices": [
-   "big fires bring many firefighters",
-   "many firefighters make fires big",
-   "small fires send firefighters away",
-   "posters cause fewer fires"
+   "a larger fire brings extra firefighters",
+   "extra firefighters make a fire grow larger",
+   "fewer firefighters always stop a fire growing",
+   "a poster tells firefighters to light a fire"
   ],
   "answerOptions": [
    {
-    "value": "big fires bring many firefighters",
-    "label": "big fires bring many firefighters",
-    "text": "big fires bring many firefighters"
+    "value": "a larger fire brings extra firefighters",
+    "label": "a larger fire brings extra firefighters",
+    "text": "a larger fire brings extra firefighters"
    },
    {
-    "value": "many firefighters make fires big",
-    "label": "many firefighters make fires big",
-    "text": "many firefighters make fires big"
+    "value": "extra firefighters make a fire grow larger",
+    "label": "extra firefighters make a fire grow larger",
+    "text": "extra firefighters make a fire grow larger"
    },
    {
-    "value": "small fires send firefighters away",
-    "label": "small fires send firefighters away",
-    "text": "small fires send firefighters away"
+    "value": "fewer firefighters always stop a fire growing",
+    "label": "fewer firefighters always stop a fire growing",
+    "text": "fewer firefighters always stop a fire growing"
    },
    {
-    "value": "posters cause fewer fires",
-    "label": "posters cause fewer fires",
-    "text": "posters cause fewer fires"
+    "value": "a poster tells firefighters to light a fire",
+    "label": "a poster tells firefighters to light a fire",
+    "text": "a poster tells firefighters to light a fire"
    }
   ],
-  "answer": "big fires bring many firefighters",
-  "correctAnswer": "big fires bring many firefighters",
+  "answer": "a larger fire brings extra firefighters",
+  "correctAnswer": "a larger fire brings extra firefighters",
   "distractorRationales": {
-   "posters cause fewer fires": "D-PLAUSIBLE-UNSUPPORTED",
-   "many firefighters make fires big": "D-CAUSE-REVERSE",
-   "small fires send firefighters away": "D-CAUSE-REVERSE"
+   "a poster tells firefighters to light a fire": "D-OPPOSITE",
+   "extra firefighters make a fire grow larger": "D-PLAUSIBLE-UNSUPPORTED",
+   "fewer firefighters always stop a fire growing": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4344,42 +4344,42 @@ export const questions = [
   "prompt": "What happened because the can was shaken?",
   "question": "What happened because the can was shaken?",
   "spokenPrompt": "What happened because the can was shaken?",
-  "passage": "Joss shook the fizzy drink can all the way home, just to hear it slosh. When Dad opened it at the table, a hissing fountain leapt out and rained on the tablecloth.",
+  "passage": "Joss shook the fizzy drink can all afternoon. Tiny bubbles built up inside the closed can. When Dad opened it, foam sprayed out. It splashed across the tablecloth.",
   "cell": "find_effect",
   "choices": [
-   "the can went cold",
-   "the drink sprayed out when opened",
-   "the drink went flat",
-   "Dad opened it at the table"
+   "Dad put the can on the table",
+   "foam sprayed from the open can",
+   "the drink froze inside the can",
+   "the lid fell inside the can"
   ],
   "answerOptions": [
    {
-    "value": "the can went cold",
-    "label": "the can went cold",
-    "text": "the can went cold"
+    "value": "Dad put the can on the table",
+    "label": "Dad put the can on the table",
+    "text": "Dad put the can on the table"
    },
    {
-    "value": "the drink sprayed out when opened",
-    "label": "the drink sprayed out when opened",
-    "text": "the drink sprayed out when opened"
+    "value": "foam sprayed from the open can",
+    "label": "foam sprayed from the open can",
+    "text": "foam sprayed from the open can"
    },
    {
-    "value": "the drink went flat",
-    "label": "the drink went flat",
-    "text": "the drink went flat"
+    "value": "the drink froze inside the can",
+    "label": "the drink froze inside the can",
+    "text": "the drink froze inside the can"
    },
    {
-    "value": "Dad opened it at the table",
-    "label": "Dad opened it at the table",
-    "text": "Dad opened it at the table"
+    "value": "the lid fell inside the can",
+    "label": "the lid fell inside the can",
+    "text": "the lid fell inside the can"
    }
   ],
-  "answer": "the drink sprayed out when opened",
-  "correctAnswer": "the drink sprayed out when opened",
+  "answer": "foam sprayed from the open can",
+  "correctAnswer": "foam sprayed from the open can",
   "distractorRationales": {
-   "Dad opened it at the table": "D-CAUSE-REVERSE",
-   "the can went cold": "D-PLAUSIBLE-UNSUPPORTED",
-   "the drink went flat": "D-OPPOSITE"
+   "the lid fell inside the can": "D-PLAUSIBLE-UNSUPPORTED",
+   "Dad put the can on the table": "D-OPPOSITE",
+   "the drink froze inside the can": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4434,42 +4434,42 @@ export const questions = [
   "prompt": "What happened because the flashlight stayed on all night?",
   "question": "What happened because the flashlight stayed on all night?",
   "spokenPrompt": "What happened because the flashlight stayed on all night?",
-  "passage": "Ben forgot to switch off the flashlight in the workshop. It shone all night. When he picked it up for the campout, the beam glowed dimly for a minute and then went out.",
+  "passage": "Ben left his flashlight shining all night. Using it for so long drained the batteries. The beam was weak when he picked it up. Soon the light went out completely.",
   "cell": "find_effect",
   "choices": [
-   "it made the beam brighter",
-   "it started the camp-out",
-   "its batteries ran down",
-   "it cracked the glass"
+   "the glass cracked from a fall",
+   "Ben switched it on at night",
+   "the batteries lost their power",
+   "the bulb grew much brighter"
   ],
   "answerOptions": [
    {
-    "value": "it made the beam brighter",
-    "label": "it made the beam brighter",
-    "text": "it made the beam brighter"
+    "value": "the glass cracked from a fall",
+    "label": "the glass cracked from a fall",
+    "text": "the glass cracked from a fall"
    },
    {
-    "value": "it started the camp-out",
-    "label": "it started the camp-out",
-    "text": "it started the camp-out"
+    "value": "Ben switched it on at night",
+    "label": "Ben switched it on at night",
+    "text": "Ben switched it on at night"
    },
    {
-    "value": "its batteries ran down",
-    "label": "its batteries ran down",
-    "text": "its batteries ran down"
+    "value": "the batteries lost their power",
+    "label": "the batteries lost their power",
+    "text": "the batteries lost their power"
    },
    {
-    "value": "it cracked the glass",
-    "label": "it cracked the glass",
-    "text": "it cracked the glass"
+    "value": "the bulb grew much brighter",
+    "label": "the bulb grew much brighter",
+    "text": "the bulb grew much brighter"
    }
   ],
-  "answer": "its batteries ran down",
-  "correctAnswer": "its batteries ran down",
+  "answer": "the batteries lost their power",
+  "correctAnswer": "the batteries lost their power",
   "distractorRationales": {
-   "it made the beam brighter": "D-OPPOSITE",
-   "it started the camp-out": "D-CAUSE-REVERSE",
-   "it cracked the glass": "D-PLAUSIBLE-UNSUPPORTED"
+   "the glass cracked from a fall": "D-PLAUSIBLE-UNSUPPORTED",
+   "Ben switched it on at night": "D-OPPOSITE",
+   "the bulb grew much brighter": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4524,42 +4524,42 @@ export const questions = [
   "prompt": "Why was Auntie Bel sneezing?",
   "question": "Why was Auntie Bel sneezing?",
   "spokenPrompt": "Why was Auntie Bel sneezing?",
-  "passage": "Auntie Bel sneezed six times before she even said hello. Her eyes were pink and watery. On her lap sat the neighbor's fluffy white cat.",
+  "passage": "Auntie Bel could not be near cats without sneezing. The doctor called it a cat allergy. At her neighbor's house, a cat climbed onto her. Her eyes watered and she started sneezing.",
   "cell": "find_cause",
   "choices": [
-   "she had caught a cold saying hello",
-   "her watery eyes made her sneeze",
-   "the neighbor was dusty",
-   "the cat's fur set off her allergy"
+   "a cold began after she said hello",
+   "her watering eyes frightened the cat",
+   "the cat scratched her while she sat",
+   "being near the cat affected her"
   ],
   "answerOptions": [
    {
-    "value": "she had caught a cold saying hello",
-    "label": "she had caught a cold saying hello",
-    "text": "she had caught a cold saying hello"
+    "value": "a cold began after she said hello",
+    "label": "a cold began after she said hello",
+    "text": "a cold began after she said hello"
    },
    {
-    "value": "her watery eyes made her sneeze",
-    "label": "her watery eyes made her sneeze",
-    "text": "her watery eyes made her sneeze"
+    "value": "her watering eyes frightened the cat",
+    "label": "her watering eyes frightened the cat",
+    "text": "her watering eyes frightened the cat"
    },
    {
-    "value": "the neighbor was dusty",
-    "label": "the neighbor was dusty",
-    "text": "the neighbor was dusty"
+    "value": "the cat scratched her while she sat",
+    "label": "the cat scratched her while she sat",
+    "text": "the cat scratched her while she sat"
    },
    {
-    "value": "the cat's fur set off her allergy",
-    "label": "the cat's fur set off her allergy",
-    "text": "the cat's fur set off her allergy"
+    "value": "being near the cat affected her",
+    "label": "being near the cat affected her",
+    "text": "being near the cat affected her"
    }
   ],
-  "answer": "the cat's fur set off her allergy",
-  "correctAnswer": "the cat's fur set off her allergy",
+  "answer": "being near the cat affected her",
+  "correctAnswer": "being near the cat affected her",
   "distractorRationales": {
-   "she had caught a cold saying hello": "D-PLAUSIBLE-UNSUPPORTED",
-   "her watery eyes made her sneeze": "D-CAUSE-REVERSE",
-   "the neighbor was dusty": "D-PLAUSIBLE-UNSUPPORTED"
+   "a cold began after she said hello": "D-PLAUSIBLE-UNSUPPORTED",
+   "her watering eyes frightened the cat": "D-PLAUSIBLE-UNSUPPORTED",
+   "the cat scratched her while she sat": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4614,42 +4614,42 @@ export const questions = [
   "prompt": "Why was mold covering the strawberries?",
   "question": "Why was mold covering the strawberries?",
   "spokenPrompt": "Why was mold covering the strawberries?",
-  "passage": "The strawberries were forgotten at the back of the fridge for two weeks. When Val found the box, soft gray mold covered every berry.",
+  "passage": "Strawberries stayed forgotten in the fridge for weeks. Over time, they spoiled and grew gray mold. Val found the old box behind the milk. She threw those spoiled berries away.",
   "cell": "find_cause",
   "choices": [
-   "they had spoiled after sitting unused for weeks",
-   "the fridge froze them",
-   "Val found the box",
-   "a mouse slept on them"
+   "the fruit was left long enough to spoil",
+   "the fridge was kept cold all night",
+   "Val moved the box away from the milk",
+   "the box was opened just before eating"
   ],
   "answerOptions": [
    {
-    "value": "they had spoiled after sitting unused for weeks",
-    "label": "they had spoiled after sitting unused for weeks",
-    "text": "they had spoiled after sitting unused for weeks"
+    "value": "the fruit was left long enough to spoil",
+    "label": "the fruit was left long enough to spoil",
+    "text": "the fruit was left long enough to spoil"
    },
    {
-    "value": "the fridge froze them",
-    "label": "the fridge froze them",
-    "text": "the fridge froze them"
+    "value": "the fridge was kept cold all night",
+    "label": "the fridge was kept cold all night",
+    "text": "the fridge was kept cold all night"
    },
    {
-    "value": "Val found the box",
-    "label": "Val found the box",
-    "text": "Val found the box"
+    "value": "Val moved the box away from the milk",
+    "label": "Val moved the box away from the milk",
+    "text": "Val moved the box away from the milk"
    },
    {
-    "value": "a mouse slept on them",
-    "label": "a mouse slept on them",
-    "text": "a mouse slept on them"
+    "value": "the box was opened just before eating",
+    "label": "the box was opened just before eating",
+    "text": "the box was opened just before eating"
    }
   ],
-  "answer": "they had spoiled after sitting unused for weeks",
-  "correctAnswer": "they had spoiled after sitting unused for weeks",
+  "answer": "the fruit was left long enough to spoil",
+  "correctAnswer": "the fruit was left long enough to spoil",
   "distractorRationales": {
-   "the fridge froze them": "D-PLAUSIBLE-UNSUPPORTED",
-   "Val found the box": "D-CAUSE-REVERSE",
-   "a mouse slept on them": "D-PLAUSIBLE-UNSUPPORTED"
+   "the fridge was kept cold all night": "D-PLAUSIBLE-UNSUPPORTED",
+   "Val moved the box away from the milk": "D-PLAUSIBLE-UNSUPPORTED",
+   "the box was opened just before eating": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4701,45 +4701,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence correctly explains the cause and effect?",
-  "question": "Which sentence correctly explains the cause and effect?",
-  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
-  "passage": "Otto kicked the bathtub plug loose while stretching his legs. Nobody noticed while the water drained away until only a cold puddle was left around his toes.",
+  "prompt": "Which sentence explains what made this happen?",
+  "question": "Which sentence explains what made this happen?",
+  "spokenPrompt": "Which sentence explains what made this happen?",
+  "passage": "Otto kicked the bath plug out by mistake. Water then escaped through the open drain. Nobody noticed until the bath was almost empty. Otto found the plug beside his foot.",
   "cell": "because_sentence",
   "choices": [
-   "The bath stayed full because of the chain.",
-   "The bath emptied because the plug had come loose.",
-   "The plug came loose because the bath emptied.",
-   "The bath emptied because the water was cold."
+   "The bath stayed full while the plug was out.",
+   "The loose plug let water escape from the bath.",
+   "The empty bath made Otto kick out the plug.",
+   "The cold water made the plug leave the drain."
   ],
   "answerOptions": [
    {
-    "value": "The bath stayed full because of the chain.",
-    "label": "The bath stayed full because of the chain.",
-    "text": "The bath stayed full because of the chain."
+    "value": "The bath stayed full while the plug was out.",
+    "label": "The bath stayed full while the plug was out.",
+    "text": "The bath stayed full while the plug was out."
    },
    {
-    "value": "The bath emptied because the plug had come loose.",
-    "label": "The bath emptied because the plug had come loose.",
-    "text": "The bath emptied because the plug had come loose."
+    "value": "The loose plug let water escape from the bath.",
+    "label": "The loose plug let water escape from the bath.",
+    "text": "The loose plug let water escape from the bath."
    },
    {
-    "value": "The plug came loose because the bath emptied.",
-    "label": "The plug came loose because the bath emptied.",
-    "text": "The plug came loose because the bath emptied."
+    "value": "The empty bath made Otto kick out the plug.",
+    "label": "The empty bath made Otto kick out the plug.",
+    "text": "The empty bath made Otto kick out the plug."
    },
    {
-    "value": "The bath emptied because the water was cold.",
-    "label": "The bath emptied because the water was cold.",
-    "text": "The bath emptied because the water was cold."
+    "value": "The cold water made the plug leave the drain.",
+    "label": "The cold water made the plug leave the drain.",
+    "text": "The cold water made the plug leave the drain."
    }
   ],
-  "answer": "The bath emptied because the plug had come loose.",
-  "correctAnswer": "The bath emptied because the plug had come loose.",
+  "answer": "The loose plug let water escape from the bath.",
+  "correctAnswer": "The loose plug let water escape from the bath.",
   "distractorRationales": {
-   "The bath stayed full because of the chain.": "D-OPPOSITE",
-   "The plug came loose because the bath emptied.": "D-CAUSE-REVERSE",
-   "The bath emptied because the water was cold.": "D-PLAUSIBLE-UNSUPPORTED"
+   "The bath stayed full while the plug was out.": "D-OPPOSITE",
+   "The empty bath made Otto kick out the plug.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The cold water made the plug leave the drain.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4791,45 +4791,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence correctly explains the cause and effect?",
-  "question": "Which sentence correctly explains the cause and effect?",
-  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
-  "passage": "The fan switched on while Nia held her birthday balloon. Moving air pushed the balloon across the room until it caught against the curtain.",
+  "prompt": "Which sentence explains what made this happen?",
+  "question": "Which sentence explains what made this happen?",
+  "spokenPrompt": "Which sentence explains what made this happen?",
+  "passage": "Nia let go of her balloon inside the room. Then a fan blew air toward it. The air pushed it across the floor. It stopped when it reached the curtain.",
   "cell": "because_sentence",
   "choices": [
-   "The balloon moved because Nia held it tight.",
-   "The curtain switched on the fan.",
-   "The balloon moved because the fan pushed air.",
-   "The fan turned because the balloon moved."
+   "The curtain pulled the balloon across the room.",
+   "The balloon pushed air back through the fan.",
+   "The fan's moving air pushed the balloon.",
+   "The balloon's movement switched on the fan."
   ],
   "answerOptions": [
    {
-    "value": "The balloon moved because Nia held it tight.",
-    "label": "The balloon moved because Nia held it tight.",
-    "text": "The balloon moved because Nia held it tight."
+    "value": "The curtain pulled the balloon across the room.",
+    "label": "The curtain pulled the balloon across the room.",
+    "text": "The curtain pulled the balloon across the room."
    },
    {
-    "value": "The curtain switched on the fan.",
-    "label": "The curtain switched on the fan.",
-    "text": "The curtain switched on the fan."
+    "value": "The balloon pushed air back through the fan.",
+    "label": "The balloon pushed air back through the fan.",
+    "text": "The balloon pushed air back through the fan."
    },
    {
-    "value": "The balloon moved because the fan pushed air.",
-    "label": "The balloon moved because the fan pushed air.",
-    "text": "The balloon moved because the fan pushed air."
+    "value": "The fan's moving air pushed the balloon.",
+    "label": "The fan's moving air pushed the balloon.",
+    "text": "The fan's moving air pushed the balloon."
    },
    {
-    "value": "The fan turned because the balloon moved.",
-    "label": "The fan turned because the balloon moved.",
-    "text": "The fan turned because the balloon moved."
+    "value": "The balloon's movement switched on the fan.",
+    "label": "The balloon's movement switched on the fan.",
+    "text": "The balloon's movement switched on the fan."
    }
   ],
-  "answer": "The balloon moved because the fan pushed air.",
-  "correctAnswer": "The balloon moved because the fan pushed air.",
+  "answer": "The fan's moving air pushed the balloon.",
+  "correctAnswer": "The fan's moving air pushed the balloon.",
   "distractorRationales": {
-   "The fan turned because the balloon moved.": "D-CAUSE-REVERSE",
-   "The balloon moved because Nia held it tight.": "D-OPPOSITE",
-   "The curtain switched on the fan.": "D-CAUSE-REVERSE"
+   "The balloon's movement switched on the fan.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The curtain pulled the balloon across the room.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The balloon pushed air back through the fan.": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4884,42 +4884,42 @@ export const questions = [
   "prompt": "What happened because the seagull swooped?",
   "question": "What happened because the seagull swooped?",
   "spokenPrompt": "What happened because the seagull swooped?",
-  "passage": "A seagull spotted Pia's box of fries the moment she sat by the beach. It swooped once, and a moment later the biggest fry was traveling down the beach in its beak.",
+  "passage": "Pia sat by the beach holding her fries. A gull flew down toward the food. It grabbed the largest fry with its beak. Then it flew away carrying the stolen food.",
   "cell": "find_effect",
   "choices": [
-   "Pia sat by the beach",
-   "the bag blew away",
-   "the tide came in",
-   "it stole a chip"
+   "Pia carried away the gull",
+   "the gull dropped all the fries",
+   "Pia fed the gull a fish",
+   "the gull carried away a fry"
   ],
   "answerOptions": [
    {
-    "value": "Pia sat by the beach",
-    "label": "Pia sat by the beach",
-    "text": "Pia sat by the beach"
+    "value": "Pia carried away the gull",
+    "label": "Pia carried away the gull",
+    "text": "Pia carried away the gull"
    },
    {
-    "value": "the bag blew away",
-    "label": "the bag blew away",
-    "text": "the bag blew away"
+    "value": "the gull dropped all the fries",
+    "label": "the gull dropped all the fries",
+    "text": "the gull dropped all the fries"
    },
    {
-    "value": "the tide came in",
-    "label": "the tide came in",
-    "text": "the tide came in"
+    "value": "Pia fed the gull a fish",
+    "label": "Pia fed the gull a fish",
+    "text": "Pia fed the gull a fish"
    },
    {
-    "value": "it stole a chip",
-    "label": "it stole a chip",
-    "text": "it stole a chip"
+    "value": "the gull carried away a fry",
+    "label": "the gull carried away a fry",
+    "text": "the gull carried away a fry"
    }
   ],
-  "answer": "it stole a chip",
-  "correctAnswer": "it stole a chip",
+  "answer": "the gull carried away a fry",
+  "correctAnswer": "the gull carried away a fry",
   "distractorRationales": {
-   "the tide came in": "D-PLAUSIBLE-UNSUPPORTED",
-   "Pia sat by the beach": "D-CAUSE-REVERSE",
-   "the bag blew away": "D-PLAUSIBLE-UNSUPPORTED"
+   "Pia fed the gull a fish": "D-OPPOSITE",
+   "Pia carried away the gull": "D-PLAUSIBLE-UNSUPPORTED",
+   "the gull dropped all the fries": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4974,42 +4974,42 @@ export const questions = [
   "prompt": "Why did the cart squeak?",
   "question": "Why did the cart squeak?",
   "spokenPrompt": "Why did the cart squeak?",
-  "passage": "The shopping cart squeaked all around the grocery store. Dad crouched by the front wheel and found a flattened piece of chewing gum stuck around it.",
+  "passage": "Dad pushed a cart through the grocery shop. One front wheel kept making a squeak. Gum stuck in that wheel stopped it turning freely. Dad removed the gum, and the squeak stopped.",
   "cell": "find_cause",
   "choices": [
-   "something sticky jammed the wheel",
-   "the shopping was too heavy",
-   "its song annoyed Dad",
-   "the floor was wet"
+   "gum was catching in a wheel",
+   "food was pressing on the handle",
+   "the floor was wet beside the cart",
+   "Dad was pushing an empty cart"
   ],
   "answerOptions": [
    {
-    "value": "something sticky jammed the wheel",
-    "label": "something sticky jammed the wheel",
-    "text": "something sticky jammed the wheel"
+    "value": "gum was catching in a wheel",
+    "label": "gum was catching in a wheel",
+    "text": "gum was catching in a wheel"
    },
    {
-    "value": "the shopping was too heavy",
-    "label": "the shopping was too heavy",
-    "text": "the shopping was too heavy"
+    "value": "food was pressing on the handle",
+    "label": "food was pressing on the handle",
+    "text": "food was pressing on the handle"
    },
    {
-    "value": "its song annoyed Dad",
-    "label": "its song annoyed Dad",
-    "text": "its song annoyed Dad"
+    "value": "the floor was wet beside the cart",
+    "label": "the floor was wet beside the cart",
+    "text": "the floor was wet beside the cart"
    },
    {
-    "value": "the floor was wet",
-    "label": "the floor was wet",
-    "text": "the floor was wet"
+    "value": "Dad was pushing an empty cart",
+    "label": "Dad was pushing an empty cart",
+    "text": "Dad was pushing an empty cart"
    }
   ],
-  "answer": "something sticky jammed the wheel",
-  "correctAnswer": "something sticky jammed the wheel",
+  "answer": "gum was catching in a wheel",
+  "correctAnswer": "gum was catching in a wheel",
   "distractorRationales": {
-   "the shopping was too heavy": "D-PLAUSIBLE-UNSUPPORTED",
-   "its song annoyed Dad": "D-CAUSE-REVERSE",
-   "the floor was wet": "D-PLAUSIBLE-UNSUPPORTED"
+   "food was pressing on the handle": "D-PLAUSIBLE-UNSUPPORTED",
+   "the floor was wet beside the cart": "D-PLAUSIBLE-UNSUPPORTED",
+   "Dad was pushing an empty cart": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5064,42 +5064,42 @@ export const questions = [
   "prompt": "What started the whole chain?",
   "question": "What started the whole chain?",
   "spokenPrompt": "What started the whole chain?",
-  "passage": "Marta's hiccups started when she gulped her fizzy lemonade too fast. The hiccups made her giggle. The giggling shook more bubbles loose, which brought more hiccups, and soon she had to put the glass down until both the giggles and the hiccups wore themselves out.",
+  "passage": "Marta drank fizzy lemonade too quickly and began to hiccup. The hiccups made her laugh. Laughing made it harder to take another sip. She set the drink down until the hiccups stopped. Then she drank more slowly.",
   "cell": "chain",
   "choices": [
-   "gulping the fizzy drink too fast",
-   "the giggling",
-   "putting the glass down",
-   "a scary story"
+   "taking hurried sips of a bubbly drink",
+   "laughing when the first hiccup began",
+   "leaving the fizzy lemonade on the table",
+   "waiting until the laughing and hiccups stopped"
   ],
   "answerOptions": [
    {
-    "value": "gulping the fizzy drink too fast",
-    "label": "gulping the fizzy drink too fast",
-    "text": "gulping the fizzy drink too fast"
+    "value": "taking hurried sips of a bubbly drink",
+    "label": "taking hurried sips of a bubbly drink",
+    "text": "taking hurried sips of a bubbly drink"
    },
    {
-    "value": "the giggling",
-    "label": "the giggling",
-    "text": "the giggling"
+    "value": "laughing when the first hiccup began",
+    "label": "laughing when the first hiccup began",
+    "text": "laughing when the first hiccup began"
    },
    {
-    "value": "putting the glass down",
-    "label": "putting the glass down",
-    "text": "putting the glass down"
+    "value": "leaving the fizzy lemonade on the table",
+    "label": "leaving the fizzy lemonade on the table",
+    "text": "leaving the fizzy lemonade on the table"
    },
    {
-    "value": "a scary story",
-    "label": "a scary story",
-    "text": "a scary story"
+    "value": "waiting until the laughing and hiccups stopped",
+    "label": "waiting until the laughing and hiccups stopped",
+    "text": "waiting until the laughing and hiccups stopped"
    }
   ],
-  "answer": "gulping the fizzy drink too fast",
-  "correctAnswer": "gulping the fizzy drink too fast",
+  "answer": "taking hurried sips of a bubbly drink",
+  "correctAnswer": "taking hurried sips of a bubbly drink",
   "distractorRationales": {
-   "a scary story": "D-PLAUSIBLE-UNSUPPORTED",
-   "the giggling": "D-SEQUENCE-SWAP",
-   "putting the glass down": "D-SEQUENCE-SWAP"
+   "waiting until the laughing and hiccups stopped": "D-OPPOSITE",
+   "laughing when the first hiccup began": "D-PLAUSIBLE-UNSUPPORTED",
+   "leaving the fizzy lemonade on the table": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5151,45 +5151,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Why did the door need painting twice?",
-  "question": "Why did the door need painting twice?",
-  "spokenPrompt": "Why did the door need painting twice?",
-  "passage": "The paint tin was left open overnight. By morning a skin had formed across the top. When Dad stirred the skin in, little rubbery flecks spread through the paint, and every stroke he brushed onto the door left tiny lumps, so the whole door had to be sanded and painted again.",
+  "prompt": "What was wrong with the door's first coat of paint?",
+  "question": "What was wrong with the door's first coat of paint?",
+  "spokenPrompt": "What was wrong with the door's first coat of paint?",
+  "passage": "The paint tin stayed open overnight. A dry skin formed across its surface. Dad stirred that skin into the liquid paint. Bits of skin left small bumps on the painted door. He sanded the dry coat smooth before repainting it.",
   "cell": "chain",
   "choices": [
-   "the brush was too wide",
-   "the first coat dried with bumps in it",
-   "the tin was left open overnight",
-   "Dad sanded the door"
+   "its surface showed long hairs from the brush",
+   "its surface felt lumpy instead of smooth",
+   "its surface stayed wet after the tin was closed",
+   "its surface had places without any paint"
   ],
   "answerOptions": [
    {
-    "value": "the brush was too wide",
-    "label": "the brush was too wide",
-    "text": "the brush was too wide"
+    "value": "its surface showed long hairs from the brush",
+    "label": "its surface showed long hairs from the brush",
+    "text": "its surface showed long hairs from the brush"
    },
    {
-    "value": "the first coat dried with bumps in it",
-    "label": "the first coat dried with bumps in it",
-    "text": "the first coat dried with bumps in it"
+    "value": "its surface felt lumpy instead of smooth",
+    "label": "its surface felt lumpy instead of smooth",
+    "text": "its surface felt lumpy instead of smooth"
    },
    {
-    "value": "the tin was left open overnight",
-    "label": "the tin was left open overnight",
-    "text": "the tin was left open overnight"
+    "value": "its surface stayed wet after the tin was closed",
+    "label": "its surface stayed wet after the tin was closed",
+    "text": "its surface stayed wet after the tin was closed"
    },
    {
-    "value": "Dad sanded the door",
-    "label": "Dad sanded the door",
-    "text": "Dad sanded the door"
+    "value": "its surface had places without any paint",
+    "label": "its surface had places without any paint",
+    "text": "its surface had places without any paint"
    }
   ],
-  "answer": "the first coat dried with bumps in it",
-  "correctAnswer": "the first coat dried with bumps in it",
+  "answer": "its surface felt lumpy instead of smooth",
+  "correctAnswer": "its surface felt lumpy instead of smooth",
   "distractorRationales": {
-   "the tin was left open overnight": "D-SEQUENCE-SWAP",
-   "Dad sanded the door": "D-SEQUENCE-SWAP",
-   "the brush was too wide": "D-PLAUSIBLE-UNSUPPORTED"
+   "its surface stayed wet after the tin was closed": "D-PLAUSIBLE-UNSUPPORTED",
+   "its surface had places without any paint": "D-PLAUSIBLE-UNSUPPORTED",
+   "its surface showed long hairs from the brush": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5241,45 +5241,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these was NOT a reason the laundry dried slowly?",
-  "question": "Which of these was NOT a reason the laundry dried slowly?",
-  "spokenPrompt": "Which of these was NOT a reason the laundry dried slowly?",
-  "passage": "The laundry took all day to dry. The morning was misty and damp. The line hung in the shadiest corner of the yard. Mom had hung everything up while it was still dripping.",
+  "prompt": "Which reason for slow drying is NOT given?",
+  "question": "Which reason for slow drying is NOT given?",
+  "spokenPrompt": "Which reason for slow drying is NOT given?",
+  "passage": "The clothes took all day to dry outside. The morning air was misty and damp. The line hung in a shady part of the yard. The clothes were also very wet when Mom hung them up.",
   "cell": "multiple_causes",
   "choices": [
-   "the shady corner",
-   "clothes hung up dripping",
-   "a hot wind blew all day",
-   "the damp, misty morning"
+   "the washing line stayed in the shade",
+   "the clothes went on the line very wet",
+   "rain fell on the washing all day",
+   "the air was damp in the morning"
   ],
   "answerOptions": [
    {
-    "value": "the shady corner",
-    "label": "the shady corner",
-    "text": "the shady corner"
+    "value": "the washing line stayed in the shade",
+    "label": "the washing line stayed in the shade",
+    "text": "the washing line stayed in the shade"
    },
    {
-    "value": "clothes hung up dripping",
-    "label": "clothes hung up dripping",
-    "text": "clothes hung up dripping"
+    "value": "the clothes went on the line very wet",
+    "label": "the clothes went on the line very wet",
+    "text": "the clothes went on the line very wet"
    },
    {
-    "value": "a hot wind blew all day",
-    "label": "a hot wind blew all day",
-    "text": "a hot wind blew all day"
+    "value": "rain fell on the washing all day",
+    "label": "rain fell on the washing all day",
+    "text": "rain fell on the washing all day"
    },
    {
-    "value": "the damp, misty morning",
-    "label": "the damp, misty morning",
-    "text": "the damp, misty morning"
+    "value": "the air was damp in the morning",
+    "label": "the air was damp in the morning",
+    "text": "the air was damp in the morning"
    }
   ],
-  "answer": "a hot wind blew all day",
-  "correctAnswer": "a hot wind blew all day",
+  "answer": "rain fell on the washing all day",
+  "correctAnswer": "rain fell on the washing all day",
   "distractorRationales": {
-   "clothes hung up dripping": "D-DETAIL-AS-MAIN",
-   "the damp, misty morning": "D-DETAIL-AS-MAIN",
-   "the shady corner": "D-DETAIL-AS-MAIN"
+   "the clothes went on the line very wet": "D-OPPOSITE",
+   "the air was damp in the morning": "D-PLAUSIBLE-UNSUPPORTED",
+   "the washing line stayed in the shade": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5331,45 +5331,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these was NOT a cause of the escape?",
-  "question": "Which of these was NOT a cause of the escape?",
-  "spokenPrompt": "Which of these was NOT a cause of the escape?",
-  "passage": "The school hamster escaped in the night. His cage door had a weak latch that never quite clicked. The custodian had moved the cage next to the shelf, making a bridge. Feeding time meant the door had been opened one extra time.",
+  "prompt": "Which possible cause is NOT in the passage?",
+  "question": "Which possible cause is NOT in the passage?",
+  "spokenPrompt": "Which possible cause is NOT in the passage?",
+  "passage": "The hamster escaped through a loose cage door. Its latch did not click shut firmly. A nearby shelf gave it a way down to the floor. Nobody checked the door after the evening feed. The cage was empty next morning.",
   "cell": "multiple_causes",
   "choices": [
-   "the weak latch",
-   "the shelf right beside the cage",
-   "the extra feeding-time opening",
-   "a child took him home"
+   "the door latch did not hold firmly",
+   "a shelf made a route to the floor",
+   "the door was not checked after feeding",
+   "a child took the hamster home"
   ],
   "answerOptions": [
    {
-    "value": "the weak latch",
-    "label": "the weak latch",
-    "text": "the weak latch"
+    "value": "the door latch did not hold firmly",
+    "label": "the door latch did not hold firmly",
+    "text": "the door latch did not hold firmly"
    },
    {
-    "value": "the shelf right beside the cage",
-    "label": "the shelf right beside the cage",
-    "text": "the shelf right beside the cage"
+    "value": "a shelf made a route to the floor",
+    "label": "a shelf made a route to the floor",
+    "text": "a shelf made a route to the floor"
    },
    {
-    "value": "the extra feeding-time opening",
-    "label": "the extra feeding-time opening",
-    "text": "the extra feeding-time opening"
+    "value": "the door was not checked after feeding",
+    "label": "the door was not checked after feeding",
+    "text": "the door was not checked after feeding"
    },
    {
-    "value": "a child took him home",
-    "label": "a child took him home",
-    "text": "a child took him home"
+    "value": "a child took the hamster home",
+    "label": "a child took the hamster home",
+    "text": "a child took the hamster home"
    }
   ],
-  "answer": "a child took him home",
-  "correctAnswer": "a child took him home",
+  "answer": "a child took the hamster home",
+  "correctAnswer": "a child took the hamster home",
   "distractorRationales": {
-   "the weak latch": "D-DETAIL-AS-MAIN",
-   "the shelf right beside the cage": "D-DETAIL-AS-MAIN",
-   "the extra feeding-time opening": "D-DETAIL-AS-MAIN"
+   "the door latch did not hold firmly": "D-PLAUSIBLE-UNSUPPORTED",
+   "a shelf made a route to the floor": "D-PLAUSIBLE-UNSUPPORTED",
+   "the door was not checked after feeding": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5424,42 +5424,42 @@ export const questions = [
   "prompt": "What REALLY links ice cream and sunburn?",
   "question": "What REALLY links ice cream and sunburn?",
   "spokenPrompt": "What REALLY links ice cream and sunburn?",
-  "passage": "Ice cream sales and sunburn both increase in July. One newspaper joked that ice cream causes sunburn. A fourth-grade class worked out the truth for their science display: hot sunny weather causes both more ice cream sales and more sunburn.",
+  "passage": "During sunny weather, ice cream sales went up. Sunburn became more common at the same time. Children checked why both things happened. The sun made people want cold treats. Sunlight also caused skin to burn. The treats did not cause the sunburn.",
   "cell": "reversal_trap",
   "choices": [
-   "hot sun causes both at once",
-   "ice cream causes sunburn",
-   "sunburn makes people buy cones",
-   "the newspaper causes July"
+   "sunny weather brings both changes",
+   "buying ice cream causes skin to burn",
+   "getting sunburn makes people buy cones",
+   "selling more cones makes sunlight stronger"
   ],
   "answerOptions": [
    {
-    "value": "hot sun causes both at once",
-    "label": "hot sun causes both at once",
-    "text": "hot sun causes both at once"
+    "value": "sunny weather brings both changes",
+    "label": "sunny weather brings both changes",
+    "text": "sunny weather brings both changes"
    },
    {
-    "value": "ice cream causes sunburn",
-    "label": "ice cream causes sunburn",
-    "text": "ice cream causes sunburn"
+    "value": "buying ice cream causes skin to burn",
+    "label": "buying ice cream causes skin to burn",
+    "text": "buying ice cream causes skin to burn"
    },
    {
-    "value": "sunburn makes people buy cones",
-    "label": "sunburn makes people buy cones",
-    "text": "sunburn makes people buy cones"
+    "value": "getting sunburn makes people buy cones",
+    "label": "getting sunburn makes people buy cones",
+    "text": "getting sunburn makes people buy cones"
    },
    {
-    "value": "the newspaper causes July",
-    "label": "the newspaper causes July",
-    "text": "the newspaper causes July"
+    "value": "selling more cones makes sunlight stronger",
+    "label": "selling more cones makes sunlight stronger",
+    "text": "selling more cones makes sunlight stronger"
    }
   ],
-  "answer": "hot sun causes both at once",
-  "correctAnswer": "hot sun causes both at once",
+  "answer": "sunny weather brings both changes",
+  "correctAnswer": "sunny weather brings both changes",
   "distractorRationales": {
-   "sunburn makes people buy cones": "D-CAUSE-REVERSE",
-   "the newspaper causes July": "D-PLAUSIBLE-UNSUPPORTED",
-   "ice cream causes sunburn": "D-CAUSE-REVERSE"
+   "getting sunburn makes people buy cones": "D-PLAUSIBLE-UNSUPPORTED",
+   "selling more cones makes sunlight stronger": "D-OPPOSITE",
+   "buying ice cream causes skin to burn": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5514,42 +5514,42 @@ export const questions = [
   "prompt": "What REALLY explains the lights and the yawns?",
   "question": "What REALLY explains the lights and the yawns?",
   "spokenPrompt": "What REALLY explains the lights and the yawns?",
-  "passage": "Grandpa noticed that the streetlights always came on just as he yawned his first evening yawn. 'My yawns switch them on,' he liked to say. Actually both had the same cause: the sky growing dark, dark enough for lights and late enough for yawns.",
+  "passage": "Grandpa yawned as the streetlights came on each evening. He joked that his yawn switched them on. A light sensor actually switched them on when darkness came. Grandpa grew sleepy because it was late in his day. Neither event caused the other one.",
   "cell": "reversal_trap",
   "choices": [
-   "the switch is in his chair",
-   "evening darkness triggers both",
-   "Grandpa's yawns switch on the lights",
-   "the streetlights make him yawn"
+   "his chair controls the streetlight switch",
+   "both happen as the day grows late",
+   "his first yawn switches the lights on",
+   "the streetlights always make him yawn"
   ],
   "answerOptions": [
    {
-    "value": "the switch is in his chair",
-    "label": "the switch is in his chair",
-    "text": "the switch is in his chair"
+    "value": "his chair controls the streetlight switch",
+    "label": "his chair controls the streetlight switch",
+    "text": "his chair controls the streetlight switch"
    },
    {
-    "value": "evening darkness triggers both",
-    "label": "evening darkness triggers both",
-    "text": "evening darkness triggers both"
+    "value": "both happen as the day grows late",
+    "label": "both happen as the day grows late",
+    "text": "both happen as the day grows late"
    },
    {
-    "value": "Grandpa's yawns switch on the lights",
-    "label": "Grandpa's yawns switch on the lights",
-    "text": "Grandpa's yawns switch on the lights"
+    "value": "his first yawn switches the lights on",
+    "label": "his first yawn switches the lights on",
+    "text": "his first yawn switches the lights on"
    },
    {
-    "value": "the streetlights make him yawn",
-    "label": "the streetlights make him yawn",
-    "text": "the streetlights make him yawn"
+    "value": "the streetlights always make him yawn",
+    "label": "the streetlights always make him yawn",
+    "text": "the streetlights always make him yawn"
    }
   ],
-  "answer": "evening darkness triggers both",
-  "correctAnswer": "evening darkness triggers both",
+  "answer": "both happen as the day grows late",
+  "correctAnswer": "both happen as the day grows late",
   "distractorRationales": {
-   "the streetlights make him yawn": "D-CAUSE-REVERSE",
-   "the switch is in his chair": "D-PLAUSIBLE-UNSUPPORTED",
-   "Grandpa's yawns switch on the lights": "D-CAUSE-REVERSE"
+   "the streetlights always make him yawn": "D-PLAUSIBLE-UNSUPPORTED",
+   "his chair controls the streetlight switch": "D-OPPOSITE",
+   "his first yawn switches the lights on": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5601,45 +5601,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Why did the group walk in a loop?",
-  "question": "Why did the group walk in a loop?",
-  "spokenPrompt": "Why did the group walk in a loop?",
-  "passage": "The magnet in Theo's pocket sat right next to his compass on the hike. The needle swung to point at the magnet instead of north. Trusting the needle, the group turned left at the fork, and the left path took them in a long loop back to their starting trail gate.",
+  "prompt": "What made the compass show the wrong direction?",
+  "question": "What made the compass show the wrong direction?",
+  "spokenPrompt": "What made the compass show the wrong direction?",
+  "passage": "Theo carried a magnet beside his compass. The magnet pulled the needle away from its correct direction. The group followed that wrong direction at a path junction. They walked in a loop back to their starting point.",
   "cell": "chain",
   "choices": [
-   "they turned left at the fork",
-   "the stile moved",
-   "a pocket magnet misdirected the needle",
-   "the compass broke in the rain"
+   "the group walking back to its starting point",
+   "rain entering the compass beside the path",
+   "a magnetic object near the pointer",
+   "the group following a sign at the junction"
   ],
   "answerOptions": [
    {
-    "value": "they turned left at the fork",
-    "label": "they turned left at the fork",
-    "text": "they turned left at the fork"
+    "value": "the group walking back to its starting point",
+    "label": "the group walking back to its starting point",
+    "text": "the group walking back to its starting point"
    },
    {
-    "value": "the stile moved",
-    "label": "the stile moved",
-    "text": "the stile moved"
+    "value": "rain entering the compass beside the path",
+    "label": "rain entering the compass beside the path",
+    "text": "rain entering the compass beside the path"
    },
    {
-    "value": "a pocket magnet misdirected the needle",
-    "label": "a pocket magnet misdirected the needle",
-    "text": "a pocket magnet misdirected the needle"
+    "value": "a magnetic object near the pointer",
+    "label": "a magnetic object near the pointer",
+    "text": "a magnetic object near the pointer"
    },
    {
-    "value": "the compass broke in the rain",
-    "label": "the compass broke in the rain",
-    "text": "the compass broke in the rain"
+    "value": "the group following a sign at the junction",
+    "label": "the group following a sign at the junction",
+    "text": "the group following a sign at the junction"
    }
   ],
-  "answer": "a pocket magnet misdirected the needle",
-  "correctAnswer": "a pocket magnet misdirected the needle",
+  "answer": "a magnetic object near the pointer",
+  "correctAnswer": "a magnetic object near the pointer",
   "distractorRationales": {
-   "the compass broke in the rain": "D-PLAUSIBLE-UNSUPPORTED",
-   "they turned left at the fork": "D-SEQUENCE-SWAP",
-   "the stile moved": "D-OPPOSITE"
+   "the group following a sign at the junction": "D-PLAUSIBLE-UNSUPPORTED",
+   "the group walking back to its starting point": "D-PLAUSIBLE-UNSUPPORTED",
+   "rain entering the compass beside the path": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5691,45 +5691,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these was NOT a reason the candles kept going out?",
-  "question": "Which of these was NOT a reason the candles kept going out?",
-  "spokenPrompt": "Which of these was NOT a reason the candles kept going out?",
-  "passage": "The candles on the cake would not stay lit. The back door stood open to the garden. The ceiling fan spun on full. And two excited cousins were bouncing on the bench, puffing with laughter right at candle height.",
+  "prompt": "Which cause of the flames going out is NOT given?",
+  "question": "Which cause of the flames going out is NOT given?",
+  "spokenPrompt": "Which cause of the flames going out is NOT given?",
+  "passage": "The cake candles kept going out. Air blew through the open back door. The ceiling fan pushed more air across the cake. Two cousins laughed so close that their breath reached the flames. Mom moved the cake into a still corner.",
   "cell": "multiple_causes",
   "choices": [
-   "the open back door",
-   "the ceiling fan",
-   "the puffing cousins",
-   "the wax was too soft"
+   "air blew through the open back door",
+   "the ceiling fan pushed air at the cake",
+   "the cousins breathed right at the flames",
+   "rainwater had made the candles wet"
   ],
   "answerOptions": [
    {
-    "value": "the open back door",
-    "label": "the open back door",
-    "text": "the open back door"
+    "value": "air blew through the open back door",
+    "label": "air blew through the open back door",
+    "text": "air blew through the open back door"
    },
    {
-    "value": "the ceiling fan",
-    "label": "the ceiling fan",
-    "text": "the ceiling fan"
+    "value": "the ceiling fan pushed air at the cake",
+    "label": "the ceiling fan pushed air at the cake",
+    "text": "the ceiling fan pushed air at the cake"
    },
    {
-    "value": "the puffing cousins",
-    "label": "the puffing cousins",
-    "text": "the puffing cousins"
+    "value": "the cousins breathed right at the flames",
+    "label": "the cousins breathed right at the flames",
+    "text": "the cousins breathed right at the flames"
    },
    {
-    "value": "the wax was too soft",
-    "label": "the wax was too soft",
-    "text": "the wax was too soft"
+    "value": "rainwater had made the candles wet",
+    "label": "rainwater had made the candles wet",
+    "text": "rainwater had made the candles wet"
    }
   ],
-  "answer": "the wax was too soft",
-  "correctAnswer": "the wax was too soft",
+  "answer": "rainwater had made the candles wet",
+  "correctAnswer": "rainwater had made the candles wet",
   "distractorRationales": {
-   "the open back door": "D-DETAIL-AS-MAIN",
-   "the ceiling fan": "D-DETAIL-AS-MAIN",
-   "the puffing cousins": "D-DETAIL-AS-MAIN"
+   "air blew through the open back door": "D-PLAUSIBLE-UNSUPPORTED",
+   "the ceiling fan pushed air at the cake": "D-PLAUSIBLE-UNSUPPORTED",
+   "the cousins breathed right at the flames": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5760,5 +5760,1445 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": ""
+ },
+ {
+  "id": "lp3.cause_effect.l1.A.find_cause.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "find_cause",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Why did the tent fall?",
+  "question": "Why did the tent fall?",
+  "spokenPrompt": "Why did the tent fall?",
+  "passage": "The tent pegs pulled loose in the strong wind. Without the pegs, one side of the tent fell.",
+  "cell": "find_cause",
+  "choices": [
+   "the rain washed the tent clean",
+   "the wind loosened the pegs",
+   "the wind stopped before dawn",
+   "the pegs held the tent firmly"
+  ],
+  "answerOptions": [
+   {
+    "value": "the rain washed the tent clean",
+    "label": "the rain washed the tent clean",
+    "text": "the rain washed the tent clean"
+   },
+   {
+    "value": "the wind loosened the pegs",
+    "label": "the wind loosened the pegs",
+    "text": "the wind loosened the pegs"
+   },
+   {
+    "value": "the wind stopped before dawn",
+    "label": "the wind stopped before dawn",
+    "text": "the wind stopped before dawn"
+   },
+   {
+    "value": "the pegs held the tent firmly",
+    "label": "the pegs held the tent firmly",
+    "text": "the pegs held the tent firmly"
+   }
+  ],
+  "answer": "the wind loosened the pegs",
+  "correctAnswer": "the wind loosened the pegs",
+  "distractorRationales": {
+   "the pegs held the tent firmly": "D-PLAUSIBLE-UNSUPPORTED",
+   "the rain washed the tent clean": "D-OPPOSITE",
+   "the wind stopped before dawn": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.A.find_cause.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.cause_effect.l1.A.find_effect.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "find_effect",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What happened because of the hole?",
+  "question": "What happened because of the hole?",
+  "spokenPrompt": "What happened because of the hole?",
+  "passage": "The cup had a small hole in its base. As Jo filled it, water leaked onto the table.",
+  "cell": "find_effect",
+  "choices": [
+   "Jo put the cup away empty",
+   "the tap stopped running water",
+   "water escaped from the cup",
+   "the table made the cup wobble"
+  ],
+  "answerOptions": [
+   {
+    "value": "Jo put the cup away empty",
+    "label": "Jo put the cup away empty",
+    "text": "Jo put the cup away empty"
+   },
+   {
+    "value": "the tap stopped running water",
+    "label": "the tap stopped running water",
+    "text": "the tap stopped running water"
+   },
+   {
+    "value": "water escaped from the cup",
+    "label": "water escaped from the cup",
+    "text": "water escaped from the cup"
+   },
+   {
+    "value": "the table made the cup wobble",
+    "label": "the table made the cup wobble",
+    "text": "the table made the cup wobble"
+   }
+  ],
+  "answer": "water escaped from the cup",
+  "correctAnswer": "water escaped from the cup",
+  "distractorRationales": {
+   "Jo put the cup away empty": "D-PLAUSIBLE-UNSUPPORTED",
+   "the tap stopped running water": "D-OPPOSITE",
+   "the table made the cup wobble": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.A.find_effect.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.cause_effect.l1.A.because_sentence.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "because_sentence",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which sentence explains what happened?",
+  "question": "Which sentence explains what happened?",
+  "spokenPrompt": "Which sentence explains what happened?",
+  "passage": "A ball rolled into the open doorway. It blocked the door. Mia could not close it.",
+  "cell": "because_sentence",
+  "choices": [
+   "Mia could not shut the door because she lost it.",
+   "The ball moved outside because the door was closed.",
+   "The doorway opened because Mia put the ball away.",
+   "Mia could not shut the door because it was blocked."
+  ],
+  "answerOptions": [
+   {
+    "value": "Mia could not shut the door because she lost it.",
+    "label": "Mia could not shut the door because she lost it.",
+    "text": "Mia could not shut the door because she lost it."
+   },
+   {
+    "value": "The ball moved outside because the door was closed.",
+    "label": "The ball moved outside because the door was closed.",
+    "text": "The ball moved outside because the door was closed."
+   },
+   {
+    "value": "The doorway opened because Mia put the ball away.",
+    "label": "The doorway opened because Mia put the ball away.",
+    "text": "The doorway opened because Mia put the ball away."
+   },
+   {
+    "value": "Mia could not shut the door because it was blocked.",
+    "label": "Mia could not shut the door because it was blocked.",
+    "text": "Mia could not shut the door because it was blocked."
+   }
+  ],
+  "answer": "Mia could not shut the door because it was blocked.",
+  "correctAnswer": "Mia could not shut the door because it was blocked.",
+  "distractorRationales": {
+   "Mia could not shut the door because she lost it.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The ball moved outside because the door was closed.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The doorway opened because Mia put the ball away.": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.A.because_sentence.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.cause_effect.l1.A.find_cause.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "find_cause",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Why did Dad turn left?",
+  "question": "Why did Dad turn left?",
+  "spokenPrompt": "Why did Dad turn left?",
+  "passage": "The sign pointed left toward the hall. Dad followed it and reached the hall without asking.",
+  "cell": "find_cause",
+  "choices": [
+   "a direction marker guided him there",
+   "the hall had no sign beside it",
+   "the hall was closed for repair work",
+   "he wanted to leave the hall quickly"
+  ],
+  "answerOptions": [
+   {
+    "value": "a direction marker guided him there",
+    "label": "a direction marker guided him there",
+    "text": "a direction marker guided him there"
+   },
+   {
+    "value": "the hall had no sign beside it",
+    "label": "the hall had no sign beside it",
+    "text": "the hall had no sign beside it"
+   },
+   {
+    "value": "the hall was closed for repair work",
+    "label": "the hall was closed for repair work",
+    "text": "the hall was closed for repair work"
+   },
+   {
+    "value": "he wanted to leave the hall quickly",
+    "label": "he wanted to leave the hall quickly",
+    "text": "he wanted to leave the hall quickly"
+   }
+  ],
+  "answer": "a direction marker guided him there",
+  "correctAnswer": "a direction marker guided him there",
+  "distractorRationales": {
+   "the hall had no sign beside it": "D-PLAUSIBLE-UNSUPPORTED",
+   "the hall was closed for repair work": "D-PLAUSIBLE-UNSUPPORTED",
+   "he wanted to leave the hall quickly": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.A.find_cause.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.cause_effect.l1.A.find_effect.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "find_effect",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What did the extra weight do?",
+  "question": "What did the extra weight do?",
+  "spokenPrompt": "What did the extra weight do?",
+  "passage": "Asha added more paper clips to her model bridge. Their weight became too much, and the bridge bent.",
+  "cell": "find_effect",
+  "choices": [
+   "removed clips from the bridge",
+   "made the model bridge bend",
+   "made the bridge grow wider",
+   "helped the bridge hold more weight"
+  ],
+  "answerOptions": [
+   {
+    "value": "removed clips from the bridge",
+    "label": "removed clips from the bridge",
+    "text": "removed clips from the bridge"
+   },
+   {
+    "value": "made the model bridge bend",
+    "label": "made the model bridge bend",
+    "text": "made the model bridge bend"
+   },
+   {
+    "value": "made the bridge grow wider",
+    "label": "made the bridge grow wider",
+    "text": "made the bridge grow wider"
+   },
+   {
+    "value": "helped the bridge hold more weight",
+    "label": "helped the bridge hold more weight",
+    "text": "helped the bridge hold more weight"
+   }
+  ],
+  "answer": "made the model bridge bend",
+  "correctAnswer": "made the model bridge bend",
+  "distractorRationales": {
+   "made the bridge grow wider": "D-PLAUSIBLE-UNSUPPORTED",
+   "helped the bridge hold more weight": "D-PLAUSIBLE-UNSUPPORTED",
+   "removed clips from the bridge": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.A.find_effect.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.cause_effect.l1.A.because_sentence.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "because_sentence",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which sentence explains what happened?",
+  "question": "Which sentence explains what happened?",
+  "spokenPrompt": "Which sentence explains what happened?",
+  "passage": "The room was dark until Lee opened the curtains. Sunlight came through, making the room bright.",
+  "cell": "because_sentence",
+  "choices": [
+   "The sun rose because Lee opened the curtains.",
+   "The room darkened because the curtains were open.",
+   "The room brightened because Lee let sunlight enter.",
+   "Lee closed the curtains because sunlight was entering."
+  ],
+  "answerOptions": [
+   {
+    "value": "The sun rose because Lee opened the curtains.",
+    "label": "The sun rose because Lee opened the curtains.",
+    "text": "The sun rose because Lee opened the curtains."
+   },
+   {
+    "value": "The room darkened because the curtains were open.",
+    "label": "The room darkened because the curtains were open.",
+    "text": "The room darkened because the curtains were open."
+   },
+   {
+    "value": "The room brightened because Lee let sunlight enter.",
+    "label": "The room brightened because Lee let sunlight enter.",
+    "text": "The room brightened because Lee let sunlight enter."
+   },
+   {
+    "value": "Lee closed the curtains because sunlight was entering.",
+    "label": "Lee closed the curtains because sunlight was entering.",
+    "text": "Lee closed the curtains because sunlight was entering."
+   }
+  ],
+  "answer": "The room brightened because Lee let sunlight enter.",
+  "correctAnswer": "The room brightened because Lee let sunlight enter.",
+  "distractorRationales": {
+   "The sun rose because Lee opened the curtains.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The room darkened because the curtains were open.": "D-OPPOSITE",
+   "Lee closed the curtains because sunlight was entering.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.A.because_sentence.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.cause_effect.l1.A.find_cause.v22",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "find_cause",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Why did Theo choose another bench?",
+  "question": "Why did Theo choose another bench?",
+  "spokenPrompt": "Why did Theo choose another bench?",
+  "passage": "A red label warned that the paint was wet. Theo saw it and chose a different bench.",
+  "cell": "find_cause",
+  "choices": [
+   "he saw that the label had fallen off",
+   "he wanted to sit on the wet paint",
+   "he saw that the painted bench was dry",
+   "he wanted to avoid the wet paint"
+  ],
+  "answerOptions": [
+   {
+    "value": "he saw that the label had fallen off",
+    "label": "he saw that the label had fallen off",
+    "text": "he saw that the label had fallen off"
+   },
+   {
+    "value": "he wanted to sit on the wet paint",
+    "label": "he wanted to sit on the wet paint",
+    "text": "he wanted to sit on the wet paint"
+   },
+   {
+    "value": "he saw that the painted bench was dry",
+    "label": "he saw that the painted bench was dry",
+    "text": "he saw that the painted bench was dry"
+   },
+   {
+    "value": "he wanted to avoid the wet paint",
+    "label": "he wanted to avoid the wet paint",
+    "text": "he wanted to avoid the wet paint"
+   }
+  ],
+  "answer": "he wanted to avoid the wet paint",
+  "correctAnswer": "he wanted to avoid the wet paint",
+  "distractorRationales": {
+   "he saw that the label had fallen off": "D-PLAUSIBLE-UNSUPPORTED",
+   "he wanted to sit on the wet paint": "D-PLAUSIBLE-UNSUPPORTED",
+   "he saw that the painted bench was dry": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.A.find_cause.v22",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.cause_effect.l1.A.find_effect.v22",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "find_effect",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What happened after Eva tightened the screw?",
+  "question": "What happened after Eva tightened the screw?",
+  "spokenPrompt": "What happened after Eva tightened the screw?",
+  "passage": "The wheel’s screw was loose, so it kept wobbling. Eva tightened the screw. Then the wheel turned smoothly.",
+  "cell": "find_effect",
+  "choices": [
+   "the wheel stopped wobbling",
+   "the screw came loose again",
+   "the wheel fell off completely",
+   "the wheel stopped turning at all"
+  ],
+  "answerOptions": [
+   {
+    "value": "the wheel stopped wobbling",
+    "label": "the wheel stopped wobbling",
+    "text": "the wheel stopped wobbling"
+   },
+   {
+    "value": "the screw came loose again",
+    "label": "the screw came loose again",
+    "text": "the screw came loose again"
+   },
+   {
+    "value": "the wheel fell off completely",
+    "label": "the wheel fell off completely",
+    "text": "the wheel fell off completely"
+   },
+   {
+    "value": "the wheel stopped turning at all",
+    "label": "the wheel stopped turning at all",
+    "text": "the wheel stopped turning at all"
+   }
+  ],
+  "answer": "the wheel stopped wobbling",
+  "correctAnswer": "the wheel stopped wobbling",
+  "distractorRationales": {
+   "the screw came loose again": "D-PLAUSIBLE-UNSUPPORTED",
+   "the wheel fell off completely": "D-PLAUSIBLE-UNSUPPORTED",
+   "the wheel stopped turning at all": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.A.find_effect.v22",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.cause_effect.l2.A.chain.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "chain",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Why was the path closed?",
+  "question": "Why was the path closed?",
+  "spokenPrompt": "Why was the path closed?",
+  "passage": "Leaves blocked the drain, so rainwater could not flow away. Water gathered on the path and froze overnight. In the morning, the caretaker closed the slippery path.",
+  "cell": "chain",
+  "choices": [
+   "the caretaker had forgotten where the path went",
+   "the rain had stopped before the water gathered",
+   "standing water had turned into slippery ice",
+   "the drain had been cleared of all its leaves"
+  ],
+  "answerOptions": [
+   {
+    "value": "the caretaker had forgotten where the path went",
+    "label": "the caretaker had forgotten where the path went",
+    "text": "the caretaker had forgotten where the path went"
+   },
+   {
+    "value": "the rain had stopped before the water gathered",
+    "label": "the rain had stopped before the water gathered",
+    "text": "the rain had stopped before the water gathered"
+   },
+   {
+    "value": "standing water had turned into slippery ice",
+    "label": "standing water had turned into slippery ice",
+    "text": "standing water had turned into slippery ice"
+   },
+   {
+    "value": "the drain had been cleared of all its leaves",
+    "label": "the drain had been cleared of all its leaves",
+    "text": "the drain had been cleared of all its leaves"
+   }
+  ],
+  "answer": "standing water had turned into slippery ice",
+  "correctAnswer": "standing water had turned into slippery ice",
+  "distractorRationales": {
+   "the rain had stopped before the water gathered": "D-OPPOSITE",
+   "the drain had been cleared of all its leaves": "D-PLAUSIBLE-UNSUPPORTED",
+   "the caretaker had forgotten where the path went": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.A.chain.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.cause_effect.l2.A.multiple_causes.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "multiple_causes",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which cause is NOT given for the sinking cake?",
+  "question": "Which cause is NOT given for the sinking cake?",
+  "spokenPrompt": "Which cause is NOT given for the sinking cake?",
+  "passage": "The cake sank because the oven door opened too soon. The baker had also used too little flour. She kept the correct cooking time and used fresh eggs.",
+  "cell": "multiple_causes",
+  "choices": [
+   "the oven door opened before it should",
+   "the mixture contained too little flour",
+   "both the early opening and missing flour",
+   "the eggs were too old to use"
+  ],
+  "answerOptions": [
+   {
+    "value": "the oven door opened before it should",
+    "label": "the oven door opened before it should",
+    "text": "the oven door opened before it should"
+   },
+   {
+    "value": "the mixture contained too little flour",
+    "label": "the mixture contained too little flour",
+    "text": "the mixture contained too little flour"
+   },
+   {
+    "value": "both the early opening and missing flour",
+    "label": "both the early opening and missing flour",
+    "text": "both the early opening and missing flour"
+   },
+   {
+    "value": "the eggs were too old to use",
+    "label": "the eggs were too old to use",
+    "text": "the eggs were too old to use"
+   }
+  ],
+  "answer": "the eggs were too old to use",
+  "correctAnswer": "the eggs were too old to use",
+  "distractorRationales": {
+   "both the early opening and missing flour": "D-OPPOSITE",
+   "the oven door opened before it should": "D-PLAUSIBLE-UNSUPPORTED",
+   "the mixture contained too little flour": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.A.multiple_causes.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.cause_effect.l2.A.reversal_trap.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "reversal_trap",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which cause and effect fits the evidence?",
+  "question": "Which cause and effect fits the evidence?",
+  "spokenPrompt": "Which cause and effect fits the evidence?",
+  "passage": "The heater warmed the room, and then the ice sculpture melted. Turning the heater off slowed the melting. The sculpture had stayed solid before the room became warm.",
+  "cell": "reversal_trap",
+  "choices": [
+   "the heater’s warmth caused the ice to melt",
+   "the melting ice caused the heater to switch on",
+   "the solid ice caused the room to become warmer",
+   "switching off the heater caused faster melting"
+  ],
+  "answerOptions": [
+   {
+    "value": "the heater’s warmth caused the ice to melt",
+    "label": "the heater’s warmth caused the ice to melt",
+    "text": "the heater’s warmth caused the ice to melt"
+   },
+   {
+    "value": "the melting ice caused the heater to switch on",
+    "label": "the melting ice caused the heater to switch on",
+    "text": "the melting ice caused the heater to switch on"
+   },
+   {
+    "value": "the solid ice caused the room to become warmer",
+    "label": "the solid ice caused the room to become warmer",
+    "text": "the solid ice caused the room to become warmer"
+   },
+   {
+    "value": "switching off the heater caused faster melting",
+    "label": "switching off the heater caused faster melting",
+    "text": "switching off the heater caused faster melting"
+   }
+  ],
+  "answer": "the heater’s warmth caused the ice to melt",
+  "correctAnswer": "the heater’s warmth caused the ice to melt",
+  "distractorRationales": {
+   "the solid ice caused the room to become warmer": "D-PLAUSIBLE-UNSUPPORTED",
+   "switching off the heater caused faster melting": "D-OPPOSITE",
+   "the melting ice caused the heater to switch on": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.A.reversal_trap.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.cause_effect.l2.A.chain.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "chain",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Why did few families arrive at the new time?",
+  "question": "Why did few families arrive at the new time?",
+  "spokenPrompt": "Why did few families arrive at the new time?",
+  "passage": "The printer ran out of paper, so the notices were delayed. Without notices, families did not know the new meeting time. Only a few arrived when the meeting began.",
+  "cell": "chain",
+  "choices": [
+   "the families had voted to cancel the meeting",
+   "the delayed notices had not told them about it",
+   "the printer had sent them the new time early",
+   "the meeting had already finished before anyone knew"
+  ],
+  "answerOptions": [
+   {
+    "value": "the families had voted to cancel the meeting",
+    "label": "the families had voted to cancel the meeting",
+    "text": "the families had voted to cancel the meeting"
+   },
+   {
+    "value": "the delayed notices had not told them about it",
+    "label": "the delayed notices had not told them about it",
+    "text": "the delayed notices had not told them about it"
+   },
+   {
+    "value": "the printer had sent them the new time early",
+    "label": "the printer had sent them the new time early",
+    "text": "the printer had sent them the new time early"
+   },
+   {
+    "value": "the meeting had already finished before anyone knew",
+    "label": "the meeting had already finished before anyone knew",
+    "text": "the meeting had already finished before anyone knew"
+   }
+  ],
+  "answer": "the delayed notices had not told them about it",
+  "correctAnswer": "the delayed notices had not told them about it",
+  "distractorRationales": {
+   "the printer had sent them the new time early": "D-PLAUSIBLE-UNSUPPORTED",
+   "the meeting had already finished before anyone knew": "D-PLAUSIBLE-UNSUPPORTED",
+   "the families had voted to cancel the meeting": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.A.chain.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.cause_effect.l2.A.multiple_causes.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "multiple_causes",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which cause of lateness is NOT supported?",
+  "question": "Which cause of lateness is NOT supported?",
+  "spokenPrompt": "Which cause of lateness is NOT supported?",
+  "passage": "Several walkers arrived late because a fallen tree blocked the path. Heavy rain also slowed their progress. Their map was correct, and everyone had left on time.",
+  "cell": "multiple_causes",
+  "choices": [
+   "heavy rain slowed their walking speed",
+   "both the fallen tree and the rain",
+   "the walkers followed an incorrect map",
+   "the fallen tree blocked their usual path"
+  ],
+  "answerOptions": [
+   {
+    "value": "heavy rain slowed their walking speed",
+    "label": "heavy rain slowed their walking speed",
+    "text": "heavy rain slowed their walking speed"
+   },
+   {
+    "value": "both the fallen tree and the rain",
+    "label": "both the fallen tree and the rain",
+    "text": "both the fallen tree and the rain"
+   },
+   {
+    "value": "the walkers followed an incorrect map",
+    "label": "the walkers followed an incorrect map",
+    "text": "the walkers followed an incorrect map"
+   },
+   {
+    "value": "the fallen tree blocked their usual path",
+    "label": "the fallen tree blocked their usual path",
+    "text": "the fallen tree blocked their usual path"
+   }
+  ],
+  "answer": "the walkers followed an incorrect map",
+  "correctAnswer": "the walkers followed an incorrect map",
+  "distractorRationales": {
+   "the fallen tree blocked their usual path": "D-PLAUSIBLE-UNSUPPORTED",
+   "heavy rain slowed their walking speed": "D-PLAUSIBLE-UNSUPPORTED",
+   "both the fallen tree and the rain": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.A.multiple_causes.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.cause_effect.l2.A.chain.v22",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "chain",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Why could some passengers not board the next bus?",
+  "question": "Why could some passengers not board the next bus?",
+  "spokenPrompt": "Why could some passengers not board the next bus?",
+  "passage": "A bus broke down, leaving fewer buses on the route. More people waited at each stop. The next bus filled up and could not take everyone.",
+  "cell": "chain",
+  "choices": [
+   "the passengers had arrived before any bus broke down",
+   "the stops had been moved away from the route",
+   "more empty buses had arrived at the same time",
+   "fewer working buses had made that bus too full"
+  ],
+  "answerOptions": [
+   {
+    "value": "the passengers had arrived before any bus broke down",
+    "label": "the passengers had arrived before any bus broke down",
+    "text": "the passengers had arrived before any bus broke down"
+   },
+   {
+    "value": "the stops had been moved away from the route",
+    "label": "the stops had been moved away from the route",
+    "text": "the stops had been moved away from the route"
+   },
+   {
+    "value": "more empty buses had arrived at the same time",
+    "label": "more empty buses had arrived at the same time",
+    "text": "more empty buses had arrived at the same time"
+   },
+   {
+    "value": "fewer working buses had made that bus too full",
+    "label": "fewer working buses had made that bus too full",
+    "text": "fewer working buses had made that bus too full"
+   }
+  ],
+  "answer": "fewer working buses had made that bus too full",
+  "correctAnswer": "fewer working buses had made that bus too full",
+  "distractorRationales": {
+   "the passengers had arrived before any bus broke down": "D-PLAUSIBLE-UNSUPPORTED",
+   "the stops had been moved away from the route": "D-PLAUSIBLE-UNSUPPORTED",
+   "more empty buses had arrived at the same time": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.A.chain.v22",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.cause_effect.l2.A.reversal_trap.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "reversal_trap",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which explanation matches the events?",
+  "question": "Which explanation matches the events?",
+  "spokenPrompt": "Which explanation matches the events?",
+  "passage": "A loose roof tile let rain drip onto the ceiling. The wet patch grew during each storm. After the tile was replaced, the ceiling stayed dry.",
+  "cell": "reversal_trap",
+  "choices": [
+   "the damaged roof let water make the ceiling wet",
+   "the wet ceiling made the rain fall onto the roof",
+   "the new tile caused the old wet patch to grow",
+   "the dry weather broke the tile during the repair"
+  ],
+  "answerOptions": [
+   {
+    "value": "the damaged roof let water make the ceiling wet",
+    "label": "the damaged roof let water make the ceiling wet",
+    "text": "the damaged roof let water make the ceiling wet"
+   },
+   {
+    "value": "the wet ceiling made the rain fall onto the roof",
+    "label": "the wet ceiling made the rain fall onto the roof",
+    "text": "the wet ceiling made the rain fall onto the roof"
+   },
+   {
+    "value": "the new tile caused the old wet patch to grow",
+    "label": "the new tile caused the old wet patch to grow",
+    "text": "the new tile caused the old wet patch to grow"
+   },
+   {
+    "value": "the dry weather broke the tile during the repair",
+    "label": "the dry weather broke the tile during the repair",
+    "text": "the dry weather broke the tile during the repair"
+   }
+  ],
+  "answer": "the damaged roof let water make the ceiling wet",
+  "correctAnswer": "the damaged roof let water make the ceiling wet",
+  "distractorRationales": {
+   "the wet ceiling made the rain fall onto the roof": "D-PLAUSIBLE-UNSUPPORTED",
+   "the new tile caused the old wet patch to grow": "D-PLAUSIBLE-UNSUPPORTED",
+   "the dry weather broke the tile during the repair": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.A.reversal_trap.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.cause_effect.l2.A.chain.v23",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "chain",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What directly made the food soften?",
+  "question": "What directly made the food soften?",
+  "spokenPrompt": "What directly made the food soften?",
+  "passage": "A freezer alarm warned that its door had been left open. The warm air softened the frozen food. Staff moved the food to another freezer before it fully thawed.",
+  "cell": "chain",
+  "choices": [
+   "the freezer door being closed after the move",
+   "warm air entering through the open door",
+   "the alarm sounding inside the cold room",
+   "staff moving it into another working freezer"
+  ],
+  "answerOptions": [
+   {
+    "value": "the freezer door being closed after the move",
+    "label": "the freezer door being closed after the move",
+    "text": "the freezer door being closed after the move"
+   },
+   {
+    "value": "warm air entering through the open door",
+    "label": "warm air entering through the open door",
+    "text": "warm air entering through the open door"
+   },
+   {
+    "value": "the alarm sounding inside the cold room",
+    "label": "the alarm sounding inside the cold room",
+    "text": "the alarm sounding inside the cold room"
+   },
+   {
+    "value": "staff moving it into another working freezer",
+    "label": "staff moving it into another working freezer",
+    "text": "staff moving it into another working freezer"
+   }
+  ],
+  "answer": "warm air entering through the open door",
+  "correctAnswer": "warm air entering through the open door",
+  "distractorRationales": {
+   "staff moving it into another working freezer": "D-PLAUSIBLE-UNSUPPORTED",
+   "the freezer door being closed after the move": "D-OPPOSITE",
+   "the alarm sounding inside the cold room": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.A.chain.v23",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
  }
 ];

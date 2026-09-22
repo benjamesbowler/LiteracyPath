@@ -446,6 +446,9 @@ export function buildShortVowelWordOption(word, existingOption = {}) {
 }
 
 export function normalizeShortVowelWordCategoryOptions(rawQuestion = {}, answerOptions = [], correctAnswer = "") {
+  // Reviewed V3 contrasts may deliberately include a long-vowel near spelling.
+  // Replacing it changes the construct and invalidates the authored rationale.
+  if (rawQuestion.v3AuthoredMedia) return answerOptions;
   if (!isShortVowelWordCategoryQuestion(rawQuestion)) {
     return answerOptions;
   }

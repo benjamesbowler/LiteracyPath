@@ -65,7 +65,9 @@ const REJECTED_RIVALS = {
   "lp3.hfw_76_100.l1.B.number.v2": ["time"],
   "lp3.hfw_76_100.l1.A.oil.v1": ["water"],
   "lp3.hfw_76_100.l1.B.oil.v2": ["water", "time"],
-  "lp3.hfw_76_100.l1.B.than.v2": ["with"]
+  "lp3.hfw_76_100.l1.B.than.v2": ["with"],
+  "lp3.hfw_76_100.l1.A.water.v1": ["more"],
+  "lp3.hfw_76_100.l1.B.water.v2": ["time", "more"]
 };
 
 // A semantic judgment cannot be reconstructed from token overlap alone. These
@@ -73,10 +75,10 @@ const REJECTED_RIVALS = {
 // prompts, answer set, rationale codes, and retention role). Any future change
 // therefore requires another direct semantic review.
 const REVIEWED_FIXTURE_HASHES = {
-  hfw_1_25: "e97152b0b222c6e9fdebda9aadaced1ec23e01bf33f6099f5fe446bc52bb375a",
-  hfw_26_50: "d9e9be1fc356ac6901a717c1bbc81557555dd618c97676b02f6ba6427347af67",
-  hfw_51_75: "ec8ea5c00c19dadf6ab1a6e8fd05afdef32e7141813bf2287d6dc24708e63ef4",
-  hfw_76_100: "1754ba2029b0dd7b4c585e74b42a8a8f3cb440888f4c9ee85aaa049c95756f4f"
+  hfw_1_25: "a8981866a987a417d507d7095925198e2b7794b8d30b454d7627a7eae95cd688",
+  hfw_26_50: "95b2a1f0b1bc5eb8ea8236d271d8c6b69fcca1c13cf732b4bca4b1ba77520bd6",
+  hfw_51_75: "b4c71a02247c4eaec560a7d85941615ad8fe89d02986597921542e664ab882be",
+  hfw_76_100: "499e68b10f6f7affd6277c39d95cf9f17e2dc010c6cd178db007526cbe00fe37"
 };
 
 async function loadClozeItems(skillId) {
@@ -129,5 +131,18 @@ test("independently reviewed HFW semantic fixtures remain unchanged", async () =
       REVIEWED_FIXTURE_HASHES[skillId],
       `${skillId} semantic fixture changed; repeat direct item-by-item review before updating the hash`
     );
+  }
+});
+
+
+test("some is pinned by a stated partial quantity rather than an open-ended offer", async () => {
+  const items = await loadClozeItems("hfw_51_75");
+  const first = items.find(item => item.id === "lp3.hfw_51_75.l1.A.some.v1");
+  const second = items.find(item => item.id === "lp3.hfw_51_75.l1.B.some.v2");
+  assert.equal(first.sentence, "Of eight birds, three sing. ___ birds sing.");
+  assert.equal(second.sentence, "I ate ___ of eight slices: exactly three.");
+  for (const item of [first, second]) {
+    assert.equal(item.answer, "some");
+    assert.ok(item.choices.includes("all"), "the all/some contrast remains meaningful");
   }
 });

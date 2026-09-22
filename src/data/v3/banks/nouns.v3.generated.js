@@ -3585,20 +3585,20 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence names TWO things?",
-  "question": "Which sentence names TWO things?",
-  "spokenPrompt": "Which sentence names TWO things?",
+  "prompt": "Which sentence has exactly TWO naming words?",
+  "question": "Which sentence has exactly TWO naming words?",
+  "spokenPrompt": "Which sentence has exactly TWO naming words?",
   "choices": [
-   "We went out late.",
+   "We sat very still.",
    "The cat sat on the mat.",
-   "Run fast and jump high.",
-   "She is very happy."
+   "The cat sat quietly.",
+   "The cat, dog and hen slept."
   ],
   "answerOptions": [
    {
-    "value": "We went out late.",
-    "label": "We went out late.",
-    "text": "We went out late."
+    "value": "We sat very still.",
+    "label": "We sat very still.",
+    "text": "We sat very still."
    },
    {
     "value": "The cat sat on the mat.",
@@ -3606,22 +3606,22 @@ export const questions = [
     "text": "The cat sat on the mat."
    },
    {
-    "value": "Run fast and jump high.",
-    "label": "Run fast and jump high.",
-    "text": "Run fast and jump high."
+    "value": "The cat sat quietly.",
+    "label": "The cat sat quietly.",
+    "text": "The cat sat quietly."
    },
    {
-    "value": "She is very happy.",
-    "label": "She is very happy.",
-    "text": "She is very happy."
+    "value": "The cat, dog and hen slept.",
+    "label": "The cat, dog and hen slept.",
+    "text": "The cat, dog and hen slept."
    }
   ],
   "answer": "The cat sat on the mat.",
   "correctAnswer": "The cat sat on the mat.",
   "distractorRationales": {
-   "We went out late.": "D-FUNCTION-SWAP",
-   "Run fast and jump high.": "D-FUNCTION-SWAP",
-   "She is very happy.": "D-FUNCTION-SWAP"
+   "We sat very still.": "D-FUNCTION-SWAP",
+   "The cat sat quietly.": "D-FUNCTION-SWAP",
+   "The cat, dog and hen slept.": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3651,7 +3651,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cat + mat; the others name one thing or none"
+  "notes": "cat + mat; the distractors contain one, three and zero naming words"
  },
  {
   "id": "lp3.nouns.l2.B.noun_two_step.v2",
@@ -3673,14 +3673,14 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence names TWO things?",
-  "question": "Which sentence names TWO things?",
-  "spokenPrompt": "Which sentence names TWO things?",
+  "prompt": "Which sentence has exactly TWO naming words?",
+  "question": "Which sentence has exactly TWO naming words?",
+  "spokenPrompt": "Which sentence has exactly TWO naming words?",
   "choices": [
    "The dog dug up a bone.",
-   "He hops and skips well.",
-   "They are so tall.",
-   "I ran off quickly."
+   "The dog dug quickly.",
+   "The dog took a bone to its bowl.",
+   "They dug all day."
   ],
   "answerOptions": [
    {
@@ -3689,27 +3689,27 @@ export const questions = [
     "text": "The dog dug up a bone."
    },
    {
-    "value": "He hops and skips well.",
-    "label": "He hops and skips well.",
-    "text": "He hops and skips well."
+    "value": "The dog dug quickly.",
+    "label": "The dog dug quickly.",
+    "text": "The dog dug quickly."
    },
    {
-    "value": "They are so tall.",
-    "label": "They are so tall.",
-    "text": "They are so tall."
+    "value": "The dog took a bone to its bowl.",
+    "label": "The dog took a bone to its bowl.",
+    "text": "The dog took a bone to its bowl."
    },
    {
-    "value": "I ran off quickly.",
-    "label": "I ran off quickly.",
-    "text": "I ran off quickly."
+    "value": "They dug all day.",
+    "label": "They dug all day.",
+    "text": "They dug all day."
    }
   ],
   "answer": "The dog dug up a bone.",
   "correctAnswer": "The dog dug up a bone.",
   "distractorRationales": {
-   "He hops and skips well.": "D-FUNCTION-SWAP",
-   "They are so tall.": "D-FUNCTION-SWAP",
-   "I ran off quickly.": "D-FUNCTION-SWAP"
+   "The dog dug quickly.": "D-FUNCTION-SWAP",
+   "The dog took a bone to its bowl.": "D-FUNCTION-SWAP",
+   "They dug all day.": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3761,20 +3761,20 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence names TWO things?",
-  "question": "Which sentence names TWO things?",
-  "spokenPrompt": "Which sentence names TWO things?",
+  "prompt": "Which sentence has exactly TWO naming words?",
+  "question": "Which sentence has exactly TWO naming words?",
+  "spokenPrompt": "Which sentence has exactly TWO naming words?",
   "choices": [
-   "You did so well.",
+   "It jumped up high.",
    "A frog sat on a log.",
-   "She sang and danced.",
-   "It is too cold."
+   "The frog jumped away.",
+   "A frog and a toad sat on a log."
   ],
   "answerOptions": [
    {
-    "value": "You did so well.",
-    "label": "You did so well.",
-    "text": "You did so well."
+    "value": "It jumped up high.",
+    "label": "It jumped up high.",
+    "text": "It jumped up high."
    },
    {
     "value": "A frog sat on a log.",
@@ -3782,22 +3782,22 @@ export const questions = [
     "text": "A frog sat on a log."
    },
    {
-    "value": "She sang and danced.",
-    "label": "She sang and danced.",
-    "text": "She sang and danced."
+    "value": "The frog jumped away.",
+    "label": "The frog jumped away.",
+    "text": "The frog jumped away."
    },
    {
-    "value": "It is too cold.",
-    "label": "It is too cold.",
-    "text": "It is too cold."
+    "value": "A frog and a toad sat on a log.",
+    "label": "A frog and a toad sat on a log.",
+    "text": "A frog and a toad sat on a log."
    }
   ],
   "answer": "A frog sat on a log.",
   "correctAnswer": "A frog sat on a log.",
   "distractorRationales": {
-   "You did so well.": "D-FUNCTION-SWAP",
-   "She sang and danced.": "D-FUNCTION-SWAP",
-   "It is too cold.": "D-FUNCTION-SWAP"
+   "It jumped up high.": "D-FUNCTION-SWAP",
+   "The frog jumped away.": "D-FUNCTION-SWAP",
+   "A frog and a toad sat on a log.": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3849,44 +3849,44 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which naming word fits: The cat and the ___ hid in the barn.",
-  "question": "Which naming word fits: The cat and the ___ hid in the barn.",
-  "spokenPrompt": "Which naming word fits? The cat and the … hid in the barn.",
-  "sentence": "The cat and the ___ hid in the barn.",
+  "prompt": "Which pair completes both naming words? The ___ chased a ___.",
+  "question": "Which pair completes both naming words? The ___ chased a ___.",
+  "spokenPrompt": "Which pair completes both naming words? The … chased a ….",
+  "sentence": "The ___ chased a ___.",
   "choices": [
-   "wet",
-   "hid",
-   "mouse",
-   "ran"
+   "chased and mouse",
+   "the and a",
+   "cat and mouse",
+   "cat and chased"
   ],
   "answerOptions": [
    {
-    "value": "wet",
-    "label": "wet",
-    "text": "wet"
+    "value": "chased and mouse",
+    "label": "chased and mouse",
+    "text": "chased and mouse"
    },
    {
-    "value": "hid",
-    "label": "hid",
-    "text": "hid"
+    "value": "the and a",
+    "label": "the and a",
+    "text": "the and a"
    },
    {
-    "value": "mouse",
-    "label": "mouse",
-    "text": "mouse"
+    "value": "cat and mouse",
+    "label": "cat and mouse",
+    "text": "cat and mouse"
    },
    {
-    "value": "ran",
-    "label": "ran",
-    "text": "ran"
+    "value": "cat and chased",
+    "label": "cat and chased",
+    "text": "cat and chased"
    }
   ],
-  "answer": "mouse",
-  "correctAnswer": "mouse",
+  "answer": "cat and mouse",
+  "correctAnswer": "cat and mouse",
   "distractorRationales": {
-   "ran": "D-FUNCTION-SWAP",
-   "wet": "D-FUNCTION-SWAP",
-   "hid": "D-FUNCTION-SWAP"
+   "cat and chased": "D-FUNCTION-SWAP",
+   "chased and mouse": "D-FUNCTION-SWAP",
+   "the and a": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3896,7 +3896,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The cat and the ___ hid in the barn.",
+  "sentenceText": "The ___ chased a ___.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3917,7 +3917,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "finish the two-thing list — only a naming word can join the and"
+  "notes": "Identify both naming words, rather than spotting just one."
  },
  {
   "id": "lp3.nouns.l2.B.noun_two_step.v5",
@@ -3939,20 +3939,20 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence names TWO things?",
-  "question": "Which sentence names TWO things?",
-  "spokenPrompt": "Which sentence names TWO things?",
+  "prompt": "Which sentence has exactly TWO naming words?",
+  "question": "Which sentence has exactly TWO naming words?",
+  "spokenPrompt": "Which sentence has exactly TWO naming words?",
   "choices": [
-   "They ran and hid.",
+   "It fell down slowly.",
    "My hat fell in the mud.",
-   "Sit down and rest up.",
-   "It was so loud."
+   "My hat fell down.",
+   "My hat and coat fell in mud."
   ],
   "answerOptions": [
    {
-    "value": "They ran and hid.",
-    "label": "They ran and hid.",
-    "text": "They ran and hid."
+    "value": "It fell down slowly.",
+    "label": "It fell down slowly.",
+    "text": "It fell down slowly."
    },
    {
     "value": "My hat fell in the mud.",
@@ -3960,22 +3960,22 @@ export const questions = [
     "text": "My hat fell in the mud."
    },
    {
-    "value": "Sit down and rest up.",
-    "label": "Sit down and rest up.",
-    "text": "Sit down and rest up."
+    "value": "My hat fell down.",
+    "label": "My hat fell down.",
+    "text": "My hat fell down."
    },
    {
-    "value": "It was so loud.",
-    "label": "It was so loud.",
-    "text": "It was so loud."
+    "value": "My hat and coat fell in mud.",
+    "label": "My hat and coat fell in mud.",
+    "text": "My hat and coat fell in mud."
    }
   ],
   "answer": "My hat fell in the mud.",
   "correctAnswer": "My hat fell in the mud.",
   "distractorRationales": {
-   "Sit down and rest up.": "D-FUNCTION-SWAP",
-   "It was so loud.": "D-FUNCTION-SWAP",
-   "They ran and hid.": "D-FUNCTION-SWAP"
+   "My hat fell down.": "D-FUNCTION-SWAP",
+   "My hat and coat fell in mud.": "D-FUNCTION-SWAP",
+   "It fell down slowly.": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4027,25 +4027,25 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence names TWO things?",
-  "question": "Which sentence names TWO things?",
-  "spokenPrompt": "Which sentence names TWO things?",
+  "prompt": "Which sentence has exactly TWO naming words?",
+  "question": "Which sentence has exactly TWO naming words?",
+  "spokenPrompt": "Which sentence has exactly TWO naming words?",
   "choices": [
-   "She is quite quick.",
-   "He will not stop.",
+   "The bee flew from a rose to a tree.",
+   "It flew away fast.",
    "The bee flew to the rose.",
-   "Come in and dry off."
+   "The bee flew away."
   ],
   "answerOptions": [
    {
-    "value": "She is quite quick.",
-    "label": "She is quite quick.",
-    "text": "She is quite quick."
+    "value": "The bee flew from a rose to a tree.",
+    "label": "The bee flew from a rose to a tree.",
+    "text": "The bee flew from a rose to a tree."
    },
    {
-    "value": "He will not stop.",
-    "label": "He will not stop.",
-    "text": "He will not stop."
+    "value": "It flew away fast.",
+    "label": "It flew away fast.",
+    "text": "It flew away fast."
    },
    {
     "value": "The bee flew to the rose.",
@@ -4053,17 +4053,17 @@ export const questions = [
     "text": "The bee flew to the rose."
    },
    {
-    "value": "Come in and dry off.",
-    "label": "Come in and dry off.",
-    "text": "Come in and dry off."
+    "value": "The bee flew away.",
+    "label": "The bee flew away.",
+    "text": "The bee flew away."
    }
   ],
   "answer": "The bee flew to the rose.",
   "correctAnswer": "The bee flew to the rose.",
   "distractorRationales": {
-   "Come in and dry off.": "D-FUNCTION-SWAP",
-   "She is quite quick.": "D-FUNCTION-SWAP",
-   "He will not stop.": "D-FUNCTION-SWAP"
+   "The bee flew away.": "D-FUNCTION-SWAP",
+   "The bee flew from a rose to a tree.": "D-FUNCTION-SWAP",
+   "It flew away fast.": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4115,30 +4115,30 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence names TWO things?",
-  "question": "Which sentence names TWO things?",
-  "spokenPrompt": "Which sentence names TWO things?",
+  "prompt": "Which sentence has exactly TWO naming words?",
+  "question": "Which sentence has exactly TWO naming words?",
+  "spokenPrompt": "Which sentence has exactly TWO naming words?",
   "choices": [
-   "Hop up and hold on.",
-   "It got very dark.",
-   "You may go in.",
+   "A crab hid there.",
+   "A crab and a fish hid under a rock.",
+   "They hid very well.",
    "A crab hid under a rock."
   ],
   "answerOptions": [
    {
-    "value": "Hop up and hold on.",
-    "label": "Hop up and hold on.",
-    "text": "Hop up and hold on."
+    "value": "A crab hid there.",
+    "label": "A crab hid there.",
+    "text": "A crab hid there."
    },
    {
-    "value": "It got very dark.",
-    "label": "It got very dark.",
-    "text": "It got very dark."
+    "value": "A crab and a fish hid under a rock.",
+    "label": "A crab and a fish hid under a rock.",
+    "text": "A crab and a fish hid under a rock."
    },
    {
-    "value": "You may go in.",
-    "label": "You may go in.",
-    "text": "You may go in."
+    "value": "They hid very well.",
+    "label": "They hid very well.",
+    "text": "They hid very well."
    },
    {
     "value": "A crab hid under a rock.",
@@ -4149,9 +4149,9 @@ export const questions = [
   "answer": "A crab hid under a rock.",
   "correctAnswer": "A crab hid under a rock.",
   "distractorRationales": {
-   "Hop up and hold on.": "D-FUNCTION-SWAP",
-   "It got very dark.": "D-FUNCTION-SWAP",
-   "You may go in.": "D-FUNCTION-SWAP"
+   "A crab hid there.": "D-FUNCTION-SWAP",
+   "A crab and a fish hid under a rock.": "D-FUNCTION-SWAP",
+   "They hid very well.": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4203,44 +4203,44 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which naming word fits: A fork and a ___ sat by the plate.",
-  "question": "Which naming word fits: A fork and a ___ sat by the plate.",
-  "spokenPrompt": "Which naming word fits? A fork and a … sat by the plate.",
-  "sentence": "A fork and a ___ sat by the plate.",
+  "prompt": "Which pair completes both naming words? A ___ scratched the ___.",
+  "question": "Which pair completes both naming words? A ___ scratched the ___.",
+  "spokenPrompt": "Which pair completes both naming words? A … scratched the ….",
+  "sentence": "A ___ scratched the ___.",
   "choices": [
-   "clean",
-   "cut",
-   "spoon",
-   "eat"
+   "scratched and plate",
+   "a and the",
+   "fork and plate",
+   "fork and scratched"
   ],
   "answerOptions": [
    {
-    "value": "clean",
-    "label": "clean",
-    "text": "clean"
+    "value": "scratched and plate",
+    "label": "scratched and plate",
+    "text": "scratched and plate"
    },
    {
-    "value": "cut",
-    "label": "cut",
-    "text": "cut"
+    "value": "a and the",
+    "label": "a and the",
+    "text": "a and the"
    },
    {
-    "value": "spoon",
-    "label": "spoon",
-    "text": "spoon"
+    "value": "fork and plate",
+    "label": "fork and plate",
+    "text": "fork and plate"
    },
    {
-    "value": "eat",
-    "label": "eat",
-    "text": "eat"
+    "value": "fork and scratched",
+    "label": "fork and scratched",
+    "text": "fork and scratched"
    }
   ],
-  "answer": "spoon",
-  "correctAnswer": "spoon",
+  "answer": "fork and plate",
+  "correctAnswer": "fork and plate",
   "distractorRationales": {
-   "cut": "D-FUNCTION-SWAP",
-   "eat": "D-FUNCTION-SWAP",
-   "clean": "D-FUNCTION-SWAP"
+   "a and the": "D-FUNCTION-SWAP",
+   "fork and scratched": "D-FUNCTION-SWAP",
+   "scratched and plate": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4250,7 +4250,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "A fork and a ___ sat by the plate.",
+  "sentenceText": "A ___ scratched the ___.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4271,7 +4271,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify both naming words, rather than spotting just one."
  },
  {
   "id": "lp3.nouns.l1.R.noun_person.v7r",
@@ -4565,21 +4565,21 @@ export const questions = [
   "question": "Which word names a thing?",
   "spokenPrompt": "Which word names a thing?",
   "choices": [
-   "bump",
-   "blow",
+   "quickly",
+   "gently",
    "brush",
    "brave"
   ],
   "answerOptions": [
    {
-    "value": "bump",
-    "label": "bump",
-    "text": "bump"
+    "value": "quickly",
+    "label": "quickly",
+    "text": "quickly"
    },
    {
-    "value": "blow",
-    "label": "blow",
-    "text": "blow"
+    "value": "gently",
+    "label": "gently",
+    "text": "gently"
    },
    {
     "value": "brush",
@@ -4595,8 +4595,8 @@ export const questions = [
   "answer": "brush",
   "correctAnswer": "brush",
   "distractorRationales": {
-   "bump": "D-FUNCTION-SWAP",
-   "blow": "D-FUNCTION-SWAP",
+   "quickly": "D-FUNCTION-SWAP",
+   "gently": "D-FUNCTION-SWAP",
    "brave": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
@@ -4829,14 +4829,14 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence names TWO things?",
-  "question": "Which sentence names TWO things?",
-  "spokenPrompt": "Which sentence names TWO things?",
+  "prompt": "Which sentence has exactly TWO naming words?",
+  "question": "Which sentence has exactly TWO naming words?",
+  "spokenPrompt": "Which sentence has exactly TWO naming words?",
   "choices": [
    "The hen laid an egg.",
-   "Duck down and creep in.",
-   "It is far too wet.",
-   "She may not come."
+   "The hen clucked loudly.",
+   "The hen laid an egg in straw.",
+   "It was so loud."
   ],
   "answerOptions": [
    {
@@ -4845,27 +4845,27 @@ export const questions = [
     "text": "The hen laid an egg."
    },
    {
-    "value": "Duck down and creep in.",
-    "label": "Duck down and creep in.",
-    "text": "Duck down and creep in."
+    "value": "The hen clucked loudly.",
+    "label": "The hen clucked loudly.",
+    "text": "The hen clucked loudly."
    },
    {
-    "value": "It is far too wet.",
-    "label": "It is far too wet.",
-    "text": "It is far too wet."
+    "value": "The hen laid an egg in straw.",
+    "label": "The hen laid an egg in straw.",
+    "text": "The hen laid an egg in straw."
    },
    {
-    "value": "She may not come.",
-    "label": "She may not come.",
-    "text": "She may not come."
+    "value": "It was so loud.",
+    "label": "It was so loud.",
+    "text": "It was so loud."
    }
   ],
   "answer": "The hen laid an egg.",
   "correctAnswer": "The hen laid an egg.",
   "distractorRationales": {
-   "It is far too wet.": "D-FUNCTION-SWAP",
-   "She may not come.": "D-FUNCTION-SWAP",
-   "Duck down and creep in.": "D-FUNCTION-SWAP"
+   "The hen laid an egg in straw.": "D-FUNCTION-SWAP",
+   "It was so loud.": "D-FUNCTION-SWAP",
+   "The hen clucked loudly.": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5271,30 +5271,30 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence names TWO things?",
-  "question": "Which sentence names TWO things?",
-  "spokenPrompt": "Which sentence names TWO things?",
+  "prompt": "Which sentence has exactly TWO naming words?",
+  "question": "Which sentence has exactly TWO naming words?",
+  "spokenPrompt": "Which sentence has exactly TWO naming words?",
   "choices": [
-   "Spin round and sit down.",
-   "He was not there.",
-   "You can all go.",
+   "The moth flew inside.",
+   "The moth flew past a lamp and a clock.",
+   "It flew in quietly.",
    "The moth flew at the lamp."
   ],
   "answerOptions": [
    {
-    "value": "Spin round and sit down.",
-    "label": "Spin round and sit down.",
-    "text": "Spin round and sit down."
+    "value": "The moth flew inside.",
+    "label": "The moth flew inside.",
+    "text": "The moth flew inside."
    },
    {
-    "value": "He was not there.",
-    "label": "He was not there.",
-    "text": "He was not there."
+    "value": "The moth flew past a lamp and a clock.",
+    "label": "The moth flew past a lamp and a clock.",
+    "text": "The moth flew past a lamp and a clock."
    },
    {
-    "value": "You can all go.",
-    "label": "You can all go.",
-    "text": "You can all go."
+    "value": "It flew in quietly.",
+    "label": "It flew in quietly.",
+    "text": "It flew in quietly."
    },
    {
     "value": "The moth flew at the lamp.",
@@ -5305,9 +5305,9 @@ export const questions = [
   "answer": "The moth flew at the lamp.",
   "correctAnswer": "The moth flew at the lamp.",
   "distractorRationales": {
-   "He was not there.": "D-FUNCTION-SWAP",
-   "You can all go.": "D-FUNCTION-SWAP",
-   "Spin round and sit down.": "D-FUNCTION-SWAP"
+   "The moth flew past a lamp and a clock.": "D-FUNCTION-SWAP",
+   "It flew in quietly.": "D-FUNCTION-SWAP",
+   "The moth flew inside.": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5338,5 +5338,1421 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": ""
+ },
+ {
+  "id": "lp3.nouns.l1.C.noun_person.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_person",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word names someone who flies a plane?",
+  "question": "Which word names someone who flies a plane?",
+  "spokenPrompt": "Which word names someone who flies a plane?",
+  "choices": [
+   "pilot",
+   "fly",
+   "high",
+   "quickly"
+  ],
+  "answerOptions": [
+   {
+    "value": "pilot",
+    "label": "pilot",
+    "text": "pilot"
+   },
+   {
+    "value": "fly",
+    "label": "fly",
+    "text": "fly"
+   },
+   {
+    "value": "high",
+    "label": "high",
+    "text": "high"
+   },
+   {
+    "value": "quickly",
+    "label": "quickly",
+    "text": "quickly"
+   }
+  ],
+  "answer": "pilot",
+  "correctAnswer": "pilot",
+  "distractorRationales": {
+   "high": "D-FUNCTION-SWAP",
+   "quickly": "D-FUNCTION-SWAP",
+   "fly": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l1.C.noun_person.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.nouns.l1.A.noun_person.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_person",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word names someone in your family?",
+  "question": "Which word names someone in your family?",
+  "spokenPrompt": "Which word names someone in your family?",
+  "choices": [
+   "kind",
+   "slowly",
+   "sister",
+   "sleep"
+  ],
+  "answerOptions": [
+   {
+    "value": "kind",
+    "label": "kind",
+    "text": "kind"
+   },
+   {
+    "value": "slowly",
+    "label": "slowly",
+    "text": "slowly"
+   },
+   {
+    "value": "sister",
+    "label": "sister",
+    "text": "sister"
+   },
+   {
+    "value": "sleep",
+    "label": "sleep",
+    "text": "sleep"
+   }
+  ],
+  "answer": "sister",
+  "correctAnswer": "sister",
+  "distractorRationales": {
+   "sleep": "D-FUNCTION-SWAP",
+   "kind": "D-FUNCTION-SWAP",
+   "slowly": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l1.A.noun_person.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.nouns.l1.C.noun_animal.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_animal",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which naming word is an animal?",
+  "question": "Which naming word is an animal?",
+  "spokenPrompt": "Which naming word is an animal?",
+  "choices": [
+   "quietly",
+   "tiger",
+   "tired",
+   "tickle"
+  ],
+  "answerOptions": [
+   {
+    "value": "quietly",
+    "label": "quietly",
+    "text": "quietly"
+   },
+   {
+    "value": "tiger",
+    "label": "tiger",
+    "text": "tiger"
+   },
+   {
+    "value": "tired",
+    "label": "tired",
+    "text": "tired"
+   },
+   {
+    "value": "tickle",
+    "label": "tickle",
+    "text": "tickle"
+   }
+  ],
+  "answer": "tiger",
+  "correctAnswer": "tiger",
+  "distractorRationales": {
+   "tired": "D-FUNCTION-SWAP",
+   "tickle": "D-FUNCTION-SWAP",
+   "quietly": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l1.C.noun_animal.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.nouns.l1.A.noun_animal.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_animal",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word names an animal with a shell?",
+  "question": "Which word names an animal with a shell?",
+  "spokenPrompt": "Which word names an animal with a shell?",
+  "choices": [
+   "turn",
+   "tiny",
+   "gently",
+   "turtle"
+  ],
+  "answerOptions": [
+   {
+    "value": "turn",
+    "label": "turn",
+    "text": "turn"
+   },
+   {
+    "value": "tiny",
+    "label": "tiny",
+    "text": "tiny"
+   },
+   {
+    "value": "gently",
+    "label": "gently",
+    "text": "gently"
+   },
+   {
+    "value": "turtle",
+    "label": "turtle",
+    "text": "turtle"
+   }
+  ],
+  "answer": "turtle",
+  "correctAnswer": "turtle",
+  "distractorRationales": {
+   "turn": "D-FUNCTION-SWAP",
+   "tiny": "D-FUNCTION-SWAP",
+   "gently": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l1.A.noun_animal.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.nouns.l1.B.noun_place.v8",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_place",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which naming word is a place to borrow books?",
+  "question": "Which naming word is a place to borrow books?",
+  "spokenPrompt": "Which naming word is a place to borrow books?",
+  "choices": [
+   "read",
+   "quiet",
+   "carefully",
+   "library"
+  ],
+  "answerOptions": [
+   {
+    "value": "read",
+    "label": "read",
+    "text": "read"
+   },
+   {
+    "value": "quiet",
+    "label": "quiet",
+    "text": "quiet"
+   },
+   {
+    "value": "carefully",
+    "label": "carefully",
+    "text": "carefully"
+   },
+   {
+    "value": "library",
+    "label": "library",
+    "text": "library"
+   }
+  ],
+  "answer": "library",
+  "correctAnswer": "library",
+  "distractorRationales": {
+   "read": "D-FUNCTION-SWAP",
+   "quiet": "D-FUNCTION-SWAP",
+   "carefully": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l1.B.noun_place.v8",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.nouns.l1.C.noun_place.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_place",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word names a place where people swim?",
+  "question": "Which word names a place where people swim?",
+  "spokenPrompt": "Which word names a place where people swim?",
+  "choices": [
+   "deep",
+   "slowly",
+   "pool",
+   "splash"
+  ],
+  "answerOptions": [
+   {
+    "value": "deep",
+    "label": "deep",
+    "text": "deep"
+   },
+   {
+    "value": "slowly",
+    "label": "slowly",
+    "text": "slowly"
+   },
+   {
+    "value": "pool",
+    "label": "pool",
+    "text": "pool"
+   },
+   {
+    "value": "splash",
+    "label": "splash",
+    "text": "splash"
+   }
+  ],
+  "answer": "pool",
+  "correctAnswer": "pool",
+  "distractorRationales": {
+   "splash": "D-FUNCTION-SWAP",
+   "deep": "D-FUNCTION-SWAP",
+   "slowly": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l1.C.noun_place.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.nouns.l1.B.noun_thing.v8",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_thing",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word names something that opens a lock?",
+  "question": "Which word names something that opens a lock?",
+  "spokenPrompt": "Which word names something that opens a lock?",
+  "choices": [
+   "key",
+   "keep",
+   "kind",
+   "quickly"
+  ],
+  "answerOptions": [
+   {
+    "value": "key",
+    "label": "key",
+    "text": "key"
+   },
+   {
+    "value": "keep",
+    "label": "keep",
+    "text": "keep"
+   },
+   {
+    "value": "kind",
+    "label": "kind",
+    "text": "kind"
+   },
+   {
+    "value": "quickly",
+    "label": "quickly",
+    "text": "quickly"
+   }
+  ],
+  "answer": "key",
+  "correctAnswer": "key",
+  "distractorRationales": {
+   "keep": "D-FUNCTION-SWAP",
+   "kind": "D-FUNCTION-SWAP",
+   "quickly": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l1.B.noun_thing.v8",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.nouns.l1.C.noun_thing.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_thing",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which naming word means something you can read?",
+  "question": "Which naming word means something you can read?",
+  "spokenPrompt": "Which naming word means something you can read?",
+  "choices": [
+   "read",
+   "bright",
+   "quietly",
+   "book"
+  ],
+  "answerOptions": [
+   {
+    "value": "read",
+    "label": "read",
+    "text": "read"
+   },
+   {
+    "value": "bright",
+    "label": "bright",
+    "text": "bright"
+   },
+   {
+    "value": "quietly",
+    "label": "quietly",
+    "text": "quietly"
+   },
+   {
+    "value": "book",
+    "label": "book",
+    "text": "book"
+   }
+  ],
+  "answer": "book",
+  "correctAnswer": "book",
+  "distractorRationales": {
+   "read": "D-FUNCTION-SWAP",
+   "bright": "D-FUNCTION-SWAP",
+   "quietly": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l1.C.noun_thing.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.nouns.l2.A.noun_two_step.v11",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_two_step",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which sentence has exactly TWO naming words?",
+  "question": "Which sentence has exactly TWO naming words?",
+  "spokenPrompt": "Which sentence has exactly TWO naming words?",
+  "choices": [
+   "Rain filled the bucket.",
+   "Rain fell softly.",
+   "Rain filled the bucket and tub.",
+   "It fell all around."
+  ],
+  "answerOptions": [
+   {
+    "value": "Rain filled the bucket.",
+    "label": "Rain filled the bucket.",
+    "text": "Rain filled the bucket."
+   },
+   {
+    "value": "Rain fell softly.",
+    "label": "Rain fell softly.",
+    "text": "Rain fell softly."
+   },
+   {
+    "value": "Rain filled the bucket and tub.",
+    "label": "Rain filled the bucket and tub.",
+    "text": "Rain filled the bucket and tub."
+   },
+   {
+    "value": "It fell all around.",
+    "label": "It fell all around.",
+    "text": "It fell all around."
+   }
+  ],
+  "answer": "Rain filled the bucket.",
+  "correctAnswer": "Rain filled the bucket.",
+  "distractorRationales": {
+   "Rain filled the bucket and tub.": "D-FUNCTION-SWAP",
+   "It fell all around.": "D-FUNCTION-SWAP",
+   "Rain fell softly.": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l2.A.noun_two_step.v11",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.nouns.l2.A.noun_two_step.v12",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_two_step",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which sentence has exactly TWO naming words?",
+  "question": "Which sentence has exactly TWO naming words?",
+  "spokenPrompt": "Which sentence has exactly TWO naming words?",
+  "choices": [
+   "She smiled and waved.",
+   "The child opened a parcel.",
+   "The child smiled.",
+   "The child put a toy in the parcel."
+  ],
+  "answerOptions": [
+   {
+    "value": "She smiled and waved.",
+    "label": "She smiled and waved.",
+    "text": "She smiled and waved."
+   },
+   {
+    "value": "The child opened a parcel.",
+    "label": "The child opened a parcel.",
+    "text": "The child opened a parcel."
+   },
+   {
+    "value": "The child smiled.",
+    "label": "The child smiled.",
+    "text": "The child smiled."
+   },
+   {
+    "value": "The child put a toy in the parcel.",
+    "label": "The child put a toy in the parcel.",
+    "text": "The child put a toy in the parcel."
+   }
+  ],
+  "answer": "The child opened a parcel.",
+  "correctAnswer": "The child opened a parcel.",
+  "distractorRationales": {
+   "She smiled and waved.": "D-FUNCTION-SWAP",
+   "The child smiled.": "D-FUNCTION-SWAP",
+   "The child put a toy in the parcel.": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l2.A.noun_two_step.v12",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.nouns.l2.A.noun_two_step.v13",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_two_step",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which sentence has exactly TWO naming words?",
+  "question": "Which sentence has exactly TWO naming words?",
+  "spokenPrompt": "Which sentence has exactly TWO naming words?",
+  "choices": [
+   "My scarf covered my chin and neck.",
+   "I was very warm.",
+   "My scarf covered my chin.",
+   "My scarf was warm."
+  ],
+  "answerOptions": [
+   {
+    "value": "My scarf covered my chin and neck.",
+    "label": "My scarf covered my chin and neck.",
+    "text": "My scarf covered my chin and neck."
+   },
+   {
+    "value": "I was very warm.",
+    "label": "I was very warm.",
+    "text": "I was very warm."
+   },
+   {
+    "value": "My scarf covered my chin.",
+    "label": "My scarf covered my chin.",
+    "text": "My scarf covered my chin."
+   },
+   {
+    "value": "My scarf was warm.",
+    "label": "My scarf was warm.",
+    "text": "My scarf was warm."
+   }
+  ],
+  "answer": "My scarf covered my chin.",
+  "correctAnswer": "My scarf covered my chin.",
+  "distractorRationales": {
+   "My scarf was warm.": "D-FUNCTION-SWAP",
+   "My scarf covered my chin and neck.": "D-FUNCTION-SWAP",
+   "I was very warm.": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l2.A.noun_two_step.v13",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.nouns.l2.A.noun_two_step.v14",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_two_step",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which sentence has exactly TWO naming words?",
+  "question": "Which sentence has exactly TWO naming words?",
+  "spokenPrompt": "Which sentence has exactly TWO naming words?",
+  "choices": [
+   "A seed grew slowly.",
+   "A seed grew into a flower in our garden.",
+   "It grew very quickly.",
+   "A seed grew into a flower."
+  ],
+  "answerOptions": [
+   {
+    "value": "A seed grew slowly.",
+    "label": "A seed grew slowly.",
+    "text": "A seed grew slowly."
+   },
+   {
+    "value": "A seed grew into a flower in our garden.",
+    "label": "A seed grew into a flower in our garden.",
+    "text": "A seed grew into a flower in our garden."
+   },
+   {
+    "value": "It grew very quickly.",
+    "label": "It grew very quickly.",
+    "text": "It grew very quickly."
+   },
+   {
+    "value": "A seed grew into a flower.",
+    "label": "A seed grew into a flower.",
+    "text": "A seed grew into a flower."
+   }
+  ],
+  "answer": "A seed grew into a flower.",
+  "correctAnswer": "A seed grew into a flower.",
+  "distractorRationales": {
+   "A seed grew slowly.": "D-FUNCTION-SWAP",
+   "A seed grew into a flower in our garden.": "D-FUNCTION-SWAP",
+   "It grew very quickly.": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l2.A.noun_two_step.v14",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.nouns.l2.A.noun_two_step.v15",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_two_step",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which pair completes both naming words? The ___ passed the ___.",
+  "question": "Which pair completes both naming words? The ___ passed the ___.",
+  "spokenPrompt": "Which pair completes both naming words? The … passed the ….",
+  "sentence": "The ___ passed the ___.",
+  "choices": [
+   "bus and shop",
+   "bus and passed",
+   "passed and shop",
+   "the and passed"
+  ],
+  "answerOptions": [
+   {
+    "value": "bus and shop",
+    "label": "bus and shop",
+    "text": "bus and shop"
+   },
+   {
+    "value": "bus and passed",
+    "label": "bus and passed",
+    "text": "bus and passed"
+   },
+   {
+    "value": "passed and shop",
+    "label": "passed and shop",
+    "text": "passed and shop"
+   },
+   {
+    "value": "the and passed",
+    "label": "the and passed",
+    "text": "the and passed"
+   }
+  ],
+  "answer": "bus and shop",
+  "correctAnswer": "bus and shop",
+  "distractorRationales": {
+   "passed and shop": "D-FUNCTION-SWAP",
+   "the and passed": "D-FUNCTION-SWAP",
+   "bus and passed": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The ___ passed the ___.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l2.A.noun_two_step.v15",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Identify both naming words, rather than spotting just one."
+ },
+ {
+  "id": "lp3.nouns.l2.A.noun_two_step.v16",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_two_step",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which pair completes both naming words? A ___ lifted the ___.",
+  "question": "Which pair completes both naming words? A ___ lifted the ___.",
+  "spokenPrompt": "Which pair completes both naming words? A … lifted the ….",
+  "sentence": "A ___ lifted the ___.",
+  "choices": [
+   "lifted and boat",
+   "wave and boat",
+   "a and lifted",
+   "wave and lifted"
+  ],
+  "answerOptions": [
+   {
+    "value": "lifted and boat",
+    "label": "lifted and boat",
+    "text": "lifted and boat"
+   },
+   {
+    "value": "wave and boat",
+    "label": "wave and boat",
+    "text": "wave and boat"
+   },
+   {
+    "value": "a and lifted",
+    "label": "a and lifted",
+    "text": "a and lifted"
+   },
+   {
+    "value": "wave and lifted",
+    "label": "wave and lifted",
+    "text": "wave and lifted"
+   }
+  ],
+  "answer": "wave and boat",
+  "correctAnswer": "wave and boat",
+  "distractorRationales": {
+   "lifted and boat": "D-FUNCTION-SWAP",
+   "a and lifted": "D-FUNCTION-SWAP",
+   "wave and lifted": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "A ___ lifted the ___.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l2.A.noun_two_step.v16",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Identify both naming words, rather than spotting just one."
+ },
+ {
+  "id": "lp3.nouns.l2.A.noun_two_step.v17",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_two_step",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which pair completes both naming words? The ___ carried a ___.",
+  "question": "Which pair completes both naming words? The ___ carried a ___.",
+  "spokenPrompt": "Which pair completes both naming words? The … carried a ….",
+  "sentence": "The ___ carried a ___.",
+  "choices": [
+   "carried and basket",
+   "the and carried",
+   "girl and basket",
+   "girl and carried"
+  ],
+  "answerOptions": [
+   {
+    "value": "carried and basket",
+    "label": "carried and basket",
+    "text": "carried and basket"
+   },
+   {
+    "value": "the and carried",
+    "label": "the and carried",
+    "text": "the and carried"
+   },
+   {
+    "value": "girl and basket",
+    "label": "girl and basket",
+    "text": "girl and basket"
+   },
+   {
+    "value": "girl and carried",
+    "label": "girl and carried",
+    "text": "girl and carried"
+   }
+  ],
+  "answer": "girl and basket",
+  "correctAnswer": "girl and basket",
+  "distractorRationales": {
+   "girl and carried": "D-FUNCTION-SWAP",
+   "carried and basket": "D-FUNCTION-SWAP",
+   "the and carried": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The ___ carried a ___.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l2.A.noun_two_step.v17",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Identify both naming words, rather than spotting just one."
+ },
+ {
+  "id": "lp3.nouns.l2.A.noun_two_step.v18",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_two_step",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which pair completes both naming words? ___ shook the ___.",
+  "question": "Which pair completes both naming words? ___ shook the ___.",
+  "spokenPrompt": "Which pair completes both naming words? … shook the ….",
+  "sentence": "___ shook the ___.",
+  "choices": [
+   "wind and shook",
+   "shook and leaves",
+   "the and shook",
+   "wind and leaves"
+  ],
+  "answerOptions": [
+   {
+    "value": "wind and shook",
+    "label": "wind and shook",
+    "text": "wind and shook"
+   },
+   {
+    "value": "shook and leaves",
+    "label": "shook and leaves",
+    "text": "shook and leaves"
+   },
+   {
+    "value": "the and shook",
+    "label": "the and shook",
+    "text": "the and shook"
+   },
+   {
+    "value": "wind and leaves",
+    "label": "wind and leaves",
+    "text": "wind and leaves"
+   }
+  ],
+  "answer": "wind and leaves",
+  "correctAnswer": "wind and leaves",
+  "distractorRationales": {
+   "wind and shook": "D-FUNCTION-SWAP",
+   "shook and leaves": "D-FUNCTION-SWAP",
+   "the and shook": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "___ shook the ___.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l2.A.noun_two_step.v18",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Identify both naming words, rather than spotting just one."
  }
 ];

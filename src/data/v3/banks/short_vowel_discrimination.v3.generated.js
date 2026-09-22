@@ -279,9 +279,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_a",
@@ -370,9 +370,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_a",
@@ -383,16 +383,16 @@ export const questions = [
   "question": "Which printed word matches the recording?",
   "spokenPrompt": "Bad. Which printed word matches the recording?",
   "choices": [
-   "bid",
+   "bag",
    "bad",
    "bed",
    "bud"
   ],
   "answerOptions": [
    {
-    "value": "bid",
-    "label": "bid",
-    "text": "bid"
+    "value": "bag",
+    "label": "bag",
+    "text": "bag"
    },
    {
     "value": "bad",
@@ -415,7 +415,7 @@ export const questions = [
   "distractorRationales": {
    "bed": "D-VOWEL",
    "bud": "D-VOWEL",
-   "bid": "D-VOWEL"
+   "bag": "D-RIME-NEAR"
   },
   "mediaTier": "audio-required",
   "hadPTD": false,
@@ -448,7 +448,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "bed and bud preserve the vowel contrast; bag checks the heard final consonant without the excluded word bid"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_a.v6",
@@ -461,9 +461,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_a",
@@ -741,41 +741,41 @@ export const questions = [
   "questionType": "listen_and_find_word",
   "prompt": "Which printed word matches the recording?",
   "question": "Which printed word matches the recording?",
-  "spokenPrompt": "Hand. Which printed word matches the recording?",
+  "spokenPrompt": "Band. Which printed word matches the recording?",
   "choices": [
-   "bend",
-   "sand",
-   "hand",
-   "band"
+   "bind",
+   "bond",
+   "band",
+   "bend"
   ],
   "answerOptions": [
    {
-    "value": "bend",
-    "label": "bend",
-    "text": "bend"
+    "value": "bind",
+    "label": "bind",
+    "text": "bind"
    },
    {
-    "value": "sand",
-    "label": "sand",
-    "text": "sand"
-   },
-   {
-    "value": "hand",
-    "label": "hand",
-    "text": "hand"
+    "value": "bond",
+    "label": "bond",
+    "text": "bond"
    },
    {
     "value": "band",
     "label": "band",
     "text": "band"
+   },
+   {
+    "value": "bend",
+    "label": "bend",
+    "text": "bend"
    }
   ],
-  "answer": "hand",
-  "correctAnswer": "hand",
+  "answer": "band",
+  "correctAnswer": "band",
   "distractorRationales": {
-   "band": "D-VISUAL-NEIGHBOR",
    "bend": "D-VOWEL",
-   "sand": "D-VISUAL-NEIGHBOR"
+   "bind": "D-VOWEL",
+   "bond": "D-VOWEL"
   },
   "mediaTier": "audio-required",
   "hadPTD": false,
@@ -787,7 +787,7 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "audioRole": "target_word",
-  "targetWord": "hand",
+  "targetWord": "band",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -821,9 +821,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_2_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_a",
@@ -832,23 +832,23 @@ export const questions = [
   "questionType": "listen_and_find_word",
   "prompt": "Which printed word matches the recording?",
   "question": "Which printed word matches the recording?",
-  "spokenPrompt": "Flag. Which printed word matches the recording?",
+  "spokenPrompt": "Flap. Which printed word matches the recording?",
   "choices": [
-   "flap",
    "flag",
+   "flap",
    "flip",
    "flop"
   ],
   "answerOptions": [
    {
-    "value": "flap",
-    "label": "flap",
-    "text": "flap"
-   },
-   {
     "value": "flag",
     "label": "flag",
     "text": "flag"
+   },
+   {
+    "value": "flap",
+    "label": "flap",
+    "text": "flap"
    },
    {
     "value": "flip",
@@ -861,10 +861,10 @@ export const questions = [
     "text": "flop"
    }
   ],
-  "answer": "flag",
-  "correctAnswer": "flag",
+  "answer": "flap",
+  "correctAnswer": "flap",
   "distractorRationales": {
-   "flap": "D-VISUAL-NEIGHBOR",
+   "flag": "D-VISUAL-NEIGHBOR",
    "flip": "D-VOWEL",
    "flop": "D-VOWEL"
   },
@@ -878,7 +878,7 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "audioRole": "target_word",
-  "targetWord": "flag",
+  "targetWord": "flap",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -899,7 +899,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "flag/flap differ by one letter; flip/flop swap the vowel"
+  "notes": "flip and flop differ only in the medial vowel; flag checks the ending"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_a.v5",
@@ -912,9 +912,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_2_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_a",
@@ -1046,9 +1046,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_2_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_a",
@@ -1447,9 +1447,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_e",
@@ -1538,9 +1538,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_e",
@@ -1629,9 +1629,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_e",
@@ -1909,41 +1909,41 @@ export const questions = [
   "questionType": "listen_and_find_word",
   "prompt": "Which printed word matches the recording?",
   "question": "Which printed word matches the recording?",
-  "spokenPrompt": "Nest. Which printed word matches the recording?",
+  "spokenPrompt": "Best. Which printed word matches the recording?",
   "choices": [
-   "nest",
-   "vest",
-   "mast",
-   "mist"
+   "best",
+   "bust",
+   "beast",
+   "belt"
   ],
   "answerOptions": [
    {
-    "value": "nest",
-    "label": "nest",
-    "text": "nest"
+    "value": "best",
+    "label": "best",
+    "text": "best"
    },
    {
-    "value": "vest",
-    "label": "vest",
-    "text": "vest"
+    "value": "bust",
+    "label": "bust",
+    "text": "bust"
    },
    {
-    "value": "mast",
-    "label": "mast",
-    "text": "mast"
+    "value": "beast",
+    "label": "beast",
+    "text": "beast"
    },
    {
-    "value": "mist",
-    "label": "mist",
-    "text": "mist"
+    "value": "belt",
+    "label": "belt",
+    "text": "belt"
    }
   ],
-  "answer": "nest",
-  "correctAnswer": "nest",
+  "answer": "best",
+  "correctAnswer": "best",
   "distractorRationales": {
-   "vest": "D-RIME-NEAR",
-   "mast": "D-VOWEL",
-   "mist": "D-VOWEL"
+   "bust": "D-VOWEL",
+   "beast": "D-VOWEL",
+   "belt": "D-VISUAL-NEIGHBOR"
   },
   "mediaTier": "audio-required",
   "hadPTD": false,
@@ -1955,7 +1955,7 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "audioRole": "target_word",
-  "targetWord": "nest",
+  "targetWord": "best",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1976,7 +1976,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "vest rhymes with the key and ties its es/goes overlap"
+  "notes": "the shared onset requires attending to the vowel, including the long-e contrast"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_e.v4",
@@ -1989,9 +1989,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_2_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_e",
@@ -2080,9 +2080,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_2_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_e",
@@ -2214,9 +2214,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_2_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_e",
@@ -2228,7 +2228,7 @@ export const questions = [
   "spokenPrompt": "Which pictured word has the short e sound in the middle?",
   "choices": [
    "dog",
-   "ten",
+   "web",
    "cap",
    "tub"
   ],
@@ -2239,9 +2239,9 @@ export const questions = [
     "text": "dog"
    },
    {
-    "value": "ten",
-    "label": "ten",
-    "text": "ten"
+    "value": "web",
+    "label": "web",
+    "text": "web"
    },
    {
     "value": "cap",
@@ -2254,8 +2254,8 @@ export const questions = [
     "text": "tub"
    }
   ],
-  "answer": "ten",
-  "correctAnswer": "ten",
+  "answer": "web",
+  "correctAnswer": "web",
   "distractorRationales": {
    "dog": "D-VOWEL",
    "cap": "D-VOWEL",
@@ -2280,7 +2280,7 @@ export const questions = [
    "role": "answer-cards",
    "paths": [
     "/images/assessment/objective-words/dog.webp",
-    "/images/assessment/rhyming/variants/en/ten-02.webp",
+    "/images/assessment/objective-words/web.webp",
     "/images/assessment/objective-words/cap.webp",
     "/images/assessment/release-media/tub-9c34a66d.webp"
    ],
@@ -2309,13 +2309,13 @@ export const questions = [
     "imageAlt": "dog"
    },
    {
-    "id": "lp3.short_vowel_discrimination.l2.C.short_e.v6_card_ten",
-    "word": "ten",
-    "value": "ten",
-    "label": "ten",
-    "image": "/images/assessment/rhyming/variants/en/ten-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
-    "imageAlt": "ten"
+    "id": "lp3.short_vowel_discrimination.l2.C.short_e.v6_card_web",
+    "word": "web",
+    "value": "web",
+    "label": "web",
+    "image": "/images/assessment/objective-words/web.webp",
+    "imagePath": "/images/assessment/objective-words/web.webp",
+    "imageAlt": "web"
    },
    {
     "id": "lp3.short_vowel_discrimination.l2.C.short_e.v6_card_cap",
@@ -2615,9 +2615,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_i",
@@ -2706,9 +2706,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_i",
@@ -2797,9 +2797,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_i",
@@ -3077,41 +3077,41 @@ export const questions = [
   "questionType": "listen_and_find_word",
   "prompt": "Which printed word matches the recording?",
   "question": "Which printed word matches the recording?",
-  "spokenPrompt": "Gift. Which printed word matches the recording?",
+  "spokenPrompt": "Lift. Which printed word matches the recording?",
   "choices": [
-   "left",
    "loft",
-   "gift",
-   "lift"
+   "list",
+   "lift",
+   "left"
   ],
   "answerOptions": [
-   {
-    "value": "left",
-    "label": "left",
-    "text": "left"
-   },
    {
     "value": "loft",
     "label": "loft",
     "text": "loft"
    },
    {
-    "value": "gift",
-    "label": "gift",
-    "text": "gift"
+    "value": "list",
+    "label": "list",
+    "text": "list"
    },
    {
     "value": "lift",
     "label": "lift",
     "text": "lift"
+   },
+   {
+    "value": "left",
+    "label": "left",
+    "text": "left"
    }
   ],
-  "answer": "gift",
-  "correctAnswer": "gift",
+  "answer": "lift",
+  "correctAnswer": "lift",
   "distractorRationales": {
-   "lift": "D-VISUAL-NEIGHBOR",
    "left": "D-VOWEL",
-   "loft": "D-VOWEL"
+   "loft": "D-VOWEL",
+   "list": "D-VISUAL-NEIGHBOR"
   },
   "mediaTier": "audio-required",
   "hadPTD": false,
@@ -3123,7 +3123,7 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "audioRole": "target_word",
-  "targetWord": "gift",
+  "targetWord": "lift",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3157,9 +3157,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_2_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_i",
@@ -3168,41 +3168,41 @@ export const questions = [
   "questionType": "listen_and_find_word",
   "prompt": "Which printed word matches the recording?",
   "question": "Which printed word matches the recording?",
-  "spokenPrompt": "Brick. Which printed word matches the recording?",
+  "spokenPrompt": "Click. Which printed word matches the recording?",
   "choices": [
+   "cliff",
    "click",
-   "brick",
-   "black",
-   "block"
+   "clock",
+   "cluck"
   ],
   "answerOptions": [
+   {
+    "value": "cliff",
+    "label": "cliff",
+    "text": "cliff"
+   },
    {
     "value": "click",
     "label": "click",
     "text": "click"
    },
    {
-    "value": "brick",
-    "label": "brick",
-    "text": "brick"
+    "value": "clock",
+    "label": "clock",
+    "text": "clock"
    },
    {
-    "value": "black",
-    "label": "black",
-    "text": "black"
-   },
-   {
-    "value": "block",
-    "label": "block",
-    "text": "block"
+    "value": "cluck",
+    "label": "cluck",
+    "text": "cluck"
    }
   ],
-  "answer": "brick",
-  "correctAnswer": "brick",
+  "answer": "click",
+  "correctAnswer": "click",
   "distractorRationales": {
-   "click": "D-VISUAL-NEIGHBOR",
-   "black": "D-VOWEL",
-   "block": "D-VOWEL"
+   "cliff": "D-VISUAL-NEIGHBOR",
+   "clock": "D-VOWEL",
+   "cluck": "D-VOWEL"
   },
   "mediaTier": "audio-required",
   "hadPTD": false,
@@ -3214,7 +3214,7 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "audioRole": "target_word",
-  "targetWord": "brick",
+  "targetWord": "click",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3235,7 +3235,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "click ties the ic/which overlap"
+  "notes": "all choices share the complete onset; clock and cluck isolate the vowel"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_i.v5",
@@ -3248,9 +3248,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_2_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_i",
@@ -3382,9 +3382,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_2_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_i",
@@ -3516,9 +3516,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_1_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_o",
@@ -3605,9 +3605,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_1_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_o",
@@ -3694,9 +3694,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_1_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_o",
@@ -4056,9 +4056,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_2_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_o",
@@ -4145,9 +4145,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_2_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_o",
@@ -4234,9 +4234,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_2_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_o",
@@ -4684,9 +4684,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_1_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_u",
@@ -4773,9 +4773,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_1_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_u",
@@ -4862,9 +4862,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_1_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_u",
@@ -5224,9 +5224,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_2_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_u",
@@ -5313,9 +5313,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_2_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_u",
@@ -5402,9 +5402,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_2_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_u",
@@ -5413,41 +5413,41 @@ export const questions = [
   "questionType": "listen_and_find_word",
   "prompt": "Which printed word matches the recording?",
   "question": "Which printed word matches the recording?",
-  "spokenPrompt": "Plug. Which printed word matches the recording?",
+  "spokenPrompt": "Clump. Which printed word matches the recording?",
   "choices": [
-   "plot",
-   "plum",
-   "plug",
-   "plan"
+   "clip",
+   "clap",
+   "clump",
+   "clamp"
   ],
   "answerOptions": [
    {
-    "value": "plot",
-    "label": "plot",
-    "text": "plot"
+    "value": "clip",
+    "label": "clip",
+    "text": "clip"
    },
    {
-    "value": "plum",
-    "label": "plum",
-    "text": "plum"
+    "value": "clap",
+    "label": "clap",
+    "text": "clap"
    },
    {
-    "value": "plug",
-    "label": "plug",
-    "text": "plug"
+    "value": "clump",
+    "label": "clump",
+    "text": "clump"
    },
    {
-    "value": "plan",
-    "label": "plan",
-    "text": "plan"
+    "value": "clamp",
+    "label": "clamp",
+    "text": "clamp"
    }
   ],
-  "answer": "plug",
-  "correctAnswer": "plug",
+  "answer": "clump",
+  "correctAnswer": "clump",
   "distractorRationales": {
-   "plan": "D-VOWEL",
-   "plot": "D-VOWEL",
-   "plum": "D-VISUAL-NEIGHBOR"
+   "clamp": "D-VOWEL",
+   "clip": "D-VOWEL",
+   "clap": "D-VOWEL"
   },
   "mediaTier": "audio-required",
   "hadPTD": false,
@@ -5459,7 +5459,7 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "audioRole": "target_word",
-  "targetWord": "plug",
+  "targetWord": "clump",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -5480,7 +5480,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "clamp keeps both consonant clusters, requiring the medial-vowel contrast"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_u.v4",
@@ -5840,6 +5840,1806 @@ export const questions = [
     "imageAlt": "mug"
    }
   ]
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l1.C.short_a.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_a",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Pan. Which letter spells the middle vowel sound?",
+  "choices": [
+   "u",
+   "a",
+   "e",
+   "i"
+  ],
+  "answerOptions": [
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   }
+  ],
+  "answer": "a",
+  "correctAnswer": "a",
+  "distractorRationales": {
+   "e": "D-VOWEL",
+   "i": "D-VOWEL",
+   "u": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "pan",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l1.C.short_a.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the word is heard and never printed"
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l1.A.short_a.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_a",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Bag. Which printed word matches the recording?",
+  "choices": [
+   "beg",
+   "big",
+   "bog",
+   "bag"
+  ],
+  "answerOptions": [
+   {
+    "value": "beg",
+    "label": "beg",
+    "text": "beg"
+   },
+   {
+    "value": "big",
+    "label": "big",
+    "text": "big"
+   },
+   {
+    "value": "bog",
+    "label": "bog",
+    "text": "bog"
+   },
+   {
+    "value": "bag",
+    "label": "bag",
+    "text": "bag"
+   }
+  ],
+  "answer": "bag",
+  "correctAnswer": "bag",
+  "distractorRationales": {
+   "beg": "D-VOWEL",
+   "big": "D-VOWEL",
+   "bog": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "bag",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l1.A.short_a.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l1.C.short_e.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_e",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Pen. Which letter spells the middle vowel sound?",
+  "choices": [
+   "a",
+   "u",
+   "e",
+   "i"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   }
+  ],
+  "answer": "e",
+  "correctAnswer": "e",
+  "distractorRationales": {
+   "i": "D-VOWEL",
+   "a": "D-VOWEL",
+   "u": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "pen",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l1.C.short_e.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the word is heard and never printed"
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l1.A.short_e.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_e",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Net. Which printed word matches the recording?",
+  "choices": [
+   "net",
+   "nut",
+   "not",
+   "nap"
+  ],
+  "answerOptions": [
+   {
+    "value": "net",
+    "label": "net",
+    "text": "net"
+   },
+   {
+    "value": "nut",
+    "label": "nut",
+    "text": "nut"
+   },
+   {
+    "value": "not",
+    "label": "not",
+    "text": "not"
+   },
+   {
+    "value": "nap",
+    "label": "nap",
+    "text": "nap"
+   }
+  ],
+  "answer": "net",
+  "correctAnswer": "net",
+  "distractorRationales": {
+   "nut": "D-VOWEL",
+   "not": "D-VOWEL",
+   "nap": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "net",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l1.A.short_e.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l1.C.short_i.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_i",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Sip. Which letter spells the middle vowel sound?",
+  "choices": [
+   "e",
+   "a",
+   "o",
+   "i"
+  ],
+  "answerOptions": [
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   }
+  ],
+  "answer": "i",
+  "correctAnswer": "i",
+  "distractorRationales": {
+   "e": "D-VOWEL",
+   "a": "D-VOWEL",
+   "o": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "sip",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l1.C.short_i.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the word is heard and never printed"
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l1.A.short_i.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_i",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Rim. Which printed word matches the recording?",
+  "choices": [
+   "rip",
+   "rim",
+   "ram",
+   "room"
+  ],
+  "answerOptions": [
+   {
+    "value": "rip",
+    "label": "rip",
+    "text": "rip"
+   },
+   {
+    "value": "rim",
+    "label": "rim",
+    "text": "rim"
+   },
+   {
+    "value": "ram",
+    "label": "ram",
+    "text": "ram"
+   },
+   {
+    "value": "room",
+    "label": "room",
+    "text": "room"
+   }
+  ],
+  "answer": "rim",
+  "correctAnswer": "rim",
+  "distractorRationales": {
+   "ram": "D-VOWEL",
+   "room": "D-VOWEL",
+   "rip": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "rim",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l1.A.short_i.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l1.C.short_o.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_o",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Cot. Which letter spells the middle vowel sound?",
+  "choices": [
+   "o",
+   "a",
+   "u",
+   "e"
+  ],
+  "answerOptions": [
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   }
+  ],
+  "answer": "o",
+  "correctAnswer": "o",
+  "distractorRationales": {
+   "e": "D-VOWEL",
+   "a": "D-VOWEL",
+   "u": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "cot",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l1.C.short_o.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the word is heard and never printed"
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l1.A.short_o.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_o",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Mop. Which printed word matches the recording?",
+  "choices": [
+   "mob",
+   "mug",
+   "mop",
+   "map"
+  ],
+  "answerOptions": [
+   {
+    "value": "mob",
+    "label": "mob",
+    "text": "mob"
+   },
+   {
+    "value": "mug",
+    "label": "mug",
+    "text": "mug"
+   },
+   {
+    "value": "mop",
+    "label": "mop",
+    "text": "mop"
+   },
+   {
+    "value": "map",
+    "label": "map",
+    "text": "map"
+   }
+  ],
+  "answer": "mop",
+  "correctAnswer": "mop",
+  "distractorRationales": {
+   "mug": "D-VOWEL",
+   "map": "D-VOWEL",
+   "mob": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "mop",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l1.A.short_o.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l1.C.short_u.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_u",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Fun. Which letter spells the middle vowel sound?",
+  "choices": [
+   "i",
+   "u",
+   "o",
+   "a"
+  ],
+  "answerOptions": [
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   }
+  ],
+  "answer": "u",
+  "correctAnswer": "u",
+  "distractorRationales": {
+   "o": "D-VOWEL",
+   "a": "D-VOWEL",
+   "i": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "fun",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l1.C.short_u.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the word is heard and never printed"
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l1.A.short_u.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_u",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Hut. Which printed word matches the recording?",
+  "choices": [
+   "hat",
+   "hot",
+   "hit",
+   "hut"
+  ],
+  "answerOptions": [
+   {
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
+   },
+   {
+    "value": "hot",
+    "label": "hot",
+    "text": "hot"
+   },
+   {
+    "value": "hit",
+    "label": "hit",
+    "text": "hit"
+   },
+   {
+    "value": "hut",
+    "label": "hut",
+    "text": "hut"
+   }
+  ],
+  "answer": "hut",
+  "correctAnswer": "hut",
+  "distractorRationales": {
+   "hat": "D-VOWEL",
+   "hot": "D-VOWEL",
+   "hit": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "hut",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l1.A.short_u.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l2.C.short_a.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_a",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Trap. Which letter spells the middle vowel sound?",
+  "choices": [
+   "a",
+   "e",
+   "o",
+   "u"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   }
+  ],
+  "answer": "a",
+  "correctAnswer": "a",
+  "distractorRationales": {
+   "o": "D-VOWEL",
+   "u": "D-VOWEL",
+   "e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "trap",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l2.C.short_a.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the word is heard and never printed"
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l2.A.short_a.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_a",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Clap. Which printed word matches the recording?",
+  "choices": [
+   "clop",
+   "clam",
+   "clap",
+   "clip"
+  ],
+  "answerOptions": [
+   {
+    "value": "clop",
+    "label": "clop",
+    "text": "clop"
+   },
+   {
+    "value": "clam",
+    "label": "clam",
+    "text": "clam"
+   },
+   {
+    "value": "clap",
+    "label": "clap",
+    "text": "clap"
+   },
+   {
+    "value": "clip",
+    "label": "clip",
+    "text": "clip"
+   }
+  ],
+  "answer": "clap",
+  "correctAnswer": "clap",
+  "distractorRationales": {
+   "clip": "D-VOWEL",
+   "clop": "D-VOWEL",
+   "clam": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "clap",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l2.A.short_a.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l2.C.short_e.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_e",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Desk. Which letter spells the middle vowel sound?",
+  "choices": [
+   "o",
+   "e",
+   "a",
+   "i"
+  ],
+  "answerOptions": [
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   }
+  ],
+  "answer": "e",
+  "correctAnswer": "e",
+  "distractorRationales": {
+   "i": "D-VOWEL",
+   "o": "D-VOWEL",
+   "a": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "desk",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l2.C.short_e.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the word is heard and never printed"
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l2.A.short_e.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_e",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Step. Which printed word matches the recording?",
+  "choices": [
+   "stop",
+   "stamp",
+   "stem",
+   "step"
+  ],
+  "answerOptions": [
+   {
+    "value": "stop",
+    "label": "stop",
+    "text": "stop"
+   },
+   {
+    "value": "stamp",
+    "label": "stamp",
+    "text": "stamp"
+   },
+   {
+    "value": "stem",
+    "label": "stem",
+    "text": "stem"
+   },
+   {
+    "value": "step",
+    "label": "step",
+    "text": "step"
+   }
+  ],
+  "answer": "step",
+  "correctAnswer": "step",
+  "distractorRationales": {
+   "stop": "D-VOWEL",
+   "stamp": "D-VOWEL",
+   "stem": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "step",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l2.A.short_e.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l2.C.short_i.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_i",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Swim. Which letter spells the middle vowel sound?",
+  "choices": [
+   "a",
+   "u",
+   "i",
+   "e"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   }
+  ],
+  "answer": "i",
+  "correctAnswer": "i",
+  "distractorRationales": {
+   "a": "D-VOWEL",
+   "u": "D-VOWEL",
+   "e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "swim",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l2.C.short_i.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the word is heard and never printed"
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l2.A.short_i.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_i",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Slip. Which printed word matches the recording?",
+  "choices": [
+   "slip",
+   "slap",
+   "slop",
+   "slid"
+  ],
+  "answerOptions": [
+   {
+    "value": "slip",
+    "label": "slip",
+    "text": "slip"
+   },
+   {
+    "value": "slap",
+    "label": "slap",
+    "text": "slap"
+   },
+   {
+    "value": "slop",
+    "label": "slop",
+    "text": "slop"
+   },
+   {
+    "value": "slid",
+    "label": "slid",
+    "text": "slid"
+   }
+  ],
+  "answer": "slip",
+  "correctAnswer": "slip",
+  "distractorRationales": {
+   "slap": "D-VOWEL",
+   "slop": "D-VOWEL",
+   "slid": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "slip",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l2.A.short_i.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l2.C.short_o.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_o",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Spot. Which letter spells the middle vowel sound?",
+  "choices": [
+   "a",
+   "u",
+   "i",
+   "o"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   }
+  ],
+  "answer": "o",
+  "correctAnswer": "o",
+  "distractorRationales": {
+   "a": "D-VOWEL",
+   "u": "D-VOWEL",
+   "i": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "spot",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l2.C.short_o.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the word is heard and never printed"
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l2.A.short_o.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_o",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Stomp. Which printed word matches the recording?",
+  "choices": [
+   "stop",
+   "stomp",
+   "stamp",
+   "stump"
+  ],
+  "answerOptions": [
+   {
+    "value": "stop",
+    "label": "stop",
+    "text": "stop"
+   },
+   {
+    "value": "stomp",
+    "label": "stomp",
+    "text": "stomp"
+   },
+   {
+    "value": "stamp",
+    "label": "stamp",
+    "text": "stamp"
+   },
+   {
+    "value": "stump",
+    "label": "stump",
+    "text": "stump"
+   }
+  ],
+  "answer": "stomp",
+  "correctAnswer": "stomp",
+  "distractorRationales": {
+   "stump": "D-VOWEL",
+   "stop": "D-DEVELOPMENTAL",
+   "stamp": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "stomp",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l2.A.short_o.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l2.C.short_u.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_u",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Plum. Which letter spells the middle vowel sound?",
+  "choices": [
+   "u",
+   "a",
+   "o",
+   "e"
+  ],
+  "answerOptions": [
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   }
+  ],
+  "answer": "u",
+  "correctAnswer": "u",
+  "distractorRationales": {
+   "o": "D-VOWEL",
+   "e": "D-VOWEL",
+   "a": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "plum",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l2.C.short_u.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the word is heard and never printed"
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l2.A.short_u.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_u",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Stump. Which printed word matches the recording?",
+  "choices": [
+   "stomp",
+   "stub",
+   "stump",
+   "stamp"
+  ],
+  "answerOptions": [
+   {
+    "value": "stomp",
+    "label": "stomp",
+    "text": "stomp"
+   },
+   {
+    "value": "stub",
+    "label": "stub",
+    "text": "stub"
+   },
+   {
+    "value": "stump",
+    "label": "stump",
+    "text": "stump"
+   },
+   {
+    "value": "stamp",
+    "label": "stamp",
+    "text": "stamp"
+   }
+  ],
+  "answer": "stump",
+  "correctAnswer": "stump",
+  "distractorRationales": {
+   "stamp": "D-VOWEL",
+   "stomp": "D-VOWEL",
+   "stub": "D-DEVELOPMENTAL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "stump",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l2.A.short_u.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_e.v7r",

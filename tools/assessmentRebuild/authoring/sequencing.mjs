@@ -1,642 +1,2150 @@
-// Sequencing — v3 authored bank (wave W2). Every passage has a NECESSARY order
-// (causal or conventional), never an arbitrary list; ordinal wording is
-// explicit per the instructional standards (first/second/last, before/after —
-// no bare "next" on unfinished sequences). L1 = 3 orderable events; L2 = 4.
-// D-SEQUENCE-SWAP distractors are real events at the wrong position.
-//
-// Topic registry: getting dressed for snow, planting seeds, washing the dog,
-// pancake making, letter to grandma, bike puncture, library visit, paper-mache
-// mask, tooth brushing chart, seed to salad, tent pitching, hot chocolate,
-// school photo day, bird feeder prep, birthday card, fire drill, apple crumble,
-// wormery build, kite build, car wash, museum trip, jam making, haircut,
-// present wrapping, treasure hunt, recycling sort, class trip lunch, shadow
-// tracing, boot cleaning, egg hatching diary, bridge of books, dentist visit.
-
-const K = t => ({ t, r: "KEY", k: true });
-const P = (t, r) => ({ t, r });
-const it = (u, lvl, ph, v, passage, prompt, choices, extra = {}) => ({
-  u, lvl, ph, v, fmt: "COMPREHENSION", cell: u, passage, prompt, choices, media: "text", ...extra
-});
-
-// The old sequence panels were sliced from larger mosaics; direct review found
-// repeated adjacent-panel contamination. Sequence is therefore assessed from
-// the short story and explicit action phrases, not from cropped or inferential
-// pictures. Keep the unused image-key argument so the item list remains easy
-// to compare with its historical source while no visual path can become active.
-const sequenceItem = (u, ph, v, passage, events, _imageKeys, retention = false) => {
-  const joined = order => order.join(" → ");
-  return {
-    u,
-    lvl: 1,
-    ph,
-    v,
-    fmt: "COMPREHENSION",
-    cell: u,
-    passage,
-    prompt: "Which order matches the story?",
-    spoken: `${passage} Which order matches the story?`,
-    choices: [
-      K(joined(events)),
-      P(joined([events[1], events[0], events[2]]), "D-SEQUENCE-START"),
-      P(joined([events[0], events[2], events[1]]), "D-SEQUENCE-END"),
-      P(joined([...events].reverse()), "D-SEQUENCE-REVERSE")
-    ],
-    media: "text",
-    evidenceModality: "audio+text",
-    constructClaim: "story_event_order",
-    displayPassageDuringResponse: true,
-    retention
-  };
-};
-
-const textSequenceItem = (u, ph, v, passage, events, retention = false) => {
-  const joined = order => order.join(" → ");
-  const prompt = "Which order matches the actions?";
-  return {
-    u,
-    lvl: 1,
-    ph,
-    v,
-    fmt: "COMPREHENSION",
-    cell: u,
-    passage,
-    prompt,
-    spoken: `${passage} ${prompt}`,
-    choices: [
-      K(joined(events)),
-      P(joined([events[1], events[0], events[2]]), "D-SEQUENCE-START"),
-      P(joined([events[0], events[2], events[1]]), "D-SEQUENCE-END"),
-      P(joined([...events].reverse()), "D-SEQUENCE-REVERSE")
-    ],
-    media: "text",
-    evidenceModality: "audio+text",
-    constructClaim: "story_event_order",
-    displayPassageDuringResponse: true,
-    retention
-  };
-};
-
-const levelOnePictureSequences = [
-  sequenceItem("first_event", 1, 1, "The cat jumped on the box, curled into a ball, and fell asleep.",
-    ["jumped on the box", "curled into a ball", "fell asleep"],
-    ["cat-jumps-on-box", "cat-curls-on-box", "cat-sleeps-on-box"]),
-  sequenceItem("first_event", 1, 2, "Mia put a seed in soil, watered it, and saw a green shoot.",
-    ["put in the seed", "watered the soil", "saw a green shoot"],
-    ["child-plants-seed", "child-waters-seed", "seed-grows-shoot"]),
-  sequenceItem("first_event", 1, 3, "Ben wet his hands, rubbed in soap, and rinsed the bubbles away.",
-    ["wet his hands", "rubbed in soap", "rinsed his hands"],
-    ["child-wets-hands", "child-soaps-hands", "child-rinses-hands"]),
-  textSequenceItem("first_event", 1, 4,
-    "Zara pulled on one sock. Then she put on its shoe. Last, she tied the laces.",
-    ["pulled on a sock", "put on the shoe", "tied the laces"]),
-  sequenceItem("first_event", 2, 5, "Dad put bread in the toaster, waited for it to pop, and spread butter.",
-    ["put bread in", "toast popped up", "spread the butter"],
-    ["bread-enters-toaster", "toast-pops-up", "butter-spread-on-toast"]),
-  sequenceItem("first_event", 2, 6, "Noah threw the ball, the dog chased it, and the dog brought it back.",
-    ["threw the ball", "dog chased it", "dog brought it back"],
-    ["child-throws-ball", "dog-chases-ball", "dog-returns-ball"]),
-  textSequenceItem("first_event", 2, 7,
-    "Lina drew a circle. Then she added sun rays. Last, she colored the sun yellow.",
-    ["drew a circle", "added the rays", "colored the sun"]),
-  sequenceItem("first_event", 2, 8, "Omar set down blocks, stacked a tower, and smiled at the top.",
-    ["set down blocks", "stacked the tower", "smiled at the tower"],
-    ["child-sets-blocks", "child-stacks-tower", "child-smiles-at-tower"]),
-
-  sequenceItem("middle_event", 1, 1, "Ava laid down bread, added cheese, and closed the sandwich.",
-    ["laid down bread", "added the cheese", "closed the sandwich"],
-    ["bread-on-plate", "cheese-on-bread", "closed-sandwich"]),
-  textSequenceItem("middle_event", 1, 2,
-    "Rain began. Eli put on his boots. Then he opened an umbrella. Last, he walked outside.",
-    ["put on boots", "opened an umbrella", "walked outside"]),
-  sequenceItem("middle_event", 1, 3, "The girl opened her book, read one page, and put in a bookmark.",
-    ["opened the book", "read the page", "put in a bookmark"],
-    ["child-opens-book", "child-reads-page", "child-adds-bookmark"]),
-  sequenceItem("middle_event", 1, 4, "Kai filled a cup, drank the water, and put the cup in the sink.",
-    ["filled the cup", "drank the water", "put cup in sink"],
-    ["child-fills-cup", "child-drinks-water", "child-puts-cup-in-sink"]),
-  sequenceItem("middle_event", 2, 5, "Mom cracked an egg, whisked it, and cooked it in the pan.",
-    ["cracked the egg", "whisked the egg", "cooked the egg"],
-    ["adult-cracks-egg", "adult-whisks-egg", "egg-cooks-in-pan"]),
-  sequenceItem("middle_event", 2, 6, "The boy kicked the ball, it hit the goal, and his team cheered.",
-    ["kicked the ball", "ball went in goal", "team cheered"],
-    ["child-kicks-football", "football-enters-goal", "children-cheer-goal"]),
-  textSequenceItem("middle_event", 2, 7,
-    "Nia washed the muddy dog. Then she dried its fur. Last, she brushed the fur smooth.",
-    ["washed the dog", "dried its fur", "brushed the fur smooth"]),
-  sequenceItem("middle_event", 2, 8, "The baker mixed dough, shaped a loaf, and put it in the oven.",
-    ["mixed the dough", "shaped the loaf", "put loaf in oven"],
-    ["baker-mixes-dough", "baker-shapes-loaf", "baker-puts-loaf-in-oven"]),
-
-  textSequenceItem("last_event", 1, 1,
-    "Sam put toothpaste on his brush. Then he brushed his teeth. Last, he rinsed his mouth.",
-    ["added toothpaste", "brushed his teeth", "rinsed his mouth"]),
-  sequenceItem("last_event", 1, 2, "The child found paper, folded a plane, and flew it across the room.",
-    ["found the paper", "folded a plane", "flew the plane"],
-    ["child-finds-paper", "child-folds-paper-plane", "child-flies-paper-plane"]),
-  sequenceItem("last_event", 1, 3, "Ivy picked an apple, washed it, and took a bite.",
-    ["picked the apple", "washed the apple", "bit the apple"],
-    ["child-picks-apple", "child-washes-apple", "child-bites-apple"]),
-  sequenceItem("last_event", 1, 4, "The boy built a snowball, added a head, and gave the snowman a hat.",
-    ["made a snowball", "added the head", "added the hat"],
-    ["child-rolls-snowball", "child-builds-snowman-head", "child-adds-snowman-hat"]),
-  sequenceItem("last_event", 2, 5, "Ana wrapped the gift, tied a bow, and gave it to her friend.",
-    ["wrapped the gift", "tied the bow", "gave the gift"],
-    ["child-wraps-gift", "child-ties-gift-bow", "child-gives-gift"]),
-  sequenceItem("last_event", 2, 6, "The class dug a hole, planted the tree, and watered its roots.",
-    ["dug the hole", "planted the tree", "watered the roots"],
-    ["children-dig-hole", "children-plant-tree", "children-water-tree"]),
-  sequenceItem("last_event", 2, 7, "Leo put trash in a bag, tied it shut, and placed it in the trash can.",
-    ["filled the bag", "tied the bag", "put bag in trash can"],
-    ["child-fills-rubbish-bag", "child-ties-rubbish-bag", "child-puts-bag-in-bin"]),
-  sequenceItem("last_event", 2, 8, "The bus stopped, the doors opened, and the children stepped off.",
-    ["bus stopped", "doors opened", "children stepped off"],
-    ["school-bus-stops", "school-bus-doors-open", "children-leave-school-bus"]),
-
-  sequenceItem("first_event", 1, 9, "Rae picked up a pencil, drew a star, and colored it red.",
-    ["picked up pencil", "drew the star", "colored it red"],
-    ["child-picks-up-pencil", "child-draws-star", "child-colours-red-star"], true),
-  sequenceItem("middle_event", 1, 9, "Max opened the gate, led the pony through, and shut the gate.",
-    ["opened the gate", "led pony through", "shut the gate"],
-    ["child-opens-gate", "child-leads-pony", "child-shuts-gate"], true),
-  sequenceItem("last_event", 1, 9, "The frog sat, jumped into the pond, and swam away.",
-    ["frog sat", "frog jumped", "frog swam away"],
-    ["frog-sits-by-pond", "frog-jumps-into-pond", "frog-swims-away"], true),
-  sequenceItem("first_event", 2, 10, "Jo poured cereal, added milk, and ate breakfast.",
-    ["poured cereal", "added milk", "ate breakfast"],
-    ["child-pours-cereal", "child-adds-milk", "child-eats-cereal"], true),
-  textSequenceItem("middle_event", 2, 10,
-    "The child zipped a coat. Then the child put on a hat. Last, the child went into the snow.",
-    ["zipped the coat", "put on the hat", "went into the snow"], true),
-  sequenceItem("last_event", 2, 10, "Mia washed a plate, dried it, and put it on the shelf.",
-    ["washed the plate", "dried the plate", "put plate on shelf"],
-    ["child-washes-plate", "child-dries-plate", "child-puts-plate-on-shelf"], true)
-];
-
+const K = t => ({t, r: "KEY", k: true});
+const P = (t, r) => ({t, r});
+// Sequencing: explicit ordinal retrieval at L1; relational and implied order at L2.
+// Every alternative is an event from the passage. L1 has three true event choices.
 export default {
-  skillId: "sequencing",
-  skillName: "Sequencing",
-  items: [...levelOnePictureSequences, ...[
-    // ========== LEVEL 1 · first_event (8) ==========
-    it("first_event", 1, 1, 1,
-      "Before the snowy walk, Tunde got ready. He pulled on his thick socks. Then he zipped his coat right up to his chin. Last of all he pushed his hands into his mittens.",
-      "What did Tunde do FIRST?",
-      [K("pulled on his thick socks"),
-       P("zipped up his coat", "D-SEQUENCE-SWAP"),
-       P("put on his mittens", "D-SEQUENCE-SWAP"),
-       P("built a snowman", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("first_event", 1, 1, 2,
-      "Kaya made a get-well card for Grandma. First she folded the paper in half. After that she drew a bumblebee on the front. At the end she wrote her name inside with three hearts.",
-      "What did Kaya do FIRST?",
-      [K("folded the paper in half"),
-       P("drew a bumblebee", "D-SEQUENCE-SWAP"),
-       P("wrote her name inside", "D-SEQUENCE-SWAP"),
-       P("posted the card", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("first_event", 1, 1, 3,
-      "The fire drill had rules. First, everyone stopped what they were doing the moment the bell rang. Second, they lined up without talking. Last, they walked out to the yard and stood with their class.",
-      "What happened FIRST in the fire drill?",
-      [K("everyone stopped when the bell rang"),
-       P("they lined up quietly", "D-SEQUENCE-SWAP"),
-       P("they walked to the yard", "D-SEQUENCE-SWAP"),
-       P("they rang the bell themselves", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("first_event", 1, 1, 4,
-      "Dad and Effy washed the car on Sunday. First they hosed off the loose mud. Then they rubbed the car all over with soapy sponges. At the end they dried it with an old towel until it shone.",
-      "What did they do FIRST?",
-      [K("hosed off the mud"),
-       P("rubbed it with sponges", "D-SEQUENCE-SWAP"),
-       P("dried it with a towel", "D-SEQUENCE-SWAP"),
-       P("drove to the sea", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("first_event", 1, 2, 5,
-      "To plant seeds, a first-grade class followed the steps. First they dampened a paper towel and laid it in the tray. Then they sprinkled the tiny seeds on top. Last they put the tray on the sunny windowsill.",
-      "Which step came FIRST?",
-      [K("dampening the paper towel"),
-       P("sprinkling the seeds", "D-SEQUENCE-SWAP"),
-       P("putting the tray in the sun", "D-SEQUENCE-SWAP"),
-       P("eating the cress sandwiches", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("first_event", 1, 2, 6,
-      "Jaz repaired her flat bike tire with Uncle Dev. First they turned the bike upside down. After that they removed the flat inner tube. At the end they fitted the new tube and pumped up the tire.",
-      "What did they do FIRST?",
-      [K("turned the bike upside down"),
-       P("pulled out the flat tube", "D-SEQUENCE-SWAP"),
-       P("pumped up the new tube", "D-SEQUENCE-SWAP"),
-       P("rode to the park", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("first_event", 1, 2, 7,
-      "Photo day had an order. First Miss Bell brushed everyone into neat rows on the benches. Then the photographer counted to three. Last, forty children said CHEESE at exactly the same time.",
-      "What happened FIRST on photo day?",
-      [K("Miss Bell arranged the rows"),
-       P("the photographer counted", "D-SEQUENCE-SWAP"),
-       P("everyone said CHEESE", "D-SEQUENCE-SWAP"),
-       P("the photos were posted home", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("first_event", 1, 2, 8,
-      "Grandma made hot chocolate in three steps. First she warmed the milk slowly in the pan. Then she stirred in two spoons of chocolate until it melted. Last came a little swirl of cream on top.",
-      "What did Grandma do FIRST?",
-      [K("warmed the milk in the pan"),
-       P("stirred in the chocolate", "D-SEQUENCE-SWAP"),
-       P("added the cream on top", "D-SEQUENCE-SWAP"),
-       P("drank it by the fire", "D-PLAUSIBLE-UNSUPPORTED")]),
-
-    // ========== LEVEL 1 · middle_event (8) ==========
-    it("middle_event", 1, 1, 1,
-      "Bath time for Biscuit the dog went like this. First Ade filled the tub with warm water. Second he scrubbed the mud out of Biscuit's fur. Last he rubbed him dry until he was a fluffy cloud.",
-      "What happened SECOND?",
-      [K("Ade scrubbed the mud out"),
-       P("Ade filled the tub", "D-SEQUENCE-SWAP"),
-       P("Ade rubbed Biscuit dry", "D-SEQUENCE-SWAP"),
-       P("Biscuit dug a hole", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("middle_event", 1, 1, 2,
-      "The class made pancakes. First they whisked the eggs, flour and milk into a smooth batter. Second they poured a little circle into the hot pan. Last they lifted the golden pancake onto a plate.",
-      "What happened SECOND?",
-      [K("they poured batter into the pan"),
-       P("they whisked the batter", "D-SEQUENCE-SWAP"),
-       P("they lifted the pancake out", "D-SEQUENCE-SWAP"),
-       P("they washed the plates", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("middle_event", 1, 1, 3,
-      "Ivo wrote to his grandma in three steps. First he wrote the letter about his new tooth. Second he sealed it in the envelope and added a stamp. Last he dropped it into the mailbox.",
-      "What happened SECOND?",
-      [K("he sealed and stamped the envelope"),
-       P("he wrote about his tooth", "D-SEQUENCE-SWAP"),
-       P("he posted it in the box", "D-SEQUENCE-SWAP"),
-       P("gran wrote back", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("middle_event", 1, 1, 4,
-      "At the library, Suki did three things. First she slid last week's books into the return slot. Second she hunted the shelves for a dinosaur story. Last she took her pile to the desk to be stamped.",
-      "What did Suki do SECOND?",
-      [K("hunted for a dinosaur story"),
-       P("returned last week's books", "D-SEQUENCE-SWAP"),
-       P("had her pile stamped", "D-SEQUENCE-SWAP"),
-       P("read under the table", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("middle_event", 1, 2, 5,
-      "The tent went up in three steps. First Dad spread the tarp flat on the grass. Second the twins connected the long poles and slid them through the tent sleeves. Last everyone raised the tent and staked the corners.",
-      "What happened SECOND?",
-      [K("the poles were clicked and threaded"),
-       P("the tarp was spread out", "D-SEQUENCE-SWAP"),
-       P("the corners were staked", "D-SEQUENCE-SWAP"),
-       P("it rained on the tent", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("middle_event", 1, 2, 6,
-      "Bo's paper-mache mask took three days. On the first day he blew up a balloon and pasted it with newspaper strips. On the second day, once it was dry, he popped the balloon and cut out eye holes. On the last day he painted the mask gold like a lion.",
-      "What did Bo do on the SECOND day?",
-      [K("popped the balloon and cut eye holes"),
-       P("pasted newspaper on the balloon", "D-SEQUENCE-SWAP"),
-       P("painted the mask gold", "D-SEQUENCE-SWAP"),
-       P("wore the mask to school", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("middle_event", 1, 2, 7,
-      "The recycling job had an order. First Ren emptied every container into one big pile. Second he sorted the pile — paper here, cans there, glass in the crate. Last he wheeled everything out to the curb for the morning truck.",
-      "What did Ren do SECOND?",
-      [K("sorted the pile into groups"),
-       P("emptied the containers into a pile", "D-SEQUENCE-SWAP"),
-       P("wheeled it all to the curb", "D-SEQUENCE-SWAP"),
-       P("drove the morning truck", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("middle_event", 1, 2, 8,
-      "Grandpa made a pinecone bird feeder in three steps. First he chose a large pinecone. Second he spread seed butter over it with a spoon. Last he rolled it in birdseed and tied on a string.",
-      "What did Grandpa do SECOND?",
-      [K("spread seed butter on the pinecone"),
-       P("chose a large pinecone", "D-SEQUENCE-SWAP"),
-       P("rolled it in seed and added string", "D-SEQUENCE-SWAP"),
-       P("hung up an empty spoon", "D-PLAUSIBLE-UNSUPPORTED")]),
-
-    // ========== LEVEL 1 · last_event (8) ==========
-    it("last_event", 1, 1, 1,
-      "Milly's bedtime routine never changed. First came the bath with the boats. Then came teeth, top row and bottom row. Last of all came the story — always one chapter, sometimes one and a half.",
-      "What came LAST?",
-      [K("the story"),
-       P("the bath with the boats", "D-SEQUENCE-SWAP"),
-       P("brushing teeth", "D-SEQUENCE-SWAP"),
-       P("breakfast", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("last_event", 1, 1, 2,
-      "The treasure hunt had three clues. The first clue was under the doormat. The second clue hid inside a rain boot by the door. The last clue led to the cookie tin, where the chocolate coins were waiting.",
-      "Where did the hunt END?",
-      [K("at the cookie tin"),
-       P("under the doormat", "D-SEQUENCE-SWAP"),
-       P("inside the rain boot", "D-SEQUENCE-SWAP"),
-       P("at the candy store", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("last_event", 1, 1, 3,
-      "Making apple crumble went in order. First Mom peeled and chopped the apples. Then Leo mixed the butter, flour, and sugar into crumbs and spread them on top. Last the dish went into the hot oven until the kitchen smelled wonderful.",
-      "What happened LAST?",
-      [K("the dish went into the oven"),
-       P("the apples were chopped", "D-SEQUENCE-SWAP"),
-       P("the crumbs were spread on top", "D-SEQUENCE-SWAP"),
-       P("the apples were picked", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("last_event", 1, 1, 4,
-      "At the dentist, Pia's visit had three parts. First she sat in the big chair and it hummed up high. Then the dentist counted her teeth with a tiny mirror. At the very end Pia chose a sticker from the golden box.",
-      "What happened at the END of the visit?",
-      [K("Pia chose a sticker"),
-       P("the chair hummed up high", "D-SEQUENCE-SWAP"),
-       P("her teeth were counted", "D-SEQUENCE-SWAP"),
-       P("Pia lost a tooth", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("last_event", 1, 2, 5,
-      "Wrapping Dad's present was a mission. First Ana cut the paper to size. Then she folded and taped the ends as neatly as she could. Last she stuck the bow on top and hid the present under her bed until morning.",
-      "What did Ana do LAST?",
-      [K("added the bow and hid the present"),
-       P("cut the paper to size", "D-SEQUENCE-SWAP"),
-       P("taped the folded ends", "D-SEQUENCE-SWAP"),
-       P("opened the present herself", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("last_event", 1, 2, 6,
-      "The school trip lunch had rules. First everyone found a dry spot on the grass. Then sandwiches came out, and trading was allowed. At the very end, every piece of trash went into the bags, and the field was left exactly as they found it.",
-      "What happened LAST at lunch?",
-      [K("all the trash was packed away"),
-       P("everyone found a dry spot", "D-SEQUENCE-SWAP"),
-       P("sandwiches were swapped", "D-SEQUENCE-SWAP"),
-       P("the bus drove home", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("last_event", 1, 2, 7,
-      "Kip built a kite from a kit. First he slotted the two sticks into a cross. Then he stretched the red sail over the frame and clipped it. Last he tied on the string and the long rattling tail.",
-      "What did Kip do LAST?",
-      [K("tied on the string and tail"),
-       P("slotted the sticks into a cross", "D-SEQUENCE-SWAP"),
-       P("stretched the sail on the frame", "D-SEQUENCE-SWAP"),
-       P("flew the kite at the beach", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("last_event", 1, 2, 8,
-      "Muddy boot cleanup worked in order. First the boots were tapped together outside to knock the big lumps off. Then an old brush scrubbed the tricky spots around the laces. Last the clean boots stood in a row on a drying rack.",
-      "What happened LAST?",
-      [K("the boots stood on a drying rack"),
-       P("the boots were banged together", "D-SEQUENCE-SWAP"),
-       P("the laces were scrubbed", "D-SEQUENCE-SWAP"),
-       P("new boots were bought", "D-PLAUSIBLE-UNSUPPORTED")]),
-
-    // ========== LEVEL 2 · before_after_relation (8) ==========
-    it("before_after_relation", 2, 1, 1,
-      "Jam morning followed Grandma's strict order: berries picked before the sun got hot, then washed, then boiled with sugar until steam covered the kitchen windows. Only when a test drop wrinkled on a cold plate did the jars get filled, and the labels went on last, once the glass had cooled.",
-      "What happened right BEFORE the jars were filled?",
-      [K("the jam passed the cold-plate test"),
-       P("the berries were picked", "D-SEQUENCE-SWAP"),
-       P("the labels went on", "D-SEQUENCE-SWAP"),
-       P("the jars were bought", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("before_after_relation", 2, 1, 2,
-      "The egg diary told the whole story. Day one: six eggs under the warm lamp. Day nineteen: the first tiny crack. Day twenty: cheeping from inside the shells. Day twenty-one: five wet chicks, then a sixth, late and loud. Day twenty-three: six fluffy escape artists.",
-      "What happened right AFTER the first crack appeared?",
-      [K("cheeping came from inside the shells"),
-       P("the eggs went under the lamp", "D-SEQUENCE-SWAP"),
-       P("the chicks turned fluffy", "D-SEQUENCE-SWAP"),
-       P("a seventh egg arrived", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("before_after_relation", 2, 1, 3,
-      "Hair-cut Saturday followed its ritual. The gown went on backwards like a superhero cape. The spray bottle made Otto shiver. The scissors talked their snip-snip talk around his ears. And only after the little mirror had shown him the back of his own head did the lollipop jar come down from the shelf.",
-      "When did the lollipop jar come down?",
-      [K("once Otto had seen the finished haircut"),
-       P("before the gown went on", "D-SEQUENCE-SWAP"),
-       P("while the spray bottle worked", "D-SEQUENCE-SWAP"),
-       P("it stayed on the shelf", "D-OPPOSITE")]),
-    it("before_after_relation", 2, 1, 4,
-      "The museum trip ran like clockwork. Coats and bags went into the big lockers first. The dinosaur hall came before lunch, because Mr. Idris knew nobody could concentrate after seeing the gift shop. Lunch happened in the echoing basement room. The gift shop came last — five dollars, one bag, no trades.",
-      "What did the class do right BEFORE lunch?",
-      [K("visited the dinosaur hall"),
-       P("put bags in the lockers", "D-SEQUENCE-SWAP"),
-       P("visited the gift shop", "D-SEQUENCE-SWAP"),
-       P("rode the bus home", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("before_after_relation", 2, 2, 5,
-      "The salad took all spring. Seeds went into pots on the cold windowsill in March. In April, after the last frost had passed, the little plants moved out to the raised bed. May brought watering duty and one dramatic slug battle. In June, at last, scissors met lettuce, and lunch tasted of the whole spring.",
-      "When did the plants move outside?",
-      [K("once the winter frosts had ended"),
-       P("before the seeds were potted", "D-SEQUENCE-SWAP"),
-       P("after the lettuce was cut", "D-SEQUENCE-SWAP"),
-       P("during the slug battle", "D-SEQUENCE-SWAP")]),
-    it("before_after_relation", 2, 2, 6,
-      "Match-day afternoons had a fixed shape. Boots were cleaned the night before — always the night before, never the morning, that was the rule. The team sheet went up at noon. Warm-up laps started at one. And the moment the whistle blew at two, every stomach butterfly vanished until full time.",
-      "When were the boots cleaned?",
-      [K("on the evening ahead of match day"),
-       P("at noon with the team sheet", "D-SEQUENCE-SWAP"),
-       P("after the whistle blew", "D-SEQUENCE-SWAP"),
-       P("during the warm-up laps", "D-SEQUENCE-SWAP")]),
-    it("before_after_relation", 2, 2, 7,
-      "The shadow experiment lasted from breakfast to late afternoon. At nine, Asha traced her friend's shadow, long and thin, stretching to the fence. Just after twelve she drew it again, short and close to his feet. At three the shadow reached the other side, and by five it touched the hedge, longer than ever.",
-      "What was the shadow like just AFTER twelve?",
-      [K("short and close to his feet"),
-       P("stretching long to the fence", "D-SEQUENCE-SWAP"),
-       P("touching the hedge", "D-SEQUENCE-SWAP"),
-       P("gone completely", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("before_after_relation", 2, 2, 8,
-      "Moving the bookcase needed planning. Every book came off the shelves before anything else. The empty case moved across the room a little at a time. Then Dad vacuumed the dusty carpet where it had stood. Only after that did the books go back in Robi's new rainbow order.",
-      "What happened right BEFORE the books went back?",
-      [K("the old spot was vacuumed"),
-       P("the books came off the shelves", "D-SEQUENCE-SWAP"),
-       P("the case waddled across the room", "D-SEQUENCE-SWAP"),
-       P("new shelves were built", "D-PLAUSIBLE-UNSUPPORTED")]),
-
-    // ========== LEVEL 2 · implied_order (8) ==========
-    it("implied_order", 2, 1, 1,
-      "Noor licked the last icing from her fingers. The kitchen still smelled of warm cake, and two baking pans soaked in the sink. On the table sat the finished cake with icing and a cherry, next to the open recipe book.",
-      "Which of these must have happened FIRST, before everything else?",
-      [K("the cake was baked in the pans"),
-       P("the icing was licked off fingers", "D-SEQUENCE-SWAP"),
-       P("the cherry went on top", "D-SEQUENCE-SWAP"),
-       P("the tins went into the sink", "D-SEQUENCE-SWAP")],
-      { note: "events told out of order; reader reconstructs bake → ice → cherry → wash → lick" }),
-    it("implied_order", 2, 1, 2,
-      "The sled stood dripping in the entryway. Three pairs of soaked gloves lay on a drying rack, and a carrot with a bite-shaped dent waited by the back door. Out in the garden, a lopsided snowman wore Dad's second-best scarf.",
-      "Which of these happened LAST, after all the rest?",
-      [K("the wet things were brought in to dry"),
-       P("the lopsided snowman was built in the garden", "D-SEQUENCE-SWAP"),
-       P("the sled ride on the hill happened", "D-SEQUENCE-SWAP"),
-       P("snow began to fall", "D-SEQUENCE-SWAP")]),
-    it("implied_order", 2, 1, 3,
-      "A wheelbarrow of fresh weeds stood by the gate. The flower bed's soil was dark and freshly turned. Twelve small marigolds now filled the spaces where the weeds had grown, and a watering can stood beside the new row.",
-      "What had to happen BEFORE the marigolds were planted?",
-      [K("the weeds were pulled out"),
-       P("the marigolds were watered", "D-SEQUENCE-SWAP"),
-       P("the new row was admired", "D-SEQUENCE-SWAP"),
-       P("the wheelbarrow was painted", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("implied_order", 2, 1, 4,
-      "Rio hopped to the bench with one bare foot. Out in the shallow end, a lifeguard fished patiently with a long pole. On the tiles lay one wet sock, and somewhere between the changing room and the water, the story of how his flip-flop had ended up floating told itself.",
-      "What must have happened BEFORE the lifeguard got the pole?",
-      [K("the flip-flop went into the water"),
-       P("Rio hopped to the bench", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("the flip-flop was fished out", "D-SEQUENCE-SWAP"),
-       P("the pool was closed", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("implied_order", 2, 2, 5,
-      "Aunt Zainab's package was ready at last. Tape sealed every box flap, and a neat address label covered the first two mistakes. Inside, jars of jam sat in thick newspaper, with no room to move.",
-      "What must have happened BEFORE the box was taped shut?",
-      [K("the wrapped jars were placed inside"),
-       P("the package was carried to the mail counter", "D-SEQUENCE-SWAP"),
-       P("the tape was cut open again", "D-SEQUENCE-SWAP"),
-       P("the jam was served at breakfast", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("implied_order", 2, 2, 6,
-      "Curtain call. Flowers landed on the stage as the cast bowed in painted cardboard armor. In the wings, the prompt book sat closed on its stool at last, and backstage a whole semester's rehearsal notes filled the trash can — three drafts of the script, the audition list, and the first rough set sketches.",
-      "Which of these came FIRST, long before tonight?",
-      [K("the auditions were held"),
-       P("the cast took their bows", "D-SEQUENCE-SWAP"),
-       P("flowers landed on the stage", "D-SEQUENCE-SWAP"),
-       P("the prompt book closed", "D-SEQUENCE-SWAP")]),
-    it("implied_order", 2, 2, 7,
-      "The wormery finally stood complete on the balcony: layers of sand and dark soil striped like a cake, damp leaves on top, and five worms already tunnelling their first wavy lines past the glass. A bag of leftover sand slumped by the door, and Juno's soil-crusted trowel soaked in a jam jar.",
-      "Which of these must have happened BEFORE the worms went in?",
-      [K("the sand and soil were layered"),
-       P("the worms drew wavy tunnel lines past the glass", "D-SEQUENCE-SWAP"),
-       P("the trowel went into the jar", "D-PLAUSIBLE-UNSUPPORTED"),
-       P("the wormery was emptied out", "D-OPPOSITE")]),
-    it("implied_order", 2, 2, 8,
-      "Half-time. The score sat at two-one, and Coach passed the orange quarters down the line of muddy knees. Nobody mentioned the first goal any more — the lucky bounce off the post — and everybody mentioned the second, Ffion's header, over and over, louder each telling.",
-      "Which goal happened FIRST?",
-      [K("the lucky bounce off the post"),
-       P("Ffion's header", "D-SEQUENCE-SWAP"),
-       P("the half-time oranges", "D-SEQUENCE-SWAP"),
-       P("the winning penalty", "D-PLAUSIBLE-UNSUPPORTED")]),
-
-    // ========== LEVEL 2 · process_order (8) ==========
-    it("process_order", 2, 1, 1,
-      "A letter's journey has stages. It is placed in the mail box on the corner. A postal worker empties the box into a big sack. At the sorting center, machines read the ZIP code and place it in the right tray. A truck carries the tray across the country, and a mail carrier brings the letter to the right door.",
-      "What happens right AFTER the box is emptied?",
-      [K("the letter is sorted by ZIP code"),
-       P("the letter is posted in the box", "D-SEQUENCE-SWAP"),
-       P("the mail carrier brings it to the door", "D-SEQUENCE-SWAP"),
-       P("the letter is written", "D-SEQUENCE-SWAP")]),
-    it("process_order", 2, 1, 2,
-      "From cocoa pod to chocolate bar takes many steps. Farmers cut the pods and scoop out the beans. The beans dry in the sun for days. Roasting develops their flavor. Then grinding turns them into a thick brown paste. After sugar and milk are added, the paste sets into bars.",
-      "What happens right BEFORE the beans are roasted?",
-      [K("they dry in the sun"),
-       P("they are ground to paste", "D-SEQUENCE-SWAP"),
-       P("sugar and milk join in", "D-SEQUENCE-SWAP"),
-       P("the bars reach the stores", "D-SEQUENCE-SWAP")]),
-    it("process_order", 2, 1, 3,
-      "Recycled glass goes around in a loop. Bottles from curbside bins travel to the plant. There they are sorted by color and smashed into small pieces. A furnace melts the pieces into glowing liquid. The liquid is blown or pressed into new bottles, which can return to curbside bins to start again.",
-      "What happens right AFTER the glass is smashed into small pieces?",
-      [K("the furnace melts the small pieces"),
-       P("bottles are collected from curbside bins", "D-SEQUENCE-SWAP"),
-       P("new bottles are blown", "D-SEQUENCE-SWAP"),
-       P("the bottles are sorted by color", "D-SEQUENCE-SWAP")]),
-    it("process_order", 2, 1, 4,
-      "A tooth's visit from the tooth fairy follows steps, Ari explained seriously. The tooth wobbles for days. It comes out — usually in an apple or a laugh. It goes under the pillow at bedtime. In the morning, a coin has taken its place. The tooth itself, Ari suspected, joins a very large collection somewhere.",
-      "In Ari's list, what happens right AFTER the tooth goes under the pillow?",
-      [K("a coin appears by morning"),
-       P("the tooth starts to wobble", "D-SEQUENCE-SWAP"),
-       P("the tooth comes out", "D-SEQUENCE-SWAP"),
-       P("the dentist is called", "D-PLAUSIBLE-UNSUPPORTED")]),
-    it("process_order", 2, 2, 5,
-      "Making honey happens in stages. Bees drink nectar from flowers and carry it home. Other bees pass the nectar from bee to bee, thickening it. The nectar is packed into wax cells. Bees fan it until enough water has gone. Only then is each cell capped with wax.",
-      "What do the bees do right BEFORE capping the cell?",
-      [K("fan the nectar with their wings"),
-       P("drink nectar from flowers", "D-SEQUENCE-SWAP"),
-       P("pass it from bee to bee", "D-SEQUENCE-SWAP"),
-       P("break the wax open", "D-OPPOSITE")]),
-    it("process_order", 2, 2, 6,
-      "The rescue boat launch follows a practiced order. Alerts sound across the town. Crew members stop what they are doing and run to the station. They put on boots, suits, and life jackets. The doors open, the boat moves down the ramp, and the crew receives directions on the water.",
-      "What happens right AFTER the crew members reach the station?",
-      [K("they put on their safety gear"),
-       P("the alerts sound", "D-SEQUENCE-SWAP"),
-       P("the boat goes down the ramp", "D-SEQUENCE-SWAP"),
-       P("they ask where they are going", "D-SEQUENCE-SWAP")]),
-    it("process_order", 2, 2, 7,
-      "A library book's life is a circle. It is chosen and borrowed at the desk. It lives in a reader's house for a while — beside beds, in bags, once or twice in a garden. It comes back through the return slot. It is checked, sometimes mended with careful tape, and then reshelved in its exact place, ready to be chosen all over again.",
-      "What happens right AFTER the book comes back through the slot?",
-      [K("it is checked and mended if needed"),
-       P("it is borrowed at the desk", "D-SEQUENCE-SWAP"),
-       P("it lives beside someone's bed", "D-SEQUENCE-SWAP"),
-       P("it is reshelved immediately unchecked", "D-SEQUENCE-SWAP")]),
-    it("process_order", 2, 2, 8,
-      "School soup follows the garden calendar. Seeds are planted in trays in early spring. Seedlings move to the garden after the last frost. All season the watering schedule keeps them alive. In autumn the vegetables are pulled, scrubbed, and chopped, and the whole school eats the soup.",
-      "What happens right BEFORE the vegetables are pulled?",
-      [K("a whole term of watering"),
-       P("the seeds are sown in trays", "D-SEQUENCE-SWAP"),
-       P("the soup is eaten", "D-SEQUENCE-SWAP"),
-       P("the trays are washed", "D-PLAUSIBLE-UNSUPPORTED")]),
-
-    // ========== RETENTION RESERVE (8 + 8) ==========
-    it("first_event", 1, 1, 9,
-      "Milo set the breakfast table his way. First he laid out three bowls in a row. Then he stood the cereal boxes up like castle towers. Last he put a spoon beside each bowl, handles all pointing the same way.",
-      "What did Milo do FIRST?",
-      [K("laid out the three bowls"),
-       P("stood up the cereal boxes", "D-SEQUENCE-SWAP"),
-       P("placed the spoons", "D-SEQUENCE-SWAP"),
-       P("poured the milk", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),
-    it("middle_event", 1, 1, 10,
-      "Wash day for Teddy had three steps. First Teddy took a gentle bath in the sink. Second he was squeezed softly in a towel. Last he hung from the clothesline until the sun had dried him.",
-      "What happened SECOND?",
-      [K("Teddy was squeezed in a towel"),
-       P("Teddy had his bath", "D-SEQUENCE-SWAP"),
-       P("Teddy hung from the clothesline", "D-SEQUENCE-SWAP"),
-       P("Teddy was lost at the park", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),
-    it("last_event", 1, 1, 11,
-      "The lost tooth chart worked in order. First Amy wiggled the tooth and marked a W on the chart. Then, when it came out, she drew a star on that day's square. Last of all she colored the whole row gold, because the chart was finally finished.",
-      "What did Amy do LAST?",
-      [K("colored the row gold"),
-       P("marked a W on the chart", "D-SEQUENCE-SWAP"),
-       P("drew a star on the square", "D-SEQUENCE-SWAP"),
-       P("started a new chart", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),
-    it("first_event", 1, 2, 10,
-      "Puddle-jumping had rules of its own. First, boots on — no exceptions, not even for socks with frogs on. Then the garden inspection, walking the path to find the deepest, brownest puddle. Only then came the jumping, biggest splash wins, judged by the dog.",
-      "What came FIRST in the rules?",
-      [K("putting boots on"),
-       P("inspecting the puddles", "D-SEQUENCE-SWAP"),
-       P("the jumping contest", "D-SEQUENCE-SWAP"),
-       P("drying the dog", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),
-    it("middle_event", 1, 2, 11,
-      "The class assembly took shape in three rehearsals. In the first, everyone just learned where to stand. In the second, the speaking parts joined in, script pages rustling. In the third and last, costumes came out, and suddenly the hall felt like a real show.",
-      "What happened in the SECOND rehearsal?",
-      [K("the speaking parts were practiced"),
-       P("everyone learned where to stand", "D-SEQUENCE-SWAP"),
-       P("the costumes came out", "D-SEQUENCE-SWAP"),
-       P("the audience arrived", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),
-    it("last_event", 1, 2, 12,
-      "Feeding the ducks properly went like this. First the oats were shared into four little cups, one each. Then the slow walk to the pond, cups held like treasure. At the end, the oats were scattered wide across the water, so even the shy duck at the back got breakfast.",
-      "What happened LAST?",
-      [K("the oats were scattered on the water"),
-       P("the oats were shared into cups", "D-SEQUENCE-SWAP"),
-       P("the walk to the pond", "D-SEQUENCE-SWAP"),
-       P("bread was thrown instead", "D-OPPOSITE")], { retention: true }),
-    it("first_event", 1, 1, 12,
-      "Painting the fence took all Saturday. First Dad and Nia brushed off the old flaky bits. Then they stirred the big tin until the paint was smooth. Last they painted plank by plank, racing the afternoon rain.",
-      "What did they do FIRST?",
-      [K("brushed off the flaky bits"),
-       P("stirred the paint smooth", "D-SEQUENCE-SWAP"),
-       P("painted plank by plank", "D-SEQUENCE-SWAP"),
-       P("built a new fence", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),
-    it("middle_event", 1, 1, 12,
-      "Story time in the blanket fort had an order. First the cushions were piled into a nest. Second the flashlight was clipped to the tent pole, casting a circle of light. Last Uncle Remy read in his creaky pirate voice until somebody, usually Uncle Remy, fell asleep.",
-      "What happened SECOND?",
-      [K("the flashlight was clipped to the pole"),
-       P("the cushions were piled up", "D-SEQUENCE-SWAP"),
-       P("the pirate voice reading", "D-SEQUENCE-SWAP"),
-       P("breakfast was cooked", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),
-    it("before_after_relation", 2, 1, 9,
-      "The bridge of books rose across the classroom floor all week. Monday: two towers, one at each side. Tuesday: the towers grew waist-high. Wednesday: the first careful row of atlases went across the gap. Thursday: the marble made its first crossing. Friday, the principal asked for every book to go back on the shelves.",
-      "What happened right BEFORE the marble made its first crossing?",
-      [K("the atlas plank bridged the gap"),
-       P("the two towers were started", "D-SEQUENCE-SWAP"),
-       P("the books went back on shelves", "D-SEQUENCE-SWAP"),
-       P("a second marble was found", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),
-    it("before_after_relation", 2, 2, 10,
-      "Outdoor movie night ran on a strict timetable. The blankets were checked while it was still light, always first. Snacks came out at six. The movie began at seven. Star watching waited until full dark.",
-      "When were the blankets checked?",
-      [K("at the start, before sunset"),
-       P("after the movie began", "D-SEQUENCE-SWAP"),
-       P("during star watching", "D-SEQUENCE-SWAP"),
-       P("at six with the snacks", "D-SEQUENCE-SWAP")], { retention: true }),
-    it("implied_order", 2, 1, 10,
-      "The sandcastle stood finished at last, moat and all, with a seagull feather flying from the top tower. Around it lay the story of the morning: a ring of shells not quite used up, two buckets with wet sand still crusting their rims, and one very sandy pair of knees.",
-      "Which of these must have happened FIRST?",
-      [K("the buckets were filled and turned over"),
-       P("the feather flag was placed on the top tower", "D-SEQUENCE-SWAP"),
-       P("the shells were arranged around the castle", "D-SEQUENCE-SWAP"),
-       P("the tide later washed the castle away", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),
-    it("implied_order", 2, 2, 11,
-      "The community concert was over. On the piano stood a jar of garden flowers and a thank-you card signed by the whole street. The borrowed chairs were going back next door two at a time, and the drink dispenser in the kitchen held its final cups.",
-      "Which of these happened FIRST, before the rest?",
-      [K("the neighbors lent their chairs"),
-       P("the thank-you card was signed", "D-SEQUENCE-SWAP"),
-       P("the chairs went back two at a time", "D-SEQUENCE-SWAP"),
-       P("the flowers wilted", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),
-    it("process_order", 2, 1, 9,
-      "Wool has a long journey to a sweater. The sheep is sheared in early summer. The fleece is washed until the water runs clear. Carding combs untangle every fiber the same way. The spinning wheel twists the fibers into one long thread, and the knitting needles shape it loop by loop.",
-      "What happens right AFTER the fleece is washed?",
-      [K("carding combs untangle the fibers"),
-       P("the sheep is sheared in early summer", "D-SEQUENCE-SWAP"),
-       P("the thread is knitted", "D-SEQUENCE-SWAP"),
-       P("the sweater is worn", "D-SEQUENCE-SWAP")], { retention: true }),
-    it("process_order", 2, 2, 10,
-      "A rescued hedgehog moves through the wildlife center in stages. New arrivals are weighed and checked when they come in. Sick ones stay warm in a quiet room until they feed by themselves. Then comes the outdoor pen, to practice being wild again. Release night is last, back to the hedge where each one was found.",
-      "What happens right BEFORE the hedgehog moves to the outdoor pen?",
-      [K("feeding by themselves in the quiet room"),
-       P("being weighed on arrival", "D-SEQUENCE-SWAP"),
-       P("release at the hedge", "D-SEQUENCE-SWAP"),
-       P("hibernating all winter", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),
-    it("before_after_relation", 2, 1, 11,
-      "The lost glove's week went like this. Monday it fell at the bus stop. Tuesday someone balanced it on the wall, in case its owner came back. Wednesday it wore a dusting of frost. Thursday Priya recognized it from the bus window. And on Friday, glove and girl went home together at last.",
-      "What happened right AFTER the glove was put on the wall?",
-      [K("it got a dusting of frost"),
-       P("it fell at the bus stop", "D-SEQUENCE-SWAP"),
-       P("Priya took it home", "D-SEQUENCE-SWAP"),
-       P("it was posted to the school", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),
-    it("process_order", 2, 1, 11,
-      "The pedestrian signal follows a strict order. The button is pressed, and the small light says WAIT. Traffic gets a yellow warning, then red. Only then does the white walking symbol appear. When it starts to blink, people finish crossing, and then the cars get their turn again.",
-      "What happens right AFTER the traffic light turns red?",
-      [K("the white walking symbol appears"),
-       P("the button is pressed", "D-SEQUENCE-SWAP"),
-       P("the yellow warning shows", "D-SEQUENCE-SWAP"),
-       P("the WAIT light switches on", "D-SEQUENCE-SWAP")], { retention: true })
-  ].filter(item => item.lvl === 2)]
+  "skillId": "sequencing",
+  "skillName": "Sequencing",
+  "items": [
+    {
+      "u": "first_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 1,
+      "fmt": "COMPREHENSION",
+      "cell": "first_event",
+      "passage": "The cat jumped onto the box. Then it curled into a ball. Last, it fell asleep.",
+      "prompt": "What happened first?",
+      "spoken": "The cat jumped onto the box. Then it curled into a ball. Last, it fell asleep. What happened first?",
+      "choices": [
+        {
+          "t": "jumped on the box",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "curled into a ball",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "fell asleep",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "first_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 2,
+      "fmt": "COMPREHENSION",
+      "cell": "first_event",
+      "passage": "Mia planted a seed in soil. She watered it each day. Later, a green shoot grew.",
+      "prompt": "What happened first?",
+      "spoken": "Mia planted a seed in soil. She watered it each day. Later, a green shoot grew. What happened first?",
+      "choices": [
+        {
+          "t": "put in the seed",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "watered the soil",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "saw a green shoot",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "first_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 3,
+      "fmt": "COMPREHENSION",
+      "cell": "first_event",
+      "passage": "Ben wet his hands. Then he rubbed soap over them. Last, he rinsed the bubbles away.",
+      "prompt": "What happened first?",
+      "spoken": "Ben wet his hands. Then he rubbed soap over them. Last, he rinsed the bubbles away. What happened first?",
+      "choices": [
+        {
+          "t": "wet his hands",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "rubbed in soap",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "rinsed his hands",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "first_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 4,
+      "fmt": "COMPREHENSION",
+      "cell": "first_event",
+      "passage": "Zara pulled on a sock. Then she put on its shoe. Last, she tied the laces.",
+      "prompt": "What happened first?",
+      "spoken": "Zara pulled on a sock. Then she put on its shoe. Last, she tied the laces. What happened first?",
+      "choices": [
+        {
+          "t": "pulled on a sock",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "put on the shoe",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "tied the laces",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "first_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 5,
+      "fmt": "COMPREHENSION",
+      "cell": "first_event",
+      "passage": "Dad put bread in the toaster. The toast popped up. Then he spread butter on it.",
+      "prompt": "What happened first?",
+      "spoken": "Dad put bread in the toaster. The toast popped up. Then he spread butter on it. What happened first?",
+      "choices": [
+        {
+          "t": "put bread in",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "toast popped up",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "spread the butter",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "first_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 6,
+      "fmt": "COMPREHENSION",
+      "cell": "first_event",
+      "passage": "Noah threw the ball. The dog chased it. Then the dog brought it back.",
+      "prompt": "What happened first?",
+      "spoken": "Noah threw the ball. The dog chased it. Then the dog brought it back. What happened first?",
+      "choices": [
+        {
+          "t": "threw the ball",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "dog chased it",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "dog brought it back",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "first_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 7,
+      "fmt": "COMPREHENSION",
+      "cell": "first_event",
+      "passage": "Lina drew a circle. Then she added sun rays. Last, she coloured the sun yellow.",
+      "prompt": "What happened first?",
+      "spoken": "Lina drew a circle. Then she added sun rays. Last, she coloured the sun yellow. What happened first?",
+      "choices": [
+        {
+          "t": "drew a circle",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "added the rays",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "colored the sun",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "first_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 8,
+      "fmt": "COMPREHENSION",
+      "cell": "first_event",
+      "passage": "Omar set down his blocks. He stacked them into a tower. Then he smiled at the tall tower.",
+      "prompt": "What happened first?",
+      "spoken": "Omar set down his blocks. He stacked them into a tower. Then he smiled at the tall tower. What happened first?",
+      "choices": [
+        {
+          "t": "set down blocks",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "stacked the tower",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "smiled at the tower",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "middle_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 1,
+      "fmt": "COMPREHENSION",
+      "cell": "middle_event",
+      "passage": "Ava put bread on a plate. She added cheese to one slice. Then she closed the sandwich.",
+      "prompt": "What happened in the middle?",
+      "spoken": "Ava put bread on a plate. She added cheese to one slice. Then she closed the sandwich. What happened in the middle?",
+      "choices": [
+        {
+          "t": "added the cheese",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "laid down bread",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "closed the sandwich",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "middle_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 2,
+      "fmt": "COMPREHENSION",
+      "cell": "middle_event",
+      "passage": "Eli put on his boots. Then he opened his umbrella. Last, he walked outside.",
+      "prompt": "What happened in the middle?",
+      "spoken": "Eli put on his boots. Then he opened his umbrella. Last, he walked outside. What happened in the middle?",
+      "choices": [
+        {
+          "t": "opened an umbrella",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "put on boots",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "walked outside",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "middle_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 3,
+      "fmt": "COMPREHENSION",
+      "cell": "middle_event",
+      "passage": "The girl opened her book. She read a page. Then she put a bookmark inside.",
+      "prompt": "What happened in the middle?",
+      "spoken": "The girl opened her book. She read a page. Then she put a bookmark inside. What happened in the middle?",
+      "choices": [
+        {
+          "t": "read the page",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "opened the book",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "put in a bookmark",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "middle_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 4,
+      "fmt": "COMPREHENSION",
+      "cell": "middle_event",
+      "passage": "Kai filled a cup with water. He drank the water. Then he put the cup in the sink.",
+      "prompt": "What happened in the middle?",
+      "spoken": "Kai filled a cup with water. He drank the water. Then he put the cup in the sink. What happened in the middle?",
+      "choices": [
+        {
+          "t": "drank the water",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "filled the cup",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "put cup in sink",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "middle_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 5,
+      "fmt": "COMPREHENSION",
+      "cell": "middle_event",
+      "passage": "Mom cracked an egg into a bowl. She whisked it with a fork. Then she cooked it in a pan.",
+      "prompt": "What happened in the middle?",
+      "spoken": "Mom cracked an egg into a bowl. She whisked it with a fork. Then she cooked it in a pan. What happened in the middle?",
+      "choices": [
+        {
+          "t": "whisked the egg",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "cracked the egg",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "cooked the egg",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "middle_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 6,
+      "fmt": "COMPREHENSION",
+      "cell": "middle_event",
+      "passage": "The boy kicked the ball. It went into the goal. Then his team cheered.",
+      "prompt": "What happened in the middle?",
+      "spoken": "The boy kicked the ball. It went into the goal. Then his team cheered. What happened in the middle?",
+      "choices": [
+        {
+          "t": "ball went in goal",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "kicked the ball",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "team cheered",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "middle_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 7,
+      "fmt": "COMPREHENSION",
+      "cell": "middle_event",
+      "passage": "Nia washed the muddy dog. She dried its fur. Then she brushed its fur smooth.",
+      "prompt": "What happened in the middle?",
+      "spoken": "Nia washed the muddy dog. She dried its fur. Then she brushed its fur smooth. What happened in the middle?",
+      "choices": [
+        {
+          "t": "dried its fur",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "washed the dog",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "brushed the fur smooth",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "middle_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 8,
+      "fmt": "COMPREHENSION",
+      "cell": "middle_event",
+      "passage": "The baker mixed some dough. She shaped it into a loaf. Then she put it in the oven.",
+      "prompt": "What happened in the middle?",
+      "spoken": "The baker mixed some dough. She shaped it into a loaf. Then she put it in the oven. What happened in the middle?",
+      "choices": [
+        {
+          "t": "shaped the loaf",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "mixed the dough",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "put loaf in oven",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "last_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 1,
+      "fmt": "COMPREHENSION",
+      "cell": "last_event",
+      "passage": "Sam put toothpaste on his brush. He brushed his teeth. Then he spat out the toothpaste.",
+      "prompt": "What happened last?",
+      "spoken": "Sam put toothpaste on his brush. He brushed his teeth. Then he spat out the toothpaste. What happened last?",
+      "choices": [K("spat out the toothpaste"), P("added toothpaste", "D-SEQUENCE-START"), P("brushed his teeth", "D-SEQUENCE-END")],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "last_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 2,
+      "fmt": "COMPREHENSION",
+      "cell": "last_event",
+      "passage": "The child found some paper. She folded it into a plane. Then she flew it across the room.",
+      "prompt": "What happened last?",
+      "spoken": "The child found some paper. She folded it into a plane. Then she flew it across the room. What happened last?",
+      "choices": [
+        {
+          "t": "flew the plane",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "found the paper",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "folded a plane",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "last_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 3,
+      "fmt": "COMPREHENSION",
+      "cell": "last_event",
+      "passage": "Ivy picked an apple. She washed it under the tap. Then she took a bite.",
+      "prompt": "What happened last?",
+      "spoken": "Ivy picked an apple. She washed it under the tap. Then she took a bite. What happened last?",
+      "choices": [
+        {
+          "t": "bit the apple",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "picked the apple",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "washed the apple",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "last_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 4,
+      "fmt": "COMPREHENSION",
+      "cell": "last_event",
+      "passage": "The boy rolled a large snowball. He added a smaller one for the head. Then he gave the snowman a hat.",
+      "prompt": "What happened last?",
+      "spoken": "The boy rolled a large snowball. He added a smaller one for the head. Then he gave the snowman a hat. What happened last?",
+      "choices": [
+        {
+          "t": "added the hat",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "made a snowball",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "added the head",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "last_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 5,
+      "fmt": "COMPREHENSION",
+      "cell": "last_event",
+      "passage": "Ana wrapped the gift. She tied a bow around it. Then she gave it to her friend.",
+      "prompt": "What happened last?",
+      "spoken": "Ana wrapped the gift. She tied a bow around it. Then she gave it to her friend. What happened last?",
+      "choices": [
+        {
+          "t": "gave the gift",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "wrapped the gift",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "tied the bow",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "last_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 6,
+      "fmt": "COMPREHENSION",
+      "cell": "last_event",
+      "passage": "The class dug a hole. They planted a tree in it. Then they watered its roots.",
+      "prompt": "What happened last?",
+      "spoken": "The class dug a hole. They planted a tree in it. Then they watered its roots. What happened last?",
+      "choices": [
+        {
+          "t": "watered the roots",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "dug the hole",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "planted the tree",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "last_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 7,
+      "fmt": "COMPREHENSION",
+      "cell": "last_event",
+      "passage": "Leo filled a bag with rubbish. He tied the bag shut. Then he put it in the bin.",
+      "prompt": "What happened last?",
+      "spoken": "Leo filled a bag with rubbish. He tied the bag shut. Then he put it in the bin. What happened last?",
+      "choices": [
+        {
+          "t": "put bag in trash can",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "filled the bag",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "tied the bag",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "last_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 8,
+      "fmt": "COMPREHENSION",
+      "cell": "last_event",
+      "passage": "The bus stopped. Its doors opened. Then the children stepped off.",
+      "prompt": "What happened last?",
+      "spoken": "The bus stopped. Its doors opened. Then the children stepped off. What happened last?",
+      "choices": [
+        {
+          "t": "children stepped off",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "bus stopped",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "doors opened",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": false
+    },
+    {
+      "u": "first_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 9,
+      "fmt": "COMPREHENSION",
+      "cell": "first_event",
+      "passage": "Rae picked up a pencil. She drew a star. Then she coloured it red.",
+      "prompt": "What happened first?",
+      "spoken": "Rae picked up a pencil. She drew a star. Then she coloured it red. What happened first?",
+      "choices": [
+        {
+          "t": "picked up pencil",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "drew the star",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "colored it red",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": true
+    },
+    {
+      "u": "middle_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 9,
+      "fmt": "COMPREHENSION",
+      "cell": "middle_event",
+      "passage": "Max opened the gate. He led the pony through. Then he shut the gate.",
+      "prompt": "What happened in the middle?",
+      "spoken": "Max opened the gate. He led the pony through. Then he shut the gate. What happened in the middle?",
+      "choices": [
+        {
+          "t": "led pony through",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "opened the gate",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "shut the gate",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": true
+    },
+    {
+      "u": "last_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 9,
+      "fmt": "COMPREHENSION",
+      "cell": "last_event",
+      "passage": "The frog sat by the pond. It jumped into the water. Then it swam away.",
+      "prompt": "What happened last?",
+      "spoken": "The frog sat by the pond. It jumped into the water. Then it swam away. What happened last?",
+      "choices": [
+        {
+          "t": "frog swam away",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "frog sat",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "frog jumped",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": true
+    },
+    {
+      "u": "first_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 10,
+      "fmt": "COMPREHENSION",
+      "cell": "first_event",
+      "passage": "Jo poured cereal into a bowl. She added milk. Then she ate her breakfast.",
+      "prompt": "What happened first?",
+      "spoken": "Jo poured cereal into a bowl. She added milk. Then she ate her breakfast. What happened first?",
+      "choices": [
+        {
+          "t": "poured cereal",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "added milk",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "ate breakfast",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": true
+    },
+    {
+      "u": "middle_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 10,
+      "fmt": "COMPREHENSION",
+      "cell": "middle_event",
+      "passage": "The child zipped up a coat. He put on a hat. Then he went into the snow.",
+      "prompt": "What happened in the middle?",
+      "spoken": "The child zipped up a coat. He put on a hat. Then he went into the snow. What happened in the middle?",
+      "choices": [
+        {
+          "t": "put on the hat",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "zipped the coat",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "went into the snow",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": true
+    },
+    {
+      "u": "last_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 10,
+      "fmt": "COMPREHENSION",
+      "cell": "last_event",
+      "passage": "Mia washed a plate. She dried it. Then she put it on the shelf.",
+      "prompt": "What happened last?",
+      "spoken": "Mia washed a plate. She dried it. Then she put it on the shelf. What happened last?",
+      "choices": [
+        {
+          "t": "put plate on shelf",
+          "k": true,
+          "r": "KEY"
+        },
+        {
+          "t": "washed the plate",
+          "r": "D-SEQUENCE-START"
+        },
+        {
+          "t": "dried the plate",
+          "r": "D-SEQUENCE-END"
+        }
+      ],
+      "media": "text",
+      "evidenceModality": "audio+text",
+      "constructClaim": "story_event_order",
+      "displayPassageDuringResponse": true,
+      "retention": true
+    },
+    {
+      "u": "before_after_relation",
+      "lvl": 2,
+      "ph": 1,
+      "v": 1,
+      "fmt": "COMPREHENSION",
+      "cell": "before_after_relation",
+      "passage": "Grandma picked the berries before the sun grew hot. She washed them, then boiled them with sugar. She tested a drop of jam on a cold plate. Once it set, she filled the jars. She added labels after they cooled.",
+      "prompt": "What happened right BEFORE the jars were filled?",
+      "choices": [
+        {
+          "t": "the jam passed the test",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the berries were picked",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the berries were washed",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the labels went on",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "before_after_relation",
+      "lvl": 2,
+      "ph": 1,
+      "v": 2,
+      "fmt": "COMPREHENSION",
+      "cell": "before_after_relation",
+      "passage": "On day one, six eggs went under the warm lamp. The first crack appeared on day nineteen. Cheeping came from the shells on day twenty. All six chicks hatched the next day. By day twenty-three, their feathers were dry and fluffy.",
+      "prompt": "What happened right AFTER the first crack appeared?",
+      "choices": [
+        {
+          "t": "cheeping came from the shells",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the eggs went under the lamp",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the chicks became fluffy",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the six chicks hatched",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "before_after_relation",
+      "lvl": 2,
+      "ph": 1,
+      "v": 3,
+      "fmt": "COMPREHENSION",
+      "cell": "before_after_relation",
+      "passage": "Otto put on a gown for his haircut. The barber sprayed his hair with water, then cut it. Otto checked the finished haircut in a small mirror. After that, the barber took the lollipop jar off the shelf.",
+      "prompt": "When did the lollipop jar come down?",
+      "choices": [K("after he looked at the finished cut"), P("before he put on the haircut gown", "D-PLAUSIBLE-UNSUPPORTED"), P("while the barber sprayed his hair with water", "D-PLAUSIBLE-UNSUPPORTED"), P("before the barber began cutting his wet hair", "D-OPPOSITE")],
+      "media": "text"
+    },
+    {
+      "u": "before_after_relation",
+      "lvl": 2,
+      "ph": 1,
+      "v": 4,
+      "fmt": "COMPREHENSION",
+      "cell": "before_after_relation",
+      "passage": "The class put their coats and bags in lockers. They visited the dinosaur hall before eating lunch downstairs. After lunch, they visited the gift shop. Then they collected their belongings and left.",
+      "prompt": "What did the class do right BEFORE lunch?",
+      "choices": [
+        {
+          "t": "visited the dinosaur hall",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "put their bags in lockers",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "visited the shop for gifts",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "collected their coats to leave",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "before_after_relation",
+      "lvl": 2,
+      "ph": 2,
+      "v": 5,
+      "fmt": "COMPREHENSION",
+      "cell": "before_after_relation",
+      "passage": "In March, the class planted lettuce seeds in indoor pots. After the last frost in April, they moved the plants outside. They watered the plants and removed slugs throughout May. In June, they cut the lettuce for a salad.",
+      "prompt": "When did the plants move outside?",
+      "choices": [
+        {
+          "t": "after the last frost ended",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "before the seeds went into pots",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "after the lettuce was cut",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "after the month of slug removal",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "before_after_relation",
+      "lvl": 2,
+      "ph": 2,
+      "v": 6,
+      "fmt": "COMPREHENSION",
+      "cell": "before_after_relation",
+      "passage": "The players cleaned their boots the evening before the match. The team list went up at noon on match day. Warm-up laps began at one. At two, the whistle blew to start the game.",
+      "prompt": "When were the boots cleaned?",
+      "choices": [K("the night ahead of match day"), P("at noon when the team list appeared", "D-PLAUSIBLE-UNSUPPORTED"), P("at two when the opening whistle blew", "D-PLAUSIBLE-UNSUPPORTED"), P("at one when the warm-up laps began", "D-OPPOSITE")],
+      "media": "text"
+    },
+    {
+      "u": "before_after_relation",
+      "lvl": 2,
+      "ph": 2,
+      "v": 7,
+      "fmt": "COMPREHENSION",
+      "cell": "before_after_relation",
+      "passage": "At nine, Asha traced a long shadow stretching to the fence. Just after twelve, it was short and near her friend’s feet. At three, the shadow stretched in the other direction. By five, it was long enough to reach the hedge.",
+      "prompt": "What was the shadow like just AFTER twelve?",
+      "choices": [K("short, near the friend’s feet"), P("long enough to reach the fence", "D-PLAUSIBLE-UNSUPPORTED"), P("long enough to touch the hedge", "D-PLAUSIBLE-UNSUPPORTED"), P("stretching in the opposite direction", "D-OPPOSITE")],
+      "media": "text"
+    },
+    {
+      "u": "before_after_relation",
+      "lvl": 2,
+      "ph": 2,
+      "v": 8,
+      "fmt": "COMPREHENSION",
+      "cell": "before_after_relation",
+      "passage": "They removed every book before moving the bookcase. Dad moved the empty case across the room. Then he vacuumed the carpet where it had stood. Finally, Robi put the books back in colour order.",
+      "prompt": "What happened right BEFORE the books went back?",
+      "choices": [
+        {
+          "t": "Dad cleaned the old spot",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "they emptied all the shelves",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Dad moved the empty bookcase",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Robi sorted books into colours",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "implied_order",
+      "lvl": 2,
+      "ph": 1,
+      "v": 1,
+      "fmt": "COMPREHENSION",
+      "cell": "implied_order",
+      "passage": "Noor showed Mum a cake covered in icing and a cherry. The cake had been baked in two round pans. The empty pans were cooling beside the oven. Noor was licking the last icing from her fingers.",
+      "prompt": "Which of these must have happened FIRST, before everything else?",
+      "choices": [
+        {
+          "t": "baking the cake in the pans",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "putting the cherry onto the icing",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "licking the icing from fingers",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "showing Mum the finished cake",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "events told out of order; reader reconstructs bake → ice → cherry → wash → lick"
+    },
+    {
+      "u": "implied_order",
+      "lvl": 2,
+      "ph": 1,
+      "v": 2,
+      "fmt": "COMPREHENSION",
+      "cell": "implied_order",
+      "passage": "A snowman stood in the garden wearing Dad’s spare scarf. After building it, the children had ridden their sleds. Now they were back indoors with wet gloves on the rack. Fresh snow still covered the hill.",
+      "prompt": "Which of these happened LAST, after all the rest?",
+      "choices": [
+        {
+          "t": "bringing the wet things indoors",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "building the snowman with the scarf",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "riding the sleds down the hill",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "snow falling onto the ground",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "implied_order",
+      "lvl": 2,
+      "ph": 1,
+      "v": 3,
+      "fmt": "COMPREHENSION",
+      "cell": "implied_order",
+      "passage": "The flower bed had been full of weeds that morning. Now marigolds grew in the spaces the weeds had occupied. The pulled weeds filled a wheelbarrow by the gate. Juno watered the new plants, then put the can away.",
+      "prompt": "What had to happen BEFORE the marigolds were planted?",
+      "choices": [
+        {
+          "t": "removing weeds from the spaces",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "watering the newly planted flowers",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "putting the watering can away",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "leaving the plants in the soil",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "implied_order",
+      "lvl": 2,
+      "ph": 1,
+      "v": 4,
+      "fmt": "COMPREHENSION",
+      "cell": "implied_order",
+      "passage": "Rio sat with his rescued flip-flop beside the pool. The lifeguard had used a pole to reach it. She had fetched the pole after Rio called for help. He had called because the shoe fell into the water.",
+      "prompt": "What happened just before Rio called for help?",
+      "choices": [K("the shoe fell into the water"), P("the lifeguard fetched her long pole", "D-SEQUENCE-SWAP"), P("the lifeguard pulled the shoe to safety", "D-SEQUENCE-END"), P("Rio sat beside the pool with his shoe", "D-SEQUENCE-REVERSE")],
+      "media": "text"
+    },
+    {
+      "u": "implied_order",
+      "lvl": 2,
+      "ph": 2,
+      "v": 5,
+      "fmt": "COMPREHENSION",
+      "cell": "implied_order",
+      "passage": "Aunt Zainab had sealed every flap of the box with tape. Wrapped jam jars fitted tightly inside it. She made the jam, filled the jars, then wrapped them. Now she was writing the address on the sealed box.",
+      "prompt": "What must have happened BEFORE the box was taped shut?",
+      "choices": [
+        {
+          "t": "placing wrapped jars inside the box",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "writing on the sealed box",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "closing the box flaps with tape",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "checking the finished address label",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "implied_order",
+      "lvl": 2,
+      "ph": 2,
+      "v": 6,
+      "fmt": "COMPREHENSION",
+      "cell": "implied_order",
+      "passage": "The school play had ended, and the actors were bowing. They had rehearsed only after the teacher chose the cast. The teacher had chosen them from the children who tried out. Flowers lay on stage beside the finished scenery.",
+      "prompt": "Which of these came FIRST, long before tonight?",
+      "choices": [
+        {
+          "t": "children trying out for parts",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the actors bowing after the show",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "rehearsing with the chosen cast",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "performing the play for an audience",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "implied_order",
+      "lvl": 2,
+      "ph": 2,
+      "v": 7,
+      "fmt": "COMPREHENSION",
+      "cell": "implied_order",
+      "passage": "Juno’s wormery held worms tunnelling through layers of sand and soil. She had added the worms only once those layers were ready. Damp leaves covered the top, ready for the worms to eat. She was now washing soil from her trowel.",
+      "prompt": "Which of these must have happened BEFORE the worms went in?",
+      "choices": [
+        {
+          "t": "putting sand and soil in layers",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "worms making tunnels beside the glass",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "washing the soil from the trowel",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "worms beginning to eat the leaves",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "implied_order",
+      "lvl": 2,
+      "ph": 2,
+      "v": 8,
+      "fmt": "COMPREHENSION",
+      "cell": "implied_order",
+      "passage": "Ffion scored after the ball bounced to her from a teammate. Earlier, Jo’s shot had bounced off the post into the net. At half-time, the team ate oranges and talked about both goals. They had scored only those two goals so far.",
+      "prompt": "Which event happened first?",
+      "choices": [
+        {
+          "t": "Jo’s shot off the post",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Ffion’s shot from a teammate’s pass",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the team eating its oranges",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the team discussing both goals",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "process_order",
+      "lvl": 2,
+      "ph": 1,
+      "v": 1,
+      "fmt": "COMPREHENSION",
+      "cell": "process_order",
+      "passage": "A letter is placed in a street postbox. A worker empties the box into a sack. At the sorting centre, the letter is sorted by postcode. A truck carries it to the right town. Finally, a postal worker delivers it to the address.",
+      "prompt": "What happens right AFTER the box is emptied?",
+      "choices": [K("the worker sorts it by postcode"), P("the letter enters a street postbox", "D-PLAUSIBLE-UNSUPPORTED"), P("the truck carries it to town", "D-PLAUSIBLE-UNSUPPORTED"), P("a worker delivers it to the address", "D-OPPOSITE")],
+      "media": "text"
+    },
+    {
+      "u": "process_order",
+      "lvl": 2,
+      "ph": 1,
+      "v": 2,
+      "fmt": "COMPREHENSION",
+      "cell": "process_order",
+      "passage": "For this recipe, the beans are dried in the sun. Next, they are roasted to develop their flavour. They are then ground into a thick paste. Sugar and milk are added before the mixture sets into bars.",
+      "prompt": "What happens right BEFORE the beans are roasted?",
+      "choices": [
+        {
+          "t": "they dry in the sun",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "they are ground into paste",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the mixture is shaped into bars",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the sugar and milk are added",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "process_order",
+      "lvl": 2,
+      "ph": 1,
+      "v": 3,
+      "fmt": "COMPREHENSION",
+      "cell": "process_order",
+      "passage": "Used glass bottles are collected and taken to a factory. Workers sort them by colour and crush them into small pieces. A furnace melts those pieces into liquid glass. Machines shape the liquid into new bottles.",
+      "prompt": "What happens right AFTER the glass is smashed into small pieces?",
+      "choices": [
+        {
+          "t": "the furnace melts the pieces",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "workers collect the used bottles",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "machines shape the new bottles",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "workers sort the bottles by colour",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "process_order",
+      "lvl": 2,
+      "ph": 1,
+      "v": 4,
+      "fmt": "COMPREHENSION",
+      "cell": "process_order",
+      "passage": "Ari described what happened when he lost his tooth. First, it wobbled for several days. Then it fell out while he ate an apple. He put it under his pillow at bedtime. In the morning, he found a coin in its place.",
+      "prompt": "In Ari's list, what happens right AFTER the tooth goes under the pillow?",
+      "choices": [
+        {
+          "t": "he finds a coin next morning",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "he notices the tooth wobbling",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the tooth falls out while eating",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "he puts the tooth under his pillow",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "process_order",
+      "lvl": 2,
+      "ph": 2,
+      "v": 5,
+      "fmt": "COMPREHENSION",
+      "cell": "process_order",
+      "passage": "Bees collect nectar from flowers and carry it home. Other bees pass it between them, adding substances that change it. They place it in wax cells and fan away excess water. Finally, they cover the cells with wax.",
+      "prompt": "What do the bees do right BEFORE capping the cell?",
+      "choices": [
+        {
+          "t": "fan away water from the nectar",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "carry nectar home from flowers",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "pass nectar between other bees",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "place fresh nectar into the cells",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "process_order",
+      "lvl": 2,
+      "ph": 2,
+      "v": 6,
+      "fmt": "COMPREHENSION",
+      "cell": "process_order",
+      "passage": "The rescue alarm sounds, and crew members run to the station. They put on their protective clothes and life jackets. Then they launch the boat down the ramp. Once afloat, they receive directions to the person needing help.",
+      "prompt": "What happens right AFTER the crew members reach the station?",
+      "choices": [
+        {
+          "t": "they put on protective clothing",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "they hear the rescue alarm",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "they launch the boat down the ramp",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "they receive directions while afloat",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "process_order",
+      "lvl": 2,
+      "ph": 2,
+      "v": 7,
+      "fmt": "COMPREHENSION",
+      "cell": "process_order",
+      "passage": "A reader borrows a book and takes it home. Later, the reader puts it through the return slot. Staff check the book and repair any torn pages. Finally, they return it to its place on the shelf.",
+      "prompt": "What happens right AFTER the book comes back through the slot?",
+      "choices": [
+        {
+          "t": "staff check it for damage",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "a reader borrows it again",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "staff place it on its shelf",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the reader takes it home",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "process_order",
+      "lvl": 2,
+      "ph": 2,
+      "v": 8,
+      "fmt": "COMPREHENSION",
+      "cell": "process_order",
+      "passage": "The class plants vegetable seeds in trays in spring. After the last frost, they move the seedlings into the garden. The plants are watered throughout the growing season. In autumn, the class pulls up the vegetables. They wash and chop them to make soup.",
+      "prompt": "What happens right BEFORE the vegetables are pulled?",
+      "choices": [
+        {
+          "t": "watering them through the growing season",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "planting their seeds in indoor trays",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "washing and chopping them for soup",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "moving the seedlings into the garden",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text"
+    },
+    {
+      "u": "before_after_relation",
+      "lvl": 2,
+      "ph": 1,
+      "v": 9,
+      "fmt": "COMPREHENSION",
+      "cell": "before_after_relation",
+      "passage": "On Monday, the class began two towers of books. By Tuesday, both towers were the same height. On Wednesday, they placed atlases across the gap. A marble rolled over this bridge for the first time Thursday. They returned the books to their shelves on Friday.",
+      "prompt": "What happened right BEFORE the marble made its first crossing?",
+      "choices": [
+        {
+          "t": "atlases were laid across the gap",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the two towers were first started",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "books were returned to their shelves",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the towers were built to equal height",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "retention": true
+    },
+    {
+      "u": "before_after_relation",
+      "lvl": 2,
+      "ph": 2,
+      "v": 10,
+      "fmt": "COMPREHENSION",
+      "cell": "before_after_relation",
+      "passage": "Before sunset, the family checked their blankets for outdoor movie night. They set out snacks at six. The film began at seven. After it ended, they watched the stars in the dark sky.",
+      "prompt": "When were the blankets checked?",
+      "choices": [
+        {
+          "t": "at the start, before sunset",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "after the film had finished",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "while they looked at stars",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "when snacks were served at six",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "retention": true
+    },
+    {
+      "u": "implied_order",
+      "lvl": 2,
+      "ph": 1,
+      "v": 10,
+      "fmt": "COMPREHENSION",
+      "cell": "implied_order",
+      "passage": "The castle’s towers had bucket-shaped sides. Shells pressed into those sides formed little windows. A feather stood in the highest tower, added after the shells. The tide later washed the finished castle away.",
+      "prompt": "Which of these must have happened FIRST?",
+      "choices": [
+        {
+          "t": "packing and turning out bucketfuls of sand",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "pressing shell windows into the sides",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "adding the feather to the top tower",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the tide washing the castle away",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "retention": true
+    },
+    {
+      "u": "implied_order",
+      "lvl": 2,
+      "ph": 2,
+      "v": 11,
+      "fmt": "COMPREHENSION",
+      "cell": "implied_order",
+      "passage": "The concert had ended, and helpers were returning borrowed chairs. Neighbours had delivered those chairs before anyone began singing. After the last song, the singers had signed a thank-you card. The card now lay on the piano.",
+      "prompt": "Which event happened FIRST?",
+      "choices": [
+        {
+          "t": "neighbours delivering the concert chairs",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "singers putting their names on the card",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "helpers returning the chairs next door",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the performers finishing their last song",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "retention": true
+    },
+    {
+      "u": "process_order",
+      "lvl": 2,
+      "ph": 1,
+      "v": 9,
+      "fmt": "COMPREHENSION",
+      "cell": "process_order",
+      "passage": "First, a sheep is sheared to collect its fleece. The fleece is washed, then combed to untangle the fibres. A spinning wheel twists those fibres into thread. Knitting needles turn the thread into a sweater.",
+      "prompt": "What happens right AFTER the fleece is washed?",
+      "choices": [
+        {
+          "t": "combs untangle the clean fibres",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the sheep loses its fleece",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "needles form the finished sweater",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the wheel twists fibres into thread",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "retention": true
+    },
+    {
+      "u": "process_order",
+      "lvl": 2,
+      "ph": 2,
+      "v": 10,
+      "fmt": "COMPREHENSION",
+      "cell": "process_order",
+      "passage": "A rescued hedgehog is weighed and checked on arrival. It stays in a warm room until it can feed itself. Next, it moves to an outdoor pen to prepare for release. When ready, it returns to a suitable place in the wild.",
+      "prompt": "What happens right BEFORE the hedgehog moves to the outdoor pen?",
+      "choices": [
+        {
+          "t": "it feeds itself in the warm room",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "it is weighed when it first arrives",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "it returns to a wild outdoor place",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "it prepares for release in the pen",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "retention": true
+    },
+    {
+      "u": "before_after_relation",
+      "lvl": 2,
+      "ph": 1,
+      "v": 11,
+      "fmt": "COMPREHENSION",
+      "cell": "before_after_relation",
+      "passage": "The glove fell at the bus stop on Monday. Someone put it on the wall on Tuesday. Frost covered it on Wednesday. Priya recognised it from the bus on Thursday. She collected it and took it home on Friday.",
+      "prompt": "What happened right AFTER the glove was put on the wall?",
+      "choices": [
+        {
+          "t": "frost covered its outside",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "it fell at the bus stop",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Priya took it home",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Priya spotted it from the bus",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "retention": true
+    },
+    {
+      "u": "process_order",
+      "lvl": 2,
+      "ph": 1,
+      "v": 11,
+      "fmt": "COMPREHENSION",
+      "cell": "process_order",
+      "passage": "At this crossing, pressing the button lights up the WAIT sign. The traffic light turns yellow, then red. Next, the walking symbol appears. People cross, and later the symbol starts blinking. Once everyone has finished crossing, cars can move again.",
+      "prompt": "What happens right AFTER the traffic light turns red?",
+      "choices": [K("the signal shows that people may walk"), P("the traffic light shows its yellow warning", "D-PLAUSIBLE-UNSUPPORTED"), P("the sign tells people they must wait", "D-PLAUSIBLE-UNSUPPORTED"), P("the walking symbol starts blinking at people", "D-OPPOSITE")],
+      "media": "text",
+      "retention": true
+    },
+    // Fresh retry stock: four additional questions in each phase.
+    {
+      "u": "first_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 20,
+      "fmt": "COMPREHENSION",
+      "cell": "first_event",
+      "passage": "The runner heard the signal. She ran to the cone. Then she touched it.",
+      "prompt": "What happened first?",
+      "choices": [K("heard the signal"), P("ran to the cone", "D-SEQUENCE-START"), P("touched the cone", "D-SEQUENCE-END")],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    , spoken: "The runner heard the signal. She ran to the cone. Then she touched it. What happened first?", displayPassageDuringResponse: true, constructClaim: "story_event_order", evidenceModality: "audio+text"},
+    {
+      "u": "middle_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 20,
+      "fmt": "COMPREHENSION",
+      "cell": "middle_event",
+      "passage": "Ada unrolled the map. She found the station. Then she circled it with a pencil.",
+      "prompt": "What happened in the middle?",
+      "choices": [K("found the station"), P("unrolled the map", "D-SEQUENCE-START"), P("circled the station", "D-SEQUENCE-END")],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    , spoken: "Ada unrolled the map. She found the station. Then she circled it with a pencil. What happened in the middle?", displayPassageDuringResponse: true, constructClaim: "story_event_order", evidenceModality: "audio+text"},
+    {
+      "u": "last_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 20,
+      "fmt": "COMPREHENSION",
+      "cell": "last_event",
+      "passage": "A crow picked up a nut. It dropped the nut onto a hard path. Then it ate from the broken shell.",
+      "prompt": "What happened last?",
+      "choices": [K("ate from the shell"), P("picked up the nut", "D-SEQUENCE-START"), P("dropped it on the path", "D-SEQUENCE-END")],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    , spoken: "A crow picked up a nut. It dropped the nut onto a hard path. Then it ate from the broken shell. What happened last?", displayPassageDuringResponse: true, constructClaim: "story_event_order", evidenceModality: "audio+text"},
+    {
+      "u": "first_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 21,
+      "fmt": "COMPREHENSION",
+      "cell": "first_event",
+      "passage": "Liam heard a knock. He looked through the window. Then he opened the door for Dad.",
+      "prompt": "What happened first?",
+      "choices": [K("heard a knock"), P("looked through the window", "D-SEQUENCE-START"), P("opened the door", "D-SEQUENCE-END")],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    , spoken: "Liam heard a knock. He looked through the window. Then he opened the door for Dad. What happened first?", displayPassageDuringResponse: true, constructClaim: "story_event_order", evidenceModality: "audio+text"},
+    {
+      "u": "middle_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 21,
+      "fmt": "COMPREHENSION",
+      "cell": "middle_event",
+      "passage": "The sailor untied the rope. She pushed the boat from the bank. Then she began rowing.",
+      "prompt": "What happened in the middle?",
+      "choices": [K("pushed the boat away"), P("untied the rope", "D-SEQUENCE-START"), P("began rowing", "D-SEQUENCE-END")],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    , spoken: "The sailor untied the rope. She pushed the boat from the bank. Then she began rowing. What happened in the middle?", displayPassageDuringResponse: true, constructClaim: "story_event_order", evidenceModality: "audio+text"},
+    {
+      "u": "last_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 21,
+      "fmt": "COMPREHENSION",
+      "cell": "last_event",
+      "passage": "A caterpillar changed into a chrysalis. Later, a butterfly came out. It waited, then flew away on dry wings.",
+      "prompt": "What happened last?",
+      "choices": [K("flew away"), P("changed into a chrysalis", "D-SEQUENCE-START"), P("came out as a butterfly", "D-SEQUENCE-END")],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    , spoken: "A caterpillar changed into a chrysalis. Later, a butterfly came out. It waited, then flew away on dry wings. What happened last?", displayPassageDuringResponse: true, constructClaim: "story_event_order", evidenceModality: "audio+text"},
+    {
+      "u": "first_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 22,
+      "fmt": "COMPREHENSION",
+      "cell": "first_event",
+      "passage": "Sera weighed the parcel. She paid for a stamp. Then she posted the parcel.",
+      "prompt": "What happened first?",
+      "choices": [K("weighed the parcel"), P("paid for a stamp", "D-SEQUENCE-START"), P("posted the parcel", "D-SEQUENCE-END")],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    , spoken: "Sera weighed the parcel. She paid for a stamp. Then she posted the parcel. What happened first?", displayPassageDuringResponse: true, constructClaim: "story_event_order", evidenceModality: "audio+text"},
+    {
+      "u": "middle_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 22,
+      "fmt": "COMPREHENSION",
+      "cell": "middle_event",
+      "passage": "The musician lifted her flute. She played a tune. Then she bowed to the listeners.",
+      "prompt": "What happened in the middle?",
+      "choices": [K("played a tune"), P("lifted her flute", "D-SEQUENCE-START"), P("bowed to the listeners", "D-SEQUENCE-END")],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    , spoken: "The musician lifted her flute. She played a tune. Then she bowed to the listeners. What happened in the middle?", displayPassageDuringResponse: true, constructClaim: "story_event_order", evidenceModality: "audio+text"},
+    {
+      "u": "last_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 22,
+      "fmt": "COMPREHENSION",
+      "cell": "last_event",
+      "passage": "Raj peeled a banana. He cut it into slices. Then he shared the slices with his sister.",
+      "prompt": "What happened last?",
+      "choices": [K("shared the slices"), P("peeled the banana", "D-SEQUENCE-START"), P("cut it into slices", "D-SEQUENCE-END")],
+      "media": "text",
+      "retention": true,
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    , spoken: "Raj peeled a banana. He cut it into slices. Then he shared the slices with his sister. What happened last?", displayPassageDuringResponse: true, constructClaim: "story_event_order", evidenceModality: "audio+text"},
+    {
+      "u": "first_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 23,
+      "fmt": "COMPREHENSION",
+      "cell": "first_event",
+      "passage": "The worker swept the floor. She washed it with a mop. Then she left it to dry.",
+      "prompt": "What happened first?",
+      "choices": [K("swept the floor"), P("washed it with a mop", "D-SEQUENCE-START"), P("left it to dry", "D-SEQUENCE-END")],
+      "media": "text",
+      "retention": true,
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    , spoken: "The worker swept the floor. She washed it with a mop. Then she left it to dry. What happened first?", displayPassageDuringResponse: true, constructClaim: "story_event_order", evidenceModality: "audio+text"},
+    {
+      "u": "before_after_relation",
+      "lvl": 2,
+      "ph": 1,
+      "v": 20,
+      "fmt": "COMPREHENSION",
+      "cell": "before_after_relation",
+      "passage": "The class chose a song on Monday and learned its words Tuesday. They added actions on Wednesday. On Thursday, they practiced the complete performance. They performed for families on Friday.",
+      "prompt": "What happened immediately before the complete practice?",
+      "choices": [K("they worked out movements for the tune"), P("they chose the song for the performance", "D-PLAUSIBLE-UNSUPPORTED"), P("they learned the words for the first time", "D-PLAUSIBLE-UNSUPPORTED"), P("they performed the song for their families", "D-OPPOSITE")],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "implied_order",
+      "lvl": 2,
+      "ph": 1,
+      "v": 20,
+      "fmt": "COMPREHENSION",
+      "cell": "implied_order",
+      "passage": "The museum displayed a repaired vase made from broken pieces. A photo showed those pieces being found underground. Another showed workers cleaning the dirt from them. Only clean pieces had been joined with the special glue.",
+      "prompt": "Which event had to happen before cleaning the pieces?",
+      "choices": [
+        {
+          "t": "finding the pieces underground",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "joining the pieces with glue",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "putting the vase on display",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "visitors seeing the repaired vase",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "process_order",
+      "lvl": 2,
+      "ph": 1,
+      "v": 20,
+      "fmt": "COMPREHENSION",
+      "cell": "process_order",
+      "passage": "To make the sign, rub the wood smooth first. Next, draw the letters lightly with a pencil. Paint over those letters and let the paint dry. Finally, attach hooks to hang the sign.",
+      "prompt": "What happens immediately after drawing the letters?",
+      "choices": [
+        {
+          "t": "paint is added over the pencil marks",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the wooden surface is rubbed smooth",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "hooks are attached to the finished sign",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the painted letters are left to dry",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "before_after_relation",
+      "lvl": 2,
+      "ph": 1,
+      "v": 21,
+      "fmt": "COMPREHENSION",
+      "cell": "before_after_relation",
+      "passage": "We visited the harbour after leaving the castle. Before the castle, we ate breakfast at the hotel. We returned to the hotel only after shopping near the harbour.",
+      "prompt": "Which place did we visit immediately after the castle?",
+      "choices": [
+        {
+          "t": "the harbour beside the shops",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the hotel for our breakfast",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the hotel after our shopping",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the shops after leaving the harbour",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "implied_order",
+      "lvl": 2,
+      "ph": 2,
+      "v": 21,
+      "fmt": "COMPREHENSION",
+      "cell": "implied_order",
+      "passage": "The finished poster had photos glued beneath a painted heading. The teacher had allowed glue only after the paint dried. The pupils cut each photo from a magazine before arranging it. Now the poster hung beside the classroom door.",
+      "prompt": "What had to finish before the photos could be glued?",
+      "choices": [
+        {
+          "t": "the heading’s paint drying",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the poster hanging on the wall",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the teacher reading the finished poster",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "visitors seeing the photos beside the door",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "process_order",
+      "lvl": 2,
+      "ph": 2,
+      "v": 21,
+      "fmt": "COMPREHENSION",
+      "cell": "process_order",
+      "passage": "For this experiment, fill the bottle halfway with water. Add a spoonful of sand, close the lid, and shake. Then stand it upright without moving it. Watch as the sand settles below the clear water.",
+      "prompt": "What should happen right after shaking the closed bottle?",
+      "choices": [
+        {
+          "t": "leave it standing still and upright",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "add the sand to the water",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "fill the bottle halfway with water",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "close the lid before it spills",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "before_after_relation",
+      "lvl": 2,
+      "ph": 2,
+      "v": 22,
+      "fmt": "COMPREHENSION",
+      "cell": "before_after_relation",
+      "passage": "The rescue team received the call before launching their boat. They reached the island after crossing the channel. Once everyone was aboard, they returned to the mainland.",
+      "prompt": "What happened between launching and reaching the island?",
+      "choices": [
+        {
+          "t": "the boat crossed the channel",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the team received the first call",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the passengers climbed onto the boat",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the boat returned to the mainland",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "implied_order",
+      "lvl": 2,
+      "ph": 2,
+      "v": 22,
+      "fmt": "COMPREHENSION",
+      "cell": "implied_order",
+      "passage": "The winning photo now hung in a frame beside the desk. Its owner had entered it in a contest after printing it. The camera still held the original file from the mountain trip. The prize letter arrived before she bought the frame.",
+      "prompt": "Which event happened first?",
+      "choices": [
+        {
+          "t": "taking the photo during the trip",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "printing the chosen photo for the contest",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "receiving the letter about the prize",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "buying the frame for the winning photo",
+          "r": "D-OPPOSITE"
+        }
+      ],
+      "media": "text",
+      "note": "Fresh authored retry item: distinct situation and evidence."
+    }
+]
 };

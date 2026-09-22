@@ -7,6 +7,7 @@
 import { makeImageResolver } from "../lib.mjs";
 
 const P = (t, r) => ({ t, r });
+const fresh = item => ({ ...item, retention: false });
 const K = t => ({ t, r: "KEY", k: true });
 const sentenceCase = value => value ? `${value[0].toUpperCase()}${value.slice(1)}` : value;
 
@@ -113,10 +114,10 @@ export default {
       { chick: "D-PATTERN-TRAP", shell: "D-PATTERN-TRAP", tie: "D-ONSET" },
       "initial", "tie begins with plain /t/, the classic th-versus-t error"),
     ic("th", 1, 1, 2,
-      "thumb",
+      "thin",
       ["thorn", "chick", "shoe", "tree"], "thorn",
       { chick: "D-PATTERN-TRAP", shoe: "D-PATTERN-TRAP", tree: "D-ONSET" },
-      "initial"),
+      "initial", "a different heard anchor uses an approved thorn picture instead of the rejected thumbs-up gesture"),
     cw("th", 1, 1, 3, "thumb", "__umb", "thumb", ["ch", "sh", "wh"], "initial"),
     cw("th", 1, 1, 4, "thorn", "__orn", "thorn", ["sh", "ch", "ph"], "initial"),
     // th (L2 phase 1 · final)
@@ -206,6 +207,42 @@ export default {
       { ship: "D-PATTERN-TRAP", tooth: "D-PATTERN-TRAP", whale: "D-POSITION" },
       "final"),
 
+    // Fresh spellings cover a wider range of word positions and lengths.
+    fresh(cw("ch", 1, 1, 5, "chin", "__in", "chin", ["sh", "th", "wh"], "initial")),
+    fresh(cw("ch", 1, 1, 6, "chat", "__at", "chat", ["sh", "th", "wh"], "initial")),
+    fresh(cw("ch", 1, 1, 9, "chop", "__op", "chop", ["sh", "th", "wh"], "initial")),
+    fresh(cw("sh", 1, 1, 5, "shop", "__op", "shop", ["ch", "th", "wh"], "initial")),
+    fresh(cw("sh", 1, 1, 6, "shed", "__ed", "shed", ["ch", "th", "wh"], "initial")),
+    fresh(cw("sh", 1, 1, 9, "shark", "__ark", "shark", ["ch", "th", "wh"], "initial")),
+    fresh(cw("th", 1, 1, 5, "thin", "__in", "thin", ["ch", "sh", "wh"], "initial")),
+    fresh(cw("th", 1, 1, 6, "thick", "__ick", "thick", ["ch", "sh", "wh"], "initial")),
+    fresh(cw("wh", 1, 2, 5, "when", "__en", "when", ["ch", "sh", "th"], "initial")),
+    fresh(cw("wh", 1, 2, 6, "whip", "__ip", "whip", ["ch", "sh", "th"], "initial")),
+    fresh(cw("wh", 1, 2, 9, "white", "__ite", "white", ["ch", "sh", "th"], "initial")),
+    fresh(cw("ph", 1, 2, 5, "phrase", "__rase", "phrase", ["ch", "sh", "th"], "initial")),
+    fresh(cw("ph", 1, 2, 6, "phonics", "__onics", "phonics", ["ch", "sh", "th"], "initial")),
+    fresh(ic("ph", 1, 2, 9, "photograph", ["feather", "van", "tooth", "cheese"], "feather",
+      { van: "D-ONSET", tooth: "D-PATTERN-TRAP", cheese: "D-PATTERN-TRAP" }, "initial",
+      "the photograph anchor is heard; a printed second ph cannot reveal the spelling choice")),
+    fresh(cw("ck", 1, 2, 5, "lock", "lo__", "lock", ["ch", "sh", "th"], "final")),
+    fresh(cw("ck", 1, 2, 6, "pack", "pa__", "pack", ["ch", "sh", "th"], "final")),
+    fresh(cw("ch", 2, 1, 5, "speech", "spee__", "speech", ["sh", "th", "wh"], "final")),
+    fresh(cw("ch", 2, 1, 6, "peach", "pea__", "peach", ["sh", "th", "wh"], "final")),
+    fresh(cw("ch", 2, 1, 9, "coach", "coa__", "coach", ["sh", "th", "wh"], "final")),
+    fresh(cw("sh", 2, 1, 5, "crash", "cra__", "crash", ["ch", "th", "wh"], "final")),
+    fresh(cw("sh", 2, 1, 6, "finish", "fini__", "finish", ["ch", "th", "wh"], "final")),
+    fresh(cw("sh", 2, 1, 9, "fresh", "fre__", "fresh", ["ch", "th", "wh"], "final")),
+    fresh(cw("th", 2, 1, 5, "path", "pa__", "path", ["ch", "sh", "wh"], "final")),
+    fresh(cw("th", 2, 1, 6, "teeth", "tee__", "teeth", ["ch", "sh", "wh"], "final")),
+    fresh(cw("wh", 2, 2, 5, "whisper", "__isper", "whisper", ["ch", "sh", "th"], "initial")),
+    fresh(cw("wh", 2, 2, 6, "whisk", "__isk", "whisk", ["ch", "sh", "th"], "initial")),
+    fresh(cw("wh", 2, 2, 9, "whenever", "__enever", "whenever", ["ch", "sh", "th"], "initial")),
+    fresh(cw("ph", 2, 2, 5, "alphabet", "al__abet", "alphabet", ["ch", "sh", "th"], "medial")),
+    fresh(cw("ph", 2, 2, 6, "trophy", "tro__y", "trophy", ["ch", "sh", "th"], "medial")),
+    fresh(cw("ph", 2, 2, 9, "telephone", "tele__one", "telephone", ["ch", "sh", "th"], "medial")),
+    fresh(cw("ck", 2, 2, 5, "pocket", "po__et", "pocket", ["ch", "sh", "th"], "medial")),
+    fresh(cw("ck", 2, 2, 6, "snack", "sna__", "snack", ["ch", "sh", "th"], "final")),
+
     // ------------------------------ Retention reserve (form R)
     cw("ch", 1, 1, 7, "chip", "__ip", "chip", ["sh", "wh", "th"], "initial",
       "same blank as ship's item, different picture — a true minimal pair across sittings"),
@@ -229,7 +266,7 @@ export default {
     cw("ck", 1, 2, 7, "truck", "tru__", "truck", ["ch", "sh", "th"], "final"),
     cw("ck", 2, 2, 8, "stick", "sti__", "stick", ["sh", "ch", "th"], "final")
   ].map(item => {
-    if (item.v >= 7) item.retention = true;
+    if (item.v >= 7 && item.retention !== false) item.retention = true;
     return item;
   })
 };

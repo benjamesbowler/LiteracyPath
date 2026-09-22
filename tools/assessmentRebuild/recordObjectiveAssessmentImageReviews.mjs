@@ -40,7 +40,7 @@ const expectedApprovedFields = Object.freeze({
   styleReview: "approved-clear-professional-2d-raster",
   textReview: "approved-no-text-or-symbol-cue"
 });
-const acceptedReviewDates = new Set(["2026-08-31", "2026-09-01"]);
+const acceptedReviewDates = new Set(["2026-08-31", "2026-09-01", "2026-09-22"]);
 
 const fail = message => {
   throw new Error(`Objective assessment image review: ${message}`);

@@ -78,7 +78,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/cat.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "cat",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -178,7 +178,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/hat.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "hat",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -278,7 +278,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/pan.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "pan",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -312,9 +312,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_a",
@@ -378,7 +378,7 @@ export const questions = [
    "paths": [
     "/images/assessment/rhyming/variants/at/bat-02.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "bat",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -412,9 +412,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_a",
@@ -500,9 +500,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_a",
@@ -654,7 +654,7 @@ export const questions = [
    "paths": [
     "/images/assessment/blends/flag.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "flag",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -754,7 +754,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/lamp.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "lamp",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -854,7 +854,7 @@ export const questions = [
    "paths": [
     "/images/assessment/blends/crab.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "crab",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -888,9 +888,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_2_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_a",
@@ -901,39 +901,39 @@ export const questions = [
   "question": "Which word names the picture?",
   "spokenPrompt": "Which word names the picture?",
   "choices": [
-   "gem",
-   "jab",
-   "yam",
-   "jam"
+   "lump",
+   "limp",
+   "lap",
+   "lamp"
   ],
   "answerOptions": [
    {
-    "value": "gem",
-    "label": "gem",
-    "text": "gem"
+    "value": "lump",
+    "label": "lump",
+    "text": "lump"
    },
    {
-    "value": "jab",
-    "label": "jab",
-    "text": "jab"
+    "value": "limp",
+    "label": "limp",
+    "text": "limp"
    },
    {
-    "value": "yam",
-    "label": "yam",
-    "text": "yam"
+    "value": "lap",
+    "label": "lap",
+    "text": "lap"
    },
    {
-    "value": "jam",
-    "label": "jam",
-    "text": "jam"
+    "value": "lamp",
+    "label": "lamp",
+    "text": "lamp"
    }
   ],
-  "answer": "jam",
-  "correctAnswer": "jam",
+  "answer": "lamp",
+  "correctAnswer": "lamp",
   "distractorRationales": {
-   "gem": "D-VOWEL",
-   "jab": "D-RIME-NEAR",
-   "yam": "D-ONSET"
+   "lump": "D-VOWEL",
+   "limp": "D-VOWEL",
+   "lap": "D-DEVELOPMENTAL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -943,7 +943,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "jam",
+  "targetWord": "lamp",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -952,14 +952,14 @@ export const questions = [
    "itemId": "lp3.cvc_short_vowels.l2.A.short_a.v4",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/objective-words/jam.webp"
+    "/images/assessment/objective-words/lamp.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "lamp",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "jam",
-  "stimulusMediaId": "jam",
+  "requiredImageAssetKey": "lamp",
+  "stimulusMediaId": "lamp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -970,12 +970,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/assessment/objective-words/jam.webp",
-  "imageUrl": "/images/assessment/objective-words/jam.webp",
-  "targetImage": "/images/assessment/objective-words/jam.webp",
-  "targetImagePath": "/images/assessment/objective-words/jam.webp",
-  "resolvedImageAssetKey": "jam",
-  "imageAlt": "jam"
+  "imagePath": "/images/assessment/objective-words/lamp.webp",
+  "imageUrl": "/images/assessment/objective-words/lamp.webp",
+  "targetImage": "/images/assessment/objective-words/lamp.webp",
+  "targetImagePath": "/images/assessment/objective-words/lamp.webp",
+  "resolvedImageAssetKey": "lamp",
+  "imageAlt": "lamp"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_a.v5",
@@ -988,9 +988,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_2_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_a",
@@ -1038,7 +1038,7 @@ export const questions = [
    "paths": [
     "/images/assessment/blends/flag.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "flag",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1072,9 +1072,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_2_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_a",
@@ -1122,7 +1122,7 @@ export const questions = [
    "paths": [
     "/images/assessment/blends/crab.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "crab",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1222,7 +1222,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/bed.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "bed",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1322,7 +1322,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/net.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "net",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1422,7 +1422,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/pen.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "pen",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1456,9 +1456,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_e",
@@ -1522,7 +1522,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/net.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "net",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1556,9 +1556,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_e",
@@ -1644,9 +1644,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_e",
@@ -1798,7 +1798,7 @@ export const questions = [
    "paths": [
     "/images/assessment/blends/nest.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "nest",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1898,7 +1898,7 @@ export const questions = [
    "paths": [
     "/images/assessment/release-media/vest-9a368716.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "vest",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1998,7 +1998,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/tent.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "tent",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2032,9 +2032,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_2_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_e",
@@ -2098,7 +2098,7 @@ export const questions = [
    "paths": [
     "/images/assessment/digraphs/shell.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "shell",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2132,9 +2132,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_2_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_e",
@@ -2182,7 +2182,7 @@ export const questions = [
    "paths": [
     "/images/assessment/blends/nest.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "nest",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2216,9 +2216,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_2_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_e",
@@ -2266,7 +2266,7 @@ export const questions = [
    "paths": [
     "/images/assessment/release-media/vest-9a368716.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "vest",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2366,7 +2366,7 @@ export const questions = [
    "paths": [
     "/images/assessment/rhyming/variants/ig/pig-02.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "pig",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2466,7 +2466,7 @@ export const questions = [
    "paths": [
     "/images/assessment/rhyming/variants/in/pin-02.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "pin",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2566,7 +2566,7 @@ export const questions = [
    "paths": [
     "/images/assessment/rhyming/variants/ig/pig-02.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "pig",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2600,9 +2600,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_i",
@@ -2666,7 +2666,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/lid.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "lid",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2700,9 +2700,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_i",
@@ -2788,9 +2788,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_i",
@@ -2942,7 +2942,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/brick.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "brick",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3042,7 +3042,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/gift.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "gift",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3142,7 +3142,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/brick.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "brick",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3176,9 +3176,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_2_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_i",
@@ -3242,7 +3242,7 @@ export const questions = [
    "paths": [
     "/images/assessment/digraphs/fish.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "fish",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3276,9 +3276,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_2_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_i",
@@ -3326,7 +3326,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/gift.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "gift",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3360,9 +3360,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_2_phase_1",
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_i",
@@ -3409,7 +3409,7 @@ export const questions = [
    "paths": [
     "/images/assessment/digraphs/fish.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "fish",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3443,9 +3443,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_1_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_o",
@@ -3509,7 +3509,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/dog.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "dog",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3543,9 +3543,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_1_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_o",
@@ -3609,7 +3609,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/pot.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "pot",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3643,9 +3643,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_1_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_o",
@@ -3709,7 +3709,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/pot.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "pot",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3809,7 +3809,7 @@ export const questions = [
    "paths": [
     "/images/assessment/rhyming/variants/og/log-02.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "log",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -4019,9 +4019,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_2_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_o",
@@ -4085,7 +4085,7 @@ export const questions = [
    "paths": [
     "/images/assessment/blends/frog.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "frog",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -4119,9 +4119,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_2_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_o",
@@ -4185,7 +4185,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/clock.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "clock",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -4219,9 +4219,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_2_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_o",
@@ -4285,7 +4285,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/clock.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "clock",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -4385,7 +4385,7 @@ export const questions = [
    "paths": [
     "/images/assessment/blends/frog.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "frog",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -4469,7 +4469,7 @@ export const questions = [
    "paths": [
     "/images/assessment/blends/frog.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "frog",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -4553,7 +4553,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/clock.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "clock",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -4587,9 +4587,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_1_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_u",
@@ -4653,7 +4653,7 @@ export const questions = [
    "paths": [
     "/images/assessment/rhyming/variants/bug/bug-02.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "bug",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -4687,9 +4687,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_1_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_u",
@@ -4753,7 +4753,7 @@ export const questions = [
    "paths": [
     "/images/assessment/rhyming/variants/sun/sun-02.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "sun",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -4787,9 +4787,9 @@ export const questions = [
   "level": 1,
   "assessmentLevel": 1,
   "difficulty": 1,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_1_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_u",
@@ -4853,7 +4853,7 @@ export const questions = [
    "paths": [
     "/images/assessment/rhyming/variants/bug/bug-02.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "bug",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -4953,7 +4953,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/nut.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "nut",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -5163,9 +5163,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_2_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_u",
@@ -5229,7 +5229,7 @@ export const questions = [
    "paths": [
     "/images/assessment/blends/drum.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "drum",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -5263,9 +5263,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_2_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_u",
@@ -5329,7 +5329,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/brush.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "brush",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -5363,9 +5363,9 @@ export const questions = [
   "level": 2,
   "assessmentLevel": 2,
   "difficulty": 2,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_2_phase_2",
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_u",
@@ -5429,7 +5429,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/duck.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "duck",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -5529,7 +5529,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/brush.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "brush",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -5613,7 +5613,7 @@ export const questions = [
    "paths": [
     "/images/assessment/blends/drum.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "drum",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -5697,7 +5697,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/brush.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "brush",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -5719,6 +5719,1840 @@ export const questions = [
   "targetImagePath": "/images/assessment/objective-words/brush.webp",
   "resolvedImageAssetKey": "brush",
   "imageAlt": "brush"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l1.C.short_a.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_a",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes b_g?",
+  "question": "Which vowel completes b_g?",
+  "spokenPrompt": "Bag. Which vowel completes the word?",
+  "choices": [
+   "e",
+   "i",
+   "u",
+   "a"
+  ],
+  "answerOptions": [
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   }
+  ],
+  "answer": "a",
+  "correctAnswer": "a",
+  "distractorRationales": {
+   "u": "D-VOWEL",
+   "e": "D-VOWEL",
+   "i": "D-VOWEL"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "bag",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l1.C.short_a.v9",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/bag.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "bag"
+  },
+  "requiredImageAssetKey": "bag",
+  "stimulusMediaId": "bag",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/bag.webp",
+  "imageUrl": "/images/assessment/objective-words/bag.webp",
+  "targetImage": "/images/assessment/objective-words/bag.webp",
+  "targetImagePath": "/images/assessment/objective-words/bag.webp",
+  "resolvedImageAssetKey": "bag",
+  "imageAlt": "bag"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l1.A.short_a.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_a",
+  "formatType": "SHORT_VOWEL_WORD",
+  "templateType": "SHORT_VOWEL_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Which word has the short a sound?",
+  "question": "Which word has the short a sound?",
+  "spokenPrompt": "Apple. Listen to the first sound. Which word has the same vowel sound?",
+  "choices": [
+   "room",
+   "ram",
+   "rain",
+   "rim"
+  ],
+  "answerOptions": [
+   {
+    "value": "room",
+    "label": "room",
+    "text": "room"
+   },
+   {
+    "value": "ram",
+    "label": "ram",
+    "text": "ram"
+   },
+   {
+    "value": "rain",
+    "label": "rain",
+    "text": "rain"
+   },
+   {
+    "value": "rim",
+    "label": "rim",
+    "text": "rim"
+   }
+  ],
+  "answer": "ram",
+  "correctAnswer": "ram",
+  "distractorRationales": {
+   "room": "D-VOWEL",
+   "rain": "D-PATTERN-TRAP",
+   "rim": "D-VOWEL"
+  },
+  "mediaTier": "text",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l1.A.short_a.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l1.C.short_e.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_e",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes w_b?",
+  "question": "Which vowel completes w_b?",
+  "spokenPrompt": "Web. Which vowel completes the word?",
+  "choices": [
+   "e",
+   "a",
+   "i",
+   "o"
+  ],
+  "answerOptions": [
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   }
+  ],
+  "answer": "e",
+  "correctAnswer": "e",
+  "distractorRationales": {
+   "o": "D-VOWEL",
+   "a": "D-VOWEL",
+   "i": "D-VOWEL"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "web",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l1.C.short_e.v9",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/web.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "web"
+  },
+  "requiredImageAssetKey": "web",
+  "stimulusMediaId": "web",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/web.webp",
+  "imageUrl": "/images/assessment/objective-words/web.webp",
+  "targetImage": "/images/assessment/objective-words/web.webp",
+  "targetImagePath": "/images/assessment/objective-words/web.webp",
+  "resolvedImageAssetKey": "web",
+  "imageAlt": "web"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l1.A.short_e.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_e",
+  "formatType": "SHORT_VOWEL_WORD",
+  "templateType": "SHORT_VOWEL_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Which word has the short e sound?",
+  "question": "Which word has the short e sound?",
+  "spokenPrompt": "Egg. Listen to the first sound. Which word has the same vowel sound?",
+  "choices": [
+   "hat",
+   "hut",
+   "hen",
+   "heat"
+  ],
+  "answerOptions": [
+   {
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
+   },
+   {
+    "value": "hut",
+    "label": "hut",
+    "text": "hut"
+   },
+   {
+    "value": "hen",
+    "label": "hen",
+    "text": "hen"
+   },
+   {
+    "value": "heat",
+    "label": "heat",
+    "text": "heat"
+   }
+  ],
+  "answer": "hen",
+  "correctAnswer": "hen",
+  "distractorRationales": {
+   "hut": "D-VOWEL",
+   "heat": "D-PATTERN-TRAP",
+   "hat": "D-VOWEL"
+  },
+  "mediaTier": "text",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l1.A.short_e.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l1.C.short_i.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_i",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes z_p?",
+  "question": "Which vowel completes z_p?",
+  "spokenPrompt": "Zip. Which vowel completes the word?",
+  "choices": [
+   "u",
+   "i",
+   "a",
+   "e"
+  ],
+  "answerOptions": [
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   }
+  ],
+  "answer": "i",
+  "correctAnswer": "i",
+  "distractorRationales": {
+   "u": "D-VOWEL",
+   "a": "D-VOWEL",
+   "e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "zip",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l1.C.short_i.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the heard word pins the vowel; a zipper picture cannot objectively specify the single syllable zip"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l1.A.short_i.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_i",
+  "formatType": "SHORT_VOWEL_WORD",
+  "templateType": "SHORT_VOWEL_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Which word has the short i sound?",
+  "question": "Which word has the short i sound?",
+  "spokenPrompt": "Insect. Listen to the first sound. Which word has the same vowel sound?",
+  "choices": [
+   "site",
+   "sat",
+   "set",
+   "sit"
+  ],
+  "answerOptions": [
+   {
+    "value": "site",
+    "label": "site",
+    "text": "site"
+   },
+   {
+    "value": "sat",
+    "label": "sat",
+    "text": "sat"
+   },
+   {
+    "value": "set",
+    "label": "set",
+    "text": "set"
+   },
+   {
+    "value": "sit",
+    "label": "sit",
+    "text": "sit"
+   }
+  ],
+  "answer": "sit",
+  "correctAnswer": "sit",
+  "distractorRationales": {
+   "set": "D-VOWEL",
+   "site": "D-PATTERN-TRAP",
+   "sat": "D-VOWEL"
+  },
+  "mediaTier": "text",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l1.A.short_i.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l1.C.short_o.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_o",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes m_p?",
+  "question": "Which vowel completes m_p?",
+  "spokenPrompt": "Mop. Which vowel completes the word?",
+  "choices": [
+   "e",
+   "u",
+   "o",
+   "a"
+  ],
+  "answerOptions": [
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   }
+  ],
+  "answer": "o",
+  "correctAnswer": "o",
+  "distractorRationales": {
+   "a": "D-VOWEL",
+   "e": "D-VOWEL",
+   "u": "D-VOWEL"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "mop",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l1.C.short_o.v9",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/mop.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "mop"
+  },
+  "requiredImageAssetKey": "mop",
+  "stimulusMediaId": "mop",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/mop.webp",
+  "imageUrl": "/images/assessment/objective-words/mop.webp",
+  "targetImage": "/images/assessment/objective-words/mop.webp",
+  "targetImagePath": "/images/assessment/objective-words/mop.webp",
+  "resolvedImageAssetKey": "mop",
+  "imageAlt": "mop"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l1.A.short_o.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_o",
+  "formatType": "SHORT_VOWEL_WORD",
+  "templateType": "SHORT_VOWEL_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Which word has the short o sound?",
+  "question": "Which word has the short o sound?",
+  "spokenPrompt": "Octopus. Listen to the first sound. Which word has the same vowel sound?",
+  "choices": [
+   "cot",
+   "coat",
+   "cat",
+   "cut"
+  ],
+  "answerOptions": [
+   {
+    "value": "cot",
+    "label": "cot",
+    "text": "cot"
+   },
+   {
+    "value": "coat",
+    "label": "coat",
+    "text": "coat"
+   },
+   {
+    "value": "cat",
+    "label": "cat",
+    "text": "cat"
+   },
+   {
+    "value": "cut",
+    "label": "cut",
+    "text": "cut"
+   }
+  ],
+  "answer": "cot",
+  "correctAnswer": "cot",
+  "distractorRationales": {
+   "coat": "D-PATTERN-TRAP",
+   "cat": "D-VOWEL",
+   "cut": "D-VOWEL"
+  },
+  "mediaTier": "text",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l1.A.short_o.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l1.C.short_u.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_u",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes c_p?",
+  "question": "Which vowel completes c_p?",
+  "spokenPrompt": "Cup. Which vowel completes the word?",
+  "choices": [
+   "a",
+   "o",
+   "i",
+   "u"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   }
+  ],
+  "answer": "u",
+  "correctAnswer": "u",
+  "distractorRationales": {
+   "i": "D-VOWEL",
+   "a": "D-VOWEL",
+   "o": "D-VOWEL"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "cup",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l1.C.short_u.v9",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/cup.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "cup"
+  },
+  "requiredImageAssetKey": "cup",
+  "stimulusMediaId": "cup",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/cup.webp",
+  "imageUrl": "/images/assessment/objective-words/cup.webp",
+  "targetImage": "/images/assessment/objective-words/cup.webp",
+  "targetImagePath": "/images/assessment/objective-words/cup.webp",
+  "resolvedImageAssetKey": "cup",
+  "imageAlt": "cup"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l1.A.short_u.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_u",
+  "formatType": "SHORT_VOWEL_WORD",
+  "templateType": "SHORT_VOWEL_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Which word has the short u sound?",
+  "question": "Which word has the short u sound?",
+  "spokenPrompt": "Umbrella. Listen to the first sound. Which word has the same vowel sound?",
+  "choices": [
+   "hot",
+   "hut",
+   "huge",
+   "hat"
+  ],
+  "answerOptions": [
+   {
+    "value": "hot",
+    "label": "hot",
+    "text": "hot"
+   },
+   {
+    "value": "hut",
+    "label": "hut",
+    "text": "hut"
+   },
+   {
+    "value": "huge",
+    "label": "huge",
+    "text": "huge"
+   },
+   {
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
+   }
+  ],
+  "answer": "hut",
+  "correctAnswer": "hut",
+  "distractorRationales": {
+   "hot": "D-VOWEL",
+   "huge": "D-PATTERN-TRAP",
+   "hat": "D-VOWEL"
+  },
+  "mediaTier": "text",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l1.A.short_u.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.C.short_a.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_a",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes h_nd?",
+  "question": "Which vowel completes h_nd?",
+  "spokenPrompt": "Hand. Which vowel completes the word?",
+  "choices": [
+   "u",
+   "a",
+   "e",
+   "o"
+  ],
+  "answerOptions": [
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   }
+  ],
+  "answer": "a",
+  "correctAnswer": "a",
+  "distractorRationales": {
+   "e": "D-VOWEL",
+   "o": "D-VOWEL",
+   "u": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "hand",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.C.short_a.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the heard word supplies exact spelling evidence without the rejected whole-child waving scene"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.A.short_a.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_a",
+  "formatType": "PUT_SOUNDS_IN_ORDER",
+  "templateType": "PUT_SOUNDS_IN_ORDER",
+  "questionType": "multiple_choice",
+  "prompt": "Put the sounds in order to make the word shown in the picture.",
+  "question": "Put the sounds in order to make the word shown in the picture.",
+  "spokenPrompt": "Lamp. Put the sounds in order to make the word.",
+  "choices": [
+   "lamp"
+  ],
+  "answerOptions": [
+   {
+    "value": "lamp",
+    "label": "lamp",
+    "text": "lamp"
+   }
+  ],
+  "answer": "lamp",
+  "correctAnswer": "lamp",
+  "distractorRationales": {},
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "soundTiles": [
+   "l",
+   "a",
+   "m",
+   "p"
+  ],
+  "targetWord": "lamp",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.A.short_a.v10",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/lamp.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "lamp"
+  },
+  "requiredImageAssetKey": "lamp",
+  "stimulusMediaId": "lamp",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "tiles are phonemes, not letters — sh/ck ride as one tile",
+  "imagePath": "/images/assessment/objective-words/lamp.webp",
+  "imageUrl": "/images/assessment/objective-words/lamp.webp",
+  "targetImage": "/images/assessment/objective-words/lamp.webp",
+  "targetImagePath": "/images/assessment/objective-words/lamp.webp",
+  "resolvedImageAssetKey": "lamp",
+  "imageAlt": "lamp"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.C.short_e.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_e",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes b_lt?",
+  "question": "Which vowel completes b_lt?",
+  "spokenPrompt": "Belt. Which vowel completes the word?",
+  "choices": [
+   "a",
+   "u",
+   "e",
+   "i"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   }
+  ],
+  "answer": "e",
+  "correctAnswer": "e",
+  "distractorRationales": {
+   "i": "D-VOWEL",
+   "a": "D-VOWEL",
+   "u": "D-VOWEL"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "belt",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.C.short_e.v9",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/blends/belt.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "belt"
+  },
+  "requiredImageAssetKey": "belt",
+  "stimulusMediaId": "belt",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "",
+  "imagePath": "/images/assessment/blends/belt.webp",
+  "imageUrl": "/images/assessment/blends/belt.webp",
+  "targetImage": "/images/assessment/blends/belt.webp",
+  "targetImagePath": "/images/assessment/blends/belt.webp",
+  "resolvedImageAssetKey": "belt",
+  "imageAlt": "belt"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.A.short_e.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_e",
+  "formatType": "PUT_SOUNDS_IN_ORDER",
+  "templateType": "PUT_SOUNDS_IN_ORDER",
+  "questionType": "multiple_choice",
+  "prompt": "Put the sounds in order to make the word shown in the picture.",
+  "question": "Put the sounds in order to make the word shown in the picture.",
+  "spokenPrompt": "Tent. Put the sounds in order to make the word.",
+  "choices": [
+   "tent"
+  ],
+  "answerOptions": [
+   {
+    "value": "tent",
+    "label": "tent",
+    "text": "tent"
+   }
+  ],
+  "answer": "tent",
+  "correctAnswer": "tent",
+  "distractorRationales": {},
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "soundTiles": [
+   "t",
+   "e",
+   "n",
+   "t"
+  ],
+  "targetWord": "tent",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.A.short_e.v10",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/tent.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "tent"
+  },
+  "requiredImageAssetKey": "tent",
+  "stimulusMediaId": "tent",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "tiles are phonemes, not letters — sh/ck ride as one tile",
+  "imagePath": "/images/assessment/objective-words/tent.webp",
+  "imageUrl": "/images/assessment/objective-words/tent.webp",
+  "targetImage": "/images/assessment/objective-words/tent.webp",
+  "targetImagePath": "/images/assessment/objective-words/tent.webp",
+  "resolvedImageAssetKey": "tent",
+  "imageAlt": "tent"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.C.short_i.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_i",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes sh_p?",
+  "question": "Which vowel completes sh_p?",
+  "spokenPrompt": "Ship. Which vowel completes the word?",
+  "choices": [
+   "a",
+   "o",
+   "u",
+   "i"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   }
+  ],
+  "answer": "i",
+  "correctAnswer": "i",
+  "distractorRationales": {
+   "a": "D-VOWEL",
+   "o": "D-VOWEL",
+   "u": "D-VOWEL"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "ship",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.C.short_i.v9",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/ship.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "ship"
+  },
+  "requiredImageAssetKey": "ship",
+  "stimulusMediaId": "ship",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/ship.webp",
+  "imageUrl": "/images/assessment/objective-words/ship.webp",
+  "targetImage": "/images/assessment/objective-words/ship.webp",
+  "targetImagePath": "/images/assessment/objective-words/ship.webp",
+  "resolvedImageAssetKey": "ship",
+  "imageAlt": "ship"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.A.short_i.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_i",
+  "formatType": "PUT_SOUNDS_IN_ORDER",
+  "templateType": "PUT_SOUNDS_IN_ORDER",
+  "questionType": "multiple_choice",
+  "prompt": "Put the sounds in order to make the word shown in the picture.",
+  "question": "Put the sounds in order to make the word shown in the picture.",
+  "spokenPrompt": "Brick. Put the sounds in order to make the word.",
+  "choices": [
+   "brick"
+  ],
+  "answerOptions": [
+   {
+    "value": "brick",
+    "label": "brick",
+    "text": "brick"
+   }
+  ],
+  "answer": "brick",
+  "correctAnswer": "brick",
+  "distractorRationales": {},
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "soundTiles": [
+   "b",
+   "r",
+   "i",
+   "ck"
+  ],
+  "targetWord": "brick",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.A.short_i.v10",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/brick.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "brick"
+  },
+  "requiredImageAssetKey": "brick",
+  "stimulusMediaId": "brick",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "tiles are phonemes, not letters — sh/ck ride as one tile",
+  "imagePath": "/images/assessment/objective-words/brick.webp",
+  "imageUrl": "/images/assessment/objective-words/brick.webp",
+  "targetImage": "/images/assessment/objective-words/brick.webp",
+  "targetImagePath": "/images/assessment/objective-words/brick.webp",
+  "resolvedImageAssetKey": "brick",
+  "imageAlt": "brick"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.C.short_o.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_o",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes s_ck?",
+  "question": "Which vowel completes s_ck?",
+  "spokenPrompt": "Sock. Which vowel completes the word?",
+  "choices": [
+   "o",
+   "a",
+   "e",
+   "u"
+  ],
+  "answerOptions": [
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   }
+  ],
+  "answer": "o",
+  "correctAnswer": "o",
+  "distractorRationales": {
+   "e": "D-VOWEL",
+   "u": "D-VOWEL",
+   "a": "D-VOWEL"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "sock",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.C.short_o.v9",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/digraphs/sock.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "sock"
+  },
+  "requiredImageAssetKey": "sock",
+  "stimulusMediaId": "sock",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/sock.webp",
+  "imageUrl": "/images/assessment/digraphs/sock.webp",
+  "targetImage": "/images/assessment/digraphs/sock.webp",
+  "targetImagePath": "/images/assessment/digraphs/sock.webp",
+  "resolvedImageAssetKey": "sock",
+  "imageAlt": "sock"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.A.short_o.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_o",
+  "formatType": "PUT_SOUNDS_IN_ORDER",
+  "templateType": "PUT_SOUNDS_IN_ORDER",
+  "questionType": "multiple_choice",
+  "prompt": "Put the sounds in order to make the word shown in the picture.",
+  "question": "Put the sounds in order to make the word shown in the picture.",
+  "spokenPrompt": "Pond. Put the sounds in order to make the word.",
+  "choices": [
+   "pond"
+  ],
+  "answerOptions": [
+   {
+    "value": "pond",
+    "label": "pond",
+    "text": "pond"
+   }
+  ],
+  "answer": "pond",
+  "correctAnswer": "pond",
+  "distractorRationales": {},
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "soundTiles": [
+   "p",
+   "o",
+   "n",
+   "d"
+  ],
+  "targetWord": "pond",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.A.short_o.v10",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/pond.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "pond"
+  },
+  "requiredImageAssetKey": "pond",
+  "stimulusMediaId": "pond",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "tiles are phonemes, not letters — sh/ck ride as one tile",
+  "imagePath": "/images/assessment/generated/concepts/pond.webp",
+  "imageUrl": "/images/assessment/generated/concepts/pond.webp",
+  "targetImage": "/images/assessment/generated/concepts/pond.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/pond.webp",
+  "resolvedImageAssetKey": "pond",
+  "imageAlt": "pond"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.C.short_u.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_u",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes pl_g?",
+  "question": "Which vowel completes pl_g?",
+  "spokenPrompt": "Plug. Which vowel completes the word?",
+  "choices": [
+   "i",
+   "u",
+   "a",
+   "o"
+  ],
+  "answerOptions": [
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   }
+  ],
+  "answer": "u",
+  "correctAnswer": "u",
+  "distractorRationales": {
+   "a": "D-VOWEL",
+   "o": "D-VOWEL",
+   "i": "D-VOWEL"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "plug",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.C.short_u.v9",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/blends/plug.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "plug"
+  },
+  "requiredImageAssetKey": "plug",
+  "stimulusMediaId": "plug",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "",
+  "imagePath": "/images/assessment/blends/plug.webp",
+  "imageUrl": "/images/assessment/blends/plug.webp",
+  "targetImage": "/images/assessment/blends/plug.webp",
+  "targetImagePath": "/images/assessment/blends/plug.webp",
+  "resolvedImageAssetKey": "plug",
+  "imageAlt": "plug"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.A.short_u.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_u",
+  "formatType": "PUT_SOUNDS_IN_ORDER",
+  "templateType": "PUT_SOUNDS_IN_ORDER",
+  "questionType": "multiple_choice",
+  "prompt": "Put the sounds in order to make the word you hear.",
+  "question": "Put the sounds in order to make the word you hear.",
+  "spokenPrompt": "Truck. Put the sounds in order to make the word.",
+  "choices": [
+   "truck"
+  ],
+  "answerOptions": [
+   {
+    "value": "truck",
+    "label": "truck",
+    "text": "truck"
+   }
+  ],
+  "answer": "truck",
+  "correctAnswer": "truck",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "phoneme_sequence_building",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "soundTiles": [
+   "t",
+   "r",
+   "u",
+   "ck"
+  ],
+  "targetWord": "truck",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.A.short_u.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "the exact spoken target avoids the truck-versus-lorry picture naming ambiguity"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.R.short_u.v7r",
@@ -5797,7 +7631,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/nut.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "nut",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -5897,7 +7731,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/mug.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "mug",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -5997,7 +7831,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/hat.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "hat",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -6097,7 +7931,7 @@ export const questions = [
    "paths": [
     "/images/assessment/rhyming/variants/in/pin-02.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "pin",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -6373,7 +8207,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/bell.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "bell",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -6456,7 +8290,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/duck.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "duck",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -6556,7 +8390,7 @@ export const questions = [
    "paths": [
     "/images/assessment/objective-words/lid.webp"
    ],
-   "alt": "Picture support for this literacy question",
+   "alt": "lid",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -6599,69 +8433,67 @@ export const questions = [
   "formatType": "PICTURE_TO_PRINT_MATCH",
   "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "prompt": "Which word did you hear?",
+  "question": "Which word did you hear?",
+  "spokenPrompt": "Lump. Which word did you hear?",
   "choices": [
-   "brush",
-   "brick",
-   "fresh",
-   "crush"
+   "lump",
+   "lamp",
+   "limp",
+   "lift"
   ],
   "answerOptions": [
    {
-    "value": "brush",
-    "label": "brush",
-    "text": "brush"
+    "value": "lump",
+    "label": "lump",
+    "text": "lump"
    },
    {
-    "value": "brick",
-    "label": "brick",
-    "text": "brick"
+    "value": "lamp",
+    "label": "lamp",
+    "text": "lamp"
    },
    {
-    "value": "fresh",
-    "label": "fresh",
-    "text": "fresh"
+    "value": "limp",
+    "label": "limp",
+    "text": "limp"
    },
    {
-    "value": "crush",
-    "label": "crush",
-    "text": "crush"
+    "value": "lift",
+    "label": "lift",
+    "text": "lift"
    }
   ],
-  "answer": "brush",
-  "correctAnswer": "brush",
+  "answer": "lump",
+  "correctAnswer": "lump",
   "distractorRationales": {
-   "brick": "D-VOWEL",
-   "fresh": "D-VOWEL",
-   "crush": "D-ONSET"
+   "lamp": "D-VOWEL",
+   "limp": "D-VOWEL",
+   "lift": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "short_vowel_word_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "brush",
+  "audioRole": "target_word",
+  "targetWord": "lump",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cvc_short_vowels.l2.R.short_u.v8r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/objective-words/brush.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "brush",
-  "stimulusMediaId": "brush",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6671,12 +8503,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the direct brush picture removes the regional truck-versus-lorry naming dependency",
-  "imagePath": "/images/assessment/objective-words/brush.webp",
-  "imageUrl": "/images/assessment/objective-words/brush.webp",
-  "targetImage": "/images/assessment/objective-words/brush.webp",
-  "targetImagePath": "/images/assessment/objective-words/brush.webp",
-  "resolvedImageAssetKey": "brush",
-  "imageAlt": "brush"
+  "notes": "heard CVCC recognition retains the print-match format; lamp and limp prevent final-consonant identification from replacing vowel discrimination"
  }
 ];

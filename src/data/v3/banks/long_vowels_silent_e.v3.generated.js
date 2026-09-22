@@ -288,9 +288,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Add e to the end of cap. What word do you make?",
-  "question": "Add e to the end of cap. What word do you make?",
-  "spokenPrompt": "Add e to the end of cap. What word do you make?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Cape. Which printed word matches the recording?",
   "choices": [
    "cap",
    "cope",
@@ -326,14 +326,18 @@ export const questions = [
    "cope": "D-VOWEL",
    "cup": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "cape",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -354,7 +358,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cap → cape; the no-change trap catches ignoring the e"
+  "notes": "cap and cape contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.B.a_e.v5",
@@ -376,9 +380,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Add e to the end of tap. What word do you make?",
-  "question": "Add e to the end of tap. What word do you make?",
-  "spokenPrompt": "Add e to the end of tap. What word do you make?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Tape. Which printed word matches the recording?",
   "choices": [
    "tape",
    "tap",
@@ -414,14 +418,18 @@ export const questions = [
    "tip": "D-VOWEL",
    "top": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "tape",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -442,7 +450,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "tap → tape; the no-change trap catches ignoring the e"
+  "notes": "tap and tape contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.C.a_e.v6",
@@ -464,9 +472,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Add e to the end of man. What word do you make?",
-  "question": "Add e to the end of man. What word do you make?",
-  "spokenPrompt": "Add e to the end of man. What word do you make?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Mane. Which printed word matches the recording?",
   "choices": [
    "men",
    "mane",
@@ -502,14 +510,18 @@ export const questions = [
    "mine": "D-VOWEL",
    "men": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "mane",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -530,7 +542,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "man → mane; the no-change trap catches ignoring the e"
+  "notes": "man and mane contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.A.i_e.v1",
@@ -819,9 +831,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Add e to the end of kit. What word do you make?",
-  "question": "Add e to the end of kit. What word do you make?",
-  "spokenPrompt": "Add e to the end of kit. What word do you make?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Kite. Which printed word matches the recording?",
   "choices": [
    "late",
    "kite",
@@ -857,14 +869,18 @@ export const questions = [
    "bit": "D-VOWEL",
    "late": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "kite",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -885,7 +901,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "kit → kite; the no-change trap catches ignoring the e"
+  "notes": "kit and kite contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.B.i_e.v5",
@@ -907,9 +923,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Add e to the end of pin. What word do you make?",
-  "question": "Add e to the end of pin. What word do you make?",
-  "spokenPrompt": "Add e to the end of pin. What word do you make?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Pine. Which printed word matches the recording?",
   "choices": [
    "pane",
    "pen",
@@ -945,14 +961,18 @@ export const questions = [
    "pane": "D-VOWEL",
    "pen": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "pine",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -973,7 +993,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "pin → pine; the no-change trap catches ignoring the e"
+  "notes": "pin and pine contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.C.i_e.v6",
@@ -995,9 +1015,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Add e to the end of rid. What word do you make?",
-  "question": "Add e to the end of rid. What word do you make?",
-  "spokenPrompt": "Add e to the end of rid. What word do you make?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Ride. Which printed word matches the recording?",
   "choices": [
    "rid",
    "rode",
@@ -1033,14 +1053,18 @@ export const questions = [
    "rode": "D-VOWEL",
    "red": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "ride",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1061,7 +1085,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rid → ride; the no-change trap catches ignoring the e"
+  "notes": "rid and ride contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.A.o_e.v1",
@@ -1350,9 +1374,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Add e to the end of hop. What word do you make?",
-  "question": "Add e to the end of hop. What word do you make?",
-  "spokenPrompt": "Add e to the end of hop. What word do you make?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Hope. Which printed word matches the recording?",
   "choices": [
    "hop",
    "hip",
@@ -1388,14 +1412,18 @@ export const questions = [
    "hate": "D-VOWEL",
    "hop": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "hope",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1416,7 +1444,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "hop → hope; the no-change trap catches ignoring the e"
+  "notes": "hop and hope contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.B.o_e.v5",
@@ -1438,9 +1466,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Add e to the end of not. What word do you make?",
-  "question": "Add e to the end of not. What word do you make?",
-  "spokenPrompt": "Add e to the end of not. What word do you make?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Note. Which printed word matches the recording?",
   "choices": [
    "note",
    "not",
@@ -1476,14 +1504,18 @@ export const questions = [
    "nut": "D-VOWEL",
    "not": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "note",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1504,7 +1536,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "not → note; the no-change trap catches ignoring the e"
+  "notes": "not and note contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.C.o_e.v6",
@@ -1526,9 +1558,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Add e to the end of rob. What word do you make?",
-  "question": "Add e to the end of rob. What word do you make?",
-  "spokenPrompt": "Add e to the end of rob. What word do you make?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Robe. Which printed word matches the recording?",
   "choices": [
    "rub",
    "robe",
@@ -1564,14 +1596,18 @@ export const questions = [
    "rub": "D-VOWEL",
    "rob": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "robe",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1592,7 +1628,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rob → robe; the no-change trap catches ignoring the e"
+  "notes": "rob and robe contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.A.u_e.v1",
@@ -1881,9 +1917,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Add e to the end of cub. What word do you make?",
-  "question": "Add e to the end of cub. What word do you make?",
-  "spokenPrompt": "Add e to the end of cub. What word do you make?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Cube. Which printed word matches the recording?",
   "choices": [
    "cup",
    "cube",
@@ -1919,14 +1955,18 @@ export const questions = [
    "cap": "D-VOWEL",
    "cup": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "cube",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1947,7 +1987,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cub → cube; the no-change trap catches ignoring the e"
+  "notes": "cub and cube contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.B.u_e.v5",
@@ -1969,9 +2009,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Add e to the end of cut. What word do you make?",
-  "question": "Add e to the end of cut. What word do you make?",
-  "spokenPrompt": "Add e to the end of cut. What word do you make?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Cute. Which printed word matches the recording?",
   "choices": [
    "cot",
    "cat",
@@ -2007,14 +2047,18 @@ export const questions = [
    "cot": "D-VOWEL",
    "cat": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "cute",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -2035,7 +2079,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cut → cute; the no-change trap catches ignoring the e"
+  "notes": "cut and cute contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.C.u_e.v6",
@@ -2057,9 +2101,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Add e to the end of tub. What word do you make?",
-  "question": "Add e to the end of tub. What word do you make?",
-  "spokenPrompt": "Add e to the end of tub. What word do you make?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Tube. Which printed word matches the recording?",
   "choices": [
    "tub",
    "tap",
@@ -2095,14 +2139,18 @@ export const questions = [
    "tap": "D-VOWEL",
    "top": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "tube",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -2123,7 +2171,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "tub → tube; the no-change trap catches ignoring the e"
+  "notes": "tub and tube contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.A.e_e.v1",
@@ -2679,9 +2727,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Take the silent e away from tape. What word is left?",
-  "question": "Take the silent e away from tape. What word is left?",
-  "spokenPrompt": "Take the silent e away from tape. What word is left?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Tap. Which printed word matches the recording?",
   "choices": [
    "pat",
    "tap",
@@ -2717,14 +2765,18 @@ export const questions = [
    "tip": "D-VOWEL",
    "pat": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "tap",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -2745,7 +2797,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "tape → tap; scanner picks the unchanged word and fails"
+  "notes": "tape and tap contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.A.a_e.v4",
@@ -2767,9 +2819,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Take the silent e away from made. What word is left?",
-  "question": "Take the silent e away from made. What word is left?",
-  "spokenPrompt": "Take the silent e away from made. What word is left?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Mad. Which printed word matches the recording?",
   "choices": [
    "mad",
    "made",
@@ -2805,14 +2857,18 @@ export const questions = [
    "made": "D-PATTERN-TRAP",
    "mud": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "mad",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -2833,7 +2889,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "made → mad; scanner picks the unchanged word and fails"
+  "notes": "made and mad contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.B.a_e.v5",
@@ -3211,9 +3267,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Take the silent e away from bite. What word is left?",
-  "question": "Take the silent e away from bite. What word is left?",
-  "spokenPrompt": "Take the silent e away from bite. What word is left?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Bit. Which printed word matches the recording?",
   "choices": [
    "bite",
    "bat",
@@ -3249,14 +3305,18 @@ export const questions = [
    "bat": "D-VOWEL",
    "bet": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "bit",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3277,7 +3337,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "bite → bit; scanner picks the unchanged word and fails"
+  "notes": "bite and bit contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.A.i_e.v4",
@@ -3299,9 +3359,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Take the silent e away from ripe. What word is left?",
-  "question": "Take the silent e away from ripe. What word is left?",
-  "spokenPrompt": "Take the silent e away from ripe. What word is left?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Rip. Which printed word matches the recording?",
   "choices": [
    "rope",
    "red",
@@ -3337,14 +3397,18 @@ export const questions = [
    "ripe": "D-PATTERN-TRAP",
    "rope": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "rip",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3365,7 +3429,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "ripe → rip; scanner picks the unchanged word and fails"
+  "notes": "ripe and rip contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.B.i_e.v5",
@@ -3743,9 +3807,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Take the silent e away from hope. What word is left?",
-  "question": "Take the silent e away from hope. What word is left?",
-  "spokenPrompt": "Take the silent e away from hope. What word is left?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Hop. Which printed word matches the recording?",
   "choices": [
    "hen",
    "hop",
@@ -3781,14 +3845,18 @@ export const questions = [
    "hen": "D-VOWEL",
    "hope": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "hop",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3809,7 +3877,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "hope → hop; scanner picks the unchanged word and fails"
+  "notes": "hope and hop contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.A.o_e.v4",
@@ -3831,9 +3899,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Take the silent e away from robe. What word is left?",
-  "question": "Take the silent e away from robe. What word is left?",
-  "spokenPrompt": "Take the silent e away from robe. What word is left?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Rob. Which printed word matches the recording?",
   "choices": [
    "rob",
    "robe",
@@ -3869,14 +3937,18 @@ export const questions = [
    "rub": "D-VOWEL",
    "red": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "rob",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3897,7 +3969,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "robe → rob; scanner picks the unchanged word and fails"
+  "notes": "robe and rob contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.B.o_e.v5",
@@ -4275,9 +4347,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Take the silent e away from cube. What word is left?",
-  "question": "Take the silent e away from cube. What word is left?",
-  "spokenPrompt": "Take the silent e away from cube. What word is left?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Cub. Which printed word matches the recording?",
   "choices": [
    "cube",
    "cab",
@@ -4313,14 +4385,18 @@ export const questions = [
    "cab": "D-VOWEL",
    "bus": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "cub",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4341,7 +4417,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cube → cub; scanner picks the unchanged word and fails"
+  "notes": "cube and cub contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.A.u_e.v4",
@@ -4363,9 +4439,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Take the silent e away from cute. What word is left?",
-  "question": "Take the silent e away from cute. What word is left?",
-  "spokenPrompt": "Take the silent e away from cute. What word is left?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Cut. Which printed word matches the recording?",
   "choices": [
    "cot",
    "kit",
@@ -4401,14 +4477,18 @@ export const questions = [
    "cute": "D-PATTERN-TRAP",
    "cot": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "cut",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4429,7 +4509,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cute → cut; scanner picks the unchanged word and fails"
+  "notes": "cute and cut contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.B.u_e.v5",
@@ -4610,6 +4690,4350 @@ export const questions = [
   "notes": "encode huge as u_e"
  },
  {
+  "id": "lp3.long_vowels_silent_e.l1.C.a_e.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "a_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes l_n_?",
+  "question": "Which vowel pattern completes l_n_?",
+  "spokenPrompt": "Lane. Which vowel pattern completes the word?",
+  "choices": [
+   "u_e",
+   "a_e",
+   "i_e",
+   "o_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   }
+  ],
+  "answer": "a_e",
+  "correctAnswer": "a_e",
+  "distractorRationales": {
+   "i_e": "D-VOWEL",
+   "o_e": "D-VOWEL",
+   "u_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "lane",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.C.a_e.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode lane as a_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.a_e.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "a_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes w_v_?",
+  "question": "Which vowel pattern completes w_v_?",
+  "spokenPrompt": "Wave. Which vowel pattern completes the word?",
+  "choices": [
+   "a_e",
+   "i_e",
+   "o_e",
+   "u_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   }
+  ],
+  "answer": "a_e",
+  "correctAnswer": "a_e",
+  "distractorRationales": {
+   "i_e": "D-VOWEL",
+   "o_e": "D-VOWEL",
+   "u_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "wave",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.a_e.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode wave as a_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.a_e.v11",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "a_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes l_c_?",
+  "question": "Which vowel pattern completes l_c_?",
+  "spokenPrompt": "Lace. Which vowel pattern completes the word?",
+  "choices": [
+   "u_e",
+   "a_e",
+   "i_e",
+   "o_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   }
+  ],
+  "answer": "a_e",
+  "correctAnswer": "a_e",
+  "distractorRationales": {
+   "o_e": "D-VOWEL",
+   "u_e": "D-VOWEL",
+   "i_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "lace",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.a_e.v11",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode lace as a_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.a_e.v12",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "a_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Cane. Which printed word matches the recording?",
+  "choices": [
+   "cone",
+   "coin",
+   "cane",
+   "can"
+  ],
+  "answerOptions": [
+   {
+    "value": "cone",
+    "label": "cone",
+    "text": "cone"
+   },
+   {
+    "value": "coin",
+    "label": "coin",
+    "text": "coin"
+   },
+   {
+    "value": "cane",
+    "label": "cane",
+    "text": "cane"
+   },
+   {
+    "value": "can",
+    "label": "can",
+    "text": "can"
+   }
+  ],
+  "answer": "cane",
+  "correctAnswer": "cane",
+  "distractorRationales": {
+   "coin": "D-VOWEL",
+   "can": "D-VOWEL",
+   "cone": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "cane",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.a_e.v12",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.a_e.v13",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "a_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Made. Which printed word matches the recording?",
+  "choices": [
+   "mad",
+   "mud",
+   "mood",
+   "made"
+  ],
+  "answerOptions": [
+   {
+    "value": "mad",
+    "label": "mad",
+    "text": "mad"
+   },
+   {
+    "value": "mud",
+    "label": "mud",
+    "text": "mud"
+   },
+   {
+    "value": "mood",
+    "label": "mood",
+    "text": "mood"
+   },
+   {
+    "value": "made",
+    "label": "made",
+    "text": "made"
+   }
+  ],
+  "answer": "made",
+  "correctAnswer": "made",
+  "distractorRationales": {
+   "mad": "D-VOWEL",
+   "mud": "D-VOWEL",
+   "mood": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "made",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.a_e.v13",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.a_e.v14",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "a_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Rate. Which printed word matches the recording?",
+  "choices": [
+   "rate",
+   "rat",
+   "rot",
+   "rut"
+  ],
+  "answerOptions": [
+   {
+    "value": "rate",
+    "label": "rate",
+    "text": "rate"
+   },
+   {
+    "value": "rat",
+    "label": "rat",
+    "text": "rat"
+   },
+   {
+    "value": "rot",
+    "label": "rot",
+    "text": "rot"
+   },
+   {
+    "value": "rut",
+    "label": "rut",
+    "text": "rut"
+   }
+  ],
+  "answer": "rate",
+  "correctAnswer": "rate",
+  "distractorRationales": {
+   "rat": "D-VOWEL",
+   "rot": "D-VOWEL",
+   "rut": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "rate",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.a_e.v14",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.C.i_e.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "i_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes l_n_?",
+  "question": "Which vowel pattern completes l_n_?",
+  "spokenPrompt": "Line. Which vowel pattern completes the word?",
+  "choices": [
+   "o_e",
+   "u_e",
+   "i_e",
+   "a_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   }
+  ],
+  "answer": "i_e",
+  "correctAnswer": "i_e",
+  "distractorRationales": {
+   "a_e": "D-VOWEL",
+   "o_e": "D-VOWEL",
+   "u_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "line",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.C.i_e.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode line as i_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.i_e.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "i_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes t_l_?",
+  "question": "Which vowel pattern completes t_l_?",
+  "spokenPrompt": "Tile. Which vowel pattern completes the word?",
+  "choices": [
+   "u_e",
+   "i_e",
+   "a_e",
+   "o_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   }
+  ],
+  "answer": "i_e",
+  "correctAnswer": "i_e",
+  "distractorRationales": {
+   "a_e": "D-VOWEL",
+   "o_e": "D-VOWEL",
+   "u_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "tile",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.i_e.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode tile as i_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.i_e.v11",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "i_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes t_m_?",
+  "question": "Which vowel pattern completes t_m_?",
+  "spokenPrompt": "Time. Which vowel pattern completes the word?",
+  "choices": [
+   "o_e",
+   "u_e",
+   "i_e",
+   "a_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   }
+  ],
+  "answer": "i_e",
+  "correctAnswer": "i_e",
+  "distractorRationales": {
+   "o_e": "D-VOWEL",
+   "u_e": "D-VOWEL",
+   "a_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "time",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.i_e.v11",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode time as i_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.i_e.v12",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "i_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Dime. Which printed word matches the recording?",
+  "choices": [
+   "dim",
+   "dome",
+   "dame",
+   "dime"
+  ],
+  "answerOptions": [
+   {
+    "value": "dim",
+    "label": "dim",
+    "text": "dim"
+   },
+   {
+    "value": "dome",
+    "label": "dome",
+    "text": "dome"
+   },
+   {
+    "value": "dame",
+    "label": "dame",
+    "text": "dame"
+   },
+   {
+    "value": "dime",
+    "label": "dime",
+    "text": "dime"
+   }
+  ],
+  "answer": "dime",
+  "correctAnswer": "dime",
+  "distractorRationales": {
+   "dame": "D-VOWEL",
+   "dim": "D-VOWEL",
+   "dome": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "dime",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.i_e.v12",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.i_e.v13",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "i_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Bite. Which printed word matches the recording?",
+  "choices": [
+   "bite",
+   "bit",
+   "boat",
+   "boot"
+  ],
+  "answerOptions": [
+   {
+    "value": "bite",
+    "label": "bite",
+    "text": "bite"
+   },
+   {
+    "value": "bit",
+    "label": "bit",
+    "text": "bit"
+   },
+   {
+    "value": "boat",
+    "label": "boat",
+    "text": "boat"
+   },
+   {
+    "value": "boot",
+    "label": "boot",
+    "text": "boot"
+   }
+  ],
+  "answer": "bite",
+  "correctAnswer": "bite",
+  "distractorRationales": {
+   "bit": "D-VOWEL",
+   "boat": "D-VOWEL",
+   "boot": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "bite",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.i_e.v13",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.i_e.v14",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "i_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Ripe. Which printed word matches the recording?",
+  "choices": [
+   "rap",
+   "ripe",
+   "rip",
+   "rope"
+  ],
+  "answerOptions": [
+   {
+    "value": "rap",
+    "label": "rap",
+    "text": "rap"
+   },
+   {
+    "value": "ripe",
+    "label": "ripe",
+    "text": "ripe"
+   },
+   {
+    "value": "rip",
+    "label": "rip",
+    "text": "rip"
+   },
+   {
+    "value": "rope",
+    "label": "rope",
+    "text": "rope"
+   }
+  ],
+  "answer": "ripe",
+  "correctAnswer": "ripe",
+  "distractorRationales": {
+   "rip": "D-VOWEL",
+   "rope": "D-VOWEL",
+   "rap": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "ripe",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.i_e.v14",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.C.o_e.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "o_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes d_m_?",
+  "question": "Which vowel pattern completes d_m_?",
+  "spokenPrompt": "Dome. Which vowel pattern completes the word?",
+  "choices": [
+   "a_e",
+   "i_e",
+   "u_e",
+   "o_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   }
+  ],
+  "answer": "o_e",
+  "correctAnswer": "o_e",
+  "distractorRationales": {
+   "u_e": "D-VOWEL",
+   "a_e": "D-VOWEL",
+   "i_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "dome",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.C.o_e.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode dome as o_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.o_e.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "o_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes p_l_?",
+  "question": "Which vowel pattern completes p_l_?",
+  "spokenPrompt": "Pole. Which vowel pattern completes the word?",
+  "choices": [
+   "i_e",
+   "u_e",
+   "o_e",
+   "a_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   }
+  ],
+  "answer": "o_e",
+  "correctAnswer": "o_e",
+  "distractorRationales": {
+   "u_e": "D-VOWEL",
+   "a_e": "D-VOWEL",
+   "i_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "pole",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.o_e.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode pole as o_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.o_e.v11",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "o_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes h_l_?",
+  "question": "Which vowel pattern completes h_l_?",
+  "spokenPrompt": "Hole. Which vowel pattern completes the word?",
+  "choices": [
+   "a_e",
+   "i_e",
+   "u_e",
+   "o_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   }
+  ],
+  "answer": "o_e",
+  "correctAnswer": "o_e",
+  "distractorRationales": {
+   "a_e": "D-VOWEL",
+   "i_e": "D-VOWEL",
+   "u_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "hole",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.o_e.v11",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode hole as o_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.o_e.v12",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "o_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Mole. Which printed word matches the recording?",
+  "choices": [
+   "mole",
+   "mall",
+   "mill",
+   "mule"
+  ],
+  "answerOptions": [
+   {
+    "value": "mole",
+    "label": "mole",
+    "text": "mole"
+   },
+   {
+    "value": "mall",
+    "label": "mall",
+    "text": "mall"
+   },
+   {
+    "value": "mill",
+    "label": "mill",
+    "text": "mill"
+   },
+   {
+    "value": "mule",
+    "label": "mule",
+    "text": "mule"
+   }
+  ],
+  "answer": "mole",
+  "correctAnswer": "mole",
+  "distractorRationales": {
+   "mall": "D-VOWEL",
+   "mill": "D-VOWEL",
+   "mule": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "mole",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.o_e.v12",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.o_e.v13",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "o_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Cope. Which printed word matches the recording?",
+  "choices": [
+   "cup",
+   "cope",
+   "cop",
+   "cap"
+  ],
+  "answerOptions": [
+   {
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
+   },
+   {
+    "value": "cope",
+    "label": "cope",
+    "text": "cope"
+   },
+   {
+    "value": "cop",
+    "label": "cop",
+    "text": "cop"
+   },
+   {
+    "value": "cap",
+    "label": "cap",
+    "text": "cap"
+   }
+  ],
+  "answer": "cope",
+  "correctAnswer": "cope",
+  "distractorRationales": {
+   "cap": "D-VOWEL",
+   "cup": "D-VOWEL",
+   "cop": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "cope",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.o_e.v13",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.o_e.v14",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "o_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Slope. Which printed word matches the recording?",
+  "choices": [
+   "slap",
+   "slip",
+   "slope",
+   "slop"
+  ],
+  "answerOptions": [
+   {
+    "value": "slap",
+    "label": "slap",
+    "text": "slap"
+   },
+   {
+    "value": "slip",
+    "label": "slip",
+    "text": "slip"
+   },
+   {
+    "value": "slope",
+    "label": "slope",
+    "text": "slope"
+   },
+   {
+    "value": "slop",
+    "label": "slop",
+    "text": "slop"
+   }
+  ],
+  "answer": "slope",
+  "correctAnswer": "slope",
+  "distractorRationales": {
+   "slip": "D-VOWEL",
+   "slop": "D-VOWEL",
+   "slap": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "slope",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.o_e.v14",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.C.u_e.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "u_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes d_n_?",
+  "question": "Which vowel pattern completes d_n_?",
+  "spokenPrompt": "Dune. Which vowel pattern completes the word?",
+  "choices": [
+   "u_e",
+   "a_e",
+   "i_e",
+   "o_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   }
+  ],
+  "answer": "u_e",
+  "correctAnswer": "u_e",
+  "distractorRationales": {
+   "a_e": "D-VOWEL",
+   "i_e": "D-VOWEL",
+   "o_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "dune",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.C.u_e.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode dune as u_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.u_e.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "u_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes t_n_?",
+  "question": "Which vowel pattern completes t_n_?",
+  "spokenPrompt": "Tune. Which vowel pattern completes the word?",
+  "choices": [
+   "a_e",
+   "i_e",
+   "o_e",
+   "u_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   }
+  ],
+  "answer": "u_e",
+  "correctAnswer": "u_e",
+  "distractorRationales": {
+   "a_e": "D-VOWEL",
+   "i_e": "D-VOWEL",
+   "o_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "tune",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.u_e.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode tune as u_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.u_e.v11",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "u_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes r_l_?",
+  "question": "Which vowel pattern completes r_l_?",
+  "spokenPrompt": "Rule. Which vowel pattern completes the word?",
+  "choices": [
+   "u_e",
+   "a_e",
+   "i_e",
+   "o_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   }
+  ],
+  "answer": "u_e",
+  "correctAnswer": "u_e",
+  "distractorRationales": {
+   "i_e": "D-VOWEL",
+   "o_e": "D-VOWEL",
+   "a_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "rule",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.u_e.v11",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode rule as u_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.u_e.v12",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "u_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Flute. Which printed word matches the recording?",
+  "choices": [
+   "float",
+   "flute",
+   "flat",
+   "fleet"
+  ],
+  "answerOptions": [
+   {
+    "value": "float",
+    "label": "float",
+    "text": "float"
+   },
+   {
+    "value": "flute",
+    "label": "flute",
+    "text": "flute"
+   },
+   {
+    "value": "flat",
+    "label": "flat",
+    "text": "flat"
+   },
+   {
+    "value": "fleet",
+    "label": "fleet",
+    "text": "fleet"
+   }
+  ],
+  "answer": "flute",
+  "correctAnswer": "flute",
+  "distractorRationales": {
+   "float": "D-VOWEL",
+   "flat": "D-VOWEL",
+   "fleet": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "flute",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.u_e.v12",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.u_e.v13",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "u_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Duke. Which printed word matches the recording?",
+  "choices": [
+   "deck",
+   "dock",
+   "duke",
+   "duck"
+  ],
+  "answerOptions": [
+   {
+    "value": "deck",
+    "label": "deck",
+    "text": "deck"
+   },
+   {
+    "value": "dock",
+    "label": "dock",
+    "text": "dock"
+   },
+   {
+    "value": "duke",
+    "label": "duke",
+    "text": "duke"
+   },
+   {
+    "value": "duck",
+    "label": "duck",
+    "text": "duck"
+   }
+  ],
+  "answer": "duke",
+  "correctAnswer": "duke",
+  "distractorRationales": {
+   "duck": "D-VOWEL",
+   "deck": "D-VOWEL",
+   "dock": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "duke",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.u_e.v13",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.u_e.v14",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "u_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Fuse. Which printed word matches the recording?",
+  "choices": [
+   "fuss",
+   "fine",
+   "face",
+   "fuse"
+  ],
+  "answerOptions": [
+   {
+    "value": "fuss",
+    "label": "fuss",
+    "text": "fuss"
+   },
+   {
+    "value": "fine",
+    "label": "fine",
+    "text": "fine"
+   },
+   {
+    "value": "face",
+    "label": "face",
+    "text": "face"
+   },
+   {
+    "value": "fuse",
+    "label": "fuse",
+    "text": "fuse"
+   }
+  ],
+  "answer": "fuse",
+  "correctAnswer": "fuse",
+  "distractorRationales": {
+   "fuss": "D-VOWEL",
+   "fine": "D-VOWEL",
+   "face": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "fuse",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.u_e.v14",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.C.a_e.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "a_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes br_v_?",
+  "question": "Which vowel pattern completes br_v_?",
+  "spokenPrompt": "Brave. Which vowel pattern completes the word?",
+  "choices": [
+   "u_e",
+   "a_e",
+   "i_e",
+   "o_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   }
+  ],
+  "answer": "a_e",
+  "correctAnswer": "a_e",
+  "distractorRationales": {
+   "o_e": "D-VOWEL",
+   "u_e": "D-VOWEL",
+   "i_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "brave",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.C.a_e.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode brave as a_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.a_e.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "a_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes fl_m_?",
+  "question": "Which vowel pattern completes fl_m_?",
+  "spokenPrompt": "Flame. Which vowel pattern completes the word?",
+  "choices": [
+   "i_e",
+   "o_e",
+   "u_e",
+   "a_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   }
+  ],
+  "answer": "a_e",
+  "correctAnswer": "a_e",
+  "distractorRationales": {
+   "i_e": "D-VOWEL",
+   "o_e": "D-VOWEL",
+   "u_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "flame",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.a_e.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode flame as a_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.a_e.v11",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "a_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes sh_p_?",
+  "question": "Which vowel pattern completes sh_p_?",
+  "spokenPrompt": "Shape. Which vowel pattern completes the word?",
+  "choices": [
+   "a_e",
+   "i_e",
+   "o_e",
+   "u_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   }
+  ],
+  "answer": "a_e",
+  "correctAnswer": "a_e",
+  "distractorRationales": {
+   "u_e": "D-VOWEL",
+   "i_e": "D-VOWEL",
+   "o_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "shape",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.a_e.v11",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode shape as a_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.a_e.v12",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "a_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Skate. Which printed word matches the recording?",
+  "choices": [
+   "skirt",
+   "skate",
+   "scat",
+   "skit"
+  ],
+  "answerOptions": [
+   {
+    "value": "skirt",
+    "label": "skirt",
+    "text": "skirt"
+   },
+   {
+    "value": "skate",
+    "label": "skate",
+    "text": "skate"
+   },
+   {
+    "value": "scat",
+    "label": "scat",
+    "text": "scat"
+   },
+   {
+    "value": "skit",
+    "label": "skit",
+    "text": "skit"
+   }
+  ],
+  "answer": "skate",
+  "correctAnswer": "skate",
+  "distractorRationales": {
+   "skit": "D-VOWEL",
+   "skirt": "D-VOWEL",
+   "scat": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "skate",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.a_e.v12",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.a_e.v13",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "a_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Space. Which printed word matches the recording?",
+  "choices": [
+   "spies",
+   "spit",
+   "space",
+   "spice"
+  ],
+  "answerOptions": [
+   {
+    "value": "spies",
+    "label": "spies",
+    "text": "spies"
+   },
+   {
+    "value": "spit",
+    "label": "spit",
+    "text": "spit"
+   },
+   {
+    "value": "space",
+    "label": "space",
+    "text": "space"
+   },
+   {
+    "value": "spice",
+    "label": "spice",
+    "text": "spice"
+   }
+  ],
+  "answer": "space",
+  "correctAnswer": "space",
+  "distractorRationales": {
+   "spice": "D-VOWEL",
+   "spies": "D-VOWEL",
+   "spit": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "space",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.a_e.v13",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.a_e.v14",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "a_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Trade. Which printed word matches the recording?",
+  "choices": [
+   "tread",
+   "trod",
+   "tried",
+   "trade"
+  ],
+  "answerOptions": [
+   {
+    "value": "tread",
+    "label": "tread",
+    "text": "tread"
+   },
+   {
+    "value": "trod",
+    "label": "trod",
+    "text": "trod"
+   },
+   {
+    "value": "tried",
+    "label": "tried",
+    "text": "tried"
+   },
+   {
+    "value": "trade",
+    "label": "trade",
+    "text": "trade"
+   }
+  ],
+  "answer": "trade",
+  "correctAnswer": "trade",
+  "distractorRationales": {
+   "tread": "D-VOWEL",
+   "trod": "D-VOWEL",
+   "tried": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "trade",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.a_e.v14",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.C.i_e.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "i_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes sp_n_?",
+  "question": "Which vowel pattern completes sp_n_?",
+  "spokenPrompt": "Spine. Which vowel pattern completes the word?",
+  "choices": [
+   "o_e",
+   "u_e",
+   "i_e",
+   "a_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   }
+  ],
+  "answer": "i_e",
+  "correctAnswer": "i_e",
+  "distractorRationales": {
+   "o_e": "D-VOWEL",
+   "u_e": "D-VOWEL",
+   "a_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "spine",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.C.i_e.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode spine as i_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.i_e.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "i_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes str_p_?",
+  "question": "Which vowel pattern completes str_p_?",
+  "spokenPrompt": "Stripe. Which vowel pattern completes the word?",
+  "choices": [
+   "i_e",
+   "a_e",
+   "o_e",
+   "u_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   }
+  ],
+  "answer": "i_e",
+  "correctAnswer": "i_e",
+  "distractorRationales": {
+   "a_e": "D-VOWEL",
+   "o_e": "D-VOWEL",
+   "u_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "stripe",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.i_e.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode stripe as i_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.i_e.v11",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "i_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes dr_v_?",
+  "question": "Which vowel pattern completes dr_v_?",
+  "spokenPrompt": "Drive. Which vowel pattern completes the word?",
+  "choices": [
+   "u_e",
+   "i_e",
+   "a_e",
+   "o_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   }
+  ],
+  "answer": "i_e",
+  "correctAnswer": "i_e",
+  "distractorRationales": {
+   "u_e": "D-VOWEL",
+   "a_e": "D-VOWEL",
+   "o_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "drive",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.i_e.v11",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode drive as i_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.i_e.v12",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "i_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Chime. Which printed word matches the recording?",
+  "choices": [
+   "chain",
+   "charm",
+   "chime",
+   "chum"
+  ],
+  "answerOptions": [
+   {
+    "value": "chain",
+    "label": "chain",
+    "text": "chain"
+   },
+   {
+    "value": "charm",
+    "label": "charm",
+    "text": "charm"
+   },
+   {
+    "value": "chime",
+    "label": "chime",
+    "text": "chime"
+   },
+   {
+    "value": "chum",
+    "label": "chum",
+    "text": "chum"
+   }
+  ],
+  "answer": "chime",
+  "correctAnswer": "chime",
+  "distractorRationales": {
+   "chain": "D-VOWEL",
+   "charm": "D-VOWEL",
+   "chum": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "chime",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.i_e.v12",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.i_e.v13",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "i_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Slice. Which printed word matches the recording?",
+  "choices": [
+   "slick",
+   "slack",
+   "sleet",
+   "slice"
+  ],
+  "answerOptions": [
+   {
+    "value": "slick",
+    "label": "slick",
+    "text": "slick"
+   },
+   {
+    "value": "slack",
+    "label": "slack",
+    "text": "slack"
+   },
+   {
+    "value": "sleet",
+    "label": "sleet",
+    "text": "sleet"
+   },
+   {
+    "value": "slice",
+    "label": "slice",
+    "text": "slice"
+   }
+  ],
+  "answer": "slice",
+  "correctAnswer": "slice",
+  "distractorRationales": {
+   "slick": "D-VOWEL",
+   "slack": "D-VOWEL",
+   "sleet": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "slice",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.i_e.v13",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.i_e.v14",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "i_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "While. Which printed word matches the recording?",
+  "choices": [
+   "while",
+   "whale",
+   "wheel",
+   "whirl"
+  ],
+  "answerOptions": [
+   {
+    "value": "while",
+    "label": "while",
+    "text": "while"
+   },
+   {
+    "value": "whale",
+    "label": "whale",
+    "text": "whale"
+   },
+   {
+    "value": "wheel",
+    "label": "wheel",
+    "text": "wheel"
+   },
+   {
+    "value": "whirl",
+    "label": "whirl",
+    "text": "whirl"
+   }
+  ],
+  "answer": "while",
+  "correctAnswer": "while",
+  "distractorRationales": {
+   "whale": "D-VOWEL",
+   "wheel": "D-VOWEL",
+   "whirl": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "while",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.i_e.v14",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.C.o_e.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "o_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes gl_b_?",
+  "question": "Which vowel pattern completes gl_b_?",
+  "spokenPrompt": "Globe. Which vowel pattern completes the word?",
+  "choices": [
+   "a_e",
+   "i_e",
+   "u_e",
+   "o_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   }
+  ],
+  "answer": "o_e",
+  "correctAnswer": "o_e",
+  "distractorRationales": {
+   "a_e": "D-VOWEL",
+   "i_e": "D-VOWEL",
+   "u_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "globe",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.C.o_e.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode globe as o_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.o_e.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "o_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes sm_k_?",
+  "question": "Which vowel pattern completes sm_k_?",
+  "spokenPrompt": "Smoke. Which vowel pattern completes the word?",
+  "choices": [
+   "u_e",
+   "o_e",
+   "a_e",
+   "i_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   }
+  ],
+  "answer": "o_e",
+  "correctAnswer": "o_e",
+  "distractorRationales": {
+   "i_e": "D-VOWEL",
+   "u_e": "D-VOWEL",
+   "a_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "smoke",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.o_e.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode smoke as o_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.o_e.v11",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "o_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes st_v_?",
+  "question": "Which vowel pattern completes st_v_?",
+  "spokenPrompt": "Stove. Which vowel pattern completes the word?",
+  "choices": [
+   "i_e",
+   "u_e",
+   "o_e",
+   "a_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   }
+  ],
+  "answer": "o_e",
+  "correctAnswer": "o_e",
+  "distractorRationales": {
+   "a_e": "D-VOWEL",
+   "i_e": "D-VOWEL",
+   "u_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "stove",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.o_e.v11",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode stove as o_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.o_e.v12",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "o_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Stroke. Which printed word matches the recording?",
+  "choices": [
+   "struck",
+   "strike",
+   "streak",
+   "stroke"
+  ],
+  "answerOptions": [
+   {
+    "value": "struck",
+    "label": "struck",
+    "text": "struck"
+   },
+   {
+    "value": "strike",
+    "label": "strike",
+    "text": "strike"
+   },
+   {
+    "value": "streak",
+    "label": "streak",
+    "text": "streak"
+   },
+   {
+    "value": "stroke",
+    "label": "stroke",
+    "text": "stroke"
+   }
+  ],
+  "answer": "stroke",
+  "correctAnswer": "stroke",
+  "distractorRationales": {
+   "struck": "D-VOWEL",
+   "strike": "D-VOWEL",
+   "streak": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "stroke",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.o_e.v12",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.o_e.v13",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "o_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Those. Which printed word matches the recording?",
+  "choices": [
+   "those",
+   "these",
+   "this",
+   "that"
+  ],
+  "answerOptions": [
+   {
+    "value": "those",
+    "label": "those",
+    "text": "those"
+   },
+   {
+    "value": "these",
+    "label": "these",
+    "text": "these"
+   },
+   {
+    "value": "this",
+    "label": "this",
+    "text": "this"
+   },
+   {
+    "value": "that",
+    "label": "that",
+    "text": "that"
+   }
+  ],
+  "answer": "those",
+  "correctAnswer": "those",
+  "distractorRationales": {
+   "that": "D-VOWEL",
+   "these": "D-VOWEL",
+   "this": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "those",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.o_e.v13",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.o_e.v14",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "o_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Close. Which printed word matches the recording?",
+  "choices": [
+   "class",
+   "close",
+   "claws",
+   "clues"
+  ],
+  "answerOptions": [
+   {
+    "value": "class",
+    "label": "class",
+    "text": "class"
+   },
+   {
+    "value": "close",
+    "label": "close",
+    "text": "close"
+   },
+   {
+    "value": "claws",
+    "label": "claws",
+    "text": "claws"
+   },
+   {
+    "value": "clues",
+    "label": "clues",
+    "text": "clues"
+   }
+  ],
+  "answer": "close",
+  "correctAnswer": "close",
+  "distractorRationales": {
+   "clues": "D-VOWEL",
+   "class": "D-VOWEL",
+   "claws": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "close",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.o_e.v14",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.C.u_e.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "u_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes pr_n_?",
+  "question": "Which vowel pattern completes pr_n_?",
+  "spokenPrompt": "Prune. Which vowel pattern completes the word?",
+  "choices": [
+   "u_e",
+   "a_e",
+   "i_e",
+   "o_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   }
+  ],
+  "answer": "u_e",
+  "correctAnswer": "u_e",
+  "distractorRationales": {
+   "i_e": "D-VOWEL",
+   "o_e": "D-VOWEL",
+   "a_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "prune",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.C.u_e.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode prune as u_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.u_e.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "u_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes perf_m_?",
+  "question": "Which vowel pattern completes perf_m_?",
+  "spokenPrompt": "Perfume. Which vowel pattern completes the word?",
+  "choices": [
+   "i_e",
+   "o_e",
+   "u_e",
+   "a_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   }
+  ],
+  "answer": "u_e",
+  "correctAnswer": "u_e",
+  "distractorRationales": {
+   "a_e": "D-VOWEL",
+   "i_e": "D-VOWEL",
+   "o_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "perfume",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.u_e.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode perfume as u_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.u_e.v11",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "u_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes exc_s_?",
+  "question": "Which vowel pattern completes exc_s_?",
+  "spokenPrompt": "Excuse. Which vowel pattern completes the word?",
+  "choices": [
+   "a_e",
+   "i_e",
+   "o_e",
+   "u_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   }
+  ],
+  "answer": "u_e",
+  "correctAnswer": "u_e",
+  "distractorRationales": {
+   "o_e": "D-VOWEL",
+   "a_e": "D-VOWEL",
+   "i_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "excuse",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.u_e.v11",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "encode excuse as u_e"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.u_e.v12",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "u_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Amuse. Which printed word matches the recording?",
+  "choices": [
+   "amuse",
+   "amaze",
+   "among",
+   "amount"
+  ],
+  "answerOptions": [
+   {
+    "value": "amuse",
+    "label": "amuse",
+    "text": "amuse"
+   },
+   {
+    "value": "amaze",
+    "label": "amaze",
+    "text": "amaze"
+   },
+   {
+    "value": "among",
+    "label": "among",
+    "text": "among"
+   },
+   {
+    "value": "amount",
+    "label": "amount",
+    "text": "amount"
+   }
+  ],
+  "answer": "amuse",
+  "correctAnswer": "amuse",
+  "distractorRationales": {
+   "among": "D-VOWEL",
+   "amount": "D-VOWEL",
+   "amaze": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "amuse",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.u_e.v12",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.u_e.v13",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "u_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Use. Which printed word matches the recording?",
+  "choices": [
+   "eyes",
+   "use",
+   "us",
+   "ease"
+  ],
+  "answerOptions": [
+   {
+    "value": "eyes",
+    "label": "eyes",
+    "text": "eyes"
+   },
+   {
+    "value": "use",
+    "label": "use",
+    "text": "use"
+   },
+   {
+    "value": "us",
+    "label": "us",
+    "text": "us"
+   },
+   {
+    "value": "ease",
+    "label": "ease",
+    "text": "ease"
+   }
+  ],
+  "answer": "use",
+  "correctAnswer": "use",
+  "distractorRationales": {
+   "us": "D-VOWEL",
+   "ease": "D-VOWEL",
+   "eyes": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "use",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.u_e.v13",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.u_e.v14",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "u_e",
+  "formatType": "SILENT_E_TRANSFORM",
+  "templateType": "SILENT_E_TRANSFORM",
+  "questionType": "multiple_choice",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Rude. Which printed word matches the recording?",
+  "choices": [
+   "rod",
+   "ride",
+   "rude",
+   "red"
+  ],
+  "answerOptions": [
+   {
+    "value": "rod",
+    "label": "rod",
+    "text": "rod"
+   },
+   {
+    "value": "ride",
+    "label": "ride",
+    "text": "ride"
+   },
+   {
+    "value": "rude",
+    "label": "rude",
+    "text": "rude"
+   },
+   {
+    "value": "red",
+    "label": "red",
+    "text": "red"
+   }
+  ],
+  "answer": "rude",
+  "correctAnswer": "rude",
+  "distractorRationales": {
+   "red": "D-VOWEL",
+   "rod": "D-VOWEL",
+   "ride": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_contrast",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "rude",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.u_e.v14",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "heard target, real-word alternatives and no printed add/delete instruction"
+ },
+ {
   "id": "lp3.long_vowels_silent_e.l1.R.a_e.v7r",
   "bankStandardVersion": 3,
   "grade": "K-2",
@@ -4718,9 +9142,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Add e to the end of pan. What word do you make?",
-  "question": "Add e to the end of pan. What word do you make?",
-  "spokenPrompt": "Add e to the end of pan. What word do you make?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Pane. Which printed word matches the recording?",
   "choices": [
    "pane",
    "pan",
@@ -4756,14 +9180,18 @@ export const questions = [
    "pan": "D-PATTERN-TRAP",
    "pine": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "pane",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4784,7 +9212,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "pan → pane; the no-change trap catches ignoring the e"
+  "notes": "pan and pane contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.R.a_e.v7r",
@@ -4895,9 +9323,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Take the silent e away from cane. What word is left?",
-  "question": "Take the silent e away from cane. What word is left?",
-  "spokenPrompt": "Take the silent e away from cane. What word is left?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Can. Which printed word matches the recording?",
   "choices": [
    "cane",
    "cone",
@@ -4933,14 +9361,18 @@ export const questions = [
    "pen": "D-VOWEL",
    "cane": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "can",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4961,7 +9393,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cane → can; scanner picks the unchanged word and fails"
+  "notes": "cane and can contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.R.i_e.v7r",
@@ -5072,9 +9504,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Add e to the end of fin. What word do you make?",
-  "question": "Add e to the end of fin. What word do you make?",
-  "spokenPrompt": "Add e to the end of fin. What word do you make?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Fine. Which printed word matches the recording?",
   "choices": [
    "fan",
    "fun",
@@ -5110,14 +9542,18 @@ export const questions = [
    "fin": "D-PATTERN-TRAP",
    "fan": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "fine",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -5138,7 +9574,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "fin → fine; the no-change trap catches ignoring the e"
+  "notes": "fin and fine contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.R.i_e.v7r",
@@ -5160,9 +9596,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Take the silent e away from hide. What word is left?",
-  "question": "Take the silent e away from hide. What word is left?",
-  "spokenPrompt": "Take the silent e away from hide. What word is left?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Hid. Which printed word matches the recording?",
   "choices": [
    "hid",
    "hide",
@@ -5198,14 +9634,18 @@ export const questions = [
    "had": "D-VOWEL",
    "hat": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "hid",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -5226,7 +9666,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "hide → hid; scanner picks the unchanged word and fails"
+  "notes": "hide and hid contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.R.i_e.v8r",
@@ -5337,9 +9777,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Add e to the end of rod. What word do you make?",
-  "question": "Add e to the end of rod. What word do you make?",
-  "spokenPrompt": "Add e to the end of rod. What word do you make?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Rode. Which printed word matches the recording?",
   "choices": [
    "rod",
    "ride",
@@ -5375,14 +9815,18 @@ export const questions = [
    "red": "D-VOWEL",
    "rod": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "rode",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -5403,7 +9847,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rod → rode; the no-change trap catches ignoring the e"
+  "notes": "rod and rode contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.R.o_e.v8r",
@@ -5603,9 +10047,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Take the silent e away from rode. What word is left?",
-  "question": "Take the silent e away from rode. What word is left?",
-  "spokenPrompt": "Take the silent e away from rode. What word is left?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Rod. Which printed word matches the recording?",
   "choices": [
    "rode",
    "road",
@@ -5641,14 +10085,18 @@ export const questions = [
    "road": "D-HOMOPHONE",
    "red": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "rod",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -5669,7 +10117,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rode → rod; scanner picks the unchanged word and fails"
+  "notes": "rode and rod contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.R.u_e.v7r",
@@ -5691,9 +10139,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Add e to the end of hug. What word do you make?",
-  "question": "Add e to the end of hug. What word do you make?",
-  "spokenPrompt": "Add e to the end of hug. What word do you make?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Huge. Which printed word matches the recording?",
   "choices": [
    "hat",
    "huge",
@@ -5729,14 +10177,18 @@ export const questions = [
    "hog": "D-VOWEL",
    "hat": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "huge",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -5757,7 +10209,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "hug → huge; the no-change trap catches ignoring the e"
+  "notes": "hug and huge contrast vowel sounds; hearing the word is necessary"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.R.u_e.v8r",
@@ -5957,9 +10409,9 @@ export const questions = [
   "formatType": "SILENT_E_TRANSFORM",
   "templateType": "SILENT_E_TRANSFORM",
   "questionType": "multiple_choice",
-  "prompt": "Take the silent e away from tube. What word is left?",
-  "question": "Take the silent e away from tube. What word is left?",
-  "spokenPrompt": "Take the silent e away from tube. What word is left?",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Tub. Which printed word matches the recording?",
   "choices": [
    "ten",
    "tub",
@@ -5995,14 +10447,18 @@ export const questions = [
    "ten": "D-VOWEL",
    "tube": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "silent_e_vowel_contrast",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "tub",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -6023,6 +10479,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "tube → tub; scanner picks the unchanged word and fails"
+  "notes": "tube and tub contrast vowel sounds; hearing the word is necessary"
  }
 ];

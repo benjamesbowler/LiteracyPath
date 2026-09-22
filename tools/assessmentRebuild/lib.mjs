@@ -5,6 +5,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
+import { normalizeSpokenCloze } from "../../src/utils/assessmentSpokenText.js";
+export { normalizeSpokenCloze };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const ROOT = path.resolve(__dirname, "..", "..");
@@ -118,10 +120,17 @@ export function syncItemMediaDecision({
   item = {},
   authoredItem = {},
   decision,
+  reviewedNewItem = false,
   actualPaths = [],
   styleDecisions = {}
 } = {}) {
-  if (!decision) throw new Error(`${item.id || "(unknown item)"} has no reviewed media decision to synchronise`);
+  if (!decision && !reviewedNewItem) throw new Error(`${item.id || "(unknown item)"} has no reviewed media decision to synchronise`);
+  if (!decision) {
+    const role = authoredItem.cards?.length ? "answer-cards"
+      : authoredItem.sequenceCards?.length ? "sequence"
+        : authoredItemHasVisualFields(authoredItem) ? "target-or-scene" : "text-only";
+    decision = { itemId: item.id, role, paths: [], constructReview: "approved", answerNeutral: "approved" };
+  }
 
   const explicitlyNonVisual = ["text", "audio-required"].includes(authoredItem.media);
   const hasAuthoredVisuals = authoredItemHasVisualFields(authoredItem);
@@ -153,14 +162,21 @@ export function syncItemMediaDecision({
   const visualDecision = promotesTextOnlyDecision
     ? {
       ...decision,
-      role: "target-or-scene",
-      alt: decision.alt || item.imageAlt || "Picture support for this literacy question",
+      role: authoredItem.cards?.length ? "answer-cards"
+        : authoredItem.sequenceCards?.length ? "sequence" : "target-or-scene",
+      alt: item.imageAlt || decision.alt || "",
       answerNeutral: decision.answerNeutral === "not-applicable-text-only"
         ? "approved"
         : decision.answerNeutral
     }
     : decision;
-  return { ...visualDecision, paths };
+  const role = authoredItem.cards?.length && !authoredItem.img && !authoredItem.supportImg
+    ? "answer-cards" : visualDecision.role;
+  const cardLabels = (item.imageCards || []).map(card => card.imageAlt || card.word || card.label).filter(Boolean);
+  const alt = item.imageAlt || visualDecision.alt ||
+    (role === "answer-cards" && cardLabels.length ? `Picture choices: ${cardLabels.join(", ")}` : "");
+  if (!alt) throw new Error(`${item.id || decision.itemId} lacks an authored visual description`);
+  return { ...visualDecision, role, alt, paths };
 }
 
 // ---------------------------------------------------------------------------
@@ -235,14 +251,6 @@ function rotate(values, offset) {
   return [...values.slice(offset), ...values.slice(0, offset)];
 }
 
-export function normalizeSpokenCloze(text) {
-  return String(text || "")
-    .replace(/\s*(?:_{3,}|\bhmm\b|\bblank\b)\s*/gi, " … ")
-    .replace(/\s+/g, " ")
-    .replace(/\s+([?.!,;:])/g, "$1")
-    .trim();
-}
-
 export function expandItem(raw, blueprint, imageResolver) {
   const skillId = blueprint.skillId;
   const level = raw.lvl >= 2 ? 2 : 1;
@@ -261,7 +269,8 @@ export function expandItem(raw, blueprint, imageResolver) {
     (Array.isArray(raw.cards) && raw.cards.length > 0)
     || (Array.isArray(raw.sequenceCards) && raw.sequenceCards.length > 0);
   const supportImageKey = raw.img || raw.supportImg || "";
-  const decisionSuppliesTarget = ["neutral-support", "construct-support"].includes(mediaDecision?.role);
+  const decisionSuppliesTarget = !["text", "audio-required"].includes(raw.media)
+    && ["neutral-support", "construct-support"].includes(mediaDecision?.role);
   const decisionRequiresVisual = Boolean(mediaDecision && mediaDecision.role !== "text-only");
   const mediaTier = raw.media || (hasChoiceImages || supportImageKey || decisionRequiresVisual ? "image-required" : "text");
 
@@ -385,7 +394,7 @@ export function expandItem(raw, blueprint, imageResolver) {
     }
     item.imageAlt = raw.imgAlt || raw.supportImageAlt || String(raw.target || supportImageKey);
   }
-  if (decisionSuppliesTarget && mediaDecision?.paths?.[0]) {
+  if (!supportImageKey && !["text", "audio-required"].includes(raw.media) && decisionSuppliesTarget && mediaDecision?.paths?.[0]) {
     const image = mediaDecision.paths[0];
     item.imagePath = image;
     item.imageUrl = image;
@@ -407,14 +416,15 @@ export function expandBank(source, blueprint, imageResolver) {
   // never teach a child that one screen position is usually correct.
   for (const level of [1, 2]) {
     for (const form of ["A", "B", "C", "R"]) {
+      for (const choiceCount of [3, 4]) {
       const bucket = items.filter(item => (
         item.level === level
         && item.form === form
-        && item.choices.length === 4
+        && item.choices.length === choiceCount
       ));
-      const start = stableChoiceOffset(`${blueprint.skillId}:${level}:${form}`, 4);
+      const start = stableChoiceOffset(`${blueprint.skillId}:${level}:${form}`, choiceCount);
       bucket.forEach((item, index) => {
-        const desiredPosition = (start + index) % 4;
+        const desiredPosition = (start + index) % choiceCount;
         const currentPosition = item.choices.findIndex(choice => norm(choice) === norm(item.answer));
         if (currentPosition < 0 || currentPosition === desiredPosition) return;
         const offset = (currentPosition - desiredPosition + item.choices.length) % item.choices.length;
@@ -422,6 +432,7 @@ export function expandBank(source, blueprint, imageResolver) {
         if (Array.isArray(item.answerOptions)) item.answerOptions = rotate(item.answerOptions, offset);
         if (Array.isArray(item.imageCards)) item.imageCards = rotate(item.imageCards, offset);
       });
+      }
     }
   }
 
@@ -455,7 +466,10 @@ export function lintBank(items, blueprint, {
     const keyCount = item.choices.filter(c => norm(c) === norm(item.answer)).length;
     if (!item.answer) push("L-SCHEMA", item.id, "no key marked");
     if (item.choices.length && keyCount !== 1) push("L-SCHEMA", item.id, `answer appears ${keyCount}x in choices`);
-    if (item.choices.length && item.choices.length !== 4 && !["HFW_LETTER_BUILD", "PUT_SOUNDS_IN_ORDER", "HFW_SENTENCE_SPELL_CONTEXT"].includes(item.formatType)) {
+    const threeEventSequence = item.skillId === "sequencing" && item.level === 1
+      && item.formatType === "COMPREHENSION" && item.constructClaim === "story_event_order"
+      && item.choices.length === 3;
+    if (item.choices.length && item.choices.length !== 4 && !threeEventSequence && !["HFW_LETTER_BUILD", "PUT_SOUNDS_IN_ORDER", "HFW_SENTENCE_SPELL_CONTEXT"].includes(item.formatType)) {
       push("L-SCHEMA", item.id, `expected 4 choices, got ${item.choices.length}`);
     }
     if (item.formatType === "PUT_SOUNDS_IN_ORDER" && (!Array.isArray(item.soundTiles) || item.soundTiles.length < 2)) {
@@ -487,7 +501,7 @@ export function lintBank(items, blueprint, {
       if (!RATIONALE_CODES.has(rationale)) push("L-DIST", item.id, `unknown rationale ${rationale} for "${text}"`);
     }
     const distractors = item.choices.filter(c => norm(c) !== norm(item.answer));
-    if (item.choices.length === 4 && distractors.some(d => !(item.distractorRationales || {})[d])) {
+    if (item.choices.length >= 2 && distractors.some(d => !(item.distractorRationales || {})[d])) {
       push("L-DIST", item.id, "distractor missing rationale code");
     }
     if (item.skillId === "antonyms_synonyms") {
@@ -520,10 +534,17 @@ export function lintBank(items, blueprint, {
     const promptWords = item.prompt.split(/\s+/).filter(Boolean).length;
     const passageWords = (item.passage || "").split(/\s+/).filter(Boolean).length;
     const sentenceWords = (item.sentence || "").split(/\s+/).filter(Boolean).length;
+    const passageSentenceWords = String(item.passage || "")
+      .split(/[.!?]+(?:["”']|\s|$)/)
+      .map(sentence => sentence.trim().split(/\s+/).filter(Boolean).length);
+    const longestPassageSentence = Math.max(0, ...passageSentenceWords);
     if (item.level === 1 && promptWords > 12) push("L-READ", item.id, `L1 prompt ${promptWords} words`);
     if (item.level === 2 && promptWords > 16) push("L-READ", item.id, `L2 prompt ${promptWords} words`);
     if (item.level === 1 && sentenceWords > 9) push("L-READ", item.id, `L1 sentence ${sentenceWords} words`);
     if (item.level === 2 && sentenceWords > 12) push("L-READ", item.id, `L2 sentence ${sentenceWords} words`);
+    if (longestPassageSentence > (item.level === 1 ? 9 : 12)) {
+      push("L-READ", item.id, `L${item.level} passage sentence ${longestPassageSentence} words`);
+    }
     if (item.level === 1 && passageWords > 60) push("L-READ", item.id, `L1 passage ${passageWords} words`);
     if (item.level === 2 && passageWords > 110) push("L-READ", item.id, `L2 passage ${passageWords} words`);
 
@@ -531,10 +552,18 @@ export function lintBank(items, blueprint, {
     // target word must be explicitly present in that list.
     const approvedPatternWords = phonics[item.itemKey];
     const targetWord = norm(item.targetWord || "");
+    const validShortPartner = item.skillId === "long_vowels_silent_e"
+      && item.constructClaim === "silent_e_vowel_contrast"
+      && /^[bcdfghjklmnpqrstvwxyz][aiou][bcdfghjklmnpqrstvwxyz]$/.test(targetWord)
+      && item.itemKey === `${targetWord[1]}_e`
+      && norm(item.answer) === targetWord
+      && item.choices.some(choice => norm(choice) === `${targetWord}e`)
+      && (approvedPatternWords || []).map(norm).includes(`${targetWord}e`);
     if (
       Array.isArray(approvedPatternWords)
       && targetWord
       && !approvedPatternWords.map(norm).includes(targetWord)
+      && !validShortPartner
     ) {
       push("L-LEX", item.id, `"${targetWord}" is not approved for pattern ${item.itemKey}`);
     }
@@ -558,7 +587,7 @@ export function lintBank(items, blueprint, {
     // authored key is nd/ll.
     if (item.skillId === "final_sounds" && item.level === 2 && item.itemKey.length > 1) {
       const ending = norm(item.itemKey);
-      const properSuffixes = Array.from(
+      const properSuffixes = item.formatType !== "ENDING_SOUND" && ["sh", "th", "ng"].includes(ending) ? [] : Array.from(
         { length: ending.length - 1 },
         (_, index) => ending.slice(index + 1)
       ).filter(Boolean);
@@ -575,8 +604,11 @@ export function lintBank(items, blueprint, {
           `partial ending distractor(s) also fit the anchor: ${partialEndingChoices.join(", ")}`
         );
       }
-      if (!/\btwo\b.*\b(?:letter|letters)\b/i.test(item.spokenPrompt || "")) {
-        push("L-AMBIG", item.id, "L2 final-pattern audio must explicitly ask for two ending letters");
+      const explicitEndingTask = item.formatType === "ENDING_SOUND"
+        ? /\bletters?\b.*\bending\b|\bending\b.*\bletters?\b/i.test(item.spokenPrompt || "")
+        : Boolean(item.targetWord) && /\bending sounds?\b/i.test(item.spokenPrompt || "");
+      if (!explicitEndingTask) {
+        push("L-AMBIG", item.id, "L2 final-pattern audio must specify ending letters or a heard ending-sound comparison");
       }
     }
     if (/\b(?:every option parses|every pronoun parses|every verb parses|both parse|parses perfectly|slip-key|validly wrong)\b/i.test(item.notes || "")) {
@@ -607,7 +639,7 @@ export function lintBank(items, blueprint, {
       const pluralSignal = /\b(?:two|three|four|five|six|ten|both|many|lots of|all(?: the)?)\b/.test(sentence);
       const singularSignal = /\b(?:one|just one|a single)\b/.test(sentence);
       const irregularPlurals = new Set(["children", "feet", "geese", "men", "mice", "people", "teeth", "women"]);
-      const singularEndsInS = new Set(["bus"]);
+      const singularEndsInS = new Set(["bus", "dress", "class"]);
       const isPluralNoun = value => {
         const word = norm(value);
         return irregularPlurals.has(word) || (word.endsWith("s") && !singularEndsInS.has(word));
@@ -683,8 +715,17 @@ export function lintBank(items, blueprint, {
     ) {
       push("L-MODALITY", item.id, `${item.formatType} must hide written word labels`);
     }
-    if (item.formatType === "RHYME_MATCH_PICTURE" && item.evidenceModality !== "audio+image") {
-      push("L-MODALITY", item.id, "rhyming picture evidence must be declared audio+image");
+    if (item.skillId === "rhyming" && item.evidenceModality === "audio" && !item.hideWrittenLabels) {
+      push("L-MODALITY", item.id, "spoken rhyme choices must hide printed spelling cues");
+    }
+    if (item.formatType === "RHYME_MATCH_PICTURE") {
+      const spokenChoiceSet = item.evidenceModality === "audio"
+        && item.mediaTier === "audio-required" && item.hideWrittenLabels
+        && Boolean(item.targetWord) && item.choices.length === 4
+        && !item.imagePath && !(item.imageCards || []).length;
+      if (item.evidenceModality !== "audio+image" && !spokenChoiceSet) {
+        push("L-MODALITY", item.id, "rhyme evidence needs reviewed pictures or an explicit hidden-label spoken-choice set");
+      }
     }
     if (item.formatType === "HFW_READ_FIND_WORD") {
       push("L-HFW-COPY", item.id, "read-find repeats the target in print; use audio-find evidence");
@@ -912,6 +953,65 @@ export function composeSitting(bank, { level, phase = null, seen, sittingSize, u
     if (!chosen.includes(item)) chosen.push(item);
   }
   return chosen;
+}
+
+// Exercise a failed phase followed by a complete fresh retry. The perfect
+// pass path alone never consumes enough items to expose a one-sitting pool.
+export function checkFreshRetry(bank, blueprint) {
+  const phases = [];
+  for (const level of [1, 2]) {
+    for (const phase of [1, 2]) {
+      const seen = new Set();
+      const signatures = new Set();
+      const repeatedSignatures = [];
+      const sizes = [];
+      for (let attempt = 0; attempt < 2; attempt++) {
+        const sitting = composeSitting(bank, {
+          level, phase, seen, sittingSize: blueprint.sitting, unitEvidence: new Map()
+        });
+        sizes.push(sitting.length);
+        for (const item of sitting) {
+          const signature = promptAnswerSignature(item);
+          if (signatures.has(signature)) repeatedSignatures.push(item.id);
+          seen.add(item.id);
+          signatures.add(signature);
+        }
+      }
+      phases.push({ level, phase, sitting: blueprint.sitting, sizes, repeatedSignatures,
+        pass: sizes.every(size => size === blueprint.sitting) && repeatedSignatures.length === 0 });
+    }
+  }
+  return { pass: phases.every(phase => phase.pass), phases };
+}
+
+// Challenge each length tell independently. A prior lexical strategy must
+// never hide a length leak. Ties contribute exact expected credit, not a
+// random seed; hidden-label and construction responses have no printed choices.
+export function independentLengthShortcuts(bank) {
+  const results = [];
+  for (const level of [1, 2]) {
+    for (const phase of [1, 2]) {
+      const items = bank.filter(item => item.level === level && item.phase === phase && !item.retentionOnly);
+      for (const metric of ["words", "characters"]) {
+        for (const direction of ["longest", "shortest"]) {
+          let expectedCorrect = 0;
+          let evaluated = 0;
+          for (const item of items) {
+            if (!item.choices?.length || item.hideWrittenLabels || item.soundTiles?.length || item.letterTiles?.length) continue;
+            const lengths = item.choices.map(choice => metric === "words"
+              ? String(choice).trim().split(/\s+/).filter(Boolean).length : String(choice).length);
+            const extreme = direction === "longest" ? Math.max(...lengths) : Math.min(...lengths);
+            const candidates = item.choices.filter((_, index) => lengths[index] === extreme);
+            expectedCorrect += candidates.some(choice => norm(choice) === norm(item.answer)) ? 1 / candidates.length : 0;
+            evaluated++;
+          }
+          results.push({ level, phase, strategy: `${direction}_${metric}`, evaluated,
+            expectedAccuracy: evaluated ? expectedCorrect / evaluated : 0 });
+        }
+      }
+    }
+  }
+  return results;
 }
 
 export async function simulate(bank, blueprint, { policy, answerFn, maxSittings = 12, retentionAnswerFn }) {

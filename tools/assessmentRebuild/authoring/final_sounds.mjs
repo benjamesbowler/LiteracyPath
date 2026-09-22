@@ -2,7 +2,7 @@
 // Construct: isolate the FINAL sound. Position errors dominate, so every item
 // carries a D-POSITION trap (the word's INITIAL sound) somewhere in its set.
 // L1: 8 single-consonant finals (b d g l m n p t) — phonological, image-backed.
-// L2: 10 pattern finals (sh th ll ng nd nk st sk ft lt) — orthographic endings.
+// L2: 10 pattern finals (sh th ll ng nd nk st sk ft lt) — heard endings and spelling.
 // Formats: ENDING_SOUND (blank completion — the ending is hidden in print, so
 // nothing leaks), FINAL_SOUND_PAIR_SELECT (same-final-sound matching over image
 // cards at L1 / printed words at L2 where card art is thin — v3 single-select),
@@ -14,14 +14,15 @@
 //     is a non-word (checked choice by choice below).
 //   - No card/word in an ends-like set may end with the target sound except the
 //     key (no second keys).
-//   - L2 asks for the same TWO ending letters. A distractor may contain those
-//     letters internally, but it must not share only the last component sound
+//   - L2 compares heard ending sounds and completes missing spelling patterns.
+//     A distractor must not share only the last component sound
 //     (for example d beside nd, or l beside ll). Those partial matches give a
 //     young child a second defensible answer.
 // Spec: docs/skills-assessment-rebuild/BLUEPRINTS_PHONOLOGICAL.md §2.
 
 import { makeImageResolver } from "../lib.mjs";
 
+const fresh = item => ({ ...item, retention: false });
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
 const sentenceCase = value => value ? `${value[0].toUpperCase()}${value.slice(1)}` : value;
@@ -33,17 +34,19 @@ const resolver = makeImageResolver(["digraphs", "blends", "long-vowels", "hfw"])
 const es = (u, lvl, ph, v, word, blanked, choices, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "ENDING_SOUND",
   prompt: lvl === 2
-    ? `Which letter pair completes ${blanked}?`
+    ? `Which letters complete ${blanked}?`
     : `Which letter completes ${blanked}?`,
   spoken: lvl === 2
-    ? `${sentenceCase(word)}. Which two ending letters complete the word?`
+    ? `${sentenceCase(word)}. Which letters complete the ending?`
     : `${sentenceCase(word)}. Which letter matches the final sound?`,
   choices: choices.map((c, i) => (i === 0 ? K(c) : P(c, rationales[i - 1]))),
-  // L2 is an orthographic pattern task: the printed blank is the evidence.
-  // Decorative pictures add naming load without measuring the target skill.
-  media: lvl === 2 ? "text" : resolver(word) ? "image-optional" : "text",
+  // The heard target and the blank together specify the spelling task.
+  media: resolver(word) && lvl === 1 ? "image-optional" : "audio-required",
   img: lvl === 2 ? undefined : resolver(word) ? word : undefined,
   target: word,
+  evidenceModality: "audio+print",
+  constructClaim: "final_sound_grapheme_mapping",
+  audioRole: "target_word",
   pos: "final",
   note
 });
@@ -68,17 +71,16 @@ const pc = (u, lvl, ph, v, anchor, cards, keyWord, rationales, note = "") => ({
   note
 });
 
-// FINAL_SOUND_PAIR_SELECT with printed words (L2 units without card art).
-const pw = (u, lvl, ph, v, anchor, words, keyWord, rationales, framing = "print", note = "") => ({
+// FINAL_SOUND_PAIR_SELECT: a heard anchor and printed response words at L2.
+const pw = (u, lvl, ph, v, anchor, words, keyWord, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "FINAL_SOUND_PAIR_SELECT",
-  prompt: framing === "print"
-    ? `Which word has the same two ending letters as ${anchor}?`
-    : `Which word has the same final sound as ${anchor}?`,
-  spoken: framing === "print"
-    ? `${sentenceCase(anchor)}. Which word has the same two ending letters?`
-    : `${sentenceCase(anchor)}. Which word has the same final sound?`,
+  prompt: "Which word has the same ending sound or sounds?",
+  spoken: `${sentenceCase(anchor)}. Which word has the same ending sound or sounds?`,
   choices: words.map(w => (w === keyWord ? K(w) : P(w, rationales[w]))),
-  media: "text",
+  media: "audio-required",
+  evidenceModality: "audio+print",
+  constructClaim: "final_sound_discrimination",
+  audioRole: "target_word",
   pos: "final",
   target: anchor,
   note
@@ -90,9 +92,12 @@ const wm = (u, lvl, ph, v, anchor, words, keyWord, rationales, note = "") => ({
   prompt: "Which word has the same final sound?",
   spoken: `${sentenceCase(anchor)}. Which word has the same final sound?`,
   choices: words.map(w => (w === keyWord ? K(w) : P(w, rationales[w]))),
-  media: resolver(anchor) ? "image-optional" : "text",
+  media: resolver(anchor) ? "image-optional" : "audio-required",
   img: resolver(anchor) ? anchor : undefined,
   target: anchor,
+  evidenceModality: "audio+print",
+  constructClaim: "final_sound_discrimination",
+  audioRole: "target_word",
   pos: "final",
   note
 });
@@ -214,7 +219,6 @@ export default {
       "s is the sh-reduction error; f is the word's first sound; image pins the target"),
     pw("sh", 2, 1, 2, "wish", ["fish", "whisk", "wasp", "glass"], "fish",
       { whisk: "D-PATTERN-TRAP", wasp: "D-POSITION", glass: "D-RIME-NEAR" },
-      "print",
       "whisk shares wish's letters so scanning ties; wasp starts like the anchor; glass ends bare /s/"),
     es("sh", 2, 1, 3, "brush", "bru__", ["sh", "ch", "th", "b"],
       ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"]),
@@ -227,7 +231,6 @@ export default {
       "f is the /θ/→/f/ fronting error; image pins the target"),
     pw("th", 2, 1, 2, "bath", ["moth", "boat", "ring", "toe"], "moth",
       { boat: "D-POSITION", ring: "D-PATTERN-TRAP", toe: "D-DEVELOPMENTAL" },
-      "print",
       "boat starts like the anchor, ends bare /t/, and ties the bath at-overlap; toe is the drop-the-th error"),
     es("th", 2, 1, 3, "bath", "ba__", ["th", "f", "b", "ft"],
       ["D-DEVELOPMENTAL", "D-POSITION", "D-PATTERN-TRAP"],
@@ -240,7 +243,7 @@ export default {
       ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"],
       "No one-l option: l and ll are the same final sound, so l would be defensible."),
     pw("ll", 2, 1, 2, "shell", ["hill", "yellow", "shed", "moth"], "hill",
-      { yellow: "D-PATTERN-TRAP", shed: "D-POSITION", moth: "D-RIME-NEAR" }, "print",
+      { yellow: "D-PATTERN-TRAP", shed: "D-POSITION", moth: "D-RIME-NEAR" },
       "yellow contains ll internally but does not end in ll; no distractor ends in a single l."),
     es("ll", 2, 1, 3, "hill", "hi__", ["ll", "sh", "ng", "h"],
       ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"],
@@ -255,7 +258,6 @@ export default {
       "n is the ng-reduction; nk forms rink but the ring image pins the target"),
     pw("ng", 2, 1, 2, "song", ["ring", "pin", "sock", "rock"], "ring",
       { pin: "D-DEVELOPMENTAL", sock: "D-POSITION", rock: "D-RIME-NEAR" },
-      "print",
       "anchor avoids the -ing chunk a rhyming anchor would hand to scanners; pin is the n-reduction; sock starts like the anchor and ties its so-overlap"),
     es("ng", 2, 1, 3, "king", "ki__", ["ng", "n", "th", "k"],
       ["D-DEVELOPMENTAL", "D-DEVELOPMENTAL", "D-POSITION"],
@@ -269,7 +271,7 @@ export default {
       ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"],
       "ha+nt/nk/h are non-words; image pins the target"),
     pw("nd", 2, 1, 2, "hand", ["pond", "candle", "nut", "hen"], "pond",
-      { candle: "D-PATTERN-TRAP", nut: "D-RIME-NEAR", hen: "D-POSITION" }, "print",
+      { candle: "D-PATTERN-TRAP", nut: "D-RIME-NEAR", hen: "D-POSITION" },
       "candle contains nd internally but ends in le; no distractor ends in bare d."),
     es("nd", 2, 1, 3, "pond", "po__", ["nd", "nt", "n", "g"],
       ["D-PATTERN-TRAP", "D-DEVELOPMENTAL", "D-VISUAL-NEIGHBOR"],
@@ -284,7 +286,7 @@ export default {
       ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"],
       "dri+ng/nt/d are all non-words — drink is the clean nk frame"),
     pw("nk", 2, 2, 2, "tank", ["drink", "monkey", "tap", "ring"], "drink",
-      { monkey: "D-PATTERN-TRAP", tap: "D-POSITION", ring: "D-RIME-NEAR" }, "print",
+      { monkey: "D-PATTERN-TRAP", tap: "D-POSITION", ring: "D-RIME-NEAR" },
       "monkey contains nk internally but ends in ey; no distractor ends in bare /k/."),
     es("nk", 2, 2, 3, "trunk", "tru__", ["nk", "ng", "nt", "t"],
       ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"],
@@ -299,7 +301,6 @@ export default {
       "ne+sk/ss/n are non-words (net stays out); image pins the target"),
     pw("st", 2, 2, 2, "list", ["nest", "desk", "dish", "lemon"], "nest",
       { desk: "D-PATTERN-TRAP", dish: "D-PATTERN-TRAP", lemon: "D-RIME-NEAR" },
-      "print",
       "No distractor ends in bare t; desk and dish provide neighboring endings."),
     es("st", 2, 2, 3, "vest", "ve__", ["st", "sk", "ft", "v"],
       ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"],
@@ -313,7 +314,7 @@ export default {
       ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"],
       "deck is real but the desk image pins the target; de+d is a non-word"),
     pw("sk", 2, 2, 2, "desk", ["mask", "basket", "nest", "dish"], "mask",
-      { basket: "D-PATTERN-TRAP", nest: "D-RIME-NEAR", dish: "D-POSITION" }, "print",
+      { basket: "D-PATTERN-TRAP", nest: "D-RIME-NEAR", dish: "D-POSITION" },
       "basket contains sk internally but ends in et; no distractor ends in bare /k/."),
     es("sk", 2, 2, 3, "mask", "ma__", ["sk", "ft", "ng", "f"],
       ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-VISUAL-NEIGHBOR"],
@@ -327,7 +328,7 @@ export default {
       ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"],
       "image pins the target; gi+g is a non-word"),
     pw("ft", 2, 2, 2, "raft", ["gift", "after", "rain", "mask"], "gift",
-      { after: "D-PATTERN-TRAP", rain: "D-POSITION", mask: "D-RIME-NEAR" }, "print",
+      { after: "D-PATTERN-TRAP", rain: "D-POSITION", mask: "D-RIME-NEAR" },
       "after contains ft internally but ends in er; no distractor ends in bare t."),
     es("ft", 2, 2, 3, "left", "le__", ["ft", "sk", "mp", "l"],
       ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"],
@@ -341,7 +342,7 @@ export default {
       ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"],
       "me+ft/sk/m are non-words (mess and men stay out)"),
     pw("lt", 2, 2, 2, "belt", ["melt", "salty", "book", "ring"], "melt",
-      { salty: "D-PATTERN-TRAP", book: "D-POSITION", ring: "D-RIME-NEAR" }, "print",
+      { salty: "D-PATTERN-TRAP", book: "D-POSITION", ring: "D-RIME-NEAR" },
       "salty contains lt internally but ends in y; no distractor ends in bare l or t."),
     es("lt", 2, 2, 3, "salt", "sa__", ["lt", "ft", "th", "s"],
       ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"],
@@ -350,14 +351,36 @@ export default {
       ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"],
       "fe+sk/ng/f are non-words (fell and fed stay out of the set)"),
 
+    // Fresh second-sitting targets, including a new anchor for each final sound.
+    fresh(es("b", 1, 1, 6, "rib", "ri__", ["b", "p", "r", "d"], ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"])),
+    fresh(es("d", 1, 1, 6, "mud", "mu__", ["d", "t", "m", "b"], ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"])),
+    fresh(es("g", 1, 1, 6, "bag", "ba__", ["g", "k", "b", "q"], ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"])),
+    fresh(wm("l", 1, 1, 6, "tail", ["pool", "train", "leaf", "duck"], "pool", { train: "D-RIME-NEAR", leaf: "D-POSITION", duck: "D-RIME-NEAR" })),
+    fresh({
+      ...es("m", 1, 2, 6, "ram", "ra__", ["m", "n", "r", "w"], ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"],
+        "the heard word pins the final sound; a sheep picture cannot objectively specify ram"),
+      media: "audio-required", img: undefined,
+      evidenceModality: "audio+print", audioRole: "target_word"
+    }),
+    fresh(es("n", 1, 2, 6, "pan", "pa__", ["n", "m", "p", "u"], ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"])),
+    fresh({
+      ...es("p", 1, 2, 6, "cap", "ca__", ["p", "b", "c", "q"], ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"]),
+      media: "audio-required", img: undefined,
+      note: "the exact spoken cap target avoids depending on cap versus hat picture naming"
+    }),
+    fresh(es("t", 1, 2, 6, "pot", "po__", ["t", "d", "p", "f"], ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"])),
+
     // ================= Retention reserve (form R) =================
     wm("b", 1, 1, 5, "web", ["tub", "cap", "ball", "mud"], "tub",
       { cap: "D-RIME-NEAR", ball: "D-POSITION", mud: "D-RIME-NEAR" }),
     wm("d", 1, 1, 5, "mud", ["bed", "cat", "dog", "rug"], "bed",
       { cat: "D-RIME-NEAR", dog: "D-POSITION", rug: "D-RIME-NEAR" }),
-    es("m", 1, 1, 5, "drum", "dru__", ["m", "n", "d", "w"],
-      ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"],
-      "n is the nasal neighbour; d is the word's own first sound"),
+    {
+      ...es("m", 1, 1, 5, "gum", "gu__", ["m", "n", "g", "w"],
+        ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"],
+        "n is the nasal neighbour; g is the word's own first sound"),
+      media: "audio-required", img: undefined
+    },
     es("t", 1, 2, 5, "hat", "ha__", ["t", "d", "h", "f"],
       ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"],
       "d is the voicing partner; h is the word's own first sound"),
@@ -372,13 +395,13 @@ export default {
       ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-VISUAL-NEIGHBOR"],
       "twi+sk/ss/f are non-words (twin and twig stay out of the set)"),
     pw("lt", 2, 2, 5, "melt", ["salt", "salty", "moth", "ring"], "salt",
-      { salty: "D-PATTERN-TRAP", moth: "D-POSITION", ring: "D-RIME-NEAR" }, "print",
+      { salty: "D-PATTERN-TRAP", moth: "D-POSITION", ring: "D-RIME-NEAR" },
       "salty contains lt internally but ends in y; no distractor ends in bare l or t."),
     es("nk", 2, 2, 5, "think", "thi__", ["nk", "nt", "d", "t"],
       ["D-PATTERN-TRAP", "D-VISUAL-NEIGHBOR", "D-DEVELOPMENTAL"],
       "thi+nt/d/t are non-words (thing, thin, this all stay out of the set)")
   ].map(item => {
-    if (item.v >= 5) item.retention = true;
+    if (item.v >= 5 && item.retention !== false) item.retention = true;
     return item;
   })
 };

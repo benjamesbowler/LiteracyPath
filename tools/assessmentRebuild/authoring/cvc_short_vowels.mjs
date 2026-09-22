@@ -18,6 +18,7 @@
 
 import { makeImageResolver } from "../lib.mjs";
 
+const fresh = item => ({ ...item, retention: false });
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
 const sentenceCase = value => value ? `${value[0].toUpperCase()}${value.slice(1)}` : value;
@@ -100,8 +101,8 @@ export default {
     pp("short_a", 2, 1, 3, "crab", ["crab", "crib", "cub", "cab"],
       { crib: "D-VOWEL", cub: "D-VOWEL", cab: "D-DEVELOPMENTAL" },
       "cab drops the r — the cluster-reduction error"),
-    pp("short_a", 2, 1, 4, "jam", ["jam", "gem", "jab", "yam"],
-      { gem: "D-VOWEL", jab: "D-RIME-NEAR", yam: "D-ONSET" }),
+    pp("short_a", 2, 1, 4, "lamp", ["lamp", "lump", "limp", "lap"],
+      { lump: "D-VOWEL", limp: "D-VOWEL", lap: "D-DEVELOPMENTAL" }),
     pso("short_a", 2, 1, 5, "flag", ["f", "l", "a", "g"]),
     pso("short_a", 2, 1, 6, "crab", ["c", "r", "a", "b"]),
 
@@ -195,6 +196,45 @@ export default {
     pso("short_u", 2, 2, 5, "drum", ["d", "r", "u", "m"]),
     pso("short_u", 2, 2, 6, "brush", ["b", "r", "u", "sh"]),
 
+    // Fresh targets in both phases. Phase 2 extends recognition to comparison/building.
+    fresh(mv("short_a", 1, 1, 9, "bag", "b_g", ["a", "e", "i", "u"])),
+    fresh(svw("short_a", 1, 2, 10, "a", ["ram", "rain", "rim", "room"], "ram", { rain: "D-PATTERN-TRAP", rim: "D-VOWEL", room: "D-VOWEL" })),
+    fresh(mv("short_e", 1, 1, 9, "web", "w_b", ["e", "a", "i", "o"])),
+    fresh(svw("short_e", 1, 2, 10, "e", ["hen", "heat", "hat", "hut"], "hen", { heat: "D-PATTERN-TRAP", hat: "D-VOWEL", hut: "D-VOWEL" })),
+    fresh({
+      ...mv("short_i", 1, 1, 9, "zip", "z_p", ["i", "a", "e", "u"],
+        "the heard word pins the vowel; a zipper picture cannot objectively specify the single syllable zip"),
+      media: "audio-required", img: undefined,
+      evidenceModality: "audio+print", audioRole: "target_word"
+    }),
+    fresh(svw("short_i", 1, 2, 10, "i", ["sit", "site", "sat", "set"], "sit", { site: "D-PATTERN-TRAP", sat: "D-VOWEL", set: "D-VOWEL" })),
+    fresh(mv("short_o", 1, 1, 9, "mop", "m_p", ["o", "a", "e", "u"])),
+    fresh(svw("short_o", 1, 2, 10, "o", ["cot", "coat", "cat", "cut"], "cot", { coat: "D-PATTERN-TRAP", cat: "D-VOWEL", cut: "D-VOWEL" })),
+    fresh(mv("short_u", 1, 1, 9, "cup", "c_p", ["u", "a", "o", "i"])),
+    fresh(svw("short_u", 1, 2, 10, "u", ["hut", "huge", "hat", "hot"], "hut", { huge: "D-PATTERN-TRAP", hat: "D-VOWEL", hot: "D-VOWEL" })),
+    fresh({
+      ...mv("short_a", 2, 1, 9, "hand", "h_nd", ["a", "e", "o", "u"],
+        "the heard word supplies exact spelling evidence without the rejected whole-child waving scene"),
+      media: "audio-required", img: undefined,
+      evidenceModality: "audio+print", audioRole: "target_word"
+    }),
+    fresh(pso("short_a", 2, 2, 10, "lamp", ["l", "a", "m", "p"])),
+    fresh(mv("short_e", 2, 1, 9, "belt", "b_lt", ["e", "i", "a", "u"])),
+    fresh(pso("short_e", 2, 2, 10, "tent", ["t", "e", "n", "t"])),
+    fresh(mv("short_i", 2, 1, 9, "ship", "sh_p", ["i", "a", "o", "u"])),
+    fresh(pso("short_i", 2, 2, 10, "brick", ["b", "r", "i", "ck"])),
+    fresh(mv("short_o", 2, 1, 9, "sock", "s_ck", ["o", "a", "e", "u"])),
+    fresh(pso("short_o", 2, 2, 10, "pond", ["p", "o", "n", "d"])),
+    fresh(mv("short_u", 2, 1, 9, "plug", "pl_g", ["u", "a", "o", "i"])),
+    fresh({
+      ...pso("short_u", 2, 2, 10, "truck", ["t", "r", "u", "ck"]),
+      prompt: "Put the sounds in order to make the word you hear.",
+      media: "audio-required", img: undefined,
+      evidenceModality: "audio+print", audioRole: "target_word",
+      constructClaim: "phoneme_sequence_building",
+      note: "the exact spoken target avoids the truck-versus-lorry picture naming ambiguity"
+    }),
+
     // ================= Retention reserve (form R) =================
     mv("short_u", 1, 2, 7, "nut", "n_t", ["u", "a", "o", "e"],
       "n-o-t and n-e-t are real words — the directly nameable nut image pins the target"),
@@ -212,11 +252,21 @@ export default {
       "the directly nameable duck keeps the final ck sound tile intact"),
     mv("short_i", 1, 1, 8, "lid", "l_d", ["i", "a", "e", "o"],
       "the retained lid image is a direct, single-object short-i anchor"),
-    pp("short_u", 2, 2, 8, "brush", ["brush", "brick", "fresh", "crush"],
-      { brick: "D-VOWEL", fresh: "D-VOWEL", crush: "D-ONSET" },
-      "the direct brush picture removes the regional truck-versus-lorry naming dependency")
+    {
+      ...pp("short_u", 2, 2, 8, "lump", ["lump", "lamp", "limp", "lift"],
+        { lamp: "D-VOWEL", limp: "D-VOWEL", lift: "D-RIME-NEAR" },
+        "heard CVCC recognition retains the print-match format; lamp and limp prevent final-consonant identification from replacing vowel discrimination"),
+      prompt: "Which word did you hear?",
+      spoken: "Lump. Which word did you hear?",
+      media: "audio-required",
+      img: undefined,
+      evidenceModality: "audio+print",
+      audioRole: "target_word",
+      constructClaim: "short_vowel_word_recognition"
+    }
   ].map(item => {
-    if (item.v >= 7) item.retention = true;
+    if (item.v >= 7 && item.retention !== false) item.retention = true;
+    if (!item.retention) item.ph = item.v <= 3 || item.v === 9 ? 1 : 2;
     return item;
   })
 };

@@ -177,8 +177,14 @@ test("every published picture-choice rhyming option stays inside its item-level 
       phase: question.phase || question.assessmentPhase || 1
     });
 
-    const isPictureChoiceItem = question.formatType === "RHYME_MATCH_PICTURE";
+    const isPictureChoiceItem = question.formatType === "RHYME_MATCH_PICTURE" && question.evidenceModality === "audio+image";
     const resolvedCards = resolved.imageCards || [];
+    if (question.evidenceModality === "audio") {
+      assert.equal(question.hideWrittenLabels, true, question.id);
+      assert.equal(resolved.mediaTier, "audio-required", question.id);
+      assert.equal(resolved.choices.length, 4, question.id);
+      for (const word of resolved.choices) assert.ok(getLedaWordAudioPath(word), `${question.id}:${word}`);
+    }
     assert.equal(
       resolvedCards.length,
       isPictureChoiceItem ? resolved.choices.length : 0,

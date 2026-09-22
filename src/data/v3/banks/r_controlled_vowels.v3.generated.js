@@ -288,9 +288,9 @@ export const questions = [
   "formatType": "PICTURE_AUDIO_TO_PATTERN",
   "templateType": "PICTURE_AUDIO_TO_PATTERN",
   "questionType": "multiple_choice",
-  "prompt": "Which letters spell the r-controlled part in the word you hear?",
-  "question": "Which letters spell the r-controlled part in the word you hear?",
-  "spokenPrompt": "Shark. Which letters spell the r-controlled part in this word?",
+  "prompt": "Which letters spell the vowel sound in the word you hear?",
+  "question": "Which letters spell the vowel sound in the word you hear?",
+  "spokenPrompt": "Shark. Which letters spell the vowel sound in this word?",
   "choices": [
    "ar",
    "or",
@@ -379,9 +379,9 @@ export const questions = [
   "formatType": "PICTURE_AUDIO_TO_PATTERN",
   "templateType": "PICTURE_AUDIO_TO_PATTERN",
   "questionType": "multiple_choice",
-  "prompt": "Which letters spell the r-controlled part in the word you hear?",
-  "question": "Which letters spell the r-controlled part in the word you hear?",
-  "spokenPrompt": "Yarn. Which letters spell the r-controlled part in this word?",
+  "prompt": "Which letters spell the vowel sound in the word you hear?",
+  "question": "Which letters spell the vowel sound in the word you hear?",
+  "spokenPrompt": "Yarn. Which letters spell the vowel sound in this word?",
   "choices": [
    "or",
    "ir",
@@ -470,9 +470,9 @@ export const questions = [
   "formatType": "PICTURE_AUDIO_TO_PATTERN",
   "templateType": "PICTURE_AUDIO_TO_PATTERN",
   "questionType": "multiple_choice",
-  "prompt": "Which letters spell the r-controlled part in the word you hear?",
-  "question": "Which letters spell the r-controlled part in the word you hear?",
-  "spokenPrompt": "Park. Which letters spell the r-controlled part in this word?",
+  "prompt": "Which letters spell the vowel sound in the word you hear?",
+  "question": "Which letters spell the vowel sound in the word you hear?",
+  "spokenPrompt": "Park. Which letters spell the vowel sound in this word?",
   "choices": [
    "ur",
    "ir",
@@ -1368,9 +1368,9 @@ export const questions = [
   "formatType": "PICTURE_AUDIO_TO_PATTERN",
   "templateType": "PICTURE_AUDIO_TO_PATTERN",
   "questionType": "multiple_choice",
-  "prompt": "Which letters spell the r-controlled part in the word you hear?",
-  "question": "Which letters spell the r-controlled part in the word you hear?",
-  "spokenPrompt": "Corn. Which letters spell the r-controlled part in this word?",
+  "prompt": "Which letters spell the vowel sound in the word you hear?",
+  "question": "Which letters spell the vowel sound in the word you hear?",
+  "spokenPrompt": "Corn. Which letters spell the vowel sound in this word?",
   "choices": [
    "er",
    "ir",
@@ -1459,9 +1459,9 @@ export const questions = [
   "formatType": "PICTURE_AUDIO_TO_PATTERN",
   "templateType": "PICTURE_AUDIO_TO_PATTERN",
   "questionType": "multiple_choice",
-  "prompt": "Which letters spell the r-controlled part in the word you hear?",
-  "question": "Which letters spell the r-controlled part in the word you hear?",
-  "spokenPrompt": "Fork. Which letters spell the r-controlled part in this word?",
+  "prompt": "Which letters spell the vowel sound in the word you hear?",
+  "question": "Which letters spell the vowel sound in the word you hear?",
+  "spokenPrompt": "Fork. Which letters spell the vowel sound in this word?",
   "choices": [
    "er",
    "or",
@@ -1550,9 +1550,9 @@ export const questions = [
   "formatType": "PICTURE_AUDIO_TO_PATTERN",
   "templateType": "PICTURE_AUDIO_TO_PATTERN",
   "questionType": "multiple_choice",
-  "prompt": "Which letters spell the r-controlled part in the word you hear?",
-  "question": "Which letters spell the r-controlled part in the word you hear?",
-  "spokenPrompt": "Horn. Which letters spell the r-controlled part in this word?",
+  "prompt": "Which letters spell the vowel sound in the word you hear?",
+  "question": "Which letters spell the vowel sound in the word you hear?",
+  "spokenPrompt": "Horn. Which letters spell the vowel sound in this word?",
   "choices": [
    "or",
    "ar",
@@ -2448,9 +2448,9 @@ export const questions = [
   "formatType": "PICTURE_AUDIO_TO_PATTERN",
   "templateType": "PICTURE_AUDIO_TO_PATTERN",
   "questionType": "multiple_choice",
-  "prompt": "Which letters spell the r-controlled part in the word you hear?",
-  "question": "Which letters spell the r-controlled part in the word you hear?",
-  "spokenPrompt": "Tiger. Which letters spell the r-controlled part in this word?",
+  "prompt": "Which letters spell the vowel sound in the word you hear?",
+  "question": "Which letters spell the vowel sound in the word you hear?",
+  "spokenPrompt": "Tiger. Which letters spell the vowel sound in this word?",
   "choices": [
    "er",
    "ar",
@@ -2539,9 +2539,9 @@ export const questions = [
   "formatType": "PICTURE_AUDIO_TO_PATTERN",
   "templateType": "PICTURE_AUDIO_TO_PATTERN",
   "questionType": "multiple_choice",
-  "prompt": "Which letters spell the r-controlled part in the word you hear?",
-  "question": "Which letters spell the r-controlled part in the word you hear?",
-  "spokenPrompt": "Flower. Which letters spell the r-controlled part in this word?",
+  "prompt": "Which letters spell the vowel sound in the word you hear?",
+  "question": "Which letters spell the vowel sound in the word you hear?",
+  "spokenPrompt": "Flower. Which letters spell the vowel sound in this word?",
   "choices": [
    "ar",
    "or",
@@ -2630,9 +2630,9 @@ export const questions = [
   "formatType": "PICTURE_AUDIO_TO_PATTERN",
   "templateType": "PICTURE_AUDIO_TO_PATTERN",
   "questionType": "multiple_choice",
-  "prompt": "Which letters spell the r-controlled part in the word you hear?",
-  "question": "Which letters spell the r-controlled part in the word you hear?",
-  "spokenPrompt": "Spider. Which letters spell the r-controlled part in this word?",
+  "prompt": "Which letters spell the vowel sound in the word you hear?",
+  "question": "Which letters spell the vowel sound in the word you hear?",
+  "spokenPrompt": "Spider. Which letters spell the vowel sound in this word?",
   "choices": [
    "ar",
    "ur",
@@ -3175,7 +3175,7 @@ export const questions = [
   "spokenPrompt": "Her. Which word has the same vowel sound?",
   "choices": [
    "cart",
-   "letter",
+   "term",
    "very",
    "corn"
   ],
@@ -3186,9 +3186,9 @@ export const questions = [
     "text": "cart"
    },
    {
-    "value": "letter",
-    "label": "letter",
-    "text": "letter"
+    "value": "term",
+    "label": "term",
+    "text": "term"
    },
    {
     "value": "very",
@@ -3201,8 +3201,8 @@ export const questions = [
     "text": "corn"
    }
   ],
-  "answer": "letter",
-  "correctAnswer": "letter",
+  "answer": "term",
+  "correctAnswer": "term",
   "distractorRationales": {
    "corn": "D-PATTERN-TRAP",
    "cart": "D-PATTERN-TRAP",
@@ -3528,9 +3528,9 @@ export const questions = [
   "formatType": "PICTURE_AUDIO_TO_PATTERN",
   "templateType": "PICTURE_AUDIO_TO_PATTERN",
   "questionType": "multiple_choice",
-  "prompt": "Which letters spell the r-controlled part in the word you hear?",
-  "question": "Which letters spell the r-controlled part in the word you hear?",
-  "spokenPrompt": "Bird. Which letters spell the r-controlled part in this word?",
+  "prompt": "Which letters spell the vowel sound in the word you hear?",
+  "question": "Which letters spell the vowel sound in the word you hear?",
+  "spokenPrompt": "Bird. Which letters spell the vowel sound in this word?",
   "choices": [
    "or",
    "er",
@@ -3619,9 +3619,9 @@ export const questions = [
   "formatType": "PICTURE_AUDIO_TO_PATTERN",
   "templateType": "PICTURE_AUDIO_TO_PATTERN",
   "questionType": "multiple_choice",
-  "prompt": "Which letters spell the r-controlled part in the word you hear?",
-  "question": "Which letters spell the r-controlled part in the word you hear?",
-  "spokenPrompt": "Girl. Which letters spell the r-controlled part in this word?",
+  "prompt": "Which letters spell the vowel sound in the word you hear?",
+  "question": "Which letters spell the vowel sound in the word you hear?",
+  "spokenPrompt": "Girl. Which letters spell the vowel sound in this word?",
   "choices": [
    "ur",
    "ir",
@@ -3710,9 +3710,9 @@ export const questions = [
   "formatType": "PICTURE_AUDIO_TO_PATTERN",
   "templateType": "PICTURE_AUDIO_TO_PATTERN",
   "questionType": "multiple_choice",
-  "prompt": "Which letters spell the r-controlled part in the word you hear?",
-  "question": "Which letters spell the r-controlled part in the word you hear?",
-  "spokenPrompt": "Shirt. Which letters spell the r-controlled part in this word?",
+  "prompt": "Which letters spell the vowel sound in the word you hear?",
+  "question": "Which letters spell the vowel sound in the word you hear?",
+  "spokenPrompt": "Shirt. Which letters spell the vowel sound in this word?",
   "choices": [
    "ir",
    "ar",
@@ -4608,9 +4608,9 @@ export const questions = [
   "formatType": "PICTURE_AUDIO_TO_PATTERN",
   "templateType": "PICTURE_AUDIO_TO_PATTERN",
   "questionType": "multiple_choice",
-  "prompt": "Which letters spell the r-controlled part in the word you hear?",
-  "question": "Which letters spell the r-controlled part in the word you hear?",
-  "spokenPrompt": "Purse. Which letters spell the r-controlled part in this word?",
+  "prompt": "Which letters spell the vowel sound in the word you hear?",
+  "question": "Which letters spell the vowel sound in the word you hear?",
+  "spokenPrompt": "Purse. Which letters spell the vowel sound in this word?",
   "choices": [
    "ur",
    "ar",
@@ -4699,9 +4699,9 @@ export const questions = [
   "formatType": "PICTURE_AUDIO_TO_PATTERN",
   "templateType": "PICTURE_AUDIO_TO_PATTERN",
   "questionType": "multiple_choice",
-  "prompt": "Which letters spell the r-controlled part in the word you hear?",
-  "question": "Which letters spell the r-controlled part in the word you hear?",
-  "spokenPrompt": "Surf. Which letters spell the r-controlled part in this word?",
+  "prompt": "Which letters spell the vowel sound in the word you hear?",
+  "question": "Which letters spell the vowel sound in the word you hear?",
+  "spokenPrompt": "Surf. Which letters spell the vowel sound in this word?",
   "choices": [
    "or",
    "ar",
@@ -4790,9 +4790,9 @@ export const questions = [
   "formatType": "PICTURE_AUDIO_TO_PATTERN",
   "templateType": "PICTURE_AUDIO_TO_PATTERN",
   "questionType": "multiple_choice",
-  "prompt": "Which letters spell the r-controlled part in the word you hear?",
-  "question": "Which letters spell the r-controlled part in the word you hear?",
-  "spokenPrompt": "Turtle. Which letters spell the r-controlled part in this word?",
+  "prompt": "Which letters spell the vowel sound in the word you hear?",
+  "question": "Which letters spell the vowel sound in the word you hear?",
+  "spokenPrompt": "Turtle. Which letters spell the vowel sound in this word?",
   "choices": [
    "or",
    "er",
@@ -5402,6 +5402,3210 @@ export const questions = [
   "notes": "win ties the in-chunk"
  },
  {
+  "id": "lp3.r_controlled_vowels.l1.C.ar.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ar",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete __m?",
+  "question": "Listen to the word first. Which two letters complete __m?",
+  "spokenPrompt": "Arm. Which letters complete the word?",
+  "choices": [
+   "or",
+   "er",
+   "ur",
+   "ar"
+  ],
+  "answerOptions": [
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   }
+  ],
+  "answer": "ar",
+  "correctAnswer": "ar",
+  "distractorRationales": {
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP",
+   "or": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "arm",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.C.ar.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.A.ar.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ar",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete b__k?",
+  "question": "Listen to the word first. Which two letters complete b__k?",
+  "spokenPrompt": "Bark. Which letters complete the word?",
+  "choices": [
+   "ur",
+   "ar",
+   "or",
+   "er"
+  ],
+  "answerOptions": [
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   }
+  ],
+  "answer": "ar",
+  "correctAnswer": "ar",
+  "distractorRationales": {
+   "or": "D-VOWEL",
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "bark",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.A.ar.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.A.ar.v11",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ar",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete c__d?",
+  "question": "Listen to the word first. Which two letters complete c__d?",
+  "spokenPrompt": "Card. Which letters complete the word?",
+  "choices": [
+   "er",
+   "ur",
+   "ar",
+   "or"
+  ],
+  "answerOptions": [
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   }
+  ],
+  "answer": "ar",
+  "correctAnswer": "ar",
+  "distractorRationales": {
+   "ur": "D-PATTERN-TRAP",
+   "or": "D-VOWEL",
+   "er": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "card",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.A.ar.v11",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.A.ar.v12",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ar",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete d__k?",
+  "question": "Listen to the word first. Which two letters complete d__k?",
+  "spokenPrompt": "Dark. Which letters complete the word?",
+  "choices": [
+   "or",
+   "er",
+   "ur",
+   "ar"
+  ],
+  "answerOptions": [
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   }
+  ],
+  "answer": "ar",
+  "correctAnswer": "ar",
+  "distractorRationales": {
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP",
+   "or": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "dark",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.A.ar.v12",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.A.ar.v13",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ar",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete y__n?",
+  "question": "Listen to the word first. Which two letters complete y__n?",
+  "spokenPrompt": "Yarn. Which letters complete the word?",
+  "choices": [
+   "ar",
+   "or",
+   "er",
+   "ur"
+  ],
+  "answerOptions": [
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   }
+  ],
+  "answer": "ar",
+  "correctAnswer": "ar",
+  "distractorRationales": {
+   "or": "D-VOWEL",
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "yarn",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.A.ar.v13",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.A.ar.v14",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ar",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete h__d?",
+  "question": "Listen to the word first. Which two letters complete h__d?",
+  "spokenPrompt": "Hard. Which letters complete the word?",
+  "choices": [
+   "ur",
+   "ar",
+   "or",
+   "er"
+  ],
+  "answerOptions": [
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   }
+  ],
+  "answer": "ar",
+  "correctAnswer": "ar",
+  "distractorRationales": {
+   "or": "D-VOWEL",
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "hard",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.A.ar.v14",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.C.or.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "or",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete n__th?",
+  "question": "Listen to the word first. Which two letters complete n__th?",
+  "spokenPrompt": "North. Which letters complete the word?",
+  "choices": [
+   "or",
+   "ar",
+   "er",
+   "ur"
+  ],
+  "answerOptions": [
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   }
+  ],
+  "answer": "or",
+  "correctAnswer": "or",
+  "distractorRationales": {
+   "ar": "D-VOWEL",
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "north",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.C.or.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.A.or.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "or",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete t__ch?",
+  "question": "Listen to the word first. Which two letters complete t__ch?",
+  "spokenPrompt": "Torch. Which letters complete the word?",
+  "choices": [
+   "er",
+   "ur",
+   "or",
+   "ar"
+  ],
+  "answerOptions": [
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   }
+  ],
+  "answer": "or",
+  "correctAnswer": "or",
+  "distractorRationales": {
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP",
+   "ar": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "torch",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.A.or.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.A.or.v11",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "or",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete sp__t?",
+  "question": "Listen to the word first. Which two letters complete sp__t?",
+  "spokenPrompt": "Sport. Which letters complete the word?",
+  "choices": [
+   "ar",
+   "er",
+   "ur",
+   "or"
+  ],
+  "answerOptions": [
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   }
+  ],
+  "answer": "or",
+  "correctAnswer": "or",
+  "distractorRationales": {
+   "ar": "D-VOWEL",
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "sport",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.A.or.v11",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.A.or.v12",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "or",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete s__t?",
+  "question": "Listen to the word first. Which two letters complete s__t?",
+  "spokenPrompt": "Sort. Which letters complete the word?",
+  "choices": [
+   "or",
+   "ar",
+   "er",
+   "ur"
+  ],
+  "answerOptions": [
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   }
+  ],
+  "answer": "or",
+  "correctAnswer": "or",
+  "distractorRationales": {
+   "ar": "D-VOWEL",
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "sort",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.A.or.v12",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.A.or.v13",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "or",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete b__n?",
+  "question": "Listen to the word first. Which two letters complete b__n?",
+  "spokenPrompt": "Born. Which letters complete the word?",
+  "choices": [
+   "ur",
+   "or",
+   "ar",
+   "er"
+  ],
+  "answerOptions": [
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   }
+  ],
+  "answer": "or",
+  "correctAnswer": "or",
+  "distractorRationales": {
+   "ur": "D-PATTERN-TRAP",
+   "ar": "D-VOWEL",
+   "er": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "born",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.A.or.v13",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.A.or.v14",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "or",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete w__n?",
+  "question": "Listen to the word first. Which two letters complete w__n?",
+  "spokenPrompt": "Worn. Which letters complete the word?",
+  "choices": [
+   "er",
+   "ur",
+   "or",
+   "ar"
+  ],
+  "answerOptions": [
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   }
+  ],
+  "answer": "or",
+  "correctAnswer": "or",
+  "distractorRationales": {
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP",
+   "ar": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "worn",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.A.or.v14",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.C.er.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "er",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete t__m?",
+  "question": "Listen to the word first. Which two letters complete t__m?",
+  "spokenPrompt": "Term. Which letters complete the word?",
+  "choices": [
+   "ar",
+   "er",
+   "ir",
+   "ur"
+  ],
+  "answerOptions": [
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   }
+  ],
+  "answer": "er",
+  "correctAnswer": "er",
+  "distractorRationales": {
+   "ur": "D-PATTERN-TRAP",
+   "ar": "D-PATTERN-TRAP",
+   "ir": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "term",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.C.er.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.A.er.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "er",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete v__b?",
+  "question": "Listen to the word first. Which two letters complete v__b?",
+  "spokenPrompt": "Verb. Which letters complete the word?",
+  "choices": [
+   "ir",
+   "ur",
+   "ar",
+   "er"
+  ],
+  "answerOptions": [
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   }
+  ],
+  "answer": "er",
+  "correctAnswer": "er",
+  "distractorRationales": {
+   "ir": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP",
+   "ar": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "verb",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.A.er.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.C.ir.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ir",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete st__?",
+  "question": "Listen to the word first. Which two letters complete st__?",
+  "spokenPrompt": "Stir. Which letters complete the word?",
+  "choices": [
+   "ur",
+   "ar",
+   "ir",
+   "er"
+  ],
+  "answerOptions": [
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   }
+  ],
+  "answer": "ir",
+  "correctAnswer": "ir",
+  "distractorRationales": {
+   "ur": "D-PATTERN-TRAP",
+   "ar": "D-PATTERN-TRAP",
+   "er": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "stir",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.C.ir.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.A.ir.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ir",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete f__m?",
+  "question": "Listen to the word first. Which two letters complete f__m?",
+  "spokenPrompt": "Firm. Which letters complete the word?",
+  "choices": [
+   "ir",
+   "er",
+   "ur",
+   "ar"
+  ],
+  "answerOptions": [
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   }
+  ],
+  "answer": "ir",
+  "correctAnswer": "ir",
+  "distractorRationales": {
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP",
+   "ar": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "firm",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.A.ir.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.C.ur.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ur",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete t__n?",
+  "question": "Listen to the word first. Which two letters complete t__n?",
+  "spokenPrompt": "Turn. Which letters complete the word?",
+  "choices": [
+   "er",
+   "ir",
+   "ar",
+   "ur"
+  ],
+  "answerOptions": [
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   }
+  ],
+  "answer": "ur",
+  "correctAnswer": "ur",
+  "distractorRationales": {
+   "ir": "D-PATTERN-TRAP",
+   "ar": "D-PATTERN-TRAP",
+   "er": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "turn",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.C.ur.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.A.ur.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ur",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete b__st?",
+  "question": "Listen to the word first. Which two letters complete b__st?",
+  "spokenPrompt": "Burst. Which letters complete the word?",
+  "choices": [
+   "ar",
+   "ur",
+   "er",
+   "ir"
+  ],
+  "answerOptions": [
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   }
+  ],
+  "answer": "ur",
+  "correctAnswer": "ur",
+  "distractorRationales": {
+   "er": "D-PATTERN-TRAP",
+   "ir": "D-PATTERN-TRAP",
+   "ar": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "burst",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.A.ur.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.C.ar.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ar",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete sp__k?",
+  "question": "Listen to the word first. Which two letters complete sp__k?",
+  "spokenPrompt": "Spark. Which letters complete the word?",
+  "choices": [
+   "er",
+   "ur",
+   "ar",
+   "or"
+  ],
+  "answerOptions": [
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   }
+  ],
+  "answer": "ar",
+  "correctAnswer": "ar",
+  "distractorRationales": {
+   "ur": "D-PATTERN-TRAP",
+   "or": "D-VOWEL",
+   "er": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "spark",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.C.ar.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.A.ar.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ar",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete ch__m?",
+  "question": "Listen to the word first. Which two letters complete ch__m?",
+  "spokenPrompt": "Charm. Which letters complete the word?",
+  "choices": [
+   "ar",
+   "or",
+   "er",
+   "ur"
+  ],
+  "answerOptions": [
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   }
+  ],
+  "answer": "ar",
+  "correctAnswer": "ar",
+  "distractorRationales": {
+   "ur": "D-PATTERN-TRAP",
+   "or": "D-VOWEL",
+   "er": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "charm",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.A.ar.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.A.ar.v11",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ar",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete st__t?",
+  "question": "Listen to the word first. Which two letters complete st__t?",
+  "spokenPrompt": "Start. Which letters complete the word?",
+  "choices": [
+   "ur",
+   "ar",
+   "or",
+   "er"
+  ],
+  "answerOptions": [
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   }
+  ],
+  "answer": "ar",
+  "correctAnswer": "ar",
+  "distractorRationales": {
+   "or": "D-VOWEL",
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "start",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.A.ar.v11",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.A.ar.v12",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ar",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete c__pet?",
+  "question": "Listen to the word first. Which two letters complete c__pet?",
+  "spokenPrompt": "Carpet. Which letters complete the word?",
+  "choices": [
+   "er",
+   "ur",
+   "ar",
+   "or"
+  ],
+  "answerOptions": [
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   }
+  ],
+  "answer": "ar",
+  "correctAnswer": "ar",
+  "distractorRationales": {
+   "or": "D-VOWEL",
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "carpet",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.A.ar.v12",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.A.ar.v13",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ar",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete g__den?",
+  "question": "Listen to the word first. Which two letters complete g__den?",
+  "spokenPrompt": "Garden. Which letters complete the word?",
+  "choices": [
+   "or",
+   "er",
+   "ur",
+   "ar"
+  ],
+  "answerOptions": [
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   }
+  ],
+  "answer": "ar",
+  "correctAnswer": "ar",
+  "distractorRationales": {
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP",
+   "or": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "garden",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.A.ar.v13",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.A.ar.v14",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ar",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete m__ket?",
+  "question": "Listen to the word first. Which two letters complete m__ket?",
+  "spokenPrompt": "Market. Which letters complete the word?",
+  "choices": [
+   "ar",
+   "or",
+   "er",
+   "ur"
+  ],
+  "answerOptions": [
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   }
+  ],
+  "answer": "ar",
+  "correctAnswer": "ar",
+  "distractorRationales": {
+   "ur": "D-PATTERN-TRAP",
+   "or": "D-VOWEL",
+   "er": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "market",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.A.ar.v14",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.C.or.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "or",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete p__ch?",
+  "question": "Listen to the word first. Which two letters complete p__ch?",
+  "spokenPrompt": "Porch. Which letters complete the word?",
+  "choices": [
+   "ar",
+   "er",
+   "ur",
+   "or"
+  ],
+  "answerOptions": [
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   }
+  ],
+  "answer": "or",
+  "correctAnswer": "or",
+  "distractorRationales": {
+   "ar": "D-VOWEL",
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "porch",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.C.or.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.A.or.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "or",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete st__m?",
+  "question": "Listen to the word first. Which two letters complete st__m?",
+  "spokenPrompt": "Storm. Which letters complete the word?",
+  "choices": [
+   "ur",
+   "or",
+   "ar",
+   "er"
+  ],
+  "answerOptions": [
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   }
+  ],
+  "answer": "or",
+  "correctAnswer": "or",
+  "distractorRationales": {
+   "ar": "D-VOWEL",
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "storm",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.A.or.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.A.or.v11",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "or",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete sw__d?",
+  "question": "Listen to the word first. Which two letters complete sw__d?",
+  "spokenPrompt": "Sword. Which letters complete the word?",
+  "choices": [
+   "er",
+   "ur",
+   "or",
+   "ar"
+  ],
+  "answerOptions": [
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   }
+  ],
+  "answer": "or",
+  "correctAnswer": "or",
+  "distractorRationales": {
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP",
+   "ar": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "sword",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.A.or.v11",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.A.or.v12",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "or",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete m__ning?",
+  "question": "Listen to the word first. Which two letters complete m__ning?",
+  "spokenPrompt": "Morning. Which letters complete the word?",
+  "choices": [
+   "ar",
+   "er",
+   "ur",
+   "or"
+  ],
+  "answerOptions": [
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   }
+  ],
+  "answer": "or",
+  "correctAnswer": "or",
+  "distractorRationales": {
+   "ur": "D-PATTERN-TRAP",
+   "ar": "D-VOWEL",
+   "er": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "morning",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.A.or.v12",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.A.or.v13",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "or",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete c__ner?",
+  "question": "Listen to the word first. Which two letters complete c__ner?",
+  "spokenPrompt": "Corner. Which letters complete the word?",
+  "choices": [
+   "or",
+   "ar",
+   "er",
+   "ur"
+  ],
+  "answerOptions": [
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   }
+  ],
+  "answer": "or",
+  "correctAnswer": "or",
+  "distractorRationales": {
+   "ar": "D-VOWEL",
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "corner",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.A.or.v13",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.A.or.v14",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "or",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete f__get?",
+  "question": "Listen to the word first. Which two letters complete f__get?",
+  "spokenPrompt": "Forget. Which letters complete the word?",
+  "choices": [
+   "ur",
+   "or",
+   "ar",
+   "er"
+  ],
+  "answerOptions": [
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   }
+  ],
+  "answer": "or",
+  "correctAnswer": "or",
+  "distractorRationales": {
+   "ar": "D-VOWEL",
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "forget",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.A.or.v14",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.C.er.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "er",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete p__son?",
+  "question": "Listen to the word first. Which two letters complete p__son?",
+  "spokenPrompt": "Person. Which letters complete the word?",
+  "choices": [
+   "er",
+   "ir",
+   "ur",
+   "ar"
+  ],
+  "answerOptions": [
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   }
+  ],
+  "answer": "er",
+  "correctAnswer": "er",
+  "distractorRationales": {
+   "ar": "D-PATTERN-TRAP",
+   "ir": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "person",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.C.er.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.A.er.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "er",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete p__fect?",
+  "question": "Listen to the word first. Which two letters complete p__fect?",
+  "spokenPrompt": "Perfect. Which letters complete the word?",
+  "choices": [
+   "ur",
+   "ar",
+   "er",
+   "ir"
+  ],
+  "answerOptions": [
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   }
+  ],
+  "answer": "er",
+  "correctAnswer": "er",
+  "distractorRationales": {
+   "ar": "D-PATTERN-TRAP",
+   "ir": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "perfect",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.A.er.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.C.ir.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ir",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete th__sty?",
+  "question": "Listen to the word first. Which two letters complete th__sty?",
+  "spokenPrompt": "Thirsty. Which letters complete the word?",
+  "choices": [
+   "ar",
+   "ir",
+   "er",
+   "ur"
+  ],
+  "answerOptions": [
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   }
+  ],
+  "answer": "ir",
+  "correctAnswer": "ir",
+  "distractorRationales": {
+   "ar": "D-PATTERN-TRAP",
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "thirsty",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.C.ir.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.A.ir.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ir",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete th__teen?",
+  "question": "Listen to the word first. Which two letters complete th__teen?",
+  "spokenPrompt": "Thirteen. Which letters complete the word?",
+  "choices": [
+   "er",
+   "ur",
+   "ar",
+   "ir"
+  ],
+  "answerOptions": [
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   }
+  ],
+  "answer": "ir",
+  "correctAnswer": "ir",
+  "distractorRationales": {
+   "ar": "D-PATTERN-TRAP",
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "thirteen",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.A.ir.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.C.ur.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ur",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete p__ple?",
+  "question": "Listen to the word first. Which two letters complete p__ple?",
+  "spokenPrompt": "Purple. Which letters complete the word?",
+  "choices": [
+   "ir",
+   "ar",
+   "ur",
+   "er"
+  ],
+  "answerOptions": [
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   }
+  ],
+  "answer": "ur",
+  "correctAnswer": "ur",
+  "distractorRationales": {
+   "ar": "D-PATTERN-TRAP",
+   "er": "D-PATTERN-TRAP",
+   "ir": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "purple",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.C.ur.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.A.ur.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ur",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Listen to the word first. Which two letters complete c__tain?",
+  "question": "Listen to the word first. Which two letters complete c__tain?",
+  "spokenPrompt": "Curtain. Which letters complete the word?",
+  "choices": [
+   "ur",
+   "er",
+   "ir",
+   "ar"
+  ],
+  "answerOptions": [
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   }
+  ],
+  "answer": "ur",
+  "correctAnswer": "ur",
+  "distractorRationales": {
+   "ar": "D-PATTERN-TRAP",
+   "er": "D-PATTERN-TRAP",
+   "ir": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "curtain",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.A.ur.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
   "id": "lp3.r_controlled_vowels.l1.R.ar.v7r",
   "bankStandardVersion": 3,
   "grade": "K-2",
@@ -5599,9 +8803,9 @@ export const questions = [
   "formatType": "PICTURE_AUDIO_TO_PATTERN",
   "templateType": "PICTURE_AUDIO_TO_PATTERN",
   "questionType": "multiple_choice",
-  "prompt": "Which letters spell the r-controlled part in the word you hear?",
-  "question": "Which letters spell the r-controlled part in the word you hear?",
-  "spokenPrompt": "Car. Which letters spell the r-controlled part in this word?",
+  "prompt": "Which letters spell the vowel sound in the word you hear?",
+  "question": "Which letters spell the vowel sound in the word you hear?",
+  "spokenPrompt": "Car. Which letters spell the vowel sound in this word?",
   "choices": [
    "ar",
    "or",
@@ -5690,9 +8894,9 @@ export const questions = [
   "formatType": "PICTURE_AUDIO_TO_PATTERN",
   "templateType": "PICTURE_AUDIO_TO_PATTERN",
   "questionType": "multiple_choice",
-  "prompt": "Which letters spell the r-controlled part in the word you hear?",
-  "question": "Which letters spell the r-controlled part in the word you hear?",
-  "spokenPrompt": "Storm. Which letters spell the r-controlled part in this word?",
+  "prompt": "Which letters spell the vowel sound in the word you hear?",
+  "question": "Which letters spell the vowel sound in the word you hear?",
+  "spokenPrompt": "Storm. Which letters spell the vowel sound in this word?",
   "choices": [
    "er",
    "or",

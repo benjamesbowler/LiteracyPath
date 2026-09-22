@@ -123,7 +123,7 @@ retirement; no hosted data or database functions were changed.
 - `tools/assessmentRebuild/gate.mjs`
 
 The v3 banks are the only published Skills assessment source. All 30 current skills
-must pass G1–G6. Publication has no personal sign-off field and no legacy fallback.
+must pass G1–G10. Publication has no personal sign-off field and no legacy fallback.
 The only current assessment phase threshold is 70%, defined once by
 `PHASE_PASS_RULE`.
 
@@ -575,3 +575,37 @@ unhashed media directory; Vite emits the required assets. Generated build and
 verification files stay under ignored output directories. The live route,
 chapter specification, documentation index and compact project handoffs now
 identify one current presentation authority.
+
+## Skills assessment content and evidence repairs — 22 September 2026
+
+The 30 current v3 authoring sources remain the authority for all 60 skill
+levels. Their generated banks, media decisions and publication status are
+rebuilt together. Each level/phase now requires two complete fresh sittings;
+retention reserves cannot fill normal retry stock. Independent answer-length
+strategies, passage sentence limits and explicit spoken-rhyme contracts are
+checked alongside the existing ten publication gates.
+
+Removed legacy answer-derived replay targets and unauthored choice/image
+substitutions from the v3 delivery path. Printed word/letter recognition no
+longer offers spoken answers that perform the assessed reading for the child.
+Rhyme choices retain their intended spoken access and hide spelling cues.
+The shared spoken-cloze normalizer replaces four divergent implementations;
+sentence blanks become pauses while the ordinary noun “blank” is retained.
+Changed speech delivery uses new recording URLs so cached defective clips
+cannot survive a repair. Existing shared catalogue entries and previous
+published URLs remain available for other activities and open sessions.
+
+Reviewed replacement pictures, new spatial/count scenes and explicit spoken
+evidence replace ambiguous visual targets. No generic support description may
+stand in for authored image alt text. Review hashes identify the actual pixels;
+they are not a substitute for direct visual inspection. The current word-only
+audio index preserves recording overrides without importing full narration
+into child Home.
+
+Disposable generation probes, duplicate unreferenced new recordings and the
+temporary unchanged-source comparison checkout are removed after reference
+checks. Original generated artwork, final source assets and compact review
+evidence remain; generated reports are under ignored `.artifacts/skills-quality`.
+The delivery report distinguishes content review, automated audio decoding,
+speech recognition, browser emulation and any outstanding listening, device
+or hosted evidence. No learner data or hosted state is changed by this work.

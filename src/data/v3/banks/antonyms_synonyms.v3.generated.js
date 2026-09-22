@@ -21,43 +21,43 @@ export const questions = [
   "formatType": "WORD_RELATION_TEXT_CHOICE",
   "templateType": "WORD_RELATION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "What is the opposite of hot?",
-  "question": "What is the opposite of hot?",
-  "spokenPrompt": "What is the opposite of hot?",
+  "prompt": "Which pair has opposite meanings?",
+  "question": "Which pair has opposite meanings?",
+  "spokenPrompt": "Which pair has opposite meanings?",
   "choices": [
-   "heated",
-   "cold",
-   "scorching",
-   "warm"
+   "hot — heated",
+   "hot — cold",
+   "hot — scorching",
+   "hot — warm"
   ],
   "answerOptions": [
    {
-    "value": "heated",
-    "label": "heated",
-    "text": "heated"
+    "value": "hot — heated",
+    "label": "hot — heated",
+    "text": "hot — heated"
    },
    {
-    "value": "cold",
-    "label": "cold",
-    "text": "cold"
+    "value": "hot — cold",
+    "label": "hot — cold",
+    "text": "hot — cold"
    },
    {
-    "value": "scorching",
-    "label": "scorching",
-    "text": "scorching"
+    "value": "hot — scorching",
+    "label": "hot — scorching",
+    "text": "hot — scorching"
    },
    {
-    "value": "warm",
-    "label": "warm",
-    "text": "warm"
+    "value": "hot — warm",
+    "label": "hot — warm",
+    "text": "hot — warm"
    }
   ],
-  "answer": "cold",
-  "correctAnswer": "cold",
+  "answer": "hot — cold",
+  "correctAnswer": "hot — cold",
   "distractorRationales": {
-   "heated": "D-SAME-DOMAIN",
-   "scorching": "D-OPPOSITE",
-   "warm": "D-TOPIC-ADJACENT"
+   "hot — heated": "D-SAME-DOMAIN",
+   "hot — scorching": "D-OPPOSITE",
+   "hot — warm": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -87,7 +87,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Compare both members of each word pair."
  },
  {
   "id": "lp3.antonyms_synonyms.l1.B.antonym_concrete.v2",
@@ -109,43 +109,43 @@ export const questions = [
   "formatType": "WORD_RELATION_TEXT_CHOICE",
   "templateType": "WORD_RELATION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "What is the opposite of big?",
-  "question": "What is the opposite of big?",
-  "spokenPrompt": "What is the opposite of big?",
+  "prompt": "Which pair has opposite meanings?",
+  "question": "Which pair has opposite meanings?",
+  "spokenPrompt": "Which pair has opposite meanings?",
   "choices": [
-   "small",
-   "huge",
-   "tall",
-   "high"
+   "big — small",
+   "big — huge",
+   "big — tall",
+   "big — high"
   ],
   "answerOptions": [
    {
-    "value": "small",
-    "label": "small",
-    "text": "small"
+    "value": "big — small",
+    "label": "big — small",
+    "text": "big — small"
    },
    {
-    "value": "huge",
-    "label": "huge",
-    "text": "huge"
+    "value": "big — huge",
+    "label": "big — huge",
+    "text": "big — huge"
    },
    {
-    "value": "tall",
-    "label": "tall",
-    "text": "tall"
+    "value": "big — tall",
+    "label": "big — tall",
+    "text": "big — tall"
    },
    {
-    "value": "high",
-    "label": "high",
-    "text": "high"
+    "value": "big — high",
+    "label": "big — high",
+    "text": "big — high"
    }
   ],
-  "answer": "small",
-  "correctAnswer": "small",
+  "answer": "big — small",
+  "correctAnswer": "big — small",
   "distractorRationales": {
-   "high": "D-SAME-DOMAIN",
-   "huge": "D-OPPOSITE",
-   "tall": "D-TOPIC-ADJACENT"
+   "big — high": "D-SAME-DOMAIN",
+   "big — huge": "D-OPPOSITE",
+   "big — tall": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -175,7 +175,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Compare both members of each word pair."
  },
  {
   "id": "lp3.antonyms_synonyms.l1.C.antonym_concrete.v3",
@@ -197,43 +197,43 @@ export const questions = [
   "formatType": "WORD_RELATION_TEXT_CHOICE",
   "templateType": "WORD_RELATION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "What is the opposite of up?",
-  "question": "What is the opposite of up?",
-  "spokenPrompt": "What is the opposite of up?",
+  "prompt": "Which pair has opposite meanings?",
+  "question": "Which pair has opposite meanings?",
+  "spokenPrompt": "Which pair has opposite meanings?",
   "choices": [
-   "high",
-   "under",
-   "top",
-   "down"
+   "up — high",
+   "up — under",
+   "up — top",
+   "up — down"
   ],
   "answerOptions": [
    {
-    "value": "high",
-    "label": "high",
-    "text": "high"
+    "value": "up — high",
+    "label": "up — high",
+    "text": "up — high"
    },
    {
-    "value": "under",
-    "label": "under",
-    "text": "under"
+    "value": "up — under",
+    "label": "up — under",
+    "text": "up — under"
    },
    {
-    "value": "top",
-    "label": "top",
-    "text": "top"
+    "value": "up — top",
+    "label": "up — top",
+    "text": "up — top"
    },
    {
-    "value": "down",
-    "label": "down",
-    "text": "down"
+    "value": "up — down",
+    "label": "up — down",
+    "text": "up — down"
    }
   ],
-  "answer": "down",
-  "correctAnswer": "down",
+  "answer": "up — down",
+  "correctAnswer": "up — down",
   "distractorRationales": {
-   "top": "D-SAME-DOMAIN",
-   "high": "D-OPPOSITE",
-   "under": "D-TOPIC-ADJACENT"
+   "up — top": "D-SAME-DOMAIN",
+   "up — high": "D-OPPOSITE",
+   "up — under": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -263,7 +263,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Compare both members of each word pair."
  },
  {
   "id": "lp3.antonyms_synonyms.l1.A.antonym_concrete.v4",
@@ -373,43 +373,43 @@ export const questions = [
   "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is the opposite of hot?",
-  "question": "Which word is the opposite of hot?",
-  "spokenPrompt": "Which word is the opposite of hot?",
+  "prompt": "The cup is full. Which word is its opposite?",
+  "question": "The cup is full. Which word is its opposite?",
+  "spokenPrompt": "The cup is full. Which word is its opposite?",
   "choices": [
-   "steaming",
-   "cold",
-   "boiling",
-   "warm"
+   "overflowing",
+   "empty",
+   "filled",
+   "packed"
   ],
   "answerOptions": [
    {
-    "value": "steaming",
-    "label": "steaming",
-    "text": "steaming"
+    "value": "overflowing",
+    "label": "overflowing",
+    "text": "overflowing"
    },
    {
-    "value": "cold",
-    "label": "cold",
-    "text": "cold"
+    "value": "empty",
+    "label": "empty",
+    "text": "empty"
    },
    {
-    "value": "boiling",
-    "label": "boiling",
-    "text": "boiling"
+    "value": "filled",
+    "label": "filled",
+    "text": "filled"
    },
    {
-    "value": "warm",
-    "label": "warm",
-    "text": "warm"
+    "value": "packed",
+    "label": "packed",
+    "text": "packed"
    }
   ],
-  "answer": "cold",
-  "correctAnswer": "cold",
+  "answer": "empty",
+  "correctAnswer": "empty",
   "distractorRationales": {
-   "warm": "D-TOPIC-ADJACENT",
-   "steaming": "D-SAME-DOMAIN",
-   "boiling": "D-OPPOSITE"
+   "packed": "D-TOPIC-ADJACENT",
+   "overflowing": "D-SAME-DOMAIN",
+   "filled": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -439,7 +439,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cold is the only temperature opposite; the remaining words all reinforce heat"
+  "notes": "empty reverses full; the other options describe contents rather than absence"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.C.antonym_concrete.v6",
@@ -461,43 +461,43 @@ export const questions = [
   "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is the opposite of big?",
-  "question": "Which word is the opposite of big?",
-  "spokenPrompt": "Which word is the opposite of big?",
+  "prompt": "This gate is wide. Which word is its opposite?",
+  "question": "This gate is wide. Which word is its opposite?",
+  "spokenPrompt": "This gate is wide. Which word is its opposite?",
   "choices": [
-   "small",
-   "huge",
-   "wide",
-   "tall"
+   "narrow",
+   "broad",
+   "deep",
+   "thick"
   ],
   "answerOptions": [
    {
-    "value": "small",
-    "label": "small",
-    "text": "small"
+    "value": "narrow",
+    "label": "narrow",
+    "text": "narrow"
    },
    {
-    "value": "huge",
-    "label": "huge",
-    "text": "huge"
+    "value": "broad",
+    "label": "broad",
+    "text": "broad"
    },
    {
-    "value": "wide",
-    "label": "wide",
-    "text": "wide"
+    "value": "deep",
+    "label": "deep",
+    "text": "deep"
    },
    {
-    "value": "tall",
-    "label": "tall",
-    "text": "tall"
+    "value": "thick",
+    "label": "thick",
+    "text": "thick"
    }
   ],
-  "answer": "small",
-  "correctAnswer": "small",
+  "answer": "narrow",
+  "correctAnswer": "narrow",
   "distractorRationales": {
-   "huge": "D-OPPOSITE",
-   "wide": "D-TOPIC-ADJACENT",
-   "tall": "D-SAME-DOMAIN"
+   "broad": "D-OPPOSITE",
+   "deep": "D-TOPIC-ADJACENT",
+   "thick": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -549,43 +549,43 @@ export const questions = [
   "formatType": "WORD_RELATION_TEXT_CHOICE",
   "templateType": "WORD_RELATION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word means about the same as happy?",
-  "question": "Which word means about the same as happy?",
-  "spokenPrompt": "Which word means about the same as happy?",
+  "prompt": "Find two words that mean the same.",
+  "question": "Find two words that mean the same.",
+  "spokenPrompt": "Find two words that mean the same.",
   "choices": [
-   "sad",
-   "proud",
-   "sleepy",
-   "glad"
+   "happy — sad",
+   "happy — proud",
+   "happy — sleepy",
+   "happy — glad"
   ],
   "answerOptions": [
    {
-    "value": "sad",
-    "label": "sad",
-    "text": "sad"
+    "value": "happy — sad",
+    "label": "happy — sad",
+    "text": "happy — sad"
    },
    {
-    "value": "proud",
-    "label": "proud",
-    "text": "proud"
+    "value": "happy — proud",
+    "label": "happy — proud",
+    "text": "happy — proud"
    },
    {
-    "value": "sleepy",
-    "label": "sleepy",
-    "text": "sleepy"
+    "value": "happy — sleepy",
+    "label": "happy — sleepy",
+    "text": "happy — sleepy"
    },
    {
-    "value": "glad",
-    "label": "glad",
-    "text": "glad"
+    "value": "happy — glad",
+    "label": "happy — glad",
+    "text": "happy — glad"
    }
   ],
-  "answer": "glad",
-  "correctAnswer": "glad",
+  "answer": "happy — glad",
+  "correctAnswer": "happy — glad",
   "distractorRationales": {
-   "sad": "D-OPPOSITE",
-   "proud": "D-TOPIC-ADJACENT",
-   "sleepy": "D-SAME-DOMAIN"
+   "happy — sad": "D-OPPOSITE",
+   "happy — proud": "D-TOPIC-ADJACENT",
+   "happy — sleepy": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -615,7 +615,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Compare both members of each word pair."
  },
  {
   "id": "lp3.antonyms_synonyms.l1.B.synonym_concrete.v2",
@@ -637,43 +637,43 @@ export const questions = [
   "formatType": "WORD_RELATION_TEXT_CHOICE",
   "templateType": "WORD_RELATION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word means about the same as shout?",
-  "question": "Which word means about the same as shout?",
-  "spokenPrompt": "Which word means about the same as shout?",
+  "prompt": "Find two words that mean the same.",
+  "question": "Find two words that mean the same.",
+  "spokenPrompt": "Find two words that mean the same.",
   "choices": [
-   "talk",
-   "sing",
-   "yell",
-   "whisper"
+   "shout — talk",
+   "shout — sing",
+   "shout — yell",
+   "shout — whisper"
   ],
   "answerOptions": [
    {
-    "value": "talk",
-    "label": "talk",
-    "text": "talk"
+    "value": "shout — talk",
+    "label": "shout — talk",
+    "text": "shout — talk"
    },
    {
-    "value": "sing",
-    "label": "sing",
-    "text": "sing"
+    "value": "shout — sing",
+    "label": "shout — sing",
+    "text": "shout — sing"
    },
    {
-    "value": "yell",
-    "label": "yell",
-    "text": "yell"
+    "value": "shout — yell",
+    "label": "shout — yell",
+    "text": "shout — yell"
    },
    {
-    "value": "whisper",
-    "label": "whisper",
-    "text": "whisper"
+    "value": "shout — whisper",
+    "label": "shout — whisper",
+    "text": "shout — whisper"
    }
   ],
-  "answer": "yell",
-  "correctAnswer": "yell",
+  "answer": "shout — yell",
+  "correctAnswer": "shout — yell",
   "distractorRationales": {
-   "whisper": "D-OPPOSITE",
-   "talk": "D-TOPIC-ADJACENT",
-   "sing": "D-SAME-DOMAIN"
+   "shout — whisper": "D-OPPOSITE",
+   "shout — talk": "D-TOPIC-ADJACENT",
+   "shout — sing": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -703,7 +703,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Compare both members of each word pair."
  },
  {
   "id": "lp3.antonyms_synonyms.l1.C.synonym_concrete.v3",
@@ -1077,43 +1077,43 @@ export const questions = [
   "formatType": "WORD_RELATION_TEXT_CHOICE",
   "templateType": "WORD_RELATION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is the opposite of up?",
-  "question": "Which word is the opposite of up?",
-  "spokenPrompt": "Which word is the opposite of up?",
+  "prompt": "Which pair has opposite meanings?",
+  "question": "Which pair has opposite meanings?",
+  "spokenPrompt": "Which pair has opposite meanings?",
   "choices": [
-   "top",
-   "down",
-   "high",
-   "above"
+   "awake — watchful",
+   "awake — asleep",
+   "awake — alert",
+   "awake — lively"
   ],
   "answerOptions": [
    {
-    "value": "top",
-    "label": "top",
-    "text": "top"
+    "value": "awake — watchful",
+    "label": "awake — watchful",
+    "text": "awake — watchful"
    },
    {
-    "value": "down",
-    "label": "down",
-    "text": "down"
+    "value": "awake — asleep",
+    "label": "awake — asleep",
+    "text": "awake — asleep"
    },
    {
-    "value": "high",
-    "label": "high",
-    "text": "high"
+    "value": "awake — alert",
+    "label": "awake — alert",
+    "text": "awake — alert"
    },
    {
-    "value": "above",
-    "label": "above",
-    "text": "above"
+    "value": "awake — lively",
+    "label": "awake — lively",
+    "text": "awake — lively"
    }
   ],
-  "answer": "down",
-  "correctAnswer": "down",
+  "answer": "awake — asleep",
+  "correctAnswer": "awake — asleep",
   "distractorRationales": {
-   "above": "D-TOPIC-ADJACENT",
-   "top": "D-SAME-DOMAIN",
-   "high": "D-OPPOSITE"
+   "awake — lively": "D-TOPIC-ADJACENT",
+   "awake — watchful": "D-SAME-DOMAIN",
+   "awake — alert": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1143,7 +1143,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "arrow gifts ow to down; opposite gifts op to top — tie"
+  "notes": "Asleep reverses awake; alert, lively and watchful do not."
  },
  {
   "id": "lp3.antonyms_synonyms.l1.B.antonym_picture.v2",
@@ -1165,43 +1165,43 @@ export const questions = [
   "formatType": "WORD_RELATION_TEXT_CHOICE",
   "templateType": "WORD_RELATION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is the opposite of night?",
-  "question": "Which word is the opposite of night?",
-  "spokenPrompt": "Which word is the opposite of night?",
+  "prompt": "Which pair has opposite meanings?",
+  "question": "Which pair has opposite meanings?",
+  "spokenPrompt": "Which pair has opposite meanings?",
   "choices": [
-   "day",
-   "dark",
-   "moon",
-   "midnight"
+   "night — day",
+   "night — dark",
+   "night — moon",
+   "night — midnight"
   ],
   "answerOptions": [
    {
-    "value": "day",
-    "label": "day",
-    "text": "day"
+    "value": "night — day",
+    "label": "night — day",
+    "text": "night — day"
    },
    {
-    "value": "dark",
-    "label": "dark",
-    "text": "dark"
+    "value": "night — dark",
+    "label": "night — dark",
+    "text": "night — dark"
    },
    {
-    "value": "moon",
-    "label": "moon",
-    "text": "moon"
+    "value": "night — moon",
+    "label": "night — moon",
+    "text": "night — moon"
    },
    {
-    "value": "midnight",
-    "label": "midnight",
-    "text": "midnight"
+    "value": "night — midnight",
+    "label": "night — midnight",
+    "text": "night — midnight"
    }
   ],
-  "answer": "day",
-  "correctAnswer": "day",
+  "answer": "night — day",
+  "correctAnswer": "night — day",
   "distractorRationales": {
-   "dark": "D-OPPOSITE",
-   "moon": "D-TOPIC-ADJACENT",
-   "midnight": "D-SAME-DOMAIN"
+   "night — dark": "D-OPPOSITE",
+   "night — moon": "D-TOPIC-ADJACENT",
+   "night — midnight": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1231,7 +1231,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Compare both members of each word pair."
  },
  {
   "id": "lp3.antonyms_synonyms.l1.C.antonym_picture.v3",
@@ -1253,43 +1253,43 @@ export const questions = [
   "formatType": "WORD_RELATION_TEXT_CHOICE",
   "templateType": "WORD_RELATION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is the opposite of new?",
-  "question": "Which word is the opposite of new?",
-  "spokenPrompt": "Which word is the opposite of new?",
+  "prompt": "Which pair has opposite meanings?",
+  "question": "Which pair has opposite meanings?",
+  "spokenPrompt": "Which pair has opposite meanings?",
   "choices": [
-   "fresh",
-   "shiny",
-   "clean",
-   "old"
+   "new — fresh",
+   "new — shiny",
+   "new — clean",
+   "new — old"
   ],
   "answerOptions": [
    {
-    "value": "fresh",
-    "label": "fresh",
-    "text": "fresh"
+    "value": "new — fresh",
+    "label": "new — fresh",
+    "text": "new — fresh"
    },
    {
-    "value": "shiny",
-    "label": "shiny",
-    "text": "shiny"
+    "value": "new — shiny",
+    "label": "new — shiny",
+    "text": "new — shiny"
    },
    {
-    "value": "clean",
-    "label": "clean",
-    "text": "clean"
+    "value": "new — clean",
+    "label": "new — clean",
+    "text": "new — clean"
    },
    {
-    "value": "old",
-    "label": "old",
-    "text": "old"
+    "value": "new — old",
+    "label": "new — old",
+    "text": "new — old"
    }
   ],
-  "answer": "old",
-  "correctAnswer": "old",
+  "answer": "new — old",
+  "correctAnswer": "new — old",
   "distractorRationales": {
-   "shiny": "D-TOPIC-ADJACENT",
-   "clean": "D-SAME-DOMAIN",
-   "fresh": "D-OPPOSITE"
+   "new — shiny": "D-TOPIC-ADJACENT",
+   "new — clean": "D-SAME-DOMAIN",
+   "new — fresh": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1429,43 +1429,43 @@ export const questions = [
   "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "What is the opposite of day?",
-  "question": "What is the opposite of day?",
-  "spokenPrompt": "What is the opposite of day?",
+  "prompt": "The towel is clean. Choose the opposite of clean.",
+  "question": "The towel is clean. Choose the opposite of clean.",
+  "spokenPrompt": "The towel is clean. Choose the opposite of clean.",
   "choices": [
-   "noon",
-   "night",
-   "morning",
-   "bright"
+   "fresh",
+   "dirty",
+   "washed",
+   "spotless"
   ],
   "answerOptions": [
    {
-    "value": "noon",
-    "label": "noon",
-    "text": "noon"
+    "value": "fresh",
+    "label": "fresh",
+    "text": "fresh"
    },
    {
-    "value": "night",
-    "label": "night",
-    "text": "night"
+    "value": "dirty",
+    "label": "dirty",
+    "text": "dirty"
    },
    {
-    "value": "morning",
-    "label": "morning",
-    "text": "morning"
+    "value": "washed",
+    "label": "washed",
+    "text": "washed"
    },
    {
-    "value": "bright",
-    "label": "bright",
-    "text": "bright"
+    "value": "spotless",
+    "label": "spotless",
+    "text": "spotless"
    }
   ],
-  "answer": "night",
-  "correctAnswer": "night",
+  "answer": "dirty",
+  "correctAnswer": "dirty",
   "distractorRationales": {
-   "morning": "D-TOPIC-ADJACENT",
-   "bright": "D-OPPOSITE",
-   "noon": "D-SAME-DOMAIN"
+   "washed": "D-TOPIC-ADJACENT",
+   "spotless": "D-OPPOSITE",
+   "fresh": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1495,7 +1495,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "word gifts or to morning — a distractor tops, never the key"
+  "notes": "Dirty reverses clean; the other descriptions are compatible with cleanliness."
  },
  {
   "id": "lp3.antonyms_synonyms.l1.C.antonym_picture.v6",
@@ -1605,43 +1605,43 @@ export const questions = [
   "formatType": "WORD_RELATION_TEXT_CHOICE",
   "templateType": "WORD_RELATION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "The sun is bright. Which word is closest to 'bright'?",
-  "question": "The sun is bright. Which word is closest to 'bright'?",
-  "spokenPrompt": "The sun is bright. Which word is closest to 'bright'?",
+  "prompt": "Find two words that mean the same.",
+  "question": "Find two words that mean the same.",
+  "spokenPrompt": "Find two words that mean the same.",
   "choices": [
-   "dark",
-   "hot",
-   "white",
-   "shiny"
+   "bright — dark",
+   "bright — dim",
+   "bright — gloomy",
+   "bright — light"
   ],
   "answerOptions": [
    {
-    "value": "dark",
-    "label": "dark",
-    "text": "dark"
+    "value": "bright — dark",
+    "label": "bright — dark",
+    "text": "bright — dark"
    },
    {
-    "value": "hot",
-    "label": "hot",
-    "text": "hot"
+    "value": "bright — dim",
+    "label": "bright — dim",
+    "text": "bright — dim"
    },
    {
-    "value": "white",
-    "label": "white",
-    "text": "white"
+    "value": "bright — gloomy",
+    "label": "bright — gloomy",
+    "text": "bright — gloomy"
    },
    {
-    "value": "shiny",
-    "label": "shiny",
-    "text": "shiny"
+    "value": "bright — light",
+    "label": "bright — light",
+    "text": "bright — light"
    }
   ],
-  "answer": "shiny",
-  "correctAnswer": "shiny",
+  "answer": "bright — light",
+  "correctAnswer": "bright — light",
   "distractorRationales": {
-   "white": "D-SAME-DOMAIN",
-   "dark": "D-OPPOSITE",
-   "hot": "D-TOPIC-ADJACENT"
+   "bright — gloomy": "D-SAME-DOMAIN",
+   "bright — dark": "D-OPPOSITE",
+   "bright — dim": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1671,7 +1671,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "which gifts hi to shiny — white carries it too and ties"
+  "notes": "Bright and light describe illumination; the other pairs contrast illumination."
  },
  {
   "id": "lp3.antonyms_synonyms.l1.B.synonym_picture.v2",
@@ -1693,43 +1693,43 @@ export const questions = [
   "formatType": "WORD_RELATION_TEXT_CHOICE",
   "templateType": "WORD_RELATION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "The rock is hard. Which word is closest to 'hard'?",
-  "question": "The rock is hard. Which word is closest to 'hard'?",
-  "spokenPrompt": "The rock is hard. Which word is closest to 'hard'?",
+  "prompt": "Find two words that mean the same.",
+  "question": "Find two words that mean the same.",
+  "spokenPrompt": "Find two words that mean the same.",
   "choices": [
-   "heavy",
-   "hot",
-   "solid",
-   "soft"
+   "hard — heavy",
+   "hard — hot",
+   "hard — solid",
+   "hard — soft"
   ],
   "answerOptions": [
    {
-    "value": "heavy",
-    "label": "heavy",
-    "text": "heavy"
+    "value": "hard — heavy",
+    "label": "hard — heavy",
+    "text": "hard — heavy"
    },
    {
-    "value": "hot",
-    "label": "hot",
-    "text": "hot"
+    "value": "hard — hot",
+    "label": "hard — hot",
+    "text": "hard — hot"
    },
    {
-    "value": "solid",
-    "label": "solid",
-    "text": "solid"
+    "value": "hard — solid",
+    "label": "hard — solid",
+    "text": "hard — solid"
    },
    {
-    "value": "soft",
-    "label": "soft",
-    "text": "soft"
+    "value": "hard — soft",
+    "label": "hard — soft",
+    "text": "hard — soft"
    }
   ],
-  "answer": "solid",
-  "correctAnswer": "solid",
+  "answer": "hard — solid",
+  "correctAnswer": "hard — solid",
   "distractorRationales": {
-   "soft": "D-OPPOSITE",
-   "heavy": "D-TOPIC-ADJACENT",
-   "hot": "D-SAME-DOMAIN"
+   "hard — soft": "D-OPPOSITE",
+   "hard — heavy": "D-TOPIC-ADJACENT",
+   "hard — hot": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1759,7 +1759,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Compare both members of each word pair."
  },
  {
   "id": "lp3.antonyms_synonyms.l1.C.synonym_picture.v3",
@@ -1781,43 +1781,43 @@ export const questions = [
   "formatType": "WORD_RELATION_TEXT_CHOICE",
   "templateType": "WORD_RELATION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Snow is cold. Which word is closest to 'cold'?",
-  "question": "Snow is cold. Which word is closest to 'cold'?",
-  "spokenPrompt": "Snow is cold. Which word is closest to 'cold'?",
+  "prompt": "Find two words that mean the same.",
+  "question": "Find two words that mean the same.",
+  "spokenPrompt": "Find two words that mean the same.",
   "choices": [
-   "wet",
-   "chilly",
-   "warm",
-   "white"
+   "cold — hot",
+   "cold — chilly",
+   "cold — warm",
+   "cold — mild"
   ],
   "answerOptions": [
    {
-    "value": "wet",
-    "label": "wet",
-    "text": "wet"
+    "value": "cold — hot",
+    "label": "cold — hot",
+    "text": "cold — hot"
    },
    {
-    "value": "chilly",
-    "label": "chilly",
-    "text": "chilly"
+    "value": "cold — chilly",
+    "label": "cold — chilly",
+    "text": "cold — chilly"
    },
    {
-    "value": "warm",
-    "label": "warm",
-    "text": "warm"
+    "value": "cold — warm",
+    "label": "cold — warm",
+    "text": "cold — warm"
    },
    {
-    "value": "white",
-    "label": "white",
-    "text": "white"
+    "value": "cold — mild",
+    "label": "cold — mild",
+    "text": "cold — mild"
    }
   ],
-  "answer": "chilly",
-  "correctAnswer": "chilly",
+  "answer": "cold — chilly",
+  "correctAnswer": "cold — chilly",
   "distractorRationales": {
-   "wet": "D-SAME-DOMAIN",
-   "warm": "D-OPPOSITE",
-   "white": "D-TOPIC-ADJACENT"
+   "cold — hot": "D-SAME-DOMAIN",
+   "cold — warm": "D-OPPOSITE",
+   "cold — mild": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1847,7 +1847,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "which gifts ch to chilly and hi to white — tie"
+  "notes": "Chilly means cold; warm, mild and hot do not."
  },
  {
   "id": "lp3.antonyms_synonyms.l1.A.synonym_picture.v4",
@@ -1957,9 +1957,9 @@ export const questions = [
   "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word means about the same as quick?",
-  "question": "Which word means about the same as quick?",
-  "spokenPrompt": "Which word means about the same as quick?",
+  "prompt": "Pick a word that means quick.",
+  "question": "Pick a word that means quick.",
+  "spokenPrompt": "Pick a word that means quick.",
   "choices": [
    "slow",
    "steady",
@@ -2221,9 +2221,9 @@ export const questions = [
   "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "What is the exact antonym for 'freezing'?",
-  "question": "What is the exact antonym for 'freezing'?",
-  "spokenPrompt": "What is the exact antonym for 'freezing'?",
+  "prompt": "Which word means the opposite of 'freezing cold'?",
+  "question": "Which word means the opposite of 'freezing cold'?",
+  "spokenPrompt": "Which word means the opposite of 'freezing cold'?",
   "choices": [
    "chilly",
    "boiling",
@@ -2397,9 +2397,9 @@ export const questions = [
   "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Pick the antonym of 'noisy'.",
-  "question": "Pick the antonym of 'noisy'.",
-  "spokenPrompt": "Pick the antonym of 'noisy'.",
+  "prompt": "Pick the opposite of 'noisy'.",
+  "question": "Pick the opposite of 'noisy'.",
+  "spokenPrompt": "Pick the opposite of 'noisy'.",
   "choices": [
    "musical",
    "silent",
@@ -3017,15 +3017,15 @@ export const questions = [
   "formatType": "WORD_IN_SENTENCE_SWAP",
   "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "Which more precise word fits: The mouse fit inside a teacup. It was ___.",
-  "question": "Which more precise word fits: The mouse fit inside a teacup. It was ___.",
-  "spokenPrompt": "Which more precise word fits? The mouse fit inside a teacup. It was ….",
-  "sentence": "The mouse fit inside a teacup. It was ___.",
+  "prompt": "Which same-meaning word fits best: The mouse was very small: it was ___.",
+  "question": "Which same-meaning word fits best: The mouse was very small: it was ___.",
+  "spokenPrompt": "Which same-meaning word fits best? The mouse was very small: it was ….",
+  "sentence": "The mouse was very small: it was ___.",
   "choices": [
    "tiny",
-   "big",
-   "round",
-   "soft"
+   "huge",
+   "short",
+   "slim"
   ],
   "answerOptions": [
    {
@@ -3034,27 +3034,27 @@ export const questions = [
     "text": "tiny"
    },
    {
-    "value": "big",
-    "label": "big",
-    "text": "big"
+    "value": "huge",
+    "label": "huge",
+    "text": "huge"
    },
    {
-    "value": "round",
-    "label": "round",
-    "text": "round"
+    "value": "short",
+    "label": "short",
+    "text": "short"
    },
    {
-    "value": "soft",
-    "label": "soft",
-    "text": "soft"
+    "value": "slim",
+    "label": "slim",
+    "text": "slim"
    }
   ],
   "answer": "tiny",
   "correctAnswer": "tiny",
   "distractorRationales": {
-   "round": "D-SAME-DOMAIN",
-   "soft": "D-TOPIC-ADJACENT",
-   "big": "D-OPPOSITE"
+   "short": "D-SAME-DOMAIN",
+   "slim": "D-TOPIC-ADJACENT",
+   "huge": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3064,7 +3064,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The mouse fit inside a teacup. It was ___.",
+  "sentenceText": "The mouse was very small: it was ___.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3085,7 +3085,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "mouse gifts ou to round — a distractor tops; tiny is the step beyond small the frame demands"
+  "notes": "Tiny matches very small; short and slim describe different dimensions."
  },
  {
   "id": "lp3.antonyms_synonyms.l2.C.synonym_shade.v6",
@@ -3107,21 +3107,21 @@ export const questions = [
   "formatType": "WORD_IN_SENTENCE_SWAP",
   "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "Which more precise word fits: Not just cold — the pond was ___ this morning.",
-  "question": "Which more precise word fits: Not just cold — the pond was ___ this morning.",
-  "spokenPrompt": "Which more precise word fits? Not just cold — the pond was … this morning.",
-  "sentence": "Not just cold — the pond was ___ this morning.",
+  "prompt": "Which same-meaning word fits best: The lake was icy: its surface was ___.",
+  "question": "Which same-meaning word fits best: The lake was icy: its surface was ___.",
+  "spokenPrompt": "Which same-meaning word fits best? The lake was icy: its surface was ….",
+  "sentence": "The lake was icy: its surface was ___.",
   "choices": [
-   "wet",
+   "chilly",
    "frozen",
-   "cool",
-   "warm"
+   "melted",
+   "cool"
   ],
   "answerOptions": [
    {
-    "value": "wet",
-    "label": "wet",
-    "text": "wet"
+    "value": "chilly",
+    "label": "chilly",
+    "text": "chilly"
    },
    {
     "value": "frozen",
@@ -3129,22 +3129,22 @@ export const questions = [
     "text": "frozen"
    },
    {
+    "value": "melted",
+    "label": "melted",
+    "text": "melted"
+   },
+   {
     "value": "cool",
     "label": "cool",
     "text": "cool"
-   },
-   {
-    "value": "warm",
-    "label": "warm",
-    "text": "warm"
    }
   ],
   "answer": "frozen",
   "correctAnswer": "frozen",
   "distractorRationales": {
-   "warm": "D-OPPOSITE",
-   "wet": "D-SAME-DOMAIN",
-   "cool": "D-TOPIC-ADJACENT"
+   "cool": "D-OPPOSITE",
+   "chilly": "D-SAME-DOMAIN",
+   "melted": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3154,7 +3154,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Not just cold — the pond was ___ this morning.",
+  "sentenceText": "The lake was icy: its surface was ___.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3175,7 +3175,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cool is weaker than cold, not stronger; was gifts wa to warm, a distractor tops"
+  "notes": "Icy describes a frozen surface; cool and chilly do not require ice."
  },
  {
   "id": "lp3.antonyms_synonyms.l2.A.antonym_in_context.v1",
@@ -3554,12 +3554,13 @@ export const questions = [
   "form": "B",
   "itemType": "word_relation",
   "itemKey": "antonym_in_context",
-  "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
-  "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "formatType": "WORD_IN_SENTENCE_SWAP",
+  "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "Which word is the opposite of 'above'?",
-  "question": "Which word is the opposite of 'above'?",
-  "spokenPrompt": "Which word is the opposite of 'above'?",
+  "prompt": "Which opposite word fits: The kite rose above us. Its opposite is ___.",
+  "question": "Which opposite word fits: The kite rose above us. Its opposite is ___.",
+  "spokenPrompt": "Which opposite word fits? The kite rose above us. Its opposite is ….",
+  "sentence": "The kite rose above us. Its opposite is ___.",
   "choices": [
    "over",
    "near",
@@ -3603,6 +3604,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "The kite rose above us. Its opposite is ___.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3642,16 +3644,17 @@ export const questions = [
   "form": "C",
   "itemType": "word_relation",
   "itemKey": "antonym_in_context",
-  "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
-  "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "formatType": "WORD_IN_SENTENCE_SWAP",
+  "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "Which word is the opposite of 'early'?",
-  "question": "Which word is the opposite of 'early'?",
-  "spokenPrompt": "Which word is the opposite of 'early'?",
+  "prompt": "Which opposite word fits: We arrived early. The opposite of early is ___.",
+  "question": "Which opposite word fits: We arrived early. The opposite of early is ___.",
+  "spokenPrompt": "Which opposite word fits? We arrived early. The opposite of early is ….",
+  "sentence": "We arrived early. The opposite of early is ___.",
   "choices": [
    "soon",
    "first",
-   "yesterday",
+   "promptly",
    "late"
   ],
   "answerOptions": [
@@ -3666,9 +3669,9 @@ export const questions = [
     "text": "first"
    },
    {
-    "value": "yesterday",
-    "label": "yesterday",
-    "text": "yesterday"
+    "value": "promptly",
+    "label": "promptly",
+    "text": "promptly"
    },
    {
     "value": "late",
@@ -3681,7 +3684,7 @@ export const questions = [
   "distractorRationales": {
    "soon": "D-TOPIC-ADJACENT",
    "first": "D-OPPOSITE",
-   "yesterday": "D-SAME-DOMAIN"
+   "promptly": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3691,6 +3694,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "We arrived early. The opposite of early is ___.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3711,7 +3715,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "late alone reverses timing; soon, first, and yesterday remain time words"
+  "notes": "Late reverses early; soon, first and promptly remain time-related distractors."
  },
  {
   "id": "lp3.antonyms_synonyms.l2.A.synonym_in_context.v1",
@@ -4090,17 +4094,18 @@ export const questions = [
   "form": "B",
   "itemType": "word_relation",
   "itemKey": "synonym_in_context",
-  "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
-  "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "formatType": "WORD_IN_SENTENCE_SWAP",
+  "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "Which word is closest to 'angry'?",
-  "question": "Which word is closest to 'angry'?",
-  "spokenPrompt": "Which word is closest to 'angry'?",
+  "prompt": "Which same-meaning word fits: The angry child stamped a foot. Angry means ___.",
+  "question": "Which same-meaning word fits: The angry child stamped a foot. Angry means ___.",
+  "spokenPrompt": "Which same-meaning word fits? The angry child stamped a foot. Angry means ….",
+  "sentence": "The angry child stamped a foot. Angry means ___.",
   "choices": [
    "mad",
    "calm",
    "sad",
-   "lost"
+   "afraid"
   ],
   "answerOptions": [
    {
@@ -4119,9 +4124,9 @@ export const questions = [
     "text": "sad"
    },
    {
-    "value": "lost",
-    "label": "lost",
-    "text": "lost"
+    "value": "afraid",
+    "label": "afraid",
+    "text": "afraid"
    }
   ],
   "answer": "mad",
@@ -4129,7 +4134,7 @@ export const questions = [
   "distractorRationales": {
    "calm": "D-OPPOSITE",
    "sad": "D-TOPIC-ADJACENT",
-   "lost": "D-SAME-DOMAIN"
+   "afraid": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4139,6 +4144,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "The angry child stamped a foot. Angry means ___.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4178,12 +4184,13 @@ export const questions = [
   "form": "C",
   "itemType": "word_relation",
   "itemKey": "synonym_in_context",
-  "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
-  "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "formatType": "WORD_IN_SENTENCE_SWAP",
+  "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "Which word is closest to 'friend'?",
-  "question": "Which word is closest to 'friend'?",
-  "spokenPrompt": "Which word is closest to 'friend'?",
+  "prompt": "Which same-meaning word fits: Jo is my friend. Jo is my ___.",
+  "question": "Which same-meaning word fits: Jo is my friend. Jo is my ___.",
+  "spokenPrompt": "Which same-meaning word fits? Jo is my friend. Jo is my ….",
+  "sentence": "Jo is my friend. Jo is my ___.",
   "choices": [
    "teammate",
    "pal",
@@ -4227,6 +4234,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "Jo is my friend. Jo is my ___.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4269,43 +4277,43 @@ export const questions = [
   "formatType": "WORD_RELATION_TEXT_CHOICE",
   "templateType": "WORD_RELATION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "What is the opposite of high?",
-  "question": "What is the opposite of high?",
-  "spokenPrompt": "What is the opposite of high?",
+  "prompt": "Which pair has opposite meanings?",
+  "question": "Which pair has opposite meanings?",
+  "spokenPrompt": "Which pair has opposite meanings?",
   "choices": [
-   "low",
-   "up",
-   "tall",
-   "top"
+   "high — low",
+   "high — up",
+   "high — tall",
+   "high — top"
   ],
   "answerOptions": [
    {
-    "value": "low",
-    "label": "low",
-    "text": "low"
+    "value": "high — low",
+    "label": "high — low",
+    "text": "high — low"
    },
    {
-    "value": "up",
-    "label": "up",
-    "text": "up"
+    "value": "high — up",
+    "label": "high — up",
+    "text": "high — up"
    },
    {
-    "value": "tall",
-    "label": "tall",
-    "text": "tall"
+    "value": "high — tall",
+    "label": "high — tall",
+    "text": "high — tall"
    },
    {
-    "value": "top",
-    "label": "top",
-    "text": "top"
+    "value": "high — top",
+    "label": "high — top",
+    "text": "high — top"
    }
   ],
-  "answer": "low",
-  "correctAnswer": "low",
+  "answer": "high — low",
+  "correctAnswer": "high — low",
   "distractorRationales": {
-   "tall": "D-OPPOSITE",
-   "top": "D-SAME-DOMAIN",
-   "up": "D-TOPIC-ADJACENT"
+   "high — tall": "D-OPPOSITE",
+   "high — top": "D-SAME-DOMAIN",
+   "high — up": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4335,7 +4343,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Compare both members of each word pair."
  },
  {
   "id": "lp3.antonyms_synonyms.l1.R.antonym_concrete.v8r",
@@ -4357,43 +4365,43 @@ export const questions = [
   "formatType": "WORD_RELATION_TEXT_CHOICE",
   "templateType": "WORD_RELATION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "The boots are old. Pick the opposite of old.",
-  "question": "The boots are old. Pick the opposite of old.",
-  "spokenPrompt": "The boots are old. Pick the opposite of old.",
+  "prompt": "Which pair has opposite meanings?",
+  "question": "Which pair has opposite meanings?",
+  "spokenPrompt": "Which pair has opposite meanings?",
   "choices": [
-   "shiny",
-   "new",
-   "worn",
-   "clean"
+   "old — shiny",
+   "old — new",
+   "old — worn",
+   "old — clean"
   ],
   "answerOptions": [
    {
-    "value": "shiny",
-    "label": "shiny",
-    "text": "shiny"
+    "value": "old — shiny",
+    "label": "old — shiny",
+    "text": "old — shiny"
    },
    {
-    "value": "new",
-    "label": "new",
-    "text": "new"
+    "value": "old — new",
+    "label": "old — new",
+    "text": "old — new"
    },
    {
-    "value": "worn",
-    "label": "worn",
-    "text": "worn"
+    "value": "old — worn",
+    "label": "old — worn",
+    "text": "old — worn"
    },
    {
-    "value": "clean",
-    "label": "clean",
-    "text": "clean"
+    "value": "old — clean",
+    "label": "old — clean",
+    "text": "old — clean"
    }
   ],
-  "answer": "new",
-  "correctAnswer": "new",
+  "answer": "old — new",
+  "correctAnswer": "old — new",
   "distractorRationales": {
-   "worn": "D-OPPOSITE",
-   "clean": "D-TOPIC-ADJACENT",
-   "shiny": "D-SAME-DOMAIN"
+   "old — worn": "D-OPPOSITE",
+   "old — clean": "D-TOPIC-ADJACENT",
+   "old — shiny": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4423,7 +4431,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Compare both members of each word pair."
  },
  {
   "id": "lp3.antonyms_synonyms.l1.R.synonym_concrete.v7r",
@@ -4445,43 +4453,43 @@ export const questions = [
   "formatType": "WORD_RELATION_TEXT_CHOICE",
   "templateType": "WORD_RELATION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "What word is closest to jump?",
-  "question": "What word is closest to jump?",
-  "spokenPrompt": "What word is closest to jump?",
+  "prompt": "Find two words that mean the same.",
+  "question": "Find two words that mean the same.",
+  "spokenPrompt": "Find two words that mean the same.",
   "choices": [
-   "run",
-   "slide",
-   "leap",
-   "fall"
+   "jump — run",
+   "jump — slide",
+   "jump — leap",
+   "jump — fall"
   ],
   "answerOptions": [
    {
-    "value": "run",
-    "label": "run",
-    "text": "run"
+    "value": "jump — run",
+    "label": "jump — run",
+    "text": "jump — run"
    },
    {
-    "value": "slide",
-    "label": "slide",
-    "text": "slide"
+    "value": "jump — slide",
+    "label": "jump — slide",
+    "text": "jump — slide"
    },
    {
-    "value": "leap",
-    "label": "leap",
-    "text": "leap"
+    "value": "jump — leap",
+    "label": "jump — leap",
+    "text": "jump — leap"
    },
    {
-    "value": "fall",
-    "label": "fall",
-    "text": "fall"
+    "value": "jump — fall",
+    "label": "jump — fall",
+    "text": "jump — fall"
    }
   ],
-  "answer": "leap",
-  "correctAnswer": "leap",
+  "answer": "jump — leap",
+  "correctAnswer": "jump — leap",
   "distractorRationales": {
-   "slide": "D-SAME-DOMAIN",
-   "fall": "D-OPPOSITE",
-   "run": "D-TOPIC-ADJACENT"
+   "jump — slide": "D-SAME-DOMAIN",
+   "jump — fall": "D-OPPOSITE",
+   "jump — run": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4511,7 +4519,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Compare both members of each word pair."
  },
  {
   "id": "lp3.antonyms_synonyms.l1.R.synonym_concrete.v8r",
@@ -4533,43 +4541,43 @@ export const questions = [
   "formatType": "WORD_RELATION_TEXT_CHOICE",
   "templateType": "WORD_RELATION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word means about the same as yell?",
-  "question": "Which word means about the same as yell?",
-  "spokenPrompt": "Which word means about the same as yell?",
+  "prompt": "Find two words that mean the same.",
+  "question": "Find two words that mean the same.",
+  "spokenPrompt": "Find two words that mean the same.",
   "choices": [
-   "whisper",
-   "talk",
-   "sing",
-   "shout"
+   "yell — whisper",
+   "yell — talk",
+   "yell — sing",
+   "yell — shout"
   ],
   "answerOptions": [
    {
-    "value": "whisper",
-    "label": "whisper",
-    "text": "whisper"
+    "value": "yell — whisper",
+    "label": "yell — whisper",
+    "text": "yell — whisper"
    },
    {
-    "value": "talk",
-    "label": "talk",
-    "text": "talk"
+    "value": "yell — talk",
+    "label": "yell — talk",
+    "text": "yell — talk"
    },
    {
-    "value": "sing",
-    "label": "sing",
-    "text": "sing"
+    "value": "yell — sing",
+    "label": "yell — sing",
+    "text": "yell — sing"
    },
    {
-    "value": "shout",
-    "label": "shout",
-    "text": "shout"
+    "value": "yell — shout",
+    "label": "yell — shout",
+    "text": "yell — shout"
    }
   ],
-  "answer": "shout",
-  "correctAnswer": "shout",
+  "answer": "yell — shout",
+  "correctAnswer": "yell — shout",
   "distractorRationales": {
-   "whisper": "D-OPPOSITE",
-   "talk": "D-TOPIC-ADJACENT",
-   "sing": "D-SAME-DOMAIN"
+   "yell — whisper": "D-OPPOSITE",
+   "yell — talk": "D-TOPIC-ADJACENT",
+   "yell — sing": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4599,7 +4607,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Compare both members of each word pair."
  },
  {
   "id": "lp3.antonyms_synonyms.l1.R.antonym_picture.v7r",
@@ -4621,43 +4629,43 @@ export const questions = [
   "formatType": "WORD_RELATION_TEXT_CHOICE",
   "templateType": "WORD_RELATION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "The arrow points down. Pick the opposite of down.",
-  "question": "The arrow points down. Pick the opposite of down.",
-  "spokenPrompt": "The arrow points down. Pick the opposite of down.",
+  "prompt": "Which pair has opposite meanings?",
+  "question": "Which pair has opposite meanings?",
+  "spokenPrompt": "Which pair has opposite meanings?",
   "choices": [
-   "up",
-   "low",
-   "under",
-   "top"
+   "down — up",
+   "down — low",
+   "down — under",
+   "down — top"
   ],
   "answerOptions": [
    {
-    "value": "up",
-    "label": "up",
-    "text": "up"
+    "value": "down — up",
+    "label": "down — up",
+    "text": "down — up"
    },
    {
-    "value": "low",
-    "label": "low",
-    "text": "low"
+    "value": "down — low",
+    "label": "down — low",
+    "text": "down — low"
    },
    {
-    "value": "under",
-    "label": "under",
-    "text": "under"
+    "value": "down — under",
+    "label": "down — under",
+    "text": "down — under"
    },
    {
-    "value": "top",
-    "label": "top",
-    "text": "top"
+    "value": "down — top",
+    "label": "down — top",
+    "text": "down — top"
    }
   ],
-  "answer": "up",
-  "correctAnswer": "up",
+  "answer": "down — up",
+  "correctAnswer": "down — up",
   "distractorRationales": {
-   "top": "D-SAME-DOMAIN",
-   "low": "D-OPPOSITE",
-   "under": "D-TOPIC-ADJACENT"
+   "down — top": "D-SAME-DOMAIN",
+   "down — low": "D-OPPOSITE",
+   "down — under": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4709,43 +4717,43 @@ export const questions = [
   "formatType": "WORD_RELATION_TEXT_CHOICE",
   "templateType": "WORD_RELATION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "The lamp glows. Which word means about the same as glows?",
-  "question": "The lamp glows. Which word means about the same as glows?",
-  "spokenPrompt": "The lamp glows. Which word means about the same as glows?",
+  "prompt": "Find two words that mean the same.",
+  "question": "Find two words that mean the same.",
+  "spokenPrompt": "Find two words that mean the same.",
   "choices": [
-   "warms",
-   "shines",
-   "dims",
-   "flickers"
+   "glows — warms",
+   "glows — shines",
+   "glows — dims",
+   "glows — flickers"
   ],
   "answerOptions": [
    {
-    "value": "warms",
-    "label": "warms",
-    "text": "warms"
+    "value": "glows — warms",
+    "label": "glows — warms",
+    "text": "glows — warms"
    },
    {
-    "value": "shines",
-    "label": "shines",
-    "text": "shines"
+    "value": "glows — shines",
+    "label": "glows — shines",
+    "text": "glows — shines"
    },
    {
-    "value": "dims",
-    "label": "dims",
-    "text": "dims"
+    "value": "glows — dims",
+    "label": "glows — dims",
+    "text": "glows — dims"
    },
    {
-    "value": "flickers",
-    "label": "flickers",
-    "text": "flickers"
+    "value": "glows — flickers",
+    "label": "glows — flickers",
+    "text": "glows — flickers"
    }
   ],
-  "answer": "shines",
-  "correctAnswer": "shines",
+  "answer": "glows — shines",
+  "correctAnswer": "glows — shines",
   "distractorRationales": {
-   "dims": "D-OPPOSITE",
-   "flickers": "D-TOPIC-ADJACENT",
-   "warms": "D-SAME-DOMAIN"
+   "glows — dims": "D-OPPOSITE",
+   "glows — flickers": "D-TOPIC-ADJACENT",
+   "glows — warms": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4775,7 +4783,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Compare both members of each word pair."
  },
  {
   "id": "lp3.antonyms_synonyms.l2.R.antonym_precise.v7r",
@@ -5308,5 +5316,1421 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "old gifts ol to folded — a distractor tops, never the key"
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l1.C.antonym_concrete.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "word_relation",
+  "itemKey": "antonym_concrete",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which pair has opposite meanings?",
+  "question": "Which pair has opposite meanings?",
+  "spokenPrompt": "Which pair has opposite meanings?",
+  "choices": [
+   "push — press",
+   "push — shove",
+   "push — nudge",
+   "push — pull"
+  ],
+  "answerOptions": [
+   {
+    "value": "push — press",
+    "label": "push — press",
+    "text": "push — press"
+   },
+   {
+    "value": "push — shove",
+    "label": "push — shove",
+    "text": "push — shove"
+   },
+   {
+    "value": "push — nudge",
+    "label": "push — nudge",
+    "text": "push — nudge"
+   },
+   {
+    "value": "push — pull",
+    "label": "push — pull",
+    "text": "push — pull"
+   }
+  ],
+  "answer": "push — pull",
+  "correctAnswer": "push — pull",
+  "distractorRationales": {
+   "push — press": "D-OPPOSITE",
+   "push — shove": "D-TOPIC-ADJACENT",
+   "push — nudge": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l1.C.antonym_concrete.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Compare both members of each word pair."
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l1.A.antonym_concrete.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "word_relation",
+  "itemKey": "antonym_concrete",
+  "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "A fast car moves quickly. Choose the opposite of fast.",
+  "question": "A fast car moves quickly. Choose the opposite of fast.",
+  "spokenPrompt": "A fast car moves quickly. Choose the opposite of fast.",
+  "choices": [
+   "rapid",
+   "slow",
+   "speedy",
+   "quick"
+  ],
+  "answerOptions": [
+   {
+    "value": "rapid",
+    "label": "rapid",
+    "text": "rapid"
+   },
+   {
+    "value": "slow",
+    "label": "slow",
+    "text": "slow"
+   },
+   {
+    "value": "speedy",
+    "label": "speedy",
+    "text": "speedy"
+   },
+   {
+    "value": "quick",
+    "label": "quick",
+    "text": "quick"
+   }
+  ],
+  "answer": "slow",
+  "correctAnswer": "slow",
+  "distractorRationales": {
+   "speedy": "D-OPPOSITE",
+   "quick": "D-TOPIC-ADJACENT",
+   "rapid": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l1.A.antonym_concrete.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l1.C.synonym_concrete.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "word_relation",
+  "itemKey": "synonym_concrete",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Find two words that mean the same.",
+  "question": "Find two words that mean the same.",
+  "spokenPrompt": "Find two words that mean the same.",
+  "choices": [
+   "near — close",
+   "near — far",
+   "near — above",
+   "near — behind"
+  ],
+  "answerOptions": [
+   {
+    "value": "near — close",
+    "label": "near — close",
+    "text": "near — close"
+   },
+   {
+    "value": "near — far",
+    "label": "near — far",
+    "text": "near — far"
+   },
+   {
+    "value": "near — above",
+    "label": "near — above",
+    "text": "near — above"
+   },
+   {
+    "value": "near — behind",
+    "label": "near — behind",
+    "text": "near — behind"
+   }
+  ],
+  "answer": "near — close",
+  "correctAnswer": "near — close",
+  "distractorRationales": {
+   "near — above": "D-TOPIC-ADJACENT",
+   "near — behind": "D-SAME-DOMAIN",
+   "near — far": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l1.C.synonym_concrete.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Compare both members of each word pair."
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l1.A.synonym_concrete.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "word_relation",
+  "itemKey": "synonym_concrete",
+  "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "The rope is strong. Which word means the same here?",
+  "question": "The rope is strong. Which word means the same here?",
+  "spokenPrompt": "The rope is strong. Which word means the same here?",
+  "choices": [
+   "thick",
+   "stiff",
+   "tough",
+   "weak"
+  ],
+  "answerOptions": [
+   {
+    "value": "thick",
+    "label": "thick",
+    "text": "thick"
+   },
+   {
+    "value": "stiff",
+    "label": "stiff",
+    "text": "stiff"
+   },
+   {
+    "value": "tough",
+    "label": "tough",
+    "text": "tough"
+   },
+   {
+    "value": "weak",
+    "label": "weak",
+    "text": "weak"
+   }
+  ],
+  "answer": "tough",
+  "correctAnswer": "tough",
+  "distractorRationales": {
+   "weak": "D-OPPOSITE",
+   "thick": "D-TOPIC-ADJACENT",
+   "stiff": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l1.A.synonym_concrete.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l1.B.antonym_picture.v8",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "word_relation",
+  "itemKey": "antonym_picture",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which pair has opposite meanings?",
+  "question": "Which pair has opposite meanings?",
+  "spokenPrompt": "Which pair has opposite meanings?",
+  "choices": [
+   "soft — hard",
+   "soft — fluffy",
+   "soft — squishy",
+   "soft — spongy"
+  ],
+  "answerOptions": [
+   {
+    "value": "soft — hard",
+    "label": "soft — hard",
+    "text": "soft — hard"
+   },
+   {
+    "value": "soft — fluffy",
+    "label": "soft — fluffy",
+    "text": "soft — fluffy"
+   },
+   {
+    "value": "soft — squishy",
+    "label": "soft — squishy",
+    "text": "soft — squishy"
+   },
+   {
+    "value": "soft — spongy",
+    "label": "soft — spongy",
+    "text": "soft — spongy"
+   }
+  ],
+  "answer": "soft — hard",
+  "correctAnswer": "soft — hard",
+  "distractorRationales": {
+   "soft — squishy": "D-TOPIC-ADJACENT",
+   "soft — spongy": "D-SAME-DOMAIN",
+   "soft — fluffy": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l1.B.antonym_picture.v8",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Compare both members of each word pair."
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l1.C.antonym_picture.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "word_relation",
+  "itemKey": "antonym_picture",
+  "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "The stone feels smooth. Choose the opposite of smooth.",
+  "question": "The stone feels smooth. Choose the opposite of smooth.",
+  "spokenPrompt": "The stone feels smooth. Choose the opposite of smooth.",
+  "choices": [
+   "even",
+   "rough",
+   "silky",
+   "slick"
+  ],
+  "answerOptions": [
+   {
+    "value": "even",
+    "label": "even",
+    "text": "even"
+   },
+   {
+    "value": "rough",
+    "label": "rough",
+    "text": "rough"
+   },
+   {
+    "value": "silky",
+    "label": "silky",
+    "text": "silky"
+   },
+   {
+    "value": "slick",
+    "label": "slick",
+    "text": "slick"
+   }
+  ],
+  "answer": "rough",
+  "correctAnswer": "rough",
+  "distractorRationales": {
+   "silky": "D-OPPOSITE",
+   "slick": "D-TOPIC-ADJACENT",
+   "even": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l1.C.antonym_picture.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l1.B.synonym_picture.v8",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "word_relation",
+  "itemKey": "synonym_picture",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Find two words that mean the same.",
+  "question": "Find two words that mean the same.",
+  "spokenPrompt": "Find two words that mean the same.",
+  "choices": [
+   "close — turn",
+   "close — shut",
+   "close — open",
+   "close — lift"
+  ],
+  "answerOptions": [
+   {
+    "value": "close — turn",
+    "label": "close — turn",
+    "text": "close — turn"
+   },
+   {
+    "value": "close — shut",
+    "label": "close — shut",
+    "text": "close — shut"
+   },
+   {
+    "value": "close — open",
+    "label": "close — open",
+    "text": "close — open"
+   },
+   {
+    "value": "close — lift",
+    "label": "close — lift",
+    "text": "close — lift"
+   }
+  ],
+  "answer": "close — shut",
+  "correctAnswer": "close — shut",
+  "distractorRationales": {
+   "close — turn": "D-SAME-DOMAIN",
+   "close — open": "D-OPPOSITE",
+   "close — lift": "D-TOPIC-ADJACENT"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l1.B.synonym_picture.v8",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Compare both members of each word pair."
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l1.C.synonym_picture.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "word_relation",
+  "itemKey": "synonym_picture",
+  "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "The child feels ill. Which word means the same here?",
+  "question": "The child feels ill. Which word means the same here?",
+  "spokenPrompt": "The child feels ill. Which word means the same here?",
+  "choices": [
+   "tired",
+   "hungry",
+   "sick",
+   "well"
+  ],
+  "answerOptions": [
+   {
+    "value": "tired",
+    "label": "tired",
+    "text": "tired"
+   },
+   {
+    "value": "hungry",
+    "label": "hungry",
+    "text": "hungry"
+   },
+   {
+    "value": "sick",
+    "label": "sick",
+    "text": "sick"
+   },
+   {
+    "value": "well",
+    "label": "well",
+    "text": "well"
+   }
+  ],
+  "answer": "sick",
+  "correctAnswer": "sick",
+  "distractorRationales": {
+   "well": "D-OPPOSITE",
+   "tired": "D-TOPIC-ADJACENT",
+   "hungry": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l1.C.synonym_picture.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l2.C.antonym_precise.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "word_relation",
+  "itemKey": "antonym_precise",
+  "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word is the opposite of 'carefully'?",
+  "question": "Which word is the opposite of 'carefully'?",
+  "spokenPrompt": "Which word is the opposite of 'carefully'?",
+  "choices": [
+   "slowly",
+   "neatly",
+   "carelessly",
+   "gently"
+  ],
+  "answerOptions": [
+   {
+    "value": "slowly",
+    "label": "slowly",
+    "text": "slowly"
+   },
+   {
+    "value": "neatly",
+    "label": "neatly",
+    "text": "neatly"
+   },
+   {
+    "value": "carelessly",
+    "label": "carelessly",
+    "text": "carelessly"
+   },
+   {
+    "value": "gently",
+    "label": "gently",
+    "text": "gently"
+   }
+  ],
+  "answer": "carelessly",
+  "correctAnswer": "carelessly",
+  "distractorRationales": {
+   "slowly": "D-TOPIC-ADJACENT",
+   "neatly": "D-SAME-DOMAIN",
+   "gently": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l2.C.antonym_precise.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l2.A.antonym_precise.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "word_relation",
+  "itemKey": "antonym_precise",
+  "formatType": "WORD_IN_SENTENCE_SWAP",
+  "templateType": "WORD_IN_SENTENCE_SWAP",
+  "questionType": "multiple_choice",
+  "prompt": "Which opposite word fits: The towel was soaked. Its opposite is completely ___.",
+  "question": "Which opposite word fits: The towel was soaked. Its opposite is completely ___.",
+  "spokenPrompt": "Which opposite word fits? The towel was soaked. Its opposite is completely ….",
+  "sentence": "The towel was soaked. Its opposite is completely ___.",
+  "choices": [
+   "dry",
+   "wet",
+   "damp",
+   "dripping"
+  ],
+  "answerOptions": [
+   {
+    "value": "dry",
+    "label": "dry",
+    "text": "dry"
+   },
+   {
+    "value": "wet",
+    "label": "wet",
+    "text": "wet"
+   },
+   {
+    "value": "damp",
+    "label": "damp",
+    "text": "damp"
+   },
+   {
+    "value": "dripping",
+    "label": "dripping",
+    "text": "dripping"
+   }
+  ],
+  "answer": "dry",
+  "correctAnswer": "dry",
+  "distractorRationales": {
+   "wet": "D-OPPOSITE",
+   "damp": "D-TOPIC-ADJACENT",
+   "dripping": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The towel was soaked. Its opposite is completely ___.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l2.A.antonym_precise.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l2.C.synonym_shade.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "word_relation",
+  "itemKey": "synonym_shade",
+  "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word is closest to 'furious'?",
+  "question": "Which word is closest to 'furious'?",
+  "spokenPrompt": "Which word is closest to 'furious'?",
+  "choices": [
+   "pleased",
+   "worried",
+   "upset",
+   "angry"
+  ],
+  "answerOptions": [
+   {
+    "value": "pleased",
+    "label": "pleased",
+    "text": "pleased"
+   },
+   {
+    "value": "worried",
+    "label": "worried",
+    "text": "worried"
+   },
+   {
+    "value": "upset",
+    "label": "upset",
+    "text": "upset"
+   },
+   {
+    "value": "angry",
+    "label": "angry",
+    "text": "angry"
+   }
+  ],
+  "answer": "angry",
+  "correctAnswer": "angry",
+  "distractorRationales": {
+   "upset": "D-SAME-DOMAIN",
+   "pleased": "D-OPPOSITE",
+   "worried": "D-TOPIC-ADJACENT"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l2.C.synonym_shade.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l2.A.synonym_shade.v10",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "word_relation",
+  "itemKey": "synonym_shade",
+  "formatType": "WORD_IN_SENTENCE_SWAP",
+  "templateType": "WORD_IN_SENTENCE_SWAP",
+  "questionType": "multiple_choice",
+  "prompt": "Which same-meaning word fits best: The puppy was exhausted, meaning very ___.",
+  "question": "Which same-meaning word fits best: The puppy was exhausted, meaning very ___.",
+  "spokenPrompt": "Which same-meaning word fits best? The puppy was exhausted, meaning very ….",
+  "sentence": "The puppy was exhausted, meaning very ___.",
+  "choices": [
+   "quiet",
+   "tired",
+   "lively",
+   "calm"
+  ],
+  "answerOptions": [
+   {
+    "value": "quiet",
+    "label": "quiet",
+    "text": "quiet"
+   },
+   {
+    "value": "tired",
+    "label": "tired",
+    "text": "tired"
+   },
+   {
+    "value": "lively",
+    "label": "lively",
+    "text": "lively"
+   },
+   {
+    "value": "calm",
+    "label": "calm",
+    "text": "calm"
+   }
+  ],
+  "answer": "tired",
+  "correctAnswer": "tired",
+  "distractorRationales": {
+   "quiet": "D-SAME-DOMAIN",
+   "lively": "D-OPPOSITE",
+   "calm": "D-TOPIC-ADJACENT"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The puppy was exhausted, meaning very ___.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l2.A.synonym_shade.v10",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l2.B.antonym_in_context.v8",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "word_relation",
+  "itemKey": "antonym_in_context",
+  "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "The box is heavy. Which pair reverses that meaning?",
+  "question": "The box is heavy. Which pair reverses that meaning?",
+  "spokenPrompt": "The box is heavy. Which pair reverses that meaning?",
+  "choices": [
+   "heavy — full",
+   "heavy — light",
+   "heavy — solid",
+   "heavy — large"
+  ],
+  "answerOptions": [
+   {
+    "value": "heavy — full",
+    "label": "heavy — full",
+    "text": "heavy — full"
+   },
+   {
+    "value": "heavy — light",
+    "label": "heavy — light",
+    "text": "heavy — light"
+   },
+   {
+    "value": "heavy — solid",
+    "label": "heavy — solid",
+    "text": "heavy — solid"
+   },
+   {
+    "value": "heavy — large",
+    "label": "heavy — large",
+    "text": "heavy — large"
+   }
+  ],
+  "answer": "heavy — light",
+  "correctAnswer": "heavy — light",
+  "distractorRationales": {
+   "heavy — solid": "D-OPPOSITE",
+   "heavy — large": "D-TOPIC-ADJACENT",
+   "heavy — full": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l2.B.antonym_in_context.v8",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l2.C.antonym_in_context.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "word_relation",
+  "itemKey": "antonym_in_context",
+  "formatType": "WORD_IN_SENTENCE_SWAP",
+  "templateType": "WORD_IN_SENTENCE_SWAP",
+  "questionType": "multiple_choice",
+  "prompt": "Which opposite word fits: The water rose. Later it did the opposite: it ___.",
+  "question": "Which opposite word fits: The water rose. Later it did the opposite: it ___.",
+  "spokenPrompt": "Which opposite word fits? The water rose. Later it did the opposite: it ….",
+  "sentence": "The water rose. Later it did the opposite: it ___.",
+  "choices": [
+   "fell",
+   "climbed",
+   "flowed",
+   "rippled"
+  ],
+  "answerOptions": [
+   {
+    "value": "fell",
+    "label": "fell",
+    "text": "fell"
+   },
+   {
+    "value": "climbed",
+    "label": "climbed",
+    "text": "climbed"
+   },
+   {
+    "value": "flowed",
+    "label": "flowed",
+    "text": "flowed"
+   },
+   {
+    "value": "rippled",
+    "label": "rippled",
+    "text": "rippled"
+   }
+  ],
+  "answer": "fell",
+  "correctAnswer": "fell",
+  "distractorRationales": {
+   "climbed": "D-OPPOSITE",
+   "flowed": "D-TOPIC-ADJACENT",
+   "rippled": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The water rose. Later it did the opposite: it ___.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l2.C.antonym_in_context.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l2.B.synonym_in_context.v8",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "word_relation",
+  "itemKey": "synonym_in_context",
+  "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "The child was brave. Which pair means the same here?",
+  "question": "The child was brave. Which pair means the same here?",
+  "spokenPrompt": "The child was brave. Which pair means the same here?",
+  "choices": [
+   "brave — careful",
+   "brave — loud",
+   "brave — bold",
+   "brave — fearful"
+  ],
+  "answerOptions": [
+   {
+    "value": "brave — careful",
+    "label": "brave — careful",
+    "text": "brave — careful"
+   },
+   {
+    "value": "brave — loud",
+    "label": "brave — loud",
+    "text": "brave — loud"
+   },
+   {
+    "value": "brave — bold",
+    "label": "brave — bold",
+    "text": "brave — bold"
+   },
+   {
+    "value": "brave — fearful",
+    "label": "brave — fearful",
+    "text": "brave — fearful"
+   }
+  ],
+  "answer": "brave — bold",
+  "correctAnswer": "brave — bold",
+  "distractorRationales": {
+   "brave — loud": "D-SAME-DOMAIN",
+   "brave — fearful": "D-OPPOSITE",
+   "brave — careful": "D-TOPIC-ADJACENT"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l2.B.synonym_in_context.v8",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l2.C.synonym_in_context.v9",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "word_relation",
+  "itemKey": "synonym_in_context",
+  "formatType": "WORD_IN_SENTENCE_SWAP",
+  "templateType": "WORD_IN_SENTENCE_SWAP",
+  "questionType": "multiple_choice",
+  "prompt": "Which same-meaning word fits: He spoke in a quiet voice: a ___ voice.",
+  "question": "Which same-meaning word fits: He spoke in a quiet voice: a ___ voice.",
+  "spokenPrompt": "Which same-meaning word fits? He spoke in a quiet voice: a … voice.",
+  "sentence": "He spoke in a quiet voice: a ___ voice.",
+  "choices": [
+   "high",
+   "soft",
+   "loud",
+   "deep"
+  ],
+  "answerOptions": [
+   {
+    "value": "high",
+    "label": "high",
+    "text": "high"
+   },
+   {
+    "value": "soft",
+    "label": "soft",
+    "text": "soft"
+   },
+   {
+    "value": "loud",
+    "label": "loud",
+    "text": "loud"
+   },
+   {
+    "value": "deep",
+    "label": "deep",
+    "text": "deep"
+   }
+  ],
+  "answer": "soft",
+  "correctAnswer": "soft",
+  "distractorRationales": {
+   "high": "D-SAME-DOMAIN",
+   "loud": "D-OPPOSITE",
+   "deep": "D-TOPIC-ADJACENT"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "He spoke in a quiet voice: a ___ voice.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l2.C.synonym_in_context.v9",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
  }
 ];

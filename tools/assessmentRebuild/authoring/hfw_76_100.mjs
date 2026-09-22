@@ -81,7 +81,6 @@ const lb = (u, lvl, ph, v, sentence, tiles, note = "") => ({
 const FS = "D-FUNCTION-SWAP";
 const VN = "D-VISUAL-NEIGHBOR";
 const DV = "D-DEVELOPMENTAL";
-const HM = "D-HOMOPHONE";
 
 export default {
   skillId: "hfw_76_100",
@@ -92,7 +91,7 @@ export default {
       "the state needs the copular past participle, not another past-participle verb"),
     cz("been", 1, 1, 2, "The paint has ___ wet since lunch.", ["been", "made", "called", "had"], [FS, FS, FS],
       "the state needs the copular past participle, not another past-participle verb"),
-    rf("been", 1, 1, 3, ["been", "bean", "seen", "be"], [HM, VN, VN]),
+    rf("been", 1, 1, 3, ["been", "bend", "seen", "be"], [VN, VN, VN]),
     cz("called", 1, 1, 1, "Mum ___ me, so my phone rang.", ["called", "said", "made", "had"], [FS, FS, FS],
       "the ringing phone identifies the contact action"),
     cz("called", 1, 1, 2, "Pip is our new puppy. We ___ him Pip.", ["called", "did", "had", "said"], [FS, FS, FS],
@@ -128,7 +127,7 @@ export default {
     cz("find", 1, 1, 2, "We must ___ the ball we lost.", ["find", "look", "sit", "use"], [FS, FS, FS],
       "find is the only transitive search verb in the set"),
     rf("find", 1, 1, 3, ["find", "fine", "found", "kind"], [VN, VN, VN]),
-    cz("first", 1, 1, 1, "Lia won because she was the ___ runner.", ["first", "other", "long", "many"], [FS, FS, DV],
+    cz("first", 1, 1, 1, "Lia came ___ in the race and won.", ["first", "other", "long", "many"], [FS, FS, DV],
       "winning pins the runner's rank; many is an unavoidable number-form error"),
     cz("first", 1, 1, 2, "The red team won because it finished ___.", ["first", "down", "out", "up"], [FS, FS, FS],
       "winning pins the finishing rank"),
@@ -200,9 +199,9 @@ export default {
     cz("than", 1, 2, 2, "This box weighs more ___ the red box does.", ["than", "as", "by", "from"], [DV, DV, DV],
       "the comparative clause requires than; the other fillers create form errors"),
     rf("than", 1, 2, 3, ["than", "then", "that", "thin"], [VN, VN, VN]),
-    cz("water", 1, 2, 1, "I was thirsty, so I drank some ___.", ["water", "oil", "words", "number"], [FS, FS, FS],
+    cz("water", 1, 2, 1, "I was thirsty, so I drank some ___.", ["water", "oil", "time", "words"], [FS, FS, FS],
       "thirst and drinking make water functional"),
-    cz("water", 1, 2, 2, "The plants need ___ every day.", ["water", "oil", "part", "words"], [FS, FS, FS],
+    cz("water", 1, 2, 2, "The plants need ___ every day.", ["water", "oil", "number", "part"], [FS, FS, FS],
       "daily plant care pins water"),
     rf("water", 1, 2, 3, ["water", "waiter", "winter", "wonder"], [VN, VN, VN]),
     cz("way", 1, 2, 1, "Show me the ___ home.", ["way", "time", "part", "water"], [FS, FS, FS],
@@ -283,7 +282,7 @@ export default {
     lb("sit", 2, 2, 2, "Cats ___ where they please.", ["s", "i", "t", "e"]),
     sp("than", 2, 2, 1, "Silk is softer ___ wool.", ["t", "h", "a", "n", "e"],
       "then's e is present — the a is the work"),
-    lb("than", 2, 2, 2, "Ice is colder ___ snow.", ["t", "h", "a", "n", "e"]),
+    lb("than", 2, 2, 2, "A bus is bigger ___ a car.", ["t", "h", "a", "n", "e"]),
     sp("water", 2, 2, 1, "Fill the trough with ___.", ["w", "a", "t", "e", "r", "o"],
       "wotter tempts — the a is the work"),
     lb("water", 2, 2, 2, "The ___ froze overnight.", ["w", "a", "t", "e", "r", "o"]),

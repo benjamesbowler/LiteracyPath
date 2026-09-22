@@ -206,16 +206,16 @@ export const questions = [
   "spokenPrompt": "Which doing word fits? We … when the song ends.",
   "sentence": "We ___ when the song ends.",
   "choices": [
-   "drum",
+   "drummer",
    "tent",
    "fork",
    "clap"
   ],
   "answerOptions": [
    {
-    "value": "drum",
-    "label": "drum",
-    "text": "drum"
+    "value": "drummer",
+    "label": "drummer",
+    "text": "drummer"
    },
    {
     "value": "tent",
@@ -236,7 +236,7 @@ export const questions = [
   "answer": "clap",
   "correctAnswer": "clap",
   "distractorRationales": {
-   "drum": "D-FUNCTION-SWAP",
+   "drummer": "D-FUNCTION-SWAP",
    "tent": "D-FUNCTION-SWAP",
    "fork": "D-FUNCTION-SWAP"
   },
@@ -269,7 +269,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the drum is the trap — you PLAY it, but the card names a thing"
+  "notes": "drummer names the person; clap alone can fill the action slot"
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_body.v4",
@@ -291,26 +291,26 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which doing word fits: We ___ over a puddle.",
-  "question": "Which doing word fits: We ___ over a puddle.",
-  "spokenPrompt": "Which doing word fits? We … over a puddle.",
-  "sentence": "We ___ over a puddle.",
+  "prompt": "Which word tells the action? I jump over a puddle.",
+  "question": "Which word tells the action? I jump over a puddle.",
+  "spokenPrompt": "Which word tells the action? I jump over a puddle.",
+  "sentence": "I jump over a puddle.",
   "choices": [
-   "red",
-   "hat",
+   "over",
+   "puddle",
    "jump",
-   "bed"
+   "I"
   ],
   "answerOptions": [
    {
-    "value": "red",
-    "label": "red",
-    "text": "red"
+    "value": "over",
+    "label": "over",
+    "text": "over"
    },
    {
-    "value": "hat",
-    "label": "hat",
-    "text": "hat"
+    "value": "puddle",
+    "label": "puddle",
+    "text": "puddle"
    },
    {
     "value": "jump",
@@ -318,17 +318,17 @@ export const questions = [
     "text": "jump"
    },
    {
-    "value": "bed",
-    "label": "bed",
-    "text": "bed"
+    "value": "I",
+    "label": "I",
+    "text": "I"
    }
   ],
   "answer": "jump",
   "correctAnswer": "jump",
   "distractorRationales": {
-   "hat": "D-FUNCTION-SWAP",
-   "bed": "D-FUNCTION-SWAP",
-   "red": "D-FUNCTION-SWAP"
+   "puddle": "D-FUNCTION-SWAP",
+   "I": "D-FUNCTION-SWAP",
+   "over": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -338,7 +338,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "We ___ over a puddle.",
+  "sentenceText": "I jump over a puddle.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -359,7 +359,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the action among words from the same sentence."
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_body.v5",
@@ -381,21 +381,21 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which doing word fits: We ___ around the track.",
-  "question": "Which doing word fits: We ___ around the track.",
-  "spokenPrompt": "Which doing word fits? We … around the track.",
-  "sentence": "We ___ around the track.",
+  "prompt": "Which word tells the action? We run around the track.",
+  "question": "Which word tells the action? We run around the track.",
+  "spokenPrompt": "Which word tells the action? We run around the track.",
+  "sentence": "We run around the track.",
   "choices": [
-   "bun",
+   "track",
    "run",
-   "sun",
-   "fun"
+   "we",
+   "around"
   ],
   "answerOptions": [
    {
-    "value": "bun",
-    "label": "bun",
-    "text": "bun"
+    "value": "track",
+    "label": "track",
+    "text": "track"
    },
    {
     "value": "run",
@@ -403,22 +403,22 @@ export const questions = [
     "text": "run"
    },
    {
-    "value": "sun",
-    "label": "sun",
-    "text": "sun"
+    "value": "we",
+    "label": "we",
+    "text": "we"
    },
    {
-    "value": "fun",
-    "label": "fun",
-    "text": "fun"
+    "value": "around",
+    "label": "around",
+    "text": "around"
    }
   ],
   "answer": "run",
   "correctAnswer": "run",
   "distractorRationales": {
-   "sun": "D-FUNCTION-SWAP",
-   "fun": "D-FUNCTION-SWAP",
-   "bun": "D-FUNCTION-SWAP"
+   "we": "D-FUNCTION-SWAP",
+   "around": "D-FUNCTION-SWAP",
+   "track": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -428,7 +428,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "We ___ around the track.",
+  "sentenceText": "We run around the track.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -449,7 +449,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "a rhyming panel — only the grammar separates them"
+  "notes": "Run names the action; the remaining choices give the people, relation and place."
  },
  {
   "id": "lp3.verbs.l1.C.verb_action_body.v6",
@@ -471,15 +471,15 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which doing word fits: I ___ the ball toward the goal.",
-  "question": "Which doing word fits: I ___ the ball toward the goal.",
-  "spokenPrompt": "Which doing word fits? I … the ball toward the goal.",
-  "sentence": "I ___ the ball toward the goal.",
+  "prompt": "Which word tells the action? I kick the ball hard.",
+  "question": "Which word tells the action? I kick the ball hard.",
+  "spokenPrompt": "Which word tells the action? I kick the ball hard.",
+  "sentence": "I kick the ball hard.",
   "choices": [
    "kick",
-   "shoe",
-   "leg",
-   "shin"
+   "I",
+   "ball",
+   "hard"
   ],
   "answerOptions": [
    {
@@ -488,27 +488,27 @@ export const questions = [
     "text": "kick"
    },
    {
-    "value": "shoe",
-    "label": "shoe",
-    "text": "shoe"
+    "value": "I",
+    "label": "I",
+    "text": "I"
    },
    {
-    "value": "leg",
-    "label": "leg",
-    "text": "leg"
+    "value": "ball",
+    "label": "ball",
+    "text": "ball"
    },
    {
-    "value": "shin",
-    "label": "shin",
-    "text": "shin"
+    "value": "hard",
+    "label": "hard",
+    "text": "hard"
    }
   ],
   "answer": "kick",
   "correctAnswer": "kick",
   "distractorRationales": {
-   "shin": "D-FUNCTION-SWAP",
-   "shoe": "D-FUNCTION-SWAP",
-   "leg": "D-FUNCTION-SWAP"
+   "hard": "D-FUNCTION-SWAP",
+   "I": "D-FUNCTION-SWAP",
+   "ball": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -518,7 +518,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "I ___ the ball toward the goal.",
+  "sentenceText": "I kick the ball hard.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -539,7 +539,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the action among words from the same sentence."
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_body.v7",
@@ -651,21 +651,21 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which doing word fits: We ___ down the path.",
-  "question": "Which doing word fits: We ___ down the path.",
-  "spokenPrompt": "Which doing word fits? We … down the path.",
-  "sentence": "We ___ down the path.",
+  "prompt": "Which word tells the action? We skip down the path.",
+  "question": "Which word tells the action? We skip down the path.",
+  "spokenPrompt": "Which word tells the action? We skip down the path.",
+  "sentence": "We skip down the path.",
   "choices": [
-   "shoe",
+   "down",
    "path",
    "skip",
-   "rope"
+   "we"
   ],
   "answerOptions": [
    {
-    "value": "shoe",
-    "label": "shoe",
-    "text": "shoe"
+    "value": "down",
+    "label": "down",
+    "text": "down"
    },
    {
     "value": "path",
@@ -678,17 +678,17 @@ export const questions = [
     "text": "skip"
    },
    {
-    "value": "rope",
-    "label": "rope",
-    "text": "rope"
+    "value": "we",
+    "label": "we",
+    "text": "we"
    }
   ],
   "answer": "skip",
   "correctAnswer": "skip",
   "distractorRationales": {
-   "shoe": "D-FUNCTION-SWAP",
+   "down": "D-FUNCTION-SWAP",
    "path": "D-FUNCTION-SWAP",
-   "rope": "D-FUNCTION-SWAP"
+   "we": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -698,7 +698,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "We ___ down the path.",
+  "sentenceText": "We skip down the path.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -719,7 +719,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the action among words from the same sentence."
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_object.v1",
@@ -1011,21 +1011,21 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which doing word fits: Please ___ the paper in half.",
-  "question": "Which doing word fits: Please ___ the paper in half.",
-  "spokenPrompt": "Which doing word fits? Please … the paper in half.",
-  "sentence": "Please ___ the paper in half.",
+  "prompt": "Which word tells the action? I cut the paper carefully.",
+  "question": "Which word tells the action? I cut the paper carefully.",
+  "spokenPrompt": "Which word tells the action? I cut the paper carefully.",
+  "sentence": "I cut the paper carefully.",
   "choices": [
-   "cot",
+   "carefully",
    "cut",
-   "cup",
-   "cap"
+   "I",
+   "paper"
   ],
   "answerOptions": [
    {
-    "value": "cot",
-    "label": "cot",
-    "text": "cot"
+    "value": "carefully",
+    "label": "carefully",
+    "text": "carefully"
    },
    {
     "value": "cut",
@@ -1033,22 +1033,22 @@ export const questions = [
     "text": "cut"
    },
    {
-    "value": "cup",
-    "label": "cup",
-    "text": "cup"
+    "value": "I",
+    "label": "I",
+    "text": "I"
    },
    {
-    "value": "cap",
-    "label": "cap",
-    "text": "cap"
+    "value": "paper",
+    "label": "paper",
+    "text": "paper"
    }
   ],
   "answer": "cut",
   "correctAnswer": "cut",
   "distractorRationales": {
-   "cap": "D-FUNCTION-SWAP",
-   "cot": "D-FUNCTION-SWAP",
-   "cup": "D-FUNCTION-SWAP"
+   "paper": "D-FUNCTION-SWAP",
+   "carefully": "D-FUNCTION-SWAP",
+   "I": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1058,7 +1058,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Please ___ the paper in half.",
+  "sentenceText": "I cut the paper carefully.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1079,7 +1079,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the action among words from the same sentence."
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_object.v5",
@@ -1101,15 +1101,15 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which doing word fits: Please ___ the milk into the cup.",
-  "question": "Which doing word fits: Please ___ the milk into the cup.",
-  "spokenPrompt": "Which doing word fits? Please … the milk into the cup.",
-  "sentence": "Please ___ the milk into the cup.",
+  "prompt": "Which word tells the action? We pour milk into cups.",
+  "question": "Which word tells the action? We pour milk into cups.",
+  "spokenPrompt": "Which word tells the action? We pour milk into cups.",
+  "sentence": "We pour milk into cups.",
   "choices": [
    "pour",
-   "cold",
-   "white",
-   "warm"
+   "milk",
+   "into",
+   "cups"
   ],
   "answerOptions": [
    {
@@ -1118,27 +1118,27 @@ export const questions = [
     "text": "pour"
    },
    {
-    "value": "cold",
-    "label": "cold",
-    "text": "cold"
+    "value": "milk",
+    "label": "milk",
+    "text": "milk"
    },
    {
-    "value": "white",
-    "label": "white",
-    "text": "white"
+    "value": "into",
+    "label": "into",
+    "text": "into"
    },
    {
-    "value": "warm",
-    "label": "warm",
-    "text": "warm"
+    "value": "cups",
+    "label": "cups",
+    "text": "cups"
    }
   ],
   "answer": "pour",
   "correctAnswer": "pour",
   "distractorRationales": {
-   "cold": "D-FUNCTION-SWAP",
-   "white": "D-FUNCTION-SWAP",
-   "warm": "D-FUNCTION-SWAP"
+   "milk": "D-FUNCTION-SWAP",
+   "into": "D-FUNCTION-SWAP",
+   "cups": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1148,7 +1148,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Please ___ the milk into the cup.",
+  "sentenceText": "We pour milk into cups.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1169,7 +1169,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the action among words from the same sentence."
  },
  {
   "id": "lp3.verbs.l1.C.verb_action_object.v6",
@@ -1191,26 +1191,26 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which doing word fits: Please ___ the card in half.",
-  "question": "Which doing word fits: Please ___ the card in half.",
-  "spokenPrompt": "Which doing word fits? Please … the card in half.",
-  "sentence": "Please ___ the card in half.",
+  "prompt": "Which word tells the action? I fold the red card.",
+  "question": "Which word tells the action? I fold the red card.",
+  "spokenPrompt": "Which word tells the action? I fold the red card.",
+  "sentence": "I fold the red card.",
   "choices": [
-   "sock",
-   "flag",
+   "red",
+   "card",
    "fold",
-   "card"
+   "I"
   ],
   "answerOptions": [
    {
-    "value": "sock",
-    "label": "sock",
-    "text": "sock"
+    "value": "red",
+    "label": "red",
+    "text": "red"
    },
    {
-    "value": "flag",
-    "label": "flag",
-    "text": "flag"
+    "value": "card",
+    "label": "card",
+    "text": "card"
    },
    {
     "value": "fold",
@@ -1218,17 +1218,17 @@ export const questions = [
     "text": "fold"
    },
    {
-    "value": "card",
-    "label": "card",
-    "text": "card"
+    "value": "I",
+    "label": "I",
+    "text": "I"
    }
   ],
   "answer": "fold",
   "correctAnswer": "fold",
   "distractorRationales": {
-   "sock": "D-FUNCTION-SWAP",
-   "flag": "D-FUNCTION-SWAP",
-   "card": "D-FUNCTION-SWAP"
+   "red": "D-FUNCTION-SWAP",
+   "card": "D-FUNCTION-SWAP",
+   "I": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1238,7 +1238,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Please ___ the card in half.",
+  "sentenceText": "I fold the red card.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1259,7 +1259,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the action among words from the same sentence."
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_object.v7",
@@ -1371,15 +1371,15 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which doing word fits: Please ___ the heavy rug.",
-  "question": "Which doing word fits: Please ___ the heavy rug.",
-  "spokenPrompt": "Which doing word fits? Please … the heavy rug.",
-  "sentence": "Please ___ the heavy rug.",
+  "prompt": "Which word tells the action? We lift the heavy rug.",
+  "question": "Which word tells the action? We lift the heavy rug.",
+  "spokenPrompt": "Which word tells the action? We lift the heavy rug.",
+  "sentence": "We lift the heavy rug.",
   "choices": [
    "rug",
    "lift",
-   "apple",
-   "moon"
+   "we",
+   "heavy"
   ],
   "answerOptions": [
    {
@@ -1393,22 +1393,22 @@ export const questions = [
     "text": "lift"
    },
    {
-    "value": "apple",
-    "label": "apple",
-    "text": "apple"
+    "value": "we",
+    "label": "we",
+    "text": "we"
    },
    {
-    "value": "moon",
-    "label": "moon",
-    "text": "moon"
+    "value": "heavy",
+    "label": "heavy",
+    "text": "heavy"
    }
   ],
   "answer": "lift",
   "correctAnswer": "lift",
   "distractorRationales": {
    "rug": "D-FUNCTION-SWAP",
-   "apple": "D-FUNCTION-SWAP",
-   "moon": "D-FUNCTION-SWAP"
+   "we": "D-FUNCTION-SWAP",
+   "heavy": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1418,7 +1418,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Please ___ the heavy rug.",
+  "sentenceText": "We lift the heavy rug.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1439,7 +1439,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the action among words from the same sentence."
  },
  {
   "id": "lp3.verbs.l1.A.verb_everyday.v1",
@@ -1731,15 +1731,15 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which doing word fits: We ___ a song together.",
-  "question": "Which doing word fits: We ___ a song together.",
-  "spokenPrompt": "Which doing word fits? We … a song together.",
-  "sentence": "We ___ a song together.",
+  "prompt": "Which word tells the action? We sing a happy song.",
+  "question": "Which word tells the action? We sing a happy song.",
+  "spokenPrompt": "Which word tells the action? We sing a happy song.",
+  "sentence": "We sing a happy song.",
   "choices": [
    "sing",
-   "song",
-   "sun",
-   "hat"
+   "we",
+   "happy",
+   "song"
   ],
   "answerOptions": [
    {
@@ -1748,27 +1748,27 @@ export const questions = [
     "text": "sing"
    },
    {
+    "value": "we",
+    "label": "we",
+    "text": "we"
+   },
+   {
+    "value": "happy",
+    "label": "happy",
+    "text": "happy"
+   },
+   {
     "value": "song",
     "label": "song",
     "text": "song"
-   },
-   {
-    "value": "sun",
-    "label": "sun",
-    "text": "sun"
-   },
-   {
-    "value": "hat",
-    "label": "hat",
-    "text": "hat"
    }
   ],
   "answer": "sing",
   "correctAnswer": "sing",
   "distractorRationales": {
-   "hat": "D-FUNCTION-SWAP",
    "song": "D-FUNCTION-SWAP",
-   "sun": "D-FUNCTION-SWAP"
+   "we": "D-FUNCTION-SWAP",
+   "happy": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1778,7 +1778,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "We ___ a song together.",
+  "sentenceText": "We sing a happy song.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1799,7 +1799,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the action among words from the same sentence."
  },
  {
   "id": "lp3.verbs.l1.B.verb_everyday.v5",
@@ -1821,31 +1821,31 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which doing word fits: We ___ our hands before lunch.",
-  "question": "Which doing word fits: We ___ our hands before lunch.",
-  "spokenPrompt": "Which doing word fits? We … our hands before lunch.",
-  "sentence": "We ___ our hands before lunch.",
+  "prompt": "Which word tells the action? I wash my muddy hands.",
+  "question": "Which word tells the action? I wash my muddy hands.",
+  "spokenPrompt": "Which word tells the action? I wash my muddy hands.",
+  "sentence": "I wash my muddy hands.",
   "choices": [
-   "sink",
-   "tub",
-   "hat",
+   "my",
+   "muddy",
+   "hands",
    "wash"
   ],
   "answerOptions": [
    {
-    "value": "sink",
-    "label": "sink",
-    "text": "sink"
+    "value": "my",
+    "label": "my",
+    "text": "my"
    },
    {
-    "value": "tub",
-    "label": "tub",
-    "text": "tub"
+    "value": "muddy",
+    "label": "muddy",
+    "text": "muddy"
    },
    {
-    "value": "hat",
-    "label": "hat",
-    "text": "hat"
+    "value": "hands",
+    "label": "hands",
+    "text": "hands"
    },
    {
     "value": "wash",
@@ -1856,9 +1856,9 @@ export const questions = [
   "answer": "wash",
   "correctAnswer": "wash",
   "distractorRationales": {
-   "hat": "D-FUNCTION-SWAP",
-   "sink": "D-FUNCTION-SWAP",
-   "tub": "D-FUNCTION-SWAP"
+   "hands": "D-FUNCTION-SWAP",
+   "my": "D-FUNCTION-SWAP",
+   "muddy": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1868,7 +1868,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "We ___ our hands before lunch.",
+  "sentenceText": "I wash my muddy hands.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1889,7 +1889,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the action among words from the same sentence."
  },
  {
   "id": "lp3.verbs.l1.C.verb_everyday.v6",
@@ -1911,15 +1911,15 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which doing word fits: Babies ___ after lunch.",
-  "question": "Which doing word fits: Babies ___ after lunch.",
-  "spokenPrompt": "Which doing word fits? Babies … after lunch.",
-  "sentence": "Babies ___ after lunch.",
+  "prompt": "Which word tells the action? Babies nap after their lunch.",
+  "question": "Which word tells the action? Babies nap after their lunch.",
+  "spokenPrompt": "Which word tells the action? Babies nap after their lunch.",
+  "sentence": "Babies nap after their lunch.",
   "choices": [
    "nap",
-   "cot",
-   "rug",
-   "pup"
+   "babies",
+   "after",
+   "lunch"
   ],
   "answerOptions": [
    {
@@ -1928,27 +1928,27 @@ export const questions = [
     "text": "nap"
    },
    {
-    "value": "cot",
-    "label": "cot",
-    "text": "cot"
+    "value": "babies",
+    "label": "babies",
+    "text": "babies"
    },
    {
-    "value": "rug",
-    "label": "rug",
-    "text": "rug"
+    "value": "after",
+    "label": "after",
+    "text": "after"
    },
    {
-    "value": "pup",
-    "label": "pup",
-    "text": "pup"
+    "value": "lunch",
+    "label": "lunch",
+    "text": "lunch"
    }
   ],
   "answer": "nap",
   "correctAnswer": "nap",
   "distractorRationales": {
-   "pup": "D-FUNCTION-SWAP",
-   "cot": "D-FUNCTION-SWAP",
-   "rug": "D-FUNCTION-SWAP"
+   "lunch": "D-FUNCTION-SWAP",
+   "babies": "D-FUNCTION-SWAP",
+   "after": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1958,7 +1958,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Babies ___ after lunch.",
+  "sentenceText": "Babies nap after their lunch.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1979,7 +1979,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the action among words from the same sentence."
  },
  {
   "id": "lp3.verbs.l1.A.verb_everyday.v7",
@@ -2069,7 +2069,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "pin ties the in/doing overlap"
+  "notes": "Drink names the action that fits water and thirst."
  },
  {
   "id": "lp3.verbs.l1.B.verb_everyday.v8",
@@ -2091,15 +2091,15 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which doing word fits: We ___ our teeth each morning.",
-  "question": "Which doing word fits: We ___ our teeth each morning.",
-  "spokenPrompt": "Which doing word fits? We … our teeth each morning.",
-  "sentence": "We ___ our teeth each morning.",
+  "prompt": "Which word tells the action? We brush our teeth daily.",
+  "question": "Which word tells the action? We brush our teeth daily.",
+  "spokenPrompt": "Which word tells the action? We brush our teeth daily.",
+  "sentence": "We brush our teeth daily.",
   "choices": [
    "brush",
+   "our",
    "teeth",
-   "soap",
-   "hair"
+   "daily"
   ],
   "answerOptions": [
    {
@@ -2108,27 +2108,27 @@ export const questions = [
     "text": "brush"
    },
    {
+    "value": "our",
+    "label": "our",
+    "text": "our"
+   },
+   {
     "value": "teeth",
     "label": "teeth",
     "text": "teeth"
    },
    {
-    "value": "soap",
-    "label": "soap",
-    "text": "soap"
-   },
-   {
-    "value": "hair",
-    "label": "hair",
-    "text": "hair"
+    "value": "daily",
+    "label": "daily",
+    "text": "daily"
    }
   ],
   "answer": "brush",
   "correctAnswer": "brush",
   "distractorRationales": {
+   "our": "D-FUNCTION-SWAP",
    "teeth": "D-FUNCTION-SWAP",
-   "soap": "D-FUNCTION-SWAP",
-   "hair": "D-FUNCTION-SWAP"
+   "daily": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2138,7 +2138,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "We ___ our teeth each morning.",
+  "sentenceText": "We brush our teeth daily.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -2366,21 +2366,21 @@ export const questions = [
   "spokenPrompt": "Which doing word fits? Please … the door quietly.",
   "sentence": "Please ___ the door quietly.",
   "choices": [
-   "hinge",
-   "knob",
+   "hinges",
+   "doorknob",
    "shut",
    "loud"
   ],
   "answerOptions": [
    {
-    "value": "hinge",
-    "label": "hinge",
-    "text": "hinge"
+    "value": "hinges",
+    "label": "hinges",
+    "text": "hinges"
    },
    {
-    "value": "knob",
-    "label": "knob",
-    "text": "knob"
+    "value": "doorknob",
+    "label": "doorknob",
+    "text": "doorknob"
    },
    {
     "value": "shut",
@@ -2396,9 +2396,9 @@ export const questions = [
   "answer": "shut",
   "correctAnswer": "shut",
   "distractorRationales": {
-   "knob": "D-FUNCTION-SWAP",
+   "doorknob": "D-FUNCTION-SWAP",
    "loud": "D-FUNCTION-SWAP",
-   "hinge": "D-FUNCTION-SWAP"
+   "hinges": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3695,10 +3695,10 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which doing word fits best: The soup ___ in the pot until bubbles rose.",
-  "question": "Which doing word fits best: The soup ___ in the pot until bubbles rose.",
-  "spokenPrompt": "Which doing word fits best? The soup … in the pot until bubbles rose.",
-  "sentence": "The soup ___ in the pot until bubbles rose.",
+  "prompt": "Which doing word fits best: The soup ___, making bubbles as it got very hot.",
+  "question": "Which doing word fits best: The soup ___, making bubbles as it got very hot.",
+  "spokenPrompt": "Which doing word fits best? The soup …, making bubbles as it got very hot.",
+  "sentence": "The soup ___, making bubbles as it got very hot.",
   "choices": [
    "froze",
    "sat",
@@ -3742,7 +3742,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The soup ___ in the pot until bubbles rose.",
+  "sentenceText": "The soup ___, making bubbles as it got very hot.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3969,9 +3969,9 @@ export const questions = [
   "sentence": "The snail ___ slowly, leaving a silver line.",
   "choices": [
    "crawled",
-   "raced",
-   "hopped",
-   "flew"
+   "rested",
+   "hid",
+   "waited"
   ],
   "answerOptions": [
    {
@@ -3980,27 +3980,27 @@ export const questions = [
     "text": "crawled"
    },
    {
-    "value": "raced",
-    "label": "raced",
-    "text": "raced"
+    "value": "rested",
+    "label": "rested",
+    "text": "rested"
    },
    {
-    "value": "hopped",
-    "label": "hopped",
-    "text": "hopped"
+    "value": "hid",
+    "label": "hid",
+    "text": "hid"
    },
    {
-    "value": "flew",
-    "label": "flew",
-    "text": "flew"
+    "value": "waited",
+    "label": "waited",
+    "text": "waited"
    }
   ],
   "answer": "crawled",
   "correctAnswer": "crawled",
   "distractorRationales": {
-   "raced": "D-PLAUSIBLE-UNSUPPORTED",
-   "hopped": "D-PLAUSIBLE-UNSUPPORTED",
-   "flew": "D-PLAUSIBLE-UNSUPPORTED"
+   "rested": "D-PLAUSIBLE-UNSUPPORTED",
+   "hid": "D-PLAUSIBLE-UNSUPPORTED",
+   "waited": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4321,15 +4321,15 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which doing word fits: We ___ before a race.",
-  "question": "Which doing word fits: We ___ before a race.",
-  "spokenPrompt": "Which doing word fits? We … before a race.",
-  "sentence": "We ___ before a race.",
+  "prompt": "Which word tells the action? I stretch before breakfast.",
+  "question": "Which word tells the action? I stretch before breakfast.",
+  "spokenPrompt": "Which word tells the action? I stretch before breakfast.",
+  "sentence": "I stretch before breakfast.",
   "choices": [
    "stretch",
-   "arm",
-   "mat",
-   "chin"
+   "I",
+   "before",
+   "breakfast"
   ],
   "answerOptions": [
    {
@@ -4338,27 +4338,27 @@ export const questions = [
     "text": "stretch"
    },
    {
-    "value": "arm",
-    "label": "arm",
-    "text": "arm"
+    "value": "I",
+    "label": "I",
+    "text": "I"
    },
    {
-    "value": "mat",
-    "label": "mat",
-    "text": "mat"
+    "value": "before",
+    "label": "before",
+    "text": "before"
    },
    {
-    "value": "chin",
-    "label": "chin",
-    "text": "chin"
+    "value": "breakfast",
+    "label": "breakfast",
+    "text": "breakfast"
    }
   ],
   "answer": "stretch",
   "correctAnswer": "stretch",
   "distractorRationales": {
-   "arm": "D-FUNCTION-SWAP",
-   "mat": "D-FUNCTION-SWAP",
-   "chin": "D-FUNCTION-SWAP"
+   "I": "D-FUNCTION-SWAP",
+   "before": "D-FUNCTION-SWAP",
+   "breakfast": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4368,7 +4368,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "We ___ before a race.",
+  "sentenceText": "I stretch before breakfast.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4389,7 +4389,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "chin ties the ch/which overlap"
+  "notes": "The complete sentence distinguishes the action from its surrounding words."
  },
  {
   "id": "lp3.verbs.l1.R.verb_action_object.v9r",
@@ -4501,26 +4501,26 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which doing word fits: We ___ when we feel tired.",
-  "question": "Which doing word fits: We ___ when we feel tired.",
-  "spokenPrompt": "Which doing word fits? We … when we feel tired.",
-  "sentence": "We ___ when we feel tired.",
+  "prompt": "Which word tells the action? We yawn after a long day.",
+  "question": "Which word tells the action? We yawn after a long day.",
+  "spokenPrompt": "Which word tells the action? We yawn after a long day.",
+  "sentence": "We yawn after a long day.",
   "choices": [
-   "clock",
-   "moon",
+   "long",
+   "day",
    "yawn",
-   "quilt"
+   "we"
   ],
   "answerOptions": [
    {
-    "value": "clock",
-    "label": "clock",
-    "text": "clock"
+    "value": "long",
+    "label": "long",
+    "text": "long"
    },
    {
-    "value": "moon",
-    "label": "moon",
-    "text": "moon"
+    "value": "day",
+    "label": "day",
+    "text": "day"
    },
    {
     "value": "yawn",
@@ -4528,17 +4528,17 @@ export const questions = [
     "text": "yawn"
    },
    {
-    "value": "quilt",
-    "label": "quilt",
-    "text": "quilt"
+    "value": "we",
+    "label": "we",
+    "text": "we"
    }
   ],
   "answer": "yawn",
   "correctAnswer": "yawn",
   "distractorRationales": {
-   "moon": "D-FUNCTION-SWAP",
-   "quilt": "D-FUNCTION-SWAP",
-   "clock": "D-FUNCTION-SWAP"
+   "day": "D-FUNCTION-SWAP",
+   "we": "D-FUNCTION-SWAP",
+   "long": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4548,7 +4548,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "We ___ when we feel tired.",
+  "sentenceText": "We yawn after a long day.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4569,7 +4569,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the action among words from the same sentence."
  },
  {
   "id": "lp3.verbs.l2.R.verb_in_sentence.v9r",
@@ -4769,31 +4769,31 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which doing word fits best: The ice ___ slowly in the warm sun.",
-  "question": "Which doing word fits best: The ice ___ slowly in the warm sun.",
-  "spokenPrompt": "Which doing word fits best? The ice … slowly in the warm sun.",
-  "sentence": "The ice ___ slowly in the warm sun.",
+  "prompt": "Which doing word fits best: The ice ___ into water in the sun.",
+  "question": "Which doing word fits best: The ice ___ into water in the sun.",
+  "spokenPrompt": "Which doing word fits best? The ice … into water in the sun.",
+  "sentence": "The ice ___ into water in the sun.",
   "choices": [
-   "grew",
-   "sang",
-   "slept",
+   "froze",
+   "cracked",
+   "drifted",
    "melted"
   ],
   "answerOptions": [
    {
-    "value": "grew",
-    "label": "grew",
-    "text": "grew"
+    "value": "froze",
+    "label": "froze",
+    "text": "froze"
    },
    {
-    "value": "sang",
-    "label": "sang",
-    "text": "sang"
+    "value": "cracked",
+    "label": "cracked",
+    "text": "cracked"
    },
    {
-    "value": "slept",
-    "label": "slept",
-    "text": "slept"
+    "value": "drifted",
+    "label": "drifted",
+    "text": "drifted"
    },
    {
     "value": "melted",
@@ -4804,9 +4804,9 @@ export const questions = [
   "answer": "melted",
   "correctAnswer": "melted",
   "distractorRationales": {
-   "grew": "D-PLAUSIBLE-UNSUPPORTED",
-   "sang": "D-PLAUSIBLE-UNSUPPORTED",
-   "slept": "D-PLAUSIBLE-UNSUPPORTED"
+   "froze": "D-PLAUSIBLE-UNSUPPORTED",
+   "cracked": "D-PLAUSIBLE-UNSUPPORTED",
+   "drifted": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4816,7 +4816,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The ice ___ slowly in the warm sun.",
+  "sentenceText": "The ice ___ into water in the sun.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4859,31 +4859,31 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which doing word fits: We ___ the gift with ribbon.",
-  "question": "Which doing word fits: We ___ the gift with ribbon.",
-  "spokenPrompt": "Which doing word fits? We … the gift with ribbon.",
-  "sentence": "We ___ the gift with ribbon.",
+  "prompt": "Which word tells the action? We wrap a small gift.",
+  "question": "Which word tells the action? We wrap a small gift.",
+  "spokenPrompt": "Which word tells the action? We wrap a small gift.",
+  "sentence": "We wrap a small gift.",
   "choices": [
-   "hat",
-   "cup",
-   "sun",
+   "we",
+   "small",
+   "gift",
    "wrap"
   ],
   "answerOptions": [
    {
-    "value": "hat",
-    "label": "hat",
-    "text": "hat"
+    "value": "we",
+    "label": "we",
+    "text": "we"
    },
    {
-    "value": "cup",
-    "label": "cup",
-    "text": "cup"
+    "value": "small",
+    "label": "small",
+    "text": "small"
    },
    {
-    "value": "sun",
-    "label": "sun",
-    "text": "sun"
+    "value": "gift",
+    "label": "gift",
+    "text": "gift"
    },
    {
     "value": "wrap",
@@ -4894,9 +4894,9 @@ export const questions = [
   "answer": "wrap",
   "correctAnswer": "wrap",
   "distractorRationales": {
-   "cup": "D-FUNCTION-SWAP",
-   "sun": "D-FUNCTION-SWAP",
-   "hat": "D-FUNCTION-SWAP"
+   "small": "D-FUNCTION-SWAP",
+   "gift": "D-FUNCTION-SWAP",
+   "we": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4906,7 +4906,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "We ___ the gift with ribbon.",
+  "sentenceText": "We wrap a small gift.",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4927,7 +4927,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Identify the action among words from the same sentence."
  },
  {
   "id": "lp3.verbs.l1.R.verb_everyday.v10r",
@@ -5183,6 +5183,1442 @@ export const questions = [
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.R.verb_precision.v10r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.verbs.l1.A.verb_everyday.v11",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_everyday",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which doing word fits: Please ___ your nose using a tissue.",
+  "question": "Which doing word fits: Please ___ your nose using a tissue.",
+  "spokenPrompt": "Which doing word fits? Please … your nose using a tissue.",
+  "sentence": "Please ___ your nose using a tissue.",
+  "choices": [
+   "paper",
+   "gently",
+   "wipe",
+   "soft"
+  ],
+  "answerOptions": [
+   {
+    "value": "paper",
+    "label": "paper",
+    "text": "paper"
+   },
+   {
+    "value": "gently",
+    "label": "gently",
+    "text": "gently"
+   },
+   {
+    "value": "wipe",
+    "label": "wipe",
+    "text": "wipe"
+   },
+   {
+    "value": "soft",
+    "label": "soft",
+    "text": "soft"
+   }
+  ],
+  "answer": "wipe",
+  "correctAnswer": "wipe",
+  "distractorRationales": {
+   "gently": "D-FUNCTION-SWAP",
+   "soft": "D-FUNCTION-SWAP",
+   "paper": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Please ___ your nose using a tissue.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.A.verb_everyday.v11",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.verbs.l1.A.verb_everyday.v12",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_everyday",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which doing word fits: We ___ our bags before school.",
+  "question": "Which doing word fits: We ___ our bags before school.",
+  "spokenPrompt": "Which doing word fits? We … our bags before school.",
+  "sentence": "We ___ our bags before school.",
+  "choices": [
+   "lunch",
+   "books",
+   "heavy",
+   "pack"
+  ],
+  "answerOptions": [
+   {
+    "value": "lunch",
+    "label": "lunch",
+    "text": "lunch"
+   },
+   {
+    "value": "books",
+    "label": "books",
+    "text": "books"
+   },
+   {
+    "value": "heavy",
+    "label": "heavy",
+    "text": "heavy"
+   },
+   {
+    "value": "pack",
+    "label": "pack",
+    "text": "pack"
+   }
+  ],
+  "answer": "pack",
+  "correctAnswer": "pack",
+  "distractorRationales": {
+   "books": "D-FUNCTION-SWAP",
+   "heavy": "D-FUNCTION-SWAP",
+   "lunch": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "We ___ our bags before school.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.A.verb_everyday.v12",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.verbs.l1.A.verb_everyday.v13",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_everyday",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which doing word fits: I ___ my shoes with a bow.",
+  "question": "Which doing word fits: I ___ my shoes with a bow.",
+  "spokenPrompt": "Which doing word fits? I … my shoes with a bow.",
+  "sentence": "I ___ my shoes with a bow.",
+  "choices": [
+   "tie",
+   "ribbon",
+   "laces",
+   "tight"
+  ],
+  "answerOptions": [
+   {
+    "value": "tie",
+    "label": "tie",
+    "text": "tie"
+   },
+   {
+    "value": "ribbon",
+    "label": "ribbon",
+    "text": "ribbon"
+   },
+   {
+    "value": "laces",
+    "label": "laces",
+    "text": "laces"
+   },
+   {
+    "value": "tight",
+    "label": "tight",
+    "text": "tight"
+   }
+  ],
+  "answer": "tie",
+  "correctAnswer": "tie",
+  "distractorRationales": {
+   "ribbon": "D-FUNCTION-SWAP",
+   "laces": "D-FUNCTION-SWAP",
+   "tight": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "I ___ my shoes with a bow.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.A.verb_everyday.v13",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.verbs.l1.A.verb_everyday.v14",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_everyday",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which doing word fits: Please ___ the pencil back to me.",
+  "question": "Which doing word fits: Please ___ the pencil back to me.",
+  "spokenPrompt": "Which doing word fits? Please … the pencil back to me.",
+  "sentence": "Please ___ the pencil back to me.",
+  "choices": [
+   "gently",
+   "give",
+   "handful",
+   "mine"
+  ],
+  "answerOptions": [
+   {
+    "value": "gently",
+    "label": "gently",
+    "text": "gently"
+   },
+   {
+    "value": "give",
+    "label": "give",
+    "text": "give"
+   },
+   {
+    "value": "handful",
+    "label": "handful",
+    "text": "handful"
+   },
+   {
+    "value": "mine",
+    "label": "mine",
+    "text": "mine"
+   }
+  ],
+  "answer": "give",
+  "correctAnswer": "give",
+  "distractorRationales": {
+   "handful": "D-FUNCTION-SWAP",
+   "mine": "D-FUNCTION-SWAP",
+   "gently": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Please ___ the pencil back to me.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.A.verb_everyday.v14",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.verbs.l1.A.verb_everyday.v15",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_everyday",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word tells the action? We breathe air through our noses.",
+  "question": "Which word tells the action? We breathe air through our noses.",
+  "spokenPrompt": "Which word tells the action? We breathe air through our noses.",
+  "sentence": "We breathe air through our noses.",
+  "choices": [
+   "through",
+   "noses",
+   "breathe",
+   "we"
+  ],
+  "answerOptions": [
+   {
+    "value": "through",
+    "label": "through",
+    "text": "through"
+   },
+   {
+    "value": "noses",
+    "label": "noses",
+    "text": "noses"
+   },
+   {
+    "value": "breathe",
+    "label": "breathe",
+    "text": "breathe"
+   },
+   {
+    "value": "we",
+    "label": "we",
+    "text": "we"
+   }
+  ],
+  "answer": "breathe",
+  "correctAnswer": "breathe",
+  "distractorRationales": {
+   "noses": "D-FUNCTION-SWAP",
+   "we": "D-FUNCTION-SWAP",
+   "through": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "We breathe air through our noses.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.A.verb_everyday.v15",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Identify the action among words from the same sentence."
+ },
+ {
+  "id": "lp3.verbs.l1.A.verb_everyday.v16",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_everyday",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word tells the action? We listen to a bedtime story.",
+  "question": "Which word tells the action? We listen to a bedtime story.",
+  "spokenPrompt": "Which word tells the action? We listen to a bedtime story.",
+  "sentence": "We listen to a bedtime story.",
+  "choices": [
+   "we",
+   "bedtime",
+   "story",
+   "listen"
+  ],
+  "answerOptions": [
+   {
+    "value": "we",
+    "label": "we",
+    "text": "we"
+   },
+   {
+    "value": "bedtime",
+    "label": "bedtime",
+    "text": "bedtime"
+   },
+   {
+    "value": "story",
+    "label": "story",
+    "text": "story"
+   },
+   {
+    "value": "listen",
+    "label": "listen",
+    "text": "listen"
+   }
+  ],
+  "answer": "listen",
+  "correctAnswer": "listen",
+  "distractorRationales": {
+   "bedtime": "D-FUNCTION-SWAP",
+   "story": "D-FUNCTION-SWAP",
+   "we": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "We listen to a bedtime story.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.A.verb_everyday.v16",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Identify the action among words from the same sentence."
+ },
+ {
+  "id": "lp3.verbs.l1.A.verb_everyday.v17",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_everyday",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word tells the action? I dress myself each morning.",
+  "question": "Which word tells the action? I dress myself each morning.",
+  "spokenPrompt": "Which word tells the action? I dress myself each morning.",
+  "sentence": "I dress myself each morning.",
+  "choices": [
+   "dress",
+   "I",
+   "myself",
+   "morning"
+  ],
+  "answerOptions": [
+   {
+    "value": "dress",
+    "label": "dress",
+    "text": "dress"
+   },
+   {
+    "value": "I",
+    "label": "I",
+    "text": "I"
+   },
+   {
+    "value": "myself",
+    "label": "myself",
+    "text": "myself"
+   },
+   {
+    "value": "morning",
+    "label": "morning",
+    "text": "morning"
+   }
+  ],
+  "answer": "dress",
+  "correctAnswer": "dress",
+  "distractorRationales": {
+   "I": "D-FUNCTION-SWAP",
+   "myself": "D-FUNCTION-SWAP",
+   "morning": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "I dress myself each morning.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.A.verb_everyday.v17",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Identify the action among words from the same sentence."
+ },
+ {
+  "id": "lp3.verbs.l1.A.verb_everyday.v18",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_everyday",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word tells the action? I comb my long hair.",
+  "question": "Which word tells the action? I comb my long hair.",
+  "spokenPrompt": "Which word tells the action? I comb my long hair.",
+  "sentence": "I comb my long hair.",
+  "choices": [
+   "hair",
+   "comb",
+   "my",
+   "long"
+  ],
+  "answerOptions": [
+   {
+    "value": "hair",
+    "label": "hair",
+    "text": "hair"
+   },
+   {
+    "value": "comb",
+    "label": "comb",
+    "text": "comb"
+   },
+   {
+    "value": "my",
+    "label": "my",
+    "text": "my"
+   },
+   {
+    "value": "long",
+    "label": "long",
+    "text": "long"
+   }
+  ],
+  "answer": "comb",
+  "correctAnswer": "comb",
+  "distractorRationales": {
+   "my": "D-FUNCTION-SWAP",
+   "long": "D-FUNCTION-SWAP",
+   "hair": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "I comb my long hair.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.A.verb_everyday.v18",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Identify the action among words from the same sentence."
+ },
+ {
+  "id": "lp3.verbs.l2.A.verb_precision.v11",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_precision",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which doing word fits best: She ___ the sponge, pressing water out.",
+  "question": "Which doing word fits best: She ___ the sponge, pressing water out.",
+  "spokenPrompt": "Which doing word fits best? She … the sponge, pressing water out.",
+  "sentence": "She ___ the sponge, pressing water out.",
+  "choices": [
+   "dried",
+   "squeezed",
+   "dipped",
+   "soaked"
+  ],
+  "answerOptions": [
+   {
+    "value": "dried",
+    "label": "dried",
+    "text": "dried"
+   },
+   {
+    "value": "squeezed",
+    "label": "squeezed",
+    "text": "squeezed"
+   },
+   {
+    "value": "dipped",
+    "label": "dipped",
+    "text": "dipped"
+   },
+   {
+    "value": "soaked",
+    "label": "soaked",
+    "text": "soaked"
+   }
+  ],
+  "answer": "squeezed",
+  "correctAnswer": "squeezed",
+  "distractorRationales": {
+   "dried": "D-PLAUSIBLE-UNSUPPORTED",
+   "dipped": "D-PLAUSIBLE-UNSUPPORTED",
+   "soaked": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "She ___ the sponge, pressing water out.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.A.verb_precision.v11",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.verbs.l2.A.verb_precision.v12",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_precision",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which doing word fits best: He ___ the sack along the floor without lifting it.",
+  "question": "Which doing word fits best: He ___ the sack along the floor without lifting it.",
+  "spokenPrompt": "Which doing word fits best? He … the sack along the floor without lifting it.",
+  "sentence": "He ___ the sack along the floor without lifting it.",
+  "choices": [
+   "raised",
+   "threw",
+   "dragged",
+   "carried"
+  ],
+  "answerOptions": [
+   {
+    "value": "raised",
+    "label": "raised",
+    "text": "raised"
+   },
+   {
+    "value": "threw",
+    "label": "threw",
+    "text": "threw"
+   },
+   {
+    "value": "dragged",
+    "label": "dragged",
+    "text": "dragged"
+   },
+   {
+    "value": "carried",
+    "label": "carried",
+    "text": "carried"
+   }
+  ],
+  "answer": "dragged",
+  "correctAnswer": "dragged",
+  "distractorRationales": {
+   "raised": "D-PLAUSIBLE-UNSUPPORTED",
+   "threw": "D-PLAUSIBLE-UNSUPPORTED",
+   "carried": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "He ___ the sack along the floor without lifting it.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.A.verb_precision.v12",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.verbs.l2.A.verb_precision.v13",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_precision",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which action means speaking so softly only someone close can hear?",
+  "question": "Which action means speaking so softly only someone close can hear?",
+  "spokenPrompt": "Which action means speaking so softly only someone close can hear?",
+  "choices": [
+   "shouting",
+   "chanting",
+   "calling",
+   "whispering"
+  ],
+  "answerOptions": [
+   {
+    "value": "shouting",
+    "label": "shouting",
+    "text": "shouting"
+   },
+   {
+    "value": "chanting",
+    "label": "chanting",
+    "text": "chanting"
+   },
+   {
+    "value": "calling",
+    "label": "calling",
+    "text": "calling"
+   },
+   {
+    "value": "whispering",
+    "label": "whispering",
+    "text": "whispering"
+   }
+  ],
+  "answer": "whispering",
+  "correctAnswer": "whispering",
+  "distractorRationales": {
+   "shouting": "D-PLAUSIBLE-UNSUPPORTED",
+   "chanting": "D-PLAUSIBLE-UNSUPPORTED",
+   "calling": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.A.verb_precision.v13",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.verbs.l2.A.verb_precision.v14",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_precision",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which doing word fits best: Gentle rain ___ in tiny, fine drops.",
+  "question": "Which doing word fits best: Gentle rain ___ in tiny, fine drops.",
+  "spokenPrompt": "Which doing word fits best? Gentle rain … in tiny, fine drops.",
+  "sentence": "Gentle rain ___ in tiny, fine drops.",
+  "choices": [
+   "drizzled",
+   "poured",
+   "splashed",
+   "gushed"
+  ],
+  "answerOptions": [
+   {
+    "value": "drizzled",
+    "label": "drizzled",
+    "text": "drizzled"
+   },
+   {
+    "value": "poured",
+    "label": "poured",
+    "text": "poured"
+   },
+   {
+    "value": "splashed",
+    "label": "splashed",
+    "text": "splashed"
+   },
+   {
+    "value": "gushed",
+    "label": "gushed",
+    "text": "gushed"
+   }
+  ],
+  "answer": "drizzled",
+  "correctAnswer": "drizzled",
+  "distractorRationales": {
+   "poured": "D-PLAUSIBLE-UNSUPPORTED",
+   "splashed": "D-PLAUSIBLE-UNSUPPORTED",
+   "gushed": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Gentle rain ___ in tiny, fine drops.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.A.verb_precision.v14",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.verbs.l2.A.verb_precision.v15",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_precision",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which doing word fits best: The rubber band ___ longer as we pulled it.",
+  "question": "Which doing word fits best: The rubber band ___ longer as we pulled it.",
+  "spokenPrompt": "Which doing word fits best? The rubber band … longer as we pulled it.",
+  "sentence": "The rubber band ___ longer as we pulled it.",
+  "choices": [
+   "twisted",
+   "stretched",
+   "snapped",
+   "shrunk"
+  ],
+  "answerOptions": [
+   {
+    "value": "twisted",
+    "label": "twisted",
+    "text": "twisted"
+   },
+   {
+    "value": "stretched",
+    "label": "stretched",
+    "text": "stretched"
+   },
+   {
+    "value": "snapped",
+    "label": "snapped",
+    "text": "snapped"
+   },
+   {
+    "value": "shrunk",
+    "label": "shrunk",
+    "text": "shrunk"
+   }
+  ],
+  "answer": "stretched",
+  "correctAnswer": "stretched",
+  "distractorRationales": {
+   "twisted": "D-PLAUSIBLE-UNSUPPORTED",
+   "snapped": "D-PLAUSIBLE-UNSUPPORTED",
+   "shrunk": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The rubber band ___ longer as we pulled it.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.A.verb_precision.v15",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.verbs.l2.A.verb_precision.v16",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_precision",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which action means a quick look through a small gap?",
+  "question": "Which action means a quick look through a small gap?",
+  "spokenPrompt": "Which action means a quick look through a small gap?",
+  "choices": [
+   "watching",
+   "searching",
+   "peeking",
+   "staring"
+  ],
+  "answerOptions": [
+   {
+    "value": "watching",
+    "label": "watching",
+    "text": "watching"
+   },
+   {
+    "value": "searching",
+    "label": "searching",
+    "text": "searching"
+   },
+   {
+    "value": "peeking",
+    "label": "peeking",
+    "text": "peeking"
+   },
+   {
+    "value": "staring",
+    "label": "staring",
+    "text": "staring"
+   }
+  ],
+  "answer": "peeking",
+  "correctAnswer": "peeking",
+  "distractorRationales": {
+   "watching": "D-PLAUSIBLE-UNSUPPORTED",
+   "searching": "D-PLAUSIBLE-UNSUPPORTED",
+   "staring": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.A.verb_precision.v16",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.verbs.l2.A.verb_precision.v17",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_precision",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which doing word fits best: We ___ the blocks one on top of another.",
+  "question": "Which doing word fits best: We ___ the blocks one on top of another.",
+  "spokenPrompt": "Which doing word fits best? We … the blocks one on top of another.",
+  "sentence": "We ___ the blocks one on top of another.",
+  "choices": [
+   "scattered",
+   "spread",
+   "lined",
+   "stacked"
+  ],
+  "answerOptions": [
+   {
+    "value": "scattered",
+    "label": "scattered",
+    "text": "scattered"
+   },
+   {
+    "value": "spread",
+    "label": "spread",
+    "text": "spread"
+   },
+   {
+    "value": "lined",
+    "label": "lined",
+    "text": "lined"
+   },
+   {
+    "value": "stacked",
+    "label": "stacked",
+    "text": "stacked"
+   }
+  ],
+  "answer": "stacked",
+  "correctAnswer": "stacked",
+  "distractorRationales": {
+   "scattered": "D-PLAUSIBLE-UNSUPPORTED",
+   "spread": "D-PLAUSIBLE-UNSUPPORTED",
+   "lined": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "We ___ the blocks one on top of another.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.A.verb_precision.v17",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": ""
+ },
+ {
+  "id": "lp3.verbs.l2.A.verb_precision.v18",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_precision",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which doing word fits best: She ___ the pan, rubbing hard with a brush.",
+  "question": "Which doing word fits best: She ___ the pan, rubbing hard with a brush.",
+  "spokenPrompt": "Which doing word fits best? She … the pan, rubbing hard with a brush.",
+  "sentence": "She ___ the pan, rubbing hard with a brush.",
+  "choices": [
+   "scrubbed",
+   "rinsed",
+   "soaked",
+   "dried"
+  ],
+  "answerOptions": [
+   {
+    "value": "scrubbed",
+    "label": "scrubbed",
+    "text": "scrubbed"
+   },
+   {
+    "value": "rinsed",
+    "label": "rinsed",
+    "text": "rinsed"
+   },
+   {
+    "value": "soaked",
+    "label": "soaked",
+    "text": "soaked"
+   },
+   {
+    "value": "dried",
+    "label": "dried",
+    "text": "dried"
+   }
+  ],
+  "answer": "scrubbed",
+  "correctAnswer": "scrubbed",
+  "distractorRationales": {
+   "rinsed": "D-PLAUSIBLE-UNSUPPORTED",
+   "soaked": "D-PLAUSIBLE-UNSUPPORTED",
+   "dried": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "She ___ the pan, rubbing hard with a brush.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.A.verb_precision.v18",
    "role": "text-only",
    "paths": [],
    "constructReview": "approved",

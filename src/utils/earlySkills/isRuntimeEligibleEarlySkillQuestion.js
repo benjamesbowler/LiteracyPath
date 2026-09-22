@@ -1,4 +1,8 @@
 import { getAnswerOptionLabel } from "../answerOptions.js";
+import { LEDA_WORD_AUDIO } from "../../data/generated/ledaWordAudio.generated.js";
+import { CHILD_WORD_AUDIO_OVERRIDES } from "../../data/childWordAudioOverrides.js";
+import { normalizeLedaAudioText } from "../../data/normalizeLedaAudioText.js";
+import { getAssessmentStimulusAudioText, hasAudioOnlyChoices, isGenericInstructionAudioPath } from "../assessmentAudioPolicy.js";
 import {
   getFinalSoundsLevel1QuestionIssues,
   isFinalSoundsLevel1Question
@@ -18,7 +22,9 @@ export const EARLY_SKILL_IDS = new Set([
 const FINAL_SOUNDS_LEVEL_ONE_ALLOWED = new Set(["b", "d", "g", "l", "m", "n", "p", "t"]);
 const SHORT_VOWEL_ALLOWED_FORMATS = new Set([
   "LISTEN_CHOOSE_VOWEL",
-  "PICTURE_TO_PRINT_MATCH"
+  "PICTURE_TO_PRINT_MATCH",
+  "LISTEN_FIND_WORD",
+  "SHORT_VOWEL_IMAGE_GROUP_SELECT"
 ]);
 export const LOW_VALUE_CVC_EXCLUSIONS = new Set([
   "bid"
@@ -34,6 +40,11 @@ const MEDIA_QA_BLOCKING_STATUSES = new Set(["rejected", "blocked", "needs_replac
 
 function normalize(value = "") {
   return String(value || "").toLowerCase().trim();
+}
+
+function getLedaWordAudioPath(text = "") {
+  const normalized = normalizeLedaAudioText(text);
+  return CHILD_WORD_AUDIO_OVERRIDES[normalized] || LEDA_WORD_AUDIO[normalized] || "";
 }
 
 function normalizeToken(value = "") {
@@ -128,7 +139,9 @@ function hasCompleteVisualQuestionAssets(question = {}) {
   const cards = question.imageCards || [];
   const requireImages = question.requireOptionImages !== false;
   const requireAudio = question.requireOptionAudio === true;
-  return cards.length >= 2 && cards.every(card =>
+  const authoredCountMatches = !(Number(question.bankStandardVersion) >= 3) ||
+    cards.length === (question.choices || []).length;
+  return authoredCountMatches && cards.length >= 2 && cards.every(card =>
     (!requireImages || getCardImage(card)) &&
     (!requireAudio || getCardAudio(card))
   );
@@ -215,15 +228,15 @@ function addShortVowelDiscriminationIssues(question = {}, issues = []) {
   });
 
   if (format === "LISTEN_CHOOSE_VOWEL") {
-    if (optionTokens.length !== 4) {
-      issues.push(`Short Vowel Discrimination listening questions need exactly 4 vowel choices, found ${optionTokens.length}`);
+    if (![4, 5].includes(optionTokens.length)) {
+      issues.push(`Short Vowel Discrimination listening questions need 4 or 5 vowel choices, found ${optionTokens.length}`);
     }
     if (!optionTokens.every(option => SHORT_VOWEL_GRAPHEME_CHOICES.has(option))) {
       issues.push("Short Vowel Discrimination listening choices must be vowel letters only");
     }
   }
 
-  if (format === "PICTURE_TO_PRINT_MATCH") {
+  if (["PICTURE_TO_PRINT_MATCH", "LISTEN_FIND_WORD", "SHORT_VOWEL_IMAGE_GROUP_SELECT"].includes(format)) {
     if (optionTokens.length !== 4) {
       issues.push(`Short Vowel Discrimination picture questions need exactly 4 word choices, found ${optionTokens.length}`);
     }
@@ -332,11 +345,56 @@ export function hasRuntimeTargetImage(question = {}, options = {}) {
 }
 
 export function hasRuntimeAudio(question = {}, options = {}) {
-  const paths = getQuestionMediaPaths(question).audio;
+  // These printed vowel-classification items put their vowel anchor inside
+  // the authored instruction. Their keyed word must never become replay audio.
+  const instructionSuppliesStimulus = Number(question.bankStandardVersion) >= 3 &&
+    getQuestionSkillId(question) === "cvc_short_vowels" &&
+    getQuestionFormat(question) === "SHORT_VOWEL_WORD" &&
+    question.mediaTier === "text" && isExplicitTextOnlyQuestion(question) &&
+    !getAssessmentStimulusAudioText(question);
+  if (instructionSuppliesStimulus) {
+    // The deferred assessment loader resolves this exact instruction against
+    // the complete narration catalogue. A target/key recording cannot stand
+    // in for the vowel anchor, or pull that catalogue into child Home.
+    const instructionText = normalizeLedaAudioText(question.instructionAudioText);
+    return Boolean(instructionText && instructionText === normalizeLedaAudioText(question.spokenPrompt) &&
+      /^\/audio\/production\/en-US\/(?:supplemental|instruction|assessment_prompt)\//.test(question.instructionAudioPath || "") &&
+      pathAllowed(question.instructionAudioPath, "audio", options));
+  }
+  const paths = [
+    getLedaWordAudioPath(getAssessmentStimulusAudioText(question)),
+    ...getQuestionMediaPaths(question).audio
+  ].filter(Boolean);
   return paths.some(path => pathAllowed(path, "audio", options));
 }
 
+function hasReviewedSpokenTarget(question = {}, options = {}) {
+  if (!(Number(question.bankStandardVersion) >= 3) ||
+      question.mediaTier !== "audio-required" ||
+      !isExplicitTextOnlyQuestion(question) ||
+      question.assessmentMediaDecision?.constructReview !== "approved") return false;
+  const target = getAssessmentStimulusAudioText(question);
+  if (!target || !question.targetWord || normalize(target) !== normalize(question.targetWord)) return false;
+  const audio = getLedaWordAudioPath(target) || question.audioPath || question.audioUrl || question.audio;
+  return !isGenericInstructionAudioPath(audio) && pathAllowed(audio, "audio", options);
+}
+
+function hasCompleteSpokenChoices(question = {}, options = {}) {
+  const choices = question.choices || [];
+  if (!hasAudioOnlyChoices(question) || !isExplicitTextOnlyQuestion(question) ||
+      question.constructClaim !== "spoken_rhyme_discrimination" ||
+      choices.length !== 4 || new Set(choices.map(getAnswerOptionLabel)).size !== 4) return false;
+  return choices.every(choice => pathAllowed(getLedaWordAudioPath(getAnswerOptionLabel(choice)), "audio", options));
+}
+
 export function hasCompleteRuntimeCards(question = {}, options = {}) {
+  if (hasAudioOnlyChoices(question)) return hasCompleteSpokenChoices(question, options);
+  // V3 heard-word-to-print items intentionally offer printed words. Legacy
+  // listen-and-find picture items must still have all of their image cards.
+  if (isListenAndFindWordQuestion(question) && hasReviewedSpokenTarget(question, options)) {
+    const choices = question.choices || [];
+    return choices.length === 4 && choices.every(choice => /^[a-z]+$/i.test(getAnswerOptionLabel(choice)));
+  }
   if (isPairSelectionQuestion(question)) {
     if (!hasCompletePairSelectionAssets(question)) return false;
     return (question.imageCards || []).every(card =>
@@ -434,17 +492,18 @@ export function getEarlySkillRuntimeEligibilityIssues(question = {}, context = {
     if (!getTargetWord(question)) {
       issues.push("Final Sounds question is missing targetWord");
     }
-    if (!isPairSelectionQuestion(question) && !isVisualCardChoiceQuestion(question) && !hasRuntimeTargetImage(question, context)) {
+    if (!isPairSelectionQuestion(question) && !isVisualCardChoiceQuestion(question) && !hasRuntimeTargetImage(question, context) && !hasReviewedSpokenTarget(question, context)) {
       issues.push("Final Sounds question is missing a real target-word object image");
     }
   }
 
   if (skillId === "short_vowel_discrimination") {
     addShortVowelDiscriminationIssues(question, issues);
-    if (!getTargetWord(question)) {
+    const pictureChoices = getQuestionFormat(question) === "SHORT_VOWEL_IMAGE_GROUP_SELECT";
+    if (!pictureChoices && !getTargetWord(question)) {
       issues.push("Short Vowel Discrimination question is missing targetWord");
     }
-    if (!hasRuntimeTargetImage(question, context)) {
+    if (!pictureChoices && !hasRuntimeTargetImage(question, context) && !hasReviewedSpokenTarget(question, context)) {
       issues.push("Short Vowel Discrimination question is missing a real target-word object image");
     }
   }
@@ -453,7 +512,7 @@ export function getEarlySkillRuntimeEligibilityIssues(question = {}, context = {
     addCvcShortVowelIssues(question, issues);
   }
 
-  if (question.hideWrittenLabels === true && !hasRuntimeImage(question, context)) {
+  if (question.hideWrittenLabels === true && !hasRuntimeImage(question, context) && !hasCompleteSpokenChoices(question, context)) {
     issues.push("written labels are hidden while image support is incomplete");
   }
 

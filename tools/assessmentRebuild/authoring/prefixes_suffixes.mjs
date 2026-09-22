@@ -87,11 +87,11 @@ const levelOneItems = [
   l1("prefix_un", 1, 3, "MORPHEME_MEANING_CONTEXT",
     "The note called Noor nasty names. Which word describes the note?", "unkind", ["joyful", "helpful", "careful"], "child-being-unkind"),
   l1("prefix_un", 1, 4, "MORPHEME_TRANSFER",
-    "Mia feels sad. Which word also means not happy?", "unhappy", ["unfair", "joyful", "painter"], "sad-child"),
+    "The room is messy. Which word means not tidy?", "untidy", ["tidy", "retied", "untie"], "sad-child"),
   l1("prefix_un", 1, 5, "MORPHEME_TRANSFER",
-    "The game is not fair. Which word means not fair?", "unfair", ["careful", "remake", "painter"], "unfair-game"),
+    "Lee feels sick. Which word means not well?", "unwell", ["well", "wellness", "replay"], "unfair-game"),
   l1("prefix_un", 1, 6, "MORPHEME_TRANSFER",
-    "The words were not kind. Which word means not kind?", "unkind", ["joyful", "reread", "helper"], "unkind-words"),
+    "Which word means opening something that was locked?", "unlock", ["relock", "lock", "locked"], "unkind-words"),
 
   // re- = again
   l1("prefix_re", 1, 1, "MORPHEME_MEANING_CONTEXT",
@@ -101,11 +101,11 @@ const levelOneItems = [
   l1("prefix_re", 1, 3, "MORPHEME_MEANING_CONTEXT",
     "Milo missed the clue. Which word means he will read it again?", "reread", ["unkind", "careful", "reader"], "child-rereads-book"),
   l1("prefix_re", 1, 4, "MORPHEME_TRANSFER",
-    "The picture went wrong. I will make it again. Which word fits?", "remake", ["unmake", "maker", "making"], "child-remakes-picture"),
+    "The jug is empty. Which word means fill again?", "refill", ["unfilled", "filler", "filling"], "child-remakes-picture"),
   l1("prefix_re", 1, 5, "MORPHEME_TRANSFER",
-    "I missed the page. I will read it again. Which word fits?", "reread", ["reader", "reading", "unread"], "child-rereads-page"),
+    "Tell the story again. Which word means that?", "retell", ["telling", "teller", "untold"], "child-rereads-page"),
   l1("prefix_re", 1, 6, "MORPHEME_TRANSFER",
-    "We loved the song. We will play it again. Which word fits?", "replay", ["player", "playful", "unplayed"], "children-replay-song"),
+    "Use the bag again. Which word means that?", "reuse", ["unused", "useful", "user"], "children-replay-song"),
 
   // -ful = full of / showing
   l1("suffix_ful", 1, 1, "MORPHEME_MEANING_CONTEXT",
@@ -115,11 +115,11 @@ const levelOneItems = [
   l1("suffix_ful", 1, 3, "MORPHEME_MEANING_CONTEXT",
     "Ben carries a full glass slowly. Which word describes Ben?", "careful", ["careless", "carer", "reader"], "careful-child-carrying-glass"),
   l1("suffix_ful", 1, 4, "MORPHEME_TRANSFER",
-    "Ava helps her friend. Which word describes Ava?", "helpful", ["helpless", "replay", "singer"], "child-helping-friend"),
+    "The kitten loves games. Which word means full of play?", "playful", ["player", "played", "replay"], "child-helping-friend"),
   l1("suffix_ful", 1, 5, "MORPHEME_TRANSFER",
-    "Noah smiles with joy. Which word describes Noah?", "joyful", ["joyless", "unfair", "reader"], "child-smiling-with-joy"),
+    "Jo says thanks for the gift. How does Jo feel?", "thankful", ["thankless", "careless", "hopeless"], "child-smiling-with-joy"),
   l1("suffix_ful", 1, 6, "MORPHEME_TRANSFER",
-    "Kim carries the glass slowly. Which word describes Kim?", "careful", ["careless", "remake", "teacher"], "child-carefully-carrying-glass"),
+    "Her shirt has many colors. Which word describes it?", "colorful", ["colorless", "careful", "playful"], "child-carefully-carrying-glass"),
 
   // -less = without
   l1("suffix_less", 2, 1, "MORPHEME_MEANING_CONTEXT",
@@ -129,11 +129,11 @@ const levelOneItems = [
   l1("suffix_less", 2, 3, "MORPHEME_MEANING_CONTEXT",
     "The tiny butterfly cannot hurt anyone. Which word describes it?", "harmless", ["harmful", "helper", "careful"], "harmless-butterfly"),
   l1("suffix_less", 2, 4, "MORPHEME_TRANSFER",
-    "The tiny butterfly cannot hurt you. Which word describes it?", "harmless", ["harmful", "helpful", "replay"], "harmless-butterfly-on-hand"),
+    "The baby has no teeth. Which word describes the baby?", "toothless", ["toothed", "teething", "toothy"], "harmless-butterfly-on-hand"),
   l1("suffix_less", 2, 5, "MORPHEME_TRANSFER",
-    "Leo is not afraid to try. Which word describes Leo?", "fearless", ["fearful", "helper", "reader"], "child-trying-bravely"),
+    "Which word means ‘without sleep’?", "sleepless", ["sleepy", "sleeping", "asleep"], "child-trying-bravely"),
   l1("suffix_less", 2, 6, "MORPHEME_TRANSFER",
-    "The team thinks it cannot win. Which word describes the team?", "hopeless", ["hopeful", "joyful", "painter"], "team-feeling-hopeless"),
+    "The trapped pup cannot help itself. Which word describes it?", "helpless", ["helpful", "hopeful", "playful"], "team-feeling-hopeless"),
 
   // -er = a person who
   l1("suffix_er_person", 2, 1, "MORPHEME_MEANING_CONTEXT",
@@ -151,38 +151,38 @@ const levelOneItems = [
 ];
 
 const levelTwoItems = [
-  build("suffix_s_es", 1, 1, "Add -s to hen.", "hens", ["hen", "pens", "eggs"]),
-  build("suffix_s_es", 1, 2, "Add -es to fox.", "foxes", ["fox", "boxes", "dishes"]),
-  build("suffix_s_es", 1, 3, "Add -s to cup.", "cups", ["cup", "caps", "mugs"]),
-  context("suffix_s_es", 1, 4, "Every day, Dad ___ the car.", "washes", ["wash", "washing", "washed"]),
-  context("suffix_s_es", 1, 5, "My cat ___ on the mat each day.", "naps", ["nap", "napping", "napped"]),
-  context("suffix_s_es", 1, 6, "Grandma ___ bread every Sunday.", "bakes", ["bake", "baking", "baked"]),
+  build("suffix_s_es", 1, 1, "Complete ‘I clap; she ___’.", "claps", ["clap", "clapping", "clapper"]),
+  build("suffix_s_es", 1, 2, "Change ‘I brush’ to ‘He ___’.", "brushes", ["brush", "brushing", "brushed"]),
+  transfer("suffix_s_es", 1, 3, "Birds sing now. One bird ___ while the others listen.", "sings", ["sing", "singing", "singer"]),
+  context("suffix_s_es", 1, 4, "Now Dad ___ the car as we watch.", "washes", ["wash", "washing", "washed"]),
+  context("suffix_s_es", 1, 5, "While I watch, my cat ___ on the mat.", "naps", ["nap", "napping", "napped"]),
+  context("suffix_s_es", 1, 6, "Today Grandma ___ bread while I help her.", "bakes", ["bake", "baking", "baked"]),
 
   build("suffix_ing", 1, 1, "Add -ing to jump.", "jumping", ["jumps", "jumped", "singing"]),
   build("suffix_ing", 1, 2, "Add -ing to read.", "reading", ["reads", "ready", "singing"]),
-  build("suffix_ing", 1, 3, "Add -ing to play.", "playing", ["plays", "played", "doing"]),
+  transfer("suffix_ing", 1, 3, "She is ___, making music with her voice.", "singing", ["sings", "sang", "singer"]),
   context("suffix_ing", 1, 4, "Right now, the pot is ___ on the stove.", "boiling", ["boils", "boil", "sleeping"]),
   context("suffix_ing", 1, 5, "We are ___ a sandcastle one bucket at a time.", "building", ["builds", "build", "painting"]),
   context("suffix_ing", 1, 6, "Keep ___! The finish line is close.", "running", ["runs", "run", "sleeping"]),
 
   build("suffix_ed", 1, 1, "Add -ed to walk.", "walked", ["walks", "walking", "opened"]),
   build("suffix_ed", 1, 2, "Add -ed to help.", "helped", ["helps", "helping", "hopped"]),
-  build("suffix_ed", 1, 3, "Add -ed to jump.", "jumped", ["jumping", "jumps", "landed"]),
+  transfer("suffix_ed", 1, 3, "Yesterday we ___ down from a low wall.", "jumped", ["jump", "jumps", "jumping"]),
   context("suffix_ed", 1, 4, "Yesterday we ___ step by step to the park.", "walked", ["walk", "walking", "helped"]),
-  context("suffix_ed", 1, 5, "Last night, the baby ___ with tears for hours.", "cried", ["cries", "crying", "called"]),
+  context("suffix_ed", 1, 5, "Last night, the baby ___ with tears for hours.", "cried", ["cries", "crying", "cry"]),
   context("suffix_ed", 1, 6, "We ___ the door before bed.", "locked", ["locks", "locking", "filled"]),
 
   build("suffix_er_est", 2, 1, "Add -est to tall.", "tallest", ["taller", "tall", "fastest"]),
   build("suffix_er_est", 2, 2, "Add -er to fast.", "faster", ["fastest", "fast", "taller"]),
-  context("suffix_er_est", 2, 3, "Ben is tall, but Ana is even ___.", "taller", ["tallest", "tall", "faster"]),
-  context("suffix_er_est", 2, 4, "Rex won every race, so he was the ___.", "fastest", ["faster", "fast", "tallest"]),
-  transfer("suffix_er_est", 2, 5, "Ben is tall. Ana has more height. Which word describes Ana?", "taller", ["tallest", "tall", "slowest"]),
+  context("suffix_er_est", 2, 3, "Ana is ___ than Ben in height.", "taller", ["tallest", "tall", "faster"]),
+  context("suffix_er_est", 2, 4, "Rex ran faster than everyone else. He was the ___.", "fastest", ["faster", "fast", "tallest"]),
+  transfer("suffix_er_est", 2, 5, "One bag weighs more than the other. It is ___.", "heavier", ["heaviest", "heavy", "heavily"]),
   transfer("suffix_er_est", 2, 6, "Ten snails raced. Which word means slower than all the others?", "slowest", ["slower", "slow", "tallest"]),
 
   build("suffix_ly", 2, 1, "Add -ly to quick.", "quickly", ["quicker", "quickest", "softly"]),
   build("suffix_ly", 2, 2, "Add -ly to soft.", "softly", ["softer", "soft", "quickly"]),
-  context("suffix_ly", 2, 3, "Set the eggs down ___, with no bumps.", "gently", ["gentle", "gentler", "quickly"]),
-  context("suffix_ly", 2, 4, "The mouse crept ___ past the cat.", "quietly", ["quiet", "quieter", "loudly"]),
+  context("suffix_ly", 2, 3, "Set the eggs down ___, in a gentle way.", "gently", ["gentle", "gentler", "quickly"]),
+  context("suffix_ly", 2, 4, "The mouse crept ___, without making a sound.", "quietly", ["quiet", "quieter", "loudly"]),
   transfer("suffix_ly", 2, 5, "Mia stepped onto the stage bravely. How did she step?", "in a brave way", ["in a soft way", "toward a brave person", "before she was brave"]),
   transfer("suffix_ly", 2, 6, "Jay held up the medal proudly. How did Jay hold it?", "in a proud way", ["in a quick way", "toward a proud person", "before he felt proud"]),
 
@@ -201,7 +201,7 @@ const retentionItems = [
   l1("suffix_less", 2, 7, "MORPHEME_MEANING_CONTEXT", "Lee rushed and spilled the paint. Which word describes Lee?", "careless", ["careful", "caring", "helper"], "careless-spill"),
   l1("suffix_er_person", 2, 7, "MORPHEME_MEANING_CONTEXT", "A person who bakes is a…", "baker", ["baking", "bakes", "remake"], "baker-with-bread"),
   l1("prefix_re", 1, 8, "MORPHEME_TRANSFER", "The block tower fell. Which word means build again?", "rebuild", ["builder", "building", "unbuilt"], "child-rebuilds-block-tower"),
-  build("suffix_s_es", 1, 7, "Add -es to bus.", "buses", ["bus", "boxes", "foxes"]),
+  build("suffix_s_es", 1, 7, "Finish ‘I catch; she ___’.", "catches", ["catch", "catching", "catcher"]),
   build("suffix_ing", 1, 7, "Add -ing to cook.", "cooking", ["cooks", "cooked", "reading"]),
   build("suffix_ed", 1, 7, "Add -ed to play.", "played", ["plays", "playing", "walked"]),
   context("suffix_er_est", 2, 7, "Sam is quick, but Ali is even ___.", "quicker", ["quickest", "quick", "softer"]),
@@ -209,8 +209,25 @@ const retentionItems = [
   build("prefix_pre", 2, 7, "Add pre- to school.", "preschool", ["schools", "schooling", "preheat"])
 ].map(item => ({ ...item, retention: true }));
 
+const freshPhaseItems = [
+  l1("prefix_un", 1, 8, "MORPHEME_TRANSFER", "A cup is not used yet. Which word describes it?", "unused", ["useful", "reuse", "using"]),
+  l1("suffix_ful", 1, 8, "MORPHEME_TRANSFER", "The room is full of peace. Which word fits?", "peaceful", ["peacemaker", "piece", "fearful"]),
+  l1("suffix_less", 2, 8, "MORPHEME_MEANING_CONTEXT", "A broken tool has no use. It is ___.", "useless", ["useful", "used", "using"]),
+  l1("suffix_less", 2, 9, "MORPHEME_TRANSFER", "The sky has no clouds. Which word describes it?", "cloudless", ["cloudy", "clouded", "clouding"]),
+  l1("suffix_less", 2, 10, "MORPHEME_TRANSFER", "The dog has no home. Which word describes it?", "homeless", ["homeward", "homely", "homemade"]),
+  l1("suffix_less", 2, 11, "MORPHEME_MEANING_CONTEXT", "The clock makes no sound. It is ___.", "soundless", ["sounding", "soundly", "resound"]),
+  l1("suffix_er_person", 2, 8, "MORPHEME_MEANING_CONTEXT", "Who drives the bus?", "driver", ["driving", "drives", "driven"]),
+  l1("suffix_er_person", 2, 9, "MORPHEME_TRANSFER", "Which word names a person who builds?", "builder", ["building", "rebuild", "built"]),
+  l1("suffix_er_person", 2, 10, "MORPHEME_MEANING_CONTEXT", "A person who swims is a…", "swimmer", ["swimming", "swims", "swam"]),
+  l1("suffix_er_person", 2, 11, "MORPHEME_TRANSFER", "Who grows food on a farm?", "grower", ["growing", "grown", "regrow"]),
+  transfer("suffix_ing", 1, 8, "A dog is ___ after its ball right now.", "chasing", ["chases", "chased", "chase"]),
+  transfer("suffix_ed", 1, 8, "Yesterday the class ___ seeds. Today shoots are growing.", "planted", ["plants", "planting", "plant"]),
+  transfer("suffix_er_est", 2, 8, "All five jars are tall. This jar is taller than every other: the ___.", "tallest", ["taller", "tall", "tallness"]),
+  transfer("suffix_ly", 2, 8, "She waited patiently. How did she wait?", "in a patient way", ["with a patient", "before waiting", "without any patience"])
+];
+
 export default {
   skillId: "prefixes_suffixes",
   skillName: "Prefixes & Suffixes",
-  items: [...levelOneItems, ...levelTwoItems, ...retentionItems]
+  items: [...levelOneItems, ...levelTwoItems, ...retentionItems, ...freshPhaseItems]
 };

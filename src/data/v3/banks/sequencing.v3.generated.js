@@ -21,45 +21,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "The cat jumped on the box, curled into a ball, and fell asleep. Which order matches the story?",
-  "passage": "The cat jumped on the box, curled into a ball, and fell asleep.",
+  "prompt": "What happened first?",
+  "question": "What happened first?",
+  "spokenPrompt": "The cat jumped onto the box. Then it curled into a ball. Last, it fell asleep. What happened first?",
+  "passage": "The cat jumped onto the box. Then it curled into a ball. Last, it fell asleep.",
   "cell": "first_event",
   "choices": [
-   "curled into a ball → jumped on the box → fell asleep",
-   "jumped on the box → fell asleep → curled into a ball",
-   "fell asleep → curled into a ball → jumped on the box",
-   "jumped on the box → curled into a ball → fell asleep"
+   "jumped on the box",
+   "curled into a ball",
+   "fell asleep"
   ],
   "answerOptions": [
    {
-    "value": "curled into a ball → jumped on the box → fell asleep",
-    "label": "curled into a ball → jumped on the box → fell asleep",
-    "text": "curled into a ball → jumped on the box → fell asleep"
+    "value": "jumped on the box",
+    "label": "jumped on the box",
+    "text": "jumped on the box"
    },
    {
-    "value": "jumped on the box → fell asleep → curled into a ball",
-    "label": "jumped on the box → fell asleep → curled into a ball",
-    "text": "jumped on the box → fell asleep → curled into a ball"
+    "value": "curled into a ball",
+    "label": "curled into a ball",
+    "text": "curled into a ball"
    },
    {
-    "value": "fell asleep → curled into a ball → jumped on the box",
-    "label": "fell asleep → curled into a ball → jumped on the box",
-    "text": "fell asleep → curled into a ball → jumped on the box"
-   },
-   {
-    "value": "jumped on the box → curled into a ball → fell asleep",
-    "label": "jumped on the box → curled into a ball → fell asleep",
-    "text": "jumped on the box → curled into a ball → fell asleep"
+    "value": "fell asleep",
+    "label": "fell asleep",
+    "text": "fell asleep"
    }
   ],
-  "answer": "jumped on the box → curled into a ball → fell asleep",
-  "correctAnswer": "jumped on the box → curled into a ball → fell asleep",
+  "answer": "jumped on the box",
+  "correctAnswer": "jumped on the box",
   "distractorRationales": {
-   "curled into a ball → jumped on the box → fell asleep": "D-SEQUENCE-START",
-   "jumped on the box → fell asleep → curled into a ball": "D-SEQUENCE-END",
-   "fell asleep → curled into a ball → jumped on the box": "D-SEQUENCE-REVERSE"
+   "curled into a ball": "D-SEQUENCE-START",
+   "fell asleep": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -113,45 +106,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "Mia put a seed in soil, watered it, and saw a green shoot. Which order matches the story?",
-  "passage": "Mia put a seed in soil, watered it, and saw a green shoot.",
+  "prompt": "What happened first?",
+  "question": "What happened first?",
+  "spokenPrompt": "Mia planted a seed in soil. She watered it each day. Later, a green shoot grew. What happened first?",
+  "passage": "Mia planted a seed in soil. She watered it each day. Later, a green shoot grew.",
   "cell": "first_event",
   "choices": [
-   "put in the seed → saw a green shoot → watered the soil",
-   "saw a green shoot → watered the soil → put in the seed",
-   "put in the seed → watered the soil → saw a green shoot",
-   "watered the soil → put in the seed → saw a green shoot"
+   "watered the soil",
+   "saw a green shoot",
+   "put in the seed"
   ],
   "answerOptions": [
    {
-    "value": "put in the seed → saw a green shoot → watered the soil",
-    "label": "put in the seed → saw a green shoot → watered the soil",
-    "text": "put in the seed → saw a green shoot → watered the soil"
+    "value": "watered the soil",
+    "label": "watered the soil",
+    "text": "watered the soil"
    },
    {
-    "value": "saw a green shoot → watered the soil → put in the seed",
-    "label": "saw a green shoot → watered the soil → put in the seed",
-    "text": "saw a green shoot → watered the soil → put in the seed"
+    "value": "saw a green shoot",
+    "label": "saw a green shoot",
+    "text": "saw a green shoot"
    },
    {
-    "value": "put in the seed → watered the soil → saw a green shoot",
-    "label": "put in the seed → watered the soil → saw a green shoot",
-    "text": "put in the seed → watered the soil → saw a green shoot"
-   },
-   {
-    "value": "watered the soil → put in the seed → saw a green shoot",
-    "label": "watered the soil → put in the seed → saw a green shoot",
-    "text": "watered the soil → put in the seed → saw a green shoot"
+    "value": "put in the seed",
+    "label": "put in the seed",
+    "text": "put in the seed"
    }
   ],
-  "answer": "put in the seed → watered the soil → saw a green shoot",
-  "correctAnswer": "put in the seed → watered the soil → saw a green shoot",
+  "answer": "put in the seed",
+  "correctAnswer": "put in the seed",
   "distractorRationales": {
-   "put in the seed → saw a green shoot → watered the soil": "D-SEQUENCE-END",
-   "saw a green shoot → watered the soil → put in the seed": "D-SEQUENCE-REVERSE",
-   "watered the soil → put in the seed → saw a green shoot": "D-SEQUENCE-START"
+   "watered the soil": "D-SEQUENCE-START",
+   "saw a green shoot": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -205,45 +191,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "Ben wet his hands, rubbed in soap, and rinsed the bubbles away. Which order matches the story?",
-  "passage": "Ben wet his hands, rubbed in soap, and rinsed the bubbles away.",
+  "prompt": "What happened first?",
+  "question": "What happened first?",
+  "spokenPrompt": "Ben wet his hands. Then he rubbed soap over them. Last, he rinsed the bubbles away. What happened first?",
+  "passage": "Ben wet his hands. Then he rubbed soap over them. Last, he rinsed the bubbles away.",
   "cell": "first_event",
   "choices": [
-   "rinsed his hands → rubbed in soap → wet his hands",
-   "wet his hands → rubbed in soap → rinsed his hands",
-   "rubbed in soap → wet his hands → rinsed his hands",
-   "wet his hands → rinsed his hands → rubbed in soap"
+   "rinsed his hands",
+   "wet his hands",
+   "rubbed in soap"
   ],
   "answerOptions": [
    {
-    "value": "rinsed his hands → rubbed in soap → wet his hands",
-    "label": "rinsed his hands → rubbed in soap → wet his hands",
-    "text": "rinsed his hands → rubbed in soap → wet his hands"
+    "value": "rinsed his hands",
+    "label": "rinsed his hands",
+    "text": "rinsed his hands"
    },
    {
-    "value": "wet his hands → rubbed in soap → rinsed his hands",
-    "label": "wet his hands → rubbed in soap → rinsed his hands",
-    "text": "wet his hands → rubbed in soap → rinsed his hands"
+    "value": "wet his hands",
+    "label": "wet his hands",
+    "text": "wet his hands"
    },
    {
-    "value": "rubbed in soap → wet his hands → rinsed his hands",
-    "label": "rubbed in soap → wet his hands → rinsed his hands",
-    "text": "rubbed in soap → wet his hands → rinsed his hands"
-   },
-   {
-    "value": "wet his hands → rinsed his hands → rubbed in soap",
-    "label": "wet his hands → rinsed his hands → rubbed in soap",
-    "text": "wet his hands → rinsed his hands → rubbed in soap"
+    "value": "rubbed in soap",
+    "label": "rubbed in soap",
+    "text": "rubbed in soap"
    }
   ],
-  "answer": "wet his hands → rubbed in soap → rinsed his hands",
-  "correctAnswer": "wet his hands → rubbed in soap → rinsed his hands",
+  "answer": "wet his hands",
+  "correctAnswer": "wet his hands",
   "distractorRationales": {
-   "rubbed in soap → wet his hands → rinsed his hands": "D-SEQUENCE-START",
-   "wet his hands → rinsed his hands → rubbed in soap": "D-SEQUENCE-END",
-   "rinsed his hands → rubbed in soap → wet his hands": "D-SEQUENCE-REVERSE"
+   "rubbed in soap": "D-SEQUENCE-START",
+   "rinsed his hands": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -297,45 +276,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the actions?",
-  "question": "Which order matches the actions?",
-  "spokenPrompt": "Zara pulled on one sock. Then she put on its shoe. Last, she tied the laces. Which order matches the actions?",
-  "passage": "Zara pulled on one sock. Then she put on its shoe. Last, she tied the laces.",
+  "prompt": "What happened first?",
+  "question": "What happened first?",
+  "spokenPrompt": "Zara pulled on a sock. Then she put on its shoe. Last, she tied the laces. What happened first?",
+  "passage": "Zara pulled on a sock. Then she put on its shoe. Last, she tied the laces.",
   "cell": "first_event",
   "choices": [
-   "pulled on a sock → put on the shoe → tied the laces",
-   "put on the shoe → pulled on a sock → tied the laces",
-   "pulled on a sock → tied the laces → put on the shoe",
-   "tied the laces → put on the shoe → pulled on a sock"
+   "tied the laces",
+   "pulled on a sock",
+   "put on the shoe"
   ],
   "answerOptions": [
    {
-    "value": "pulled on a sock → put on the shoe → tied the laces",
-    "label": "pulled on a sock → put on the shoe → tied the laces",
-    "text": "pulled on a sock → put on the shoe → tied the laces"
+    "value": "tied the laces",
+    "label": "tied the laces",
+    "text": "tied the laces"
    },
    {
-    "value": "put on the shoe → pulled on a sock → tied the laces",
-    "label": "put on the shoe → pulled on a sock → tied the laces",
-    "text": "put on the shoe → pulled on a sock → tied the laces"
+    "value": "pulled on a sock",
+    "label": "pulled on a sock",
+    "text": "pulled on a sock"
    },
    {
-    "value": "pulled on a sock → tied the laces → put on the shoe",
-    "label": "pulled on a sock → tied the laces → put on the shoe",
-    "text": "pulled on a sock → tied the laces → put on the shoe"
-   },
-   {
-    "value": "tied the laces → put on the shoe → pulled on a sock",
-    "label": "tied the laces → put on the shoe → pulled on a sock",
-    "text": "tied the laces → put on the shoe → pulled on a sock"
+    "value": "put on the shoe",
+    "label": "put on the shoe",
+    "text": "put on the shoe"
    }
   ],
-  "answer": "pulled on a sock → put on the shoe → tied the laces",
-  "correctAnswer": "pulled on a sock → put on the shoe → tied the laces",
+  "answer": "pulled on a sock",
+  "correctAnswer": "pulled on a sock",
   "distractorRationales": {
-   "tied the laces → put on the shoe → pulled on a sock": "D-SEQUENCE-REVERSE",
-   "put on the shoe → pulled on a sock → tied the laces": "D-SEQUENCE-START",
-   "pulled on a sock → tied the laces → put on the shoe": "D-SEQUENCE-END"
+   "tied the laces": "D-SEQUENCE-END",
+   "put on the shoe": "D-SEQUENCE-START"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -389,45 +361,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "Dad put bread in the toaster, waited for it to pop, and spread butter. Which order matches the story?",
-  "passage": "Dad put bread in the toaster, waited for it to pop, and spread butter.",
+  "prompt": "What happened first?",
+  "question": "What happened first?",
+  "spokenPrompt": "Dad put bread in the toaster. The toast popped up. Then he spread butter on it. What happened first?",
+  "passage": "Dad put bread in the toaster. The toast popped up. Then he spread butter on it.",
   "cell": "first_event",
   "choices": [
-   "toast popped up → put bread in → spread the butter",
-   "put bread in → spread the butter → toast popped up",
-   "spread the butter → toast popped up → put bread in",
-   "put bread in → toast popped up → spread the butter"
+   "put bread in",
+   "toast popped up",
+   "spread the butter"
   ],
   "answerOptions": [
    {
-    "value": "toast popped up → put bread in → spread the butter",
-    "label": "toast popped up → put bread in → spread the butter",
-    "text": "toast popped up → put bread in → spread the butter"
+    "value": "put bread in",
+    "label": "put bread in",
+    "text": "put bread in"
    },
    {
-    "value": "put bread in → spread the butter → toast popped up",
-    "label": "put bread in → spread the butter → toast popped up",
-    "text": "put bread in → spread the butter → toast popped up"
+    "value": "toast popped up",
+    "label": "toast popped up",
+    "text": "toast popped up"
    },
    {
-    "value": "spread the butter → toast popped up → put bread in",
-    "label": "spread the butter → toast popped up → put bread in",
-    "text": "spread the butter → toast popped up → put bread in"
-   },
-   {
-    "value": "put bread in → toast popped up → spread the butter",
-    "label": "put bread in → toast popped up → spread the butter",
-    "text": "put bread in → toast popped up → spread the butter"
+    "value": "spread the butter",
+    "label": "spread the butter",
+    "text": "spread the butter"
    }
   ],
-  "answer": "put bread in → toast popped up → spread the butter",
-  "correctAnswer": "put bread in → toast popped up → spread the butter",
+  "answer": "put bread in",
+  "correctAnswer": "put bread in",
   "distractorRationales": {
-   "spread the butter → toast popped up → put bread in": "D-SEQUENCE-REVERSE",
-   "toast popped up → put bread in → spread the butter": "D-SEQUENCE-START",
-   "put bread in → spread the butter → toast popped up": "D-SEQUENCE-END"
+   "toast popped up": "D-SEQUENCE-START",
+   "spread the butter": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -481,45 +446,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "Noah threw the ball, the dog chased it, and the dog brought it back. Which order matches the story?",
-  "passage": "Noah threw the ball, the dog chased it, and the dog brought it back.",
+  "prompt": "What happened first?",
+  "question": "What happened first?",
+  "spokenPrompt": "Noah threw the ball. The dog chased it. Then the dog brought it back. What happened first?",
+  "passage": "Noah threw the ball. The dog chased it. Then the dog brought it back.",
   "cell": "first_event",
   "choices": [
-   "threw the ball → dog brought it back → dog chased it",
-   "dog brought it back → dog chased it → threw the ball",
-   "threw the ball → dog chased it → dog brought it back",
-   "dog chased it → threw the ball → dog brought it back"
+   "dog chased it",
+   "dog brought it back",
+   "threw the ball"
   ],
   "answerOptions": [
    {
-    "value": "threw the ball → dog brought it back → dog chased it",
-    "label": "threw the ball → dog brought it back → dog chased it",
-    "text": "threw the ball → dog brought it back → dog chased it"
+    "value": "dog chased it",
+    "label": "dog chased it",
+    "text": "dog chased it"
    },
    {
-    "value": "dog brought it back → dog chased it → threw the ball",
-    "label": "dog brought it back → dog chased it → threw the ball",
-    "text": "dog brought it back → dog chased it → threw the ball"
+    "value": "dog brought it back",
+    "label": "dog brought it back",
+    "text": "dog brought it back"
    },
    {
-    "value": "threw the ball → dog chased it → dog brought it back",
-    "label": "threw the ball → dog chased it → dog brought it back",
-    "text": "threw the ball → dog chased it → dog brought it back"
-   },
-   {
-    "value": "dog chased it → threw the ball → dog brought it back",
-    "label": "dog chased it → threw the ball → dog brought it back",
-    "text": "dog chased it → threw the ball → dog brought it back"
+    "value": "threw the ball",
+    "label": "threw the ball",
+    "text": "threw the ball"
    }
   ],
-  "answer": "threw the ball → dog chased it → dog brought it back",
-  "correctAnswer": "threw the ball → dog chased it → dog brought it back",
+  "answer": "threw the ball",
+  "correctAnswer": "threw the ball",
   "distractorRationales": {
-   "dog brought it back → dog chased it → threw the ball": "D-SEQUENCE-REVERSE",
-   "dog chased it → threw the ball → dog brought it back": "D-SEQUENCE-START",
-   "threw the ball → dog brought it back → dog chased it": "D-SEQUENCE-END"
+   "dog chased it": "D-SEQUENCE-START",
+   "dog brought it back": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -573,45 +531,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the actions?",
-  "question": "Which order matches the actions?",
-  "spokenPrompt": "Lina drew a circle. Then she added sun rays. Last, she colored the sun yellow. Which order matches the actions?",
-  "passage": "Lina drew a circle. Then she added sun rays. Last, she colored the sun yellow.",
+  "prompt": "What happened first?",
+  "question": "What happened first?",
+  "spokenPrompt": "Lina drew a circle. Then she added sun rays. Last, she coloured the sun yellow. What happened first?",
+  "passage": "Lina drew a circle. Then she added sun rays. Last, she coloured the sun yellow.",
   "cell": "first_event",
   "choices": [
-   "colored the sun → added the rays → drew a circle",
-   "drew a circle → added the rays → colored the sun",
-   "added the rays → drew a circle → colored the sun",
-   "drew a circle → colored the sun → added the rays"
+   "added the rays",
+   "colored the sun",
+   "drew a circle"
   ],
   "answerOptions": [
    {
-    "value": "colored the sun → added the rays → drew a circle",
-    "label": "colored the sun → added the rays → drew a circle",
-    "text": "colored the sun → added the rays → drew a circle"
+    "value": "added the rays",
+    "label": "added the rays",
+    "text": "added the rays"
    },
    {
-    "value": "drew a circle → added the rays → colored the sun",
-    "label": "drew a circle → added the rays → colored the sun",
-    "text": "drew a circle → added the rays → colored the sun"
+    "value": "colored the sun",
+    "label": "colored the sun",
+    "text": "colored the sun"
    },
    {
-    "value": "added the rays → drew a circle → colored the sun",
-    "label": "added the rays → drew a circle → colored the sun",
-    "text": "added the rays → drew a circle → colored the sun"
-   },
-   {
-    "value": "drew a circle → colored the sun → added the rays",
-    "label": "drew a circle → colored the sun → added the rays",
-    "text": "drew a circle → colored the sun → added the rays"
+    "value": "drew a circle",
+    "label": "drew a circle",
+    "text": "drew a circle"
    }
   ],
-  "answer": "drew a circle → added the rays → colored the sun",
-  "correctAnswer": "drew a circle → added the rays → colored the sun",
+  "answer": "drew a circle",
+  "correctAnswer": "drew a circle",
   "distractorRationales": {
-   "drew a circle → colored the sun → added the rays": "D-SEQUENCE-END",
-   "colored the sun → added the rays → drew a circle": "D-SEQUENCE-REVERSE",
-   "added the rays → drew a circle → colored the sun": "D-SEQUENCE-START"
+   "added the rays": "D-SEQUENCE-START",
+   "colored the sun": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -665,45 +616,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "Omar set down blocks, stacked a tower, and smiled at the top. Which order matches the story?",
-  "passage": "Omar set down blocks, stacked a tower, and smiled at the top.",
+  "prompt": "What happened first?",
+  "question": "What happened first?",
+  "spokenPrompt": "Omar set down his blocks. He stacked them into a tower. Then he smiled at the tall tower. What happened first?",
+  "passage": "Omar set down his blocks. He stacked them into a tower. Then he smiled at the tall tower.",
   "cell": "first_event",
   "choices": [
-   "set down blocks → stacked the tower → smiled at the tower",
-   "stacked the tower → set down blocks → smiled at the tower",
-   "set down blocks → smiled at the tower → stacked the tower",
-   "smiled at the tower → stacked the tower → set down blocks"
+   "smiled at the tower",
+   "set down blocks",
+   "stacked the tower"
   ],
   "answerOptions": [
    {
-    "value": "set down blocks → stacked the tower → smiled at the tower",
-    "label": "set down blocks → stacked the tower → smiled at the tower",
-    "text": "set down blocks → stacked the tower → smiled at the tower"
+    "value": "smiled at the tower",
+    "label": "smiled at the tower",
+    "text": "smiled at the tower"
    },
    {
-    "value": "stacked the tower → set down blocks → smiled at the tower",
-    "label": "stacked the tower → set down blocks → smiled at the tower",
-    "text": "stacked the tower → set down blocks → smiled at the tower"
+    "value": "set down blocks",
+    "label": "set down blocks",
+    "text": "set down blocks"
    },
    {
-    "value": "set down blocks → smiled at the tower → stacked the tower",
-    "label": "set down blocks → smiled at the tower → stacked the tower",
-    "text": "set down blocks → smiled at the tower → stacked the tower"
-   },
-   {
-    "value": "smiled at the tower → stacked the tower → set down blocks",
-    "label": "smiled at the tower → stacked the tower → set down blocks",
-    "text": "smiled at the tower → stacked the tower → set down blocks"
+    "value": "stacked the tower",
+    "label": "stacked the tower",
+    "text": "stacked the tower"
    }
   ],
-  "answer": "set down blocks → stacked the tower → smiled at the tower",
-  "correctAnswer": "set down blocks → stacked the tower → smiled at the tower",
+  "answer": "set down blocks",
+  "correctAnswer": "set down blocks",
   "distractorRationales": {
-   "stacked the tower → set down blocks → smiled at the tower": "D-SEQUENCE-START",
-   "set down blocks → smiled at the tower → stacked the tower": "D-SEQUENCE-END",
-   "smiled at the tower → stacked the tower → set down blocks": "D-SEQUENCE-REVERSE"
+   "stacked the tower": "D-SEQUENCE-START",
+   "smiled at the tower": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -757,45 +701,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "Ava laid down bread, added cheese, and closed the sandwich. Which order matches the story?",
-  "passage": "Ava laid down bread, added cheese, and closed the sandwich.",
+  "prompt": "What happened in the middle?",
+  "question": "What happened in the middle?",
+  "spokenPrompt": "Ava put bread on a plate. She added cheese to one slice. Then she closed the sandwich. What happened in the middle?",
+  "passage": "Ava put bread on a plate. She added cheese to one slice. Then she closed the sandwich.",
   "cell": "middle_event",
   "choices": [
-   "laid down bread → closed the sandwich → added the cheese",
-   "closed the sandwich → added the cheese → laid down bread",
-   "laid down bread → added the cheese → closed the sandwich",
-   "added the cheese → laid down bread → closed the sandwich"
+   "added the cheese",
+   "laid down bread",
+   "closed the sandwich"
   ],
   "answerOptions": [
    {
-    "value": "laid down bread → closed the sandwich → added the cheese",
-    "label": "laid down bread → closed the sandwich → added the cheese",
-    "text": "laid down bread → closed the sandwich → added the cheese"
+    "value": "added the cheese",
+    "label": "added the cheese",
+    "text": "added the cheese"
    },
    {
-    "value": "closed the sandwich → added the cheese → laid down bread",
-    "label": "closed the sandwich → added the cheese → laid down bread",
-    "text": "closed the sandwich → added the cheese → laid down bread"
+    "value": "laid down bread",
+    "label": "laid down bread",
+    "text": "laid down bread"
    },
    {
-    "value": "laid down bread → added the cheese → closed the sandwich",
-    "label": "laid down bread → added the cheese → closed the sandwich",
-    "text": "laid down bread → added the cheese → closed the sandwich"
-   },
-   {
-    "value": "added the cheese → laid down bread → closed the sandwich",
-    "label": "added the cheese → laid down bread → closed the sandwich",
-    "text": "added the cheese → laid down bread → closed the sandwich"
+    "value": "closed the sandwich",
+    "label": "closed the sandwich",
+    "text": "closed the sandwich"
    }
   ],
-  "answer": "laid down bread → added the cheese → closed the sandwich",
-  "correctAnswer": "laid down bread → added the cheese → closed the sandwich",
+  "answer": "added the cheese",
+  "correctAnswer": "added the cheese",
   "distractorRationales": {
-   "added the cheese → laid down bread → closed the sandwich": "D-SEQUENCE-START",
-   "laid down bread → closed the sandwich → added the cheese": "D-SEQUENCE-END",
-   "closed the sandwich → added the cheese → laid down bread": "D-SEQUENCE-REVERSE"
+   "laid down bread": "D-SEQUENCE-START",
+   "closed the sandwich": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -849,45 +786,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the actions?",
-  "question": "Which order matches the actions?",
-  "spokenPrompt": "Rain began. Eli put on his boots. Then he opened an umbrella. Last, he walked outside. Which order matches the actions?",
-  "passage": "Rain began. Eli put on his boots. Then he opened an umbrella. Last, he walked outside.",
+  "prompt": "What happened in the middle?",
+  "question": "What happened in the middle?",
+  "spokenPrompt": "Eli put on his boots. Then he opened his umbrella. Last, he walked outside. What happened in the middle?",
+  "passage": "Eli put on his boots. Then he opened his umbrella. Last, he walked outside.",
   "cell": "middle_event",
   "choices": [
-   "walked outside → opened an umbrella → put on boots",
-   "put on boots → opened an umbrella → walked outside",
-   "opened an umbrella → put on boots → walked outside",
-   "put on boots → walked outside → opened an umbrella"
+   "put on boots",
+   "walked outside",
+   "opened an umbrella"
   ],
   "answerOptions": [
    {
-    "value": "walked outside → opened an umbrella → put on boots",
-    "label": "walked outside → opened an umbrella → put on boots",
-    "text": "walked outside → opened an umbrella → put on boots"
+    "value": "put on boots",
+    "label": "put on boots",
+    "text": "put on boots"
    },
    {
-    "value": "put on boots → opened an umbrella → walked outside",
-    "label": "put on boots → opened an umbrella → walked outside",
-    "text": "put on boots → opened an umbrella → walked outside"
+    "value": "walked outside",
+    "label": "walked outside",
+    "text": "walked outside"
    },
    {
-    "value": "opened an umbrella → put on boots → walked outside",
-    "label": "opened an umbrella → put on boots → walked outside",
-    "text": "opened an umbrella → put on boots → walked outside"
-   },
-   {
-    "value": "put on boots → walked outside → opened an umbrella",
-    "label": "put on boots → walked outside → opened an umbrella",
-    "text": "put on boots → walked outside → opened an umbrella"
+    "value": "opened an umbrella",
+    "label": "opened an umbrella",
+    "text": "opened an umbrella"
    }
   ],
-  "answer": "put on boots → opened an umbrella → walked outside",
-  "correctAnswer": "put on boots → opened an umbrella → walked outside",
+  "answer": "opened an umbrella",
+  "correctAnswer": "opened an umbrella",
   "distractorRationales": {
-   "opened an umbrella → put on boots → walked outside": "D-SEQUENCE-START",
-   "put on boots → walked outside → opened an umbrella": "D-SEQUENCE-END",
-   "walked outside → opened an umbrella → put on boots": "D-SEQUENCE-REVERSE"
+   "put on boots": "D-SEQUENCE-START",
+   "walked outside": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -941,45 +871,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "The girl opened her book, read one page, and put in a bookmark. Which order matches the story?",
-  "passage": "The girl opened her book, read one page, and put in a bookmark.",
+  "prompt": "What happened in the middle?",
+  "question": "What happened in the middle?",
+  "spokenPrompt": "The girl opened her book. She read a page. Then she put a bookmark inside. What happened in the middle?",
+  "passage": "The girl opened her book. She read a page. Then she put a bookmark inside.",
   "cell": "middle_event",
   "choices": [
-   "read the page → opened the book → put in a bookmark",
-   "opened the book → put in a bookmark → read the page",
-   "put in a bookmark → read the page → opened the book",
-   "opened the book → read the page → put in a bookmark"
+   "read the page",
+   "opened the book",
+   "put in a bookmark"
   ],
   "answerOptions": [
    {
-    "value": "read the page → opened the book → put in a bookmark",
-    "label": "read the page → opened the book → put in a bookmark",
-    "text": "read the page → opened the book → put in a bookmark"
+    "value": "read the page",
+    "label": "read the page",
+    "text": "read the page"
    },
    {
-    "value": "opened the book → put in a bookmark → read the page",
-    "label": "opened the book → put in a bookmark → read the page",
-    "text": "opened the book → put in a bookmark → read the page"
+    "value": "opened the book",
+    "label": "opened the book",
+    "text": "opened the book"
    },
    {
-    "value": "put in a bookmark → read the page → opened the book",
-    "label": "put in a bookmark → read the page → opened the book",
-    "text": "put in a bookmark → read the page → opened the book"
-   },
-   {
-    "value": "opened the book → read the page → put in a bookmark",
-    "label": "opened the book → read the page → put in a bookmark",
-    "text": "opened the book → read the page → put in a bookmark"
+    "value": "put in a bookmark",
+    "label": "put in a bookmark",
+    "text": "put in a bookmark"
    }
   ],
-  "answer": "opened the book → read the page → put in a bookmark",
-  "correctAnswer": "opened the book → read the page → put in a bookmark",
+  "answer": "read the page",
+  "correctAnswer": "read the page",
   "distractorRationales": {
-   "read the page → opened the book → put in a bookmark": "D-SEQUENCE-START",
-   "opened the book → put in a bookmark → read the page": "D-SEQUENCE-END",
-   "put in a bookmark → read the page → opened the book": "D-SEQUENCE-REVERSE"
+   "put in a bookmark": "D-SEQUENCE-END",
+   "opened the book": "D-SEQUENCE-START"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1033,45 +956,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "Kai filled a cup, drank the water, and put the cup in the sink. Which order matches the story?",
-  "passage": "Kai filled a cup, drank the water, and put the cup in the sink.",
+  "prompt": "What happened in the middle?",
+  "question": "What happened in the middle?",
+  "spokenPrompt": "Kai filled a cup with water. He drank the water. Then he put the cup in the sink. What happened in the middle?",
+  "passage": "Kai filled a cup with water. He drank the water. Then he put the cup in the sink.",
   "cell": "middle_event",
   "choices": [
-   "drank the water → filled the cup → put cup in sink",
-   "filled the cup → put cup in sink → drank the water",
-   "put cup in sink → drank the water → filled the cup",
-   "filled the cup → drank the water → put cup in sink"
+   "put cup in sink",
+   "drank the water",
+   "filled the cup"
   ],
   "answerOptions": [
    {
-    "value": "drank the water → filled the cup → put cup in sink",
-    "label": "drank the water → filled the cup → put cup in sink",
-    "text": "drank the water → filled the cup → put cup in sink"
+    "value": "put cup in sink",
+    "label": "put cup in sink",
+    "text": "put cup in sink"
    },
    {
-    "value": "filled the cup → put cup in sink → drank the water",
-    "label": "filled the cup → put cup in sink → drank the water",
-    "text": "filled the cup → put cup in sink → drank the water"
+    "value": "drank the water",
+    "label": "drank the water",
+    "text": "drank the water"
    },
    {
-    "value": "put cup in sink → drank the water → filled the cup",
-    "label": "put cup in sink → drank the water → filled the cup",
-    "text": "put cup in sink → drank the water → filled the cup"
-   },
-   {
-    "value": "filled the cup → drank the water → put cup in sink",
-    "label": "filled the cup → drank the water → put cup in sink",
-    "text": "filled the cup → drank the water → put cup in sink"
+    "value": "filled the cup",
+    "label": "filled the cup",
+    "text": "filled the cup"
    }
   ],
-  "answer": "filled the cup → drank the water → put cup in sink",
-  "correctAnswer": "filled the cup → drank the water → put cup in sink",
+  "answer": "drank the water",
+  "correctAnswer": "drank the water",
   "distractorRationales": {
-   "filled the cup → put cup in sink → drank the water": "D-SEQUENCE-END",
-   "put cup in sink → drank the water → filled the cup": "D-SEQUENCE-REVERSE",
-   "drank the water → filled the cup → put cup in sink": "D-SEQUENCE-START"
+   "filled the cup": "D-SEQUENCE-START",
+   "put cup in sink": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1125,45 +1041,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "Mom cracked an egg, whisked it, and cooked it in the pan. Which order matches the story?",
-  "passage": "Mom cracked an egg, whisked it, and cooked it in the pan.",
+  "prompt": "What happened in the middle?",
+  "question": "What happened in the middle?",
+  "spokenPrompt": "Mom cracked an egg into a bowl. She whisked it with a fork. Then she cooked it in a pan. What happened in the middle?",
+  "passage": "Mom cracked an egg into a bowl. She whisked it with a fork. Then she cooked it in a pan.",
   "cell": "middle_event",
   "choices": [
-   "cracked the egg → cooked the egg → whisked the egg",
-   "cooked the egg → whisked the egg → cracked the egg",
-   "cracked the egg → whisked the egg → cooked the egg",
-   "whisked the egg → cracked the egg → cooked the egg"
+   "whisked the egg",
+   "cracked the egg",
+   "cooked the egg"
   ],
   "answerOptions": [
    {
-    "value": "cracked the egg → cooked the egg → whisked the egg",
-    "label": "cracked the egg → cooked the egg → whisked the egg",
-    "text": "cracked the egg → cooked the egg → whisked the egg"
+    "value": "whisked the egg",
+    "label": "whisked the egg",
+    "text": "whisked the egg"
    },
    {
-    "value": "cooked the egg → whisked the egg → cracked the egg",
-    "label": "cooked the egg → whisked the egg → cracked the egg",
-    "text": "cooked the egg → whisked the egg → cracked the egg"
+    "value": "cracked the egg",
+    "label": "cracked the egg",
+    "text": "cracked the egg"
    },
    {
-    "value": "cracked the egg → whisked the egg → cooked the egg",
-    "label": "cracked the egg → whisked the egg → cooked the egg",
-    "text": "cracked the egg → whisked the egg → cooked the egg"
-   },
-   {
-    "value": "whisked the egg → cracked the egg → cooked the egg",
-    "label": "whisked the egg → cracked the egg → cooked the egg",
-    "text": "whisked the egg → cracked the egg → cooked the egg"
+    "value": "cooked the egg",
+    "label": "cooked the egg",
+    "text": "cooked the egg"
    }
   ],
-  "answer": "cracked the egg → whisked the egg → cooked the egg",
-  "correctAnswer": "cracked the egg → whisked the egg → cooked the egg",
+  "answer": "whisked the egg",
+  "correctAnswer": "whisked the egg",
   "distractorRationales": {
-   "whisked the egg → cracked the egg → cooked the egg": "D-SEQUENCE-START",
-   "cracked the egg → cooked the egg → whisked the egg": "D-SEQUENCE-END",
-   "cooked the egg → whisked the egg → cracked the egg": "D-SEQUENCE-REVERSE"
+   "cooked the egg": "D-SEQUENCE-END",
+   "cracked the egg": "D-SEQUENCE-START"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1217,45 +1126,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "The boy kicked the ball, it hit the goal, and his team cheered. Which order matches the story?",
-  "passage": "The boy kicked the ball, it hit the goal, and his team cheered.",
+  "prompt": "What happened in the middle?",
+  "question": "What happened in the middle?",
+  "spokenPrompt": "The boy kicked the ball. It went into the goal. Then his team cheered. What happened in the middle?",
+  "passage": "The boy kicked the ball. It went into the goal. Then his team cheered.",
   "cell": "middle_event",
   "choices": [
-   "kicked the ball → ball went in goal → team cheered",
-   "ball went in goal → kicked the ball → team cheered",
-   "kicked the ball → team cheered → ball went in goal",
-   "team cheered → ball went in goal → kicked the ball"
+   "team cheered",
+   "ball went in goal",
+   "kicked the ball"
   ],
   "answerOptions": [
    {
-    "value": "kicked the ball → ball went in goal → team cheered",
-    "label": "kicked the ball → ball went in goal → team cheered",
-    "text": "kicked the ball → ball went in goal → team cheered"
+    "value": "team cheered",
+    "label": "team cheered",
+    "text": "team cheered"
    },
    {
-    "value": "ball went in goal → kicked the ball → team cheered",
-    "label": "ball went in goal → kicked the ball → team cheered",
-    "text": "ball went in goal → kicked the ball → team cheered"
+    "value": "ball went in goal",
+    "label": "ball went in goal",
+    "text": "ball went in goal"
    },
    {
-    "value": "kicked the ball → team cheered → ball went in goal",
-    "label": "kicked the ball → team cheered → ball went in goal",
-    "text": "kicked the ball → team cheered → ball went in goal"
-   },
-   {
-    "value": "team cheered → ball went in goal → kicked the ball",
-    "label": "team cheered → ball went in goal → kicked the ball",
-    "text": "team cheered → ball went in goal → kicked the ball"
+    "value": "kicked the ball",
+    "label": "kicked the ball",
+    "text": "kicked the ball"
    }
   ],
-  "answer": "kicked the ball → ball went in goal → team cheered",
-  "correctAnswer": "kicked the ball → ball went in goal → team cheered",
+  "answer": "ball went in goal",
+  "correctAnswer": "ball went in goal",
   "distractorRationales": {
-   "kicked the ball → team cheered → ball went in goal": "D-SEQUENCE-END",
-   "team cheered → ball went in goal → kicked the ball": "D-SEQUENCE-REVERSE",
-   "ball went in goal → kicked the ball → team cheered": "D-SEQUENCE-START"
+   "kicked the ball": "D-SEQUENCE-START",
+   "team cheered": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1309,45 +1211,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the actions?",
-  "question": "Which order matches the actions?",
-  "spokenPrompt": "Nia washed the muddy dog. Then she dried its fur. Last, she brushed the fur smooth. Which order matches the actions?",
-  "passage": "Nia washed the muddy dog. Then she dried its fur. Last, she brushed the fur smooth.",
+  "prompt": "What happened in the middle?",
+  "question": "What happened in the middle?",
+  "spokenPrompt": "Nia washed the muddy dog. She dried its fur. Then she brushed its fur smooth. What happened in the middle?",
+  "passage": "Nia washed the muddy dog. She dried its fur. Then she brushed its fur smooth.",
   "cell": "middle_event",
   "choices": [
-   "washed the dog → dried its fur → brushed the fur smooth",
-   "dried its fur → washed the dog → brushed the fur smooth",
-   "washed the dog → brushed the fur smooth → dried its fur",
-   "brushed the fur smooth → dried its fur → washed the dog"
+   "washed the dog",
+   "brushed the fur smooth",
+   "dried its fur"
   ],
   "answerOptions": [
    {
-    "value": "washed the dog → dried its fur → brushed the fur smooth",
-    "label": "washed the dog → dried its fur → brushed the fur smooth",
-    "text": "washed the dog → dried its fur → brushed the fur smooth"
+    "value": "washed the dog",
+    "label": "washed the dog",
+    "text": "washed the dog"
    },
    {
-    "value": "dried its fur → washed the dog → brushed the fur smooth",
-    "label": "dried its fur → washed the dog → brushed the fur smooth",
-    "text": "dried its fur → washed the dog → brushed the fur smooth"
+    "value": "brushed the fur smooth",
+    "label": "brushed the fur smooth",
+    "text": "brushed the fur smooth"
    },
    {
-    "value": "washed the dog → brushed the fur smooth → dried its fur",
-    "label": "washed the dog → brushed the fur smooth → dried its fur",
-    "text": "washed the dog → brushed the fur smooth → dried its fur"
-   },
-   {
-    "value": "brushed the fur smooth → dried its fur → washed the dog",
-    "label": "brushed the fur smooth → dried its fur → washed the dog",
-    "text": "brushed the fur smooth → dried its fur → washed the dog"
+    "value": "dried its fur",
+    "label": "dried its fur",
+    "text": "dried its fur"
    }
   ],
-  "answer": "washed the dog → dried its fur → brushed the fur smooth",
-  "correctAnswer": "washed the dog → dried its fur → brushed the fur smooth",
+  "answer": "dried its fur",
+  "correctAnswer": "dried its fur",
   "distractorRationales": {
-   "brushed the fur smooth → dried its fur → washed the dog": "D-SEQUENCE-REVERSE",
-   "dried its fur → washed the dog → brushed the fur smooth": "D-SEQUENCE-START",
-   "washed the dog → brushed the fur smooth → dried its fur": "D-SEQUENCE-END"
+   "washed the dog": "D-SEQUENCE-START",
+   "brushed the fur smooth": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1401,45 +1296,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "The baker mixed dough, shaped a loaf, and put it in the oven. Which order matches the story?",
-  "passage": "The baker mixed dough, shaped a loaf, and put it in the oven.",
+  "prompt": "What happened in the middle?",
+  "question": "What happened in the middle?",
+  "spokenPrompt": "The baker mixed some dough. She shaped it into a loaf. Then she put it in the oven. What happened in the middle?",
+  "passage": "The baker mixed some dough. She shaped it into a loaf. Then she put it in the oven.",
   "cell": "middle_event",
   "choices": [
-   "shaped the loaf → mixed the dough → put loaf in oven",
-   "mixed the dough → put loaf in oven → shaped the loaf",
-   "put loaf in oven → shaped the loaf → mixed the dough",
-   "mixed the dough → shaped the loaf → put loaf in oven"
+   "put loaf in oven",
+   "shaped the loaf",
+   "mixed the dough"
   ],
   "answerOptions": [
    {
-    "value": "shaped the loaf → mixed the dough → put loaf in oven",
-    "label": "shaped the loaf → mixed the dough → put loaf in oven",
-    "text": "shaped the loaf → mixed the dough → put loaf in oven"
+    "value": "put loaf in oven",
+    "label": "put loaf in oven",
+    "text": "put loaf in oven"
    },
    {
-    "value": "mixed the dough → put loaf in oven → shaped the loaf",
-    "label": "mixed the dough → put loaf in oven → shaped the loaf",
-    "text": "mixed the dough → put loaf in oven → shaped the loaf"
+    "value": "shaped the loaf",
+    "label": "shaped the loaf",
+    "text": "shaped the loaf"
    },
    {
-    "value": "put loaf in oven → shaped the loaf → mixed the dough",
-    "label": "put loaf in oven → shaped the loaf → mixed the dough",
-    "text": "put loaf in oven → shaped the loaf → mixed the dough"
-   },
-   {
-    "value": "mixed the dough → shaped the loaf → put loaf in oven",
-    "label": "mixed the dough → shaped the loaf → put loaf in oven",
-    "text": "mixed the dough → shaped the loaf → put loaf in oven"
+    "value": "mixed the dough",
+    "label": "mixed the dough",
+    "text": "mixed the dough"
    }
   ],
-  "answer": "mixed the dough → shaped the loaf → put loaf in oven",
-  "correctAnswer": "mixed the dough → shaped the loaf → put loaf in oven",
+  "answer": "shaped the loaf",
+  "correctAnswer": "shaped the loaf",
   "distractorRationales": {
-   "put loaf in oven → shaped the loaf → mixed the dough": "D-SEQUENCE-REVERSE",
-   "shaped the loaf → mixed the dough → put loaf in oven": "D-SEQUENCE-START",
-   "mixed the dough → put loaf in oven → shaped the loaf": "D-SEQUENCE-END"
+   "put loaf in oven": "D-SEQUENCE-END",
+   "mixed the dough": "D-SEQUENCE-START"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1493,45 +1381,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the actions?",
-  "question": "Which order matches the actions?",
-  "spokenPrompt": "Sam put toothpaste on his brush. Then he brushed his teeth. Last, he rinsed his mouth. Which order matches the actions?",
-  "passage": "Sam put toothpaste on his brush. Then he brushed his teeth. Last, he rinsed his mouth.",
+  "prompt": "What happened last?",
+  "question": "What happened last?",
+  "spokenPrompt": "Sam put toothpaste on his brush. He brushed his teeth. Then he spat out the toothpaste. What happened last?",
+  "passage": "Sam put toothpaste on his brush. He brushed his teeth. Then he spat out the toothpaste.",
   "cell": "last_event",
   "choices": [
-   "rinsed his mouth → brushed his teeth → added toothpaste",
-   "added toothpaste → brushed his teeth → rinsed his mouth",
-   "brushed his teeth → added toothpaste → rinsed his mouth",
-   "added toothpaste → rinsed his mouth → brushed his teeth"
+   "spat out the toothpaste",
+   "added toothpaste",
+   "brushed his teeth"
   ],
   "answerOptions": [
    {
-    "value": "rinsed his mouth → brushed his teeth → added toothpaste",
-    "label": "rinsed his mouth → brushed his teeth → added toothpaste",
-    "text": "rinsed his mouth → brushed his teeth → added toothpaste"
+    "value": "spat out the toothpaste",
+    "label": "spat out the toothpaste",
+    "text": "spat out the toothpaste"
    },
    {
-    "value": "added toothpaste → brushed his teeth → rinsed his mouth",
-    "label": "added toothpaste → brushed his teeth → rinsed his mouth",
-    "text": "added toothpaste → brushed his teeth → rinsed his mouth"
+    "value": "added toothpaste",
+    "label": "added toothpaste",
+    "text": "added toothpaste"
    },
    {
-    "value": "brushed his teeth → added toothpaste → rinsed his mouth",
-    "label": "brushed his teeth → added toothpaste → rinsed his mouth",
-    "text": "brushed his teeth → added toothpaste → rinsed his mouth"
-   },
-   {
-    "value": "added toothpaste → rinsed his mouth → brushed his teeth",
-    "label": "added toothpaste → rinsed his mouth → brushed his teeth",
-    "text": "added toothpaste → rinsed his mouth → brushed his teeth"
+    "value": "brushed his teeth",
+    "label": "brushed his teeth",
+    "text": "brushed his teeth"
    }
   ],
-  "answer": "added toothpaste → brushed his teeth → rinsed his mouth",
-  "correctAnswer": "added toothpaste → brushed his teeth → rinsed his mouth",
+  "answer": "spat out the toothpaste",
+  "correctAnswer": "spat out the toothpaste",
   "distractorRationales": {
-   "added toothpaste → rinsed his mouth → brushed his teeth": "D-SEQUENCE-END",
-   "rinsed his mouth → brushed his teeth → added toothpaste": "D-SEQUENCE-REVERSE",
-   "brushed his teeth → added toothpaste → rinsed his mouth": "D-SEQUENCE-START"
+   "brushed his teeth": "D-SEQUENCE-END",
+   "added toothpaste": "D-SEQUENCE-START"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1585,45 +1466,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "The child found paper, folded a plane, and flew it across the room. Which order matches the story?",
-  "passage": "The child found paper, folded a plane, and flew it across the room.",
+  "prompt": "What happened last?",
+  "question": "What happened last?",
+  "spokenPrompt": "The child found some paper. She folded it into a plane. Then she flew it across the room. What happened last?",
+  "passage": "The child found some paper. She folded it into a plane. Then she flew it across the room.",
   "cell": "last_event",
   "choices": [
-   "found the paper → folded a plane → flew the plane",
-   "folded a plane → found the paper → flew the plane",
-   "found the paper → flew the plane → folded a plane",
-   "flew the plane → folded a plane → found the paper"
+   "found the paper",
+   "folded a plane",
+   "flew the plane"
   ],
   "answerOptions": [
    {
-    "value": "found the paper → folded a plane → flew the plane",
-    "label": "found the paper → folded a plane → flew the plane",
-    "text": "found the paper → folded a plane → flew the plane"
+    "value": "found the paper",
+    "label": "found the paper",
+    "text": "found the paper"
    },
    {
-    "value": "folded a plane → found the paper → flew the plane",
-    "label": "folded a plane → found the paper → flew the plane",
-    "text": "folded a plane → found the paper → flew the plane"
+    "value": "folded a plane",
+    "label": "folded a plane",
+    "text": "folded a plane"
    },
    {
-    "value": "found the paper → flew the plane → folded a plane",
-    "label": "found the paper → flew the plane → folded a plane",
-    "text": "found the paper → flew the plane → folded a plane"
-   },
-   {
-    "value": "flew the plane → folded a plane → found the paper",
-    "label": "flew the plane → folded a plane → found the paper",
-    "text": "flew the plane → folded a plane → found the paper"
+    "value": "flew the plane",
+    "label": "flew the plane",
+    "text": "flew the plane"
    }
   ],
-  "answer": "found the paper → folded a plane → flew the plane",
-  "correctAnswer": "found the paper → folded a plane → flew the plane",
+  "answer": "flew the plane",
+  "correctAnswer": "flew the plane",
   "distractorRationales": {
-   "found the paper → flew the plane → folded a plane": "D-SEQUENCE-END",
-   "flew the plane → folded a plane → found the paper": "D-SEQUENCE-REVERSE",
-   "folded a plane → found the paper → flew the plane": "D-SEQUENCE-START"
+   "found the paper": "D-SEQUENCE-START",
+   "folded a plane": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1677,45 +1551,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "Ivy picked an apple, washed it, and took a bite. Which order matches the story?",
-  "passage": "Ivy picked an apple, washed it, and took a bite.",
+  "prompt": "What happened last?",
+  "question": "What happened last?",
+  "spokenPrompt": "Ivy picked an apple. She washed it under the tap. Then she took a bite. What happened last?",
+  "passage": "Ivy picked an apple. She washed it under the tap. Then she took a bite.",
   "cell": "last_event",
   "choices": [
-   "bit the apple → washed the apple → picked the apple",
-   "picked the apple → washed the apple → bit the apple",
-   "washed the apple → picked the apple → bit the apple",
-   "picked the apple → bit the apple → washed the apple"
+   "picked the apple",
+   "washed the apple",
+   "bit the apple"
   ],
   "answerOptions": [
    {
-    "value": "bit the apple → washed the apple → picked the apple",
-    "label": "bit the apple → washed the apple → picked the apple",
-    "text": "bit the apple → washed the apple → picked the apple"
+    "value": "picked the apple",
+    "label": "picked the apple",
+    "text": "picked the apple"
    },
    {
-    "value": "picked the apple → washed the apple → bit the apple",
-    "label": "picked the apple → washed the apple → bit the apple",
-    "text": "picked the apple → washed the apple → bit the apple"
+    "value": "washed the apple",
+    "label": "washed the apple",
+    "text": "washed the apple"
    },
    {
-    "value": "washed the apple → picked the apple → bit the apple",
-    "label": "washed the apple → picked the apple → bit the apple",
-    "text": "washed the apple → picked the apple → bit the apple"
-   },
-   {
-    "value": "picked the apple → bit the apple → washed the apple",
-    "label": "picked the apple → bit the apple → washed the apple",
-    "text": "picked the apple → bit the apple → washed the apple"
+    "value": "bit the apple",
+    "label": "bit the apple",
+    "text": "bit the apple"
    }
   ],
-  "answer": "picked the apple → washed the apple → bit the apple",
-  "correctAnswer": "picked the apple → washed the apple → bit the apple",
+  "answer": "bit the apple",
+  "correctAnswer": "bit the apple",
   "distractorRationales": {
-   "picked the apple → bit the apple → washed the apple": "D-SEQUENCE-END",
-   "bit the apple → washed the apple → picked the apple": "D-SEQUENCE-REVERSE",
-   "washed the apple → picked the apple → bit the apple": "D-SEQUENCE-START"
+   "picked the apple": "D-SEQUENCE-START",
+   "washed the apple": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1769,45 +1636,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "The boy built a snowball, added a head, and gave the snowman a hat. Which order matches the story?",
-  "passage": "The boy built a snowball, added a head, and gave the snowman a hat.",
+  "prompt": "What happened last?",
+  "question": "What happened last?",
+  "spokenPrompt": "The boy rolled a large snowball. He added a smaller one for the head. Then he gave the snowman a hat. What happened last?",
+  "passage": "The boy rolled a large snowball. He added a smaller one for the head. Then he gave the snowman a hat.",
   "cell": "last_event",
   "choices": [
-   "made a snowball → added the hat → added the head",
-   "added the hat → added the head → made a snowball",
-   "made a snowball → added the head → added the hat",
-   "added the head → made a snowball → added the hat"
+   "added the head",
+   "added the hat",
+   "made a snowball"
   ],
   "answerOptions": [
    {
-    "value": "made a snowball → added the hat → added the head",
-    "label": "made a snowball → added the hat → added the head",
-    "text": "made a snowball → added the hat → added the head"
+    "value": "added the head",
+    "label": "added the head",
+    "text": "added the head"
    },
    {
-    "value": "added the hat → added the head → made a snowball",
-    "label": "added the hat → added the head → made a snowball",
-    "text": "added the hat → added the head → made a snowball"
+    "value": "added the hat",
+    "label": "added the hat",
+    "text": "added the hat"
    },
    {
-    "value": "made a snowball → added the head → added the hat",
-    "label": "made a snowball → added the head → added the hat",
-    "text": "made a snowball → added the head → added the hat"
-   },
-   {
-    "value": "added the head → made a snowball → added the hat",
-    "label": "added the head → made a snowball → added the hat",
-    "text": "added the head → made a snowball → added the hat"
+    "value": "made a snowball",
+    "label": "made a snowball",
+    "text": "made a snowball"
    }
   ],
-  "answer": "made a snowball → added the head → added the hat",
-  "correctAnswer": "made a snowball → added the head → added the hat",
+  "answer": "added the hat",
+  "correctAnswer": "added the hat",
   "distractorRationales": {
-   "added the head → made a snowball → added the hat": "D-SEQUENCE-START",
-   "made a snowball → added the hat → added the head": "D-SEQUENCE-END",
-   "added the hat → added the head → made a snowball": "D-SEQUENCE-REVERSE"
+   "added the head": "D-SEQUENCE-END",
+   "made a snowball": "D-SEQUENCE-START"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1861,45 +1721,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "Ana wrapped the gift, tied a bow, and gave it to her friend. Which order matches the story?",
-  "passage": "Ana wrapped the gift, tied a bow, and gave it to her friend.",
+  "prompt": "What happened last?",
+  "question": "What happened last?",
+  "spokenPrompt": "Ana wrapped the gift. She tied a bow around it. Then she gave it to her friend. What happened last?",
+  "passage": "Ana wrapped the gift. She tied a bow around it. Then she gave it to her friend.",
   "cell": "last_event",
   "choices": [
-   "gave the gift → tied the bow → wrapped the gift",
-   "wrapped the gift → tied the bow → gave the gift",
-   "tied the bow → wrapped the gift → gave the gift",
-   "wrapped the gift → gave the gift → tied the bow"
+   "gave the gift",
+   "wrapped the gift",
+   "tied the bow"
   ],
   "answerOptions": [
    {
-    "value": "gave the gift → tied the bow → wrapped the gift",
-    "label": "gave the gift → tied the bow → wrapped the gift",
-    "text": "gave the gift → tied the bow → wrapped the gift"
+    "value": "gave the gift",
+    "label": "gave the gift",
+    "text": "gave the gift"
    },
    {
-    "value": "wrapped the gift → tied the bow → gave the gift",
-    "label": "wrapped the gift → tied the bow → gave the gift",
-    "text": "wrapped the gift → tied the bow → gave the gift"
+    "value": "wrapped the gift",
+    "label": "wrapped the gift",
+    "text": "wrapped the gift"
    },
    {
-    "value": "tied the bow → wrapped the gift → gave the gift",
-    "label": "tied the bow → wrapped the gift → gave the gift",
-    "text": "tied the bow → wrapped the gift → gave the gift"
-   },
-   {
-    "value": "wrapped the gift → gave the gift → tied the bow",
-    "label": "wrapped the gift → gave the gift → tied the bow",
-    "text": "wrapped the gift → gave the gift → tied the bow"
+    "value": "tied the bow",
+    "label": "tied the bow",
+    "text": "tied the bow"
    }
   ],
-  "answer": "wrapped the gift → tied the bow → gave the gift",
-  "correctAnswer": "wrapped the gift → tied the bow → gave the gift",
+  "answer": "gave the gift",
+  "correctAnswer": "gave the gift",
   "distractorRationales": {
-   "gave the gift → tied the bow → wrapped the gift": "D-SEQUENCE-REVERSE",
-   "tied the bow → wrapped the gift → gave the gift": "D-SEQUENCE-START",
-   "wrapped the gift → gave the gift → tied the bow": "D-SEQUENCE-END"
+   "wrapped the gift": "D-SEQUENCE-START",
+   "tied the bow": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1953,45 +1806,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "The class dug a hole, planted the tree, and watered its roots. Which order matches the story?",
-  "passage": "The class dug a hole, planted the tree, and watered its roots.",
+  "prompt": "What happened last?",
+  "question": "What happened last?",
+  "spokenPrompt": "The class dug a hole. They planted a tree in it. Then they watered its roots. What happened last?",
+  "passage": "The class dug a hole. They planted a tree in it. Then they watered its roots.",
   "cell": "last_event",
   "choices": [
-   "dug the hole → watered the roots → planted the tree",
-   "watered the roots → planted the tree → dug the hole",
-   "dug the hole → planted the tree → watered the roots",
-   "planted the tree → dug the hole → watered the roots"
+   "watered the roots",
+   "dug the hole",
+   "planted the tree"
   ],
   "answerOptions": [
    {
-    "value": "dug the hole → watered the roots → planted the tree",
-    "label": "dug the hole → watered the roots → planted the tree",
-    "text": "dug the hole → watered the roots → planted the tree"
+    "value": "watered the roots",
+    "label": "watered the roots",
+    "text": "watered the roots"
    },
    {
-    "value": "watered the roots → planted the tree → dug the hole",
-    "label": "watered the roots → planted the tree → dug the hole",
-    "text": "watered the roots → planted the tree → dug the hole"
+    "value": "dug the hole",
+    "label": "dug the hole",
+    "text": "dug the hole"
    },
    {
-    "value": "dug the hole → planted the tree → watered the roots",
-    "label": "dug the hole → planted the tree → watered the roots",
-    "text": "dug the hole → planted the tree → watered the roots"
-   },
-   {
-    "value": "planted the tree → dug the hole → watered the roots",
-    "label": "planted the tree → dug the hole → watered the roots",
-    "text": "planted the tree → dug the hole → watered the roots"
+    "value": "planted the tree",
+    "label": "planted the tree",
+    "text": "planted the tree"
    }
   ],
-  "answer": "dug the hole → planted the tree → watered the roots",
-  "correctAnswer": "dug the hole → planted the tree → watered the roots",
+  "answer": "watered the roots",
+  "correctAnswer": "watered the roots",
   "distractorRationales": {
-   "planted the tree → dug the hole → watered the roots": "D-SEQUENCE-START",
-   "dug the hole → watered the roots → planted the tree": "D-SEQUENCE-END",
-   "watered the roots → planted the tree → dug the hole": "D-SEQUENCE-REVERSE"
+   "dug the hole": "D-SEQUENCE-START",
+   "planted the tree": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2045,45 +1891,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "Leo put trash in a bag, tied it shut, and placed it in the trash can. Which order matches the story?",
-  "passage": "Leo put trash in a bag, tied it shut, and placed it in the trash can.",
+  "prompt": "What happened last?",
+  "question": "What happened last?",
+  "spokenPrompt": "Leo filled a bag with rubbish. He tied the bag shut. Then he put it in the bin. What happened last?",
+  "passage": "Leo filled a bag with rubbish. He tied the bag shut. Then he put it in the bin.",
   "cell": "last_event",
   "choices": [
-   "tied the bag → filled the bag → put bag in trash can",
-   "filled the bag → put bag in trash can → tied the bag",
-   "put bag in trash can → tied the bag → filled the bag",
-   "filled the bag → tied the bag → put bag in trash can"
+   "filled the bag",
+   "tied the bag",
+   "put bag in trash can"
   ],
   "answerOptions": [
    {
-    "value": "tied the bag → filled the bag → put bag in trash can",
-    "label": "tied the bag → filled the bag → put bag in trash can",
-    "text": "tied the bag → filled the bag → put bag in trash can"
+    "value": "filled the bag",
+    "label": "filled the bag",
+    "text": "filled the bag"
    },
    {
-    "value": "filled the bag → put bag in trash can → tied the bag",
-    "label": "filled the bag → put bag in trash can → tied the bag",
-    "text": "filled the bag → put bag in trash can → tied the bag"
+    "value": "tied the bag",
+    "label": "tied the bag",
+    "text": "tied the bag"
    },
    {
-    "value": "put bag in trash can → tied the bag → filled the bag",
-    "label": "put bag in trash can → tied the bag → filled the bag",
-    "text": "put bag in trash can → tied the bag → filled the bag"
-   },
-   {
-    "value": "filled the bag → tied the bag → put bag in trash can",
-    "label": "filled the bag → tied the bag → put bag in trash can",
-    "text": "filled the bag → tied the bag → put bag in trash can"
+    "value": "put bag in trash can",
+    "label": "put bag in trash can",
+    "text": "put bag in trash can"
    }
   ],
-  "answer": "filled the bag → tied the bag → put bag in trash can",
-  "correctAnswer": "filled the bag → tied the bag → put bag in trash can",
+  "answer": "put bag in trash can",
+  "correctAnswer": "put bag in trash can",
   "distractorRationales": {
-   "tied the bag → filled the bag → put bag in trash can": "D-SEQUENCE-START",
-   "filled the bag → put bag in trash can → tied the bag": "D-SEQUENCE-END",
-   "put bag in trash can → tied the bag → filled the bag": "D-SEQUENCE-REVERSE"
+   "tied the bag": "D-SEQUENCE-END",
+   "filled the bag": "D-SEQUENCE-START"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2137,45 +1976,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "The bus stopped, the doors opened, and the children stepped off. Which order matches the story?",
-  "passage": "The bus stopped, the doors opened, and the children stepped off.",
+  "prompt": "What happened last?",
+  "question": "What happened last?",
+  "spokenPrompt": "The bus stopped. Its doors opened. Then the children stepped off. What happened last?",
+  "passage": "The bus stopped. Its doors opened. Then the children stepped off.",
   "cell": "last_event",
   "choices": [
-   "bus stopped → children stepped off → doors opened",
-   "children stepped off → doors opened → bus stopped",
-   "bus stopped → doors opened → children stepped off",
-   "doors opened → bus stopped → children stepped off"
+   "doors opened",
+   "children stepped off",
+   "bus stopped"
   ],
   "answerOptions": [
    {
-    "value": "bus stopped → children stepped off → doors opened",
-    "label": "bus stopped → children stepped off → doors opened",
-    "text": "bus stopped → children stepped off → doors opened"
+    "value": "doors opened",
+    "label": "doors opened",
+    "text": "doors opened"
    },
    {
-    "value": "children stepped off → doors opened → bus stopped",
-    "label": "children stepped off → doors opened → bus stopped",
-    "text": "children stepped off → doors opened → bus stopped"
+    "value": "children stepped off",
+    "label": "children stepped off",
+    "text": "children stepped off"
    },
    {
-    "value": "bus stopped → doors opened → children stepped off",
-    "label": "bus stopped → doors opened → children stepped off",
-    "text": "bus stopped → doors opened → children stepped off"
-   },
-   {
-    "value": "doors opened → bus stopped → children stepped off",
-    "label": "doors opened → bus stopped → children stepped off",
-    "text": "doors opened → bus stopped → children stepped off"
+    "value": "bus stopped",
+    "label": "bus stopped",
+    "text": "bus stopped"
    }
   ],
-  "answer": "bus stopped → doors opened → children stepped off",
-  "correctAnswer": "bus stopped → doors opened → children stepped off",
+  "answer": "children stepped off",
+  "correctAnswer": "children stepped off",
   "distractorRationales": {
-   "doors opened → bus stopped → children stepped off": "D-SEQUENCE-START",
-   "bus stopped → children stepped off → doors opened": "D-SEQUENCE-END",
-   "children stepped off → doors opened → bus stopped": "D-SEQUENCE-REVERSE"
+   "bus stopped": "D-SEQUENCE-START",
+   "doors opened": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2229,45 +2061,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "Rae picked up a pencil, drew a star, and colored it red. Which order matches the story?",
-  "passage": "Rae picked up a pencil, drew a star, and colored it red.",
+  "prompt": "What happened first?",
+  "question": "What happened first?",
+  "spokenPrompt": "Rae picked up a pencil. She drew a star. Then she coloured it red. What happened first?",
+  "passage": "Rae picked up a pencil. She drew a star. Then she coloured it red.",
   "cell": "first_event",
   "choices": [
-   "picked up pencil → colored it red → drew the star",
-   "colored it red → drew the star → picked up pencil",
-   "picked up pencil → drew the star → colored it red",
-   "drew the star → picked up pencil → colored it red"
+   "colored it red",
+   "picked up pencil",
+   "drew the star"
   ],
   "answerOptions": [
    {
-    "value": "picked up pencil → colored it red → drew the star",
-    "label": "picked up pencil → colored it red → drew the star",
-    "text": "picked up pencil → colored it red → drew the star"
+    "value": "colored it red",
+    "label": "colored it red",
+    "text": "colored it red"
    },
    {
-    "value": "colored it red → drew the star → picked up pencil",
-    "label": "colored it red → drew the star → picked up pencil",
-    "text": "colored it red → drew the star → picked up pencil"
+    "value": "picked up pencil",
+    "label": "picked up pencil",
+    "text": "picked up pencil"
    },
    {
-    "value": "picked up pencil → drew the star → colored it red",
-    "label": "picked up pencil → drew the star → colored it red",
-    "text": "picked up pencil → drew the star → colored it red"
-   },
-   {
-    "value": "drew the star → picked up pencil → colored it red",
-    "label": "drew the star → picked up pencil → colored it red",
-    "text": "drew the star → picked up pencil → colored it red"
+    "value": "drew the star",
+    "label": "drew the star",
+    "text": "drew the star"
    }
   ],
-  "answer": "picked up pencil → drew the star → colored it red",
-  "correctAnswer": "picked up pencil → drew the star → colored it red",
+  "answer": "picked up pencil",
+  "correctAnswer": "picked up pencil",
   "distractorRationales": {
-   "colored it red → drew the star → picked up pencil": "D-SEQUENCE-REVERSE",
-   "drew the star → picked up pencil → colored it red": "D-SEQUENCE-START",
-   "picked up pencil → colored it red → drew the star": "D-SEQUENCE-END"
+   "colored it red": "D-SEQUENCE-END",
+   "drew the star": "D-SEQUENCE-START"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2321,45 +2146,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "Max opened the gate, led the pony through, and shut the gate. Which order matches the story?",
-  "passage": "Max opened the gate, led the pony through, and shut the gate.",
+  "prompt": "What happened in the middle?",
+  "question": "What happened in the middle?",
+  "spokenPrompt": "Max opened the gate. He led the pony through. Then he shut the gate. What happened in the middle?",
+  "passage": "Max opened the gate. He led the pony through. Then he shut the gate.",
   "cell": "middle_event",
   "choices": [
-   "led pony through → opened the gate → shut the gate",
-   "opened the gate → shut the gate → led pony through",
-   "shut the gate → led pony through → opened the gate",
-   "opened the gate → led pony through → shut the gate"
+   "opened the gate",
+   "shut the gate",
+   "led pony through"
   ],
   "answerOptions": [
    {
-    "value": "led pony through → opened the gate → shut the gate",
-    "label": "led pony through → opened the gate → shut the gate",
-    "text": "led pony through → opened the gate → shut the gate"
+    "value": "opened the gate",
+    "label": "opened the gate",
+    "text": "opened the gate"
    },
    {
-    "value": "opened the gate → shut the gate → led pony through",
-    "label": "opened the gate → shut the gate → led pony through",
-    "text": "opened the gate → shut the gate → led pony through"
+    "value": "shut the gate",
+    "label": "shut the gate",
+    "text": "shut the gate"
    },
    {
-    "value": "shut the gate → led pony through → opened the gate",
-    "label": "shut the gate → led pony through → opened the gate",
-    "text": "shut the gate → led pony through → opened the gate"
-   },
-   {
-    "value": "opened the gate → led pony through → shut the gate",
-    "label": "opened the gate → led pony through → shut the gate",
-    "text": "opened the gate → led pony through → shut the gate"
+    "value": "led pony through",
+    "label": "led pony through",
+    "text": "led pony through"
    }
   ],
-  "answer": "opened the gate → led pony through → shut the gate",
-  "correctAnswer": "opened the gate → led pony through → shut the gate",
+  "answer": "led pony through",
+  "correctAnswer": "led pony through",
   "distractorRationales": {
-   "opened the gate → shut the gate → led pony through": "D-SEQUENCE-END",
-   "shut the gate → led pony through → opened the gate": "D-SEQUENCE-REVERSE",
-   "led pony through → opened the gate → shut the gate": "D-SEQUENCE-START"
+   "shut the gate": "D-SEQUENCE-END",
+   "opened the gate": "D-SEQUENCE-START"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2413,45 +2231,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "The frog sat, jumped into the pond, and swam away. Which order matches the story?",
-  "passage": "The frog sat, jumped into the pond, and swam away.",
+  "prompt": "What happened last?",
+  "question": "What happened last?",
+  "spokenPrompt": "The frog sat by the pond. It jumped into the water. Then it swam away. What happened last?",
+  "passage": "The frog sat by the pond. It jumped into the water. Then it swam away.",
   "cell": "last_event",
   "choices": [
-   "frog sat → frog jumped → frog swam away",
-   "frog jumped → frog sat → frog swam away",
-   "frog sat → frog swam away → frog jumped",
-   "frog swam away → frog jumped → frog sat"
+   "frog swam away",
+   "frog sat",
+   "frog jumped"
   ],
   "answerOptions": [
    {
-    "value": "frog sat → frog jumped → frog swam away",
-    "label": "frog sat → frog jumped → frog swam away",
-    "text": "frog sat → frog jumped → frog swam away"
+    "value": "frog swam away",
+    "label": "frog swam away",
+    "text": "frog swam away"
    },
    {
-    "value": "frog jumped → frog sat → frog swam away",
-    "label": "frog jumped → frog sat → frog swam away",
-    "text": "frog jumped → frog sat → frog swam away"
+    "value": "frog sat",
+    "label": "frog sat",
+    "text": "frog sat"
    },
    {
-    "value": "frog sat → frog swam away → frog jumped",
-    "label": "frog sat → frog swam away → frog jumped",
-    "text": "frog sat → frog swam away → frog jumped"
-   },
-   {
-    "value": "frog swam away → frog jumped → frog sat",
-    "label": "frog swam away → frog jumped → frog sat",
-    "text": "frog swam away → frog jumped → frog sat"
+    "value": "frog jumped",
+    "label": "frog jumped",
+    "text": "frog jumped"
    }
   ],
-  "answer": "frog sat → frog jumped → frog swam away",
-  "correctAnswer": "frog sat → frog jumped → frog swam away",
+  "answer": "frog swam away",
+  "correctAnswer": "frog swam away",
   "distractorRationales": {
-   "frog swam away → frog jumped → frog sat": "D-SEQUENCE-REVERSE",
-   "frog jumped → frog sat → frog swam away": "D-SEQUENCE-START",
-   "frog sat → frog swam away → frog jumped": "D-SEQUENCE-END"
+   "frog jumped": "D-SEQUENCE-END",
+   "frog sat": "D-SEQUENCE-START"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2505,45 +2316,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "Jo poured cereal, added milk, and ate breakfast. Which order matches the story?",
-  "passage": "Jo poured cereal, added milk, and ate breakfast.",
+  "prompt": "What happened first?",
+  "question": "What happened first?",
+  "spokenPrompt": "Jo poured cereal into a bowl. She added milk. Then she ate her breakfast. What happened first?",
+  "passage": "Jo poured cereal into a bowl. She added milk. Then she ate her breakfast.",
   "cell": "first_event",
   "choices": [
-   "ate breakfast → added milk → poured cereal",
-   "poured cereal → added milk → ate breakfast",
-   "added milk → poured cereal → ate breakfast",
-   "poured cereal → ate breakfast → added milk"
+   "ate breakfast",
+   "poured cereal",
+   "added milk"
   ],
   "answerOptions": [
    {
-    "value": "ate breakfast → added milk → poured cereal",
-    "label": "ate breakfast → added milk → poured cereal",
-    "text": "ate breakfast → added milk → poured cereal"
+    "value": "ate breakfast",
+    "label": "ate breakfast",
+    "text": "ate breakfast"
    },
    {
-    "value": "poured cereal → added milk → ate breakfast",
-    "label": "poured cereal → added milk → ate breakfast",
-    "text": "poured cereal → added milk → ate breakfast"
+    "value": "poured cereal",
+    "label": "poured cereal",
+    "text": "poured cereal"
    },
    {
-    "value": "added milk → poured cereal → ate breakfast",
-    "label": "added milk → poured cereal → ate breakfast",
-    "text": "added milk → poured cereal → ate breakfast"
-   },
-   {
-    "value": "poured cereal → ate breakfast → added milk",
-    "label": "poured cereal → ate breakfast → added milk",
-    "text": "poured cereal → ate breakfast → added milk"
+    "value": "added milk",
+    "label": "added milk",
+    "text": "added milk"
    }
   ],
-  "answer": "poured cereal → added milk → ate breakfast",
-  "correctAnswer": "poured cereal → added milk → ate breakfast",
+  "answer": "poured cereal",
+  "correctAnswer": "poured cereal",
   "distractorRationales": {
-   "added milk → poured cereal → ate breakfast": "D-SEQUENCE-START",
-   "poured cereal → ate breakfast → added milk": "D-SEQUENCE-END",
-   "ate breakfast → added milk → poured cereal": "D-SEQUENCE-REVERSE"
+   "added milk": "D-SEQUENCE-START",
+   "ate breakfast": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2597,45 +2401,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the actions?",
-  "question": "Which order matches the actions?",
-  "spokenPrompt": "The child zipped a coat. Then the child put on a hat. Last, the child went into the snow. Which order matches the actions?",
-  "passage": "The child zipped a coat. Then the child put on a hat. Last, the child went into the snow.",
+  "prompt": "What happened in the middle?",
+  "question": "What happened in the middle?",
+  "spokenPrompt": "The child zipped up a coat. He put on a hat. Then he went into the snow. What happened in the middle?",
+  "passage": "The child zipped up a coat. He put on a hat. Then he went into the snow.",
   "cell": "middle_event",
   "choices": [
-   "zipped the coat → went into the snow → put on the hat",
-   "went into the snow → put on the hat → zipped the coat",
-   "zipped the coat → put on the hat → went into the snow",
-   "put on the hat → zipped the coat → went into the snow"
+   "zipped the coat",
+   "went into the snow",
+   "put on the hat"
   ],
   "answerOptions": [
    {
-    "value": "zipped the coat → went into the snow → put on the hat",
-    "label": "zipped the coat → went into the snow → put on the hat",
-    "text": "zipped the coat → went into the snow → put on the hat"
+    "value": "zipped the coat",
+    "label": "zipped the coat",
+    "text": "zipped the coat"
    },
    {
-    "value": "went into the snow → put on the hat → zipped the coat",
-    "label": "went into the snow → put on the hat → zipped the coat",
-    "text": "went into the snow → put on the hat → zipped the coat"
+    "value": "went into the snow",
+    "label": "went into the snow",
+    "text": "went into the snow"
    },
    {
-    "value": "zipped the coat → put on the hat → went into the snow",
-    "label": "zipped the coat → put on the hat → went into the snow",
-    "text": "zipped the coat → put on the hat → went into the snow"
-   },
-   {
-    "value": "put on the hat → zipped the coat → went into the snow",
-    "label": "put on the hat → zipped the coat → went into the snow",
-    "text": "put on the hat → zipped the coat → went into the snow"
+    "value": "put on the hat",
+    "label": "put on the hat",
+    "text": "put on the hat"
    }
   ],
-  "answer": "zipped the coat → put on the hat → went into the snow",
-  "correctAnswer": "zipped the coat → put on the hat → went into the snow",
+  "answer": "put on the hat",
+  "correctAnswer": "put on the hat",
   "distractorRationales": {
-   "zipped the coat → went into the snow → put on the hat": "D-SEQUENCE-END",
-   "went into the snow → put on the hat → zipped the coat": "D-SEQUENCE-REVERSE",
-   "put on the hat → zipped the coat → went into the snow": "D-SEQUENCE-START"
+   "zipped the coat": "D-SEQUENCE-START",
+   "went into the snow": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2689,45 +2486,38 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which order matches the story?",
-  "question": "Which order matches the story?",
-  "spokenPrompt": "Mia washed a plate, dried it, and put it on the shelf. Which order matches the story?",
-  "passage": "Mia washed a plate, dried it, and put it on the shelf.",
+  "prompt": "What happened last?",
+  "question": "What happened last?",
+  "spokenPrompt": "Mia washed a plate. She dried it. Then she put it on the shelf. What happened last?",
+  "passage": "Mia washed a plate. She dried it. Then she put it on the shelf.",
   "cell": "last_event",
   "choices": [
-   "dried the plate → washed the plate → put plate on shelf",
-   "washed the plate → put plate on shelf → dried the plate",
-   "put plate on shelf → dried the plate → washed the plate",
-   "washed the plate → dried the plate → put plate on shelf"
+   "put plate on shelf",
+   "washed the plate",
+   "dried the plate"
   ],
   "answerOptions": [
    {
-    "value": "dried the plate → washed the plate → put plate on shelf",
-    "label": "dried the plate → washed the plate → put plate on shelf",
-    "text": "dried the plate → washed the plate → put plate on shelf"
+    "value": "put plate on shelf",
+    "label": "put plate on shelf",
+    "text": "put plate on shelf"
    },
    {
-    "value": "washed the plate → put plate on shelf → dried the plate",
-    "label": "washed the plate → put plate on shelf → dried the plate",
-    "text": "washed the plate → put plate on shelf → dried the plate"
+    "value": "washed the plate",
+    "label": "washed the plate",
+    "text": "washed the plate"
    },
    {
-    "value": "put plate on shelf → dried the plate → washed the plate",
-    "label": "put plate on shelf → dried the plate → washed the plate",
-    "text": "put plate on shelf → dried the plate → washed the plate"
-   },
-   {
-    "value": "washed the plate → dried the plate → put plate on shelf",
-    "label": "washed the plate → dried the plate → put plate on shelf",
-    "text": "washed the plate → dried the plate → put plate on shelf"
+    "value": "dried the plate",
+    "label": "dried the plate",
+    "text": "dried the plate"
    }
   ],
-  "answer": "washed the plate → dried the plate → put plate on shelf",
-  "correctAnswer": "washed the plate → dried the plate → put plate on shelf",
+  "answer": "put plate on shelf",
+  "correctAnswer": "put plate on shelf",
   "distractorRationales": {
-   "dried the plate → washed the plate → put plate on shelf": "D-SEQUENCE-START",
-   "washed the plate → put plate on shelf → dried the plate": "D-SEQUENCE-END",
-   "put plate on shelf → dried the plate → washed the plate": "D-SEQUENCE-REVERSE"
+   "washed the plate": "D-SEQUENCE-START",
+   "dried the plate": "D-SEQUENCE-END"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2784,29 +2574,29 @@ export const questions = [
   "prompt": "What happened right BEFORE the jars were filled?",
   "question": "What happened right BEFORE the jars were filled?",
   "spokenPrompt": "What happened right BEFORE the jars were filled?",
-  "passage": "Jam morning followed Grandma's strict order: berries picked before the sun got hot, then washed, then boiled with sugar until steam covered the kitchen windows. Only when a test drop wrinkled on a cold plate did the jars get filled, and the labels went on last, once the glass had cooled.",
+  "passage": "Grandma picked the berries before the sun grew hot. She washed them, then boiled them with sugar. She tested a drop of jam on a cold plate. Once it set, she filled the jars. She added labels after they cooled.",
   "cell": "before_after_relation",
   "choices": [
+   "the berries were washed",
    "the labels went on",
-   "the jars were bought",
-   "the jam passed the cold-plate test",
+   "the jam passed the test",
    "the berries were picked"
   ],
   "answerOptions": [
+   {
+    "value": "the berries were washed",
+    "label": "the berries were washed",
+    "text": "the berries were washed"
+   },
    {
     "value": "the labels went on",
     "label": "the labels went on",
     "text": "the labels went on"
    },
    {
-    "value": "the jars were bought",
-    "label": "the jars were bought",
-    "text": "the jars were bought"
-   },
-   {
-    "value": "the jam passed the cold-plate test",
-    "label": "the jam passed the cold-plate test",
-    "text": "the jam passed the cold-plate test"
+    "value": "the jam passed the test",
+    "label": "the jam passed the test",
+    "text": "the jam passed the test"
    },
    {
     "value": "the berries were picked",
@@ -2814,12 +2604,12 @@ export const questions = [
     "text": "the berries were picked"
    }
   ],
-  "answer": "the jam passed the cold-plate test",
-  "correctAnswer": "the jam passed the cold-plate test",
+  "answer": "the jam passed the test",
+  "correctAnswer": "the jam passed the test",
   "distractorRationales": {
-   "the berries were picked": "D-SEQUENCE-SWAP",
-   "the labels went on": "D-SEQUENCE-SWAP",
-   "the jars were bought": "D-PLAUSIBLE-UNSUPPORTED"
+   "the berries were picked": "D-PLAUSIBLE-UNSUPPORTED",
+   "the berries were washed": "D-PLAUSIBLE-UNSUPPORTED",
+   "the labels went on": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2874,13 +2664,13 @@ export const questions = [
   "prompt": "What happened right AFTER the first crack appeared?",
   "question": "What happened right AFTER the first crack appeared?",
   "spokenPrompt": "What happened right AFTER the first crack appeared?",
-  "passage": "The egg diary told the whole story. Day one: six eggs under the warm lamp. Day nineteen: the first tiny crack. Day twenty: cheeping from inside the shells. Day twenty-one: five wet chicks, then a sixth, late and loud. Day twenty-three: six fluffy escape artists.",
+  "passage": "On day one, six eggs went under the warm lamp. The first crack appeared on day nineteen. Cheeping came from the shells on day twenty. All six chicks hatched the next day. By day twenty-three, their feathers were dry and fluffy.",
   "cell": "before_after_relation",
   "choices": [
    "the eggs went under the lamp",
-   "the chicks turned fluffy",
-   "a seventh egg arrived",
-   "cheeping came from inside the shells"
+   "the chicks became fluffy",
+   "the six chicks hatched",
+   "cheeping came from the shells"
   ],
   "answerOptions": [
    {
@@ -2889,27 +2679,27 @@ export const questions = [
     "text": "the eggs went under the lamp"
    },
    {
-    "value": "the chicks turned fluffy",
-    "label": "the chicks turned fluffy",
-    "text": "the chicks turned fluffy"
+    "value": "the chicks became fluffy",
+    "label": "the chicks became fluffy",
+    "text": "the chicks became fluffy"
    },
    {
-    "value": "a seventh egg arrived",
-    "label": "a seventh egg arrived",
-    "text": "a seventh egg arrived"
+    "value": "the six chicks hatched",
+    "label": "the six chicks hatched",
+    "text": "the six chicks hatched"
    },
    {
-    "value": "cheeping came from inside the shells",
-    "label": "cheeping came from inside the shells",
-    "text": "cheeping came from inside the shells"
+    "value": "cheeping came from the shells",
+    "label": "cheeping came from the shells",
+    "text": "cheeping came from the shells"
    }
   ],
-  "answer": "cheeping came from inside the shells",
-  "correctAnswer": "cheeping came from inside the shells",
+  "answer": "cheeping came from the shells",
+  "correctAnswer": "cheeping came from the shells",
   "distractorRationales": {
-   "a seventh egg arrived": "D-PLAUSIBLE-UNSUPPORTED",
-   "the eggs went under the lamp": "D-SEQUENCE-SWAP",
-   "the chicks turned fluffy": "D-SEQUENCE-SWAP"
+   "the six chicks hatched": "D-OPPOSITE",
+   "the eggs went under the lamp": "D-PLAUSIBLE-UNSUPPORTED",
+   "the chicks became fluffy": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2964,42 +2754,42 @@ export const questions = [
   "prompt": "When did the lollipop jar come down?",
   "question": "When did the lollipop jar come down?",
   "spokenPrompt": "When did the lollipop jar come down?",
-  "passage": "Hair-cut Saturday followed its ritual. The gown went on backwards like a superhero cape. The spray bottle made Otto shiver. The scissors talked their snip-snip talk around his ears. And only after the little mirror had shown him the back of his own head did the lollipop jar come down from the shelf.",
+  "passage": "Otto put on a gown for his haircut. The barber sprayed his hair with water, then cut it. Otto checked the finished haircut in a small mirror. After that, the barber took the lollipop jar off the shelf.",
   "cell": "before_after_relation",
   "choices": [
-   "once Otto had seen the finished haircut",
-   "before the gown went on",
-   "while the spray bottle worked",
-   "it stayed on the shelf"
+   "after he looked at the finished cut",
+   "before he put on the haircut gown",
+   "while the barber sprayed his hair with water",
+   "before the barber began cutting his wet hair"
   ],
   "answerOptions": [
    {
-    "value": "once Otto had seen the finished haircut",
-    "label": "once Otto had seen the finished haircut",
-    "text": "once Otto had seen the finished haircut"
+    "value": "after he looked at the finished cut",
+    "label": "after he looked at the finished cut",
+    "text": "after he looked at the finished cut"
    },
    {
-    "value": "before the gown went on",
-    "label": "before the gown went on",
-    "text": "before the gown went on"
+    "value": "before he put on the haircut gown",
+    "label": "before he put on the haircut gown",
+    "text": "before he put on the haircut gown"
    },
    {
-    "value": "while the spray bottle worked",
-    "label": "while the spray bottle worked",
-    "text": "while the spray bottle worked"
+    "value": "while the barber sprayed his hair with water",
+    "label": "while the barber sprayed his hair with water",
+    "text": "while the barber sprayed his hair with water"
    },
    {
-    "value": "it stayed on the shelf",
-    "label": "it stayed on the shelf",
-    "text": "it stayed on the shelf"
+    "value": "before the barber began cutting his wet hair",
+    "label": "before the barber began cutting his wet hair",
+    "text": "before the barber began cutting his wet hair"
    }
   ],
-  "answer": "once Otto had seen the finished haircut",
-  "correctAnswer": "once Otto had seen the finished haircut",
+  "answer": "after he looked at the finished cut",
+  "correctAnswer": "after he looked at the finished cut",
   "distractorRationales": {
-   "before the gown went on": "D-SEQUENCE-SWAP",
-   "while the spray bottle worked": "D-SEQUENCE-SWAP",
-   "it stayed on the shelf": "D-OPPOSITE"
+   "before he put on the haircut gown": "D-PLAUSIBLE-UNSUPPORTED",
+   "while the barber sprayed his hair with water": "D-PLAUSIBLE-UNSUPPORTED",
+   "before the barber began cutting his wet hair": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3054,29 +2844,29 @@ export const questions = [
   "prompt": "What did the class do right BEFORE lunch?",
   "question": "What did the class do right BEFORE lunch?",
   "spokenPrompt": "What did the class do right BEFORE lunch?",
-  "passage": "The museum trip ran like clockwork. Coats and bags went into the big lockers first. The dinosaur hall came before lunch, because Mr. Idris knew nobody could concentrate after seeing the gift shop. Lunch happened in the echoing basement room. The gift shop came last — five dollars, one bag, no trades.",
+  "passage": "The class put their coats and bags in lockers. They visited the dinosaur hall before eating lunch downstairs. After lunch, they visited the gift shop. Then they collected their belongings and left.",
   "cell": "before_after_relation",
   "choices": [
-   "put bags in the lockers",
-   "visited the gift shop",
-   "rode the bus home",
+   "put their bags in lockers",
+   "visited the shop for gifts",
+   "collected their coats to leave",
    "visited the dinosaur hall"
   ],
   "answerOptions": [
    {
-    "value": "put bags in the lockers",
-    "label": "put bags in the lockers",
-    "text": "put bags in the lockers"
+    "value": "put their bags in lockers",
+    "label": "put their bags in lockers",
+    "text": "put their bags in lockers"
    },
    {
-    "value": "visited the gift shop",
-    "label": "visited the gift shop",
-    "text": "visited the gift shop"
+    "value": "visited the shop for gifts",
+    "label": "visited the shop for gifts",
+    "text": "visited the shop for gifts"
    },
    {
-    "value": "rode the bus home",
-    "label": "rode the bus home",
-    "text": "rode the bus home"
+    "value": "collected their coats to leave",
+    "label": "collected their coats to leave",
+    "text": "collected their coats to leave"
    },
    {
     "value": "visited the dinosaur hall",
@@ -3087,9 +2877,9 @@ export const questions = [
   "answer": "visited the dinosaur hall",
   "correctAnswer": "visited the dinosaur hall",
   "distractorRationales": {
-   "visited the gift shop": "D-SEQUENCE-SWAP",
-   "rode the bus home": "D-PLAUSIBLE-UNSUPPORTED",
-   "put bags in the lockers": "D-SEQUENCE-SWAP"
+   "visited the shop for gifts": "D-PLAUSIBLE-UNSUPPORTED",
+   "collected their coats to leave": "D-OPPOSITE",
+   "put their bags in lockers": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3144,24 +2934,24 @@ export const questions = [
   "prompt": "When did the plants move outside?",
   "question": "When did the plants move outside?",
   "spokenPrompt": "When did the plants move outside?",
-  "passage": "The salad took all spring. Seeds went into pots on the cold windowsill in March. In April, after the last frost had passed, the little plants moved out to the raised bed. May brought watering duty and one dramatic slug battle. In June, at last, scissors met lettuce, and lunch tasted of the whole spring.",
+  "passage": "In March, the class planted lettuce seeds in indoor pots. After the last frost in April, they moved the plants outside. They watered the plants and removed slugs throughout May. In June, they cut the lettuce for a salad.",
   "cell": "before_after_relation",
   "choices": [
-   "once the winter frosts had ended",
-   "before the seeds were potted",
+   "after the last frost ended",
+   "before the seeds went into pots",
    "after the lettuce was cut",
-   "during the slug battle"
+   "after the month of slug removal"
   ],
   "answerOptions": [
    {
-    "value": "once the winter frosts had ended",
-    "label": "once the winter frosts had ended",
-    "text": "once the winter frosts had ended"
+    "value": "after the last frost ended",
+    "label": "after the last frost ended",
+    "text": "after the last frost ended"
    },
    {
-    "value": "before the seeds were potted",
-    "label": "before the seeds were potted",
-    "text": "before the seeds were potted"
+    "value": "before the seeds went into pots",
+    "label": "before the seeds went into pots",
+    "text": "before the seeds went into pots"
    },
    {
     "value": "after the lettuce was cut",
@@ -3169,17 +2959,17 @@ export const questions = [
     "text": "after the lettuce was cut"
    },
    {
-    "value": "during the slug battle",
-    "label": "during the slug battle",
-    "text": "during the slug battle"
+    "value": "after the month of slug removal",
+    "label": "after the month of slug removal",
+    "text": "after the month of slug removal"
    }
   ],
-  "answer": "once the winter frosts had ended",
-  "correctAnswer": "once the winter frosts had ended",
+  "answer": "after the last frost ended",
+  "correctAnswer": "after the last frost ended",
   "distractorRationales": {
-   "after the lettuce was cut": "D-SEQUENCE-SWAP",
-   "during the slug battle": "D-SEQUENCE-SWAP",
-   "before the seeds were potted": "D-SEQUENCE-SWAP"
+   "after the lettuce was cut": "D-PLAUSIBLE-UNSUPPORTED",
+   "after the month of slug removal": "D-OPPOSITE",
+   "before the seeds went into pots": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3234,42 +3024,42 @@ export const questions = [
   "prompt": "When were the boots cleaned?",
   "question": "When were the boots cleaned?",
   "spokenPrompt": "When were the boots cleaned?",
-  "passage": "Match-day afternoons had a fixed shape. Boots were cleaned the night before — always the night before, never the morning, that was the rule. The team sheet went up at noon. Warm-up laps started at one. And the moment the whistle blew at two, every stomach butterfly vanished until full time.",
+  "passage": "The players cleaned their boots the evening before the match. The team list went up at noon on match day. Warm-up laps began at one. At two, the whistle blew to start the game.",
   "cell": "before_after_relation",
   "choices": [
-   "during the warm-up laps",
-   "on the evening ahead of match day",
-   "at noon with the team sheet",
-   "after the whistle blew"
+   "at one when the warm-up laps began",
+   "the night ahead of match day",
+   "at noon when the team list appeared",
+   "at two when the opening whistle blew"
   ],
   "answerOptions": [
    {
-    "value": "during the warm-up laps",
-    "label": "during the warm-up laps",
-    "text": "during the warm-up laps"
+    "value": "at one when the warm-up laps began",
+    "label": "at one when the warm-up laps began",
+    "text": "at one when the warm-up laps began"
    },
    {
-    "value": "on the evening ahead of match day",
-    "label": "on the evening ahead of match day",
-    "text": "on the evening ahead of match day"
+    "value": "the night ahead of match day",
+    "label": "the night ahead of match day",
+    "text": "the night ahead of match day"
    },
    {
-    "value": "at noon with the team sheet",
-    "label": "at noon with the team sheet",
-    "text": "at noon with the team sheet"
+    "value": "at noon when the team list appeared",
+    "label": "at noon when the team list appeared",
+    "text": "at noon when the team list appeared"
    },
    {
-    "value": "after the whistle blew",
-    "label": "after the whistle blew",
-    "text": "after the whistle blew"
+    "value": "at two when the opening whistle blew",
+    "label": "at two when the opening whistle blew",
+    "text": "at two when the opening whistle blew"
    }
   ],
-  "answer": "on the evening ahead of match day",
-  "correctAnswer": "on the evening ahead of match day",
+  "answer": "the night ahead of match day",
+  "correctAnswer": "the night ahead of match day",
   "distractorRationales": {
-   "after the whistle blew": "D-SEQUENCE-SWAP",
-   "during the warm-up laps": "D-SEQUENCE-SWAP",
-   "at noon with the team sheet": "D-SEQUENCE-SWAP"
+   "at two when the opening whistle blew": "D-PLAUSIBLE-UNSUPPORTED",
+   "at one when the warm-up laps began": "D-OPPOSITE",
+   "at noon when the team list appeared": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3324,42 +3114,42 @@ export const questions = [
   "prompt": "What was the shadow like just AFTER twelve?",
   "question": "What was the shadow like just AFTER twelve?",
   "spokenPrompt": "What was the shadow like just AFTER twelve?",
-  "passage": "The shadow experiment lasted from breakfast to late afternoon. At nine, Asha traced her friend's shadow, long and thin, stretching to the fence. Just after twelve she drew it again, short and close to his feet. At three the shadow reached the other side, and by five it touched the hedge, longer than ever.",
+  "passage": "At nine, Asha traced a long shadow stretching to the fence. Just after twelve, it was short and near her friend’s feet. At three, the shadow stretched in the other direction. By five, it was long enough to reach the hedge.",
   "cell": "before_after_relation",
   "choices": [
-   "short and close to his feet",
-   "stretching long to the fence",
-   "touching the hedge",
-   "gone completely"
+   "short, near the friend’s feet",
+   "long enough to reach the fence",
+   "long enough to touch the hedge",
+   "stretching in the opposite direction"
   ],
   "answerOptions": [
    {
-    "value": "short and close to his feet",
-    "label": "short and close to his feet",
-    "text": "short and close to his feet"
+    "value": "short, near the friend’s feet",
+    "label": "short, near the friend’s feet",
+    "text": "short, near the friend’s feet"
    },
    {
-    "value": "stretching long to the fence",
-    "label": "stretching long to the fence",
-    "text": "stretching long to the fence"
+    "value": "long enough to reach the fence",
+    "label": "long enough to reach the fence",
+    "text": "long enough to reach the fence"
    },
    {
-    "value": "touching the hedge",
-    "label": "touching the hedge",
-    "text": "touching the hedge"
+    "value": "long enough to touch the hedge",
+    "label": "long enough to touch the hedge",
+    "text": "long enough to touch the hedge"
    },
    {
-    "value": "gone completely",
-    "label": "gone completely",
-    "text": "gone completely"
+    "value": "stretching in the opposite direction",
+    "label": "stretching in the opposite direction",
+    "text": "stretching in the opposite direction"
    }
   ],
-  "answer": "short and close to his feet",
-  "correctAnswer": "short and close to his feet",
+  "answer": "short, near the friend’s feet",
+  "correctAnswer": "short, near the friend’s feet",
   "distractorRationales": {
-   "gone completely": "D-PLAUSIBLE-UNSUPPORTED",
-   "stretching long to the fence": "D-SEQUENCE-SWAP",
-   "touching the hedge": "D-SEQUENCE-SWAP"
+   "stretching in the opposite direction": "D-OPPOSITE",
+   "long enough to reach the fence": "D-PLAUSIBLE-UNSUPPORTED",
+   "long enough to touch the hedge": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3414,42 +3204,42 @@ export const questions = [
   "prompt": "What happened right BEFORE the books went back?",
   "question": "What happened right BEFORE the books went back?",
   "spokenPrompt": "What happened right BEFORE the books went back?",
-  "passage": "Moving the bookcase needed planning. Every book came off the shelves before anything else. The empty case moved across the room a little at a time. Then Dad vacuumed the dusty carpet where it had stood. Only after that did the books go back in Robi's new rainbow order.",
+  "passage": "They removed every book before moving the bookcase. Dad moved the empty case across the room. Then he vacuumed the carpet where it had stood. Finally, Robi put the books back in colour order.",
   "cell": "before_after_relation",
   "choices": [
-   "new shelves were built",
-   "the old spot was vacuumed",
-   "the books came off the shelves",
-   "the case waddled across the room"
+   "Robi sorted books into colours",
+   "Dad cleaned the old spot",
+   "they emptied all the shelves",
+   "Dad moved the empty bookcase"
   ],
   "answerOptions": [
    {
-    "value": "new shelves were built",
-    "label": "new shelves were built",
-    "text": "new shelves were built"
+    "value": "Robi sorted books into colours",
+    "label": "Robi sorted books into colours",
+    "text": "Robi sorted books into colours"
    },
    {
-    "value": "the old spot was vacuumed",
-    "label": "the old spot was vacuumed",
-    "text": "the old spot was vacuumed"
+    "value": "Dad cleaned the old spot",
+    "label": "Dad cleaned the old spot",
+    "text": "Dad cleaned the old spot"
    },
    {
-    "value": "the books came off the shelves",
-    "label": "the books came off the shelves",
-    "text": "the books came off the shelves"
+    "value": "they emptied all the shelves",
+    "label": "they emptied all the shelves",
+    "text": "they emptied all the shelves"
    },
    {
-    "value": "the case waddled across the room",
-    "label": "the case waddled across the room",
-    "text": "the case waddled across the room"
+    "value": "Dad moved the empty bookcase",
+    "label": "Dad moved the empty bookcase",
+    "text": "Dad moved the empty bookcase"
    }
   ],
-  "answer": "the old spot was vacuumed",
-  "correctAnswer": "the old spot was vacuumed",
+  "answer": "Dad cleaned the old spot",
+  "correctAnswer": "Dad cleaned the old spot",
   "distractorRationales": {
-   "the books came off the shelves": "D-SEQUENCE-SWAP",
-   "the case waddled across the room": "D-SEQUENCE-SWAP",
-   "new shelves were built": "D-PLAUSIBLE-UNSUPPORTED"
+   "they emptied all the shelves": "D-PLAUSIBLE-UNSUPPORTED",
+   "Dad moved the empty bookcase": "D-PLAUSIBLE-UNSUPPORTED",
+   "Robi sorted books into colours": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3504,42 +3294,42 @@ export const questions = [
   "prompt": "Which of these must have happened FIRST, before everything else?",
   "question": "Which of these must have happened FIRST, before everything else?",
   "spokenPrompt": "Which of these must have happened FIRST, before everything else?",
-  "passage": "Noor licked the last icing from her fingers. The kitchen still smelled of warm cake, and two baking pans soaked in the sink. On the table sat the finished cake with icing and a cherry, next to the open recipe book.",
+  "passage": "Noor showed Mum a cake covered in icing and a cherry. The cake had been baked in two round pans. The empty pans were cooling beside the oven. Noor was licking the last icing from her fingers.",
   "cell": "implied_order",
   "choices": [
-   "the tins went into the sink",
-   "the cake was baked in the pans",
-   "the icing was licked off fingers",
-   "the cherry went on top"
+   "showing Mum the finished cake",
+   "baking the cake in the pans",
+   "putting the cherry onto the icing",
+   "licking the icing from fingers"
   ],
   "answerOptions": [
    {
-    "value": "the tins went into the sink",
-    "label": "the tins went into the sink",
-    "text": "the tins went into the sink"
+    "value": "showing Mum the finished cake",
+    "label": "showing Mum the finished cake",
+    "text": "showing Mum the finished cake"
    },
    {
-    "value": "the cake was baked in the pans",
-    "label": "the cake was baked in the pans",
-    "text": "the cake was baked in the pans"
+    "value": "baking the cake in the pans",
+    "label": "baking the cake in the pans",
+    "text": "baking the cake in the pans"
    },
    {
-    "value": "the icing was licked off fingers",
-    "label": "the icing was licked off fingers",
-    "text": "the icing was licked off fingers"
+    "value": "putting the cherry onto the icing",
+    "label": "putting the cherry onto the icing",
+    "text": "putting the cherry onto the icing"
    },
    {
-    "value": "the cherry went on top",
-    "label": "the cherry went on top",
-    "text": "the cherry went on top"
+    "value": "licking the icing from fingers",
+    "label": "licking the icing from fingers",
+    "text": "licking the icing from fingers"
    }
   ],
-  "answer": "the cake was baked in the pans",
-  "correctAnswer": "the cake was baked in the pans",
+  "answer": "baking the cake in the pans",
+  "correctAnswer": "baking the cake in the pans",
   "distractorRationales": {
-   "the icing was licked off fingers": "D-SEQUENCE-SWAP",
-   "the cherry went on top": "D-SEQUENCE-SWAP",
-   "the tins went into the sink": "D-SEQUENCE-SWAP"
+   "putting the cherry onto the icing": "D-PLAUSIBLE-UNSUPPORTED",
+   "licking the icing from fingers": "D-PLAUSIBLE-UNSUPPORTED",
+   "showing Mum the finished cake": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3594,42 +3384,42 @@ export const questions = [
   "prompt": "Which of these happened LAST, after all the rest?",
   "question": "Which of these happened LAST, after all the rest?",
   "spokenPrompt": "Which of these happened LAST, after all the rest?",
-  "passage": "The sled stood dripping in the entryway. Three pairs of soaked gloves lay on a drying rack, and a carrot with a bite-shaped dent waited by the back door. Out in the garden, a lopsided snowman wore Dad's second-best scarf.",
+  "passage": "A snowman stood in the garden wearing Dad’s spare scarf. After building it, the children had ridden their sleds. Now they were back indoors with wet gloves on the rack. Fresh snow still covered the hill.",
   "cell": "implied_order",
   "choices": [
-   "the sled ride on the hill happened",
-   "snow began to fall",
-   "the wet things were brought in to dry",
-   "the lopsided snowman was built in the garden"
+   "riding the sleds down the hill",
+   "snow falling onto the ground",
+   "bringing the wet things indoors",
+   "building the snowman with the scarf"
   ],
   "answerOptions": [
    {
-    "value": "the sled ride on the hill happened",
-    "label": "the sled ride on the hill happened",
-    "text": "the sled ride on the hill happened"
+    "value": "riding the sleds down the hill",
+    "label": "riding the sleds down the hill",
+    "text": "riding the sleds down the hill"
    },
    {
-    "value": "snow began to fall",
-    "label": "snow began to fall",
-    "text": "snow began to fall"
+    "value": "snow falling onto the ground",
+    "label": "snow falling onto the ground",
+    "text": "snow falling onto the ground"
    },
    {
-    "value": "the wet things were brought in to dry",
-    "label": "the wet things were brought in to dry",
-    "text": "the wet things were brought in to dry"
+    "value": "bringing the wet things indoors",
+    "label": "bringing the wet things indoors",
+    "text": "bringing the wet things indoors"
    },
    {
-    "value": "the lopsided snowman was built in the garden",
-    "label": "the lopsided snowman was built in the garden",
-    "text": "the lopsided snowman was built in the garden"
+    "value": "building the snowman with the scarf",
+    "label": "building the snowman with the scarf",
+    "text": "building the snowman with the scarf"
    }
   ],
-  "answer": "the wet things were brought in to dry",
-  "correctAnswer": "the wet things were brought in to dry",
+  "answer": "bringing the wet things indoors",
+  "correctAnswer": "bringing the wet things indoors",
   "distractorRationales": {
-   "snow began to fall": "D-SEQUENCE-SWAP",
-   "the lopsided snowman was built in the garden": "D-SEQUENCE-SWAP",
-   "the sled ride on the hill happened": "D-SEQUENCE-SWAP"
+   "snow falling onto the ground": "D-OPPOSITE",
+   "building the snowman with the scarf": "D-PLAUSIBLE-UNSUPPORTED",
+   "riding the sleds down the hill": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3684,42 +3474,42 @@ export const questions = [
   "prompt": "What had to happen BEFORE the marigolds were planted?",
   "question": "What had to happen BEFORE the marigolds were planted?",
   "spokenPrompt": "What had to happen BEFORE the marigolds were planted?",
-  "passage": "A wheelbarrow of fresh weeds stood by the gate. The flower bed's soil was dark and freshly turned. Twelve small marigolds now filled the spaces where the weeds had grown, and a watering can stood beside the new row.",
+  "passage": "The flower bed had been full of weeds that morning. Now marigolds grew in the spaces the weeds had occupied. The pulled weeds filled a wheelbarrow by the gate. Juno watered the new plants, then put the can away.",
   "cell": "implied_order",
   "choices": [
-   "the new row was admired",
-   "the wheelbarrow was painted",
-   "the weeds were pulled out",
-   "the marigolds were watered"
+   "putting the watering can away",
+   "leaving the plants in the soil",
+   "removing weeds from the spaces",
+   "watering the newly planted flowers"
   ],
   "answerOptions": [
    {
-    "value": "the new row was admired",
-    "label": "the new row was admired",
-    "text": "the new row was admired"
+    "value": "putting the watering can away",
+    "label": "putting the watering can away",
+    "text": "putting the watering can away"
    },
    {
-    "value": "the wheelbarrow was painted",
-    "label": "the wheelbarrow was painted",
-    "text": "the wheelbarrow was painted"
+    "value": "leaving the plants in the soil",
+    "label": "leaving the plants in the soil",
+    "text": "leaving the plants in the soil"
    },
    {
-    "value": "the weeds were pulled out",
-    "label": "the weeds were pulled out",
-    "text": "the weeds were pulled out"
+    "value": "removing weeds from the spaces",
+    "label": "removing weeds from the spaces",
+    "text": "removing weeds from the spaces"
    },
    {
-    "value": "the marigolds were watered",
-    "label": "the marigolds were watered",
-    "text": "the marigolds were watered"
+    "value": "watering the newly planted flowers",
+    "label": "watering the newly planted flowers",
+    "text": "watering the newly planted flowers"
    }
   ],
-  "answer": "the weeds were pulled out",
-  "correctAnswer": "the weeds were pulled out",
+  "answer": "removing weeds from the spaces",
+  "correctAnswer": "removing weeds from the spaces",
   "distractorRationales": {
-   "the marigolds were watered": "D-SEQUENCE-SWAP",
-   "the new row was admired": "D-SEQUENCE-SWAP",
-   "the wheelbarrow was painted": "D-PLAUSIBLE-UNSUPPORTED"
+   "watering the newly planted flowers": "D-PLAUSIBLE-UNSUPPORTED",
+   "putting the watering can away": "D-PLAUSIBLE-UNSUPPORTED",
+   "leaving the plants in the soil": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3771,45 +3561,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What must have happened BEFORE the lifeguard got the pole?",
-  "question": "What must have happened BEFORE the lifeguard got the pole?",
-  "spokenPrompt": "What must have happened BEFORE the lifeguard got the pole?",
-  "passage": "Rio hopped to the bench with one bare foot. Out in the shallow end, a lifeguard fished patiently with a long pole. On the tiles lay one wet sock, and somewhere between the changing room and the water, the story of how his flip-flop had ended up floating told itself.",
+  "prompt": "What happened just before Rio called for help?",
+  "question": "What happened just before Rio called for help?",
+  "spokenPrompt": "What happened just before Rio called for help?",
+  "passage": "Rio sat with his rescued flip-flop beside the pool. The lifeguard had used a pole to reach it. She had fetched the pole after Rio called for help. He had called because the shoe fell into the water.",
   "cell": "implied_order",
   "choices": [
-   "the flip-flop was fished out",
-   "the pool was closed",
-   "the flip-flop went into the water",
-   "Rio hopped to the bench"
+   "the lifeguard pulled the shoe to safety",
+   "Rio sat beside the pool with his shoe",
+   "the shoe fell into the water",
+   "the lifeguard fetched her long pole"
   ],
   "answerOptions": [
    {
-    "value": "the flip-flop was fished out",
-    "label": "the flip-flop was fished out",
-    "text": "the flip-flop was fished out"
+    "value": "the lifeguard pulled the shoe to safety",
+    "label": "the lifeguard pulled the shoe to safety",
+    "text": "the lifeguard pulled the shoe to safety"
    },
    {
-    "value": "the pool was closed",
-    "label": "the pool was closed",
-    "text": "the pool was closed"
+    "value": "Rio sat beside the pool with his shoe",
+    "label": "Rio sat beside the pool with his shoe",
+    "text": "Rio sat beside the pool with his shoe"
    },
    {
-    "value": "the flip-flop went into the water",
-    "label": "the flip-flop went into the water",
-    "text": "the flip-flop went into the water"
+    "value": "the shoe fell into the water",
+    "label": "the shoe fell into the water",
+    "text": "the shoe fell into the water"
    },
    {
-    "value": "Rio hopped to the bench",
-    "label": "Rio hopped to the bench",
-    "text": "Rio hopped to the bench"
+    "value": "the lifeguard fetched her long pole",
+    "label": "the lifeguard fetched her long pole",
+    "text": "the lifeguard fetched her long pole"
    }
   ],
-  "answer": "the flip-flop went into the water",
-  "correctAnswer": "the flip-flop went into the water",
+  "answer": "the shoe fell into the water",
+  "correctAnswer": "the shoe fell into the water",
   "distractorRationales": {
-   "the flip-flop was fished out": "D-SEQUENCE-SWAP",
-   "the pool was closed": "D-PLAUSIBLE-UNSUPPORTED",
-   "Rio hopped to the bench": "D-PLAUSIBLE-UNSUPPORTED"
+   "the lifeguard pulled the shoe to safety": "D-SEQUENCE-END",
+   "Rio sat beside the pool with his shoe": "D-SEQUENCE-REVERSE",
+   "the lifeguard fetched her long pole": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3864,42 +3654,42 @@ export const questions = [
   "prompt": "What must have happened BEFORE the box was taped shut?",
   "question": "What must have happened BEFORE the box was taped shut?",
   "spokenPrompt": "What must have happened BEFORE the box was taped shut?",
-  "passage": "Aunt Zainab's package was ready at last. Tape sealed every box flap, and a neat address label covered the first two mistakes. Inside, jars of jam sat in thick newspaper, with no room to move.",
+  "passage": "Aunt Zainab had sealed every flap of the box with tape. Wrapped jam jars fitted tightly inside it. She made the jam, filled the jars, then wrapped them. Now she was writing the address on the sealed box.",
   "cell": "implied_order",
   "choices": [
-   "the package was carried to the mail counter",
-   "the tape was cut open again",
-   "the jam was served at breakfast",
-   "the wrapped jars were placed inside"
+   "writing on the sealed box",
+   "closing the box flaps with tape",
+   "checking the finished address label",
+   "placing wrapped jars inside the box"
   ],
   "answerOptions": [
    {
-    "value": "the package was carried to the mail counter",
-    "label": "the package was carried to the mail counter",
-    "text": "the package was carried to the mail counter"
+    "value": "writing on the sealed box",
+    "label": "writing on the sealed box",
+    "text": "writing on the sealed box"
    },
    {
-    "value": "the tape was cut open again",
-    "label": "the tape was cut open again",
-    "text": "the tape was cut open again"
+    "value": "closing the box flaps with tape",
+    "label": "closing the box flaps with tape",
+    "text": "closing the box flaps with tape"
    },
    {
-    "value": "the jam was served at breakfast",
-    "label": "the jam was served at breakfast",
-    "text": "the jam was served at breakfast"
+    "value": "checking the finished address label",
+    "label": "checking the finished address label",
+    "text": "checking the finished address label"
    },
    {
-    "value": "the wrapped jars were placed inside",
-    "label": "the wrapped jars were placed inside",
-    "text": "the wrapped jars were placed inside"
+    "value": "placing wrapped jars inside the box",
+    "label": "placing wrapped jars inside the box",
+    "text": "placing wrapped jars inside the box"
    }
   ],
-  "answer": "the wrapped jars were placed inside",
-  "correctAnswer": "the wrapped jars were placed inside",
+  "answer": "placing wrapped jars inside the box",
+  "correctAnswer": "placing wrapped jars inside the box",
   "distractorRationales": {
-   "the tape was cut open again": "D-SEQUENCE-SWAP",
-   "the jam was served at breakfast": "D-PLAUSIBLE-UNSUPPORTED",
-   "the package was carried to the mail counter": "D-SEQUENCE-SWAP"
+   "closing the box flaps with tape": "D-PLAUSIBLE-UNSUPPORTED",
+   "checking the finished address label": "D-OPPOSITE",
+   "writing on the sealed box": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3954,42 +3744,42 @@ export const questions = [
   "prompt": "Which of these came FIRST, long before tonight?",
   "question": "Which of these came FIRST, long before tonight?",
   "spokenPrompt": "Which of these came FIRST, long before tonight?",
-  "passage": "Curtain call. Flowers landed on the stage as the cast bowed in painted cardboard armor. In the wings, the prompt book sat closed on its stool at last, and backstage a whole semester's rehearsal notes filled the trash can — three drafts of the script, the audition list, and the first rough set sketches.",
+  "passage": "The school play had ended, and the actors were bowing. They had rehearsed only after the teacher chose the cast. The teacher had chosen them from the children who tried out. Flowers lay on stage beside the finished scenery.",
   "cell": "implied_order",
   "choices": [
-   "the cast took their bows",
-   "flowers landed on the stage",
-   "the prompt book closed",
-   "the auditions were held"
+   "the actors bowing after the show",
+   "rehearsing with the chosen cast",
+   "performing the play for an audience",
+   "children trying out for parts"
   ],
   "answerOptions": [
    {
-    "value": "the cast took their bows",
-    "label": "the cast took their bows",
-    "text": "the cast took their bows"
+    "value": "the actors bowing after the show",
+    "label": "the actors bowing after the show",
+    "text": "the actors bowing after the show"
    },
    {
-    "value": "flowers landed on the stage",
-    "label": "flowers landed on the stage",
-    "text": "flowers landed on the stage"
+    "value": "rehearsing with the chosen cast",
+    "label": "rehearsing with the chosen cast",
+    "text": "rehearsing with the chosen cast"
    },
    {
-    "value": "the prompt book closed",
-    "label": "the prompt book closed",
-    "text": "the prompt book closed"
+    "value": "performing the play for an audience",
+    "label": "performing the play for an audience",
+    "text": "performing the play for an audience"
    },
    {
-    "value": "the auditions were held",
-    "label": "the auditions were held",
-    "text": "the auditions were held"
+    "value": "children trying out for parts",
+    "label": "children trying out for parts",
+    "text": "children trying out for parts"
    }
   ],
-  "answer": "the auditions were held",
-  "correctAnswer": "the auditions were held",
+  "answer": "children trying out for parts",
+  "correctAnswer": "children trying out for parts",
   "distractorRationales": {
-   "flowers landed on the stage": "D-SEQUENCE-SWAP",
-   "the prompt book closed": "D-SEQUENCE-SWAP",
-   "the cast took their bows": "D-SEQUENCE-SWAP"
+   "rehearsing with the chosen cast": "D-PLAUSIBLE-UNSUPPORTED",
+   "performing the play for an audience": "D-OPPOSITE",
+   "the actors bowing after the show": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4044,42 +3834,42 @@ export const questions = [
   "prompt": "Which of these must have happened BEFORE the worms went in?",
   "question": "Which of these must have happened BEFORE the worms went in?",
   "spokenPrompt": "Which of these must have happened BEFORE the worms went in?",
-  "passage": "The wormery finally stood complete on the balcony: layers of sand and dark soil striped like a cake, damp leaves on top, and five worms already tunnelling their first wavy lines past the glass. A bag of leftover sand slumped by the door, and Juno's soil-crusted trowel soaked in a jam jar.",
+  "passage": "Juno’s wormery held worms tunnelling through layers of sand and soil. She had added the worms only once those layers were ready. Damp leaves covered the top, ready for the worms to eat. She was now washing soil from her trowel.",
   "cell": "implied_order",
   "choices": [
-   "the worms drew wavy tunnel lines past the glass",
-   "the trowel went into the jar",
-   "the wormery was emptied out",
-   "the sand and soil were layered"
+   "worms making tunnels beside the glass",
+   "washing the soil from the trowel",
+   "worms beginning to eat the leaves",
+   "putting sand and soil in layers"
   ],
   "answerOptions": [
    {
-    "value": "the worms drew wavy tunnel lines past the glass",
-    "label": "the worms drew wavy tunnel lines past the glass",
-    "text": "the worms drew wavy tunnel lines past the glass"
+    "value": "worms making tunnels beside the glass",
+    "label": "worms making tunnels beside the glass",
+    "text": "worms making tunnels beside the glass"
    },
    {
-    "value": "the trowel went into the jar",
-    "label": "the trowel went into the jar",
-    "text": "the trowel went into the jar"
+    "value": "washing the soil from the trowel",
+    "label": "washing the soil from the trowel",
+    "text": "washing the soil from the trowel"
    },
    {
-    "value": "the wormery was emptied out",
-    "label": "the wormery was emptied out",
-    "text": "the wormery was emptied out"
+    "value": "worms beginning to eat the leaves",
+    "label": "worms beginning to eat the leaves",
+    "text": "worms beginning to eat the leaves"
    },
    {
-    "value": "the sand and soil were layered",
-    "label": "the sand and soil were layered",
-    "text": "the sand and soil were layered"
+    "value": "putting sand and soil in layers",
+    "label": "putting sand and soil in layers",
+    "text": "putting sand and soil in layers"
    }
   ],
-  "answer": "the sand and soil were layered",
-  "correctAnswer": "the sand and soil were layered",
+  "answer": "putting sand and soil in layers",
+  "correctAnswer": "putting sand and soil in layers",
   "distractorRationales": {
-   "the wormery was emptied out": "D-OPPOSITE",
-   "the worms drew wavy tunnel lines past the glass": "D-SEQUENCE-SWAP",
-   "the trowel went into the jar": "D-PLAUSIBLE-UNSUPPORTED"
+   "worms beginning to eat the leaves": "D-OPPOSITE",
+   "worms making tunnels beside the glass": "D-PLAUSIBLE-UNSUPPORTED",
+   "washing the soil from the trowel": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4131,45 +3921,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which goal happened FIRST?",
-  "question": "Which goal happened FIRST?",
-  "spokenPrompt": "Which goal happened FIRST?",
-  "passage": "Half-time. The score sat at two-one, and Coach passed the orange quarters down the line of muddy knees. Nobody mentioned the first goal any more — the lucky bounce off the post — and everybody mentioned the second, Ffion's header, over and over, louder each telling.",
+  "prompt": "Which event happened first?",
+  "question": "Which event happened first?",
+  "spokenPrompt": "Which event happened first?",
+  "passage": "Ffion scored after the ball bounced to her from a teammate. Earlier, Jo’s shot had bounced off the post into the net. At half-time, the team ate oranges and talked about both goals. They had scored only those two goals so far.",
   "cell": "implied_order",
   "choices": [
-   "the lucky bounce off the post",
-   "Ffion's header",
-   "the half-time oranges",
-   "the winning penalty"
+   "Jo’s shot off the post",
+   "Ffion’s shot from a teammate’s pass",
+   "the team eating its oranges",
+   "the team discussing both goals"
   ],
   "answerOptions": [
    {
-    "value": "the lucky bounce off the post",
-    "label": "the lucky bounce off the post",
-    "text": "the lucky bounce off the post"
+    "value": "Jo’s shot off the post",
+    "label": "Jo’s shot off the post",
+    "text": "Jo’s shot off the post"
    },
    {
-    "value": "Ffion's header",
-    "label": "Ffion's header",
-    "text": "Ffion's header"
+    "value": "Ffion’s shot from a teammate’s pass",
+    "label": "Ffion’s shot from a teammate’s pass",
+    "text": "Ffion’s shot from a teammate’s pass"
    },
    {
-    "value": "the half-time oranges",
-    "label": "the half-time oranges",
-    "text": "the half-time oranges"
+    "value": "the team eating its oranges",
+    "label": "the team eating its oranges",
+    "text": "the team eating its oranges"
    },
    {
-    "value": "the winning penalty",
-    "label": "the winning penalty",
-    "text": "the winning penalty"
+    "value": "the team discussing both goals",
+    "label": "the team discussing both goals",
+    "text": "the team discussing both goals"
    }
   ],
-  "answer": "the lucky bounce off the post",
-  "correctAnswer": "the lucky bounce off the post",
+  "answer": "Jo’s shot off the post",
+  "correctAnswer": "Jo’s shot off the post",
   "distractorRationales": {
-   "Ffion's header": "D-SEQUENCE-SWAP",
-   "the half-time oranges": "D-SEQUENCE-SWAP",
-   "the winning penalty": "D-PLAUSIBLE-UNSUPPORTED"
+   "Ffion’s shot from a teammate’s pass": "D-PLAUSIBLE-UNSUPPORTED",
+   "the team eating its oranges": "D-PLAUSIBLE-UNSUPPORTED",
+   "the team discussing both goals": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4224,42 +4014,42 @@ export const questions = [
   "prompt": "What happens right AFTER the box is emptied?",
   "question": "What happens right AFTER the box is emptied?",
   "spokenPrompt": "What happens right AFTER the box is emptied?",
-  "passage": "A letter's journey has stages. It is placed in the mail box on the corner. A postal worker empties the box into a big sack. At the sorting center, machines read the ZIP code and place it in the right tray. A truck carries the tray across the country, and a mail carrier brings the letter to the right door.",
+  "passage": "A letter is placed in a street postbox. A worker empties the box into a sack. At the sorting centre, the letter is sorted by postcode. A truck carries it to the right town. Finally, a postal worker delivers it to the address.",
   "cell": "process_order",
   "choices": [
-   "the letter is sorted by ZIP code",
-   "the letter is posted in the box",
-   "the mail carrier brings it to the door",
-   "the letter is written"
+   "the worker sorts it by postcode",
+   "the letter enters a street postbox",
+   "the truck carries it to town",
+   "a worker delivers it to the address"
   ],
   "answerOptions": [
    {
-    "value": "the letter is sorted by ZIP code",
-    "label": "the letter is sorted by ZIP code",
-    "text": "the letter is sorted by ZIP code"
+    "value": "the worker sorts it by postcode",
+    "label": "the worker sorts it by postcode",
+    "text": "the worker sorts it by postcode"
    },
    {
-    "value": "the letter is posted in the box",
-    "label": "the letter is posted in the box",
-    "text": "the letter is posted in the box"
+    "value": "the letter enters a street postbox",
+    "label": "the letter enters a street postbox",
+    "text": "the letter enters a street postbox"
    },
    {
-    "value": "the mail carrier brings it to the door",
-    "label": "the mail carrier brings it to the door",
-    "text": "the mail carrier brings it to the door"
+    "value": "the truck carries it to town",
+    "label": "the truck carries it to town",
+    "text": "the truck carries it to town"
    },
    {
-    "value": "the letter is written",
-    "label": "the letter is written",
-    "text": "the letter is written"
+    "value": "a worker delivers it to the address",
+    "label": "a worker delivers it to the address",
+    "text": "a worker delivers it to the address"
    }
   ],
-  "answer": "the letter is sorted by ZIP code",
-  "correctAnswer": "the letter is sorted by ZIP code",
+  "answer": "the worker sorts it by postcode",
+  "correctAnswer": "the worker sorts it by postcode",
   "distractorRationales": {
-   "the mail carrier brings it to the door": "D-SEQUENCE-SWAP",
-   "the letter is written": "D-SEQUENCE-SWAP",
-   "the letter is posted in the box": "D-SEQUENCE-SWAP"
+   "the truck carries it to town": "D-PLAUSIBLE-UNSUPPORTED",
+   "a worker delivers it to the address": "D-OPPOSITE",
+   "the letter enters a street postbox": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4314,19 +4104,19 @@ export const questions = [
   "prompt": "What happens right BEFORE the beans are roasted?",
   "question": "What happens right BEFORE the beans are roasted?",
   "spokenPrompt": "What happens right BEFORE the beans are roasted?",
-  "passage": "From cocoa pod to chocolate bar takes many steps. Farmers cut the pods and scoop out the beans. The beans dry in the sun for days. Roasting develops their flavor. Then grinding turns them into a thick brown paste. After sugar and milk are added, the paste sets into bars.",
+  "passage": "For this recipe, the beans are dried in the sun. Next, they are roasted to develop their flavour. They are then ground into a thick paste. Sugar and milk are added before the mixture sets into bars.",
   "cell": "process_order",
   "choices": [
-   "the bars reach the stores",
+   "the sugar and milk are added",
    "they dry in the sun",
-   "they are ground to paste",
-   "sugar and milk join in"
+   "they are ground into paste",
+   "the mixture is shaped into bars"
   ],
   "answerOptions": [
    {
-    "value": "the bars reach the stores",
-    "label": "the bars reach the stores",
-    "text": "the bars reach the stores"
+    "value": "the sugar and milk are added",
+    "label": "the sugar and milk are added",
+    "text": "the sugar and milk are added"
    },
    {
     "value": "they dry in the sun",
@@ -4334,22 +4124,22 @@ export const questions = [
     "text": "they dry in the sun"
    },
    {
-    "value": "they are ground to paste",
-    "label": "they are ground to paste",
-    "text": "they are ground to paste"
+    "value": "they are ground into paste",
+    "label": "they are ground into paste",
+    "text": "they are ground into paste"
    },
    {
-    "value": "sugar and milk join in",
-    "label": "sugar and milk join in",
-    "text": "sugar and milk join in"
+    "value": "the mixture is shaped into bars",
+    "label": "the mixture is shaped into bars",
+    "text": "the mixture is shaped into bars"
    }
   ],
   "answer": "they dry in the sun",
   "correctAnswer": "they dry in the sun",
   "distractorRationales": {
-   "they are ground to paste": "D-SEQUENCE-SWAP",
-   "sugar and milk join in": "D-SEQUENCE-SWAP",
-   "the bars reach the stores": "D-SEQUENCE-SWAP"
+   "they are ground into paste": "D-PLAUSIBLE-UNSUPPORTED",
+   "the mixture is shaped into bars": "D-PLAUSIBLE-UNSUPPORTED",
+   "the sugar and milk are added": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4404,42 +4194,42 @@ export const questions = [
   "prompt": "What happens right AFTER the glass is smashed into small pieces?",
   "question": "What happens right AFTER the glass is smashed into small pieces?",
   "spokenPrompt": "What happens right AFTER the glass is smashed into small pieces?",
-  "passage": "Recycled glass goes around in a loop. Bottles from curbside bins travel to the plant. There they are sorted by color and smashed into small pieces. A furnace melts the pieces into glowing liquid. The liquid is blown or pressed into new bottles, which can return to curbside bins to start again.",
+  "passage": "Used glass bottles are collected and taken to a factory. Workers sort them by colour and crush them into small pieces. A furnace melts those pieces into liquid glass. Machines shape the liquid into new bottles.",
   "cell": "process_order",
   "choices": [
-   "the furnace melts the small pieces",
-   "bottles are collected from curbside bins",
-   "new bottles are blown",
-   "the bottles are sorted by color"
+   "the furnace melts the pieces",
+   "workers collect the used bottles",
+   "machines shape the new bottles",
+   "workers sort the bottles by colour"
   ],
   "answerOptions": [
    {
-    "value": "the furnace melts the small pieces",
-    "label": "the furnace melts the small pieces",
-    "text": "the furnace melts the small pieces"
+    "value": "the furnace melts the pieces",
+    "label": "the furnace melts the pieces",
+    "text": "the furnace melts the pieces"
    },
    {
-    "value": "bottles are collected from curbside bins",
-    "label": "bottles are collected from curbside bins",
-    "text": "bottles are collected from curbside bins"
+    "value": "workers collect the used bottles",
+    "label": "workers collect the used bottles",
+    "text": "workers collect the used bottles"
    },
    {
-    "value": "new bottles are blown",
-    "label": "new bottles are blown",
-    "text": "new bottles are blown"
+    "value": "machines shape the new bottles",
+    "label": "machines shape the new bottles",
+    "text": "machines shape the new bottles"
    },
    {
-    "value": "the bottles are sorted by color",
-    "label": "the bottles are sorted by color",
-    "text": "the bottles are sorted by color"
+    "value": "workers sort the bottles by colour",
+    "label": "workers sort the bottles by colour",
+    "text": "workers sort the bottles by colour"
    }
   ],
-  "answer": "the furnace melts the small pieces",
-  "correctAnswer": "the furnace melts the small pieces",
+  "answer": "the furnace melts the pieces",
+  "correctAnswer": "the furnace melts the pieces",
   "distractorRationales": {
-   "new bottles are blown": "D-SEQUENCE-SWAP",
-   "the bottles are sorted by color": "D-SEQUENCE-SWAP",
-   "bottles are collected from curbside bins": "D-SEQUENCE-SWAP"
+   "machines shape the new bottles": "D-PLAUSIBLE-UNSUPPORTED",
+   "workers sort the bottles by colour": "D-OPPOSITE",
+   "workers collect the used bottles": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4494,42 +4284,42 @@ export const questions = [
   "prompt": "In Ari's list, what happens right AFTER the tooth goes under the pillow?",
   "question": "In Ari's list, what happens right AFTER the tooth goes under the pillow?",
   "spokenPrompt": "In Ari's list, what happens right AFTER the tooth goes under the pillow?",
-  "passage": "A tooth's visit from the tooth fairy follows steps, Ari explained seriously. The tooth wobbles for days. It comes out — usually in an apple or a laugh. It goes under the pillow at bedtime. In the morning, a coin has taken its place. The tooth itself, Ari suspected, joins a very large collection somewhere.",
+  "passage": "Ari described what happened when he lost his tooth. First, it wobbled for several days. Then it fell out while he ate an apple. He put it under his pillow at bedtime. In the morning, he found a coin in its place.",
   "cell": "process_order",
   "choices": [
-   "the dentist is called",
-   "a coin appears by morning",
-   "the tooth starts to wobble",
-   "the tooth comes out"
+   "he puts the tooth under his pillow",
+   "he finds a coin next morning",
+   "he notices the tooth wobbling",
+   "the tooth falls out while eating"
   ],
   "answerOptions": [
    {
-    "value": "the dentist is called",
-    "label": "the dentist is called",
-    "text": "the dentist is called"
+    "value": "he puts the tooth under his pillow",
+    "label": "he puts the tooth under his pillow",
+    "text": "he puts the tooth under his pillow"
    },
    {
-    "value": "a coin appears by morning",
-    "label": "a coin appears by morning",
-    "text": "a coin appears by morning"
+    "value": "he finds a coin next morning",
+    "label": "he finds a coin next morning",
+    "text": "he finds a coin next morning"
    },
    {
-    "value": "the tooth starts to wobble",
-    "label": "the tooth starts to wobble",
-    "text": "the tooth starts to wobble"
+    "value": "he notices the tooth wobbling",
+    "label": "he notices the tooth wobbling",
+    "text": "he notices the tooth wobbling"
    },
    {
-    "value": "the tooth comes out",
-    "label": "the tooth comes out",
-    "text": "the tooth comes out"
+    "value": "the tooth falls out while eating",
+    "label": "the tooth falls out while eating",
+    "text": "the tooth falls out while eating"
    }
   ],
-  "answer": "a coin appears by morning",
-  "correctAnswer": "a coin appears by morning",
+  "answer": "he finds a coin next morning",
+  "correctAnswer": "he finds a coin next morning",
   "distractorRationales": {
-   "the tooth starts to wobble": "D-SEQUENCE-SWAP",
-   "the tooth comes out": "D-SEQUENCE-SWAP",
-   "the dentist is called": "D-PLAUSIBLE-UNSUPPORTED"
+   "he notices the tooth wobbling": "D-PLAUSIBLE-UNSUPPORTED",
+   "the tooth falls out while eating": "D-PLAUSIBLE-UNSUPPORTED",
+   "he puts the tooth under his pillow": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4584,42 +4374,42 @@ export const questions = [
   "prompt": "What do the bees do right BEFORE capping the cell?",
   "question": "What do the bees do right BEFORE capping the cell?",
   "spokenPrompt": "What do the bees do right BEFORE capping the cell?",
-  "passage": "Making honey happens in stages. Bees drink nectar from flowers and carry it home. Other bees pass the nectar from bee to bee, thickening it. The nectar is packed into wax cells. Bees fan it until enough water has gone. Only then is each cell capped with wax.",
+  "passage": "Bees collect nectar from flowers and carry it home. Other bees pass it between them, adding substances that change it. They place it in wax cells and fan away excess water. Finally, they cover the cells with wax.",
   "cell": "process_order",
   "choices": [
-   "pass it from bee to bee",
-   "break the wax open",
-   "fan the nectar with their wings",
-   "drink nectar from flowers"
+   "pass nectar between other bees",
+   "place fresh nectar into the cells",
+   "fan away water from the nectar",
+   "carry nectar home from flowers"
   ],
   "answerOptions": [
    {
-    "value": "pass it from bee to bee",
-    "label": "pass it from bee to bee",
-    "text": "pass it from bee to bee"
+    "value": "pass nectar between other bees",
+    "label": "pass nectar between other bees",
+    "text": "pass nectar between other bees"
    },
    {
-    "value": "break the wax open",
-    "label": "break the wax open",
-    "text": "break the wax open"
+    "value": "place fresh nectar into the cells",
+    "label": "place fresh nectar into the cells",
+    "text": "place fresh nectar into the cells"
    },
    {
-    "value": "fan the nectar with their wings",
-    "label": "fan the nectar with their wings",
-    "text": "fan the nectar with their wings"
+    "value": "fan away water from the nectar",
+    "label": "fan away water from the nectar",
+    "text": "fan away water from the nectar"
    },
    {
-    "value": "drink nectar from flowers",
-    "label": "drink nectar from flowers",
-    "text": "drink nectar from flowers"
+    "value": "carry nectar home from flowers",
+    "label": "carry nectar home from flowers",
+    "text": "carry nectar home from flowers"
    }
   ],
-  "answer": "fan the nectar with their wings",
-  "correctAnswer": "fan the nectar with their wings",
+  "answer": "fan away water from the nectar",
+  "correctAnswer": "fan away water from the nectar",
   "distractorRationales": {
-   "drink nectar from flowers": "D-SEQUENCE-SWAP",
-   "pass it from bee to bee": "D-SEQUENCE-SWAP",
-   "break the wax open": "D-OPPOSITE"
+   "carry nectar home from flowers": "D-PLAUSIBLE-UNSUPPORTED",
+   "pass nectar between other bees": "D-PLAUSIBLE-UNSUPPORTED",
+   "place fresh nectar into the cells": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4674,42 +4464,42 @@ export const questions = [
   "prompt": "What happens right AFTER the crew members reach the station?",
   "question": "What happens right AFTER the crew members reach the station?",
   "spokenPrompt": "What happens right AFTER the crew members reach the station?",
-  "passage": "The rescue boat launch follows a practiced order. Alerts sound across the town. Crew members stop what they are doing and run to the station. They put on boots, suits, and life jackets. The doors open, the boat moves down the ramp, and the crew receives directions on the water.",
+  "passage": "The rescue alarm sounds, and crew members run to the station. They put on their protective clothes and life jackets. Then they launch the boat down the ramp. Once afloat, they receive directions to the person needing help.",
   "cell": "process_order",
   "choices": [
-   "they ask where they are going",
-   "they put on their safety gear",
-   "the alerts sound",
-   "the boat goes down the ramp"
+   "they receive directions while afloat",
+   "they put on protective clothing",
+   "they hear the rescue alarm",
+   "they launch the boat down the ramp"
   ],
   "answerOptions": [
    {
-    "value": "they ask where they are going",
-    "label": "they ask where they are going",
-    "text": "they ask where they are going"
+    "value": "they receive directions while afloat",
+    "label": "they receive directions while afloat",
+    "text": "they receive directions while afloat"
    },
    {
-    "value": "they put on their safety gear",
-    "label": "they put on their safety gear",
-    "text": "they put on their safety gear"
+    "value": "they put on protective clothing",
+    "label": "they put on protective clothing",
+    "text": "they put on protective clothing"
    },
    {
-    "value": "the alerts sound",
-    "label": "the alerts sound",
-    "text": "the alerts sound"
+    "value": "they hear the rescue alarm",
+    "label": "they hear the rescue alarm",
+    "text": "they hear the rescue alarm"
    },
    {
-    "value": "the boat goes down the ramp",
-    "label": "the boat goes down the ramp",
-    "text": "the boat goes down the ramp"
+    "value": "they launch the boat down the ramp",
+    "label": "they launch the boat down the ramp",
+    "text": "they launch the boat down the ramp"
    }
   ],
-  "answer": "they put on their safety gear",
-  "correctAnswer": "they put on their safety gear",
+  "answer": "they put on protective clothing",
+  "correctAnswer": "they put on protective clothing",
   "distractorRationales": {
-   "the alerts sound": "D-SEQUENCE-SWAP",
-   "the boat goes down the ramp": "D-SEQUENCE-SWAP",
-   "they ask where they are going": "D-SEQUENCE-SWAP"
+   "they hear the rescue alarm": "D-PLAUSIBLE-UNSUPPORTED",
+   "they launch the boat down the ramp": "D-PLAUSIBLE-UNSUPPORTED",
+   "they receive directions while afloat": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4764,42 +4554,42 @@ export const questions = [
   "prompt": "What happens right AFTER the book comes back through the slot?",
   "question": "What happens right AFTER the book comes back through the slot?",
   "spokenPrompt": "What happens right AFTER the book comes back through the slot?",
-  "passage": "A library book's life is a circle. It is chosen and borrowed at the desk. It lives in a reader's house for a while — beside beds, in bags, once or twice in a garden. It comes back through the return slot. It is checked, sometimes mended with careful tape, and then reshelved in its exact place, ready to be chosen all over again.",
+  "passage": "A reader borrows a book and takes it home. Later, the reader puts it through the return slot. Staff check the book and repair any torn pages. Finally, they return it to its place on the shelf.",
   "cell": "process_order",
   "choices": [
-   "it lives beside someone's bed",
-   "it is reshelved immediately unchecked",
-   "it is checked and mended if needed",
-   "it is borrowed at the desk"
+   "staff place it on its shelf",
+   "the reader takes it home",
+   "staff check it for damage",
+   "a reader borrows it again"
   ],
   "answerOptions": [
    {
-    "value": "it lives beside someone's bed",
-    "label": "it lives beside someone's bed",
-    "text": "it lives beside someone's bed"
+    "value": "staff place it on its shelf",
+    "label": "staff place it on its shelf",
+    "text": "staff place it on its shelf"
    },
    {
-    "value": "it is reshelved immediately unchecked",
-    "label": "it is reshelved immediately unchecked",
-    "text": "it is reshelved immediately unchecked"
+    "value": "the reader takes it home",
+    "label": "the reader takes it home",
+    "text": "the reader takes it home"
    },
    {
-    "value": "it is checked and mended if needed",
-    "label": "it is checked and mended if needed",
-    "text": "it is checked and mended if needed"
+    "value": "staff check it for damage",
+    "label": "staff check it for damage",
+    "text": "staff check it for damage"
    },
    {
-    "value": "it is borrowed at the desk",
-    "label": "it is borrowed at the desk",
-    "text": "it is borrowed at the desk"
+    "value": "a reader borrows it again",
+    "label": "a reader borrows it again",
+    "text": "a reader borrows it again"
    }
   ],
-  "answer": "it is checked and mended if needed",
-  "correctAnswer": "it is checked and mended if needed",
+  "answer": "staff check it for damage",
+  "correctAnswer": "staff check it for damage",
   "distractorRationales": {
-   "it is borrowed at the desk": "D-SEQUENCE-SWAP",
-   "it lives beside someone's bed": "D-SEQUENCE-SWAP",
-   "it is reshelved immediately unchecked": "D-SEQUENCE-SWAP"
+   "a reader borrows it again": "D-PLAUSIBLE-UNSUPPORTED",
+   "staff place it on its shelf": "D-PLAUSIBLE-UNSUPPORTED",
+   "the reader takes it home": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4854,42 +4644,42 @@ export const questions = [
   "prompt": "What happens right BEFORE the vegetables are pulled?",
   "question": "What happens right BEFORE the vegetables are pulled?",
   "spokenPrompt": "What happens right BEFORE the vegetables are pulled?",
-  "passage": "School soup follows the garden calendar. Seeds are planted in trays in early spring. Seedlings move to the garden after the last frost. All season the watering schedule keeps them alive. In autumn the vegetables are pulled, scrubbed, and chopped, and the whole school eats the soup.",
+  "passage": "The class plants vegetable seeds in trays in spring. After the last frost, they move the seedlings into the garden. The plants are watered throughout the growing season. In autumn, the class pulls up the vegetables. They wash and chop them to make soup.",
   "cell": "process_order",
   "choices": [
-   "the seeds are sown in trays",
-   "the soup is eaten",
-   "the trays are washed",
-   "a whole term of watering"
+   "planting their seeds in indoor trays",
+   "washing and chopping them for soup",
+   "moving the seedlings into the garden",
+   "watering them through the growing season"
   ],
   "answerOptions": [
    {
-    "value": "the seeds are sown in trays",
-    "label": "the seeds are sown in trays",
-    "text": "the seeds are sown in trays"
+    "value": "planting their seeds in indoor trays",
+    "label": "planting their seeds in indoor trays",
+    "text": "planting their seeds in indoor trays"
    },
    {
-    "value": "the soup is eaten",
-    "label": "the soup is eaten",
-    "text": "the soup is eaten"
+    "value": "washing and chopping them for soup",
+    "label": "washing and chopping them for soup",
+    "text": "washing and chopping them for soup"
    },
    {
-    "value": "the trays are washed",
-    "label": "the trays are washed",
-    "text": "the trays are washed"
+    "value": "moving the seedlings into the garden",
+    "label": "moving the seedlings into the garden",
+    "text": "moving the seedlings into the garden"
    },
    {
-    "value": "a whole term of watering",
-    "label": "a whole term of watering",
-    "text": "a whole term of watering"
+    "value": "watering them through the growing season",
+    "label": "watering them through the growing season",
+    "text": "watering them through the growing season"
    }
   ],
-  "answer": "a whole term of watering",
-  "correctAnswer": "a whole term of watering",
+  "answer": "watering them through the growing season",
+  "correctAnswer": "watering them through the growing season",
   "distractorRationales": {
-   "the soup is eaten": "D-SEQUENCE-SWAP",
-   "the trays are washed": "D-PLAUSIBLE-UNSUPPORTED",
-   "the seeds are sown in trays": "D-SEQUENCE-SWAP"
+   "washing and chopping them for soup": "D-PLAUSIBLE-UNSUPPORTED",
+   "moving the seedlings into the garden": "D-OPPOSITE",
+   "planting their seeds in indoor trays": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4944,42 +4734,42 @@ export const questions = [
   "prompt": "What happened right BEFORE the marble made its first crossing?",
   "question": "What happened right BEFORE the marble made its first crossing?",
   "spokenPrompt": "What happened right BEFORE the marble made its first crossing?",
-  "passage": "The bridge of books rose across the classroom floor all week. Monday: two towers, one at each side. Tuesday: the towers grew waist-high. Wednesday: the first careful row of atlases went across the gap. Thursday: the marble made its first crossing. Friday, the principal asked for every book to go back on the shelves.",
+  "passage": "On Monday, the class began two towers of books. By Tuesday, both towers were the same height. On Wednesday, they placed atlases across the gap. A marble rolled over this bridge for the first time Thursday. They returned the books to their shelves on Friday.",
   "cell": "before_after_relation",
   "choices": [
-   "the two towers were started",
-   "the books went back on shelves",
-   "a second marble was found",
-   "the atlas plank bridged the gap"
+   "the two towers were first started",
+   "books were returned to their shelves",
+   "the towers were built to equal height",
+   "atlases were laid across the gap"
   ],
   "answerOptions": [
    {
-    "value": "the two towers were started",
-    "label": "the two towers were started",
-    "text": "the two towers were started"
+    "value": "the two towers were first started",
+    "label": "the two towers were first started",
+    "text": "the two towers were first started"
    },
    {
-    "value": "the books went back on shelves",
-    "label": "the books went back on shelves",
-    "text": "the books went back on shelves"
+    "value": "books were returned to their shelves",
+    "label": "books were returned to their shelves",
+    "text": "books were returned to their shelves"
    },
    {
-    "value": "a second marble was found",
-    "label": "a second marble was found",
-    "text": "a second marble was found"
+    "value": "the towers were built to equal height",
+    "label": "the towers were built to equal height",
+    "text": "the towers were built to equal height"
    },
    {
-    "value": "the atlas plank bridged the gap",
-    "label": "the atlas plank bridged the gap",
-    "text": "the atlas plank bridged the gap"
+    "value": "atlases were laid across the gap",
+    "label": "atlases were laid across the gap",
+    "text": "atlases were laid across the gap"
    }
   ],
-  "answer": "the atlas plank bridged the gap",
-  "correctAnswer": "the atlas plank bridged the gap",
+  "answer": "atlases were laid across the gap",
+  "correctAnswer": "atlases were laid across the gap",
   "distractorRationales": {
-   "the two towers were started": "D-SEQUENCE-SWAP",
-   "the books went back on shelves": "D-SEQUENCE-SWAP",
-   "a second marble was found": "D-PLAUSIBLE-UNSUPPORTED"
+   "the two towers were first started": "D-PLAUSIBLE-UNSUPPORTED",
+   "books were returned to their shelves": "D-PLAUSIBLE-UNSUPPORTED",
+   "the towers were built to equal height": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5034,13 +4824,13 @@ export const questions = [
   "prompt": "When were the blankets checked?",
   "question": "When were the blankets checked?",
   "spokenPrompt": "When were the blankets checked?",
-  "passage": "Outdoor movie night ran on a strict timetable. The blankets were checked while it was still light, always first. Snacks came out at six. The movie began at seven. Star watching waited until full dark.",
+  "passage": "Before sunset, the family checked their blankets for outdoor movie night. They set out snacks at six. The film began at seven. After it ended, they watched the stars in the dark sky.",
   "cell": "before_after_relation",
   "choices": [
    "at the start, before sunset",
-   "after the movie began",
-   "during star watching",
-   "at six with the snacks"
+   "after the film had finished",
+   "while they looked at stars",
+   "when snacks were served at six"
   ],
   "answerOptions": [
    {
@@ -5049,27 +4839,27 @@ export const questions = [
     "text": "at the start, before sunset"
    },
    {
-    "value": "after the movie began",
-    "label": "after the movie began",
-    "text": "after the movie began"
+    "value": "after the film had finished",
+    "label": "after the film had finished",
+    "text": "after the film had finished"
    },
    {
-    "value": "during star watching",
-    "label": "during star watching",
-    "text": "during star watching"
+    "value": "while they looked at stars",
+    "label": "while they looked at stars",
+    "text": "while they looked at stars"
    },
    {
-    "value": "at six with the snacks",
-    "label": "at six with the snacks",
-    "text": "at six with the snacks"
+    "value": "when snacks were served at six",
+    "label": "when snacks were served at six",
+    "text": "when snacks were served at six"
    }
   ],
   "answer": "at the start, before sunset",
   "correctAnswer": "at the start, before sunset",
   "distractorRationales": {
-   "after the movie began": "D-SEQUENCE-SWAP",
-   "during star watching": "D-SEQUENCE-SWAP",
-   "at six with the snacks": "D-SEQUENCE-SWAP"
+   "after the film had finished": "D-PLAUSIBLE-UNSUPPORTED",
+   "while they looked at stars": "D-PLAUSIBLE-UNSUPPORTED",
+   "when snacks were served at six": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5124,42 +4914,42 @@ export const questions = [
   "prompt": "Which of these must have happened FIRST?",
   "question": "Which of these must have happened FIRST?",
   "spokenPrompt": "Which of these must have happened FIRST?",
-  "passage": "The sandcastle stood finished at last, moat and all, with a seagull feather flying from the top tower. Around it lay the story of the morning: a ring of shells not quite used up, two buckets with wet sand still crusting their rims, and one very sandy pair of knees.",
+  "passage": "The castle’s towers had bucket-shaped sides. Shells pressed into those sides formed little windows. A feather stood in the highest tower, added after the shells. The tide later washed the finished castle away.",
   "cell": "implied_order",
   "choices": [
-   "the tide later washed the castle away",
-   "the buckets were filled and turned over",
-   "the feather flag was placed on the top tower",
-   "the shells were arranged around the castle"
+   "the tide washing the castle away",
+   "packing and turning out bucketfuls of sand",
+   "pressing shell windows into the sides",
+   "adding the feather to the top tower"
   ],
   "answerOptions": [
    {
-    "value": "the tide later washed the castle away",
-    "label": "the tide later washed the castle away",
-    "text": "the tide later washed the castle away"
+    "value": "the tide washing the castle away",
+    "label": "the tide washing the castle away",
+    "text": "the tide washing the castle away"
    },
    {
-    "value": "the buckets were filled and turned over",
-    "label": "the buckets were filled and turned over",
-    "text": "the buckets were filled and turned over"
+    "value": "packing and turning out bucketfuls of sand",
+    "label": "packing and turning out bucketfuls of sand",
+    "text": "packing and turning out bucketfuls of sand"
    },
    {
-    "value": "the feather flag was placed on the top tower",
-    "label": "the feather flag was placed on the top tower",
-    "text": "the feather flag was placed on the top tower"
+    "value": "pressing shell windows into the sides",
+    "label": "pressing shell windows into the sides",
+    "text": "pressing shell windows into the sides"
    },
    {
-    "value": "the shells were arranged around the castle",
-    "label": "the shells were arranged around the castle",
-    "text": "the shells were arranged around the castle"
+    "value": "adding the feather to the top tower",
+    "label": "adding the feather to the top tower",
+    "text": "adding the feather to the top tower"
    }
   ],
-  "answer": "the buckets were filled and turned over",
-  "correctAnswer": "the buckets were filled and turned over",
+  "answer": "packing and turning out bucketfuls of sand",
+  "correctAnswer": "packing and turning out bucketfuls of sand",
   "distractorRationales": {
-   "the feather flag was placed on the top tower": "D-SEQUENCE-SWAP",
-   "the shells were arranged around the castle": "D-SEQUENCE-SWAP",
-   "the tide later washed the castle away": "D-PLAUSIBLE-UNSUPPORTED"
+   "pressing shell windows into the sides": "D-PLAUSIBLE-UNSUPPORTED",
+   "adding the feather to the top tower": "D-PLAUSIBLE-UNSUPPORTED",
+   "the tide washing the castle away": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5211,45 +5001,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these happened FIRST, before the rest?",
-  "question": "Which of these happened FIRST, before the rest?",
-  "spokenPrompt": "Which of these happened FIRST, before the rest?",
-  "passage": "The community concert was over. On the piano stood a jar of garden flowers and a thank-you card signed by the whole street. The borrowed chairs were going back next door two at a time, and the drink dispenser in the kitchen held its final cups.",
+  "prompt": "Which event happened FIRST?",
+  "question": "Which event happened FIRST?",
+  "spokenPrompt": "Which event happened FIRST?",
+  "passage": "The concert had ended, and helpers were returning borrowed chairs. Neighbours had delivered those chairs before anyone began singing. After the last song, the singers had signed a thank-you card. The card now lay on the piano.",
   "cell": "implied_order",
   "choices": [
-   "the chairs went back two at a time",
-   "the flowers wilted",
-   "the neighbors lent their chairs",
-   "the thank-you card was signed"
+   "helpers returning the chairs next door",
+   "the performers finishing their last song",
+   "neighbours delivering the concert chairs",
+   "singers putting their names on the card"
   ],
   "answerOptions": [
    {
-    "value": "the chairs went back two at a time",
-    "label": "the chairs went back two at a time",
-    "text": "the chairs went back two at a time"
+    "value": "helpers returning the chairs next door",
+    "label": "helpers returning the chairs next door",
+    "text": "helpers returning the chairs next door"
    },
    {
-    "value": "the flowers wilted",
-    "label": "the flowers wilted",
-    "text": "the flowers wilted"
+    "value": "the performers finishing their last song",
+    "label": "the performers finishing their last song",
+    "text": "the performers finishing their last song"
    },
    {
-    "value": "the neighbors lent their chairs",
-    "label": "the neighbors lent their chairs",
-    "text": "the neighbors lent their chairs"
+    "value": "neighbours delivering the concert chairs",
+    "label": "neighbours delivering the concert chairs",
+    "text": "neighbours delivering the concert chairs"
    },
    {
-    "value": "the thank-you card was signed",
-    "label": "the thank-you card was signed",
-    "text": "the thank-you card was signed"
+    "value": "singers putting their names on the card",
+    "label": "singers putting their names on the card",
+    "text": "singers putting their names on the card"
    }
   ],
-  "answer": "the neighbors lent their chairs",
-  "correctAnswer": "the neighbors lent their chairs",
+  "answer": "neighbours delivering the concert chairs",
+  "correctAnswer": "neighbours delivering the concert chairs",
   "distractorRationales": {
-   "the thank-you card was signed": "D-SEQUENCE-SWAP",
-   "the chairs went back two at a time": "D-SEQUENCE-SWAP",
-   "the flowers wilted": "D-PLAUSIBLE-UNSUPPORTED"
+   "singers putting their names on the card": "D-PLAUSIBLE-UNSUPPORTED",
+   "helpers returning the chairs next door": "D-PLAUSIBLE-UNSUPPORTED",
+   "the performers finishing their last song": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5304,42 +5094,42 @@ export const questions = [
   "prompt": "What happens right AFTER the fleece is washed?",
   "question": "What happens right AFTER the fleece is washed?",
   "spokenPrompt": "What happens right AFTER the fleece is washed?",
-  "passage": "Wool has a long journey to a sweater. The sheep is sheared in early summer. The fleece is washed until the water runs clear. Carding combs untangle every fiber the same way. The spinning wheel twists the fibers into one long thread, and the knitting needles shape it loop by loop.",
+  "passage": "First, a sheep is sheared to collect its fleece. The fleece is washed, then combed to untangle the fibres. A spinning wheel twists those fibres into thread. Knitting needles turn the thread into a sweater.",
   "cell": "process_order",
   "choices": [
-   "the sheep is sheared in early summer",
-   "the thread is knitted",
-   "the sweater is worn",
-   "carding combs untangle the fibers"
+   "the sheep loses its fleece",
+   "needles form the finished sweater",
+   "the wheel twists fibres into thread",
+   "combs untangle the clean fibres"
   ],
   "answerOptions": [
    {
-    "value": "the sheep is sheared in early summer",
-    "label": "the sheep is sheared in early summer",
-    "text": "the sheep is sheared in early summer"
+    "value": "the sheep loses its fleece",
+    "label": "the sheep loses its fleece",
+    "text": "the sheep loses its fleece"
    },
    {
-    "value": "the thread is knitted",
-    "label": "the thread is knitted",
-    "text": "the thread is knitted"
+    "value": "needles form the finished sweater",
+    "label": "needles form the finished sweater",
+    "text": "needles form the finished sweater"
    },
    {
-    "value": "the sweater is worn",
-    "label": "the sweater is worn",
-    "text": "the sweater is worn"
+    "value": "the wheel twists fibres into thread",
+    "label": "the wheel twists fibres into thread",
+    "text": "the wheel twists fibres into thread"
    },
    {
-    "value": "carding combs untangle the fibers",
-    "label": "carding combs untangle the fibers",
-    "text": "carding combs untangle the fibers"
+    "value": "combs untangle the clean fibres",
+    "label": "combs untangle the clean fibres",
+    "text": "combs untangle the clean fibres"
    }
   ],
-  "answer": "carding combs untangle the fibers",
-  "correctAnswer": "carding combs untangle the fibers",
+  "answer": "combs untangle the clean fibres",
+  "correctAnswer": "combs untangle the clean fibres",
   "distractorRationales": {
-   "the sheep is sheared in early summer": "D-SEQUENCE-SWAP",
-   "the thread is knitted": "D-SEQUENCE-SWAP",
-   "the sweater is worn": "D-SEQUENCE-SWAP"
+   "the sheep loses its fleece": "D-PLAUSIBLE-UNSUPPORTED",
+   "needles form the finished sweater": "D-PLAUSIBLE-UNSUPPORTED",
+   "the wheel twists fibres into thread": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5394,42 +5184,42 @@ export const questions = [
   "prompt": "What happens right BEFORE the hedgehog moves to the outdoor pen?",
   "question": "What happens right BEFORE the hedgehog moves to the outdoor pen?",
   "spokenPrompt": "What happens right BEFORE the hedgehog moves to the outdoor pen?",
-  "passage": "A rescued hedgehog moves through the wildlife center in stages. New arrivals are weighed and checked when they come in. Sick ones stay warm in a quiet room until they feed by themselves. Then comes the outdoor pen, to practice being wild again. Release night is last, back to the hedge where each one was found.",
+  "passage": "A rescued hedgehog is weighed and checked on arrival. It stays in a warm room until it can feed itself. Next, it moves to an outdoor pen to prepare for release. When ready, it returns to a suitable place in the wild.",
   "cell": "process_order",
   "choices": [
-   "feeding by themselves in the quiet room",
-   "being weighed on arrival",
-   "release at the hedge",
-   "hibernating all winter"
+   "it feeds itself in the warm room",
+   "it is weighed when it first arrives",
+   "it returns to a wild outdoor place",
+   "it prepares for release in the pen"
   ],
   "answerOptions": [
    {
-    "value": "feeding by themselves in the quiet room",
-    "label": "feeding by themselves in the quiet room",
-    "text": "feeding by themselves in the quiet room"
+    "value": "it feeds itself in the warm room",
+    "label": "it feeds itself in the warm room",
+    "text": "it feeds itself in the warm room"
    },
    {
-    "value": "being weighed on arrival",
-    "label": "being weighed on arrival",
-    "text": "being weighed on arrival"
+    "value": "it is weighed when it first arrives",
+    "label": "it is weighed when it first arrives",
+    "text": "it is weighed when it first arrives"
    },
    {
-    "value": "release at the hedge",
-    "label": "release at the hedge",
-    "text": "release at the hedge"
+    "value": "it returns to a wild outdoor place",
+    "label": "it returns to a wild outdoor place",
+    "text": "it returns to a wild outdoor place"
    },
    {
-    "value": "hibernating all winter",
-    "label": "hibernating all winter",
-    "text": "hibernating all winter"
+    "value": "it prepares for release in the pen",
+    "label": "it prepares for release in the pen",
+    "text": "it prepares for release in the pen"
    }
   ],
-  "answer": "feeding by themselves in the quiet room",
-  "correctAnswer": "feeding by themselves in the quiet room",
+  "answer": "it feeds itself in the warm room",
+  "correctAnswer": "it feeds itself in the warm room",
   "distractorRationales": {
-   "hibernating all winter": "D-PLAUSIBLE-UNSUPPORTED",
-   "being weighed on arrival": "D-SEQUENCE-SWAP",
-   "release at the hedge": "D-SEQUENCE-SWAP"
+   "it prepares for release in the pen": "D-OPPOSITE",
+   "it is weighed when it first arrives": "D-PLAUSIBLE-UNSUPPORTED",
+   "it returns to a wild outdoor place": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5484,24 +5274,24 @@ export const questions = [
   "prompt": "What happened right AFTER the glove was put on the wall?",
   "question": "What happened right AFTER the glove was put on the wall?",
   "spokenPrompt": "What happened right AFTER the glove was put on the wall?",
-  "passage": "The lost glove's week went like this. Monday it fell at the bus stop. Tuesday someone balanced it on the wall, in case its owner came back. Wednesday it wore a dusting of frost. Thursday Priya recognized it from the bus window. And on Friday, glove and girl went home together at last.",
+  "passage": "The glove fell at the bus stop on Monday. Someone put it on the wall on Tuesday. Frost covered it on Wednesday. Priya recognised it from the bus on Thursday. She collected it and took it home on Friday.",
   "cell": "before_after_relation",
   "choices": [
-   "it was posted to the school",
-   "it got a dusting of frost",
+   "Priya spotted it from the bus",
+   "frost covered its outside",
    "it fell at the bus stop",
    "Priya took it home"
   ],
   "answerOptions": [
    {
-    "value": "it was posted to the school",
-    "label": "it was posted to the school",
-    "text": "it was posted to the school"
+    "value": "Priya spotted it from the bus",
+    "label": "Priya spotted it from the bus",
+    "text": "Priya spotted it from the bus"
    },
    {
-    "value": "it got a dusting of frost",
-    "label": "it got a dusting of frost",
-    "text": "it got a dusting of frost"
+    "value": "frost covered its outside",
+    "label": "frost covered its outside",
+    "text": "frost covered its outside"
    },
    {
     "value": "it fell at the bus stop",
@@ -5514,12 +5304,12 @@ export const questions = [
     "text": "Priya took it home"
    }
   ],
-  "answer": "it got a dusting of frost",
-  "correctAnswer": "it got a dusting of frost",
+  "answer": "frost covered its outside",
+  "correctAnswer": "frost covered its outside",
   "distractorRationales": {
-   "it fell at the bus stop": "D-SEQUENCE-SWAP",
-   "Priya took it home": "D-SEQUENCE-SWAP",
-   "it was posted to the school": "D-PLAUSIBLE-UNSUPPORTED"
+   "it fell at the bus stop": "D-PLAUSIBLE-UNSUPPORTED",
+   "Priya took it home": "D-PLAUSIBLE-UNSUPPORTED",
+   "Priya spotted it from the bus": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5574,42 +5364,42 @@ export const questions = [
   "prompt": "What happens right AFTER the traffic light turns red?",
   "question": "What happens right AFTER the traffic light turns red?",
   "spokenPrompt": "What happens right AFTER the traffic light turns red?",
-  "passage": "The pedestrian signal follows a strict order. The button is pressed, and the small light says WAIT. Traffic gets a yellow warning, then red. Only then does the white walking symbol appear. When it starts to blink, people finish crossing, and then the cars get their turn again.",
+  "passage": "At this crossing, pressing the button lights up the WAIT sign. The traffic light turns yellow, then red. Next, the walking symbol appears. People cross, and later the symbol starts blinking. Once everyone has finished crossing, cars can move again.",
   "cell": "process_order",
   "choices": [
-   "the yellow warning shows",
-   "the WAIT light switches on",
-   "the white walking symbol appears",
-   "the button is pressed"
+   "the sign tells people they must wait",
+   "the walking symbol starts blinking at people",
+   "the signal shows that people may walk",
+   "the traffic light shows its yellow warning"
   ],
   "answerOptions": [
    {
-    "value": "the yellow warning shows",
-    "label": "the yellow warning shows",
-    "text": "the yellow warning shows"
+    "value": "the sign tells people they must wait",
+    "label": "the sign tells people they must wait",
+    "text": "the sign tells people they must wait"
    },
    {
-    "value": "the WAIT light switches on",
-    "label": "the WAIT light switches on",
-    "text": "the WAIT light switches on"
+    "value": "the walking symbol starts blinking at people",
+    "label": "the walking symbol starts blinking at people",
+    "text": "the walking symbol starts blinking at people"
    },
    {
-    "value": "the white walking symbol appears",
-    "label": "the white walking symbol appears",
-    "text": "the white walking symbol appears"
+    "value": "the signal shows that people may walk",
+    "label": "the signal shows that people may walk",
+    "text": "the signal shows that people may walk"
    },
    {
-    "value": "the button is pressed",
-    "label": "the button is pressed",
-    "text": "the button is pressed"
+    "value": "the traffic light shows its yellow warning",
+    "label": "the traffic light shows its yellow warning",
+    "text": "the traffic light shows its yellow warning"
    }
   ],
-  "answer": "the white walking symbol appears",
-  "correctAnswer": "the white walking symbol appears",
+  "answer": "the signal shows that people may walk",
+  "correctAnswer": "the signal shows that people may walk",
   "distractorRationales": {
-   "the yellow warning shows": "D-SEQUENCE-SWAP",
-   "the WAIT light switches on": "D-SEQUENCE-SWAP",
-   "the button is pressed": "D-SEQUENCE-SWAP"
+   "the sign tells people they must wait": "D-PLAUSIBLE-UNSUPPORTED",
+   "the walking symbol starts blinking at people": "D-OPPOSITE",
+   "the traffic light shows its yellow warning": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5640,5 +5430,1575 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": ""
+ },
+ {
+  "id": "lp3.sequencing.l1.A.first_event.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "first_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What happened first?",
+  "question": "What happened first?",
+  "spokenPrompt": "The runner heard the signal. She ran to the cone. Then she touched it. What happened first?",
+  "passage": "The runner heard the signal. She ran to the cone. Then she touched it.",
+  "cell": "first_event",
+  "choices": [
+   "heard the signal",
+   "ran to the cone",
+   "touched the cone"
+  ],
+  "answerOptions": [
+   {
+    "value": "heard the signal",
+    "label": "heard the signal",
+    "text": "heard the signal"
+   },
+   {
+    "value": "ran to the cone",
+    "label": "ran to the cone",
+    "text": "ran to the cone"
+   },
+   {
+    "value": "touched the cone",
+    "label": "touched the cone",
+    "text": "touched the cone"
+   }
+  ],
+  "answer": "heard the signal",
+  "correctAnswer": "heard the signal",
+  "distractorRationales": {
+   "ran to the cone": "D-SEQUENCE-START",
+   "touched the cone": "D-SEQUENCE-END"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.A.first_event.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.sequencing.l1.A.middle_event.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "middle_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What happened in the middle?",
+  "question": "What happened in the middle?",
+  "spokenPrompt": "Ada unrolled the map. She found the station. Then she circled it with a pencil. What happened in the middle?",
+  "passage": "Ada unrolled the map. She found the station. Then she circled it with a pencil.",
+  "cell": "middle_event",
+  "choices": [
+   "circled the station",
+   "found the station",
+   "unrolled the map"
+  ],
+  "answerOptions": [
+   {
+    "value": "circled the station",
+    "label": "circled the station",
+    "text": "circled the station"
+   },
+   {
+    "value": "found the station",
+    "label": "found the station",
+    "text": "found the station"
+   },
+   {
+    "value": "unrolled the map",
+    "label": "unrolled the map",
+    "text": "unrolled the map"
+   }
+  ],
+  "answer": "found the station",
+  "correctAnswer": "found the station",
+  "distractorRationales": {
+   "unrolled the map": "D-SEQUENCE-START",
+   "circled the station": "D-SEQUENCE-END"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.A.middle_event.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.sequencing.l1.A.last_event.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "last_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What happened last?",
+  "question": "What happened last?",
+  "spokenPrompt": "A crow picked up a nut. It dropped the nut onto a hard path. Then it ate from the broken shell. What happened last?",
+  "passage": "A crow picked up a nut. It dropped the nut onto a hard path. Then it ate from the broken shell.",
+  "cell": "last_event",
+  "choices": [
+   "picked up the nut",
+   "dropped it on the path",
+   "ate from the shell"
+  ],
+  "answerOptions": [
+   {
+    "value": "picked up the nut",
+    "label": "picked up the nut",
+    "text": "picked up the nut"
+   },
+   {
+    "value": "dropped it on the path",
+    "label": "dropped it on the path",
+    "text": "dropped it on the path"
+   },
+   {
+    "value": "ate from the shell",
+    "label": "ate from the shell",
+    "text": "ate from the shell"
+   }
+  ],
+  "answer": "ate from the shell",
+  "correctAnswer": "ate from the shell",
+  "distractorRationales": {
+   "picked up the nut": "D-SEQUENCE-START",
+   "dropped it on the path": "D-SEQUENCE-END"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.A.last_event.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.sequencing.l1.A.first_event.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "first_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What happened first?",
+  "question": "What happened first?",
+  "spokenPrompt": "Liam heard a knock. He looked through the window. Then he opened the door for Dad. What happened first?",
+  "passage": "Liam heard a knock. He looked through the window. Then he opened the door for Dad.",
+  "cell": "first_event",
+  "choices": [
+   "heard a knock",
+   "looked through the window",
+   "opened the door"
+  ],
+  "answerOptions": [
+   {
+    "value": "heard a knock",
+    "label": "heard a knock",
+    "text": "heard a knock"
+   },
+   {
+    "value": "looked through the window",
+    "label": "looked through the window",
+    "text": "looked through the window"
+   },
+   {
+    "value": "opened the door",
+    "label": "opened the door",
+    "text": "opened the door"
+   }
+  ],
+  "answer": "heard a knock",
+  "correctAnswer": "heard a knock",
+  "distractorRationales": {
+   "looked through the window": "D-SEQUENCE-START",
+   "opened the door": "D-SEQUENCE-END"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.A.first_event.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.sequencing.l1.A.middle_event.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "middle_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What happened in the middle?",
+  "question": "What happened in the middle?",
+  "spokenPrompt": "The sailor untied the rope. She pushed the boat from the bank. Then she began rowing. What happened in the middle?",
+  "passage": "The sailor untied the rope. She pushed the boat from the bank. Then she began rowing.",
+  "cell": "middle_event",
+  "choices": [
+   "began rowing",
+   "pushed the boat away",
+   "untied the rope"
+  ],
+  "answerOptions": [
+   {
+    "value": "began rowing",
+    "label": "began rowing",
+    "text": "began rowing"
+   },
+   {
+    "value": "pushed the boat away",
+    "label": "pushed the boat away",
+    "text": "pushed the boat away"
+   },
+   {
+    "value": "untied the rope",
+    "label": "untied the rope",
+    "text": "untied the rope"
+   }
+  ],
+  "answer": "pushed the boat away",
+  "correctAnswer": "pushed the boat away",
+  "distractorRationales": {
+   "untied the rope": "D-SEQUENCE-START",
+   "began rowing": "D-SEQUENCE-END"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.A.middle_event.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.sequencing.l1.A.last_event.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "last_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What happened last?",
+  "question": "What happened last?",
+  "spokenPrompt": "A caterpillar changed into a chrysalis. Later, a butterfly came out. It waited, then flew away on dry wings. What happened last?",
+  "passage": "A caterpillar changed into a chrysalis. Later, a butterfly came out. It waited, then flew away on dry wings.",
+  "cell": "last_event",
+  "choices": [
+   "changed into a chrysalis",
+   "came out as a butterfly",
+   "flew away"
+  ],
+  "answerOptions": [
+   {
+    "value": "changed into a chrysalis",
+    "label": "changed into a chrysalis",
+    "text": "changed into a chrysalis"
+   },
+   {
+    "value": "came out as a butterfly",
+    "label": "came out as a butterfly",
+    "text": "came out as a butterfly"
+   },
+   {
+    "value": "flew away",
+    "label": "flew away",
+    "text": "flew away"
+   }
+  ],
+  "answer": "flew away",
+  "correctAnswer": "flew away",
+  "distractorRationales": {
+   "changed into a chrysalis": "D-SEQUENCE-START",
+   "came out as a butterfly": "D-SEQUENCE-END"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.A.last_event.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.sequencing.l1.A.first_event.v22",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "first_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What happened first?",
+  "question": "What happened first?",
+  "spokenPrompt": "Sera weighed the parcel. She paid for a stamp. Then she posted the parcel. What happened first?",
+  "passage": "Sera weighed the parcel. She paid for a stamp. Then she posted the parcel.",
+  "cell": "first_event",
+  "choices": [
+   "weighed the parcel",
+   "paid for a stamp",
+   "posted the parcel"
+  ],
+  "answerOptions": [
+   {
+    "value": "weighed the parcel",
+    "label": "weighed the parcel",
+    "text": "weighed the parcel"
+   },
+   {
+    "value": "paid for a stamp",
+    "label": "paid for a stamp",
+    "text": "paid for a stamp"
+   },
+   {
+    "value": "posted the parcel",
+    "label": "posted the parcel",
+    "text": "posted the parcel"
+   }
+  ],
+  "answer": "weighed the parcel",
+  "correctAnswer": "weighed the parcel",
+  "distractorRationales": {
+   "paid for a stamp": "D-SEQUENCE-START",
+   "posted the parcel": "D-SEQUENCE-END"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.A.first_event.v22",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.sequencing.l1.A.middle_event.v22",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "middle_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What happened in the middle?",
+  "question": "What happened in the middle?",
+  "spokenPrompt": "The musician lifted her flute. She played a tune. Then she bowed to the listeners. What happened in the middle?",
+  "passage": "The musician lifted her flute. She played a tune. Then she bowed to the listeners.",
+  "cell": "middle_event",
+  "choices": [
+   "bowed to the listeners",
+   "played a tune",
+   "lifted her flute"
+  ],
+  "answerOptions": [
+   {
+    "value": "bowed to the listeners",
+    "label": "bowed to the listeners",
+    "text": "bowed to the listeners"
+   },
+   {
+    "value": "played a tune",
+    "label": "played a tune",
+    "text": "played a tune"
+   },
+   {
+    "value": "lifted her flute",
+    "label": "lifted her flute",
+    "text": "lifted her flute"
+   }
+  ],
+  "answer": "played a tune",
+  "correctAnswer": "played a tune",
+  "distractorRationales": {
+   "bowed to the listeners": "D-SEQUENCE-END",
+   "lifted her flute": "D-SEQUENCE-START"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.A.middle_event.v22",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.sequencing.l1.R.last_event.v22r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "sequencing_cell",
+  "itemKey": "last_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What happened last?",
+  "question": "What happened last?",
+  "spokenPrompt": "Raj peeled a banana. He cut it into slices. Then he shared the slices with his sister. What happened last?",
+  "passage": "Raj peeled a banana. He cut it into slices. Then he shared the slices with his sister.",
+  "cell": "last_event",
+  "choices": [
+   "cut it into slices",
+   "shared the slices",
+   "peeled the banana"
+  ],
+  "answerOptions": [
+   {
+    "value": "cut it into slices",
+    "label": "cut it into slices",
+    "text": "cut it into slices"
+   },
+   {
+    "value": "shared the slices",
+    "label": "shared the slices",
+    "text": "shared the slices"
+   },
+   {
+    "value": "peeled the banana",
+    "label": "peeled the banana",
+    "text": "peeled the banana"
+   }
+  ],
+  "answer": "shared the slices",
+  "correctAnswer": "shared the slices",
+  "distractorRationales": {
+   "peeled the banana": "D-SEQUENCE-START",
+   "cut it into slices": "D-SEQUENCE-END"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "retention",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.R.last_event.v22r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.sequencing.l1.R.first_event.v23r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "sequencing_cell",
+  "itemKey": "first_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What happened first?",
+  "question": "What happened first?",
+  "spokenPrompt": "The worker swept the floor. She washed it with a mop. Then she left it to dry. What happened first?",
+  "passage": "The worker swept the floor. She washed it with a mop. Then she left it to dry.",
+  "cell": "first_event",
+  "choices": [
+   "washed it with a mop",
+   "left it to dry",
+   "swept the floor"
+  ],
+  "answerOptions": [
+   {
+    "value": "washed it with a mop",
+    "label": "washed it with a mop",
+    "text": "washed it with a mop"
+   },
+   {
+    "value": "left it to dry",
+    "label": "left it to dry",
+    "text": "left it to dry"
+   },
+   {
+    "value": "swept the floor",
+    "label": "swept the floor",
+    "text": "swept the floor"
+   }
+  ],
+  "answer": "swept the floor",
+  "correctAnswer": "swept the floor",
+  "distractorRationales": {
+   "washed it with a mop": "D-SEQUENCE-START",
+   "left it to dry": "D-SEQUENCE-END"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "retention",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.R.first_event.v23r",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.sequencing.l2.A.before_after_relation.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "before_after_relation",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What happened immediately before the complete practice?",
+  "question": "What happened immediately before the complete practice?",
+  "spokenPrompt": "What happened immediately before the complete practice?",
+  "passage": "The class chose a song on Monday and learned its words Tuesday. They added actions on Wednesday. On Thursday, they practiced the complete performance. They performed for families on Friday.",
+  "cell": "before_after_relation",
+  "choices": [
+   "they chose the song for the performance",
+   "they learned the words for the first time",
+   "they performed the song for their families",
+   "they worked out movements for the tune"
+  ],
+  "answerOptions": [
+   {
+    "value": "they chose the song for the performance",
+    "label": "they chose the song for the performance",
+    "text": "they chose the song for the performance"
+   },
+   {
+    "value": "they learned the words for the first time",
+    "label": "they learned the words for the first time",
+    "text": "they learned the words for the first time"
+   },
+   {
+    "value": "they performed the song for their families",
+    "label": "they performed the song for their families",
+    "text": "they performed the song for their families"
+   },
+   {
+    "value": "they worked out movements for the tune",
+    "label": "they worked out movements for the tune",
+    "text": "they worked out movements for the tune"
+   }
+  ],
+  "answer": "they worked out movements for the tune",
+  "correctAnswer": "they worked out movements for the tune",
+  "distractorRationales": {
+   "they chose the song for the performance": "D-PLAUSIBLE-UNSUPPORTED",
+   "they learned the words for the first time": "D-PLAUSIBLE-UNSUPPORTED",
+   "they performed the song for their families": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.A.before_after_relation.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.sequencing.l2.A.implied_order.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "implied_order",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which event had to happen before cleaning the pieces?",
+  "question": "Which event had to happen before cleaning the pieces?",
+  "spokenPrompt": "Which event had to happen before cleaning the pieces?",
+  "passage": "The museum displayed a repaired vase made from broken pieces. A photo showed those pieces being found underground. Another showed workers cleaning the dirt from them. Only clean pieces had been joined with the special glue.",
+  "cell": "implied_order",
+  "choices": [
+   "finding the pieces underground",
+   "joining the pieces with glue",
+   "putting the vase on display",
+   "visitors seeing the repaired vase"
+  ],
+  "answerOptions": [
+   {
+    "value": "finding the pieces underground",
+    "label": "finding the pieces underground",
+    "text": "finding the pieces underground"
+   },
+   {
+    "value": "joining the pieces with glue",
+    "label": "joining the pieces with glue",
+    "text": "joining the pieces with glue"
+   },
+   {
+    "value": "putting the vase on display",
+    "label": "putting the vase on display",
+    "text": "putting the vase on display"
+   },
+   {
+    "value": "visitors seeing the repaired vase",
+    "label": "visitors seeing the repaired vase",
+    "text": "visitors seeing the repaired vase"
+   }
+  ],
+  "answer": "finding the pieces underground",
+  "correctAnswer": "finding the pieces underground",
+  "distractorRationales": {
+   "joining the pieces with glue": "D-PLAUSIBLE-UNSUPPORTED",
+   "putting the vase on display": "D-PLAUSIBLE-UNSUPPORTED",
+   "visitors seeing the repaired vase": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.A.implied_order.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.sequencing.l2.A.process_order.v20",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "process_order",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What happens immediately after drawing the letters?",
+  "question": "What happens immediately after drawing the letters?",
+  "spokenPrompt": "What happens immediately after drawing the letters?",
+  "passage": "To make the sign, rub the wood smooth first. Next, draw the letters lightly with a pencil. Paint over those letters and let the paint dry. Finally, attach hooks to hang the sign.",
+  "cell": "process_order",
+  "choices": [
+   "the painted letters are left to dry",
+   "paint is added over the pencil marks",
+   "the wooden surface is rubbed smooth",
+   "hooks are attached to the finished sign"
+  ],
+  "answerOptions": [
+   {
+    "value": "the painted letters are left to dry",
+    "label": "the painted letters are left to dry",
+    "text": "the painted letters are left to dry"
+   },
+   {
+    "value": "paint is added over the pencil marks",
+    "label": "paint is added over the pencil marks",
+    "text": "paint is added over the pencil marks"
+   },
+   {
+    "value": "the wooden surface is rubbed smooth",
+    "label": "the wooden surface is rubbed smooth",
+    "text": "the wooden surface is rubbed smooth"
+   },
+   {
+    "value": "hooks are attached to the finished sign",
+    "label": "hooks are attached to the finished sign",
+    "text": "hooks are attached to the finished sign"
+   }
+  ],
+  "answer": "paint is added over the pencil marks",
+  "correctAnswer": "paint is added over the pencil marks",
+  "distractorRationales": {
+   "the wooden surface is rubbed smooth": "D-PLAUSIBLE-UNSUPPORTED",
+   "hooks are attached to the finished sign": "D-PLAUSIBLE-UNSUPPORTED",
+   "the painted letters are left to dry": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.A.process_order.v20",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.sequencing.l2.A.before_after_relation.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "before_after_relation",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which place did we visit immediately after the castle?",
+  "question": "Which place did we visit immediately after the castle?",
+  "spokenPrompt": "Which place did we visit immediately after the castle?",
+  "passage": "We visited the harbour after leaving the castle. Before the castle, we ate breakfast at the hotel. We returned to the hotel only after shopping near the harbour.",
+  "cell": "before_after_relation",
+  "choices": [
+   "the hotel after our shopping",
+   "the shops after leaving the harbour",
+   "the harbour beside the shops",
+   "the hotel for our breakfast"
+  ],
+  "answerOptions": [
+   {
+    "value": "the hotel after our shopping",
+    "label": "the hotel after our shopping",
+    "text": "the hotel after our shopping"
+   },
+   {
+    "value": "the shops after leaving the harbour",
+    "label": "the shops after leaving the harbour",
+    "text": "the shops after leaving the harbour"
+   },
+   {
+    "value": "the harbour beside the shops",
+    "label": "the harbour beside the shops",
+    "text": "the harbour beside the shops"
+   },
+   {
+    "value": "the hotel for our breakfast",
+    "label": "the hotel for our breakfast",
+    "text": "the hotel for our breakfast"
+   }
+  ],
+  "answer": "the harbour beside the shops",
+  "correctAnswer": "the harbour beside the shops",
+  "distractorRationales": {
+   "the shops after leaving the harbour": "D-OPPOSITE",
+   "the hotel for our breakfast": "D-PLAUSIBLE-UNSUPPORTED",
+   "the hotel after our shopping": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.A.before_after_relation.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.sequencing.l2.A.implied_order.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "implied_order",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What had to finish before the photos could be glued?",
+  "question": "What had to finish before the photos could be glued?",
+  "spokenPrompt": "What had to finish before the photos could be glued?",
+  "passage": "The finished poster had photos glued beneath a painted heading. The teacher had allowed glue only after the paint dried. The pupils cut each photo from a magazine before arranging it. Now the poster hung beside the classroom door.",
+  "cell": "implied_order",
+  "choices": [
+   "the poster hanging on the wall",
+   "the teacher reading the finished poster",
+   "visitors seeing the photos beside the door",
+   "the heading’s paint drying"
+  ],
+  "answerOptions": [
+   {
+    "value": "the poster hanging on the wall",
+    "label": "the poster hanging on the wall",
+    "text": "the poster hanging on the wall"
+   },
+   {
+    "value": "the teacher reading the finished poster",
+    "label": "the teacher reading the finished poster",
+    "text": "the teacher reading the finished poster"
+   },
+   {
+    "value": "visitors seeing the photos beside the door",
+    "label": "visitors seeing the photos beside the door",
+    "text": "visitors seeing the photos beside the door"
+   },
+   {
+    "value": "the heading’s paint drying",
+    "label": "the heading’s paint drying",
+    "text": "the heading’s paint drying"
+   }
+  ],
+  "answer": "the heading’s paint drying",
+  "correctAnswer": "the heading’s paint drying",
+  "distractorRationales": {
+   "visitors seeing the photos beside the door": "D-OPPOSITE",
+   "the poster hanging on the wall": "D-PLAUSIBLE-UNSUPPORTED",
+   "the teacher reading the finished poster": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.A.implied_order.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.sequencing.l2.A.process_order.v21",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "process_order",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What should happen right after shaking the closed bottle?",
+  "question": "What should happen right after shaking the closed bottle?",
+  "spokenPrompt": "What should happen right after shaking the closed bottle?",
+  "passage": "For this experiment, fill the bottle halfway with water. Add a spoonful of sand, close the lid, and shake. Then stand it upright without moving it. Watch as the sand settles below the clear water.",
+  "cell": "process_order",
+  "choices": [
+   "leave it standing still and upright",
+   "add the sand to the water",
+   "fill the bottle halfway with water",
+   "close the lid before it spills"
+  ],
+  "answerOptions": [
+   {
+    "value": "leave it standing still and upright",
+    "label": "leave it standing still and upright",
+    "text": "leave it standing still and upright"
+   },
+   {
+    "value": "add the sand to the water",
+    "label": "add the sand to the water",
+    "text": "add the sand to the water"
+   },
+   {
+    "value": "fill the bottle halfway with water",
+    "label": "fill the bottle halfway with water",
+    "text": "fill the bottle halfway with water"
+   },
+   {
+    "value": "close the lid before it spills",
+    "label": "close the lid before it spills",
+    "text": "close the lid before it spills"
+   }
+  ],
+  "answer": "leave it standing still and upright",
+  "correctAnswer": "leave it standing still and upright",
+  "distractorRationales": {
+   "fill the bottle halfway with water": "D-PLAUSIBLE-UNSUPPORTED",
+   "close the lid before it spills": "D-OPPOSITE",
+   "add the sand to the water": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.A.process_order.v21",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.sequencing.l2.A.before_after_relation.v22",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "before_after_relation",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What happened between launching and reaching the island?",
+  "question": "What happened between launching and reaching the island?",
+  "spokenPrompt": "What happened between launching and reaching the island?",
+  "passage": "The rescue team received the call before launching their boat. They reached the island after crossing the channel. Once everyone was aboard, they returned to the mainland.",
+  "cell": "before_after_relation",
+  "choices": [
+   "the boat returned to the mainland",
+   "the boat crossed the channel",
+   "the team received the first call",
+   "the passengers climbed onto the boat"
+  ],
+  "answerOptions": [
+   {
+    "value": "the boat returned to the mainland",
+    "label": "the boat returned to the mainland",
+    "text": "the boat returned to the mainland"
+   },
+   {
+    "value": "the boat crossed the channel",
+    "label": "the boat crossed the channel",
+    "text": "the boat crossed the channel"
+   },
+   {
+    "value": "the team received the first call",
+    "label": "the team received the first call",
+    "text": "the team received the first call"
+   },
+   {
+    "value": "the passengers climbed onto the boat",
+    "label": "the passengers climbed onto the boat",
+    "text": "the passengers climbed onto the boat"
+   }
+  ],
+  "answer": "the boat crossed the channel",
+  "correctAnswer": "the boat crossed the channel",
+  "distractorRationales": {
+   "the passengers climbed onto the boat": "D-PLAUSIBLE-UNSUPPORTED",
+   "the boat returned to the mainland": "D-OPPOSITE",
+   "the team received the first call": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.A.before_after_relation.v22",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.sequencing.l2.A.implied_order.v22",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "implied_order",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which event happened first?",
+  "question": "Which event happened first?",
+  "spokenPrompt": "Which event happened first?",
+  "passage": "The winning photo now hung in a frame beside the desk. Its owner had entered it in a contest after printing it. The camera still held the original file from the mountain trip. The prize letter arrived before she bought the frame.",
+  "cell": "implied_order",
+  "choices": [
+   "receiving the letter about the prize",
+   "buying the frame for the winning photo",
+   "taking the photo during the trip",
+   "printing the chosen photo for the contest"
+  ],
+  "answerOptions": [
+   {
+    "value": "receiving the letter about the prize",
+    "label": "receiving the letter about the prize",
+    "text": "receiving the letter about the prize"
+   },
+   {
+    "value": "buying the frame for the winning photo",
+    "label": "buying the frame for the winning photo",
+    "text": "buying the frame for the winning photo"
+   },
+   {
+    "value": "taking the photo during the trip",
+    "label": "taking the photo during the trip",
+    "text": "taking the photo during the trip"
+   },
+   {
+    "value": "printing the chosen photo for the contest",
+    "label": "printing the chosen photo for the contest",
+    "text": "printing the chosen photo for the contest"
+   }
+  ],
+  "answer": "taking the photo during the trip",
+  "correctAnswer": "taking the photo during the trip",
+  "distractorRationales": {
+   "receiving the letter about the prize": "D-PLAUSIBLE-UNSUPPORTED",
+   "buying the frame for the winning photo": "D-OPPOSITE",
+   "printing the chosen photo for the contest": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.A.implied_order.v22",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fresh authored retry item: distinct situation and evidence."
  }
 ];

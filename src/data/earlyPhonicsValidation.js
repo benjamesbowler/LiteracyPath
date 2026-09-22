@@ -90,14 +90,14 @@ const LEVEL_ONE_FINAL_GRAPHEME_FORMATS = new Set(["ENDING_SOUND"]);
 const LEVEL_ONE_FINAL_WORD_FORMATS = new Set(["ENDING_SOUND_WORD_MATCH", "FINAL_SOUND_PAIR_SELECT"]);
 
 export const finalSoundLevelOneCommonWords = Object.freeze({
-  b: Object.freeze(["web", "tub", "cub", "bib"]),
+  b: Object.freeze(["web", "tub", "cub", "bib", "rib"]),
   d: Object.freeze(["bed", "red", "mud", "lid"]),
-  g: Object.freeze(["dog", "pig", "bug", "log"]),
+  g: Object.freeze(["dog", "pig", "bug", "log", "bag"]),
   l: Object.freeze(["wheel", "bell", "tail", "pool"]),
   m: Object.freeze(["jam", "ham", "gum", "ram"]),
-  n: Object.freeze(["sun", "hen", "pin", "ten"]),
+  n: Object.freeze(["sun", "hen", "pin", "ten", "pan"]),
   p: Object.freeze(["map", "cap", "cup", "mop"]),
-  t: Object.freeze(["cat", "hat", "net", "wet"])
+  t: Object.freeze(["cat", "hat", "net", "wet", "pot"])
 });
 
 const isCommonLevelOneFinalWord = (word, target) =>

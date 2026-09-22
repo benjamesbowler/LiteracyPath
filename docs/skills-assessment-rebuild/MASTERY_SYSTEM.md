@@ -12,7 +12,7 @@ The executable sources are authoritative:
    constants.
 2. `src/policy/skillStatusPolicy.js` — the only assessment skill-status
    reducer.
-3. `src/data/v3/authoring/*.mjs` — the only assessment question authoring
+3. `tools/assessmentRebuild/authoring/*.mjs` — the only assessment question authoring
    sources.
 4. `tools/assessmentRebuild/gate.mjs` — the only assessment publication gate.
 5. `src/content/assessments/v3/assessmentRebuildStatus.generated.js` and
@@ -92,6 +92,12 @@ review flag. These constants have one source in `skillBlueprints.js`.
 - Selection uses the published v3 bank for that skill and level only.
 - Items, prompt/answer signatures, and option-set signatures are kept distinct
   across the protected selection window.
+- Each level and phase must contain enough genuinely distinct eligible content
+  for two full sittings at its existing blueprint length: an initial sitting
+  and a fresh retry. Retention-only reserves do not count toward either sitting.
+  New IDs or token-swapped copies do not increase this stock. The gate composes
+  both sittings and checks their full lengths and distinct evidence; a perfect
+  first-pass simulation alone cannot establish retry readiness.
 - A media failure is unscored and replaced; it cannot become an incorrect
   literacy answer.
 - Answer positions are shuffled deterministically at the render boundary.
@@ -99,7 +105,7 @@ review flag. These constants have one source in `skillBlueprints.js`.
 
 ## Publication gates
 
-A skill is published only when the single v3 gate records all six automated,
+A skill is published only when the single v3 gate records all ten automated,
 reproducible gates as passing:
 
 | Gate | Meaning |
@@ -108,8 +114,12 @@ reproducible gates as passing:
 | G2 | Original questions without duplicate prompt/answer or option-set inflation |
 | G3 | One valid key, plausible distractors, balanced key positions, and no answer leakage |
 | G4 | Perfect-path reachability, deterministic scanner resistance, and correct regression behavior under the shared policy |
-| G5 | Enough distinct content to complete the pass and retention path without repeats or short sittings |
+| G5 | Enough distinct content for the pass and retention path, including a full initial and fresh retry sitting in every level/phase, without repeats or short sittings |
 | G6 | Runtime progression and reports use the same status reducer |
+| G7 | Construct validity and clear prompts, without ambiguous keys or copying shortcuts |
+| G8 | Required media proves the intended construct without revealing the key through duplicated art |
+| G9 | Required instruction, target, passage and choice audio is available in the correct roles |
+| G10 | Images and item media decisions satisfy the current visual policy |
 
 The gate does not contain an owner name, a personal approval flag, a human
 sign-off requirement, or a random-trial success threshold. Quality is enforced
@@ -119,8 +129,26 @@ by reproducible rules and tests.
 
 Media is attached only when the current authoring source explicitly requests
 it or an exact current registry resolves it. The system must never guess an
-image from a prompt word or silently attach a legacy mapping. Text-valid items
-remain text items. Required media fails closed.
+image from a prompt word or silently attach a legacy mapping. Required media
+fails closed.
+
+The evidence contract determines the modality. Printed grammar, affix and
+spelling contrasts may remain text when pictures would replace the required
+word analysis or reveal the answer. Reading/comprehension items may use their
+supplied passage as evidence. Heard phonics contrasts, including spoken rhyme,
+may use audio when print or a substitute picture would change the measured
+skill. These cases require an explicit item media decision and a readable or
+audible stimulus that fully supports the task; they are not a general exemption
+from art quality or missing-media checks. The exact conditions are in
+[Question Design Bible §9](../content/QUESTION_DESIGN_BIBLE.md#9-media-and-accessibility-rules).
+Picture matching, visual detail, pictured sequence and spatial-relation items
+still require their exact image evidence. Decorative art never satisfies that
+requirement, and rejected art cannot be bypassed by changing a modality label.
+
+Instruction, target, passage and choice audio remain separate. Only explicitly
+authored `audioText` or `targetWord` may supply a target replay; the scoring
+answer is never a fallback stimulus. Image-only scenes without a spoken target
+suppress target replay while keeping the task instruction replayable.
 
 ## Rules that are permanently retired
 

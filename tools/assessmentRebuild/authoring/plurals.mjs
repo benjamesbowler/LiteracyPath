@@ -8,8 +8,20 @@
 //     gift ties; frames audited so endings (es/ies/ves) are never gifted.
 //   PES — the planted error must never be the strictly longest chunk-scorer:
 //     each sentence carries a word at least as long as the error.
-// All images resolve to existing art (child-mode/plurals + singles).
+// Every picture resolves to its inspected singular or plural object artwork.
 // Spec: docs/skills-assessment-rebuild/BLUEPRINTS_LANGUAGE.md §19.
+
+import { makeImageResolver } from "../lib.mjs";
+
+const fallbackImageResolver = makeImageResolver();
+const GROUP_IMAGES = {
+  "four-pencils": "/images/assessment/grammar-scenes/four-pencils.webp",
+  "three-spoons": "/images/assessment/grammar-scenes/three-spoons.webp",
+  "two-socks": "/images/assessment/grammar-scenes/two-socks.webp",
+  "three-peaches": "/images/assessment/grammar-scenes/three-peaches.webp",
+  "three-buses": "/images/assessment/grammar-scenes/three-buses.webp",
+  "two-benches": "/images/assessment/grammar-scenes/two-benches.webp"
+};
 
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
@@ -25,7 +37,8 @@ const pis = (u, lvl, ph, v, img, prompt, words, rationales, note = "") => ({
   choices: words.map((w, i) => (i === 0 ? K(w) : P(w, rationales[i - 1]))),
   media: "image-required",
   img,
-  imgAlt: img.replace(/_/g, " "),
+  imgAlt: img.replace(/[_-]/g, " "),
+  suppressStimulusAudio: true,
   note
 });
 
@@ -57,9 +70,28 @@ const ptc = (u, lvl, ph, v, prompt, words, rationales, note = "") => ({
   note
 });
 
+// Fresh rule examples for a complete second phase sitting.
+const freshPhaseItems = [
+  psc("plural_add_es", 1, 2, 11, "We bought two ___ to wear.", ["dresses", "dress", "dressed", "dressing"], [FS, SEM, SEM]),
+  psc("plural_add_es", 1, 2, 12, "The two ___ meet in different rooms.", ["classes", "class", "classroom", "lesson"], [FS, SEM, SEM]),
+  psc("plural_add_es", 1, 2, 13, "Both sandy ___ had waves and seashells.", ["beaches", "beach", "bucket", "umbrella"], [FS, SEM, SEM]),
+  psc("plural_add_es", 1, 2, 14, "Three rose ___ grew in the soil.", ["bushes", "bush", "hedge", "brush"], [FS, SEM, SEM]),
+  psc("plural_add_es", 1, 2, 15, "We packed two ___ to eat at noon.", ["lunches", "lunch", "sandwich", "snack"], [FS, SEM, SEM]),
+  psc("plural_add_es", 1, 2, 16, "Two ___ hold people at the bus stop.", ["benches", "bench", "cushion", "chair"], [FS, SEM, SEM]),
+  psc("plural_y_to_ies", 2, 1, 9, "We read three fairy ___ before bedtime.", ["stories", "story", "store", "storing"], [FS, SEM, SEM]),
+  ptc("plural_y_to_ies", 2, 1, 10, "Which is the plural of berry?", ["berries", "berry", "cherries", "cherry"], [FS, SEM, SEM]),
+  psc("plural_irregular", 2, 1, 9, "The flock held twenty woolly ___.", ["sheep", "lamb", "goat", "cow"], [FS, FS, FS]),
+  ptc("plural_irregular", 2, 1, 10, "Which is the plural of goose?", ["geese", "goose", "moose", "mouse"], [FS, SEM, SEM]),
+  psc("plural_f_to_ves", 2, 2, 8, "The carpenter fitted two ___ for our books.", ["shelves", "shelf", "cabinet", "cupboard"], [FS, SEM, SEM]),
+  ptc("plural_f_to_ves", 2, 2, 9, "Which is the plural of half?", ["halves", "half", "calves", "calf"], [FS, SEM, SEM]),
+  psc("plural_in_sentence", 2, 2, 8, "One child entered; four more joined: five ___ altogether.", ["children", "child", "childish", "childhood"], [FS, SEM, SEM]),
+  psc("plural_in_sentence", 2, 2, 9, "There are two ___. Each one has six strings.", ["guitars", "guitar", "piano", "flute"], [FS, SEM, SEM])
+];
+
 export default {
   skillId: "plurals",
   skillName: "Plurals",
+  imageResolver: key => GROUP_IMAGES[key] || fallbackImageResolver(key),
   items: [
     // ================= L1 phase 1: plural_add_s =================
     pis("plural_add_s", 1, 1, 1, "forks", "Which word tells what you see?",
@@ -67,11 +99,10 @@ export default {
       "the picture shows several isolated forks with no room-scene clutter"),
     pis("plural_add_s", 1, 1, 2, "books", "Pick the word that fits the picture.",
       ["books", "book", "lions", "lion"], [FS, SEM, SEM]),
-    pis("plural_add_s", 1, 1, 3, "books", "What does the picture show?",
-      ["books", "book", "cups", "cup"], [FS, SEM, SEM],
-      "does carries es — safe here because no option ends in es"),
-    pis("plural_add_s", 1, 1, 4, "forks", "Which word fits the picture?",
-      ["forks", "fork", "lions", "lion"], [FS, SEM, SEM]),
+    pis("plural_add_s", 1, 1, 3, "four-pencils", "Pick a word for this picture.",
+      ["pencils", "pencil", "brushes", "brush"], [FS, SEM, SEM]),
+    pis("plural_add_s", 1, 1, 4, "three-spoons", "Pick a word for this picture.",
+      ["spoons", "spoon", "forks", "fork"], [FS, SEM, SEM]),
     psc("plural_add_s", 1, 1, 5, "Two ___ sat on the wall.",
       ["cats", "cat", "cup", "hen"], [FS, SEM, SEM],
       "sat gifts at to cats and cat alike"),
@@ -90,9 +121,8 @@ export default {
       "fits gifts ts to the distractor cats only — scanner picks a distractor, never the key"),
     pis("plural_concept", 1, 1, 2, "apples", "Which word matches the picture of more than one object?",
       ["apples", "apple", "bananas", "banana"], [FS, SEM, SEM]),
-    pis("plural_concept", 1, 1, 3, "forks", "Which word matches the picture of more than one object?",
-      ["forks", "fork", "stars", "star"], [FS, SEM, SEM],
-      "the repeated concrete objects make singular-versus-plural evidence direct"),
+    pis("plural_concept", 1, 1, 3, "two-socks", "Pick a word for this picture.",
+      ["socks", "sock", "gloves", "glove"], [FS, SEM, SEM]),
     pis("plural_concept", 1, 1, 4, "cup", "Which word matches the picture of one object?",
       ["cup", "cups", "stars", "star"], [FS, SEM, SEM],
       "just gifts st to stars and star — a tied distractor pair, key untouched"),
@@ -111,8 +141,8 @@ export default {
     pis("plural_add_es", 1, 2, 2, "brushes", "Pick a word for this picture.",
       ["brushes", "brush", "boxes", "box"], [FS, SEM, SEM],
       "the separate brushes are objectively nameable; plate-versus-dish ambiguity is removed"),
-    pis("plural_add_es", 1, 2, 3, "brushes", "Which word tells what you see?",
-      ["brushes", "brush", "foxes", "fox"], [FS, SEM, SEM]),
+    pis("plural_add_es", 1, 2, 3, "three-peaches", "Pick a word for this picture.",
+      ["peaches", "peach", "apples", "apple"], [FS, SEM, SEM]),
     psc("plural_add_es", 1, 2, 4, "We packed six ___ for the trip.",
       ["boxes", "box", "hat", "hen"], [FS, SEM, SEM]),
     psc("plural_add_es", 1, 2, 5, "The ___ from dinner included plates and bowls.",
@@ -126,7 +156,7 @@ export default {
       ["foxes", "fox", "cup", "hat"], [FS, SEM, SEM]),
 
     // ================= L2 phase 1: plural_y_to_ies =================
-    psc("plural_y_to_ies", 2, 1, 1, "The newborn ___ giggled in their cribs.",
+    psc("plural_y_to_ies", 2, 1, 1, "The ___ giggled in their cribs.",
       ["babies", "baby", "lady", "city"], [FS, SEM, SEM]),
     psc("plural_y_to_ies", 2, 1, 2, "Three ___ planned the fair.",
       ["ladies", "lady", "hat", "city"], [FS, SEM, SEM],
@@ -202,12 +232,12 @@ export default {
     psc("plural_add_es", 1, 2, 9, "Four ___ played near the barn.",
       ["foxes", "fox", "book", "sun"], [FS, SEM, SEM],
       "four gifts fo to foxes and fox alike"),
-    pis("plural_add_es", 1, 2, 10, "boxes", "Which word tells what you see?",
-      ["boxes", "box", "cats", "cat"], [FS, SEM, SEM]),
+    pis("plural_add_es", 1, 2, 10, "three-buses", "Pick a word for this picture.",
+      ["buses", "bus", "trucks", "truck"], [FS, SEM, SEM]),
     psc("plural_concept", 1, 1, 9, "Just one ___ purred by the fire.",
       ["cat", "cats", "frogs", "hens"], [FS, SEM, SEM]),
-    pis("plural_concept", 1, 1, 10, "books", "Which word matches the picture of more than one object?",
-      ["books", "book", "hens", "hen"], [FS, SEM, SEM]),
+    pis("plural_concept", 1, 1, 10, "two-benches", "Pick a word for this picture.",
+      ["benches", "bench", "chairs", "chair"], [FS, SEM, SEM]),
     psc("plural_y_to_ies", 2, 1, 7, "Both ___ told long stories.",
       ["ladies", "lady", "hat", "pony"], [FS, SEM, SEM],
       "stories gifts ie to ladies and ponies alike"),
@@ -229,5 +259,5 @@ export default {
       item.retention = true;
     }
     return item;
-  })
+  }).concat(freshPhaseItems)
 };

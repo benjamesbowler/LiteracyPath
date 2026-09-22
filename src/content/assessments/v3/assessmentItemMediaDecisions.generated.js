@@ -894,7 +894,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/clock.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "clock",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -931,7 +931,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/blends/flag.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "flag",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -1030,7 +1030,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/bread.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "bread",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -1067,7 +1067,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/blends/crab.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "crab",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -1126,7 +1126,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
       "/images/assessment/blends/frog.webp",
       "/images/assessment/blends/flag.webp",
       "/images/assessment/rhyming/variants/ing/ring-02.webp",
-      "/images/assessment/rhyming/variants/it/sit-02.webp"
+      "/images/assessment/digraphs/fish.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -1138,7 +1138,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/blends/frog.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "frog",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -1209,7 +1209,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/rhyming/variants/ar/star-02.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "star",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -1295,7 +1295,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/blends/skateboard.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "skateboard",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -1354,7 +1354,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/snake.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "snake",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -1385,7 +1385,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/spoon.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "spoon",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -1472,7 +1472,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/tent.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "tent",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -1503,7 +1503,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/lamp.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "lamp",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -1534,7 +1534,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/ink.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "ink",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -1565,7 +1565,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/blends/belt.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "belt",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -1596,7 +1596,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/gift.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "gift",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2480,34 +2480,6 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "constructReview": "approved",
     "answerNeutral": "approved-empty-setting"
   },
-  "lp3.context_clues.l1.C.definition_clue.v9": {
-    "itemId": "lp3.context_clues.l1.C.definition_clue.v9",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.context_clues.l1.A.definition_clue.v10": {
-    "itemId": "lp3.context_clues.l1.A.definition_clue.v10",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.context_clues.l1.C.example_clue.v9": {
-    "itemId": "lp3.context_clues.l1.C.example_clue.v9",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.context_clues.l1.A.example_clue.v10": {
-    "itemId": "lp3.context_clues.l1.A.example_clue.v10",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
   "lp3.context_clues.l1.R.action_clue.v9r": {
     "itemId": "lp3.context_clues.l1.R.action_clue.v9r",
     "role": "text-only",
@@ -2531,34 +2503,6 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.context_clues.l1.R.example_clue.v11r": {
     "itemId": "lp3.context_clues.l1.R.example_clue.v11r",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.context_clues.l2.C.synonym_clue.v9": {
-    "itemId": "lp3.context_clues.l2.C.synonym_clue.v9",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.context_clues.l2.A.synonym_clue.v10": {
-    "itemId": "lp3.context_clues.l2.A.synonym_clue.v10",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.context_clues.l2.C.antonym_contrast_clue.v9": {
-    "itemId": "lp3.context_clues.l2.C.antonym_contrast_clue.v9",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.context_clues.l2.A.antonym_contrast_clue.v10": {
-    "itemId": "lp3.context_clues.l2.A.antonym_contrast_clue.v10",
     "role": "text-only",
     "paths": [],
     "constructReview": "approved",
@@ -2598,7 +2542,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/cat.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "cat",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2608,7 +2552,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/hat.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "hat",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2618,7 +2562,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/pan.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "pan",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2628,7 +2572,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/rhyming/variants/at/bat-02.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "bat",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2652,7 +2596,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/blends/flag.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "flag",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2662,7 +2606,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/lamp.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "lamp",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2672,7 +2616,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/blends/crab.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "crab",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2680,9 +2624,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.cvc_short_vowels.l2.A.short_a.v4",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/objective-words/jam.webp"
+      "/images/assessment/objective-words/lamp.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "lamp",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2692,7 +2636,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/blends/flag.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "flag",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2702,7 +2646,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/blends/crab.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "crab",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2712,7 +2656,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/bed.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "bed",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2722,7 +2666,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/net.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "net",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2732,7 +2676,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/pen.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "pen",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2742,7 +2686,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/net.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "net",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2766,7 +2710,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/blends/nest.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "nest",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2776,7 +2720,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/vest-9a368716.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "vest",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2786,7 +2730,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/tent.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "tent",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2796,7 +2740,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/digraphs/shell.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "shell",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2806,7 +2750,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/blends/nest.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "nest",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2816,7 +2760,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/vest-9a368716.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "vest",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2826,7 +2770,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/rhyming/variants/ig/pig-02.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "pig",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2836,7 +2780,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/rhyming/variants/in/pin-02.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "pin",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2846,7 +2790,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/rhyming/variants/ig/pig-02.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "pig",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2856,7 +2800,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/lid.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "lid",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2880,7 +2824,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/brick.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "brick",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2890,7 +2834,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/gift.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "gift",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2900,7 +2844,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/brick.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "brick",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2910,7 +2854,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/digraphs/fish.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "fish",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2920,7 +2864,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/gift.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "gift",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2930,7 +2874,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/digraphs/fish.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "fish",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2940,7 +2884,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/dog.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "dog",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2950,7 +2894,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/pot.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "pot",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2960,7 +2904,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/pot.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "pot",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2970,7 +2914,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/rhyming/variants/og/log-02.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "log",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -2994,7 +2938,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/blends/frog.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "frog",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3004,7 +2948,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/clock.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "clock",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3014,7 +2958,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/clock.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "clock",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3024,7 +2968,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/blends/frog.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "frog",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3034,7 +2978,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/blends/frog.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "frog",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3044,7 +2988,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/clock.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "clock",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3054,7 +2998,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/rhyming/variants/bug/bug-02.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "bug",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3064,7 +3008,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/rhyming/variants/sun/sun-02.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "sun",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3074,7 +3018,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/rhyming/variants/bug/bug-02.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "bug",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3084,7 +3028,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/nut.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "nut",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3108,7 +3052,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/blends/drum.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "drum",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3118,7 +3062,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/brush.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "brush",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3128,7 +3072,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/duck.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "duck",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3138,7 +3082,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/brush.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "brush",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3148,7 +3092,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/blends/drum.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "drum",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3158,7 +3102,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/brush.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "brush",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3168,7 +3112,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/nut.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "nut",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3178,7 +3122,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/mug.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "mug",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3188,7 +3132,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/hat.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "hat",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3198,7 +3142,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/rhyming/variants/in/pin-02.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "pin",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3222,7 +3166,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/bell.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "bell",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3232,7 +3176,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/duck.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "duck",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3242,17 +3186,14 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/lid.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "lid",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
   "lp3.cvc_short_vowels.l2.R.short_u.v8r": {
     "itemId": "lp3.cvc_short_vowels.l2.R.short_u.v8r",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/objective-words/brush.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3826,7 +3767,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/web.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "web",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3849,7 +3790,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/web.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "web",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3859,7 +3800,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/tub-9c34a66d.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "tub",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3869,7 +3810,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/bed.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "bed",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3892,7 +3833,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/lid.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "lid",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3902,7 +3843,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/lid.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "lid",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3912,7 +3853,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/dog.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "dog",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3935,7 +3876,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/rhyming/variants/ig/pig-02.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "pig",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3945,7 +3886,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/rhyming/variants/og/log-02.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "log",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3955,7 +3896,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/wheel.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "wheel",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3978,7 +3919,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/bell.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "bell",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3988,7 +3929,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/wheel.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "wheel",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -3998,7 +3939,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/jam.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "jam",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -4021,7 +3962,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/ham.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "ham",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -4031,7 +3972,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/ham.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "ham",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -4041,7 +3982,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/rhyming/variants/sun/sun-02.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "sun",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -4064,7 +4005,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/hen.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "hen",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -4074,7 +4015,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/rhyming/variants/en/ten-02.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "ten",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -4084,7 +4025,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/map.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "map",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -4107,7 +4048,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/mop.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "mop",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -4117,7 +4058,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/mop.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "mop",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -4127,7 +4068,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/cat.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "cat",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -4150,7 +4091,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/hat.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "hat",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -4160,7 +4101,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/rhyming/variants/et/wet-02.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "wet",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -4450,7 +4391,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/web.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "web",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -4460,17 +4401,14 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/mud-4f3d05c0.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "mud",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
   "lp3.final_sounds.l1.R.m.v5r": {
     "itemId": "lp3.final_sounds.l1.R.m.v5r",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/blends/drum.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -4480,7 +4418,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/hat.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "hat",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9208,34 +9146,6 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "constructReview": "approved",
     "answerNeutral": "approved-empty-setting"
   },
-  "lp3.inference.l1.C.feeling_from_evidence.v9": {
-    "itemId": "lp3.inference.l1.C.feeling_from_evidence.v9",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.inference.l1.A.feeling_from_evidence.v10": {
-    "itemId": "lp3.inference.l1.A.feeling_from_evidence.v10",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.inference.l1.C.where_am_i.v9": {
-    "itemId": "lp3.inference.l1.C.where_am_i.v9",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.inference.l1.A.where_am_i.v10": {
-    "itemId": "lp3.inference.l1.A.where_am_i.v10",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
   "lp3.inference.l1.R.what_happens_next.v9r": {
     "itemId": "lp3.inference.l1.R.what_happens_next.v9r",
     "role": "text-only",
@@ -9259,34 +9169,6 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.inference.l1.R.where_am_i.v11r": {
     "itemId": "lp3.inference.l1.R.where_am_i.v11r",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.inference.l2.C.why_did_they.v9": {
-    "itemId": "lp3.inference.l2.C.why_did_they.v9",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.inference.l2.A.why_did_they.v10": {
-    "itemId": "lp3.inference.l2.A.why_did_they.v10",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.inference.l2.C.what_went_unsaid.v9": {
-    "itemId": "lp3.inference.l2.C.what_went_unsaid.v9",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.inference.l2.A.what_went_unsaid.v10": {
-    "itemId": "lp3.inference.l2.A.what_went_unsaid.v10",
     "role": "text-only",
     "paths": [],
     "constructReview": "approved",
@@ -9326,7 +9208,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/apple.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "apple",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9336,7 +9218,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/ant.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "ant",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9359,7 +9241,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/astronaut.webp"
     ],
-    "alt": "Picture support for this sound question",
+    "alt": "astronaut",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9367,11 +9249,11 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.initial_sounds.l2.B.a.v2",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/objective-words/astronaut.webp"
+      "/images/assessment/objective-words/apple.webp"
     ],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-target-evidence",
-    "alt": "astronaut"
+    "alt": "apple"
   },
   "lp3.initial_sounds.l2.C.a.v3": {
     "itemId": "lp3.initial_sounds.l2.C.a.v3",
@@ -9392,7 +9274,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/boat.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "boat",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9402,7 +9284,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/bike.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "bike",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9425,7 +9307,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/banana.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "banana",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9435,7 +9317,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/butterfly.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "butterfly",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9458,7 +9340,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/corn.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "corn",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9468,7 +9350,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/cap.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "cap",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9491,7 +9373,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/caterpillar.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "caterpillar",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9501,7 +9383,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/camera.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "camera",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9524,7 +9406,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/dog.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "dog",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9534,7 +9416,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/duck.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "duck",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9557,7 +9439,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/dinosaur.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "dinosaur",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9567,7 +9449,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/digraphs/dolphin.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "dolphin",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9590,7 +9472,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/egg.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "egg",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9633,7 +9515,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/elbow.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "elbow",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9656,7 +9538,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/fan.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "fan",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9666,7 +9548,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/fox.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "fox",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9689,7 +9571,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/feather.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "feather",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9699,7 +9581,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/flamingo.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "flamingo",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9722,7 +9604,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/long-vowels/goat.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "goat",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9732,7 +9614,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/gate.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "gate",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9755,7 +9637,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/guitar.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "guitar",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9765,7 +9647,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/gorilla.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "gorilla",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9788,7 +9670,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/hat.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "hat",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9798,7 +9680,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/house.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "house",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9821,7 +9703,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/helicopter.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "helicopter",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9831,7 +9713,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/hedgehog.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "hedgehog",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9840,7 +9722,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "role": "answer-cards",
     "paths": [
       "/images/assessment/digraphs/fish.webp",
-      "/images/assessment/language/variants/plurals/fork-forks-01.webp",
+      "/images/assessment/generated/initial-sounds-l2/feather.webp",
       "/images/assessment/objective-words/house.webp",
       "/images/assessment/objective-words/fan.webp"
     ],
@@ -9854,7 +9736,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/igloo-d714f227.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "igloo",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9883,23 +9765,20 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l2.A.i.v1": {
     "itemId": "lp3.initial_sounds.l2.A.i.v1",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/release-media/igloo-d714f227.webp"
-    ],
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
-    "answerNeutral": "approved",
-    "alt": "igloo"
+    "answerNeutral": "approved"
   },
   "lp3.initial_sounds.l2.B.i.v2": {
     "itemId": "lp3.initial_sounds.l2.B.i.v2",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/objective-words/ink.webp"
+      "/images/assessment/objective-words/iguana.webp"
     ],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-target-evidence",
-    "alt": "ink"
+    "alt": "iguana"
   },
   "lp3.initial_sounds.l2.C.i.v3": {
     "itemId": "lp3.initial_sounds.l2.C.i.v3",
@@ -9916,13 +9795,10 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l1.A.j.v1": {
     "itemId": "lp3.initial_sounds.l1.A.j.v1",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/objective-words/jam.webp"
-    ],
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
-    "answerNeutral": "approved",
-    "alt": "jam"
+    "answerNeutral": "approved"
   },
   "lp3.initial_sounds.l1.B.j.v2": {
     "itemId": "lp3.initial_sounds.l1.B.j.v2",
@@ -9953,7 +9829,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/jacket.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "jacket",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9963,7 +9839,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/jellyfish.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "jellyfish",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9986,7 +9862,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/key.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "key",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -9996,7 +9872,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/king.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "king",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10019,7 +9895,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/kangaroo.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "kangaroo",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10029,7 +9905,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/kettle.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "kettle",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10052,7 +9928,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/lamp.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "lamp",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10062,7 +9938,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/leg.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "leg",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10085,7 +9961,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/lemon.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "lemon",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10095,7 +9971,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/lion.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "lion",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10118,7 +9994,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/map.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "map",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10128,7 +10004,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/mug.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "mug",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10151,7 +10027,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/mountain.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "mountain",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10161,7 +10037,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/digraphs/microphone.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "microphone",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10184,7 +10060,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/net.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "net",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10194,7 +10070,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/nut.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "nut",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10217,7 +10093,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/necklace.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "necklace",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10227,7 +10103,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/newspaper.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "newspaper",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10250,7 +10126,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/octopus.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "octopus",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10266,13 +10142,10 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l1.C.o.v3": {
     "itemId": "lp3.initial_sounds.l1.C.o.v3",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/objective-words/octopus.webp"
-    ],
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
-    "answerNeutral": "not-applicable-scoring-options",
-    "alt": "octopus"
+    "answerNeutral": "not-applicable-scoring-options"
   },
   "lp3.initial_sounds.l2.A.o.v1": {
     "itemId": "lp3.initial_sounds.l2.A.o.v1",
@@ -10296,13 +10169,10 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l2.C.o.v3": {
     "itemId": "lp3.initial_sounds.l2.C.o.v3",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/objective-words/octopus.webp"
-    ],
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
-    "answerNeutral": "not-applicable-scoring-options",
-    "alt": "octopus"
+    "answerNeutral": "not-applicable-scoring-options"
   },
   "lp3.initial_sounds.l1.A.p.v1": {
     "itemId": "lp3.initial_sounds.l1.A.p.v1",
@@ -10310,7 +10180,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/rhyming/variants/ig/pig-02.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "pig",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10320,7 +10190,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/pen.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "pen",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10343,7 +10213,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/penguin.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "penguin",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10353,7 +10223,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/pumpkin.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "pumpkin",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10378,15 +10248,15 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     ],
     "constructReview": "approved",
     "answerNeutral": "approved",
-    "alt": "rat"
+    "alt": "ring"
   },
   "lp3.initial_sounds.l1.B.r.v2": {
     "itemId": "lp3.initial_sounds.l1.B.r.v2",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/rhyming/variants/ing/ring-02.webp"
+      "/images/assessment/generated/initial-sounds-l2/rocket.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "rocket",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10409,7 +10279,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/rainbow.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "rainbow",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10419,7 +10289,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/rocket.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "rocket",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10442,7 +10312,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/rhyming/variants/sun/sun-02.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "sun",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10452,7 +10322,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/seal.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "seal",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10475,7 +10345,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/sunflower.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "sunflower",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10485,7 +10355,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/sandwich.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "sandwich",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10508,19 +10378,16 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/tent.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "tent",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
   "lp3.initial_sounds.l1.B.t.v2": {
     "itemId": "lp3.initial_sounds.l1.B.t.v2",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/objective-words/tent.webp"
-    ],
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
-    "answerNeutral": "approved",
-    "alt": "tent"
+    "answerNeutral": "approved"
   },
   "lp3.initial_sounds.l1.C.t.v3": {
     "itemId": "lp3.initial_sounds.l1.C.t.v3",
@@ -10541,7 +10408,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/tiger.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "tiger",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10551,7 +10418,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/tomato.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "tomato",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10574,7 +10441,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/umbrella-e1f6f2a3.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "umbrella",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10582,17 +10449,20 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.initial_sounds.l1.B.u.v2",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/umbrella-e1f6f2a3.webp"
+      "/images/assessment/generated/initial-sounds-l2/underpants.webp"
     ],
     "constructReview": "approved",
     "answerNeutral": "approved",
-    "alt": "uniform"
+    "alt": "underpants"
   },
   "lp3.initial_sounds.l1.C.u.v3": {
     "itemId": "lp3.initial_sounds.l1.C.u.v3",
-    "role": "target-or-scene",
+    "role": "answer-cards",
     "paths": [
-      "/images/assessment/release-media/umbrella-e1f6f2a3.webp"
+      "/images/assessment/release-media/igloo-d714f227.webp",
+      "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+      "/images/assessment/objective-words/ant.webp",
+      "/images/assessment/generated/initial-sounds-l2/engine.webp"
     ],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-scoring-options",
@@ -10602,31 +10472,25 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.initial_sounds.l2.A.u.v1",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/umbrella-e1f6f2a3.webp"
+      "/images/assessment/generated/initial-sounds-l2/undershirt.webp"
     ],
     "constructReview": "approved",
     "answerNeutral": "approved",
-    "alt": "uniform"
+    "alt": "undershirt"
   },
   "lp3.initial_sounds.l2.B.u.v2": {
     "itemId": "lp3.initial_sounds.l2.B.u.v2",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/release-media/umbrella-e1f6f2a3.webp"
-    ],
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
-    "answerNeutral": "approved",
-    "alt": "umbrella"
+    "answerNeutral": "approved"
   },
   "lp3.initial_sounds.l2.C.u.v3": {
     "itemId": "lp3.initial_sounds.l2.C.u.v3",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/release-media/umbrella-e1f6f2a3.webp"
-    ],
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
-    "answerNeutral": "not-applicable-scoring-options",
-    "alt": "umpire"
+    "answerNeutral": "not-applicable-scoring-options"
   },
   "lp3.initial_sounds.l1.A.v.v1": {
     "itemId": "lp3.initial_sounds.l1.A.v.v1",
@@ -10634,7 +10498,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/van.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "van",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10644,7 +10508,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/vase.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "vase",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10667,7 +10531,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/volcano.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "volcano",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10677,7 +10541,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/vulture.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "vulture",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10687,7 +10551,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/fan.webp",
       "/images/assessment/digraphs/fish.webp",
-      "/images/assessment/language/variants/plurals/fork-forks-01.webp",
+      "/images/assessment/generated/initial-sounds-l2/feather.webp",
       "/images/assessment/objective-words/van.webp"
     ],
     "alt": "Picture choices for this literacy question",
@@ -10700,7 +10564,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/web.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "web",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10710,7 +10574,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/wasp.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "wasp",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10733,7 +10597,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/watermelon.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "watermelon",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10743,7 +10607,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/window.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "window",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10782,33 +10646,24 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l1.C.y.v3": {
     "itemId": "lp3.initial_sounds.l1.C.y.v3",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/objective-words/yo-yo.webp"
-    ],
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
-    "answerNeutral": "not-applicable-scoring-options",
-    "alt": "yo-yo"
+    "answerNeutral": "not-applicable-scoring-options"
   },
   "lp3.initial_sounds.l2.A.y.v1": {
     "itemId": "lp3.initial_sounds.l2.A.y.v1",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/generated/initial-sounds-l2/yawn.webp"
-    ],
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
-    "answerNeutral": "approved",
-    "alt": "yawn"
+    "answerNeutral": "approved"
   },
   "lp3.initial_sounds.l2.B.y.v2": {
     "itemId": "lp3.initial_sounds.l2.B.y.v2",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/generated/initial-sounds-l2/yawn.webp"
-    ],
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
-    "answerNeutral": "approved",
-    "alt": "yawn"
+    "answerNeutral": "approved"
   },
   "lp3.initial_sounds.l2.C.y.v3": {
     "itemId": "lp3.initial_sounds.l2.C.y.v3",
@@ -10826,7 +10681,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/zipper.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "zipper",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10836,7 +10691,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/zebra.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "zebra",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10888,23 +10743,17 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l2.R.a.v7r": {
     "itemId": "lp3.initial_sounds.l2.R.a.v7r",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/objective-words/astronaut.webp"
-    ],
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
-    "answerNeutral": "not-applicable-target-evidence",
-    "alt": "astronaut"
+    "answerNeutral": "not-applicable-target-evidence"
   },
   "lp3.initial_sounds.l2.R.e.v7r": {
     "itemId": "lp3.initial_sounds.l2.R.e.v7r",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/digraphs/elephant.webp"
-    ],
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
-    "answerNeutral": "approved",
-    "alt": "elephant"
+    "answerNeutral": "approved"
   },
   "lp3.initial_sounds.l1.R.m.v7r": {
     "itemId": "lp3.initial_sounds.l1.R.m.v7r",
@@ -10912,7 +10761,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/mat.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "mat",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10922,7 +10771,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/generated/initial-sounds-l2/sandcastle.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "sandcastle",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10932,7 +10781,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/train.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "train",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -10992,7 +10841,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.initial_sounds.l1.R.w.v7r",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/objective-words/window.webp",
+      "/images/assessment/objective-words/wheel.webp",
       "/images/assessment/objective-words/vase.webp",
       "/images/assessment/objective-words/van.webp",
       "/images/assessment/long-vowels/moon.webp"
@@ -12848,7 +12697,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/language/variants/plurals/fork-forks-01.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "forks",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -12858,7 +12707,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/language/variants/plurals/book-books-01.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "books",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -12866,9 +12715,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.plurals.l1.C.plural_add_s.v3",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/language/variants/plurals/book-books-01.webp"
+      "/images/assessment/grammar-scenes/four-pencils.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "four pencils",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -12876,9 +12725,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.plurals.l1.A.plural_add_s.v4",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/language/variants/plurals/fork-forks-01.webp"
+      "/images/assessment/grammar-scenes/three-spoons.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "three spoons",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -12916,7 +12765,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/cat.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "cat",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -12926,7 +12775,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/language/variants/plurals/apple-apples-01.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "apples",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -12934,9 +12783,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.plurals.l1.C.plural_concept.v3",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/language/variants/plurals/fork-forks-01.webp"
+      "/images/assessment/grammar-scenes/two-socks.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "two socks",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -12946,7 +12795,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/cup.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "cup",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -12984,7 +12833,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/language/variants/plurals/box-boxes-01.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "boxes",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -12994,7 +12843,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/language/variants/plurals/brush-brushes-01.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "brushes",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13002,9 +12851,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.plurals.l1.C.plural_add_es.v3",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/language/variants/plurals/brush-brushes-01.webp"
+      "/images/assessment/grammar-scenes/three-peaches.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "three peaches",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13217,7 +13066,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/language/variants/plurals/boy-boys-01.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "boys",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13239,9 +13088,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.plurals.l1.A.plural_add_es.v10",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/language/variants/plurals/box-boxes-01.webp"
+      "/images/assessment/grammar-scenes/three-buses.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "three buses",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13256,9 +13105,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.plurals.l1.R.plural_concept.v10r",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/language/variants/plurals/book-books-01.webp"
+      "/images/assessment/grammar-scenes/two-benches.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "two benches",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13856,7 +13705,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/cat-in-box-b44d5222.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A cat and a box.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13866,7 +13715,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/goat-inside-barn-23d973f1.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A goat and a barn.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13874,9 +13723,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.prepositions_of_place.l1.C.in.v3",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/cat-in-box-b44d5222.webp"
+      "/images/assessment/grammar-scenes/fish-in-bowl.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "An orange fish and a bowl.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13884,9 +13733,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.prepositions_of_place.l1.A.in.v4",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/goat-inside-barn-23d973f1.webp"
+      "/images/assessment/grammar-scenes/pencils-in-cup.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "Three pencils and a blue cup.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13896,7 +13745,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/ball-on-chair-f5c50c79.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A ball and a chair.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13906,7 +13755,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/snow-on-roof-f8167902.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "Snow and a house roof.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13914,9 +13763,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.prepositions_of_place.l1.C.on.v3",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/ball-on-chair-f5c50c79.webp"
+      "/images/assessment/grammar-scenes/hat-on-head.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A red hat and a child.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13924,9 +13773,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.prepositions_of_place.l1.A.on.v4",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/snow-on-roof-f8167902.webp"
+      "/images/assessment/grammar-scenes/book-on-shelf.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A green book and a shelf.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13936,7 +13785,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/dog-under-table-cf3e17f2.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A dog and a table.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13946,7 +13795,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/slippers-under-bed-f363802c.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A pair of slippers and a bed.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13954,9 +13803,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.prepositions_of_place.l1.C.under.v3",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/dog-under-table-cf3e17f2.webp"
+      "/images/assessment/grammar-scenes/ball-under-bench.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A red ball and a wooden bench.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13964,9 +13813,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.prepositions_of_place.l1.A.under.v4",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/slippers-under-bed-f363802c.webp"
+      "/images/assessment/grammar-scenes/shoe-under-stool.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A blue shoe and a stool.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13976,7 +13825,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A bear and a tree.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13986,7 +13835,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/child-behind-curtain-bcc7e04e.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A child and a curtain.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13994,9 +13843,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.prepositions_of_place.l1.C.behind.v3",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp"
+      "/images/assessment/grammar-scenes/cat-behind-sofa.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A cat and a blue sofa.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14004,9 +13853,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.prepositions_of_place.l1.A.behind.v4",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/child-behind-curtain-bcc7e04e.webp"
+      "/images/assessment/grammar-scenes/sun-behind-cloud.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A yellow sun and a cloud.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14016,7 +13865,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A rabbit and a basket.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14026,7 +13875,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/cup-next-to-plate-4f498f19.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A cup and a plate.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14034,9 +13883,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.prepositions_of_place.l1.C.next_to.v3",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp"
+      "/images/assessment/grammar-scenes/lamp-next-to-bed.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A floor lamp and a bed.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14044,9 +13893,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.prepositions_of_place.l1.A.next_to.v4",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/cup-next-to-plate-4f498f19.webp"
+      "/images/assessment/grammar-scenes/dog-next-to-bench.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A dog and a bench.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14056,7 +13905,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/cup-between-books-017aa912.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A cup and two books.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14066,7 +13915,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/teddy-between-pillows-ea981f49.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A teddy bear and two pillows.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14074,9 +13923,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.prepositions_of_place.l1.C.between.v3",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/cup-between-books-017aa912.webp"
+      "/images/assessment/grammar-scenes/ball-between-boxes.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A red ball and two blue boxes.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14084,9 +13933,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.prepositions_of_place.l1.A.between.v4",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/teddy-between-pillows-ea981f49.webp"
+      "/images/assessment/grammar-scenes/child-between-trees.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A child and two trees.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14096,7 +13945,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A bear and a tree.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14106,7 +13955,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/bike-in-front-of-garage-603483c8.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A bicycle and a garage.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14114,9 +13963,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.prepositions_of_place.l1.C.in_front_of.v3",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp"
+      "/images/assessment/grammar-scenes/dog-in-front-of-house.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A dog and a house.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14124,9 +13973,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.prepositions_of_place.l1.A.in_front_of.v4",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/bike-in-front-of-garage-603483c8.webp"
+      "/images/assessment/grammar-scenes/flower-in-front-of-fence.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A red flower and a blue fence.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14136,7 +13985,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/bird-above-tree-b27b365f.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A bird and a tree.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14146,7 +13995,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/clock-above-door-038c8846.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A clock and a door.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14154,9 +14003,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.prepositions_of_place.l1.C.above.v3",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/bird-above-tree-b27b365f.webp"
+      "/images/assessment/grammar-scenes/balloon-above-child.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A balloon and a child.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14164,9 +14013,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.prepositions_of_place.l1.A.above.v4",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/clock-above-door-038c8846.webp"
+      "/images/assessment/grammar-scenes/light-above-table.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A hanging light and a table.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14176,7 +14025,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/bird-above-tree-b27b365f.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A bird and a tree.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14186,7 +14035,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/fish-below-bridge-1d71baa3.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A fish and a bridge.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14194,9 +14043,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.prepositions_of_place.l1.C.below.v3",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/bird-above-tree-b27b365f.webp"
+      "/images/assessment/grammar-scenes/fish-below-boat.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A fish and a boat.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14204,207 +14053,291 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.prepositions_of_place.l1.A.below.v4",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/fish-below-bridge-1d71baa3.webp"
+      "/images/assessment/grammar-scenes/ball-below-shelf.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A ball and a shelf.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
   "lp3.prepositions_of_place.l2.A.over.v1": {
     "itemId": "lp3.prepositions_of_place.l2.A.over.v1",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/plane-over-town-ccea5cd1.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A plane and a town."
   },
   "lp3.prepositions_of_place.l2.B.over.v2": {
     "itemId": "lp3.prepositions_of_place.l2.B.over.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/horse-over-gate-7ddfc247.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A horse and a gate."
   },
   "lp3.prepositions_of_place.l2.C.over.v3": {
     "itemId": "lp3.prepositions_of_place.l2.C.over.v3",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/grammar-scenes/kite-over-pond.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A kite and a pond."
   },
   "lp3.prepositions_of_place.l2.A.over.v4": {
     "itemId": "lp3.prepositions_of_place.l2.A.over.v4",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/grammar-scenes/bridge-over-stream.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A bridge and a stream."
   },
   "lp3.prepositions_of_place.l2.A.through.v1": {
     "itemId": "lp3.prepositions_of_place.l2.A.through.v1",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A train and a tunnel."
   },
   "lp3.prepositions_of_place.l2.B.through.v2": {
     "itemId": "lp3.prepositions_of_place.l2.B.through.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/rain-through-tent-crack-605d07ce.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "Rain and a tent with a crack."
   },
   "lp3.prepositions_of_place.l2.C.through.v3": {
     "itemId": "lp3.prepositions_of_place.l2.C.through.v3",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/grammar-scenes/ball-through-hoop.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A basketball and a hoop."
   },
   "lp3.prepositions_of_place.l2.A.through.v4": {
     "itemId": "lp3.prepositions_of_place.l2.A.through.v4",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/grammar-scenes/water-through-pipe.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "Water, a pipe and a basin."
   },
   "lp3.prepositions_of_place.l2.A.near.v1": {
     "itemId": "lp3.prepositions_of_place.l2.A.near.v1",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/house-near-school-131b7950.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A house, a school and a path."
   },
   "lp3.prepositions_of_place.l2.B.near.v2": {
     "itemId": "lp3.prepositions_of_place.l2.B.near.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/bucket-near-door-aaa987d5.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A bucket and a door."
   },
   "lp3.prepositions_of_place.l2.C.near.v3": {
     "itemId": "lp3.prepositions_of_place.l2.C.near.v3",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/grammar-scenes/backpack-near-bench.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A backpack and a bench."
   },
   "lp3.prepositions_of_place.l2.A.near.v4": {
     "itemId": "lp3.prepositions_of_place.l2.A.near.v4",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/grammar-scenes/dog-near-doghouse.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A dog and a doghouse."
   },
   "lp3.prepositions_of_place.l2.A.opposite.v1": {
     "itemId": "lp3.prepositions_of_place.l2.A.opposite.v1",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/bakery-opposite-bank-e3652e80.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A bakery, a bank and a road."
   },
   "lp3.prepositions_of_place.l2.B.opposite.v2": {
     "itemId": "lp3.prepositions_of_place.l2.B.opposite.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/opposite-goals-pitch-e13732f7.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "Two goals on a playing field."
   },
   "lp3.prepositions_of_place.l2.C.opposite.v3": {
     "itemId": "lp3.prepositions_of_place.l2.C.opposite.v3",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/grammar-scenes/chairs-opposite-table.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "Two chairs and a round table."
   },
   "lp3.prepositions_of_place.l2.A.opposite.v4": {
     "itemId": "lp3.prepositions_of_place.l2.A.opposite.v4",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/grammar-scenes/children-opposite-net.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "Two children and a tennis net."
   },
   "lp3.prepositions_of_place.l2.A.among.v1": {
     "itemId": "lp3.prepositions_of_place.l2.A.among.v1",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A red tulip and several yellow tulips."
   },
   "lp3.prepositions_of_place.l2.B.among.v2": {
     "itemId": "lp3.prepositions_of_place.l2.B.among.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/deer-among-trees-d0bca87e.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A deer and several trees."
   },
   "lp3.prepositions_of_place.l2.C.among.v3": {
     "itemId": "lp3.prepositions_of_place.l2.C.among.v3",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/grammar-scenes/red-ball-among-blue-balls.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A red ball and several blue balls."
   },
   "lp3.prepositions_of_place.l2.A.among.v4": {
     "itemId": "lp3.prepositions_of_place.l2.A.among.v4",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/grammar-scenes/butterfly-among-flowers.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A butterfly and several flowers."
   },
   "lp3.prepositions_of_place.l2.A.around.v1": {
     "itemId": "lp3.prepositions_of_place.l2.A.around.v1",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/fence-around-garden-fd900b5e.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A fence and a garden."
   },
   "lp3.prepositions_of_place.l2.B.around.v2": {
     "itemId": "lp3.prepositions_of_place.l2.B.around.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/path-around-puddle-cdc71276.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A path and a puddle."
   },
   "lp3.prepositions_of_place.l2.C.around.v3": {
     "itemId": "lp3.prepositions_of_place.l2.C.around.v3",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/grammar-scenes/ribbon-around-gift.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A ribbon and a gift."
   },
   "lp3.prepositions_of_place.l2.A.around.v4": {
     "itemId": "lp3.prepositions_of_place.l2.A.around.v4",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/grammar-scenes/road-around-lake.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A road and a lake."
   },
   "lp3.prepositions_of_place.l2.A.inside_outside.v1": {
     "itemId": "lp3.prepositions_of_place.l2.A.inside_outside.v1",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "Children, a house and rain."
   },
   "lp3.prepositions_of_place.l2.B.inside_outside.v2": {
     "itemId": "lp3.prepositions_of_place.l2.B.inside_outside.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/muddy-boots-outside-door-70820ee5.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "Muddy boots and a door."
   },
   "lp3.prepositions_of_place.l2.C.inside_outside.v3": {
     "itemId": "lp3.prepositions_of_place.l2.C.inside_outside.v3",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/grammar-scenes/kitten-inside-tent.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A kitten and an open tent."
   },
   "lp3.prepositions_of_place.l2.A.inside_outside.v4": {
     "itemId": "lp3.prepositions_of_place.l2.A.inside_outside.v4",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/grammar-scenes/ball-outside-basket.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A ball and an empty basket."
   },
   "lp3.prepositions_of_place.l1.R.on.v5r": {
     "itemId": "lp3.prepositions_of_place.l1.R.on.v5r",
@@ -14412,7 +14345,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/ball-on-chair-f5c50c79.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A ball and a chair.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14422,7 +14355,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/cup-between-books-017aa912.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A cup and two books.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14432,7 +14365,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/goat-inside-barn-23d973f1.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A goat and a barn.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14442,7 +14375,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/dog-under-table-cf3e17f2.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A dog and a table.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14452,7 +14385,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/clock-above-door-038c8846.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A clock and a door.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -14462,51 +14395,69 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A rabbit and a basket.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
   "lp3.prepositions_of_place.l2.R.over.v5r": {
     "itemId": "lp3.prepositions_of_place.l2.R.over.v5r",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/horse-over-gate-7ddfc247.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A horse and a gate."
   },
   "lp3.prepositions_of_place.l2.R.through.v5r": {
     "itemId": "lp3.prepositions_of_place.l2.R.through.v5r",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A train and a tunnel."
   },
   "lp3.prepositions_of_place.l2.R.near.v5r": {
     "itemId": "lp3.prepositions_of_place.l2.R.near.v5r",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/house-near-school-131b7950.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A house, a school and a path."
   },
   "lp3.prepositions_of_place.l2.R.among.v5r": {
     "itemId": "lp3.prepositions_of_place.l2.R.among.v5r",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A red tulip and several yellow tulips."
   },
   "lp3.prepositions_of_place.l2.R.around.v5r": {
     "itemId": "lp3.prepositions_of_place.l2.R.around.v5r",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/fence-around-garden-fd900b5e.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "A fence and a garden."
   },
   "lp3.prepositions_of_place.l2.R.inside_outside.v5r": {
     "itemId": "lp3.prepositions_of_place.l2.R.inside_outside.v5r",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "Children, a house and rain."
   },
   "lp3.r_controlled_vowels.l1.A.ar.v1": {
     "itemId": "lp3.r_controlled_vowels.l1.A.ar.v1",
@@ -15018,7 +14969,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
       "/images/assessment/objective-words/nut.webp",
       "/images/assessment/objective-words/bag.webp",
       "/images/assessment/objective-words/mat.webp",
-      "/images/assessment/digraphs/whale.webp"
+      "/images/assessment/rhyming/variants/sun/sun-02.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -15106,8 +15057,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.rhyming.l1.C.ap.v3",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/digraphs/whale.webp",
-      "/images/assessment/rhyming/variants/op/hop-02.webp",
+      "/images/assessment/objective-words/leg.webp",
+      "/images/assessment/objective-words/hen.webp",
       "/images/assessment/objective-words/ham.webp",
       "/images/assessment/objective-words/cap.webp"
     ],
@@ -15146,7 +15097,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "role": "answer-cards",
     "paths": [
       "/images/assessment/objective-words/ham.webp",
-      "/images/assessment/digraphs/whale.webp",
+      "/images/assessment/rhyming/variants/jug/jug-02.webp",
       "/images/assessment/objective-words/mug.webp",
       "/images/assessment/rhyming/variants/at/bat-02.webp"
     ],
@@ -15238,7 +15189,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/hen.webp",
       "/images/assessment/objective-words/bed.webp",
-      "/images/assessment/digraphs/whale.webp",
+      "/images/assessment/objective-words/rat.webp",
       "/images/assessment/objective-words/bag.webp"
     ],
     "alt": "Picture choices for this literacy question",
@@ -15249,8 +15200,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.rhyming.l1.B.ed.v2",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/objective-words/bed.webp",
-      "/images/assessment/objective-words/wheel.webp",
+      "/images/assessment/objective-words/sled.webp",
+      "/images/assessment/objective-words/fan.webp",
       "/images/assessment/release-media/mud-4f3d05c0.webp",
       "/images/assessment/objective-words/pen.webp"
     ],
@@ -15264,7 +15215,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/web.webp",
       "/images/assessment/objective-words/bag.webp",
-      "/images/assessment/rhyming/variants/en/ten-02.webp",
+      "/images/assessment/objective-words/pen.webp",
       "/images/assessment/objective-words/bed.webp"
     ],
     "alt": "Picture choices for this literacy question",
@@ -15301,8 +15252,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.rhyming.l1.C.en.v3",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/rhyming/variants/en/ten-02.webp",
-      "/images/assessment/objective-words/wheel.webp",
+      "/images/assessment/objective-words/hen.webp",
+      "/images/assessment/objective-words/tent.webp",
       "/images/assessment/objective-words/nut.webp",
       "/images/assessment/objective-words/web.webp"
     ],
@@ -15342,8 +15293,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/egg.webp",
       "/images/assessment/objective-words/net.webp",
-      "/images/assessment/digraphs/whale.webp",
-      "/images/assessment/rhyming/variants/cut/cut-02.webp"
+      "/images/assessment/rhyming/variants/sun/sun-02.webp",
+      "/images/assessment/objective-words/cup.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -15368,7 +15319,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/lamp.webp",
       "/images/assessment/rhyming/variants/bug/bug-02.webp",
-      "/images/assessment/rhyming/variants/en/ten-02.webp",
+      "/images/assessment/objective-words/pen.webp",
       "/images/assessment/objective-words/egg.webp"
     ],
     "alt": "Picture choices for this literacy question",
@@ -15381,8 +15332,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/rhyming/variants/og/log-02.webp",
       "/images/assessment/objective-words/net.webp",
-      "/images/assessment/objective-words/egg.webp",
-      "/images/assessment/digraphs/whale.webp"
+      "/images/assessment/generated/phonics-quality/peg.webp",
+      "/images/assessment/objective-words/lamp.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -15405,8 +15356,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.rhyming.l1.B.ig.v2",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/rhyming/variants/ig/pig-02.webp",
-      "/images/assessment/digraphs/whale.webp",
+      "/images/assessment/generated/phonics-quality/wig.webp",
+      "/images/assessment/objective-words/tent.webp",
       "/images/assessment/rhyming/variants/bug/bug-02.webp",
       "/images/assessment/objective-words/web.webp"
     ],
@@ -15418,7 +15369,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.rhyming.l1.C.ig.v3",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/digraphs/whale.webp",
+      "/images/assessment/objective-words/jam.webp",
       "/images/assessment/rhyming/variants/og/log-02.webp",
       "/images/assessment/objective-words/lid.webp",
       "/images/assessment/rhyming/variants/ig/pig-02.webp"
@@ -15434,7 +15385,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
       "/images/assessment/objective-words/nut.webp",
       "/images/assessment/rhyming/variants/ig/pig-02.webp",
       "/images/assessment/rhyming/variants/in/pin-02.webp",
-      "/images/assessment/digraphs/whale.webp"
+      "/images/assessment/objective-words/web.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -15445,8 +15396,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "role": "answer-cards",
     "paths": [
       "/images/assessment/objective-words/lid.webp",
-      "/images/assessment/rhyming/variants/in/pin-02.webp",
-      "/images/assessment/objective-words/tie.webp",
+      "/images/assessment/generated/phonics-quality/tin.webp",
+      "/images/assessment/rhyming/variants/ig/pig-02.webp",
       "/images/assessment/objective-words/pen.webp"
     ],
     "alt": "Picture choices for this literacy question",
@@ -15460,7 +15411,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
       "/images/assessment/rhyming/variants/in/pin-02.webp",
       "/images/assessment/digraphs/chick.webp",
       "/images/assessment/objective-words/map.webp",
-      "/images/assessment/rhyming/variants/it/hit-02.webp"
+      "/images/assessment/objective-words/lid.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -15484,7 +15435,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "role": "answer-cards",
     "paths": [
       "/images/assessment/objective-words/mop.webp",
-      "/images/assessment/rhyming/variants/it/sit-02.webp",
+      "/images/assessment/rhyming/variants/ig/pig-02.webp",
       "/images/assessment/objective-words/ship.webp",
       "/images/assessment/rhyming/variants/ing/ring-02.webp"
     ],
@@ -15525,7 +15476,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
       "/images/assessment/objective-words/lamp.webp",
       "/images/assessment/objective-words/bed.webp",
       "/images/assessment/objective-words/pot.webp",
-      "/images/assessment/objective-words/clock.webp"
+      "/images/assessment/digraphs/sock.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -15537,7 +15488,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/bed.webp",
       "/images/assessment/objective-words/pot.webp",
-      "/images/assessment/objective-words/clock.webp",
+      "/images/assessment/digraphs/rock.webp",
       "/images/assessment/rhyming/variants/sun/sun-02.webp"
     ],
     "alt": "Picture choices for this literacy question",
@@ -15562,7 +15513,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "role": "answer-cards",
     "paths": [
       "/images/assessment/rhyming/variants/og/log-02.webp",
-      "/images/assessment/digraphs/whale.webp",
+      "/images/assessment/objective-words/jam.webp",
       "/images/assessment/objective-words/leg.webp",
       "/images/assessment/objective-words/pot.webp"
     ],
@@ -15574,7 +15525,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.rhyming.l1.C.og.v3",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/rhyming/variants/op/hop-02.webp",
+      "/images/assessment/objective-words/hen.webp",
       "/images/assessment/objective-words/nut.webp",
       "/images/assessment/objective-words/pot.webp",
       "/images/assessment/blends/frog.webp"
@@ -15641,7 +15592,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/hat.webp",
       "/images/assessment/rhyming/variants/og/log-02.webp",
-      "/images/assessment/objective-words/pot.webp",
+      "/images/assessment/generated/phonics-quality/dot.webp",
       "/images/assessment/long-vowels/goat.webp"
     ],
     "alt": "Picture choices for this literacy question",
@@ -15655,7 +15606,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
       "/images/assessment/objective-words/net.webp",
       "/images/assessment/objective-words/pot.webp",
       "/images/assessment/rhyming/variants/og/log-02.webp",
-      "/images/assessment/rhyming/variants/it/sit-02.webp"
+      "/images/assessment/rhyming/variants/ig/pig-02.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -15666,7 +15617,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "role": "answer-cards",
     "paths": [
       "/images/assessment/rhyming/variants/bug/bug-02.webp",
-      "/images/assessment/digraphs/whale.webp",
+      "/images/assessment/release-media/tub-9c34a66d.webp",
       "/images/assessment/objective-words/bag.webp",
       "/images/assessment/rhyming/variants/sun/sun-02.webp"
     ],
@@ -15706,7 +15657,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/mug.webp",
       "/images/assessment/rhyming/variants/sun/sun-02.webp",
-      "/images/assessment/digraphs/whale.webp",
+      "/images/assessment/objective-words/fan.webp",
       "/images/assessment/rhyming/variants/in/pin-02.webp"
     ],
     "alt": "Picture choices for this literacy question",
@@ -15720,7 +15671,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
       "/images/assessment/rhyming/variants/sun/sun-02.webp",
       "/images/assessment/rhyming/variants/bug/bug-02.webp",
       "/images/assessment/objective-words/hen.webp",
-      "/images/assessment/rhyming/variants/cut/cut-02.webp"
+      "/images/assessment/objective-words/cup.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -15730,10 +15681,10 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.rhyming.l1.C.un.v3",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/digraphs/whale.webp",
+      "/images/assessment/objective-words/rat.webp",
       "/images/assessment/objective-words/map.webp",
       "/images/assessment/objective-words/mug.webp",
-      "/images/assessment/rhyming/variants/sun/sun-02.webp"
+      "/images/assessment/generated/phonics-quality/bun.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -15746,7 +15697,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
       "/images/assessment/objective-words/mop.webp",
       "/images/assessment/rhyming/variants/bug/bug-02.webp",
       "/images/assessment/objective-words/cup.webp",
-      "/images/assessment/digraphs/whale.webp"
+      "/images/assessment/rhyming/variants/in/pin-02.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -15754,14 +15705,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.rhyming.l1.B.up.v2": {
     "itemId": "lp3.rhyming.l1.B.up.v2",
-    "role": "answer-cards",
-    "paths": [
-      "/images/assessment/rhyming/variants/sun/sun-02.webp",
-      "/images/assessment/objective-words/cup.webp",
-      "/images/assessment/objective-words/cap.webp",
-      "/images/assessment/objective-words/mug.webp"
-    ],
-    "alt": "Picture choices for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-scoring-options"
   },
@@ -15770,7 +15715,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "role": "answer-cards",
     "paths": [
       "/images/assessment/objective-words/cup.webp",
-      "/images/assessment/digraphs/whale.webp",
+      "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
       "/images/assessment/objective-words/cap.webp",
       "/images/assessment/release-media/mud-4f3d05c0.webp"
     ],
@@ -15810,7 +15755,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/mug.webp",
       "/images/assessment/objective-words/nut.webp",
-      "/images/assessment/objective-words/ship.webp",
+      "/images/assessment/objective-words/cup.webp",
       "/images/assessment/objective-words/net.webp"
     ],
     "alt": "Picture choices for this literacy question",
@@ -16352,7 +16297,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "role": "answer-cards",
     "paths": [
       "/images/assessment/objective-words/hen.webp",
-      "/images/assessment/digraphs/whale.webp",
+      "/images/assessment/objective-words/web.webp",
       "/images/assessment/rhyming/variants/in/pin-02.webp",
       "/images/assessment/objective-words/net.webp"
     ],
@@ -16366,7 +16311,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/objective-words/cup.webp",
       "/images/assessment/rhyming/variants/bug/bug-02.webp",
-      "/images/assessment/digraphs/whale.webp",
+      "/images/assessment/objective-words/web.webp",
       "/images/assessment/objective-words/bag.webp"
     ],
     "alt": "Picture choices for this literacy question",
@@ -16539,7 +16484,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/scenes/sentence-comprehension/scene-girl-jumps-puddle.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A girl in yellow rain boots jumping over a puddle.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -16549,7 +16494,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/scenes/sentence-comprehension/scene-boys-ladder-bakery.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "Two boys carrying a long ladder past a bakery.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -16559,7 +16504,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/scenes/sentence-comprehension/scene-cat-umbrella.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A cat asleep inside an open umbrella.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -16569,7 +16514,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/scenes/sentence-comprehension/scene-grandad-child-red-kite.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A grandpa and one child flying one red kite together.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -16579,7 +16524,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/scenes/sentence-comprehension/scene-red-sock-falling.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "One red sock dropping from a full clothesline toward the grass.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -16589,7 +16534,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/scenes/sentence-comprehension/scene-ducks-ice-cream-van.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "Exactly three ducks waiting at an ice cream truck.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -16599,7 +16544,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/scenes/sentence-comprehension/scene-boy-giant-jelly.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A boy holding a tray with a huge red jelly above his head.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -16609,7 +16554,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/scenes/sentence-comprehension/scene-snowman-sunglasses.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A snowman wearing sunglasses on a sunny winter day.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -16857,7 +16802,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/scenes/sentence-comprehension/scene-small-dog-leads-tall-man.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A very small dog leading a very tall man down a street.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -16888,7 +16833,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/scenes/sentence-comprehension/scene-family-asleep-film.webp"
     ],
-    "alt": "Picture support for this literacy question",
+    "alt": "A family asleep together on a sofa beside a television.",
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -16936,13 +16881,6 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.sentence_comprehension.l2.R.best_restatement.v9r": {
     "itemId": "lp3.sentence_comprehension.l2.R.best_restatement.v9r",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.sentence_comprehension.l2.R.literal_action.v11r": {
-    "itemId": "lp3.sentence_comprehension.l2.R.literal_action.v11r",
     "role": "text-only",
     "paths": [],
     "constructReview": "approved",
@@ -17573,7 +17511,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "role": "answer-cards",
     "paths": [
       "/images/assessment/objective-words/dog.webp",
-      "/images/assessment/rhyming/variants/en/ten-02.webp",
+      "/images/assessment/objective-words/web.webp",
       "/images/assessment/objective-words/cap.webp",
       "/images/assessment/release-media/tub-9c34a66d.webp"
     ],
@@ -18287,34 +18225,6 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "constructReview": "approved",
     "answerNeutral": "approved-empty-setting"
   },
-  "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v9": {
-    "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v9",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v10": {
-    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v10",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v9": {
-    "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v9",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v10": {
-    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v10",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
   "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v11r": {
     "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v11r",
     "role": "text-only",
@@ -18338,34 +18248,6 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v12r": {
     "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v12r",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v9": {
-    "itemId": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v9",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v10": {
-    "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v10",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v9": {
-    "itemId": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v9",
-    "role": "text-only",
-    "paths": [],
-    "constructReview": "approved",
-    "answerNeutral": "approved-empty-setting"
-  },
-  "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v10": {
-    "itemId": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v10",
     "role": "text-only",
     "paths": [],
     "constructReview": "approved",
@@ -19434,5 +19316,3112 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-target-evidence"
+  },
+  "lp3.final_sounds.l1.C.b.v6": {
+    "itemId": "lp3.final_sounds.l1.C.b.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.final_sounds.l1.C.d.v6": {
+    "itemId": "lp3.final_sounds.l1.C.d.v6",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/mud-4f3d05c0.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "mud"
+  },
+  "lp3.final_sounds.l1.C.g.v6": {
+    "itemId": "lp3.final_sounds.l1.C.g.v6",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/bag.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "bag"
+  },
+  "lp3.final_sounds.l1.C.l.v6": {
+    "itemId": "lp3.final_sounds.l1.C.l.v6",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "tail"
+  },
+  "lp3.final_sounds.l1.C.m.v6": {
+    "itemId": "lp3.final_sounds.l1.C.m.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.final_sounds.l1.C.n.v6": {
+    "itemId": "lp3.final_sounds.l1.C.n.v6",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/pan.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "pan"
+  },
+  "lp3.final_sounds.l1.C.p.v6": {
+    "itemId": "lp3.final_sounds.l1.C.p.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.final_sounds.l1.C.t.v6": {
+    "itemId": "lp3.final_sounds.l1.C.t.v6",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/pot.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "pot"
+  },
+  "lp3.cvc_short_vowels.l1.C.short_a.v9": {
+    "itemId": "lp3.cvc_short_vowels.l1.C.short_a.v9",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/bag.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "bag"
+  },
+  "lp3.cvc_short_vowels.l1.A.short_a.v10": {
+    "itemId": "lp3.cvc_short_vowels.l1.A.short_a.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cvc_short_vowels.l1.C.short_e.v9": {
+    "itemId": "lp3.cvc_short_vowels.l1.C.short_e.v9",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/web.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "web"
+  },
+  "lp3.cvc_short_vowels.l1.A.short_e.v10": {
+    "itemId": "lp3.cvc_short_vowels.l1.A.short_e.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cvc_short_vowels.l1.C.short_i.v9": {
+    "itemId": "lp3.cvc_short_vowels.l1.C.short_i.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cvc_short_vowels.l1.A.short_i.v10": {
+    "itemId": "lp3.cvc_short_vowels.l1.A.short_i.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cvc_short_vowels.l1.C.short_o.v9": {
+    "itemId": "lp3.cvc_short_vowels.l1.C.short_o.v9",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/mop.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "mop"
+  },
+  "lp3.cvc_short_vowels.l1.A.short_o.v10": {
+    "itemId": "lp3.cvc_short_vowels.l1.A.short_o.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cvc_short_vowels.l1.C.short_u.v9": {
+    "itemId": "lp3.cvc_short_vowels.l1.C.short_u.v9",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/cup.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "cup"
+  },
+  "lp3.cvc_short_vowels.l1.A.short_u.v10": {
+    "itemId": "lp3.cvc_short_vowels.l1.A.short_u.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cvc_short_vowels.l2.C.short_a.v9": {
+    "itemId": "lp3.cvc_short_vowels.l2.C.short_a.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cvc_short_vowels.l2.A.short_a.v10": {
+    "itemId": "lp3.cvc_short_vowels.l2.A.short_a.v10",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/lamp.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "lamp"
+  },
+  "lp3.cvc_short_vowels.l2.C.short_e.v9": {
+    "itemId": "lp3.cvc_short_vowels.l2.C.short_e.v9",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/blends/belt.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "belt"
+  },
+  "lp3.cvc_short_vowels.l2.A.short_e.v10": {
+    "itemId": "lp3.cvc_short_vowels.l2.A.short_e.v10",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/tent.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "tent"
+  },
+  "lp3.cvc_short_vowels.l2.C.short_i.v9": {
+    "itemId": "lp3.cvc_short_vowels.l2.C.short_i.v9",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/ship.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "ship"
+  },
+  "lp3.cvc_short_vowels.l2.A.short_i.v10": {
+    "itemId": "lp3.cvc_short_vowels.l2.A.short_i.v10",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/brick.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "brick"
+  },
+  "lp3.cvc_short_vowels.l2.C.short_o.v9": {
+    "itemId": "lp3.cvc_short_vowels.l2.C.short_o.v9",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/digraphs/sock.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "sock"
+  },
+  "lp3.cvc_short_vowels.l2.A.short_o.v10": {
+    "itemId": "lp3.cvc_short_vowels.l2.A.short_o.v10",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/generated/concepts/pond.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "pond"
+  },
+  "lp3.cvc_short_vowels.l2.C.short_u.v9": {
+    "itemId": "lp3.cvc_short_vowels.l2.C.short_u.v9",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/blends/plug.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "plug"
+  },
+  "lp3.cvc_short_vowels.l2.A.short_u.v10": {
+    "itemId": "lp3.cvc_short_vowels.l2.A.short_u.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l1.C.short_a.v9": {
+    "itemId": "lp3.short_vowel_discrimination.l1.C.short_a.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l1.A.short_a.v10": {
+    "itemId": "lp3.short_vowel_discrimination.l1.A.short_a.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l1.C.short_e.v9": {
+    "itemId": "lp3.short_vowel_discrimination.l1.C.short_e.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l1.A.short_e.v10": {
+    "itemId": "lp3.short_vowel_discrimination.l1.A.short_e.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l1.C.short_i.v9": {
+    "itemId": "lp3.short_vowel_discrimination.l1.C.short_i.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l1.A.short_i.v10": {
+    "itemId": "lp3.short_vowel_discrimination.l1.A.short_i.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l1.C.short_o.v9": {
+    "itemId": "lp3.short_vowel_discrimination.l1.C.short_o.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l1.A.short_o.v10": {
+    "itemId": "lp3.short_vowel_discrimination.l1.A.short_o.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l1.C.short_u.v9": {
+    "itemId": "lp3.short_vowel_discrimination.l1.C.short_u.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l1.A.short_u.v10": {
+    "itemId": "lp3.short_vowel_discrimination.l1.A.short_u.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l2.C.short_a.v9": {
+    "itemId": "lp3.short_vowel_discrimination.l2.C.short_a.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l2.A.short_a.v10": {
+    "itemId": "lp3.short_vowel_discrimination.l2.A.short_a.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l2.C.short_e.v9": {
+    "itemId": "lp3.short_vowel_discrimination.l2.C.short_e.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l2.A.short_e.v10": {
+    "itemId": "lp3.short_vowel_discrimination.l2.A.short_e.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l2.C.short_i.v9": {
+    "itemId": "lp3.short_vowel_discrimination.l2.C.short_i.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l2.A.short_i.v10": {
+    "itemId": "lp3.short_vowel_discrimination.l2.A.short_i.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l2.C.short_o.v9": {
+    "itemId": "lp3.short_vowel_discrimination.l2.C.short_o.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l2.A.short_o.v10": {
+    "itemId": "lp3.short_vowel_discrimination.l2.A.short_o.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l2.C.short_u.v9": {
+    "itemId": "lp3.short_vowel_discrimination.l2.C.short_u.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.short_vowel_discrimination.l2.A.short_u.v10": {
+    "itemId": "lp3.short_vowel_discrimination.l2.A.short_u.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l1.B.ch.v5": {
+    "itemId": "lp3.digraphs.l1.B.ch.v5",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l1.C.ch.v6": {
+    "itemId": "lp3.digraphs.l1.C.ch.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l1.C.ch.v9": {
+    "itemId": "lp3.digraphs.l1.C.ch.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l1.B.sh.v5": {
+    "itemId": "lp3.digraphs.l1.B.sh.v5",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l1.C.sh.v6": {
+    "itemId": "lp3.digraphs.l1.C.sh.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l1.C.sh.v9": {
+    "itemId": "lp3.digraphs.l1.C.sh.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l1.B.th.v5": {
+    "itemId": "lp3.digraphs.l1.B.th.v5",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l1.C.th.v6": {
+    "itemId": "lp3.digraphs.l1.C.th.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l1.B.wh.v5": {
+    "itemId": "lp3.digraphs.l1.B.wh.v5",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l1.C.wh.v6": {
+    "itemId": "lp3.digraphs.l1.C.wh.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l1.C.wh.v9": {
+    "itemId": "lp3.digraphs.l1.C.wh.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l1.B.ph.v5": {
+    "itemId": "lp3.digraphs.l1.B.ph.v5",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l1.C.ph.v6": {
+    "itemId": "lp3.digraphs.l1.C.ph.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l1.C.ph.v9": {
+    "itemId": "lp3.digraphs.l1.C.ph.v9",
+    "role": "answer-cards",
+    "paths": [
+      "/images/assessment/objective-words/van.webp",
+      "/images/assessment/objective-words/tooth.webp",
+      "/images/assessment/objective-words/cheese.webp",
+      "/images/assessment/generated/initial-sounds-l2/feather.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "Picture choices: van, tooth, cheese, feather"
+  },
+  "lp3.digraphs.l1.B.ck.v5": {
+    "itemId": "lp3.digraphs.l1.B.ck.v5",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l1.C.ck.v6": {
+    "itemId": "lp3.digraphs.l1.C.ck.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l2.B.ch.v5": {
+    "itemId": "lp3.digraphs.l2.B.ch.v5",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l2.C.ch.v6": {
+    "itemId": "lp3.digraphs.l2.C.ch.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l2.C.ch.v9": {
+    "itemId": "lp3.digraphs.l2.C.ch.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l2.B.sh.v5": {
+    "itemId": "lp3.digraphs.l2.B.sh.v5",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l2.C.sh.v6": {
+    "itemId": "lp3.digraphs.l2.C.sh.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l2.C.sh.v9": {
+    "itemId": "lp3.digraphs.l2.C.sh.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l2.B.th.v5": {
+    "itemId": "lp3.digraphs.l2.B.th.v5",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l2.C.th.v6": {
+    "itemId": "lp3.digraphs.l2.C.th.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l2.B.wh.v5": {
+    "itemId": "lp3.digraphs.l2.B.wh.v5",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l2.C.wh.v6": {
+    "itemId": "lp3.digraphs.l2.C.wh.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l2.C.wh.v9": {
+    "itemId": "lp3.digraphs.l2.C.wh.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l2.B.ph.v5": {
+    "itemId": "lp3.digraphs.l2.B.ph.v5",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l2.C.ph.v6": {
+    "itemId": "lp3.digraphs.l2.C.ph.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l2.C.ph.v9": {
+    "itemId": "lp3.digraphs.l2.C.ph.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l2.B.ck.v5": {
+    "itemId": "lp3.digraphs.l2.B.ck.v5",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.digraphs.l2.C.ck.v6": {
+    "itemId": "lp3.digraphs.l2.C.ck.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.C.a_e.v9": {
+    "itemId": "lp3.long_vowels_silent_e.l1.C.a_e.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.a_e.v10": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.a_e.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.a_e.v11": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.a_e.v11",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.a_e.v12": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.a_e.v12",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.a_e.v13": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.a_e.v13",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.a_e.v14": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.a_e.v14",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.C.i_e.v9": {
+    "itemId": "lp3.long_vowels_silent_e.l1.C.i_e.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.i_e.v10": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.i_e.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.i_e.v11": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.i_e.v11",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.i_e.v12": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.i_e.v12",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.i_e.v13": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.i_e.v13",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.i_e.v14": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.i_e.v14",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.C.o_e.v9": {
+    "itemId": "lp3.long_vowels_silent_e.l1.C.o_e.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.o_e.v10": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.o_e.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.o_e.v11": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.o_e.v11",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.o_e.v12": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.o_e.v12",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.o_e.v13": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.o_e.v13",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.o_e.v14": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.o_e.v14",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.C.u_e.v9": {
+    "itemId": "lp3.long_vowels_silent_e.l1.C.u_e.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.u_e.v10": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.u_e.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.u_e.v11": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.u_e.v11",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.u_e.v12": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.u_e.v12",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.u_e.v13": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.u_e.v13",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l1.A.u_e.v14": {
+    "itemId": "lp3.long_vowels_silent_e.l1.A.u_e.v14",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.C.a_e.v9": {
+    "itemId": "lp3.long_vowels_silent_e.l2.C.a_e.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.a_e.v10": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.a_e.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.a_e.v11": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.a_e.v11",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.a_e.v12": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.a_e.v12",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.a_e.v13": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.a_e.v13",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.a_e.v14": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.a_e.v14",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.C.i_e.v9": {
+    "itemId": "lp3.long_vowels_silent_e.l2.C.i_e.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.i_e.v10": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.i_e.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.i_e.v11": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.i_e.v11",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.i_e.v12": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.i_e.v12",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.i_e.v13": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.i_e.v13",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.i_e.v14": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.i_e.v14",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.C.o_e.v9": {
+    "itemId": "lp3.long_vowels_silent_e.l2.C.o_e.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.o_e.v10": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.o_e.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.o_e.v11": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.o_e.v11",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.o_e.v12": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.o_e.v12",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.o_e.v13": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.o_e.v13",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.o_e.v14": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.o_e.v14",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.C.u_e.v9": {
+    "itemId": "lp3.long_vowels_silent_e.l2.C.u_e.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.u_e.v10": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.u_e.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.u_e.v11": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.u_e.v11",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.u_e.v12": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.u_e.v12",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.u_e.v13": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.u_e.v13",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.long_vowels_silent_e.l2.A.u_e.v14": {
+    "itemId": "lp3.long_vowels_silent_e.l2.A.u_e.v14",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.vowel_teams.l1.C.ai.v9": {
+    "itemId": "lp3.vowel_teams.l1.C.ai.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.vowel_teams.l1.A.ai.v10": {
+    "itemId": "lp3.vowel_teams.l1.A.ai.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.vowel_teams.l1.C.ay.v9": {
+    "itemId": "lp3.vowel_teams.l1.C.ay.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.vowel_teams.l1.A.ay.v10": {
+    "itemId": "lp3.vowel_teams.l1.A.ay.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.vowel_teams.l1.C.ee.v9": {
+    "itemId": "lp3.vowel_teams.l1.C.ee.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.vowel_teams.l1.A.ee.v10": {
+    "itemId": "lp3.vowel_teams.l1.A.ee.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.vowel_teams.l1.C.ea.v9": {
+    "itemId": "lp3.vowel_teams.l1.C.ea.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.vowel_teams.l1.A.ea.v10": {
+    "itemId": "lp3.vowel_teams.l1.A.ea.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.vowel_teams.l1.C.oa.v9": {
+    "itemId": "lp3.vowel_teams.l1.C.oa.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.vowel_teams.l1.A.oa.v10": {
+    "itemId": "lp3.vowel_teams.l1.A.oa.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.vowel_teams.l1.C.igh.v9": {
+    "itemId": "lp3.vowel_teams.l1.C.igh.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.vowel_teams.l1.A.igh.v10": {
+    "itemId": "lp3.vowel_teams.l1.A.igh.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.vowel_teams.l2.C.oy.v9": {
+    "itemId": "lp3.vowel_teams.l2.C.oy.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.vowel_teams.l2.A.oy.v10": {
+    "itemId": "lp3.vowel_teams.l2.A.oy.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.vowel_teams.l2.C.ew.v9": {
+    "itemId": "lp3.vowel_teams.l2.C.ew.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.vowel_teams.l2.A.ew.v10": {
+    "itemId": "lp3.vowel_teams.l2.A.ew.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.vowel_teams.l2.C.aw.v9": {
+    "itemId": "lp3.vowel_teams.l2.C.aw.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.vowel_teams.l2.A.aw.v10": {
+    "itemId": "lp3.vowel_teams.l2.A.aw.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l1.C.ar.v9": {
+    "itemId": "lp3.r_controlled_vowels.l1.C.ar.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l1.A.ar.v10": {
+    "itemId": "lp3.r_controlled_vowels.l1.A.ar.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l1.A.ar.v11": {
+    "itemId": "lp3.r_controlled_vowels.l1.A.ar.v11",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l1.A.ar.v12": {
+    "itemId": "lp3.r_controlled_vowels.l1.A.ar.v12",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l1.A.ar.v13": {
+    "itemId": "lp3.r_controlled_vowels.l1.A.ar.v13",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l1.A.ar.v14": {
+    "itemId": "lp3.r_controlled_vowels.l1.A.ar.v14",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l1.C.or.v9": {
+    "itemId": "lp3.r_controlled_vowels.l1.C.or.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l1.A.or.v10": {
+    "itemId": "lp3.r_controlled_vowels.l1.A.or.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l1.A.or.v11": {
+    "itemId": "lp3.r_controlled_vowels.l1.A.or.v11",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l1.A.or.v12": {
+    "itemId": "lp3.r_controlled_vowels.l1.A.or.v12",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l1.A.or.v13": {
+    "itemId": "lp3.r_controlled_vowels.l1.A.or.v13",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l1.A.or.v14": {
+    "itemId": "lp3.r_controlled_vowels.l1.A.or.v14",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l1.C.er.v9": {
+    "itemId": "lp3.r_controlled_vowels.l1.C.er.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l1.A.er.v10": {
+    "itemId": "lp3.r_controlled_vowels.l1.A.er.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l1.C.ir.v9": {
+    "itemId": "lp3.r_controlled_vowels.l1.C.ir.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l1.A.ir.v10": {
+    "itemId": "lp3.r_controlled_vowels.l1.A.ir.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l1.C.ur.v9": {
+    "itemId": "lp3.r_controlled_vowels.l1.C.ur.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l1.A.ur.v10": {
+    "itemId": "lp3.r_controlled_vowels.l1.A.ur.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l2.C.ar.v9": {
+    "itemId": "lp3.r_controlled_vowels.l2.C.ar.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l2.A.ar.v10": {
+    "itemId": "lp3.r_controlled_vowels.l2.A.ar.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l2.A.ar.v11": {
+    "itemId": "lp3.r_controlled_vowels.l2.A.ar.v11",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l2.A.ar.v12": {
+    "itemId": "lp3.r_controlled_vowels.l2.A.ar.v12",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l2.A.ar.v13": {
+    "itemId": "lp3.r_controlled_vowels.l2.A.ar.v13",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l2.A.ar.v14": {
+    "itemId": "lp3.r_controlled_vowels.l2.A.ar.v14",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l2.C.or.v9": {
+    "itemId": "lp3.r_controlled_vowels.l2.C.or.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l2.A.or.v10": {
+    "itemId": "lp3.r_controlled_vowels.l2.A.or.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l2.A.or.v11": {
+    "itemId": "lp3.r_controlled_vowels.l2.A.or.v11",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l2.A.or.v12": {
+    "itemId": "lp3.r_controlled_vowels.l2.A.or.v12",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l2.A.or.v13": {
+    "itemId": "lp3.r_controlled_vowels.l2.A.or.v13",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l2.A.or.v14": {
+    "itemId": "lp3.r_controlled_vowels.l2.A.or.v14",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l2.C.er.v9": {
+    "itemId": "lp3.r_controlled_vowels.l2.C.er.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l2.A.er.v10": {
+    "itemId": "lp3.r_controlled_vowels.l2.A.er.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l2.C.ir.v9": {
+    "itemId": "lp3.r_controlled_vowels.l2.C.ir.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l2.A.ir.v10": {
+    "itemId": "lp3.r_controlled_vowels.l2.A.ir.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l2.C.ur.v9": {
+    "itemId": "lp3.r_controlled_vowels.l2.C.ur.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.r_controlled_vowels.l2.A.ur.v10": {
+    "itemId": "lp3.r_controlled_vowels.l2.A.ur.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.nouns.l1.C.noun_person.v9": {
+    "itemId": "lp3.nouns.l1.C.noun_person.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.nouns.l1.A.noun_person.v10": {
+    "itemId": "lp3.nouns.l1.A.noun_person.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.nouns.l1.C.noun_animal.v9": {
+    "itemId": "lp3.nouns.l1.C.noun_animal.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.nouns.l1.A.noun_animal.v10": {
+    "itemId": "lp3.nouns.l1.A.noun_animal.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.nouns.l1.B.noun_place.v8": {
+    "itemId": "lp3.nouns.l1.B.noun_place.v8",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.nouns.l1.C.noun_place.v9": {
+    "itemId": "lp3.nouns.l1.C.noun_place.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.nouns.l1.B.noun_thing.v8": {
+    "itemId": "lp3.nouns.l1.B.noun_thing.v8",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.nouns.l1.C.noun_thing.v9": {
+    "itemId": "lp3.nouns.l1.C.noun_thing.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.nouns.l2.A.noun_two_step.v11": {
+    "itemId": "lp3.nouns.l2.A.noun_two_step.v11",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.nouns.l2.A.noun_two_step.v12": {
+    "itemId": "lp3.nouns.l2.A.noun_two_step.v12",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.nouns.l2.A.noun_two_step.v13": {
+    "itemId": "lp3.nouns.l2.A.noun_two_step.v13",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.nouns.l2.A.noun_two_step.v14": {
+    "itemId": "lp3.nouns.l2.A.noun_two_step.v14",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.nouns.l2.A.noun_two_step.v15": {
+    "itemId": "lp3.nouns.l2.A.noun_two_step.v15",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.nouns.l2.A.noun_two_step.v16": {
+    "itemId": "lp3.nouns.l2.A.noun_two_step.v16",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.nouns.l2.A.noun_two_step.v17": {
+    "itemId": "lp3.nouns.l2.A.noun_two_step.v17",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.nouns.l2.A.noun_two_step.v18": {
+    "itemId": "lp3.nouns.l2.A.noun_two_step.v18",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.verbs.l1.A.verb_everyday.v11": {
+    "itemId": "lp3.verbs.l1.A.verb_everyday.v11",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.verbs.l1.A.verb_everyday.v12": {
+    "itemId": "lp3.verbs.l1.A.verb_everyday.v12",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.verbs.l1.A.verb_everyday.v13": {
+    "itemId": "lp3.verbs.l1.A.verb_everyday.v13",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.verbs.l1.A.verb_everyday.v14": {
+    "itemId": "lp3.verbs.l1.A.verb_everyday.v14",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.verbs.l1.A.verb_everyday.v15": {
+    "itemId": "lp3.verbs.l1.A.verb_everyday.v15",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.verbs.l1.A.verb_everyday.v16": {
+    "itemId": "lp3.verbs.l1.A.verb_everyday.v16",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.verbs.l1.A.verb_everyday.v17": {
+    "itemId": "lp3.verbs.l1.A.verb_everyday.v17",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.verbs.l1.A.verb_everyday.v18": {
+    "itemId": "lp3.verbs.l1.A.verb_everyday.v18",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.verbs.l2.A.verb_precision.v11": {
+    "itemId": "lp3.verbs.l2.A.verb_precision.v11",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.verbs.l2.A.verb_precision.v12": {
+    "itemId": "lp3.verbs.l2.A.verb_precision.v12",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.verbs.l2.A.verb_precision.v13": {
+    "itemId": "lp3.verbs.l2.A.verb_precision.v13",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.verbs.l2.A.verb_precision.v14": {
+    "itemId": "lp3.verbs.l2.A.verb_precision.v14",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.verbs.l2.A.verb_precision.v15": {
+    "itemId": "lp3.verbs.l2.A.verb_precision.v15",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.verbs.l2.A.verb_precision.v16": {
+    "itemId": "lp3.verbs.l2.A.verb_precision.v16",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.verbs.l2.A.verb_precision.v17": {
+    "itemId": "lp3.verbs.l2.A.verb_precision.v17",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.verbs.l2.A.verb_precision.v18": {
+    "itemId": "lp3.verbs.l2.A.verb_precision.v18",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.adjectives.l1.C.adj_size.v9": {
+    "itemId": "lp3.adjectives.l1.C.adj_size.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.adjectives.l1.A.adj_size.v10": {
+    "itemId": "lp3.adjectives.l1.A.adj_size.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.adjectives.l1.B.adj_color.v8": {
+    "itemId": "lp3.adjectives.l1.B.adj_color.v8",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.adjectives.l1.C.adj_color.v9": {
+    "itemId": "lp3.adjectives.l1.C.adj_color.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.adjectives.l1.C.adj_texture_state.v9": {
+    "itemId": "lp3.adjectives.l1.C.adj_texture_state.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.adjectives.l1.A.adj_texture_state.v10": {
+    "itemId": "lp3.adjectives.l1.A.adj_texture_state.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.adjectives.l1.C.adj_feeling.v9": {
+    "itemId": "lp3.adjectives.l1.C.adj_feeling.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.adjectives.l1.A.adj_feeling.v10": {
+    "itemId": "lp3.adjectives.l1.A.adj_feeling.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.adjectives.l2.A.adj_vs_noun_verb.v10": {
+    "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.adjectives.l2.A.adj_vs_noun_verb.v11": {
+    "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v11",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.adjectives.l2.A.adj_vs_noun_verb.v12": {
+    "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v12",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.adjectives.l2.A.adj_vs_noun_verb.v13": {
+    "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v13",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.adjectives.l2.A.adj_vs_noun_verb.v14": {
+    "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v14",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.adjectives.l2.A.adj_vs_noun_verb.v15": {
+    "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v15",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.adjectives.l2.A.adj_vs_noun_verb.v16": {
+    "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v16",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.adjectives.l2.A.adj_vs_noun_verb.v17": {
+    "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v17",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.prepositions_of_place.l2.C.among.v6": {
+    "itemId": "lp3.prepositions_of_place.l2.C.among.v6",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/grammar-scenes/pencil-among-crayons.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "A yellow pencil and several crayons."
+  },
+  "lp3.prepositions_of_place.l2.C.around.v6": {
+    "itemId": "lp3.prepositions_of_place.l2.C.around.v6",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/grammar-scenes/path-around-tree.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "A path and a tree."
+  },
+  "lp3.prepositions_of_place.l2.C.inside_outside.v6": {
+    "itemId": "lp3.prepositions_of_place.l2.C.inside_outside.v6",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/grammar-scenes/duck-outside-pond.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "A duck and a pond."
+  },
+  "lp3.prepositions_of_place.l2.A.inside_outside.v7": {
+    "itemId": "lp3.prepositions_of_place.l2.A.inside_outside.v7",
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/grammar-scenes/apple-inside-lunchbox.webp"
+    ],
+    "constructReview": "approved",
+    "answerNeutral": "approved",
+    "alt": "An apple and an open lunchbox."
+  },
+  "lp3.plurals.l1.A.plural_add_es.v11": {
+    "itemId": "lp3.plurals.l1.A.plural_add_es.v11",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.plurals.l1.A.plural_add_es.v12": {
+    "itemId": "lp3.plurals.l1.A.plural_add_es.v12",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.plurals.l1.A.plural_add_es.v13": {
+    "itemId": "lp3.plurals.l1.A.plural_add_es.v13",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.plurals.l1.A.plural_add_es.v14": {
+    "itemId": "lp3.plurals.l1.A.plural_add_es.v14",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.plurals.l1.A.plural_add_es.v15": {
+    "itemId": "lp3.plurals.l1.A.plural_add_es.v15",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.plurals.l1.A.plural_add_es.v16": {
+    "itemId": "lp3.plurals.l1.A.plural_add_es.v16",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.plurals.l2.C.plural_y_to_ies.v9": {
+    "itemId": "lp3.plurals.l2.C.plural_y_to_ies.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.plurals.l2.A.plural_y_to_ies.v10": {
+    "itemId": "lp3.plurals.l2.A.plural_y_to_ies.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.plurals.l2.C.plural_irregular.v9": {
+    "itemId": "lp3.plurals.l2.C.plural_irregular.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.plurals.l2.A.plural_irregular.v10": {
+    "itemId": "lp3.plurals.l2.A.plural_irregular.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.plurals.l2.B.plural_f_to_ves.v8": {
+    "itemId": "lp3.plurals.l2.B.plural_f_to_ves.v8",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.plurals.l2.C.plural_f_to_ves.v9": {
+    "itemId": "lp3.plurals.l2.C.plural_f_to_ves.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.plurals.l2.B.plural_in_sentence.v8": {
+    "itemId": "lp3.plurals.l2.B.plural_in_sentence.v8",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.plurals.l2.C.plural_in_sentence.v9": {
+    "itemId": "lp3.plurals.l2.C.plural_in_sentence.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.prefixes_suffixes.l1.B.prefix_un.v8": {
+    "itemId": "lp3.prefixes_suffixes.l1.B.prefix_un.v8",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.prefixes_suffixes.l1.B.suffix_ful.v8": {
+    "itemId": "lp3.prefixes_suffixes.l1.B.suffix_ful.v8",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.prefixes_suffixes.l1.B.suffix_less.v8": {
+    "itemId": "lp3.prefixes_suffixes.l1.B.suffix_less.v8",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.prefixes_suffixes.l1.C.suffix_less.v9": {
+    "itemId": "lp3.prefixes_suffixes.l1.C.suffix_less.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.prefixes_suffixes.l1.A.suffix_less.v10": {
+    "itemId": "lp3.prefixes_suffixes.l1.A.suffix_less.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.prefixes_suffixes.l1.A.suffix_less.v11": {
+    "itemId": "lp3.prefixes_suffixes.l1.A.suffix_less.v11",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.prefixes_suffixes.l1.B.suffix_er_person.v8": {
+    "itemId": "lp3.prefixes_suffixes.l1.B.suffix_er_person.v8",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.prefixes_suffixes.l1.C.suffix_er_person.v9": {
+    "itemId": "lp3.prefixes_suffixes.l1.C.suffix_er_person.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.prefixes_suffixes.l1.A.suffix_er_person.v10": {
+    "itemId": "lp3.prefixes_suffixes.l1.A.suffix_er_person.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.prefixes_suffixes.l1.A.suffix_er_person.v11": {
+    "itemId": "lp3.prefixes_suffixes.l1.A.suffix_er_person.v11",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.prefixes_suffixes.l2.B.suffix_ing.v8": {
+    "itemId": "lp3.prefixes_suffixes.l2.B.suffix_ing.v8",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.prefixes_suffixes.l2.B.suffix_ed.v8": {
+    "itemId": "lp3.prefixes_suffixes.l2.B.suffix_ed.v8",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.prefixes_suffixes.l2.B.suffix_er_est.v8": {
+    "itemId": "lp3.prefixes_suffixes.l2.B.suffix_er_est.v8",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.prefixes_suffixes.l2.B.suffix_ly.v8": {
+    "itemId": "lp3.prefixes_suffixes.l2.B.suffix_ly.v8",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.antonyms_synonyms.l1.C.antonym_concrete.v9": {
+    "itemId": "lp3.antonyms_synonyms.l1.C.antonym_concrete.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.antonyms_synonyms.l1.A.antonym_concrete.v10": {
+    "itemId": "lp3.antonyms_synonyms.l1.A.antonym_concrete.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.antonyms_synonyms.l1.C.synonym_concrete.v9": {
+    "itemId": "lp3.antonyms_synonyms.l1.C.synonym_concrete.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.antonyms_synonyms.l1.A.synonym_concrete.v10": {
+    "itemId": "lp3.antonyms_synonyms.l1.A.synonym_concrete.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.antonyms_synonyms.l1.B.antonym_picture.v8": {
+    "itemId": "lp3.antonyms_synonyms.l1.B.antonym_picture.v8",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.antonyms_synonyms.l1.C.antonym_picture.v9": {
+    "itemId": "lp3.antonyms_synonyms.l1.C.antonym_picture.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.antonyms_synonyms.l1.B.synonym_picture.v8": {
+    "itemId": "lp3.antonyms_synonyms.l1.B.synonym_picture.v8",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.antonyms_synonyms.l1.C.synonym_picture.v9": {
+    "itemId": "lp3.antonyms_synonyms.l1.C.synonym_picture.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.antonyms_synonyms.l2.C.antonym_precise.v9": {
+    "itemId": "lp3.antonyms_synonyms.l2.C.antonym_precise.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.antonyms_synonyms.l2.A.antonym_precise.v10": {
+    "itemId": "lp3.antonyms_synonyms.l2.A.antonym_precise.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.antonyms_synonyms.l2.C.synonym_shade.v9": {
+    "itemId": "lp3.antonyms_synonyms.l2.C.synonym_shade.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.antonyms_synonyms.l2.A.synonym_shade.v10": {
+    "itemId": "lp3.antonyms_synonyms.l2.A.synonym_shade.v10",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.antonyms_synonyms.l2.B.antonym_in_context.v8": {
+    "itemId": "lp3.antonyms_synonyms.l2.B.antonym_in_context.v8",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.antonyms_synonyms.l2.C.antonym_in_context.v9": {
+    "itemId": "lp3.antonyms_synonyms.l2.C.antonym_in_context.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.antonyms_synonyms.l2.B.synonym_in_context.v8": {
+    "itemId": "lp3.antonyms_synonyms.l2.B.synonym_in_context.v8",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.antonyms_synonyms.l2.C.synonym_in_context.v9": {
+    "itemId": "lp3.antonyms_synonyms.l2.C.synonym_in_context.v9",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.homophones_homonyms.l1.C.sea_see.v6": {
+    "itemId": "lp3.homophones_homonyms.l1.C.sea_see.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.homophones_homonyms.l1.C.sun_son.v6": {
+    "itemId": "lp3.homophones_homonyms.l1.C.sun_son.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.homophones_homonyms.l1.C.be_bee.v6": {
+    "itemId": "lp3.homophones_homonyms.l1.C.be_bee.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.homophones_homonyms.l1.C.no_know.v6": {
+    "itemId": "lp3.homophones_homonyms.l1.C.no_know.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.homophones_homonyms.l1.C.one_won.v6": {
+    "itemId": "lp3.homophones_homonyms.l1.C.one_won.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.homophones_homonyms.l1.C.ate_eight.v6": {
+    "itemId": "lp3.homophones_homonyms.l1.C.ate_eight.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.homophones_homonyms.l1.C.hear_here.v6": {
+    "itemId": "lp3.homophones_homonyms.l1.C.hear_here.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.homophones_homonyms.l1.C.blue_blew.v6": {
+    "itemId": "lp3.homophones_homonyms.l1.C.blue_blew.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.homophones_homonyms.l2.C.to_two_too.v6": {
+    "itemId": "lp3.homophones_homonyms.l2.C.to_two_too.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.homophones_homonyms.l2.C.there_their.v6": {
+    "itemId": "lp3.homophones_homonyms.l2.C.there_their.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.homophones_homonyms.l2.C.right_write.v6": {
+    "itemId": "lp3.homophones_homonyms.l2.C.right_write.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.homophones_homonyms.l2.C.new_knew.v6": {
+    "itemId": "lp3.homophones_homonyms.l2.C.new_knew.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.homophones_homonyms.l2.C.hour_our.v6": {
+    "itemId": "lp3.homophones_homonyms.l2.C.hour_our.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.homophones_homonyms.l2.C.flower_flour.v6": {
+    "itemId": "lp3.homophones_homonyms.l2.C.flower_flour.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.homophones_homonyms.l2.C.would_wood.v6": {
+    "itemId": "lp3.homophones_homonyms.l2.C.would_wood.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.homophones_homonyms.l2.C.made_maid.v6": {
+    "itemId": "lp3.homophones_homonyms.l2.C.made_maid.v6",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sentence_comprehension.l2.R.two_clause.v11r": {
+    "itemId": "lp3.sentence_comprehension.l2.R.two_clause.v11r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sentence_comprehension.l2.A.two_clause.v20": {
+    "itemId": "lp3.sentence_comprehension.l2.A.two_clause.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sentence_comprehension.l2.A.two_clause.v21": {
+    "itemId": "lp3.sentence_comprehension.l2.A.two_clause.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sentence_comprehension.l2.A.pronoun_reference.v20": {
+    "itemId": "lp3.sentence_comprehension.l2.A.pronoun_reference.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sentence_comprehension.l2.A.best_restatement.v20": {
+    "itemId": "lp3.sentence_comprehension.l2.A.best_restatement.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sentence_comprehension.l2.A.two_clause.v22": {
+    "itemId": "lp3.sentence_comprehension.l2.A.two_clause.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sentence_comprehension.l2.A.pronoun_reference.v21": {
+    "itemId": "lp3.sentence_comprehension.l2.A.pronoun_reference.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sentence_comprehension.l2.A.best_restatement.v21": {
+    "itemId": "lp3.sentence_comprehension.l2.A.best_restatement.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sentence_comprehension.l2.A.best_restatement.v22": {
+    "itemId": "lp3.sentence_comprehension.l2.A.best_restatement.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.key_details.l2.A.detail_across_sentences.v20": {
+    "itemId": "lp3.key_details.l2.A.detail_across_sentences.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.key_details.l2.A.precise_detail.v20": {
+    "itemId": "lp3.key_details.l2.A.precise_detail.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.key_details.l2.A.which_is_not.v20": {
+    "itemId": "lp3.key_details.l2.A.which_is_not.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.key_details.l2.A.detail_across_sentences.v21": {
+    "itemId": "lp3.key_details.l2.A.detail_across_sentences.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.key_details.l2.A.precise_detail.v21": {
+    "itemId": "lp3.key_details.l2.A.precise_detail.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.key_details.l2.A.detail_across_sentences.v22": {
+    "itemId": "lp3.key_details.l2.A.detail_across_sentences.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.key_details.l2.A.which_is_not.v21": {
+    "itemId": "lp3.key_details.l2.A.which_is_not.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.key_details.l2.A.detail_across_sentences.v23": {
+    "itemId": "lp3.key_details.l2.A.detail_across_sentences.v23",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.key_details.l1.R.who.v20r": {
+    "itemId": "lp3.key_details.l1.R.who.v20r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sequencing.l1.A.first_event.v20": {
+    "itemId": "lp3.sequencing.l1.A.first_event.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sequencing.l1.A.middle_event.v20": {
+    "itemId": "lp3.sequencing.l1.A.middle_event.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sequencing.l1.A.last_event.v20": {
+    "itemId": "lp3.sequencing.l1.A.last_event.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sequencing.l1.A.first_event.v21": {
+    "itemId": "lp3.sequencing.l1.A.first_event.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sequencing.l1.A.middle_event.v21": {
+    "itemId": "lp3.sequencing.l1.A.middle_event.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sequencing.l1.A.last_event.v21": {
+    "itemId": "lp3.sequencing.l1.A.last_event.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sequencing.l1.A.first_event.v22": {
+    "itemId": "lp3.sequencing.l1.A.first_event.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sequencing.l1.A.middle_event.v22": {
+    "itemId": "lp3.sequencing.l1.A.middle_event.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sequencing.l1.R.last_event.v22r": {
+    "itemId": "lp3.sequencing.l1.R.last_event.v22r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sequencing.l1.R.first_event.v23r": {
+    "itemId": "lp3.sequencing.l1.R.first_event.v23r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sequencing.l2.A.before_after_relation.v20": {
+    "itemId": "lp3.sequencing.l2.A.before_after_relation.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sequencing.l2.A.implied_order.v20": {
+    "itemId": "lp3.sequencing.l2.A.implied_order.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sequencing.l2.A.process_order.v20": {
+    "itemId": "lp3.sequencing.l2.A.process_order.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sequencing.l2.A.before_after_relation.v21": {
+    "itemId": "lp3.sequencing.l2.A.before_after_relation.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sequencing.l2.A.implied_order.v21": {
+    "itemId": "lp3.sequencing.l2.A.implied_order.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sequencing.l2.A.process_order.v21": {
+    "itemId": "lp3.sequencing.l2.A.process_order.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sequencing.l2.A.before_after_relation.v22": {
+    "itemId": "lp3.sequencing.l2.A.before_after_relation.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.sequencing.l2.A.implied_order.v22": {
+    "itemId": "lp3.sequencing.l2.A.implied_order.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.main_idea.l1.A.mostly_about_info.v20": {
+    "itemId": "lp3.main_idea.l1.A.mostly_about_info.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.main_idea.l1.A.mostly_about_fiction.v20": {
+    "itemId": "lp3.main_idea.l1.A.mostly_about_fiction.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.main_idea.l1.A.mostly_about_everyday.v20": {
+    "itemId": "lp3.main_idea.l1.A.mostly_about_everyday.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.main_idea.l1.A.mostly_about_info.v21": {
+    "itemId": "lp3.main_idea.l1.A.mostly_about_info.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.main_idea.l1.A.mostly_about_fiction.v21": {
+    "itemId": "lp3.main_idea.l1.A.mostly_about_fiction.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.main_idea.l1.A.mostly_about_info.v23": {
+    "itemId": "lp3.main_idea.l1.A.mostly_about_info.v23",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.main_idea.l1.A.mostly_about_info.v22": {
+    "itemId": "lp3.main_idea.l1.A.mostly_about_info.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.main_idea.l1.A.mostly_about_fiction.v22": {
+    "itemId": "lp3.main_idea.l1.A.mostly_about_fiction.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.main_idea.l2.A.main_idea_vs_detail.v20": {
+    "itemId": "lp3.main_idea.l2.A.main_idea_vs_detail.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.main_idea.l2.A.summary_choice.v20": {
+    "itemId": "lp3.main_idea.l2.A.summary_choice.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.main_idea.l2.A.best_title.v20": {
+    "itemId": "lp3.main_idea.l2.A.best_title.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.main_idea.l2.A.main_idea_vs_detail.v21": {
+    "itemId": "lp3.main_idea.l2.A.main_idea_vs_detail.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.main_idea.l2.A.summary_choice.v21": {
+    "itemId": "lp3.main_idea.l2.A.summary_choice.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.main_idea.l2.A.best_title.v21": {
+    "itemId": "lp3.main_idea.l2.A.best_title.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.main_idea.l2.A.main_idea_vs_detail.v22": {
+    "itemId": "lp3.main_idea.l2.A.main_idea_vs_detail.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.main_idea.l2.A.summary_choice.v22": {
+    "itemId": "lp3.main_idea.l2.A.summary_choice.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l1.R.feeling_from_evidence.v9r": {
+    "itemId": "lp3.inference.l1.R.feeling_from_evidence.v9r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l1.R.feeling_from_evidence.v10r": {
+    "itemId": "lp3.inference.l1.R.feeling_from_evidence.v10r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l1.R.where_am_i.v9r": {
+    "itemId": "lp3.inference.l1.R.where_am_i.v9r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l1.R.where_am_i.v10r": {
+    "itemId": "lp3.inference.l1.R.where_am_i.v10r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l2.R.why_did_they.v9r": {
+    "itemId": "lp3.inference.l2.R.why_did_they.v9r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l2.R.why_did_they.v10r": {
+    "itemId": "lp3.inference.l2.R.why_did_they.v10r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l2.R.what_went_unsaid.v9r": {
+    "itemId": "lp3.inference.l2.R.what_went_unsaid.v9r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l2.R.what_went_unsaid.v10r": {
+    "itemId": "lp3.inference.l2.R.what_went_unsaid.v10r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l1.A.feeling_from_evidence.v20": {
+    "itemId": "lp3.inference.l1.A.feeling_from_evidence.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l1.A.feeling_from_evidence.v21": {
+    "itemId": "lp3.inference.l1.A.feeling_from_evidence.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l1.A.where_am_i.v20": {
+    "itemId": "lp3.inference.l1.A.where_am_i.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l1.A.what_happens_next.v20": {
+    "itemId": "lp3.inference.l1.A.what_happens_next.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l1.A.feeling_from_evidence.v22": {
+    "itemId": "lp3.inference.l1.A.feeling_from_evidence.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l1.A.feeling_from_evidence.v23": {
+    "itemId": "lp3.inference.l1.A.feeling_from_evidence.v23",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l1.A.where_am_i.v21": {
+    "itemId": "lp3.inference.l1.A.where_am_i.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l1.A.what_happens_next.v21": {
+    "itemId": "lp3.inference.l1.A.what_happens_next.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l2.A.why_did_they.v20": {
+    "itemId": "lp3.inference.l2.A.why_did_they.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l2.A.what_went_unsaid.v20": {
+    "itemId": "lp3.inference.l2.A.what_went_unsaid.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l2.A.evidence_pick.v20": {
+    "itemId": "lp3.inference.l2.A.evidence_pick.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l2.A.why_did_they.v21": {
+    "itemId": "lp3.inference.l2.A.why_did_they.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l2.A.what_went_unsaid.v21": {
+    "itemId": "lp3.inference.l2.A.what_went_unsaid.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l2.A.evidence_pick.v21": {
+    "itemId": "lp3.inference.l2.A.evidence_pick.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l2.A.why_did_they.v22": {
+    "itemId": "lp3.inference.l2.A.why_did_they.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.inference.l2.A.what_went_unsaid.v22": {
+    "itemId": "lp3.inference.l2.A.what_went_unsaid.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cause_effect.l1.A.find_cause.v20": {
+    "itemId": "lp3.cause_effect.l1.A.find_cause.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cause_effect.l1.A.find_effect.v20": {
+    "itemId": "lp3.cause_effect.l1.A.find_effect.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cause_effect.l1.A.because_sentence.v20": {
+    "itemId": "lp3.cause_effect.l1.A.because_sentence.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cause_effect.l1.A.find_cause.v21": {
+    "itemId": "lp3.cause_effect.l1.A.find_cause.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cause_effect.l1.A.find_effect.v21": {
+    "itemId": "lp3.cause_effect.l1.A.find_effect.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cause_effect.l1.A.because_sentence.v21": {
+    "itemId": "lp3.cause_effect.l1.A.because_sentence.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cause_effect.l1.A.find_cause.v22": {
+    "itemId": "lp3.cause_effect.l1.A.find_cause.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cause_effect.l1.A.find_effect.v22": {
+    "itemId": "lp3.cause_effect.l1.A.find_effect.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cause_effect.l2.A.chain.v20": {
+    "itemId": "lp3.cause_effect.l2.A.chain.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cause_effect.l2.A.multiple_causes.v20": {
+    "itemId": "lp3.cause_effect.l2.A.multiple_causes.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cause_effect.l2.A.reversal_trap.v20": {
+    "itemId": "lp3.cause_effect.l2.A.reversal_trap.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cause_effect.l2.A.chain.v21": {
+    "itemId": "lp3.cause_effect.l2.A.chain.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cause_effect.l2.A.multiple_causes.v21": {
+    "itemId": "lp3.cause_effect.l2.A.multiple_causes.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cause_effect.l2.A.chain.v22": {
+    "itemId": "lp3.cause_effect.l2.A.chain.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cause_effect.l2.A.reversal_trap.v21": {
+    "itemId": "lp3.cause_effect.l2.A.reversal_trap.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.cause_effect.l2.A.chain.v23": {
+    "itemId": "lp3.cause_effect.l2.A.chain.v23",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l1.R.definition_clue.v9r": {
+    "itemId": "lp3.context_clues.l1.R.definition_clue.v9r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l1.R.definition_clue.v10r": {
+    "itemId": "lp3.context_clues.l1.R.definition_clue.v10r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l1.R.example_clue.v9r": {
+    "itemId": "lp3.context_clues.l1.R.example_clue.v9r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l1.R.example_clue.v10r": {
+    "itemId": "lp3.context_clues.l1.R.example_clue.v10r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l2.R.synonym_clue.v9r": {
+    "itemId": "lp3.context_clues.l2.R.synonym_clue.v9r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l2.R.synonym_clue.v10r": {
+    "itemId": "lp3.context_clues.l2.R.synonym_clue.v10r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l2.R.antonym_contrast_clue.v9r": {
+    "itemId": "lp3.context_clues.l2.R.antonym_contrast_clue.v9r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l2.R.antonym_contrast_clue.v10r": {
+    "itemId": "lp3.context_clues.l2.R.antonym_contrast_clue.v10r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l1.A.definition_clue.v20": {
+    "itemId": "lp3.context_clues.l1.A.definition_clue.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l1.A.example_clue.v20": {
+    "itemId": "lp3.context_clues.l1.A.example_clue.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l1.A.action_clue.v20": {
+    "itemId": "lp3.context_clues.l1.A.action_clue.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l1.A.example_clue.v21": {
+    "itemId": "lp3.context_clues.l1.A.example_clue.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l1.A.action_clue.v21": {
+    "itemId": "lp3.context_clues.l1.A.action_clue.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l1.A.definition_clue.v21": {
+    "itemId": "lp3.context_clues.l1.A.definition_clue.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l1.A.example_clue.v22": {
+    "itemId": "lp3.context_clues.l1.A.example_clue.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l1.A.action_clue.v22": {
+    "itemId": "lp3.context_clues.l1.A.action_clue.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l2.A.synonym_clue.v20": {
+    "itemId": "lp3.context_clues.l2.A.synonym_clue.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l2.A.antonym_contrast_clue.v20": {
+    "itemId": "lp3.context_clues.l2.A.antonym_contrast_clue.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l2.A.inference_clue.v20": {
+    "itemId": "lp3.context_clues.l2.A.inference_clue.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l2.A.inference_clue.v21": {
+    "itemId": "lp3.context_clues.l2.A.inference_clue.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l2.A.antonym_contrast_clue.v21": {
+    "itemId": "lp3.context_clues.l2.A.antonym_contrast_clue.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l2.A.synonym_clue.v21": {
+    "itemId": "lp3.context_clues.l2.A.synonym_clue.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l2.A.inference_clue.v22": {
+    "itemId": "lp3.context_clues.l2.A.inference_clue.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.context_clues.l2.A.inference_clue.v23": {
+    "itemId": "lp3.context_clues.l2.A.inference_clue.v23",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l1.R.lesson_mistake_fixed.v9r": {
+    "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_mistake_fixed.v9r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v10r": {
+    "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v10r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l1.R.lesson_effort_pays.v9r": {
+    "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_effort_pays.v9r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l1.R.lesson_mistake_fixed.v10r": {
+    "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_mistake_fixed.v10r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l2.R.theme_among_rivals.v9r": {
+    "itemId": "lp3.theme_higher_comprehension.l2.R.theme_among_rivals.v9r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l2.R.theme_among_rivals.v10r": {
+    "itemId": "lp3.theme_higher_comprehension.l2.R.theme_among_rivals.v10r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l2.R.theme_vs_plot.v9r": {
+    "itemId": "lp3.theme_higher_comprehension.l2.R.theme_vs_plot.v9r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l2.R.theme_vs_plot.v10r": {
+    "itemId": "lp3.theme_higher_comprehension.l2.R.theme_vs_plot.v10r",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v20": {
+    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v20": {
+    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v20": {
+    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v21": {
+    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v21": {
+    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v21": {
+    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v22": {
+    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v22": {
+    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v20": {
+    "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v20": {
+    "itemId": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l2.A.apply_theme.v20": {
+    "itemId": "lp3.theme_higher_comprehension.l2.A.apply_theme.v20",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v21": {
+    "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v21": {
+    "itemId": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l2.A.apply_theme.v21": {
+    "itemId": "lp3.theme_higher_comprehension.l2.A.apply_theme.v21",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v22": {
+    "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
+  },
+  "lp3.theme_higher_comprehension.l2.A.apply_theme.v22": {
+    "itemId": "lp3.theme_higher_comprehension.l2.A.apply_theme.v22",
+    "role": "text-only",
+    "paths": [],
+    "constructReview": "approved",
+    "answerNeutral": "approved"
   }
 });

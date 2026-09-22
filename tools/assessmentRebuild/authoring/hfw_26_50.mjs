@@ -1,7 +1,8 @@
 // HFW Band 2 (words 26–50) — v3 authored bank (wave W7, paired with hfw_1_25).
 // Same architecture as band 1 (see hfw_1_25.mjs header). Band-2 particulars:
-//   - their/there is an IN-BAND homophone pair — D-HOMOPHONE is live in both
-//     directions, plus the they/their and there/then visual-dev slips.
+//   - their/there are contrasted only in a complete sentence. An isolated
+//     recording cannot distinguish homophones, so audio-find options do not
+//     contain a homophone of the target.
 //   - said/each/which carry the classic irregular spellings; the L2 letter
 //     banks always include the tempting phonetic letters (said → sed's e,
 //     one → wun's w, what → wot's o).
@@ -101,7 +102,7 @@ export default {
     rf("but", 1, 1, 3, ["but", "bat", "bus", "cut"], [VN, VN, VN]),
     cz("by", 1, 1, 1, "Ben won the race ___ one step.", ["by", "at", "on", "in"], [FS, FS, FS]),
     cz("by", 1, 1, 2, "The jar missed the shelf ___ an inch.", ["by", "from", "at", "with"], [FS, FS, FS]),
-    rf("by", 1, 1, 3, ["by", "my", "buy", "be"], [VN, HM, VN]),
+    rf("by", 1, 1, 3, ["by", "my", "boy", "be"], [VN, VN, VN]),
     cz("can", 1, 1, 1, "Mia learned to swim; now she ___ swim.", ["can", "is", "have", "was"], [DV, DV, DV]),
     cz("can", 1, 1, 2, "The twins learned the song; they ___ sing it.", ["can", "are", "is", "had"], [DV, DV, DV]),
     rf("can", 1, 1, 3, ["can", "cat", "cap", "ran"], [VN, VN, VN]),
@@ -139,10 +140,10 @@ export default {
     rf("she", 1, 2, 3, ["she", "he", "see", "sheep"], [VN, VN, VN]),
     cz("their", 1, 2, 1, "The twins flew ___ own kite.", ["their", "there", "they", "the"], [HM, DV, DV]),
     cz("their", 1, 2, 2, "The cubs slept in ___ own den.", ["their", "there", "they", "this"], [HM, DV, DV]),
-    rf("their", 1, 2, 3, ["their", "there", "they", "then"], [HM, VN, VN]),
+    rf("their", 1, 2, 3, ["their", "three", "they", "then"], [VN, VN, VN]),
     cz("there", 1, 2, 1, "We walked to the pond and rested ___.", ["there", "their", "they", "your"], [HM, DV, DV]),
     cz("there", 1, 2, 2, "Leave your shoes by the door, right ___.", ["there", "their", "they", "that"], [HM, DV, DV]),
-    rf("there", 1, 2, 3, ["there", "their", "then", "three"], [HM, VN, VN]),
+    rf("there", 1, 2, 3, ["there", "these", "then", "three"], [VN, VN, VN]),
     cz("use", 1, 2, 1, "Every day, we ___ soap to wash.", ["use", "said", "were", "do"], [FS, FS, FS]),
     cz("use", 1, 2, 2, "Now we ___ brushes to paint.", ["use", "do", "are", "said"], [FS, FS, FS]),
     rf("use", 1, 2, 3, ["use", "us", "fuse", "up"], [VN, VN, VN]),
@@ -151,7 +152,7 @@ export default {
     rf("we", 1, 2, 3, ["we", "me", "be", "wet"], [VN, VN, VN]),
     cz("were", 1, 2, 1, "Yesterday, the shops ___ shut; today they are open.", ["were", "are", "was", "is"], [FS, DV, DV]),
     cz("were", 1, 2, 2, "At the vet yesterday, you ___ very brave.", ["were", "was", "are", "be"], [DV, FS, DV]),
-    rf("were", 1, 2, 3, ["were", "where", "we", "her"], [VN, VN, VN]),
+    rf("were", 1, 2, 3, ["were", "wore", "we", "her"], [VN, VN, VN]),
     cz("what", 1, 2, 1, "___ a huge splash the rock made!", ["what", "when", "how", "which"], [FS, FS, FS]),
     cz("what", 1, 2, 2, "___ fun we had at the park!", ["what", "when", "which", "if"], [FS, FS, DV]),
     rf("what", 1, 2, 3, ["what", "that", "when", "hat"], [VN, VN, VN]),
@@ -160,7 +161,7 @@ export default {
     rf("when", 1, 2, 3, ["when", "then", "hen", "what"], [VN, VN, VN]),
     cz("which", 1, 2, 1, "___ hat do you want: red or blue?", ["which", "when", "if", "that"], [FS, FS, DV]),
     cz("which", 1, 2, 2, "___ path is shorter: left or right?", ["which", "how", "when", "if"], [FS, FS, DV]),
-    rf("which", 1, 2, 3, ["which", "witch", "with", "wish"], [HM, VN, VN]),
+    rf("which", 1, 2, 3, ["which", "when", "with", "wish"], [VN, VN, VN]),
     cz("words", 1, 2, 1, "Mia wrote five ___ on the card.", ["words", "all", "each", "one"], [DV, DV, DV]),
     cz("words", 1, 2, 2, "Ten letters form three ___ on this page.", ["words", "all", "each", "that"], [DV, DV, DV]),
     rf("words", 1, 2, 3, ["words", "word", "works", "birds"], [VN, VN, VN]),
@@ -234,7 +235,7 @@ export default {
     lb("which", 2, 2, 2, "Pick ___ game we play.", ["w", "h", "i", "c", "h", "t"]),
     sp("words", 2, 2, 1, "Rhyming ___ end the same.", ["w", "o", "r", "d", "s", "u"],
       "wurds — the u is present and tempting"),
-    lb("words", 2, 2, 2, "Long ___ need long tiles.", ["w", "o", "r", "d", "s", "u"]),
+    lb("words", 2, 2, 2, "We read these ___ together.", ["w", "o", "r", "d", "s", "u"]),
     sp("your", 2, 2, 1, "Tie ___ laces up tight.", ["y", "o", "u", "r", "e"],
       "yor — building without the u is the tempting path"),
     lb("your", 2, 2, 2, "Bring ___ kit on Monday.", ["y", "o", "u", "r", "e"]),
@@ -244,7 +245,7 @@ export default {
     cz("their", 1, 2, 7, "The ants built ___ own nest.", ["their", "there", "they", "a"], [HM, DV, DV]),
     cz("were", 1, 2, 7, "The buns ___ warm yesterday; now they are cold.", ["were", "was", "are", "had"], [DV, FS, DV]),
     cz("one", 1, 1, 7, "Exactly ___ of five buns remains.", ["one", "the", "an", "this"], [DV, DV, DV]),
-    rf("which", 1, 2, 7, ["which", "witch", "wish", "when"], [HM, VN, VN], "", "point"),
+    rf("which", 1, 2, 7, ["which", "while", "wish", "when"], [VN, VN, VN], "", "point"),
     rf("all", 1, 1, 7, ["all", "tall", "ball", "ill"], [VN, VN, VN], "", "point"),
     sp("there", 2, 2, 7, "Sit ___ by the window.", ["t", "h", "e", "r", "e", "i"]),
     lb("said", 2, 2, 7, "Who ___ that?", ["s", "a", "i", "d", "e"]),

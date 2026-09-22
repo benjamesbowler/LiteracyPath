@@ -52,6 +52,35 @@ function syncItemDecision(input) {
   return rebuild.syncItemMediaDecision(input);
 }
 
+test("new questions require an explicit content-review receipt and separate image approval", () => {
+  const input = {
+    item: { id: "lp3.new.l1.A.x.v1", imageCards: [{ word: "cat" }, { label: "dog" }] },
+    authoredItem: { cards: ["cat", "dog"] },
+    actualPaths: ["/cat.webp", "/dog.webp"]
+  };
+  assert.throws(() => syncItemDecision(input), /no reviewed media decision/);
+  assert.throws(() => syncItemDecision({ ...input, reviewedNewItem: true }), /without direct visual approval/);
+  const result = syncItemDecision({ ...input, reviewedNewItem: true, styleDecisions: {
+    "/cat.webp": { visualReview: "approved" }, "/dog.webp": { visualReview: "approved" }
+  } });
+  assert.equal(result.role, "answer-cards");
+  assert.deepEqual(result.paths, ["/cat.webp", "/dog.webp"]);
+  assert.equal(result.alt, "Picture choices: cat, dog");
+});
+
+test("authored replacement art cannot be overwritten by a stale support decision", () => {
+  withTextOnlyDecision(decision => {
+    Object.assign(decision, { role: "construct-support", paths: ["/stale.webp"], alt: "stale" });
+    const item = rebuild.expandItem(rawItem({ img: "new-cat", imgAlt: "A cat", media: "image-required" }),
+      { skillId: "adjectives" }, () => "/new-cat.webp");
+    assert.equal(item.imagePath, "/new-cat.webp");
+    assert.equal(item.imageAlt, "A cat");
+    const audio = rebuild.expandItem(rawItem({ media: "audio-required", target: "cat" }), { skillId: "adjectives" }, () => "/stale.webp");
+    assert.equal(audio.imagePath, undefined);
+    assert.equal(audio.v3AuthoredMedia.target, false);
+  });
+});
+
 test("expandItem keeps a text-only decision free of injected visual support", () => {
   withTextOnlyDecision(decision => {
     const item = rebuild.expandItem(
@@ -300,13 +329,14 @@ test("sync retains strict direct-review checks for visual decisions", () => {
   };
 
   assert.deepEqual(syncItemDecision({
-    item: { id: decision.itemId, imagePath: assetPath },
+    item: { id: decision.itemId, imagePath: assetPath, imageAlt: "A cat beside a tree" },
     authoredItem: { media: "image-required", img: "reviewed" },
     decision,
     actualPaths: [assetPath],
     styleDecisions: { [assetPath]: { path: assetPath } }
   }), {
     ...decision,
+    alt: "A cat beside a tree",
     paths: [assetPath]
   });
 
@@ -317,6 +347,37 @@ test("sync retains strict direct-review checks for visual decisions", () => {
     actualPaths: [assetPath],
     styleDecisions: {}
   }), /uses art without direct visual approval/);
+});
+
+test("visual decisions need a real description, including newly promoted text-only items", () => {
+  const assetPath = "/images/assessment/reviewed.webp";
+  const input = {
+    item: { id: "lp3.test.l1.A.unit.v1", imagePath: assetPath },
+    authoredItem: { media: "image-required", img: "reviewed" },
+    actualPaths: [assetPath],
+    styleDecisions: { [assetPath]: { visualReview: "approved" } }
+  };
+  assert.throws(() => syncItemDecision({ ...input, reviewedNewItem: true }),
+    /lacks an authored visual description/);
+  for (const role of ["target-or-scene", "text-only"]) {
+    assert.throws(() => syncItemDecision({ ...input, decision: {
+      itemId: input.item.id, role, paths: role === "text-only" ? [] : [assetPath],
+      constructReview: "approved", answerNeutral: "approved"
+    } }), /lacks an authored visual description/);
+  }
+});
+
+test("promoted answer cards describe their actual pictured choices", () => {
+  const itemId = "lp3.test.l1.A.unit.v1";
+  const result = syncItemDecision({
+    item: { id: itemId, imageCards: [{ imageAlt: "A striped cat", word: "cat" }, { word: "dog" }] },
+    authoredItem: { media: "image-required", cards: ["cat", "dog"] },
+    decision: { itemId, role: "text-only", paths: [], constructReview: "approved", answerNeutral: "not-applicable-text-only" },
+    actualPaths: ["/cat.webp", "/dog.webp"],
+    styleDecisions: { "/cat.webp": { visualReview: "approved" }, "/dog.webp": { visualReview: "approved" } }
+  });
+  assert.equal(result.role, "answer-cards");
+  assert.equal(result.alt, "Picture choices: A striped cat, dog");
 });
 
 test("sync fails closed when text-only authoring still declares visual fields", () => {
