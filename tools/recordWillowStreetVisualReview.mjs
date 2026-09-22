@@ -6,6 +6,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { getRuntimeGuidedReadingBooks } from "../src/utils/guidedReading/runtimeBooks.js";
+import { GUIDED_READING_IMAGE_REVISIONS } from "../src/data/generated/guidedReadingImageRevisions.generated.js";
+import { mergeWillowImageRevisions } from "./guidedReadingImageRevisionsLib.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const reviewedAtIndex = process.argv.indexOf("--reviewed-at");
@@ -62,10 +64,7 @@ if (manifestAssets.length !== 180) {
 
 const assetByPath = new Map(manifestAssets.map(asset => [asset.path, asset]));
 if (assetByPath.size !== manifestAssets.length) throw new Error("Willow Street review contains duplicate asset paths.");
-const revisions = Object.fromEntries(manifestAssets.filter(asset => asset.cacheVersion).map(asset => {
-  if (asset.cacheVersion !== asset.sha256.slice(0, 12)) throw new Error("Invalid image cache version: " + asset.path);
-  return [asset.path, asset.cacheVersion];
-}).sort(([left], [right]) => left.localeCompare(right)));
+const revisions = mergeWillowImageRevisions(GUIDED_READING_IMAGE_REVISIONS, manifestAssets);
 
 const books = getRuntimeGuidedReadingBooks().filter(book => book.collection === "Willow Street Readers");
 if (books.length !== 20) throw new Error(`Expected 20 Willow Street books, found ${books.length}.`);
