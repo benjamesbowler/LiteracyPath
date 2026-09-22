@@ -1,3 +1,4 @@
+import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
 import { useEffect, useRef } from "react";
 import "./LetterLeapGame.css";
 import { CAST, HEROES } from "../../../../features/soundSeekers/v3/content/cast.js";
@@ -200,6 +201,7 @@ function letterLeapGroundHeight(height) {
 }
 
 function startGame(mount, opts) {
+  const blenderWorld = createBlenderWorldSprite("letter-leap", mount);
   const world = worldForGameDifficulty(opts.difficulty);
   const theme = WORLD_THEME[world] || WORLD_THEME.meadow;
   mount.dataset.world = world;
@@ -1281,6 +1283,10 @@ function startGame(mount, opts) {
       drawDepthScenery(t);
       treeRow(theme.treeDark, 0.2, groundY() + 6, 150, 90, 0.28); treeRow(theme.tree, 0.45, groundY() + 14, 220, 140, 0.6);
     }
+    const landmarkSize = Math.min(330, H * .67);
+    const landmarkX = W * .62 - ((cam * .18) % (W + landmarkSize));
+    blenderWorld.draw(ctx, landmarkX, groundY() - landmarkSize * .94, landmarkSize, landmarkSize, t, { reducedMotion: reduceMotion, paused: paused || !running, opacity: .92 });
+    blenderWorld.draw(ctx, landmarkX + W + landmarkSize, groundY() - landmarkSize * .94, landmarkSize, landmarkSize, t, { reducedMotion: reduceMotion, paused: paused || !running, opacity: .92 });
     for (const s of spores) { const sx = ((s.x - cam * 0.5) % (W + 60) + W + 60) % (W + 60) - 30; const sy = reduceMotion ? s.y : s.y + Math.sin(t * 0.8 + s.ph) * 14; ctx.globalAlpha = 0.5; ctx.fillStyle = theme.moon ? "#ffe9a0" : "#ffffff"; ctx.beginPath(); ctx.arc(sx, sy, s.s, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
     const shx = (shakeT > 0 && !reduceMotion) ? (Math.random() - 0.5) * 6 * (shakeT / 0.22) : 0;
     const shy = (shakeT > 0 && !reduceMotion) ? (Math.random() - 0.5) * 6 * (shakeT / 0.22) : 0;
@@ -1387,6 +1393,7 @@ function startGame(mount, opts) {
   function resume() { if (!paused || onboarding) return; paused = false; last = performance.now(); frameAccumulator = 0; if (savedRunning) running = true; }
 
   function teardown() {
+    blenderWorld.dispose();
     running = false;
     delete mount.__letterLeapSnapshot;
     closeOverlayDialog();

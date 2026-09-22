@@ -3,6 +3,13 @@ import { expect, test } from '@playwright/test';
 const snapshot = page => page.evaluate(() => window.__sentenceGroveSnapshot?.());
 
 test('Sentence Grove shows the actual cat and keeps movement live with sound off', async ({ page }) => {
+  // Use the authored deck without replacing randomness used by the renderer.
+  await page.addInitScript(() => {
+    const key = 'literacy-guide-learn-games:fullscreen-overlay-preview';
+    if (!localStorage.getItem(key)) localStorage.setItem(key, JSON.stringify({
+      games: { 'star-gallery': { checkpoints: { easy: { level: 0, totalLevels: 10, sessionSeed: 0 } } } }
+    }));
+  });
   await page.goto('/preview/game-overlay.html?game=star-gallery&sound=0&music=0');
   const picture = page.locator('[data-role="picture-image"]');
   await expect(picture).toHaveAttribute('alt', 'A cat');

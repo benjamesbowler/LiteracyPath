@@ -1,3 +1,4 @@
+import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
 import { useEffect, useRef } from "react";
 import { soundSafariLayout } from "../../../../utils/soundSafariLayout.js";
 import {
@@ -1077,7 +1078,7 @@ function drawWordClear(ctx, state, theme, w, h) {
   ctx.restore();
 }
 
-function drawSafari(ctx, state, config, theme, images, w, h) {
+function drawSafari(ctx, state, config, theme, images, w, h, blenderWorld, reduceMotion) {
   const task = state.currentTask;
   if (!task) return;
   // Easy always shows the needed sound; medium/hard reveal it only as an
@@ -1088,6 +1089,8 @@ function drawSafari(ctx, state, config, theme, images, w, h) {
   drawWorldGeometry(ctx, state, theme, w, h, "back");
   drawWorldMotion(ctx, state, theme, w, h);
   drawWorldGeometry(ctx, state, theme, w, h, "front");
+  const campSize = Math.min(290, h * .5);
+  blenderWorld?.draw(ctx, w - campSize * .96, h * .86 - campSize, campSize, campSize, state.time, { reducedMotion: reduceMotion, paused: state.paused, opacity: .87 });
   drawFieldGuide(ctx, task, theme, w, h, showHint, state.coachT ? state.coachText : "");
   const palSprite = images.pals[state.level?.world] || images.pals.meadow;
   for (const critter of [...state.critters].sort((a, b) => (a.hitY || a.y) - (b.hitY || b.y))) {
@@ -1118,6 +1121,7 @@ function drawSafari(ctx, state, config, theme, images, w, h) {
 }
 
 function startSoundSafariArcadeGame(mount, options) {
+  const blenderWorld = createBlenderWorldSprite("sound-safari", mount);
   const config = CONFIG[options.kind] || CONFIG["sound-safari"];
   const ladder = config.ladder(options.difficulty, options.sessionSeed);
   const images = {
@@ -1579,7 +1583,7 @@ function startSoundSafariArcadeGame(mount, options) {
       drawFallback(ctx, w, h, activeTheme, state.time, renderProfile.effectScale);
     }
     drawSceneLighting(ctx, w, h, activeTheme, renderProfile);
-    drawSafari(ctx, state, config, activeTheme, images, w, h);
+    drawSafari(ctx, state, config, activeTheme, images, w, h, blenderWorld, reduceMotion);
     drawHud(ctx, state, config, activeTheme, w, h);
     drawCountdown(ctx, state, config, activeTheme, w, h);
 
@@ -1604,6 +1608,7 @@ function startSoundSafariArcadeGame(mount, options) {
       loop.reset();
     },
     destroy() {
+      blenderWorld.dispose();
       state.ended = true;
       loop.cancel();
       resizeObserver.disconnect();

@@ -1,3 +1,4 @@
+import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
 import { createRhythmClock, nextPhraseBeat } from "../../../../utils/audio/rhythmClock.js";
 import { soundBeatLayout } from "../shared/soundBeatLayout.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
@@ -395,7 +396,7 @@ function totalUnits(kind, ladder) {
   return ladder.reduce((sum, level) => sum + makeTasks(kind, level).reduce((inner, task) => inner + taskUnits(kind, task), 0), 0);
 }
 
-function drawBeat(ctx, state, config, w, h, now) {
+function drawBeat(ctx, state, config, w, h, now, blenderWorld, reduceMotion) {
   const task = state.currentTask;
   if (!task) return;
   const item = task.item;
@@ -405,6 +406,8 @@ function drawBeat(ctx, state, config, w, h, now) {
 
   ctx.save();
   drawBeatBackdrop(ctx, state, config, w, h);
+  const stageSize = Math.min(310, h * .59, w * .35);
+  blenderWorld?.draw(ctx, w * .12 - stageSize / 2, h * .68 - stageSize, stageSize, stageSize, state.time, { reducedMotion: reduceMotion, paused: state.paused, opacity: 1, phase: state.beatPulse || 0 });
   for (let index = 0; index < (state.performers?.length || 0); index += 1) {
     const actor = state.performers[index];
     if (!actor.complete || !actor.naturalWidth) continue;
@@ -472,6 +475,7 @@ function drawBeat(ctx, state, config, w, h, now) {
 }
 
 function startPs1ArcadeGame(mount, options) {
+  const blenderWorld = createBlenderWorldSprite("sound-beat", mount);
   const config = CONFIG[options.kind] || CONFIG["sound-beat"];
   const ladder = config.ladder(options.difficulty, options.sessionSeed);
   const total = totalUnits(options.kind, ladder);
@@ -888,7 +892,7 @@ function startPs1ArcadeGame(mount, options) {
     ctx.save();
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     if (!drawCover(ctx, image, w, h)) drawFallback(ctx, w, h, config, state.time);
-    drawBeat(ctx, state, config, w, h, now);
+    drawBeat(ctx, state, config, w, h, now, blenderWorld, reduceMotion);
     drawSoundBeatHud(ctx, state, config, w, h);
     drawCountdown(ctx, state, config, w, h);
     ctx.restore();
@@ -920,6 +924,7 @@ function startPs1ArcadeGame(mount, options) {
       ensureMusic();
     },
     destroy() {
+      blenderWorld.dispose();
       state.ended = true;
       voiceController?.abort();
       stopMusic();

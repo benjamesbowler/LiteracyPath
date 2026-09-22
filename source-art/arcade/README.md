@@ -1,38 +1,67 @@
 # Blender Arcade world kit
 
-`Arcade-worlds.blend` is the editable source. Each named scene contains semantic
-parts, non-destructive edge modifiers, a delivery camera and three area lights.
-`tools/blender/build_arcade_assets.py` reproduces the source, compact GLB exports,
-and the generated asset/provenance manifest. Review renders go to ignored
-`.artifacts/blender-arcade/`. Run the script with the installed Blender executable
-in background mode. The GLBs alone are deployed; the source is retained here.
+`Arcade-worlds.blend` is the editable source for all 13 current Arcade games.
+Its 21 named scenes retain semantic parts, non-destructive edge modifiers,
+delivery cameras, lights and independently editable animated details.
 
-The three worlds also receive distinct foliage: rounded woodland copses with
-wildflowers, broad cycad fronds and luminous mushroom groves.
+| Arcade game | Blender delivery | Motion |
+| --- | --- | --- |
+| Sound Racer | Meadow windmills/copses, Dino fossil arches/cycads, Moonwood observatories/mushrooms | Rotating windmill sails |
+| Rocket Run | Courier craft, observatories, solar outposts, crystal asteroids | Existing flight, banking, boost and corridor movement |
+| Letter Leap | Treetop burrows | Hanging lantern |
+| Word Climb | Branch-supported cloud lookouts | Hanging lantern |
+| Word Bridge | Bank-side construction workshop | Suspended tool counterweight |
+| Sound Beat | Percussion pavilion | Cymbals follow successful beat pulses |
+| Rhyme Pop | Festival pavilion | Pennant movement |
+| Sound Safari | Canopy field station | Hanging field lantern |
+| Reel & Read | Harbour waterwheel | Turning wheel |
+| Sentence Grove | Orchard greenhouses | Turning weather vanes |
+| Sentence Express | Station and clock tower | Clock hand |
+| Spell & Skate | Sheltered park pavilions | Turning weather vanes |
+| SoundKeys | Resonance instrument | Pendulum responds during playing and celebration |
 
-The authored forms use rounded manufactured edges, ivory/teal/coral rocket
-bodywork, warm plaster and timber in Meadow, exposed stone and fossils in Dino,
-and a lantern observatory in Moonwood. Space observatories, solar outposts and
-crystalline asteroids provide distinct silhouettes beside Rocket Run's lanes.
-The rocket has a sculpted fuselage, swept wings, cockpit, independent nacelles
-and a dorsal stabiliser; the game supplies banking, boost, catch and engine
-animation from its existing simulation.
+## Rebuild and delivery
 
-Sound Racer uses instanced landmarks outside the current road-clearance envelope.
-The windmill rotor has its own centred export pivot and turns during active play;
-pause and reduced motion stop its motion. Kerbs, road, literacy gates, the existing
-Pip driver and collision/evidence rules stay owned by their current modules.
-Rocket Run streams the new scenery through its existing quality tiers and keeps
-its complete procedural corridor and craft available during asset failure.
+Run `tools/blender/build_arcade_assets.py` with the installed Blender executable
+in background mode. It loads `arcade_world_extensions.py` and invokes
+`pack_arcade_frames.py` using `python3` with Pillow installed. The packer only
+assembles frames: all geometry, lighting, surfaces and animation are rendered
+by Blender. Review renders go to ignored `.artifacts/blender-arcade/`.
 
-All ten assets are original geometry authored locally in Blender for this
-project, with no external model, texture or character inputs. Rights follow the
-project's terms; this is not a third-party CC0 pack. The generated runtime
-manifest records byte sizes, hashes, axes, tool version and reproducible source.
-Material-merged runtime meshes have no external texture/buffer dependencies.
+The native 3D games load compact GLBs. The eight canvas/DOM games load transparent
+WebP animation atlases instead of adding another WebGL context. Each atlas has
+24 registered 384px frames, arranged in four columns, covering a four-second
+Blender animation at six frames per second. Every new landmark also retains its
+animated GLB as a reusable native export. The editable `.blend` stays outside
+the deployed public directory.
 
-Validate with the Blender asset unit checks, existing Sound Racer production and
-circuit checks, Rocket Run controls/audio checks and Arcade rendering checks.
-Inspect actual game frames in all three Sound Racer worlds, Rocket Run, reduced
-motion and failed loads. Browser verification does not establish physical iPad,
+The generated manifest records per-file sizes/hashes, axes, animation pivots,
+Blender version and hashes of all three authoring inputs. All 21 models are
+original project-authored geometry with no external model, texture or character
+inputs. Rights follow the project's terms; this is not a third-party CC0 pack.
+GLBs have no external texture/buffer dependencies.
+
+## Runtime boundaries
+
+The existing characters, answer targets, physical routes, collisions, scoring,
+feedback and audio remain owned by their current games. Landmarks sit outside
+physical 3D play areas; Word Climb's lookouts have visible branch supports.
+Sound Racer uses instanced models outside its road-clearance envelope. The
+Rocket Run craft retains its complete procedural fallback during asset failure.
+
+Sprite animation follows active game time, with no independent game timer.
+Pause freezes the details and reduced-motion mode suppresses their animation.
+Sound Beat uses its existing beat pulse; SoundKeys animates during performance.
+Native landmark scopes release shared model resources once, and both loaders
+discard late results after leaving. Failed decorative loads leave the original
+playfield and controls available.
+
+## Verification
+
+Run `tests/unit/arcadeBlenderAssets.test.js` for complete Arcade coverage,
+authoring/export provenance, real animation tracks, loader failure, pause,
+reduced motion and disposal. Exercise each affected game's existing browser
+checks, the mobile-layout profile and direct play. Inspect actual game frames
+at tablet and small-screen sizes; inspect motion in the saved Blender project
+and in the games. Browser verification does not establish physical iPad,
 human listening or observed-child results.

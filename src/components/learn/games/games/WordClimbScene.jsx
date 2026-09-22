@@ -1,3 +1,4 @@
+import { createBlenderLandmarks } from '../shared/arcadeBlenderLandmarks.js';
 import { GAME_RECOVERY_URLS, loadGameRecoveryBytes } from '../../../../utils/gameRecoveryAssets.js';
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
@@ -40,6 +41,8 @@ export default function WordClimbScene({ world }) {
     const contactShadow=new THREE.Mesh(new THREE.CircleGeometry(1,24),new THREE.MeshBasicMaterial({color:0x172c28,transparent:true,opacity:.34,depthWrite:false}));contactShadow.name="Pip-ledge-contact-shadow";scene.add(contactShadow);
     const vine=new THREE.Mesh(new THREE.BufferGeometry(),new THREE.MeshStandardMaterial({color:0xd2bb7f,roughness:.85}));vine.name="contact-following-safety-vine";vine.visible=false;scene.add(vine);
     const windLeaves=Array.from({length:4},()=>{const leaf=new THREE.Mesh(new THREE.SphereGeometry(1,8,4),new THREE.MeshStandardMaterial({color:0xbed488,roughness:1}));leaf.scale.set(4,1.3,.7);leaf.visible=world.journey?.stageIndex%3===1;scene.add(leaf);return leaf;});
+    let landmarks;
+    host.dataset.blenderWorld = "word-climb";
     const actions = new Map();
     const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     try {
@@ -55,6 +58,16 @@ export default function WordClimbScene({ world }) {
       if(foreground){scene.remove(foreground);disposeObject(foreground);}
       foreground=createClimbForeground(viewWidth,metrics.viewHeight);scene.add(foreground);
       hero.scale.setScalar(metrics.heroPixels*metrics.viewHeight/height/2.56);
+      landmarks?.dispose();
+      const ascent = world.summitHeight || world.summit * 210;
+      landmarks = createBlenderLandmarks("word-climb", Array.from({ length: Math.min(16, Math.ceil(ascent / 450)) }, (_, i) => ({ x: (i % 2 ? -1 : 1) * viewWidth * .35, y: 30 + i * 450, z: -125, height: 135, yaw: i % 2 ? -.15 : .15 })));
+      scene.add(landmarks.root);
+      for (let i = 0; i < Math.min(16, Math.ceil(ascent / 450)); i++) {
+        const x = (i % 2 ? -1 : 1) * viewWidth * .35, y = 30 + i * 450;
+        const branch = new THREE.CatmullRomCurve3([new THREE.Vector3(0, y + 65, -125), new THREE.Vector3(x * .65, y + 10, -125), new THREE.Vector3(x, y + 3, -125)]);
+        const support = new THREE.Mesh(new THREE.TubeGeometry(branch, 12, 5, 6, false), new THREE.MeshStandardMaterial({ color: 0x735332, roughness: .95 }));
+        support.name = 'Lookout supporting branch'; kit.add(support);
+      }
     }
     resize();observer=new ResizeObserver(resize);observer.observe(host);
     const loader=new GLTFLoader();
@@ -75,6 +88,7 @@ export default function WordClimbScene({ world }) {
     function tick(time){
       const dt=last===null?0:Math.min(.05,(time-last)/1000);last=time;
       if(!world.paused){
+        landmarks?.update(dt, { reducedMotion });
         const next=clipFor(world);
         if(mixer && activeClip!==next){
           const before=actions.get(activeClip),after=actions.get(next);
@@ -110,6 +124,8 @@ export default function WordClimbScene({ world }) {
         light.position.y=world.camera+250;fill.position.y=world.camera+30;
         light.target.position.y=world.camera+100;fill.target.position.y=world.camera+100;
       }
+      host.dataset.blenderWorldState = landmarks?.root.userData.assetState || "loading";
+      host.dataset.blenderWorldTime = String(landmarks?.root.userData.animationTime || 0);
       renderer.render(scene,camera);host.dataset.pose=activeClip||"loading";
       if(pendingReady){pendingReady=false;setStatus("ready");}
       host.dataset.drawCalls=String(renderer.info.render.calls);
@@ -118,7 +134,7 @@ export default function WordClimbScene({ world }) {
     const contextLost=event=>{event.preventDefault();setStatus("fallback");};
     renderer.domElement.addEventListener("webglcontextlost",contextLost);
     frame=requestAnimationFrame(tick);
-    return()=>{disposed=true;cancelAnimationFrame(frame);observer?.disconnect();renderer.domElement.removeEventListener("webglcontextlost",contextLost);mixer?.stopAllAction();disposeObject(scene);disposeRenderer(renderer,{forceContextLoss:true});};
+    return()=>{disposed=true;cancelAnimationFrame(frame);observer?.disconnect();renderer.domElement.removeEventListener("webglcontextlost",contextLost);mixer?.stopAllAction();landmarks?.dispose();disposeObject(scene);disposeRenderer(renderer,{forceContextLoss:true});};
   },[world]);
   return <div ref={mount} className="wc-scene" data-wc-scene={status} aria-hidden="true" />;
 }

@@ -123,7 +123,7 @@ test("Sound Safari keeps cinematic grading behind crisp literacy surfaces and ti
   assert.doesNotMatch(safari, /ctx\.imageSmoothingEnabled = false/);
   assert.doesNotMatch(safari, /function drawScreenGrade/);
   assert.doesNotMatch(safari, /for \(let y = 0; y < h; y \+= (?:4|8)\)/);
-  assert.match(safari, /drawSceneLighting\(ctx, w, h, activeTheme, renderProfile\);\s*drawSafari\(ctx, state, config, activeTheme, images, w, h\);\s*drawHud/);
+  assert.match(safari, /drawSceneLighting\(ctx, w, h, activeTheme, renderProfile\);\s*drawSafari\(ctx, state, config, activeTheme, images, w, h, blenderWorld, reduceMotion\);\s*drawHud/);
 });
 
 test("Sentence Express layers its world without grading over literacy controls", async () => {

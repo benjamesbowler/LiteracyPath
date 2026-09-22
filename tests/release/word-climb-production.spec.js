@@ -60,7 +60,9 @@ test("leaving during active climbing restores the same physical route and held i
 for(const [difficulty,stage,width,height] of [['medium',1,568,320],['hard',2,390,844]])test(`${difficulty} route family reaches a readable station and accepts a real touch landing`,async({browser})=>{
  test.setTimeout(90000);const context=await browser.newContext({baseURL:test.info().project.use.baseURL,viewport:{width,height},hasTouch:true});const page=await context.newPage();
  try{
-  const game=await openClimb(page,difficulty);await expect(game).toHaveAttribute('data-climb-stage',String(stage));
+  const game=await openClimb(page,difficulty);
+  // Replay seeds vary the route; its family is the stage index modulo three.
+  expect(Number(await game.getAttribute('data-climb-stage')) % 3).toBe(stage);
   await climbToStation(page);const world=await page.locator('.wc-world').boundingBox();
   for(const control of await page.locator('[data-wc="choice"], .wc-air-controls button').all()){
    const box=await control.boundingBox();expect(box.width).toBeGreaterThanOrEqual(56);expect(box.height).toBeGreaterThanOrEqual(56);expect(box.x).toBeGreaterThanOrEqual(0);expect(box.x+box.width).toBeLessThanOrEqual(width);expect(box.y+box.height).toBeLessThanOrEqual(height);

@@ -1,3 +1,4 @@
+import { createBlenderLandmarks } from '../shared/arcadeBlenderLandmarks.js';
 import { groveVehicleYaw, nearestCuttableTree } from "./sentenceGroveContact.js";
 import "../shared/arcadeMissionHud.css";
 import { useEffect, useRef } from "react";
@@ -470,8 +471,9 @@ function makeRidge(theme, world) {
   const ridgeMat = material(world === "moonwood" ? "#181633" : world === "dino" ? "#493f37" : "#557071");
   const snowMat = material(world === "dino" ? theme.danger : world === "moonwood" ? theme.accent2 : "#c8f0ff");
   const points = [
-    [-126, -88, 9.0, 19.5], [-104, -94, 12.0, 27.0], [-74, -96, 9.2, 21.0], [-38, -100, 13.6, 30.5],
-    [0, -96, 10.0, 22.8], [40, -100, 13.0, 29.4], [82, -92, 9.6, 21.0], [124, -84, 10.4, 23.6],
+    // Leave two openings in the ridge for the orchard greenhouses.
+    [-126, -88, 9.0, 19.5], [-104, -94, 12.0, 27.0], [-74, -96, 9.2, 21.0],
+    [0, -96, 10.0, 22.8], [82, -92, 9.6, 21.0], [124, -84, 10.4, 23.6],
     [-130, -22, 8.6, 18.2], [130, -18, 10.8, 23.4], [-126, 48, 8.8, 18.6], [126, 54, 11.2, 24.2],
     [-112, 96, 9.4, 20.2], [-66, 103, 11.4, 25.0], [-18, 100, 9.0, 20.0], [34, 103, 11.0, 24.0],
     [82, 98, 10.2, 22.5], [124, 90, 9.0, 20.8]
@@ -1379,7 +1381,10 @@ function createStarGalleryEngine(mount, options) {
     camera.lookAt(state.player.x, 1.4, state.player.z);
   }
 
+  let blenderLandmarks;
+  mount.dataset.blenderWorld = "star-gallery";
   function clearLevel() {
+    blenderLandmarks?.dispose();
     if (state.levelRoot) {
       state.levelRoot.traverse(node => {
         if (node.isDirectionalLight && node.userData.arcadePremiumShadow) {
@@ -1443,6 +1448,13 @@ function createStarGalleryEngine(mount, options) {
     worldRoot.add(makeGround(theme, world));
     const map = makeCourse(worldRoot, theme, world);
     state.mapBounds = map.bounds;
+    const greenhousePlacements = [-1, 1].flatMap(side => [-.5, .5].map(depth => ({
+      x: side < 0 ? map.bounds.minX - 16 : map.bounds.maxX + 16,
+      z: (map.bounds.minZ + map.bounds.maxZ) / 2 + depth * (map.bounds.maxZ - map.bounds.minZ) * .65,
+      height: 20, yaw: side * Math.PI / 2
+    }))).concat([-38, 40].map(x => ({ x, z: map.bounds.minZ - 20, height: 24, yaw: Math.PI })));
+    blenderLandmarks = createBlenderLandmarks("star-gallery", greenhousePlacements, { onReady: group => premiumRender.prepareObject(group) });
+    worldRoot.add(blenderLandmarks.root);
     addScenery(worldRoot, theme, world, state.sceneryActors);
 
     state.frameGroup = makeFrame(theme, { x: placement.frame[0], z: placement.frame[1], yaw: 0 });
@@ -1968,6 +1980,7 @@ function createStarGalleryEngine(mount, options) {
   function update(dt) {
     if (state.paused || state.ended) return;
     dt = Math.min(0.05, dt);
+    blenderLandmarks?.update(dt);
     if (state.countdown > 0) {
       state.countdown = Math.max(0, state.countdown - dt);
       updateScenery(dt);
@@ -1997,6 +2010,8 @@ function createStarGalleryEngine(mount, options) {
   function animate(now) {
     const dt = readFrameDelta(now);
     update(dt);
+    mount.dataset.blenderWorldState = blenderLandmarks?.root.userData.assetState || "loading";
+    mount.dataset.blenderWorldTime = String(blenderLandmarks?.root.userData.animationTime || 0);
     const renderedTier = premiumRender.render(dt);
     if (renderedTier !== qualityTier) {
       qualityTier = renderedTier;

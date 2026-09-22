@@ -1,5 +1,15 @@
 import { expect, test } from '@playwright/test';
 
+test.beforeEach(async ({ page }) => {
+  // These coupling fixtures exercise the authored railway deck, including repeats.
+  await page.addInitScript(() => {
+    const key = 'literacy-guide-learn-games:fullscreen-overlay-preview';
+    if (!localStorage.getItem(key)) localStorage.setItem(key, JSON.stringify({ games: {
+      'sentence-express': { checkpoints: Object.fromEntries(['easy', 'medium', 'hard'].map(difficulty => [difficulty, { level: 0, totalLevels: 10, sessionSeed: 0 }])) }
+    } }));
+  });
+});
+
 test('a coupled sentence departs engine-first and its journey freezes while paused', async ({ page }) => {
   await page.goto('/preview/game-overlay.html?game=sentence-express&sound=0&music=0');
   const train = page.locator('.sx-train');

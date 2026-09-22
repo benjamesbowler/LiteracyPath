@@ -1,3 +1,4 @@
+import BlenderWorldVignette from '../shared/BlenderWorldVignette.jsx';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { buildLevel, WORLD_BY_DIFFICULTY, LEVELS_PER_LINE } from "../../../../utils/sentenceExpressLevels.js";
 import { starRubric } from "../../../../utils/starRubric.js";
@@ -105,9 +106,10 @@ function TrainCar({ kind = "wagon", tone = 0, word, ghost = false, lit = false, 
   return <div className={cls}>{body}</div>;
 }
 
-function Scenery({ world }) {
+function Scenery({ world, isPaused }) {
   return <>
     <div className="sx-landscape" aria-hidden="true" />
+    <BlenderWorldVignette gameId="sentence-express" isPaused={isPaused} />
     {world === "moonwood" && [18, 38, 65, 84].map((left, i) =>
       <span key={left} className="sx-glowbug" aria-hidden="true" style={{ left: `${left}%`, top: `${31 + i * 4}%`, animationDelay: `${i * .7}s` }} />)}
   </>;
@@ -595,7 +597,7 @@ export default function SentenceExpressGame({
 
   return (
     <div ref={stageRef} className={`sx-stage sx-${world} sx-motion-${motion} ${jolt ? "sx-jolt" : ""} ${bump ? "sx-bump" : ""} ${rolling ? "sx-scroll" : ""}`} data-phase={phase} data-train-id={train.id} data-journey={journey.toFixed(3)} style={{ "--route-position": `${(levelIndex * 9 + trainIndex * 3) % 100}%` }}>
-      <div className="sx-sky"><Scenery world={world} /></div>
+      <div className="sx-sky"><Scenery world={world} isPaused={() => paused.current} /></div>
       <div className="sx-flash" aria-hidden="true" />
 
       <header className="sx-hud">

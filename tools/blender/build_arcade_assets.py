@@ -1,7 +1,7 @@
 """Owned Arcade models. Run: blender --background --python tools/blender/build_arcade_assets.py
 Coordinates in helpers follow the game: Y up, -Z forward. Exports are texture-free GLB.
 """
-import bpy, bmesh, json, hashlib
+import bpy, bmesh, json, hashlib, subprocess, sys
 import math
 from pathlib import Path
 from mathutils import Vector
@@ -231,10 +231,31 @@ def mushrooms():
         x=math.cos(i*2.4)*1.4;z=math.sin(i*2.4)*1.2
         rings('Moonstone pebble',[(0,.32,.23,x,z),(.22,.28,.2,x,z),(.34,.08,.06,x,z)],'Night',n=7)
 
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from arcade_world_extensions import world_builders
+EXTENSIONS = world_builders(globals())
+
+def animate_detail(obj, spec, scene):
+    scene.render.fps=24;scene.frame_start=0;scene.frame_end=95
+    axis=spec['axis']
+    for frame in range(0,97,4):
+        phase=frame/96*math.tau
+        obj.rotation_euler[axis]=-phase if spec['spin'] else math.sin(phase)*spec['amplitude']
+        obj.keyframe_insert(data_path='rotation_euler',frame=frame)
+    for layer in obj.animation_data.action.layers:
+        for strip in layer.strips:
+            for bag in strip.channelbags:
+                for curve in bag.fcurves:
+                    for key in curve.keyframe_points:key.interpolation='LINEAR'
+    obj.animation_data.action.name=scene.name+' ambient'
+    scene.frame_set(0)
+
 builders={'meadow-windmill':windmill,'meadow-copse':meadow_tree,'dino-cycads':cycad,'moonwood-mushrooms':mushrooms,'dino-fossil-arch':fossil,'moonwood-observatory':moon,'rocket-courier':rocket,'space-observatory':observatory,'solar-outpost':solar,'crystal-asteroid':crystal}
 manifest={'schemaVersion':1,'creator':'Literacy Guide','origin':'Original project-authored geometry; no external model or texture inputs.','tool':'Blender '+bpy.app.version_string,'source':'tools/blender/build_arcade_assets.py','sourceSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'license':'Project-owned original assets; same terms as the Literacy Guide project.','assets':[]}
+builders.update({name:spec['build'] for name,spec in EXTENSIONS.items()})
+manifest['authoringSources']={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [Path(__file__),Path(__file__).with_name('arcade_world_extensions.py'),Path(__file__).with_name('pack_arcade_frames.py')]}
 for name,build in builders.items():
-    scene=bpy.data.scenes.new(name); bpy.context.window.scene=scene;build()
+    scene=bpy.data.scenes.new(name); bpy.context.window.scene=scene;motion=build();extension=EXTENSIONS.get(name)
     # Retain editable semantic objects/modifiers in the native source.
     scene.world=bpy.data.worlds.new(name+' ambient');scene.world.use_nodes=True
     scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.28,.34,.42,1)
@@ -248,9 +269,9 @@ for name,build in builders.items():
         if o.type=='MESH':o.select_set(True)
     # Join evaluated copies by material for the runtime; native semantic parts stay editable.
     originals=list(bpy.context.selected_objects)
-    rotor=[o for o in originals if name=='meadow-windmill' and o.name.startswith(('Rotor spar','Woven sail','Sail batten','Axle'))]
+    rotor=[o for o in originals if (name=='meadow-windmill' and o.name.startswith(('Rotor spar','Woven sail','Sail batten','Axle'))) or (motion and o.name.startswith('Moving '))]
     batches=[('Structure',[o for o in originals if o not in rotor])]
-    if rotor:batches.append(('WindmillRotor',rotor))
+    if rotor:batches.append(('AnimatedDetail' if motion else 'WindmillRotor',rotor))
     exports=[]
     for label,parts in batches:
         bpy.ops.object.select_all(action='DESELECT');copies=[]
@@ -259,32 +280,60 @@ for name,build in builders.items():
             copy=bpy.data.objects.new(original.name+' export',bpy.data.meshes.new_from_object(evaluated))
             scene.collection.objects.link(copy);copy.matrix_world=original.matrix_world.copy();copy.select_set(True);copies.append(copy)
         bpy.context.view_layer.objects.active=copies[0];bpy.ops.object.join();merged=bpy.context.object;merged.name=label
-        if label=='WindmillRotor':
-            scene.cursor.location=v((0,3.2,-1.15));bpy.ops.object.origin_set(type='ORIGIN_CURSOR')
+        if label in ('WindmillRotor','AnimatedDetail'):
+            scene.cursor.location=v(motion['pivot'] if motion else (0,3.2,-1.15));bpy.ops.object.origin_set(type='ORIGIN_CURSOR')
+            if motion:animate_detail(merged,motion,scene)
         exports.append(merged)
     bpy.ops.object.select_all(action='DESELECT')
     for o in exports:o.select_set(True)
-    bpy.ops.export_scene.gltf(filepath=str(OUT/(name+'.glb')),export_format='GLB',use_selection=True,export_apply=True,export_yup=True,export_cameras=False,export_lights=False,export_animations=False)
+    bpy.ops.export_scene.gltf(filepath=str(OUT/(name+'.glb')),export_format='GLB',use_selection=True,export_apply=True,export_yup=True,export_cameras=False,export_lights=False,export_animations=bool(motion))
     for o in exports:bpy.data.objects.remove(o,do_unlink=True)
     if rotor:
-        pivot=bpy.data.objects.new('Windmill animated axle',None);scene.collection.objects.link(pivot);pivot.location=v((0,3.2,-1.15))
+        pivot=bpy.data.objects.new('Ambient detail pivot' if motion else 'Windmill animated axle',None);scene.collection.objects.link(pivot);pivot.location=v(motion['pivot'] if motion else (0,3.2,-1.15))
         bpy.context.view_layer.update()
         for part in rotor:
             world_matrix=part.matrix_world.copy();part.parent=pivot;part.matrix_world=world_matrix
-        scene.render.fps=24;scene.frame_end=480
-        pivot.rotation_euler[1]=0;pivot.keyframe_insert(data_path='rotation_euler',frame=1)
-        pivot.rotation_euler[1]=-math.tau;pivot.keyframe_insert(data_path='rotation_euler',frame=481)
-        for layer in pivot.animation_data.action.layers:
-            for strip in layer.strips:
-                for bag in strip.channelbags:
-                    for curve in bag.fcurves:
-                        for key in curve.keyframe_points:key.interpolation='LINEAR'
-        scene.frame_set(1)
+        if motion:animate_detail(pivot,motion,scene)
+        else:
+            scene.render.fps=24;scene.frame_end=480
+            pivot.rotation_euler[1]=0;pivot.keyframe_insert(data_path='rotation_euler',frame=1)
+            pivot.rotation_euler[1]=-math.tau;pivot.keyframe_insert(data_path='rotation_euler',frame=481)
+            for layer in pivot.animation_data.action.layers:
+                for strip in layer.strips:
+                    for bag in strip.channelbags:
+                        for curve in bag.fcurves:
+                            for key in curve.keyframe_points:key.interpolation='LINEAR'
+            scene.frame_set(1)
     scene.render.engine='CYCLES';scene.cycles.samples=24;scene.render.resolution_x=800;scene.render.resolution_y=800;scene.render.resolution_percentage=100
     scene.render.film_transparent=True;scene.view_settings.view_transform='AgX';scene.render.filepath=str(REVIEW/(name+'.png'))
+    if extension:
+        # A near-frontal camera keeps silhouettes readable at the playfield edge.
+        scene.frame_set(0)
+        points=[o.matrix_world @ Vector(corner) for o in originals for corner in o.bound_box]
+        focus=Vector(tuple((min(p[axis] for p in points)+max(p[axis] for p in points))/2 for axis in range(3)))
+        cam.location=focus+Vector(v((6,4.4,-10)))
+        cam.rotation_euler=(focus-cam.location).to_track_quat('-Z','Y').to_euler()
+        view=cam.rotation_euler.to_quaternion().inverted()
+        projected=[view @ (point-focus) for point in points]
+        cam.data.ortho_scale=max(max(p[axis] for p in projected)-min(p[axis] for p in projected) for axis in (0,1))*1.22
     bpy.ops.render.render(write_still=True)
+    if extension and extension.get('sprite'):
+        frames=REVIEW/(name+'-frames');frames.mkdir(exist_ok=True)
+        scene.render.resolution_x=384;scene.render.resolution_y=384;scene.cycles.samples=12
+        for index in range(24):
+            scene.frame_set(index*4);scene.render.filepath=str(frames/('frame-%02d.png'%index))
+            bpy.ops.render.render(write_still=True)
+        sprite=OUT/(name+'.webp')
+        subprocess.run(['python3',str(Path(__file__).with_name('pack_arcade_frames.py')),str(frames),str(sprite)],check=True)
+        scene.frame_set(1)
+        scene.render.filepath=str(REVIEW/(name+'.png'))
     binary=(OUT/(name+'.glb')).read_bytes()
     manifest['assets'].append({'id':name,'url':'/game-assets/arcade-blender/'+name+'.glb','bytes':len(binary),'sha256':hashlib.sha256(binary).hexdigest(),'forward':'-Z','up':'Y','textureDependencies':[]})
+    if extension:
+        manifest['assets'][-1]['game']=extension['game']
+        manifest['assets'][-1]['animation']={'name':name+' ambient','durationSeconds':4,'pivot':motion['pivot']}
+        if extension.get('sprite'):
+            manifest['assets'][-1]['sprite']={'url':'/game-assets/arcade-blender/'+name+'.webp','frameWidth':384,'frameHeight':384,'columns':4,'frames':24,'fps':6,'bytes':sprite.stat().st_size,'sha256':hashlib.sha256(sprite.read_bytes()).hexdigest()}
 if 'Scene' in bpy.data.scenes and not bpy.data.scenes['Scene'].objects:
     bpy.data.scenes.remove(bpy.data.scenes['Scene'])
 for mesh_data in list(bpy.data.meshes):

@@ -4,7 +4,7 @@
   "origin": "Original project-authored geometry; no external model or texture inputs.",
   "tool": "Blender 5.2.0 LTS",
   "source": "tools/blender/build_arcade_assets.py",
-  "sourceSha256": "9bbb8d0c8258548a1e7da6b709f68c263ff6c0672c0b1f4f94a37e263579aa7c",
+  "sourceSha256": "47c46ad8b8c012ee31eff6f1bb31b705546d6be3d5278c2e1ccccae33c4f50ad",
   "license": "Project-owned original assets; same terms as the Literacy Guide project.",
   "assets": [
     {
@@ -96,6 +96,300 @@
       "forward": "-Z",
       "up": "Y",
       "textureDependencies": []
+    },
+    {
+      "id": "treetop-burrow",
+      "url": "/game-assets/arcade-blender/treetop-burrow.glb",
+      "bytes": 119864,
+      "sha256": "b951818a239fdb991b0b1aa092070787b8f4c2a75e999be2b1759c5f875a0769",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": [],
+      "game": "letter-leap",
+      "animation": {
+        "name": "treetop-burrow ambient",
+        "durationSeconds": 4,
+        "pivot": [
+          0.95,
+          3.2,
+          -1
+        ]
+      },
+      "sprite": {
+        "url": "/game-assets/arcade-blender/treetop-burrow.webp",
+        "frameWidth": 384,
+        "frameHeight": 384,
+        "columns": 4,
+        "frames": 24,
+        "fps": 6,
+        "bytes": 175300,
+        "sha256": "0df829202e93373512ef3d35d6079a3b529214794e071919349118cfb6f1e4ba"
+      }
+    },
+    {
+      "id": "cloud-lookout",
+      "url": "/game-assets/arcade-blender/cloud-lookout.glb",
+      "bytes": 82400,
+      "sha256": "eeac7e41445a642f15ed4b46db1bb3b87c779a96293c1cac182d0a798d8e0815",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": [],
+      "game": "word-climb",
+      "animation": {
+        "name": "cloud-lookout ambient",
+        "durationSeconds": 4,
+        "pivot": [
+          0,
+          3.1,
+          -0.85
+        ]
+      }
+    },
+    {
+      "id": "bridge-workshop",
+      "url": "/game-assets/arcade-blender/bridge-workshop.glb",
+      "bytes": 108160,
+      "sha256": "1f0ab3f85ade509f1f0d98eefc1a07a4047a1a9c0b9dc33cdbcf7c0cb76c91a1",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": [],
+      "game": "word-bridge",
+      "animation": {
+        "name": "bridge-workshop ambient",
+        "durationSeconds": 4,
+        "pivot": [
+          1.35,
+          3.1,
+          0.65
+        ]
+      },
+      "sprite": {
+        "url": "/game-assets/arcade-blender/bridge-workshop.webp",
+        "frameWidth": 384,
+        "frameHeight": 384,
+        "columns": 4,
+        "frames": 24,
+        "fps": 6,
+        "bytes": 249844,
+        "sha256": "cf1a72f389eae3ecdadaac74f5fbf58f29f51fb09fa11faeaa83815494bdfbb9"
+      }
+    },
+    {
+      "id": "percussion-pavilion",
+      "url": "/game-assets/arcade-blender/percussion-pavilion.glb",
+      "bytes": 107200,
+      "sha256": "9e2f647f5cf45571791fddb847231bddbb156d24e8663b7dab77e00d88be07ea",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": [],
+      "game": "sound-beat",
+      "animation": {
+        "name": "percussion-pavilion ambient",
+        "durationSeconds": 4,
+        "pivot": [
+          0,
+          1.9,
+          0.3
+        ]
+      },
+      "sprite": {
+        "url": "/game-assets/arcade-blender/percussion-pavilion.webp",
+        "frameWidth": 384,
+        "frameHeight": 384,
+        "columns": 4,
+        "frames": 24,
+        "fps": 6,
+        "bytes": 177060,
+        "sha256": "4afe17510d0f05e0b44e775146fe7b187593452ec07bf6977d401a00b389e2a3"
+      }
+    },
+    {
+      "id": "festival-pavilion",
+      "url": "/game-assets/arcade-blender/festival-pavilion.glb",
+      "bytes": 116976,
+      "sha256": "bddcbea44a1e33da50fbec5622539fa6f48177ef0a56d39794e006fcb2992ac4",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": [],
+      "game": "rhyme-pop",
+      "animation": {
+        "name": "festival-pavilion ambient",
+        "durationSeconds": 4,
+        "pivot": [
+          0,
+          4.6,
+          0.4
+        ]
+      },
+      "sprite": {
+        "url": "/game-assets/arcade-blender/festival-pavilion.webp",
+        "frameWidth": 384,
+        "frameHeight": 384,
+        "columns": 4,
+        "frames": 24,
+        "fps": 6,
+        "bytes": 173838,
+        "sha256": "e572a3a681063e0043aaaf8cd59c46a8495dc62abefd4a4c57059e1331ee4422"
+      }
+    },
+    {
+      "id": "canopy-field-station",
+      "url": "/game-assets/arcade-blender/canopy-field-station.glb",
+      "bytes": 64512,
+      "sha256": "3ddc891f5ccf2dcef3c644c69485abe141fa938422e21a424f04098bb474f693",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": [],
+      "game": "sound-safari",
+      "animation": {
+        "name": "canopy-field-station ambient",
+        "durationSeconds": 4,
+        "pivot": [
+          -1.55,
+          2.7,
+          -1.3
+        ]
+      },
+      "sprite": {
+        "url": "/game-assets/arcade-blender/canopy-field-station.webp",
+        "frameWidth": 384,
+        "frameHeight": 384,
+        "columns": 4,
+        "frames": 24,
+        "fps": 6,
+        "bytes": 154212,
+        "sha256": "972ef1e6eafc0ad1d08b14d70a64c90459300414be6e0a496095daae11f278ef"
+      }
+    },
+    {
+      "id": "harbour-waterwheel",
+      "url": "/game-assets/arcade-blender/harbour-waterwheel.glb",
+      "bytes": 157636,
+      "sha256": "d9fef9590ed9fe8187dd3c9a592869b3b0f77f17231f572894a9e38d9ab3b159",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": [],
+      "game": "reel-read",
+      "animation": {
+        "name": "harbour-waterwheel ambient",
+        "durationSeconds": 4,
+        "pivot": [
+          1.5,
+          1.2,
+          -0.25
+        ]
+      },
+      "sprite": {
+        "url": "/game-assets/arcade-blender/harbour-waterwheel.webp",
+        "frameWidth": 384,
+        "frameHeight": 384,
+        "columns": 4,
+        "frames": 24,
+        "fps": 6,
+        "bytes": 248912,
+        "sha256": "f35f9aa197fc6306c69d3a6b86962a0b24148e11e8911a1b087a2307b3e87c42"
+      }
+    },
+    {
+      "id": "orchard-greenhouse",
+      "url": "/game-assets/arcade-blender/orchard-greenhouse.glb",
+      "bytes": 89432,
+      "sha256": "69d9ed8edcf01ad2aa52ef79383b59d3cf8880c6ece79b2c9d92e41da42bb381",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": [],
+      "game": "star-gallery",
+      "animation": {
+        "name": "orchard-greenhouse ambient",
+        "durationSeconds": 4,
+        "pivot": [
+          0,
+          3.65,
+          0.3
+        ]
+      }
+    },
+    {
+      "id": "station-clock",
+      "url": "/game-assets/arcade-blender/station-clock.glb",
+      "bytes": 208268,
+      "sha256": "e2c2e037a1275ea22657251728ba6a8db971bcb79acc142bde1722f6a0fbca80",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": [],
+      "game": "sentence-express",
+      "animation": {
+        "name": "station-clock ambient",
+        "durationSeconds": 4,
+        "pivot": [
+          1.5,
+          3.3,
+          -0.34
+        ]
+      },
+      "sprite": {
+        "url": "/game-assets/arcade-blender/station-clock.webp",
+        "frameWidth": 384,
+        "frameHeight": 384,
+        "columns": 4,
+        "frames": 24,
+        "fps": 6,
+        "bytes": 211194,
+        "sha256": "0100b7be3ce128270e7fc376fdeb888ac72f59edac9a4ee3e6ba7f0cf0c50ccf"
+      }
+    },
+    {
+      "id": "skate-pavilion",
+      "url": "/game-assets/arcade-blender/skate-pavilion.glb",
+      "bytes": 126132,
+      "sha256": "18e53f5f3161bd0f16dee5b193093410e928eb0f919ff5c3b97f59d41f34e4c4",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": [],
+      "game": "grammar-grind",
+      "animation": {
+        "name": "skate-pavilion ambient",
+        "durationSeconds": 4,
+        "pivot": [
+          0,
+          4.7,
+          0.9
+        ]
+      }
+    },
+    {
+      "id": "resonance-pavilion",
+      "url": "/game-assets/arcade-blender/resonance-pavilion.glb",
+      "bytes": 93132,
+      "sha256": "34ea9142eb9f3e40182eb87ebff87d938844a27f88a424783754614419a02771",
+      "forward": "-Z",
+      "up": "Y",
+      "textureDependencies": [],
+      "game": "soundkeys",
+      "animation": {
+        "name": "resonance-pavilion ambient",
+        "durationSeconds": 4,
+        "pivot": [
+          0,
+          2.3,
+          -0.4
+        ]
+      },
+      "sprite": {
+        "url": "/game-assets/arcade-blender/resonance-pavilion.webp",
+        "frameWidth": 384,
+        "frameHeight": 384,
+        "columns": 4,
+        "frames": 24,
+        "fps": 6,
+        "bytes": 190826,
+        "sha256": "203a43e632dc2b0cb2f22183e0585a9f9f56db0eb36e6df5b9122c07f890dc30"
+      }
     }
-  ]
+  ],
+  "authoringSources": {
+    "tools/blender/build_arcade_assets.py": "47c46ad8b8c012ee31eff6f1bb31b705546d6be3d5278c2e1ccccae33c4f50ad",
+    "tools/blender/arcade_world_extensions.py": "7ee2b6d69048d76c038246fae2c97a0c7d2a6df9f6fc1b9593ba5411c18f3cd5",
+    "tools/blender/pack_arcade_frames.py": "a6d7a3973249f47255dccdf779ccc2eda6724540929608ff41aca17adbcec543"
+  }
 }

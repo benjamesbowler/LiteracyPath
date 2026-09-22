@@ -164,7 +164,7 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
       errorFeedback: "The next slot remains visible, a specific audio/text cue coaches the contrast, and the target stays recoverable."
     },
     world: {
-      artDirection: "Authored Meadow, Dino Valley and Moonwood palettes with restrained PS2-style depth and effects.",
+      artDirection: "Authored Meadow, Dino Valley and Moonwood palettes with Blender-rendered treetop burrows, swinging lanterns and layered depth.",
       route: "Walkable ground, raised platforms and signalled ravines share the collision and camera coordinate system.",
       character: "The current world cast is selected deterministically and remains readable at platform scale.",
       assetFallback: "Missing character or scenery images leave a complete canvas-rendered route and fallback hero."
@@ -253,7 +253,7 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
       errorFeedback: "The selected word and its actual beginning sound are printed while the requested target stays visible."
     },
     world: {
-      artDirection: "An authored illustrated beanstalk scene with layered SVG foliage, mist, warm highlights and high-contrast tactile leaves.",
+      artDirection: "An authored beanstalk scene with native Blender lookouts supported by branches, moving lanterns, layered foliage and high-contrast tactile leaves.",
       route: "The six-step root-to-canopy meter and climber share one bounded responsive layout with the three choice ledges.",
       character: "The canonical Meadow Pal remains a decorative climber and never obscures or identifies the correct answer.",
       assetFallback: "CSS and SVG retain the complete target, word leaves, climb route and feedback if the decorative Pal image fails."
@@ -334,7 +334,7 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
       errorFeedback: "The selected tile is named, the needed contrast remains visible and the tile returns for another attempt."
     },
     world: {
-      artDirection: "Authored Meadow, Dino Valley and Moonwood illustrated routes with tactile tiles and layered atmospheric depth.",
+      artDirection: "Authored Meadow, Dino Valley and Moonwood illustrated routes with tactile tiles and Blender-rendered workshops anchored to the construction banks.",
       route: "The walkable bank, tile positions, bridge slots and crossing route share one canvas coordinate system.",
       character: "The current canonical helper and Pal art remain recognisable at play scale.",
       assetFallback: "Missing decorative images leave a complete canvas-rendered bank, bridge, tile set and fallback helper."
@@ -415,7 +415,7 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
       errorFeedback: "A wrong pad names the selected and required units, replays the cue and leaves the complete choice set available."
     },
     world: {
-      artDirection: "A colourful authored music stage with crisp silhouettes, restrained concert light and readable foreground type.",
+      artDirection: "A colourful authored music stage with Blender-rendered percussion, cymbals responding to successful beats, restrained concert light and readable foreground type.",
       route: "The stage, sound strip and action zone remain in fixed readable screen regions rather than a spatial route.",
       character: "Canonical band characters and instruments remain readable beneath bounded effects.",
       assetFallback: "Missing stage art leaves the complete canvas lighting, sound strip, action prompt and performance loop."

@@ -1,3 +1,4 @@
+import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
 import { useEffect, useRef } from "react";
 import { CAST } from "../../../../features/soundSeekers/v3/content/cast.js";
 import "./WordBridgeGame.css";
@@ -265,6 +266,7 @@ export default function WordBridgeGame({
 }
 
 function startGame(mount, opts) {
+  const blenderWorld = createBlenderWorldSprite("word-bridge", mount);
   const difficulty = String(opts.difficulty || "easy").toLowerCase();
   const world = worldForGameDifficulty(difficulty);
   const theme = WORLD_THEME[world] || WORLD_THEME.meadow;
@@ -2115,6 +2117,8 @@ function startGame(mount, opts) {
     if (!currentLevel || !builder) return;
     drawSky();
     drawMountains();
+    const workshopSize = Math.min(300, H * .57);
+    blenderWorld.draw(ctx, gap.x - workshopSize - 90 - cameraX, GROUND_Y - workshopSize * .89 - 28, workshopSize, workshopSize, now, { reducedMotion: reduceMotion });
     ctx.save();
     ctx.translate(-cameraX, 0);
     drawHazard(now);
@@ -2166,6 +2170,7 @@ function startGame(mount, opts) {
   }
 
   function teardown() {
+    blenderWorld.dispose();
     running = false;
     cancelAnimationFrame(rafId);
     rafId = 0;

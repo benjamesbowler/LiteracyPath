@@ -1,3 +1,4 @@
+import { createBlenderLandmarks } from '../shared/arcadeBlenderLandmarks.js';
 import "../shared/arcadeMissionHud.css";
 import "./SpellSkateWorld.css";
 import { useEffect, useRef } from "react";
@@ -598,6 +599,13 @@ function startGame(mount, opts) {
   const dressing = createSkateParkDressing(theme, difficulty);
   const parkObstacles = dressing.userData.obstacles;
   park.add(dressing);
+  mount.dataset.blenderWorld = "grammar-grind";
+  const pavilionPlacements = [-1, 1].flatMap(side => [
+    { x: side * (ARENA_LIMIT + 13), z: 15, height: 16, yaw: side * Math.PI / 2 },
+    { x: side * 34, z: -ARENA_LIMIT - 17, height: 18, yaw: Math.PI }
+  ]);
+  const blenderLandmarks = createBlenderLandmarks("grammar-grind", pavilionPlacements, { onReady: group => premiumRender.prepareObject(group) });
+  park.add(blenderLandmarks.root);
   const skaterAsset = createSpellSkater();
   const skater = skaterAsset.root;
   if (difficulty === "easy") skater.scale.setScalar(1.25);
@@ -1676,6 +1684,7 @@ function startGame(mount, opts) {
     const dt = Math.min(.12,rawDelta);
     lastTime = now;
     if(!paused && !completed){
+      blenderLandmarks.update(dt);
       activeSimulationSeconds+=dt;
       frameBudgetSeconds+=rawDelta;frameBudgetCount++;
       if(frameBudgetSeconds>=2 && frameBudgetCount>=5){
@@ -1687,6 +1696,8 @@ function startGame(mount, opts) {
       }
     }
     for(const step of skateFrameSteps(dt)) update(step,time);
+    mount.dataset.blenderWorldState = blenderLandmarks.root.userData.assetState;
+    mount.dataset.blenderWorldTime = String(blenderLandmarks.root.userData.animationTime || 0);
     flushScore();
     updateHud();
     if(now-lastDiagnosticTime>=100){
@@ -1796,6 +1807,7 @@ function startGame(mount, opts) {
       if (!introActive) paused = false;
     },
     teardown() {
+      blenderLandmarks.dispose();
       running = false;
       loop.stop();
       detachContextGuard();

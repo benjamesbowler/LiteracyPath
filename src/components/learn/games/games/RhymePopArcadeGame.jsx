@@ -1,3 +1,4 @@
+import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
 import { useEffect, useRef } from "react";
 import {
   playCorrectChime,
@@ -616,11 +617,13 @@ function drawRhymeLauncher(ctx, state, config, w, h) {
   ctx.restore();
 }
 
-function drawRhymePop(ctx, state, config, w, h) {
+function drawRhymePop(ctx, state, config, w, h, blenderWorld, reduceMotion) {
   const task = state.currentTask;
   if (!task) return;
   drawRhymeBackdropFx(ctx, state, config, w, h);
   drawRhymeStageFloor(ctx, state, w, h);
+  const pavilionSize = Math.min(310, h * .58);
+  blenderWorld?.draw(ctx, -pavilionSize * .12, h * .76 - pavilionSize, pavilionSize, pavilionSize, state.time, { reducedMotion: reduceMotion, paused: state.paused, opacity: .9 });
   drawRhymeRigging(ctx, state, config, w, h);
 
   // No big instruction banner in the play area (distracting). The target word
@@ -699,6 +702,7 @@ function drawLowPolyPal(ctx, x, y, scale, config, now) {
 }
 
 function startRhymePopArcadeGame(mount, options) {
+  const blenderWorld = createBlenderWorldSprite("rhyme-pop", mount);
   const config = CONFIG[options.kind] || CONFIG["rhyme-pop"];
   const ladder = config.ladder(options.difficulty, options.sessionSeed);
   const startAt = clamp(Number(options.startLevel) || 0, 0, ladder.length - 1);
@@ -1222,7 +1226,7 @@ function startRhymePopArcadeGame(mount, options) {
     vignette.addColorStop(1, "rgba(2,6,18,.3)");
     ctx.fillStyle = vignette;
     ctx.fillRect(0, 0, w, h);
-    drawRhymePop(ctx, state, config, w, h);
+    drawRhymePop(ctx, state, config, w, h, blenderWorld, reduceMotion);
     drawHud(ctx, state, config, w, h);
     drawCountdown(ctx, state, config, w, h);
 
@@ -1248,6 +1252,7 @@ function startRhymePopArcadeGame(mount, options) {
       loop.reset();
     },
     destroy() {
+      blenderWorld.dispose();
       state.ended = true;
       cancelSpeech();
       loop.cancel();

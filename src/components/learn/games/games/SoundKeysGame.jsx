@@ -1,3 +1,4 @@
+import BlenderWorldVignette from '../shared/BlenderWorldVignette.jsx';
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { SOUNDKEY_PROFILES, buildSoundKeySession } from "../../../../features/soundkeys/content.js";
 import { resolveTokenForNote } from "../../../../features/soundkeys/engine.js";
@@ -156,6 +157,7 @@ export default function SoundKeysGame({ difficulty = "easy", sessionSeed = 0, se
     <header className="sk-top"><div className="soundkeys-game-progress"><strong>{freePlay ? "Free play" : `${round + 1} / ${ROUNDS}`}</strong><span>{BANDS[band]}</span></div><button type="button" aria-pressed={freePlay} onClick={() => { stopSounds(); setFreePlay(value => !value); setFeedback(""); }}>{freePlay ? "Build words" : "Free play"}</button><button type="button" onClick={() => setVoice(value => value === "bells" ? "reeds" : "bells")} aria-label={`Instrument: ${voice}. Change instrument`}>{voice === "bells" ? "Bells ♫" : "Reeds ♬"}</button><button type="button" onClick={connectMidi} disabled={midiConnecting} aria-label="Connect MIDI keyboard">{midiConnecting ? "…" : midiConnected ? "MIDI ✓" : "MIDI"}</button></header>
     <div className="sk-performance">
       <div className="sk-lights" aria-hidden="true" />
+      <BlenderWorldVignette gameId="soundkeys" isPaused={() => state.current.paused} active={Boolean(pressed.length || playingPulse || celebrating)} />
       <div className="sk-band" aria-hidden="true">{cast.map((pal, i) => <div key={pal.id} className="sk-performer" style={{ "--pal-index": i }}><img src={pal.heroSprite || pal.sprite} alt="" /><span className="sk-music-note">{["♪", "♫", "♬"][i]}</span><div className="sk-stand" /></div>)}</div>
       <div className="soundkeys-game-board sk-phrase">
         <img className="sk-word-image" src={target.image} alt={target.alt} />

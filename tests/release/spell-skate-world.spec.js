@@ -13,6 +13,13 @@ test.afterEach(async({page},info)=>{
   if(state)fs.writeFileSync(`${out}/${info.title.replace(/[^a-z0-9]/gi,'-').slice(0,100)}-failure-state.json`,JSON.stringify(state,null,2));
 });
 async function open(page, difficulty = 'easy') {
+  // Physical-route fixtures use the authored deck. Keep its seed through reloads.
+  await page.addInitScript(difficulty => {
+    const key = 'literacy-guide-learn-games:fullscreen-overlay-preview';
+    if (!localStorage.getItem(key)) localStorage.setItem(key, JSON.stringify({
+      games: { 'grammar-grind': { checkpoints: { [difficulty]: { level: 0, totalLevels: 10, sessionSeed: 0 } } } }
+    }));
+  }, difficulty);
   const runtimeResponse = page.waitForResponse(response => response.url().includes('/games/GrammarGrindGame.jsx'));
   await page.goto(`/preview/game-overlay.html?game=grammar-grind&difficulty=${difficulty}&sound=0&music=0`);
   const servedRuntime = await (await runtimeResponse).text();
