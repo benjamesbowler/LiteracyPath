@@ -15,6 +15,7 @@ import {
   wordStartsWithTargetSound
 } from "../../src/utils/rocketRunRounds.js";
 import { onsetGrapheme, sharesSound } from "../../src/components/elQuest/elQuestEngine.js";
+import { racerDriveSpeed } from "../../src/utils/soundRacerPhysics.js";
 import { getLedaWordAudioPath } from "../../src/data/ledaProductionAudio.js";
 
 const isDigraph = g => /^(sh|ch|th|ng|ck|qu)$/.test(g);
@@ -45,35 +46,15 @@ test("every live circuit gate has a shipped word recording", () => {
   }
 });
 
-const BASE_SPEEDS = {
-  easy: 5.4,
-  medium: 6.1,
-  hard: 6.8
-};
-
 function idealClearSeconds(track, difficulty) {
-  const correctZs = track.gates.filter(gate => gate.correct).map(gate => gate.z).sort((a, b) => a - b);
-  let nextCorrect = 0;
-  let wordsCorrect = 0;
-  let boostT = 0;
-  let playerZ = -4;
+  let playerZ = 0;
   let seconds = 0;
-  const dt = 0.05;
-
-  while (seconds < 180 && (playerZ < track.totalLength || wordsCorrect < track.needed)) {
-    const boost = boostT > 0 ? 2.4 : 0;
-    const speed = BASE_SPEEDS[difficulty] + boost + wordsCorrect * 0.07;
-    playerZ += speed * dt;
-    seconds += dt;
-    boostT = Math.max(0, boostT - dt);
-
-    while (nextCorrect < correctZs.length && playerZ >= correctZs[nextCorrect] - 0.58) {
-      wordsCorrect += 1;
-      boostT = 1.25;
-      nextCorrect += 1;
-    }
+  const words = track.gates.filter(gate => gate.kind === "word");
+  while (playerZ < track.totalLength && seconds < 180) {
+    const wordDistance = words.filter(gate => gate.z >= playerZ).reduce((distance, gate) => Math.min(distance, gate.z - playerZ), Infinity);
+    playerZ += racerDriveSpeed({ difficulty, wordDistance }) * .05;
+    seconds += .05;
   }
-
   return seconds;
 }
 
@@ -296,7 +277,7 @@ test("no two gates occupy the same z position", () => {
 });
 
 // 9. Tracks are long enough for a full lap and keep gates readable
-test("tracks are paced as full 90-second laps with readable gate spacing", () => {
+test("tracks keep readable word approaches without stretching a lap with slow driving", () => {
   for (const g of TEST_TARGETS) {
     for (const d of ["easy", "medium", "hard"]) {
       const track = buildTrack(g, { difficulty: d, seed: 7 });
@@ -310,8 +291,8 @@ test("tracks are paced as full 90-second laps with readable gate spacing", () =>
         `${g}/${d}: expected gates at least 14 track units apart, got ${minGap}`
       );
       assert.ok(
-        clearSeconds >= 90,
-        `${g}/${d}: expected ideal clear time >= 90s, got ${clearSeconds.toFixed(1)}s`
+        clearSeconds >= 35 && clearSeconds <= 60,
+        `${g}/${d}: expected a flowing 35-60 second lap, got ${clearSeconds.toFixed(1)}s`
       );
     }
   }

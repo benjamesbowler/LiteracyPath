@@ -13,7 +13,7 @@ import CarSvg from "./SentenceExpressRollingStock.jsx";
 // SENTENCE EXPRESS - flagship game. You are the yard master: rebuild the
 // broken sentence-train (couple carriages in order, swap the rusty wrong-word
 // car at the repair shed, load the missing crate, pick the capital engine and
-// the end-mark caboose), pull the whistle, then read the sentence back as the
+// the end-mark caboose), then read the completed sentence back as the
 // train departs through a scrolling low-poly landscape.
 // The arcade adapter owns run totals; the game preserves the current train.
 
@@ -267,7 +267,7 @@ export default function SentenceExpressGame({
     saveExpressSnapshot(sessionKey, { levelIndex, trainIndex, queue: queue.map(t => t.id), phase, coupled, engineChoice, cabooseChoice, rustyFixed, gapFilled, delay, mistakes, combo, express });
   }, [sessionKey, levelIndex, trainIndex, queue, phase, coupled, engineChoice, cabooseChoice, rustyFixed, gapFilled, delay, mistakes, combo, express]);
 
-  useEffect(() => { if (phase === PHASES.TALLY) ticketButton.current?.focus(); }, [phase]);
+  useEffect(() => { if (phase === PHASES.TALLY && finished) ticketButton.current?.focus(); }, [phase, finished]);
 
   // The corrected word sequence the child must rebuild.
   const solution = useMemo(() => train.words.map((w, i) => {
@@ -476,7 +476,7 @@ export default function SentenceExpressGame({
       chuffStop.current = sfx.startChuff();
     }
     setPhase(PHASES.DEPART);
-    // The whistle starts travel immediately. Reading follows the moving train,
+    // The completed sentence starts travel automatically. Reading follows the moving train,
     // with one current clip and no narration gate before departure or next play.
     const generation = ++speechGeneration.current;
     audioRef.current?.pause?.();
@@ -571,6 +571,26 @@ export default function SentenceExpressGame({
     }
   }
 
+  // Completion is the literacy action itself. Keep a short, pause-aware
+  // feedback beat, then depart or advance without an extra confirmation.
+  useEffect(() => {
+    if (!trackDone || phase !== PHASES.SHUNT || finished) return undefined;
+    const registry = timers.current;
+    const timer = later(registry, 420, depart);
+    if (paused.current) pauseTimers(registry);
+    return () => cancelLater(registry, timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- one departure per completed train; refs guard reentry
+  }, [trackDone, phase, train.id, finished]);
+
+  useEffect(() => {
+    if (phase !== PHASES.TALLY || finished) return undefined;
+    const registry = timers.current;
+    const timer = later(registry, 1000, nextLevel);
+    if (paused.current) pauseTimers(registry);
+    return () => cancelLater(registry, timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- one automatic award per tally
+  }, [phase, levelIndex, finished]);
+
   function replayLine() {
     if (paused.current || !finished) return;
     if (onRequestReplay) { onRequestReplay(); return; }
@@ -595,7 +615,7 @@ export default function SentenceExpressGame({
           ? "Tap the word cars in sentence order."
           : train.caboose && !cabooseChoice
             ? "Choose the end mark."
-            : "Pull the whistle.";
+            : "Sentence complete — off we go!";
 
   return (
     <div ref={stageRef} className={`sx-stage sx-${world} sx-motion-${motion} ${jolt ? "sx-jolt" : ""} ${bump ? "sx-bump" : ""} ${rolling ? "sx-scroll" : ""}`} data-phase={phase} data-train-id={train.id} data-journey={journey.toFixed(3)} style={{ "--route-position": `${(levelIndex * 9 + trainIndex * 3) % 100}%` }}>
@@ -738,11 +758,6 @@ export default function SentenceExpressGame({
             </div>
           </div>
 
-          <button type="button" className={`sx-lever ${trackDone ? "sx-ready" : ""}`} disabled={!trackDone} onClick={depart}>
-            <i className="sx-leverarm" aria-hidden="true" />
-            <span>PULL WHISTLE</span>
-            {!trackDone && <small>couple every car first!</small>}
-          </button>
         </section>
       )}
 
@@ -762,9 +777,9 @@ export default function SentenceExpressGame({
             <span>Express departures <b>{express} of {level.trains.length}</b></span>
             <span>Delays <b>{mistakes ? `+${mistakes} min` : "none"}</b></span>
           </div>
-          <button ref={ticketButton} type="button" className="sx-golden" onClick={finished ? (onRequestNextLevel || replayLine) : nextLevel}>
-            {finished ? (onRequestNextLevel ? (arcadeJourney ? "Next line" : "Next level") : "Play again") : levelIndex + 1 < LEVELS_PER_LINE ? "NEXT DEPARTURE ->" : "FINISH THE LINE"}
-          </button>
+          {finished ? <button ref={ticketButton} type="button" className="sx-golden" onClick={onRequestNextLevel || replayLine}>
+            {onRequestNextLevel ? (arcadeJourney ? "Next line" : "Next level") : "Play again"}
+          </button> : <p role="status">{levelIndex + 1 < LEVELS_PER_LINE ? "Next train arriving…" : "Line complete!"}</p>}
           {finished && onRequestNextLevel && <button type="button" className="sx-golden" onClick={replayLine}>Replay level</button>}
         </section>
       )}

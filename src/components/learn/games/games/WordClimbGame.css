@@ -47,7 +47,7 @@
 @media(hover:hover) and (pointer:fine) { .wc-word-ledge.is-reachable:not(:disabled):hover { filter:brightness(1.2); outline:2px solid #e4e4b5; outline-offset:-3px; } }
 @media(max-width:520px) { .wc-height span { display:none; } .wc-mission-card { gap:6px; padding-left:8px; } .wc-word-ledge strong { font-size:clamp(16px,4.6vw,22px); } .wc-climber { width:66px; height:74px; } }
 @media(max-height:420px) {
-  .word-climb { grid-template-rows:60px minmax(0,1fr) 56px; }
+  .word-climb { grid-template-rows:60px minmax(0,1fr) 60px; }
   .wc-climber { width:54px; height:60px; }
   .wc-summit-dialog { top:auto; bottom:4px; transform:translateX(-50%); width:min(92%,510px); padding:10px 16px; display:grid; grid-template-columns:1fr 1fr; column-gap:12px; }
   .wc-summit-dialog>span { display:none; }
@@ -55,8 +55,8 @@
   .wc-summit-dialog h2 { font-size:22px; margin-bottom:4px; }
   .wc-summit-dialog p { margin-bottom:4px; }
   .wc-summit-dialog button { padding:8px; font-size:18px; margin-top:4px; }
-  .wc-bottom-bar { height:56px; padding:0 6px; background:#233e35; }
-  .wc-air-controls { gap:6px; }
+  .wc-bottom-bar { box-sizing:border-box; height:60px; padding:0 6px; background:#233e35; }
+  .wc-air-controls { gap:8px; }
   .wc-bottom-bar p { font-size:12px; }
   .wc-word-ledge strong { font-size:17px; }
   .wc-word-ledge { padding-top:8px; }
@@ -64,3 +64,16 @@
 }
 @media(prefers-reduced-motion:reduce) { .wc-climber img { animation:none !important; } }
 @media(forced-colors:active) { .wc-word-ledge,.wc-replay,.wc-air-controls button { background:Canvas!important; color:CanvasText; border:2px solid CanvasText; } }
+
+/* Warm lantern woodwork separates readable targets from the deep forest. */
+.wc-world::after { content:""; position:absolute; inset:0; pointer-events:none; z-index:3; background:radial-gradient(ellipse at 48% 38%,transparent 32%,#0b263c40); }
+.wc-next-words { position:absolute; z-index:7; top:10px; left:50%; transform:translateX(-50%); padding:7px 16px 10px; max-width:calc(100% - 28px); border:1px solid #f2d99899; border-radius:14px; background:#203c38ee; box-shadow:0 5px 18px #0b242a55; text-align:center; }
+.wc-next-words>span { display:block; margin-bottom:5px; color:#ebdca7; font-size:12px; }
+.wc-next-words>div { display:flex; gap:22px; }
+.wc-next-words strong { font-size:clamp(19px,2.5vw,28px); font-weight:750; color:#fff5d6; }
+.wc-world:has([data-wc-scene="ready"]) .wc-word-ledge.is-reachable { border:2px solid #e9d59b; border-radius:12px 12px 18px 18px; background:linear-gradient(135deg,#f9edc9,#dcc68a); box-shadow:0 5px 0 #715631,0 9px 16px #112a3655; padding-top:10px; }
+.wc-word-ledge.is-reachable strong { color:#293d2c; text-shadow:none; font-weight:800; }
+.wc-word-ledge[data-selected]::after { top:auto; bottom:6px; left:22%; right:22%; height:3px; border-radius:2px; background:#665236; box-shadow:none; }
+.wc-mission-card { border-bottom:2px solid #c6b87b; background:linear-gradient(105deg,#172f32,#304d45); }
+.wc-bottom-bar { border-top:1px solid #d2c48b66; background:linear-gradient(100deg,#172f32,#284b43); }
+@media(max-height:420px) { .wc-next-words { top:2px; padding:3px 12px 5px; } .wc-next-words>span { display:none; } .wc-next-words strong { font-size:18px; } }

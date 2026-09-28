@@ -53,7 +53,17 @@ export function stepKart(path, kart, input, dt) {
   next.steering+=(steer-next.steering)*Math.min(1,dt*9);
   const wanted=input.brake ? 3.2 : (input.speed || 9);
   next.speed+=(wanted-next.speed)*Math.min(1,dt*3);
-  next.heading+=next.steering*Math.min(1.05,next.speed*0.1)*dt;
+  if (input.roadAssist) {
+    // A released wheel follows the bend while preserving the player's lateral
+    // position. Steering still turns a physical heading; it never selects words.
+    next.aimLateral = Math.max(-RACER_ROAD_WIDTH / 2 + .8, Math.min(RACER_ROAD_WIDTH / 2 - .8,
+      (next.aimLateral ?? next.lateral) + steer * 6.2 * dt));
+    const road = sampleCircuitPath(path, next.progress + 5.5);
+    const aim = offsetCircuitPoint(road, next.aimLateral);
+    const heading = Math.atan2(aim.x - next.x, -(aim.z - next.z));
+    const turn = angleDelta(next.heading, heading);
+    next.heading += Math.max(-1.7 * dt, Math.min(1.7 * dt, turn * Math.min(1, dt * 9)));
+  } else next.heading+=next.steering*Math.min(1.05,next.speed*0.1)*dt;
   next.x+=Math.sin(next.heading)*next.speed*dt;
   next.z-=Math.cos(next.heading)*next.speed*dt;
   const projection=projectKart(path,next);
@@ -66,6 +76,17 @@ export function stepKart(path, kart, input, dt) {
     if(Math.abs(next.lateral)<RACER_ROAD_WIDTH/2-1.1 && Math.abs(angleDelta(next.heading,projection.heading))<0.8)
       next.safeProgress=next.progress;
   }
+  if (input.roadAssist && projection && Math.abs(next.lateral) > RACER_ROAD_WIDTH / 2 - .65) {
+    // Soft guardrails keep a held turn from repeatedly teleporting the kart.
+    // Motor recovery does not change sound accuracy or the caught-word ledger.
+    next.lateral = Math.sign(next.lateral) * (RACER_ROAD_WIDTH / 2 - .65);
+    const edge = offsetCircuitPoint(projection, next.lateral);
+    next.x = edge.x; next.y = edge.y; next.z = edge.z;
+    next.heading = projection.heading;
+    next.speed *= .97;
+    next.recovered = false;
+    return next;
+  }
   next.recovered=!projection || projection.error>(RACER_ROAD_WIDTH/2-0.48)**2;
   if(next.recovered) {
     const safe=createKart(path,next.safeProgress);
@@ -76,4 +97,20 @@ export function stepKart(path, kart, input, dt) {
 export function chasePose(kart) {
   return { x:kart.x-Math.sin(kart.heading)*8.8,y:kart.y+4.4,z:kart.z+Math.cos(kart.heading)*8.8,
     lookX:kart.x+Math.sin(kart.heading)*12,lookY:kart.y+0.8,lookZ:kart.z-Math.cos(kart.heading)*12 };
+}
+
+/** Advance low-frame-rate devices at wall-clock pace using small collision steps. */
+export function racerFrameSteps(seconds) {
+  const elapsed = Math.max(0, Math.min(.15, Number(seconds) || 0));
+  if (!elapsed) return [];
+  const count = Math.ceil(elapsed / .025);
+  return Array.from({ length: count }, () => elapsed / count);
+}
+
+/** Cruise has energy; an approaching word gets a stable reading window. */
+export function racerDriveSpeed({ difficulty = 'easy', wordDistance = Infinity, boosted = false, slowed = false } = {}) {
+  const band = ['hard', 'high'].includes(difficulty) ? 2 : ['medium', 'mid'].includes(difficulty) ? 1 : 0;
+  const reading = wordDistance >= 0 && wordDistance < 16;
+  const cruise = reading ? 10.5 + band : 15 + band * 1.4;
+  return Math.max(7, cruise + (boosted && !reading ? 3 : 0) - (slowed ? 2 : 0));
 }

@@ -1,7 +1,7 @@
 const PONDS = [
-  { id: 'shallows', name: 'Sunny shallows', length: 17.4, reelRate: 3.05, pullRate: .8, period: 3.6, tensionRate: .26 },
-  { id: 'channel', name: 'Reed channel', length: 19.6, reelRate: 3.05, pullRate: 1.05, period: 3.1, tensionRate: .33 },
-  { id: 'deep', name: 'Deep pool', length: 20.8, reelRate: 3.15, pullRate: 1.25, period: 2.8, tensionRate: .4 }
+  { id: 'shallows', name: 'Sunny shallows', length: 12.4, reelRate: 6.3, pullRate: .8, period: 3.6, tensionRate: .34 },
+  { id: 'channel', name: 'Reed channel', length: 14.0, reelRate: 6.5, pullRate: 1.05, period: 3.1, tensionRate: .46 },
+  { id: 'deep', name: 'Deep pool', length: 15.2, reelRate: 6.7, pullRate: 1.25, period: 2.8, tensionRate: .58 }
 ];
 
 export function fishingPondForEncounter(index = 0) {
@@ -10,7 +10,7 @@ export function fishingPondForEncounter(index = 0) {
 
 export function createFishingFight({ encounter = 0, depth = .5, seed = 0 } = {}) {
   const pond = fishingPondForEncounter(encounter);
-  const initialLength = pond.length + Math.max(0, Math.min(1, depth)) * 2.6;
+  const initialLength = pond.length + Math.max(0, Math.min(1, depth)) * 1.8;
   return { pond, initialLength, remaining: initialLength, tension: .18, strain: 0, elapsed: 0,
     phase: (Math.abs(seed) % 11) * .23, pull: 0, sway: 0, landed: false, escaped: false };
 }
@@ -28,7 +28,7 @@ export function stepFishingFight(previous, { reeling = false, lateralLoad = 0 } 
   state.remaining = Math.min(state.initialLength * 1.12, Math.max(0,
     state.remaining + (reeling ? payout - state.pond.reelRate : payout * .8) * dt));
   const tensionChange = reeling
-    ? .065 + state.pull * state.pond.tensionRate + Math.min(.1, Math.abs(lateralLoad) * .1)
+    ? .15 + state.pull * state.pond.tensionRate + Math.min(.1, Math.abs(lateralLoad) * .1)
     : -.5 + state.pull * .075;
   state.tension = Math.max(.04, Math.min(1, state.tension + tensionChange * dt));
   state.strain = Math.max(0, state.strain + (state.tension > .94 ? dt : -dt * 2));

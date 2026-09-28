@@ -1,3 +1,5 @@
+import { sentenceGroveChoicePositions } from "./sentenceGroveLayout.js";
+import "./SentenceGroveWorld.css";
 import { createGardenWorld } from '../shared/arcadeGardenWorlds.js';
 import { arcadeSurfaceTexture, createGrovePaths } from '../shared/arcadeWorldSurfaces.js';
 import { createBlenderLandmarks } from '../shared/arcadeBlenderLandmarks.js';
@@ -101,23 +103,6 @@ const DIFFICULTY = {
 };
 
 const MAP_BOUNDS = { minX: -118, maxX: 118, minZ: -88, maxZ: 88 };
-const ANSWER_START_CLEARANCE = {
-  minDistance: 34,
-  frontDistance: 62,
-  frontHalfWidth: 24,
-  behindBuffer: -6
-};
-
-const FOREST_TOKEN_SLOTS = [
-  [-94, -64], [-58, -74], [-18, -66], [26, -78], [72, -64], [104, -36],
-  [-102, -24], [-70, -28], [-34, -38], [10, -30], [48, -42], [88, -18],
-  [-96, 8], [-56, 2], [-15, -2], [24, 10], [62, 4], [100, 22],
-  [-84, 42], [-42, 34], [0, 48], [38, 38], [78, 52], [106, 68],
-  [-106, 70], [-62, 68], [-22, 78], [20, 70], [58, 78], [92, 42]
-];
-
-const SPREAD_FOREST_TOKEN_SLOTS = FOREST_TOKEN_SLOTS.map((_, index) => FOREST_TOKEN_SLOTS[(index * 7 + 13) % FOREST_TOKEN_SLOTS.length]);
-
 const WORLD_PLACEMENT = {
   meadow: {
     start: [0, 66],
@@ -245,153 +230,37 @@ function seededOffset(seed, scale = 1) {
   return Math.sin(seed * 12.9898 + 78.233) * scale;
 }
 
-function slotPosition(slot, stage, itemIndex, index) {
-  const jitterX = seededOffset(stage * 19 + itemIndex * 7 + index * 3, 4.6);
-  const jitterZ = seededOffset(stage * 23 + itemIndex * 11 + index * 5, 4.2);
-  const clamped = clampPointToBounds({ x: slot[0] + jitterX, z: slot[1] + jitterZ }, MAP_BOUNDS, 8);
-  return [clamped.x, clamped.z];
-}
-
-function pointXZ(point) {
-  return Array.isArray(point) ? { x: point[0], z: point[1] } : { x: point.x, z: point.z };
-}
-
-function answerStartClearance(position, placement) {
-  const point = pointXZ(position);
-  const startX = placement.start[0];
-  const startZ = placement.start[1];
-  const dx = point.x - startX;
-  const dz = point.z - startZ;
-  const forward = { x: Math.sin(placement.yaw), z: Math.cos(placement.yaw) };
-  const right = { x: Math.cos(placement.yaw), z: -Math.sin(placement.yaw) };
-  const distance = Math.hypot(dx, dz);
-  const forwardDistance = dx * forward.x + dz * forward.z;
-  const lateralDistance = Math.abs(dx * right.x + dz * right.z);
-  const tooClose = distance < ANSWER_START_CLEARANCE.minDistance;
-  const inFrontLane =
-    forwardDistance > ANSWER_START_CLEARANCE.behindBuffer &&
-    forwardDistance < ANSWER_START_CLEARANCE.frontDistance &&
-    lateralDistance < ANSWER_START_CLEARANCE.frontHalfWidth;
-
-  return {
-    distance,
-    forwardDistance,
-    lateralDistance,
-    tooClose,
-    inFrontLane,
-    clear: !tooClose && !inFrontLane
-  };
-}
-
-function answerPositionIsClear(position, placement) {
-  return answerStartClearance(position, placement).clear;
-}
-
-function assignTokenPositions(entries, slots, state) {
-  const placement = placementFor(state);
-  const usedSlots = new Set();
-  const positions = new Array(entries.length);
-  const placementOrder = entries
-    .map((entry, index) => ({ entry, index }))
-    .sort((a, b) => {
-      if (a.entry.isCorrect === b.entry.isCorrect) return a.index - b.index;
-      return a.entry.isCorrect ? -1 : 1;
-    });
-
-  for (const { entry, index } of placementOrder) {
-    let selected = null;
-    for (let offset = 0; offset < slots.length; offset += 1) {
-      const slotIndex = (index + offset) % slots.length;
-      if (usedSlots.has(slotIndex)) continue;
-      const position = slotPosition(slots[slotIndex], state.stage, state.itemIndex, index + entry.copy);
-      selected ||= { slotIndex, position };
-      if (!entry.isCorrect || answerPositionIsClear(position, placement)) {
-        selected = { slotIndex, position };
-        break;
-      }
-    }
-    if (!selected) {
-      const slotIndex = index % slots.length;
-      selected = {
-        slotIndex,
-        position: slotPosition(slots[slotIndex], state.stage, state.itemIndex, index + entry.copy)
-      };
-    }
-    usedSlots.add(selected.slotIndex);
-    positions[index] = selected.position;
-  }
-
-  return positions;
-}
-
 function makeCollectibleTexture(label, theme) {
   const canvas = document.createElement("canvas");
-  canvas.width = 512;
-  canvas.height = 512;
+  canvas.width = 1024;
+  canvas.height = 384;
   const ctx = canvas.getContext("2d");
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  const glow = ctx.createRadialGradient(256, 260, 18, 256, 260, 228);
-  glow.addColorStop(0, "rgba(255,255,255,.78)");
-  glow.addColorStop(0.32, `${theme.accent2}99`);
-  glow.addColorStop(0.72, `${theme.accent}38`);
-  glow.addColorStop(1, "rgba(0,0,0,0)");
-  ctx.fillStyle = glow;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  ctx.save();
-  ctx.beginPath();
-  ctx.moveTo(70, 124);
-  ctx.lineTo(454, 124);
-  ctx.lineTo(486, 158);
-  ctx.lineTo(456, 390);
-  ctx.lineTo(68, 390);
-  ctx.lineTo(28, 348);
-  ctx.lineTo(28, 166);
-  ctx.closePath();
-  ctx.fillStyle = "rgba(247,253,255,.96)";
-  ctx.fill();
-  ctx.lineWidth = 18;
-  ctx.strokeStyle = "rgba(3,9,20,.94)";
+  const paper = ctx.createLinearGradient(0, 20, 0, 360);
+  paper.addColorStop(0, "#fffcee");
+  paper.addColorStop(1, "#e8d7a5");
+  ctx.fillStyle = "#49613b";
+  ctx.beginPath(); ctx.roundRect(12, 24, 1000, 350, 46); ctx.fill();
+  ctx.fillStyle = paper;
+  ctx.beginPath(); ctx.roundRect(18, 10, 988, 340, 42); ctx.fill();
+  ctx.strokeStyle = theme.trim;
+  ctx.lineWidth = 9;
   ctx.stroke();
-  ctx.lineWidth = 8;
-  ctx.strokeStyle = theme.accent2;
-  ctx.stroke();
-  ctx.globalAlpha = 0.42;
-  ctx.fillStyle = theme.accent;
-  for (let y = 151; y < 370; y += 22) {
-    ctx.fillRect(58, y, 396, 3);
+  ctx.fillStyle = "#a7945f";
+  for (const x of [52, 972]) {
+    ctx.beginPath(); ctx.arc(x, 50, 9, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(x, 310, 9, 0, Math.PI * 2); ctx.fill();
   }
-  ctx.globalAlpha = 1;
-  ctx.fillStyle = "rgba(255,255,255,.72)";
-  ctx.beginPath();
-  ctx.moveTo(74, 145);
-  ctx.lineTo(430, 145);
-  ctx.lineTo(448, 164);
-  ctx.lineTo(78, 164);
-  ctx.closePath();
-  ctx.fill();
-  ctx.restore();
-
+  const text = String(label);
+  let size = 230;
+  ctx.font = `800 ${size}px Nunito, Trebuchet MS, sans-serif`;
+  while (ctx.measureText(text).width > 840 && size > 90) {
+    size -= 8;
+    ctx.font = `800 ${size}px Nunito, Trebuchet MS, sans-serif`;
+  }
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  const text = String(label);
-  let size = text.length <= 1 ? 318 : text.length <= 2 ? 264 : text.length <= 3 ? 216 : text.length <= 6 ? 166 : 132;
-  ctx.font = `900 ${size}px Trebuchet MS, Arial Rounded MT Bold, sans-serif`;
-  while (ctx.measureText(text).width > 430 && size > 80) {
-    size -= 8;
-    ctx.font = `900 ${size}px Trebuchet MS, Arial Rounded MT Bold, sans-serif`;
-  }
-
-  ctx.lineJoin = "round";
-  ctx.lineWidth = Math.max(26, size * 0.17);
-  ctx.strokeStyle = "rgba(255,255,255,.98)";
-  ctx.strokeText(text, 256, 272);
-  ctx.lineWidth = Math.max(13, size * 0.07);
-  ctx.strokeStyle = "rgba(1,4,13,.96)";
-  ctx.strokeText(text, 256, 272);
-  ctx.fillStyle = "#08101e";
-  ctx.fillText(text, 256, 272);
+  ctx.fillStyle = "#223a2d";
+  ctx.fillText(text, 512, 192);
 
   const texture = new THREE.CanvasTexture(canvas);
   texture.colorSpace = THREE.SRGBColorSpace;
@@ -685,7 +554,6 @@ function addScenery(root, theme, world, actors = []) {
     const x = MAP_BOUNDS.minX + 18 + col * 23.2 + seededOffset(i + row * 3, 5.8);
     const z = MAP_BOUNDS.minZ + 14 + row * 23.8 + seededOffset(i + col * 5, 6.2);
     if (Math.abs(x) < 18 && z > 48) continue;
-    if (FOREST_TOKEN_SLOTS.some(([slotX, slotZ]) => Math.abs(slotX - x) < 9 && Math.abs(slotZ - z) < 9)) continue;
     const scale = 0.62 + ((i * 17) % 7) * 0.085;
     const prop = world === "moonwood" && i % 4 === 0 ? makeMushroom(theme, scale * 1.7) : makeTree(theme, scale);
     prop.position.set(x, 0, z);
@@ -707,7 +575,6 @@ function addScenery(root, theme, world, actors = []) {
     const x = MAP_BOUNDS.minX + 12 + ((i * 31) % 220) + seededOffset(i * 3 + 19, 4.8);
     const z = MAP_BOUNDS.minZ + 10 + ((i * 47) % 164) + seededOffset(i * 5 + 11, 4.6);
     if (Math.abs(x) < 22 && z > 46) continue;
-    if (FOREST_TOKEN_SLOTS.some(([slotX, slotZ]) => Math.abs(slotX - x) < 7 && Math.abs(slotZ - z) < 7)) continue;
     const detail = makeGroundDetail(theme, world, 0.72 + ((i * 13) % 5) * 0.13);
     detail.position.set(x, 0.02, z);
     detail.rotation.y = (i * 0.83) % Math.PI;
@@ -1049,8 +916,8 @@ function makeToken(label, isCorrect, answer, theme, position) {
     })
   );
   const labelWidth = labelString.length <= 1 ? 2.78 : labelString.length <= 2 ? 3.18 : labelString.length <= 4 ? 4.05 : labelString.length <= 7 ? 4.85 : 5.65;
-  labelMesh.scale.set(labelWidth, 2.34, 1);
-  labelMesh.position.set(0, 2.28, -1.1);
+  labelMesh.scale.set(labelWidth * 1.7, labelWidth * 1.7 * 0.375, 1);
+  labelMesh.position.set(0, 3.0, -1.1);
   labelMesh.renderOrder = 10;
   const beacon = new THREE.Mesh(new THREE.OctahedronGeometry(0.38, 0), emissiveMaterial(theme.accent, 0.72));
   beacon.position.y = 5.68;
@@ -1505,27 +1372,15 @@ function createStarGalleryEngine(mount, options) {
     if (!repair) return;
     const theme = themeFor(state);
     const choices = rotate(repair.options, state.gateSerial + state.itemIndex);
-    const expanded = [];
-    for (const choice of choices) {
-      const copies = choice === repair.answer ? 2 : state.level.difficulty === "hard" ? 3 : 2;
-      for (let copy = 0; copy < copies; copy += 1) {
-        expanded.push({ choice, copy, isCorrect: isAcceptedRepairAnswer(repair, choice) });
-      }
-    }
-    const tokenCount = Math.min(state.level.difficulty === "hard" ? 9 : state.level.difficulty === "medium" ? 8 : 7, expanded.length);
-    const rotatedChoices = rotate(expanded, state.gateSerial + state.stage).slice(0, tokenCount);
-    if (!rotatedChoices.some(entry => entry.isCorrect)) {
-      rotatedChoices[rotatedChoices.length - 1] = { choice: repair.answer, copy: 0, isCorrect: true };
-    }
-    const slots = rotate(SPREAD_FOREST_TOKEN_SLOTS, state.stage * 7 + state.itemIndex * 5 + state.gateSerial * 3 + (options.journey?.route || 0) * 4);
-    const positions = assignTokenPositions(rotatedChoices, slots, state);
+    const rotatedChoices = choices.map(choice => ({ choice, isCorrect: isAcceptedRepairAnswer(repair, choice) }));
+    const positions = sentenceGroveChoicePositions(rotatedChoices.length, state.player, state.gateSerial + state.stage * 7 + state.itemIndex * 3 + (options.journey?.route || 0), state.mapBounds);
     state.gateLocked = false;
     state.selectedAnswer = "";
     state.nearTreeLabel = "";
     state.itemMisses = 0;
     state.gateSerial += 1;
     state.tokens = rotatedChoices.map((entry, index) => {
-      const position = positions[index] || slotPosition(slots[index % slots.length], state.stage, state.itemIndex, index + entry.copy);
+      const position = positions[index];
       const token = makeToken(String(entry.choice), entry.isCorrect, String(entry.choice), theme, position);
       token.choice = entry.choice;
       state.tokenRoot.add(token.group);
@@ -1907,9 +1762,6 @@ function createStarGalleryEngine(mount, options) {
 
   function updateHud() {
     const theme = themeFor(state);
-    const answerClearances = state.tokens
-      .filter(token => token.isCorrect && !token.smashed && token.group)
-      .map(token => answerStartClearance(token.group.position, placementFor(state)));
     renderer.domElement.dataset.playerX = state.player.x.toFixed(2);
     renderer.domElement.dataset.playerZ = state.player.z.toFixed(2);
     renderer.domElement.dataset.speed = state.player.speed.toFixed(2);
@@ -1919,11 +1771,6 @@ function createStarGalleryEngine(mount, options) {
     renderer.domElement.dataset.nearTree = state.nearTreeLabel;
     renderer.domElement.dataset.treeCount = String(state.tokens.filter(token => !token.smashed).length);
     renderer.domElement.dataset.correctTreeCount = String(state.tokens.filter(token => token.isCorrect && !token.smashed).length);
-    renderer.domElement.dataset.answerMinStartDistance = answerClearances.length
-      ? Math.min(...answerClearances.map(clearance => clearance.distance)).toFixed(2)
-      : "";
-    renderer.domElement.dataset.answerFrontLaneCount = String(answerClearances.filter(clearance => clearance.inFrontLane).length);
-    renderer.domElement.dataset.answerTooCloseCount = String(answerClearances.filter(clearance => clearance.tooClose).length);
     renderer.domElement.dataset.itemIndex = String(state.itemIndex);
     renderer.domElement.dataset.correct = String(state.correct);
     const repair = repairForState(state);
@@ -2031,22 +1878,26 @@ function createStarGalleryEngine(mount, options) {
   const loop = createFrameLoop(animate);
 
   function onKeyDown(event) {
-    if (isInteractiveKeyTarget(event.target)) return;
+    if (isInteractiveKeyTarget(event.target, event.key)) return;
     if (state.ended || state.paused) return;
     const horizontal = laneDirectionForKey(event.key);
     const vertical = verticalDirectionForKey(event.key);
     if (horizontal < 0) {
       event.preventDefault();
       keys.left = true;
+      if (!event.repeat) state.player.yaw += 0.08;
     } else if (horizontal > 0) {
       event.preventDefault();
       keys.right = true;
+      if (!event.repeat) state.player.yaw -= 0.08;
     } else if (vertical < 0) {
       event.preventDefault();
       keys.up = true;
+      if (!event.repeat) state.player.speed = Math.max(state.player.speed, 1.8);
     } else if (vertical > 0) {
       event.preventDefault();
       keys.down = true;
+      if (!event.repeat) state.player.speed = Math.min(state.player.speed, -1.2);
     } else if (event.key === "Shift") {
       event.preventDefault();
       keys.boost = true;
@@ -2099,9 +1950,12 @@ function createStarGalleryEngine(mount, options) {
     const down = event => {
       event.preventDefault();
       event.stopPropagation();
-      node.setPointerCapture?.(event.pointerId);
+      if (state.ended || state.paused || event.repeat) return;
+      if (event.pointerId !== undefined) node.setPointerCapture?.(event.pointerId);
       node.style.transform = "translateY(2px) scale(.98)";
       keys[key] = true;
+      if (key === "left") state.player.yaw += 0.08;
+      if (key === "right") state.player.yaw -= 0.08;
       if (key === "up") state.player.speed = Math.max(state.player.speed, 1.8);
       if (key === "down") state.player.speed = Math.min(state.player.speed, -1.2);
     };
@@ -2111,6 +1965,9 @@ function createStarGalleryEngine(mount, options) {
       node.style.transform = "";
       keys[key] = false;
     };
+    node.addEventListener("keydown", event => { if (isPrimaryActionKey(event.key)) down(event); });
+    node.addEventListener("keyup", event => { if (isPrimaryActionKey(event.key)) up(event); });
+    node.addEventListener("blur", up);
     node.addEventListener("pointerdown", down);
     node.addEventListener("pointerup", up);
     node.addEventListener("pointercancel", up);
@@ -2230,7 +2087,7 @@ function createStarGalleryEngine(mount, options) {
           smashed: token.smashed,
           cooldown: token.cooldown,
           position: token.group ? { x: token.group.position.x, z: token.group.position.z } : null,
-          startClearance: token.group ? answerStartClearance(token.group.position, placementFor(state)) : null
+          playerDistance: token.group ? Math.hypot(token.group.position.x - state.player.x, token.group.position.z - state.player.z) : null
         })),
         hazards: state.hazards.map(hazard => ({
           x: hazard.mesh.position.x,

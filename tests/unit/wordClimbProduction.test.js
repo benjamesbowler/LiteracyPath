@@ -102,3 +102,21 @@ test("partial route reload retains lanterns, recovery and the exact next word st
  assert.deepEqual(loaded.world, {...world,paused:false,event:null});
  assert.deepEqual(loaded.session,session);assert.equal(readClimbSession(storage,"route",0,false),null);
 });
+
+test("older long-corridor saves adopt the short route without losing earned words or the current sound",()=>{
+  const session=createWordClimbSession("medium"),world=createClimbJourney(session,1,2),storage=memory();
+  world.journey.travelPerSection=1700;
+  world.wrong=3;world.motorFalls=2;
+  const words=world.platforms.filter(p=>p.kind==="word").map(p=>[p.id,p.word,p.correct]);
+  writeClimbSession(storage,"legacy",session,world);
+  const restored=readClimbSession(storage,"legacy",2,true);
+  assert.equal(restored.world.step,2);
+  assert.equal(restored.world.wrong,3);
+  assert.equal(restored.world.motorFalls,2);
+  assert.equal(restored.session.target,session.target);
+  assert.ok(restored.world.journey.travelPerSection<=360);
+  assert.deepEqual(restored.world.platforms.filter(p=>p.kind==="word").map(p=>[p.id,p.word,p.correct]),words);
+  const safe=restored.world.platforms.find(p=>p.id===restored.world.safeId);
+  assert.equal(restored.world.y,safe.y);
+  assert.equal(restored.world.x,safe.x);
+});

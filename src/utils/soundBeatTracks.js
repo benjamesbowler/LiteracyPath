@@ -86,7 +86,7 @@ export function soundBeatLevel(difficulty = "easy", levelIndex = 0, sessionSeed 
     items: levelItems(safeDifficulty, level, sessionSeed).map((item, index) => {
       const phrases = [[0, 1, 2, 3], [0, 2, 1, 3], [3, 2, 1, 0], [0, 1, 0, 2, 3], [1, 2, 0, 3]];
       const phrase = phrases[(level + index + sessionSeed) % phrases.length];
-      return { ...item, lanes: [...item.beats, "blend"].map((_, beat) => phrase[beat % phrase.length]) };
+      return { ...item, lanes: item.beats.map((_, beat) => phrase[beat % phrase.length]) };
     })
   };
 }

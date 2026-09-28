@@ -20,12 +20,12 @@ import { playCueAudio, stopCueAudio } from "../../../../utils/audio/cuePlayer.js
 import { onsetGrapheme } from "../../../elQuest/elQuestEngine.js";
 import { getLedaInstructionAudioPath } from "../../../../data/ledaProductionAudio.js";
 import { loadThree, createRenderer, createScene, createPerspectiveCamera, attachResize, createFrameLoop, attachContextLossGuard, attachSwipeSteer, prefersReducedMotion, detectQualityTier, applyQualityTier, shadowMapForTier, particleCountForTier, QUALITY_TIERS, disposeRenderer, disposeObject, setTextureSrgb } from "../shared/threeShell.js";
-import { sampleCircuitPath, offsetCircuitPoint, createKart, stepKart, chasePose } from "../../../../utils/soundRacerPhysics.js";
+import { sampleCircuitPath, offsetCircuitPoint, createKart, stepKart, chasePose, racerFrameSteps, racerDriveSpeed } from "../../../../utils/soundRacerPhysics.js";
 import { laneDirectionForKey } from "../shared/premiumGameStandard.js";
 import { createArcadePremiumRenderPipeline } from "../shared/arcadePremiumRender.js";
 
 import { createRacerKart } from "./soundRacerKartAsset.js";
-import { createRacerScenery } from "./soundRacerScenery.js";
+import { createRacerScenery, racerTerrainHeight } from "./soundRacerScenery.js";
 
 const LANES = [-3.15, 0, 3.15];
 const LANE_NAMES = ["left", "middle", "right"];
@@ -861,15 +861,15 @@ function startGame(THREE, mount, opts) {
       }
 
       const railGlow = ctx.createLinearGradient(0, 0, w, 0);
-      railGlow.addColorStop(0, colorStyle(currentMap.rail, 0.94));
-      railGlow.addColorStop(0.06, colorStyle(currentMap.rail, 0.22));
+      railGlow.addColorStop(0, colorStyle(currentMap.rail, 0.18));
+      railGlow.addColorStop(0.06, colorStyle(currentMap.rail, 0.04));
       railGlow.addColorStop(0.5, "rgba(255,255,255,0)");
-      railGlow.addColorStop(0.94, colorStyle(currentMap.rail, 0.22));
-      railGlow.addColorStop(1, colorStyle(currentMap.rail, 0.94));
+      railGlow.addColorStop(0.94, colorStyle(currentMap.rail, 0.04));
+      railGlow.addColorStop(1, colorStyle(currentMap.rail, 0.18));
       ctx.fillStyle = railGlow;
       ctx.fillRect(0, 0, w, h);
 
-      ctx.fillStyle = colorStyle(currentMap.rail, 0.92);
+      ctx.fillStyle = colorStyle(0xf5edcd, 0.62);
       for (const x of [62, w - 70]) ctx.fillRect(x, 0, 10, h);
 
       for (let y = 34; y < h; y += 116) {
@@ -1127,39 +1127,6 @@ function startGame(THREE, mount, opts) {
     return group;
   }
 
-  function makeBillboard(label, side) {
-    const group = new THREE.Group();
-    const postMat = material(0x1b2029, { metalness: 0.44, roughness: 0.46 });
-    const panelMat = material(currentMap.trackA, {
-      metalness: 0.22,
-      roughness: 0.42,
-      emissive: currentMap.trackA,
-      emissiveIntensity: 0.08
-    });
-    for (const x of [-0.82, 0.82]) {
-      const post = new THREE.Mesh(new THREE.BoxGeometry(0.12, 1.75, 0.12), postMat);
-      post.position.set(x, 0.78, 0);
-      group.add(post);
-    }
-
-    const panel = new THREE.Mesh(new THREE.BoxGeometry(2.18, 0.78, 0.12), panelMat);
-    panel.position.y = 1.7;
-    group.add(panel);
-
-    const stripe = new THREE.Mesh(
-      new THREE.BoxGeometry(1.64, 0.12, 0.135),
-      basic(currentMap.rail, { transparent: true, opacity: 0.82, blending: THREE.AdditiveBlending, depthWrite: false })
-    );
-    stripe.position.set(0, 1.88, 0.08);
-    group.add(stripe);
-
-    const notch = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.5, 0.14), basic(currentMap.gate, { transparent: true, opacity: 0.78 }));
-    notch.position.set(label % 2 ? 0.72 : -0.72, 1.55, 0.09);
-    group.add(notch);
-    group.rotation.y = side > 0 ? -0.28 : 0.28;
-    return group;
-  }
-
   function makeTrackGantry(index) {
     const group = new THREE.Group();
     const curve = new THREE.CatmullRomCurve3([
@@ -1180,379 +1147,6 @@ function startGame(THREE, mount, opts) {
       number.position.set(side * 5.85, 3.0, 0); number.scale.set(.9, .9, 1); group.add(number);
     }
     group.userData.checkpointNumber = index;
-    return group;
-  }
-
-  function makeMeadowTree(index, scale = 1) {
-    const group = new THREE.Group();
-    const trunkMat = material(0x8b5630, { roughness: 0.8, metalness: 0.02 });
-    const leafA = material(mixHex(currentMap.terrain, 0xc5d4a1, 0.22), { roughness: .98, metalness: 0, flatShading: false });
-    const leafB = material(mixHex(currentMap.terrain, 0x345d39, 0.26), { roughness: .98, metalness: 0, flatShading: false });
-    const trunkH = 0.96 * scale;
-    const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.1 * scale, 0.15 * scale, trunkH, 6), trunkMat);
-    trunk.position.y = trunkH * 0.5;
-    group.add(trunk);
-
-    for (let i = 0; i < 5; i += 1) {
-      const crown = new THREE.Mesh(new THREE.IcosahedronGeometry((0.46 + (i % 2) * 0.08) * scale, 2), i % 2 ? leafA : leafB);
-      crown.position.set(((i % 3) - 1) * 0.22 * scale, trunkH + (0.2 + i * 0.055) * scale, ((i % 2) - 0.5) * 0.22 * scale);
-      crown.scale.set(1.08, 0.82, 1);
-      group.add(crown);
-    }
-    return group;
-  }
-
-  function makeDinoTree(index, scale = 1) {
-    const group = new THREE.Group();
-    const trunkMat = material(mixHex(currentMap.ground, 0x3a1c0e, 0.5), { roughness: 0.88, metalness: 0.02 });
-    const leafA = material(mixHex(currentMap.terrain, 0xd5dc75, 0.22), { roughness: 0.8, metalness: 0.03 });
-    const leafB = material(mixHex(currentMap.terrain, 0x17300d, 0.32), { roughness: 0.83, metalness: 0.03 });
-    const trunkH = 1.45 * scale;
-    const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.12 * scale, 0.18 * scale, trunkH, 6), trunkMat);
-    trunk.position.y = trunkH * 0.5;
-    trunk.rotation.z = ((index % 5) - 2) * 0.03;
-    group.add(trunk);
-
-    for (let i = 0; i < 9; i += 1) {
-      const leaf = new THREE.Mesh(new THREE.BoxGeometry(0.12 * scale, 0.04 * scale, 1.18 * scale), i % 2 ? leafA : leafB);
-      leaf.position.y = trunkH + 0.08 * scale;
-      leaf.rotation.y = (i / 9) * Math.PI * 2;
-      leaf.rotation.x = 0.48 + (i % 3) * 0.07;
-      leaf.position.x = Math.sin(leaf.rotation.y) * 0.28 * scale;
-      leaf.position.z = Math.cos(leaf.rotation.y) * 0.28 * scale;
-      group.add(leaf);
-    }
-    return group;
-  }
-
-  function makeMoonwoodTree(index, scale = 1) {
-    const group = new THREE.Group();
-    const trunkMat = material(mixHex(currentMap.ground, 0x05020a, 0.68), { roughness: 0.82, metalness: 0.04 });
-    const leafMat = material(mixHex(currentMap.terrain, index % 2 ? 0x7a5ab4 : 0x263f6c, 0.32), {
-      roughness: 0.76,
-      metalness: 0.04,
-      emissive: currentMap.trim,
-      emissiveIntensity: 0.012,
-      flatShading: false
-    });
-    const trunkH = 1.36 * scale;
-    for (let i = 0; i < 3; i += 1) {
-      const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.08 * scale, 0.13 * scale, trunkH * 0.42, 5), trunkMat);
-      trunk.position.set(((i % 2) - 0.5) * 0.08 * scale, trunkH * (0.22 + i * 0.23), 0);
-      trunk.rotation.z = ((index + i) % 2 ? 0.22 : -0.18);
-      group.add(trunk);
-    }
-    for (let branch = 0; branch < 5; branch += 1) {
-      const limb = new THREE.Mesh(new THREE.BoxGeometry(0.09 * scale, 0.08 * scale, 0.78 * scale), trunkMat);
-      limb.position.set(((branch % 2) ? 0.32 : -0.32) * scale, trunkH * (0.5 + branch * 0.08), 0);
-      limb.rotation.y = branch * 0.7;
-      limb.rotation.z = ((branch % 2) ? -0.52 : 0.52);
-      group.add(limb);
-    }
-    const crown = new THREE.Mesh(new THREE.IcosahedronGeometry(0.46 * scale, 2), leafMat);
-    crown.position.set(0.04 * scale, trunkH + 0.18 * scale, 0);
-    crown.scale.set(1.18, 0.8, 1.08);
-    group.add(crown);
-    return group;
-  }
-
-  function makeEvergreen(index, scale = 1) {
-    if (world === "meadow") return makeMeadowTree(index, scale);
-    if (world === "dino") return makeDinoTree(index, scale);
-    if (world === "moonwood") return makeMoonwoodTree(index, scale);
-
-    const group = new THREE.Group();
-    const trunkMat = material(mixHex(currentMap.ground, 0x26120a, 0.62), { roughness: 0.86, metalness: 0.02 });
-    const leafDark = material(mixHex(currentMap.terrain, 0x06120b, 0.48), { roughness: 0.82, metalness: 0.03 });
-    const leafLight = material(mixHex(currentMap.terrain, 0xd6e7bd, 0.2), { roughness: 0.78, metalness: 0.03 });
-    const trunkH = 1.2 * scale;
-    const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.08 * scale, 0.14 * scale, trunkH, 5), trunkMat);
-    trunk.position.y = trunkH * 0.5;
-    group.add(trunk);
-
-    const tiers = 4;
-    for (let i = 0; i < tiers; i += 1) {
-      const cone = new THREE.Mesh(
-        new THREE.ConeGeometry((0.68 - i * 0.08) * scale, (0.82 - i * 0.05) * scale, 7),
-        i % 2 ? leafDark : leafLight
-      );
-      cone.position.y = trunkH * 0.5 + i * 0.38 * scale + 0.48 * scale;
-      cone.rotation.y = (index + i) * 0.9;
-      cone.rotation.z = ((index + i) % 2 ? 0.04 : -0.04);
-      group.add(cone);
-    }
-    group.scale.y = 1.08 + (index % 4) * 0.08;
-    return group;
-  }
-
-  function makeRockScatter(index) {
-    const group = new THREE.Group();
-    const rockBase = material(mixHex(currentMap.hazard, currentMap.ground, 0.34), { roughness: 0.94, metalness: 0.04 });
-    const rockHi = material(mixHex(currentMap.hazard, 0xffffff, 0.12), { roughness: 0.9, metalness: 0.04 });
-    const count = 4 + (index % 4);
-    for (let i = 0; i < count; i += 1) {
-      const rock = new THREE.Mesh(
-        new THREE.DodecahedronGeometry(0.34 + ((index + i) % 5) * 0.08, 0),
-        i % 3 === 0 ? rockHi : rockBase
-      );
-      rock.scale.set(1.35 + (i % 2) * 0.44, 0.55 + (i % 3) * 0.18, 0.82 + (i % 4) * 0.16);
-      rock.position.set((i - count / 2) * 0.42, 0.12 + i * 0.018, (i % 2) * 0.42);
-      rock.rotation.set(i * 0.36, index * 0.4 + i, i * 0.12);
-      group.add(rock);
-    }
-    return group;
-  }
-
-  function makeMeadowFence(index, side) {
-    const group = new THREE.Group();
-    const woodMat = material(0xba7b3e, { roughness: 0.82, metalness: 0.02 });
-    const hayMat = material(0xd9b64b, { roughness: 0.8, metalness: 0.02 });
-    const flowerMats = [
-      material(0xffd25f, { roughness: 0.7, metalness: 0.02, emissive: 0x5d3500, emissiveIntensity: 0.04 }),
-      material(0xff7fb4, { roughness: 0.7, metalness: 0.02, emissive: 0x5d1230, emissiveIntensity: 0.04 }),
-      material(0xb6f574, { roughness: 0.7, metalness: 0.02 })
-    ];
-
-    for (let i = 0; i < 4; i += 1) {
-      const post = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.72, 0.14), woodMat);
-      post.position.set((i - 1.5) * 0.82, 0.35, 0);
-      group.add(post);
-    }
-    for (const y of [0.32, 0.56]) {
-      const rail = new THREE.Mesh(new THREE.BoxGeometry(2.8, 0.1, 0.1), woodMat);
-      rail.position.set(0, y, side * 0.02);
-      rail.rotation.z = side * 0.04;
-      group.add(rail);
-    }
-    const bale = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.32, 0.58, 10), hayMat);
-    bale.rotation.z = Math.PI / 2;
-    bale.position.set(side * 0.48, 0.2, 0.56);
-    group.add(bale);
-    for (let i = 0; i < 7; i += 1) {
-      const flower = new THREE.Mesh(new THREE.DodecahedronGeometry(0.07 + (i % 2) * 0.02, 0), flowerMats[(index + i) % flowerMats.length]);
-      flower.position.set(-1.15 + i * 0.36, 0.08, 0.58 + (i % 3) * 0.1);
-      group.add(flower);
-    }
-    return group;
-  }
-
-  function makeSwampPool(index, side) {
-    const group = new THREE.Group();
-    const water = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.92, 1.08, 0.05, 18),
-      basic(mixHex(currentMap.ground, 0x38d0a9, 0.36), {
-        transparent: true,
-        opacity: 0.62,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false
-      })
-    );
-    water.scale.set(1.72, 1, 0.62);
-    water.position.set(side * 0.12, 0.03, 0.22);
-    group.add(water);
-
-    const reedMat = material(mixHex(currentMap.terrain, 0xc3bd62, 0.3), { roughness: 0.82, metalness: 0.02 });
-    const padMat = material(mixHex(currentMap.terrain, 0x24390e, 0.22), { roughness: 0.78, metalness: 0.02 });
-    for (let i = 0; i < 10; i += 1) {
-      const reed = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.68 + (i % 3) * 0.12, 0.05), reedMat);
-      reed.position.set(-1.1 + i * 0.25, 0.32, -0.32 + (i % 4) * 0.2);
-      reed.rotation.z = ((i % 3) - 1) * 0.16;
-      group.add(reed);
-    }
-    for (let i = 0; i < 4; i += 1) {
-      const pad = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.025, 10), padMat);
-      pad.position.set(-0.56 + i * 0.36, 0.07, 0.04 + (i % 2) * 0.28);
-      pad.scale.x = 1.42;
-      group.add(pad);
-    }
-    group.add(makeRockScatter(index + 6));
-    return group;
-  }
-
-  function makeMoonwoodPatch(index, side) {
-    const group = new THREE.Group();
-    const stemMat = material(0xe1d8c8, { roughness: 0.76, metalness: 0.02 });
-    const capMat = material(index % 2 ? 0x9d67d8 : 0x6aa8ff, {
-      roughness: 0.52,
-      metalness: 0.08,
-      emissive: currentMap.trim,
-      emissiveIntensity: 0.12
-    });
-    const glowMat = basic(currentMap.gate, { transparent: true, opacity: 0.62, blending: THREE.AdditiveBlending, depthWrite: false });
-
-    for (let i = 0; i < 7; i += 1) {
-      const size = 0.16 + (i % 3) * 0.05;
-      const stem = new THREE.Mesh(new THREE.CylinderGeometry(size * 0.28, size * 0.38, size * 1.7, 7), stemMat);
-      stem.position.set(-0.86 + i * 0.28, size * 0.78, 0.1 + (i % 3) * 0.22);
-      stem.rotation.z = ((i % 2) ? 0.12 : -0.08);
-      group.add(stem);
-
-      const cap = new THREE.Mesh(new THREE.ConeGeometry(size, size * 0.8, 9), capMat);
-      cap.position.set(stem.position.x, size * 1.58, stem.position.z);
-      group.add(cap);
-    }
-
-    const post = new THREE.Mesh(new THREE.BoxGeometry(0.09, 1.15, 0.09), material(0x2b2237, { roughness: 0.7, metalness: 0.08 }));
-    post.position.set(side * 0.84, 0.55, -0.24);
-    group.add(post);
-    const lantern = new THREE.Mesh(new THREE.DodecahedronGeometry(0.2, 0), glowMat);
-    lantern.position.set(side * 0.84, 1.22, -0.24);
-    group.add(lantern);
-    const light = new THREE.PointLight(currentMap.gate, 0.7, 4);
-    light.position.copy(lantern.position);
-    group.add(light);
-    return group;
-  }
-
-  function makeTreeCluster(index, side) {
-    const group = new THREE.Group();
-    const count = 4 + (index % 4);
-    for (let i = 0; i < count; i += 1) {
-      const tree = makeEvergreen(index + i, 0.92 + ((index + i) % 5) * 0.15);
-      tree.position.set((i - count / 2) * 0.78 + side * ((i % 2) * 0.5), 0, (i % 2) * 0.78);
-      tree.rotation.y = side * 0.22 + i * 0.18;
-      group.add(tree);
-    }
-    const rocks = makeRockScatter(index);
-    rocks.position.set(side * -0.25, 0, 0.85);
-    group.add(rocks);
-    return group;
-  }
-
-  function makeRoadsideProp(index, side) {
-    const group = new THREE.Group();
-    const roll = (index * 2 + (side > 0 ? 1 : 0)) % 7;
-
-    if (world === "meadow") {
-      if (roll === 0) {
-        group.add(makeTreeCluster(index, side));
-      } else if (roll === 1 || roll === 4) {
-        group.add(makeMeadowFence(index, side));
-      } else if (roll === 2) {
-        const nearTree = makeEvergreen(index, 1.42);
-        nearTree.position.set(side * 0.22, 0, 0);
-        group.add(nearTree);
-        const fence = makeMeadowFence(index + 3, side);
-        fence.position.set(side * -0.5, 0, 0.9);
-        group.add(fence);
-      } else if (roll === 3) {
-        group.add(makeBillboard(index, side));
-      } else {
-        group.add(makeRockScatter(index));
-        const flowers = makeMeadowFence(index + 5, side);
-        flowers.position.set(side * 0.45, 0, 0.72);
-        flowers.scale.setScalar(0.74);
-        group.add(flowers);
-      }
-    } else if (world === "dino") {
-      if (roll === 0) {
-        group.add(makeTreeCluster(index, side));
-      } else if (roll === 1 || roll === 4) {
-        group.add(makeSwampPool(index, side));
-      } else if (roll === 2) {
-        const nearTree = makeEvergreen(index, 1.92);
-        nearTree.position.set(side * 0.12, 0, 0);
-        group.add(nearTree);
-        const pool = makeSwampPool(index + 4, side);
-        pool.position.set(side * -0.44, 0, 1.0);
-        pool.scale.setScalar(0.72);
-        group.add(pool);
-      } else if (roll === 3) {
-        group.add(makeBillboard(index, side));
-        const flame = new THREE.Mesh(
-          new THREE.ConeGeometry(0.32, 0.88, 8),
-          basic(0xff7a32, { transparent: true, opacity: 0.76, blending: THREE.AdditiveBlending, depthWrite: false })
-        );
-        flame.position.set(side * 0.42, 0.88, 0.48);
-        group.add(flame);
-      } else {
-        const basalt = new THREE.Mesh(
-          new THREE.BoxGeometry(0.42, 1.5 + roll * 0.16, 2.5),
-          material(mixHex(currentMap.hazard, 0x2b2420, 0.36), { roughness: 0.86, metalness: 0.08 })
-        );
-        basalt.position.y = 0.75 + roll * 0.07;
-        basalt.rotation.y = side * 0.18;
-        group.add(basalt);
-        group.add(makeRockScatter(index + 8));
-      }
-    } else if (world === "moonwood") {
-      if (roll === 0) {
-        group.add(makeTreeCluster(index, side));
-      } else if (roll === 1 || roll === 4) {
-        group.add(makeMoonwoodPatch(index, side));
-      } else if (roll === 2) {
-        const nearTree = makeEvergreen(index, 1.82);
-        nearTree.position.set(side * 0.12, 0, 0);
-        group.add(nearTree);
-        const patch = makeMoonwoodPatch(index + 2, side);
-        patch.position.set(side * -0.56, 0, 0.92);
-        patch.scale.setScalar(0.76);
-        group.add(patch);
-      } else if (roll === 3) {
-        group.add(makeBillboard(index, side));
-        const halo = new THREE.Mesh(
-          new THREE.TorusGeometry(0.42, 0.035, 8, 20),
-          basic(currentMap.gate, { transparent: true, opacity: 0.7, blending: THREE.AdditiveBlending, depthWrite: false })
-        );
-        halo.position.set(side * 0.44, 1.84, 0.05);
-        halo.rotation.x = Math.PI / 2;
-        group.add(halo);
-      } else {
-        const shard = new THREE.Mesh(
-          new THREE.ConeGeometry(0.34, 1.42 + roll * 0.16, 5),
-          material(mixHex(currentMap.hazard, currentMap.trim, 0.22), {
-            roughness: 0.42,
-            metalness: 0.26,
-            emissive: currentMap.trim,
-            emissiveIntensity: 0.04
-          })
-        );
-        shard.position.y = 0.7 + roll * 0.08;
-        shard.rotation.z = side * -0.12;
-        group.add(shard);
-        group.add(makeRockScatter(index));
-      }
-    } else {
-      if (roll === 0) {
-        group.add(makeTreeCluster(index, side));
-      } else if (roll === 1) {
-        group.add(makeRockScatter(index));
-      } else if (roll === 2) {
-        const nearTree = makeEvergreen(index, 1.72);
-        nearTree.position.set(side * 0.18, 0, 0);
-        group.add(nearTree);
-        const rocks = makeRockScatter(index + 3);
-        rocks.position.set(side * -0.44, 0, 0.9);
-        group.add(rocks);
-      } else if (roll === 3) {
-        group.add(makeBillboard(index, side));
-        const cap = new THREE.Mesh(
-          new THREE.BoxGeometry(0.9, 0.08, 0.9),
-          basic(currentMap.rail, { transparent: true, opacity: 0.62, blending: THREE.AdditiveBlending, depthWrite: false })
-        );
-        cap.position.y = 2.25;
-        cap.position.x = side * 0.4;
-        group.add(cap);
-      } else {
-        const wall = new THREE.Mesh(
-          new THREE.BoxGeometry(0.34, 1.35 + roll * 0.18, 2.35),
-          material(mixHex(currentMap.hazard, currentMap.trackA, 0.22), { roughness: 0.76, metalness: 0.12 })
-        );
-        wall.position.y = 0.7 + roll * 0.08;
-        wall.rotation.y = side * 0.2;
-        group.add(wall);
-        const lightSlit = new THREE.Mesh(
-          new THREE.BoxGeometry(0.36, 0.07, 1.6),
-          basic(currentMap.gate, { transparent: true, opacity: 0.58, blending: THREE.AdditiveBlending, depthWrite: false })
-        );
-        lightSlit.position.y = 1.2 + roll * 0.08;
-        lightSlit.rotation.y = side * 0.2;
-        group.add(lightSlit);
-      }
-    }
-    group.position.x = side * (8.2 + (index % 4) * 1.35);
-    group.rotation.y += side * 0.12;
-    group.userData.scrollFactor = 0.16;
     return group;
   }
 
@@ -1859,8 +1453,16 @@ function startGame(THREE, mount, opts) {
     burstParticles = [];
     pulseObjects = [];
 
-    scene.background = new THREE.Color(mixHex(currentMap.sky, 0x0b1020, world === "moonwood" ? 0.3 : world === "dino" ? 0.14 : 0.08));
-    scene.fog = new THREE.FogExp2(currentMap.fog, world === "dino" ? 0.0094 : world === "moonwood" ? 0.0115 : 0.009);
+    if (scene.background?.isTexture) scene.background.dispose();
+    scene.background = cachedCanvasTexture(`${currentMap.name}:sky-gradient`, 32, 512, (ctx, width, height) => {
+      const gradient = ctx.createLinearGradient(0, 0, 0, height);
+      gradient.addColorStop(0, colorStyle(mixHex(currentMap.sky, 0x152b4b, world === "moonwood" ? .35 : .2)));
+      gradient.addColorStop(.52, colorStyle(currentMap.sky));
+      gradient.addColorStop(1, colorStyle(mixHex(currentMap.fog, currentMap.sun, .22)));
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, width, height);
+    });
+    scene.fog = new THREE.FogExp2(currentMap.fog, world === "dino" ? 0.0062 : world === "moonwood" ? 0.008 : 0.0055);
     ambient.color.setHex(currentMap.ambient);
     ambient.intensity = (world === "moonwood" ? 0.42 : world === "dino" ? 0.46 : 0.52) + (qualityTier === "low" ? .16 : 0);
     keyLight.color.setHex(currentMap.sun);
@@ -1887,7 +1489,14 @@ function startGame(THREE, mount, opts) {
     const monument = makeWorldMonument();
     sceneryGroup.add(monument);
 
-    const groundGeo = new THREE.PlaneGeometry(500, 500, 24, 30);
+    const groundGeo = new THREE.PlaneGeometry(500, 500, 64, 64);
+    const groundVertices = groundGeo.attributes.position;
+    for (let index = 0; index < groundVertices.count; index++) {
+      const x = groundVertices.getX(index) + 40;
+      const z = -groundVertices.getY(index) - 60;
+      groundVertices.setZ(index, racerTerrainHeight(track.path, x, z) + .22);
+    }
+    groundGeo.computeVertexNormals();
     const groundTexture = makeGroundTexture();
     const ground = new THREE.Mesh(
       groundGeo,
@@ -1907,7 +1516,8 @@ function startGame(THREE, mount, opts) {
       new THREE.SphereGeometry(9, 32, 20),
       basic(currentMap.sun, { transparent: true, opacity: 0.7, depthWrite: false })
     );
-    sun.position.set(-24, 21, -92);
+    sun.position.set(-38, 38, -140);
+    sun.scale.multiplyScalar(.48);
     sceneryGroup.add(sun);
 
     const particleTexture = makeParticleTexture();
@@ -1923,18 +1533,6 @@ function startGame(THREE, mount, opts) {
       gantry.rotation.y = -point.heading;
       gantry.userData.trackBound = true;
       sceneryGroup.add(gantry);
-    }
-
-    const propCount = qualityTier === "low" ? 18 : 36;
-    for (let i = 0; i < propCount; i += 1) {
-      const side = i % 2 === 0 ? -1 : 1;
-      const prop = makeRoadsideProp(i, side);
-      const point = sampleCircuitPath(track?.path, 10 + i * (track.totalLength - 20) / propCount);
-      const offset = offsetCircuitPoint(point, side * (TRACK_WIDTH / 2 + 4.5));
-      prop.position.set(offset.x, offset.y, offset.z);
-      prop.rotation.y = -point.heading;
-      prop.userData.trackBound = true;
-      sceneryGroup.add(prop);
     }
 
     // Raised bridge section follows the same sampled deck as the tyres and
@@ -1991,7 +1589,7 @@ function startGame(THREE, mount, opts) {
     for(const side of [-1,1]) {
       const edge=side*TRACK_WIDTH/2;
       ribbon(edge-0.3,edge+0.3,0.04,material(0xf5dd96,{roughness:0.8,side:THREE.DoubleSide}));
-      ribbon(edge-0.08,edge+0.08,0.08,basic(currentMap.rail,{side:THREE.DoubleSide}));
+      ribbon(edge-0.06,edge+0.06,0.08,material(0xf5edcd,{roughness:.9,side:THREE.DoubleSide}));
     }
 
     if (ship) {
@@ -2080,7 +1678,7 @@ function startGame(THREE, mount, opts) {
 
 
     checkpointIndex = 0;
-    speed = difficulty === "hard" || difficulty === "high" ? 6.8 : difficulty === "medium" || difficulty === "mid" ? 6.1 : 5.4;
+    speed = racerDriveSpeed({ difficulty });
     timeMs = 0;
     wordsCorrect = 0;
     wordsWrong = 0;
@@ -2167,7 +1765,7 @@ function startGame(THREE, mount, opts) {
       hearTargetEl.disabled = !replayAvailable;
     }
     if (speedEl) {
-      const maxSpeed = 11.2;
+      const maxSpeed = racerDriveSpeed({ difficulty, boosted: true });
       speedEl.style.background = "#" + currentMap.gate.toString(16).padStart(6, "0");
       speedEl.style.width = `${Math.min(100, Math.max(0, (speed / maxSpeed) * 100))}%`;
     }
@@ -2330,6 +1928,8 @@ function startGame(THREE, mount, opts) {
   }
 
   function finishRun() {
+    if (completionSent) return;
+    completionSent = true;
     const results = levelResults.filter(Boolean);
     const correct = results.reduce((sum, item) => sum + item.correct, 0);
     const mistakes = results.reduce((sum, item) => sum + item.mistakes, 0);
@@ -2340,33 +1940,22 @@ function startGame(THREE, mount, opts) {
     sfx(playCelebrationFanfare);
     // The shared result surface already provides Next level and Replay level.
     // Completing the cup must reach it without a second Done confirmation.
-    if (opts.onComplete && !completionSent) {
-      completionSent = true;
+    if (opts.onComplete) {
       opts.onProgressUpdate?.(levelCount, levelCount);
       opts.onComplete(stars, score, correct);
       return;
     }
     overlayCueTimer = queueRecordedCue(getLedaInstructionAudioPath("Great job"), 1100);
     opts.onProgressUpdate?.(levelCount, levelCount);
-    const overlay = showOverlay(
+    showOverlay(
       '<div style="display:grid;gap:14px;justify-items:center;padding:24px">' +
         '<div aria-hidden="true" style="font-size:3rem;line-height:1;color:#ffd34e">★</div>' +
         '<div style="font-size:2.05rem;font-weight:900">Cup complete</div>' +
         `<div style="font-size:2.45rem;letter-spacing:8px">${"★".repeat(stars)}${"✩".repeat(3 - stars)}</div>` +
         `<div style="font-size:1.1rem;opacity:.92">Score <b>${score}</b> · Words <b>${correct}</b></div>` +
-        '<button data-sr="done" aria-label="Finish Sound Racer" style="min-height:56px;font-family:inherit;font-weight:900;font-size:1.1rem;color:#071033;background:#ffd34e;border:0;padding:13px 30px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);cursor:pointer">➜ Done</button>' +
       '</div>',
       "Sound Racer complete"
     );
-    const doneButton = overlay.querySelector('[data-sr="done"]');
-    doneButton.addEventListener("click", () => {
-      if (completionSent) return;
-      completionSent = true;
-      doneButton.disabled = true;
-      doneButton.setAttribute("aria-disabled", "true");
-      doneButton.style.pointerEvents = "none";
-      opts.onComplete?.(stars, score, correct);
-    }, { once: true });
   }
 
   function moveLane(dir) {
@@ -2437,12 +2026,14 @@ function startGame(THREE, mount, opts) {
   for (const type of ["pointerup", "pointercancel", "lostpointercapture"]) brakeControl.addEventListener(type, releaseBrake);
   const onKey = event => {
     if (paused || overlayActive) return;
-    const steeringControlOwnsFocus = event.target?.matches?.('[data-sr="left-control"],[data-sr="right-control"],[data-sr="brake-control"]');
-    if (isInteractiveKeyTarget(event.target) && !steeringControlOwnsFocus) return;
+    const steeringControlOwnsFocus = event.target?.matches?.('[data-sr="left-control"],[data-sr="right-control"],[data-sr="brake-control"]')
+      || (event.target?.matches?.('[data-sr="hear-target"]') && Boolean(laneDirectionForKey(event.key)));
+    if (isInteractiveKeyTarget(event.target, event.key) && !steeringControlOwnsFocus) return;
     if (event.code === "Space" || event.key === "ArrowDown") { event.preventDefault(); brakeHolds.add(`key-${event.code}`); return; }
     const direction = laneDirectionForKey(event.key);
     if (!direction) return;
     event.preventDefault();
+    if (!event.repeat && !heldSteering.has(`key-${event.code}`)) moveLane(direction);
     heldSteering.set(`key-${event.code}`, direction);
   };
   const keyUp = event => { heldSteering.delete(`key-${event.code}`); brakeHolds.delete(`key-${event.code}`); };
@@ -2599,7 +2190,8 @@ function startGame(THREE, mount, opts) {
   let frameCount = 0;
   function tick(now) {
     frameCount += 1;
-    const dt = Math.max(0, Math.min(0.05, ((now - last) || 16) / 1000));
+    const frameSteps = racerFrameSteps(((now - last) || 16) / 1000);
+    const dt = frameSteps.reduce((sum, step) => sum + step, 0);
     last = now;
     if (!opts.getSound?.()) gateVoice?.abort();
     if (paused || (overlayActive && !running)) {
@@ -2643,23 +2235,19 @@ function startGame(THREE, mount, opts) {
       }
     }
 
-    if (running && track) {
+    for (const dt of frameSteps) if (running && track) {
       timeMs += dt * 1000;
-      const base = difficulty === "hard" || difficulty === "high" ? 6.8 : difficulty === "medium" || difficulty === "mid" ? 6.1 : 5.4;
-      const boost = boostT > 0 ? 2.4 : 0;
-      const drag = dragT > 0 ? 2.0 : 0;
-      speed = Math.max(3.2, base + boost + wordsCorrect * 0.07 - drag);
+      const nextWord = gateObjects.filter(gate => gate.kind === "word" && !gate.resolved && gate.z >= playerZ).reduce((nearest, gate) => Math.min(nearest, gate.z - playerZ), Infinity);
+      speed = racerDriveSpeed({ difficulty, wordDistance: nextWord, boosted: boostT > 0, slowed: dragT > 0 });
       boostT = Math.max(0, boostT - dt);
       dragT = Math.max(0, dragT - dt);
       shakeT = Math.max(0, shakeT - dt);
       steeringPulseT = Math.max(0, steeringPulseT - dt);
       const steer = heldSteering.size ? [...heldSteering.values()].at(-1) : steeringPulseT > 0 ? steeringPulse : 0;
-      kart = stepKart(track.path, kart, { steer, speed: speed * 1.65, brake: brakeHolds.size > 0 }, dt);
+      kart = stepKart(track.path, kart, { steer, speed, brake: brakeHolds.size > 0, roadAssist: true }, dt);
       playerZ = kart.progress;
       lateralOffset = kart.lateral;
       laneIx = lateralOffset < -1.5 ? 0 : lateralOffset > 1.5 ? 2 : 1;
-      hud.dataset.soundRacerLane = String(laneIx);
-      hud.dataset.soundRacerPosition = JSON.stringify({x:kart.x,z:kart.z,heading:kart.heading,progress:playerZ,lateral:lateralOffset,recoveries:kart.recoveries,wordsCorrect,wordsWrong,missedCorrect});
       if (kart.recovered) {
         obstaclesHit += 1;
         hurtShip("off-road");
@@ -2674,6 +2262,10 @@ function startGame(THREE, mount, opts) {
         }
       }
       updateGates(dt);
+    }
+    if (kart) {
+      hud.dataset.soundRacerLane = String(laneIx);
+      hud.dataset.soundRacerPosition = JSON.stringify({x:kart.x,z:kart.z,heading:kart.heading,progress:playerZ,lateral:lateralOffset,recoveries:kart.recoveries,wordsCorrect,wordsWrong,missedCorrect});
       updateHud();
     }
 
@@ -2717,7 +2309,7 @@ function startGame(THREE, mount, opts) {
     frames: frameCount, tier: qualityTier, renderCalls: renderer.info.render.calls, triangles: renderer.info.render.triangles,
     geometries: renderer.info.memory.geometries, textures: renderer.info.memory.textures,
     kart: racerKart?.snapshot(), scenery: racerScenery?.root.userData,
-    progress: kart?.progress, speed: kart?.speed, steering: kart?.steering, running, paused,
+    progress: kart?.progress, aimLateral: kart?.aimLateral, speed: kart?.speed, steering: kart?.steering, running, paused,
     timeMs, raceLength: track?.raceLength, laps: track?.laps, checkpointIndex,
     nextGates: gateObjects.filter(gate => !gate.resolved && gate.z >= playerZ - 2).sort((a, b) => a.z - b.z).slice(0, 4).map(({ z, lane, word, correct, catchup }) => ({ z, lane, word, correct, catchup }))
   }) });
@@ -2785,12 +2377,13 @@ function startGame(THREE, mount, opts) {
     disposeObject(sceneryGroup);
     disposeObject(burstGroup);
     premiumRender.destroy();
+    if (scene.background?.isTexture) scene.background.dispose();
     disposeRenderer(renderer, { forceContextLoss: true });
     textureCanvasCache.clear();
     if (hud.parentNode) hud.parentNode.removeChild(hud);
   }
 
-  return { teardown, pause, resume };
+  return { teardown, pause, resume, debugSnapshot: () => import.meta.env.DEV ? mount.racerInspection : null };
 }
 
 export default function SoundRacerGame({

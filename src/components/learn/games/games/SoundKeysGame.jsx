@@ -134,7 +134,7 @@ export default function SoundKeysGame({ difficulty = "easy", sessionSeed = 0, jo
   }; }, [mapping, play, release, stopSounds, undo]);
   useEffect(() => {
     state.current.mounted = true;
-    const cleanup = createComputerKeyboardProvider(event => handler.current?.(event), { resolveKey: key => /^[1-8]$/.test(key) ? keyboardKeys.current[Number(key) - 1] : null, acceptTarget: (target, key) => /^[1-8]$/.test(key) && Boolean(target?.closest?.(".sk-console button")) });
+    const cleanup = createComputerKeyboardProvider(event => handler.current?.(event), { resolveKey: key => /^[1-8]$/.test(key) ? keyboardKeys.current[Number(key) - 1] : null, acceptTarget: (target, key) => (/^[1-8]$/.test(key) && Boolean(target?.closest?.(".sk-console button"))) || ((/^[a-z]$/.test(key) || key === "backspace") && Boolean(target?.closest?.(".soundkeys-keyboard button"))) });
     onEngineReady?.({ pause, resume });
     const s = state.current;
     const heldKeys = held.current;

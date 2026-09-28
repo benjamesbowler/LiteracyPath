@@ -71,7 +71,8 @@ export function advanceClimbWorld(world, seconds, steer = 0) {
       world.vy -= GRAVITY * dt;
       const safe = world.platforms.find(p => p.id === world.safeId);
       const landing = world.vy < 0 && world.platforms.find(p =>
-        (world.state === "recovering" ? p.id === world.safeId : p.row <= world.step + 1) &&
+        (world.state === "recovering" ? p.id === world.safeId :
+          p.row <= world.step || (p.row === world.step + 1 && (!world.journey || p.kind === "word"))) &&
         beforeY >= p.y && world.y <= p.y && Math.abs(world.x - p.x) <= p.width / 2);
       if (landing) {
         world.y = landing.y;

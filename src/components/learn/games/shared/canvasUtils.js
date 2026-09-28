@@ -20,16 +20,15 @@ export function titleWord(value) {
   return word ? `${word.slice(0, 1).toUpperCase()}${word.slice(1)}` : "";
 }
 
-// Stroked arcade label. Sound Safari's fork used stroke alpha .76 where the
-// other two used .72; .72 won (majority fork, imperceptible difference).
+// Readable game lettering: a quiet edge on light text, no muddy outline on ink.
 export function text(ctx, value, x, y, size, color = "#fff", align = "left", weight = 800) {
   ctx.save();
-  ctx.font = `${weight} ${size}px "Trebuchet MS", "Arial Rounded MT Bold", system-ui, sans-serif`;
+  ctx.font = `${weight} ${size}px "Nunito", "Arial Rounded MT Bold", system-ui, sans-serif`;
   ctx.textAlign = align;
   ctx.textBaseline = "middle";
   ctx.lineJoin = "round";
-  ctx.lineWidth = Math.max(3, size * 0.13);
-  ctx.strokeStyle = "rgba(0,0,0,.72)";
+  ctx.lineWidth = Math.max(1.5, size * 0.065);
+  ctx.strokeStyle = "rgba(5,18,28,.48)";
   ctx.strokeText(String(value), x, y);
   ctx.fillStyle = color;
   ctx.fillText(String(value), x, y);
@@ -65,27 +64,29 @@ export function cutRect(ctx, x, y, w, h, cut = 12) {
   ctx.closePath();
 }
 
-// Bevelled HUD panel with a gloss pass. Rhyme Pop's fork had a slightly
-// fainter gloss (alpha 0.38, stops .26@0 / .08@0.18) than Sound Beat's
-// (alpha 0.42, stops .28@0 / .08@0.16) used here; the difference is
-// imperceptible and this version covers both.
+// Rounded, raised game plaque. Keep the shape simple around teaching text.
 export function panel(ctx, x, y, w, h, color = "rgba(5,10,22,.72)", stroke = "rgba(255,255,255,.28)") {
   ctx.save();
-  cutRect(ctx, x, y, w, h, Math.min(18, h * 0.32));
+  roundedRect(ctx, x, y, w, h, Math.min(18, h * 0.32));
+  ctx.shadowColor = "rgba(8,18,23,.24)";
+  ctx.shadowBlur = 12;
+  ctx.shadowOffsetY = 4;
   ctx.fillStyle = color;
   ctx.fill();
+  ctx.shadowBlur = 0;
+  ctx.shadowOffsetY = 0;
   ctx.globalAlpha = 0.42;
   const gloss = ctx.createLinearGradient(0, y, 0, y + h);
   gloss.addColorStop(0, "rgba(255,255,255,.28)");
   gloss.addColorStop(0.16, "rgba(255,255,255,.08)");
   gloss.addColorStop(1, "rgba(255,255,255,0)");
   ctx.fillStyle = gloss;
-  cutRect(ctx, x + 2, y + 2, w - 4, Math.max(6, h * 0.34), Math.min(14, h * 0.24));
+  roundedRect(ctx, x + 2, y + 2, w - 4, Math.max(6, h * 0.34), Math.min(14, h * 0.24));
   ctx.fill();
   ctx.globalAlpha = 1;
   ctx.lineWidth = 2;
   ctx.strokeStyle = stroke;
-  cutRect(ctx, x, y, w, h, Math.min(18, h * 0.32));
+  roundedRect(ctx, x, y, w, h, Math.min(18, h * 0.32));
   ctx.stroke();
   ctx.restore();
 }

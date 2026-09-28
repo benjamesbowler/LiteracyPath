@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RACER_DRIVER_CLIPS, racerDriverState } from '../../src/components/learn/games/games/soundRacerKartAsset.js';
-import { racerStripGeometry, racerSceneryPlacements, circuitClearance } from '../../src/components/learn/games/games/soundRacerScenery.js';
+import { racerStripGeometry, racerSceneryPlacements, circuitClearance, racerTerrainHeight } from '../../src/components/learn/games/games/soundRacerScenery.js';
 import { buildTrack } from '../../src/utils/soundRacerTracks.js';
 const file = new URL('../../public/game-assets/sound-racer/models/pip-kart.glb', import.meta.url);
 async function load() {
@@ -133,4 +133,14 @@ test('runtime mixer keeps wheel contacts while steering, suspension and repeated
     kart.dispose();
     assert.equal(kart.root.children.length, 0);
   } finally { GLTFLoader.prototype.loadAsync = originalLoad; }
+});
+
+
+test('authored Racer props meet terrain instead of floating at a neighbouring bridge height', () => {
+  const track = buildTrack('b', { difficulty: 'easy', seed: 0 });
+  const low = racerSceneryPlacements(track, 'meadow', 'low');
+  assert.ok(low.length >= 35, `low tier keeps a dressed circuit: ${low.length}`);
+  for (const prop of low) assert.equal(prop.y, racerTerrainHeight(track.path, prop.x, prop.z));
+  for (const point of track.path) assert.equal(racerTerrainHeight(track.path, point.x, point.z), -.22);
+  assert.ok(racerTerrainHeight(track.path, -90, -90) > 0, 'distant land has authored relief');
 });

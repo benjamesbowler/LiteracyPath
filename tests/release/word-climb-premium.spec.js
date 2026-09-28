@@ -46,7 +46,7 @@ for (const [difficulty, summit] of [["easy", 6], ["medium", 8], ["hard", 10]]) {
     await expect(finish).toBeVisible();
     await expect(finish).toContainText(`${summit * 10} points`);
     await expect(finish).toContainText("Canopy reached");
-    expect(Date.now()-began).toBeGreaterThanOrEqual(125000);
+    expect(Date.now()-began).toBeLessThan(125000);
     expect(errors).toEqual([]);
     await page.screenshot({path:`.artifacts/word-climb-production/summit-${difficulty}.png`});
     await page.getByRole("button",{name:"Next ascent",exact:true}).click();

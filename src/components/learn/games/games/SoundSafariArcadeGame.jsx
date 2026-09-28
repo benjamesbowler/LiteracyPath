@@ -49,7 +49,7 @@ const CONFIG = {
     guide: "/images/learn-games/ps1-arcade/sound-safari-guide-v1.webp",
     net: "/images/learn-games/ps1-arcade/sound-safari-net-v1.webp",
     bgByWorld: {
-      meadow: "/images/learn-games/ps1-arcade/sound-safari-meadow-bg-v1.webp",
+      meadow: "/images/learn-games/arcade-scenes/safari-clearing.webp",
       dino: "/images/learn-games/ps1-arcade/sound-safari-dino-bg-v1.webp",
       moonwood: "/images/learn-games/ps1-arcade/sound-safari-moonwood-bg-v1.webp"
     },
@@ -136,7 +136,7 @@ function plateText(ctx, value, x, y, maxWidth, maxSize, minSize = 24) {
   ctx.textBaseline = "middle";
   ctx.lineJoin = "round";
   do {
-    ctx.font = `900 ${size}px "Trebuchet MS", "Arial Rounded MT Bold", system-ui, sans-serif`;
+    ctx.font = `900 ${size}px "Nunito", "Arial Rounded MT Bold", system-ui, sans-serif`;
     if (ctx.measureText(label).width <= maxWidth || size <= minSize) break;
     size -= 1;
   } while (size > minSize);
@@ -151,15 +151,7 @@ function plateText(ctx, value, x, y, maxWidth, maxSize, minSize = 24) {
 function psxPanel(ctx, x, y, w, h, color = "rgba(5,10,22,.72)", stroke = "rgba(255,255,255,.3)", cut = 16) {
   const c = Math.min(cut, w * 0.18, h * 0.42);
   ctx.save();
-  ctx.beginPath();
-  ctx.moveTo(x + c, y);
-  ctx.lineTo(x + w - c * 0.55, y);
-  ctx.lineTo(x + w, y + c * 0.55);
-  ctx.lineTo(x + w - c, y + h);
-  ctx.lineTo(x + c * 0.55, y + h);
-  ctx.lineTo(x, y + h - c * 0.55);
-  ctx.lineTo(x, y + c);
-  ctx.closePath();
+  roundedRect(ctx, x, y, w, h, c);
   ctx.fillStyle = color;
   ctx.fill();
   ctx.lineWidth = 2;
@@ -719,10 +711,10 @@ function drawSoundSlots(ctx, task, theme, w, h) {
 
 function drawFieldGuide(ctx, task, theme, w, h, showNeeded, coach = "") {
   const box = fieldGuideReplayBox(w, h);
-  psxPanel(ctx, box.x, box.y, box.w, box.h, "rgba(3,8,18,.82)", `${theme.accent2}92`, 14);
+  psxPanel(ctx, box.x, box.y, box.w, box.h, "rgba(255,249,224,.97)", "#638b66", 14);
   const label = titleWord(task.item.word);
   const caption = h < 360 && coach ? coach : showNeeded ? `Next sound: ${neededSound(task)}` : "";
-  plateText(ctx, label, w / 2 - 22, box.y + (caption ? 20 : 28), box.w - 88, caption ? 27 : 32, 20);
+  plateText(ctx, label, w / 2 - 22, box.y + (caption ? 20 : 28), box.w - 88, caption ? 30 : 36, 22);
   if (caption) plateText(ctx, caption, w / 2 - 22, box.y + 43, box.w - 88, 16, 12);
   text(ctx, "♪", box.x + box.w - 28, box.y + 28, 27, theme.accent, "center", 900);
 }
@@ -737,9 +729,9 @@ function pointInside(box, x, y) {
 
 function drawGuide(ctx, image, theme, w, h, time) {
   if (w < 800 || h < 440) return;
-  const baseX = 64;
-  const baseY = h - 64;
-  const size = 92;
+  const baseX = 92;
+  const baseY = h - 108;
+  const size = 148;
   const bob = Math.sin(time * 2.3) * 2.5;
   ctx.save();
   ctx.fillStyle = "rgba(0,0,0,.42)";
@@ -946,12 +938,13 @@ function drawCreatureBody(ctx, critter, world, r, bright, dark, isNeeded, theme,
   ctx.fill();
 }
 
-function drawCritter(ctx, critter, needed, theme, time, world, sprite, renderProfile) {
+function drawCritter(ctx, critter, theme, time, world, sprite, renderProfile) {
   const center = critterCenter(critter, time);
   const spawn = easeOut(critter.spawnT ?? 1);
   const r = critter.r * (critter.scareT > 0 ? 0.94 + Math.sin(time * 36) * 0.04 : 1) * clamp(spawn, 0.24, 1);
   const [bright, dark] = CREATURE_COLORS[critter.color % CREATURE_COLORS.length];
-  const isNeeded = critter.label === needed;
+  // Choice styling must never reveal the needed sound.
+  const isNeeded = false;
   const depth = critter.depth ?? 0.5;
   const footY = center.y + r * (0.72 + depth * 0.08);
   const spriteMaxH = r * (2.42 + depth * 0.62);
@@ -1085,13 +1078,15 @@ function drawSafari(ctx, state, config, theme, images, w, h, blenderWorld, reduc
   // adaptive hint after 2 mistakes on the current grapheme.
   const showHint = state.rank === 0 || task.attempts >= 2;
   drawWorldAtmosphere(ctx, state, theme, w, h);
-  drawHabitatFloor(ctx, state, theme, w, h);
-  drawWorldGeometry(ctx, state, theme, w, h, "back");
-  blenderWorld?.drawLandscape(ctx,{width:w,height:h,ground:h*.88,time:state.time,world:state.level?.world,reducedMotion:reduceMotion,paused:state.paused});
+  if (!state.backgroundReady) {
+    drawHabitatFloor(ctx, state, theme, w, h);
+    drawWorldGeometry(ctx, state, theme, w, h, "back");
+    blenderWorld?.drawLandscape(ctx,{width:w,height:h,ground:h*.88,time:state.time,world:state.level?.world,reducedMotion:reduceMotion,paused:state.paused});
+  }
   drawWorldMotion(ctx, state, theme, w, h);
-  drawWorldGeometry(ctx, state, theme, w, h, "front");
-  const campSize = Math.min(290, h * .5);
-  blenderWorld?.draw(ctx, w - campSize * .96, h * .86 - campSize, campSize, campSize, state.time, { reducedMotion: reduceMotion, paused: state.paused, opacity: .87 });
+  if (!state.backgroundReady) drawWorldGeometry(ctx, state, theme, w, h, "front");
+  const campSize = Math.min(175, h * .25);
+  blenderWorld?.draw(ctx, w - campSize * 1.04, h * .96 - campSize, campSize, campSize, state.time, { reducedMotion: reduceMotion, paused: state.paused, opacity: .87 });
   drawFieldGuide(ctx, task, theme, w, h, showHint, state.coachT ? state.coachText : "");
   const palSprite = images.pals[state.level?.world] || images.pals.meadow;
   for (const critter of [...state.critters].sort((a, b) => (a.hitY || a.y) - (b.hitY || b.y))) {
@@ -1099,7 +1094,6 @@ function drawSafari(ctx, state, config, theme, images, w, h, blenderWorld, reduc
     drawCritter(
       ctx,
       critter,
-      showHint ? neededSound(task) : "",
       theme,
       state.time,
       state.level?.world || "meadow",
@@ -1481,7 +1475,7 @@ function startSoundSafariArcadeGame(mount, options) {
   }
 
   function onKeyDown(event) {
-    if (isInteractiveKeyTarget(event.target)) return;
+    if (isInteractiveKeyTarget(event.target, event.key)) return;
     if (state.paused || state.ended) return;
     if (event.repeat && (event.key === " " || event.key === "Enter")) return;
 
@@ -1580,7 +1574,8 @@ function startSoundSafariArcadeGame(mount, options) {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     const activeTheme = theme();
     const bg = images.backgrounds[state.level?.world] || images.backgrounds.meadow;
-    if (!drawCover(ctx, bg, w, h, state.time, renderProfile.cameraMotion)) {
+    state.backgroundReady = drawCover(ctx, bg, w, h, state.time, renderProfile.cameraMotion);
+    if (!state.backgroundReady) {
       drawFallback(ctx, w, h, activeTheme, state.time, renderProfile.effectScale);
     }
     drawSceneLighting(ctx, w, h, activeTheme, renderProfile);

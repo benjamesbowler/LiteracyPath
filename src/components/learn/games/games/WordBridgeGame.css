@@ -4,3 +4,11 @@
 .word-bridge-world [data-wb=banner]{top:auto!important;bottom:84px;font-size:clamp(14px,2vw,20px)!important;letter-spacing:0!important;text-transform:none!important;font-style:normal!important}
 @media(max-width:600px){.word-bridge-world [data-wb-panel=target]{max-width:none;right:8px!important;left:8px!important;top:6px!important;padding:4px 8px!important}.word-bridge-world [data-wb-panel=status]{top:86px!important;right:8px!important;padding:4px 8px!important;min-width:0!important}.word-bridge-world [data-wb=world],.word-bridge-world [data-wb=patience]{display:none}}
 @media(max-height:500px){.word-bridge-world [data-wb-panel=target]{top:4px!important;padding:3px 7px!important}.word-bridge-world [data-wb-panel=status]{top:4px!important;padding:3px 8px!important}.word-bridge-world [data-wb=banner]{bottom:72px!important}}
+.word-bridge-world [data-wb-panel=target]{background:linear-gradient(140deg,#fffcec,#eee0b7)!important;color:#334b35;border:2px solid #7d925a!important;box-shadow:0 5px 0 #496844,0 10px 22px #21342130!important;}
+.word-bridge-world [data-wb=level]{border-radius:10px;background:#eebf52!important;color:#45331e!important}
+.word-bridge-world [data-wb=target]>div{color:#304b39!important;background:#ffffff73!important;border-color:#8da375!important}
+.word-bridge-world [data-wb=left],.word-bridge-world [data-wb=right]{clip-path:none!important;border-radius:16px;background:linear-gradient(#527446,#2b4e36)!important;border:2px solid #c2d7a8!important;box-shadow:0 5px 0 #193424,0 8px 18px #18352544!important}
+.word-bridge-world [data-wb=action]{clip-path:none!important;border-radius:18px;border:2px solid #fff0ad!important}
+.word-bridge-world button:focus-visible{outline:4px solid #fff9ce;outline-offset:4px}
+
+.word-bridge-world [data-wb=target]>div[data-filled=true]{background:linear-gradient(#ffdf6b,#f2bb48)!important;color:#3b301d!important}

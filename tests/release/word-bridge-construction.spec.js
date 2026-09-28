@@ -17,11 +17,13 @@ async function tapWorld(page,x,y,touch=false){
   await advance(page,Math.abs(s.builder.x-x)/310*1000+150);
 }
 async function open(page,difficulty='easy',nativeFrames=false){
-  await page.clock.install();
+  await page.clock.install({time:new Date('2026-09-28T00:00:00Z')});
+  await page.clock.pauseAt(new Date('2026-09-28T00:00:01Z'));
   // Exercise the unchanged physics and physical inputs at a low-tier 20fps cadence.
   if(!nativeFrames) await page.addInitScript(() => { window.__bridgeRenderedFrames = 0; window.requestAnimationFrame = fn => window.setTimeout(() => { window.__bridgeRenderedFrames++; fn(performance.now()); }, 50); window.cancelAnimationFrame = id => window.clearTimeout(id); });
   await page.goto(`/preview/game-overlay.html?game=word-bridge&difficulty=${difficulty}&sound=0&music=0`);
-  await expect(page.locator('.word-bridge-world')).toBeVisible({timeout:25000});await advance(page,100);
+  await expect.poll(async()=>{await page.clock.runFor(50);return page.evaluate(()=>Boolean(document.querySelector('.word-bridge-world')?.bridgeSnapshot));},{timeout:25000}).toBe(true);
+  await advance(page,100);
 }
 for(const difficulty of ['easy','medium','hard'])test(`Word Bridge ${difficulty} ten physical construction crossings`,async({page},info)=>{
   test.setTimeout(360000);await open(page,difficulty);
@@ -34,9 +36,9 @@ for(const difficulty of ['easy','medium','hard'])test(`Word Bridge ${difficulty}
       await tapWorld(page,s.slots[i].x+s.slots[i].w/2,s.slots[i].y+25);s=await snapshot(page);expect(s.slots[i].filled).toBe(true);
     }
     if(stage===0)await page.screenshot({path:info.outputPath(`${difficulty}-built.png`)});
-    s=await snapshot(page);expect(s.phase).toBe('BELL_READY');await tapWorld(page,s.bell.x,s.bell.y);expect((await snapshot(page)).phase).toBe('PALS_CROSSING');
+    s=await snapshot(page);expect(['PALS_CROSSING','LEVEL_COMPLETE']).toContain(s.phase);await expect(page.getByRole('button',{name:'Ring bell'})).toHaveCount(0);
     s=await snapshot(page);
-    const crossingMs=Math.max(...s.pals.filter(pal=>pal.state!=="crossed").map(pal=>(s.worldWidth-24-pal.x)/pal.speed*1000));
+    const crossingMs=Math.max(0,...s.pals.filter(pal=>pal.state!=="crossed").map(pal=>(s.worldWidth-24-pal.x)/pal.speed*1000));
     await advance(page,crossingMs+1900);
     const state=await snapshot(page);
     progress.push({stage:stage+1, completed:state.wordsDone, phase:state.phase, ...await page.evaluate(()=>({simulatedSeconds:window.__bridgeSimulatedMs/1000, renderedFrames:window.__bridgeRenderedFrames}))});
@@ -63,13 +65,15 @@ for(const size of [{width:390,height:844},{width:844,height:390}])test(`Word Bri
 test('Word Bridge reopens its checkpoint and finishes with all ten bridges counted',async({page},info)=>{
   test.setTimeout(90000);await open(page,'hard');
   await page.evaluate(async()=>{const {saveGameCheckpoint}=await import('/src/utils/learnGamesProgress.js');saveGameCheckpoint('fullscreen-overlay-preview','word-bridge','hard',9,10);});
-  await page.reload();await page.getByRole('button',{name:'Continue',exact:true}).click();await advance(page,100);
+  await page.reload();await page.getByRole('button',{name:'Continue',exact:true}).click();
+  await expect.poll(async()=>{await page.clock.runFor(50);return page.evaluate(()=>Boolean(document.querySelector('.word-bridge-world')?.bridgeSnapshot));},{timeout:25000}).toBe(true);
+  await advance(page,100);
   let s=await snapshot(page);expect(s.stageIdx).toBe(9);expect(s.wordsDone).toBe(9);
   for(let i=0;i<s.slots.length;i++){
     s=await snapshot(page);const tile=s.tiles.find(t=>!t.placed&&t.correct&&t.glyph.toLowerCase()===s.slots[i].needed.toLowerCase());
     await tapWorld(page,tile.x,tile.y);s=await snapshot(page);await tapWorld(page,s.slots[i].x+s.slots[i].w/2,s.slots[i].y+25);
   }
-  s=await snapshot(page);await tapWorld(page,s.bell.x,s.bell.y);s=await snapshot(page);await advance(page,Math.max(...s.pals.filter(p=>p.state!=="crossed").map(p=>(s.worldWidth-24-p.x)/p.speed*1000))+1900);
+  s=await snapshot(page);expect(['PALS_CROSSING','LEVEL_COMPLETE']).toContain(s.phase);await advance(page,Math.max(0,...s.pals.filter(p=>p.state!=="crossed").map(p=>(s.worldWidth-24-p.x)/p.speed*1000))+1900);
   const result=page.getByRole('alertdialog',{name:'Word Bridge complete',exact:true});await expect(result).toBeVisible();await expect(result).toContainText('10');
   await expect(result.getByLabel('3 out of 3 stars',{exact:true})).toBeVisible();
   await page.screenshot({path:info.outputPath('resumed-finish.png')});

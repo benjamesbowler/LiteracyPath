@@ -1,7 +1,7 @@
 import { advanceClimbWorld, createClimbWorld } from "./wordClimbWorld.js";
 
 export const CLIMB_TRAVEL_SPEED = 108;
-export const CLIMB_STAGE_TRAVEL = 13_600;
+export const CLIMB_APPROACH_HEIGHT = 300;
 export const CLIMB_STAGE_NAMES = ["Rootways", "Windward Canopy", "Lantern Ridge"];
 const STEER_SPEED = 310;
 export const CLIMB_ROUTE_HALF_WIDTH = 160;
@@ -14,7 +14,7 @@ export function climbRouteCenter(journey,y,startX=null) {
   if(local>=journey.travelPerSection)return 500;
   const t=local/journey.travelPerSection;
   const family=journey.stageIndex%3;
-  let x=500+Math.sin(t*Math.PI*2*(1.25+family*.25)+section*.8+Math.floor(journey.stageIndex/3)*.6)*Math.sin(t*Math.PI)*(family===2?205:170);
+  let x=500+Math.sin(t*Math.PI*(.65+family*.15)+section*.8+Math.floor(journey.stageIndex/3)*.6)*Math.sin(t*Math.PI)*(family===2?100:80);
   if(startX!==null&&local<240)x=startX+(x-startX)*(local/240);
   return x;
 }
@@ -28,21 +28,21 @@ export function climbJourneyWind(journey,y,time) {
 }
 export function createClimbJourney(session,stageIndex=0,startStep=0,random=Math.random) {
   const world=createClimbWorld(session,startStep,random);
-  const travelPerSection=CLIMB_STAGE_TRAVEL/session.summit;
+  const travelPerSection=CLIMB_APPROACH_HEIGHT + (stageIndex%3)*30;
   const journey={stageIndex,summit:session.summit,travelPerSection,sectionHeight:travelPerSection+210,
     phase:"climb",branchStartX:world.x,obstacles:[],lights:[],collected:[],activeSeconds:0,recovery:null};
   world.journey=journey;world.summitHeight=journey.sectionHeight*session.summit;
   for(const platform of world.platforms){platform.kind=platform.row?"word":"base";platform.y=platform.row*journey.sectionHeight;}
   for(let section=0;section<session.summit;section++){
     const start=section*journey.sectionHeight;
-    for(let local=360,index=0;local<travelPerSection-120;local+=360,index++){
+    for(let local=90,index=0;local<travelPerSection-60;local+=120,index++){
       const y=start+local;world.platforms.push({id:`rest-${section}-${index}`,row:section,kind:"rest",word:"",correct:true,x:climbRouteCenter(journey,y),y,width:120});
     }
     world.platforms.push({id:`base-${section}`,row:section,kind:"base",word:"",correct:true,x:500,y:start+travelPerSection,width:240});
-    for(let local=500,index=0;local<travelPerSection-140;local+=480,index++){
+    for(let local=travelPerSection-80,index=0;local<travelPerSection-40;local+=480,index++){
       const y=start+local,side=(index+section+stageIndex)%2?1:-1,center=climbRouteCenter(journey,y);
       journey.obstacles.push({id:`branch-${section}-${index}`,section,y,x:center+side*76,width:122,side});
-      journey.lights.push({id:`light-${section}-${index}`,section,y:y-240,x:climbRouteCenter(journey,y-240)+side*112});
+      journey.lights.push({id:`light-${section}-${index}`,section,y:y-100,x:climbRouteCenter(journey,y-100)-side*82});
     }
   }
   const safe=world.platforms.find(p=>p.id===world.safeId);
@@ -87,7 +87,7 @@ export function advanceClimbJourney(world,seconds,input={}) {
     world.x+=(steer*STEER_SPEED+climbJourneyWind(journey,world.y,world.elapsed))*dt;
     world.y=Math.min(base.y,world.y+(input.up?CLIMB_TRAVEL_SPEED*dt:0));
     const center=climbRouteCenter(journey,world.y,journey.branchStartX);
-    const obstruction=journey.obstacles.find(o=>o.section===world.step&&Math.abs(o.y-world.y)<27&&Math.abs(o.x-world.x)<o.width/2);
+    const obstruction=journey.obstacles.find(o=>o.section===world.step&&Math.abs(o.y-world.y)<20&&Math.abs(o.x-world.x)<o.width/2);
     if(Math.abs(world.x-center)>climbRouteRadius(journey,world.y))recover(world,"edge");
     else if(obstruction)recover(world,"branch");
     else{

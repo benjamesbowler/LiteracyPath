@@ -38,11 +38,11 @@ test('every phrase starts on the musical beat with readable lead-in', () => {
   }
 });
 
-test('all tracks identify the taught unit and author a pad for every sound and blend', () => {
+test('all tracks identify the taught unit with exactly one pad per authored sound, syllable or word', () => {
   const patterns = new Set();
   for (const difficulty of ['easy','medium','hard']) for (const level of soundBeatLadder(difficulty)) for (const item of level.items) {
     assert.ok(['sounds','syllables','words'].includes(item.unit));
-    assert.equal(item.lanes.length, item.beats.length + 1);
+    assert.equal(item.lanes.length, item.beats.length, 'completed phrases need no extra blend pad');
     assert.ok(item.lanes.every(lane => Number.isInteger(lane) && lane >= 0 && lane < 4));
     patterns.add(item.lanes.join(','));
   }

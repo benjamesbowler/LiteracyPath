@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { buildCircuitPath } from '../../src/utils/soundRacerTracks.js';
-import { createKart, stepKart, sampleCircuitPath, angleDelta, chasePose, projectKart } from '../../src/utils/soundRacerPhysics.js';
+import { createKart, stepKart, sampleCircuitPath, angleDelta, chasePose, projectKart, racerFrameSteps, racerDriveSpeed } from '../../src/utils/soundRacerPhysics.js';
 const path=buildCircuitPath(560);
 test('closed road uses measured metres and continuous seam headings',()=>{
   let length=0;
@@ -64,4 +64,42 @@ test('raised banked bridge shares tyre height and ignores negative clock steps',
   const kart=createKart(path,raised.distance);
   const stable=stepKart(path,kart,{steer:1},-4);
   assert.equal(stable.x,kart.x);assert.equal(stable.z,kart.z);assert.equal(stable.heading,kart.heading);
+});
+
+
+test('assisted steering follows road bends without forcing repeated motor recoveries', () => {
+  let kart = createKart(path);
+  for (let frame = 0; frame < 60 * 48; frame++) kart = stepKart(path, kart, { roadAssist: true, speed: 15 }, 1 / 60);
+  assert.ok(kart.progress > 560, `completed full lap: ${kart.progress}`);
+  assert.equal(kart.recoveries, 0);
+  assert.ok(Math.abs(kart.lateral) < 1.2);
+});
+
+test('assisted left and right turns remain immediate and soft guardrails retain progress', () => {
+  let kart = createKart(path, 12);
+  for (let frame = 0; frame < 48; frame++) kart = stepKart(path, kart, { roadAssist: true, steer: 1, speed: 15 }, 1 / 60);
+  assert.ok(kart.lateral > 1.3);
+  const held = kart.progress;
+  for (let frame = 0; frame < 60 * 10; frame++) kart = stepKart(path, kart, { roadAssist: true, steer: 1, speed: 15 }, 1 / 60);
+  assert.ok(kart.progress > held + 80);
+  assert.equal(kart.recoveries, 0);
+  assert.ok(Math.abs(kart.lateral) <= 4.16);
+  const right = kart.lateral;
+  for (let frame = 0; frame < 60; frame++) kart = stepKart(path, kart, { roadAssist: true, steer: -1, speed: 15 }, 1 / 60);
+  assert.ok(kart.lateral < right - 2);
+});
+
+test('slow rendering preserves wall-clock travel and reading approach speeds', () => {
+  let regular = createKart(path), slow = createKart(path);
+  for (let frame = 0; frame < 60 * 5; frame++) regular = stepKart(path, regular, { roadAssist: true, speed: 15 }, 1 / 60);
+  for (let frame = 0; frame < 50; frame++) for (const dt of racerFrameSteps(.1)) slow = stepKart(path, slow, { roadAssist: true, speed: 15 }, dt);
+  assert.ok(Math.abs(slow.progress - regular.progress) < .25);
+  assert.deepEqual(racerFrameSteps(0), []);
+  assert.ok(racerFrameSteps(3).every(dt => dt <= .025));
+  for (const difficulty of ['easy', 'medium', 'hard']) {
+    const cruise = racerDriveSpeed({ difficulty });
+    const reading = racerDriveSpeed({ difficulty, wordDistance: 10 });
+    assert.ok(cruise >= 15 && reading < cruise);
+    assert.equal(racerDriveSpeed({ difficulty, wordDistance: 10, boosted: true }), reading);
+  }
 });

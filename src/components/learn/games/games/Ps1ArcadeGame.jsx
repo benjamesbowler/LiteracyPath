@@ -54,6 +54,17 @@ const BEAT_LANES = [
   { color: "#d85cff", dark: "#3d0a4c" }
 ];
 
+function drawBeatLabel(ctx, value, x, y, size, color = "#243e31", weight = 800) {
+  ctx.save();
+  ctx.font = `${weight} ${size}px "Nunito", "Arial Rounded MT Bold", system-ui, sans-serif`;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.shadowBlur = 0;
+  ctx.fillStyle = color;
+  ctx.fillText(String(value), x, y);
+  ctx.restore();
+}
+
 function drawBeatBackdrop(ctx, state, config, w, h) {
   const pulse = state.beatPulse || 0;
   const glow = ctx.createRadialGradient(w * 0.5, h * 0.44, 20, w * 0.5, h * 0.44, h * (0.56 + pulse * 0.06));
@@ -298,8 +309,8 @@ function drawBeatTarget(ctx, lane, state, w, h, active) {
 function drawBeatPad(ctx, label, lane, progress, active, config, state, w, h) {
   const point = beatLanePoint(lane, progress, w, h);
   const laneStyle = BEAT_LANES[lane];
-  const width = 76 * point.scale;
-  const height = 48 * point.scale;
+  const width = clamp(label.length * 18 + 24, 82, 118) * point.scale;
+  const height = 54 * point.scale;
   const pulse = active ? state.beatPulse || 0 : 0;
 
   ctx.save();
@@ -310,35 +321,35 @@ function drawBeatPad(ctx, label, lane, progress, active, config, state, w, h) {
   ctx.fill();
 
   const fill = ctx.createLinearGradient(-width / 2, -height / 2, width / 2, height / 2);
-  fill.addColorStop(0, active ? "#ffffff" : "rgba(255,255,255,.72)");
-  fill.addColorStop(0.2, laneStyle.color);
-  fill.addColorStop(1, laneStyle.dark);
+  fill.addColorStop(0, "#fffef3");
+  fill.addColorStop(0.7, active ? "#fffbe4" : "#ecf1de");
+  fill.addColorStop(1, laneStyle.color);
   ctx.fillStyle = fill;
   cutRect(ctx, -width / 2, -height / 2, width, height, 10 * point.scale);
   ctx.fill();
   ctx.fillStyle = "rgba(255,255,255,.34)";
   cutRect(ctx, -width * 0.38, -height * 0.38, width * 0.76, height * 0.18, 5 * point.scale);
   ctx.fill();
-  ctx.fillStyle = "rgba(0,0,0,.25)";
+  ctx.fillStyle = `${laneStyle.dark}38`;
   cutRect(ctx, -width * 0.4, height * 0.23, width * 0.8, height * 0.16, 5 * point.scale);
   ctx.fill();
-  ctx.lineWidth = active ? 5 + pulse * 3 : 3;
-  ctx.strokeStyle = active ? "#f8ffff" : "rgba(255,255,255,.62)";
+  ctx.lineWidth = active ? 4 + pulse * 2 : 3;
+  ctx.strokeStyle = laneStyle.color;
   cutRect(ctx, -width / 2, -height / 2, width, height, 10 * point.scale);
   ctx.stroke();
   ctx.globalCompositeOperation = "screen";
-  ctx.strokeStyle = `${laneStyle.color}cc`;
-  ctx.lineWidth = 9 + pulse * 6;
+  ctx.strokeStyle = `${laneStyle.color}66`;
+  ctx.lineWidth = active ? 5 + pulse * 3 : 1;
   cutRect(ctx, -width / 2, -height / 2, width, height, 10 * point.scale);
   ctx.stroke();
   ctx.restore();
 
-  text(ctx, label, point.x, point.y + 1, clamp(25 * point.scale, 14, 34), "#ffffff", "center", 900);
+  drawBeatLabel(ctx, label, point.x, point.y + 1, Math.min(clamp(28 * point.scale, 16, 36), (width - 14 * point.scale) / Math.max(1, label.length * 0.62)), "#172d2e", 900);
 }
 
 function drawSoundBeatHud(ctx, state, config, w) {
   const item = state.currentTask?.item;
-  const total = item ? item.beats.length + 1 : 4;
+  const total = item ? item.beats.length : 4;
   ctx.save();
   panel(ctx, 12, 10, w - 24, 44, "rgba(3,7,18,.84)", "rgba(180,220,255,.3)");
   text(ctx, `${state.score} pts`, 26, 32, w < 500 ? 16 : 20, "#f8d64b", "left", 900);
@@ -351,9 +362,9 @@ function drawBeatBurst(ctx, burst) {
   const p = clamp(burst.t / burst.life, 0, 1);
   const r = 18 + p * 72;
   ctx.save();
-  ctx.globalAlpha = 1 - p;
+  ctx.globalAlpha = (1 - p) * 0.36;
   ctx.strokeStyle = burst.color;
-  ctx.lineWidth = 4 * (1 - p) + 1;
+  ctx.lineWidth = 1.4 * (1 - p) + 0.6;
   ctx.beginPath();
   ctx.arc(burst.x, burst.y, r, 0, TWO_PI);
   ctx.stroke();
@@ -400,7 +411,7 @@ function drawBeat(ctx, state, config, w, h, now, blenderWorld, reduceMotion) {
   const task = state.currentTask;
   if (!task) return;
   const item = task.item;
-  const notes = [...item.beats, "blend"];
+  const notes = item.beats;
   const spacing = 60 / (state.roundBpm || state.level.bpm);
   const approachSeconds = Math.max(1.65, spacing * 3.8);
 
@@ -428,14 +439,9 @@ function drawBeat(ctx, state, config, w, h, now, blenderWorld, reduceMotion) {
 
   const layout = soundBeatLayout(w, h);
   ctx.save();
-  const titlePanel = ctx.createLinearGradient(w * 0.29, h * 0.22, w * 0.71, h * 0.4);
-  titlePanel.addColorStop(0, "rgba(3,15,14,.42)");
-  titlePanel.addColorStop(1, "rgba(1,6,18,.22)");
-  ctx.fillStyle = titlePanel;
-  roundedRect(ctx, w * 0.25, layout.wordY - 24, w * 0.5, 46, 12);
-  ctx.fill();
+  panel(ctx, w * 0.24, layout.wordY - 25, w * 0.52, 48, "#fff7d9", "#b5ca78");
   const title = item.unit === "words" ? (item.beats[Math.min(state.beatIndex, item.beats.length - 1)] || item.say) : item.say;
-  text(ctx, title, w / 2, layout.wordY, Math.min(clamp(w * 0.045, 28, 42), w * 0.64 / Math.max(1, title.length * 0.62)), "#fff", "center", 900);
+  drawBeatLabel(ctx, title, w / 2, layout.wordY, Math.min(clamp(w * 0.05, 30, 44), w * 0.46 / Math.max(1, title.length * 0.62)));
   ctx.restore();
 
   drawSoundBeatRunway(ctx, state, config, w, h);
@@ -451,15 +457,15 @@ function drawBeat(ctx, state, config, w, h, now, blenderWorld, reduceMotion) {
     const timeToHit = Math.abs(noteTime - now);
     const active = i === state.beatIndex;
     const nearHit = 1 - clamp(timeToHit / 0.5, 0, 1);
-    drawBeatPad(ctx, notes[i] === "blend" ? "GO" : notes[i], item.lanes[i], progress, active && nearHit > 0.2, config, state, w, h);
+    drawBeatPad(ctx, notes[i], item.lanes[i], progress, active && nearHit > 0.2, config, state, w, h);
   }
 
   const slotW = Math.min(78, (w * 0.34) / notes.length);
   const slotStart = w * 0.5 - (slotW * notes.length) / 2;
   for (let i = 0; i < notes.length; i += 1) {
     const filled = i < state.beatIndex;
-    panel(ctx, slotStart + i * slotW, layout.slotsY, slotW - 10, 28, filled ? `${config.accent}d8` : "rgba(5,10,22,.64)", filled ? "#f4ffd8" : "rgba(255,255,255,.22)");
-    text(ctx, filled ? (notes[i] === "blend" ? "GO" : notes[i]) : "", slotStart + i * slotW + slotW / 2 - 5, layout.slotsY + 14, 16, filled ? "#07101d" : "#fff", "center", 900);
+    panel(ctx, slotStart + i * slotW, layout.slotsY, slotW - 10, 28, filled ? "#f4df9b" : "rgba(5,10,22,.64)", filled ? "#ccb577" : "rgba(255,255,255,.22)");
+    drawBeatLabel(ctx, filled ? notes[i] : "", slotStart + i * slotW + slotW / 2 - 5, layout.slotsY + 14, Math.min(18, (slotW - 14) / Math.max(1, notes[i].length * 0.62)), "#243e31");
   }
 
   for (const burst of state.hitBursts) drawBeatBurst(ctx, burst);
@@ -543,6 +549,7 @@ function startPs1ArcadeGame(mount, options) {
     resultAt: null,
     time: 0,
     beatIndex: 0,
+    wordCompleteAt: null,
     noteStart: 0,
     // A "round" groups several levels so a stop/countdown only happens every
     // >= ROUND_MIN_SECONDS. Tempo + music are held steady across a round.
@@ -643,6 +650,7 @@ function startPs1ArcadeGame(mount, options) {
   function setupTask() {
     state.currentTask = state.tasks[state.taskIndex] || null;
     state.beatIndex = 0;
+    state.wordCompleteAt = null;
     state.currentWordClean = true;
     if (!state.currentTask) return;
     const now = rhythmClock.now();
@@ -728,17 +736,15 @@ function startPs1ArcadeGame(mount, options) {
     startLevel();
   }
 
-  // Sound out the note the child is about to tap: the grapheme as it becomes
-  // the active beat, and the whole word when the final "GO"/blend arrives.
+  // Sound out each active note, then blend automatically after the last hit.
   // Additive only — gated on the live sound flag, silent with sound off.
   function speakActiveNote({ blendAction = false, manual = false } = {}) {
     if (!soundAllowed()) return;
     const item = state.currentTask?.item;
     if (!item) return;
-    const note = [...item.beats, "blend"][state.beatIndex];
+    const note = blendAction || state.wordCompleteAt !== null ? "blend" : item.beats[state.beatIndex];
     if (!note) return;
-    if (rhythmClock.now() < voiceUntil && !manual) { pendingNoteCue = true; return; }
-    if (note === "blend" && !blendAction && !manual) return;
+    if (rhythmClock.now() < voiceUntil && !manual && !blendAction) { pendingNoteCue = true; return; }
     voiceController?.abort();
     const controller = new AbortController();
     voiceController = controller;
@@ -757,7 +763,7 @@ function startPs1ArcadeGame(mount, options) {
 
   function tapBeat(lane = state.currentTask?.item.lanes[state.beatIndex]) {
     const task = state.currentTask;
-    if (!task || state.countdown > 0) return;
+    if (!task || state.countdown > 0 || state.wordCompleteAt !== null) return;
     if (lane != null) state.padPress[lane] = 1;
     if (lane !== task.item.lanes[state.beatIndex]) {
       state.judgement = "FOLLOW THE NOTE";
@@ -769,28 +775,23 @@ function startPs1ArcadeGame(mount, options) {
     // judged against the NEXT note and scored as a miss.
     if (now < state.inputLockedUntil) return;
     ensureMusic();
-    const notes = [...task.item.beats, "blend"];
+    const notes = task.item.beats;
     const spacing = 60 / (state.roundBpm || state.level.bpm);
     const targetTime = state.noteStart + state.beatIndex * spacing;
-    const isBlend = notes[state.beatIndex] === "blend";
     const mercy = soundBeatMercyPolicy(task.attempts);
     const windowSeconds = ((state.roundWindow || state.level.hitWindowMs) / 1000) * mercy.windowScale;
     const signedDelta = now - targetTime;
     const delta = Math.abs(signedDelta);
-    // Real timing: you must tap the beat inside its window. The final "GO"/blend
-    // is the one forgiving beat — it waits for the tap so a good run is never
-    // lost at the finish line. Everything else is a proper rhythm hit or a miss.
-    if (!isBlend && signedDelta < -windowSeconds) {
+    // Only authored sounds are played. Finishing them completes the word.
+    if (signedDelta < -windowSeconds) {
       // An eager tap before the approach window is guidance, not a mistake.
       state.judgement = "WAIT";
       state.judgementT = 0.5;
       state.inputLockedUntil = now + 0.12;
       return;
     }
-    if (isBlend || delta <= windowSeconds) {
-      const quality = isBlend
-        ? "PERFECT"
-        : delta <= windowSeconds * 0.34 ? "PERFECT" : delta <= windowSeconds * 0.67 ? "GREAT" : "GOOD";
+    if (delta <= windowSeconds) {
+      const quality = delta <= windowSeconds * 0.34 ? "PERFECT" : delta <= windowSeconds * 0.67 ? "GREAT" : "GOOD";
       state.judgement = quality;
       state.judgementT = 0.72;
       state.beatPulse = quality === "PERFECT" ? 1 : quality === "GREAT" ? 0.82 : 0.65;
@@ -801,14 +802,15 @@ function startPs1ArcadeGame(mount, options) {
         t: 0,
         life: 0.5,
         seed: state.time + state.beatIndex,
-        color: quality === "PERFECT" ? config.accent : config.accent2
+        color: quality === "PERFECT" ? "#f6d88f" : "#9bdcc5"
       });
       sfx(playTapSound);
       state.inputLockedUntil = now + 0.15;
-      if (isBlend) speakActiveNote({ blendAction: true });
       state.beatIndex += 1;
-      if (state.beatIndex >= notes.length) endCurrentWord(180);
-      else speakActiveNote();
+      if (state.beatIndex >= notes.length) {
+        state.wordCompleteAt = now + 0.45;
+        speakActiveNote({ blendAction: true });
+      } else speakActiveNote();
     } else {
       missCurrent();
     }
@@ -833,7 +835,10 @@ function startPs1ArcadeGame(mount, options) {
   }
 
   function onKeyDown(event) {
-    if (isInteractiveKeyTarget(event.target) && !padGroup.contains(event.target)) return;
+    // DFJK are this game's movement shortcuts: keep them live on arcade buttons
+    // while the shared guard still protects fields, dialogs and native activation.
+    const focusKey = /^[dfjk]$/i.test(event.key) ? "ArrowUp" : event.key;
+    if (isInteractiveKeyTarget(event.target, focusKey) && !padGroup.contains(event.target)) return;
     if (padGroup.contains(event.target) && [" ", "Enter"].includes(event.key)) return;
     const lane = ["d", "f", "j", "k"].indexOf(event.key.toLowerCase());
     if (lane < 0 && event.key !== " " && event.key !== "Enter" && event.key !== "ArrowUp") return;
@@ -869,17 +874,19 @@ function startPs1ArcadeGame(mount, options) {
         ensureMusic();
         speakActiveNote();
       }
-      if (state.currentTask && state.countdown <= 0) {
+      if (state.wordCompleteAt !== null && now >= state.wordCompleteAt) {
+        state.wordCompleteAt = null;
+        endCurrentWord(180);
+      }
+      if (state.currentTask && state.countdown <= 0 && state.wordCompleteAt === null && !state.ended) {
         ensureMusic();
-        const notes = [...state.currentTask.item.beats, "blend"];
+        const notes = state.currentTask.item.beats;
         const spacing = 60 / (state.roundBpm || state.level.bpm);
         const targetTime = state.noteStart + state.beatIndex * spacing;
         const autoMissWindow = ((state.roundWindow || state.level.hitWindowMs) / 1000)
           * soundBeatMercyPolicy(state.currentTask.attempts).windowScale;
-        // Letter beats time out if you never tap them (that's the rhythm). The
-        // final "GO"/blend is exempt — it waits for the tap so the word is never
-        // lost at the finish line.
-        if (state.beatIndex < notes.length - 1 && now - targetTime > autoMissWindow + 0.12) {
+        // Every authored beat retains its timing window, including the last.
+        if (state.beatIndex < notes.length && now - targetTime > autoMissWindow + 0.12) {
           missCurrent();
         }
       }
@@ -941,6 +948,10 @@ function startPs1ArcadeGame(mount, options) {
       return {
         kind: options.kind,
         beatIndex: state.beatIndex,
+        wordCompleteAt: state.wordCompleteAt,
+        correct: state.correct,
+        mistakes: state.mistakes,
+        wordsEnded: state.wordsEnded,
         targetTime: state.noteStart + state.beatIndex * 60 / state.roundBpm,
         clockTime: rhythmClock.now(),
         lane: state.currentTask?.item.lanes[state.beatIndex],

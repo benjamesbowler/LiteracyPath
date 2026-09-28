@@ -120,23 +120,26 @@ test('real WebGL context recovery retains the authored driver and route state', 
   await page.screenshot({ path: info.outputPath('context-restored.png') });
 });
 
-test('off-road recovery returns the authored driver without inventing a literacy error', async ({ page }, info) => {
+test('soft guardrails retain the authored driver and forward progress during a held turn', async ({ page }, info) => {
   test.setTimeout(60000);
   const hud = await launch(page, 'easy', { low: true });
   await page.clock.install();
   await page.keyboard.down('ArrowRight');
+  const before = JSON.parse(await hud.getAttribute('data-sound-racer-position'));
+  const approaching = await page.locator('.sound-racer').evaluate(node => node.racerInspection.nextGates);
   let state;
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 8; i++) {
     await page.clock.runFor(200);
     state = JSON.parse(await hud.getAttribute('data-sound-racer-position'));
-    if (state.recoveries > 0) break;
   }
   await page.keyboard.up('ArrowRight');
-  expect(state.recoveries).toBeGreaterThan(0);
-  expect(state.wordsWrong).toBe(0);
-  await expect(hud).toHaveAttribute('data-sound-racer-driver', 'recover');
+  expect(state.recoveries).toBe(0);
+  expect(state.progress).toBeGreaterThan(before.progress + 10);
+  const crossedWrongWords = approaching.filter(gate => gate.word && !gate.correct && gate.lane === 2 && gate.z > before.progress && gate.z <= state.progress + .58).length;
+  expect(state.wordsWrong - before.wordsWrong, 'only a crossed printed wrong word counts, never the guardrail').toBe(crossedWrongWords);
+  expect(state.lateral).toBeGreaterThan(2);
   await expect(hud).toHaveAttribute('data-sound-racer-asset', 'ready');
-  await page.screenshot({ path: info.outputPath('driver-offroad-recovery.png') });
+  await page.screenshot({ path: info.outputPath('driver-soft-guardrail.png') });
   await page.clock.runFor(1000);
   await expect(hud).toHaveAttribute('data-sound-racer-driver', 'drive');
 });

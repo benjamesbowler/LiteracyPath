@@ -1,5 +1,5 @@
 import { gameRandom } from '../../../../utils/gameReplay.js';
-import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
+import { createArcadeLandscape } from '../shared/arcadeLandscapeSprites.js';
 import { useEffect, useRef } from "react";
 import "./LetterLeapGame.css";
 import { CAST, HEROES } from "../../../../features/soundSeekers/v3/content/cast.js";
@@ -46,7 +46,7 @@ function pickFoeType(worldKey, levelIndex, k) {
 }
 
 const GRAV = 0.62, MOVE = 4.8, JUMP = 13.6, GROUND_H = 96;
-const SEG = 440, WORD_GAP = 560, MAXH = 5;
+const SEG = 360, WORD_GAP = 260, MAXH = 5;
 const FIXED_STEP = 1 / 60;
 const MAX_RETINA_BACKING_PIXELS = 1_600_000;
 
@@ -88,9 +88,26 @@ function isLetterLeapCurrentChoice(choice, wordIndex, letterIndex) {
   return choice.decisionWord === wordIndex && choice.decisionOrder === letterIndex;
 }
 
-function collectLetterLeapChoice(choice) {
-  // A pickup owns only its own removal. Its neighbour remains in the world.
-  choice.taken = true;
+function collectLetterLeapChoice(choice, choices = [choice]) {
+  // Retire the whole answered bank. A leftover distractor can be the next
+  // required letter but belongs to the previous decision and cannot be caught.
+  for (const item of choices) {
+    if (item.choiceId === choice.choiceId) item.taken = true;
+  }
+}
+
+function letterLeapTouchStop(player, choices, wordIndex, letterIndex) {
+  if (!player) return null;
+  const nearby = choices.filter(choice => !choice.taken &&
+    choice.decisionWord === wordIndex && choice.decisionOrder === letterIndex &&
+    (choice.x - player.x) * player.face >= -24 &&
+    (choice.x - player.x) * player.face <= 190 &&
+    (Math.abs(choice.x - player.x) > 24 || choice.y < player.y - 45))
+    .sort((a, b) => Math.abs(a.x - player.x) - Math.abs(b.x - player.x))[0];
+  // Brake at either letter's physical location, never at the known answer.
+  // This lets a one-finger jump land beside a nearby choice instead of sailing
+  // past it. A held direction still takes over immediately.
+  return nearby ? nearby.x : player.x + player.face * 190;
 }
 
 function bounceLetterLeapSpring(player, spring, ground, previousFeet) {
@@ -111,16 +128,23 @@ function bounceLetterLeapSpring(player, spring, ground, previousFeet) {
 }
 
 function buildLetterLeapTrail(x, ground, stage, encounter, world) {
-  const plats = [], pits = [], springs = [], coins = [];
+  const plats = [], pits = [], springs = [], coins = [], blocks = [];
   const worldOffset = { meadow: 0, dino: 2, moonwood: 4 }[world] || 0;
   const sections = [];
-  const roomWidth = 460 + (stage % 5) * 24;
-  // Four playable rooms between spelling encounters. Each has a safe approach,
-  // a different jump line and an optional upper reward route.
-  for (let room = 0; room < 4; room += 1) {
+  const roomWidth = 460 + (stage % 5) * 24 + Math.floor(stage / 5) * 12;
+  // Short, varied obstacle rooms keep spelling decisions close. The optional
+  // upper path, spring and head-bump boxes reward exploration without a timer.
+  const roomCount = encounter % 3 === 2 ? 2 : 1;
+  for (let room = 0; room < roomCount; room += 1) {
     const left = x + room * roomWidth;
     const kind = (stage + Math.floor(stage / 3) + encounter * 5 + room * (stage % 2 ? 5 : 1) + worldOffset) % 6;
-    sections.push({ x: left, kind });
+    sections.push({ x: left, kind, width: roomWidth });
+    // Every room has a usable box bank on its clear approach. Allocate these
+    // before enemies, rather than hoping enemies leave a spare hazard slot.
+    for (let box = 0; box < 3; box += 1) blocks.push({
+      x: left - 138 + box * 46, y: ground - 138, w: 44, h: 40,
+      type: box === 1 ? "prize" : "brick", broken: false, used: false,
+    });
     const shelf = (dx, rise, w = 104, move = null) => {
       const p = { x: left + dx, y: ground - rise, w, trailShelf: true };
       if (move) Object.assign(p, { baseX: p.x, baseY: p.y, move });
@@ -152,7 +176,7 @@ function buildLetterLeapTrail(x, ground, stage, encounter, world) {
       if (!pits.some(([a, b]) => coinX > a - 24 && coinX < b + 24)) coins.push({ x: coinX, y: ground - 28, taken: false });
     }
   }
-  return { length: roomWidth * 4, plats, pits, springs, coins, sections };
+  return { length: roomWidth * roomCount, plats, pits, springs, coins, blocks, sections };
 }
 
 function rebaseLetterLeapWorld(level, player, deltaY) {
@@ -202,7 +226,7 @@ function letterLeapGroundHeight(height) {
 }
 
 function startGame(mount, opts) {
-  const blenderWorld = createBlenderWorldSprite("letter-leap", mount, { landscape: true });
+  const landscape = createArcadeLandscape("letter-leap", mount);
   const world = worldForGameDifficulty(opts.difficulty);
   const theme = WORLD_THEME[world] || WORLD_THEME.meadow;
   mount.dataset.world = world;
@@ -241,11 +265,15 @@ function startGame(mount, opts) {
   let rebuildVisualOverlay = () => {};
   function resize() {
     const previousGroundY = H > 0 ? H - letterLeapGroundHeight(H) : null;
-    W = mount.clientWidth || 640; H = mount.clientHeight || 460;
+    const cssWidth = mount.clientWidth || 640, cssHeight = mount.clientHeight || 460;
+    // Frame the platform action at a consistent scale on large screens. The
+    // old one-pixel-per-unit view left the hero tiny beneath a huge empty sky.
+    const sceneScale = Math.min(1.65, Math.max(1, cssHeight / 520));
+    W = cssWidth / sceneScale; H = cssHeight / sceneScale;
     if (previousGroundY != null) {
       rebaseLetterLeapWorld(level, player, (H - letterLeapGroundHeight(H)) - previousGroundY);
     }
-    DPR = letterLeapRenderScale(W, H, window.devicePixelRatio || 1);
+    DPR = letterLeapRenderScale(cssWidth, cssHeight, window.devicePixelRatio || 1) * sceneScale;
     cv.width = Math.max(1, Math.round(W * DPR));
     cv.height = Math.max(1, Math.round(H * DPR));
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
@@ -470,7 +498,7 @@ function startGame(mount, opts) {
         }
         letterX.push(cx, cx + 170); cx += SEG;
         const trail = buildLetterLeapTrail(cx, groundY(), levelIndex + route, bubbles.length / 2 - 1, worldKey);
-        plats.push(...trail.plats); pits.push(...trail.pits);
+        plats.push(...trail.plats); pits.push(...trail.pits); blocks.push(...trail.blocks);
         trailSprings.push(...trail.springs); trailCoins.push(...trail.coins);
         sections.push(...trail.sections);
         cx += trail.length;
@@ -532,7 +560,7 @@ function startGame(mount, opts) {
     const smallPits = levelIndex >= 4 ? 1 + Math.floor(levelIndex / 4) : 0;
     for (let k = 0; k < smallPits && hazardSlots.length; k += 1) {
       const c = hazardSlots.pop();
-      pits.push([c - 40, c + 40]);
+      if (!trailSprings.some(spring => Math.abs(spring.x - c) < 72)) pits.push([c - 40, c + 40]);
     }
     pits.sort((a, b) => a[0] - b[0]); // grass-strip renderer REQUIRES ascending pits
 
@@ -666,7 +694,8 @@ function startGame(mount, opts) {
       renderWord();
       return;
     }
-    elLab.textContent = word + " built · reach the finish";
+    if (legs && legIx < legs.length - 1) nextLeg();
+    else clearStage();
   }
   // Sentence stage: after building one sentence, roll on to the next one in the
   // bucket (fresh strip of letter bubbles), so a hard level plays ALL its sentences.
@@ -781,13 +810,13 @@ function startGame(mount, opts) {
     elJump.textContent = movingLeft ? "LEAP ◀" : "LEAP ▶";
   }
   function nextTouchLeapStop() {
-    return player ? player.x + player.face * 190 : null;
+    return letterLeapTouchStop(player, level.bubbles, wIx, nextIx);
   }
   const isJumpKey = key => key === " " || verticalDirectionForKey(key) === -1;
   const onKeyDown = e => {
     // Shared game chrome keeps native keyboard behaviour, but a touch control
     // that still owns focus must not make the movement keys appear broken.
-    if (isInteractiveKeyTarget(e.target) && !padWrap.contains(e.target)) return;
+    if (isInteractiveKeyTarget(e.target, e.key) && !padWrap.contains(e.target)) return;
     // Enter and Space activate a focused movement button through its native
     // click. Away from a button, Space keeps its game-wide leap behaviour.
     if (padWrap.contains(e.target) && (e.key === "Enter" || e.key === " ")) return;
@@ -866,7 +895,7 @@ function startGame(mount, opts) {
     const p = player;
     if (wordTransitionT > 0) {
       wordTransitionT = Math.max(0, wordTransitionT - dt);
-      if (wordTransitionT === 0) finishWordTransition();
+      if (wordTransitionT === 0) { finishWordTransition(); if (!running) return; }
     }
     // Mission 3: move platforms and carry the rider (uses LAST frame's p.stood),
     // then clear p.stood so this frame's collisions can re-establish it.
@@ -964,7 +993,7 @@ function startGame(mount, opts) {
         }
         else if (b.word === wIx && b.order === nextIx) {
           const alreadySaved = completedWordEvidence.has([stageIdx, legIx, wIx].join(":"));
-          collectLetterLeapChoice(b); nextIx += 1; sfx(playPopSound); burst(b.x, b.y, "#ffd34e");
+          collectLetterLeapChoice(b, level.bubbles); nextIx += 1; sfx(playPopSound); burst(b.x, b.y, "#ffd34e");
           if (alreadySaved) addFloat(b.x, b.y - 22, "✓ saved");
           else { addScore(10); addFloat(b.x, b.y - 22, "+10"); }
           if (nextIx >= word.length) wordDone();
@@ -1001,10 +1030,7 @@ function startGame(mount, opts) {
     }
     level.foes = level.foes.filter(f => !f.dead);
     const stageDone = (wIx >= words.length - 1) && (nextIx >= word.length);
-    if (p.x > level.flag && stageDone) {
-      if (legs && legIx < legs.length - 1) { nextLeg(); return; }
-      clearStage();
-    } else if (p.x > level.flag && !stageDone) p.x = level.flag - 4;
+    if (p.x > level.flag && !stageDone) p.x = level.flag - 4;
     // Camera lookahead: bias the view the way the child is facing (SMW feel).
     const camTarget = Math.max(0, Math.min(level.L - W, p.x - W * 0.35 + p.face * letterLeapCameraLookahead(W)));
     cam += (camTarget - cam) * Math.min(1, dt * 7);
@@ -1284,11 +1310,7 @@ function startGame(mount, opts) {
       drawDepthScenery(t);
       treeRow(theme.treeDark, 0.2, groundY() + 6, 150, 90, 0.28); treeRow(theme.tree, 0.45, groundY() + 14, 220, 140, 0.6);
     }
-    blenderWorld.drawLandscape(ctx,{width:W,height:H,ground:groundY(),camera:cam,time:t,world,reducedMotion:reduceMotion,paused:paused||!running,variation:opts.journey?.variation});
-    const landmarkSize = Math.min(330, H * .67);
-    const landmarkX = W * .62 - ((cam * .18) % (W + landmarkSize));
-    blenderWorld.draw(ctx, landmarkX, groundY() - landmarkSize * .94, landmarkSize, landmarkSize, t, { reducedMotion: reduceMotion, paused: paused || !running, opacity: .92 });
-    blenderWorld.draw(ctx, landmarkX + W + landmarkSize, groundY() - landmarkSize * .94, landmarkSize, landmarkSize, t, { reducedMotion: reduceMotion, paused: paused || !running, opacity: .92 });
+    landscape.draw(ctx,{width:W,height:H,ground:groundY(),camera:cam,time:t,world,reducedMotion:reduceMotion,paused:paused||!running,variation:opts.journey?.variation});
     for (const s of spores) { const sx = ((s.x - cam * 0.5) % (W + 60) + W + 60) % (W + 60) - 30; const sy = reduceMotion ? s.y : s.y + Math.sin(t * 0.8 + s.ph) * 14; ctx.globalAlpha = 0.5; ctx.fillStyle = theme.moon ? "#ffe9a0" : "#ffffff"; ctx.beginPath(); ctx.arc(sx, sy, s.s, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
     const shx = (shakeT > 0 && !reduceMotion) ? (Math.random() - 0.5) * 6 * (shakeT / 0.22) : 0;
     const shy = (shakeT > 0 && !reduceMotion) ? (Math.random() - 0.5) * 6 * (shakeT / 0.22) : 0;
@@ -1310,7 +1332,7 @@ function startGame(mount, opts) {
       ctx.closePath(); ctx.fill(); ctx.restore();
     }
     for (const b of level.bubbles) {
-      if (b.taken) continue;
+      if (b.taken || !isLetterLeapCurrentChoice(b, wIx, nextIx)) continue;
       const bob = reduceMotion ? 0 : Math.sin(t * 2.4 + b.x) * 4;
       if (b.x < cam - 64 || b.x > cam + W + 64) continue;
       bubble(b.x, b.y + bob, b.ch);
@@ -1395,7 +1417,7 @@ function startGame(mount, opts) {
   function resume() { if (!paused || onboarding) return; paused = false; last = performance.now(); frameAccumulator = 0; if (savedRunning) running = true; }
 
   function teardown() {
-    blenderWorld.dispose();
+    landscape.dispose();
     running = false;
     delete mount.__letterLeapSnapshot;
     closeOverlayDialog();

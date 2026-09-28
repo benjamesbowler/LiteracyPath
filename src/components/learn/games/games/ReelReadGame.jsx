@@ -1,4 +1,3 @@
-import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
 import { useEffect, useRef } from "react";
 import {
   playCelebrationFanfare,
@@ -227,7 +226,7 @@ export default function ReelReadGame({
         position: "relative",
         width: "100%",
         height: "100%",
-        minHeight: "480px",
+        minHeight: "0",
         overflow: "hidden",
         background: "#06101d",
         touchAction: "none"
@@ -237,7 +236,6 @@ export default function ReelReadGame({
 }
 
 function startGame(mount, opts) {
-  const blenderWorld = createBlenderWorldSprite("reel-read", mount, { landscape: true });
   const difficulty = ["easy", "medium", "hard"].includes(String(opts.difficulty)) ? String(opts.difficulty) : "easy";
   const ladder = reelReadLadder(difficulty, opts.sessionSeed);
   const startAt = clamp(Number(opts.startLevel) || 0, 0, ladder.length - 1);
@@ -259,6 +257,16 @@ function startGame(mount, opts) {
     '<button data-rr="replay" type="button" aria-label="Hear the target word again" style="position:absolute;left:50%;bottom:18px;transform:translateX(-50%);width:168px;min-width:96px;min-height:66px;padding:10px 18px;pointer-events:auto;border:2px solid rgba(255,255,255,.62);background:rgba(4,11,25,.78);color:#ffffff;font-family:var(--kid-font-display,Fredoka,sans-serif);font-weight:950;font-size:1rem;line-height:1.15;letter-spacing:.02em;border-radius:8px;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 10px 24px rgba(0,0,0,.32);cursor:pointer">Hear word again</button>' +
     '<button data-rr="cast" aria-label="Cast hook" style="position:absolute;right:18px;bottom:18px;width:108px;height:66px;pointer-events:auto;border:1px solid rgba(255,255,255,.55);background:linear-gradient(160deg,#fff2a8,#ffc43d 55%,#d97a1e);color:#211606;font-family:var(--kid-font-display,Fredoka,sans-serif);font-weight:950;font-size:.95rem;letter-spacing:.04em;border-radius:8px;box-shadow:inset 0 -8px 0 rgba(0,0,0,.24),0 14px 26px rgba(0,0,0,.28)">CAST</button>';
   mount.appendChild(controls);
+
+  const targetPanel = document.createElement("section");
+  targetPanel.setAttribute("aria-label", "Fishing word target");
+  targetPanel.style.cssText = "position:absolute;left:16px;top:14px;max-width:calc(100% - 32px);padding:12px 18px 14px;border:2px solid #fff7d5;border-radius:20px;background:linear-gradient(155deg,#fffdf0,#f6edc9);box-shadow:0 6px 0 #346b68,0 12px 28px #052e3f33;color:#123d4d;font-family:var(--kid-font-display,Fredoka,sans-serif);box-sizing:border-box";
+  targetPanel.innerHTML = '<div data-rr-trip style="font-size:12px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#416c70"></div><div data-rr-prompt style="font-size:16px;font-weight:700;line-height:1.25;margin-top:3px"></div><div data-rr-target style="font-size:clamp(32px,4.2vw,44px);font-weight:950;line-height:1.15;margin:3px 0 7px;letter-spacing:.015em"></div><div data-rr-slots style="display:flex;gap:8px;align-items:center"></div>';
+  controls.appendChild(targetPanel);
+  const targetText = targetPanel.querySelector('[data-rr-target]');
+  const targetPrompt = targetPanel.querySelector('[data-rr-prompt]');
+  const targetTrip = targetPanel.querySelector('[data-rr-trip]');
+  const targetSlots = targetPanel.querySelector('[data-rr-slots]');
 
   const btnLeft = controls.querySelector('[data-rr="left"]');
   const btnRight = controls.querySelector('[data-rr="right"]');
@@ -302,6 +310,7 @@ function startGame(mount, opts) {
   let spawnSeed = 1;
   let openingSchool = false;
   let activePointer = null;
+  let pendingCast = false;
   const keys = { left: false, right: false, cast: false };
   const boat = {
     x: 0,
@@ -391,6 +400,17 @@ function startGame(mount, opts) {
       }
     }
     layoutReplayControl();
+    const shallow = h < 430;
+    targetPanel.style.width = `${Math.min(470, w - 32)}px`;
+    targetPanel.style.padding = shallow ? "8px 14px" : "12px 18px 14px";
+    targetPanel.style.display = shallow ? "grid" : "block";
+    targetPanel.style.gridTemplateColumns = "minmax(0,1fr) auto";
+    targetPanel.style.columnGap = "12px";
+    targetTrip.style.gridColumn = "1 / -1";
+    targetPrompt.style.gridColumn = "1 / -1";
+    targetPrompt.style.fontSize = shallow ? "14px" : "16px";
+    targetText.style.fontSize = shallow ? "32px" : "clamp(32px,4.2vw,44px)";
+    targetText.style.margin = shallow ? "3px 0 0" : "3px 0 7px";
     render();
   }
 
@@ -458,7 +478,7 @@ function startGame(mount, opts) {
     const laneCount = Math.max(2, level.visibleFish - 1);
     const { top, bottom } = fishBand();
     const y = clamp(top + lane * ((bottom - top) / laneCount), top, bottom);
-    const size = 0.74 + Math.random() * 0.1;
+    const size = .94 + Math.random() * .08;
     const initialX = clamp(((lane + 1) / (level.visibleFish + 1)) * w + (Math.random() - 0.5) * 80, 120, w - 120);
     const forcedX = dir > 0 ? 96 + lane * 18 : w - 96 - lane * 18;
     const entryX = dir > 0
@@ -507,6 +527,7 @@ function startGame(mount, opts) {
     spawnSeed = levelIndex * 37 + (difficulty === "hard" ? 700 : difficulty === "medium" ? 300 : 0);
     boat.x = clampBoatX(boat.x || w * 0.48);
     boat.targetX = null;
+    pendingCast = false;
     boat.hookState = "ready";
     boat.caughtFish = null;
     boat.fight = null;
@@ -517,7 +538,8 @@ function startGame(mount, opts) {
     openingSchool = true;
     refillFish();
     openingSchool = false;
-    opts.onProgressUpdate?.(levelIndex + 1, ladder.length);
+    opts.onProgressUpdate?.(levelIndex, ladder.length);
+    updateTargetPanel();
     opts.onCheckpoint?.(levelIndex, ladder.length);
     refreshSoundState();
     speakCue(level.target);
@@ -556,7 +578,7 @@ function startGame(mount, opts) {
     boat.hookState = "dropping";
     boat.hookX = tip.x;
     boat.hookY = tip.y;
-    boat.hookMaxY = h - 58;
+    boat.hookMaxY = fishBand().bottom + 36;
     boat.caughtFish = null;
   }
 
@@ -594,6 +616,7 @@ function startGame(mount, opts) {
     const item = boat.caughtFish;
     if (!item) return;
     caught.push(item.word);
+    updateTargetPanel();
     wordsCaught += 1;
     score += 120;
     addBurst(boat.x, waterTop + 8, theme.accent, 14);
@@ -719,7 +742,10 @@ function startGame(mount, opts) {
       if (Math.abs(diff) < 4) boat.targetX = null;
     }
     boat.x = clampBoatX(boat.x);
-    if (keys.cast) requestCast();
+    if (pendingCast && boat.targetX == null) {
+      pendingCast = false;
+      requestCast();
+    } else if (keys.cast && !pendingCast) requestCast();
 
     const pond = fishingPondForEncounter(levelIndex);
     const current = Math.sin(boat.bob * (pond.id === "deep" ? .75 : .48)) * (pond.id === "deep" ? 17 : pond.id === "channel" ? 11 : 3);
@@ -750,7 +776,7 @@ function startGame(mount, opts) {
     for (let pass = 0; pass < 2; pass++) for (let i = 0; i < fish.length; i++) for (let j = i + 1; j < fish.length; j++) {
       const a = fish[i], b = fish[j];
       if (!a.entered || !b.entered || Math.abs(a.y - b.y) > 27) continue;
-      const widthFor = item => clamp(46 + item.word.length * 13, 76, 162) * item.scale;
+      const widthFor = item => clamp(42 + item.word.length * 15, 90, 190);
       const gap = (widthFor(a) + widthFor(b)) / 2 + 8;
       const dx = b.x - a.x;
       if (Math.abs(dx) >= gap) continue;
@@ -796,7 +822,7 @@ function startGame(mount, opts) {
     } else if (boat.hookState === "returning") {
       const tip = getRodTip();
       boat.hookX += (tip.x - boat.hookX) * clamp(dt * 7, 0, 1);
-      boat.hookY -= level.hookSpeed * 1.25 * dt;
+      boat.hookY -= level.hookSpeed * 2 * dt;
       if (boat.hookY <= tip.y + 4) {
         boat.hookState = "ready";
         boat.caughtFish = null;
@@ -976,70 +1002,27 @@ function startGame(mount, opts) {
     ctx.restore();
   }
 
+  function updateTargetPanel() {
+    targetTrip.textContent = `${fishingPondForEncounter(levelIndex).name} · ${levelIndex + 1}/${ladder.length}`;
+    targetPrompt.textContent = level.prompt;
+    targetText.textContent = level.target;
+    targetSlots.replaceChildren();
+    for (let index = 0; index < level.correctWords.length; index++) {
+      const slot = document.createElement("span");
+      slot.textContent = caught[index] || (level.orderMatters ? String(index + 1) : "○");
+      slot.style.cssText = `min-width:42px;padding:4px 10px;border-radius:9px;border:2px solid ${caught[index] ? '#3a9180' : '#99b6ad'};background:${caught[index] ? '#d5f0d2' : '#ffffff88'};font-size:20px;font-weight:850;text-align:center;line-height:1.1`;
+      targetSlots.appendChild(slot);
+    }
+  }
+
   function drawHud() {
-    const found = caught.length;
-    const compact = w < 820;
-    const shallow = h < 430;
-    const panelW = Math.min(560, w - 36);
-    const panelH = shallow ? 88 : level.orderMatters ? 122 : 98;
-    fillRound(ctx, 18, 16, panelW, panelH, 8, theme.panel);
-    strokeRound(ctx, 18, 16, panelW, panelH, 8, "rgba(255,255,255,.18)", 1.5);
-    ctx.fillStyle = theme.accent;
-    ctx.font = "950 18px Fredoka, Arial, sans-serif";
-    ctx.textBaseline = "top";
-    ctx.fillText(`FISHING TRIP · ${levelIndex + 1}/${ladder.length}`, 34, 28);
-    if (compact) {
-      ctx.textAlign = "right";
-      ctx.fillText(`${found}/${level.correctWords.length}`, w - 34, 28);
-      ctx.textAlign = "left";
-    }
-    ctx.fillStyle = "#ffffff";
-    ctx.font = `${w < 620 ? "800 17px" : "900 22px"} Fredoka, Arial, sans-serif`;
-    ctx.fillText(level.prompt, 34, 52, panelW - 32);
-    ctx.fillStyle = "rgba(255,255,255,.82)";
-    ctx.font = "800 15px Fredoka, Arial, sans-serif";
-    ctx.fillText(shallow ? level.target : level.cue, 34, shallow ? 77 : 79, shallow && level.orderMatters ? 120 : panelW - 32);
-
-    if (level.orderMatters) {
-      let slotX = shallow ? Math.min(170, 54 + level.target.length * 10) : 34;
-      const slotY = shallow ? 74 : 103;
-      const maxSlotW = (panelW + 2 - slotX - (level.correctWords.length - 1) * 7) / level.correctWords.length;
-      level.correctWords.forEach((part, index) => {
-        const filled = caught[index];
-        const label = filled || `${index + 1}`;
-        const slotW = Math.min(clamp(42 + part.length * 13, 58, 126), maxSlotW);
-        fillRound(ctx, slotX, slotY, slotW, 25, 7, filled ? "rgba(255,245,180,.95)" : "rgba(255,255,255,.16)");
-        strokeRound(ctx, slotX, slotY, slotW, 25, 7, filled ? theme.accent : "rgba(255,255,255,.26)", 1.5);
-        ctx.fillStyle = filled ? "#1e2330" : "rgba(255,255,255,.72)";
-        ctx.font = "950 15px Fredoka, Arial, sans-serif";
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.fillText(label, slotX + slotW / 2, slotY + 13, slotW - 10);
-        ctx.textAlign = "left";
-        ctx.textBaseline = "top";
-        slotX += slotW + 7;
-      });
-    }
-
-    if (!compact) {
-      const rightW = 220;
-      fillRound(ctx, w - rightW - 18, 16, rightW, 78, 8, theme.panel);
-      strokeRound(ctx, w - rightW - 18, 16, rightW, 78, 8, "rgba(255,255,255,.18)", 1.5);
-      ctx.fillStyle = "#ffffff";
-      ctx.font = "900 15px Fredoka, Arial, sans-serif";
-      ctx.textAlign = "right";
-      ctx.fillText(fishingPondForEncounter(levelIndex).name, w - 34, 29);
-      ctx.fillStyle = theme.accent;
-      ctx.font = "950 24px Fredoka, Arial, sans-serif";
-      ctx.fillText(`${found}/${level.correctWords.length}`, w - 34, 54);
-      ctx.textAlign = "left";
-    }
-
-    const barX = 34;
-    const barY = 16 + panelH + 10;
-    const barW = Math.min(380, w - 68);
-    fillRound(ctx, barX, barY, barW, 10, 5, "rgba(255,255,255,.18)");
-    fillRound(ctx, barX, barY, barW * ((ladder.slice(0, levelIndex).reduce((sum, entry) => sum + entry.correctWords.length, 0) + found) / ladder.reduce((sum, entry) => sum + entry.correctWords.length, 0)), 10, 5, theme.accent);
+    // The literacy cue is real, responsive text above the canvas. Only the
+    // quiet whole-trip progress line belongs in the painted scenery.
+    const total = ladder.reduce((sum, entry) => sum + entry.correctWords.length, 0);
+    const completed = ladder.slice(0, levelIndex).reduce((sum, entry) => sum + entry.correctWords.length, 0) + caught.length;
+    const barW = Math.min(180, w * .2);
+    fillRound(ctx, w - barW - 20, 18, barW, 7, 4, "rgba(3,35,47,.35)");
+    fillRound(ctx, w - barW - 20, 18, barW * completed / total, 7, 4, theme.accent);
   }
 
   function drawFish(item, time) {
@@ -1093,8 +1076,8 @@ function startGame(mount, opts) {
     ctx.filter = "none";
     ctx.restore();
 
-    const labelW = clamp(46 + item.word.length * 13, 76, 162) * depthScale;
-    const labelH = 30 * depthScale;
+    const labelW = clamp(42 + item.word.length * 15, 90, 190);
+    const labelH = 36;
     ctx.save();
     ctx.shadowColor = "rgba(0,0,0,.28)";
     ctx.shadowBlur = 8;
@@ -1107,7 +1090,7 @@ function startGame(mount, opts) {
     fillRound(ctx, item.x - labelW / 2 + 4, item.y - labelH / 2 + bob + 3, labelW - 8, Math.max(4, labelH * 0.22), 4, "rgba(255,255,255,.38)");
     ctx.globalAlpha = 1;
     ctx.fillStyle = "#1e2330";
-    const size = textWidthFor(ctx, item.word, labelW - 12, 22 * depthScale, 12);
+    const size = textWidthFor(ctx, item.word, labelW - 12, 26, 22);
     ctx.font = `950 ${size}px Fredoka, Arial, sans-serif`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
@@ -1245,9 +1228,6 @@ function startGame(mount, opts) {
     if (images.bg.ready) drawCover(ctx, images.bg.image, 0, 0, w, h, 0.5, 0.5);
     else drawFallbackBackground(time);
     if (!reduceMotion) drawSceneParallax(time);
-    blenderWorld.drawLandscape(ctx,{width:w,height:h,ground:waterTop,time,world:level.world,variation:opts.journey?.variation,reducedMotion:reduceMotion,paused});
-    const harbourSize = Math.min(240, h * .36);
-    blenderWorld.draw(ctx, w - harbourSize * .92, waterTop - harbourSize * (326 / 384) + 3, harbourSize, harbourSize, time, { reducedMotion: reduceMotion, paused });
     drawWater(time);
     drawBoatReflection(time);
     fish
@@ -1260,9 +1240,9 @@ function startGame(mount, opts) {
     if (!reduceMotion) drawWaterSurface(time);
     drawParticles();
     drawForeground(time);
+    drawScreenGrade(time);
     drawHud();
     drawBanner();
-    drawScreenGrade(time);
   }
 
   function loop(now) {
@@ -1275,7 +1255,7 @@ function startGame(mount, opts) {
   }
 
   function onKeyDown(event) {
-    if (isInteractiveKeyTarget(event.target) && ![btnLeft, btnRight, btnCast].some(button => button.contains(event.target))) return;
+    if (isInteractiveKeyTarget(event.target, event.key) && ![btnLeft, btnRight, btnCast].some(button => button.contains(event.target))) return;
     if (paused) return;
     if (introOpen) {
       if (event.key === "Enter" || event.key === " ") {
@@ -1287,10 +1267,12 @@ function startGame(mount, opts) {
     const direction = laneDirectionForKey(event.key);
     if (direction < 0) {
       event.preventDefault();
+      if (!keys.left && !event.repeat) boat.x = clampBoatX(boat.x - 20);
       keys.left = true;
     }
     if (direction > 0) {
       event.preventDefault();
+      if (!keys.right && !event.repeat) boat.x = clampBoatX(boat.x + 20);
       keys.right = true;
     }
     if (isActionKey(event.key)) {
@@ -1303,7 +1285,7 @@ function startGame(mount, opts) {
 
   function onKeyUp(event) {
     if (introOpen) return;
-    const interactiveTarget = isInteractiveKeyTarget(event.target);
+    const interactiveTarget = isInteractiveKeyTarget(event.target, event.key);
     const direction = laneDirectionForKey(event.key);
     if (direction < 0) {
       if (!interactiveTarget) event.preventDefault();
@@ -1325,6 +1307,7 @@ function startGame(mount, opts) {
       if (paused) return;
       button.setPointerCapture?.(event.pointerId);
       keys[key] = true;
+      if (key === "left" || key === "right") boat.x = clampBoatX(boat.x + (key === "left" ? -20 : 20));
       if (key === "cast") requestCast();
       button.style.transform = "translateY(2px) scale(.98)";
     });
@@ -1349,10 +1332,13 @@ function startGame(mount, opts) {
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
     activePointer = event.pointerId;
-    boat.targetX = clampBoatX(x);
-    if (y > waterTop && phase === "playing") {
+    canvas.setPointerCapture?.(event.pointerId);
+    boat.targetX = clampBoatX(x - getBoatMetrics().boatW * .535);
+    if (y > waterTop && phase === "playing" && boat.hookState === "ready") {
+      // Aim the rod at the touched water before casting. The old path dropped
+      // from the previous boat location while it was still moving to the tap.
       keys.cast = true;
-      requestCast();
+      pendingCast = true;
     }
   }
 
@@ -1361,7 +1347,7 @@ function startGame(mount, opts) {
     if (event.pointerId !== activePointer) return;
     const rect = canvas.getBoundingClientRect();
     const x = event.clientX - rect.left;
-    boat.targetX = clampBoatX(x);
+    boat.targetX = clampBoatX(x - getBoatMetrics().boatW * .535);
   }
 
   function onPointerUp(event) {
@@ -1380,6 +1366,7 @@ function startGame(mount, opts) {
     keys.left = false;
     keys.right = false;
     keys.cast = false;
+    pendingCast = false;
     activePointer = null;
     boat.targetX = null;
     for (const button of [btnLeft, btnRight, btnCast]) button.style.transform = "";
@@ -1392,11 +1379,18 @@ function startGame(mount, opts) {
   canvas.addEventListener("pointermove", onPointerMove);
   canvas.addEventListener("pointerup", onPointerUp);
   canvas.addEventListener("pointercancel", onPointerUp);
+  canvas.addEventListener("lostpointercapture", onPointerUp);
   btnReplay.addEventListener("click", replayTarget);
   setButton(btnLeft, "left");
   setButton(btnRight, "right");
   setButton(btnCast, "cast");
 
+  if (import.meta.env.DEV) Object.defineProperty(mount, "fishingInspection", { configurable: true, get: () => ({
+    width: w, height: h, phase, paused, levelIndex, target: level.target, expectedWord: reelReadExpectedWord(level, caught), hookSpeed: level.hookSpeed, caught: [...caught], wordsCaught, mistakes,
+    boatX: boat.x, rodTip: getRodTip(), hookState: boat.hookState, hookX: boat.hookX, hookY: boat.hookY,
+    reeling: keys.cast, fight: boat.fight && { ...boat.fight },
+    fish: fish.map(({ word, x, y, correct, currentVx }) => ({ word, x, y, correct, vx: currentVx }))
+  }) });
   startLevel(startAt);
   lastTime = performance.now();
   rafId = window.requestAnimationFrame(loop);
@@ -1414,8 +1408,9 @@ function startGame(mount, opts) {
       if (introEl) introEl.style.display = "flex";
     },
     refreshSoundState,
+    debugSnapshot: () => import.meta.env.DEV ? mount.fishingInspection : null,
     teardown() {
-      blenderWorld.dispose();
+      if (import.meta.env.DEV) delete mount.fishingInspection;
       running = false;
       window.cancelAnimationFrame(rafId);
       window.removeEventListener("keydown", onKeyDown);

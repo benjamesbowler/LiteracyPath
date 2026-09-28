@@ -3,9 +3,22 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { createSkateTextSign, sampleSkateSurface, skateRampProfile, skateSurfaceTilt, createSkateRampGeometry, createSkateDeckGeometry, planSkateRoute, skateObstacleAt, skateDeckClearance, skateFrameSteps, nextSkateQuality, skateMotion, skateAction, measureSkateTravel, chooseSkateDestination, SKATE_DESTINATION_DISTANCE } from '../../src/components/learn/games/games/spellSkatePark.js';
+import { createSkateParkDressing, createSkateTextSign, sampleSkateSurface, skateRampProfile, skateSurfaceTilt, createSkateRampGeometry, createSkateDeckGeometry, planSkateRoute, skateObstacleAt, skateDeckClearance, skateFrameSteps, nextSkateQuality, skateMotion, skateAction, measureSkateTravel, chooseSkateDestination, SKATE_DESTINATION_DISTANCE } from '../../src/components/learn/games/games/spellSkatePark.js';
 import { chooseSkaterState, SPELL_SKATER_STATES } from '../../src/components/learn/games/games/spellSkaterAsset.js';
 import { grammarGrindLadder } from '../../src/utils/grammarGrindLevels.js';
+test('the planted park hills face outward and upward to receive daylight',()=>{
+  const park=createSkateParkDressing({accent2:'#42b9a7'},'easy');
+  const hills=[];
+  park.traverse(node=>{if(node.name==='Planted park hill')hills.push(node);});
+  assert.equal(hills.length,12);
+  for(const hill of hills) {
+    const position=hill.geometry.attributes.position,normal=hill.geometry.attributes.normal;
+    const index=10;
+    assert.ok(position.getX(index)*normal.getX(index)+position.getZ(index)*normal.getZ(index)>0);
+    assert.ok(normal.getY(index)>0);
+  }
+  park.traverse(node=>{node.geometry?.dispose();for(const material of Array.isArray(node.material)?node.material:[node.material])material?.dispose();});
+});
 test('every ramp vertex and sampled riding surface agree, including rotated quarters and bowl', () => {
   for (const kind of ['ramp', 'quarter']) {
     const zone = {

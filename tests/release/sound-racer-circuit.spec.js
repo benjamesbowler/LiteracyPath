@@ -4,14 +4,16 @@ import {buildSoundRacerRace as buildTrack} from '../../src/utils/soundRacerRace.
 import {soundRacerLadder} from '../../src/utils/soundRacerTracks.js';
 
 test.use({trace:'off'});
-import {sampleCircuitPath,offsetCircuitPoint,angleDelta} from '../../src/utils/soundRacerPhysics.js';
+import {angleDelta} from '../../src/utils/soundRacerPhysics.js';
 
 test('Sound Racer steering drives a real three-lap race and catches fresh words', async({page},testInfo)=>{
   test.setTimeout(900000);
-  // Cap startup rendering while assets arrive. Playwright clock.install
-  // subsequently owns RAF at about60Hz; report actual frame counters below.
+  // A low-power, 10fps renderer exercises wall-clock physics without
+  // requiring thousands of redundant screenshots between input samples.
   await page.addInitScript(() => {
-    window.requestAnimationFrame = callback => window.setTimeout(() => callback(performance.now()), 50);
+    Object.defineProperty(navigator, 'hardwareConcurrency', { get: () => 2 });
+    Object.defineProperty(navigator, 'deviceMemory', { get: () => 2 });
+    window.requestAnimationFrame = callback => window.setTimeout(() => callback(performance.now()), 100);
     window.cancelAnimationFrame = id => window.clearTimeout(id);
   });
   const errors=[];page.on('pageerror',error=>errors.push(error.message));
@@ -32,12 +34,10 @@ test('Sound Racer steering drives a real three-lap race and catches fresh words'
     if(state.progress>=track.raceLength && state.wordsCorrect>=track.needed) {lastProgress=state.progress;break;}
     const inspection=await page.locator('.sound-racer').evaluate(node=>node.racerInspection);
     const gate=inspection.nextGates.find(gate=>gate.z>state.progress+1);
-    const lookDistance=6;
     let lateral=0;
     if(gate && gate.z-state.progress<22) lateral=gate.correct ? [-3.15,0,3.15][gate.lane] : gate.lane===1 ? 2.9 : 0;
-    const aim=offsetCircuitPoint(sampleCircuitPath(track.path,state.progress+lookDistance),lateral);
-    const error=angleDelta(state.heading,Math.atan2(aim.x-state.x,-(aim.z-state.z)));
-    const desired=error < -0.045 ? 'ArrowLeft' : error > 0.045 ? 'ArrowRight' : '';
+    const error=lateral-(inspection.aimLateral ?? state.lateral);
+    const desired=error < -.25 ? 'ArrowLeft' : error > .25 ? 'ArrowRight' : '';
     if(desired!==held) {
       if(held)await page.keyboard.up(held);
       if(desired)await page.keyboard.down(desired);
@@ -66,7 +66,7 @@ test('Sound Racer steering drives a real three-lap race and catches fresh words'
   expect(journal.easy.completed).toEqual([0]);expect(journal.medium).toBeUndefined();
 });
 
-test('Sound Racer pointer steering changes heading, releases, pauses and recovers',async({page})=>{
+test('Sound Racer pointer steering changes heading, releases, pauses and follows bends',async({page})=>{
   test.setTimeout(180000);
   await page.setViewportSize({width:960,height:600});
   await page.emulateMedia({reducedMotion:'reduce'});
@@ -85,7 +85,8 @@ test('Sound Racer pointer steering changes heading, releases, pauses and recover
   await page.getByRole('button',{name:/Keep playing/i}).click();
   await page.clock.runFor(30000);
   const recovered=JSON.parse(await hud.getAttribute('data-sound-racer-position'));
-  expect(recovered.recoveries).toBeGreaterThan(0);
+  expect(recovered.recoveries).toBe(0);
+  expect(recovered.progress).toBeGreaterThan(after.progress + 200);
   expect(recovered.missedCorrect).toBeGreaterThan(0);
 });
 
@@ -125,9 +126,9 @@ test('Sound Racer wrong word gives feedback while the kart keeps racing',async({
     result=JSON.parse(await hud.getAttribute('data-sound-racer-position'));
     if(result.wordsWrong)break;
     const lateral=wrong.z-result.progress<24?[-3.15,0,3.15][wrong.lane]:0;
-    const aim=offsetCircuitPoint(sampleCircuitPath(track.path,result.progress+6),lateral);
-    const error=angleDelta(result.heading,Math.atan2(aim.x-result.x,-(aim.z-result.z)));
-    const desired=error<-.045?'ArrowLeft':error>.045?'ArrowRight':'';
+    const inspection=await page.locator('.sound-racer').evaluate(node=>node.racerInspection);
+    const error=lateral-(inspection.aimLateral ?? result.lateral);
+    const desired=error<-.25?'ArrowLeft':error>.25?'ArrowRight':'';
     if(held!==desired){if(held)await page.keyboard.up(held);if(desired)await page.keyboard.down(desired);held=desired;}
     await page.clock.runFor(100);
   }

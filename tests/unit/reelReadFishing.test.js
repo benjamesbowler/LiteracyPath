@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createFishingFight, stepFishingFight, fishingPondForEncounter, fishingFrameSteps } from '../../src/utils/reelReadFishing.js';
 
-test('reeling against three physical current profiles gives a sustained active catch', () => {
+test('reeling against three physical current profiles gives a quick active catch', () => {
   for (const encounter of [0, 4, 9]) {
     let state = createFishingFight({ encounter, depth: .5 });
     let reeling = true;
@@ -12,17 +12,17 @@ test('reeling against three physical current profiles gives a sustained active c
       state = stepFishingFight(state, { reeling });
     }
     assert.ok(state.landed, `encounter ${encounter} remains landable`);
-    assert.ok(state.elapsed >= 6 && state.elapsed <= 11, `${encounter}: ${state.elapsed}s`);
+    assert.ok(state.elapsed >= 1.8 && state.elapsed <= 3.5, `${encounter}: ${state.elapsed}s`);
     assert.ok(state.remaining <= .75);
   }
 });
 
-test('holding through deep-water pulls can lose the line; easing releases tension', () => {
+test('fresh catches land promptly; a strained line still responds to easing', () => {
   let held = createFishingFight({ encounter: 9, depth: 1 });
   for (let frame = 0; frame < 1200 && !held.escaped && !held.landed; frame++) held = stepFishingFight(held, { reeling: true });
-  assert.ok(held.escaped);
-  assert.equal(held.landed, false);
-  const eased = stepFishingFight({ ...held, escaped: false, strain: 0, tension: .8 }, { reeling: false }, .05);
+  assert.ok(held.landed);
+  assert.equal(held.escaped, false);
+  const eased = stepFishingFight({ ...held, landed: false, escaped: false, strain: 0, tension: .8 }, { reeling: false }, .05);
   assert.ok(eased.tension < .8);
   assert.equal('mistakes' in eased, false);
   assert.equal('score' in eased, false);
@@ -51,7 +51,7 @@ test('all pond phases remain recoverable by easing, and terminal fights cannot c
       state = stepFishingFight(state, { reeling });
     }
     assert.ok(state.landed, `${encounter}/${depth}/${seed}`);
-    assert.ok(state.elapsed > 5 && state.elapsed < 11);
+    assert.ok(state.elapsed > 1.7 && state.elapsed < 3.8);
     assert.equal(stepFishingFight(state, { reeling: true }), state);
   }
 });

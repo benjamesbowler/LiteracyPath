@@ -1,0 +1,11 @@
+# Arcade scene source prompts
+
+Generated with the built-in image generation tool on 28 September 2026. These are decorative game environments, not screenshots or literacy evidence. Original PNG sources, optimized runtime WebPs and their hashes are recorded in `manifest.json`. No learner data or third-party reference imagery was supplied.
+
+## Rhyme festival
+
+Create one polished production game background, wide landscape 16:9. Environment only; no text, letters, numerals, balloons, people, animals, interfaces, selectable objects, grids, scanlines or logos. A children's woodland literacy carnival. High quality hand-painted animated-film concept art, soft sculpted forms, rich coherent materials, clean silhouettes; avoid low-poly facets. A broad honey-colored wooden stage fills the lower quarter, with coherent plank perspective and soft shadows. Leafy wings and small flowers only at the extreme edges. Keep the central 75% from 15–70% height open, calm teal-blue sky and softly hazy meadow for live word balloons. Small coral/cream tent on the distant right, small wooden ferris wheel left, amber lamps and subtle bunting only in upper corners. Warm afternoon sunlight from upper left, softly luminous clouds, rich green tree framing and depth separation. No painted targets or characters.
+
+## Safari clearing
+
+Create one finished wide 16:9 production background for a children's woodland sound-catching game. Environment only; no people, animals, words, letters, numbers, labels, UI, targets, grids, scanlines or logos. High quality storybook animated-film painting with softly sculpted forms, tactile foliage, warm sunlight and restrained detail. Look across a peaceful forest reserve's spacious grassy clearing toward layered trees and distant hazy hills. Keep the central 70% open and calm, with smooth green light patches across 25–85% image height for live moving creatures and sound plaques. A shallow blue creek belongs only in the far background, outside the playable foreground. Oak trunks, ferns, wildflowers and rocks frame the edges. Small research hut on solid ground at far right with an amber lantern. Grass reaches the lower edge; no wooden floor. Coherent upper-left sunlight, soft contact shadows, green/sage palette and quiet top-center haze for the target cue.

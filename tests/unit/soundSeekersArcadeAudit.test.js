@@ -90,8 +90,9 @@ test("gold voice policy stays recorded-only across shared phonics and login audi
 
 test("Sound Racer retains its one-shot, cleanup, cache, static-overlay, and reduced-motion guards", async () => {
   const racer = await source("src/components/learn/games/games/SoundRacerGame.jsx");
-  assert.match(racer, /if \(completionSent\) return;/);
-  assert.match(racer, /doneButton\.disabled = true/);
+  assert.match(racer, /function finishRun\(\) \{\s*if \(completionSent\) return;\s*completionSent = true;/);
+  assert.match(racer, /if \(opts\.onComplete\) \{\s*opts\.onProgressUpdate\?\.\(levelCount, levelCount\);\s*opts\.onComplete\(stars, score, correct\);\s*return;/);
+  assert.doesNotMatch(racer, /data-sr=["']done|Finish Sound Racer|doneButton/);
   assert.match(racer, /registerCleanup: cleanup => startupCleanups\.push\(cleanup\)/);
   assert.match(racer, /disposeRenderer\(renderer, \{ forceContextLoss: true \}\)/);
   assert.match(racer, /textureCanvasCache = new Map\(\)/);
@@ -189,7 +190,7 @@ test("reported Arcade objectives and replay controls keep child-readable hierarc
   assert.match(grove, /data-role="replay"[\s\S]*?min-width:220px;min-height:56px[\s\S]*?font-size:16px/);
   assert.match(grove, /nodes\.replay\.addEventListener\("click", event =>/);
 
-  assert.match(soundKeys, /className="soundkeys-listen" aria-label=\{`Hear \$\{target\.display\} again`\}/);
+  assert.match(soundKeys, /className="soundkeys-listen" aria-label=\{isSoundEnabled \? `Hear \$\{target\.display\} again` : "Word replay unavailable while sound is off"\}/);
   assert.match(soundKeys, /disabled=\{!isSoundEnabled\}/);
   assert.match(soundKeys, /onClick=\{\(\) => speak\(target\.id\)\}/);
   assert.match(soundKeysCss, /min-height:56px/);

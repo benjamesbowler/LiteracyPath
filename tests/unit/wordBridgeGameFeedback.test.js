@@ -67,7 +67,7 @@ test("Word Bridge exposes readable retry feedback and honours reduced motion", a
   assert.match(source, /const bob = carried \|\| reduceMotion \? 0/);
   assert.match(source, /carried && !reduceMotion \? Math\.sin/);
   assert.match(source, /ctx\.fillText\("↺"/);
-  assert.match(source, /if \(isInteractiveKeyTarget\(e\.target\)\) return/);
+  assert.match(source, /if \(isInteractiveKeyTarget\(e\.target, e\.key\) && !movementControlOwnsFocus\) return/);
 });
 
 test("Word Bridge literacy actions commit on release and clear cancelled pointers", async () => {
@@ -98,4 +98,24 @@ test("Word Bridge pause and blur discard queued tap destinations without droppin
   const result=Function(`const keys={left:true,right:true};let actionQueued=true,moveTargetX=800,pendingTapAction={type:'tile'},targetedAction={type:'slot'},canvasPointerIntent={pointerId:1};${source};clearHeldControls();return {keys,actionQueued,moveTargetX,pendingTapAction,targetedAction,canvasPointerIntent};`)();
   assert.deepEqual(result,{keys:{left:false,right:false},actionQueued:false,moveTargetX:null,pendingTapAction:null,targetedAction:null,canvasPointerIntent:null});
   assert.doesNotMatch(source,/carrying/);
+});
+
+test('placing the last correct bridge piece starts the crossing once, without another action', async () => {
+  const action=readFunction(await gameSource(),'handleAction');
+  const result=Function(`${action}
+    let targetedAction=null, phase='PLAYING', score=0, bridgeGlow=0;
+    const builder={carrying:{correct:true,glyph:'t'}};
+    const slots=[{filled:false,needed:'t',x:20,y:20,w:56,order:0}];
+    const pals=[{x:20,speed:10}]; const worldWidth=200; const theme={light:'#fff'};
+    const normalizeGlyph=value=>value.toLowerCase();
+    const sfx=()=>{},playCorrectChime=()=>{},playCelebrationFanfare=()=>{},emitBurst=()=>{},addFloat=()=>{},renderTargetHUD=()=>{},setBanner=()=>{},targetSpeechText=()=>'cat';
+    handleAction({type:'slot',index:0});
+    handleAction({type:'slot',index:0});
+    return {phase,score,filled:slots[0].filled,carrying:builder.carrying,speed:pals[0].speed};
+  `)();
+  assert.equal(result.phase,'PALS_CROSSING');
+  assert.equal(result.score,35);
+  assert.equal(result.filled,true);
+  assert.equal(result.carrying,null);
+  assert.ok(result.speed>100,'crossing is a short automatic feedback beat');
 });

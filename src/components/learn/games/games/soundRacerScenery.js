@@ -54,8 +54,16 @@ export function circuitClearance(path, x, z) {
   return distance;
 }
 
+// Terrain and scenery share this surface: a tree beside the raised bridge
+// belongs to the hillside, not to an invisible extension of the bridge deck.
+export function racerTerrainHeight(path, x, z) {
+  const clearance = circuitClearance(path, x, z);
+  const blend = Math.min(1, Math.max(0, (clearance - 10) / 22));
+  return -.22 + blend * blend * (2.8 + Math.sin(x * .038) * 2.1 + Math.cos(z * .029) * 1.8);
+}
+
 export function racerSceneryPlacements(track, world, tier = 'high') {
-  const count = tier === 'low' ? 30 : tier === 'medium' ? 64 : 96;
+  const count = tier === 'low' ? 54 : tier === 'medium' ? 90 : 128;
   const result = [];
   const worldFoliage = world === 'meadow' ? 'meadowCopse' : world === 'dino' ? 'dinoCycads' : 'moonMushrooms';
   for (let i = 0; i < count; i++) {
@@ -64,15 +72,13 @@ export function racerSceneryPlacements(track, world, tier = 'high') {
     const side = i % 2 ? -1 : 1;
     let name = i % 7 === 0 ? 'lamp' : i % 5 === 0 ? 'bush' : i % 3 ? worldFoliage : 'treeB';
     if (i % 13 === 2) name = world === 'meadow' ? 'windmill' : world === 'moonwood' ? 'moonTower' : 'fossil';
-    if (i === 0) name = 'hero';
-    if (i % 17 === 1) name = 'flag';
     const asset = ASSETS[name];
-    let offset = side * (name === 'lamp' || name === 'flag' ? 7.4 : asset.foliage ? 18 + (i % 4) * 4 : 11 + (i % 4) * 4);
+    let offset = side * (name === 'lamp' || name === 'flag' ? 7.4 : asset.foliage ? 12 + (i % 4) * 3 : 11 + (i % 4) * 4);
     let p = offsetCircuitPoint(point, offset);
     if (asset.foliage) for (let attempt = 0; attempt < 2 && circuitClearance(track.path, p.x, p.z) < RACER_ROAD_WIDTH / 2 + asset.radius + 1; attempt++) { offset += side * 8; p = offsetCircuitPoint(point, offset); }
     // Broad props on one bend must not intrude into its neighbouring hairpin.
     if (circuitClearance(track.path, p.x, p.z) < RACER_ROAD_WIDTH / 2 + asset.radius + 1) continue;
-    result.push({ name, x: p.x, z: p.z, y: Math.max(-.2, p.y - .05), heading: -point.heading + (['windmill', 'fossil', 'moonTower'].includes(name) ? -side * Math.PI / 2 : i * 1.73), height: asset.height, distance });
+    result.push({ name, x: p.x, z: p.z, y: racerTerrainHeight(track.path, p.x, p.z), heading: -point.heading + (['windmill', 'fossil', 'moonTower'].includes(name) ? -side * Math.PI / 2 : i * 1.73), height: asset.height, distance });
   }
   return result;
 }
@@ -111,6 +117,7 @@ export function createRacerScenery(track, world, tier) {
   postMesh.instanceMatrix.needsUpdate = true; root.add(postMesh);
 
   const placements = racerSceneryPlacements(track, world, tier);
+  const initialDensity = tier === 'low' ? .42 : tier === 'medium' ? .72 : 1;
   root.userData.placementCount = placements.length;
   root.userData.assetState = 'loading';
   const loader = new GLTFLoader();
@@ -161,7 +168,7 @@ export function createRacerScenery(track, world, tier) {
     details.traverse(node => {
       if (!node.isMesh) return;
       node.castShadow = next !== 'low';
-      if (node.isInstancedMesh && node.userData.foliage) node.count = Math.max(1, Math.ceil(node.userData.capacity * (next === 'low' ? .42 : next === 'medium' ? .72 : 1)));
+      if (node.isInstancedMesh && node.userData.foliage) node.count = Math.max(1, Math.ceil(node.userData.capacity * Math.min(1, (next === 'low' ? .42 : next === 'medium' ? .72 : 1) / initialDensity)));
     });
     root.userData.qualityTier = next;
   }

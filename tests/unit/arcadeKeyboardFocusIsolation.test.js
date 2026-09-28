@@ -85,23 +85,23 @@ const gameHandlerContracts = [
 const focusedMovementControlExceptions = new Map([
   [
     "Ps1ArcadeGame.jsx:onKeyDown",
-    /if \(isInteractiveKeyTarget\(event\.target\) && !padGroup\.contains\(event\.target\)\) return;/
+    /if \(isInteractiveKeyTarget\(event\.target, focusKey\) && !padGroup\.contains\(event\.target\)\) return;/
   ],
   [
     "LetterLeapGame.jsx:onKeyDown",
-    /if \(isInteractiveKeyTarget\(e\.target\) && !padWrap\.contains\(e\.target\)\) return;/
+    /if \(isInteractiveKeyTarget\(e\.target(?:, e\.key)?\) && !padWrap\.contains\(e\.target\)\) return;/
   ],
   [
     "RocketRunGame.jsx:onKey",
-    /const steeringControlOwnsFocus = event\.target\?\.matches\?\.\('\[data-rr="left-control"\],\[data-rr="right-control"\]'\);\s+if \(isInteractiveKeyTarget\(event\.target\) && !steeringControlOwnsFocus\) return;/
+    /const steeringControlOwnsFocus = event\.target\?\.matches\?\.\('\[data-rr="left-control"\],\[data-rr="right-control"\]'\);\s+if \(isInteractiveKeyTarget\(event\.target(?:, event\.key)?\) && !steeringControlOwnsFocus\) return;/
   ],
   [
     "SoundRacerGame.jsx:onKey",
-    /const steeringControlOwnsFocus = event\.target\?\.matches\?\.\('\[data-sr="left-control"\],\[data-sr="right-control"\](?:,\[data-sr="brake-control"\])?'\);\s+if \(isInteractiveKeyTarget\(event\.target\) && !steeringControlOwnsFocus\) return;/
+    /const steeringControlOwnsFocus = event\.target\?\.matches\?\.\('\[data-sr="left-control"\],\[data-sr="right-control"\](?:,\[data-sr="brake-control"\])?'\)(?:\s*\|\| \(event\.target\?\.matches\?\.\('\[data-sr="hear-target"\]'\) && Boolean\(laneDirectionForKey\(event\.key\)\)\))?;\s+if \(isInteractiveKeyTarget\(event\.target(?:, event\.key)?\) && !steeringControlOwnsFocus\) return;/
   ],
   [
     "ReelReadGame.jsx:onKeyDown",
-    /if \(isInteractiveKeyTarget\(event\.target\) && !\[btnLeft, btnRight, btnCast\]\.some\(button => button\.contains\(event\.target\)\)\) return;/
+    /if \(isInteractiveKeyTarget\(event\.target(?:, event\.key)?\) && !\[btnLeft, btnRight, btnCast\]\.some\(button => button\.contains\(event\.target\)\)\) return;/
   ]
 ]);
 
@@ -117,7 +117,7 @@ for (const [fileName, handlers] of gameHandlerContracts) {
       const focusedMovementException = focusedMovementControlExceptions.get(`${fileName}:${handler}`);
       assert.match(
         readFunction(source, handler),
-        focusedMovementException || /if \(isInteractiveKeyTarget\((?:e|event)\.target\)\) return;/,
+        focusedMovementException || /if \(isInteractiveKeyTarget\((?:e|event)\.target(?:, (?:e|event)\.key)?\)\) return;/,
         focusedMovementException
           ? `${handler} should only exempt its own named movement controls`
           : `${handler} should ignore keys owned by a focused control`
@@ -129,7 +129,7 @@ for (const [fileName, handlers] of gameHandlerContracts) {
 test("Reel & Read preserves native replay keys while its own controls and canvas retain gameplay input", async () => {
   const source = await readFile(new URL("../../src/components/learn/games/games/ReelReadGame.jsx", import.meta.url), "utf8");
   const actionKey = new Function("isPrimaryActionKey", `${readFunction(source, "isActionKey")}; return isActionKey;`)(isPrimaryActionKey);
-  const makeHandler = new Function("isInteractiveKeyTarget", "btnLeft", "btnRight", "btnCast", "paused", "introOpen", "laneDirectionForKey", "isActionKey", "keys", "requestCast", "dismissIntro", `${readFunction(source, "onKeyDown")}; return onKeyDown;`);
+  const makeHandler = new Function("isInteractiveKeyTarget", "btnLeft", "btnRight", "btnCast", "paused", "introOpen", "laneDirectionForKey", "isActionKey", "keys", "requestCast", "dismissIntro", `const boat = { x: 100 }; const clampBoatX = x => x; ${readFunction(source, "onKeyDown")}; return onKeyDown;`);
   const button = () => {
     const element = { closest: () => element, contains: target => target === element || target?.parent === element };
     return element;
@@ -163,9 +163,9 @@ test("held movement keys still release after focus moves to a control", async ()
     "utf8"
   );
   const reelKeyUp = readFunction(reelSource, "onKeyUp");
-  assert.match(reelKeyUp, /const interactiveTarget = isInteractiveKeyTarget\(event\.target\)/);
+  assert.match(reelKeyUp, /const interactiveTarget = isInteractiveKeyTarget\(event\.target(?:, event\.key)?\)/);
   assert.match(reelKeyUp, /if \(!interactiveTarget\) event\.preventDefault\(\);\s+keys\.left = false/);
-  assert.doesNotMatch(reelKeyUp, /if \(isInteractiveKeyTarget\(event\.target\)\) return/);
+  assert.doesNotMatch(reelKeyUp, /if \(isInteractiveKeyTarget\(event\.target(?:, event\.key)?\)\) return/);
 
   const grammarSource = await readFile(
     new URL("../../src/components/learn/games/games/GrammarGrindGame.jsx", import.meta.url),
@@ -173,8 +173,8 @@ test("held movement keys still release after focus moves to a control", async ()
   );
   const grammarKeyUp = readFunction(grammarSource, "onKeyUp");
   assert.match(grammarKeyUp, /setKey\("left", false\)/);
-  assert.match(grammarKeyUp, /if \(!isInteractiveKeyTarget\(event\.target\)\) event\.preventDefault\(\)/);
-  assert.doesNotMatch(grammarKeyUp, /if \(isInteractiveKeyTarget\(event\.target\)\) return/);
+  assert.match(grammarKeyUp, /if \(!isInteractiveKeyTarget\(event\.target(?:, event\.key)?\)\) event\.preventDefault\(\)/);
+  assert.doesNotMatch(grammarKeyUp, /if \(isInteractiveKeyTarget\(event\.target(?:, event\.key)?\)\) return/);
 
   const groveSource = await readFile(
     new URL("../../src/components/learn/games/games/StarGalleryArcadeGame.jsx", import.meta.url),
@@ -231,4 +231,25 @@ test("SoundKeys accepts only explicitly owned instrument focus and suppresses he
     if (previousWindow === undefined) delete globalThis.window;
     else globalThis.window = previousWindow;
   }
+});
+
+test("Arcade movement survives button focus while activation, editing and modal keys remain native", () => {
+  const player = {};
+  const button = {};
+  const target = ({ inPlayer = true, modal = false, editable = false, inert = false, isButton = true } = {}) => ({
+    closest(selector) {
+      if (selector === '.lg-game-player') return inPlayer ? player : null;
+      if (selector === '[role="dialog"]') return modal ? {} : inPlayer ? player : null;
+      if (selector === "[inert], input, select, textarea, [contenteditable='true']") return editable || inert ? {} : null;
+      if (selector === "button, [role='button']") return isButton ? button : null;
+      return button;
+    }
+  });
+  for (const key of ['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','w','A','s','D']) {
+    assert.equal(isInteractiveKeyTarget(target(), key), false, `${key} reaches the active engine`);
+    for (const options of [{ inPlayer:false }, { modal:true }, { editable:true }, { inert:true }, { isButton:false }]) {
+      assert.equal(isInteractiveKeyTarget(target(options), key), true, `${key} respects unrelated control boundaries`);
+    }
+  }
+  for (const key of ['Enter',' ','Tab',undefined]) assert.equal(isInteractiveKeyTarget(target(), key), true);
 });

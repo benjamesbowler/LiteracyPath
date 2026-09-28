@@ -100,7 +100,7 @@ test("every substantial vertical slice is complete, traceable to checks, and hon
   const bridgeImplementation = readFileSync("src/components/learn/games/games/WordBridgeGame.jsx", "utf8");
   assert.match(bridgeImplementation, /function returnCarriedTileToBank\(\)/);
   assert.match(bridgeImplementation, /role="status" aria-live="polite"/);
-  assert.match(bridgeImplementation, /if \(isInteractiveKeyTarget\(e\.target\)\) return/);
+  assert.match(bridgeImplementation, /if \(isInteractiveKeyTarget\(e\.target, e\.key\) && !movementControlOwnsFocus\) return/);
 
   const beatImplementation = readFileSync("src/components/learn/games/games/Ps1ArcadeGame.jsx", "utf8");
   assert.match(beatImplementation, /function tapBeat\(lane =/);
@@ -134,7 +134,7 @@ test("every substantial vertical slice is complete, traceable to checks, and hon
   assert.match(playerImplementation, /const hasBlockingOverlay = startLevel === null \|\| showQuit \|\| showGuide \|\| hasPremiumCompletionOverlay \|\| saveRecovery/);
   assert.match(playerImplementation, /const hasEngineOwnedCompletion = Boolean\(completionResult && !hasPremiumCompletionOverlay\)/);
   assert.match(playerImplementation, /querySelectorAll\("\.lg-game-player-main button:not\(\[disabled\]\)"\)/);
-  assert.match(playerImplementation, /<main className="lg-game-player-main" inert=\{hasBlockingOverlay \? true : undefined\}>/);
+  assert.match(playerImplementation, /<main[^>]*className="lg-game-player-main" inert=\{hasBlockingOverlay \? true : undefined\}>/);
   assert.match(playerImplementation, /const scope = blockingDialogRef\.current \|\| playerRef\.current/);
   assert.match(playerImplementation, /document\.addEventListener\("keydown", onKeyDown, true\)/);
   assert.match(playerImplementation, /if \(showGuide\) setShowGuide\(false\);\n {6}else if \(showQuit\) setShowQuit\(false\);/);

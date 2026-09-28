@@ -371,9 +371,9 @@ function startGame(THREE, mount, opts) {
   // Start-of-round "get ready" popup: the target letter, big, plus a 3-2-1 count.
   // Spawning is gated on running=false until the countdown flips it true (in tick).
 
-  const ambient = new THREE.AmbientLight(0x8899ff, 0.7);
+  const ambient = new THREE.AmbientLight(0x9cafd8, 0.42);
   scene.add(ambient);
-  const key = new THREE.DirectionalLight(0xffffff, 0.9);
+  const key = new THREE.DirectionalLight(0xffdfb4, 1.35);
   key.position.set(3, 8, 6);
   key.castShadow = qualityTier !== "low";
   key.shadow.mapSize.width = 1024;
@@ -386,7 +386,7 @@ function startGame(THREE, mount, opts) {
   key.shadow.camera.bottom = -8;
   scene.add(key);
 
-  const rim = new THREE.DirectionalLight(0x8eb8ff, 0.46);
+  const rim = new THREE.DirectionalLight(0x8be4ff, 0.72);
   rim.position.set(-5, 4.5, -8);
   scene.add(rim);
 
@@ -538,7 +538,7 @@ function startGame(THREE, mount, opts) {
   const pylonPairs = [];
   const stationPieces = [];
   const canyonPieces = [];
-  const ringGeo = new THREE.TorusGeometry(5.25, 0.045, 6, 32);
+  const ringGeo = new THREE.TorusGeometry(5.25, 0.055, 8, 64);
   const ringMat = new THREE.MeshBasicMaterial({ color: 0x59d3ff, transparent: true, opacity: 0.22, blending: THREE.AdditiveBlending, depthWrite: false });
   const pylonGeo = new THREE.BoxGeometry(0.22, 1.9, 0.22);
   const pylonMat = new THREE.MeshStandardMaterial({ color: 0x15245a, metalness: 0.35, roughness: 0.52, flatShading: true, emissive: 0x071332, emissiveIntensity: 0.32 });
@@ -548,6 +548,7 @@ function startGame(THREE, mount, opts) {
     const z = -9 - i * 7;
     const ring = new THREE.Mesh(ringGeo, ringMat.clone());
     ring.position.set(0, 2.1, z);
+    ring.visible = i % 3 === 0;
     scene.add(ring);
     tunnelRings.push(ring);
     const pair = new THREE.Group();
@@ -698,8 +699,8 @@ function startGame(THREE, mount, opts) {
 
   const planetGroup = new THREE.Group();
   const farPlanet = new THREE.Mesh(
-    new THREE.SphereGeometry(4.4, 14, 10),
-    new THREE.MeshStandardMaterial({ color: 0x5fd4cf, emissive: 0x123f5e, emissiveIntensity: 0.28, roughness: 0.75, flatShading: true })
+    new THREE.SphereGeometry(4.4, 40, 28),
+    new THREE.MeshStandardMaterial({ color: 0x5fd4cf, emissive: 0x123f5e, emissiveIntensity: 0.18, roughness: 0.75, fog: false })
   );
   farPlanet.rotation.z = -0.28;
   planetGroup.add(farPlanet);
@@ -710,7 +711,7 @@ function startGame(THREE, mount, opts) {
   planetRing.rotation.x = 1.25;
   planetRing.rotation.y = 0.24;
   planetGroup.add(planetRing);
-  planetGroup.position.set(13, 8, -74);
+  planetGroup.position.set(14, 10, -49);
   scene.add(planetGroup);
 
   // ── Per-theme backdrop glow (a distant "sun"/nebula core) — recoloured each
@@ -719,7 +720,7 @@ function startGame(THREE, mount, opts) {
     new THREE.SphereGeometry(14, 24, 24),
     new THREE.MeshBasicMaterial({ color: 0x2a3a8a, transparent: true, opacity: 0.5, blending: THREE.AdditiveBlending, depthWrite: false })
   );
-  themeSun.position.set(-18, 12, -78);
+  themeSun.position.set(-32, 19, -98);
   scene.add(themeSun);
 
   // ── Mission 5: far-field drifting planets (procedural texture) ────────────
@@ -1500,7 +1501,7 @@ function startGame(THREE, mount, opts) {
   const detachRightControl = attachRocketPressControl(el("right-control"), onRight);
   const onKey = event => {
     const steeringControlOwnsFocus = event.target?.matches?.('[data-rr="left-control"],[data-rr="right-control"]');
-    if (isInteractiveKeyTarget(event.target) && !steeringControlOwnsFocus) return;
+    if (isInteractiveKeyTarget(event.target, event.key) && !steeringControlOwnsFocus) return;
     const direction = laneDirectionForKey(event.key);
     if (direction) {
       event.preventDefault();

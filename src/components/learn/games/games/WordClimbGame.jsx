@@ -1,3 +1,4 @@
+import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { gameRandom } from "../../../../utils/gameReplay.js";
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { playCelebrationFanfare, playCorrectChime, playSoftBuzz, playTapSound } from "../../../../utils/audio/gameSfx";
@@ -29,7 +30,7 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
   const world = useMemo(() => version===0&&saved ? saved.world : createClimbJourney(session,stageIndex,version===0 ? Number(startLevel)||0 : 0), [session,startLevel,saved,version,stageIndex]);
   const [frame, setFrame] = useState(0);
   const [finished,setFinished] = useState(false);
-  const [feedback, setFeedback] = useState(saved?.world.feedback || "Climb around branches to reach the word ledges.");
+  const [feedback, setFeedback] = useState(saved?.world.feedback || "Climb ↑, steer around branches, then jump to a word.");
   const feedbackRef=useRef(feedback);
   const [selected, setSelected] = useState(1);
   const callbacks = useRef({});
@@ -50,6 +51,7 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
   useLayoutEffect(() => { callbacks.current = { onScoreUpdate, onProgressUpdate, onCheckpoint, onComplete, onSessionStart, onEngineReady, onRequestNextLevel, onRequestReplay, isSoundEnabled }; }, [onScoreUpdate, onProgressUpdate, onCheckpoint, onComplete, onSessionStart, onEngineReady, onRequestNextLevel, onRequestReplay, isSoundEnabled]);
   const canJump = !world.paused && !world.completed && world.journey.phase==="word" && ["grounded", "landed"].includes(world.state);
   const reachable = reachableClimbPlatforms(world);
+  const nextWords = world.platforms.filter(p => p.row === world.step + 1 && p.kind === "word");
   const projectY = y => 100 - (y - world.camera-viewport.cameraOffset) / viewport.viewHeight * 100;
   const routeProfile=Array.from({length:25},(_,i)=>{const y=world.camera+viewport.cameraOffset+i*viewport.viewHeight/24;return{center:climbRouteCenter(world.journey,y,world.journey.branchStartX),radius:climbRouteRadius(world.journey,y),screen:viewport.viewHeight-i*viewport.viewHeight/24};});
   const announce = useCallback(message => { feedbackRef.current=message;setFeedback(message); },[]);
@@ -112,7 +114,7 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
         } else if (event.type === "fall") {
           announce(event.reason==="branch"?"Climb around the branch. Your last hold is safe.":"The safety vine caught you. Try that move again.");
         } else if(event.type==="station"){
-          announce("Choose a word ledge.");
+          announce("Choose a word ledge. ← → to aim, ↑ to jump.");
         } else if(event.type==="light"){
           safeSfx(audio,playTapSound);announce("Lantern light found!");
         }
@@ -158,10 +160,11 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
     if (request) { request(); return; }
     if(callbacks.current.onSessionStart?.()===false)return;
     cancelSpeech();clearClimbSession(window.localStorage,sessionKey);input.current={left:false,right:false,up:false};
-    setFinished(false);announce("Climb around branches to reach the word ledges.");setSelected(1);if(next)setStageIndex(n=>n+1);setVersion(n=>n+1);
+    setFinished(false);announce("Climb ↑, steer around branches, then jump to a word.");setSelected(1);if(next)setStageIndex(n=>n+1);setVersion(n=>n+1);
   };
   const onKeyDown = event => {
-    if (event.altKey || event.metaKey || event.ctrlKey || world.paused) return;
+    if (event.altKey || event.metaKey || event.ctrlKey || world.paused || finished) return;
+    if (isInteractiveKeyTarget(event.target, event.key) && !event.target.closest?.(".word-climb")) return;
     const key = event.key.toLowerCase();
     if (["arrowleft", "a", "arrowright", "d"].includes(key)) {
       event.preventDefault();
@@ -173,8 +176,18 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
     }
   };
 
+  // Accept movement immediately on opening, including when focus is still on
+  // the surrounding game frame. Native toolbar buttons retain their own keys.
+  const keyboardHandler = useRef(onKeyDown);
+  useLayoutEffect(() => { keyboardHandler.current = onKeyDown; });
+  useEffect(() => {
+    const handle = event => keyboardHandler.current(event);
+    window.addEventListener("keydown", handle);
+    return () => window.removeEventListener("keydown", handle);
+  }, []);
+
   return <section className="word-climb" aria-label={`Word Climb. Choose words that start with ${session.target}.`}
-    tabIndex={0} onKeyDown={onKeyDown} onKeyUp={event => {
+    tabIndex={0} onKeyUp={event => {
       if (["arrowleft", "a"].includes(event.key.toLowerCase())) setDirection("left", false);
       if (["arrowright", "d"].includes(event.key.toLowerCase())) setDirection("right", false);
       if (["arrowup", "w"," ","enter"].includes(event.key.toLowerCase())) setDirection("up", false);
@@ -190,6 +203,9 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
     </header>
     <div ref={worldElement} className="wc-world" data-wc="world" data-view-height={viewport.viewHeight} inert={finished || undefined}>
       <WordClimbScene world={world} />
+      {world.journey.phase === "climb" && <div className="wc-next-words" aria-label="Words on the next ledges">
+        <span>Next ledges ↑</span><div>{nextWords.map(p => <strong key={p.id}>{p.word}</strong>)}</div>
+      </div>}
       <svg className="wc-branches" viewBox={`0 0 1000 ${viewport.viewHeight}`} preserveAspectRatio="none" aria-hidden="true">
         <polygon points={[...routeProfile.map(p=>`${p.center-p.radius},${p.screen}`),...[...routeProfile].reverse().map(p=>`${p.center+p.radius},${p.screen}`)].join(" ")} fill="#785232" />
         {world.journey.obstacles.filter(o=>Math.abs(o.y-world.y)<600).map(o=><rect key={o.id} x={o.x-o.width/2} y={projectY(o.y)*viewport.viewHeight/100-9} width={o.width} height="18" rx="6" fill="#442f20" stroke="#c59863" strokeWidth="2" />)}

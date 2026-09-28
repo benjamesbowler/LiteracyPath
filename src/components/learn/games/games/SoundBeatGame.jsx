@@ -29,7 +29,7 @@ export default function SoundBeatGame({
           type="button"
           aria-label="Hear the current sound again"
           onPointerDown={event => event.stopPropagation()}
-          onKeyDown={event => event.stopPropagation()}
+          onKeyDown={event => { if (event.key === "Enter" || event.key === " ") event.stopPropagation(); }}
           onClick={() => engineRef.current?.replayPrompt?.()}
           style={{
             position: "absolute",

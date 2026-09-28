@@ -15,8 +15,6 @@ import {
   playWhoosh
 } from "../../../../utils/audio/gameSfx.js";
 import {
-  grammarGrindChoiceFeedback,
-  grammarGrindIsCorrect,
   grammarGrindLadder,
   grammarGrindSegmentChoices,
   grammarGrindStars
@@ -322,8 +320,6 @@ function startGame(mount, opts) {
   root.add(skyDome);
   const park = new THREE.Group();
   root.add(park);
-  const gatesRoot = new THREE.Group();
-  scene.add(gatesRoot);
   const pickupsRoot = new THREE.Group();
   scene.add(pickupsRoot);
   const lineRoot = new THREE.Group();
@@ -778,14 +774,12 @@ function startGame(mount, opts) {
   let score = 0;
   let correct = 0;
   let mistakes = 0;
-  let levelMisses = 0;
   let scoreDirty = false;
   let lastScoreSent = 0;
   let lastScoreSentAt = 0;
   let speechToken = 0;
   let combo = 1;
   let comboTimer = 0;
-  let gateCooldown = 0;
   let message = "";
   let messageTimer = 0;
   let coachText = level.teaching || level.cue;
@@ -795,7 +789,6 @@ function startGame(mount, opts) {
   let styleScore = 0;
   let lineStep = 0;
   let lineReady = false;
-  let lineReadyDelay = 0;
   let lineChoiceCooldown = 0;
   let trailTimer = 0;
   let phase = "playing";
@@ -829,7 +822,6 @@ function startGame(mount, opts) {
   };
   let assistRoute = [];
   const assistTravelLog=[];
-  const gates = [];
   const pickups = [];
   const lineNodes = [];
   const particles = [];
@@ -845,15 +837,6 @@ function startGame(mount, opts) {
     updateStyle: false,
     onResize: reassessQualityTier
   });
-
-  function clearGates() {
-    while (gates.length) {
-      const gate = gates.pop();
-      gate.button?.remove();
-      gatesRoot.remove(gate.group);
-      disposeObject(gate.group);
-    }
-  }
 
   function clearPickups() {
     while (pickups.length) {
@@ -873,25 +856,25 @@ function startGame(mount, opts) {
   }
 
   function safeLearningPosition(index, seedOffset = 0) {
-    return chooseSkateDestination(player.pos,player.yaw,index,seedOffset,[...lineNodes,...gates].map(item=>item.group.position),rampZones,platformZones,parkObstacles);
+    return chooseSkateDestination(player.pos,player.yaw,index,seedOffset,lineNodes.map(item=>item.group.position),rampZones,platformZones,parkObstacles);
   }
 
   function choiceButton(label, position, kind) {
     const button=document.createElement("button");
     button.type="button";button.className="gg-world-choice";button.textContent=label;
     button.dataset.skateChoice=kind;button.dataset.value=label;
-    button.setAttribute("aria-label",`${kind === "gate" ? "Skate through" : "Skate to"} ${label}`);
+    button.setAttribute("aria-label",`Skate to ${label}`);
     button.style.width=`${Math.max(64,Math.min(150,label.length*17+24))}px`;
     button.addEventListener("click",()=>{
       if(paused||completed)return;
       mount.dataset.skateDestination=label;
       // Destination steering must not collect a different answer on the way.
       // These are navigation exclusions only: manual skating still contacts all choices.
-      const others=(kind === "gate" ? gates : lineNodes)
+      const others=lineNodes
         .filter(item=>item.button!==button && Math.hypot(player.pos.x-item.group.position.x,player.pos.z-item.group.position.z)>item.radius+2)
         .map(item=>({x:item.group.position.x,z:item.group.position.z,radius:Math.max(.5,item.radius-2)}));
       assistRoute=planSkateRoute(player.pos,position,rampZones,platformZones,[...parkObstacles,...others]);
-      assistTravelLog.push({start:{x:player.pos.x,z:player.pos.z,yaw:player.yaw,speed:Math.max(0,player.speed)},target:{...position},route:assistRoute.map(point=>({...point})),radius:kind==="gate"?(difficulty==="easy"?4.2:4.8):4.2,maxSpeed:MAX_SPEED[difficulty]});
+      assistTravelLog.push({start:{x:player.pos.x,z:player.pos.z,yaw:player.yaw,speed:Math.max(0,player.speed)},target:{...position},route:assistRoute.map(point=>({...point})),radius:4.2,maxSpeed:MAX_SPEED[difficulty]});
       mount.dataset.skateTravelLog=JSON.stringify(assistTravelLog);
     });
     button.addEventListener("keydown",event=>{const key={ArrowLeft:"left",ArrowRight:"right",ArrowUp:"push",ArrowDown:"brake"}[event.key];if(key){event.preventDefault();setKey(key,true);}});
@@ -899,10 +882,10 @@ function startGame(mount, opts) {
   }
 
   function updateWorldChoices() {
-    const choices=lineReady?gates:lineNodes,width=mount.clientWidth,height=mount.clientHeight;
+    const choices=lineReady?[]:lineNodes,width=mount.clientWidth,height=mount.clientHeight;
     const choiceRowY=Math.min(height<500?110:145,height-125);
     const cameraForward=new THREE.Vector3();camera.getWorldDirection(cameraForward);
-    for(const item of [...lineNodes,...gates]) {
+    for(const item of lineNodes) {
       const visible=choices.includes(item)&&!completed;
       item.button.hidden=!visible;item.button.disabled=paused||!visible;
       if(!visible)continue;
@@ -962,7 +945,7 @@ function startGame(mount, opts) {
         index,
         safeLearningPosition(index, lineStep + levelIndex + (opts.journey?.route || 0)),
         lineStep === level.segments.length - 1
-          ? `${expected} completes ${level.audioWord}. Now choose the built word.`
+          ? `${expected} completes ${level.audioWord}. Word built!`
           : `Good. Now find ${level.segments[lineStep + 1]}.`,
         expected
       );
@@ -972,7 +955,6 @@ function startGame(mount, opts) {
   function placeLineNodes() {
     lineStep = 0;
     lineReady = false;
-    lineReadyDelay = 0;
     lineChoiceCooldown = 0;
     rebuildLineChoices();
   }
@@ -1020,69 +1002,6 @@ function startGame(mount, opts) {
     for (let i = 0; i < count; i += 1) createPickup(i);
   }
 
-  function createGate(choice, index, position, correctChoice) {
-    const group = new THREE.Group();
-    group.position.set(position.x, 0, position.z);
-    group.rotation.y = Math.atan2(-position.x, -position.z);
-    const isCorrect = choice === correctChoice;
-    const gateColor = theme.gate || theme.accent2;
-    const gateMat = makeMat(gateColor, { emissive: gateColor, emissiveIntensity: 0.38 });
-    const frameMat = makeMat("#101a32", { roughness: 0.42, metalness: 0.18, emissive: gateColor, emissiveIntensity: 0.08 });
-    const easyGate = difficulty === "easy";
-    const gateSpan = easyGate ? 8.6 : 10.4;
-    const gateHalf = gateSpan / 2;
-
-    const postGeo = new THREE.BoxGeometry(0.68, 9.5, 0.68);
-    const topGeo = new THREE.BoxGeometry(gateSpan, 0.68, 0.68);
-    for (const x of [-gateHalf, gateHalf]) {
-      const post = new THREE.Mesh(postGeo, frameMat);
-      post.position.set(x, 4.75, 0);
-      post.castShadow = true;
-      group.add(post);
-    }
-    const top = new THREE.Mesh(topGeo, frameMat);
-    top.position.set(0, 9.52, 0);
-    top.castShadow = true;
-    group.add(top);
-    const glow = new THREE.Mesh(new THREE.BoxGeometry(easyGate ? 6.2 : 7.5, 0.18, 0.34), gateMat);
-    glow.position.set(0, 0.7, 0);
-    group.add(glow);
-    const beam = new THREE.Mesh(
-      new THREE.ConeGeometry(easyGate ? 3.1 : 3.7, 11, 5, 1, true),
-      new THREE.MeshBasicMaterial({ color: gateColor, transparent: true, opacity: 0.16, depthWrite: false, side: THREE.DoubleSide })
-    );
-    beam.position.set(0, 5.7, -0.28);
-    beam.rotation.x = Math.PI;
-    group.add(beam);
-
-    const ringRadius = easyGate ? 3.9 : 4.6;
-    const ring = new THREE.Mesh(new THREE.TorusGeometry(ringRadius, 0.08, 8, 36), gateMat);
-    ring.position.set(0, 4.5, -0.03);
-    ring.rotation.x = Math.PI / 2;
-    group.add(ring);
-
-    const marker = new THREE.Mesh(new THREE.OctahedronGeometry(0.55, 0), gateMat);
-    marker.position.set(0, 10.55, 0);
-    group.add(marker);
-
-    group.userData = { choice, index, correct: isCorrect, cooldown: 0, marker, beam };
-    gatesRoot.add(group);
-    gates.push({ button:choiceButton(choice,position,"gate"), group, choice, correct: isCorrect, pos: group.position, radius: easyGate ? 4.2 : 4.8, cooldown: 0 });
-  }
-
-  function placeGates() {
-    clearGates();
-    const rand = seeded(levelIndex * 401 + (difficulty === "hard" ? 900 : difficulty === "medium" ? 500 : 100));
-    const options = [...level.options];
-    for (let i = 0; i < options.length; i += 1) {
-      const swap = i + Math.floor(rand() * (options.length - i));
-      [options[i], options[swap]] = [options[swap], options[i]];
-    }
-    options.forEach((choice, index) => {
-      createGate(choice, index, safeLearningPosition(index, levelIndex + (opts.journey?.route || 0)), level.correct);
-    });
-  }
-
   function setHudText(node,value) { if(node.textContent !== String(value)) node.textContent=String(value); }
   function updateHud() {
     const canHearLevel = getSound() && levelSpeechParts().some(part => hasRecordedSpeech(part));
@@ -1094,9 +1013,9 @@ function startGame(mount, opts) {
     const nextSegment = difficulty === "easy" ? level.segments?.[lineStep] : null;
     setHudText(el.prompt, completed ? "Park complete" : difficulty === "easy"
       ? lineReady
-        ? `Choose ${level.audioWord}`
+        ? `${level.audioWord} complete!`
         : nextSegment ? `Collect ${nextSegment} next` : "Word built"
-      : lineReady ? `Skate through ${level.audioWord}` : `Build ${level.audioWord}`);
+      : lineReady ? `${level.audioWord} complete!` : `Build ${level.audioWord}`);
     setHudText(el.sentence, level.segments.map((segment, index) => (index < lineStep ? segment : "_")).join("  "));
     setHudText(el.cue, level.focus || level.cue);
     overlay.dataset.correction = String(correctionTimer > 0);
@@ -1105,7 +1024,7 @@ function startGame(mount, opts) {
     el.hear.setAttribute("aria-label", level.audioWord ? `Hear ${level.audioWord} again` : "Hear the word again");
     setHudText(el.world, theme.name);
     setHudText(el.speed, `${Math.round(Math.abs(player.speed) * 3.2)} kmh`);
-    setHudText(el.trick, player.grind > 0 ? "Grinding rail" : !player.onGround ? (player.airTricks > 1 ? "Double spin" : player.airTricks ? "Air spin" : "Ollie") : message || (lineReady ? "Choose the built word" : "Find the next spelling part"));
+    setHudText(el.trick, player.grind > 0 ? "Grinding rail" : !player.onGround ? (player.airTricks > 1 ? "Double spin" : player.airTricks ? "Air spin" : "Ollie") : message || (lineReady ? "Word complete!" : "Find the next spelling part"));
     setHudText(el.style, lineReady
       ? `${level.audioWord} is ready`
       : lineStep < level.segments.length
@@ -1149,8 +1068,6 @@ function startGame(mount, opts) {
   function loadLevel(index, introMessage = "Collect the spelling parts", introCoach = null) {
     levelIndex = clamp(index, 0, ladder.length - 1);
     level = ladder[levelIndex];
-    levelMisses = 0;
-    placeGates();
     placePickups();
     placeLineNodes();
     if (difficulty === "easy" && index === startAt) {
@@ -1167,11 +1084,10 @@ function startGame(mount, opts) {
     correctionTimer = 0;
     coachText = introCoach || level.teaching || level.cue;
     messageTimer = 1.25;
-    gateCooldown = 0.6;
     opts.onProgressUpdate?.(levelIndex, ladder.length);
     opts.onCheckpoint?.(levelIndex, ladder.length);
     updateHud();
-    // Level labels, gates and pickups are replaced here, so refresh the
+    // Level labels and pickups are replaced here, so refresh the
     // premium material/bloom selection after the new live objects exist.
     premiumRender.prepareObject(scene);
     speakLevelAloud();
@@ -1258,45 +1174,27 @@ function startGame(mount, opts) {
     opts.onComplete?.(stars, score, ladder.length);
   }
 
-  function handleGate(gate) {
-    if (phase !== "playing" || !lineReady || gateCooldown > 0 || gate.cooldown > 0) return;
-    gate.cooldown = 1.4;
-    if (grammarGrindIsCorrect(gate.choice, level)) {
-      if (assistRoute.length) player.speed = 0;
-      assistRoute = [];
-      correct += 1;
-      rampAccents.forEach((material, i) => { if (i <= correct % Math.max(1, rampAccents.length)) { material.emissive.set(theme.accent); material.emissiveIntensity = .3 + correct * .025; } });
-      combo = clamp(combo + 1, 1, 9);
-      comboTimer = 6;
-      const styleBonus = styleWindow > 0 ? Math.round((70 + styleScore) * combo) : 0;
-      const lineBonus = lineReady ? 260 * combo : 0;
-      addScore(180 * combo + Math.round(Math.abs(player.speed) * 8) + styleBonus + lineBonus);
-      boostFlash = 0.32;
-      spawnBurst(gate.pos, theme.correct, 22);
-      sfx(playCorrectChime);
-      if (lineBonus > 0) sfx(playStarChime);
-      message = lineBonus > 0 ? `Word built +${lineBonus}` : styleBonus > 0 ? `Style word +${styleBonus}` : `Correct: ${gate.choice}`;
-      coachText = level.success || level.teaching || level.cue;
-      messageTimer = 1.25;
-      lineReady = false;
-      styleWindow = 0;
-      styleScore = 0;
-      if (levelIndex >= ladder.length - 1) finishGame();
-      else loadLevel(levelIndex + 1, message, ladder[levelIndex + 1]?.teaching);
-    } else {
-      if(assistRoute.length) player.speed=0;
-      assistRoute=[];
-      mistakes += 1;
-      levelMisses += 1;
-      combo = 1;
-      spawnBurst(gate.pos, theme.wrong, 12);
-      sfx(playSoftBuzz);
-      message = "Try that word again";
-      coachText = grammarGrindChoiceFeedback(gate.choice, level, { reveal: levelMisses >= 2 });
-      correctionTimer = 4;
-      messageTimer = 1.6;
-      gateCooldown = 0.8;
-    }
+  function completeSpelledWord() {
+    if (phase !== "playing" || lineStep !== level.segments.length) return;
+    phase = "word-complete";
+    phaseTimer = 0.85;
+    assistRoute = [];
+    correct += 1;
+    rampAccents.forEach((material, i) => { if (i <= correct % Math.max(1, rampAccents.length)) { material.emissive.set(theme.accent); material.emissiveIntensity = .3 + correct * .025; } });
+    combo = clamp(combo + 1, 1, 9);
+    comboTimer = 6;
+    const styleBonus = styleWindow > 0 ? Math.round((70 + styleScore) * combo) : 0;
+    const lineBonus = 260 * combo;
+    addScore(180 * combo + Math.round(Math.abs(player.speed) * 8) + styleBonus + lineBonus);
+    boostFlash = 0.32;
+    spawnBurst(player.pos, theme.correct, 22);
+    sfx(playCorrectChime);
+    sfx(playStarChime);
+    message = `${level.audioWord} complete!`;
+    coachText = `${level.segments.join(" + ")} spells ${level.audioWord}.`;
+    messageTimer = 1.25;
+    styleWindow = 0;
+    styleScore = 0;
   }
 
   function nearestRail() {
@@ -1486,31 +1384,6 @@ function startGame(mount, opts) {
     }
   }
 
-  function updateGates(dt) {
-    gateCooldown = Math.max(0, gateCooldown - dt);
-    gates.forEach(gate => {
-      gate.group.visible = lineReady;
-      if (!lineReady) return;
-      gate.cooldown = Math.max(0, gate.cooldown - dt);
-      gate.group.rotation.z = Math.sin(performance.now() * 0.0018 + gate.group.userData.index) * 0.035;
-      if (gate.group.userData.marker) {
-        gate.group.userData.marker.rotation.y += dt * 3.2;
-        gate.group.userData.marker.position.y = 9.45 + Math.sin(performance.now() * 0.003 + gate.group.userData.index) * 0.35;
-      }
-      if (gate.group.userData.beam) {
-        gate.group.userData.beam.scale.setScalar(1 + Math.sin(performance.now() * 0.004 + gate.group.userData.index) * 0.06);
-      }
-      gate.group.children.forEach(child => {
-        if (child.userData.billboard) child.lookAt(camera.position);
-      });
-      const dx = gate.pos.x - player.pos.x;
-      const dz = gate.pos.z - player.pos.z;
-      const inside = Math.hypot(dx,dz)<gate.radius && player.air<4.8;
-      if(!inside) gate.contactLock=false;
-      if(inside && !gate.contactLock){gate.contactLock=true;handleGate(gate);}
-    });
-  }
-
   function updatePickups(dt, time) {
     pickups.forEach(pickup => {
       if (pickup.collected) {
@@ -1577,13 +1450,8 @@ function startGame(mount, opts) {
         sfx(playPopSound);
         if (lineStep >= level.segments.length) {
           lineReady = true;
-          placeGates();
-          lineReadyDelay = 0.8;
           clearLineNodes();
-          coachText = `${level.segments.join(" + ")} spells ${level.audioWord}. Find and skate through ${level.audioWord}.`;
-          message = "Word ready";
-          messageTimer = 1;
-          sfx(playStarChime);
+          completeSpelledWord();
         } else {
           rebuildLineChoices();
           message = `Now find ${level.segments[lineStep]}`;
@@ -1673,13 +1541,19 @@ function startGame(mount, opts) {
         messageTimer = 1.2;
       }
     }
-    lineReadyDelay = Math.max(0, lineReadyDelay - dt);
+    if (phase === "word-complete") {
+      phaseTimer -= dt;
+      if (phaseTimer <= 0) {
+        if (levelIndex >= ladder.length - 1) { finishGame(); return; }
+        phase = "playing";
+        loadLevel(levelIndex + 1, message);
+      }
+    }
     messageTimer = Math.max(0, messageTimer - dt);
     correctionTimer = Math.max(0, correctionTimer - dt);
     comboTimer = Math.max(0, comboTimer - dt);
     if (comboTimer <= 0 && combo > 1 && player.grind <= 0) combo = 1;
     updatePlayer(dt);
-    updateGates(dt);
     updatePickups(dt, time);
     updateLineNodes(dt, time);
     updateTrails(dt, time);
@@ -1750,12 +1624,17 @@ function startGame(mount, opts) {
   function setKey(key, value) {
     if (value && (paused || completed)) return;
     if(value) assistRoute = [];
+    if (value && !keys[key]) {
+      if (key === "left" || key === "right") player.yaw += key === "left" ? 0.12 : -0.12;
+      if (key === "push") player.speed = Math.max(player.speed, 1.8);
+      if (key === "brake") player.speed = Math.min(player.speed, -1.2);
+    }
     if (key === "jump" && value && !keys.jump) keys.jumpPressed = true;
     keys[key] = value;
   }
 
   function onKeyDown(event) {
-    if (isInteractiveKeyTarget(event.target)) return;
+    if (isInteractiveKeyTarget(event.target, event.key)) return;
     if (["ArrowLeft", "a", "A"].includes(event.key)) setKey("left", true);
     else if (["ArrowRight", "d", "D"].includes(event.key)) setKey("right", true);
     else if (["ArrowUp", "w", "W"].includes(event.key)) setKey("push", true);
@@ -1783,9 +1662,6 @@ function startGame(mount, opts) {
       if (event.repeat || paused || completed) return;
       if (event.pointerId !== undefined) button.setPointerCapture?.(event.pointerId);
       button.style.transform = "translateY(2px) scale(.98)";
-      if (key === "left" || key === "right") player.yaw += key === "left" ? 0.12 : -0.12;
-      if (key === "push") player.speed = Math.max(player.speed, 1.8);
-      if (key === "brake") player.speed = Math.min(player.speed, -1.2);
       setKey(key, true);
     };
     const up = event => {
@@ -1844,7 +1720,6 @@ function startGame(mount, opts) {
 
       motionQuery?.removeEventListener?.("change", syncMotionPreference);
       detachResize();
-      clearGates();
       clearPickups();
       clearLineNodes();
       disposeObject(root);

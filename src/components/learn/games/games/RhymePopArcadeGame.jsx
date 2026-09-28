@@ -41,7 +41,7 @@ const CONFIG = {
       "Tap or press Space to shoot.",
       "Tap the Rhymes-with sign to hear it again."
     ],
-    bg: "/images/learn-games/ps1-arcade/rhyme-pop-bg.webp",
+    bg: "/images/learn-games/arcade-scenes/rhyme-festival.webp",
     bgByWorld: {
       dino: "/images/learn-games/ps1-arcade/rhyme-pop-dino-stage-v2.webp"
     },
@@ -410,7 +410,7 @@ function drawRhymeOrb(ctx, bubble, task, state, now, w, h) {
   g.addColorStop(0, "#ffffff");
   g.addColorStop(0.16, bright);
   g.addColorStop(0.74, dark);
-  g.addColorStop(1, "rgba(3,7,18,.95)");
+  g.addColorStop(1, dark);
   ctx.fillStyle = g;
   ctx.beginPath();
   ctx.arc(center.x, center.y, r, 0, TWO_PI);
@@ -434,7 +434,7 @@ function drawRhymeOrb(ctx, bubble, task, state, now, w, h) {
 
   ctx.globalCompositeOperation = "screen";
   ctx.strokeStyle = `${bright}8a`;
-  ctx.lineWidth = 9 + (state.beatPulse || 0) * 4;
+  ctx.lineWidth = 3;
   ctx.beginPath();
   ctx.arc(center.x, center.y, r + 4, 0, TWO_PI);
   ctx.stroke();
@@ -457,7 +457,7 @@ function drawRhymeOrb(ctx, bubble, task, state, now, w, h) {
   ctx.ellipse(center.x - r * 0.24, center.y - r * 0.3, r * 0.17, r * 0.1, -0.5, 0, TWO_PI);
   ctx.fill();
   const label = bubble.word || bubble.rime;
-  const labelSize = label.length > 5 ? Math.max(17, r * 0.32) : Math.max(23, r * 0.44);
+  const labelSize = label.length > 5 ? Math.max(21, r * 0.37) : Math.max(26, r * 0.49);
   const labelW = clamp(label.length * labelSize * 0.48 + 22, r * 1.05, r * 1.82);
   const labelH = labelSize * 1.25;
   ctx.fillStyle = "rgba(2,6,18,.38)";
@@ -611,9 +611,9 @@ function drawRhymeLauncher(ctx, state, config, w, h) {
   // Loaded ammo: a plain orb, no word inside (a word here read as "the answer").
   drawBubble(ctx, launch.x, launch.y, 42 + pulse * 5, "", config.accent2, "rgba(255,255,255,.9)");
 
-  panel(ctx, w * 0.34, h * 0.65, w * 0.32, 72, "rgba(4,9,20,.68)", `${config.accent}88`);
+  panel(ctx, w * 0.34, h * 0.65, w * 0.32, 72, "rgba(22,48,57,.95)", "#fff0cb");
   text(ctx, "Rhymes with", w / 2, h * 0.678, 19, "#fff", "center", 900);
-  text(ctx, titleWord(task.targetWord), w / 2, h * 0.72, 32, config.accent, "center", 900);
+  text(ctx, titleWord(task.targetWord), w / 2, h * 0.72, 38, "#fff2c5", "center", 900);
   ctx.restore();
 }
 
@@ -621,10 +621,10 @@ function drawRhymePop(ctx, state, config, w, h, blenderWorld, reduceMotion) {
   const task = state.currentTask;
   if (!task) return;
   drawRhymeBackdropFx(ctx, state, config, w, h);
-  drawRhymeStageFloor(ctx, state, w, h);
-  blenderWorld?.drawLandscape(ctx,{width:w,height:h,ground:h*.76,time:state.time,world:state.level?.world,reducedMotion:reduceMotion,paused:state.paused});
-  const pavilionSize = Math.min(310, h * .58);
-  blenderWorld?.draw(ctx, -pavilionSize * .12, h * .76 - pavilionSize, pavilionSize, pavilionSize, state.time, { reducedMotion: reduceMotion, paused: state.paused, opacity: .9 });
+  if (!state.backgroundReady) drawRhymeStageFloor(ctx, state, w, h);
+  if (!state.backgroundReady) blenderWorld?.drawLandscape(ctx,{width:w,height:h,ground:h*.76,time:state.time,world:state.level?.world,reducedMotion:reduceMotion,paused:state.paused});
+  const pavilionSize = Math.min(185, h * .27);
+  blenderWorld?.draw(ctx, w * .035, h * .93 - pavilionSize, pavilionSize, pavilionSize, state.time, { reducedMotion: reduceMotion, paused: state.paused, opacity: .9 });
   drawRhymeRigging(ctx, state, config, w, h);
 
   // No big instruction banner in the play area (distracting). The target word
@@ -1109,7 +1109,7 @@ function startRhymePopArcadeGame(mount, options) {
   }
 
   function onKeyDown(event) {
-    if (isInteractiveKeyTarget(event.target)) return;
+    if (isInteractiveKeyTarget(event.target, event.key)) return;
 
     if (options.kind !== "rhyme-pop" || state.paused || state.ended || state.countdown > 0) return;
     const direction = laneDirectionForKey(event.key);
@@ -1221,7 +1221,8 @@ function startRhymePopArcadeGame(mount, options) {
   function draw() {
     ctx.save();
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    if (!drawCover(ctx, image, w, h)) drawFallback(ctx, w, h, config, state.time);
+    state.backgroundReady = drawCover(ctx, image, w, h);
+    if (!state.backgroundReady) drawFallback(ctx, w, h, config, state.time);
     const vignette = ctx.createRadialGradient(w * .5, h * .45, h * .25, w * .5, h * .5, h * .9);
     vignette.addColorStop(0, "rgba(2,6,18,0)");
     vignette.addColorStop(1, "rgba(2,6,18,.3)");
@@ -1289,6 +1290,7 @@ function startRhymePopArcadeGame(mount, options) {
           entering: !!bubble.entering,
           route: bubble.route ?? (state.level.act || 0)
         })),
+        keyboardBubbleId: state.keyboardBubbleId,
         shots: state.shots?.length || 0,
         judgement: state.judgement,
         coachText: state.coachText,

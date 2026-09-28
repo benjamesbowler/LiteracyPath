@@ -12,6 +12,12 @@ This document separates **research-backed requirements** from **LiteracyPath pro
 
 The product owner restored the continuous Arcade engines on 2026-09-10. Preserve each game's movement, aiming, catching, steering and real-time play. Fix learning validity and accessibility inside that gameplay; do not replace it with staged select/confirm rounds or a shared practice shell without an explicit request to change the game.
 
+## Automatic completion and input continuity
+
+Completing the literacy task completes its game task. After a short readable feedback beat, advance automatically: no bell, whistle, GO tap, duplicate built-word gate, or finish-flag walk may be required after the answer is settled. Replay, next outing and exit remain explicit choices at natural stopping points. Preserve the existing save/recovery transaction before changing outings.
+
+Arrow and WASD movement continues after clicking in-game controls. Enter/Space retain the focused button action; typing fields, inactive surfaces and modal dialogs keep their native keys. Opening a game and dismissing help/pause return focus to the playfield.
+
 ## Arcade saved journeys
 
 The 22 September 2026 Arcade upgrade extends all thirteen Arcade games into twelve saved outings per selected difficulty. The runtime authority is `src/utils/arcadeJourneys.js`; individual mechanics, routes and evidence boundaries are recorded in `src/components/learn/games/shared/arcadeVerticalSliceBriefs.js`.
@@ -287,13 +293,13 @@ unknown until each changed build is exercised on a real supported iPad.
 - **Age/reading band and construct:** early readers encode spoken words by collecting their graphemes in order; later levels extend to words within sentences. Platform movement is the non-target demand.
 - **Controls:** Left/Right or A/D moves; Up/W/Space jumps; held touch controls use pointer cancellation and lost-capture release.
 - **Level ladder and prompt/audio:** ten difficulty-led stages move from short taught words to longer words and sentence legs. A reviewed picture or recorded cue identifies the word; when neither is available, a labelled model-supported target replaces ambiguous context. Persistent slots show completed spelling and the next empty position.
-- **Generator and ambiguity:** `curriculumLadder.js` supplies the ordered targets; only the next required grapheme advances the word. `curriculumLadder.test.js` exercises ladder depth and determinism.
+- **Generator and ambiguity:** `curriculumLadder.js` supplies the ordered targets; only the next required grapheme advances the word. Both choices in an answered pair retire immediately; fresh reachable choices appear for the next grapheme. Compact varied rooms include head-bump brick and reward boxes, and the final completed spelling automatically finishes the stage. `curriculumLadder.test.js` exercises ladder depth and determinism.
 - **Feedback and reward:** a wrong collision leaves the next slot visible; difficult stages re-enter the catch-up queue without removing completed-word evidence. Literacy stars reflect ordered spelling rather than falls or survival time.
 
 #### Word Climb 2.0
 
 - **Age/reading band and construct:** early readers identify which printed word begins with the shown and spoken target phoneme. Jumping and steering through the climbing world are non-target motor demands; reading evidence is recorded only at a matching-word landing.
-- **Controls:** word leaves support tap/click, Tab/Shift+Tab and Enter/Space; selecting a leaf launches the same gravity-based jump as keyboard controls. Left/Right and held touch lean controls adjust the airborne character. Solid leaves preserve earned height, and the camera follows the ascent.
+- **Controls:** word leaves support tap/click, Tab/Shift+Tab and Enter/Space; selecting a leaf launches the same gravity-based jump as keyboard controls. Left/Right and held touch lean controls adjust the airborne character. Solid leaves preserve earned height, and the camera follows the ascent. Short varied approaches show the upcoming equivalent word choices; travel no longer imposes a long wait between literacy decisions.
 - **Level ladder and prompt/audio:** authored onset and vocabulary sets change with difficulty while the target, exact instruction, three choices and current climb count remain visible. A 56-pixel replay control uses the current local production-audio library when available.
 - **Generator and ambiguity:** `wordClimbLevels.js` supplies fresh equal-position word sets with one valid onset match; `wordClimbLevels.test.js` and `word-climb-premium.spec.js` exercise the choice, feedback, pause, checkpoint and completion contracts.
 - **Feedback and reward:** a correct word names the matching onset and advances the climb; a wrong word names its actual onset while every choice and the target remain available for immediate retry. Motor falls use the safety vine to recover to the last earned shelf without adding a reading error; pause and saved checkpoints preserve the physical ascent.
@@ -301,23 +307,23 @@ unknown until each changed build is exercised on a real supported iPad.
 #### Sound Racer 2.0
 
 - **Age/reading band and construct:** early readers discriminate whether a word begins with the target grapheme/phoneme. Kart steering and track hazards are non-target demands.
-- **Controls:** Left/Right or A/D and held touch steering turn the kart heading on a closed circuit. Short taps nudge steering; release stops steering input. The road, collision boundary, progress checkpoints and chase camera use the same world geometry.
-- **Level ladder and prompt/audio:** ten tracks change the onset demand and world before raising track pressure. The tutorial names the target, shows an example and keeps a 56-pixel replay action.
+- **Controls:** Left/Right or A/D and held touch steering turn the kart heading on a closed circuit. Short taps nudge steering; release stops steering input. The road, collision boundary, progress checkpoints and chase camera use the same world geometry. Soft road alignment follows bends while preserving lateral steering; guardrails protect against repeated off-road resets. Bounded simulation steps preserve pacing through occasional slow frames.
+- **Level ladder and prompt/audio:** ten tracks change the onset demand and world before raising track pressure. The live opening keeps the target visible beside a 56-pixel replay action; the optional mission guide explains the controls.
 - **Generator and ambiguity:** `soundRacerTracks.js` rebuilds each gate set with exact-sound correct pools and sound-distinct distractors; the shared phonetic-onset classifier covers soft c, silent letters and other live alternate spellings. `soundRacerTracks.test.js` covers multiple seeds, track bands and tutorial rules.
-- **Feedback and reward:** wrong gates name the mismatch and missed correct gates return. Obstacles affect the ship and race score only; sound accuracy and stars follow caught word choices, not vehicle speed or collisions.
+- **Feedback and reward:** wrong gates name the mismatch and missed correct gates return. Obstacles affect the kart and race score only; sound accuracy and stars follow caught word choices, not vehicle speed or collisions.
 
 #### Word Bridge 2.0
 
 - **Age/reading band and construct:** early readers practise supported grapheme matching and ordered sentence reconstruction from a visible model. This is not recorded as independent encoding; horizontal movement, carrying and placement are non-target demands.
-- **Controls:** Left/Right or A/D moves; Space/Enter/E/Up picks, drops or rings; touch controls and the replay control meet the 56-pixel floor.
+- **Controls:** Left/Right or A/D moves; Space/Enter/E/Up picks or drops; touch controls and the replay control meet the 56-pixel floor.
 - **Level ladder and prompt/audio:** ten levels progress from word building to longer ordered constructions. Persistent bridge slots show completed parts and the next empty position.
 - **Generator and ambiguity:** `wordBridgeLevels.js` supplies a complete fresh tile bank per target; `wordBridgeLevels.test.js` verifies the ordered solution and distractors.
 - **Feedback and reward:** a misplaced tile is returned without removing the clue. Bridge progress, score and stars reflect correctly placed language parts.
 
 #### Sound Beat 2.0
 
-- Sound Beat is a rhythm performance: tap the arriving authored sound notes, then GO to blend. Space, Enter, Up and a full-stage touch tap share the action.
-- Missed words return with slower timing and wider hit windows. The final GO waits for the learner. Pause shifts the note schedule so hidden time cannot create misses.
+- Sound Beat is a rhythm performance: tap the arriving authored sound notes; completing the sound sequence blends automatically. Space, Enter, Up and a full-stage touch tap share the action.
+- Missed words return with slower timing and wider hit windows. No extra blend confirmation is required after the sound sequence. Pause shifts the note schedule so hidden time cannot create misses.
 - Rhythm scores and completed performances describe supported practice, not independent literacy mastery. Preserve the rhythm mechanic rather than substituting untimed multiple-choice pads.
 - The visible word, recorded cues, replay, music preference and ten-track curriculum remain part of the game. Browser coverage is `arcade-gameplay-restoration.spec.js` and `sound-beat-replay.spec.js`.
 
@@ -356,7 +362,7 @@ unknown until each changed build is exercised on a real supported iPad.
 #### Sentence Express 2.0
 
 - **Age/reading band and construct:** developing readers reconstruct sentence order, capitals, missing words and punctuation. Train coupling is the non-target demand.
-- **Controls:** Tab/Shift+Tab moves focus; Enter/Space or tap chooses cars and repairs. All primary repair, replay, whistle and continuation controls meet the 56-pixel floor and show keyboard focus.
+- **Controls:** Tab/Shift+Tab moves focus; Enter/Space or tap chooses cars and repairs. All primary repair, replay and continuation controls meet the 56-pixel floor and show keyboard focus.
 - **Level ladder and prompt/audio:** ten stations per difficulty add engine capitals, rusty-word repairs, missing crates and caboose punctuation while preserving the full sentence goal.
 - **Generator and ambiguity:** `sentenceExpressLevels.js` creates authored, uniquely solvable trains; `sentenceExpressLevels.test.js` checks level and fault integrity.
 - **Feedback and reward:** a wrong part names the fault without clearing the train. Express departures, score and stars reflect completed sentence work.

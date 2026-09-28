@@ -21,6 +21,7 @@ const recordWordEvidence = readFunction("recordWordEvidence");
 const buildLetterLeapChoicePlan = readFunction("buildLetterLeapChoicePlan");
 const isLetterLeapCurrentChoice = readFunction("isLetterLeapCurrentChoice");
 const collectLetterLeapChoice = readFunction("collectLetterLeapChoice");
+const letterLeapTouchStop = readFunction("letterLeapTouchStop");
 const bounceLetterLeapSpring = readFunction("bounceLetterLeapSpring");
 const buildLetterLeapTrail = readFunction("buildLetterLeapTrail");
 const rebaseLetterLeapWorld = readFunction("rebaseLetterLeapWorld");
@@ -44,16 +45,17 @@ function seededRandom(seed) {
   };
 }
 
-test("collecting one letter preserves its paired and following world objects", () => {
+test("collecting a letter retires its whole answered bank while preserving the next letter", () => {
   const choices = [
     { choiceId: '0:0', x: 300, taken: false },
     { choiceId: '0:0', x: 470, taken: false },
     { choiceId: '0:1', x: 740, taken: false },
   ];
-  const neighbours = structuredClone(choices.slice(1));
-  collectLetterLeapChoice(choices[0]);
+  const next = structuredClone(choices[2]);
+  collectLetterLeapChoice(choices[0], choices);
   assert.equal(choices[0].taken, true);
-  assert.deepEqual(choices.slice(1), neighbours);
+  assert.equal(choices[1].taken, true, "an old distractor cannot masquerade as an uncollectable next letter");
+  assert.deepEqual(choices[2], next);
   assert.doesNotMatch(implementation, /clearChoiceGroup/);
 });
 
@@ -289,7 +291,7 @@ test('Letter Leap terrain supports every pickup in all thirty curriculum levels 
   const { difficultyLadder, worldForGameDifficulty } = await import('../../src/utils/curriculumLadder.js');
   const pickFoeType = readFunction('pickFoeType');
   const makeLevel = Function('buildLetterLeapChoicePlan', 'letterLeapInitialChoiceCenter', 'pickFoeType', 'buildLetterLeapTrail', `
-    const W = 568, SEG = 440, WORD_GAP = 560;
+    const W = 568, SEG = 360, WORD_GAP = 260;
     const groundY = () => 240;
     const shuffleArr = a => a;
     ${nestedFunction('makeLevel')}
@@ -327,8 +329,24 @@ test('Letter Leap terrain supports every pickup in all thirty curriculum levels 
       assert.ok(!level.bubbles.some(b => Math.abs(bonus.x - b.x) < 45 && Math.abs(bonus.y - b.y) < 45), "bonus art never obscures a letter");
     }
     assert.ok(level.flag > Math.max(...targets.map(b => b.x)));
-    assert.ok((level.flag - 70) / (4.8 * 60) >= 120, 'even maximum-speed traversal provides over two minutes of terrain');
-    for (const spring of level.springs) assert.ok(!level.pits.some(([a, b]) => spring.x > a - 24 && spring.x < b + 24), 'springs sit on solid ground');
+    assert.ok(level.blocks.some(b => b.type === 'prize'), 'every course has usable reward boxes');
+    assert.ok(level.blocks.some(b => b.type === 'brick'), 'every course has breakable boxes');
+    for (const spring of level.springs) assert.ok(!level.pits.some(([a, b]) => spring.x > a - 24 && spring.x < b + 24), `springs sit on solid ground: ${spring.x} ${JSON.stringify(level.pits.filter(([a,b])=>spring.x>a-24&&spring.x<b+24))}`);
     assert.ok(new Set(level.sections.map(section => section.kind)).size >= 5, 'courses combine distinct physical room types');
   }
+});
+
+
+test("one-finger leaps brake at nearby active choices without favouring the correct answer", () => {
+  const player={x:400,y:300,face:1};
+  const choices=[
+    {x:490,y:210,decisionWord:0,decisionOrder:1,word:-1,taken:false},
+    {x:560,y:290,decisionWord:0,decisionOrder:1,word:0,taken:false},
+    {x:430,y:210,decisionWord:0,decisionOrder:0,word:0,taken:false},
+  ];
+  assert.equal(letterLeapTouchStop(player,choices,0,1),490);
+  choices[0].word=0;choices[1].word=-1;
+  assert.equal(letterLeapTouchStop(player,choices,0,1),490);
+  assert.equal(letterLeapTouchStop({...player,x:490},choices,0,1),490);
+  assert.equal(letterLeapTouchStop({...player,face:-1},choices,0,1),210);
 });

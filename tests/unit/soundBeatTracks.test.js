@@ -32,7 +32,10 @@ test("Sound Beat beat plans are complete and deterministic", () => {
     assert.deepEqual(first, second);
     for (const level of first) {
       assert.ok(level.items.length >= 1, `${difficulty}/${level.level} has no items`);
-      for (const item of level.items) assert.ok(item.beats.length >= 1, `${item.say} has no beats`);
+      for (const item of level.items) {
+        assert.ok(item.beats.length >= 1, `${item.say} has no beats`);
+        assert.equal(item.lanes.length, item.beats.length, `${item.say} has no extra finish pad`);
+      }
     }
   }
 });
@@ -93,7 +96,7 @@ test("full rhythm performances use varied reviewed phrases for several minutes a
     for (const level of soundBeatLadder(difficulty)) {
       if (!bpm || now - origin >= level.minPlaySeconds) { origin = now; bpm = level.bpm; }
       for (const item of level.items) {
-        now = nextPhraseBeat(now, origin, 60 / bpm, 1.05) + item.beats.length * 60 / bpm;
+        now = nextPhraseBeat(now, origin, 60 / bpm, 1.05) + (item.beats.length - 1) * 60 / bpm + 0.45;
       }
     }
     assert.ok(now - 0.1 >= 120, `${difficulty}: ${now - 0.1}s at perfect beat centers`);

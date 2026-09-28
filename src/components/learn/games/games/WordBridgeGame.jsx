@@ -430,7 +430,6 @@ function startGame(mount, opts) {
   let sceneTime = 0;
   let targetedAction = null;
   let gap = { x: 0, w: 0 };
-  let bell = { x: 0, y: 0, r: 22 };
   let moveTargetX = null;
   let pendingTapAction = null;
   const startIdx = Math.max(0, Math.min(Number(opts.startLevel) || 0, ladder.length - 1));
@@ -498,22 +497,26 @@ function startGame(mount, opts) {
   // Keys are only captured while the stage is actually interactive — when
   // paused (quit dialog) or behind an overlay, arrows/space must reach the page.
   function keysActive() {
-    return !paused && (phase === "GET_READY" || phase === "PLAYING" || phase === "BELL_READY");
+    return !paused && (phase === "GET_READY" || phase === "PLAYING");
   }
 
   function onKeyDown(e) {
     if (!keysActive()) return;
-    if (isInteractiveKeyTarget(e.target)) return;
+    const movementControlOwnsFocus = padWrap.contains(e.target);
+    if (isInteractiveKeyTarget(e.target, e.key) && !movementControlOwnsFocus) return;
+    if (movementControlOwnsFocus && isActionKey(e.key)) return;
     const direction = laneDirectionForKey(e.key);
     if (direction < 0) {
       e.preventDefault();
       keys.left = true;
+      if (!e.repeat && builder) builder.x = clamp(builder.x - 12, 18, worldWidth - 18);
       moveTargetX = null;
       pendingTapAction = null;
     }
     if (direction > 0) {
       e.preventDefault();
       keys.right = true;
+      if (!e.repeat && builder) builder.x = clamp(builder.x + 12, 18, worldWidth - 18);
       moveTargetX = null;
       pendingTapAction = null;
     }
@@ -554,20 +557,33 @@ function startGame(mount, opts) {
   const btnAction = padWrap.querySelector('[data-wb="action"]');
 
   function updateActionButton() {
-    const label = builder?.carrying ? "DROP" : phase === "BELL_READY" ? "RING" : "PICK";
+    const label = builder?.carrying ? "DROP" : "PICK";
     if (label === actionButtonLabel) return;
     actionButtonLabel = label;
     btnAction.textContent = label;
-    btnAction.setAttribute("aria-label", label === "DROP" ? "Drop tile" : label === "RING" ? "Ring bell" : "Pick tile");
+    btnAction.setAttribute("aria-label", label === "DROP" ? "Drop tile" : "Pick tile");
   }
 
   function setTouch(btn, key) {
     let armedPointerId = null;
+    const nudge = () => { if (builder && key !== "action") builder.x = clamp(builder.x + (key === "left" ? -12 : 12), 18, worldWidth - 18); };
+    btn.addEventListener("keydown", event => {
+      if (!isActionKey(event.key) || event.repeat || !keysActive()) return;
+      event.preventDefault();
+      if (key === "action") actionQueued = true;
+      else { keys[key] = true; nudge(); }
+      moveTargetX = null;
+      pendingTapAction = null;
+      actionConsumed = false;
+    });
+    btn.addEventListener("keyup", event => { if (isActionKey(event.key)) { event.preventDefault(); keys[key] = false; } });
+    btn.addEventListener("blur", () => { keys[key] = false; });
     btn.addEventListener("pointerdown", e => {
       e.preventDefault();
       btn.setPointerCapture?.(e.pointerId);
       armedPointerId = e.pointerId;
-      if (key !== "action") keys[key] = true;
+      if (!keysActive()) return;
+      if (key !== "action") { keys[key] = true; nudge(); }
       actionConsumed = false;
       moveTargetX = null;
       pendingTapAction = null;
@@ -606,13 +622,12 @@ function startGame(mount, opts) {
   let canvasPointerIntent = null;
 
   function canvasIntentAt(event) {
-    if (!(phase === "PLAYING" || phase === "BELL_READY") || !builder) return;
+    if (phase !== "PLAYING" || !builder) return;
     const rect = cv.getBoundingClientRect();
     const x = event.clientX - rect.left + cameraX;
     const y = event.clientY - rect.top;
     const tileIx = hitTestTile(x, y);
     const slot = hitTestSlot(x, y);
-    const bellHit = Math.hypot(x - bell.x, y - bell.y) < bell.r + 18;
     let targetX;
     let action = null;
     if (slot && builder.carrying) {
@@ -624,9 +639,6 @@ function startGame(mount, opts) {
     } else if (slot) {
       targetX = clamp(slot.x + slot.w / 2, 18, worldWidth - 18);
       action = { type: "slot", index: slot.order, x: targetX };
-    } else if (bellHit) {
-      targetX = clamp(bell.x, 18, worldWidth - 18);
-      action = { type: "bell", x: targetX };
     } else {
       targetX = clamp(x, 18, worldWidth - 18);
     }
@@ -675,11 +687,12 @@ function startGame(mount, opts) {
       const item = String(items[i]);
       const filled = slots[i]?.filled;
       const box = document.createElement("div");
+      box.dataset.filled = String(Boolean(filled));
       const boxW = Array.isArray(target)
         ? clamp(34 + item.length * 9, compact ? 46 : 54, compact ? 76 : 96)
         : compact ? 30 : 36;
       box.style.cssText =
-        `width:${boxW}px;height:${compact ? 34 : 39}px;display:grid;place-items:center;font-size:${Array.isArray(target) ? ".82rem" : "1.08rem"};font-weight:950;border-radius:8px;` +
+        `width:${boxW}px;height:${compact ? 34 : 39}px;display:grid;place-items:center;font-size:${Array.isArray(target) ? ".92rem" : "1.22rem"};font-weight:950;border-radius:8px;` +
         (filled
           ? "background:linear-gradient(160deg,#ffe16f,#ffb437);color:#20140a;border:2px solid rgba(255,255,255,.62);box-shadow:inset 0 -4px 0 rgba(0,0,0,.22)"
           : "background:rgba(255,255,255,.07);color:rgba(255,255,255,.56);border:2px solid rgba(255,255,255,.14)");
@@ -834,7 +847,6 @@ function startGame(mount, opts) {
       });
     }
 
-    bell = { x: worldWidth - 54, y: GROUND_Y - 96, r: 21 };
   }
 
   function startStage() {
@@ -911,7 +923,7 @@ function startGame(mount, opts) {
   function levelComplete() {
     if (phase === "LEVEL_COMPLETE") return;
     phase = "LEVEL_COMPLETE";
-    phaseTimer = 1.8;
+    phaseTimer = 0.8;
     const total = slots.length + levelMistakes;
     const stars = starRubric({ correct: slots.length, total, mistakes: levelMistakes, deaths: 0 });
     stageStars[stageIdx] = stars;
@@ -1041,19 +1053,6 @@ function startGame(mount, opts) {
   function handleAction(intent = targetedAction) {
     targetedAction = null;
     if (!builder) return;
-    if (phase === "BELL_READY") {
-      const d = Math.hypot(builder.x - bell.x, builder.y - bell.y);
-      if (d < 76) {
-        phase = "PALS_CROSSING";
-        bridgeGlow = 1.3;
-        setBanner("Pals crossing", 1.2);
-        sfx(playCelebrationFanfare);
-      } else if (builder.carrying) {
-        dropCarriedOnGround();
-      }
-      return;
-    }
-
     if (phase !== "PLAYING") return;
 
     if (builder.carrying) {
@@ -1082,8 +1081,11 @@ function startGame(mount, opts) {
         addFloat(slot.x + slot.w / 2, slot.y - 10, "+35", theme.light);
         renderTargetHUD();
         if (slots.every(s => s.filled)) {
-          phase = "BELL_READY";
-          setBanner("Tap the bell", 1.3);
+          phase = "PALS_CROSSING";
+          bridgeGlow = 1.3;
+          setBanner(`${targetSpeechText()} — bridge complete!`, 1.2);
+          pals.forEach(pal => { pal.speed = Math.max(pal.speed, (worldWidth - 24 - pal.x) / 1.1); });
+          sfx(playCelebrationFanfare);
         }
       } else if (carried.correct && carried.order !== slot.order) {
         wobbleSlot = slot.order;
@@ -1140,7 +1142,7 @@ function startGame(mount, opts) {
       }
     }
 
-    if (phase === "PLAYING" || phase === "BELL_READY") {
+    if (phase === "PLAYING") {
       builder.anim += dt;
       builder.vx = 0;
       if (keys.left) builder.vx = -builder.speed;
@@ -1811,18 +1813,18 @@ function startGame(mount, opts) {
         ctx.fillText(glyph, s.x + s.w / 2, s.y + (s.h - 6) / 2 + 2, s.w - 8);
       } else {
         const wellGrad = ctx.createLinearGradient(0, s.y + 4, 0, s.y + s.h + 4);
-        wellGrad.addColorStop(0, "rgba(255,255,255,.12)");
-        wellGrad.addColorStop(0.48, "rgba(4,7,16,.26)");
-        wellGrad.addColorStop(1, "rgba(0,0,0,.36)");
+        wellGrad.addColorStop(0, "#fff2cc");
+        wellGrad.addColorStop(0.48, "#e9d7a7");
+        wellGrad.addColorStop(1, "#b79663");
         fillChamfer(ctx, s.x, s.y + 7, s.w, s.h - 5, 9, wellGrad);
         strokeChamfer(ctx, s.x, s.y + 7, s.w, s.h - 5, 9, "rgba(255,255,255,.34)", 2);
         ctx.fillStyle = world === "dino" ? "rgba(255,213,112,.32)" : world === "moonwood" ? "rgba(224,242,255,.32)" : "rgba(240,255,255,.35)";
         fillChamfer(ctx, s.x + 6, s.y + 12, s.w - 12, 4, 2, ctx.fillStyle);
-        ctx.fillStyle = "rgba(255,255,255,.4)";
+        ctx.fillStyle = "#604a2d";
         const glyph = s.needed;
         const glyphSize = s.w > 74
           ? clamp((s.w - 12) / Math.max(String(glyph).length, 4) * 1.42, 13, 19)
-          : 20;
+          : 26;
         ctx.font = `950 ${glyphSize}px Fredoka, Arial, sans-serif`;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
@@ -1933,7 +1935,7 @@ function startGame(mount, opts) {
 
   function drawBuilder(now) {
     if (!builder) return;
-    const walking = Math.abs(builder.vx) > 8 && (phase === "PLAYING" || phase === "BELL_READY");
+    const walking = Math.abs(builder.vx) > 8 && phase === "PLAYING";
     const bob = walking && !reduceMotion ? Math.sin(builder.anim * 13) * 3 : 0;
     const x = builder.x;
 
@@ -2021,34 +2023,6 @@ function startGame(mount, opts) {
     }
   }
 
-  function drawBell(now) {
-    if (phase !== "BELL_READY" && phase !== "PALS_CROSSING") return;
-    const pulse = phase === "BELL_READY" && !reduceMotion ? Math.sin(now * 6) * 4 : 0;
-    ctx.strokeStyle = "rgba(255,255,255,.32)";
-    ctx.lineWidth = 4;
-    ctx.beginPath();
-    ctx.moveTo(bell.x, bell.y + 22);
-    ctx.lineTo(bell.x, GROUND_Y - 24);
-    ctx.stroke();
-    ctx.fillStyle = "rgba(0,0,0,.22)";
-    ctx.beginPath();
-    ctx.ellipse(bell.x, bell.y + 26, 18, 6, 0, 0, Math.PI * 2);
-    ctx.fill();
-    const grad = ctx.createRadialGradient(bell.x - 5, bell.y - 6, 4, bell.x, bell.y, bell.r + 12 + pulse);
-    grad.addColorStop(0, "#fff4b8");
-    grad.addColorStop(0.58, "#ffd34e");
-    grad.addColorStop(1, "rgba(255,211,78,.18)");
-    ctx.fillStyle = grad;
-    ctx.beginPath();
-    ctx.arc(bell.x, bell.y, bell.r + pulse, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.fillStyle = "#20140a";
-    ctx.font = "950 11px Fredoka, Arial, sans-serif";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText("TAP", bell.x, bell.y - 2);
-  }
-
   function drawEffects() {
     for (const p of particles) {
       const alpha = clamp(p.life / p.ttl, 0, 1);
@@ -2129,7 +2103,6 @@ function startGame(mount, opts) {
     drawPals(now, true);
     drawWorkRacks();
     drawTiles(now);
-    drawBell(now);
     drawBuilder(now);
     drawEffects();
     ctx.restore();
@@ -2188,7 +2161,7 @@ function startGame(mount, opts) {
   }
 
   if (import.meta.env.DEV) {
-    const snapshot = () => JSON.parse(JSON.stringify({ phase, stageIdx, wordsDone, levelMistakes, cameraX, worldWidth, W, H, builder, slots, tiles, bell, pals }));
+    const snapshot = () => JSON.parse(JSON.stringify({ phase, stageIdx, wordsDone, levelMistakes, cameraX, worldWidth, W, H, builder, slots, tiles, pals }));
     Object.defineProperty(mount, "bridgeSnapshot", { value: snapshot, configurable: true });
   }
   startStage();

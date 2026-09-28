@@ -140,7 +140,7 @@ const ORIGINAL_BRIEFS = deepFreeze({
       act: "Move and jump into the next required grapheme.",
       feedback: "Fill the matching slot immediately; wrong collisions retain the goal and give a specific contrast cue.",
       retry: "Leave missed letters at their authored coordinates so the child can backtrack and try again.",
-      complete: "Show words spelled, score and earned collectibles, then continue or return through Arcade chrome."
+      complete: "The final spelling automatically completes the stage after brief feedback; show words spelled, score and earned collectibles."
     },
     prompt: {
       visible: "A picture or recorded cue identifies the target while the strip shows completed graphemes and the next empty slot. If neither exists, a labelled model-supported target replaces an ambiguous masked context.",
@@ -214,75 +214,75 @@ const ORIGINAL_BRIEFS = deepFreeze({
     gameId: "word-climb",
     version: "2.0",
     audience: "Early readers discriminating the beginning sounds of short printed words.",
-    experiencePromise: "A calm beanstalk climb where each deliberate onset match moves the reader visibly toward the canopy.",
+    experiencePromise: "Climb through Moonwood, steer around branches and leap onto matching word ledges on the way to the canopy.",
     learning: {
       targetConstruct: "Identify which printed word begins with the shown and spoken target phoneme.",
-      childGoal: "Read three leaf words and choose the one that starts with the target sound.",
-      integratedAction: "Choosing the matching word completes one climb and reveals a fresh equal-position choice set.",
-      nonTargetDemands: "Comparing three equal leaf ledges while following the climber's vertical route.",
-      evidenceEvent: "Only a deliberate correct word choice advances the recorded climb; route animation and position do not.",
+      childGoal: "Read the three word ledges and land on the one that starts with the target sound.",
+      integratedAction: "Aim and jump to a matching word ledge; a settled correct landing earns one word and opens the next short climbing section.",
+      nonTargetDemands: "Climbing a bending trunk, steering around branches, selecting a ledge and adjusting a jump in flight.",
+      evidenceEvent: "Only landing on the current matching word ledge records reading progress; climbing, rest ledges and optional lantern lights do not.",
       movementCreatesEvidence: false
     },
     loop: {
-      onboard: "Keep one direct goal, the printed target phoneme and all three word leaves visible before the first choice.",
-      perceive: "Read the persistent target and compare the beginning sound of each equally styled word.",
-      act: "Tap a leaf or focus it and press Enter or Space.",
-      feedback: "A correct word names the matching onset and moves the climb; a wrong word names its actual onset.",
-      retry: "Leave the target and all three words in place after an error, then restore every choice for an immediate retry.",
-      complete: "Reach the canopy, show words read, score and stars, then continue or return through Arcade chrome."
+      onboard: "Show the target phoneme, arrow controls and next three words before the first short approach.",
+      perceive: "Preview all three equally styled words while climbing, then compare their beginning sounds at the decision ledges.",
+      act: "Hold up to climb and left or right to steer; at a station choose a ledge with left or right and jump with up, or activate the ledge directly.",
+      feedback: "A correct landing names the matching word and onset; a wrong-word landing names its actual onset before a local recovery.",
+      retry: "A safety vine returns the climber to the local safe position with the target and complete three-word set intact; motor falls do not become reading errors.",
+      complete: "The final correct word landing automatically completes the ascent and reveals the result, Next ascent and Replay controls without another task."
     },
     prompt: {
-      visible: "The target phoneme, exact choose-the-word instruction, three printed words and current climb count remain visible together.",
+      visible: "The target phoneme and word count stay visible; all three upcoming words appear during the approach and on equally styled physical ledges at the station.",
       spoken: "The current target phoneme and chosen word use the existing local production-audio library when available.",
-      replay: "A 56-pixel Hear sound button repeats the target cue and becomes an explicit disabled Sound off label when audio is unavailable."
+      replay: "A labelled Hear sound button repeats the target cue; when sound is off it is disabled and its accessible label identifies the printed target."
     },
     controls: {
-      keyboard: ["Tab or Shift+Tab moves between word leaves", "Enter or Space chooses the focused word"],
-      touch: ["Tap and release a word leaf to choose", "Move away, cancel or lose capture to abort native button activation"],
+      keyboard: ["Hold ArrowUp or W to climb", "ArrowLeft or A and ArrowRight or D steer; at a station they select a word ledge", "ArrowUp or W jumps to the selected ledge; Space or Enter also acts when focus is on the playfield", "Tab or Shift+Tab reaches active word ledges; Enter or Space launches the focused ledge jump"],
+      touch: ["Hold the up, left and right controls to climb or steer; release, cancel or lose capture to stop", "Tap an active word ledge to launch a jump, or use the up control to jump toward the selected ledge"],
       minimumTargetCssPixels: 56,
       pointerReleaseEvents: ["pointerup", "pointercancel", "lostpointercapture"]
     },
     difficulty: {
       curriculumBeforePressure: true,
-      ladder: "Difficulty changes the reviewed onset and vocabulary set while every round retains three unhurried, equivalent choices."
+      ladder: "Reviewed vocabulary and six, eight or ten word decisions follow the chosen level; successive ascents vary bends, wind, branches and route width while retaining three unhurried choices."
     },
     gameFeel: {
-      movement: "A correct choice raises the climber and refreshes the next three leaves after a short, pausable transition.",
-      forgiveness: ["No timer pressure", "Wrong choices do not remove progress", "The actual onset is named", "The target remains visible", "Paused transitions resume with their remaining time"],
-      camera: "A fixed, bounded portrait-like beanstalk frame keeps the target and all choice leaves in view at desktop and short landscape sizes.",
-      successFeedback: "The chosen leaf confirms the exact word and sound, the climb meter fills and the character rises.",
-      errorFeedback: "The selected word and its actual beginning sound are printed while the requested target stays visible."
+      movement: "Continuous trunk climbing leads into a physical word-platform jump roughly every three seconds of clear upward travel; steering and optional lights add decisions during each short approach.",
+      forgiveness: ["No timer pressure", "Wrong words retain earned progress and all three choices", "Motor falls recover locally without reducing reading accuracy", "The actual onset is named", "Pausing freezes physics and completion feedback"],
+      camera: "A responsive camera follows the physical climber through the forest while the target, upcoming-word preview and movement controls remain fixed and readable.",
+      successFeedback: "The climber settles on the matching ledge, the word count increases and the next approach opens immediately.",
+      errorFeedback: "The selected word and its actual beginning sound are printed while the requested target stays visible; a safety vine recovers the climber for another jump."
     },
     world: {
-      artDirection: "An authored beanstalk scene with native Blender lookouts supported by branches, moving lanterns, layered foliage and high-contrast tactile leaves.",
-      route: "The six-step root-to-canopy meter and climber share one bounded responsive layout with the three choice ledges.",
-      character: "The canonical Meadow Pal remains a decorative climber and never obscures or identifies the correct answer.",
-      assetFallback: "CSS and SVG retain the complete target, word leaves, climb route and feedback if the decorative Pal image fails."
+      artDirection: "An authored Moonwood forest with warm-lit bark, layered blue-green depth, grounded lookouts, lantern lights and clear cream word plaques on mossy ledges.",
+      route: "Short physical trunk approaches alternate with three-way word-platform jumps; bends, branch obstacles, wind and optional lights vary across saved ascents.",
+      character: "The authored Pip hero climbs, grips, jumps, lands and recovers in the physical world without identifying the correct word.",
+      assetFallback: "CSS and SVG preserve the physical route, word ledges, target, controls and fallback hero when the Three scene or authored model cannot load."
     },
     state: {
-      pauseResume: "Pause freezes every feedback, speech and climb-transition timer with its remaining delay; resume re-arms only pending work.",
-      checkpoint: "Each completed climb is saved through the existing Arcade checkpoint callback and restored as the next unfinished step.",
-      completion: "Existing score, stars, completed-word count and resumable climb checkpoint remain the only progress state."
+      pauseResume: "Pause and hidden-page handling stop physics, clear held movement and preserve the current ascent for resume.",
+      checkpoint: "Completed words use the existing Arcade checkpoint; the local sidecar retains the current words, physical position, safe ledge and journey state. Older long approaches resume on the compact route at the last earned word.",
+      completion: "The last correct word landing records the existing result automatically; optional lights remain separate from reading evidence."
     },
     accessibility: {
-      reducedMotion: "Decorative drift and climb movement reduce while the word, onset and progress feedback remain immediate.",
-      soundOff: "The target phoneme and every word remain printed; replay is labelled Sound off instead of disappearing.",
-      nonColourCue: "Correct and wrong feedback use explicit words, symbols, shape and persistent position in addition to colour.",
-      semanticFallback: "A labelled region, headings, status text, native word buttons, focused dialogs and Arcade mission help expose the whole loop without the illustration."
+      reducedMotion: "Reduce decorative foliage drift and idle or summit character motion while preserving direct movement, physical jumps and explicit word feedback.",
+      soundOff: "The target phoneme, upcoming words, ledge words and specific feedback remain printed without audio.",
+      nonColourCue: "Words, a selected-ledge marker, physical position and explicit status feedback communicate decisions in addition to colour.",
+      semanticFallback: "A labelled game region, native word-ledge and movement buttons, live status text and focused completion dialog expose the controls outside the rendered scene."
     },
     performance: {
-      lowPowerFallback: "A bounded DOM, CSS and SVG scene has no animation frame loop or high-density canvas backing store.",
-      inputSafety: "Native button activation commits once on completed keyboard or pointer activation, while pause-safe timers prevent hidden transitions.",
-      assetFailure: "The playable target, choice buttons, progress and feedback do not depend on decorative image loading."
+      lowPowerFallback: "The Three scene caps pixel ratio at 1.5; a CSS and SVG fallback preserves play if WebGL or model loading fails.",
+      inputSafety: "Real-time movement releases on pointer up, cancel, lost capture, blur and pause; word buttons launch one physical jump and cannot commit reading evidence by activation alone.",
+      assetFailure: "The readable target, physical word choices, progress, controls and feedback remain independent of the decorative scene loading."
     },
     privacy: {
-      dataWritten: ["Existing score", "Existing stars", "Completed-word count", "Existing resumable climb checkpoint"],
-      network: ["Existing app progress sync only"],
+      dataWritten: ["Existing score", "Existing stars", "Completed-word count", "Existing resumable climb checkpoint and local physical-session sidecar"],
+      network: ["Same-origin retained game artwork and audio", "Existing app progress sync only"],
       newIdentifier: false,
       newExternalService: false
     },
     validation: {
-      unit: ["tests/unit/wordClimbLevels.test.js", "tests/unit/premiumGameStandard.test.js"],
+      unit: ["tests/unit/wordClimbLevels.test.js", "tests/unit/wordClimbJourney.test.js", "tests/unit/wordClimbWorld.test.js", "tests/unit/wordClimbProduction.test.js", "tests/unit/premiumGameStandard.test.js"],
       browser: ["tests/release/word-climb-premium.spec.js", "tests/release/student-activity-viewport.spec.js"],
       physicalDevice: {
         status: "unknown",
@@ -310,7 +310,7 @@ const ORIGINAL_BRIEFS = deepFreeze({
       act: "Move to a tile, pick it up and place it in the next bridge slot.",
       feedback: "Lock a correct tile into the bridge; return a distractor with a specific contrast cue and no lost progress.",
       retry: "Leave the clue and required slot visible, return the tile to play and permit an immediate new choice.",
-      complete: "Cross the completed bridge, show constructions built and continue or return through Arcade chrome."
+      complete: "The final tile automatically begins the crossing; show constructions built and continue or return through Arcade chrome."
     },
     prompt: {
       visible: "The full word or sentence goal and ordered bridge slots remain visible during play.",
@@ -379,7 +379,7 @@ const ORIGINAL_BRIEFS = deepFreeze({
     experiencePromise: "Play a musical rhythm game by tapping arriving sound notes and blending each completed word.",
     learning: {
       targetConstruct: "Supported sound-sequence rehearsal during a rhythm performance; rhythm score is not independent literacy evidence.",
-      childGoal: "Tap the sounds on the beat, then tap GO to blend the word.",
+      childGoal: "Tap each sound on the beat; the last sound blends the word automatically.",
       integratedAction: "Each timed tap plays the next authored sound; completing the sequence models the whole word.",
       nonTargetDemands: "Following musical pulse, watching stage effects and navigating equivalent pad positions.",
       evidenceEvent: "Completed performances and rhythm scores record practice, not independent sound identification or mastery.",
@@ -410,9 +410,9 @@ const ORIGINAL_BRIEFS = deepFreeze({
     },
     gameFeel: {
       movement: "Notes travel toward the hit line while the band and stage respond to taps.",
-      forgiveness: ["Early taps give a Wait cue", "Repeated misses widen the timing window", "Repeated misses retain the current note", "The final GO waits for the learner"],
+      forgiveness: ["Early taps give a Wait cue", "Repeated misses widen the timing window", "Repeated misses retain the current note", "The last sound completes the word automatically"],
       camera: "A fixed performance-stage frame keeps the target, choices, ordered slots and performers visible.",
-      successFeedback: "A timed tap lights the stage and plays the next sound; GO plays the whole target.",
+      successFeedback: "A timed tap lights the stage and plays the next sound; the final accepted sound plays the whole target.",
       errorFeedback: "A wrong pad names the selected and required units, replays the cue and leaves the complete choice set available."
     },
     world: {
@@ -490,15 +490,15 @@ const ORIGINAL_BRIEFS = deepFreeze({
       ladder: "Ten tracks change onset complexity and vocabulary before speed or route pressure increases."
     },
     gameFeel: {
-      movement: "Immediate three-lane steering, bounded boost feedback and spaced gates preserve readable decisions.",
+      movement: "Continuous steering follows a physical circuit, with gentle bend alignment, soft guardrails and slower readable word approaches.",
       forgiveness: ["Missed targets return", "Repeated misses gain a lane callout", "Obstacles do not lower literacy stars", "The target cue remains replayable"],
-      camera: "A stable chase camera keeps all three lanes, approaching labels and the current route visible.",
+      camera: "A stable chase camera keeps the physical road, approaching labels and the current route visible.",
       successFeedback: "The caught word and its matching onset appear in a high-contrast banner with chime, speech and a bounded burst.",
       errorFeedback: "A wrong caught word is named with its actual onset while the target stays visible."
     },
     world: {
       artDirection: "Blender-authored windmills and flower copses in Meadow, fossil arches and cycads in Dino, lantern observatories and mushroom groves in Moonwood; instanced scenery is kept outside the physical circuit.",
-      route: "Track, collision lanes, gate centres, ship route and camera use the same three-lane coordinate system.",
+      route: "Track mesh, road-side scenery, collision edges, word gates and kart use the same sampled physical circuit.",
       character: "The existing animated Pip kart stays recognisable against each world palette.",
       assetFallback: "Missing decorative GLBs retain the complete road, kerbs, gates and labels; the existing Pip kart has its own identical compressed recovery asset."
     },
@@ -515,7 +515,7 @@ const ORIGINAL_BRIEFS = deepFreeze({
     },
     performance: {
       lowPowerFallback: "The shared Three.js quality tier caps pixel ratio and removes nonessential shadows and particle density first.",
-      inputSafety: "Steer zones, swipes and keyboard share one lane action and every pointer path has up, cancel and lost-capture handling.",
+      inputSafety: "Touch steering and keyboard share continuous steering input, every pointer path releases safely, and bounded simulation catch-up preserves pace across slower frames.",
       assetFailure: "The existing animated Pip kart, road, gates and labels remain playable when decorative assets fail. Pending scenery loads cannot reattach after disposal."
     },
     privacy: {

@@ -91,7 +91,8 @@ export function GamePlayer({
   progressScopeKey,
   onClose,
   onSoundEnabledChange,
-  onProgressChange
+  onProgressChange,
+  onEngineReady: onGameEngineReady
 }) {
   const [musicEnabled, onMusicEnabledChange] = useActivityMusic(`${progressScopeKey}:${game.id}`);
   const [difficulty, setDifficulty] = useState(initialDifficulty);
@@ -134,6 +135,7 @@ export function GamePlayer({
   const pendingResultRef = useRef(null);
   const earlyResultRef = useRef(false);
   const playerRef = useRef(null);
+  const playfieldRef = useRef(null);
   const blockingDialogRef = useRef(null);
   const resumeActionRef = useRef(null);
   const keepPlayingRef = useRef(null);
@@ -148,6 +150,13 @@ export function GamePlayer({
   const hasPremiumCompletionOverlay = Boolean(completionResult && premiumProfile && premiumProfile.completionPresentation !== "engine");
   const hasBlockingOverlay = startLevel === null || showQuit || showGuide || hasPremiumCompletionOverlay || saveRecovery;
   const hasEngineOwnedCompletion = Boolean(completionResult && !hasPremiumCompletionOverlay);
+
+  useEffect(() => {
+    if (hasBlockingOverlay || completed) return;
+    // Launch and dismissed dialogs must hand keyboard control back to play.
+    // Leaving focus on an old launch/help action stranded global game keys.
+    playfieldRef.current?.focus({ preventScroll: true });
+  }, [game.id, runIndex, hasBlockingOverlay, completed]);
 
   useEffect(() => {
     setActiveLearnGamesProgressScope(progressScopeKey);
@@ -547,7 +556,7 @@ export function GamePlayer({
         </div>
       </header>
 
-      <main className="lg-game-player-main" inert={hasBlockingOverlay ? true : undefined}>
+      <main ref={playfieldRef} tabIndex={-1} className="lg-game-player-main" inert={hasBlockingOverlay ? true : undefined}>
         <GameErrorBoundary onExit={closePlayer}>
           <Suspense
             fallback={
@@ -577,6 +586,7 @@ export function GamePlayer({
                 onCheckpoint={handleCheckpoint}
                 onEngineReady={api => {
                   engineRef.current = api;
+                  onGameEngineReady?.(api);
                   if (pendingResultRef.current) api?.pause?.();
                 }}
                 onExit={closePlayer}

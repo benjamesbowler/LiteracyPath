@@ -2,6 +2,29 @@ import { expect, test } from '@playwright/test';
 
 const snapshot = page => page.evaluate(() => document.querySelector('.letter-leap').__letterLeapSnapshot());
 const coordinates = s => s.bubbles.map(({ x, y, ch }) => ({ x, y, ch }));
+async function collectCurrentLetter(page) {
+  const original = await snapshot(page);
+  const target = original.bubbles.find(b => !b.taken && b.word === original.wordIndex && b.order === original.letterIndex);
+  let held = new Set(), jumpUntil = 0;
+  for (let tick = 0; tick < 220; tick += 1) {
+    const state = await snapshot(page);
+    if (state.letterIndex !== original.letterIndex || state.wordIndex !== original.wordIndex) break;
+    let dx = target.x - state.player.x;
+    if (target.y > state.player.y + 48 && Math.abs(dx) < 40) {
+      const support = [...state.platforms,...state.blocks.filter(b=>!b.broken)].find(p => state.player.x >= p.x && state.player.x <= p.x + p.w && Math.abs(state.player.y + 23 - p.y) < 5);
+      if (support) dx = support.x + support.w + 45 - state.player.x;
+    }
+    if (state.player.onGround && tick >= jumpUntil && target.y < state.player.y - 45 && Math.abs(dx) < 130) jumpUntil = tick + 9;
+    const next = new Set([...(Math.abs(dx)>13 ? [dx<0?'ArrowLeft':'ArrowRight'] : []), ...(tick<jumpUntil?['ArrowUp']:[])]);
+    for (const key of held) if (!next.has(key)) await page.keyboard.up(key);
+    for (const key of next) if (!held.has(key)) await page.keyboard.down(key);
+    held=next;
+    await page.waitForTimeout(40);
+  }
+  for (const key of held) await page.keyboard.up(key);
+  expect((await snapshot(page)).letterIndex).toBe(original.letterIndex + 1);
+}
+
 async function openGame(page, difficulty = 'easy') {
   const moduleResponse = page.waitForResponse(response => response.url().includes('/games/LetterLeapGame.jsx') && response.status() === 200);
   await page.goto(`/preview/game-overlay.html?game=letter-leap&difficulty=${difficulty}&sound=0&music=0`, { waitUntil: 'domcontentloaded' });
@@ -9,17 +32,22 @@ async function openGame(page, difficulty = 'easy') {
   await page.waitForFunction(() => document.querySelector('.letter-leap')?.__letterLeapSnapshot);
 }
 
-test('Letter Leap preserves the neighbouring block and springs launch without holding jump', async ({ page }, testInfo) => {
+test('Letter Leap clears the answered letter bank and springs launch without holding jump', async ({ page }, testInfo) => {
+  test.setTimeout(90000);
   await page.setViewportSize({ width: 1024, height: 768 });
   await page.addInitScript(() => { Math.random = () => 0.15; });
   await openGame(page);
   const initial = await snapshot(page);
   const target = initial.bubbles.find(b => b.word === 0 && b.order === 0);
   const neighbour = initial.bubbles.find(b => b !== target && b.choiceId === target.choiceId && b.word === -1);
-  await page.keyboard.down('ArrowRight');
-  await expect.poll(async () => (await snapshot(page)).letterIndex).toBe(1);
+  await collectCurrentLetter(page);
   const collected = await snapshot(page);
-  expect(collected.bubbles.find(b => b.x === neighbour.x)).toMatchObject({ x: neighbour.x, y: neighbour.y, taken: false });
+  expect(collected.bubbles.find(b => b.x === neighbour.x)).toMatchObject({ x: neighbour.x, y: neighbour.y, taken: true });
+  await page.keyboard.down('ArrowLeft');
+  await expect.poll(async () => (await snapshot(page)).player.x).toBeLessThan(350);
+  await page.keyboard.up('ArrowLeft');
+  await expect.poll(async () => { const s = await snapshot(page); return Math.abs(s.player.y + 23 - s.groundY); }).toBeLessThan(1);
+  await page.keyboard.down('ArrowRight');
   await expect.poll(async () => (await snapshot(page)).player.springLaunch, { timeout: 12000 }).toBe(true);
   await page.keyboard.up('ArrowRight');
   await page.waitForTimeout(250);
@@ -55,13 +83,13 @@ test('Letter Leap completes a real keyboard route with jumps, stable letters and
     const target = s.bubbles.find(b => !b.taken && b.word === s.wordIndex && b.order === s.letterIndex);
     let dx = (target?.x ?? s.flag + 30) - s.player.x;
     if (target && target.y > s.player.y + 48 && Math.abs(dx) < 40) {
-      const support = s.platforms.find(p => s.player.x >= p.x && s.player.x <= p.x + p.w && Math.abs(s.player.y + 23 - p.y) < 5);
+      const support = [...s.platforms,...s.blocks.filter(b=>!b.broken)].find(p => s.player.x >= p.x && s.player.x <= p.x + p.w && Math.abs(s.player.y + 23 - p.y) < 5);
       if (support) dx = support.x + support.w + 45 - s.player.x;
     }
     const decoyAhead = s.bubbles.some(b => !b.taken && b.word === -1 && b.decisionWord === s.wordIndex && b.decisionOrder === s.letterIndex && Math.sign(b.x - s.player.x) === Math.sign(dx) && Math.abs(b.x - s.player.x) < 85 && Math.abs(b.x - s.player.x) > 35);
     const foeAhead = s.foes.some(f => Math.sign(f.x - s.player.x) === Math.sign(dx) && Math.abs(f.x - s.player.x) < 120);
     const direction = Math.sign(dx);
-    const support = s.platforms.find(p => s.player.x >= p.x - 12 && s.player.x <= p.x + p.w + 12 && Math.abs(s.player.y + 23 - p.y) < 5);
+    const support = [...s.platforms,...s.blocks.filter(b=>!b.broken)].find(p => s.player.x >= p.x - 12 && s.player.x <= p.x + p.w + 12 && Math.abs(s.player.y + 23 - p.y) < 5);
     const edgeX = support ? (direction > 0 ? support.x + support.w : support.x) : s.player.x;
     const gapAhead = support
       ? Math.abs(edgeX - s.player.x) < 60 && s.pits.some(([a, b]) => edgeX + direction * 35 > a && edgeX + direction * 35 < b)
@@ -77,6 +105,7 @@ test('Letter Leap completes a real keyboard route with jumps, stable letters and
   const end = await snapshot(page);
   expect(end.wordsDone).toBe(5);
   expect(end.running).toBe(false);
+  expect(end.player.x).toBeLessThan(end.flag - 100, 'final spelling completes without an extra finish-flag trip');
   expect(jumps).toBeGreaterThan(0);
   expect(landings).toBeGreaterThan(0);
   expect(movingFeedback).toBe(true);
@@ -114,8 +143,15 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 568, height: 320 }
     // state mutation: the same contact/collision system serves touch and keys.
     const firstTarget = original.bubbles.find(b => b.word === 0 && b.order === 0);
     await press(right);
+    if (firstTarget.y < original.player.y - 45) {
+      await expect.poll(async () => (await snapshot(page)).player.x, { intervals:[16] }).toBeGreaterThan(firstTarget.x - 130);
+      await release();
+      await press(jump);
+    }
     await expect.poll(async () => (await snapshot(page)).letterIndex, { timeout: 10000 }).toBeGreaterThan(0);
     const collected = await snapshot(page);
+    await release();
+    await press(right);
     await page.waitForTimeout(250);
     const continued = await snapshot(page);
     expect(continued.player.x).toBeGreaterThan(collected.player.x + 20);
@@ -159,4 +195,21 @@ test('Letter Leap gives one local wrong-contact response and keeps the upper ret
   await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
   await expect.poll(async () => (await snapshot(page)).letterIndex).toBe(1);
   expect(coordinates(await snapshot(page))).toEqual(coordinates(initial));
+});
+
+test('Letter Leap prize boxes respond to a real head bump without completing the word', async ({ page }, testInfo) => {
+  await page.setViewportSize({ width:1024,height:768 });
+  await openGame(page);
+  const initial = await snapshot(page);
+  const prize = initial.blocks.find(block=>block.type==='prize');
+  expect(prize).toBeTruthy();
+  await page.keyboard.down('ArrowRight');
+  await expect.poll(async()=> (await snapshot(page)).player.x, {intervals:[16]}).toBeGreaterThan(prize.x + 5);
+  await page.keyboard.up('ArrowRight');
+  await page.waitForTimeout(120);
+  await page.keyboard.down('ArrowUp');
+  await expect.poll(async()=> (await snapshot(page)).blocks.find(block=>block.x===prize.x).used).toBe(true);
+  await page.keyboard.up('ArrowUp');
+  expect((await snapshot(page)).wordsDone).toBe(0);
+  await page.screenshot({ path:testInfo.outputPath('prize-box-head-bump.png') });
 });

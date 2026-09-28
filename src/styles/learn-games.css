@@ -1508,9 +1508,8 @@
   min-height: 64px;
   border-bottom: 1px solid rgba(116, 221, 255, 0.24);
   background:
-    linear-gradient(90deg, rgba(84, 224, 210, 0.08) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(18, 34, 60, 0.96), rgba(5, 11, 23, 0.96));
-  background-size: 38px 100%, cover;
+    radial-gradient(ellipse at 15% 0%, rgba(83, 131, 158, .17), transparent 58%),
+    linear-gradient(180deg, rgb(27, 41, 58), rgb(16, 27, 42));
   color: rgb(247, 251, 255);
   box-shadow: 0 12px 34px rgba(0, 0, 0, 0.34), inset 0 -1px 0 rgba(255, 255, 255, 0.08);
   -webkit-backdrop-filter: none;
@@ -1526,10 +1525,10 @@
 .lg-game-player[data-fullbleed] .lg-game-title-chip span,
 .lg-game-player[data-fullbleed] .lg-game-score {
   border: 1px solid rgba(116, 221, 255, 0.26);
-  border-radius: 0;
+  border-radius: 14px;
   background: rgba(2, 8, 20, 0.72);
   color: rgb(191, 246, 255);
-  clip-path: polygon(7px 0, 100% 0, calc(100% - 7px) 100%, 0 100%);
+  clip-path: none;
   font-weight: 800;
   text-transform: uppercase;
   box-shadow: inset 0 0 18px rgba(84, 224, 210, 0.08);
@@ -1549,14 +1548,14 @@
 .lg-game-player[data-fullbleed] .lg-game-header-meter > div {
   height: 12px;
   border: 1px solid rgba(116, 221, 255, 0.22);
-  border-radius: 0;
+  border-radius: 14px;
   background: rgba(2, 8, 20, 0.78);
   box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.32);
 }
 
 .lg-game-player[data-fullbleed] .lg-game-header-meter i {
-  border-radius: 0;
-  background: linear-gradient(90deg, rgb(85, 224, 210), rgb(246, 197, 75), rgb(245, 110, 116));
+  border-radius: 14px;
+  background: linear-gradient(90deg, rgb(100, 209, 197), rgb(181, 235, 182));
   box-shadow: 0 0 18px rgba(85, 224, 210, 0.34);
 }
 
@@ -1569,11 +1568,11 @@
   min-height: 56px;
   flex-basis: 56px;
   border: 1px solid rgba(116, 221, 255, 0.24);
-  border-radius: 0;
+  border-radius: 14px;
   background:
     linear-gradient(180deg, rgba(35, 62, 98, 0.88), rgba(8, 16, 32, 0.96));
   color: rgb(234, 248, 255);
-  clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px);
+  clip-path: none;
   box-shadow: 0 5px 0 rgba(0, 5, 18, 0.78), inset 0 0 12px rgba(255, 255, 255, 0.04);
   transition: transform 120ms ease-out, box-shadow 120ms ease-out, border-color 120ms ease-out, filter 120ms ease-out;
 }
@@ -1627,11 +1626,11 @@
 .lg-game-player[data-fullbleed] .lg-game-confirm > div,
 .lg-game-player[data-fullbleed] .lg-game-loading {
   border: 1px solid rgba(116, 221, 255, 0.3);
-  border-radius: 0;
+  border-radius: 14px;
   background:
     linear-gradient(180deg, rgba(18, 34, 60, 0.96), rgba(5, 11, 23, 0.96));
   color: rgb(247, 251, 255);
-  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+  clip-path: none;
   box-shadow: 0 24px 58px rgba(0, 0, 0, 0.38), inset 0 0 24px rgba(85, 224, 210, 0.08);
 }
 
@@ -1641,8 +1640,8 @@
 }
 
 .lg-game-player[data-fullbleed] .lg-game-confirm button {
-  border-radius: 0;
-  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  border-radius: 14px;
+  clip-path: none;
 }
 
 @media (max-width: 900px) {

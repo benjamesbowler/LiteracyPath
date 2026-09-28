@@ -42,6 +42,9 @@ export function GameOverlayPreview() {
       onClose={() => setOpen(false)}
       onSoundEnabledChange={setSoundEnabled}
       onProgressChange={() => {}}
+      onEngineReady={api => {
+        if (import.meta.env.DEV) window.__arcadePreviewSnapshot = () => api?.debugSnapshot?.() ?? null;
+      }}
     />
   );
 }

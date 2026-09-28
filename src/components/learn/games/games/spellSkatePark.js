@@ -314,7 +314,10 @@ export function createSkateParkDressing(theme, difficulty) {
       const t = ring / 20;
       profile.push(new THREE.Vector2(radius * t, height * (1 - t * t) ** 2));
     }
-    const hill = mesh(new THREE.LatheGeometry(profile, 36), hillMaterial);
+    // Lathe profiles run from the ground upward so the normals face the light.
+    // Reversed winding shaded these planted hills like black silhouettes.
+    const hill = mesh(new THREE.LatheGeometry(profile.reverse(), 36), hillMaterial);
+    hill.name = 'Planted park hill';
     hill.position.set(Math.sin(angle) * 114, -1, Math.cos(angle) * 114);
     root.add(hill);
   }

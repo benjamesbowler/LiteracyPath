@@ -1,0 +1,30 @@
+{
+  "generator": "Built-in image generation",
+  "derivative": "WebP quality 86, original dimensions, no crop",
+  "assets": [
+    {
+      "id": "rhyme-festival",
+      "game": "rhyme-pop",
+      "source": "source-art/arcade/scenes/rhyme-festival.png",
+      "url": "/images/learn-games/arcade-scenes/rhyme-festival.webp",
+      "sha256": "d85013c308308e26cc4c792743aecba8e43cb5bd6d48c6acc96d32e371f719b1",
+      "bytes": 264284,
+      "width": 1672,
+      "height": 941,
+      "provenance": "Generated for LiteracyPath with the built-in image generation tool on 2026-09-28. No third-party reference image, character, learner data or school data supplied.",
+      "runtimeRole": "Decorative environment only. All targets, prompts and characters remain live, independent game layers."
+    },
+    {
+      "id": "safari-clearing",
+      "game": "sound-safari",
+      "source": "source-art/arcade/scenes/safari-clearing.png",
+      "url": "/images/learn-games/arcade-scenes/safari-clearing.webp",
+      "sha256": "57ec1a56abf83ef5ed5afb86da40c098ca1cd018d75640c94ad199078d6c3ec9",
+      "bytes": 398294,
+      "width": 1672,
+      "height": 941,
+      "provenance": "Generated for LiteracyPath with the built-in image generation tool on 2026-09-28. No third-party reference image, character, learner data or school data supplied.",
+      "runtimeRole": "Decorative environment only. All targets, prompts and characters remain live, independent game layers."
+    }
+  ]
+}

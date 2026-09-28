@@ -69,7 +69,7 @@ test('authored skater direct play, jump contact and assisted first spelling', as
       timeout: 20000
     });
   }
-  await skate(page, 'cat', 'gate');
+  await expect(page.locator('[data-skate-choice=gate]')).toHaveCount(0);
   await expect(world).toHaveAttribute('data-skate-level', '1', {
     timeout: 20000
   });
@@ -101,7 +101,7 @@ for (const difficulty of ['easy', 'medium', 'hard']) test(`Spell & Skate ${diffi
         timeout: 25000
       });
     }
-    await skate(page, level.correct, 'gate');
+    await expect(page.locator('[data-skate-choice=gate]')).toHaveCount(0);
     fs.writeFileSync(`${out}/${difficulty}-progress.json`, JSON.stringify({
       wordsStarted: index + 1,
       elapsedSeconds: (Date.now() - started) / 1000,
@@ -304,7 +304,7 @@ test('native jump catches the rail with the authored board and releases safely',
 test('medium first word verifies safe navigation and measured frame budget',async({page})=>{
  test.setTimeout(60000);const started=Date.now();const world=await open(page,'medium');
  for(const [index,part] of ['h','a','nd'].entries()){await skate(page,part);await expect(world).toHaveAttribute('data-spelling-step',String(index+1),{timeout:12000});}
- await skate(page,'hand','gate');await expect(world).toHaveAttribute('data-skate-level','1',{timeout:15000});
+ await expect(world).toHaveAttribute('data-skate-level','1',{timeout:15000});
  const metrics={elapsedSeconds:(Date.now()-started)/1000,quality:await world.getAttribute('data-skater-quality'),meanFrameMs:await world.getAttribute('data-skater-mean-frame-ms'),motorRecoveries:await world.getAttribute('data-motor-recoveries')};
  fs.writeFileSync(`${out}/medium-frame-budget.json`,JSON.stringify(metrics,null,2));await page.screenshot({path:`${out}/medium-park.png`});
  expect(metrics.motorRecoveries).toBe('0');
