@@ -8480,5 +8480,821 @@ export const questions = [
   "targetImagePath": "/images/assessment/grammar-scenes/duck-among-geese.webp",
   "resolvedImageAssetKey": "duck-among-geese",
   "imageAlt": "A yellow duck and several white geese."
+ },
+ {
+  "id": "lp3.prepositions_of_place.l1.A.above.v101",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prepositions_of_place",
+  "assessmentSkillId": "prepositions_of_place",
+  "skillName": "Prepositions of Place",
+  "skill": "Prepositions of Place",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "above",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Where is the boat compared with the fish?",
+  "question": "Where is the boat compared with the fish?",
+  "spokenPrompt": "Where is the boat compared with the fish?",
+  "choices": [
+   "above the fish",
+   "below the fish",
+   "inside the fish",
+   "behind the fish"
+  ],
+  "answerOptions": [
+   {
+    "value": "above the fish",
+    "label": "above the fish",
+    "text": "above the fish"
+   },
+   {
+    "value": "below the fish",
+    "label": "below the fish",
+    "text": "below the fish"
+   },
+   {
+    "value": "inside the fish",
+    "label": "inside the fish",
+    "text": "inside the fish"
+   },
+   {
+    "value": "behind the fish",
+    "label": "behind the fish",
+    "text": "behind the fish"
+   }
+  ],
+  "answer": "above the fish",
+  "correctAnswer": "above the fish",
+  "distractorRationales": {
+   "below the fish": "D-FUNCTION-SWAP",
+   "inside the fish": "D-FUNCTION-SWAP",
+   "behind the fish": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "image+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "inverse_spatial_relation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
+  "targetWord": "fish-below-boat",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.above.v101",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/grammar-scenes/fish-below-boat.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "A boat and an orange fish."
+  },
+  "requiredImageAssetKey": "fish-below-boat",
+  "stimulusMediaId": "fish-below-boat",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The referenced object changes from the existing question: identify the inverse relationship in the inspected scene. This shared image is not counted as a new scene or independent retention evidence.",
+  "imagePath": "/images/assessment/grammar-scenes/fish-below-boat.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/fish-below-boat.webp",
+  "targetImage": "/images/assessment/grammar-scenes/fish-below-boat.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/fish-below-boat.webp",
+  "resolvedImageAssetKey": "fish-below-boat",
+  "imageAlt": "A boat and an orange fish."
+ },
+ {
+  "id": "lp3.prepositions_of_place.l1.B.below.v102",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prepositions_of_place",
+  "assessmentSkillId": "prepositions_of_place",
+  "skillName": "Prepositions of Place",
+  "skill": "Prepositions of Place",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "below",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Where is the picture compared with the clock?",
+  "question": "Where is the picture compared with the clock?",
+  "spokenPrompt": "Where is the picture compared with the clock?",
+  "choices": [
+   "below the clock",
+   "above the clock",
+   "inside the clock",
+   "behind the clock"
+  ],
+  "answerOptions": [
+   {
+    "value": "below the clock",
+    "label": "below the clock",
+    "text": "below the clock"
+   },
+   {
+    "value": "above the clock",
+    "label": "above the clock",
+    "text": "above the clock"
+   },
+   {
+    "value": "inside the clock",
+    "label": "inside the clock",
+    "text": "inside the clock"
+   },
+   {
+    "value": "behind the clock",
+    "label": "behind the clock",
+    "text": "behind the clock"
+   }
+  ],
+  "answer": "below the clock",
+  "correctAnswer": "below the clock",
+  "distractorRationales": {
+   "inside the clock": "D-FUNCTION-SWAP",
+   "behind the clock": "D-FUNCTION-SWAP",
+   "above the clock": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "image+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "inverse_spatial_relation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
+  "targetWord": "clock-above-picture",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.B.below.v102",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/grammar-scenes/clock-above-picture.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "A red clock and a framed picture."
+  },
+  "requiredImageAssetKey": "clock-above-picture",
+  "stimulusMediaId": "clock-above-picture",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The referenced object changes from the existing question: identify the inverse relationship in the inspected scene. This shared image is not counted as a new scene or independent retention evidence.",
+  "imagePath": "/images/assessment/grammar-scenes/clock-above-picture.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/clock-above-picture.webp",
+  "targetImage": "/images/assessment/grammar-scenes/clock-above-picture.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/clock-above-picture.webp",
+  "resolvedImageAssetKey": "clock-above-picture",
+  "imageAlt": "A red clock and a framed picture."
+ },
+ {
+  "id": "lp3.prepositions_of_place.l1.C.behind.v103",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prepositions_of_place",
+  "assessmentSkillId": "prepositions_of_place",
+  "skillName": "Prepositions of Place",
+  "skill": "Prepositions of Place",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "behind",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Where is the house compared with the dog?",
+  "question": "Where is the house compared with the dog?",
+  "spokenPrompt": "Where is the house compared with the dog?",
+  "choices": [
+   "inside the dog",
+   "behind the dog",
+   "in front of the dog",
+   "under the dog"
+  ],
+  "answerOptions": [
+   {
+    "value": "inside the dog",
+    "label": "inside the dog",
+    "text": "inside the dog"
+   },
+   {
+    "value": "behind the dog",
+    "label": "behind the dog",
+    "text": "behind the dog"
+   },
+   {
+    "value": "in front of the dog",
+    "label": "in front of the dog",
+    "text": "in front of the dog"
+   },
+   {
+    "value": "under the dog",
+    "label": "under the dog",
+    "text": "under the dog"
+   }
+  ],
+  "answer": "behind the dog",
+  "correctAnswer": "behind the dog",
+  "distractorRationales": {
+   "in front of the dog": "D-FUNCTION-SWAP",
+   "under the dog": "D-FUNCTION-SWAP",
+   "inside the dog": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "image+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "inverse_spatial_relation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
+  "targetWord": "dog-in-front-of-house",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.C.behind.v103",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/grammar-scenes/dog-in-front-of-house.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "A brown dog and a house."
+  },
+  "requiredImageAssetKey": "dog-in-front-of-house",
+  "stimulusMediaId": "dog-in-front-of-house",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The referenced object changes from the existing question: identify the inverse relationship in the inspected scene. This shared image is not counted as a new scene or independent retention evidence.",
+  "imagePath": "/images/assessment/grammar-scenes/dog-in-front-of-house.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/dog-in-front-of-house.webp",
+  "targetImage": "/images/assessment/grammar-scenes/dog-in-front-of-house.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/dog-in-front-of-house.webp",
+  "resolvedImageAssetKey": "dog-in-front-of-house",
+  "imageAlt": "A brown dog and a house."
+ },
+ {
+  "id": "lp3.prepositions_of_place.l1.A.in_front_of.v104",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prepositions_of_place",
+  "assessmentSkillId": "prepositions_of_place",
+  "skillName": "Prepositions of Place",
+  "skill": "Prepositions of Place",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "in_front_of",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Where is the sofa compared with the cat?",
+  "question": "Where is the sofa compared with the cat?",
+  "spokenPrompt": "Where is the sofa compared with the cat?",
+  "choices": [
+   "inside the cat",
+   "in front of the cat",
+   "behind the cat",
+   "above the cat"
+  ],
+  "answerOptions": [
+   {
+    "value": "inside the cat",
+    "label": "inside the cat",
+    "text": "inside the cat"
+   },
+   {
+    "value": "in front of the cat",
+    "label": "in front of the cat",
+    "text": "in front of the cat"
+   },
+   {
+    "value": "behind the cat",
+    "label": "behind the cat",
+    "text": "behind the cat"
+   },
+   {
+    "value": "above the cat",
+    "label": "above the cat",
+    "text": "above the cat"
+   }
+  ],
+  "answer": "in front of the cat",
+  "correctAnswer": "in front of the cat",
+  "distractorRationales": {
+   "inside the cat": "D-FUNCTION-SWAP",
+   "behind the cat": "D-FUNCTION-SWAP",
+   "above the cat": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "image+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "inverse_spatial_relation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
+  "targetWord": "cat-behind-sofa",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.in_front_of.v104",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/grammar-scenes/cat-behind-sofa.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "A cat and a blue sofa."
+  },
+  "requiredImageAssetKey": "cat-behind-sofa",
+  "stimulusMediaId": "cat-behind-sofa",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The referenced object changes from the existing question: identify the inverse relationship in the inspected scene. This shared image is not counted as a new scene or independent retention evidence.",
+  "imagePath": "/images/assessment/grammar-scenes/cat-behind-sofa.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/cat-behind-sofa.webp",
+  "targetImage": "/images/assessment/grammar-scenes/cat-behind-sofa.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/cat-behind-sofa.webp",
+  "resolvedImageAssetKey": "cat-behind-sofa",
+  "imageAlt": "A cat and a blue sofa."
+ },
+ {
+  "id": "lp3.prepositions_of_place.l1.B.under.v105",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prepositions_of_place",
+  "assessmentSkillId": "prepositions_of_place",
+  "skillName": "Prepositions of Place",
+  "skill": "Prepositions of Place",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "under",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Where does the stream flow?",
+  "question": "Where does the stream flow?",
+  "spokenPrompt": "Where does the stream flow?",
+  "choices": [
+   "inside the bridge",
+   "under the bridge",
+   "on the bridge",
+   "above the bridge"
+  ],
+  "answerOptions": [
+   {
+    "value": "inside the bridge",
+    "label": "inside the bridge",
+    "text": "inside the bridge"
+   },
+   {
+    "value": "under the bridge",
+    "label": "under the bridge",
+    "text": "under the bridge"
+   },
+   {
+    "value": "on the bridge",
+    "label": "on the bridge",
+    "text": "on the bridge"
+   },
+   {
+    "value": "above the bridge",
+    "label": "above the bridge",
+    "text": "above the bridge"
+   }
+  ],
+  "answer": "under the bridge",
+  "correctAnswer": "under the bridge",
+  "distractorRationales": {
+   "above the bridge": "D-FUNCTION-SWAP",
+   "inside the bridge": "D-FUNCTION-SWAP",
+   "on the bridge": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "image+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "inverse_spatial_relation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
+  "targetWord": "bridge-over-stream",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.B.under.v105",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/grammar-scenes/bridge-over-stream.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "A wooden bridge and a stream."
+  },
+  "requiredImageAssetKey": "bridge-over-stream",
+  "stimulusMediaId": "bridge-over-stream",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The referenced object changes from the existing question: identify the inverse relationship in the inspected scene. This shared image is not counted as a new scene or independent retention evidence.",
+  "imagePath": "/images/assessment/grammar-scenes/bridge-over-stream.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/bridge-over-stream.webp",
+  "targetImage": "/images/assessment/grammar-scenes/bridge-over-stream.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/bridge-over-stream.webp",
+  "resolvedImageAssetKey": "bridge-over-stream",
+  "imageAlt": "A wooden bridge and a stream."
+ },
+ {
+  "id": "lp3.prepositions_of_place.l1.C.below.v106",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prepositions_of_place",
+  "assessmentSkillId": "prepositions_of_place",
+  "skillName": "Prepositions of Place",
+  "skill": "Prepositions of Place",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "below",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Where is the table compared with the light?",
+  "question": "Where is the table compared with the light?",
+  "spokenPrompt": "Where is the table compared with the light?",
+  "choices": [
+   "inside the light",
+   "behind the light",
+   "below the light",
+   "above the light"
+  ],
+  "answerOptions": [
+   {
+    "value": "inside the light",
+    "label": "inside the light",
+    "text": "inside the light"
+   },
+   {
+    "value": "behind the light",
+    "label": "behind the light",
+    "text": "behind the light"
+   },
+   {
+    "value": "below the light",
+    "label": "below the light",
+    "text": "below the light"
+   },
+   {
+    "value": "above the light",
+    "label": "above the light",
+    "text": "above the light"
+   }
+  ],
+  "answer": "below the light",
+  "correctAnswer": "below the light",
+  "distractorRationales": {
+   "behind the light": "D-FUNCTION-SWAP",
+   "above the light": "D-FUNCTION-SWAP",
+   "inside the light": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "image+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "inverse_spatial_relation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
+  "targetWord": "light-above-table",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.C.below.v106",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/grammar-scenes/light-above-table.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "A hanging light and a table."
+  },
+  "requiredImageAssetKey": "light-above-table",
+  "stimulusMediaId": "light-above-table",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The referenced object changes from the existing question: identify the inverse relationship in the inspected scene. This shared image is not counted as a new scene or independent retention evidence.",
+  "imagePath": "/images/assessment/grammar-scenes/light-above-table.webp",
+  "imageUrl": "/images/assessment/grammar-scenes/light-above-table.webp",
+  "targetImage": "/images/assessment/grammar-scenes/light-above-table.webp",
+  "targetImagePath": "/images/assessment/grammar-scenes/light-above-table.webp",
+  "resolvedImageAssetKey": "light-above-table",
+  "imageAlt": "A hanging light and a table."
+ },
+ {
+  "id": "lp3.prepositions_of_place.l2.A.inside_outside.v107",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prepositions_of_place",
+  "assessmentSkillId": "prepositions_of_place",
+  "skillName": "Prepositions of Place",
+  "skill": "Prepositions of Place",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "inside_outside",
+  "formatType": "PREPOSITION_PRECISION",
+  "templateType": "PREPOSITION_PRECISION",
+  "questionType": "multiple_choice",
+  "prompt": "Which phrase fits? The flowers grow ___.",
+  "question": "Which phrase fits? The flowers grow ___.",
+  "spokenPrompt": "Which phrase fits? The flowers grow ….",
+  "choices": [
+   "above the fence",
+   "on top of the fence",
+   "inside the fence",
+   "outside the fence"
+  ],
+  "answerOptions": [
+   {
+    "value": "above the fence",
+    "label": "above the fence",
+    "text": "above the fence"
+   },
+   {
+    "value": "on top of the fence",
+    "label": "on top of the fence",
+    "text": "on top of the fence"
+   },
+   {
+    "value": "inside the fence",
+    "label": "inside the fence",
+    "text": "inside the fence"
+   },
+   {
+    "value": "outside the fence",
+    "label": "outside the fence",
+    "text": "outside the fence"
+   }
+  ],
+  "answer": "inside the fence",
+  "correctAnswer": "inside the fence",
+  "distractorRationales": {
+   "above the fence": "D-FUNCTION-SWAP",
+   "on top of the fence": "D-FUNCTION-SWAP",
+   "outside the fence": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "image+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "inverse_spatial_relation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
+  "targetWord": "fence_around_garden",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.A.inside_outside.v107",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/fence-around-garden-fd900b5e.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "Flowers, soil and a wooden fence."
+  },
+  "requiredImageAssetKey": "fence_around_garden",
+  "stimulusMediaId": "fence_around_garden",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The referenced object changes from the existing question: identify the inverse relationship in the inspected scene. This shared image is not counted as a new scene or independent retention evidence.",
+  "imagePath": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
+  "imageUrl": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
+  "targetImage": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
+  "targetImagePath": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
+  "resolvedImageAssetKey": "fence_around_garden",
+  "imageAlt": "Flowers, soil and a wooden fence."
+ },
+ {
+  "id": "lp3.prepositions_of_place.l2.B.around.v108",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prepositions_of_place",
+  "assessmentSkillId": "prepositions_of_place",
+  "skillName": "Prepositions of Place",
+  "skill": "Prepositions of Place",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "around",
+  "formatType": "PREPOSITION_PRECISION",
+  "templateType": "PREPOSITION_PRECISION",
+  "questionType": "multiple_choice",
+  "prompt": "Which phrase fits? The trees stand ___.",
+  "question": "Which phrase fits? The trees stand ___.",
+  "spokenPrompt": "Which phrase fits? The trees stand ….",
+  "choices": [
+   "on top of the deer",
+   "around the deer",
+   "inside the deer",
+   "under the deer"
+  ],
+  "answerOptions": [
+   {
+    "value": "on top of the deer",
+    "label": "on top of the deer",
+    "text": "on top of the deer"
+   },
+   {
+    "value": "around the deer",
+    "label": "around the deer",
+    "text": "around the deer"
+   },
+   {
+    "value": "inside the deer",
+    "label": "inside the deer",
+    "text": "inside the deer"
+   },
+   {
+    "value": "under the deer",
+    "label": "under the deer",
+    "text": "under the deer"
+   }
+  ],
+  "answer": "around the deer",
+  "correctAnswer": "around the deer",
+  "distractorRationales": {
+   "inside the deer": "D-FUNCTION-SWAP",
+   "under the deer": "D-FUNCTION-SWAP",
+   "on top of the deer": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "image+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "inverse_spatial_relation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
+  "targetWord": "deer_among_trees",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.B.around.v108",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/deer-among-trees-d0bca87e.webp"
+   ],
+   "constructReview": "approved",
+   "answerNeutral": "approved",
+   "alt": "A deer and several trees."
+  },
+  "requiredImageAssetKey": "deer_among_trees",
+  "stimulusMediaId": "deer_among_trees",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The referenced object changes from the existing question: identify the inverse relationship in the inspected scene. This shared image is not counted as a new scene or independent retention evidence.",
+  "imagePath": "/images/assessment/release-media/deer-among-trees-d0bca87e.webp",
+  "imageUrl": "/images/assessment/release-media/deer-among-trees-d0bca87e.webp",
+  "targetImage": "/images/assessment/release-media/deer-among-trees-d0bca87e.webp",
+  "targetImagePath": "/images/assessment/release-media/deer-among-trees-d0bca87e.webp",
+  "resolvedImageAssetKey": "deer_among_trees",
+  "imageAlt": "A deer and several trees."
  }
 ];

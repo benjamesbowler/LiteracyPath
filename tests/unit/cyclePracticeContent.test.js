@@ -66,7 +66,7 @@ test('every authored question and picture choice uses real local media and a rec
 test('beginning sounds, endings, and rimes have exactly one defensible picture answer', () => {
   for (const cycle of cycles) for (let variant = 0; variant < 3; variant++) {
     const pools = buildCyclePracticePools(cycle, `ambiguity:${variant}`);
-    for (const round of pools.pictureSound) {
+    for (const round of pools.pictureSound.filter(item => item.variant !== 'wordMeaning')) {
       const valid = round.choices.filter(choice => cycleSoundMatches(choice.value, round.targetGrapheme, round.soundPosition));
       assert.deepEqual(valid.map(choice => choice.value), [round.answer], `${round.id}: ${round.choices.map(c => c.value)}`);
     }
@@ -323,8 +323,8 @@ test('all 27 Cycle Check decks retain a stable contract after direct-activity an
   // Reviewed CVC pictures, rejected-image exclusions and retiring multi-step
   // activities change affected items. Focus, HFW, independent-response and
   // media validity are checked above; pin this corrected check selection.
-  // The image-compression revision changes only PNG URLs to equivalent WebP
-  // files; all 27 decks retain the same questions, choices and answers.
+  // Final-phoneme exceptions and /kw/, /ks/ overlaps remove false-negative
+  // distractors. The assigned target scope and independent check stay fixed.
   const hashes = cycles.map(cycle => createHash('sha256').update(JSON.stringify(buildCyclePracticePlan(cycle, 'check-contract', 0, true).rounds)).digest('hex'));
-  assert.equal(createHash('sha256').update(hashes.join('|')).digest('hex'), '64e2ed69331fed43aaec2d762e8c8b36f466ce0dacfdb3aa799fcc6c80ac7264');
+  assert.equal(createHash('sha256').update(hashes.join('|')).digest('hex'), '61b2e10edacd216ff5c555a3d6471b34750c2c1cab62306f4e8fad992151f61c');
 });

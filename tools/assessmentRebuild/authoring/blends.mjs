@@ -1,3 +1,4 @@
+import depthItems from "./depth/blends.mjs";
 // Blends — v3 authored bank (wave W5, paired with short_vowel_discrimination).
 // Curated from the audit's 38-key sprawl to 12 units per level (D-small, 4
 // variants each). L1: beginning blends. L2: harder beginnings + final blends
@@ -82,7 +83,7 @@ const mpd = (u, lvl, ph, v, word, words, rationales, note = "") => ({
   note
 });
 
-export default {
+const bank = {
   skillId: "blends",
   skillName: "Blends",
   imageResolver: resolver,
@@ -347,3 +348,6 @@ export default {
     return item;
   })
 };
+
+bank.items.push(...depthItems);
+export default bank;

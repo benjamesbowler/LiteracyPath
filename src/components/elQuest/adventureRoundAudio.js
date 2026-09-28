@@ -15,11 +15,15 @@ export const ADVENTURE_MAP_INSTRUCTIONS = Object.freeze({
   soundChoiceTeam: "Listen. Choose the letter team for this sound.",
   soundChoiceEnding: "Choose the ending letters.",
   sceneHunt: "Find the picture that starts with this sound.",
+  sceneHuntEnding: "Listen. Tap the picture that ends with this sound.",
+  sceneHuntEndingChunk: "Listen. Tap the picture with this ending.",
+  pictureMeaning: "Listen. Tap the picture.",
   wordMemory: "Turn over two cards. Find the matching words.",
   sightWordChoice: "Listen. Tap the word.",
   letterGrid: "Find all the big and small letters.",
   missingLetterStart: "Choose the first letter.",
   missingLetterEnd: "Choose the last letter.",
+  missingLetterMiddle: "Listen. Tap the missing letter.",
   rhymePair: "Find the two words that rhyme.",
   compoundPicture: "What word do these two pictures make?",
   pictureSearch: "Find all the pictures that start with this sound."
@@ -75,7 +79,10 @@ export function resolveAdventureRoundAudio(round = {}) {
         [round.audio]
       );
     case "sceneHunt":
-      return result(ADVENTURE_MAP_INSTRUCTIONS.sceneHunt, [round.audio]);
+      return result(round.variant === 'wordMeaning' ? ADVENTURE_MAP_INSTRUCTIONS.pictureMeaning
+        : round.endingUnit === 'chunk' ? ADVENTURE_MAP_INSTRUCTIONS.sceneHuntEndingChunk
+        : round.soundPosition === 'ending' ? ADVENTURE_MAP_INSTRUCTIONS.sceneHuntEnding
+          : ADVENTURE_MAP_INSTRUCTIONS.sceneHunt, [round.audio]);
     case "wordMemory":
       return result(ADVENTURE_MAP_INSTRUCTIONS.wordMemory);
     case "sightWordChoice":
@@ -88,6 +95,7 @@ export function resolveAdventureRoundAudio(round = {}) {
       return result(
         round.missingPosition === "end"
           ? ADVENTURE_MAP_INSTRUCTIONS.missingLetterEnd
+          : round.missingPosition === "middle" ? ADVENTURE_MAP_INSTRUCTIONS.missingLetterMiddle
           : ADVENTURE_MAP_INSTRUCTIONS.missingLetterStart,
         [round.audio || getLedaWordAudioPath(round.word || round.answer)]
       );

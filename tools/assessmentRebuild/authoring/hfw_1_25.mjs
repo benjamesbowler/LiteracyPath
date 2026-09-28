@@ -1,3 +1,4 @@
+import depthItems from "./depth/hfw_1_25.mjs";
 // HFW Band 1 (words 1–25) — v3 authored bank (wave W7, paired with hfw_26_50).
 // The P0 fix: itemKey IS the word (25 units), never a per-question key.
 // L1 read & choose: HFW_SENTENCE_CLOZE (the complete spoken sentence leaves
@@ -91,7 +92,7 @@ const FS = "D-FUNCTION-SWAP";
 const VN = "D-VISUAL-NEIGHBOR";
 const DV = "D-DEVELOPMENTAL";
 
-export default {
+const bank = {
   skillId: "hfw_1_25",
   skillName: "High-Frequency Words 1–25",
   items: [
@@ -257,3 +258,6 @@ export default {
     return item;
   })
 };
+
+bank.items.push(...depthItems);
+export default bank;

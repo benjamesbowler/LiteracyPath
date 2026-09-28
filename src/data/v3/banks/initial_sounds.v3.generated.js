@@ -17584,5 +17584,4421 @@ export const questions = [
     "imageAlt": "moon"
    }
   ]
+ },
+ {
+  "id": "lp3.initial_sounds.l1.A.a.v101",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "initial_sound",
+  "itemKey": "a",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Axe. Which letter matches the first sound?",
+  "choices": [
+   "a",
+   "e",
+   "o",
+   "s"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   }
+  ],
+  "answer": "a",
+  "correctAnswer": "a",
+  "distractorRationales": {
+   "o": "D-VOWEL",
+   "s": "D-POSITION",
+   "e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "axe",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.A.a.v101",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target axe; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.B.a.v102",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "initial_sound",
+  "itemKey": "a",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Alligator. Which letter matches the first sound?",
+  "choices": [
+   "a",
+   "i",
+   "g",
+   "l"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
+   }
+  ],
+  "answer": "a",
+  "correctAnswer": "a",
+  "distractorRationales": {
+   "l": "D-POSITION",
+   "i": "D-VOWEL",
+   "g": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "alligator",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.B.a.v102",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to alligator, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.C.b.v103",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "initial_sound",
+  "itemKey": "b",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Bat. Which letter matches the first sound?",
+  "choices": [
+   "a",
+   "t",
+   "b",
+   "p"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "b",
+    "label": "b",
+    "text": "b"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   }
+  ],
+  "answer": "b",
+  "correctAnswer": "b",
+  "distractorRationales": {
+   "p": "D-ONSET",
+   "a": "D-VOWEL",
+   "t": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "bat",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.C.b.v103",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target bat; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.A.b.v104",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "initial_sound",
+  "itemKey": "b",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Basketball. Which letter matches the first sound?",
+  "choices": [
+   "l",
+   "b",
+   "p",
+   "s"
+  ],
+  "answerOptions": [
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
+   },
+   {
+    "value": "b",
+    "label": "b",
+    "text": "b"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   }
+  ],
+  "answer": "b",
+  "correctAnswer": "b",
+  "distractorRationales": {
+   "p": "D-ONSET",
+   "s": "D-POSITION",
+   "l": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "basketball",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.A.b.v104",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to basketball, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.B.c.v105",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "initial_sound",
+  "itemKey": "c",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Cup. Which letter matches the first sound?",
+  "choices": [
+   "p",
+   "c",
+   "g",
+   "u"
+  ],
+  "answerOptions": [
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   },
+   {
+    "value": "c",
+    "label": "c",
+    "text": "c"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   }
+  ],
+  "answer": "c",
+  "correctAnswer": "c",
+  "distractorRationales": {
+   "p": "D-POSITION",
+   "g": "D-ONSET",
+   "u": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "cup",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.B.c.v105",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target cup; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.C.c.v106",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "initial_sound",
+  "itemKey": "c",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Cucumber. Which letter matches the first sound?",
+  "choices": [
+   "g",
+   "m",
+   "b",
+   "c"
+  ],
+  "answerOptions": [
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
+   {
+    "value": "m",
+    "label": "m",
+    "text": "m"
+   },
+   {
+    "value": "b",
+    "label": "b",
+    "text": "b"
+   },
+   {
+    "value": "c",
+    "label": "c",
+    "text": "c"
+   }
+  ],
+  "answer": "c",
+  "correctAnswer": "c",
+  "distractorRationales": {
+   "g": "D-ONSET",
+   "m": "D-POSITION",
+   "b": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "cucumber",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.C.c.v106",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to cucumber, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.A.d.v107",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "initial_sound",
+  "itemKey": "d",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Dot. Which letter matches the first sound?",
+  "choices": [
+   "t",
+   "d",
+   "b",
+   "o"
+  ],
+  "answerOptions": [
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
+   },
+   {
+    "value": "b",
+    "label": "b",
+    "text": "b"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   }
+  ],
+  "answer": "d",
+  "correctAnswer": "d",
+  "distractorRationales": {
+   "b": "D-ONSET",
+   "o": "D-VOWEL",
+   "t": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "dot",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.A.d.v107",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target dot; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.B.d.v108",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "initial_sound",
+  "itemKey": "d",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Dragon. Which letter matches the first sound?",
+  "choices": [
+   "g",
+   "d",
+   "t",
+   "r"
+  ],
+  "answerOptions": [
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "r",
+    "label": "r",
+    "text": "r"
+   }
+  ],
+  "answer": "d",
+  "correctAnswer": "d",
+  "distractorRationales": {
+   "t": "D-ONSET",
+   "r": "D-POSITION",
+   "g": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "dragon",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.B.d.v108",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to dragon, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.C.e.v109",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "initial_sound",
+  "itemKey": "e",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "End. Which letter matches the first sound?",
+  "choices": [
+   "i",
+   "n",
+   "d",
+   "e"
+  ],
+  "answerOptions": [
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   },
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   }
+  ],
+  "answer": "e",
+  "correctAnswer": "e",
+  "distractorRationales": {
+   "i": "D-VOWEL",
+   "n": "D-POSITION",
+   "d": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "end",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.C.e.v109",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target end; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.A.e.v110",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "initial_sound",
+  "itemKey": "e",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Exit. Which letter matches the first sound?",
+  "choices": [
+   "s",
+   "t",
+   "e",
+   "a"
+  ],
+  "answerOptions": [
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   }
+  ],
+  "answer": "e",
+  "correctAnswer": "e",
+  "distractorRationales": {
+   "t": "D-POSITION",
+   "a": "D-VOWEL",
+   "s": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "exit",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.A.e.v110",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to exit, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.B.f.v111",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "initial_sound",
+  "itemKey": "f",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Foot. Which letter matches the first sound?",
+  "choices": [
+   "u",
+   "t",
+   "f",
+   "v"
+  ],
+  "answerOptions": [
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "f",
+    "label": "f",
+    "text": "f"
+   },
+   {
+    "value": "v",
+    "label": "v",
+    "text": "v"
+   }
+  ],
+  "answer": "f",
+  "correctAnswer": "f",
+  "distractorRationales": {
+   "t": "D-POSITION",
+   "v": "D-ONSET",
+   "u": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "foot",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.B.f.v111",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target foot; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.C.f.v112",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "initial_sound",
+  "itemKey": "f",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Factory. Which letter matches the first sound?",
+  "choices": [
+   "f",
+   "v",
+   "k",
+   "r"
+  ],
+  "answerOptions": [
+   {
+    "value": "f",
+    "label": "f",
+    "text": "f"
+   },
+   {
+    "value": "v",
+    "label": "v",
+    "text": "v"
+   },
+   {
+    "value": "k",
+    "label": "k",
+    "text": "k"
+   },
+   {
+    "value": "r",
+    "label": "r",
+    "text": "r"
+   }
+  ],
+  "answer": "f",
+  "correctAnswer": "f",
+  "distractorRationales": {
+   "v": "D-ONSET",
+   "k": "D-POSITION",
+   "r": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "factory",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.C.f.v112",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to factory, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.A.g.v113",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "initial_sound",
+  "itemKey": "g",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Gum. Which letter matches the first sound?",
+  "choices": [
+   "u",
+   "m",
+   "g",
+   "k"
+  ],
+  "answerOptions": [
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "m",
+    "label": "m",
+    "text": "m"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
+   {
+    "value": "k",
+    "label": "k",
+    "text": "k"
+   }
+  ],
+  "answer": "g",
+  "correctAnswer": "g",
+  "distractorRationales": {
+   "m": "D-POSITION",
+   "k": "D-ONSET",
+   "u": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "gum",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.A.g.v113",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target gum; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.B.g.v114",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "initial_sound",
+  "itemKey": "g",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Goldfish. Which letter matches the first sound?",
+  "choices": [
+   "l",
+   "f",
+   "g",
+   "k"
+  ],
+  "answerOptions": [
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
+   },
+   {
+    "value": "f",
+    "label": "f",
+    "text": "f"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
+   {
+    "value": "k",
+    "label": "k",
+    "text": "k"
+   }
+  ],
+  "answer": "g",
+  "correctAnswer": "g",
+  "distractorRationales": {
+   "l": "D-POSITION",
+   "f": "D-POSITION",
+   "k": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "goldfish",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.B.g.v114",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to goldfish, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.C.h.v115",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "initial_sound",
+  "itemKey": "h",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Hip. Which letter matches the first sound?",
+  "choices": [
+   "h",
+   "n",
+   "i",
+   "p"
+  ],
+  "answerOptions": [
+   {
+    "value": "h",
+    "label": "h",
+    "text": "h"
+   },
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   }
+  ],
+  "answer": "h",
+  "correctAnswer": "h",
+  "distractorRationales": {
+   "n": "D-ONSET",
+   "i": "D-VOWEL",
+   "p": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "hip",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.C.h.v115",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target hip; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.A.h.v116",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "initial_sound",
+  "itemKey": "h",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Hamster. Which letter matches the first sound?",
+  "choices": [
+   "n",
+   "m",
+   "s",
+   "h"
+  ],
+  "answerOptions": [
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   },
+   {
+    "value": "m",
+    "label": "m",
+    "text": "m"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   },
+   {
+    "value": "h",
+    "label": "h",
+    "text": "h"
+   }
+  ],
+  "answer": "h",
+  "correctAnswer": "h",
+  "distractorRationales": {
+   "n": "D-ONSET",
+   "m": "D-POSITION",
+   "s": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "hamster",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.A.h.v116",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to hamster, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.B.i.v117",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "initial_sound",
+  "itemKey": "i",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Ill. Which letter matches the first sound?",
+  "choices": [
+   "e",
+   "l",
+   "u",
+   "i"
+  ],
+  "answerOptions": [
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   }
+  ],
+  "answer": "i",
+  "correctAnswer": "i",
+  "distractorRationales": {
+   "l": "D-POSITION",
+   "u": "D-VOWEL",
+   "e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "ill",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.B.i.v117",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target ill; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.C.i.v118",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "initial_sound",
+  "itemKey": "i",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Impossible. Which letter matches the first sound?",
+  "choices": [
+   "p",
+   "i",
+   "e",
+   "m"
+  ],
+  "answerOptions": [
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "m",
+    "label": "m",
+    "text": "m"
+   }
+  ],
+  "answer": "i",
+  "correctAnswer": "i",
+  "distractorRationales": {
+   "e": "D-VOWEL",
+   "m": "D-POSITION",
+   "p": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "impossible",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.C.i.v118",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to impossible, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.A.j.v119",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "initial_sound",
+  "itemKey": "j",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Jog. Which letter matches the first sound?",
+  "choices": [
+   "y",
+   "o",
+   "g",
+   "j"
+  ],
+  "answerOptions": [
+   {
+    "value": "y",
+    "label": "y",
+    "text": "y"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
+   {
+    "value": "j",
+    "label": "j",
+    "text": "j"
+   }
+  ],
+  "answer": "j",
+  "correctAnswer": "j",
+  "distractorRationales": {
+   "y": "D-ONSET",
+   "o": "D-VOWEL",
+   "g": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "jog",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.A.j.v119",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target jog; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.B.j.v120",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "initial_sound",
+  "itemKey": "j",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Jigsaw. Which letter matches the first sound?",
+  "choices": [
+   "y",
+   "s",
+   "i",
+   "j"
+  ],
+  "answerOptions": [
+   {
+    "value": "y",
+    "label": "y",
+    "text": "y"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "j",
+    "label": "j",
+    "text": "j"
+   }
+  ],
+  "answer": "j",
+  "correctAnswer": "j",
+  "distractorRationales": {
+   "y": "D-ONSET",
+   "s": "D-POSITION",
+   "i": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "jigsaw",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.B.j.v120",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to jigsaw, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.C.k.v121",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "initial_sound",
+  "itemKey": "k",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Kid. Which letter matches the first sound?",
+  "choices": [
+   "d",
+   "k",
+   "g",
+   "i"
+  ],
+  "answerOptions": [
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
+   },
+   {
+    "value": "k",
+    "label": "k",
+    "text": "k"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   }
+  ],
+  "answer": "k",
+  "correctAnswer": "k",
+  "distractorRationales": {
+   "g": "D-ONSET",
+   "i": "D-VOWEL",
+   "d": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "kid",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.C.k.v121",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target kid; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.A.k.v122",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "initial_sound",
+  "itemKey": "k",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Kitten. Which letter matches the first sound?",
+  "choices": [
+   "k",
+   "g",
+   "t",
+   "n"
+  ],
+  "answerOptions": [
+   {
+    "value": "k",
+    "label": "k",
+    "text": "k"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   }
+  ],
+  "answer": "k",
+  "correctAnswer": "k",
+  "distractorRationales": {
+   "g": "D-ONSET",
+   "t": "D-POSITION",
+   "n": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "kitten",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.A.k.v122",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to kitten, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.B.l.v123",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "initial_sound",
+  "itemKey": "l",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Lip. Which letter matches the first sound?",
+  "choices": [
+   "l",
+   "n",
+   "i",
+   "p"
+  ],
+  "answerOptions": [
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
+   },
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   }
+  ],
+  "answer": "l",
+  "correctAnswer": "l",
+  "distractorRationales": {
+   "n": "D-ONSET",
+   "i": "D-VOWEL",
+   "p": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "lip",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.B.l.v123",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target lip; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.C.l.v124",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "initial_sound",
+  "itemKey": "l",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Lizard. Which letter matches the first sound?",
+  "choices": [
+   "z",
+   "d",
+   "l",
+   "r"
+  ],
+  "answerOptions": [
+   {
+    "value": "z",
+    "label": "z",
+    "text": "z"
+   },
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
+   },
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
+   },
+   {
+    "value": "r",
+    "label": "r",
+    "text": "r"
+   }
+  ],
+  "answer": "l",
+  "correctAnswer": "l",
+  "distractorRationales": {
+   "d": "D-POSITION",
+   "r": "D-ONSET",
+   "z": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "lizard",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.C.l.v124",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to lizard, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.A.m.v125",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "initial_sound",
+  "itemKey": "m",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Mud. Which letter matches the first sound?",
+  "choices": [
+   "m",
+   "n",
+   "u",
+   "d"
+  ],
+  "answerOptions": [
+   {
+    "value": "m",
+    "label": "m",
+    "text": "m"
+   },
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
+   }
+  ],
+  "answer": "m",
+  "correctAnswer": "m",
+  "distractorRationales": {
+   "n": "D-ONSET",
+   "u": "D-VOWEL",
+   "d": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "mud",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.A.m.v125",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target mud; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.B.m.v126",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "initial_sound",
+  "itemKey": "m",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Monkey. Which letter matches the first sound?",
+  "choices": [
+   "m",
+   "n",
+   "k",
+   "e"
+  ],
+  "answerOptions": [
+   {
+    "value": "m",
+    "label": "m",
+    "text": "m"
+   },
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   },
+   {
+    "value": "k",
+    "label": "k",
+    "text": "k"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   }
+  ],
+  "answer": "m",
+  "correctAnswer": "m",
+  "distractorRationales": {
+   "n": "D-ONSET",
+   "k": "D-POSITION",
+   "e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "monkey",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.B.m.v126",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to monkey, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.C.n.v127",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "initial_sound",
+  "itemKey": "n",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Nap. Which letter matches the first sound?",
+  "choices": [
+   "a",
+   "p",
+   "n",
+   "m"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   },
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   },
+   {
+    "value": "m",
+    "label": "m",
+    "text": "m"
+   }
+  ],
+  "answer": "n",
+  "correctAnswer": "n",
+  "distractorRationales": {
+   "p": "D-POSITION",
+   "m": "D-ONSET",
+   "a": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "nap",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.C.n.v127",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target nap; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.A.n.v128",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "initial_sound",
+  "itemKey": "n",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Napkin. Which letter matches the first sound?",
+  "choices": [
+   "k",
+   "n",
+   "m",
+   "p"
+  ],
+  "answerOptions": [
+   {
+    "value": "k",
+    "label": "k",
+    "text": "k"
+   },
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   },
+   {
+    "value": "m",
+    "label": "m",
+    "text": "m"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   }
+  ],
+  "answer": "n",
+  "correctAnswer": "n",
+  "distractorRationales": {
+   "k": "D-POSITION",
+   "m": "D-ONSET",
+   "p": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "napkin",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.A.n.v128",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to napkin, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.B.o.v129",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "initial_sound",
+  "itemKey": "o",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Off. Which letter matches the first sound?",
+  "choices": [
+   "e",
+   "o",
+   "a",
+   "f"
+  ],
+  "answerOptions": [
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "f",
+    "label": "f",
+    "text": "f"
+   }
+  ],
+  "answer": "o",
+  "correctAnswer": "o",
+  "distractorRationales": {
+   "a": "D-VOWEL",
+   "f": "D-POSITION",
+   "e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "off",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.B.o.v129",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target off; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.C.o.v130",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "initial_sound",
+  "itemKey": "o",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Office. Which letter matches the first sound?",
+  "choices": [
+   "a",
+   "f",
+   "s",
+   "o"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "f",
+    "label": "f",
+    "text": "f"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   }
+  ],
+  "answer": "o",
+  "correctAnswer": "o",
+  "distractorRationales": {
+   "a": "D-VOWEL",
+   "f": "D-POSITION",
+   "s": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "office",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.C.o.v130",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to office, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.A.p.v131",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "initial_sound",
+  "itemKey": "p",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Pot. Which letter matches the first sound?",
+  "choices": [
+   "t",
+   "p",
+   "b",
+   "o"
+  ],
+  "answerOptions": [
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   },
+   {
+    "value": "b",
+    "label": "b",
+    "text": "b"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   }
+  ],
+  "answer": "p",
+  "correctAnswer": "p",
+  "distractorRationales": {
+   "b": "D-ONSET",
+   "o": "D-VOWEL",
+   "t": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "pot",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.A.p.v131",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target pot; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.B.p.v132",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "initial_sound",
+  "itemKey": "p",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Pineapple. Which letter matches the first sound?",
+  "choices": [
+   "l",
+   "p",
+   "b",
+   "n"
+  ],
+  "answerOptions": [
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   },
+   {
+    "value": "b",
+    "label": "b",
+    "text": "b"
+   },
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   }
+  ],
+  "answer": "p",
+  "correctAnswer": "p",
+  "distractorRationales": {
+   "b": "D-ONSET",
+   "n": "D-POSITION",
+   "l": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "pineapple",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.B.p.v132",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to pineapple, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.C.r.v133",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "initial_sound",
+  "itemKey": "r",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Rug. Which letter matches the first sound?",
+  "choices": [
+   "w",
+   "u",
+   "g",
+   "r"
+  ],
+  "answerOptions": [
+   {
+    "value": "w",
+    "label": "w",
+    "text": "w"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
+   {
+    "value": "r",
+    "label": "r",
+    "text": "r"
+   }
+  ],
+  "answer": "r",
+  "correctAnswer": "r",
+  "distractorRationales": {
+   "u": "D-VOWEL",
+   "g": "D-POSITION",
+   "w": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "rug",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.C.r.v133",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target rug; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.A.r.v134",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "initial_sound",
+  "itemKey": "r",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Rabbit. Which letter matches the first sound?",
+  "choices": [
+   "b",
+   "t",
+   "r",
+   "w"
+  ],
+  "answerOptions": [
+   {
+    "value": "b",
+    "label": "b",
+    "text": "b"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "r",
+    "label": "r",
+    "text": "r"
+   },
+   {
+    "value": "w",
+    "label": "w",
+    "text": "w"
+   }
+  ],
+  "answer": "r",
+  "correctAnswer": "r",
+  "distractorRationales": {
+   "b": "D-POSITION",
+   "t": "D-POSITION",
+   "w": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "rabbit",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.A.r.v134",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to rabbit, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.B.s.v135",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "initial_sound",
+  "itemKey": "s",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Sad. Which letter matches the first sound?",
+  "choices": [
+   "a",
+   "d",
+   "s",
+   "z"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   },
+   {
+    "value": "z",
+    "label": "z",
+    "text": "z"
+   }
+  ],
+  "answer": "s",
+  "correctAnswer": "s",
+  "distractorRationales": {
+   "z": "D-ONSET",
+   "a": "D-VOWEL",
+   "d": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "sad",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.B.s.v135",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target sad; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.C.s.v136",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "initial_sound",
+  "itemKey": "s",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Seahorse. Which letter matches the first sound?",
+  "choices": [
+   "s",
+   "z",
+   "h",
+   "r"
+  ],
+  "answerOptions": [
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   },
+   {
+    "value": "z",
+    "label": "z",
+    "text": "z"
+   },
+   {
+    "value": "h",
+    "label": "h",
+    "text": "h"
+   },
+   {
+    "value": "r",
+    "label": "r",
+    "text": "r"
+   }
+  ],
+  "answer": "s",
+  "correctAnswer": "s",
+  "distractorRationales": {
+   "r": "D-POSITION",
+   "z": "D-ONSET",
+   "h": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "seahorse",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.C.s.v136",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to seahorse, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.A.t.v137",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "initial_sound",
+  "itemKey": "t",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Tap. Which letter matches the first sound?",
+  "choices": [
+   "a",
+   "p",
+   "t",
+   "d"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
+   }
+  ],
+  "answer": "t",
+  "correctAnswer": "t",
+  "distractorRationales": {
+   "a": "D-VOWEL",
+   "p": "D-POSITION",
+   "d": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "tap",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.A.t.v137",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target tap; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.B.t.v138",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "initial_sound",
+  "itemKey": "t",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Toothbrush. Which letter matches the first sound?",
+  "choices": [
+   "b",
+   "u",
+   "t",
+   "d"
+  ],
+  "answerOptions": [
+   {
+    "value": "b",
+    "label": "b",
+    "text": "b"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
+   }
+  ],
+  "answer": "t",
+  "correctAnswer": "t",
+  "distractorRationales": {
+   "u": "D-VOWEL",
+   "d": "D-ONSET",
+   "b": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "toothbrush",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.B.t.v138",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to toothbrush, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.C.u.v139",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "initial_sound",
+  "itemKey": "u",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Us. Which letter matches the first sound?",
+  "choices": [
+   "u",
+   "o",
+   "s",
+   "i"
+  ],
+  "answerOptions": [
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   }
+  ],
+  "answer": "u",
+  "correctAnswer": "u",
+  "distractorRationales": {
+   "i": "D-VOWEL",
+   "o": "D-VOWEL",
+   "s": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "us",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.C.u.v139",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target us; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.A.u.v140",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "initial_sound",
+  "itemKey": "u",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Uncle. Which letter matches the first sound?",
+  "choices": [
+   "o",
+   "k",
+   "l",
+   "u"
+  ],
+  "answerOptions": [
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "k",
+    "label": "k",
+    "text": "k"
+   },
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   }
+  ],
+  "answer": "u",
+  "correctAnswer": "u",
+  "distractorRationales": {
+   "k": "D-POSITION",
+   "l": "D-POSITION",
+   "o": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "uncle",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.A.u.v140",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to uncle, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.B.v.v141",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "initial_sound",
+  "itemKey": "v",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Vet. Which letter matches the first sound?",
+  "choices": [
+   "f",
+   "e",
+   "t",
+   "v"
+  ],
+  "answerOptions": [
+   {
+    "value": "f",
+    "label": "f",
+    "text": "f"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "v",
+    "label": "v",
+    "text": "v"
+   }
+  ],
+  "answer": "v",
+  "correctAnswer": "v",
+  "distractorRationales": {
+   "e": "D-VOWEL",
+   "t": "D-POSITION",
+   "f": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "vet",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.B.v.v141",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target vet; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.C.v.v142",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "initial_sound",
+  "itemKey": "v",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Village. Which letter matches the first sound?",
+  "choices": [
+   "i",
+   "v",
+   "f",
+   "l"
+  ],
+  "answerOptions": [
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "v",
+    "label": "v",
+    "text": "v"
+   },
+   {
+    "value": "f",
+    "label": "f",
+    "text": "f"
+   },
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
+   }
+  ],
+  "answer": "v",
+  "correctAnswer": "v",
+  "distractorRationales": {
+   "f": "D-ONSET",
+   "l": "D-POSITION",
+   "i": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "village",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.C.v.v142",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to village, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.A.w.v143",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "initial_sound",
+  "itemKey": "w",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Wig. Which letter matches the first sound?",
+  "choices": [
+   "v",
+   "i",
+   "g",
+   "w"
+  ],
+  "answerOptions": [
+   {
+    "value": "v",
+    "label": "v",
+    "text": "v"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
+   {
+    "value": "w",
+    "label": "w",
+    "text": "w"
+   }
+  ],
+  "answer": "w",
+  "correctAnswer": "w",
+  "distractorRationales": {
+   "i": "D-VOWEL",
+   "g": "D-POSITION",
+   "v": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "wig",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.A.w.v143",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target wig; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.B.w.v144",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "initial_sound",
+  "itemKey": "w",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Waterfall. Which letter matches the first sound?",
+  "choices": [
+   "v",
+   "t",
+   "l",
+   "w"
+  ],
+  "answerOptions": [
+   {
+    "value": "v",
+    "label": "v",
+    "text": "v"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
+   },
+   {
+    "value": "w",
+    "label": "w",
+    "text": "w"
+   }
+  ],
+  "answer": "w",
+  "correctAnswer": "w",
+  "distractorRationales": {
+   "l": "D-POSITION",
+   "v": "D-ONSET",
+   "t": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "waterfall",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.B.w.v144",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to waterfall, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.C.y.v145",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "initial_sound",
+  "itemKey": "y",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Yell. Which letter matches the first sound?",
+  "choices": [
+   "l",
+   "y",
+   "j",
+   "e"
+  ],
+  "answerOptions": [
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
+   },
+   {
+    "value": "y",
+    "label": "y",
+    "text": "y"
+   },
+   {
+    "value": "j",
+    "label": "j",
+    "text": "j"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   }
+  ],
+  "answer": "y",
+  "correctAnswer": "y",
+  "distractorRationales": {
+   "j": "D-ONSET",
+   "e": "D-VOWEL",
+   "l": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "yell",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.C.y.v145",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target yell; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.A.y.v146",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "initial_sound",
+  "itemKey": "y",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Yummy. Which letter matches the first sound?",
+  "choices": [
+   "y",
+   "j",
+   "u",
+   "m"
+  ],
+  "answerOptions": [
+   {
+    "value": "y",
+    "label": "y",
+    "text": "y"
+   },
+   {
+    "value": "j",
+    "label": "j",
+    "text": "j"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "m",
+    "label": "m",
+    "text": "m"
+   }
+  ],
+  "answer": "y",
+  "correctAnswer": "y",
+  "distractorRationales": {
+   "j": "D-ONSET",
+   "u": "D-VOWEL",
+   "m": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "yummy",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.A.y.v146",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to yummy, retaining later-sound interference in a longer word."
+ },
+ {
+  "id": "lp3.initial_sounds.l1.B.z.v147",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "initial_sound",
+  "itemKey": "z",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Zip. Which letter matches the first sound?",
+  "choices": [
+   "z",
+   "s",
+   "i",
+   "p"
+  ],
+  "answerOptions": [
+   {
+    "value": "z",
+    "label": "z",
+    "text": "z"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   }
+  ],
+  "answer": "z",
+  "correctAnswer": "z",
+  "distractorRationales": {
+   "s": "D-ONSET",
+   "i": "D-VOWEL",
+   "p": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "zip",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l1.B.z.v147",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the initial sound of the new familiar spoken target zip; no printed target supplies the key."
+ },
+ {
+  "id": "lp3.initial_sounds.l2.C.z.v148",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "initial_sounds",
+  "assessmentSkillId": "initial_sounds",
+  "skillName": "Initial Sounds",
+  "skill": "Initial Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "initial_sound",
+  "itemKey": "z",
+  "formatType": "FIRST_SOUND",
+  "templateType": "FIRST_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter matches the first sound?",
+  "question": "Which letter matches the first sound?",
+  "spokenPrompt": "Zigzag. Which letter matches the first sound?",
+  "choices": [
+   "g",
+   "a",
+   "z",
+   "s"
+  ],
+  "answerOptions": [
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "z",
+    "label": "z",
+    "text": "z"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   }
+  ],
+  "answer": "z",
+  "correctAnswer": "z",
+  "distractorRationales": {
+   "a": "D-VOWEL",
+   "s": "D-ONSET",
+   "g": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "initial_sound_isolation",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "zigzag",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.initial_sounds.l2.C.z.v148",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer initial-sound isolation to zigzag, retaining later-sound interference in a longer word."
  }
 ];

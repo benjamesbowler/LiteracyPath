@@ -1892,6 +1892,10 @@ export function createAssessmentRoundController(context) {
       selectionReason: answeredQuestion.selectionReason || ""
       }),
       answerEventId: makeEvidenceEventId("answer"),
+      constructClaim: answeredQuestion.constructClaim || "",
+      evidenceConstruct: answeredQuestion.constructClaim || "",
+      semanticKey: answeredQuestion.semanticKey || "",
+      coverageTags: Array.isArray(answeredQuestion.coverageTags) ? [...answeredQuestion.coverageTags] : [],
       evidenceSource: isTargetedReview ? "targeted_review" : "formal_assessment"
     };
 

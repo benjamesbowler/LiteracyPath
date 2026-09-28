@@ -57,6 +57,7 @@ export const CYCLE_PRACTICE_INSTRUCTION_AUDIO = Object.freeze({
   "listen. tap the letters that make this ending": "/audio/production/en-US/instruction/listen-tap-the-letters-that-make-this-ending-044111c36e.mp3",
   "listen. tap the letters that make this sound": "/audio/production/en-US/instruction/listen-tap-the-letters-that-make-this-sound-36b0c28f67.mp3",
   "listen. tap the letters to build the word": "/audio/production/en-US/instruction/listen-tap-the-letters-to-build-the-word-9e6471e37a.mp3",
+  "listen. tap the missing letter": "/audio/production/en-US/instruction/listen-tap-the-missing-letter-7a15eb3691.mp3",
   "listen. tap the picture": "/audio/production/en-US/instruction/listen-tap-the-picture-540f8d13c8.mp3",
   "listen. tap the picture that ends with this sound": "/audio/production/en-US/instruction/listen-tap-the-picture-that-ends-with-this-sound-33dd0ce884.mp3",
   "listen. tap the picture that rhymes with this word": "/audio/production/en-US/instruction/listen-tap-the-picture-that-rhymes-with-this-word-638e785986.mp3",
@@ -119,13 +120,13 @@ export const CYCLE_PRACTICE_WORD_AUDIO = Object.freeze({
   "all": "/audio/production/en-US/isolated_word/all-9d557ffb1b.mp3",
   "am": "/audio/production/en-US/isolated_word/am-6f36b36269.mp3",
   "an": "/audio/production/en-US/isolated_word/an-4057770a92.mp3",
-  "anchor": "/audio/production/en-US/isolated_word/anchor-109435c631.mp3",
+  "anchor": "/audio/production/en-US/isolated_word/anchor-d70cb6ba3a.mp3",
   "and": "/audio/production/en-US/isolated_word/and-5ed9ded057.mp3",
   "are": "/audio/production/en-US/isolated_word/are-636074bed4.mp3",
   "as": "/audio/production/en-US/isolated_word/as-684979e9aa.mp3",
   "ball": "/audio/production/en-US/isolated_word/ball-575efc20cc.mp3",
   "be": "/audio/production/en-US/isolated_word/be-2168eb543c.mp3",
-  "bow": "/audio/production/en-US/supplemental/bow-0cbecdc2cb.mp3",
+  "bow": "/audio/production/en-US/isolated_word/bow-e8c4e7379e.mp3",
   "box": "/audio/production/en-US/isolated_word/box-117c385d12.mp3",
   "brush": "/audio/production/en-US/isolated_word/brush-a56761a2d7.mp3",
   "by": "/audio/production/en-US/isolated_word/by-c449cd76ea.mp3",
@@ -443,13 +444,13 @@ export const CYCLE_PRACTICE_AUDIO_METADATA = Object.freeze({
   "anchor": {
     "text": "anchor",
     "role": "isolated_word",
-    "audio": "/audio/production/en-US/isolated_word/anchor-109435c631.mp3",
+    "audio": "/audio/production/en-US/isolated_word/anchor-d70cb6ba3a.mp3",
     "voice": "en-US-Chirp3-HD-Leda",
     "provider": "Google Cloud Text-to-Speech",
     "aiGenerated": true,
-    "reused": false,
-    "sha256": "49c46880a82d040cbcfc1e0950747515463564ec8d1b6703d10ff80a29057153",
-    "durationSeconds": 1.385556,
+    "reused": true,
+    "sha256": "89a093c44bf941e8aa120a0dc614ad44f1aa1cbb88f5303804620272c3c81b2e",
+    "durationSeconds": 1.044331,
     "humanListening": "unknown"
   },
   "and": {
@@ -551,13 +552,13 @@ export const CYCLE_PRACTICE_AUDIO_METADATA = Object.freeze({
   "bow": {
     "text": "bow",
     "role": "isolated_word",
-    "audio": "/audio/production/en-US/supplemental/bow-0cbecdc2cb.mp3",
+    "audio": "/audio/production/en-US/isolated_word/bow-e8c4e7379e.mp3",
     "voice": "en-US-Chirp3-HD-Leda",
     "provider": "Google Cloud Text-to-Speech",
     "aiGenerated": true,
     "reused": true,
-    "sha256": "7f46e1d0e908c800f88a6372d1131c9cbba4d91a791867bbed0465bd1ae8f65a",
-    "durationSeconds": 1.28,
+    "sha256": "e8c4e7379e495f7eedb4db122817ee3f2757850b205d26a82020a528364a9709",
+    "durationSeconds": 0.844331,
     "humanListening": "unknown"
   },
   "box": {
@@ -1446,6 +1447,18 @@ export const CYCLE_PRACTICE_AUDIO_METADATA = Object.freeze({
     "reused": false,
     "sha256": "91904b08975a89636e87123ace85452e9f73698f39917ddf80d60fd6377c0be5",
     "durationSeconds": 3.531338,
+    "humanListening": "unknown"
+  },
+  "listen. tap the missing letter": {
+    "text": "Listen. Tap the missing letter.",
+    "role": "instruction",
+    "audio": "/audio/production/en-US/instruction/listen-tap-the-missing-letter-7a15eb3691.mp3",
+    "voice": "en-US-Chirp3-HD-Leda",
+    "provider": "Google Cloud Text-to-Speech",
+    "aiGenerated": true,
+    "reused": false,
+    "sha256": "f8427d0aa6e3bf24496923b3ba05e10730f456e4460748840712ccd096345c86",
+    "durationSeconds": 2.603333,
     "humanListening": "unknown"
   },
   "listen. tap the picture": {

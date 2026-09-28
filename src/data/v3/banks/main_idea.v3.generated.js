@@ -7200,5 +7200,1085 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "Summarize the observed pattern while rejecting a food explanation contradicted by the unchanged berries."
+ },
+ {
+  "id": "lp3.main_idea.l1.A.mostly_about_fiction.v40",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "main_idea",
+  "assessmentSkillId": "main_idea",
+  "skillName": "Main Idea",
+  "skill": "Main Idea",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "main_idea_cell",
+  "itemKey": "mostly_about_fiction",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What is this story mainly about?",
+  "question": "What is this story mainly about?",
+  "spokenPrompt": "What is this story mainly about?",
+  "passage": "Pip could not find his new library card. He looked inside his coat and lunch bag. He checked the pocket of yesterday's trousers. There it was, beside a small pebble. Now he could borrow the book he wanted.",
+  "cell": "mostly_about_fiction",
+  "choices": [
+   "choosing a story to read",
+   "collecting stones on a walk",
+   "buying clothes for school",
+   "searching for something needed"
+  ],
+  "answerOptions": [
+   {
+    "value": "choosing a story to read",
+    "label": "choosing a story to read",
+    "text": "choosing a story to read"
+   },
+   {
+    "value": "collecting stones on a walk",
+    "label": "collecting stones on a walk",
+    "text": "collecting stones on a walk"
+   },
+   {
+    "value": "buying clothes for school",
+    "label": "buying clothes for school",
+    "text": "buying clothes for school"
+   },
+   {
+    "value": "searching for something needed",
+    "label": "searching for something needed",
+    "text": "searching for something needed"
+   }
+  ],
+  "answer": "searching for something needed",
+  "correctAnswer": "searching for something needed",
+  "distractorRationales": {
+   "collecting stones on a walk": "D-PLAUSIBLE-UNSUPPORTED",
+   "buying clothes for school": "D-PLAUSIBLE-UNSUPPORTED",
+   "choosing a story to read": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.main_idea.l1.A.mostly_about_fiction.v40",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for mostly about fiction. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.main_idea.l1.B.mostly_about_fiction.v41",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "main_idea",
+  "assessmentSkillId": "main_idea",
+  "skillName": "Main Idea",
+  "skill": "Main Idea",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "main_idea_cell",
+  "itemKey": "mostly_about_fiction",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What is the story mostly about?",
+  "question": "What is the story mostly about?",
+  "spokenPrompt": "What is the story mostly about?",
+  "passage": "A kite caught in a low apple tree. Lila shook the branch, but it stayed there. Her friend held the string away from twigs. Lila slowly lifted the kite with a pole. Together they brought it down safely.",
+  "cell": "mostly_about_fiction",
+  "choices": [
+   "working together to free a kite",
+   "finding apples on a tree",
+   "learning to fly in strong wind",
+   "making a new toy from sticks"
+  ],
+  "answerOptions": [
+   {
+    "value": "working together to free a kite",
+    "label": "working together to free a kite",
+    "text": "working together to free a kite"
+   },
+   {
+    "value": "finding apples on a tree",
+    "label": "finding apples on a tree",
+    "text": "finding apples on a tree"
+   },
+   {
+    "value": "learning to fly in strong wind",
+    "label": "learning to fly in strong wind",
+    "text": "learning to fly in strong wind"
+   },
+   {
+    "value": "making a new toy from sticks",
+    "label": "making a new toy from sticks",
+    "text": "making a new toy from sticks"
+   }
+  ],
+  "answer": "working together to free a kite",
+  "correctAnswer": "working together to free a kite",
+  "distractorRationales": {
+   "learning to fly in strong wind": "D-PLAUSIBLE-UNSUPPORTED",
+   "making a new toy from sticks": "D-PLAUSIBLE-UNSUPPORTED",
+   "finding apples on a tree": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.main_idea.l1.B.mostly_about_fiction.v41",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for mostly about fiction. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.main_idea.l1.C.mostly_about_info.v42",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "main_idea",
+  "assessmentSkillId": "main_idea",
+  "skillName": "Main Idea",
+  "skill": "Main Idea",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "main_idea_cell",
+  "itemKey": "mostly_about_info",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What does this passage mainly explain?",
+  "question": "What does this passage mainly explain?",
+  "spokenPrompt": "What does this passage mainly explain?",
+  "passage": "A duck's feathers help keep its skin dry. It spreads oil over them with its bill. Water rolls off the oily feathers in drops. The duck can swim without getting soaked underneath. It cleans its feathers often.",
+  "cell": "mostly_about_info",
+  "choices": [
+   "why ducks build nests beside ponds",
+   "why ducks move their bills to eat",
+   "how ducks stay dry while swimming",
+   "how ducks find food under water"
+  ],
+  "answerOptions": [
+   {
+    "value": "why ducks build nests beside ponds",
+    "label": "why ducks build nests beside ponds",
+    "text": "why ducks build nests beside ponds"
+   },
+   {
+    "value": "why ducks move their bills to eat",
+    "label": "why ducks move their bills to eat",
+    "text": "why ducks move their bills to eat"
+   },
+   {
+    "value": "how ducks stay dry while swimming",
+    "label": "how ducks stay dry while swimming",
+    "text": "how ducks stay dry while swimming"
+   },
+   {
+    "value": "how ducks find food under water",
+    "label": "how ducks find food under water",
+    "text": "how ducks find food under water"
+   }
+  ],
+  "answer": "how ducks stay dry while swimming",
+  "correctAnswer": "how ducks stay dry while swimming",
+  "distractorRationales": {
+   "why ducks build nests beside ponds": "D-PLAUSIBLE-UNSUPPORTED",
+   "why ducks move their bills to eat": "D-PLAUSIBLE-UNSUPPORTED",
+   "how ducks find food under water": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.main_idea.l1.C.mostly_about_info.v42",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for mostly about info. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.main_idea.l1.A.mostly_about_info.v43",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "main_idea",
+  "assessmentSkillId": "main_idea",
+  "skillName": "Main Idea",
+  "skill": "Main Idea",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "main_idea_cell",
+  "itemKey": "mostly_about_info",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What is this passage mainly about?",
+  "question": "What is this passage mainly about?",
+  "spokenPrompt": "What is this passage mainly about?",
+  "passage": "A seed may travel far from its plant. Some have hooks that catch on animal fur. Others have light wings and float on wind. Birds carry some seeds inside juicy fruits. These journeys help plants grow in new places.",
+  "cell": "mostly_about_info",
+  "choices": [
+   "the ways seeds move to new places",
+   "the foods that birds like most",
+   "the shapes of different animal coats",
+   "the reasons wind changes direction"
+  ],
+  "answerOptions": [
+   {
+    "value": "the ways seeds move to new places",
+    "label": "the ways seeds move to new places",
+    "text": "the ways seeds move to new places"
+   },
+   {
+    "value": "the foods that birds like most",
+    "label": "the foods that birds like most",
+    "text": "the foods that birds like most"
+   },
+   {
+    "value": "the shapes of different animal coats",
+    "label": "the shapes of different animal coats",
+    "text": "the shapes of different animal coats"
+   },
+   {
+    "value": "the reasons wind changes direction",
+    "label": "the reasons wind changes direction",
+    "text": "the reasons wind changes direction"
+   }
+  ],
+  "answer": "the ways seeds move to new places",
+  "correctAnswer": "the ways seeds move to new places",
+  "distractorRationales": {
+   "the reasons wind changes direction": "D-PLAUSIBLE-UNSUPPORTED",
+   "the foods that birds like most": "D-PLAUSIBLE-UNSUPPORTED",
+   "the shapes of different animal coats": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.main_idea.l1.A.mostly_about_info.v43",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for mostly about info. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.main_idea.l1.B.mostly_about_everyday.v44",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "main_idea",
+  "assessmentSkillId": "main_idea",
+  "skillName": "Main Idea",
+  "skill": "Main Idea",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "main_idea_cell",
+  "itemKey": "mostly_about_everyday",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What did the class work on?",
+  "question": "What did the class work on?",
+  "spokenPrompt": "What did the class work on?",
+  "passage": "Our class made the cloakroom easier to use. We drew a picture above each child's hook. We put a low box under the scarves. Wet boots went on a tray by the door. Everyone could find their things quickly.",
+  "cell": "mostly_about_everyday",
+  "choices": [
+   "washing the floor after playtime",
+   "organising a place for their belongings",
+   "decorating the room for a party",
+   "choosing different clothes to wear"
+  ],
+  "answerOptions": [
+   {
+    "value": "washing the floor after playtime",
+    "label": "washing the floor after playtime",
+    "text": "washing the floor after playtime"
+   },
+   {
+    "value": "organising a place for their belongings",
+    "label": "organising a place for their belongings",
+    "text": "organising a place for their belongings"
+   },
+   {
+    "value": "decorating the room for a party",
+    "label": "decorating the room for a party",
+    "text": "decorating the room for a party"
+   },
+   {
+    "value": "choosing different clothes to wear",
+    "label": "choosing different clothes to wear",
+    "text": "choosing different clothes to wear"
+   }
+  ],
+  "answer": "organising a place for their belongings",
+  "correctAnswer": "organising a place for their belongings",
+  "distractorRationales": {
+   "decorating the room for a party": "D-PLAUSIBLE-UNSUPPORTED",
+   "choosing different clothes to wear": "D-PLAUSIBLE-UNSUPPORTED",
+   "washing the floor after playtime": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.main_idea.l1.B.mostly_about_everyday.v44",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for mostly about everyday. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.main_idea.l1.C.mostly_about_everyday.v45",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "main_idea",
+  "assessmentSkillId": "main_idea",
+  "skillName": "Main Idea",
+  "skill": "Main Idea",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "main_idea_cell",
+  "itemKey": "mostly_about_everyday",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What is this passage mostly about?",
+  "question": "What is this passage mostly about?",
+  "spokenPrompt": "What is this passage mostly about?",
+  "passage": "The bus stop was hard to see at dusk. Neighbours asked for a lamp beside the sign. They cleared bushes that hid the waiting area. A new bench gave older people somewhere to sit. More people could use it comfortably.",
+  "cell": "mostly_about_everyday",
+  "choices": [
+   "teaching people to drive a bus",
+   "finding a new route through town",
+   "growing plants beside a garden seat",
+   "making a shared place easier to use"
+  ],
+  "answerOptions": [
+   {
+    "value": "teaching people to drive a bus",
+    "label": "teaching people to drive a bus",
+    "text": "teaching people to drive a bus"
+   },
+   {
+    "value": "finding a new route through town",
+    "label": "finding a new route through town",
+    "text": "finding a new route through town"
+   },
+   {
+    "value": "growing plants beside a garden seat",
+    "label": "growing plants beside a garden seat",
+    "text": "growing plants beside a garden seat"
+   },
+   {
+    "value": "making a shared place easier to use",
+    "label": "making a shared place easier to use",
+    "text": "making a shared place easier to use"
+   }
+  ],
+  "answer": "making a shared place easier to use",
+  "correctAnswer": "making a shared place easier to use",
+  "distractorRationales": {
+   "teaching people to drive a bus": "D-PLAUSIBLE-UNSUPPORTED",
+   "finding a new route through town": "D-PLAUSIBLE-UNSUPPORTED",
+   "growing plants beside a garden seat": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.main_idea.l1.C.mostly_about_everyday.v45",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for mostly about everyday. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.main_idea.l2.A.best_title.v46",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "main_idea",
+  "assessmentSkillId": "main_idea",
+  "skillName": "Main Idea",
+  "skill": "Main Idea",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "main_idea_cell",
+  "itemKey": "best_title",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which title best covers this whole passage?",
+  "question": "Which title best covers this whole passage?",
+  "spokenPrompt": "Which title best covers this whole passage?",
+  "passage": "Under a log, the class found beetles and tiny worms. The ground there felt cooler than the sunny path. Damp leaves covered the soil and gave the creatures shelter. The teacher lifted the log just enough for everyone to look. Pupils drew what they saw without touching the small animals. Afterwards, they put the log back in its original place. This kept the dark, damp home ready for its residents. Next week they would compare it with a sunny patch.",
+  "cell": "best_title",
+  "choices": [
+   "A Hidden Home Beneath Our Feet",
+   "A Drawing Lesson in the Classroom",
+   "How to Keep Beetles as Pets",
+   "The Hottest Path Through the Woods"
+  ],
+  "answerOptions": [
+   {
+    "value": "A Hidden Home Beneath Our Feet",
+    "label": "A Hidden Home Beneath Our Feet",
+    "text": "A Hidden Home Beneath Our Feet"
+   },
+   {
+    "value": "A Drawing Lesson in the Classroom",
+    "label": "A Drawing Lesson in the Classroom",
+    "text": "A Drawing Lesson in the Classroom"
+   },
+   {
+    "value": "How to Keep Beetles as Pets",
+    "label": "How to Keep Beetles as Pets",
+    "text": "How to Keep Beetles as Pets"
+   },
+   {
+    "value": "The Hottest Path Through the Woods",
+    "label": "The Hottest Path Through the Woods",
+    "text": "The Hottest Path Through the Woods"
+   }
+  ],
+  "answer": "A Hidden Home Beneath Our Feet",
+  "correctAnswer": "A Hidden Home Beneath Our Feet",
+  "distractorRationales": {
+   "A Drawing Lesson in the Classroom": "D-PLAUSIBLE-UNSUPPORTED",
+   "How to Keep Beetles as Pets": "D-PLAUSIBLE-UNSUPPORTED",
+   "The Hottest Path Through the Woods": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.main_idea.l2.A.best_title.v46",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for best title. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.main_idea.l2.B.best_title.v47",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "main_idea",
+  "assessmentSkillId": "main_idea",
+  "skillName": "Main Idea",
+  "skill": "Main Idea",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "main_idea_cell",
+  "itemKey": "best_title",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which title best fits all these events?",
+  "question": "Which title best fits all these events?",
+  "spokenPrompt": "Which title best fits all these events?",
+  "passage": "A broken radio arrived at the village repair table. Its owner expected to throw it away and buy another. A volunteer noticed a loose wire near the speaker. She joined the wire safely, and music played again. At the next table, someone sewed a torn school bag. Nearby, a child replaced a missing wheel on a toy. People shared tools, learned new skills and kept useful things. The event left the rubbish bin almost empty that afternoon.",
+  "cell": "best_title",
+  "choices": [
+   "Choosing the Loudest Radio in Town",
+   "Learning to Make Brand New Toys",
+   "Filling the Village Rubbish Bins",
+   "Giving Worn Things Another Chance"
+  ],
+  "answerOptions": [
+   {
+    "value": "Choosing the Loudest Radio in Town",
+    "label": "Choosing the Loudest Radio in Town",
+    "text": "Choosing the Loudest Radio in Town"
+   },
+   {
+    "value": "Learning to Make Brand New Toys",
+    "label": "Learning to Make Brand New Toys",
+    "text": "Learning to Make Brand New Toys"
+   },
+   {
+    "value": "Filling the Village Rubbish Bins",
+    "label": "Filling the Village Rubbish Bins",
+    "text": "Filling the Village Rubbish Bins"
+   },
+   {
+    "value": "Giving Worn Things Another Chance",
+    "label": "Giving Worn Things Another Chance",
+    "text": "Giving Worn Things Another Chance"
+   }
+  ],
+  "answer": "Giving Worn Things Another Chance",
+  "correctAnswer": "Giving Worn Things Another Chance",
+  "distractorRationales": {
+   "Choosing the Loudest Radio in Town": "D-PLAUSIBLE-UNSUPPORTED",
+   "Learning to Make Brand New Toys": "D-PLAUSIBLE-UNSUPPORTED",
+   "Filling the Village Rubbish Bins": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.main_idea.l2.B.best_title.v47",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for best title. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.main_idea.l2.C.main_idea_vs_detail.v48",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "main_idea",
+  "assessmentSkillId": "main_idea",
+  "skillName": "Main Idea",
+  "skill": "Main Idea",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "main_idea_cell",
+  "itemKey": "main_idea_vs_detail",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which idea connects the details in this passage?",
+  "question": "Which idea connects the details in this passage?",
+  "spokenPrompt": "Which idea connects the details in this passage?",
+  "passage": "Our town has a small garden beside the bus station. Herbs grow in old sinks that would otherwise be thrown away. A rain barrel catches water from the roof of the shelter. Fallen leaves become compost in a corner bin. Volunteers use the compost to feed next year's plants. Wooden pallets form seats where people can rest and talk. Labels explain what each reused object used to be. The garden shows how unwanted materials can become useful again.",
+  "cell": "main_idea_vs_detail",
+  "choices": [
+   "Old sinks hold the plants in the garden.",
+   "Wooden seats give people somewhere to rest.",
+   "A barrel collects water from the shelter.",
+   "Old materials can serve new purposes."
+  ],
+  "answerOptions": [
+   {
+    "value": "Old sinks hold the plants in the garden.",
+    "label": "Old sinks hold the plants in the garden.",
+    "text": "Old sinks hold the plants in the garden."
+   },
+   {
+    "value": "Wooden seats give people somewhere to rest.",
+    "label": "Wooden seats give people somewhere to rest.",
+    "text": "Wooden seats give people somewhere to rest."
+   },
+   {
+    "value": "A barrel collects water from the shelter.",
+    "label": "A barrel collects water from the shelter.",
+    "text": "A barrel collects water from the shelter."
+   },
+   {
+    "value": "Old materials can serve new purposes.",
+    "label": "Old materials can serve new purposes.",
+    "text": "Old materials can serve new purposes."
+   }
+  ],
+  "answer": "Old materials can serve new purposes.",
+  "correctAnswer": "Old materials can serve new purposes.",
+  "distractorRationales": {
+   "Old sinks hold the plants in the garden.": "D-DETAIL-AS-MAIN",
+   "Wooden seats give people somewhere to rest.": "D-DETAIL-AS-MAIN",
+   "A barrel collects water from the shelter.": "D-DETAIL-AS-MAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.main_idea.l2.C.main_idea_vs_detail.v48",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Find the shared reuse principle across containers, water, compost and seating. All alternatives are true details, but none covers the whole passage."
+ },
+ {
+  "id": "lp3.main_idea.l2.A.main_idea_vs_detail.v49",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "main_idea",
+  "assessmentSkillId": "main_idea",
+  "skillName": "Main Idea",
+  "skill": "Main Idea",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "main_idea_cell",
+  "itemKey": "main_idea_vs_detail",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which idea is supported by the whole passage?",
+  "question": "Which idea is supported by the whole passage?",
+  "spokenPrompt": "Which idea is supported by the whole passage?",
+  "passage": "The rock pool looked still, but many creatures lived there. A crab hid beneath a ledge until a bird's shadow passed. A limpet held tightly to the rock as waves splashed over. Small fish darted between strands of seaweed to escape a bird. Each animal used a different way to stay safe. The class watched from the edge and kept their hands out. They recorded the shelter or action each creature used. Their notes showed several solutions to the same problem.",
+  "cell": "main_idea_vs_detail",
+  "choices": [
+   "Birds are the only danger near a shore.",
+   "Pool animals protect themselves in different ways.",
+   "Only crabs can hide from larger animals.",
+   "All sea creatures are safe beneath the water."
+  ],
+  "answerOptions": [
+   {
+    "value": "Birds are the only danger near a shore.",
+    "label": "Birds are the only danger near a shore.",
+    "text": "Birds are the only danger near a shore."
+   },
+   {
+    "value": "Pool animals protect themselves in different ways.",
+    "label": "Pool animals protect themselves in different ways.",
+    "text": "Pool animals protect themselves in different ways."
+   },
+   {
+    "value": "Only crabs can hide from larger animals.",
+    "label": "Only crabs can hide from larger animals.",
+    "text": "Only crabs can hide from larger animals."
+   },
+   {
+    "value": "All sea creatures are safe beneath the water.",
+    "label": "All sea creatures are safe beneath the water.",
+    "text": "All sea creatures are safe beneath the water."
+   }
+  ],
+  "answer": "Pool animals protect themselves in different ways.",
+  "correctAnswer": "Pool animals protect themselves in different ways.",
+  "distractorRationales": {
+   "Only crabs can hide from larger animals.": "D-PLAUSIBLE-UNSUPPORTED",
+   "All sea creatures are safe beneath the water.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Birds are the only danger near a shore.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.main_idea.l2.A.main_idea_vs_detail.v49",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for main idea vs detail. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.main_idea.l2.B.summary_choice.v50",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "main_idea",
+  "assessmentSkillId": "main_idea",
+  "skillName": "Main Idea",
+  "skill": "Main Idea",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "main_idea_cell",
+  "itemKey": "summary_choice",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which sentence best summarises what the group did?",
+  "question": "Which sentence best summarises what the group did?",
+  "spokenPrompt": "Which sentence best summarises what the group did?",
+  "passage": "The school's vegetable bed was too dry during a warm week. A group measured how much water each row received. They found most water ran off the hard surface. They loosened the soil and spread straw around the plants. Then they watered slowly instead of emptying a full bucket. More water soaked in, and less escaped down the path. The leaves looked firmer the next morning. The group wrote down the changes so other classes could use them.",
+  "cell": "summary_choice",
+  "choices": [
+   "They tested a problem and improved how the plants received water.",
+   "They planted new vegetables because every old plant had already died.",
+   "They counted buckets and decided the garden needed a longer path.",
+   "They covered the whole garden and stopped watering during warm weather."
+  ],
+  "answerOptions": [
+   {
+    "value": "They tested a problem and improved how the plants received water.",
+    "label": "They tested a problem and improved how the plants received water.",
+    "text": "They tested a problem and improved how the plants received water."
+   },
+   {
+    "value": "They planted new vegetables because every old plant had already died.",
+    "label": "They planted new vegetables because every old plant had already died.",
+    "text": "They planted new vegetables because every old plant had already died."
+   },
+   {
+    "value": "They counted buckets and decided the garden needed a longer path.",
+    "label": "They counted buckets and decided the garden needed a longer path.",
+    "text": "They counted buckets and decided the garden needed a longer path."
+   },
+   {
+    "value": "They covered the whole garden and stopped watering during warm weather.",
+    "label": "They covered the whole garden and stopped watering during warm weather.",
+    "text": "They covered the whole garden and stopped watering during warm weather."
+   }
+  ],
+  "answer": "They tested a problem and improved how the plants received water.",
+  "correctAnswer": "They tested a problem and improved how the plants received water.",
+  "distractorRationales": {
+   "They planted new vegetables because every old plant had already died.": "D-PLAUSIBLE-UNSUPPORTED",
+   "They counted buckets and decided the garden needed a longer path.": "D-PLAUSIBLE-UNSUPPORTED",
+   "They covered the whole garden and stopped watering during warm weather.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.main_idea.l2.B.summary_choice.v50",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for summary choice. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.main_idea.l2.C.summary_choice.v51",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "main_idea",
+  "assessmentSkillId": "main_idea",
+  "skillName": "Main Idea",
+  "skill": "Main Idea",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "main_idea_cell",
+  "itemKey": "summary_choice",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which summary includes the problem and its solution?",
+  "question": "Which summary includes the problem and its solution?",
+  "spokenPrompt": "Which summary includes the problem and its solution?",
+  "passage": "The school play had a large painted moon for its set. During rehearsal, it fell and tore across the middle. The children could not make another before the evening show. They joined the pieces with a sheet of card behind. One child covered the torn line with silver stars. From the audience seats, the repair looked like part of the design. The moon stayed in place throughout the performance. The group saved their set by adapting what they already had.",
+  "cell": "summary_choice",
+  "choices": [
+   "The cast repaired a damaged prop using a new design.",
+   "The cast cancelled their show to paint a different moon.",
+   "The children practised moving a prop to different audience seats.",
+   "The children bought silver stars before their first rehearsal began."
+  ],
+  "answerOptions": [
+   {
+    "value": "The cast repaired a damaged prop using a new design.",
+    "label": "The cast repaired a damaged prop using a new design.",
+    "text": "The cast repaired a damaged prop using a new design."
+   },
+   {
+    "value": "The cast cancelled their show to paint a different moon.",
+    "label": "The cast cancelled their show to paint a different moon.",
+    "text": "The cast cancelled their show to paint a different moon."
+   },
+   {
+    "value": "The children practised moving a prop to different audience seats.",
+    "label": "The children practised moving a prop to different audience seats.",
+    "text": "The children practised moving a prop to different audience seats."
+   },
+   {
+    "value": "The children bought silver stars before their first rehearsal began.",
+    "label": "The children bought silver stars before their first rehearsal began.",
+    "text": "The children bought silver stars before their first rehearsal began."
+   }
+  ],
+  "answer": "The cast repaired a damaged prop using a new design.",
+  "correctAnswer": "The cast repaired a damaged prop using a new design.",
+  "distractorRationales": {
+   "The children practised moving a prop to different audience seats.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The children bought silver stars before their first rehearsal began.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The cast cancelled their show to paint a different moon.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.main_idea.l2.C.summary_choice.v51",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for summary choice. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
  }
 ];

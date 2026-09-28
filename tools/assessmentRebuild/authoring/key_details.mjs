@@ -1,4 +1,4 @@
-// Individually authored comprehension evidence; normal and reserve items share the same quality requirements.
+// Individually authored comprehension evidence; stable item coordinates preserve saved attempts.
 export default {
   "skillId": "key_details",
   "skillName": "Key Details",
@@ -2498,6 +2498,390 @@ export default {
       "media": "text",
       "retention": true,
       "note": "Fresh authored retry item: distinct situation and evidence."
+    },
+    {
+      "u": "what_happened",
+      "lvl": 1,
+      "ph": 1,
+      "v": 40,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "what_happened",
+      "media": "text",
+      "passage": "The school bell rang during art time. Mei left her painting on the drying rack. She washed the green paint from her hands. Then she joined her friends for lunch. Her painting stayed in the classroom.",
+      "prompt": "What did Mei leave to dry?",
+      "choices": [
+        {
+          "t": "her piece of painted artwork",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "her pair of washed hands",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "her empty dish from lunch",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "her green apron from art",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New concrete meaning probe: what happened. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "what_happened",
+      "lvl": 1,
+      "ph": 2,
+      "v": 41,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "what_happened",
+      "media": "text",
+      "passage": "A gust blew the picnic cloth into the pond. Dad used a long branch to reach it. He spread the cloth across a sunny bench. The family ate from their lunch boxes instead. The cloth dried there.",
+      "prompt": "How did Dad get the cloth back?",
+      "choices": [
+        {
+          "t": "He reached out with a branch.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "He waded through the deep water.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "He pulled it with some rope.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "He waited for the wind to turn.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New concrete meaning probe: what happened. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "where",
+      "lvl": 1,
+      "ph": 1,
+      "v": 42,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "where",
+      "media": "text",
+      "passage": "Our library had a box for borrowed books. It stood just inside the main door. Tia put her finished book in that box. Then she chose another from the animal shelf. She carried it to the desk.",
+      "prompt": "Where did Tia return her first book?",
+      "choices": [
+        {
+          "t": "in the container near the entrance",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "on the shelf about animals",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "beside the librarian at the desk",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "in her bag under the table",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New concrete meaning probe: where. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "who",
+      "lvl": 1,
+      "ph": 2,
+      "v": 43,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "who",
+      "media": "text",
+      "passage": "The gardener brought seedlings to our class. Our teacher showed us how deep to dig. The children put each seedling into the soil. The caretaker fetched water when our jug ran dry. Everyone helped tidy the tools.",
+      "prompt": "Who brought more water?",
+      "choices": [
+        {
+          "t": "the person looking after the school building",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the person teaching the class that day",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the person who supplied the young plants",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the children who planted the seedlings",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New concrete meaning probe: who. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "number_detail",
+      "lvl": 1,
+      "ph": 1,
+      "v": 44,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "number_detail",
+      "media": "text",
+      "passage": "A row of six cups stood on the table. Four cups had seeds in them. The other two held only damp soil. The class labelled every cup with a number. They watched the seeds over several days.",
+      "prompt": "How many cups contained seeds?",
+      "choices": [
+        {
+          "t": "four of the containers",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "two of the containers",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "six of the containers",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "none of the containers",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New concrete meaning probe: number detail. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "number_detail",
+      "lvl": 1,
+      "ph": 2,
+      "v": 45,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "number_detail",
+      "media": "text",
+      "passage": "There were five chicks beside the hen. Three chicks followed her to the feeder. Two stayed near the warm lamp. The farmer put fresh water beside them. All five chicks came together again at sunset.",
+      "prompt": "How many chicks stayed by the lamp?",
+      "choices": [
+        {
+          "t": "the remaining pair",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the group of three",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "all of the chicks",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "just a single chick",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New concrete meaning probe: number detail. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "precise_detail",
+      "lvl": 2,
+      "ph": 1,
+      "v": 46,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "precise_detail",
+      "media": "text",
+      "passage": "The class planned a small exhibition about local birds. Each group chose one kind to study for a week. The robin group drew its bird with coloured pencils. They made a clay nest and wrote a short label. Their display also included a map of the school garden. Small red dots marked places where robins had been seen. Blue dots marked feeding places, not sightings. Visitors could compare the two sets of marks at the exhibition.",
+      "prompt": "What did the red dots show?",
+      "choices": [
+        {
+          "t": "places where the bird was observed",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "places where food was put out",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "places where nests were made from clay",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "places where visitors left their drawings",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New transfer and integrated evidence probe: precise detail. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "precise_detail",
+      "lvl": 2,
+      "ph": 2,
+      "v": 47,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "precise_detail",
+      "media": "text",
+      "passage": "At the repair club, each child brought one broken object. Tomas brought a torch that no longer worked. The helper checked its bulb before opening the battery cover. The bulb was fine, but one battery was facing backwards. Tomas turned that battery around and closed the cover. The torch shone brightly when he pressed its button. He wrote the repair in his notebook to remember it. Then he helped carry the club's tools to their cupboard.",
+      "prompt": "What made the torch work again?",
+      "choices": [
+        {
+          "t": "changing the direction of one battery",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "fitting a different bulb into the torch",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "pressing the button several times quickly",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "replacing both batteries with unused ones",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New transfer and integrated evidence probe: precise detail. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "detail_across_sentences",
+      "lvl": 2,
+      "ph": 1,
+      "v": 48,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "detail_across_sentences",
+      "media": "text",
+      "passage": "The nature club kept a record of the pond. On Monday, its members saw frogspawn near the reeds. They drew the clear jelly and the dark dots inside. On Friday, tiny swimmers had appeared in the same place. They had tails but no legs yet. The children used a guide to name this new stage. Their drawings showed how the creatures changed during the week. Nobody took any creatures home; all stayed in the pond.",
+      "prompt": "What change did the club record?",
+      "choices": [
+        {
+          "t": "eggs developing into small tailed swimmers",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "adult frogs losing their long back legs",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "reeds growing over the edge of the pond",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "jelly turning into food for the birds",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New transfer and integrated evidence probe: detail across sentences. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "detail_across_sentences",
+      "lvl": 2,
+      "ph": 2,
+      "v": 49,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "detail_across_sentences",
+      "media": "text",
+      "passage": "Three groups tested paper for making a shopping bag. One group used a single sheet of thin paper. Their bag tore when they added the second apple. Another group folded thick paper around a card base. That bag held all four apples without tearing. The third group used thin paper with no folded bottom. Its apples rolled out before they could carry it. All groups used the same apples and walked the same distance.",
+      "prompt": "Which design carried the full load successfully?",
+      "choices": [
+        {
+          "t": "thicker paper with a firm bottom",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "thinner paper folded into a single sheet",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "thinner paper without a folded base",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "thicker paper holding only one apple",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New transfer and integrated evidence probe: detail across sentences. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "which_is_not",
+      "lvl": 2,
+      "ph": 1,
+      "v": 50,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "which_is_not",
+      "media": "text",
+      "passage": "The museum lent our school a box about old kitchens. It contained a wooden spoon and a heavy iron pot. There was also a cloth used to cover rising dough. A card explained how families once baked their bread. The teacher placed each object on a low display table. Pupils could handle the spoon while sitting with an adult. They could look at the heavy pot but not lift it. At lunch, every object went back into the box.",
+      "prompt": "Which object was NOT included in the borrowed box?",
+      "choices": [
+        {
+          "t": "a metal tool for opening tins",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "a wooden tool for stirring food",
+          "r": "D-SUPPORTED-DETAIL"
+        },
+        {
+          "t": "an iron container for cooking meals",
+          "r": "D-SUPPORTED-DETAIL"
+        },
+        {
+          "t": "a cloth for covering unbaked bread",
+          "r": "D-SUPPORTED-DETAIL"
+        }
+      ],
+      "note": "Verify absence against the complete inventory of spoon, pot, cloth and explanatory card. Each wrong choice paraphrases an object explicitly included; the tin opener is absent."
+    },
+    {
+      "u": "which_is_not",
+      "lvl": 2,
+      "ph": 2,
+      "v": 51,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "which_is_not",
+      "media": "text",
+      "passage": "Our class wrote rules for visiting the school pond. Everyone must stay on the path beside the water. Quiet voices help us hear the birds and frogs. We may sketch a creature without picking it up. An adult carries the pond net and sampling tray. After observing creatures, the adult returns them to the water. The rules also say to wash hands before eating. Each pupil reads the rules with a partner before leaving.",
+      "prompt": "Which action is NOT allowed by these rules?",
+      "choices": [
+        {
+          "t": "pupils lifting creatures out with their hands",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "pupils drawing an animal from the path",
+          "r": "D-SUPPORTED-DETAIL"
+        },
+        {
+          "t": "an adult bringing a net to the pond",
+          "r": "D-SUPPORTED-DETAIL"
+        },
+        {
+          "t": "an adult putting sampled creatures back",
+          "r": "D-SUPPORTED-DETAIL"
+        }
+      ],
+      "note": "Separate pupils handling creatures from permitted drawing and adult sampling. Each wrong choice is allowed by a stated rule; the key violates the no-picking-up rule."
     }
   ]
 };

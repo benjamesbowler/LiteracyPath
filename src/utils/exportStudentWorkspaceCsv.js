@@ -1,4 +1,5 @@
 import { buildMetricDefinitionRows } from "./metricDefinitions.js";
+import { buildLearningEvidenceProfile, learningEvidenceResponseKind } from "./learningEvidenceInsights.js";
 import {
   buildExportProvenanceRows,
   resolveExportTimeZone
@@ -217,6 +218,29 @@ function wholeChildRows(workspace = {}, options = {}) {
 
 function skillsCheckRows(workspace = {}, options = {}) {
   const report = workspace.skillsCheck || {};
+  const teachingRows = asArray(report.skills).flatMap(skill => {
+    const profile = skill.learningEvidenceProfile || buildLearningEvidenceProfile(attemptQuestions(skill.latestAttempt || {}), { skillId: skill.skillId });
+    return profile.targets.map(target => ({
+      "Section": "Teach next",
+      "Row type": "Recorded target and teaching move",
+      "Skill": skill.skillName,
+      "Skill code": skill.skillId,
+      "Target": target.label,
+      "Saved example words": target.exampleWords.join("; "),
+      "Construct": target.constructLabel,
+      "Question formats": target.formatLabels.join("; ") || "Not recorded",
+      "Independent correct": target.correct,
+      "Independent responses": target.scored,
+      "Supported responses": target.supported,
+      "Unavailable media": target.mediaFailed,
+      "Unscored responses": target.unscored,
+      "Recorded contrasts": target.confusions.map(row => `Selected ${row.selected}; expected ${row.expected} (${row.count})`).join("; "),
+      "Recorded responses": target.recordedResponses.map(row => `${row.selected} (${row.kind}; ${row.count})`).join("; "),
+      "Next teaching move": target.nextAction,
+      "Claim boundary": profile.claimBoundary,
+      ...evidenceTimeFields(skill.latestAt, options, { basis: "Latest saved assessment" })
+    }));
+  });
   const skillRows = asArray(report.skills).map(skill => ({
     "Section": "Summary",
     "Row type": "Skill summary",
@@ -255,27 +279,51 @@ function skillsCheckRows(workspace = {}, options = {}) {
   });
   const questionRows = asArray(report.attempts).flatMap(attempt => {
     const raw = attempt.raw && typeof attempt.raw === "object" ? attempt.raw : attempt;
-    return attemptQuestions(attempt).map((question, index) => ({
-      "Section": "Result details",
-      "Row type": "Question result",
-      "Skill": raw.skillName || raw.skillId || "",
-      "Status": question.responseStatus || (question.isCorrect === true ? "correct" : question.isCorrect === false ? "incorrect" : ""),
-      "Correct": question.isCorrect === true ? 1 : question.isCorrect === false ? 0 : "",
-      ...evidenceTimeFields(question.timestamp || attempt.completedAt, options, {
-        basis: question.timestamp ? "Question answered" : "Assessment completed"
-      }),
-      "Question": index + 1,
-      "Prompt": question.prompt || question.question || "",
-      "Selected answer": question.selectedAnswer || question.responseText || "",
-      "Correct answer": question.correctAnswer || ""
-    }));
+    return attemptQuestions(attempt).map((question, index) => {
+      const kind = learningEvidenceResponseKind(question, "assessment", raw.administrationStatus || attempt.administrationStatus || "");
+      return {
+        "Section": "Result details",
+        "Row type": "Question result",
+        "Skill": raw.skillName || raw.skillId || "",
+        "Status": kind === "mediaFailed" ? "media_failed" : kind,
+        "Recorded response status": question.responseStatus || "",
+        "Correct": kind === "correct" ? 1 : kind === "incorrect" ? 0 : "",
+        ...evidenceTimeFields(question.timestamp || attempt.completedAt, options, {
+          basis: question.timestamp ? "Question answered" : "Assessment completed"
+        }),
+        "Question": index + 1,
+        "Prompt": question.prompt || question.question || "",
+        "Selected answer": question.selectedAnswer || question.responseText || "",
+        "Correct answer": question.correctAnswer || ""
+      };
+    });
   });
-  return [...skillRows, ...itemRows, ...attemptRows, ...questionRows];
+  return [...skillRows, ...teachingRows, ...itemRows, ...attemptRows, ...questionRows];
 }
 
 function otherLearningRows(workspace = {}, options = {}) {
   const report = workspace.otherLearning || {};
   return [
+    ...asArray(report.adventureMap?.cycles).flatMap(cycle => [{
+      "Section": "Practice details", "Row type": "Adventure Map latest run", "Learning area": "Adventure Map",
+      "Activity": cycle.title, "Cycle code": cycle.cycleId, "Practice count": cycle.plays,
+      "Snapshot status": cycle.snapshotStatus, "Question coverage": cycle.profile.summary,
+      "Independent responses": cycle.profile.totals.presented ? cycle.profile.totals.scored : "",
+      "Independent correct": cycle.profile.totals.presented ? cycle.profile.totals.correct : "",
+      "Claim boundary": cycle.profile.claimBoundary,
+      ...evidenceTimeFields(cycle.lastPlayedAt, options, { basis: "Latest saved practice run" })
+    }, ...cycle.profile.targets.map(target => ({
+      "Section": "Teach next", "Row type": "Adventure Map practice target", "Learning area": "Adventure Map",
+      "Activity": cycle.title, "Cycle code": cycle.cycleId, "Target": target.label,
+      "Saved example words": target.exampleWords.join("; "),
+      "Construct": target.constructLabel, "Question formats": target.formatLabels.join("; ") || "Not recorded",
+      "Independent responses": target.scored, "Independent correct": target.correct,
+      "Supported responses": target.supported, "Unavailable media": target.mediaFailed, "Unscored responses": target.unscored,
+      "Recorded contrasts": target.confusions.map(row => `Selected ${row.selected}; expected ${row.expected} (${row.count})`).join("; "),
+      "Recorded responses": target.recordedResponses.map(row => `${row.selected} (${row.kind}; ${row.count})`).join("; "),
+      "Next teaching move": target.nextAction, "Claim boundary": cycle.profile.claimBoundary,
+      ...evidenceTimeFields(cycle.lastPlayedAt, options, { basis: "Latest saved practice run" })
+    }))]),
     ...asArray(report.soundSeekers?.sounds)
       .filter(sound => Number(sound.seen || 0) > 0)
       .map(sound => ({

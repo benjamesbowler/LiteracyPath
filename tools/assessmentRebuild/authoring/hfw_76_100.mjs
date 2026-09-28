@@ -1,3 +1,4 @@
+import depthItems from "./depth/hfw_76_100.mjs";
 // HFW Band 4 (words 76–100) — v3 authored bank (wave W8, paired with hfw_51_75).
 // Same architecture as bands 1–3 (see hfw_1_25.mjs header). Band-4 particulars:
 //   - who/how are mutual visual neighbours (doc rule) — both directions live.
@@ -82,7 +83,7 @@ const FS = "D-FUNCTION-SWAP";
 const VN = "D-VISUAL-NEIGHBOR";
 const DV = "D-DEVELOPMENTAL";
 
-export default {
+const bank = {
   skillId: "hfw_76_100",
   skillName: "High-Frequency Words 76–100",
   items: [
@@ -321,3 +322,6 @@ export default {
     return item;
   })
 };
+
+bank.items.push(...depthItems);
+export default bank;

@@ -2,6 +2,16 @@ import { elSkillsBlockCycles } from '../data/elSkillsBlockCycles.js';
 
 const unique = values => [...new Set(values)];
 
+// Authored final phonemes, rather than a final-letter guess. These familiar
+// objects are oral vocabulary; their spelling is never a decoding target.
+export const CYCLE_FINAL_SOUND_WORDS = Object.freeze({
+  m: ['drum', 'jam', 'ram'], t: ['cat', 'hat', 'goat', 'foot', 'mat', 'net', 'rat'],
+  s: ['mouse', 'house', 'horse', 'bus'], n: ['sun', 'moon', 'hen', 'pen', 'fan', 'rain'],
+  f: ['leaf', 'wolf'], d: ['bird', 'hand', 'bed'], b: ['web', 'tub'],
+  g: ['dog', 'pig', 'egg', 'bag'], p: ['map', 'cup', 'cap', 'sheep'],
+  k: ['duck', 'book', 'sock'], l: ['ball', 'bell', 'shell'], v: ['glove'], z: ['nose', 'cheese'],
+});
+
 export function cycleCardGraphemes(card) {
   const display = String(typeof card === 'string' ? card : card?.grapheme || '');
   if (/^[A-Z][a-z]$/u.test(display) && display[0].toLowerCase() === display[1]) {
@@ -42,6 +52,7 @@ export function displayGraphemePair(grapheme) {
 // formats. Errors can still receive supported retries on their current item.
 export function practiceRepetitionKey(round) {
   const target = round.targetGrapheme || round.grapheme || '';
+  if (round.variant === 'wordMeaning') return `wordMeaning:${round.vocabularyGrapheme || round.targetWord}`;
   if (round.variant === 'letterCase' || round.mechanicId === 'letterPair') return `letterCase:${round.answer}`;
   if (round.mechanicId === 'soundChoice' || (round.mechanicId === 'letterMatch' && !round.variant)) return `soundChoice:${target}`;
   if (['pictureSound', 'sceneHunt', 'pictureSearch'].includes(round.mechanicId)) return `${round.mechanicId === 'sceneHunt' ? 'pictureSound' : round.mechanicId}:${round.soundPosition || 'first'}:${target}`;
@@ -50,6 +61,35 @@ export function practiceRepetitionKey(round) {
   if (round.objects && round.mechanicId === 'soundSort') return `soundSort:${round.soundPosition}:${target}`;
   if (round.mechanicId === 'rhymeMatch') return `rhymeMatch:${round.targetWord}`;
   return round.semanticKey || round.roundKey || round.id;
+}
+
+// Prefer a real contrast in the taught word, not an unrelated word that can
+// be rejected from its first letter alone. The caller still supplies only
+// curriculum-authorised choices; this rank never expands the taught code.
+export function wordContrast(candidate, target) {
+  const left = String(candidate).toLowerCase(), right = String(target).toLowerCase();
+  const positions = [...right].flatMap((letter, index) => letter !== left[index] ? [index] : []);
+  if (left.length !== right.length) return { rank: 5, kind: 'word_length', positions };
+  if (positions.length === 1) return { rank: positions[0] === 1 ? 0 : 1, kind: ['initial_sound', 'medial_vowel', 'final_sound'][positions[0]] || 'letter_position', positions };
+  if (left[0] === right[0]) return { rank: 2, kind: 'shared_initial', positions };
+  if (left.at(-1) === right.at(-1)) return { rank: 3, kind: 'shared_final', positions };
+  return { rank: 4, kind: 'whole_word', positions };
+}
+
+// Draw the next window from a stable shuffled bank. Unlike re-shuffling on
+// every pass, a target's examples are exhausted before that format repeats.
+export function selectPracticePass(rounds, pass = 0, maximum = 3) {
+  const groups = new Map();
+  for (const round of rounds) {
+    const key = practiceRepetitionKey(round);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(round);
+  }
+  return [...groups.values()].flatMap(group => {
+    const size = Math.min(typeof maximum === 'function' ? maximum(group[0]) : maximum, group.length);
+    const start = Math.max(0, Math.floor(pass)) * size;
+    return Array.from({ length: size }, (_, index) => group[(start + index) % group.length]);
+  });
 }
 
 export function capPracticeRepetitions(rounds, maximum = 3) {

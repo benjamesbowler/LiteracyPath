@@ -1,4 +1,4 @@
-// Individually authored comprehension evidence. Preserve stable item coordinates.
+// Individually authored comprehension evidence; stable item coordinates preserve saved attempts.
 export default {
   "skillId": "main_idea",
   "skillName": "Main Idea",
@@ -2498,6 +2498,390 @@ export default {
       ],
       "media": "text",
       "note": "Summarize the observed pattern while rejecting a food explanation contradicted by the unchanged berries."
+    },
+    {
+      "u": "mostly_about_fiction",
+      "lvl": 1,
+      "ph": 1,
+      "v": 40,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "mostly_about_fiction",
+      "media": "text",
+      "passage": "Pip could not find his new library card. He looked inside his coat and lunch bag. He checked the pocket of yesterday's trousers. There it was, beside a small pebble. Now he could borrow the book he wanted.",
+      "prompt": "What is this story mainly about?",
+      "choices": [
+        {
+          "t": "searching for something needed",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "choosing a story to read",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "collecting stones on a walk",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "buying clothes for school",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for mostly about fiction. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "mostly_about_fiction",
+      "lvl": 1,
+      "ph": 2,
+      "v": 41,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "mostly_about_fiction",
+      "media": "text",
+      "passage": "A kite caught in a low apple tree. Lila shook the branch, but it stayed there. Her friend held the string away from twigs. Lila slowly lifted the kite with a pole. Together they brought it down safely.",
+      "prompt": "What is the story mostly about?",
+      "choices": [
+        {
+          "t": "working together to free a kite",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "finding apples on a tree",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "learning to fly in strong wind",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "making a new toy from sticks",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for mostly about fiction. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "mostly_about_info",
+      "lvl": 1,
+      "ph": 1,
+      "v": 42,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "mostly_about_info",
+      "media": "text",
+      "passage": "A duck's feathers help keep its skin dry. It spreads oil over them with its bill. Water rolls off the oily feathers in drops. The duck can swim without getting soaked underneath. It cleans its feathers often.",
+      "prompt": "What does this passage mainly explain?",
+      "choices": [
+        {
+          "t": "how ducks stay dry while swimming",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "how ducks find food under water",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "why ducks build nests beside ponds",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "why ducks move their bills to eat",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for mostly about info. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "mostly_about_info",
+      "lvl": 1,
+      "ph": 2,
+      "v": 43,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "mostly_about_info",
+      "media": "text",
+      "passage": "A seed may travel far from its plant. Some have hooks that catch on animal fur. Others have light wings and float on wind. Birds carry some seeds inside juicy fruits. These journeys help plants grow in new places.",
+      "prompt": "What is this passage mainly about?",
+      "choices": [
+        {
+          "t": "the ways seeds move to new places",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the foods that birds like most",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the shapes of different animal coats",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the reasons wind changes direction",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for mostly about info. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "mostly_about_everyday",
+      "lvl": 1,
+      "ph": 1,
+      "v": 44,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "mostly_about_everyday",
+      "media": "text",
+      "passage": "Our class made the cloakroom easier to use. We drew a picture above each child's hook. We put a low box under the scarves. Wet boots went on a tray by the door. Everyone could find their things quickly.",
+      "prompt": "What did the class work on?",
+      "choices": [
+        {
+          "t": "organising a place for their belongings",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "decorating the room for a party",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "choosing different clothes to wear",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "washing the floor after playtime",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for mostly about everyday. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "mostly_about_everyday",
+      "lvl": 1,
+      "ph": 2,
+      "v": 45,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "mostly_about_everyday",
+      "media": "text",
+      "passage": "The bus stop was hard to see at dusk. Neighbours asked for a lamp beside the sign. They cleared bushes that hid the waiting area. A new bench gave older people somewhere to sit. More people could use it comfortably.",
+      "prompt": "What is this passage mostly about?",
+      "choices": [
+        {
+          "t": "making a shared place easier to use",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "teaching people to drive a bus",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "finding a new route through town",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "growing plants beside a garden seat",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for mostly about everyday. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "best_title",
+      "lvl": 2,
+      "ph": 1,
+      "v": 46,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "best_title",
+      "media": "text",
+      "passage": "Under a log, the class found beetles and tiny worms. The ground there felt cooler than the sunny path. Damp leaves covered the soil and gave the creatures shelter. The teacher lifted the log just enough for everyone to look. Pupils drew what they saw without touching the small animals. Afterwards, they put the log back in its original place. This kept the dark, damp home ready for its residents. Next week they would compare it with a sunny patch.",
+      "prompt": "Which title best covers this whole passage?",
+      "choices": [
+        {
+          "t": "A Hidden Home Beneath Our Feet",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "A Drawing Lesson in the Classroom",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "How to Keep Beetles as Pets",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "The Hottest Path Through the Woods",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for best title. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "best_title",
+      "lvl": 2,
+      "ph": 2,
+      "v": 47,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "best_title",
+      "media": "text",
+      "passage": "A broken radio arrived at the village repair table. Its owner expected to throw it away and buy another. A volunteer noticed a loose wire near the speaker. She joined the wire safely, and music played again. At the next table, someone sewed a torn school bag. Nearby, a child replaced a missing wheel on a toy. People shared tools, learned new skills and kept useful things. The event left the rubbish bin almost empty that afternoon.",
+      "prompt": "Which title best fits all these events?",
+      "choices": [
+        {
+          "t": "Giving Worn Things Another Chance",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Choosing the Loudest Radio in Town",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Learning to Make Brand New Toys",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Filling the Village Rubbish Bins",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for best title. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "main_idea_vs_detail",
+      "lvl": 2,
+      "ph": 1,
+      "v": 48,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "main_idea_vs_detail",
+      "media": "text",
+      "passage": "Our town has a small garden beside the bus station. Herbs grow in old sinks that would otherwise be thrown away. A rain barrel catches water from the roof of the shelter. Fallen leaves become compost in a corner bin. Volunteers use the compost to feed next year's plants. Wooden pallets form seats where people can rest and talk. Labels explain what each reused object used to be. The garden shows how unwanted materials can become useful again.",
+      "prompt": "Which idea connects the details in this passage?",
+      "choices": [
+        {
+          "t": "Old materials can serve new purposes.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Old sinks hold the plants in the garden.",
+          "r": "D-DETAIL-AS-MAIN"
+        },
+        {
+          "t": "Wooden seats give people somewhere to rest.",
+          "r": "D-DETAIL-AS-MAIN"
+        },
+        {
+          "t": "A barrel collects water from the shelter.",
+          "r": "D-DETAIL-AS-MAIN"
+        }
+      ],
+      "note": "Find the shared reuse principle across containers, water, compost and seating. All alternatives are true details, but none covers the whole passage."
+    },
+    {
+      "u": "main_idea_vs_detail",
+      "lvl": 2,
+      "ph": 2,
+      "v": 49,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "main_idea_vs_detail",
+      "media": "text",
+      "passage": "The rock pool looked still, but many creatures lived there. A crab hid beneath a ledge until a bird's shadow passed. A limpet held tightly to the rock as waves splashed over. Small fish darted between strands of seaweed to escape a bird. Each animal used a different way to stay safe. The class watched from the edge and kept their hands out. They recorded the shelter or action each creature used. Their notes showed several solutions to the same problem.",
+      "prompt": "Which idea is supported by the whole passage?",
+      "choices": [
+        {
+          "t": "Pool animals protect themselves in different ways.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Only crabs can hide from larger animals.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "All sea creatures are safe beneath the water.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Birds are the only danger near a shore.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for main idea vs detail. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "summary_choice",
+      "lvl": 2,
+      "ph": 1,
+      "v": 50,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "summary_choice",
+      "media": "text",
+      "passage": "The school's vegetable bed was too dry during a warm week. A group measured how much water each row received. They found most water ran off the hard surface. They loosened the soil and spread straw around the plants. Then they watered slowly instead of emptying a full bucket. More water soaked in, and less escaped down the path. The leaves looked firmer the next morning. The group wrote down the changes so other classes could use them.",
+      "prompt": "Which sentence best summarises what the group did?",
+      "choices": [
+        {
+          "t": "They tested a problem and improved how the plants received water.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "They planted new vegetables because every old plant had already died.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "They counted buckets and decided the garden needed a longer path.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "They covered the whole garden and stopped watering during warm weather.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for summary choice. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "summary_choice",
+      "lvl": 2,
+      "ph": 2,
+      "v": 51,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "summary_choice",
+      "media": "text",
+      "passage": "The school play had a large painted moon for its set. During rehearsal, it fell and tore across the middle. The children could not make another before the evening show. They joined the pieces with a sheet of card behind. One child covered the torn line with silver stars. From the audience seats, the repair looked like part of the design. The moon stayed in place throughout the performance. The group saved their set by adapting what they already had.",
+      "prompt": "Which summary includes the problem and its solution?",
+      "choices": [
+        {
+          "t": "The cast repaired a damaged prop using a new design.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "The cast cancelled their show to paint a different moon.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "The children practised moving a prop to different audience seats.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "The children bought silver stars before their first rehearsal began.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for summary choice. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
     }
   ]
 };

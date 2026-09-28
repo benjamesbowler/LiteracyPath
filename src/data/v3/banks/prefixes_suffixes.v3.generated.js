@@ -8530,5 +8530,979 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": ""
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l1.A.prefix_un.v101",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "morpheme",
+  "itemKey": "prefix_un",
+  "formatType": "MORPHEME_MEANING_CONTEXT",
+  "templateType": "MORPHEME_MEANING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "What does ‘unpack’ mean?",
+  "question": "What does ‘unpack’ mean?",
+  "spokenPrompt": "What does ‘unpack’ mean?",
+  "choices": [
+   "buy a bag in a shop",
+   "take things out of a bag",
+   "put things into a bag",
+   "carry a bag to school"
+  ],
+  "answerOptions": [
+   {
+    "value": "buy a bag in a shop",
+    "label": "buy a bag in a shop",
+    "text": "buy a bag in a shop"
+   },
+   {
+    "value": "take things out of a bag",
+    "label": "take things out of a bag",
+    "text": "take things out of a bag"
+   },
+   {
+    "value": "put things into a bag",
+    "label": "put things into a bag",
+    "text": "put things into a bag"
+   },
+   {
+    "value": "carry a bag to school",
+    "label": "carry a bag to school",
+    "text": "carry a bag to school"
+   }
+  ],
+  "answer": "take things out of a bag",
+  "correctAnswer": "take things out of a bag",
+  "distractorRationales": {
+   "put things into a bag": "D-OPPOSITE",
+   "carry a bag to school": "D-MORPH-LITERAL",
+   "buy a bag in a shop": "D-MORPH-LITERAL"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.A.prefix_un.v101",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Reversing an action with un-, rather than only the not- meaning."
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l1.B.prefix_re.v102",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "morpheme",
+  "itemKey": "prefix_re",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
+  "questionType": "multiple_choice",
+  "prompt": "Your drawing tore. What does ‘redraw’ ask you to do?",
+  "question": "Your drawing tore. What does ‘redraw’ ask you to do?",
+  "spokenPrompt": "Your drawing tore. What does ‘redraw’ ask you to do?",
+  "choices": [
+   "draw it again",
+   "rub it out",
+   "colour it red",
+   "put it away"
+  ],
+  "answerOptions": [
+   {
+    "value": "draw it again",
+    "label": "draw it again",
+    "text": "draw it again"
+   },
+   {
+    "value": "rub it out",
+    "label": "rub it out",
+    "text": "rub it out"
+   },
+   {
+    "value": "colour it red",
+    "label": "colour it red",
+    "text": "colour it red"
+   },
+   {
+    "value": "put it away",
+    "label": "put it away",
+    "text": "put it away"
+   }
+  ],
+  "answer": "draw it again",
+  "correctAnswer": "draw it again",
+  "distractorRationales": {
+   "rub it out": "D-MORPH-LITERAL",
+   "colour it red": "D-MORPH-LITERAL",
+   "put it away": "D-MORPH-LITERAL"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.B.prefix_re.v102",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Apply re- to a familiar new base; red colour is a literal-letter trap."
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l1.C.suffix_ful.v103",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "morpheme",
+  "itemKey": "suffix_ful",
+  "formatType": "MORPHEME_MEANING_CONTEXT",
+  "templateType": "MORPHEME_MEANING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "What does ‘hopeful’ mean?",
+  "question": "What does ‘hopeful’ mean?",
+  "spokenPrompt": "What does ‘hopeful’ mean?",
+  "choices": [
+   "someone who hops",
+   "full of hope",
+   "without any hope",
+   "hoping yesterday"
+  ],
+  "answerOptions": [
+   {
+    "value": "someone who hops",
+    "label": "someone who hops",
+    "text": "someone who hops"
+   },
+   {
+    "value": "full of hope",
+    "label": "full of hope",
+    "text": "full of hope"
+   },
+   {
+    "value": "without any hope",
+    "label": "without any hope",
+    "text": "without any hope"
+   },
+   {
+    "value": "hoping yesterday",
+    "label": "hoping yesterday",
+    "text": "hoping yesterday"
+   }
+  ],
+  "answer": "full of hope",
+  "correctAnswer": "full of hope",
+  "distractorRationales": {
+   "without any hope": "D-OPPOSITE",
+   "hoping yesterday": "D-MORPH-LITERAL",
+   "someone who hops": "D-MORPH-LITERAL"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.C.suffix_ful.v103",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Meaningful ful/less contrast and a base-word sound distraction."
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l1.A.suffix_less.v104",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "morpheme",
+  "itemKey": "suffix_less",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
+  "questionType": "multiple_choice",
+  "prompt": "A room has no windows. Which word describes it?",
+  "question": "A room has no windows. Which word describes it?",
+  "spokenPrompt": "A room has no windows. Which word describes it?",
+  "choices": [
+   "windows",
+   "windowed",
+   "windowless",
+   "window"
+  ],
+  "answerOptions": [
+   {
+    "value": "windows",
+    "label": "windows",
+    "text": "windows"
+   },
+   {
+    "value": "windowed",
+    "label": "windowed",
+    "text": "windowed"
+   },
+   {
+    "value": "windowless",
+    "label": "windowless",
+    "text": "windowless"
+   },
+   {
+    "value": "window",
+    "label": "window",
+    "text": "window"
+   }
+  ],
+  "answer": "windowless",
+  "correctAnswer": "windowless",
+  "distractorRationales": {
+   "window": "D-MORPH-LITERAL",
+   "windows": "D-MORPH-LITERAL",
+   "windowed": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.A.suffix_less.v104",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Apply less to a transparent compound-like familiar base; number is not absence."
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l1.B.suffix_er_person.v105",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "morpheme",
+  "itemKey": "suffix_er_person",
+  "formatType": "MORPHEME_MEANING_CONTEXT",
+  "templateType": "MORPHEME_MEANING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "What does ‘helper’ mean?",
+  "question": "What does ‘helper’ mean?",
+  "spokenPrompt": "What does ‘helper’ mean?",
+  "choices": [
+   "helping very often",
+   "someone who helps",
+   "something needing help",
+   "helping once before"
+  ],
+  "answerOptions": [
+   {
+    "value": "helping very often",
+    "label": "helping very often",
+    "text": "helping very often"
+   },
+   {
+    "value": "someone who helps",
+    "label": "someone who helps",
+    "text": "someone who helps"
+   },
+   {
+    "value": "something needing help",
+    "label": "something needing help",
+    "text": "something needing help"
+   },
+   {
+    "value": "helping once before",
+    "label": "helping once before",
+    "text": "helping once before"
+   }
+  ],
+  "answer": "someone who helps",
+  "correctAnswer": "someone who helps",
+  "distractorRationales": {
+   "helping once before": "D-MORPH-LITERAL",
+   "helping very often": "D-MORPH-LITERAL",
+   "something needing help": "D-MORPH-LITERAL"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.B.suffix_er_person.v105",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Agent suffix is separated from recipient, tense and frequency."
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l2.C.suffix_s_es.v106",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "morpheme",
+  "itemKey": "suffix_s_es",
+  "formatType": "MORPHEME_BUILD",
+  "templateType": "MORPHEME_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Add ‘es’ to ‘catch’. Which word finishes the sentence?",
+  "question": "Add ‘es’ to ‘catch’. Which word finishes the sentence?",
+  "spokenPrompt": "Add ‘es’ to ‘catch’. Which word finishes the sentence?",
+  "sentence": "Every morning, she ___ the same bus.",
+  "choices": [
+   "catches",
+   "catch",
+   "catching",
+   "caught"
+  ],
+  "answerOptions": [
+   {
+    "value": "catches",
+    "label": "catches",
+    "text": "catches"
+   },
+   {
+    "value": "catch",
+    "label": "catch",
+    "text": "catch"
+   },
+   {
+    "value": "catching",
+    "label": "catching",
+    "text": "catching"
+   },
+   {
+    "value": "caught",
+    "label": "caught",
+    "text": "caught"
+   }
+  ],
+  "answer": "catches",
+  "correctAnswer": "catches",
+  "distractorRationales": {
+   "catching": "D-MORPH-LITERAL",
+   "caught": "D-MORPH-LITERAL",
+   "catch": "D-MORPH-LITERAL"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Every morning, she ___ the same bus.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.C.suffix_s_es.v106",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Apply es after a ch base; the explicit suffix instruction excludes the otherwise grammatical habitual past."
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l2.A.suffix_ing.v107",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "morpheme",
+  "itemKey": "suffix_ing",
+  "formatType": "MORPHEME_BUILD",
+  "templateType": "MORPHEME_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Add ‘ing’ to ‘slide’. Which word is spelled correctly?",
+  "question": "Add ‘ing’ to ‘slide’. Which word is spelled correctly?",
+  "spokenPrompt": "Add ‘ing’ to ‘slide’. Which word is spelled correctly?",
+  "choices": [
+   "slides",
+   "siding",
+   "sliding",
+   "slid"
+  ],
+  "answerOptions": [
+   {
+    "value": "slides",
+    "label": "slides",
+    "text": "slides"
+   },
+   {
+    "value": "siding",
+    "label": "siding",
+    "text": "siding"
+   },
+   {
+    "value": "sliding",
+    "label": "sliding",
+    "text": "sliding"
+   },
+   {
+    "value": "slid",
+    "label": "slid",
+    "text": "slid"
+   }
+  ],
+  "answer": "sliding",
+  "correctAnswer": "sliding",
+  "distractorRationales": {
+   "siding": "D-MORPH-LITERAL",
+   "slid": "D-MORPH-LITERAL",
+   "slides": "D-MORPH-LITERAL"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.A.suffix_ing.v107",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer the final-e deletion rule without using unapproved misspellings as options."
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l2.B.suffix_ed.v108",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "morpheme",
+  "itemKey": "suffix_ed",
+  "formatType": "MORPHEME_BUILD",
+  "templateType": "MORPHEME_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Which word finishes the sentence?",
+  "question": "Which word finishes the sentence?",
+  "spokenPrompt": "Which word finishes the sentence?",
+  "sentence": "Yesterday, the strong wind ___ our kite over the wall.",
+  "choices": [
+   "carry",
+   "carries",
+   "carrying",
+   "carried"
+  ],
+  "answerOptions": [
+   {
+    "value": "carry",
+    "label": "carry",
+    "text": "carry"
+   },
+   {
+    "value": "carries",
+    "label": "carries",
+    "text": "carries"
+   },
+   {
+    "value": "carrying",
+    "label": "carrying",
+    "text": "carrying"
+   },
+   {
+    "value": "carried",
+    "label": "carried",
+    "text": "carried"
+   }
+  ],
+  "answer": "carried",
+  "correctAnswer": "carried",
+  "distractorRationales": {
+   "carry": "D-MORPH-LITERAL",
+   "carries": "D-MORPH-LITERAL",
+   "carrying": "D-MORPH-LITERAL"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Yesterday, the strong wind ___ our kite over the wall.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.B.suffix_ed.v108",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Apply consonant-y to ied with explicit past time."
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l2.C.suffix_er_est.v109",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "morpheme",
+  "itemKey": "suffix_er_est",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
+  "questionType": "multiple_choice",
+  "prompt": "Of all four paths, which word means the most narrow?",
+  "question": "Of all four paths, which word means the most narrow?",
+  "spokenPrompt": "Of all four paths, which word means the most narrow?",
+  "choices": [
+   "narrowly",
+   "narrowest",
+   "narrower",
+   "narrow"
+  ],
+  "answerOptions": [
+   {
+    "value": "narrowly",
+    "label": "narrowly",
+    "text": "narrowly"
+   },
+   {
+    "value": "narrowest",
+    "label": "narrowest",
+    "text": "narrowest"
+   },
+   {
+    "value": "narrower",
+    "label": "narrower",
+    "text": "narrower"
+   },
+   {
+    "value": "narrow",
+    "label": "narrow",
+    "text": "narrow"
+   }
+  ],
+  "answer": "narrowest",
+  "correctAnswer": "narrowest",
+  "distractorRationales": {
+   "narrower": "D-MORPH-LITERAL",
+   "narrow": "D-MORPH-LITERAL",
+   "narrowly": "D-MORPH-LITERAL"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.C.suffix_er_est.v109",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Compare the entire set: superlative, comparative, base and adverb all remain related real words."
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l2.A.suffix_ly.v110",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "morpheme",
+  "itemKey": "suffix_ly",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes HOW she answered?",
+  "question": "Which word describes HOW she answered?",
+  "spokenPrompt": "Which word describes HOW she answered?",
+  "sentence": "She answered the visitor ___ and offered to help.",
+  "choices": [
+   "polite",
+   "politeness",
+   "impolite",
+   "politely"
+  ],
+  "answerOptions": [
+   {
+    "value": "polite",
+    "label": "polite",
+    "text": "polite"
+   },
+   {
+    "value": "politeness",
+    "label": "politeness",
+    "text": "politeness"
+   },
+   {
+    "value": "impolite",
+    "label": "impolite",
+    "text": "impolite"
+   },
+   {
+    "value": "politely",
+    "label": "politely",
+    "text": "politely"
+   }
+  ],
+  "answer": "politely",
+  "correctAnswer": "politely",
+  "distractorRationales": {
+   "polite": "D-MORPH-LITERAL",
+   "politeness": "D-MORPH-LITERAL",
+   "impolite": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "She answered the visitor ___ and offered to help.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.A.suffix_ly.v110",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Use an adverb in a new grammatical slot instead of copying a gloss."
+ },
+ {
+  "id": "lp3.prefixes_suffixes.l2.B.prefix_pre.v111",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prefixes_suffixes",
+  "assessmentSkillId": "prefixes_suffixes",
+  "skillName": "Prefixes & Suffixes",
+  "skill": "Prefixes & Suffixes",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "morpheme",
+  "itemKey": "prefix_pre",
+  "formatType": "MORPHEME_TRANSFER",
+  "templateType": "MORPHEME_TRANSFER",
+  "questionType": "multiple_choice",
+  "prompt": "What should you do when a recipe says ‘preheat’?",
+  "question": "What should you do when a recipe says ‘preheat’?",
+  "spokenPrompt": "What should you do when a recipe says ‘preheat’?",
+  "choices": [
+   "heat the oven before cooking",
+   "heat the food after serving",
+   "heat the oven a second time",
+   "stop heating the oven completely"
+  ],
+  "answerOptions": [
+   {
+    "value": "heat the oven before cooking",
+    "label": "heat the oven before cooking",
+    "text": "heat the oven before cooking"
+   },
+   {
+    "value": "heat the food after serving",
+    "label": "heat the food after serving",
+    "text": "heat the food after serving"
+   },
+   {
+    "value": "heat the oven a second time",
+    "label": "heat the oven a second time",
+    "text": "heat the oven a second time"
+   },
+   {
+    "value": "stop heating the oven completely",
+    "label": "stop heating the oven completely",
+    "text": "stop heating the oven completely"
+   }
+  ],
+  "answer": "heat the oven before cooking",
+  "correctAnswer": "heat the oven before cooking",
+  "distractorRationales": {
+   "heat the food after serving": "D-MORPH-LITERAL",
+   "heat the oven a second time": "D-MORPH-LITERAL",
+   "stop heating the oven completely": "D-OPPOSITE"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.B.prefix_pre.v111",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer temporal pre- to a real instruction; before/again/after remain distinct."
  }
 ];

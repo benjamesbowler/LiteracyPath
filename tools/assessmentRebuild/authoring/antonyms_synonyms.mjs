@@ -1,6 +1,7 @@
+import depthItems from "./depth/antonyms_synonyms.mjs";
 // Antonyms & Synonyms: explicit authored relations and context-sensitive contrasts.
 // Authority: BLUEPRINTS_LANGUAGE.md section 21; retained legacy cell IDs are text-only.
-export default {
+const bank = {
   "skillId": "antonyms_synonyms",
   "skillName": "Antonyms & Synonyms",
   "items": [
@@ -2445,3 +2446,6 @@ export default {
     }
   ]
 };
+
+bank.items.push(...depthItems);
+export default bank;

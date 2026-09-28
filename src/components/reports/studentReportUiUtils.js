@@ -27,7 +27,7 @@ export const STUDENT_REPORT_VIEWS = [
     id: "other-learning",
     label: "Other learning",
     shortLabel: "Other learning",
-    description: "Practice results from Sound Seekers, the Arcade and Story Quests."
+    description: "Practice results from Adventure Map, Sound Seekers, the Arcade and Story Quests."
   },
   {
     id: "el-assessments",

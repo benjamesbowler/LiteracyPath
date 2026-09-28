@@ -7106,5 +7106,709 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": ""
+ },
+ {
+  "id": "lp3.nouns.l1.A.noun_person.v101",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_person",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word names someone who fixes a pipe?",
+  "question": "Which word names someone who fixes a pipe?",
+  "spokenPrompt": "Which word names someone who fixes a pipe?",
+  "choices": [
+   "plumber",
+   "repair",
+   "leaking",
+   "carefully"
+  ],
+  "answerOptions": [
+   {
+    "value": "plumber",
+    "label": "plumber",
+    "text": "plumber"
+   },
+   {
+    "value": "repair",
+    "label": "repair",
+    "text": "repair"
+   },
+   {
+    "value": "leaking",
+    "label": "leaking",
+    "text": "leaking"
+   },
+   {
+    "value": "carefully",
+    "label": "carefully",
+    "text": "carefully"
+   }
+  ],
+  "answer": "plumber",
+  "correctAnswer": "plumber",
+  "distractorRationales": {
+   "carefully": "D-FUNCTION-SWAP",
+   "repair": "D-FUNCTION-SWAP",
+   "leaking": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l1.A.noun_person.v101",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "A person word contrasted with the related action, state and manner."
+ },
+ {
+  "id": "lp3.nouns.l1.B.noun_animal.v102",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_animal",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word names an animal?",
+  "question": "Which word names an animal?",
+  "spokenPrompt": "Which word names an animal?",
+  "choices": [
+   "gently",
+   "otter",
+   "swims",
+   "sleepy"
+  ],
+  "answerOptions": [
+   {
+    "value": "gently",
+    "label": "gently",
+    "text": "gently"
+   },
+   {
+    "value": "otter",
+    "label": "otter",
+    "text": "otter"
+   },
+   {
+    "value": "swims",
+    "label": "swims",
+    "text": "swims"
+   },
+   {
+    "value": "sleepy",
+    "label": "sleepy",
+    "text": "sleepy"
+   }
+  ],
+  "answer": "otter",
+  "correctAnswer": "otter",
+  "distractorRationales": {
+   "sleepy": "D-FUNCTION-SWAP",
+   "gently": "D-FUNCTION-SWAP",
+   "swims": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l1.B.noun_animal.v102",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New aquatic mammal vocabulary; grammatical category stays the target."
+ },
+ {
+  "id": "lp3.nouns.l1.C.noun_place.v103",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_place",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word names somewhere people watch a film?",
+  "question": "Which word names somewhere people watch a film?",
+  "spokenPrompt": "Which word names somewhere people watch a film?",
+  "choices": [
+   "cinema",
+   "watch",
+   "funny",
+   "quietly"
+  ],
+  "answerOptions": [
+   {
+    "value": "cinema",
+    "label": "cinema",
+    "text": "cinema"
+   },
+   {
+    "value": "watch",
+    "label": "watch",
+    "text": "watch"
+   },
+   {
+    "value": "funny",
+    "label": "funny",
+    "text": "funny"
+   },
+   {
+    "value": "quietly",
+    "label": "quietly",
+    "text": "quietly"
+   }
+  ],
+  "answer": "cinema",
+  "correctAnswer": "cinema",
+  "distractorRationales": {
+   "watch": "D-FUNCTION-SWAP",
+   "funny": "D-FUNCTION-SWAP",
+   "quietly": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l1.C.noun_place.v103",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Naming a place rather than the action done there."
+ },
+ {
+  "id": "lp3.nouns.l1.A.noun_thing.v104",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_thing",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which naming word means something used for cutting paper?",
+  "question": "Which naming word means something used for cutting paper?",
+  "spokenPrompt": "Which naming word means something used for cutting paper?",
+  "choices": [
+   "carefully",
+   "scissors",
+   "cut",
+   "sharp"
+  ],
+  "answerOptions": [
+   {
+    "value": "carefully",
+    "label": "carefully",
+    "text": "carefully"
+   },
+   {
+    "value": "scissors",
+    "label": "scissors",
+    "text": "scissors"
+   },
+   {
+    "value": "cut",
+    "label": "cut",
+    "text": "cut"
+   },
+   {
+    "value": "sharp",
+    "label": "sharp",
+    "text": "sharp"
+   }
+  ],
+  "answer": "scissors",
+  "correctAnswer": "scissors",
+  "distractorRationales": {
+   "carefully": "D-FUNCTION-SWAP",
+   "cut": "D-FUNCTION-SWAP",
+   "sharp": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l1.A.noun_thing.v104",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "A plural-looking object name is still a naming word."
+ },
+ {
+  "id": "lp3.nouns.l2.B.noun_in_sentence.v105",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_in_sentence",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which word names something in ‘Our coach carried the equipment’?",
+  "question": "Which word names something in ‘Our coach carried the equipment’?",
+  "spokenPrompt": "Which word names something in ‘Our coach carried the equipment’?",
+  "choices": [
+   "carried",
+   "our",
+   "the",
+   "equipment"
+  ],
+  "answerOptions": [
+   {
+    "value": "carried",
+    "label": "carried",
+    "text": "carried"
+   },
+   {
+    "value": "our",
+    "label": "our",
+    "text": "our"
+   },
+   {
+    "value": "the",
+    "label": "the",
+    "text": "the"
+   },
+   {
+    "value": "equipment",
+    "label": "equipment",
+    "text": "equipment"
+   }
+  ],
+  "answer": "equipment",
+  "correctAnswer": "equipment",
+  "distractorRationales": {
+   "the": "D-FUNCTION-SWAP",
+   "carried": "D-FUNCTION-SWAP",
+   "our": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l2.B.noun_in_sentence.v105",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer from easily pictured count nouns to a familiar mass noun."
+ },
+ {
+  "id": "lp3.nouns.l2.C.noun_vs_verb.v106",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_vs_verb",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Where is ‘paint’ a naming word?",
+  "question": "Where is ‘paint’ a naming word?",
+  "spokenPrompt": "Where is ‘paint’ a naming word?",
+  "choices": [
+   "We paint very carefully.",
+   "Please paint the fence.",
+   "They paint after lunch.",
+   "The paint dried overnight."
+  ],
+  "answerOptions": [
+   {
+    "value": "We paint very carefully.",
+    "label": "We paint very carefully.",
+    "text": "We paint very carefully."
+   },
+   {
+    "value": "Please paint the fence.",
+    "label": "Please paint the fence.",
+    "text": "Please paint the fence."
+   },
+   {
+    "value": "They paint after lunch.",
+    "label": "They paint after lunch.",
+    "text": "They paint after lunch."
+   },
+   {
+    "value": "The paint dried overnight.",
+    "label": "The paint dried overnight.",
+    "text": "The paint dried overnight."
+   }
+  ],
+  "answer": "The paint dried overnight.",
+  "correctAnswer": "The paint dried overnight.",
+  "distractorRationales": {
+   "We paint very carefully.": "D-FUNCTION-SWAP",
+   "Please paint the fence.": "D-FUNCTION-SWAP",
+   "They paint after lunch.": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l2.C.noun_vs_verb.v106",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The same word changes function; meaning and syntax, not memorized word lists, decide."
+ },
+ {
+  "id": "lp3.nouns.l2.A.noun_two_step.v107",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_two_step",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which sentence has exactly TWO naming words?",
+  "question": "Which sentence has exactly TWO naming words?",
+  "spokenPrompt": "Which sentence has exactly TWO naming words?",
+  "choices": [
+   "Our footprints crossed the sand.",
+   "We waited quietly.",
+   "Our little puppy slept peacefully.",
+   "Footprints crossed sand and mud."
+  ],
+  "answerOptions": [
+   {
+    "value": "Our footprints crossed the sand.",
+    "label": "Our footprints crossed the sand.",
+    "text": "Our footprints crossed the sand."
+   },
+   {
+    "value": "We waited quietly.",
+    "label": "We waited quietly.",
+    "text": "We waited quietly."
+   },
+   {
+    "value": "Our little puppy slept peacefully.",
+    "label": "Our little puppy slept peacefully.",
+    "text": "Our little puppy slept peacefully."
+   },
+   {
+    "value": "Footprints crossed sand and mud.",
+    "label": "Footprints crossed sand and mud.",
+    "text": "Footprints crossed sand and mud."
+   }
+  ],
+  "answer": "Our footprints crossed the sand.",
+  "correctAnswer": "Our footprints crossed the sand.",
+  "distractorRationales": {
+   "Our little puppy slept peacefully.": "D-FUNCTION-SWAP",
+   "Footprints crossed sand and mud.": "D-FUNCTION-SWAP",
+   "We waited quietly.": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l2.A.noun_two_step.v107",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Count two plural/mass nouns while rejecting zero, one and three; sentence length is not the rule."
+ },
+ {
+  "id": "lp3.nouns.l2.B.noun_vs_verb.v108",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "nouns",
+  "assessmentSkillId": "nouns",
+  "skillName": "Nouns",
+  "skill": "Nouns",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "noun_vs_verb",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Where is ‘brush’ a naming word?",
+  "question": "Where is ‘brush’ a naming word?",
+  "spokenPrompt": "Where is ‘brush’ a naming word?",
+  "choices": [
+   "A soft brush cleaned it.",
+   "We brush our teeth.",
+   "Please brush slowly.",
+   "They brush every morning."
+  ],
+  "answerOptions": [
+   {
+    "value": "A soft brush cleaned it.",
+    "label": "A soft brush cleaned it.",
+    "text": "A soft brush cleaned it."
+   },
+   {
+    "value": "We brush our teeth.",
+    "label": "We brush our teeth.",
+    "text": "We brush our teeth."
+   },
+   {
+    "value": "Please brush slowly.",
+    "label": "Please brush slowly.",
+    "text": "Please brush slowly."
+   },
+   {
+    "value": "They brush every morning.",
+    "label": "They brush every morning.",
+    "text": "They brush every morning."
+   }
+  ],
+  "answer": "A soft brush cleaned it.",
+  "correctAnswer": "A soft brush cleaned it.",
+  "distractorRationales": {
+   "We brush our teeth.": "D-FUNCTION-SWAP",
+   "Please brush slowly.": "D-FUNCTION-SWAP",
+   "They brush every morning.": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.nouns.l2.B.noun_vs_verb.v108",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer a flexible familiar word to its actual function in a complete sentence."
  }
 ];

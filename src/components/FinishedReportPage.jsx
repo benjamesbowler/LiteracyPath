@@ -922,10 +922,10 @@ export function FinishedReportPage({
     quests: storyQuests
   }), [progressScopeKey, storyQuestRawProgress, studentName]);
   const progressAreas = useMemo(() => (
-    progressScopeKey
+    progressScopeKey && evidenceReady
       ? collectStudentEngagementAreas({ id: progressScopeKey }, null, { allowLocalFallback: true })
       : {}
-  ), [progressScopeKey]);
+  ), [progressScopeKey, evidenceReady]);
   const engagementRow = useMemo(() => {
     if (!progressScopeKey) return null;
     return buildEngagementRow({ studentName, studentId: progressScopeKey, className, areas: progressAreas });
@@ -1010,6 +1010,7 @@ export function FinishedReportPage({
     storyQuestSummary: storyQuestRows,
     soundSeekersReport,
     arcade: progressAreas.games || {},
+    adventureMap: progressAreas.quest || {},
     engagement: engagementRow || {}
   }), [
     activeBenchmarkScope,
@@ -1025,6 +1026,7 @@ export function FinishedReportPage({
     letterAssessment,
     patternAssessment,
     progressAreas.games,
+    progressAreas.quest,
     progressScopeKey,
     skillMasterySummary,
     soundSeekersReport,

@@ -12414,5 +12414,4541 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": ""
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.A.about.v101",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "sight_word",
+  "itemKey": "about",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "The film was about a lost kitten. Listen. Pick the missing word.",
+  "sentence": "The film was ___ a lost kitten.",
+  "choices": [
+   "other",
+   "about",
+   "out",
+   "but"
+  ],
+  "answerOptions": [
+   {
+    "value": "other",
+    "label": "other",
+    "text": "other"
+   },
+   {
+    "value": "about",
+    "label": "about",
+    "text": "about"
+   },
+   {
+    "value": "out",
+    "label": "out",
+    "text": "out"
+   },
+   {
+    "value": "but",
+    "label": "but",
+    "text": "but"
+   }
+  ],
+  "answer": "about",
+  "correctAnswer": "about",
+  "distractorRationales": {
+   "but": "D-FUNCTION-SWAP",
+   "other": "D-FUNCTION-SWAP",
+   "out": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "The film was ___ a lost kitten.",
+  "targetWord": "about",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.A.about.v101",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.B.about.v102",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "sight_word",
+  "itemKey": "about",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "We asked the keeper about the animals that sleep all winter. Build the missing word.",
+  "sentence": "We asked the keeper ___ the animals that sleep all winter.",
+  "choices": [
+   "about"
+  ],
+  "answerOptions": [
+   {
+    "value": "about",
+    "label": "about",
+    "text": "about"
+   }
+  ],
+  "answer": "about",
+  "correctAnswer": "about",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "a",
+   "b",
+   "o",
+   "u",
+   "t",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "a",
+   "b",
+   "o",
+   "u",
+   "t",
+   "e",
+   "a"
+  ],
+  "sentenceText": "We asked the keeper about the animals that sleep all winter.",
+  "targetWord": "about",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.B.about.v102",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.C.go.v103",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "sight_word",
+  "itemKey": "go",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "We must go before sunset. Listen. Pick the missing word.",
+  "sentence": "We must ___ before sunset.",
+  "choices": [
+   "do",
+   "so",
+   "to",
+   "go"
+  ],
+  "answerOptions": [
+   {
+    "value": "do",
+    "label": "do",
+    "text": "do"
+   },
+   {
+    "value": "so",
+    "label": "so",
+    "text": "so"
+   },
+   {
+    "value": "to",
+    "label": "to",
+    "text": "to"
+   },
+   {
+    "value": "go",
+    "label": "go",
+    "text": "go"
+   }
+  ],
+  "answer": "go",
+  "correctAnswer": "go",
+  "distractorRationales": {
+   "do": "D-FUNCTION-SWAP",
+   "so": "D-FUNCTION-SWAP",
+   "to": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "We must ___ before sunset.",
+  "targetWord": "go",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.C.go.v103",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.A.go.v104",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "sight_word",
+  "itemKey": "go",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "When the path becomes narrow, go slowly and stay together. Build the missing word.",
+  "sentence": "When the path becomes narrow, ___ slowly and stay together.",
+  "choices": [
+   "go"
+  ],
+  "answerOptions": [
+   {
+    "value": "go",
+    "label": "go",
+    "text": "go"
+   }
+  ],
+  "answer": "go",
+  "correctAnswer": "go",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "g",
+   "o",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "g",
+   "o",
+   "e",
+   "a"
+  ],
+  "sentenceText": "When the path becomes narrow, go slowly and stay together.",
+  "targetWord": "go",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.A.go.v104",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.B.has.v105",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "sight_word",
+  "itemKey": "has",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "That bicycle has a silver bell. Listen. Pick the missing word.",
+  "sentence": "That bicycle ___ a silver bell.",
+  "choices": [
+   "his",
+   "have",
+   "has",
+   "had"
+  ],
+  "answerOptions": [
+   {
+    "value": "his",
+    "label": "his",
+    "text": "his"
+   },
+   {
+    "value": "have",
+    "label": "have",
+    "text": "have"
+   },
+   {
+    "value": "has",
+    "label": "has",
+    "text": "has"
+   },
+   {
+    "value": "had",
+    "label": "had",
+    "text": "had"
+   }
+  ],
+  "answer": "has",
+  "correctAnswer": "has",
+  "distractorRationales": {
+   "his": "D-FUNCTION-SWAP",
+   "have": "D-FUNCTION-SWAP",
+   "had": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "That bicycle ___ a silver bell.",
+  "targetWord": "has",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.B.has.v105",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.C.has.v106",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "sight_word",
+  "itemKey": "has",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "The caterpillar has changed since we first brought it inside. Build the missing word.",
+  "sentence": "The caterpillar ___ changed since we first brought it inside.",
+  "choices": [
+   "has"
+  ],
+  "answerOptions": [
+   {
+    "value": "has",
+    "label": "has",
+    "text": "has"
+   }
+  ],
+  "answer": "has",
+  "correctAnswer": "has",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "h",
+   "a",
+   "s",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "h",
+   "a",
+   "s",
+   "e",
+   "a"
+  ],
+  "sentenceText": "The caterpillar has changed since we first brought it inside.",
+  "targetWord": "has",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.C.has.v106",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.A.her.v107",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "sight_word",
+  "itemKey": "her",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "Mina put her drawing in a folder. Listen. Pick the missing word.",
+  "sentence": "Mina put ___ drawing in a folder.",
+  "choices": [
+   "their",
+   "your",
+   "her",
+   "he"
+  ],
+  "answerOptions": [
+   {
+    "value": "their",
+    "label": "their",
+    "text": "their"
+   },
+   {
+    "value": "your",
+    "label": "your",
+    "text": "your"
+   },
+   {
+    "value": "her",
+    "label": "her",
+    "text": "her"
+   },
+   {
+    "value": "he",
+    "label": "he",
+    "text": "he"
+   }
+  ],
+  "answer": "her",
+  "correctAnswer": "her",
+  "distractorRationales": {
+   "their": "D-FUNCTION-SWAP",
+   "your": "D-FUNCTION-SWAP",
+   "he": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "Mina put ___ drawing in a folder.",
+  "targetWord": "her",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.A.her.v107",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.B.her.v108",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "sight_word",
+  "itemKey": "her",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "When Grandma arrived, we carried her suitcase up the steps. Build the missing word.",
+  "sentence": "When Grandma arrived, we carried ___ suitcase up the steps.",
+  "choices": [
+   "her"
+  ],
+  "answerOptions": [
+   {
+    "value": "her",
+    "label": "her",
+    "text": "her"
+   }
+  ],
+  "answer": "her",
+  "correctAnswer": "her",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "h",
+   "e",
+   "r",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "h",
+   "e",
+   "r",
+   "e",
+   "a"
+  ],
+  "sentenceText": "When Grandma arrived, we carried her suitcase up the steps.",
+  "targetWord": "her",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.B.her.v108",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.C.him.v109",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "sight_word",
+  "itemKey": "him",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "I saved a seat for him. Listen. Pick the missing word.",
+  "sentence": "I saved a seat for ___.",
+  "choices": [
+   "him",
+   "his",
+   "he",
+   "it"
+  ],
+  "answerOptions": [
+   {
+    "value": "him",
+    "label": "him",
+    "text": "him"
+   },
+   {
+    "value": "his",
+    "label": "his",
+    "text": "his"
+   },
+   {
+    "value": "he",
+    "label": "he",
+    "text": "he"
+   },
+   {
+    "value": "it",
+    "label": "it",
+    "text": "it"
+   }
+  ],
+  "answer": "him",
+  "correctAnswer": "him",
+  "distractorRationales": {
+   "his": "D-FUNCTION-SWAP",
+   "he": "D-FUNCTION-SWAP",
+   "it": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "I saved a seat for ___.",
+  "targetWord": "him",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.C.him.v109",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.A.him.v110",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "sight_word",
+  "itemKey": "him",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "Ari dropped his scarf, so I ran after him with it. Build the missing word.",
+  "sentence": "Ari dropped his scarf, so I ran after ___ with it.",
+  "choices": [
+   "him"
+  ],
+  "answerOptions": [
+   {
+    "value": "him",
+    "label": "him",
+    "text": "him"
+   }
+  ],
+  "answer": "him",
+  "correctAnswer": "him",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "h",
+   "i",
+   "m",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "h",
+   "i",
+   "m",
+   "e",
+   "a"
+  ],
+  "sentenceText": "Ari dropped his scarf, so I ran after him with it.",
+  "targetWord": "him",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.A.him.v110",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.B.into.v111",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "sight_word",
+  "itemKey": "into",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "The frog leapt into the pond. Listen. Pick the missing word.",
+  "sentence": "The frog leapt ___ the pond.",
+  "choices": [
+   "in",
+   "to",
+   "out",
+   "into"
+  ],
+  "answerOptions": [
+   {
+    "value": "in",
+    "label": "in",
+    "text": "in"
+   },
+   {
+    "value": "to",
+    "label": "to",
+    "text": "to"
+   },
+   {
+    "value": "out",
+    "label": "out",
+    "text": "out"
+   },
+   {
+    "value": "into",
+    "label": "into",
+    "text": "into"
+   }
+  ],
+  "answer": "into",
+  "correctAnswer": "into",
+  "distractorRationales": {
+   "in": "D-FUNCTION-SWAP",
+   "to": "D-FUNCTION-SWAP",
+   "out": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "The frog leapt ___ the pond.",
+  "targetWord": "into",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.B.into.v111",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.C.into.v112",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "sight_word",
+  "itemKey": "into",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "Pour the clean water into this narrow-necked bottle carefully. Build the missing word.",
+  "sentence": "Pour the clean water ___ this narrow-necked bottle carefully.",
+  "choices": [
+   "into"
+  ],
+  "answerOptions": [
+   {
+    "value": "into",
+    "label": "into",
+    "text": "into"
+   }
+  ],
+  "answer": "into",
+  "correctAnswer": "into",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "i",
+   "n",
+   "t",
+   "o",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "i",
+   "n",
+   "t",
+   "o",
+   "e",
+   "a"
+  ],
+  "sentenceText": "Pour the clean water into this narrow-necked bottle carefully.",
+  "targetWord": "into",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.C.into.v112",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.A.like.v113",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "sight_word",
+  "itemKey": "like",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "Clouds looked like white sheep. Listen. Pick the missing word.",
+  "sentence": "Clouds looked ___ white sheep.",
+  "choices": [
+   "look",
+   "make",
+   "time",
+   "like"
+  ],
+  "answerOptions": [
+   {
+    "value": "look",
+    "label": "look",
+    "text": "look"
+   },
+   {
+    "value": "make",
+    "label": "make",
+    "text": "make"
+   },
+   {
+    "value": "time",
+    "label": "time",
+    "text": "time"
+   },
+   {
+    "value": "like",
+    "label": "like",
+    "text": "like"
+   }
+  ],
+  "answer": "like",
+  "correctAnswer": "like",
+  "distractorRationales": {
+   "look": "D-FUNCTION-SWAP",
+   "make": "D-FUNCTION-SWAP",
+   "time": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "Clouds looked ___ white sheep.",
+  "targetWord": "like",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.A.like.v113",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.B.like.v114",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "sight_word",
+  "itemKey": "like",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "Would you like another chance to solve the final puzzle? Build the missing word.",
+  "sentence": "Would you ___ another chance to solve the final puzzle?",
+  "choices": [
+   "like"
+  ],
+  "answerOptions": [
+   {
+    "value": "like",
+    "label": "like",
+    "text": "like"
+   }
+  ],
+  "answer": "like",
+  "correctAnswer": "like",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "l",
+   "i",
+   "k",
+   "e",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "l",
+   "i",
+   "k",
+   "e",
+   "e",
+   "a"
+  ],
+  "sentenceText": "Would you like another chance to solve the final puzzle?",
+  "targetWord": "like",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.B.like.v114",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.C.look.v115",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "sight_word",
+  "itemKey": "look",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "Please look inside the empty box. Listen. Pick the missing word.",
+  "sentence": "Please ___ inside the empty box.",
+  "choices": [
+   "see",
+   "look",
+   "like",
+   "go"
+  ],
+  "answerOptions": [
+   {
+    "value": "see",
+    "label": "see",
+    "text": "see"
+   },
+   {
+    "value": "look",
+    "label": "look",
+    "text": "look"
+   },
+   {
+    "value": "like",
+    "label": "like",
+    "text": "like"
+   },
+   {
+    "value": "go",
+    "label": "go",
+    "text": "go"
+   }
+  ],
+  "answer": "look",
+  "correctAnswer": "look",
+  "distractorRationales": {
+   "like": "D-FUNCTION-SWAP",
+   "go": "D-FUNCTION-SWAP",
+   "see": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "Please ___ inside the empty box.",
+  "targetWord": "look",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.C.look.v115",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.A.look.v116",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "sight_word",
+  "itemKey": "look",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "If you look closely, you can see tiny tracks in the sand. Build the missing word.",
+  "sentence": "If you ___ closely, you can see tiny tracks in the sand.",
+  "choices": [
+   "look"
+  ],
+  "answerOptions": [
+   {
+    "value": "look",
+    "label": "look",
+    "text": "look"
+   }
+  ],
+  "answer": "look",
+  "correctAnswer": "look",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "l",
+   "o",
+   "o",
+   "k",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "l",
+   "o",
+   "o",
+   "k",
+   "e",
+   "a"
+  ],
+  "sentenceText": "If you look closely, you can see tiny tracks in the sand.",
+  "targetWord": "look",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.A.look.v116",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.B.make.v117",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "sight_word",
+  "itemKey": "make",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "We can make our own paper hats. Listen. Pick the missing word.",
+  "sentence": "We can ___ our own paper hats.",
+  "choices": [
+   "make",
+   "like",
+   "many",
+   "more"
+  ],
+  "answerOptions": [
+   {
+    "value": "make",
+    "label": "make",
+    "text": "make"
+   },
+   {
+    "value": "like",
+    "label": "like",
+    "text": "like"
+   },
+   {
+    "value": "many",
+    "label": "many",
+    "text": "many"
+   },
+   {
+    "value": "more",
+    "label": "more",
+    "text": "more"
+   }
+  ],
+  "answer": "make",
+  "correctAnswer": "make",
+  "distractorRationales": {
+   "more": "D-FUNCTION-SWAP",
+   "like": "D-FUNCTION-SWAP",
+   "many": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "We can ___ our own paper hats.",
+  "targetWord": "make",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.B.make.v117",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.C.make.v118",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "sight_word",
+  "itemKey": "make",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "First, make a small hole in the centre of each circle. Build the missing word.",
+  "sentence": "First, ___ a small hole in the centre of each circle.",
+  "choices": [
+   "make"
+  ],
+  "answerOptions": [
+   {
+    "value": "make",
+    "label": "make",
+    "text": "make"
+   }
+  ],
+  "answer": "make",
+  "correctAnswer": "make",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "m",
+   "a",
+   "k",
+   "e",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "m",
+   "a",
+   "k",
+   "e",
+   "e",
+   "a"
+  ],
+  "sentenceText": "First, make a small hole in the centre of each circle.",
+  "targetWord": "make",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.C.make.v118",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.A.many.v119",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "sight_word",
+  "itemKey": "many",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "How many buttons are in this jar? Listen. Pick the missing word.",
+  "sentence": "How ___ buttons are in this jar?",
+  "choices": [
+   "many",
+   "more",
+   "some",
+   "all"
+  ],
+  "answerOptions": [
+   {
+    "value": "many",
+    "label": "many",
+    "text": "many"
+   },
+   {
+    "value": "more",
+    "label": "more",
+    "text": "more"
+   },
+   {
+    "value": "some",
+    "label": "some",
+    "text": "some"
+   },
+   {
+    "value": "all",
+    "label": "all",
+    "text": "all"
+   }
+  ],
+  "answer": "many",
+  "correctAnswer": "many",
+  "distractorRationales": {
+   "all": "D-FUNCTION-SWAP",
+   "more": "D-FUNCTION-SWAP",
+   "some": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "How ___ buttons are in this jar?",
+  "targetWord": "many",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.A.many.v119",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.B.many.v120",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "sight_word",
+  "itemKey": "many",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "I counted many more flowers than I expected in the meadow. Build the missing word.",
+  "sentence": "I counted ___ more flowers than I expected in the meadow.",
+  "choices": [
+   "many"
+  ],
+  "answerOptions": [
+   {
+    "value": "many",
+    "label": "many",
+    "text": "many"
+   }
+  ],
+  "answer": "many",
+  "correctAnswer": "many",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "m",
+   "a",
+   "n",
+   "y",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "m",
+   "a",
+   "n",
+   "y",
+   "e",
+   "a"
+  ],
+  "sentenceText": "I counted many more flowers than I expected in the meadow.",
+  "targetWord": "many",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.B.many.v120",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.C.more.v121",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "sight_word",
+  "itemKey": "more",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "Please pour a little more juice. Listen. Pick the missing word.",
+  "sentence": "Please pour a little ___ juice.",
+  "choices": [
+   "many",
+   "other",
+   "more",
+   "some"
+  ],
+  "answerOptions": [
+   {
+    "value": "many",
+    "label": "many",
+    "text": "many"
+   },
+   {
+    "value": "other",
+    "label": "other",
+    "text": "other"
+   },
+   {
+    "value": "more",
+    "label": "more",
+    "text": "more"
+   },
+   {
+    "value": "some",
+    "label": "some",
+    "text": "some"
+   }
+  ],
+  "answer": "more",
+  "correctAnswer": "more",
+  "distractorRationales": {
+   "some": "D-FUNCTION-SWAP",
+   "many": "D-FUNCTION-SWAP",
+   "other": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "Please pour a little ___ juice.",
+  "targetWord": "more",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.C.more.v121",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.A.more.v122",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "sight_word",
+  "itemKey": "more",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "We need more information before choosing the safest route. Build the missing word.",
+  "sentence": "We need ___ information before choosing the safest route.",
+  "choices": [
+   "more"
+  ],
+  "answerOptions": [
+   {
+    "value": "more",
+    "label": "more",
+    "text": "more"
+   }
+  ],
+  "answer": "more",
+  "correctAnswer": "more",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "m",
+   "o",
+   "r",
+   "e",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "m",
+   "o",
+   "r",
+   "e",
+   "e",
+   "a"
+  ],
+  "sentenceText": "We need more information before choosing the safest route.",
+  "targetWord": "more",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.A.more.v122",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.B.other.v123",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "sight_word",
+  "itemKey": "other",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "My other glove is missing. Listen. Pick the missing word.",
+  "sentence": "My ___ glove is missing.",
+  "choices": [
+   "these",
+   "other",
+   "their",
+   "there"
+  ],
+  "answerOptions": [
+   {
+    "value": "these",
+    "label": "these",
+    "text": "these"
+   },
+   {
+    "value": "other",
+    "label": "other",
+    "text": "other"
+   },
+   {
+    "value": "their",
+    "label": "their",
+    "text": "their"
+   },
+   {
+    "value": "there",
+    "label": "there",
+    "text": "there"
+   }
+  ],
+  "answer": "other",
+  "correctAnswer": "other",
+  "distractorRationales": {
+   "their": "D-FUNCTION-SWAP",
+   "there": "D-FUNCTION-SWAP",
+   "these": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "My ___ glove is missing.",
+  "targetWord": "other",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.B.other.v123",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.C.other.v124",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "sight_word",
+  "itemKey": "other",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "One path was muddy, so we followed the other route. Build the missing word.",
+  "sentence": "One path was muddy, so we followed the ___ route.",
+  "choices": [
+   "other"
+  ],
+  "answerOptions": [
+   {
+    "value": "other",
+    "label": "other",
+    "text": "other"
+   }
+  ],
+  "answer": "other",
+  "correctAnswer": "other",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "o",
+   "t",
+   "h",
+   "e",
+   "r",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "o",
+   "t",
+   "h",
+   "e",
+   "r",
+   "e",
+   "a"
+  ],
+  "sentenceText": "One path was muddy, so we followed the other route.",
+  "targetWord": "other",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.C.other.v124",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.A.out.v125",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "sight_word",
+  "itemKey": "out",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "The chick climbed out of its shell. Listen. Pick the missing word.",
+  "sentence": "The chick climbed ___ of its shell.",
+  "choices": [
+   "but",
+   "out",
+   "about",
+   "not"
+  ],
+  "answerOptions": [
+   {
+    "value": "but",
+    "label": "but",
+    "text": "but"
+   },
+   {
+    "value": "out",
+    "label": "out",
+    "text": "out"
+   },
+   {
+    "value": "about",
+    "label": "about",
+    "text": "about"
+   },
+   {
+    "value": "not",
+    "label": "not",
+    "text": "not"
+   }
+  ],
+  "answer": "out",
+  "correctAnswer": "out",
+  "distractorRationales": {
+   "but": "D-FUNCTION-SWAP",
+   "about": "D-FUNCTION-SWAP",
+   "not": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "The chick climbed ___ of its shell.",
+  "targetWord": "out",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.A.out.v125",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.B.out.v126",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "sight_word",
+  "itemKey": "out",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "Before we leave, take out any toys that belong here. Build the missing word.",
+  "sentence": "Before we leave, take ___ any toys that belong here.",
+  "choices": [
+   "out"
+  ],
+  "answerOptions": [
+   {
+    "value": "out",
+    "label": "out",
+    "text": "out"
+   }
+  ],
+  "answer": "out",
+  "correctAnswer": "out",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "o",
+   "u",
+   "t",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "o",
+   "u",
+   "t",
+   "e",
+   "a"
+  ],
+  "sentenceText": "Before we leave, take out any toys that belong here.",
+  "targetWord": "out",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.B.out.v126",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.C.see.v127",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "sight_word",
+  "itemKey": "see",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "I can see the moon tonight. Listen. Pick the missing word.",
+  "sentence": "I can ___ the moon tonight.",
+  "choices": [
+   "she",
+   "we",
+   "be",
+   "see"
+  ],
+  "answerOptions": [
+   {
+    "value": "she",
+    "label": "she",
+    "text": "she"
+   },
+   {
+    "value": "we",
+    "label": "we",
+    "text": "we"
+   },
+   {
+    "value": "be",
+    "label": "be",
+    "text": "be"
+   },
+   {
+    "value": "see",
+    "label": "see",
+    "text": "see"
+   }
+  ],
+  "answer": "see",
+  "correctAnswer": "see",
+  "distractorRationales": {
+   "we": "D-FUNCTION-SWAP",
+   "be": "D-FUNCTION-SWAP",
+   "she": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "I can ___ the moon tonight.",
+  "targetWord": "see",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.C.see.v127",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.A.see.v128",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "sight_word",
+  "itemKey": "see",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "From the hilltop, we could see the river winding below. Build the missing word.",
+  "sentence": "From the hilltop, we could ___ the river winding below.",
+  "choices": [
+   "see"
+  ],
+  "answerOptions": [
+   {
+    "value": "see",
+    "label": "see",
+    "text": "see"
+   }
+  ],
+  "answer": "see",
+  "correctAnswer": "see",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "s",
+   "e",
+   "e",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "s",
+   "e",
+   "e",
+   "e",
+   "a"
+  ],
+  "sentenceText": "From the hilltop, we could see the river winding below.",
+  "targetWord": "see",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.A.see.v128",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.B.so.v129",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "sight_word",
+  "itemKey": "so",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "It rained, so we played indoors. Listen. Pick the missing word.",
+  "sentence": "It rained, ___ we played indoors.",
+  "choices": [
+   "go",
+   "do",
+   "so",
+   "some"
+  ],
+  "answerOptions": [
+   {
+    "value": "go",
+    "label": "go",
+    "text": "go"
+   },
+   {
+    "value": "do",
+    "label": "do",
+    "text": "do"
+   },
+   {
+    "value": "so",
+    "label": "so",
+    "text": "so"
+   },
+   {
+    "value": "some",
+    "label": "some",
+    "text": "some"
+   }
+  ],
+  "answer": "so",
+  "correctAnswer": "so",
+  "distractorRationales": {
+   "go": "D-FUNCTION-SWAP",
+   "do": "D-FUNCTION-SWAP",
+   "some": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "It rained, ___ we played indoors.",
+  "targetWord": "so",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.B.so.v129",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.C.so.v130",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "sight_word",
+  "itemKey": "so",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "The ladder was so tall that it reached the upper branch. Build the missing word.",
+  "sentence": "The ladder was ___ tall that it reached the upper branch.",
+  "choices": [
+   "so"
+  ],
+  "answerOptions": [
+   {
+    "value": "so",
+    "label": "so",
+    "text": "so"
+   }
+  ],
+  "answer": "so",
+  "correctAnswer": "so",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "s",
+   "o",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "s",
+   "o",
+   "e",
+   "a"
+  ],
+  "sentenceText": "The ladder was so tall that it reached the upper branch.",
+  "targetWord": "so",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.C.so.v130",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.A.some.v131",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "sight_word",
+  "itemKey": "some",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "We saved some seeds for next spring. Listen. Pick the missing word.",
+  "sentence": "We saved ___ seeds for next spring.",
+  "choices": [
+   "more",
+   "one",
+   "some",
+   "so"
+  ],
+  "answerOptions": [
+   {
+    "value": "more",
+    "label": "more",
+    "text": "more"
+   },
+   {
+    "value": "one",
+    "label": "one",
+    "text": "one"
+   },
+   {
+    "value": "some",
+    "label": "some",
+    "text": "some"
+   },
+   {
+    "value": "so",
+    "label": "so",
+    "text": "so"
+   }
+  ],
+  "answer": "some",
+  "correctAnswer": "some",
+  "distractorRationales": {
+   "so": "D-FUNCTION-SWAP",
+   "more": "D-FUNCTION-SWAP",
+   "one": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "We saved ___ seeds for next spring.",
+  "targetWord": "some",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.A.some.v131",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.B.some.v132",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "sight_word",
+  "itemKey": "some",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "Would you like some warm soup after that chilly walk? Build the missing word.",
+  "sentence": "Would you like ___ warm soup after that chilly walk?",
+  "choices": [
+   "some"
+  ],
+  "answerOptions": [
+   {
+    "value": "some",
+    "label": "some",
+    "text": "some"
+   }
+  ],
+  "answer": "some",
+  "correctAnswer": "some",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "s",
+   "o",
+   "m",
+   "e",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "s",
+   "o",
+   "m",
+   "e",
+   "e",
+   "a"
+  ],
+  "sentenceText": "Would you like some warm soup after that chilly walk?",
+  "targetWord": "some",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.B.some.v132",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.C.them.v133",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "sight_word",
+  "itemKey": "them",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "I found my boots and cleaned them. Listen. Pick the missing word.",
+  "sentence": "I found my boots and cleaned ___.",
+  "choices": [
+   "them",
+   "then",
+   "they",
+   "their"
+  ],
+  "answerOptions": [
+   {
+    "value": "them",
+    "label": "them",
+    "text": "them"
+   },
+   {
+    "value": "then",
+    "label": "then",
+    "text": "then"
+   },
+   {
+    "value": "they",
+    "label": "they",
+    "text": "they"
+   },
+   {
+    "value": "their",
+    "label": "their",
+    "text": "their"
+   }
+  ],
+  "answer": "them",
+  "correctAnswer": "them",
+  "distractorRationales": {
+   "they": "D-FUNCTION-SWAP",
+   "their": "D-FUNCTION-SWAP",
+   "then": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "I found my boots and cleaned ___.",
+  "targetWord": "them",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.C.them.v133",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.A.them.v134",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "sight_word",
+  "itemKey": "them",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "The children lost their tickets, but someone returned them safely. Build the missing word.",
+  "sentence": "The children lost their tickets, but someone returned ___ safely.",
+  "choices": [
+   "them"
+  ],
+  "answerOptions": [
+   {
+    "value": "them",
+    "label": "them",
+    "text": "them"
+   }
+  ],
+  "answer": "them",
+  "correctAnswer": "them",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "t",
+   "h",
+   "e",
+   "m",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "t",
+   "h",
+   "e",
+   "m",
+   "e",
+   "a"
+  ],
+  "sentenceText": "The children lost their tickets, but someone returned them safely.",
+  "targetWord": "them",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.A.them.v134",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.B.then.v135",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "sight_word",
+  "itemKey": "then",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "Wash your hands, then dry them. Listen. Pick the missing word.",
+  "sentence": "Wash your hands, ___ dry them.",
+  "choices": [
+   "them",
+   "when",
+   "there",
+   "then"
+  ],
+  "answerOptions": [
+   {
+    "value": "them",
+    "label": "them",
+    "text": "them"
+   },
+   {
+    "value": "when",
+    "label": "when",
+    "text": "when"
+   },
+   {
+    "value": "there",
+    "label": "there",
+    "text": "there"
+   },
+   {
+    "value": "then",
+    "label": "then",
+    "text": "then"
+   }
+  ],
+  "answer": "then",
+  "correctAnswer": "then",
+  "distractorRationales": {
+   "them": "D-FUNCTION-SWAP",
+   "when": "D-FUNCTION-SWAP",
+   "there": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "Wash your hands, ___ dry them.",
+  "targetWord": "then",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.B.then.v135",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.C.then.v136",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "sight_word",
+  "itemKey": "then",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "First check the wheels, then test the brakes before riding. Build the missing word.",
+  "sentence": "First check the wheels, ___ test the brakes before riding.",
+  "choices": [
+   "then"
+  ],
+  "answerOptions": [
+   {
+    "value": "then",
+    "label": "then",
+    "text": "then"
+   }
+  ],
+  "answer": "then",
+  "correctAnswer": "then",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "t",
+   "h",
+   "e",
+   "n",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "t",
+   "h",
+   "e",
+   "n",
+   "e",
+   "a"
+  ],
+  "sentenceText": "First check the wheels, then test the brakes before riding.",
+  "targetWord": "then",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.C.then.v136",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.A.these.v137",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "sight_word",
+  "itemKey": "these",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "May I borrow these coloured pens? Listen. Pick the missing word.",
+  "sentence": "May I borrow ___ coloured pens?",
+  "choices": [
+   "this",
+   "their",
+   "they",
+   "these"
+  ],
+  "answerOptions": [
+   {
+    "value": "this",
+    "label": "this",
+    "text": "this"
+   },
+   {
+    "value": "their",
+    "label": "their",
+    "text": "their"
+   },
+   {
+    "value": "they",
+    "label": "they",
+    "text": "they"
+   },
+   {
+    "value": "these",
+    "label": "these",
+    "text": "these"
+   }
+  ],
+  "answer": "these",
+  "correctAnswer": "these",
+  "distractorRationales": {
+   "this": "D-FUNCTION-SWAP",
+   "their": "D-FUNCTION-SWAP",
+   "they": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "May I borrow ___ coloured pens?",
+  "targetWord": "these",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.A.these.v137",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.B.these.v138",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "sight_word",
+  "itemKey": "these",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "All these tiny footprints were made by the same small animal. Build the missing word.",
+  "sentence": "All ___ tiny footprints were made by the same small animal.",
+  "choices": [
+   "these"
+  ],
+  "answerOptions": [
+   {
+    "value": "these",
+    "label": "these",
+    "text": "these"
+   }
+  ],
+  "answer": "these",
+  "correctAnswer": "these",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "t",
+   "h",
+   "e",
+   "s",
+   "e",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "t",
+   "h",
+   "e",
+   "s",
+   "e",
+   "e",
+   "a"
+  ],
+  "sentenceText": "All these tiny footprints were made by the same small animal.",
+  "targetWord": "these",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.B.these.v138",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.C.time.v139",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "sight_word",
+  "itemKey": "time",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "It is time to pack away. Listen. Pick the missing word.",
+  "sentence": "It is ___ to pack away.",
+  "choices": [
+   "make",
+   "time",
+   "two",
+   "like"
+  ],
+  "answerOptions": [
+   {
+    "value": "make",
+    "label": "make",
+    "text": "make"
+   },
+   {
+    "value": "time",
+    "label": "time",
+    "text": "time"
+   },
+   {
+    "value": "two",
+    "label": "two",
+    "text": "two"
+   },
+   {
+    "value": "like",
+    "label": "like",
+    "text": "like"
+   }
+  ],
+  "answer": "time",
+  "correctAnswer": "time",
+  "distractorRationales": {
+   "two": "D-FUNCTION-SWAP",
+   "like": "D-FUNCTION-SWAP",
+   "make": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "It is ___ to pack away.",
+  "targetWord": "time",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.C.time.v139",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.A.time.v140",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "sight_word",
+  "itemKey": "time",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "We recorded the time each seed took to begin growing. Build the missing word.",
+  "sentence": "We recorded the ___ each seed took to begin growing.",
+  "choices": [
+   "time"
+  ],
+  "answerOptions": [
+   {
+    "value": "time",
+    "label": "time",
+    "text": "time"
+   }
+  ],
+  "answer": "time",
+  "correctAnswer": "time",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "t",
+   "i",
+   "m",
+   "e",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "t",
+   "i",
+   "m",
+   "e",
+   "e",
+   "a"
+  ],
+  "sentenceText": "We recorded the time each seed took to begin growing.",
+  "targetWord": "time",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.A.time.v140",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.B.two.v141",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "sight_word",
+  "itemKey": "two",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "A bicycle has two wheels. Listen. Pick the missing word.",
+  "sentence": "A bicycle has ___ wheels.",
+  "choices": [
+   "two",
+   "to",
+   "we",
+   "you"
+  ],
+  "answerOptions": [
+   {
+    "value": "two",
+    "label": "two",
+    "text": "two"
+   },
+   {
+    "value": "to",
+    "label": "to",
+    "text": "to"
+   },
+   {
+    "value": "we",
+    "label": "we",
+    "text": "we"
+   },
+   {
+    "value": "you",
+    "label": "you",
+    "text": "you"
+   }
+  ],
+  "answer": "two",
+  "correctAnswer": "two",
+  "distractorRationales": {
+   "to": "D-FUNCTION-SWAP",
+   "we": "D-FUNCTION-SWAP",
+   "you": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "A bicycle has ___ wheels.",
+  "targetWord": "two",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.B.two.v141",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.C.two.v142",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "sight_word",
+  "itemKey": "two",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "Only two pieces remained when we almost finished the jigsaw. Build the missing word.",
+  "sentence": "Only ___ pieces remained when we almost finished the jigsaw.",
+  "choices": [
+   "two"
+  ],
+  "answerOptions": [
+   {
+    "value": "two",
+    "label": "two",
+    "text": "two"
+   }
+  ],
+  "answer": "two",
+  "correctAnswer": "two",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "t",
+   "w",
+   "o",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "t",
+   "w",
+   "o",
+   "e",
+   "a"
+  ],
+  "sentenceText": "Only two pieces remained when we almost finished the jigsaw.",
+  "targetWord": "two",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.C.two.v142",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.A.up.v143",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "sight_word",
+  "itemKey": "up",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "The squirrel climbed up the trunk. Listen. Pick the missing word.",
+  "sentence": "The squirrel climbed ___ the trunk.",
+  "choices": [
+   "up",
+   "out",
+   "in",
+   "into"
+  ],
+  "answerOptions": [
+   {
+    "value": "up",
+    "label": "up",
+    "text": "up"
+   },
+   {
+    "value": "out",
+    "label": "out",
+    "text": "out"
+   },
+   {
+    "value": "in",
+    "label": "in",
+    "text": "in"
+   },
+   {
+    "value": "into",
+    "label": "into",
+    "text": "into"
+   }
+  ],
+  "answer": "up",
+  "correctAnswer": "up",
+  "distractorRationales": {
+   "in": "D-FUNCTION-SWAP",
+   "into": "D-FUNCTION-SWAP",
+   "out": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "The squirrel climbed ___ the trunk.",
+  "targetWord": "up",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.A.up.v143",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.B.up.v144",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "sight_word",
+  "itemKey": "up",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "Pull the rope up until the little flag reaches the top. Build the missing word.",
+  "sentence": "Pull the rope ___ until the little flag reaches the top.",
+  "choices": [
+   "up"
+  ],
+  "answerOptions": [
+   {
+    "value": "up",
+    "label": "up",
+    "text": "up"
+   }
+  ],
+  "answer": "up",
+  "correctAnswer": "up",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "u",
+   "p",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "u",
+   "p",
+   "e",
+   "a"
+  ],
+  "sentenceText": "Pull the rope up until the little flag reaches the top.",
+  "targetWord": "up",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.B.up.v144",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.C.will.v145",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "sight_word",
+  "itemKey": "will",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "Tomorrow I will visit my cousin. Listen. Pick the missing word.",
+  "sentence": "Tomorrow I ___ visit my cousin.",
+  "choices": [
+   "would",
+   "which",
+   "will",
+   "with"
+  ],
+  "answerOptions": [
+   {
+    "value": "would",
+    "label": "would",
+    "text": "would"
+   },
+   {
+    "value": "which",
+    "label": "which",
+    "text": "which"
+   },
+   {
+    "value": "will",
+    "label": "will",
+    "text": "will"
+   },
+   {
+    "value": "with",
+    "label": "with",
+    "text": "with"
+   }
+  ],
+  "answer": "will",
+  "correctAnswer": "will",
+  "distractorRationales": {
+   "with": "D-FUNCTION-SWAP",
+   "would": "D-FUNCTION-SWAP",
+   "which": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "Tomorrow I ___ visit my cousin.",
+  "targetWord": "will",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.C.will.v145",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.A.will.v146",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "sight_word",
+  "itemKey": "will",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "The puddle will disappear once the sun warms the path. Build the missing word.",
+  "sentence": "The puddle ___ disappear once the sun warms the path.",
+  "choices": [
+   "will"
+  ],
+  "answerOptions": [
+   {
+    "value": "will",
+    "label": "will",
+    "text": "will"
+   }
+  ],
+  "answer": "will",
+  "correctAnswer": "will",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "w",
+   "i",
+   "l",
+   "l",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "w",
+   "i",
+   "l",
+   "l",
+   "e",
+   "a"
+  ],
+  "sentenceText": "The puddle will disappear once the sun warms the path.",
+  "targetWord": "will",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.A.will.v146",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.B.would.v147",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "sight_word",
+  "itemKey": "would",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "I would like a turn next. Listen. Pick the missing word.",
+  "sentence": "I ___ like a turn next.",
+  "choices": [
+   "with",
+   "would",
+   "will",
+   "words"
+  ],
+  "answerOptions": [
+   {
+    "value": "with",
+    "label": "with",
+    "text": "with"
+   },
+   {
+    "value": "would",
+    "label": "would",
+    "text": "would"
+   },
+   {
+    "value": "will",
+    "label": "will",
+    "text": "will"
+   },
+   {
+    "value": "words",
+    "label": "words",
+    "text": "words"
+   }
+  ],
+  "answer": "would",
+  "correctAnswer": "would",
+  "distractorRationales": {
+   "with": "D-FUNCTION-SWAP",
+   "will": "D-FUNCTION-SWAP",
+   "words": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "I ___ like a turn next.",
+  "targetWord": "would",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.B.would.v147",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.C.would.v148",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "sight_word",
+  "itemKey": "would",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "If I had a longer piece of string, I would use it. Build the missing word.",
+  "sentence": "If I had a longer piece of string, I ___ use it.",
+  "choices": [
+   "would"
+  ],
+  "answerOptions": [
+   {
+    "value": "would",
+    "label": "would",
+    "text": "would"
+   }
+  ],
+  "answer": "would",
+  "correctAnswer": "would",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "w",
+   "o",
+   "u",
+   "l",
+   "d",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "w",
+   "o",
+   "u",
+   "l",
+   "d",
+   "e",
+   "a"
+  ],
+  "sentenceText": "If I had a longer piece of string, I would use it.",
+  "targetWord": "would",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.C.would.v148",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
+ },
+ {
+  "id": "lp3.hfw_51_75.l1.A.write.v149",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "sight_word",
+  "itemKey": "write",
+  "formatType": "HFW_SENTENCE_CLOZE",
+  "templateType": "HFW_SENTENCE_CLOZE",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Pick the missing word.",
+  "question": "Listen. Pick the missing word.",
+  "spokenPrompt": "Please write the date at the top. Listen. Pick the missing word.",
+  "sentence": "Please ___ the date at the top.",
+  "choices": [
+   "their",
+   "write",
+   "with",
+   "were"
+  ],
+  "answerOptions": [
+   {
+    "value": "their",
+    "label": "their",
+    "text": "their"
+   },
+   {
+    "value": "write",
+    "label": "write",
+    "text": "write"
+   },
+   {
+    "value": "with",
+    "label": "with",
+    "text": "with"
+   },
+   {
+    "value": "were",
+    "label": "were",
+    "text": "were"
+   }
+  ],
+  "answer": "write",
+  "correctAnswer": "write",
+  "distractorRationales": {
+   "with": "D-FUNCTION-SWAP",
+   "were": "D-FUNCTION-SWAP",
+   "their": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "sentenceText": "Please ___ the date at the top.",
+  "targetWord": "write",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l1.A.write.v149",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Recognize the exact spoken word in a new complete sentence. Distractors are real words from this or earlier taught bands; the complete sentence recording supplies the exact word to recognize."
+ },
+ {
+  "id": "lp3.hfw_51_75.l2.B.write.v150",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "hfw_51_75",
+  "assessmentSkillId": "hfw_51_75",
+  "skillName": "High-Frequency Words 51–75",
+  "skill": "High-Frequency Words 51–75",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "sight_word",
+  "itemKey": "write",
+  "formatType": "HFW_LETTER_BUILD",
+  "templateType": "HFW_LETTER_BUILD",
+  "questionType": "multiple_choice",
+  "prompt": "Listen. Build the missing word.",
+  "question": "Listen. Build the missing word.",
+  "spokenPrompt": "After reading the message, write a clear reply on this card. Build the missing word.",
+  "sentence": "After reading the message, ___ a clear reply on this card.",
+  "choices": [
+   "write"
+  ],
+  "answerOptions": [
+   {
+    "value": "write",
+    "label": "write",
+    "text": "write"
+   }
+  ],
+  "answer": "write",
+  "correctAnswer": "write",
+  "distractorRationales": {},
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "contextual_high_frequency_word_encoding",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "letterTiles": [
+   "w",
+   "r",
+   "i",
+   "t",
+   "e",
+   "e",
+   "a"
+  ],
+  "letterBank": [
+   "w",
+   "r",
+   "i",
+   "t",
+   "e",
+   "e",
+   "a"
+  ],
+  "sentenceText": "After reading the message, write a clear reply on this card.",
+  "targetWord": "write",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_51_75.l2.B.write.v150",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_51_75.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Encode the word in a different original context, retaining its repeated letters and competing vowel tiles; recognition choices cannot supply the spelling."
  }
 ];

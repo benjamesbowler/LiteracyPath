@@ -57,7 +57,7 @@ test("sound choices never mark an equivalent sound as wrong", () => {
 });
 
 test("initial-sound pictures use genuine onsets and complete accessible media", () => {
-  for (const { cycle, round } of generated.filter(item => ["sceneHunt", "pictureSearch"].includes(item.round.mechanicId))) {
+  for (const { cycle, round } of generated.filter(item => ["sceneHunt", "pictureSearch"].includes(item.round.mechanicId) && !item.round.variant)) {
     for (const object of round.objects) {
       assertMedia(object, `${cycle.id}/${round.mechanicId}`);
       assert.equal(object.matches, sharesSound(onsetGrapheme(object.word), round.targetGrapheme));
@@ -74,12 +74,12 @@ test("initial-sound pictures use genuine onsets and complete accessible media", 
     }
   }
   const first = buildStationRounds(cycles[0], "hunt", { seed: "m-onset" });
-  assert.ok(first.filter(round => round.targetGrapheme === "m").every(round => round.objects.filter(item => item.matches).every(item => item.word.startsWith("m"))));
+  assert.ok(first.filter(round => round.targetGrapheme === "m" && !round.variant).every(round => round.objects.filter(item => item.matches).every(item => item.word.startsWith("m"))));
   for (const cycleNumber of [10, 13]) {
     const cycle = cycles.find(item => item.cycleNumber === cycleNumber);
     for (let pass = 0; pass < 16; pass += 1) {
       for (const station of ["hunt", "search"]) {
-        const rounds = buildStationRounds(cycle, station, { seed: `kw-decoys:${pass}` }).filter(round => sharesSound(round.targetGrapheme, "k"));
+        const rounds = buildStationRounds(cycle, station, { seed: `kw-decoys:${pass}` }).filter(round => !round.variant && sharesSound(round.targetGrapheme, "k"));
         assert.ok(rounds.length > 0);
         assert.ok(rounds.every(round => round.objects.every(item => onsetGrapheme(item.word) !== "qu")), "queen/quilt cannot be wrong /k/ choices");
       }
@@ -106,7 +106,7 @@ test("word memory has eight opaque cards and four pairs of taught sight words", 
 });
 
 test("spoken sight-word recognition uses the taught strand, real audio and one unprompted printed answer", () => {
-  for (const { cycle, round } of generated.filter(item => item.round.mechanicId === "sightWordChoice")) {
+  for (const { cycle, round } of generated.filter(item => item.round.mechanicId === "sightWordChoice" && !item.round.decodableWord)) {
     const taught = new Set(cycles.filter(item => item.cycleNumber <= cycle.cycleNumber).flatMap(item => item.highFrequencyWords));
     assert.ok(taught.has(round.targetWord));
     assert.equal(round.construct, "auditory_word_recognition");
@@ -123,13 +123,13 @@ test("spoken sight-word recognition uses the taught strand, real audio and one u
   }
   for (const cycle of cycles) {
     const rounds = buildStationRounds(cycle, cycle.cycleNumber < 25 ? "quick" : "spell", { seed: `word-coverage:${cycle.id}` });
-    const recognition = rounds.filter(round => round.mechanicId === "sightWordChoice");
+    const recognition = rounds.filter(round => round.mechanicId === "sightWordChoice" && !round.decodableWord);
     const taught = new Set(cycles.filter(item => item.cycleNumber <= cycle.cycleNumber).flatMap(item => item.highFrequencyWords));
     const targets = new Set(recognition.map(round => round.targetWord));
     for (const word of cycle.highFrequencyWords) assert.ok(targets.has(word), `${cycle.id} missing current word ${word}`);
     if (cycle.cycleNumber <= 4) assert.deepEqual(targets, taught, `${cycle.id} must retain every earlier sight word`);
     for (const word of targets) assert.equal(recognition.filter(round => round.targetWord === word).length, 2);
-    assert.ok(rounds.length <= 27, "later outings keep a short word game with rotating cumulative review");
+    assert.ok(rounds.length <= 33, "later outings keep a bounded word game, including up to six taught CVC transfers");
     assert.ok(rounds.filter(round => round.mechanicId === "wordMemory").every(round => round.words.every(word => targets.has(word))));
   }
 });
@@ -147,7 +147,7 @@ test("missing-letter rounds are authored CVCs using only cycle-taught letters", 
     assert.equal(round.answer, round.word);
     assert.equal(round.image, entry.image, "missing words must use their reviewed text-free image");
     assert.equal(round.graphemes[round.missingIndex], round.missingGrapheme);
-    assert.ok([0, 2].includes(round.missingIndex));
+    assert.ok([0, 1, 2].includes(round.missingIndex));
     assert.equal(round.choices.filter(letter => sharesSound(letter, round.missingGrapheme)).length, 1);
     assertMedia(round, `${cycle.id}/missingLetter`);
   }

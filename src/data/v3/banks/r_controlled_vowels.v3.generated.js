@@ -10036,5 +10036,925 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "A new compound requires ir in its first part, with same-sound rivals still available."
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.A.ar.v101",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ar",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which two letters complete y__d?",
+  "question": "Which two letters complete y__d?",
+  "spokenPrompt": "yard. Which two letters complete the word?",
+  "choices": [
+   "er",
+   "ir",
+   "ar",
+   "or"
+  ],
+  "answerOptions": [
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   }
+  ],
+  "answer": "ar",
+  "correctAnswer": "ar",
+  "distractorRationales": {
+   "ir": "D-PATTERN-TRAP",
+   "or": "D-PATTERN-TRAP",
+   "er": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_r_controlled_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "yard",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.A.ar.v101",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Exact named-word spelling separates er/ir/ur rivals; the question never asks for a unique spelling of an unnamed sound."
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.B.or.v102",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "or",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which two letters complete t__n?",
+  "question": "Which two letters complete t__n?",
+  "spokenPrompt": "torn. Which two letters complete the word?",
+  "choices": [
+   "or",
+   "ar",
+   "er",
+   "ur"
+  ],
+  "answerOptions": [
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   }
+  ],
+  "answer": "or",
+  "correctAnswer": "or",
+  "distractorRationales": {
+   "ar": "D-PATTERN-TRAP",
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_r_controlled_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "torn",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.B.or.v102",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Exact named-word spelling separates er/ir/ur rivals; the question never asks for a unique spelling of an unnamed sound."
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.C.er.v103",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "er",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which two letters complete g__m?",
+  "question": "Which two letters complete g__m?",
+  "spokenPrompt": "germ. Which two letters complete the word?",
+  "choices": [
+   "er",
+   "ir",
+   "ur",
+   "ar"
+  ],
+  "answerOptions": [
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   }
+  ],
+  "answer": "er",
+  "correctAnswer": "er",
+  "distractorRationales": {
+   "ar": "D-PATTERN-TRAP",
+   "ir": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_r_controlled_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "germ",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.C.er.v103",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Exact named-word spelling separates er/ir/ur rivals; the question never asks for a unique spelling of an unnamed sound."
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.A.ir.v104",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ir",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which two letters complete tw__l?",
+  "question": "Which two letters complete tw__l?",
+  "spokenPrompt": "twirl. Which two letters complete the word?",
+  "choices": [
+   "er",
+   "ur",
+   "or",
+   "ir"
+  ],
+  "answerOptions": [
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   }
+  ],
+  "answer": "ir",
+  "correctAnswer": "ir",
+  "distractorRationales": {
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP",
+   "or": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_r_controlled_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "twirl",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.A.ir.v104",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Exact named-word spelling separates er/ir/ur rivals; the question never asks for a unique spelling of an unnamed sound."
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l1.B.ur.v105",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "ur",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which two letters complete s__fer?",
+  "question": "Which two letters complete s__fer?",
+  "spokenPrompt": "surfer. Which two letters complete the word?",
+  "choices": [
+   "ar",
+   "ur",
+   "ir",
+   "er"
+  ],
+  "answerOptions": [
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   }
+  ],
+  "answer": "ur",
+  "correctAnswer": "ur",
+  "distractorRationales": {
+   "er": "D-PATTERN-TRAP",
+   "ar": "D-PATTERN-TRAP",
+   "ir": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_r_controlled_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "surfer",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l1.B.ur.v105",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Exact named-word spelling separates er/ir/ur rivals; the question never asks for a unique spelling of an unnamed sound."
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.C.ar.v106",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ar",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which two letters complete __tist?",
+  "question": "Which two letters complete __tist?",
+  "spokenPrompt": "artist. Which two letters complete the word?",
+  "choices": [
+   "or",
+   "er",
+   "ir",
+   "ar"
+  ],
+  "answerOptions": [
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   }
+  ],
+  "answer": "ar",
+  "correctAnswer": "ar",
+  "distractorRationales": {
+   "or": "D-PATTERN-TRAP",
+   "er": "D-PATTERN-TRAP",
+   "ir": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_r_controlled_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "artist",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.C.ar.v106",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Exact named-word spelling separates er/ir/ur rivals; the question never asks for a unique spelling of an unnamed sound."
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.A.or.v107",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "or",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which two letters complete __der?",
+  "question": "Which two letters complete __der?",
+  "spokenPrompt": "order. Which two letters complete the word?",
+  "choices": [
+   "ur",
+   "or",
+   "ar",
+   "er"
+  ],
+  "answerOptions": [
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   }
+  ],
+  "answer": "or",
+  "correctAnswer": "or",
+  "distractorRationales": {
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP",
+   "ar": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_r_controlled_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "order",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.A.or.v107",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Exact named-word spelling separates er/ir/ur rivals; the question never asks for a unique spelling of an unnamed sound."
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.B.er.v108",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "er",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which two letters complete pepp__?",
+  "question": "Which two letters complete pepp__?",
+  "spokenPrompt": "pepper. Which two letters complete the word?",
+  "choices": [
+   "or",
+   "er",
+   "ir",
+   "ur"
+  ],
+  "answerOptions": [
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   }
+  ],
+  "answer": "er",
+  "correctAnswer": "er",
+  "distractorRationales": {
+   "ir": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP",
+   "or": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_r_controlled_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "pepper",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.B.er.v108",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Exact named-word spelling separates er/ir/ur rivals; the question never asks for a unique spelling of an unnamed sound."
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.C.ir.v109",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ir",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which two letters complete wh__l?",
+  "question": "Which two letters complete wh__l?",
+  "spokenPrompt": "whirl. Which two letters complete the word?",
+  "choices": [
+   "ir",
+   "er",
+   "ur",
+   "ar"
+  ],
+  "answerOptions": [
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   }
+  ],
+  "answer": "ir",
+  "correctAnswer": "ir",
+  "distractorRationales": {
+   "er": "D-PATTERN-TRAP",
+   "ur": "D-PATTERN-TRAP",
+   "ar": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_r_controlled_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "whirl",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.C.ir.v109",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Exact named-word spelling separates er/ir/ur rivals; the question never asks for a unique spelling of an unnamed sound."
+ },
+ {
+  "id": "lp3.r_controlled_vowels.l2.A.ur.v110",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "r_controlled_vowels",
+  "assessmentSkillId": "r_controlled_vowels",
+  "skillName": "R-Controlled Vowels",
+  "skill": "R-Controlled Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ur",
+  "formatType": "R_CONTROLLED_PATTERN",
+  "templateType": "R_CONTROLLED_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which two letters complete bl__?",
+  "question": "Which two letters complete bl__?",
+  "spokenPrompt": "blur. Which two letters complete the word?",
+  "choices": [
+   "er",
+   "or",
+   "ur",
+   "ir"
+  ],
+  "answerOptions": [
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   }
+  ],
+  "answer": "ur",
+  "correctAnswer": "ur",
+  "distractorRationales": {
+   "ir": "D-PATTERN-TRAP",
+   "er": "D-PATTERN-TRAP",
+   "or": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_r_controlled_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "blur",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.r_controlled_vowels.l2.A.ur.v110",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Exact named-word spelling separates er/ir/ur rivals; the question never asks for a unique spelling of an unnamed sound."
  }
 ];

@@ -1,4 +1,4 @@
-// Individually authored comprehension evidence. Preserve stable item coordinates.
+// Individually authored comprehension evidence; stable item coordinates preserve saved attempts.
 export default {
   "skillId": "context_clues",
   "skillName": "Context Clues",
@@ -2589,6 +2589,390 @@ export default {
       "media": "text",
       "note": "Infer permeability from repeated passage of water while flexibility and strength are controlled; those true properties are not the tested distinction.",
       "target": "permeable"
+    },
+    {
+      "u": "definition_clue",
+      "lvl": 1,
+      "ph": 1,
+      "v": 40,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "definition_clue",
+      "media": "text",
+      "passage": "A shallow pool lay beside the stream. The water was only a little deep. We could see small stones on the bottom. A bird stood in it with dry feathers. Our teacher asked us to look from the bank.",
+      "prompt": "What does shallow mean here?",
+      "choices": [
+        {
+          "t": "having little depth",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "containing muddy water",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "feeling extremely cold",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "stretching very far",
+          "r": "D-SAME-DOMAIN"
+        }
+      ],
+      "note": "Authored concrete meaning probe for definition clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "definition_clue",
+      "lvl": 1,
+      "ph": 2,
+      "v": 41,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "definition_clue",
+      "media": "text",
+      "passage": "The gardener called the soil moist. It felt slightly wet between her fingers. It was neither dusty nor full of water. She said the seeds would grow well there. We gently covered each seed and labelled the row.",
+      "prompt": "What does moist mean?",
+      "choices": [
+        {
+          "t": "a little wet",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "very hard",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "full of stones",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "completely dry",
+          "r": "D-SAME-DOMAIN"
+        }
+      ],
+      "note": "Authored concrete meaning probe for definition clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "example_clue",
+      "lvl": 1,
+      "ph": 1,
+      "v": 42,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "example_clue",
+      "media": "text",
+      "passage": "We sorted the materials for our class model. Paper, cloth and wood went in separate piles. Each material felt different under our fingers. We chose wood for the strong base. Soft cloth became curtains for the tiny windows.",
+      "prompt": "What are materials in this passage?",
+      "choices": [
+        {
+          "t": "things used to make something",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "people who help build something",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "pictures showing a finished model",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "places where tools are stored",
+          "r": "D-SAME-DOMAIN"
+        }
+      ],
+      "note": "Authored concrete meaning probe for example clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "example_clue",
+      "lvl": 1,
+      "ph": 2,
+      "v": 43,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "example_clue",
+      "media": "text",
+      "passage": "Several creatures lived beneath the old garden pot. A worm wriggled away from the light. Two beetles hid under a curled leaf. We put the pot back very carefully. These creatures needed darkness and shelter to stay safe.",
+      "prompt": "What does creatures refer to?",
+      "choices": [
+        {
+          "t": "living animals",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "fallen leaves",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "old containers",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "garden tools",
+          "r": "D-SAME-DOMAIN"
+        }
+      ],
+      "note": "Authored concrete meaning probe for example clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "action_clue",
+      "lvl": 1,
+      "ph": 1,
+      "v": 44,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "action_clue",
+      "media": "text",
+      "passage": "The ball was wedged between two thick roots. Jo pulled, but it would not move. She tried from the other side of the tree. It still stayed firmly in that narrow gap. An adult helped her loosen it gently.",
+      "prompt": "What does wedged mean here?",
+      "choices": [
+        {
+          "t": "stuck tightly",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "rolling freely",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "hidden completely",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "broken apart",
+          "r": "D-SAME-DOMAIN"
+        }
+      ],
+      "note": "Authored concrete meaning probe for action clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "action_clue",
+      "lvl": 1,
+      "ph": 2,
+      "v": 45,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "action_clue",
+      "media": "text",
+      "passage": "Mum drizzled oil over the warm vegetables. A thin stream fell slowly from the spoon. She moved her hand across the whole dish. Only a little oil landed in each place. Then she carried the food to the table.",
+      "prompt": "What does drizzled mean here?",
+      "choices": [
+        {
+          "t": "added in a gentle trickle",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "mixed with a quick stir",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "removed with a dry cloth",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "filled right to the brim",
+          "r": "D-SAME-DOMAIN"
+        }
+      ],
+      "note": "Authored concrete meaning probe for action clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "synonym_clue",
+      "lvl": 2,
+      "ph": 1,
+      "v": 46,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "synonym_clue",
+      "media": "text",
+      "passage": "The class found a vacant bird box near the playground. It was empty; no nest or bird was inside it. The entrance had become blocked with a dry leaf. An adult cleared the opening and checked the wooden sides. The children stood well back while the box was inspected. They hoped a pair of birds might use it in spring. A sign reminded everyone to keep the area quiet. The box stayed in its tree, ready for a future visitor.",
+      "prompt": "What does vacant mean in this passage?",
+      "choices": [
+        {
+          "t": "not occupied",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "badly damaged",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "newly painted",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "too crowded",
+          "r": "D-SAME-DOMAIN"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for synonym clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "synonym_clue",
+      "lvl": 2,
+      "ph": 2,
+      "v": 47,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "synonym_clue",
+      "media": "text",
+      "passage": "The farmer inspected a fragile shell left beside the henhouse. It was delicate and could break under even gentle pressure. She placed it in a shallow dish lined with cotton. The children looked closely without passing it from hand to hand. A small opening showed where the chick had pushed through. They drew the shell and marked the opening on their pictures. Afterwards, the teacher carried the dish back to the classroom. Everyone moved slowly to keep their find in one piece.",
+      "prompt": "What does fragile tell us about the shell?",
+      "choices": [
+        {
+          "t": "it can be broken easily",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "it feels heavier than expected",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "it has an unusual colour",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "it can stretch without tearing",
+          "r": "D-SAME-DOMAIN"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for synonym clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "antonym_contrast_clue",
+      "lvl": 2,
+      "ph": 1,
+      "v": 48,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "antonym_contrast_clue",
+      "media": "text",
+      "passage": "Two routes led from the gate to the hilltop shelter. One wound gently around the side of the hill. The other was steep, climbing sharply in a much shorter distance. Our guide chose the gentle route for the whole group. We could walk together and stop to look at the view. A smaller group of experienced walkers took the short route. From below, we could see them climbing high above us. Both paths ended beside the same wooden shelter at the top.",
+      "prompt": "What does steep mean here?",
+      "choices": [
+        {
+          "t": "rising sharply",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "turning often",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "staying level",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "stretching far",
+          "r": "D-SAME-DOMAIN"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for antonym contrast clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "antonym_contrast_clue",
+      "lvl": 2,
+      "ph": 2,
+      "v": 49,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "antonym_contrast_clue",
+      "media": "text",
+      "passage": "The two cloths behaved differently when we spilled water. One was absorbent, soaking up the puddle until the table dried. The other let the drops stay on top and roll off. We pressed each cloth with the same amount of force. Then we weighed them to find how much water they held. The absorbent cloth was much heavier after the test. We chose it for cleaning the painting tables at school. The other cloth became a cover to protect a tray.",
+      "prompt": "What does absorbent mean in this test?",
+      "choices": [
+        {
+          "t": "able to take liquid in",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "able to push liquid away",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "easy to tear into strips",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "quick to change its colour",
+          "r": "D-SAME-DOMAIN"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for antonym contrast clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "inference_clue",
+      "lvl": 2,
+      "ph": 1,
+      "v": 50,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "inference_clue",
+      "media": "text",
+      "passage": "At the pond, the class watched a leaf stay afloat. A small stone dropped straight to the bottom beside it. A twig bobbed near the leaf without disappearing under the surface. The teacher asked which other objects might be buoyant. Pupils chose another leaf, a cork and a metal key. They explained their choices before placing anything in the water. The cork behaved like the twig, while the key sank. Their observations helped them understand the new describing word from action.",
+      "prompt": "What does buoyant mean?",
+      "choices": [
+        {
+          "t": "able to stay on the surface of liquid",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "able to change the colour of clear water",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "likely to sink quickly to the bottom",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "likely to make a loud noise when dropped",
+          "r": "D-SAME-DOMAIN"
+        }
+      ],
+      "note": "Infer buoyant from the leaf and twig staying up, then the cork repeating that behaviour while the stone and key sink. No direct definition supplies the answer."
+    },
+    {
+      "u": "inference_clue",
+      "lvl": 2,
+      "ph": 2,
+      "v": 51,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "inference_clue",
+      "media": "text",
+      "passage": "The team had a limited supply of string for its model. Instead of using a whole length for each small join, Asha measured. She cut just enough to hold each pair of sticks firmly. She saved the short pieces for tying the smallest parts together. By the end, her group still had string to spare. The teacher described their method as economical. Another group had used twice as much for a similar model. Asha showed them how the leftover pieces could still be useful.",
+      "prompt": "What does economical mean here?",
+      "choices": [
+        {
+          "t": "using no more resources than necessary",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "finishing before anyone else has begun",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "choosing the brightest materials available",
+          "r": "D-SAME-DOMAIN"
+        },
+        {
+          "t": "making every part exactly the same size",
+          "r": "D-SAME-DOMAIN"
+        }
+      ],
+      "note": "Infer economical by combining measured cuts, reused short pieces, leftover string and the comparison with a group using twice as much. The passage never directly defines the word."
     }
   ]
 };

@@ -11015,5 +11015,2237 @@ export const questions = [
     "imageAlt": "cloud"
    }
   ]
+ },
+ {
+  "id": "lp3.blends.l1.A.bl.v101",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "bl",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __ack.",
+  "question": "Choose the missing letters for __ack.",
+  "spokenPrompt": "black. Choose the missing letters.",
+  "choices": [
+   "br",
+   "bl",
+   "b",
+   "cl"
+  ],
+  "answerOptions": [
+   {
+    "value": "br",
+    "label": "br",
+    "text": "br"
+   },
+   {
+    "value": "bl",
+    "label": "bl",
+    "text": "bl"
+   },
+   {
+    "value": "b",
+    "label": "b",
+    "text": "b"
+   },
+   {
+    "value": "cl",
+    "label": "cl",
+    "text": "cl"
+   }
+  ],
+  "answer": "bl",
+  "correctAnswer": "bl",
+  "distractorRationales": {
+   "b": "D-ONSET",
+   "cl": "D-PATTERN-TRAP",
+   "br": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "black",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l1.A.bl.v101",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l1.B.cl.v102",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "cl",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __ean.",
+  "question": "Choose the missing letters for __ean.",
+  "spokenPrompt": "clean. Choose the missing letters.",
+  "choices": [
+   "cl",
+   "c",
+   "cr",
+   "gl"
+  ],
+  "answerOptions": [
+   {
+    "value": "cl",
+    "label": "cl",
+    "text": "cl"
+   },
+   {
+    "value": "c",
+    "label": "c",
+    "text": "c"
+   },
+   {
+    "value": "cr",
+    "label": "cr",
+    "text": "cr"
+   },
+   {
+    "value": "gl",
+    "label": "gl",
+    "text": "gl"
+   }
+  ],
+  "answer": "cl",
+  "correctAnswer": "cl",
+  "distractorRationales": {
+   "gl": "D-PATTERN-TRAP",
+   "c": "D-ONSET",
+   "cr": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "clean",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l1.B.cl.v102",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l1.C.fl.v103",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "fl",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __at.",
+  "question": "Choose the missing letters for __at.",
+  "spokenPrompt": "flat. Choose the missing letters.",
+  "choices": [
+   "f",
+   "fr",
+   "sl",
+   "fl"
+  ],
+  "answerOptions": [
+   {
+    "value": "f",
+    "label": "f",
+    "text": "f"
+   },
+   {
+    "value": "fr",
+    "label": "fr",
+    "text": "fr"
+   },
+   {
+    "value": "sl",
+    "label": "sl",
+    "text": "sl"
+   },
+   {
+    "value": "fl",
+    "label": "fl",
+    "text": "fl"
+   }
+  ],
+  "answer": "fl",
+  "correctAnswer": "fl",
+  "distractorRationales": {
+   "f": "D-ONSET",
+   "fr": "D-PATTERN-TRAP",
+   "sl": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "flat",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l1.C.fl.v103",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l1.A.pl.v104",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "pl",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __um.",
+  "question": "Choose the missing letters for __um.",
+  "spokenPrompt": "plum. Choose the missing letters.",
+  "choices": [
+   "pr",
+   "cl",
+   "pl",
+   "p"
+  ],
+  "answerOptions": [
+   {
+    "value": "pr",
+    "label": "pr",
+    "text": "pr"
+   },
+   {
+    "value": "cl",
+    "label": "cl",
+    "text": "cl"
+   },
+   {
+    "value": "pl",
+    "label": "pl",
+    "text": "pl"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   }
+  ],
+  "answer": "pl",
+  "correctAnswer": "pl",
+  "distractorRationales": {
+   "p": "D-ONSET",
+   "pr": "D-PATTERN-TRAP",
+   "cl": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "plum",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l1.A.pl.v104",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l1.B.sl.v105",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "sl",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __im.",
+  "question": "Choose the missing letters for __im.",
+  "spokenPrompt": "slim. Choose the missing letters.",
+  "choices": [
+   "fl",
+   "sl",
+   "s",
+   "sm"
+  ],
+  "answerOptions": [
+   {
+    "value": "fl",
+    "label": "fl",
+    "text": "fl"
+   },
+   {
+    "value": "sl",
+    "label": "sl",
+    "text": "sl"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   },
+   {
+    "value": "sm",
+    "label": "sm",
+    "text": "sm"
+   }
+  ],
+  "answer": "sl",
+  "correctAnswer": "sl",
+  "distractorRationales": {
+   "sm": "D-PATTERN-TRAP",
+   "fl": "D-PATTERN-TRAP",
+   "s": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "slim",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l1.B.sl.v105",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l1.C.br.v106",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "br",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __ave.",
+  "question": "Choose the missing letters for __ave.",
+  "spokenPrompt": "brave. Choose the missing letters.",
+  "choices": [
+   "br",
+   "b",
+   "bl",
+   "dr"
+  ],
+  "answerOptions": [
+   {
+    "value": "br",
+    "label": "br",
+    "text": "br"
+   },
+   {
+    "value": "b",
+    "label": "b",
+    "text": "b"
+   },
+   {
+    "value": "bl",
+    "label": "bl",
+    "text": "bl"
+   },
+   {
+    "value": "dr",
+    "label": "dr",
+    "text": "dr"
+   }
+  ],
+  "answer": "br",
+  "correctAnswer": "br",
+  "distractorRationales": {
+   "b": "D-ONSET",
+   "bl": "D-PATTERN-TRAP",
+   "dr": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "brave",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l1.C.br.v106",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l1.A.cr.v107",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "cr",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __ack.",
+  "question": "Choose the missing letters for __ack.",
+  "spokenPrompt": "crack. Choose the missing letters.",
+  "choices": [
+   "c",
+   "cl",
+   "tr",
+   "cr"
+  ],
+  "answerOptions": [
+   {
+    "value": "c",
+    "label": "c",
+    "text": "c"
+   },
+   {
+    "value": "cl",
+    "label": "cl",
+    "text": "cl"
+   },
+   {
+    "value": "tr",
+    "label": "tr",
+    "text": "tr"
+   },
+   {
+    "value": "cr",
+    "label": "cr",
+    "text": "cr"
+   }
+  ],
+  "answer": "cr",
+  "correctAnswer": "cr",
+  "distractorRationales": {
+   "tr": "D-PATTERN-TRAP",
+   "c": "D-ONSET",
+   "cl": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "crack",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l1.A.cr.v107",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l1.B.dr.v108",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "dr",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __ip.",
+  "question": "Choose the missing letters for __ip.",
+  "spokenPrompt": "drip. Choose the missing letters.",
+  "choices": [
+   "tr",
+   "br",
+   "dr",
+   "d"
+  ],
+  "answerOptions": [
+   {
+    "value": "tr",
+    "label": "tr",
+    "text": "tr"
+   },
+   {
+    "value": "br",
+    "label": "br",
+    "text": "br"
+   },
+   {
+    "value": "dr",
+    "label": "dr",
+    "text": "dr"
+   },
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
+   }
+  ],
+  "answer": "dr",
+  "correctAnswer": "dr",
+  "distractorRationales": {
+   "tr": "D-PATTERN-TRAP",
+   "br": "D-PATTERN-TRAP",
+   "d": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "drip",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l1.B.dr.v108",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l1.C.fr.v109",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "fr",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __esh.",
+  "question": "Choose the missing letters for __esh.",
+  "spokenPrompt": "fresh. Choose the missing letters.",
+  "choices": [
+   "gr",
+   "fr",
+   "f",
+   "fl"
+  ],
+  "answerOptions": [
+   {
+    "value": "gr",
+    "label": "gr",
+    "text": "gr"
+   },
+   {
+    "value": "fr",
+    "label": "fr",
+    "text": "fr"
+   },
+   {
+    "value": "f",
+    "label": "f",
+    "text": "f"
+   },
+   {
+    "value": "fl",
+    "label": "fl",
+    "text": "fl"
+   }
+  ],
+  "answer": "fr",
+  "correctAnswer": "fr",
+  "distractorRationales": {
+   "f": "D-ONSET",
+   "fl": "D-PATTERN-TRAP",
+   "gr": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "fresh",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l1.C.fr.v109",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l1.A.gr.v110",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "gr",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __ass.",
+  "question": "Choose the missing letters for __ass.",
+  "spokenPrompt": "grass. Choose the missing letters.",
+  "choices": [
+   "gr",
+   "g",
+   "gl",
+   "cr"
+  ],
+  "answerOptions": [
+   {
+    "value": "gr",
+    "label": "gr",
+    "text": "gr"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
+   {
+    "value": "gl",
+    "label": "gl",
+    "text": "gl"
+   },
+   {
+    "value": "cr",
+    "label": "cr",
+    "text": "cr"
+   }
+  ],
+  "answer": "gr",
+  "correctAnswer": "gr",
+  "distractorRationales": {
+   "cr": "D-PATTERN-TRAP",
+   "g": "D-ONSET",
+   "gl": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "grass",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l1.A.gr.v110",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l1.B.st.v111",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "st",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __ep.",
+  "question": "Choose the missing letters for __ep.",
+  "spokenPrompt": "step. Choose the missing letters.",
+  "choices": [
+   "s",
+   "sp",
+   "sk",
+   "st"
+  ],
+  "answerOptions": [
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   },
+   {
+    "value": "sp",
+    "label": "sp",
+    "text": "sp"
+   },
+   {
+    "value": "sk",
+    "label": "sk",
+    "text": "sk"
+   },
+   {
+    "value": "st",
+    "label": "st",
+    "text": "st"
+   }
+  ],
+  "answer": "st",
+  "correctAnswer": "st",
+  "distractorRationales": {
+   "sk": "D-PATTERN-TRAP",
+   "s": "D-ONSET",
+   "sp": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "step",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l1.B.st.v111",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l1.C.sw.v112",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "sw",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __am.",
+  "question": "Choose the missing letters for __am.",
+  "spokenPrompt": "swam. Choose the missing letters.",
+  "choices": [
+   "sm",
+   "sl",
+   "sw",
+   "s"
+  ],
+  "answerOptions": [
+   {
+    "value": "sm",
+    "label": "sm",
+    "text": "sm"
+   },
+   {
+    "value": "sl",
+    "label": "sl",
+    "text": "sl"
+   },
+   {
+    "value": "sw",
+    "label": "sw",
+    "text": "sw"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   }
+  ],
+  "answer": "sw",
+  "correctAnswer": "sw",
+  "distractorRationales": {
+   "sm": "D-PATTERN-TRAP",
+   "sl": "D-PATTERN-TRAP",
+   "s": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "swam",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l1.C.sw.v112",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l2.A.sc.v113",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "sc",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __are.",
+  "question": "Choose the missing letters for __are.",
+  "spokenPrompt": "scare. Choose the missing letters.",
+  "choices": [
+   "sc",
+   "s",
+   "sk",
+   "st"
+  ],
+  "answerOptions": [
+   {
+    "value": "sc",
+    "label": "sc",
+    "text": "sc"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   },
+   {
+    "value": "sk",
+    "label": "sk",
+    "text": "sk"
+   },
+   {
+    "value": "st",
+    "label": "st",
+    "text": "st"
+   }
+  ],
+  "answer": "sc",
+  "correctAnswer": "sc",
+  "distractorRationales": {
+   "sk": "D-PATTERN-TRAP",
+   "st": "D-PATTERN-TRAP",
+   "s": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "scare",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l2.A.sc.v113",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l2.B.sk.v114",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "sk",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __ate.",
+  "question": "Choose the missing letters for __ate.",
+  "spokenPrompt": "skate. Choose the missing letters.",
+  "choices": [
+   "sp",
+   "sk",
+   "s",
+   "sc"
+  ],
+  "answerOptions": [
+   {
+    "value": "sp",
+    "label": "sp",
+    "text": "sp"
+   },
+   {
+    "value": "sk",
+    "label": "sk",
+    "text": "sk"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   },
+   {
+    "value": "sc",
+    "label": "sc",
+    "text": "sc"
+   }
+  ],
+  "answer": "sk",
+  "correctAnswer": "sk",
+  "distractorRationales": {
+   "sc": "D-PATTERN-TRAP",
+   "sp": "D-PATTERN-TRAP",
+   "s": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "skate",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l2.B.sk.v114",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l2.C.sm.v115",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "sm",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __all.",
+  "question": "Choose the missing letters for __all.",
+  "spokenPrompt": "small. Choose the missing letters.",
+  "choices": [
+   "sn",
+   "sl",
+   "sm",
+   "s"
+  ],
+  "answerOptions": [
+   {
+    "value": "sn",
+    "label": "sn",
+    "text": "sn"
+   },
+   {
+    "value": "sl",
+    "label": "sl",
+    "text": "sl"
+   },
+   {
+    "value": "sm",
+    "label": "sm",
+    "text": "sm"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   }
+  ],
+  "answer": "sm",
+  "correctAnswer": "sm",
+  "distractorRationales": {
+   "s": "D-ONSET",
+   "sn": "D-PATTERN-TRAP",
+   "sl": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "small",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l2.C.sm.v115",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l2.A.sn.v116",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "sn",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __ap.",
+  "question": "Choose the missing letters for __ap.",
+  "spokenPrompt": "snap. Choose the missing letters.",
+  "choices": [
+   "st",
+   "sn",
+   "s",
+   "sm"
+  ],
+  "answerOptions": [
+   {
+    "value": "st",
+    "label": "st",
+    "text": "st"
+   },
+   {
+    "value": "sn",
+    "label": "sn",
+    "text": "sn"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   },
+   {
+    "value": "sm",
+    "label": "sm",
+    "text": "sm"
+   }
+  ],
+  "answer": "sn",
+  "correctAnswer": "sn",
+  "distractorRationales": {
+   "s": "D-ONSET",
+   "sm": "D-PATTERN-TRAP",
+   "st": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "snap",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l2.A.sn.v116",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l2.B.sp.v117",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "sp",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __in.",
+  "question": "Choose the missing letters for __in.",
+  "spokenPrompt": "spin. Choose the missing letters.",
+  "choices": [
+   "st",
+   "sl",
+   "sp",
+   "s"
+  ],
+  "answerOptions": [
+   {
+    "value": "st",
+    "label": "st",
+    "text": "st"
+   },
+   {
+    "value": "sl",
+    "label": "sl",
+    "text": "sl"
+   },
+   {
+    "value": "sp",
+    "label": "sp",
+    "text": "sp"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   }
+  ],
+  "answer": "sp",
+  "correctAnswer": "sp",
+  "distractorRationales": {
+   "s": "D-ONSET",
+   "st": "D-PATTERN-TRAP",
+   "sl": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "spin",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l2.B.sp.v117",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l2.C.tr.v118",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "tr",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __ip.",
+  "question": "Choose the missing letters for __ip.",
+  "spokenPrompt": "trip. Choose the missing letters.",
+  "choices": [
+   "t",
+   "dr",
+   "cr",
+   "tr"
+  ],
+  "answerOptions": [
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "dr",
+    "label": "dr",
+    "text": "dr"
+   },
+   {
+    "value": "cr",
+    "label": "cr",
+    "text": "cr"
+   },
+   {
+    "value": "tr",
+    "label": "tr",
+    "text": "tr"
+   }
+  ],
+  "answer": "tr",
+  "correctAnswer": "tr",
+  "distractorRationales": {
+   "t": "D-ONSET",
+   "dr": "D-PATTERN-TRAP",
+   "cr": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "trip",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l2.C.tr.v118",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l2.A.nd.v119",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "nd",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for be__.",
+  "question": "Choose the missing letters for be__.",
+  "spokenPrompt": "bend. Choose the missing letters.",
+  "choices": [
+   "nt",
+   "nk",
+   "nd",
+   "n"
+  ],
+  "answerOptions": [
+   {
+    "value": "nt",
+    "label": "nt",
+    "text": "nt"
+   },
+   {
+    "value": "nk",
+    "label": "nk",
+    "text": "nk"
+   },
+   {
+    "value": "nd",
+    "label": "nd",
+    "text": "nd"
+   },
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   }
+  ],
+  "answer": "nd",
+  "correctAnswer": "nd",
+  "distractorRationales": {
+   "n": "D-ONSET",
+   "nt": "D-PATTERN-TRAP",
+   "nk": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "bend",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l2.A.nd.v119",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l2.B.nt.v120",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "nt",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for spe__.",
+  "question": "Choose the missing letters for spe__.",
+  "spokenPrompt": "spent. Choose the missing letters.",
+  "choices": [
+   "n",
+   "nd",
+   "nk",
+   "nt"
+  ],
+  "answerOptions": [
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   },
+   {
+    "value": "nd",
+    "label": "nd",
+    "text": "nd"
+   },
+   {
+    "value": "nk",
+    "label": "nk",
+    "text": "nk"
+   },
+   {
+    "value": "nt",
+    "label": "nt",
+    "text": "nt"
+   }
+  ],
+  "answer": "nt",
+  "correctAnswer": "nt",
+  "distractorRationales": {
+   "n": "D-ONSET",
+   "nd": "D-PATTERN-TRAP",
+   "nk": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "spent",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l2.B.nt.v120",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l2.C.mp.v121",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "mp",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for bu__.",
+  "question": "Choose the missing letters for bu__.",
+  "spokenPrompt": "bump. Choose the missing letters.",
+  "choices": [
+   "mp",
+   "m",
+   "nd",
+   "nt"
+  ],
+  "answerOptions": [
+   {
+    "value": "mp",
+    "label": "mp",
+    "text": "mp"
+   },
+   {
+    "value": "m",
+    "label": "m",
+    "text": "m"
+   },
+   {
+    "value": "nd",
+    "label": "nd",
+    "text": "nd"
+   },
+   {
+    "value": "nt",
+    "label": "nt",
+    "text": "nt"
+   }
+  ],
+  "answer": "mp",
+  "correctAnswer": "mp",
+  "distractorRationales": {
+   "m": "D-ONSET",
+   "nd": "D-PATTERN-TRAP",
+   "nt": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "bump",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l2.C.mp.v121",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l2.A.nk.v122",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "nk",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for tha__.",
+  "question": "Choose the missing letters for tha__.",
+  "spokenPrompt": "thank. Choose the missing letters.",
+  "choices": [
+   "n",
+   "ng",
+   "nt",
+   "nk"
+  ],
+  "answerOptions": [
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   },
+   {
+    "value": "ng",
+    "label": "ng",
+    "text": "ng"
+   },
+   {
+    "value": "nt",
+    "label": "nt",
+    "text": "nt"
+   },
+   {
+    "value": "nk",
+    "label": "nk",
+    "text": "nk"
+   }
+  ],
+  "answer": "nk",
+  "correctAnswer": "nk",
+  "distractorRationales": {
+   "n": "D-ONSET",
+   "ng": "D-PATTERN-TRAP",
+   "nt": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "thank",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l2.A.nk.v122",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l2.B.lt.v123",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "lt",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for fe__.",
+  "question": "Choose the missing letters for fe__.",
+  "spokenPrompt": "felt. Choose the missing letters.",
+  "choices": [
+   "lt",
+   "l",
+   "ft",
+   "st"
+  ],
+  "answerOptions": [
+   {
+    "value": "lt",
+    "label": "lt",
+    "text": "lt"
+   },
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
+   },
+   {
+    "value": "ft",
+    "label": "ft",
+    "text": "ft"
+   },
+   {
+    "value": "st",
+    "label": "st",
+    "text": "st"
+   }
+  ],
+  "answer": "lt",
+  "correctAnswer": "lt",
+  "distractorRationales": {
+   "ft": "D-PATTERN-TRAP",
+   "st": "D-PATTERN-TRAP",
+   "l": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "felt",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l2.B.lt.v123",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
+ },
+ {
+  "id": "lp3.blends.l2.C.ft.v124",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "blends",
+  "assessmentSkillId": "blends",
+  "skillName": "Blends",
+  "skill": "Blends",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ft",
+  "formatType": "BLEND_COMPLETE_WORD",
+  "templateType": "BLEND_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for swi__.",
+  "question": "Choose the missing letters for swi__.",
+  "spokenPrompt": "swift. Choose the missing letters.",
+  "choices": [
+   "st",
+   "ft",
+   "f",
+   "lt"
+  ],
+  "answerOptions": [
+   {
+    "value": "st",
+    "label": "st",
+    "text": "st"
+   },
+   {
+    "value": "ft",
+    "label": "ft",
+    "text": "ft"
+   },
+   {
+    "value": "f",
+    "label": "f",
+    "text": "f"
+   },
+   {
+    "value": "lt",
+    "label": "lt",
+    "text": "lt"
+   }
+  ],
+  "answer": "ft",
+  "correctAnswer": "ft",
+  "distractorRationales": {
+   "lt": "D-PATTERN-TRAP",
+   "st": "D-PATTERN-TRAP",
+   "f": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "swift",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.blends.l2.C.ft.v124",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken target with an explicit one-consonant reduction trap and two neighbouring blends; the complete cluster is necessary."
  }
 ];

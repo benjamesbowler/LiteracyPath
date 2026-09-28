@@ -44,6 +44,8 @@ import {
   SKILL_STATUS_IDS
 } from "../policy/skillStatusPolicy.js";
 import { buildEvidenceHealth } from "./evidenceHealth.js";
+import { buildLearningEvidenceProfile } from "../utils/learningEvidenceInsights.js";
+import { buildAdventureMapReport } from "../utils/adventureMapReporting.js";
 
 export const STUDENT_REPORTING_WORKSPACE_SCHEMA_VERSION = 1;
 
@@ -2251,6 +2253,13 @@ export function buildSkillsCheckReportModel({
       status: currentStatus,
       statusLabel: currentStatus.label,
       skillStatus: policyStatus,
+      learningEvidenceProfile: buildLearningEvidenceProfile(
+        asArray(latestAttempt?.raw?.questionRecords).map(question => ({
+          ...question,
+          evidenceConstruct: question.evidenceConstruct || getReportingConceptForAssessmentQuestion(question, latestAttempt.raw).construct
+        })),
+        { skillId: row.skillId, administrationStatus: latestAttempt?.administrationStatus }
+      ),
       latestAttempt
     };
   });
@@ -2505,6 +2514,7 @@ export function buildOtherLearningReportModel({
   soundSeekersReport = {},
   storyQuestSummary = {},
   arcade = {},
+  adventureMap = {},
   engagement = {}
 } = {}) {
   const resolvedStudentId = getStudentId(student, studentId);
@@ -2661,7 +2671,17 @@ export function buildOtherLearningReportModel({
     };
   });
 
-  const evidence = dedupeReportingEvidence([...soundEvidence, ...storyEvidence, ...arcadeEvidence]);
+  const adventure = buildAdventureMapReport(adventureMap);
+  const adventureEvidence = adventure.cycles.map(cycle => createReportingEvidence({
+    evidenceId: `adventure_map:${cycle.cycleId}:practice`, studentId: resolvedStudentId,
+    sourceArea: "adventure_map", sourceLabel: "Adventure Map", sourceRecordId: cycle.cycleId,
+    sourceRecordType: "latest_cycle_practice", evidenceKind: REPORTING_EVIDENCE_KINDS.PRACTICE,
+    concept: { domain: "literacy_skill", construct: "cycle_practice", key: cycle.cycleId, label: cycle.title },
+    outcome: "practised", statusCandidate: null, observedAt: cycle.lastPlayedAt,
+    administrationStatus: "practice", scorable: false, knowledgeEligible: false,
+    details: cycle, provenance: { claimBoundary: "practice_not_mastery", snapshotStatus: cycle.snapshotStatus }
+  }));
+  const evidence = dedupeReportingEvidence([...soundEvidence, ...storyEvidence, ...arcadeEvidence, ...adventureEvidence]);
   return {
     reportKey: "other_learning",
     title: "Other learning",
@@ -2670,11 +2690,13 @@ export function buildOtherLearningReportModel({
       soundSeekersSoundsSeen: sounds.filter(row => row.seen > 0).length,
       soundSeekersSoundsGotIt: sounds.filter(row => row.sourceResult === "Got it in Sound Seekers").length,
       arcadeGamesPlayed: games.length,
+      adventureCyclesPractised: adventure.cycles.length,
       storyQuestsCompleted: stories.filter(row => row.completed).length,
       vocabularyEncountered: [...new Set(stories.flatMap(row => row.vocabularyEncountered))].length,
       latestAt: latestDate([
         soundSeekersReport.lastActiveAt,
         ...games.map(row => row.lastPlayedAt),
+        ...adventure.cycles.map(row => row.lastPlayedAt),
         ...stories.map(row => row.lastActivityAt)
       ])
     },
@@ -2688,6 +2710,7 @@ export function buildOtherLearningReportModel({
       games,
       note: "Arcade data records activity and broad practice, not item-level mastery."
     },
+    adventureMap: adventure,
     storyQuests: {
       title: "Story Quests",
       stories,
@@ -2953,6 +2976,7 @@ export function buildStudentReportingWorkspaceModel({
   storyQuestSummary = {},
   soundSeekersReport = {},
   arcade = {},
+  adventureMap = {},
   engagement = {},
   expectedConcepts = [],
   wholeChildConflictWindowDays = 90,
@@ -3020,6 +3044,7 @@ export function buildStudentReportingWorkspaceModel({
     soundSeekersReport,
     storyQuestSummary,
     arcade,
+    adventureMap,
     engagement
   });
   const wholeChildEvidence = dedupeReportingEvidence([

@@ -40,6 +40,8 @@ import {
 import { resolveAdventureRoundAudio, withAdventureAudioEvidence } from "./adventureRoundAudio.js";
 import {
   correctionModelForOutcome,
+  adventureQuestionEvidence,
+  adventureCheckSnapshot,
   createAdventureRun,
   cycleQuestResult,
   feedbackForCommittedOutcome,
@@ -535,6 +537,7 @@ export function ElSkillsQuest({
             lastRunSeed: runSeed,
             lastIndependent: independent,
             lastTotal: total,
+            lastCheck: adventureCheckSnapshot(finalRun, playedAt),
             lastPlayedAt: playedAt
           }
         }
@@ -618,7 +621,10 @@ export function ElSkillsQuest({
       { ...outcome, roundIndex },
       deliveredTargetAudioRef.current.round === round ? deliveredTargetAudioRef.current.sources : []
     );
-    const nextRun = recordAdventureOutcome(currentRun, committedOutcome);
+    const nextRun = recordAdventureOutcome(currentRun, {
+      ...committedOutcome,
+      questionRecord: adventureQuestionEvidence(round, committedOutcome)
+    });
     runStateRef.current = nextRun;
     setRunState(nextRun);
     setRoundFeedback(feedbackForCommittedOutcome(round, outcome, attempt));

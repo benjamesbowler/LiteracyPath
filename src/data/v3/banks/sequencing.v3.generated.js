@@ -7000,5 +7000,1109 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "Track one image across taking, printing, entering and framing, described backwards."
+ },
+ {
+  "id": "lp3.sequencing.l1.A.first_event.v40",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "first_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What did the class do first?",
+  "question": "What did the class do first?",
+  "spokenPrompt": "What did the class do first?",
+  "passage": "The class prepared apples for their snack. First, they washed the fruit under cool water. Next, an adult cut it into small slices. Last, the children shared the slices on plates. Everyone sat down at the clean table to eat.",
+  "cell": "first_event",
+  "choices": [
+   "divided the pieces",
+   "cut the apples",
+   "sat down to eat",
+   "cleaned the fruit"
+  ],
+  "answerOptions": [
+   {
+    "value": "divided the pieces",
+    "label": "divided the pieces",
+    "text": "divided the pieces"
+   },
+   {
+    "value": "cut the apples",
+    "label": "cut the apples",
+    "text": "cut the apples"
+   },
+   {
+    "value": "sat down to eat",
+    "label": "sat down to eat",
+    "text": "sat down to eat"
+   },
+   {
+    "value": "cleaned the fruit",
+    "label": "cleaned the fruit",
+    "text": "cleaned the fruit"
+   }
+  ],
+  "answer": "cleaned the fruit",
+  "correctAnswer": "cleaned the fruit",
+  "distractorRationales": {
+   "divided the pieces": "D-SEQUENCE-SWAP",
+   "cut the apples": "D-SEQUENCE-SWAP",
+   "sat down to eat": "D-SEQUENCE-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.A.first_event.v40",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for first event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.sequencing.l1.B.first_event.v41",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "sequencing_cell",
+  "itemKey": "first_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What happened before the class planned a reply?",
+  "question": "What happened before the class planned a reply?",
+  "spokenPrompt": "What happened before the class planned a reply?",
+  "passage": "A message arrived from the class next door. Our teacher read the note to everyone. The children thought of a reply together. Then one child wrote their answer on paper. At the end, two helpers delivered the finished message.",
+  "cell": "first_event",
+  "choices": [
+   "they put their ideas on paper",
+   "they chose helpers to deliver it",
+   "they heard the message",
+   "they took their answer next door"
+  ],
+  "answerOptions": [
+   {
+    "value": "they put their ideas on paper",
+    "label": "they put their ideas on paper",
+    "text": "they put their ideas on paper"
+   },
+   {
+    "value": "they chose helpers to deliver it",
+    "label": "they chose helpers to deliver it",
+    "text": "they chose helpers to deliver it"
+   },
+   {
+    "value": "they heard the message",
+    "label": "they heard the message",
+    "text": "they heard the message"
+   },
+   {
+    "value": "they took their answer next door",
+    "label": "they took their answer next door",
+    "text": "they took their answer next door"
+   }
+  ],
+  "answer": "they heard the message",
+  "correctAnswer": "they heard the message",
+  "distractorRationales": {
+   "they chose helpers to deliver it": "D-SEQUENCE-SWAP",
+   "they took their answer next door": "D-SEQUENCE-SWAP",
+   "they put their ideas on paper": "D-SEQUENCE-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.B.first_event.v41",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for first event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.sequencing.l1.C.middle_event.v42",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "sequencing_cell",
+  "itemKey": "middle_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What did Mum do just before hanging the feeder?",
+  "question": "What did Mum do just before hanging the feeder?",
+  "spokenPrompt": "What did Mum do just before hanging the feeder?",
+  "passage": "Mum made a simple bird feeder for our garden. She spread soft seed butter on a cone. Next, she rolled the sticky cone in seeds. Finally, she tied it to a tree branch. We watched from our window for visiting birds.",
+  "cell": "middle_event",
+  "choices": [
+   "chose a cone for the feeder",
+   "covered it with seeds",
+   "coated it with seed butter",
+   "watched for visiting birds"
+  ],
+  "answerOptions": [
+   {
+    "value": "chose a cone for the feeder",
+    "label": "chose a cone for the feeder",
+    "text": "chose a cone for the feeder"
+   },
+   {
+    "value": "covered it with seeds",
+    "label": "covered it with seeds",
+    "text": "covered it with seeds"
+   },
+   {
+    "value": "coated it with seed butter",
+    "label": "coated it with seed butter",
+    "text": "coated it with seed butter"
+   },
+   {
+    "value": "watched for visiting birds",
+    "label": "watched for visiting birds",
+    "text": "watched for visiting birds"
+   }
+  ],
+  "answer": "covered it with seeds",
+  "correctAnswer": "covered it with seeds",
+  "distractorRationales": {
+   "watched for visiting birds": "D-SEQUENCE-SWAP",
+   "chose a cone for the feeder": "D-SEQUENCE-SWAP",
+   "coated it with seed butter": "D-SEQUENCE-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.C.middle_event.v42",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for middle event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.sequencing.l1.A.middle_event.v43",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "middle_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What happened between threading the needle and tying the knot?",
+  "question": "What happened between threading the needle and tying the knot?",
+  "spokenPrompt": "What happened between threading the needle and tying the knot?",
+  "passage": "A tailor helped us mend the class puppet. She put thread through the eye of a needle. Then she stitched the tear in its arm. Last, she tied a knot to hold the thread. The puppet was ready for our next story.",
+  "cell": "middle_event",
+  "choices": [
+   "the tear was sewn shut",
+   "the puppet joined the next story",
+   "the thread entered the needle",
+   "the knot held the thread"
+  ],
+  "answerOptions": [
+   {
+    "value": "the tear was sewn shut",
+    "label": "the tear was sewn shut",
+    "text": "the tear was sewn shut"
+   },
+   {
+    "value": "the puppet joined the next story",
+    "label": "the puppet joined the next story",
+    "text": "the puppet joined the next story"
+   },
+   {
+    "value": "the thread entered the needle",
+    "label": "the thread entered the needle",
+    "text": "the thread entered the needle"
+   },
+   {
+    "value": "the knot held the thread",
+    "label": "the knot held the thread",
+    "text": "the knot held the thread"
+   }
+  ],
+  "answer": "the tear was sewn shut",
+  "correctAnswer": "the tear was sewn shut",
+  "distractorRationales": {
+   "the knot held the thread": "D-SEQUENCE-SWAP",
+   "the puppet joined the next story": "D-SEQUENCE-SWAP",
+   "the thread entered the needle": "D-SEQUENCE-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.A.middle_event.v43",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for middle event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.sequencing.l1.B.last_event.v44",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "sequencing_cell",
+  "itemKey": "last_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What was the team's final job?",
+  "question": "What was the team's final job?",
+  "spokenPrompt": "What was the team's final job?",
+  "passage": "The team made a sign for their stall. They wrote the prices in dark blue paint. Then they left the card flat to dry. Finally, they fixed it to the front table. Now everyone could see what the fruit cost.",
+  "cell": "last_event",
+  "choices": [
+   "writing prices on the card",
+   "waiting for the paint to dry",
+   "choosing a dark colour",
+   "putting the sign on display"
+  ],
+  "answerOptions": [
+   {
+    "value": "writing prices on the card",
+    "label": "writing prices on the card",
+    "text": "writing prices on the card"
+   },
+   {
+    "value": "waiting for the paint to dry",
+    "label": "waiting for the paint to dry",
+    "text": "waiting for the paint to dry"
+   },
+   {
+    "value": "choosing a dark colour",
+    "label": "choosing a dark colour",
+    "text": "choosing a dark colour"
+   },
+   {
+    "value": "putting the sign on display",
+    "label": "putting the sign on display",
+    "text": "putting the sign on display"
+   }
+  ],
+  "answer": "putting the sign on display",
+  "correctAnswer": "putting the sign on display",
+  "distractorRationales": {
+   "writing prices on the card": "D-SEQUENCE-SWAP",
+   "waiting for the paint to dry": "D-SEQUENCE-SWAP",
+   "choosing a dark colour": "D-SEQUENCE-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.B.last_event.v44",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for last event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.sequencing.l1.C.last_event.v45",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "sequencing_cell",
+  "itemKey": "last_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What did the helpers do after carrying the wood?",
+  "question": "What did the helpers do after carrying the wood?",
+  "spokenPrompt": "What did the helpers do after carrying the wood?",
+  "passage": "A fallen branch blocked the narrow garden path. The caretaker cut it into smaller pieces. Two helpers carried those pieces to a pile. Then they swept the path clear of twigs. Families could walk through the garden safely again.",
+  "cell": "last_event",
+  "choices": [
+   "moved the pieces into a pile",
+   "found the branch across the path",
+   "cleared the small bits from the path",
+   "made the large branch into pieces"
+  ],
+  "answerOptions": [
+   {
+    "value": "moved the pieces into a pile",
+    "label": "moved the pieces into a pile",
+    "text": "moved the pieces into a pile"
+   },
+   {
+    "value": "found the branch across the path",
+    "label": "found the branch across the path",
+    "text": "found the branch across the path"
+   },
+   {
+    "value": "cleared the small bits from the path",
+    "label": "cleared the small bits from the path",
+    "text": "cleared the small bits from the path"
+   },
+   {
+    "value": "made the large branch into pieces",
+    "label": "made the large branch into pieces",
+    "text": "made the large branch into pieces"
+   }
+  ],
+  "answer": "cleared the small bits from the path",
+  "correctAnswer": "cleared the small bits from the path",
+  "distractorRationales": {
+   "moved the pieces into a pile": "D-SEQUENCE-SWAP",
+   "found the branch across the path": "D-SEQUENCE-SWAP",
+   "made the large branch into pieces": "D-SEQUENCE-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.C.last_event.v45",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for last event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.sequencing.l2.A.before_after_relation.v46",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "before_after_relation",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What happened just before the first song began?",
+  "question": "What happened just before the first song began?",
+  "spokenPrompt": "What happened just before the first song began?",
+  "passage": "The school orchestra held a concert in the hall. Before the families arrived, musicians checked their instruments in small groups. The teacher gave a signal when everyone was ready. The players walked onto the stage and took their places. After the audience became quiet, the first song began. Between songs, a pupil explained the next piece of music. At the end, all the musicians stood for a bow. They packed away only after the families had left the hall.",
+  "cell": "before_after_relation",
+  "choices": [
+   "the musicians packed their instruments",
+   "a pupil explained the second piece",
+   "the families left the school hall",
+   "the audience settled into silence"
+  ],
+  "answerOptions": [
+   {
+    "value": "the musicians packed their instruments",
+    "label": "the musicians packed their instruments",
+    "text": "the musicians packed their instruments"
+   },
+   {
+    "value": "a pupil explained the second piece",
+    "label": "a pupil explained the second piece",
+    "text": "a pupil explained the second piece"
+   },
+   {
+    "value": "the families left the school hall",
+    "label": "the families left the school hall",
+    "text": "the families left the school hall"
+   },
+   {
+    "value": "the audience settled into silence",
+    "label": "the audience settled into silence",
+    "text": "the audience settled into silence"
+   }
+  ],
+  "answer": "the audience settled into silence",
+  "correctAnswer": "the audience settled into silence",
+  "distractorRationales": {
+   "the musicians packed their instruments": "D-SEQUENCE-SWAP",
+   "a pupil explained the second piece": "D-SEQUENCE-SWAP",
+   "the families left the school hall": "D-SEQUENCE-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.A.before_after_relation.v46",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for before after relation. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.sequencing.l2.B.before_after_relation.v47",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "sequencing_cell",
+  "itemKey": "before_after_relation",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which event happened before seeds were planted?",
+  "question": "Which event happened before seeds were planted?",
+  "spokenPrompt": "Which event happened before seeds were planted?",
+  "passage": "Our class made a timeline about the school garden. The beds had been dug before the winter holidays began. Seeds were planted when the class returned in spring. Several weeks later, small shoots rose through the soil. The gardener fitted supports before the climbing plants grew tall. By summer, the children could pick beans from the vines. They cooked some and saved others for next year's seeds. Their timeline included drawings from each visit to the garden.",
+  "cell": "before_after_relation",
+  "choices": [
+   "the growing beds were prepared",
+   "the first shoots rose above the soil",
+   "the gardener added the climbing supports",
+   "the class picked beans from the vines"
+  ],
+  "answerOptions": [
+   {
+    "value": "the growing beds were prepared",
+    "label": "the growing beds were prepared",
+    "text": "the growing beds were prepared"
+   },
+   {
+    "value": "the first shoots rose above the soil",
+    "label": "the first shoots rose above the soil",
+    "text": "the first shoots rose above the soil"
+   },
+   {
+    "value": "the gardener added the climbing supports",
+    "label": "the gardener added the climbing supports",
+    "text": "the gardener added the climbing supports"
+   },
+   {
+    "value": "the class picked beans from the vines",
+    "label": "the class picked beans from the vines",
+    "text": "the class picked beans from the vines"
+   }
+  ],
+  "answer": "the growing beds were prepared",
+  "correctAnswer": "the growing beds were prepared",
+  "distractorRationales": {
+   "the gardener added the climbing supports": "D-SEQUENCE-SWAP",
+   "the class picked beans from the vines": "D-SEQUENCE-SWAP",
+   "the first shoots rose above the soil": "D-SEQUENCE-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.B.before_after_relation.v47",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for before after relation. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.sequencing.l2.C.implied_order.v48",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "sequencing_cell",
+  "itemKey": "implied_order",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which event must have happened before the class arrived?",
+  "question": "Which event must have happened before the class arrived?",
+  "spokenPrompt": "Which event must have happened before the class arrived?",
+  "passage": "When the class reached the campsite, their tents were already standing. The older pupils had arrived early to put them up. Sleeping bags still lay rolled beside the entrance to each tent. After choosing places, the children unrolled their bags inside. Soon the cook rang a bell beside the outdoor shelter. Everyone left their bags and carried a bowl to supper. By the time the stars appeared, the bowls were washed. A lantern glowed inside every tent before bedtime that night.",
+  "cell": "implied_order",
+  "choices": [
+   "the cook served supper to the whole class",
+   "the children washed their bowls after the meal",
+   "the older pupils built the tent shelters",
+   "the children placed their sleeping bags inside"
+  ],
+  "answerOptions": [
+   {
+    "value": "the cook served supper to the whole class",
+    "label": "the cook served supper to the whole class",
+    "text": "the cook served supper to the whole class"
+   },
+   {
+    "value": "the children washed their bowls after the meal",
+    "label": "the children washed their bowls after the meal",
+    "text": "the children washed their bowls after the meal"
+   },
+   {
+    "value": "the older pupils built the tent shelters",
+    "label": "the older pupils built the tent shelters",
+    "text": "the older pupils built the tent shelters"
+   },
+   {
+    "value": "the children placed their sleeping bags inside",
+    "label": "the children placed their sleeping bags inside",
+    "text": "the children placed their sleeping bags inside"
+   }
+  ],
+  "answer": "the older pupils built the tent shelters",
+  "correctAnswer": "the older pupils built the tent shelters",
+  "distractorRationales": {
+   "the children placed their sleeping bags inside": "D-SEQUENCE-SWAP",
+   "the cook served supper to the whole class": "D-SEQUENCE-SWAP",
+   "the children washed their bowls after the meal": "D-SEQUENCE-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.C.implied_order.v48",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for implied order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.sequencing.l2.A.implied_order.v49",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "sequencing_cell",
+  "itemKey": "implied_order",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What must have happened before the captain checked the names?",
+  "question": "What must have happened before the captain checked the names?",
+  "spokenPrompt": "What must have happened before the captain checked the names?",
+  "passage": "The school newspaper lay in a neat pile by lunchtime. Inside was a photograph of yesterday's winning relay team. The editor had chosen it from several pictures after breakfast. A caption beneath it named the runners in their race order. Before printing, the team captain checked those names for mistakes. Two volunteers then carried copies to each classroom door. By the final bell, pupils were discussing the photograph together. The remaining papers went on a shelf for families to take home.",
+  "cell": "implied_order",
+  "choices": [
+   "a caption had been written for the chosen picture",
+   "printed copies had reached every classroom door",
+   "families had taken all the spare papers home",
+   "pupils had discussed the picture at the final bell"
+  ],
+  "answerOptions": [
+   {
+    "value": "a caption had been written for the chosen picture",
+    "label": "a caption had been written for the chosen picture",
+    "text": "a caption had been written for the chosen picture"
+   },
+   {
+    "value": "printed copies had reached every classroom door",
+    "label": "printed copies had reached every classroom door",
+    "text": "printed copies had reached every classroom door"
+   },
+   {
+    "value": "families had taken all the spare papers home",
+    "label": "families had taken all the spare papers home",
+    "text": "families had taken all the spare papers home"
+   },
+   {
+    "value": "pupils had discussed the picture at the final bell",
+    "label": "pupils had discussed the picture at the final bell",
+    "text": "pupils had discussed the picture at the final bell"
+   }
+  ],
+  "answer": "a caption had been written for the chosen picture",
+  "correctAnswer": "a caption had been written for the chosen picture",
+  "distractorRationales": {
+   "printed copies had reached every classroom door": "D-SEQUENCE-SWAP",
+   "families had taken all the spare papers home": "D-SEQUENCE-SWAP",
+   "pupils had discussed the picture at the final bell": "D-SEQUENCE-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.A.implied_order.v49",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for implied order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.sequencing.l2.B.process_order.v50",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "sequencing_cell",
+  "itemKey": "process_order",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which action is needed before rubbing with the crayon?",
+  "question": "Which action is needed before rubbing with the crayon?",
+  "spokenPrompt": "Which action is needed before rubbing with the crayon?",
+  "passage": "To make a clear leaf print, choose a fallen leaf. Put it flat on a firm table with veins upwards. Cover it with thin paper and hold the paper still. Rub the side of a crayon gently over the surface. The raised veins will show as lines on the paper. If the leaf moves, the pattern may blur or double. When the picture is finished, lift the paper carefully. Label the print with the tree's name before putting it away.",
+  "cell": "process_order",
+  "choices": [
+   "putting the labelled picture in a folder",
+   "covering the still leaf with a sheet",
+   "lifting the finished print off the table",
+   "writing a name on the completed picture"
+  ],
+  "answerOptions": [
+   {
+    "value": "putting the labelled picture in a folder",
+    "label": "putting the labelled picture in a folder",
+    "text": "putting the labelled picture in a folder"
+   },
+   {
+    "value": "covering the still leaf with a sheet",
+    "label": "covering the still leaf with a sheet",
+    "text": "covering the still leaf with a sheet"
+   },
+   {
+    "value": "lifting the finished print off the table",
+    "label": "lifting the finished print off the table",
+    "text": "lifting the finished print off the table"
+   },
+   {
+    "value": "writing a name on the completed picture",
+    "label": "writing a name on the completed picture",
+    "text": "writing a name on the completed picture"
+   }
+  ],
+  "answer": "covering the still leaf with a sheet",
+  "correctAnswer": "covering the still leaf with a sheet",
+  "distractorRationales": {
+   "putting the labelled picture in a folder": "D-SEQUENCE-SWAP",
+   "lifting the finished print off the table": "D-SEQUENCE-SWAP",
+   "writing a name on the completed picture": "D-SEQUENCE-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.B.process_order.v50",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for process order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.sequencing.l2.C.process_order.v51",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "sequencing_cell",
+  "itemKey": "process_order",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What did the children do immediately after marking each shadow?",
+  "question": "What did the children do immediately after marking each shadow?",
+  "spokenPrompt": "What did the children do immediately after marking each shadow?",
+  "passage": "The class wanted to compare shadows at different times of day. They placed a stick upright in a pot of sand. Its base stayed in one marked place on the playground. At each visit, a child marked the shadow's tip with chalk. The group wrote the time beside every new chalk mark. Only after the final visit did they join the marks. Then they could compare both the direction and the length. Moving the pot between visits would have spoiled their comparison.",
+  "cell": "process_order",
+  "choices": [
+   "moved the pot to a new position",
+   "connected all the marks into a line",
+   "removed the stick from its sandy pot",
+   "recorded when that mark was made"
+  ],
+  "answerOptions": [
+   {
+    "value": "moved the pot to a new position",
+    "label": "moved the pot to a new position",
+    "text": "moved the pot to a new position"
+   },
+   {
+    "value": "connected all the marks into a line",
+    "label": "connected all the marks into a line",
+    "text": "connected all the marks into a line"
+   },
+   {
+    "value": "removed the stick from its sandy pot",
+    "label": "removed the stick from its sandy pot",
+    "text": "removed the stick from its sandy pot"
+   },
+   {
+    "value": "recorded when that mark was made",
+    "label": "recorded when that mark was made",
+    "text": "recorded when that mark was made"
+   }
+  ],
+  "answer": "recorded when that mark was made",
+  "correctAnswer": "recorded when that mark was made",
+  "distractorRationales": {
+   "removed the stick from its sandy pot": "D-SEQUENCE-SWAP",
+   "moved the pot to a new position": "D-SEQUENCE-SWAP",
+   "connected all the marks into a line": "D-SEQUENCE-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+text",
+  "evidenceRole": "mastery",
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.C.process_order.v51",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for process order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
  }
 ];

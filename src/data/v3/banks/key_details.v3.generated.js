@@ -7200,5 +7200,1085 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "Fresh authored retry item: distinct situation and evidence."
+ },
+ {
+  "id": "lp3.key_details.l1.A.what_happened.v40",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "key_details",
+  "assessmentSkillId": "key_details",
+  "skillName": "Key Details",
+  "skill": "Key Details",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "key_details_cell",
+  "itemKey": "what_happened",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What did Mei leave to dry?",
+  "question": "What did Mei leave to dry?",
+  "spokenPrompt": "What did Mei leave to dry?",
+  "passage": "The school bell rang during art time. Mei left her painting on the drying rack. She washed the green paint from her hands. Then she joined her friends for lunch. Her painting stayed in the classroom.",
+  "cell": "what_happened",
+  "choices": [
+   "her green apron from art",
+   "her piece of painted artwork",
+   "her pair of washed hands",
+   "her empty dish from lunch"
+  ],
+  "answerOptions": [
+   {
+    "value": "her green apron from art",
+    "label": "her green apron from art",
+    "text": "her green apron from art"
+   },
+   {
+    "value": "her piece of painted artwork",
+    "label": "her piece of painted artwork",
+    "text": "her piece of painted artwork"
+   },
+   {
+    "value": "her pair of washed hands",
+    "label": "her pair of washed hands",
+    "text": "her pair of washed hands"
+   },
+   {
+    "value": "her empty dish from lunch",
+    "label": "her empty dish from lunch",
+    "text": "her empty dish from lunch"
+   }
+  ],
+  "answer": "her piece of painted artwork",
+  "correctAnswer": "her piece of painted artwork",
+  "distractorRationales": {
+   "her empty dish from lunch": "D-PLAUSIBLE-UNSUPPORTED",
+   "her green apron from art": "D-PLAUSIBLE-UNSUPPORTED",
+   "her pair of washed hands": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.key_details.l1.A.what_happened.v40",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New concrete meaning probe: what happened. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.key_details.l1.B.what_happened.v41",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "key_details",
+  "assessmentSkillId": "key_details",
+  "skillName": "Key Details",
+  "skill": "Key Details",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "key_details_cell",
+  "itemKey": "what_happened",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "How did Dad get the cloth back?",
+  "question": "How did Dad get the cloth back?",
+  "spokenPrompt": "How did Dad get the cloth back?",
+  "passage": "A gust blew the picnic cloth into the pond. Dad used a long branch to reach it. He spread the cloth across a sunny bench. The family ate from their lunch boxes instead. The cloth dried there.",
+  "cell": "what_happened",
+  "choices": [
+   "He reached out with a branch.",
+   "He waded through the deep water.",
+   "He pulled it with some rope.",
+   "He waited for the wind to turn."
+  ],
+  "answerOptions": [
+   {
+    "value": "He reached out with a branch.",
+    "label": "He reached out with a branch.",
+    "text": "He reached out with a branch."
+   },
+   {
+    "value": "He waded through the deep water.",
+    "label": "He waded through the deep water.",
+    "text": "He waded through the deep water."
+   },
+   {
+    "value": "He pulled it with some rope.",
+    "label": "He pulled it with some rope.",
+    "text": "He pulled it with some rope."
+   },
+   {
+    "value": "He waited for the wind to turn.",
+    "label": "He waited for the wind to turn.",
+    "text": "He waited for the wind to turn."
+   }
+  ],
+  "answer": "He reached out with a branch.",
+  "correctAnswer": "He reached out with a branch.",
+  "distractorRationales": {
+   "He waded through the deep water.": "D-PLAUSIBLE-UNSUPPORTED",
+   "He pulled it with some rope.": "D-PLAUSIBLE-UNSUPPORTED",
+   "He waited for the wind to turn.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.key_details.l1.B.what_happened.v41",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New concrete meaning probe: what happened. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.key_details.l1.C.where.v42",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "key_details",
+  "assessmentSkillId": "key_details",
+  "skillName": "Key Details",
+  "skill": "Key Details",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "key_details_cell",
+  "itemKey": "where",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Where did Tia return her first book?",
+  "question": "Where did Tia return her first book?",
+  "spokenPrompt": "Where did Tia return her first book?",
+  "passage": "Our library had a box for borrowed books. It stood just inside the main door. Tia put her finished book in that box. Then she chose another from the animal shelf. She carried it to the desk.",
+  "cell": "where",
+  "choices": [
+   "on the shelf about animals",
+   "beside the librarian at the desk",
+   "in her bag under the table",
+   "in the container near the entrance"
+  ],
+  "answerOptions": [
+   {
+    "value": "on the shelf about animals",
+    "label": "on the shelf about animals",
+    "text": "on the shelf about animals"
+   },
+   {
+    "value": "beside the librarian at the desk",
+    "label": "beside the librarian at the desk",
+    "text": "beside the librarian at the desk"
+   },
+   {
+    "value": "in her bag under the table",
+    "label": "in her bag under the table",
+    "text": "in her bag under the table"
+   },
+   {
+    "value": "in the container near the entrance",
+    "label": "in the container near the entrance",
+    "text": "in the container near the entrance"
+   }
+  ],
+  "answer": "in the container near the entrance",
+  "correctAnswer": "in the container near the entrance",
+  "distractorRationales": {
+   "in her bag under the table": "D-PLAUSIBLE-UNSUPPORTED",
+   "on the shelf about animals": "D-PLAUSIBLE-UNSUPPORTED",
+   "beside the librarian at the desk": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.key_details.l1.C.where.v42",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New concrete meaning probe: where. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.key_details.l1.A.who.v43",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "key_details",
+  "assessmentSkillId": "key_details",
+  "skillName": "Key Details",
+  "skill": "Key Details",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "key_details_cell",
+  "itemKey": "who",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Who brought more water?",
+  "question": "Who brought more water?",
+  "spokenPrompt": "Who brought more water?",
+  "passage": "The gardener brought seedlings to our class. Our teacher showed us how deep to dig. The children put each seedling into the soil. The caretaker fetched water when our jug ran dry. Everyone helped tidy the tools.",
+  "cell": "who",
+  "choices": [
+   "the person who supplied the young plants",
+   "the children who planted the seedlings",
+   "the person looking after the school building",
+   "the person teaching the class that day"
+  ],
+  "answerOptions": [
+   {
+    "value": "the person who supplied the young plants",
+    "label": "the person who supplied the young plants",
+    "text": "the person who supplied the young plants"
+   },
+   {
+    "value": "the children who planted the seedlings",
+    "label": "the children who planted the seedlings",
+    "text": "the children who planted the seedlings"
+   },
+   {
+    "value": "the person looking after the school building",
+    "label": "the person looking after the school building",
+    "text": "the person looking after the school building"
+   },
+   {
+    "value": "the person teaching the class that day",
+    "label": "the person teaching the class that day",
+    "text": "the person teaching the class that day"
+   }
+  ],
+  "answer": "the person looking after the school building",
+  "correctAnswer": "the person looking after the school building",
+  "distractorRationales": {
+   "the person teaching the class that day": "D-PLAUSIBLE-UNSUPPORTED",
+   "the person who supplied the young plants": "D-PLAUSIBLE-UNSUPPORTED",
+   "the children who planted the seedlings": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.key_details.l1.A.who.v43",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New concrete meaning probe: who. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.key_details.l1.B.number_detail.v44",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "key_details",
+  "assessmentSkillId": "key_details",
+  "skillName": "Key Details",
+  "skill": "Key Details",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "key_details_cell",
+  "itemKey": "number_detail",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "How many cups contained seeds?",
+  "question": "How many cups contained seeds?",
+  "spokenPrompt": "How many cups contained seeds?",
+  "passage": "A row of six cups stood on the table. Four cups had seeds in them. The other two held only damp soil. The class labelled every cup with a number. They watched the seeds over several days.",
+  "cell": "number_detail",
+  "choices": [
+   "none of the containers",
+   "four of the containers",
+   "two of the containers",
+   "six of the containers"
+  ],
+  "answerOptions": [
+   {
+    "value": "none of the containers",
+    "label": "none of the containers",
+    "text": "none of the containers"
+   },
+   {
+    "value": "four of the containers",
+    "label": "four of the containers",
+    "text": "four of the containers"
+   },
+   {
+    "value": "two of the containers",
+    "label": "two of the containers",
+    "text": "two of the containers"
+   },
+   {
+    "value": "six of the containers",
+    "label": "six of the containers",
+    "text": "six of the containers"
+   }
+  ],
+  "answer": "four of the containers",
+  "correctAnswer": "four of the containers",
+  "distractorRationales": {
+   "six of the containers": "D-PLAUSIBLE-UNSUPPORTED",
+   "none of the containers": "D-PLAUSIBLE-UNSUPPORTED",
+   "two of the containers": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.key_details.l1.B.number_detail.v44",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New concrete meaning probe: number detail. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.key_details.l1.C.number_detail.v45",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "key_details",
+  "assessmentSkillId": "key_details",
+  "skillName": "Key Details",
+  "skill": "Key Details",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "key_details_cell",
+  "itemKey": "number_detail",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "How many chicks stayed by the lamp?",
+  "question": "How many chicks stayed by the lamp?",
+  "spokenPrompt": "How many chicks stayed by the lamp?",
+  "passage": "There were five chicks beside the hen. Three chicks followed her to the feeder. Two stayed near the warm lamp. The farmer put fresh water beside them. All five chicks came together again at sunset.",
+  "cell": "number_detail",
+  "choices": [
+   "the remaining pair",
+   "the group of three",
+   "all of the chicks",
+   "just a single chick"
+  ],
+  "answerOptions": [
+   {
+    "value": "the remaining pair",
+    "label": "the remaining pair",
+    "text": "the remaining pair"
+   },
+   {
+    "value": "the group of three",
+    "label": "the group of three",
+    "text": "the group of three"
+   },
+   {
+    "value": "all of the chicks",
+    "label": "all of the chicks",
+    "text": "all of the chicks"
+   },
+   {
+    "value": "just a single chick",
+    "label": "just a single chick",
+    "text": "just a single chick"
+   }
+  ],
+  "answer": "the remaining pair",
+  "correctAnswer": "the remaining pair",
+  "distractorRationales": {
+   "all of the chicks": "D-PLAUSIBLE-UNSUPPORTED",
+   "just a single chick": "D-PLAUSIBLE-UNSUPPORTED",
+   "the group of three": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.key_details.l1.C.number_detail.v45",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New concrete meaning probe: number detail. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.key_details.l2.A.precise_detail.v46",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "key_details",
+  "assessmentSkillId": "key_details",
+  "skillName": "Key Details",
+  "skill": "Key Details",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "key_details_cell",
+  "itemKey": "precise_detail",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What did the red dots show?",
+  "question": "What did the red dots show?",
+  "spokenPrompt": "What did the red dots show?",
+  "passage": "The class planned a small exhibition about local birds. Each group chose one kind to study for a week. The robin group drew its bird with coloured pencils. They made a clay nest and wrote a short label. Their display also included a map of the school garden. Small red dots marked places where robins had been seen. Blue dots marked feeding places, not sightings. Visitors could compare the two sets of marks at the exhibition.",
+  "cell": "precise_detail",
+  "choices": [
+   "places where visitors left their drawings",
+   "places where the bird was observed",
+   "places where food was put out",
+   "places where nests were made from clay"
+  ],
+  "answerOptions": [
+   {
+    "value": "places where visitors left their drawings",
+    "label": "places where visitors left their drawings",
+    "text": "places where visitors left their drawings"
+   },
+   {
+    "value": "places where the bird was observed",
+    "label": "places where the bird was observed",
+    "text": "places where the bird was observed"
+   },
+   {
+    "value": "places where food was put out",
+    "label": "places where food was put out",
+    "text": "places where food was put out"
+   },
+   {
+    "value": "places where nests were made from clay",
+    "label": "places where nests were made from clay",
+    "text": "places where nests were made from clay"
+   }
+  ],
+  "answer": "places where the bird was observed",
+  "correctAnswer": "places where the bird was observed",
+  "distractorRationales": {
+   "places where nests were made from clay": "D-PLAUSIBLE-UNSUPPORTED",
+   "places where visitors left their drawings": "D-PLAUSIBLE-UNSUPPORTED",
+   "places where food was put out": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.key_details.l2.A.precise_detail.v46",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New transfer and integrated evidence probe: precise detail. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.key_details.l2.B.precise_detail.v47",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "key_details",
+  "assessmentSkillId": "key_details",
+  "skillName": "Key Details",
+  "skill": "Key Details",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "key_details_cell",
+  "itemKey": "precise_detail",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What made the torch work again?",
+  "question": "What made the torch work again?",
+  "spokenPrompt": "What made the torch work again?",
+  "passage": "At the repair club, each child brought one broken object. Tomas brought a torch that no longer worked. The helper checked its bulb before opening the battery cover. The bulb was fine, but one battery was facing backwards. Tomas turned that battery around and closed the cover. The torch shone brightly when he pressed its button. He wrote the repair in his notebook to remember it. Then he helped carry the club's tools to their cupboard.",
+  "cell": "precise_detail",
+  "choices": [
+   "pressing the button several times quickly",
+   "replacing both batteries with unused ones",
+   "changing the direction of one battery",
+   "fitting a different bulb into the torch"
+  ],
+  "answerOptions": [
+   {
+    "value": "pressing the button several times quickly",
+    "label": "pressing the button several times quickly",
+    "text": "pressing the button several times quickly"
+   },
+   {
+    "value": "replacing both batteries with unused ones",
+    "label": "replacing both batteries with unused ones",
+    "text": "replacing both batteries with unused ones"
+   },
+   {
+    "value": "changing the direction of one battery",
+    "label": "changing the direction of one battery",
+    "text": "changing the direction of one battery"
+   },
+   {
+    "value": "fitting a different bulb into the torch",
+    "label": "fitting a different bulb into the torch",
+    "text": "fitting a different bulb into the torch"
+   }
+  ],
+  "answer": "changing the direction of one battery",
+  "correctAnswer": "changing the direction of one battery",
+  "distractorRationales": {
+   "pressing the button several times quickly": "D-PLAUSIBLE-UNSUPPORTED",
+   "replacing both batteries with unused ones": "D-PLAUSIBLE-UNSUPPORTED",
+   "fitting a different bulb into the torch": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.key_details.l2.B.precise_detail.v47",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New transfer and integrated evidence probe: precise detail. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.key_details.l2.C.detail_across_sentences.v48",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "key_details",
+  "assessmentSkillId": "key_details",
+  "skillName": "Key Details",
+  "skill": "Key Details",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "key_details_cell",
+  "itemKey": "detail_across_sentences",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What change did the club record?",
+  "question": "What change did the club record?",
+  "spokenPrompt": "What change did the club record?",
+  "passage": "The nature club kept a record of the pond. On Monday, its members saw frogspawn near the reeds. They drew the clear jelly and the dark dots inside. On Friday, tiny swimmers had appeared in the same place. They had tails but no legs yet. The children used a guide to name this new stage. Their drawings showed how the creatures changed during the week. Nobody took any creatures home; all stayed in the pond.",
+  "cell": "detail_across_sentences",
+  "choices": [
+   "eggs developing into small tailed swimmers",
+   "adult frogs losing their long back legs",
+   "reeds growing over the edge of the pond",
+   "jelly turning into food for the birds"
+  ],
+  "answerOptions": [
+   {
+    "value": "eggs developing into small tailed swimmers",
+    "label": "eggs developing into small tailed swimmers",
+    "text": "eggs developing into small tailed swimmers"
+   },
+   {
+    "value": "adult frogs losing their long back legs",
+    "label": "adult frogs losing their long back legs",
+    "text": "adult frogs losing their long back legs"
+   },
+   {
+    "value": "reeds growing over the edge of the pond",
+    "label": "reeds growing over the edge of the pond",
+    "text": "reeds growing over the edge of the pond"
+   },
+   {
+    "value": "jelly turning into food for the birds",
+    "label": "jelly turning into food for the birds",
+    "text": "jelly turning into food for the birds"
+   }
+  ],
+  "answer": "eggs developing into small tailed swimmers",
+  "correctAnswer": "eggs developing into small tailed swimmers",
+  "distractorRationales": {
+   "adult frogs losing their long back legs": "D-PLAUSIBLE-UNSUPPORTED",
+   "reeds growing over the edge of the pond": "D-PLAUSIBLE-UNSUPPORTED",
+   "jelly turning into food for the birds": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.key_details.l2.C.detail_across_sentences.v48",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New transfer and integrated evidence probe: detail across sentences. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.key_details.l2.A.detail_across_sentences.v49",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "key_details",
+  "assessmentSkillId": "key_details",
+  "skillName": "Key Details",
+  "skill": "Key Details",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "key_details_cell",
+  "itemKey": "detail_across_sentences",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which design carried the full load successfully?",
+  "question": "Which design carried the full load successfully?",
+  "spokenPrompt": "Which design carried the full load successfully?",
+  "passage": "Three groups tested paper for making a shopping bag. One group used a single sheet of thin paper. Their bag tore when they added the second apple. Another group folded thick paper around a card base. That bag held all four apples without tearing. The third group used thin paper with no folded bottom. Its apples rolled out before they could carry it. All groups used the same apples and walked the same distance.",
+  "cell": "detail_across_sentences",
+  "choices": [
+   "thinner paper without a folded base",
+   "thicker paper holding only one apple",
+   "thicker paper with a firm bottom",
+   "thinner paper folded into a single sheet"
+  ],
+  "answerOptions": [
+   {
+    "value": "thinner paper without a folded base",
+    "label": "thinner paper without a folded base",
+    "text": "thinner paper without a folded base"
+   },
+   {
+    "value": "thicker paper holding only one apple",
+    "label": "thicker paper holding only one apple",
+    "text": "thicker paper holding only one apple"
+   },
+   {
+    "value": "thicker paper with a firm bottom",
+    "label": "thicker paper with a firm bottom",
+    "text": "thicker paper with a firm bottom"
+   },
+   {
+    "value": "thinner paper folded into a single sheet",
+    "label": "thinner paper folded into a single sheet",
+    "text": "thinner paper folded into a single sheet"
+   }
+  ],
+  "answer": "thicker paper with a firm bottom",
+  "correctAnswer": "thicker paper with a firm bottom",
+  "distractorRationales": {
+   "thinner paper folded into a single sheet": "D-PLAUSIBLE-UNSUPPORTED",
+   "thinner paper without a folded base": "D-PLAUSIBLE-UNSUPPORTED",
+   "thicker paper holding only one apple": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.key_details.l2.A.detail_across_sentences.v49",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New transfer and integrated evidence probe: detail across sentences. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.key_details.l2.B.which_is_not.v50",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "key_details",
+  "assessmentSkillId": "key_details",
+  "skillName": "Key Details",
+  "skill": "Key Details",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "key_details_cell",
+  "itemKey": "which_is_not",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which object was NOT included in the borrowed box?",
+  "question": "Which object was NOT included in the borrowed box?",
+  "spokenPrompt": "Which object was NOT included in the borrowed box?",
+  "passage": "The museum lent our school a box about old kitchens. It contained a wooden spoon and a heavy iron pot. There was also a cloth used to cover rising dough. A card explained how families once baked their bread. The teacher placed each object on a low display table. Pupils could handle the spoon while sitting with an adult. They could look at the heavy pot but not lift it. At lunch, every object went back into the box.",
+  "cell": "which_is_not",
+  "choices": [
+   "a wooden tool for stirring food",
+   "an iron container for cooking meals",
+   "a cloth for covering unbaked bread",
+   "a metal tool for opening tins"
+  ],
+  "answerOptions": [
+   {
+    "value": "a wooden tool for stirring food",
+    "label": "a wooden tool for stirring food",
+    "text": "a wooden tool for stirring food"
+   },
+   {
+    "value": "an iron container for cooking meals",
+    "label": "an iron container for cooking meals",
+    "text": "an iron container for cooking meals"
+   },
+   {
+    "value": "a cloth for covering unbaked bread",
+    "label": "a cloth for covering unbaked bread",
+    "text": "a cloth for covering unbaked bread"
+   },
+   {
+    "value": "a metal tool for opening tins",
+    "label": "a metal tool for opening tins",
+    "text": "a metal tool for opening tins"
+   }
+  ],
+  "answer": "a metal tool for opening tins",
+  "correctAnswer": "a metal tool for opening tins",
+  "distractorRationales": {
+   "a wooden tool for stirring food": "D-SUPPORTED-DETAIL",
+   "an iron container for cooking meals": "D-SUPPORTED-DETAIL",
+   "a cloth for covering unbaked bread": "D-SUPPORTED-DETAIL"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.key_details.l2.B.which_is_not.v50",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Verify absence against the complete inventory of spoon, pot, cloth and explanatory card. Each wrong choice paraphrases an object explicitly included; the tin opener is absent."
+ },
+ {
+  "id": "lp3.key_details.l2.C.which_is_not.v51",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "key_details",
+  "assessmentSkillId": "key_details",
+  "skillName": "Key Details",
+  "skill": "Key Details",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "key_details_cell",
+  "itemKey": "which_is_not",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which action is NOT allowed by these rules?",
+  "question": "Which action is NOT allowed by these rules?",
+  "spokenPrompt": "Which action is NOT allowed by these rules?",
+  "passage": "Our class wrote rules for visiting the school pond. Everyone must stay on the path beside the water. Quiet voices help us hear the birds and frogs. We may sketch a creature without picking it up. An adult carries the pond net and sampling tray. After observing creatures, the adult returns them to the water. The rules also say to wash hands before eating. Each pupil reads the rules with a partner before leaving.",
+  "cell": "which_is_not",
+  "choices": [
+   "an adult putting sampled creatures back",
+   "pupils lifting creatures out with their hands",
+   "pupils drawing an animal from the path",
+   "an adult bringing a net to the pond"
+  ],
+  "answerOptions": [
+   {
+    "value": "an adult putting sampled creatures back",
+    "label": "an adult putting sampled creatures back",
+    "text": "an adult putting sampled creatures back"
+   },
+   {
+    "value": "pupils lifting creatures out with their hands",
+    "label": "pupils lifting creatures out with their hands",
+    "text": "pupils lifting creatures out with their hands"
+   },
+   {
+    "value": "pupils drawing an animal from the path",
+    "label": "pupils drawing an animal from the path",
+    "text": "pupils drawing an animal from the path"
+   },
+   {
+    "value": "an adult bringing a net to the pond",
+    "label": "an adult bringing a net to the pond",
+    "text": "an adult bringing a net to the pond"
+   }
+  ],
+  "answer": "pupils lifting creatures out with their hands",
+  "correctAnswer": "pupils lifting creatures out with their hands",
+  "distractorRationales": {
+   "an adult putting sampled creatures back": "D-SUPPORTED-DETAIL",
+   "pupils drawing an animal from the path": "D-SUPPORTED-DETAIL",
+   "an adult bringing a net to the pond": "D-SUPPORTED-DETAIL"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.key_details.l2.C.which_is_not.v51",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Separate pupils handling creatures from permitted drawing and adult sampling. Each wrong choice is allowed by a stated rule; the key violates the no-picking-up rule."
  }
 ];

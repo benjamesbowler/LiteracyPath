@@ -45,6 +45,7 @@ export function LetterGridMechanic({ round, disabled, supportLevel, onCommit, re
 export function PictureSearchMechanic({ round, disabled, supportLevel, onCommit, onRequestObjectAudio, reducedMotion }) {
   const [state, setState] = useState(createCollection);
   const current = useRef(state);
+  const pictureNamesUsed = useRef(false);
   const scene = round.mechanicId === "pictureSearch";
   function find(object) {
     if (disabled) return;
@@ -52,18 +53,18 @@ export function PictureSearchMechanic({ round, disabled, supportLevel, onCommit,
     if (result.state === current.current) return;
     current.current = result.state;
     setState(result.state);
-    if (result.outcome) onCommit?.(result.outcome);
+    if (result.outcome) onCommit?.({ ...result.outcome, evidence: { ...result.outcome.evidence, ...(pictureNamesUsed.current ? { independent: false, supportUsed: ['picture_name_replay'] } : {}) } });
     else { triggerTactileFeedback(); playStarChime(); }
   }
   return <section className={`am-simple ${scene ? "am-picture-search" : "am-picture-sounds"}`} data-mechanic-stage={scene ? "picture-search" : "scene-hunt"} data-hunt-state={state.complete ? "complete" : "searching"} data-reduced-motion={Boolean(reducedMotion)} aria-label={scene ? "Find pictures in the scene" : "Find the matching pictures"}>
-    <div className="am-picture-target"><span>{round.variant === "soundSort" ? "Ends with" : "Starts with"}</span><strong>{round.targetGrapheme}</strong><FindCount found={state.found.length} total={round.objects.filter(object => object.matches).length} /></div>
+    <div className="am-picture-target"><span>{round.variant === 'wordMeaning' ? 'Listen and find' : round.soundPosition === 'ending' ? "Ends with" : "Starts with"}</span>{round.targetGrapheme && <strong>{round.targetGrapheme}</strong>}<FindCount found={state.found.length} total={round.objects.filter(object => object.matches).length} /></div>
     <div className={scene ? "am-picture-search__scene" : "am-picture-sounds__choices"} role="group" aria-label="Picture words">
       {round.objects.map(object => {
         const id = String(object.id ?? object.word);
         const found = state.found.includes(id);
         return <div key={id} className={scene ? "am-picture-search__object" : "am-simple-picture-card"}>
           <ActivityButton className="am-simple-picture-choice wa-choice" type="button" aria-label={`Choose ${object.word}`} aria-pressed={found} data-scene-word={object.word} data-find-state={found ? "found" : state.wrong === id ? "retry" : "ready"} disabled={disabled || found} onClick={() => find(object)}><Picture word={object.word} image={object.image} />{found && <Check className="am-simple-found" weight="bold" aria-hidden="true" />}</ActivityButton>
-          <HearWord word={object.word} disabled={disabled} onRequestObjectAudio={onRequestObjectAudio} />
+          <HearWord word={object.word} disabled={disabled} onRequestObjectAudio={word => { if (round.variant === 'wordMeaning') pictureNamesUsed.current = true; onRequestObjectAudio?.(word); }} />
         </div>;
       })}
     </div>
@@ -128,7 +129,7 @@ export function MissingLetterMechanic({ round, disabled, supportLevel, onCommit,
     setSelected(choice);
     onCommit?.(outcome);
   }
-  return <section className="am-simple am-missing-letter" data-mechanic-stage="missing-letter" data-missing-position={round.missingPosition} data-reduced-motion={Boolean(reducedMotion)} aria-label={`Find the ${round.missingPosition === "start" ? "first" : "last"} sound`}>
+  return <section className="am-simple am-missing-letter" data-mechanic-stage="missing-letter" data-missing-position={round.missingPosition} data-reduced-motion={Boolean(reducedMotion)} aria-label={`Find the ${round.missingPosition === "start" ? "first" : round.missingPosition === 'middle' ? 'middle' : "last"} sound`}>
     <div className="am-missing-letter__model"><div className="am-missing-letter__picture"><Picture word={round.word} image={round.image} /><HearWord word={round.word} disabled={disabled} onRequestObjectAudio={onRequestObjectAudio} /></div><div className="am-missing-letter__word wa-slots" aria-label="Word with a missing letter">{(round.graphemes || [...round.word]).map((letter, index) => <span key={index} data-letter-slot={index === round.missingIndex ? "missing" : "given"} data-answer-state={index === round.missingIndex && selected ? selected === round.missingGrapheme ? "correct" : "retry" : "ready"}>{index === round.missingIndex ? selected || "?" : letter}</span>)}</div></div>
     <div className="am-simple-letter-choices" role="group" aria-label="Choose the missing letter">{round.choices.map(choice => <ActivityButton key={choice} className="wa-choice" type="button" aria-pressed={selected === choice} disabled={disabled || selected === round.missingGrapheme} onClick={() => choose(choice)}>{choice}</ActivityButton>)}</div>
   </section>;

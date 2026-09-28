@@ -1,4 +1,4 @@
-// Individually authored comprehension evidence; normal and reserve items share the same quality requirements.
+// Individually authored comprehension evidence; stable item coordinates preserve saved attempts.
 export default {
   "skillId": "sentence_comprehension",
   "skillName": "Sentence Comprehension",
@@ -2539,6 +2539,390 @@ export default {
       ],
       "media": "text",
       "note": "Interpret every except as one excluded card, not a sequence of craft steps."
+    },
+    {
+      "u": "literal_who_what",
+      "lvl": 1,
+      "ph": 1,
+      "v": 40,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "literal_who_what",
+      "media": "text",
+      "passage": "The baker lent her rolling pin to the cook.",
+      "prompt": "Who received the rolling pin?",
+      "choices": [
+        {
+          "t": "the person preparing the meal",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the person making the bread",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the person washing the floor",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the person delivering the milk",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New concrete meaning probe: literal who what. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "literal_who_what",
+      "lvl": 1,
+      "ph": 2,
+      "v": 41,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "literal_who_what",
+      "media": "text",
+      "passage": "Two children carried the empty basket for their grandmother.",
+      "prompt": "Who helped carry the basket?",
+      "choices": [
+        {
+          "t": "the pair of young helpers",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the grandmother on her own",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the gardener with a spade",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the visitor at the gate",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New concrete meaning probe: literal who what. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "literal_where_when",
+      "lvl": 1,
+      "ph": 1,
+      "v": 42,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "literal_where_when",
+      "media": "text",
+      "passage": "After lunch, our class planted beans beside the fence.",
+      "prompt": "When did the class plant beans?",
+      "choices": [
+        {
+          "t": "once the meal was finished",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "while the meal was cooking",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "before the school day began",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "when everyone went to sleep",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New concrete meaning probe: literal where when. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "literal_where_when",
+      "lvl": 1,
+      "ph": 2,
+      "v": 43,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "literal_where_when",
+      "media": "text",
+      "passage": "Leah put her wet boots outside the kitchen door.",
+      "prompt": "Where should Leah look for her boots?",
+      "choices": [
+        {
+          "t": "just beyond the kitchen entrance",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "in the middle of the kitchen",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "under the seat in the hall",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "beside her bedroom window",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New concrete meaning probe: literal where when. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "literal_action",
+      "lvl": 1,
+      "ph": 1,
+      "v": 44,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "literal_action",
+      "media": "text",
+      "passage": "The boy loosened the knot and opened his parcel.",
+      "prompt": "What did the boy do to the knot?",
+      "choices": [
+        {
+          "t": "made it less tight",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "pulled it much tighter",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "cut it into pieces",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "tied it to a chair",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New concrete meaning probe: literal action. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "literal_action",
+      "lvl": 1,
+      "ph": 2,
+      "v": 45,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "literal_action",
+      "media": "text",
+      "passage": "A girl held the gate while her puppy ran through.",
+      "prompt": "How did the girl help her puppy?",
+      "choices": [
+        {
+          "t": "kept the way open",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "carried it over a fence",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "led it round the garden",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "lifted it onto a wall",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New concrete meaning probe: literal action. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "two_clause",
+      "lvl": 2,
+      "ph": 1,
+      "v": 46,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "two_clause",
+      "media": "text",
+      "passage": "The twins thanked their uncle after he repaired their bicycle beside the old garden shed.",
+      "prompt": "Who repaired the bicycle?",
+      "choices": [
+        {
+          "t": "the adult who helped the twins",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the two children working together",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the gardener outside the shed",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the neighbour across the street",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New transfer and integrated evidence probe: two clause. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "two_clause",
+      "lvl": 2,
+      "ph": 2,
+      "v": 47,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "two_clause",
+      "media": "text",
+      "passage": "Nora packed a spare shirt because she planned to paint with her class after lunch.",
+      "prompt": "Why did Nora take another shirt?",
+      "choices": [
+        {
+          "t": "Her clothes might get dirty.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Her lunch might be too cold.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Her class might finish early.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Her bag might need mending.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New transfer and integrated evidence probe: two clause. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "pronoun_reference",
+      "lvl": 2,
+      "ph": 1,
+      "v": 48,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "pronoun_reference",
+      "media": "text",
+      "passage": "When the kittens climbed into the basket, Mum lifted it gently onto the kitchen table.",
+      "prompt": "What did Mum lift?",
+      "choices": [
+        {
+          "t": "the basket holding the kittens",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the table beside the basket",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the empty basket by the door",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the kittens without their basket",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Resolve singular it to the basket rather than the nearer animate subject. The plural kittens rule out the otherwise ambiguous reading that Mum lifted a single kitten."
+    },
+    {
+      "u": "pronoun_reference",
+      "lvl": 2,
+      "ph": 2,
+      "v": 49,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "pronoun_reference",
+      "media": "text",
+      "passage": "The children gave their teacher some flowers, and she placed them beside the classroom window.",
+      "prompt": "What did the teacher put by the window?",
+      "choices": [
+        {
+          "t": "the gift from the children",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the books from the shelf",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the pencils from the table",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the coats from the hooks",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New transfer and integrated evidence probe: pronoun reference. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "best_restatement",
+      "lvl": 2,
+      "ph": 1,
+      "v": 50,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "best_restatement",
+      "media": "text",
+      "passage": "Only the children wearing hats could join the sunny walk, so Amir borrowed his brother's.",
+      "prompt": "Which sentence keeps the same meaning?",
+      "choices": [
+        {
+          "t": "Amir needed a hat to take part.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Amir lent a hat to his brother.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Everyone walked before putting on a hat.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "The walk stopped because Amir was late.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New transfer and integrated evidence probe: best restatement. Each option is checked against the stated events; no picture or target audio supplies the key."
+    },
+    {
+      "u": "best_restatement",
+      "lvl": 2,
+      "ph": 2,
+      "v": 51,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "best_restatement",
+      "media": "text",
+      "passage": "Neither the red bag nor the blue bag held the lunch; it was in a basket.",
+      "prompt": "Which sentence tells the same information?",
+      "choices": [
+        {
+          "t": "Both bags were without the lunch.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Both bags contained some of the lunch.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "The lunch was shared between three containers.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "The basket held only the empty bags.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "New transfer and integrated evidence probe: best restatement. Each option is checked against the stated events; no picture or target audio supplies the key."
     }
   ]
 };

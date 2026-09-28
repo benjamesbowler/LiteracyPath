@@ -1,4 +1,4 @@
-// Individually authored comprehension evidence. Preserve stable item coordinates.
+// Individually authored comprehension evidence; stable item coordinates preserve saved attempts.
 export default {
   "skillId": "theme_higher_comprehension",
   "skillName": "Theme and Higher Comprehension",
@@ -2023,7 +2023,7 @@ export default {
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "Practising a poem helps you remember its words.",
+          "t": "Following a recipe helps make enough food.",
           "r": "D-TOPIC-ADJACENT"
         },
         {
@@ -2498,6 +2498,390 @@ export default {
       ],
       "media": "text",
       "note": "Replace a third quiet-service plot with honest limits and evidence checking; transfer reliable answering, not general kindness or presentation skill."
+    },
+    {
+      "u": "lesson_mistake_fixed",
+      "lvl": 1,
+      "ph": 1,
+      "v": 40,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "lesson_mistake_fixed",
+      "media": "text",
+      "passage": "Ned rushed to carry three cups at once. One tipped and spilled water on the floor. He fetched a cloth and wiped it up. Then he carried the cups one at a time. Everyone reached the table with a full drink.",
+      "prompt": "What did Ned learn?",
+      "choices": [
+        {
+          "t": "a careful pace can prevent mistakes",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "carrying more always saves time",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "spills should be left for someone else",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "cups are safest when left empty",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for lesson mistake fixed. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "lesson_mistake_fixed",
+      "lvl": 1,
+      "ph": 2,
+      "v": 41,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "lesson_mistake_fixed",
+      "media": "text",
+      "passage": "Aria grabbed a puzzle piece and pushed it hard. Its corner bent because it did not fit. She stopped and looked closely at the picture. Then she turned another piece until it matched. After that, she checked before pressing each piece down.",
+      "prompt": "What can we learn from Aria?",
+      "choices": [
+        {
+          "t": "look carefully before forcing a solution",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the first choice must always be right",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "finishing quickly matters more than care",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a mistake means the whole task must stop",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for lesson mistake fixed. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "lesson_kindness_returned",
+      "lvl": 1,
+      "ph": 1,
+      "v": 42,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "lesson_kindness_returned",
+      "media": "text",
+      "passage": "Sol saw a younger child drop her crayons. He helped find every colour under the table. Later, Sol could not reach the glue shelf. The same child fetched the teacher to help. Sol thanked her, and they finished their pictures together.",
+      "prompt": "What does the story show?",
+      "choices": [
+        {
+          "t": "people can find ways to help each other",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "only tall people can be helpful",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "you should help only after receiving something",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "sharing always makes a job take longer",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for lesson kindness returned. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "lesson_kindness_returned",
+      "lvl": 1,
+      "ph": 2,
+      "v": 43,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "lesson_kindness_returned",
+      "media": "text",
+      "passage": "A bird drank from the bowl in Mara's garden. Each morning, Mara filled it with fresh water. One day she heard the bird sing nearby. She paused her digging and listened with a smile. Caring for the garden brought her a little joy.",
+      "prompt": "Which lesson fits this story?",
+      "choices": [
+        {
+          "t": "caring for living things can bring pleasure",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "animals must give something back for help",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the loudest voice deserves the most attention",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a garden grows better without any visitors",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for lesson kindness returned. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "lesson_effort_pays",
+      "lvl": 1,
+      "ph": 1,
+      "v": 44,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "lesson_effort_pays",
+      "media": "text",
+      "passage": "Kai's first paper boat sank in the tray. He unfolded it and looked at the wet corner. He made another with a firmer fold there. This boat floated across the whole tray. Kai kept the old boat to remember his change.",
+      "prompt": "What helped Kai succeed?",
+      "choices": [
+        {
+          "t": "learning from an unsuccessful attempt",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "hiding his mistake from the class",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "using the same folds without a change",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "waiting for someone to build it instead",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for lesson effort pays. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "lesson_effort_pays",
+      "lvl": 1,
+      "ph": 2,
+      "v": 45,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "lesson_effort_pays",
+      "media": "text",
+      "passage": "Ines could clap the song but missed its ending. She practised just that small part with a friend. Then they tried the whole song again. This time her final clap landed with everyone else's. She smiled and joined the group for another turn.",
+      "prompt": "What does Ines's story teach?",
+      "choices": [
+        {
+          "t": "focused practice can improve a difficult part",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "a difficult ending should always be skipped",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "being first matters more than staying together",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "good work happens without any practice",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for lesson effort pays. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "theme_among_rivals",
+      "lvl": 2,
+      "ph": 1,
+      "v": 46,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "theme_among_rivals",
+      "media": "text",
+      "passage": "Two groups were growing beans for the school display. One group hid its watering notes, hoping to have the tallest plants. The other group shared a useful way to check damp soil. When a dry weekend harmed both sets, the groups met together. They compared notes and made a shared plan for care. Most plants recovered, though neither group won a special prize. At the display, they explained what they had learned from working together. Their strongest result was knowledge everyone could use next time.",
+      "prompt": "Which lesson is best supported by the ending?",
+      "choices": [
+        {
+          "t": "sharing knowledge can matter more than winning",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "success comes from following one experienced leader",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "fair contests help people recognise individual achievement",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "private practice helps people prepare for a challenge",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Compare morally plausible rival lessons. The groups recover by exchanging knowledge, and the ending values shared learning despite no prize. No experienced leader, individual recognition or private preparation produces the resolution."
+    },
+    {
+      "u": "theme_among_rivals",
+      "lvl": 2,
+      "ph": 2,
+      "v": 47,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "theme_among_rivals",
+      "media": "text",
+      "passage": "A class needed a leader for its river-cleaning project. Mina spoke confidently and suggested the biggest collection target. Quiet Ravi asked where younger pupils could work safely. He checked the route and found places for sorting the rubbish. On the day, Mina encouraged everyone and Ravi kept the plan organised. The teacher praised both kinds of contribution to the project. Afterwards, the class chose two leaders for its next event. They had learned that different strengths could support the same goal.",
+      "prompt": "Which theme best fits the class's decision?",
+      "choices": [
+        {
+          "t": "a team benefits when its members contribute in varied ways",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "a team grows when every member learns the same skill",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a team improves when its members take turns leading",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a team learns when its members admit their mistakes",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Compare four positive lessons against the actual decision to appoint two leaders. Mina and Ravi contribute complementary strengths at the same time; they neither learn one shared skill, rotate leadership nor resolve admitted mistakes."
+    },
+    {
+      "u": "theme_vs_plot",
+      "lvl": 2,
+      "ph": 1,
+      "v": 48,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "theme_vs_plot",
+      "media": "text",
+      "passage": "A visitor asked Nia where the community garden entrance was. Nia was unsure, but pointed confidently towards a locked gate. The visitor returned after walking a long way without finding it. Nia admitted she had guessed instead of knowing the answer. She asked the caretaker and walked with the visitor to the entrance. Later, someone asked her another question she could not answer. She paused. She said she was unsure and offered to find out. The second visitor thanked her for checking before giving directions.",
+      "prompt": "Which statement gives a lesson rather than a plot detail?",
+      "choices": [
+        {
+          "t": "being honest about uncertainty can make help more useful",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "a visitor walked towards a gate that had been locked",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "Nia asked the caretaker where the garden entrance was",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a second visitor thanked Nia after she checked the route",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for theme vs plot. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "theme_vs_plot",
+      "lvl": 2,
+      "ph": 2,
+      "v": 49,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "theme_vs_plot",
+      "media": "text",
+      "passage": "Omar's class built a model town from cardboard. He wanted his tower in the centre because it was tallest. The group explained that it hid the smaller buildings behind. Omar moved it to the edge and looked from different sides. Now visitors could see every part of the town clearly. At the exhibition, a younger child admired both tower and houses. Omar felt proud that his change had helped the whole display. He showed the visitor how the group had arranged it together.",
+      "prompt": "Which statement expresses the theme rather than retelling an event?",
+      "choices": [
+        {
+          "t": "adjusting a personal idea can improve a shared result",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "Omar moved his tall model from the middle to the edge",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a visitor looked at several cardboard buildings in an exhibition",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a group arranged houses around a tower made by Omar",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for theme vs plot. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "apply_theme",
+      "lvl": 2,
+      "ph": 1,
+      "v": 50,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "apply_theme",
+      "media": "text",
+      "passage": "A pair of children disagreed about their class mural. One wanted a river; the other preferred a busy market. They each explained what they liked about their own idea. Instead of voting at once, they drew a few plans together. Their final picture showed a market beside a river crossing. Both children could add details they had been excited to paint. Other classmates found space for their ideas as well. Listening had helped the group make something neither had imagined alone.",
+      "prompt": "Which new situation uses the same lesson?",
+      "choices": [
+        {
+          "t": "partners explain their ideas and design a shared solution",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "partners stop talking and each works over the other's drawing",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a pupil insists everyone copy the first plan without discussion",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a pupil removes another person's work to make room for more",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for apply theme. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "apply_theme",
+      "lvl": 2,
+      "ph": 2,
+      "v": 51,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "apply_theme",
+      "media": "text",
+      "passage": "Tessa promised to water a neighbour's plants during a holiday. On the second morning, she forgot and went out to play. When she returned, she saw one pot beginning to dry. She watered it, told the neighbour what had happened, and set reminders. For the rest of the week, she checked every pot carefully. The neighbour thanked her for being honest and making a better plan. Tessa understood that repairing a mistake meant changing what came next. A promise needed actions that could be relied on each day.",
+      "prompt": "Which action in another situation follows this lesson?",
+      "choices": [
+        {
+          "t": "a pupil admits missing a job and sets up a reliable routine",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "a pupil hides an unfinished job and hopes it is overlooked",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a pupil blames someone else whenever a promised job is missed",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a pupil makes a larger promise without changing any daily habits",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for apply theme. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
     }
   ]
 };

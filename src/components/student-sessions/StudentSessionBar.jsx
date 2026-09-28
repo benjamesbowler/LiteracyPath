@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { cycleResultSummary, cycleDurationSummary, exportCycleSessionResultsCsv, cyclePracticeNextRows } from "../../utils/cyclePracticeReporting.js";
+import { cycleResultSummary, cycleDurationSummary, exportCycleSessionResultsCsv, cyclePracticeEvidenceProfile } from "../../utils/cyclePracticeReporting.js";
+import { LearningEvidenceProfile } from "../reports/LearningEvidenceProfile.jsx";
 import { cyclePracticeDisplayTitle } from "../../utils/cycleTitles.js";
 
 import { STUDENT_ADVENTURE_MAP_MODES } from "../../policy/studentFocusAssignments.js";
@@ -85,20 +86,7 @@ export function StudentSessionBar({ session, members = [], students = [], connec
                     ? member.cycle_practice_result.checkedConstructs.map(area => area.replace(/_/g, " ")).join(", ")
                     : "Not recorded"}</p>
                   <small>Practice evidence · not a formal assessment</small>
-                  {cyclePracticeNextRows(member.cycle_practice_result).length > 0 && (
-                    <details className="student-session-practise-next">
-                      <summary>Practise next</summary>
-                      <div>
-                        {cyclePracticeNextRows(member.cycle_practice_result).map((row, index) => (
-                          <section key={row.id || index}>
-                            <strong>{row.target}</strong>
-                            <p>{row.instruction}. {row.construct}</p>
-                            <p>{row.selected}</p>
-                          </section>
-                        ))}
-                      </div>
-                    </details>
-                  )}
+                  <LearningEvidenceProfile profile={cyclePracticeEvidenceProfile(member.cycle_practice_result)} title="Practice coverage and next steps" />
                   {member.cycle_practice_result.receivedAfterSessionEnd && <p>Recovered after the session ended.</p>}
                 </div>
               )}

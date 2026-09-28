@@ -1,5 +1,22 @@
 # Current system cleanup — 31 July 2026
 
+## Learning content and teaching evidence — 28 September 2026
+
+The 30 current Skills banks, Cycle Practice and Adventure Map remain the only
+active sources for their respective activities. New authored content is
+compiled through the existing assessment gate; it does not introduce a second
+runtime bank. Teacher detail uses saved question snapshots rather than
+reconstructing old attempts from today's content.
+
+Removed 25 superseded narration files created during this task after comparing
+the final authored text, the pre-task audio registry and current file references.
+Only untracked task outputs were deleted. Their scripts remain reproducible
+from the recorded source history; existing shared narration and original
+artwork were preserved. Current generated media maps were refreshed together.
+Disposable generation helpers were removed after use; verification logs,
+metrics, screenshots and relevant browser failure traces remain in ignored
+`.artifacts/learning-depth/` and `.artifacts/reporting-depth/`.
+
 ## Shared Woodland activity presentation — 20 September 2026
 
 Assessments, Adventure Map activities, Cycle Practice and Letters adopt the

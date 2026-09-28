@@ -80,7 +80,10 @@ test("child route changes stop every shared audio system", () => {
 });
 
 test("assessment replay controls use the cancellable shared voice", () => {
-  assert.match(assessmentController, /playCueAudio\(preferredAudioPath/);
+  assert.match(assessmentController, /playAssessmentCue\(preferredAudioPath/);
+  const assessmentPlayback = readFileSync(new URL("../../src/utils/audio/assessmentPlayback.js", import.meta.url), "utf8");
+  assert.match(assessmentPlayback, /player = playCueAudio/);
+  assert.match(assessmentPlayback, /player\(src,/);
   assert.doesNotMatch(assessmentController, /new Audio\(preferredAudioPath\)/);
   assert.match(firstSoundQuestion, /playCueAudio\(audioUrl/);
   assert.doesNotMatch(firstSoundQuestion, /new Audio\(audioUrl\)/);

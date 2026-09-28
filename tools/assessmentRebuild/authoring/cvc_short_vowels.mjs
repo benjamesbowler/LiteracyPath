@@ -1,3 +1,4 @@
+import depthItems from "./depth/cvc_short_vowels.mjs";
 // CVC Short Vowels — v3 authored bank (wave W4, paired with rhyming).
 // Construct: decode/build CVC (L1) and CCVC/CVCC (L2) short-vowel words.
 // 5 units (short_a/e/i/o/u), D-small, 6 variants per unit per level.
@@ -79,7 +80,7 @@ const pso = (u, lvl, ph, v, word, tiles, note = "") => ({
   note: note || "tiles are phonemes, not letters — sh/ck ride as one tile"
 });
 
-export default {
+const bank = {
   skillId: "cvc_short_vowels",
   skillName: "CVC & Short Vowels",
   imageResolver: resolver,
@@ -284,3 +285,6 @@ export default {
     return item;
   })
 };
+
+bank.items.push(...depthItems);
+export default bank;

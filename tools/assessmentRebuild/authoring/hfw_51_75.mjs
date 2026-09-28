@@ -1,3 +1,4 @@
+import depthItems from "./depth/hfw_51_75.mjs";
 // HFW Band 3 (words 51–75) — v3 authored bank (wave W8, paired with hfw_76_100).
 // Same architecture as bands 1–2 (see hfw_1_25.mjs header). Band-3 particulars:
 //   - would/write carry silent letters — both get double retention coverage
@@ -81,7 +82,7 @@ const FS = "D-FUNCTION-SWAP";
 const VN = "D-VISUAL-NEIGHBOR";
 const DV = "D-DEVELOPMENTAL";
 
-export default {
+const bank = {
   skillId: "hfw_51_75",
   skillName: "High-Frequency Words 51–75",
   items: [
@@ -317,3 +318,6 @@ export default {
     return item;
   })
 };
+
+bank.items.push(...depthItems);
+export default bank;

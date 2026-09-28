@@ -168,6 +168,31 @@ function sameValues(actual, expected) {
   return JSON.stringify(sorted(actual)) === JSON.stringify(sorted(expected));
 }
 
+export function unrevokedSecurityDefiners(sql, inheritedSignatures = []) {
+  const source = withoutSqlComments(sql);
+  // Bound each declaration before looking at its header. An invoker function
+  // must not absorb SECURITY DEFINER from the following declaration.
+  const declarations = [...source.matchAll(/create\s+(?:or\s+replace\s+)?function\s+public\.([a-z0-9_]+)\s*\(([^)]*)\)/gi)];
+  const definers = declarations.filter((match, index) => {
+    const declaration = source.slice(match.index, declarations[index + 1]?.index ?? source.length);
+    const header = declaration.split(/\bas\s+(?:\$[a-z0-9_]*\$|')/i)[0];
+    return /\bsecurity\s+definer\b/i.test(header);
+  });
+  if (!definers.length && /\bsecurity\s+definer\b/i.test(source)) return ['unparsed SECURITY DEFINER statement'];
+  const revoked = new Set();
+  for (const [, signatures, roles] of source.matchAll(/\brevoke\s+all(?:\s+privileges)?\s+on\s+function\s+([\s\S]*?)\s+from\s+([^;]+);/gi)) {
+    if (!roles.split(',').some(role => role.trim().toLowerCase() === 'public')) continue;
+    for (const [, name] of signatures.matchAll(/\bpublic\.([a-z0-9_]+)\s*\(/gi)) revoked.add(name.toLowerCase());
+  }
+  const inherited = new Set(inheritedSignatures.map(comparableSignature));
+  return definers.filter(match => !revoked.has(match[1].toLowerCase())
+    // CREATE OR REPLACE preserves an existing function's privileges. Only
+    // accept an exact boundary signature; a new overload cannot inherit it.
+    && !(/create\s+or\s+replace/i.test(match[0])
+      && inherited.has(comparableSignature(`${match[1]}(${match[2]})`))))
+    .map(match => match[1].toLowerCase());
+}
+
 export function auditSecurityBoundarySource({
   files = fs.readdirSync(migrationDir).filter(file => file.endsWith(".sql")).sort(),
   source = fs.readFileSync(path.join(migrationDir, SECURITY_BOUNDARY_MIGRATION), "utf8"),
@@ -202,18 +227,14 @@ export function auditSecurityBoundarySource({
   if (/drop\s+table/i.test(withoutSqlComments(retiredFeaturesSource))) {
     failures.push("retirement migration must preserve historical feature data tables");
   }
+  const inheritedBoundarySignatures = [...source.matchAll(/grant\s+execute\s+on\s+function\s+public\.([a-z0-9_]+\s*\([^)]*\))\s+to\s+(?:anon,\s*authenticated|authenticated)\s*;/gi)]
+    .map(match => match[1]);
   const laterSecurityDefiners = files
     .filter(file => file > SECURITY_BOUNDARY_MIGRATION)
     .filter(file => {
       const laterSource = withoutSqlComments(fs.readFileSync(path.join(migrationDir, file), "utf8"));
       if (!/security\s+definer/i.test(laterSource)) return false;
-      const privateDefinitions = [...laterSource.matchAll(
-        /create\s+or\s+replace\s+function\s+public\.([a-z0-9_]+)\s*\([^)]*\)[\s\S]*?security\s+definer/gi
-      )];
-      return privateDefinitions.length === 0 || privateDefinitions.some(([, functionName]) => (
-        !new RegExp(`revoke\\s+all\\s+on\\s+function\\s+public\\.${functionName}\\s*\\(`, "i")
-          .test(laterSource)
-      ));
+      return unrevokedSecurityDefiners(laterSource, inheritedBoundarySignatures).length > 0;
     });
   if (laterSecurityDefiners.length) {
     failures.push(

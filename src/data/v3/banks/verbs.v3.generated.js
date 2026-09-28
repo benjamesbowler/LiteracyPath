@@ -7170,5 +7170,721 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "Taste requires taking a small amount into the mouth; preparing or spilling it does not."
+ },
+ {
+  "id": "lp3.verbs.l1.A.verb_action_body.v101",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_action_body",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word tells an action? The baby crawls slowly.",
+  "question": "Which word tells an action? The baby crawls slowly.",
+  "spokenPrompt": "Which word tells an action? The baby crawls slowly.",
+  "sentence": "The baby crawls slowly.",
+  "choices": [
+   "slowly",
+   "the",
+   "crawls",
+   "baby"
+  ],
+  "answerOptions": [
+   {
+    "value": "slowly",
+    "label": "slowly",
+    "text": "slowly"
+   },
+   {
+    "value": "the",
+    "label": "the",
+    "text": "the"
+   },
+   {
+    "value": "crawls",
+    "label": "crawls",
+    "text": "crawls"
+   },
+   {
+    "value": "baby",
+    "label": "baby",
+    "text": "baby"
+   }
+  ],
+  "answer": "crawls",
+  "correctAnswer": "crawls",
+  "distractorRationales": {
+   "the": "D-FUNCTION-SWAP",
+   "baby": "D-FUNCTION-SWAP",
+   "slowly": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The baby crawls slowly.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.A.verb_action_body.v101",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Every choice occurs in the sentence; separate action from person and manner."
+ },
+ {
+  "id": "lp3.verbs.l1.B.verb_action_object.v102",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_action_object",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word tells an action? Dad folds the blanket.",
+  "question": "Which word tells an action? Dad folds the blanket.",
+  "spokenPrompt": "Which word tells an action? Dad folds the blanket.",
+  "sentence": "Dad folds the blanket.",
+  "choices": [
+   "blanket",
+   "folds",
+   "Dad",
+   "the"
+  ],
+  "answerOptions": [
+   {
+    "value": "blanket",
+    "label": "blanket",
+    "text": "blanket"
+   },
+   {
+    "value": "folds",
+    "label": "folds",
+    "text": "folds"
+   },
+   {
+    "value": "Dad",
+    "label": "Dad",
+    "text": "Dad"
+   },
+   {
+    "value": "the",
+    "label": "the",
+    "text": "the"
+   }
+  ],
+  "answer": "folds",
+  "correctAnswer": "folds",
+  "distractorRationales": {
+   "the": "D-FUNCTION-SWAP",
+   "blanket": "D-FUNCTION-SWAP",
+   "Dad": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Dad folds the blanket.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.B.verb_action_object.v102",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Folding is a concrete action on an object, without an answer-revealing picture."
+ },
+ {
+  "id": "lp3.verbs.l1.C.verb_everyday.v103",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_everyday",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word tells an action? We share our lunch.",
+  "question": "Which word tells an action? We share our lunch.",
+  "spokenPrompt": "Which word tells an action? We share our lunch.",
+  "sentence": "We share our lunch.",
+  "choices": [
+   "lunch",
+   "share",
+   "we",
+   "our"
+  ],
+  "answerOptions": [
+   {
+    "value": "lunch",
+    "label": "lunch",
+    "text": "lunch"
+   },
+   {
+    "value": "share",
+    "label": "share",
+    "text": "share"
+   },
+   {
+    "value": "we",
+    "label": "we",
+    "text": "we"
+   },
+   {
+    "value": "our",
+    "label": "our",
+    "text": "our"
+   }
+  ],
+  "answer": "share",
+  "correctAnswer": "share",
+  "distractorRationales": {
+   "lunch": "D-FUNCTION-SWAP",
+   "we": "D-FUNCTION-SWAP",
+   "our": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "We share our lunch.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.C.verb_everyday.v103",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Everyday social action contrasted with pronouns and a naming word."
+ },
+ {
+  "id": "lp3.verbs.l1.A.verb_everyday.v104",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_everyday",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word tells an action? Grandma mends my sock.",
+  "question": "Which word tells an action? Grandma mends my sock.",
+  "spokenPrompt": "Which word tells an action? Grandma mends my sock.",
+  "sentence": "Grandma mends my sock.",
+  "choices": [
+   "Grandma",
+   "my",
+   "sock",
+   "mends"
+  ],
+  "answerOptions": [
+   {
+    "value": "Grandma",
+    "label": "Grandma",
+    "text": "Grandma"
+   },
+   {
+    "value": "my",
+    "label": "my",
+    "text": "my"
+   },
+   {
+    "value": "sock",
+    "label": "sock",
+    "text": "sock"
+   },
+   {
+    "value": "mends",
+    "label": "mends",
+    "text": "mends"
+   }
+  ],
+  "answer": "mends",
+  "correctAnswer": "mends",
+  "distractorRationales": {
+   "Grandma": "D-FUNCTION-SWAP",
+   "my": "D-FUNCTION-SWAP",
+   "sock": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Grandma mends my sock.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.A.verb_everyday.v104",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Extends everyday action vocabulary to repair rather than repeating run/jump."
+ },
+ {
+  "id": "lp3.verbs.l2.B.verb_in_sentence.v105",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_in_sentence",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which word tells what happens? ‘Deep snow blocked the mountain road.’",
+  "question": "Which word tells what happens? ‘Deep snow blocked the mountain road.’",
+  "spokenPrompt": "Which word tells what happens? ‘Deep snow blocked the mountain road.’",
+  "choices": [
+   "mountain",
+   "road",
+   "blocked",
+   "snow"
+  ],
+  "answerOptions": [
+   {
+    "value": "mountain",
+    "label": "mountain",
+    "text": "mountain"
+   },
+   {
+    "value": "road",
+    "label": "road",
+    "text": "road"
+   },
+   {
+    "value": "blocked",
+    "label": "blocked",
+    "text": "blocked"
+   },
+   {
+    "value": "snow",
+    "label": "snow",
+    "text": "snow"
+   }
+  ],
+  "answer": "blocked",
+  "correctAnswer": "blocked",
+  "distractorRationales": {
+   "snow": "D-FUNCTION-SWAP",
+   "mountain": "D-FUNCTION-SWAP",
+   "road": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.B.verb_in_sentence.v105",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "An inanimate subject can perform the grammatical action."
+ },
+ {
+  "id": "lp3.verbs.l2.C.verb_vs_noun.v106",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_vs_noun",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Where is ‘plant’ a doing word?",
+  "question": "Where is ‘plant’ a doing word?",
+  "spokenPrompt": "Where is ‘plant’ a doing word?",
+  "choices": [
+   "We plant beans in spring.",
+   "The plant has new leaves.",
+   "A small plant needs water.",
+   "That plant is growing fast."
+  ],
+  "answerOptions": [
+   {
+    "value": "We plant beans in spring.",
+    "label": "We plant beans in spring.",
+    "text": "We plant beans in spring."
+   },
+   {
+    "value": "The plant has new leaves.",
+    "label": "The plant has new leaves.",
+    "text": "The plant has new leaves."
+   },
+   {
+    "value": "A small plant needs water.",
+    "label": "A small plant needs water.",
+    "text": "A small plant needs water."
+   },
+   {
+    "value": "That plant is growing fast.",
+    "label": "That plant is growing fast.",
+    "text": "That plant is growing fast."
+   }
+  ],
+  "answer": "We plant beans in spring.",
+  "correctAnswer": "We plant beans in spring.",
+  "distractorRationales": {
+   "The plant has new leaves.": "D-FUNCTION-SWAP",
+   "A small plant needs water.": "D-FUNCTION-SWAP",
+   "That plant is growing fast.": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.C.verb_vs_noun.v106",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Same spelling, different grammatical function; identify the verb in use."
+ },
+ {
+  "id": "lp3.verbs.l2.A.verb_precision.v107",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_precision",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which action fits best?",
+  "question": "Which action fits best?",
+  "spokenPrompt": "Which action fits best?",
+  "sentence": "Mia ___ tiny drops evenly over the seeds.",
+  "choices": [
+   "scooped",
+   "sprinkled",
+   "poured",
+   "spilled"
+  ],
+  "answerOptions": [
+   {
+    "value": "scooped",
+    "label": "scooped",
+    "text": "scooped"
+   },
+   {
+    "value": "sprinkled",
+    "label": "sprinkled",
+    "text": "sprinkled"
+   },
+   {
+    "value": "poured",
+    "label": "poured",
+    "text": "poured"
+   },
+   {
+    "value": "spilled",
+    "label": "spilled",
+    "text": "spilled"
+   }
+  ],
+  "answer": "sprinkled",
+  "correctAnswer": "sprinkled",
+  "distractorRationales": {
+   "poured": "D-SAME-DOMAIN",
+   "spilled": "D-SAME-DOMAIN",
+   "scooped": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Mia ___ tiny drops evenly over the seeds.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.A.verb_precision.v107",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Fine controlled scattering contrasts with stream, accident and collecting."
+ },
+ {
+  "id": "lp3.verbs.l2.B.verb_precision.v108",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "verbs",
+  "assessmentSkillId": "verbs",
+  "skillName": "Verbs",
+  "skill": "Verbs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "verb_precision",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which action fits best?",
+  "question": "Which action fits best?",
+  "spokenPrompt": "Which action fits best?",
+  "sentence": "He ___ the secret so only I could hear.",
+  "choices": [
+   "announced",
+   "exclaimed",
+   "chanted",
+   "whispered"
+  ],
+  "answerOptions": [
+   {
+    "value": "announced",
+    "label": "announced",
+    "text": "announced"
+   },
+   {
+    "value": "exclaimed",
+    "label": "exclaimed",
+    "text": "exclaimed"
+   },
+   {
+    "value": "chanted",
+    "label": "chanted",
+    "text": "chanted"
+   },
+   {
+    "value": "whispered",
+    "label": "whispered",
+    "text": "whispered"
+   }
+  ],
+  "answer": "whispered",
+  "correctAnswer": "whispered",
+  "distractorRationales": {
+   "announced": "D-SAME-DOMAIN",
+   "exclaimed": "D-SAME-DOMAIN",
+   "chanted": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "He ___ the secret so only I could hear.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.B.verb_precision.v108",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Audible clue specifies quiet speech rather than another plausible speaking verb."
  }
 ];

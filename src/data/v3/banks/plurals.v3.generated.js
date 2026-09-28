@@ -7304,5 +7304,725 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": ""
+ },
+ {
+  "id": "lp3.plurals.l1.A.plural_add_s.v101",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_add_s",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits?",
+  "question": "Which word fits?",
+  "spokenPrompt": "Which word fits?",
+  "sentence": "Two ___ protect my hands from the cold.",
+  "choices": [
+   "gloves",
+   "glove",
+   "scarf",
+   "mitten"
+  ],
+  "answerOptions": [
+   {
+    "value": "gloves",
+    "label": "gloves",
+    "text": "gloves"
+   },
+   {
+    "value": "glove",
+    "label": "glove",
+    "text": "glove"
+   },
+   {
+    "value": "scarf",
+    "label": "scarf",
+    "text": "scarf"
+   },
+   {
+    "value": "mitten",
+    "label": "mitten",
+    "text": "mitten"
+   }
+  ],
+  "answer": "gloves",
+  "correctAnswer": "gloves",
+  "distractorRationales": {
+   "mitten": "D-SEMANTIC",
+   "glove": "D-FUNCTION-SWAP",
+   "scarf": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Two ___ protect my hands from the cold.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.A.plural_add_s.v101",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Plural s with a number cue; paired objects contrast against singular and another clothing noun."
+ },
+ {
+  "id": "lp3.plurals.l1.B.plural_concept.v102",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_concept",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits?",
+  "question": "Which word fits?",
+  "spokenPrompt": "Which word fits?",
+  "sentence": "Three baby ___ hatched and began chirping.",
+  "choices": [
+   "shell",
+   "egg",
+   "chicks",
+   "chick"
+  ],
+  "answerOptions": [
+   {
+    "value": "shell",
+    "label": "shell",
+    "text": "shell"
+   },
+   {
+    "value": "egg",
+    "label": "egg",
+    "text": "egg"
+   },
+   {
+    "value": "chicks",
+    "label": "chicks",
+    "text": "chicks"
+   },
+   {
+    "value": "chick",
+    "label": "chick",
+    "text": "chick"
+   }
+  ],
+  "answer": "chicks",
+  "correctAnswer": "chicks",
+  "distractorRationales": {
+   "chick": "D-FUNCTION-SWAP",
+   "shell": "D-SEMANTIC",
+   "egg": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Three baby ___ hatched and began chirping.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.B.plural_concept.v102",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Number and meaning are both necessary: eggshells cannot chirp."
+ },
+ {
+  "id": "lp3.plurals.l1.C.plural_add_es.v103",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_add_es",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits?",
+  "question": "Which word fits?",
+  "spokenPrompt": "Which word fits?",
+  "sentence": "Both ___ tell the time on our wrists.",
+  "choices": [
+   "ring",
+   "watches",
+   "watch",
+   "clock"
+  ],
+  "answerOptions": [
+   {
+    "value": "ring",
+    "label": "ring",
+    "text": "ring"
+   },
+   {
+    "value": "watches",
+    "label": "watches",
+    "text": "watches"
+   },
+   {
+    "value": "watch",
+    "label": "watch",
+    "text": "watch"
+   },
+   {
+    "value": "clock",
+    "label": "clock",
+    "text": "clock"
+   }
+  ],
+  "answer": "watches",
+  "correctAnswer": "watches",
+  "distractorRationales": {
+   "watch": "D-FUNCTION-SWAP",
+   "clock": "D-SEMANTIC",
+   "ring": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Both ___ tell the time on our wrists.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.C.plural_add_es.v103",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The wrist clue separates watches from another valid plural timepiece."
+ },
+ {
+  "id": "lp3.plurals.l1.A.plural_add_es.v104",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_add_es",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits?",
+  "question": "Which word fits?",
+  "spokenPrompt": "Which word fits?",
+  "sentence": "Two red ___ had pointed ears and bushy tails.",
+  "choices": [
+   "cub",
+   "foxes",
+   "fox",
+   "box"
+  ],
+  "answerOptions": [
+   {
+    "value": "cub",
+    "label": "cub",
+    "text": "cub"
+   },
+   {
+    "value": "foxes",
+    "label": "foxes",
+    "text": "foxes"
+   },
+   {
+    "value": "fox",
+    "label": "fox",
+    "text": "fox"
+   },
+   {
+    "value": "box",
+    "label": "box",
+    "text": "box"
+   }
+  ],
+  "answer": "foxes",
+  "correctAnswer": "foxes",
+  "distractorRationales": {
+   "cub": "D-SEMANTIC",
+   "fox": "D-FUNCTION-SWAP",
+   "box": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Two red ___ had pointed ears and bushy tails.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.A.plural_add_es.v104",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Real-word es contrast with an explicit action; only the plural animal completes it."
+ },
+ {
+  "id": "lp3.plurals.l2.B.plural_y_to_ies.v105",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_y_to_ies",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits?",
+  "question": "Which word fits?",
+  "spokenPrompt": "Which word fits?",
+  "sentence": "Two ___ flap patterned wings above the flowers.",
+  "choices": [
+   "berry",
+   "bird",
+   "butterflies",
+   "butterfly"
+  ],
+  "answerOptions": [
+   {
+    "value": "berry",
+    "label": "berry",
+    "text": "berry"
+   },
+   {
+    "value": "bird",
+    "label": "bird",
+    "text": "bird"
+   },
+   {
+    "value": "butterflies",
+    "label": "butterflies",
+    "text": "butterflies"
+   },
+   {
+    "value": "butterfly",
+    "label": "butterfly",
+    "text": "butterfly"
+   }
+  ],
+  "answer": "butterflies",
+  "correctAnswer": "butterflies",
+  "distractorRationales": {
+   "bird": "D-SEMANTIC",
+   "butterfly": "D-FUNCTION-SWAP",
+   "berry": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Two ___ flap patterned wings above the flowers.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.B.plural_y_to_ies.v105",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Apply consonant-y to ies to a longer familiar animal word, using both meaning and number."
+ },
+ {
+  "id": "lp3.plurals.l2.C.plural_irregular.v106",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_irregular",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits?",
+  "question": "Which word fits?",
+  "spokenPrompt": "Which word fits?",
+  "sentence": "The dentist counted twenty baby ___ in my mouth.",
+  "choices": [
+   "tooth",
+   "feet",
+   "foot",
+   "teeth"
+  ],
+  "answerOptions": [
+   {
+    "value": "tooth",
+    "label": "tooth",
+    "text": "tooth"
+   },
+   {
+    "value": "feet",
+    "label": "feet",
+    "text": "feet"
+   },
+   {
+    "value": "foot",
+    "label": "foot",
+    "text": "foot"
+   },
+   {
+    "value": "teeth",
+    "label": "teeth",
+    "text": "teeth"
+   }
+  ],
+  "answer": "teeth",
+  "correctAnswer": "teeth",
+  "distractorRationales": {
+   "tooth": "D-FUNCTION-SWAP",
+   "feet": "D-SEMANTIC",
+   "foot": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The dentist counted twenty baby ___ in my mouth.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.C.plural_irregular.v106",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Irregular number and body-part meaning both constrain the response."
+ },
+ {
+  "id": "lp3.plurals.l2.A.plural_f_to_ves.v107",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_f_to_ves",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits?",
+  "question": "Which word fits?",
+  "spokenPrompt": "Which word fits?",
+  "sentence": "Two young ___ stayed close to their mother cow.",
+  "choices": [
+   "calf",
+   "wolf",
+   "lamb",
+   "calves"
+  ],
+  "answerOptions": [
+   {
+    "value": "calf",
+    "label": "calf",
+    "text": "calf"
+   },
+   {
+    "value": "wolf",
+    "label": "wolf",
+    "text": "wolf"
+   },
+   {
+    "value": "lamb",
+    "label": "lamb",
+    "text": "lamb"
+   },
+   {
+    "value": "calves",
+    "label": "calves",
+    "text": "calves"
+   }
+  ],
+  "answer": "calves",
+  "correctAnswer": "calves",
+  "distractorRationales": {
+   "calf": "D-FUNCTION-SWAP",
+   "wolf": "D-SEMANTIC",
+   "lamb": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Two young ___ stayed close to their mother cow.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.A.plural_f_to_ves.v107",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "F-to-ves generalization to a less frequently tested animal word with explicit cow evidence."
+ },
+ {
+  "id": "lp3.plurals.l2.B.plural_in_sentence.v108",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "plurals",
+  "assessmentSkillId": "plurals",
+  "skillName": "Plurals",
+  "skill": "Plurals",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "plural_in_sentence",
+  "formatType": "PLURAL_SPELLING_CONTEXT",
+  "templateType": "PLURAL_SPELLING_CONTEXT",
+  "questionType": "multiple_choice",
+  "prompt": "Which word fits?",
+  "question": "Which word fits?",
+  "spokenPrompt": "Which word fits?",
+  "sentence": "There are six ___ in our choir, and each is a child.",
+  "choices": [
+   "child",
+   "chicken",
+   "choir",
+   "children"
+  ],
+  "answerOptions": [
+   {
+    "value": "child",
+    "label": "child",
+    "text": "child"
+   },
+   {
+    "value": "chicken",
+    "label": "chicken",
+    "text": "chicken"
+   },
+   {
+    "value": "choir",
+    "label": "choir",
+    "text": "choir"
+   },
+   {
+    "value": "children",
+    "label": "children",
+    "text": "children"
+   }
+  ],
+  "answer": "children",
+  "correctAnswer": "children",
+  "distractorRationales": {
+   "child": "D-FUNCTION-SWAP",
+   "chicken": "D-SEMANTIC",
+   "choir": "D-SEMANTIC"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "There are six ___ in our choir, and each is a child.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.B.plural_in_sentence.v108",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Combine number agreement and meaning, rather than accepting every plural noun."
  }
 ];

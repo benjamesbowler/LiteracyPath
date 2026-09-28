@@ -7200,5 +7200,1085 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "Replace the second wet-umbrella inference with a mechanical diagnosis supported by elimination and a successful single-change repair."
+ },
+ {
+  "id": "lp3.inference.l1.A.feeling_from_evidence.v40",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "feeling_from_evidence",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "How does Mina probably feel?",
+  "question": "How does Mina probably feel?",
+  "spokenPrompt": "How does Mina probably feel?",
+  "passage": "Mina opened a box from her old friend. Inside was the scarf she had lost. She pressed it to her cheek and smiled. Then she hurried to get a thank-you card. She kept the scarf beside her all evening.",
+  "cell": "feeling_from_evidence",
+  "choices": [
+   "bored",
+   "grateful",
+   "worried",
+   "jealous"
+  ],
+  "answerOptions": [
+   {
+    "value": "bored",
+    "label": "bored",
+    "text": "bored"
+   },
+   {
+    "value": "grateful",
+    "label": "grateful",
+    "text": "grateful"
+   },
+   {
+    "value": "worried",
+    "label": "worried",
+    "text": "worried"
+   },
+   {
+    "value": "jealous",
+    "label": "jealous",
+    "text": "jealous"
+   }
+  ],
+  "answer": "grateful",
+  "correctAnswer": "grateful",
+  "distractorRationales": {
+   "worried": "D-PLAUSIBLE-UNSUPPORTED",
+   "jealous": "D-PLAUSIBLE-UNSUPPORTED",
+   "bored": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.feeling_from_evidence.v40",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for feeling from evidence. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.inference.l1.B.feeling_from_evidence.v41",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "inference_cell",
+  "itemKey": "feeling_from_evidence",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "How does Theo probably feel about his new skill?",
+  "question": "How does Theo probably feel about his new skill?",
+  "spokenPrompt": "How does Theo probably feel about his new skill?",
+  "passage": "Theo had practised tying his shoes for days. Today both bows stayed firm all morning. He showed them to everyone at the door. At playtime, he offered to help his friend. He grinned as he pointed to the bows.",
+  "cell": "feeling_from_evidence",
+  "choices": [
+   "afraid of going outside",
+   "sad about his shoes",
+   "pleased with himself",
+   "cross with his friend"
+  ],
+  "answerOptions": [
+   {
+    "value": "afraid of going outside",
+    "label": "afraid of going outside",
+    "text": "afraid of going outside"
+   },
+   {
+    "value": "sad about his shoes",
+    "label": "sad about his shoes",
+    "text": "sad about his shoes"
+   },
+   {
+    "value": "pleased with himself",
+    "label": "pleased with himself",
+    "text": "pleased with himself"
+   },
+   {
+    "value": "cross with his friend",
+    "label": "cross with his friend",
+    "text": "cross with his friend"
+   }
+  ],
+  "answer": "pleased with himself",
+  "correctAnswer": "pleased with himself",
+  "distractorRationales": {
+   "afraid of going outside": "D-PLAUSIBLE-UNSUPPORTED",
+   "sad about his shoes": "D-PLAUSIBLE-UNSUPPORTED",
+   "cross with his friend": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.B.feeling_from_evidence.v41",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for feeling from evidence. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.inference.l1.C.where_am_i.v42",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "inference_cell",
+  "itemKey": "where_am_i",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Where is Rosa most likely shopping?",
+  "question": "Where is Rosa most likely shopping?",
+  "spokenPrompt": "Where is Rosa most likely shopping?",
+  "passage": "Rosa chose a loaf from a warm shelf. Trays of rolls stood behind the glass. A worker wore flour on her white apron. She wrapped Rosa's loaf in a paper bag. Rosa paid and carried it home for lunch.",
+  "cell": "where_am_i",
+  "choices": [
+   "a bakery",
+   "a bookshop",
+   "a toy shop",
+   "a flower shop"
+  ],
+  "answerOptions": [
+   {
+    "value": "a bakery",
+    "label": "a bakery",
+    "text": "a bakery"
+   },
+   {
+    "value": "a bookshop",
+    "label": "a bookshop",
+    "text": "a bookshop"
+   },
+   {
+    "value": "a toy shop",
+    "label": "a toy shop",
+    "text": "a toy shop"
+   },
+   {
+    "value": "a flower shop",
+    "label": "a flower shop",
+    "text": "a flower shop"
+   }
+  ],
+  "answer": "a bakery",
+  "correctAnswer": "a bakery",
+  "distractorRationales": {
+   "a flower shop": "D-PLAUSIBLE-UNSUPPORTED",
+   "a bookshop": "D-PLAUSIBLE-UNSUPPORTED",
+   "a toy shop": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.C.where_am_i.v42",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for where am i. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.inference.l1.A.where_am_i.v43",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "where_am_i",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Where has Ben most likely gone?",
+  "question": "Where has Ben most likely gone?",
+  "spokenPrompt": "Where has Ben most likely gone?",
+  "passage": "Rows of seats faced a wide red curtain. Ben found the number printed on his ticket. A bell rang, and people stopped chatting. The room grew dark as the curtain rose. Someone stepped forward beneath a bright lamp.",
+  "cell": "where_am_i",
+  "choices": [
+   "a swimming pool",
+   "a grocery shop",
+   "a theatre",
+   "a playground"
+  ],
+  "answerOptions": [
+   {
+    "value": "a swimming pool",
+    "label": "a swimming pool",
+    "text": "a swimming pool"
+   },
+   {
+    "value": "a grocery shop",
+    "label": "a grocery shop",
+    "text": "a grocery shop"
+   },
+   {
+    "value": "a theatre",
+    "label": "a theatre",
+    "text": "a theatre"
+   },
+   {
+    "value": "a playground",
+    "label": "a playground",
+    "text": "a playground"
+   }
+  ],
+  "answer": "a theatre",
+  "correctAnswer": "a theatre",
+  "distractorRationales": {
+   "a swimming pool": "D-PLAUSIBLE-UNSUPPORTED",
+   "a grocery shop": "D-PLAUSIBLE-UNSUPPORTED",
+   "a playground": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.where_am_i.v43",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for where am i. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.inference.l1.B.what_happens_next.v44",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "inference_cell",
+  "itemKey": "what_happens_next",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What will probably happen next?",
+  "question": "What will probably happen next?",
+  "spokenPrompt": "What will probably happen next?",
+  "passage": "The class built a tall tower of blocks. Its bottom row had only two small pieces. Jo placed a heavy block on the top. The tower began to lean towards the rug. Everyone stepped away from the wobbling blocks.",
+  "cell": "what_happens_next",
+  "choices": [
+   "the tower will grow wider",
+   "the bottom blocks will become larger",
+   "the heavy block will float away",
+   "the tower will topple"
+  ],
+  "answerOptions": [
+   {
+    "value": "the tower will grow wider",
+    "label": "the tower will grow wider",
+    "text": "the tower will grow wider"
+   },
+   {
+    "value": "the bottom blocks will become larger",
+    "label": "the bottom blocks will become larger",
+    "text": "the bottom blocks will become larger"
+   },
+   {
+    "value": "the heavy block will float away",
+    "label": "the heavy block will float away",
+    "text": "the heavy block will float away"
+   },
+   {
+    "value": "the tower will topple",
+    "label": "the tower will topple",
+    "text": "the tower will topple"
+   }
+  ],
+  "answer": "the tower will topple",
+  "correctAnswer": "the tower will topple",
+  "distractorRationales": {
+   "the bottom blocks will become larger": "D-PLAUSIBLE-UNSUPPORTED",
+   "the heavy block will float away": "D-PLAUSIBLE-UNSUPPORTED",
+   "the tower will grow wider": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.B.what_happens_next.v44",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for what happens next. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.inference.l1.C.what_happens_next.v45",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "inference_cell",
+  "itemKey": "what_happens_next",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What will the puppy probably do next?",
+  "question": "What will the puppy probably do next?",
+  "spokenPrompt": "What will the puppy probably do next?",
+  "passage": "A puppy waited beside its empty water bowl. Its owner filled a jug at the tap. She carried the jug over and knelt down. The puppy wagged its tail and watched closely. She tipped fresh water into the bowl.",
+  "cell": "what_happens_next",
+  "choices": [
+   "dig in the garden",
+   "take a drink",
+   "fetch its lead",
+   "hide behind a chair"
+  ],
+  "answerOptions": [
+   {
+    "value": "dig in the garden",
+    "label": "dig in the garden",
+    "text": "dig in the garden"
+   },
+   {
+    "value": "take a drink",
+    "label": "take a drink",
+    "text": "take a drink"
+   },
+   {
+    "value": "fetch its lead",
+    "label": "fetch its lead",
+    "text": "fetch its lead"
+   },
+   {
+    "value": "hide behind a chair",
+    "label": "hide behind a chair",
+    "text": "hide behind a chair"
+   }
+  ],
+  "answer": "take a drink",
+  "correctAnswer": "take a drink",
+  "distractorRationales": {
+   "hide behind a chair": "D-PLAUSIBLE-UNSUPPORTED",
+   "dig in the garden": "D-PLAUSIBLE-UNSUPPORTED",
+   "fetch its lead": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.C.what_happens_next.v45",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for what happens next. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.inference.l2.A.why_did_they.v46",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "why_did_they",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Why did Eli probably change seats?",
+  "question": "Why did Eli probably change seats?",
+  "spokenPrompt": "Why did Eli probably change seats?",
+  "passage": "Eli usually chose the seat next to the classroom window. On Tuesday, he moved his chair beside a new pupil. The pupil had arrived that morning and spoke very quietly. Eli pointed to the picture timetable and showed his own work. At break, he waited while the new pupil found a coat. They walked outside together and joined a small group. Eli's usual friends waved to him from the far wall. He waved back but stayed with his new companion.",
+  "cell": "why_did_they",
+  "choices": [
+   "to avoid finishing his own work",
+   "to keep his friends from the new pupil",
+   "to help someone feel included",
+   "to see the playground more clearly"
+  ],
+  "answerOptions": [
+   {
+    "value": "to avoid finishing his own work",
+    "label": "to avoid finishing his own work",
+    "text": "to avoid finishing his own work"
+   },
+   {
+    "value": "to keep his friends from the new pupil",
+    "label": "to keep his friends from the new pupil",
+    "text": "to keep his friends from the new pupil"
+   },
+   {
+    "value": "to help someone feel included",
+    "label": "to help someone feel included",
+    "text": "to help someone feel included"
+   },
+   {
+    "value": "to see the playground more clearly",
+    "label": "to see the playground more clearly",
+    "text": "to see the playground more clearly"
+   }
+  ],
+  "answer": "to help someone feel included",
+  "correctAnswer": "to help someone feel included",
+  "distractorRationales": {
+   "to keep his friends from the new pupil": "D-PLAUSIBLE-UNSUPPORTED",
+   "to see the playground more clearly": "D-PLAUSIBLE-UNSUPPORTED",
+   "to avoid finishing his own work": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.why_did_they.v46",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for why did they. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.inference.l2.B.why_did_they.v47",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "inference_cell",
+  "itemKey": "why_did_they",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Why did Mara keep the gap the same?",
+  "question": "Why did Mara keep the gap the same?",
+  "spokenPrompt": "Why did Mara keep the gap the same?",
+  "passage": "A group was building a model bridge from paper strips. Their first bridge bent in the middle under one small stone. Mara folded the next strips into shapes with straight ridges. She set the folded strips between the same two supports. This time the bridge held three stones before it bent. Mara drew both designs and counted the stones beside each. She asked the group to try another folded shape next. The size of the gap stayed the same for every test.",
+  "cell": "why_did_they",
+  "choices": [
+   "to keep the paper from being folded again",
+   "to compare the designs under similar conditions",
+   "to make every bridge collapse after one stone",
+   "to avoid counting how many stones were used"
+  ],
+  "answerOptions": [
+   {
+    "value": "to keep the paper from being folded again",
+    "label": "to keep the paper from being folded again",
+    "text": "to keep the paper from being folded again"
+   },
+   {
+    "value": "to compare the designs under similar conditions",
+    "label": "to compare the designs under similar conditions",
+    "text": "to compare the designs under similar conditions"
+   },
+   {
+    "value": "to make every bridge collapse after one stone",
+    "label": "to make every bridge collapse after one stone",
+    "text": "to make every bridge collapse after one stone"
+   },
+   {
+    "value": "to avoid counting how many stones were used",
+    "label": "to avoid counting how many stones were used",
+    "text": "to avoid counting how many stones were used"
+   }
+  ],
+  "answer": "to compare the designs under similar conditions",
+  "correctAnswer": "to compare the designs under similar conditions",
+  "distractorRationales": {
+   "to keep the paper from being folded again": "D-PLAUSIBLE-UNSUPPORTED",
+   "to make every bridge collapse after one stone": "D-PLAUSIBLE-UNSUPPORTED",
+   "to avoid counting how many stones were used": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.B.why_did_they.v47",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for why did they. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.inference.l2.C.what_went_unsaid.v48",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "inference_cell",
+  "itemKey": "what_went_unsaid",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What does Sami's change most strongly suggest?",
+  "question": "What does Sami's change most strongly suggest?",
+  "spokenPrompt": "What does Sami's change most strongly suggest?",
+  "passage": "Each Friday, Sami borrowed a book from the class shelf. He always chose a thin book and returned it quickly. One week, the teacher offered to read its opening with him. Sami stayed after the others had left to play. He followed the words with his finger and asked about two. The next morning, he chose that same book again. At home time, he asked whether he could keep it longer. The teacher smiled and put a bookmark inside for him.",
+  "cell": "what_went_unsaid",
+  "choices": [
+   "The teacher required him to miss every playtime that week.",
+   "The shared start helped him want to continue reading.",
+   "He wanted to stop choosing books from the class shelf.",
+   "He had already memorised every book before that Friday."
+  ],
+  "answerOptions": [
+   {
+    "value": "The teacher required him to miss every playtime that week.",
+    "label": "The teacher required him to miss every playtime that week.",
+    "text": "The teacher required him to miss every playtime that week."
+   },
+   {
+    "value": "The shared start helped him want to continue reading.",
+    "label": "The shared start helped him want to continue reading.",
+    "text": "The shared start helped him want to continue reading."
+   },
+   {
+    "value": "He wanted to stop choosing books from the class shelf.",
+    "label": "He wanted to stop choosing books from the class shelf.",
+    "text": "He wanted to stop choosing books from the class shelf."
+   },
+   {
+    "value": "He had already memorised every book before that Friday.",
+    "label": "He had already memorised every book before that Friday.",
+    "text": "He had already memorised every book before that Friday."
+   }
+  ],
+  "answer": "The shared start helped him want to continue reading.",
+  "correctAnswer": "The shared start helped him want to continue reading.",
+  "distractorRationales": {
+   "He wanted to stop choosing books from the class shelf.": "D-PLAUSIBLE-UNSUPPORTED",
+   "He had already memorised every book before that Friday.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The teacher required him to miss every playtime that week.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.C.what_went_unsaid.v48",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for what went unsaid. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.inference.l2.A.what_went_unsaid.v49",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "inference_cell",
+  "itemKey": "what_went_unsaid",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What is most likely true about Leila's choice?",
+  "question": "What is most likely true about Leila's choice?",
+  "spokenPrompt": "What is most likely true about Leila's choice?",
+  "passage": "Leila's team had a spare ticket for the school match. At lunch, she heard Anya asking what time it began. Anya then counted the coins in her pocket and went quiet. Leila put the spare ticket beside Anya's lunch box. She said the team had one ticket they could not use. Anya looked up, smiled and folded it carefully into her pocket. After lunch, they planned where to meet before the match. Leila never mentioned the coins she had noticed.",
+  "cell": "what_went_unsaid",
+  "choices": [
+   "She expected Anya to sell the ticket to someone else.",
+   "She thought Anya already had several tickets for the match.",
+   "She wanted Anya to stay away from the team's meeting.",
+   "She offered help without drawing attention to Anya's money."
+  ],
+  "answerOptions": [
+   {
+    "value": "She expected Anya to sell the ticket to someone else.",
+    "label": "She expected Anya to sell the ticket to someone else.",
+    "text": "She expected Anya to sell the ticket to someone else."
+   },
+   {
+    "value": "She thought Anya already had several tickets for the match.",
+    "label": "She thought Anya already had several tickets for the match.",
+    "text": "She thought Anya already had several tickets for the match."
+   },
+   {
+    "value": "She wanted Anya to stay away from the team's meeting.",
+    "label": "She wanted Anya to stay away from the team's meeting.",
+    "text": "She wanted Anya to stay away from the team's meeting."
+   },
+   {
+    "value": "She offered help without drawing attention to Anya's money.",
+    "label": "She offered help without drawing attention to Anya's money.",
+    "text": "She offered help without drawing attention to Anya's money."
+   }
+  ],
+  "answer": "She offered help without drawing attention to Anya's money.",
+  "correctAnswer": "She offered help without drawing attention to Anya's money.",
+  "distractorRationales": {
+   "She expected Anya to sell the ticket to someone else.": "D-PLAUSIBLE-UNSUPPORTED",
+   "She thought Anya already had several tickets for the match.": "D-PLAUSIBLE-UNSUPPORTED",
+   "She wanted Anya to stay away from the team's meeting.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.what_went_unsaid.v49",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for what went unsaid. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.inference.l2.B.evidence_pick.v50",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "inference_cell",
+  "itemKey": "evidence_pick",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which detail best supports the child's view?",
+  "question": "Which detail best supports the child's view?",
+  "spokenPrompt": "Which detail best supports the child's view?",
+  "passage": "The class visited a workshop where a potter shaped clay. A wheel turned while her hands pressed the soft sides. When a pot leaned, she slowed the wheel and adjusted it. She did not throw away the uneven pot or hurry. She tried a small change, paused and looked again. Soon the rim stood level all the way around. The children watched without interrupting while she worked. Afterwards, one child praised her patience with the difficult task.",
+  "cell": "evidence_pick",
+  "choices": [
+   "The children visited the workshop together that morning.",
+   "The clay was soft enough to shape with her hands.",
+   "She kept making careful adjustments instead of rushing.",
+   "She worked in a room with a turning wheel."
+  ],
+  "answerOptions": [
+   {
+    "value": "The children visited the workshop together that morning.",
+    "label": "The children visited the workshop together that morning.",
+    "text": "The children visited the workshop together that morning."
+   },
+   {
+    "value": "The clay was soft enough to shape with her hands.",
+    "label": "The clay was soft enough to shape with her hands.",
+    "text": "The clay was soft enough to shape with her hands."
+   },
+   {
+    "value": "She kept making careful adjustments instead of rushing.",
+    "label": "She kept making careful adjustments instead of rushing.",
+    "text": "She kept making careful adjustments instead of rushing."
+   },
+   {
+    "value": "She worked in a room with a turning wheel.",
+    "label": "She worked in a room with a turning wheel.",
+    "text": "She worked in a room with a turning wheel."
+   }
+  ],
+  "answer": "She kept making careful adjustments instead of rushing.",
+  "correctAnswer": "She kept making careful adjustments instead of rushing.",
+  "distractorRationales": {
+   "She worked in a room with a turning wheel.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The children visited the workshop together that morning.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The clay was soft enough to shape with her hands.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.B.evidence_pick.v50",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for evidence pick. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.inference.l2.C.evidence_pick.v51",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "inference",
+  "assessmentSkillId": "inference",
+  "skillName": "Inference",
+  "skill": "Inference",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "inference_cell",
+  "itemKey": "evidence_pick",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which pair of clues best supports the child's inference?",
+  "question": "Which pair of clues best supports the child's inference?",
+  "spokenPrompt": "Which pair of clues best supports the child's inference?",
+  "passage": "The park had a sign asking visitors to protect new grass. A narrow path ran around the area marked with rope. On Saturday, fresh footprints crossed straight through the middle. A football lay beside the far fence, beyond the rope. The groundskeeper noticed flattened blades following the footprints towards the ball. Other parts of the new lawn were still upright. A child suggested someone had crossed the grass to collect it. The groundskeeper agreed, but nobody had actually seen the person cross.",
+  "cell": "evidence_pick",
+  "choices": [
+   "the sign in the park and the groundskeeper standing nearby",
+   "the upright grass and the fence around the playing area",
+   "footprints towards the ball and grass bent along that route",
+   "the rope around the grass and a path round the edge"
+  ],
+  "answerOptions": [
+   {
+    "value": "the sign in the park and the groundskeeper standing nearby",
+    "label": "the sign in the park and the groundskeeper standing nearby",
+    "text": "the sign in the park and the groundskeeper standing nearby"
+   },
+   {
+    "value": "the upright grass and the fence around the playing area",
+    "label": "the upright grass and the fence around the playing area",
+    "text": "the upright grass and the fence around the playing area"
+   },
+   {
+    "value": "footprints towards the ball and grass bent along that route",
+    "label": "footprints towards the ball and grass bent along that route",
+    "text": "footprints towards the ball and grass bent along that route"
+   },
+   {
+    "value": "the rope around the grass and a path round the edge",
+    "label": "the rope around the grass and a path round the edge",
+    "text": "the rope around the grass and a path round the edge"
+   }
+  ],
+  "answer": "footprints towards the ball and grass bent along that route",
+  "correctAnswer": "footprints towards the ball and grass bent along that route",
+  "distractorRationales": {
+   "the rope around the grass and a path round the edge": "D-PLAUSIBLE-UNSUPPORTED",
+   "the sign in the park and the groundskeeper standing nearby": "D-PLAUSIBLE-UNSUPPORTED",
+   "the upright grass and the fence around the playing area": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.C.evidence_pick.v51",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/inference.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for evidence pick. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
  }
 ];

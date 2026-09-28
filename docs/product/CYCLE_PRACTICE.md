@@ -18,10 +18,10 @@ assigned mappings. A missing picture offers reload without recording a literacy 
 
 | Activity | Child's action | Learning evidence |
 | --- | --- | --- |
-| Sound Safari | Tap a pictured object for the heard sound or ending | Picture identification for the declared first sound, final sound or ending chunk |
+| Sound Safari | Match a heard sound, ending, or whole word to a picture | Sound discrimination or explicitly identified oral vocabulary matching |
 | Letter Friends | Match a heard sound, letter case, or spoken word | Grapheme–phoneme matching, visual letter identity, or auditory word recognition |
 | Rhyme Picnic | Join a pictured word to a rhyming picture | Oral rhyme recognition, with picture-name replay available |
-| Word Workshop | Fill woodland word slots by tapping letters | Taught-code encoding or supported high-frequency word copying |
+| Word Workshop | Build a word, or fill its one missing letter | Taught-code encoding, supported partial spelling, or high-frequency word copying |
 | Sound Delivery | Sort three objects into persistent sound baskets, or match a spoken word to beat dots | First/final sound or ending classification and spoken syllable counting; dragging is optional |
 | Rainbow Writing | Follow a large letter trail with a finger or pointer | Supported formation practice, never independent handwriting mastery |
 
@@ -106,7 +106,7 @@ succeeds. Children see a brief completion celebration; teachers retain the
 existing detailed results and support/media distinctions.
 
 The reporting protocol remains `cycle-practice-v2`; the activity revision is
-`cycle-play-classroom-recognition-2026-09-13`. Change this revision when a future deck replacement makes
+`cycle-play-content-depth-2026-09-28`. Change this revision when a future deck replacement makes
 saved indexes or question identities incompatible. Old unfinished local sessions restart against the new deck
 and retain their previous evidence locally. Frozen pending saves and completed
 results remain unchanged. Sorting resumes from its recorded object responses.
@@ -145,9 +145,11 @@ the overhaul makes no claim of measured equivalence to either platform.
 ## Verification
 
 - Unit: `cyclePracticeContent`, `cyclePracticeAudio`, `cyclePracticeState`,
-  `cyclePracticeReporting`, `cyclePracticeRecovery`, and `cycleTraceRules` tests.
+  `cyclePracticeReporting`, `cyclePracticeRecovery`, `cycleTraceRules`, and
+  `cycleLearningDepth` tests.
 - Browser: `cycle-practice-overhaul.spec.js`,
-  `cycle-trace-activity.spec.js`, and `cycle-practice-audio-layout.spec.js`.
+  `cycle-trace-activity.spec.js`, `cycle-practice-audio-layout.spec.js`, and
+  `cycle-learning-depth.spec.js` for vocabulary and three-position completion.
 - Touch and layout: `cycle-practice-touch.spec.js` exercises all 27 cycles,
   drift/cancellation, retained construction, sorting shelves, media recovery,
   every activity variant, and tablet/short-landscape geometry.
@@ -189,3 +191,27 @@ practice and Cycle Check exclude the programme's rejected basic picture labels
 for its seed and retains focus coverage, independent HFW recognition and the
 existing evidence contract. Practice planning allowances are estimates, not
 measured child playtime.
+
+## Content depth and transfer
+
+Every cycle now contains explicit heard-word-to-picture vocabulary practice,
+using the same reviewed picture and recorded-word authorities. Same-sound
+picture alternatives require attention to the whole word. Replaying a choice's
+name records picture-name support. No target picture or printed answer appears
+above those choices.
+
+Reviewed CVC words also offer one missing initial, medial or final letter.
+Medial-vowel contrasts start only when at least two vowels have been taught.
+The two supplied letters remain visible after an error, and one correct tap
+completes the item. This is partial-spelling practice, with that support retained;
+it does not become independent whole-word encoding or enter Cycle Check.
+Heard-word recognition prefers taught words differing in one sound or letter
+position, rather than unrelated first-letter foils.
+
+Seeded replay takes successive windows through each sound/format's example
+bank before reusing an example. The three-per-format cap, low rhyme/beat share,
+opening coverage, 30-minute requirement and short independent check remain.
+Final-sound classification explicitly handles silent letters and accent
+alternatives; /kw/ contains initial /k/ and /ks/ contains final /s/, so those
+pictures cannot become false-negative distractors. X is labelled an ending
+chunk, not a single final phoneme.

@@ -1,3 +1,4 @@
+import depthItems from "./depth/short_vowel_discrimination.mjs";
 // Short Vowel Discrimination — v3 authored bank (wave W5, paired with blends).
 // Construct: HEAR/identify the medial short vowel — distinct from
 // cvc_short_vowels (decode/build). 5 units, D-small, 6 variants per level.
@@ -63,7 +64,7 @@ const gs = (u, lvl, ph, v, vowelName, cards, keyWord, note = "") => ({
   note
 });
 
-export default {
+const bank = {
   skillId: "short_vowel_discrimination",
   skillName: "Short Vowel Discrimination",
   imageResolver: resolver,
@@ -222,3 +223,6 @@ export default {
     return item;
   })
 };
+
+bank.items.push(...depthItems);
+export default bank;

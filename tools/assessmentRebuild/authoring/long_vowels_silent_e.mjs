@@ -1,3 +1,4 @@
+import depthItems from "./depth/long_vowels_silent_e.mjs";
 // Long Vowels & Silent E — v3 authored bank (wave W1).
 // Construct: silent-e (VCe) ONLY. Vowel teams live in vowel_teams now.
 // Spec: docs/skills-assessment-rebuild/BLUEPRINTS_PHONICS.md §12.
@@ -74,7 +75,7 @@ const cps = (u, lvl, ph, v, vowel, key, distractors) => ({
   note: `long-${vowel} CPS; short-vowel trap shares letters, not sound`
 });
 
-export default {
+const bank = {
   skillId: "long_vowels_silent_e",
   skillName: "Long Vowels and Silent E",
   imageResolver: makeImageResolver(["long-vowels"]),
@@ -230,3 +231,6 @@ export default {
     return item;
   })
 };
+
+bank.items.push(...depthItems);
+export default bank;

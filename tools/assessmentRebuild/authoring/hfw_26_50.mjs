@@ -1,3 +1,4 @@
+import depthItems from "./depth/hfw_26_50.mjs";
 // HFW Band 2 (words 26–50) — v3 authored bank (wave W7, paired with hfw_1_25).
 // Same architecture as band 1 (see hfw_1_25.mjs header). Band-2 particulars:
 //   - their/there are contrasted only in a complete sentence. An isolated
@@ -86,7 +87,7 @@ const VN = "D-VISUAL-NEIGHBOR";
 const DV = "D-DEVELOPMENTAL";
 const HM = "D-HOMOPHONE";
 
-export default {
+const bank = {
   skillId: "hfw_26_50",
   skillName: "High-Frequency Words 26–50",
   items: [
@@ -265,3 +266,6 @@ export default {
     return item;
   })
 };
+
+bank.items.push(...depthItems);
+export default bank;

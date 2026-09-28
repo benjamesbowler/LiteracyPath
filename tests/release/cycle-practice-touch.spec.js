@@ -59,7 +59,8 @@ async function answer(page, round, drifting = false) {
     }
   } else if (round.mechanicId === 'wordBuild' && round.variant !== 'wordParts') {
     if (round.variant === 'wordChange') await activate(page.getByRole('button', { name: `Change letter ${round.changeIndex + 1}: ${round.beforeLetters[round.changeIndex]}`, exact: true }));
-    for (const letter of round.variant === 'wordChange' ? [round.answer[round.changeIndex]] : round.answer) await activate(page.getByRole('button', { name: `Add ${letter}`, exact: true }));
+    const missingIndex = round.variant === 'wordComplete' ? round.missingIndex : round.variant === 'wordChange' ? round.changeIndex : null;
+    for (const letter of missingIndex !== null ? [round.answer[missingIndex]] : round.answer) await activate(page.getByRole('button', { name: `Add ${letter}`, exact: true }));
   } else if (round.mechanicId === 'soundSort') {
     await activate(page.locator(`[data-cycle-bin="${round.answer}"]`));
   } else {

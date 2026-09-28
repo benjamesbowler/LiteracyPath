@@ -1,3 +1,4 @@
+import depthItems from "./depth/verbs.mjs";
 // Verbs — v3 authored bank (wave W9, paired with nouns). Concept units replace
 // the legacy 59 word-keys. The audit's generic picture prompt pattern is dead:
 // every L1 item uses a controlled language context, and L2 verb_precision
@@ -116,7 +117,7 @@ const freshPhaseItems = [
   gsf("verb_precision", 2, 2, 18, "She ___ the pan, rubbing hard with a brush.", ["scrubbed", "rinsed", "soaked", "dried"], [PU, PU, PU])
 ];
 
-export default {
+const bank = {
   skillId: "verbs",
   skillName: "Verbs",
   items: [
@@ -273,3 +274,6 @@ export default {
       "Taste requires taking a small amount into the mouth; preparing or spilling it does not." )
   ].map(item => ({ ...item, retention: true })))
 };
+
+bank.items.push(...depthItems);
+export default bank;

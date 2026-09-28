@@ -1,3 +1,4 @@
+import depthItems from "./depth/vowel_teams.mjs";
 // Vowel Teams — v3 authored bank (wave W6, paired with r_controlled_vowels).
 // L1: stable one-sound teams (ai ay ee ea oa igh). L2: variable/diphthong
 // teams (oo ow ou oi oy ew aw) — the two-sounds contrasts (moon/book,
@@ -86,7 +87,7 @@ const ptdOdd = (u, lvl, ph, v, soundName, words, keyWord, note = "", keySoundNam
   note: note || "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
 });
 
-export default {
+const bank = {
   skillId: "vowel_teams",
   skillName: "Vowel Teams",
   imageResolver: resolver,
@@ -278,3 +279,6 @@ export default {
     return item;
   })
 };
+
+bank.items.push(...depthItems);
+export default bank;

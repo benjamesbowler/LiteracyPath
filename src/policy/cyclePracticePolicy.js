@@ -1,6 +1,6 @@
 import { isIndependentOutcome } from "./outcomeIndependence.js";
 
-export const CYCLE_ACTIVITY_REVISION = "cycle-play-classroom-recognition-2026-09-13";
+export const CYCLE_ACTIVITY_REVISION = "cycle-play-content-depth-2026-09-28";
 export const CYCLE_PRACTICE_VERSION = "cycle-practice-v2";
 export const CYCLE_PRACTICE_POLICY_VERSION = "cycle-practice-policy-v2";
 export const CYCLE_PRACTICE_MINIMUM_SECONDS = 1800;
@@ -27,6 +27,13 @@ export function cycleQuestionRecord(round, outcome, { mode, attempts = 0, audioD
     activityCompleted: Boolean(outcome.correct && !outcome.partial), construct: round.construct || round.mechanicId,
     evidenceConstruct: outcome.construct || round.construct || round.mechanicId,
     mechanicId: round.mechanicId, stationId: round.stationId || "",
+    responseFormat: round.responseFormat || round.variant || round.mechanicId || "",
+    targetKind: round.targetKind || "",
+    contrast: round.contrast || null,
+    targetWord: round.targetWord || round.word || "",
+    targetSound: round.targetGrapheme || round.targetSound || "",
+    correctAnswer: round.answer ?? round.correctAnswer ?? null,
+    selectedAnswer: outcome.selected ?? round.selectedAnswer ?? null,
     itemKey: String(round.itemKey || round.targetWord || round.targetGrapheme || round.toWord || round.word || round.answer || ""),
     selected: outcome.selected ?? null, evidence, audioRequired, audioDelivery: delivery,
     responseStatus, isCorrect: ["correct", "incorrect"].includes(responseStatus) ? Boolean(outcome.correct) : null,

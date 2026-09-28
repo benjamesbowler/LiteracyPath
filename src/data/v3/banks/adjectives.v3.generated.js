@@ -7134,5 +7134,715 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "Distinguish the descriptor from the naming, action and linking words in context."
+ },
+ {
+  "id": "lp3.adjectives.l1.A.adj_size.v101",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_size",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes something? A narrow path twists.",
+  "question": "Which word describes something? A narrow path twists.",
+  "spokenPrompt": "Which word describes something? A narrow path twists.",
+  "choices": [
+   "narrow",
+   "path",
+   "twists",
+   "a"
+  ],
+  "answerOptions": [
+   {
+    "value": "narrow",
+    "label": "narrow",
+    "text": "narrow"
+   },
+   {
+    "value": "path",
+    "label": "path",
+    "text": "path"
+   },
+   {
+    "value": "twists",
+    "label": "twists",
+    "text": "twists"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   }
+  ],
+  "answer": "narrow",
+  "correctAnswer": "narrow",
+  "distractorRationales": {
+   "a": "D-FUNCTION-SWAP",
+   "path": "D-FUNCTION-SWAP",
+   "twists": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.A.adj_size.v101",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Width description in context; all choices are visible words from that sentence."
+ },
+ {
+  "id": "lp3.adjectives.l1.B.adj_color.v102",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_color",
+  "formatType": "GRAMMAR_WORD_CHOICE",
+  "templateType": "GRAMMAR_WORD_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes something? Her silver necklace sparkles.",
+  "question": "Which word describes something? Her silver necklace sparkles.",
+  "spokenPrompt": "Which word describes something? Her silver necklace sparkles.",
+  "choices": [
+   "her",
+   "silver",
+   "necklace",
+   "sparkles"
+  ],
+  "answerOptions": [
+   {
+    "value": "her",
+    "label": "her",
+    "text": "her"
+   },
+   {
+    "value": "silver",
+    "label": "silver",
+    "text": "silver"
+   },
+   {
+    "value": "necklace",
+    "label": "necklace",
+    "text": "necklace"
+   },
+   {
+    "value": "sparkles",
+    "label": "sparkles",
+    "text": "sparkles"
+   }
+  ],
+  "answer": "silver",
+  "correctAnswer": "silver",
+  "distractorRationales": {
+   "her": "D-FUNCTION-SWAP",
+   "necklace": "D-FUNCTION-SWAP",
+   "sparkles": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.B.adj_color.v102",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Colour adjective in use rather than selecting a subjective image."
+ },
+ {
+  "id": "lp3.adjectives.l1.C.adj_texture_state.v103",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_texture_state",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which describing word fits?",
+  "question": "Which describing word fits?",
+  "spokenPrompt": "Which describing word fits?",
+  "sentence": "The ___ wood scratched my hand with splinters.",
+  "choices": [
+   "smooth",
+   "damp",
+   "sticky",
+   "rough"
+  ],
+  "answerOptions": [
+   {
+    "value": "smooth",
+    "label": "smooth",
+    "text": "smooth"
+   },
+   {
+    "value": "damp",
+    "label": "damp",
+    "text": "damp"
+   },
+   {
+    "value": "sticky",
+    "label": "sticky",
+    "text": "sticky"
+   },
+   {
+    "value": "rough",
+    "label": "rough",
+    "text": "rough"
+   }
+  ],
+  "answer": "rough",
+  "correctAnswer": "rough",
+  "distractorRationales": {
+   "sticky": "D-SAME-DOMAIN",
+   "smooth": "D-OPPOSITE",
+   "damp": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The ___ wood scratched my hand with splinters.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.C.adj_texture_state.v103",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Texture clue distinguishes roughness from wetness and stickiness."
+ },
+ {
+  "id": "lp3.adjectives.l1.A.adj_feeling.v104",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_feeling",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which describing word fits?",
+  "question": "Which describing word fits?",
+  "spokenPrompt": "Which describing word fits?",
+  "sentence": "I felt ___ and smiled at my medal.",
+  "choices": [
+   "bored",
+   "proud",
+   "afraid",
+   "lonely"
+  ],
+  "answerOptions": [
+   {
+    "value": "bored",
+    "label": "bored",
+    "text": "bored"
+   },
+   {
+    "value": "proud",
+    "label": "proud",
+    "text": "proud"
+   },
+   {
+    "value": "afraid",
+    "label": "afraid",
+    "text": "afraid"
+   },
+   {
+    "value": "lonely",
+    "label": "lonely",
+    "text": "lonely"
+   }
+  ],
+  "answer": "proud",
+  "correctAnswer": "proud",
+  "distractorRationales": {
+   "bored": "D-SAME-DOMAIN",
+   "afraid": "D-SAME-DOMAIN",
+   "lonely": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "I felt ___ and smiled at my medal.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.A.adj_feeling.v104",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Achievement feeling supported by an explicit success and smile."
+ },
+ {
+  "id": "lp3.adjectives.l2.B.adj_in_sentence.v105",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_in_sentence",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes something? ‘The fragile ornament broke when it fell.’",
+  "question": "Which word describes something? ‘The fragile ornament broke when it fell.’",
+  "spokenPrompt": "Which word describes something? ‘The fragile ornament broke when it fell.’",
+  "choices": [
+   "broke",
+   "fell",
+   "fragile",
+   "ornament"
+  ],
+  "answerOptions": [
+   {
+    "value": "broke",
+    "label": "broke",
+    "text": "broke"
+   },
+   {
+    "value": "fell",
+    "label": "fell",
+    "text": "fell"
+   },
+   {
+    "value": "fragile",
+    "label": "fragile",
+    "text": "fragile"
+   },
+   {
+    "value": "ornament",
+    "label": "ornament",
+    "text": "ornament"
+   }
+  ],
+  "answer": "fragile",
+  "correctAnswer": "fragile",
+  "distractorRationales": {
+   "fell": "D-FUNCTION-SWAP",
+   "ornament": "D-FUNCTION-SWAP",
+   "broke": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.B.adj_in_sentence.v105",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Descriptive function applied to a less common but context-supported word."
+ },
+ {
+  "id": "lp3.adjectives.l2.C.adj_precision.v106",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_precision",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Which describing word fits best?",
+  "question": "Which describing word fits best?",
+  "spokenPrompt": "Which describing word fits best?",
+  "sentence": "The ___ sheet let us see every detail behind it.",
+  "choices": [
+   "transparent",
+   "cloudy",
+   "striped",
+   "shiny"
+  ],
+  "answerOptions": [
+   {
+    "value": "transparent",
+    "label": "transparent",
+    "text": "transparent"
+   },
+   {
+    "value": "cloudy",
+    "label": "cloudy",
+    "text": "cloudy"
+   },
+   {
+    "value": "striped",
+    "label": "striped",
+    "text": "striped"
+   },
+   {
+    "value": "shiny",
+    "label": "shiny",
+    "text": "shiny"
+   }
+  ],
+  "answer": "transparent",
+  "correctAnswer": "transparent",
+  "distractorRationales": {
+   "cloudy": "D-SAME-DOMAIN",
+   "striped": "D-SAME-DOMAIN",
+   "shiny": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The ___ sheet let us see every detail behind it.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.C.adj_precision.v106",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Seeing clearly through something supplies the defining property; shine alone is insufficient."
+ },
+ {
+  "id": "lp3.adjectives.l2.A.adj_vs_noun_verb.v107",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_vs_noun_verb",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Where is ‘light’ a describing word?",
+  "question": "Where is ‘light’ a describing word?",
+  "spokenPrompt": "Where is ‘light’ a describing word?",
+  "choices": [
+   "Please turn off that bright light.",
+   "The light bag was easy to lift.",
+   "We light the candle carefully.",
+   "The light shone through the window."
+  ],
+  "answerOptions": [
+   {
+    "value": "Please turn off that bright light.",
+    "label": "Please turn off that bright light.",
+    "text": "Please turn off that bright light."
+   },
+   {
+    "value": "The light bag was easy to lift.",
+    "label": "The light bag was easy to lift.",
+    "text": "The light bag was easy to lift."
+   },
+   {
+    "value": "We light the candle carefully.",
+    "label": "We light the candle carefully.",
+    "text": "We light the candle carefully."
+   },
+   {
+    "value": "The light shone through the window.",
+    "label": "The light shone through the window.",
+    "text": "The light shone through the window."
+   }
+  ],
+  "answer": "The light bag was easy to lift.",
+  "correctAnswer": "The light bag was easy to lift.",
+  "distractorRationales": {
+   "Please turn off that bright light.": "D-FUNCTION-SWAP",
+   "We light the candle carefully.": "D-FUNCTION-SWAP",
+   "The light shone through the window.": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v107",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "One familiar spelling used as adjective, verb and noun; sentence function determines the answer."
+ },
+ {
+  "id": "lp3.adjectives.l2.B.adj_vs_noun_verb.v108",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "adjectives",
+  "assessmentSkillId": "adjectives",
+  "skillName": "Adjectives",
+  "skill": "Adjectives",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "grammar_concept",
+  "itemKey": "adj_vs_noun_verb",
+  "formatType": "GRAMMAR_CONTRAST",
+  "templateType": "GRAMMAR_CONTRAST",
+  "questionType": "multiple_choice",
+  "prompt": "Which word describes the dancer? ‘The graceful dancer moved gracefully.’",
+  "question": "Which word describes the dancer? ‘The graceful dancer moved gracefully.’",
+  "spokenPrompt": "Which word describes the dancer? ‘The graceful dancer moved gracefully.’",
+  "choices": [
+   "dancer",
+   "moved",
+   "gracefully",
+   "graceful"
+  ],
+  "answerOptions": [
+   {
+    "value": "dancer",
+    "label": "dancer",
+    "text": "dancer"
+   },
+   {
+    "value": "moved",
+    "label": "moved",
+    "text": "moved"
+   },
+   {
+    "value": "gracefully",
+    "label": "gracefully",
+    "text": "gracefully"
+   },
+   {
+    "value": "graceful",
+    "label": "graceful",
+    "text": "graceful"
+   }
+  ],
+  "answer": "graceful",
+  "correctAnswer": "graceful",
+  "distractorRationales": {
+   "gracefully": "D-FUNCTION-SWAP",
+   "dancer": "D-FUNCTION-SWAP",
+   "moved": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.B.adj_vs_noun_verb.v108",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/adjectives.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Distinguish adjective from related adverb, not just from unrelated words."
  }
 ];

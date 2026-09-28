@@ -7341,5 +7341,1085 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "Interpret every except as one excluded card, not a sequence of craft steps."
+ },
+ {
+  "id": "lp3.sentence_comprehension.l1.A.literal_who_what.v40",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sentence_comprehension",
+  "assessmentSkillId": "sentence_comprehension",
+  "skillName": "Sentence Comprehension",
+  "skill": "Sentence Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "sentence_comprehension_cell",
+  "itemKey": "literal_who_what",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Who received the rolling pin?",
+  "question": "Who received the rolling pin?",
+  "spokenPrompt": "Who received the rolling pin?",
+  "passage": "The baker lent her rolling pin to the cook.",
+  "cell": "literal_who_what",
+  "choices": [
+   "the person making the bread",
+   "the person washing the floor",
+   "the person delivering the milk",
+   "the person preparing the meal"
+  ],
+  "answerOptions": [
+   {
+    "value": "the person making the bread",
+    "label": "the person making the bread",
+    "text": "the person making the bread"
+   },
+   {
+    "value": "the person washing the floor",
+    "label": "the person washing the floor",
+    "text": "the person washing the floor"
+   },
+   {
+    "value": "the person delivering the milk",
+    "label": "the person delivering the milk",
+    "text": "the person delivering the milk"
+   },
+   {
+    "value": "the person preparing the meal",
+    "label": "the person preparing the meal",
+    "text": "the person preparing the meal"
+   }
+  ],
+  "answer": "the person preparing the meal",
+  "correctAnswer": "the person preparing the meal",
+  "distractorRationales": {
+   "the person delivering the milk": "D-PLAUSIBLE-UNSUPPORTED",
+   "the person making the bread": "D-PLAUSIBLE-UNSUPPORTED",
+   "the person washing the floor": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.A.literal_who_what.v40",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New concrete meaning probe: literal who what. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.sentence_comprehension.l1.B.literal_who_what.v41",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sentence_comprehension",
+  "assessmentSkillId": "sentence_comprehension",
+  "skillName": "Sentence Comprehension",
+  "skill": "Sentence Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "sentence_comprehension_cell",
+  "itemKey": "literal_who_what",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Who helped carry the basket?",
+  "question": "Who helped carry the basket?",
+  "spokenPrompt": "Who helped carry the basket?",
+  "passage": "Two children carried the empty basket for their grandmother.",
+  "cell": "literal_who_what",
+  "choices": [
+   "the gardener with a spade",
+   "the visitor at the gate",
+   "the pair of young helpers",
+   "the grandmother on her own"
+  ],
+  "answerOptions": [
+   {
+    "value": "the gardener with a spade",
+    "label": "the gardener with a spade",
+    "text": "the gardener with a spade"
+   },
+   {
+    "value": "the visitor at the gate",
+    "label": "the visitor at the gate",
+    "text": "the visitor at the gate"
+   },
+   {
+    "value": "the pair of young helpers",
+    "label": "the pair of young helpers",
+    "text": "the pair of young helpers"
+   },
+   {
+    "value": "the grandmother on her own",
+    "label": "the grandmother on her own",
+    "text": "the grandmother on her own"
+   }
+  ],
+  "answer": "the pair of young helpers",
+  "correctAnswer": "the pair of young helpers",
+  "distractorRationales": {
+   "the visitor at the gate": "D-PLAUSIBLE-UNSUPPORTED",
+   "the grandmother on her own": "D-PLAUSIBLE-UNSUPPORTED",
+   "the gardener with a spade": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.B.literal_who_what.v41",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New concrete meaning probe: literal who what. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.sentence_comprehension.l1.C.literal_where_when.v42",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sentence_comprehension",
+  "assessmentSkillId": "sentence_comprehension",
+  "skillName": "Sentence Comprehension",
+  "skill": "Sentence Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "sentence_comprehension_cell",
+  "itemKey": "literal_where_when",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "When did the class plant beans?",
+  "question": "When did the class plant beans?",
+  "spokenPrompt": "When did the class plant beans?",
+  "passage": "After lunch, our class planted beans beside the fence.",
+  "cell": "literal_where_when",
+  "choices": [
+   "when everyone went to sleep",
+   "once the meal was finished",
+   "while the meal was cooking",
+   "before the school day began"
+  ],
+  "answerOptions": [
+   {
+    "value": "when everyone went to sleep",
+    "label": "when everyone went to sleep",
+    "text": "when everyone went to sleep"
+   },
+   {
+    "value": "once the meal was finished",
+    "label": "once the meal was finished",
+    "text": "once the meal was finished"
+   },
+   {
+    "value": "while the meal was cooking",
+    "label": "while the meal was cooking",
+    "text": "while the meal was cooking"
+   },
+   {
+    "value": "before the school day began",
+    "label": "before the school day began",
+    "text": "before the school day began"
+   }
+  ],
+  "answer": "once the meal was finished",
+  "correctAnswer": "once the meal was finished",
+  "distractorRationales": {
+   "while the meal was cooking": "D-PLAUSIBLE-UNSUPPORTED",
+   "before the school day began": "D-PLAUSIBLE-UNSUPPORTED",
+   "when everyone went to sleep": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.C.literal_where_when.v42",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New concrete meaning probe: literal where when. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.sentence_comprehension.l1.A.literal_where_when.v43",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sentence_comprehension",
+  "assessmentSkillId": "sentence_comprehension",
+  "skillName": "Sentence Comprehension",
+  "skill": "Sentence Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "sentence_comprehension_cell",
+  "itemKey": "literal_where_when",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Where should Leah look for her boots?",
+  "question": "Where should Leah look for her boots?",
+  "spokenPrompt": "Where should Leah look for her boots?",
+  "passage": "Leah put her wet boots outside the kitchen door.",
+  "cell": "literal_where_when",
+  "choices": [
+   "just beyond the kitchen entrance",
+   "in the middle of the kitchen",
+   "under the seat in the hall",
+   "beside her bedroom window"
+  ],
+  "answerOptions": [
+   {
+    "value": "just beyond the kitchen entrance",
+    "label": "just beyond the kitchen entrance",
+    "text": "just beyond the kitchen entrance"
+   },
+   {
+    "value": "in the middle of the kitchen",
+    "label": "in the middle of the kitchen",
+    "text": "in the middle of the kitchen"
+   },
+   {
+    "value": "under the seat in the hall",
+    "label": "under the seat in the hall",
+    "text": "under the seat in the hall"
+   },
+   {
+    "value": "beside her bedroom window",
+    "label": "beside her bedroom window",
+    "text": "beside her bedroom window"
+   }
+  ],
+  "answer": "just beyond the kitchen entrance",
+  "correctAnswer": "just beyond the kitchen entrance",
+  "distractorRationales": {
+   "in the middle of the kitchen": "D-PLAUSIBLE-UNSUPPORTED",
+   "under the seat in the hall": "D-PLAUSIBLE-UNSUPPORTED",
+   "beside her bedroom window": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.A.literal_where_when.v43",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New concrete meaning probe: literal where when. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.sentence_comprehension.l1.B.literal_action.v44",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sentence_comprehension",
+  "assessmentSkillId": "sentence_comprehension",
+  "skillName": "Sentence Comprehension",
+  "skill": "Sentence Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "sentence_comprehension_cell",
+  "itemKey": "literal_action",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What did the boy do to the knot?",
+  "question": "What did the boy do to the knot?",
+  "spokenPrompt": "What did the boy do to the knot?",
+  "passage": "The boy loosened the knot and opened his parcel.",
+  "cell": "literal_action",
+  "choices": [
+   "pulled it much tighter",
+   "cut it into pieces",
+   "tied it to a chair",
+   "made it less tight"
+  ],
+  "answerOptions": [
+   {
+    "value": "pulled it much tighter",
+    "label": "pulled it much tighter",
+    "text": "pulled it much tighter"
+   },
+   {
+    "value": "cut it into pieces",
+    "label": "cut it into pieces",
+    "text": "cut it into pieces"
+   },
+   {
+    "value": "tied it to a chair",
+    "label": "tied it to a chair",
+    "text": "tied it to a chair"
+   },
+   {
+    "value": "made it less tight",
+    "label": "made it less tight",
+    "text": "made it less tight"
+   }
+  ],
+  "answer": "made it less tight",
+  "correctAnswer": "made it less tight",
+  "distractorRationales": {
+   "pulled it much tighter": "D-PLAUSIBLE-UNSUPPORTED",
+   "cut it into pieces": "D-PLAUSIBLE-UNSUPPORTED",
+   "tied it to a chair": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.B.literal_action.v44",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New concrete meaning probe: literal action. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.sentence_comprehension.l1.C.literal_action.v45",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sentence_comprehension",
+  "assessmentSkillId": "sentence_comprehension",
+  "skillName": "Sentence Comprehension",
+  "skill": "Sentence Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "sentence_comprehension_cell",
+  "itemKey": "literal_action",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "How did the girl help her puppy?",
+  "question": "How did the girl help her puppy?",
+  "spokenPrompt": "How did the girl help her puppy?",
+  "passage": "A girl held the gate while her puppy ran through.",
+  "cell": "literal_action",
+  "choices": [
+   "led it round the garden",
+   "lifted it onto a wall",
+   "kept the way open",
+   "carried it over a fence"
+  ],
+  "answerOptions": [
+   {
+    "value": "led it round the garden",
+    "label": "led it round the garden",
+    "text": "led it round the garden"
+   },
+   {
+    "value": "lifted it onto a wall",
+    "label": "lifted it onto a wall",
+    "text": "lifted it onto a wall"
+   },
+   {
+    "value": "kept the way open",
+    "label": "kept the way open",
+    "text": "kept the way open"
+   },
+   {
+    "value": "carried it over a fence",
+    "label": "carried it over a fence",
+    "text": "carried it over a fence"
+   }
+  ],
+  "answer": "kept the way open",
+  "correctAnswer": "kept the way open",
+  "distractorRationales": {
+   "lifted it onto a wall": "D-PLAUSIBLE-UNSUPPORTED",
+   "carried it over a fence": "D-PLAUSIBLE-UNSUPPORTED",
+   "led it round the garden": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.C.literal_action.v45",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New concrete meaning probe: literal action. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.sentence_comprehension.l2.A.two_clause.v46",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sentence_comprehension",
+  "assessmentSkillId": "sentence_comprehension",
+  "skillName": "Sentence Comprehension",
+  "skill": "Sentence Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "sentence_comprehension_cell",
+  "itemKey": "two_clause",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Who repaired the bicycle?",
+  "question": "Who repaired the bicycle?",
+  "spokenPrompt": "Who repaired the bicycle?",
+  "passage": "The twins thanked their uncle after he repaired their bicycle beside the old garden shed.",
+  "cell": "two_clause",
+  "choices": [
+   "the two children working together",
+   "the gardener outside the shed",
+   "the neighbour across the street",
+   "the adult who helped the twins"
+  ],
+  "answerOptions": [
+   {
+    "value": "the two children working together",
+    "label": "the two children working together",
+    "text": "the two children working together"
+   },
+   {
+    "value": "the gardener outside the shed",
+    "label": "the gardener outside the shed",
+    "text": "the gardener outside the shed"
+   },
+   {
+    "value": "the neighbour across the street",
+    "label": "the neighbour across the street",
+    "text": "the neighbour across the street"
+   },
+   {
+    "value": "the adult who helped the twins",
+    "label": "the adult who helped the twins",
+    "text": "the adult who helped the twins"
+   }
+  ],
+  "answer": "the adult who helped the twins",
+  "correctAnswer": "the adult who helped the twins",
+  "distractorRationales": {
+   "the neighbour across the street": "D-PLAUSIBLE-UNSUPPORTED",
+   "the two children working together": "D-PLAUSIBLE-UNSUPPORTED",
+   "the gardener outside the shed": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.A.two_clause.v46",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New transfer and integrated evidence probe: two clause. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.sentence_comprehension.l2.B.two_clause.v47",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sentence_comprehension",
+  "assessmentSkillId": "sentence_comprehension",
+  "skillName": "Sentence Comprehension",
+  "skill": "Sentence Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "sentence_comprehension_cell",
+  "itemKey": "two_clause",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Why did Nora take another shirt?",
+  "question": "Why did Nora take another shirt?",
+  "spokenPrompt": "Why did Nora take another shirt?",
+  "passage": "Nora packed a spare shirt because she planned to paint with her class after lunch.",
+  "cell": "two_clause",
+  "choices": [
+   "Her clothes might get dirty.",
+   "Her lunch might be too cold.",
+   "Her class might finish early.",
+   "Her bag might need mending."
+  ],
+  "answerOptions": [
+   {
+    "value": "Her clothes might get dirty.",
+    "label": "Her clothes might get dirty.",
+    "text": "Her clothes might get dirty."
+   },
+   {
+    "value": "Her lunch might be too cold.",
+    "label": "Her lunch might be too cold.",
+    "text": "Her lunch might be too cold."
+   },
+   {
+    "value": "Her class might finish early.",
+    "label": "Her class might finish early.",
+    "text": "Her class might finish early."
+   },
+   {
+    "value": "Her bag might need mending.",
+    "label": "Her bag might need mending.",
+    "text": "Her bag might need mending."
+   }
+  ],
+  "answer": "Her clothes might get dirty.",
+  "correctAnswer": "Her clothes might get dirty.",
+  "distractorRationales": {
+   "Her bag might need mending.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Her lunch might be too cold.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Her class might finish early.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.B.two_clause.v47",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New transfer and integrated evidence probe: two clause. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.sentence_comprehension.l2.C.pronoun_reference.v48",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sentence_comprehension",
+  "assessmentSkillId": "sentence_comprehension",
+  "skillName": "Sentence Comprehension",
+  "skill": "Sentence Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "sentence_comprehension_cell",
+  "itemKey": "pronoun_reference",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What did Mum lift?",
+  "question": "What did Mum lift?",
+  "spokenPrompt": "What did Mum lift?",
+  "passage": "When the kittens climbed into the basket, Mum lifted it gently onto the kitchen table.",
+  "cell": "pronoun_reference",
+  "choices": [
+   "the empty basket by the door",
+   "the kittens without their basket",
+   "the basket holding the kittens",
+   "the table beside the basket"
+  ],
+  "answerOptions": [
+   {
+    "value": "the empty basket by the door",
+    "label": "the empty basket by the door",
+    "text": "the empty basket by the door"
+   },
+   {
+    "value": "the kittens without their basket",
+    "label": "the kittens without their basket",
+    "text": "the kittens without their basket"
+   },
+   {
+    "value": "the basket holding the kittens",
+    "label": "the basket holding the kittens",
+    "text": "the basket holding the kittens"
+   },
+   {
+    "value": "the table beside the basket",
+    "label": "the table beside the basket",
+    "text": "the table beside the basket"
+   }
+  ],
+  "answer": "the basket holding the kittens",
+  "correctAnswer": "the basket holding the kittens",
+  "distractorRationales": {
+   "the empty basket by the door": "D-PLAUSIBLE-UNSUPPORTED",
+   "the kittens without their basket": "D-PLAUSIBLE-UNSUPPORTED",
+   "the table beside the basket": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.C.pronoun_reference.v48",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Resolve singular it to the basket rather than the nearer animate subject. The plural kittens rule out the otherwise ambiguous reading that Mum lifted a single kitten."
+ },
+ {
+  "id": "lp3.sentence_comprehension.l2.A.pronoun_reference.v49",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sentence_comprehension",
+  "assessmentSkillId": "sentence_comprehension",
+  "skillName": "Sentence Comprehension",
+  "skill": "Sentence Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "sentence_comprehension_cell",
+  "itemKey": "pronoun_reference",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What did the teacher put by the window?",
+  "question": "What did the teacher put by the window?",
+  "spokenPrompt": "What did the teacher put by the window?",
+  "passage": "The children gave their teacher some flowers, and she placed them beside the classroom window.",
+  "cell": "pronoun_reference",
+  "choices": [
+   "the gift from the children",
+   "the books from the shelf",
+   "the pencils from the table",
+   "the coats from the hooks"
+  ],
+  "answerOptions": [
+   {
+    "value": "the gift from the children",
+    "label": "the gift from the children",
+    "text": "the gift from the children"
+   },
+   {
+    "value": "the books from the shelf",
+    "label": "the books from the shelf",
+    "text": "the books from the shelf"
+   },
+   {
+    "value": "the pencils from the table",
+    "label": "the pencils from the table",
+    "text": "the pencils from the table"
+   },
+   {
+    "value": "the coats from the hooks",
+    "label": "the coats from the hooks",
+    "text": "the coats from the hooks"
+   }
+  ],
+  "answer": "the gift from the children",
+  "correctAnswer": "the gift from the children",
+  "distractorRationales": {
+   "the coats from the hooks": "D-PLAUSIBLE-UNSUPPORTED",
+   "the books from the shelf": "D-PLAUSIBLE-UNSUPPORTED",
+   "the pencils from the table": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.A.pronoun_reference.v49",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New transfer and integrated evidence probe: pronoun reference. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.sentence_comprehension.l2.B.best_restatement.v50",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sentence_comprehension",
+  "assessmentSkillId": "sentence_comprehension",
+  "skillName": "Sentence Comprehension",
+  "skill": "Sentence Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "sentence_comprehension_cell",
+  "itemKey": "best_restatement",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which sentence keeps the same meaning?",
+  "question": "Which sentence keeps the same meaning?",
+  "spokenPrompt": "Which sentence keeps the same meaning?",
+  "passage": "Only the children wearing hats could join the sunny walk, so Amir borrowed his brother's.",
+  "cell": "best_restatement",
+  "choices": [
+   "The walk stopped because Amir was late.",
+   "Amir needed a hat to take part.",
+   "Amir lent a hat to his brother.",
+   "Everyone walked before putting on a hat."
+  ],
+  "answerOptions": [
+   {
+    "value": "The walk stopped because Amir was late.",
+    "label": "The walk stopped because Amir was late.",
+    "text": "The walk stopped because Amir was late."
+   },
+   {
+    "value": "Amir needed a hat to take part.",
+    "label": "Amir needed a hat to take part.",
+    "text": "Amir needed a hat to take part."
+   },
+   {
+    "value": "Amir lent a hat to his brother.",
+    "label": "Amir lent a hat to his brother.",
+    "text": "Amir lent a hat to his brother."
+   },
+   {
+    "value": "Everyone walked before putting on a hat.",
+    "label": "Everyone walked before putting on a hat.",
+    "text": "Everyone walked before putting on a hat."
+   }
+  ],
+  "answer": "Amir needed a hat to take part.",
+  "correctAnswer": "Amir needed a hat to take part.",
+  "distractorRationales": {
+   "Everyone walked before putting on a hat.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The walk stopped because Amir was late.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Amir lent a hat to his brother.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.B.best_restatement.v50",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New transfer and integrated evidence probe: best restatement. Each option is checked against the stated events; no picture or target audio supplies the key."
+ },
+ {
+  "id": "lp3.sentence_comprehension.l2.C.best_restatement.v51",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sentence_comprehension",
+  "assessmentSkillId": "sentence_comprehension",
+  "skillName": "Sentence Comprehension",
+  "skill": "Sentence Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "sentence_comprehension_cell",
+  "itemKey": "best_restatement",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which sentence tells the same information?",
+  "question": "Which sentence tells the same information?",
+  "spokenPrompt": "Which sentence tells the same information?",
+  "passage": "Neither the red bag nor the blue bag held the lunch; it was in a basket.",
+  "cell": "best_restatement",
+  "choices": [
+   "Both bags contained some of the lunch.",
+   "The lunch was shared between three containers.",
+   "The basket held only the empty bags.",
+   "Both bags were without the lunch."
+  ],
+  "answerOptions": [
+   {
+    "value": "Both bags contained some of the lunch.",
+    "label": "Both bags contained some of the lunch.",
+    "text": "Both bags contained some of the lunch."
+   },
+   {
+    "value": "The lunch was shared between three containers.",
+    "label": "The lunch was shared between three containers.",
+    "text": "The lunch was shared between three containers."
+   },
+   {
+    "value": "The basket held only the empty bags.",
+    "label": "The basket held only the empty bags.",
+    "text": "The basket held only the empty bags."
+   },
+   {
+    "value": "Both bags were without the lunch.",
+    "label": "Both bags were without the lunch.",
+    "text": "Both bags were without the lunch."
+   }
+  ],
+  "answer": "Both bags were without the lunch.",
+  "correctAnswer": "Both bags were without the lunch.",
+  "distractorRationales": {
+   "Both bags contained some of the lunch.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The lunch was shared between three containers.": "D-PLAUSIBLE-UNSUPPORTED",
+   "The basket held only the empty bags.": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.C.best_restatement.v51",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New transfer and integrated evidence probe: best restatement. Each option is checked against the stated events; no picture or target audio supplies the key."
  }
 ];

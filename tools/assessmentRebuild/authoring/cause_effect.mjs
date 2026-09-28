@@ -1,4 +1,4 @@
-// Individually authored comprehension evidence; normal and reserve items share the same quality requirements.
+// Individually authored comprehension evidence; stable item coordinates preserve saved attempts.
 export default {
   "skillId": "cause_effect",
   "skillName": "Cause and Effect",
@@ -2498,6 +2498,390 @@ export default {
       ],
       "media": "text",
       "note": "Separate the alarm signal and corrective move from the warm air that changed the food."
+    },
+    {
+      "u": "find_effect",
+      "lvl": 1,
+      "ph": 1,
+      "v": 40,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "find_effect",
+      "media": "text",
+      "passage": "The classroom window was open during a windy afternoon. A gust swept across the teacher's desk. The loose papers scattered over the floor. Two children collected them and closed the window. They put a heavy book on the pile.",
+      "prompt": "What happened because the wind reached the desk?",
+      "choices": [
+        {
+          "t": "the sheets blew out of place",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the children opened another window",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the book fell onto the ground",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the afternoon became calm",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for find effect. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "find_effect",
+      "lvl": 1,
+      "ph": 2,
+      "v": 41,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "find_effect",
+      "media": "text",
+      "passage": "A snail moved slowly across a dry path. Heavy rain soon covered the path with puddles. The snail slid towards the wet garden soil. It left a shining trail behind its shell. We watched without lifting it from the ground.",
+      "prompt": "What did the rain do to the path?",
+      "choices": [
+        {
+          "t": "made its surface wet",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "made the snail's shell larger",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "made the soil blow away",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "made the whole path disappear",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for find effect. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "find_cause",
+      "lvl": 1,
+      "ph": 1,
+      "v": 42,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "find_cause",
+      "media": "text",
+      "passage": "Ravi put his bowl on a thin paper mat. Some soup spilled over the side. The paper became soggy and tore when lifted. Ravi used a cloth to wipe the table. Next time, he chose a washable mat.",
+      "prompt": "Why did the paper mat tear?",
+      "choices": [
+        {
+          "t": "liquid had weakened the paper",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the bowl had been put away",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the table had been wiped clean",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the new mat was washable",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for find cause. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "find_cause",
+      "lvl": 1,
+      "ph": 2,
+      "v": 43,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "find_cause",
+      "media": "text",
+      "passage": "A football rolled towards the road through a gap. Hana shut the gate before it reached her. The ball struck the gate and stopped. She picked it up and returned to play. The gate stayed shut throughout the game.",
+      "prompt": "Why did the ball stop before reaching the road?",
+      "choices": [
+        {
+          "t": "a closed barrier blocked its way",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "someone kicked it in another direction",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a passing car carried it away",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the children ended their game early",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for find cause. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "because_sentence",
+      "lvl": 1,
+      "ph": 1,
+      "v": 44,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "because_sentence",
+      "media": "text",
+      "passage": "The class placed a bowl beneath a dripping tap. By lunchtime, the bowl was nearly full. The caretaker tightened a loose part inside the tap. The dripping stopped, and no more water collected. The class emptied the bowl onto thirsty plants.",
+      "prompt": "Why did water stop collecting in the bowl?",
+      "choices": [
+        {
+          "t": "the leak had been repaired",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the plants had been watered",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the children had eaten lunch",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the bowl had changed colour",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for because sentence. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "because_sentence",
+      "lvl": 1,
+      "ph": 2,
+      "v": 45,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "because_sentence",
+      "media": "text",
+      "passage": "A seedling stood in a dark cupboard by mistake. Its stem grew pale and bent towards a crack. The children moved it onto a bright windowsill. New leaves soon looked greener and stronger. They remembered to check its water each morning.",
+      "prompt": "Why did the children move the seedling?",
+      "choices": [
+        {
+          "t": "it needed a brighter growing place",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "its cupboard needed more darkness",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "its leaves had already fallen off",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "it needed a smaller pot",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for because sentence. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "chain",
+      "lvl": 2,
+      "ph": 1,
+      "v": 46,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "chain",
+      "media": "text",
+      "passage": "A loose tile let rain enter the roof of a shed. Water dripped onto a cardboard box holding paper decorations. By morning, the bottom of the box had become soft. When the caretaker lifted it, the bottom split open. The decorations fell out and some were too wet to use. The class spread the dry ones on a table. They repaired the roof before storing anything in the shed again. Replacing only the box would not have stopped the original problem.",
+      "prompt": "Which chain correctly links the damage?",
+      "choices": [
+        {
+          "t": "a roof gap let water weaken the box until it broke",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "a broken box pushed a tile loose and caused rain",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "wet decorations repaired the roof and dried the cardboard",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a new box stopped rain falling onto the school shed",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for chain. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "chain",
+      "lvl": 2,
+      "ph": 2,
+      "v": 47,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "chain",
+      "media": "text",
+      "passage": "A delivery van parked across the entrance to the narrow lane. The school bus could not pass it on the way home. Its driver waited while a helper found the van's owner. By the time the entrance was clear, ten minutes had passed. The bus reached its final stop later than usual. A teacher called the waiting families to explain the delay. No one on the bus had been hurt or lost. The problem began with where the delivery van had stopped.",
+      "prompt": "Why did families have to wait longer at the final stop?",
+      "choices": [
+        {
+          "t": "an obstruction earlier on the route delayed the bus",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the bus driver forgot where the final stop was",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a teacher kept every family talking on the phone",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the pupils could not find their places on the bus",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for chain. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "multiple_causes",
+      "lvl": 2,
+      "ph": 1,
+      "v": 48,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "multiple_causes",
+      "media": "text",
+      "passage": "The class tested why their paper boats kept sinking. One boat had a small tear along its folded bottom. Another carried several heavy pebbles instead of one light bead. Water entered the first boat through the torn paper. The second boat sat so low that water spilled over. Both boats sank, but the routes for water were different. The class made a fresh boat with sound folds. They loaded it lightly and watched it float across the tray.",
+      "prompt": "Which two problems caused boats to sink in this test?",
+      "choices": [
+        {
+          "t": "a damaged base and a load that was too heavy",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "a light bead and paper folded without a tear",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a wide tray and water poured into it carefully",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a fresh boat and a journey across the water",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for multiple causes. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "multiple_causes",
+      "lvl": 2,
+      "ph": 2,
+      "v": 49,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "multiple_causes",
+      "media": "text",
+      "passage": "Our seed trays stood on two shelves in the classroom. The top shelf was sunny but sometimes too dry. Plants there wilted whenever we forgot to water them. The lower shelf stayed damp but received very little light. Its seedlings grew long, pale stems reaching towards the window. We moved both trays where they could receive light. A rota reminded us to check the soil every morning. Extra water alone would not have solved both problems.",
+      "prompt": "What did the two groups of plants need improved?",
+      "choices": [
+        {
+          "t": "water for one group and light for the other",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "larger labels for one group and fewer labels for the other",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "more darkness for one group and less soil for the other",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "new shelves for one group and deeper trays for the other",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for multiple causes. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "reversal_trap",
+      "lvl": 2,
+      "ph": 1,
+      "v": 50,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "reversal_trap",
+      "media": "text",
+      "passage": "Before the morning lesson, a branch fell onto a power line. The lights in the school went out soon afterwards. The teacher opened the blinds so the room was easier to see. Pupils moved their books closer to the windows. A repair team removed the branch and restored the supply. The lights came back on during lunchtime. Nobody at school had switched off the supply to the building. The open blinds helped the class, but did not repair the line.",
+      "prompt": "Which statement gives the cause in the correct direction?",
+      "choices": [
+        {
+          "t": "damage to the line led to the loss of electricity",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the dark classroom made the branch fall onto the line",
+          "r": "D-CAUSE-REVERSE"
+        },
+        {
+          "t": "opening the blinds broke the line beside the school",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "moving the books stopped electricity reaching the building",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Distinguish the initiating damage to the power line from the blackout and later classroom responses. The dark-room distractor reverses cause and effect; moving books and opening blinds follow the fault."
+    },
+    {
+      "u": "reversal_trap",
+      "lvl": 2,
+      "ph": 2,
+      "v": 51,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "reversal_trap",
+      "media": "text",
+      "passage": "The path beside the river was closed after heavy rain. Fast water had washed soil away beneath part of it. A deep hollow made the surface unsafe for walkers. Workers put barriers at both ends of the damaged stretch. People used a longer route across the park instead. Some complained that the barriers made their journeys slower. The workers explained that the barriers were a response to danger. Once the ground was repaired, they could reopen the short route safely.",
+      "prompt": "Why were the barriers put across the path?",
+      "choices": [
+        {
+          "t": "rain had left the ground underneath unsafe",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the barriers had washed soil into the river",
+          "r": "D-CAUSE-REVERSE"
+        },
+        {
+          "t": "people had chosen to walk the longer park route",
+          "r": "D-CAUSE-STEP"
+        },
+        {
+          "t": "workers wanted to make the rain last longer",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Trace rain to lost soil, unsafe ground and protective barriers. The barrier distractor reverses cause and effect; the longer route is a later consequence, not the reason for closure."
     }
   ]
 };

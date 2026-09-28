@@ -8,6 +8,7 @@ import {
 } from "../../data/simpleStudentReports.js";
 import { TEACHER_COPY } from "../../copy/teacherCopy.js";
 import { teacherReportText } from "./teacherReportCopy.jsx";
+import { LearningEvidenceProfile } from "./LearningEvidenceProfile.jsx";
 
 const BAND_MARKS = Object.freeze({
   unseen: "—",
@@ -357,6 +358,19 @@ export function SimpleSkillsReportView({
       <p className="simple-report-intro">
         {teacherReportText(TEACHER_COPY.reports.skillsIntro(savedResultCount, rows.length))}
       </p>
+      {(workspace.skillsCheck?.skills || []).some(skill => skill.learningEvidenceProfile) && (
+        <section className="lg-report-view-stack" aria-label="Latest assessment teaching detail">
+          <h2>What to teach next</h2>
+          <p>Question detail from each skill’s latest saved assessment. The dates below describe when these responses were recorded.</p>
+          {(workspace.skillsCheck?.skills || []).filter(skill => skill.learningEvidenceProfile).map(skill => (
+            <LearningEvidenceProfile
+              key={skill.skillId}
+              profile={skill.learningEvidenceProfile}
+              title={`${skill.skillName}${skill.latestAt ? ` · ${new Date(skill.latestAt).toLocaleDateString()}` : ""}`}
+            />
+          ))}
+        </section>
+      )}
       <SimpleResultCollection
         rows={rows}
         seenLabel={TEACHER_COPY.reports.skillsWithResults}

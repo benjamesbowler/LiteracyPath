@@ -11,6 +11,7 @@ export const CYCLE_PRACTICE_INSTRUCTIONS = Object.freeze({
   letterEndingPart: "Listen. Tap the letters that make this ending.",
   rhymeMatch: "Listen. Tap the picture that rhymes with this word.",
   wordBuild: "Listen. Tap the letters to build the word.",
+  missingLetter: "Listen. Tap the missing letter.",
   wordChange: "Listen. Tap the letter to change. Then tap the new letter.",
   copyWord: "Tap the letters. Make the same word.",
   sortFirstSound: "Listen. Put each picture with its first sound.",

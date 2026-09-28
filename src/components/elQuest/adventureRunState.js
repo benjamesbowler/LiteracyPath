@@ -33,7 +33,9 @@ export function correctionModelForOutcome(round = {}) {
       return model(`Choose ${round.acceptedAnswers.join(" or ")}.`, round.acceptedAnswers);
     case "sceneHunt":
     case "pictureSearch":
-      return model(`These pictures start with /${target}/.`, matchingWords(round));
+      return round.variant === 'wordMeaning' ? model(`Find the ${round.targetWord}.`, matchingWords(round))
+        : round.endingUnit === 'chunk' ? model(`Find pictures with the ${target} ending.`, matchingWords(round))
+        : model(`These pictures ${round.soundPosition === 'ending' ? 'end' : 'start'} with /${target}/.`, matchingWords(round));
     case "wordMemory":
       return model("Find two cards with the same word.", round.words);
     case "sightWordChoice":
@@ -41,7 +43,7 @@ export function correctionModelForOutcome(round = {}) {
     case "letterGrid":
       return model("Find these big and small letters.", round.targetLetters.flatMap(letter => [letter.toUpperCase(), letter]));
     case "missingLetter":
-      return model(`Choose ${round.missingGrapheme} to ${round.missingPosition === "start" ? "start" : "finish"} ${round.word}.`, round.graphemes);
+      return model(`Choose ${round.missingGrapheme} for the ${round.missingPosition === 'start' ? 'first' : round.missingPosition === 'middle' ? 'middle' : 'last'} letter in ${round.word}.`, round.graphemes);
     case "rhymePair":
       return model(`${rhymePair(round).join(" and ")} rhyme.`, rhymePair(round));
     case "compoundPicture":
@@ -63,9 +65,15 @@ export function feedbackForOutcome(round = {}, outcome = {}, attempt = 1) {
       return correct ? `${selected} matches the ${round.soundPosition === "end" ? "ending" : "sound"} you heard.`
         : `${selected} has a different sound. ${furtherHelp ? `Choose ${target}.` : "Listen again."}`;
     case "sceneHunt":
-    case "pictureSearch":
-      return correct ? `You found the pictures that start with /${target}/.`
-        : `${selected} does not start with /${target}/. ${furtherHelp ? `Try ${matchingWords(round)[0]}.` : "Listen to its first sound."}`;
+    case "pictureSearch": {
+      if (round.variant === 'wordMeaning') return correct ? `You found the ${round.targetWord}.`
+        : `${selected} is a different picture. ${furtherHelp ? `Find the ${round.targetWord}.` : 'Listen again.'}`;
+      if (round.endingUnit === 'chunk') return correct ? `You found the ${target} ending.`
+        : `${selected} has a different ending. ${furtherHelp ? `Try ${matchingWords(round)[0]}.` : 'Listen to the ending again.'}`;
+      const ending = round.soundPosition === 'ending';
+      return correct ? `You found the pictures that ${ending ? 'end' : 'start'} with /${target}/.`
+        : `${selected} does not ${ending ? 'end' : 'start'} with /${target}/. ${furtherHelp ? `Try ${matchingWords(round)[0]}.` : `Listen to its ${ending ? 'last' : 'first'} sound.`}`;
+    }
     case "wordMemory":
       return correct ? "You found the matching words."
         : `${selected} are different words. ${furtherHelp ? "Look at all the letters in each word." : "Turn over two matching words."}`;
@@ -76,9 +84,9 @@ export function feedbackForOutcome(round = {}, outcome = {}, attempt = 1) {
       return correct ? `You found big and small ${round.targetLetters.join(" and ")}.`
         : `${selected} is a different letter. Find big and small ${round.targetLetters.join(" and ")}.`;
     case "missingLetter": {
-      const position = round.missingPosition === "start" ? "first" : "last";
+      const position = round.missingPosition === "start" ? "first" : round.missingPosition === 'middle' ? 'middle' : "last";
       return correct ? `${round.missingGrapheme} is the ${position} letter in ${round.word}.`
-        : `${selected} does not ${round.missingPosition === "start" ? "start" : "finish"} ${round.word}. ${furtherHelp ? `Choose ${round.missingGrapheme}.` : `Listen for the ${position} sound.`}`;
+        : `${selected} is not the ${position} letter in ${round.word}. ${furtherHelp ? `Choose ${round.missingGrapheme}.` : `Listen for the ${position} sound.`}`;
     }
     case "rhymePair":
       return correct ? `${rhymePair(round).join(" and ")} rhyme.`
@@ -106,7 +114,62 @@ export function createAdventureRun(total) {
     firstAttempts: Array(count).fill(null),
     completedRounds: Array(count).fill(false),
     attempts: Array(count).fill(0),
+    questionRecords: Array(count).fill(null),
     recoveries: 0
+  };
+}
+
+/** Capture the administered task, never reconstruct evidence from a later bank. */
+export function adventureQuestionEvidence(round = {}, outcome = {}) {
+  const label = value => values(value).flat().map(entry => {
+    if (entry && typeof entry === "object") return text(entry.word || entry.label || entry.value || entry.letter);
+    const match = [...(round.cells || []), ...(round.objects || []), ...(round.choices || [])]
+      .find(item => item && typeof item === "object" && text(item.id || item.value) === text(entry));
+    return text(match?.word || match?.label || match?.letter || entry);
+  }).filter(Boolean).join(" / ");
+  const audioRequired = outcome.evidence?.audioRequired === true;
+  const audioDelivered = outcome.evidence?.audioDelivered === true;
+  const independent = isIndependentOutcome(outcome) && (!audioRequired || audioDelivered);
+  const selected = outcome.selected ?? outcome.selectedAnswer;
+  const expected = round.mechanicId === "missingLetter" ? round.missingGrapheme
+    : round.answer ?? round.acceptedAnswers ?? round.correctSequence ?? round.correctPairs;
+  return {
+    questionId: round.roundKey || round.id || "",
+    semanticKey: round.semanticKey || round.roundKey || round.id || "",
+    itemKey: round.targetGrapheme || round.targetWord || round.word || label(round.targetLetters) || "",
+    targetWord: round.targetWord || round.word || "",
+    targetSound: round.targetGrapheme || "",
+    mechanicId: round.mechanicId || "",
+    construct: round.construct || "",
+    evidenceConstruct: round.construct || "",
+    responseFormat: round.responseFormat || round.mechanicId || "",
+    targetKind: round.targetKind || "",
+    contrast: round.contrast || "",
+    selectedAnswer: selected == null ? "" : label(selected),
+    correctAnswer: expected == null ? "" : label(expected),
+    audioRequired,
+    audioDelivery: audioRequired ? (audioDelivered ? "delivered" : "failed") : "not_required",
+    responseStatus: audioRequired && !audioDelivered ? "media_failed"
+      : independent ? (outcome.correct ? "correct" : "incorrect") : "supported",
+    isCorrect: independent ? Boolean(outcome.correct) : null,
+    evidence: { ...(outcome.evidence || {}), independent }
+  };
+}
+
+export function adventureCheckSnapshot(state = {}, completedAt = "") {
+  const total = positiveInteger(state.total);
+  const records = state.questionRecords;
+  if (!total || state.completed !== total || !completedAt || !Array.isArray(records)
+    || records.length !== total || records.some(record => !record?.questionId)) return null;
+  return {
+    version: 1,
+    source: "adventure_map",
+    completedAt,
+    questionRecords: records.map((record, index) => ({
+      ...record,
+      attempts: positiveInteger(state.attempts?.[index]),
+      completedAfterSupport: state.completedRounds?.[index] === true && state.firstAttempts?.[index] === false
+    }))
   };
 }
 
@@ -122,6 +185,7 @@ export function recordAdventureOutcome(state = {}, outcome = {}) {
   ));
   const completedRounds = Array.from({ length: total }, (_, index) => Boolean(state.completedRounds?.[index]) || firstAttempts[index] === true);
   const attempts = Array.from({ length: total }, (_, index) => positiveInteger(state.attempts?.[index]));
+  const questionRecords = Array.from({ length: total }, (_, index) => state.questionRecords?.[index] || null);
   const correct = Boolean(outcome.correct);
   const independentCorrect = correct && isIndependentOutcome(outcome);
   const wasFirst = firstAttempts[roundIndex] === null;
@@ -129,6 +193,7 @@ export function recordAdventureOutcome(state = {}, outcome = {}) {
 
   attempts[roundIndex] += 1;
   if (wasFirst) firstAttempts[roundIndex] = independentCorrect;
+  if (wasFirst && outcome.questionRecord) questionRecords[roundIndex] = outcome.questionRecord;
   if (correct) completedRounds[roundIndex] = true;
 
   const previousCompleted = Math.max(0, Math.min(total, positiveInteger(state.completed)));
@@ -143,6 +208,7 @@ export function recordAdventureOutcome(state = {}, outcome = {}) {
     firstAttempts,
     completedRounds,
     attempts,
+    questionRecords,
     recoveries
   };
 }

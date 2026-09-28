@@ -1,3 +1,4 @@
+import depthItems from "./depth/final_sounds.mjs";
 // Final Sounds — v3 authored bank (wave W3, paired with initial_sounds).
 // Construct: isolate the FINAL sound. Position errors dominate, so every item
 // carries a D-POSITION trap (the word's INITIAL sound) somewhere in its set.
@@ -102,7 +103,7 @@ const wm = (u, lvl, ph, v, anchor, words, keyWord, rationales, note = "") => ({
   note
 });
 
-export default {
+const bank = {
   skillId: "final_sounds",
   skillName: "Final Sounds",
   imageResolver: resolver,
@@ -371,7 +372,9 @@ export default {
     fresh(es("t", 1, 2, 6, "pot", "po__", ["t", "d", "p", "f"], ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"])),
 
     // New spoken anchors supply a fresh, balanced retention retry.
-    { ...es("g", 1, 1, 20, "peg", "pe__", ["g", "k", "p", "q"], ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"]), retention: true, media: "audio-required", img: undefined },
+    { ...wm("g", 1, 1, 20, "log", ["dog", "duck", "lid", "sun"], "dog",
+      { duck: "D-RIME-NEAR", lid: "D-POSITION", sun: "D-RIME-NEAR" },
+      "A new final-sound comparison within the reviewed common vocabulary; lid is the initial-position trap. This reserve uses a new response demand, not a new anchor word."), retention: true, media: "audio-required", img: undefined },
     { ...es("l", 1, 1, 20, "pool", "poo__", ["l", "n", "p", "i"], ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"]), retention: true, media: "audio-required", img: undefined },
     { ...es("p", 1, 2, 20, "cup", "cu__", ["p", "b", "c", "d"], ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"]), retention: true, media: "audio-required", img: undefined },
     { ...es("ll", 2, 1, 20, "spill", "spi__", ["ll", "sh", "nt", "s"], ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"]), retention: true,
@@ -416,3 +419,6 @@ export default {
     return item;
   })
 };
+
+bank.items.push(...depthItems);
+export default bank;

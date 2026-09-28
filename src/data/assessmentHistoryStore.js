@@ -294,6 +294,16 @@ function normalizeQuestionRecord(item = {}, index, record, completedAt) {
     targetPattern: item.targetPattern || "",
     itemKey: item.itemKey || "",
     itemType: item.itemType || "",
+    semanticKey: item.semanticKey || "",
+    coverageTags: Array.isArray(item.coverageTags) ? cloneJsonValue(item.coverageTags, []) : [],
+    constructClaim: item.constructClaim || "",
+    construct: item.construct || "",
+    evidenceConstruct: item.evidenceConstruct || item.constructClaim || "",
+    diagnosticTarget: item.diagnosticTarget || "",
+    formatLabel: item.formatLabel || "",
+    responseFormat: item.responseFormat || "",
+    targetKind: item.targetKind || "",
+    contrast: item.contrast || "",
     correctAnswer: cloneJsonValue(item.correctAnswer ?? item.correct ?? "", ""),
     expectedResponse: cloneJsonValue(item.expectedResponse, item.expectedResponse ?? ""),
     selectedAnswer: cloneJsonValue(item.selectedAnswer ?? item.chosen ?? "", ""),
@@ -307,7 +317,6 @@ function normalizeQuestionRecord(item = {}, index, record, completedAt) {
     outcomeRecordedAt: item.outcomeRecordedAt || existingMetadata.outcomeRecordedAt || "",
     responseStatus,
     ...(record.assessmentType === "cycle_practice_check" ? {
-      construct: item.construct || "", evidenceConstruct: item.evidenceConstruct || "",
       mechanicId: item.mechanicId || "", selected: cloneJsonValue(item.selected, null),
       evidence: cloneJsonValue(item.evidence, {}), audioRequired: item.audioRequired === true,
       audioDelivery: item.audioDelivery || "pending"
@@ -633,7 +642,8 @@ export function normalizeAssessmentAttempt(record = {}) {
     const normalized = (
     !verifiedCycleContract || !item.evidence || typeof item.evidence !== "object"
       || !["correct", "incorrect", "supported", "media_failed"].includes(item.responseStatus)
-      || (["correct", "incorrect"].includes(item.responseStatus) && typeof item.isCorrect !== "boolean")
+      || (["correct", "incorrect"].includes(item.responseStatus)
+        && item.isCorrect !== (item.responseStatus === "correct"))
       ? { ...item, responseStatus: "legacy_unverified", isCorrect: null }
       : { ...item, ...cycleQuestionRecord({ ...item, id: item.questionId },
         { correct: item.isCorrect, selected: item.selected, evidence: item.evidence, construct: item.evidenceConstruct },

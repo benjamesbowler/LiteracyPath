@@ -9050,5 +9050,925 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "heard CVCC recognition retains the print-match format; lamp and limp prevent final-consonant identification from replacing vowel discrimination"
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l1.A.short_a.v101",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_a",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes m_p?",
+  "question": "Which vowel completes m_p?",
+  "spokenPrompt": "map. Which vowel completes the word?",
+  "choices": [
+   "i",
+   "o",
+   "a",
+   "e"
+  ],
+  "answerOptions": [
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   }
+  ],
+  "answer": "a",
+  "correctAnswer": "a",
+  "distractorRationales": {
+   "i": "D-VOWEL",
+   "o": "D-VOWEL",
+   "e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_word_medial_vowel_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "map",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l1.A.short_a.v101",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Apply the vowel spelling to a previously untested CVC target; exact audio removes unrelated picture-naming demand."
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l1.B.short_e.v102",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "short_vowel",
+  "itemKey": "short_e",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes r_d?",
+  "question": "Which vowel completes r_d?",
+  "spokenPrompt": "red. Which vowel completes the word?",
+  "choices": [
+   "e",
+   "a",
+   "i",
+   "u"
+  ],
+  "answerOptions": [
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   }
+  ],
+  "answer": "e",
+  "correctAnswer": "e",
+  "distractorRationales": {
+   "a": "D-VOWEL",
+   "i": "D-VOWEL",
+   "u": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_word_medial_vowel_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "red",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l1.B.short_e.v102",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Apply the vowel spelling to a previously untested CVC target; exact audio removes unrelated picture-naming demand."
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l1.C.short_i.v103",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_i",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes w_g?",
+  "question": "Which vowel completes w_g?",
+  "spokenPrompt": "wig. Which vowel completes the word?",
+  "choices": [
+   "i",
+   "e",
+   "o",
+   "a"
+  ],
+  "answerOptions": [
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   }
+  ],
+  "answer": "i",
+  "correctAnswer": "i",
+  "distractorRationales": {
+   "o": "D-VOWEL",
+   "a": "D-VOWEL",
+   "e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_word_medial_vowel_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "wig",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l1.C.short_i.v103",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Apply the vowel spelling to a previously untested CVC target; exact audio removes unrelated picture-naming demand."
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l1.A.short_o.v104",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_o",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes f_g?",
+  "question": "Which vowel completes f_g?",
+  "spokenPrompt": "fog. Which vowel completes the word?",
+  "choices": [
+   "a",
+   "u",
+   "i",
+   "o"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   }
+  ],
+  "answer": "o",
+  "correctAnswer": "o",
+  "distractorRationales": {
+   "i": "D-VOWEL",
+   "a": "D-VOWEL",
+   "u": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_word_medial_vowel_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "fog",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l1.A.short_o.v104",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Apply the vowel spelling to a previously untested CVC target; exact audio removes unrelated picture-naming demand."
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l1.B.short_u.v105",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "short_vowel",
+  "itemKey": "short_u",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes m_d?",
+  "question": "Which vowel completes m_d?",
+  "spokenPrompt": "mud. Which vowel completes the word?",
+  "choices": [
+   "e",
+   "u",
+   "a",
+   "o"
+  ],
+  "answerOptions": [
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   }
+  ],
+  "answer": "u",
+  "correctAnswer": "u",
+  "distractorRationales": {
+   "a": "D-VOWEL",
+   "o": "D-VOWEL",
+   "e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_word_medial_vowel_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "mud",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l1.B.short_u.v105",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Apply the vowel spelling to a previously untested CVC target; exact audio removes unrelated picture-naming demand."
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.C.short_a.v106",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_a",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes cl_p?",
+  "question": "Which vowel completes cl_p?",
+  "spokenPrompt": "clap. Which vowel completes the word?",
+  "choices": [
+   "i",
+   "o",
+   "a",
+   "e"
+  ],
+  "answerOptions": [
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   }
+  ],
+  "answer": "a",
+  "correctAnswer": "a",
+  "distractorRationales": {
+   "i": "D-VOWEL",
+   "o": "D-VOWEL",
+   "e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_word_medial_vowel_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "clap",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.C.short_a.v106",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Map the heard vowel inside a longer consonant frame; near minimal-pair alternatives create meaningful vowel pressure."
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.A.short_e.v107",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_e",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes sl_d?",
+  "question": "Which vowel completes sl_d?",
+  "spokenPrompt": "sled. Which vowel completes the word?",
+  "choices": [
+   "e",
+   "i",
+   "a",
+   "u"
+  ],
+  "answerOptions": [
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   }
+  ],
+  "answer": "e",
+  "correctAnswer": "e",
+  "distractorRationales": {
+   "u": "D-VOWEL",
+   "i": "D-VOWEL",
+   "a": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_word_medial_vowel_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "sled",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.A.short_e.v107",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Map the heard vowel inside a longer consonant frame; near minimal-pair alternatives create meaningful vowel pressure."
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.B.short_i.v108",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "short_vowel",
+  "itemKey": "short_i",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes l_ft?",
+  "question": "Which vowel completes l_ft?",
+  "spokenPrompt": "lift. Which vowel completes the word?",
+  "choices": [
+   "i",
+   "e",
+   "a",
+   "o"
+  ],
+  "answerOptions": [
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   }
+  ],
+  "answer": "i",
+  "correctAnswer": "i",
+  "distractorRationales": {
+   "e": "D-VOWEL",
+   "a": "D-VOWEL",
+   "o": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_word_medial_vowel_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "lift",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.B.short_i.v108",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Map the heard vowel inside a longer consonant frame; near minimal-pair alternatives create meaningful vowel pressure."
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.C.short_o.v109",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_o",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes st_mp?",
+  "question": "Which vowel completes st_mp?",
+  "spokenPrompt": "stomp. Which vowel completes the word?",
+  "choices": [
+   "u",
+   "a",
+   "i",
+   "o"
+  ],
+  "answerOptions": [
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   }
+  ],
+  "answer": "o",
+  "correctAnswer": "o",
+  "distractorRationales": {
+   "u": "D-VOWEL",
+   "a": "D-VOWEL",
+   "i": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_word_medial_vowel_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "stomp",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.C.short_o.v109",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Map the heard vowel inside a longer consonant frame; near minimal-pair alternatives create meaningful vowel pressure."
+ },
+ {
+  "id": "lp3.cvc_short_vowels.l2.A.short_u.v110",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cvc_short_vowels",
+  "assessmentSkillId": "cvc_short_vowels",
+  "skillName": "CVC & Short Vowels",
+  "skill": "CVC & Short Vowels",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_u",
+  "formatType": "MISSING_VOWEL_CVC",
+  "templateType": "MISSING_VOWEL_CVC",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel completes st_mp?",
+  "question": "Which vowel completes st_mp?",
+  "spokenPrompt": "stump. Which vowel completes the word?",
+  "choices": [
+   "e",
+   "u",
+   "o",
+   "i"
+  ],
+  "answerOptions": [
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   }
+  ],
+  "answer": "u",
+  "correctAnswer": "u",
+  "distractorRationales": {
+   "e": "D-VOWEL",
+   "o": "D-VOWEL",
+   "i": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_word_medial_vowel_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "stump",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cvc_short_vowels.l2.A.short_u.v110",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Map the heard vowel inside a longer consonant frame; near minimal-pair alternatives create meaningful vowel pressure."
  }
 ];

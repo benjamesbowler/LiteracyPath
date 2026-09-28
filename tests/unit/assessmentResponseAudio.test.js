@@ -13,7 +13,7 @@ test("response audio cannot supply the printed letter or word the child must ide
   ]) assert.equal(allowsAssessmentChoiceAudio({ skillId, formatType }), false, `${skillId} ${formatType}`);
   for (const skill of ["hfw_1_25", "hfw_26_50", "hfw_51_75", "hfw_76_100"]) {
     const questions = (await importV3Bank(skill)).filter(q => q.level === 1 && !q.retentionOnly);
-    assert.equal(questions.length, 75, `${skill} full L1 recognition bank`);
+    assert.equal(questions.length, 100, `${skill} full L1 recognition bank`);
     for (const q of questions) assert.equal(allowsAssessmentChoiceAudio(q), false, q.id);
   }
 });

@@ -9,6 +9,7 @@ import {
   flipMemoryCard
 } from "../../src/components/elQuest/mechanics/simpleMechanicState.js";
 import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
+import { cycleSoundMatches } from "../../src/data/cycleSoundWords.js";
 import { CVC_WORDS, RHYMING_PAIRS, SIGHT_WORDS, WORD_FAMILIES, SENTENCE_FIX, SENTENCES } from "../../src/data/learnGamesData.js";
 
 const cycles = elSkillsBlockCycles.filter(c => c.cycleNumber);
@@ -125,13 +126,16 @@ test("sentence-fix rounds have exactly one marked fix that exists in options", (
 
 test("missing-letter rounds rebuild their pictured word with one direct choice", () => {
   let checked = 0;
+  const positions = new Set();
   for (const cycle of cycles) {
     for (const station of stationsForCycle(cycle)) {
       for (const round of station.build?.(cycle) || []) {
         if (round.mechanicId !== "missingLetter") continue;
         const where = `${cycle.id}/${station.id}`;
         assert.match(round.word, /^[a-z]{3}$/, `${where} must use a CVC word`);
-        assert.ok([0, 2].includes(round.missingIndex), `${where} must practise the start or end sound`);
+        assert.ok([0, 1, 2].includes(round.missingIndex), `${where} must practise one start, middle or end position`);
+        positions.add(round.missingIndex);
+        if (round.missingIndex === 1) assert.ok(round.choices.every(choice => /^[aeiou]$/.test(choice)), `${where} must contrast vowels in the middle`);
         assert.equal(round.graphemes.join(""), round.word);
         assert.equal(round.missingGrapheme, round.graphemes[round.missingIndex]);
         assert.equal(chooseSimpleAnswer(round, round.missingGrapheme).correct, true);
@@ -142,6 +146,7 @@ test("missing-letter rounds rebuild their pictured word with one direct choice",
     }
   }
   assert.ok(checked > 0, "the active curriculum must include CVC completion");
+  assert.deepEqual([...positions].sort(), [0, 1, 2], "completion includes all three word positions");
 });
 
 test("Sound Match never marks an equivalent spelling wrong", () => {
@@ -170,9 +175,11 @@ test("sound-picture games label every picture by their declared rule", () => {
       for (let pass = 0; pass < 8; pass += 1) {
         for (const round of station.build(cycle)) {
           if (!["sceneHunt", "pictureSearch"].includes(round.mechanicId)) continue;
-          const expected = round.objects.filter(object => round.variant === "soundSort"
-            ? object.word.endsWith(round.targetGrapheme)
-            : sharesSound(onsetGrapheme(object.word), round.targetGrapheme));
+          const expected = round.objects.filter(object => round.variant === "wordMeaning"
+            ? object.word === round.targetWord
+            : round.soundPosition === "ending" || round.variant === "soundSort"
+              ? cycleSoundMatches(object.word, round.targetGrapheme, 'ending')
+              : sharesSound(onsetGrapheme(object.word), round.targetGrapheme));
           assert.ok(expected.length >= 1, `${cycle.id}: ${round.construct} has no correct object`);
           for (const object of round.objects) {
             const shouldMatch = expected.some(item => item.word === object.word);

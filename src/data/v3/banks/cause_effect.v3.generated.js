@@ -7200,5 +7200,1085 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "Separate the alarm signal and corrective move from the warm air that changed the food."
+ },
+ {
+  "id": "lp3.cause_effect.l1.A.find_effect.v40",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "find_effect",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What happened because the wind reached the desk?",
+  "question": "What happened because the wind reached the desk?",
+  "spokenPrompt": "What happened because the wind reached the desk?",
+  "passage": "The classroom window was open during a windy afternoon. A gust swept across the teacher's desk. The loose papers scattered over the floor. Two children collected them and closed the window. They put a heavy book on the pile.",
+  "cell": "find_effect",
+  "choices": [
+   "the afternoon became calm",
+   "the sheets blew out of place",
+   "the children opened another window",
+   "the book fell onto the ground"
+  ],
+  "answerOptions": [
+   {
+    "value": "the afternoon became calm",
+    "label": "the afternoon became calm",
+    "text": "the afternoon became calm"
+   },
+   {
+    "value": "the sheets blew out of place",
+    "label": "the sheets blew out of place",
+    "text": "the sheets blew out of place"
+   },
+   {
+    "value": "the children opened another window",
+    "label": "the children opened another window",
+    "text": "the children opened another window"
+   },
+   {
+    "value": "the book fell onto the ground",
+    "label": "the book fell onto the ground",
+    "text": "the book fell onto the ground"
+   }
+  ],
+  "answer": "the sheets blew out of place",
+  "correctAnswer": "the sheets blew out of place",
+  "distractorRationales": {
+   "the children opened another window": "D-PLAUSIBLE-UNSUPPORTED",
+   "the book fell onto the ground": "D-PLAUSIBLE-UNSUPPORTED",
+   "the afternoon became calm": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.A.find_effect.v40",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for find effect. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.cause_effect.l1.B.find_effect.v41",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "cause_effect_cell",
+  "itemKey": "find_effect",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What did the rain do to the path?",
+  "question": "What did the rain do to the path?",
+  "spokenPrompt": "What did the rain do to the path?",
+  "passage": "A snail moved slowly across a dry path. Heavy rain soon covered the path with puddles. The snail slid towards the wet garden soil. It left a shining trail behind its shell. We watched without lifting it from the ground.",
+  "cell": "find_effect",
+  "choices": [
+   "made the soil blow away",
+   "made the whole path disappear",
+   "made its surface wet",
+   "made the snail's shell larger"
+  ],
+  "answerOptions": [
+   {
+    "value": "made the soil blow away",
+    "label": "made the soil blow away",
+    "text": "made the soil blow away"
+   },
+   {
+    "value": "made the whole path disappear",
+    "label": "made the whole path disappear",
+    "text": "made the whole path disappear"
+   },
+   {
+    "value": "made its surface wet",
+    "label": "made its surface wet",
+    "text": "made its surface wet"
+   },
+   {
+    "value": "made the snail's shell larger",
+    "label": "made the snail's shell larger",
+    "text": "made the snail's shell larger"
+   }
+  ],
+  "answer": "made its surface wet",
+  "correctAnswer": "made its surface wet",
+  "distractorRationales": {
+   "made the soil blow away": "D-PLAUSIBLE-UNSUPPORTED",
+   "made the whole path disappear": "D-PLAUSIBLE-UNSUPPORTED",
+   "made the snail's shell larger": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.B.find_effect.v41",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for find effect. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.cause_effect.l1.C.find_cause.v42",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "cause_effect_cell",
+  "itemKey": "find_cause",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Why did the paper mat tear?",
+  "question": "Why did the paper mat tear?",
+  "spokenPrompt": "Why did the paper mat tear?",
+  "passage": "Ravi put his bowl on a thin paper mat. Some soup spilled over the side. The paper became soggy and tore when lifted. Ravi used a cloth to wipe the table. Next time, he chose a washable mat.",
+  "cell": "find_cause",
+  "choices": [
+   "liquid had weakened the paper",
+   "the bowl had been put away",
+   "the table had been wiped clean",
+   "the new mat was washable"
+  ],
+  "answerOptions": [
+   {
+    "value": "liquid had weakened the paper",
+    "label": "liquid had weakened the paper",
+    "text": "liquid had weakened the paper"
+   },
+   {
+    "value": "the bowl had been put away",
+    "label": "the bowl had been put away",
+    "text": "the bowl had been put away"
+   },
+   {
+    "value": "the table had been wiped clean",
+    "label": "the table had been wiped clean",
+    "text": "the table had been wiped clean"
+   },
+   {
+    "value": "the new mat was washable",
+    "label": "the new mat was washable",
+    "text": "the new mat was washable"
+   }
+  ],
+  "answer": "liquid had weakened the paper",
+  "correctAnswer": "liquid had weakened the paper",
+  "distractorRationales": {
+   "the bowl had been put away": "D-PLAUSIBLE-UNSUPPORTED",
+   "the table had been wiped clean": "D-PLAUSIBLE-UNSUPPORTED",
+   "the new mat was washable": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.C.find_cause.v42",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for find cause. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.cause_effect.l1.A.find_cause.v43",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "find_cause",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Why did the ball stop before reaching the road?",
+  "question": "Why did the ball stop before reaching the road?",
+  "spokenPrompt": "Why did the ball stop before reaching the road?",
+  "passage": "A football rolled towards the road through a gap. Hana shut the gate before it reached her. The ball struck the gate and stopped. She picked it up and returned to play. The gate stayed shut throughout the game.",
+  "cell": "find_cause",
+  "choices": [
+   "a passing car carried it away",
+   "the children ended their game early",
+   "a closed barrier blocked its way",
+   "someone kicked it in another direction"
+  ],
+  "answerOptions": [
+   {
+    "value": "a passing car carried it away",
+    "label": "a passing car carried it away",
+    "text": "a passing car carried it away"
+   },
+   {
+    "value": "the children ended their game early",
+    "label": "the children ended their game early",
+    "text": "the children ended their game early"
+   },
+   {
+    "value": "a closed barrier blocked its way",
+    "label": "a closed barrier blocked its way",
+    "text": "a closed barrier blocked its way"
+   },
+   {
+    "value": "someone kicked it in another direction",
+    "label": "someone kicked it in another direction",
+    "text": "someone kicked it in another direction"
+   }
+  ],
+  "answer": "a closed barrier blocked its way",
+  "correctAnswer": "a closed barrier blocked its way",
+  "distractorRationales": {
+   "someone kicked it in another direction": "D-PLAUSIBLE-UNSUPPORTED",
+   "a passing car carried it away": "D-PLAUSIBLE-UNSUPPORTED",
+   "the children ended their game early": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.A.find_cause.v43",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for find cause. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.cause_effect.l1.B.because_sentence.v44",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "cause_effect_cell",
+  "itemKey": "because_sentence",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Why did water stop collecting in the bowl?",
+  "question": "Why did water stop collecting in the bowl?",
+  "spokenPrompt": "Why did water stop collecting in the bowl?",
+  "passage": "The class placed a bowl beneath a dripping tap. By lunchtime, the bowl was nearly full. The caretaker tightened a loose part inside the tap. The dripping stopped, and no more water collected. The class emptied the bowl onto thirsty plants.",
+  "cell": "because_sentence",
+  "choices": [
+   "the plants had been watered",
+   "the children had eaten lunch",
+   "the bowl had changed colour",
+   "the leak had been repaired"
+  ],
+  "answerOptions": [
+   {
+    "value": "the plants had been watered",
+    "label": "the plants had been watered",
+    "text": "the plants had been watered"
+   },
+   {
+    "value": "the children had eaten lunch",
+    "label": "the children had eaten lunch",
+    "text": "the children had eaten lunch"
+   },
+   {
+    "value": "the bowl had changed colour",
+    "label": "the bowl had changed colour",
+    "text": "the bowl had changed colour"
+   },
+   {
+    "value": "the leak had been repaired",
+    "label": "the leak had been repaired",
+    "text": "the leak had been repaired"
+   }
+  ],
+  "answer": "the leak had been repaired",
+  "correctAnswer": "the leak had been repaired",
+  "distractorRationales": {
+   "the plants had been watered": "D-PLAUSIBLE-UNSUPPORTED",
+   "the children had eaten lunch": "D-PLAUSIBLE-UNSUPPORTED",
+   "the bowl had changed colour": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.B.because_sentence.v44",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for because sentence. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.cause_effect.l1.C.because_sentence.v45",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "cause_effect_cell",
+  "itemKey": "because_sentence",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Why did the children move the seedling?",
+  "question": "Why did the children move the seedling?",
+  "spokenPrompt": "Why did the children move the seedling?",
+  "passage": "A seedling stood in a dark cupboard by mistake. Its stem grew pale and bent towards a crack. The children moved it onto a bright windowsill. New leaves soon looked greener and stronger. They remembered to check its water each morning.",
+  "cell": "because_sentence",
+  "choices": [
+   "it needed a smaller pot",
+   "it needed a brighter growing place",
+   "its cupboard needed more darkness",
+   "its leaves had already fallen off"
+  ],
+  "answerOptions": [
+   {
+    "value": "it needed a smaller pot",
+    "label": "it needed a smaller pot",
+    "text": "it needed a smaller pot"
+   },
+   {
+    "value": "it needed a brighter growing place",
+    "label": "it needed a brighter growing place",
+    "text": "it needed a brighter growing place"
+   },
+   {
+    "value": "its cupboard needed more darkness",
+    "label": "its cupboard needed more darkness",
+    "text": "its cupboard needed more darkness"
+   },
+   {
+    "value": "its leaves had already fallen off",
+    "label": "its leaves had already fallen off",
+    "text": "its leaves had already fallen off"
+   }
+  ],
+  "answer": "it needed a brighter growing place",
+  "correctAnswer": "it needed a brighter growing place",
+  "distractorRationales": {
+   "its leaves had already fallen off": "D-PLAUSIBLE-UNSUPPORTED",
+   "it needed a smaller pot": "D-PLAUSIBLE-UNSUPPORTED",
+   "its cupboard needed more darkness": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.C.because_sentence.v45",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for because sentence. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.cause_effect.l2.A.chain.v46",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "chain",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which chain correctly links the damage?",
+  "question": "Which chain correctly links the damage?",
+  "spokenPrompt": "Which chain correctly links the damage?",
+  "passage": "A loose tile let rain enter the roof of a shed. Water dripped onto a cardboard box holding paper decorations. By morning, the bottom of the box had become soft. When the caretaker lifted it, the bottom split open. The decorations fell out and some were too wet to use. The class spread the dry ones on a table. They repaired the roof before storing anything in the shed again. Replacing only the box would not have stopped the original problem.",
+  "cell": "chain",
+  "choices": [
+   "wet decorations repaired the roof and dried the cardboard",
+   "a new box stopped rain falling onto the school shed",
+   "a roof gap let water weaken the box until it broke",
+   "a broken box pushed a tile loose and caused rain"
+  ],
+  "answerOptions": [
+   {
+    "value": "wet decorations repaired the roof and dried the cardboard",
+    "label": "wet decorations repaired the roof and dried the cardboard",
+    "text": "wet decorations repaired the roof and dried the cardboard"
+   },
+   {
+    "value": "a new box stopped rain falling onto the school shed",
+    "label": "a new box stopped rain falling onto the school shed",
+    "text": "a new box stopped rain falling onto the school shed"
+   },
+   {
+    "value": "a roof gap let water weaken the box until it broke",
+    "label": "a roof gap let water weaken the box until it broke",
+    "text": "a roof gap let water weaken the box until it broke"
+   },
+   {
+    "value": "a broken box pushed a tile loose and caused rain",
+    "label": "a broken box pushed a tile loose and caused rain",
+    "text": "a broken box pushed a tile loose and caused rain"
+   }
+  ],
+  "answer": "a roof gap let water weaken the box until it broke",
+  "correctAnswer": "a roof gap let water weaken the box until it broke",
+  "distractorRationales": {
+   "a new box stopped rain falling onto the school shed": "D-PLAUSIBLE-UNSUPPORTED",
+   "a broken box pushed a tile loose and caused rain": "D-PLAUSIBLE-UNSUPPORTED",
+   "wet decorations repaired the roof and dried the cardboard": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.A.chain.v46",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for chain. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.cause_effect.l2.B.chain.v47",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "cause_effect_cell",
+  "itemKey": "chain",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Why did families have to wait longer at the final stop?",
+  "question": "Why did families have to wait longer at the final stop?",
+  "spokenPrompt": "Why did families have to wait longer at the final stop?",
+  "passage": "A delivery van parked across the entrance to the narrow lane. The school bus could not pass it on the way home. Its driver waited while a helper found the van's owner. By the time the entrance was clear, ten minutes had passed. The bus reached its final stop later than usual. A teacher called the waiting families to explain the delay. No one on the bus had been hurt or lost. The problem began with where the delivery van had stopped.",
+  "cell": "chain",
+  "choices": [
+   "the pupils could not find their places on the bus",
+   "an obstruction earlier on the route delayed the bus",
+   "the bus driver forgot where the final stop was",
+   "a teacher kept every family talking on the phone"
+  ],
+  "answerOptions": [
+   {
+    "value": "the pupils could not find their places on the bus",
+    "label": "the pupils could not find their places on the bus",
+    "text": "the pupils could not find their places on the bus"
+   },
+   {
+    "value": "an obstruction earlier on the route delayed the bus",
+    "label": "an obstruction earlier on the route delayed the bus",
+    "text": "an obstruction earlier on the route delayed the bus"
+   },
+   {
+    "value": "the bus driver forgot where the final stop was",
+    "label": "the bus driver forgot where the final stop was",
+    "text": "the bus driver forgot where the final stop was"
+   },
+   {
+    "value": "a teacher kept every family talking on the phone",
+    "label": "a teacher kept every family talking on the phone",
+    "text": "a teacher kept every family talking on the phone"
+   }
+  ],
+  "answer": "an obstruction earlier on the route delayed the bus",
+  "correctAnswer": "an obstruction earlier on the route delayed the bus",
+  "distractorRationales": {
+   "the bus driver forgot where the final stop was": "D-PLAUSIBLE-UNSUPPORTED",
+   "a teacher kept every family talking on the phone": "D-PLAUSIBLE-UNSUPPORTED",
+   "the pupils could not find their places on the bus": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.B.chain.v47",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for chain. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.cause_effect.l2.C.multiple_causes.v48",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "cause_effect_cell",
+  "itemKey": "multiple_causes",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which two problems caused boats to sink in this test?",
+  "question": "Which two problems caused boats to sink in this test?",
+  "spokenPrompt": "Which two problems caused boats to sink in this test?",
+  "passage": "The class tested why their paper boats kept sinking. One boat had a small tear along its folded bottom. Another carried several heavy pebbles instead of one light bead. Water entered the first boat through the torn paper. The second boat sat so low that water spilled over. Both boats sank, but the routes for water were different. The class made a fresh boat with sound folds. They loaded it lightly and watched it float across the tray.",
+  "cell": "multiple_causes",
+  "choices": [
+   "a fresh boat and a journey across the water",
+   "a damaged base and a load that was too heavy",
+   "a light bead and paper folded without a tear",
+   "a wide tray and water poured into it carefully"
+  ],
+  "answerOptions": [
+   {
+    "value": "a fresh boat and a journey across the water",
+    "label": "a fresh boat and a journey across the water",
+    "text": "a fresh boat and a journey across the water"
+   },
+   {
+    "value": "a damaged base and a load that was too heavy",
+    "label": "a damaged base and a load that was too heavy",
+    "text": "a damaged base and a load that was too heavy"
+   },
+   {
+    "value": "a light bead and paper folded without a tear",
+    "label": "a light bead and paper folded without a tear",
+    "text": "a light bead and paper folded without a tear"
+   },
+   {
+    "value": "a wide tray and water poured into it carefully",
+    "label": "a wide tray and water poured into it carefully",
+    "text": "a wide tray and water poured into it carefully"
+   }
+  ],
+  "answer": "a damaged base and a load that was too heavy",
+  "correctAnswer": "a damaged base and a load that was too heavy",
+  "distractorRationales": {
+   "a fresh boat and a journey across the water": "D-PLAUSIBLE-UNSUPPORTED",
+   "a light bead and paper folded without a tear": "D-PLAUSIBLE-UNSUPPORTED",
+   "a wide tray and water poured into it carefully": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.C.multiple_causes.v48",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for multiple causes. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.cause_effect.l2.A.multiple_causes.v49",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "cause_effect_cell",
+  "itemKey": "multiple_causes",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What did the two groups of plants need improved?",
+  "question": "What did the two groups of plants need improved?",
+  "spokenPrompt": "What did the two groups of plants need improved?",
+  "passage": "Our seed trays stood on two shelves in the classroom. The top shelf was sunny but sometimes too dry. Plants there wilted whenever we forgot to water them. The lower shelf stayed damp but received very little light. Its seedlings grew long, pale stems reaching towards the window. We moved both trays where they could receive light. A rota reminded us to check the soil every morning. Extra water alone would not have solved both problems.",
+  "cell": "multiple_causes",
+  "choices": [
+   "larger labels for one group and fewer labels for the other",
+   "more darkness for one group and less soil for the other",
+   "new shelves for one group and deeper trays for the other",
+   "water for one group and light for the other"
+  ],
+  "answerOptions": [
+   {
+    "value": "larger labels for one group and fewer labels for the other",
+    "label": "larger labels for one group and fewer labels for the other",
+    "text": "larger labels for one group and fewer labels for the other"
+   },
+   {
+    "value": "more darkness for one group and less soil for the other",
+    "label": "more darkness for one group and less soil for the other",
+    "text": "more darkness for one group and less soil for the other"
+   },
+   {
+    "value": "new shelves for one group and deeper trays for the other",
+    "label": "new shelves for one group and deeper trays for the other",
+    "text": "new shelves for one group and deeper trays for the other"
+   },
+   {
+    "value": "water for one group and light for the other",
+    "label": "water for one group and light for the other",
+    "text": "water for one group and light for the other"
+   }
+  ],
+  "answer": "water for one group and light for the other",
+  "correctAnswer": "water for one group and light for the other",
+  "distractorRationales": {
+   "more darkness for one group and less soil for the other": "D-PLAUSIBLE-UNSUPPORTED",
+   "new shelves for one group and deeper trays for the other": "D-PLAUSIBLE-UNSUPPORTED",
+   "larger labels for one group and fewer labels for the other": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.A.multiple_causes.v49",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for multiple causes. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.cause_effect.l2.B.reversal_trap.v50",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "cause_effect_cell",
+  "itemKey": "reversal_trap",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which statement gives the cause in the correct direction?",
+  "question": "Which statement gives the cause in the correct direction?",
+  "spokenPrompt": "Which statement gives the cause in the correct direction?",
+  "passage": "Before the morning lesson, a branch fell onto a power line. The lights in the school went out soon afterwards. The teacher opened the blinds so the room was easier to see. Pupils moved their books closer to the windows. A repair team removed the branch and restored the supply. The lights came back on during lunchtime. Nobody at school had switched off the supply to the building. The open blinds helped the class, but did not repair the line.",
+  "cell": "reversal_trap",
+  "choices": [
+   "opening the blinds broke the line beside the school",
+   "moving the books stopped electricity reaching the building",
+   "damage to the line led to the loss of electricity",
+   "the dark classroom made the branch fall onto the line"
+  ],
+  "answerOptions": [
+   {
+    "value": "opening the blinds broke the line beside the school",
+    "label": "opening the blinds broke the line beside the school",
+    "text": "opening the blinds broke the line beside the school"
+   },
+   {
+    "value": "moving the books stopped electricity reaching the building",
+    "label": "moving the books stopped electricity reaching the building",
+    "text": "moving the books stopped electricity reaching the building"
+   },
+   {
+    "value": "damage to the line led to the loss of electricity",
+    "label": "damage to the line led to the loss of electricity",
+    "text": "damage to the line led to the loss of electricity"
+   },
+   {
+    "value": "the dark classroom made the branch fall onto the line",
+    "label": "the dark classroom made the branch fall onto the line",
+    "text": "the dark classroom made the branch fall onto the line"
+   }
+  ],
+  "answer": "damage to the line led to the loss of electricity",
+  "correctAnswer": "damage to the line led to the loss of electricity",
+  "distractorRationales": {
+   "the dark classroom made the branch fall onto the line": "D-CAUSE-REVERSE",
+   "opening the blinds broke the line beside the school": "D-PLAUSIBLE-UNSUPPORTED",
+   "moving the books stopped electricity reaching the building": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.B.reversal_trap.v50",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Distinguish the initiating damage to the power line from the blackout and later classroom responses. The dark-room distractor reverses cause and effect; moving books and opening blinds follow the fault."
+ },
+ {
+  "id": "lp3.cause_effect.l2.C.reversal_trap.v51",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "cause_effect",
+  "assessmentSkillId": "cause_effect",
+  "skillName": "Cause and Effect",
+  "skill": "Cause and Effect",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "cause_effect_cell",
+  "itemKey": "reversal_trap",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Why were the barriers put across the path?",
+  "question": "Why were the barriers put across the path?",
+  "spokenPrompt": "Why were the barriers put across the path?",
+  "passage": "The path beside the river was closed after heavy rain. Fast water had washed soil away beneath part of it. A deep hollow made the surface unsafe for walkers. Workers put barriers at both ends of the damaged stretch. People used a longer route across the park instead. Some complained that the barriers made their journeys slower. The workers explained that the barriers were a response to danger. Once the ground was repaired, they could reopen the short route safely.",
+  "cell": "reversal_trap",
+  "choices": [
+   "people had chosen to walk the longer park route",
+   "workers wanted to make the rain last longer",
+   "rain had left the ground underneath unsafe",
+   "the barriers had washed soil into the river"
+  ],
+  "answerOptions": [
+   {
+    "value": "people had chosen to walk the longer park route",
+    "label": "people had chosen to walk the longer park route",
+    "text": "people had chosen to walk the longer park route"
+   },
+   {
+    "value": "workers wanted to make the rain last longer",
+    "label": "workers wanted to make the rain last longer",
+    "text": "workers wanted to make the rain last longer"
+   },
+   {
+    "value": "rain had left the ground underneath unsafe",
+    "label": "rain had left the ground underneath unsafe",
+    "text": "rain had left the ground underneath unsafe"
+   },
+   {
+    "value": "the barriers had washed soil into the river",
+    "label": "the barriers had washed soil into the river",
+    "text": "the barriers had washed soil into the river"
+   }
+  ],
+  "answer": "rain had left the ground underneath unsafe",
+  "correctAnswer": "rain had left the ground underneath unsafe",
+  "distractorRationales": {
+   "the barriers had washed soil into the river": "D-CAUSE-REVERSE",
+   "people had chosen to walk the longer park route": "D-CAUSE-STEP",
+   "workers wanted to make the rain last longer": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.C.reversal_trap.v51",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cause_effect.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Trace rain to lost soil, unsafe ground and protective barriers. The barrier distractor reverses cause and effect; the longer route is a later consequence, not the reason for closure."
  }
 ];

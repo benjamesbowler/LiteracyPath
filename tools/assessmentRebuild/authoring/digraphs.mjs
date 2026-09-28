@@ -1,3 +1,4 @@
+import depthItems from "./depth/digraphs.mjs";
 // Digraphs — v3 authored bank (wave W1, paired with long_vowels_silent_e).
 // Fixes the self-answering "uses the ch digraph" template: prompts use anchor
 // words, never the pattern name. Final-position coverage is real (dish, bath,
@@ -48,7 +49,7 @@ const cw = (u, lvl, ph, v, _img, blanked, word, distractors, pos, note = "") => 
   note: note || `${word}: the blank hides the digraph, so nothing leaks in print`
 });
 
-export default {
+const bank = {
   skillId: "digraphs",
   skillName: "Digraphs",
   imageResolver: makeImageResolver(["digraphs", "blends", "long-vowels", "hfw"]),
@@ -278,3 +279,6 @@ export default {
     return item;
   })
 };
+
+bank.items.push(...depthItems);
+export default bank;

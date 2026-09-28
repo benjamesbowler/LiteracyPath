@@ -31,18 +31,19 @@ function HearPicture({ choice, disabled, onHear }) {
 function ChoiceActivity({ round, disabled, onCommit, onHear, onMediaFailure, supportLevel }) {
   const [selected, setSelected] = useState(null);
   const lock = useRef(false);
+  const pictureNamesUsed = useRef(false);
   const pictureChoice = round.mechanicId === "pictureSound" || round.mechanicId === "rhymeMatch" || round.variant === "wordParts";
   const rhyme = round.mechanicId === "rhymeMatch";
   const select = choice => {
     if (disabled || lock.current) return;
     lock.current = true;
     setSelected(choice.value);
-    if (onCommit({ correct: String(choice.value) === String(round.answer), selected: choice.value, evidence: { supportLevel } }) === false) {
+    if (onCommit({ correct: String(choice.value) === String(round.answer), selected: choice.value, evidence: { supportLevel, ...(pictureNamesUsed.current ? { independent: false, supportUsed: ['picture_name_replay'] } : {}) } }) === false) {
       lock.current = false; setSelected(null);
     }
   };
   return <div className={`cycle-choice-play cycle-choice-play--${round.mechanicId}`}>
-    {round.mechanicId === "pictureSound" ? <div className="cycle-sound-sun" aria-label={`Find the ${round.targetGrapheme} sound`}><span>{round.targetGrapheme}</span><SpeakerIcon /></div> :
+    {round.mechanicId === "pictureSound" ? round.variant === 'wordMeaning' ? null : <div className="cycle-sound-sun" aria-label={`Find the ${round.targetGrapheme} sound`}><span>{round.targetGrapheme}</span><SpeakerIcon /></div> :
       <div className={`cycle-picture-model${rhyme ? " cycle-picture-model--rhyme" : ""}`}>
         <Picture src={round.image} word={round.imageWord || round.targetWord} onFailure={onMediaFailure} />
         {round.mechanicId === "letterMatch" && round.variant !== "wordListen" && <span className="cycle-model-letter" aria-hidden="true">{round.variant === "letterCase" ? round.model : "?"}</span>}
@@ -55,7 +56,7 @@ function ChoiceActivity({ round, disabled, onCommit, onHear, onMediaFailure, sup
           {pictureChoice ? <Picture src={choice.image} word={choice.label} onFailure={onMediaFailure} /> : <span>{choice.label || choice.value}</span>}
           <span className="cycle-choice-marker" aria-hidden="true">{selected === choice.value && <CycleIcon name={String(choice.value) === String(round.answer) ? "tick" : "retry"} />}</span>
         </ActivityButton>
-        {pictureChoice && <HearPicture choice={choice} disabled={disabled} onHear={onHear} />}
+        {pictureChoice && <HearPicture choice={choice} disabled={disabled} onHear={(...args) => { if (round.variant === 'wordMeaning') pictureNamesUsed.current = true; onHear?.(...args); }} />}
       </div>)}
     </div>
   </div>;
@@ -64,12 +65,14 @@ function ChoiceActivity({ round, disabled, onCommit, onHear, onMediaFailure, sup
 function WordBuild({ round, disabled, feedbackPending, onCommit, onHear, onMediaFailure, supportLevel, onStep }) {
   const expected = Array.isArray(round.answer) ? round.answer : (round.letters || round.graphemes || [...String(round.answer || round.targetWord)]);
   const changing = round.variant === "wordChange";
-  const [built, setBuilt] = useState(() => changing ? [...round.beforeLetters] : []);
+  const completing = round.variant === "wordComplete";
+  const [built, setBuilt] = useState(() => changing ? [...round.beforeLetters] : completing ? [...round.initialLetters] : []);
   const [changeSlot, setChangeSlot] = useState(null);
-  const nextIndex = changing ? changeSlot : built.length;
+  const nextIndex = changing ? changeSlot : completing ? round.missingIndex : built.length;
   const [miss, setMiss] = useState(null);
   const locked = useRef(false);
   const model = round.modelWord || (round.variant === "highFrequency" ? round.targetWord : "");
+  const completionEvidence = completing ? { independent: false, supportUsed: ['partial_spelling_model'], missingIndex: round.missingIndex } : {};
   useEffect(() => {
     if (feedbackPending || !locked.current) return;
     locked.current = false;
@@ -81,16 +84,16 @@ function WordBuild({ round, disabled, feedbackPending, onCommit, onHear, onMedia
     if (value !== String(expected[nextIndex]) || (changing && nextIndex !== round.changeIndex)) {
       locked.current = true;
       setMiss(value);
-      const accepted = onCommit({ correct: false, selected: changing ? built.map((letter, index) => index === nextIndex ? value : letter) : [...built, value], evidence: { supportLevel, ...(model ? { independent: false, supportUsed: ["visible_word_model"] } : {}) } });
+      const accepted = onCommit({ correct: false, selected: changing || completing ? built.map((letter, index) => index === nextIndex ? value : letter) : [...built, value], evidence: { supportLevel, ...completionEvidence, ...(model ? { independent: false, supportUsed: ["visible_word_model"] } : {}) } });
       if (accepted === false) { locked.current = false; setMiss(null); }
       return;
     }
-    const next = changing ? built.map((letter, index) => index === nextIndex ? value : letter) : [...built, value];
+    const next = changing || completing ? built.map((letter, index) => index === nextIndex ? value : letter) : [...built, value];
     setBuilt(next);
     onStep?.(choice.audio);
     if (next.length === expected.length && next.every(Boolean)) {
       locked.current = true;
-      const accepted = onCommit({ correct: true, selected: next, evidence: { supportLevel, ...(model ? { independent: false, supportUsed: ["visible_word_model"] } : {}) } });
+      const accepted = onCommit({ correct: true, selected: next, evidence: { supportLevel, ...completionEvidence, ...(model ? { independent: false, supportUsed: ["visible_word_model"] } : {}) } });
       if (accepted === false) { locked.current = false; setBuilt(built); }
     }
   };

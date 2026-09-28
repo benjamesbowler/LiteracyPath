@@ -105,6 +105,7 @@ export function isFutureElQuestProgress(value) {
 }
 
 const LATEST_RUN_FIELDS = Object.freeze([
+  "lastCheck",
   "recoveries",
   "sampledConstructs",
   "lastRunSeed",

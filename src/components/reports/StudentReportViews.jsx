@@ -2,6 +2,7 @@ import { ReportSkeleton, ReportState } from "./StudentReportShell.jsx";
 import { reportStatusLabel } from "./studentReportUiUtils.js";
 import { MetricFigure } from "../MetricDefinition.jsx";
 import { teacherReportText } from "./teacherReportCopy.jsx";
+import { LearningEvidenceProfile } from "./LearningEvidenceProfile.jsx";
 
 function asArray(value) {
   return Array.isArray(value) ? value : [];
@@ -237,6 +238,8 @@ export function OtherLearningReportView({ report = {} }) {
   const sound = report.soundSeekers || report.sound_seekers || {};
   const arcade = report.arcade || {};
   const stories = report.storyQuests || report.story_quests || {};
+  const adventure = report.adventureMap || {};
+  const adventureRows = asArray(adventure.cycles);
   const soundRows = asArray(sound.items || sound.sounds || sound.heat);
   const soundInteractionEvidence = asArray(sound.interactionEvidence);
   const gameRows = asArray(arcade.games || arcade.items);
@@ -246,12 +249,13 @@ export function OtherLearningReportView({ report = {} }) {
     || soundInteractionEvidence.some(row => !/^no /i.test(String(row.value || "")))
     || gameRows.length
     || questRows.length
+    || adventureRows.length
     || Number(arcade.gamesPlayed || 0) > 0;
 
   if (!hasEvidence) {
     return (
       <ReportState title="No practice results yet">
-        <p>Sound Seekers, Arcade, and Story Quest activity will appear here after the student begins practising.</p>
+        <p>Adventure Map, Sound Seekers, Arcade, and Story Quest activity will appear here after the student begins practising.</p>
       </ReportState>
     );
   }
@@ -265,6 +269,18 @@ export function OtherLearningReportView({ report = {} }) {
   return (
     <div className="lg-report-view-stack">
       <p className="lg-report-practice-note">Practice results support teacher judgment but are not formal assessment results.</p>
+
+      {adventureRows.length > 0 && (
+        <ReportSection title="Adventure Map" description={adventure.note}>
+          {adventureRows.map(cycle => (
+            <div key={cycle.cycleId}>
+              <p>{cycle.plays} recorded {cycle.plays === 1 ? "run" : "runs"}{cycle.completedStations === null ? " · Station completion not recorded" : ` · ${cycle.completedStations} activity stations completed`}{cycle.lastPlayedAt ? ` · Latest: ${new Date(cycle.lastPlayedAt).toLocaleDateString()}` : ""}</p>
+              {cycle.snapshotStatus === "unverified" && <p>Question details could not be matched to the latest run. Participation is shown; independent responses are not inferred.</p>}
+              <LearningEvidenceProfile profile={cycle.profile} title={cycle.title} />
+            </div>
+          ))}
+        </ReportSection>
+      )}
 
       <ReportSection description="Independent sound results collected during the trail." title="Sound Seekers">
         {soundGroups.some(([, rows]) => rows.length) ? (

@@ -7086,5 +7086,713 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "Hidden matches concealed; buried is one possible method, and lost does not require concealment."
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l1.A.antonym_concrete.v101",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "word_relation",
+  "itemKey": "antonym_concrete",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word means the opposite of ‘empty’?",
+  "question": "Which word means the opposite of ‘empty’?",
+  "spokenPrompt": "Which word means the opposite of ‘empty’?",
+  "choices": [
+   "hollow",
+   "vacant",
+   "bare",
+   "full"
+  ],
+  "answerOptions": [
+   {
+    "value": "hollow",
+    "label": "hollow",
+    "text": "hollow"
+   },
+   {
+    "value": "vacant",
+    "label": "vacant",
+    "text": "vacant"
+   },
+   {
+    "value": "bare",
+    "label": "bare",
+    "text": "bare"
+   },
+   {
+    "value": "full",
+    "label": "full",
+    "text": "full"
+   }
+  ],
+  "answer": "full",
+  "correctAnswer": "full",
+  "distractorRationales": {
+   "hollow": "D-SAME-DOMAIN",
+   "vacant": "D-SAME-DOMAIN",
+   "bare": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l1.A.antonym_concrete.v101",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Contents contrast: the other words share absence rather than an unrelated category."
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l1.B.synonym_concrete.v102",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "word_relation",
+  "itemKey": "synonym_concrete",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word means the same as ‘begin’?",
+  "question": "Which word means the same as ‘begin’?",
+  "spokenPrompt": "Which word means the same as ‘begin’?",
+  "choices": [
+   "pause",
+   "restart",
+   "start",
+   "finish"
+  ],
+  "answerOptions": [
+   {
+    "value": "pause",
+    "label": "pause",
+    "text": "pause"
+   },
+   {
+    "value": "restart",
+    "label": "restart",
+    "text": "restart"
+   },
+   {
+    "value": "start",
+    "label": "start",
+    "text": "start"
+   },
+   {
+    "value": "finish",
+    "label": "finish",
+    "text": "finish"
+   }
+  ],
+  "answer": "start",
+  "correctAnswer": "start",
+  "distractorRationales": {
+   "restart": "D-SAME-DOMAIN",
+   "finish": "D-OPPOSITE",
+   "pause": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l1.B.synonym_concrete.v102",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "All options concern the stage of an action; only start is equivalent."
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l1.C.antonym_picture.v103",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "word_relation",
+  "itemKey": "antonym_picture",
+  "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which pair has opposite meanings?",
+  "question": "Which pair has opposite meanings?",
+  "spokenPrompt": "Which pair has opposite meanings?",
+  "choices": [
+   "awake — alert",
+   "awake — watchful",
+   "awake — wakeful",
+   "awake — asleep"
+  ],
+  "answerOptions": [
+   {
+    "value": "awake — alert",
+    "label": "awake — alert",
+    "text": "awake — alert"
+   },
+   {
+    "value": "awake — watchful",
+    "label": "awake — watchful",
+    "text": "awake — watchful"
+   },
+   {
+    "value": "awake — wakeful",
+    "label": "awake — wakeful",
+    "text": "awake — wakeful"
+   },
+   {
+    "value": "awake — asleep",
+    "label": "awake — asleep",
+    "text": "awake — asleep"
+   }
+  ],
+  "answer": "awake — asleep",
+  "correctAnswer": "awake — asleep",
+  "distractorRationales": {
+   "awake — alert": "D-SAME-DOMAIN",
+   "awake — watchful": "D-SAME-DOMAIN",
+   "awake — wakeful": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l1.C.antonym_picture.v103",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Familiar state contrast with same-domain distractors, not a subjective face image."
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l1.A.synonym_picture.v104",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "word_relation",
+  "itemKey": "synonym_picture",
+  "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which pair has the same meaning?",
+  "question": "Which pair has the same meaning?",
+  "spokenPrompt": "Which pair has the same meaning?",
+  "choices": [
+   "shut — close",
+   "shut — open",
+   "shut — lock",
+   "shut — slam"
+  ],
+  "answerOptions": [
+   {
+    "value": "shut — close",
+    "label": "shut — close",
+    "text": "shut — close"
+   },
+   {
+    "value": "shut — open",
+    "label": "shut — open",
+    "text": "shut — open"
+   },
+   {
+    "value": "shut — lock",
+    "label": "shut — lock",
+    "text": "shut — lock"
+   },
+   {
+    "value": "shut — slam",
+    "label": "shut — slam",
+    "text": "shut — slam"
+   }
+  ],
+  "answer": "shut — close",
+  "correctAnswer": "shut — close",
+  "distractorRationales": {
+   "shut — slam": "D-SAME-DOMAIN",
+   "shut — open": "D-OPPOSITE",
+   "shut — lock": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l1.A.synonym_picture.v104",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Locking or slamming adds a different action; closing alone matches shut."
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l2.B.antonym_precise.v105",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "word_relation",
+  "itemKey": "antonym_precise",
+  "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word is the opposite of ‘generous’?",
+  "question": "Which word is the opposite of ‘generous’?",
+  "spokenPrompt": "Which word is the opposite of ‘generous’?",
+  "choices": [
+   "giving",
+   "kind",
+   "helpful",
+   "selfish"
+  ],
+  "answerOptions": [
+   {
+    "value": "giving",
+    "label": "giving",
+    "text": "giving"
+   },
+   {
+    "value": "kind",
+    "label": "kind",
+    "text": "kind"
+   },
+   {
+    "value": "helpful",
+    "label": "helpful",
+    "text": "helpful"
+   },
+   {
+    "value": "selfish",
+    "label": "selfish",
+    "text": "selfish"
+   }
+  ],
+  "answer": "selfish",
+  "correctAnswer": "selfish",
+  "distractorRationales": {
+   "giving": "D-SAME-DOMAIN",
+   "kind": "D-SAME-DOMAIN",
+   "helpful": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l2.B.antonym_precise.v105",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Precise social meaning; distractors are positive related traits, not merely unrelated adjectives."
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l2.C.synonym_shade.v106",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "word_relation",
+  "itemKey": "synonym_shade",
+  "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word means ‘walk slowly for pleasure’?",
+  "question": "Which word means ‘walk slowly for pleasure’?",
+  "spokenPrompt": "Which word means ‘walk slowly for pleasure’?",
+  "choices": [
+   "dash",
+   "creep",
+   "stroll",
+   "march"
+  ],
+  "answerOptions": [
+   {
+    "value": "dash",
+    "label": "dash",
+    "text": "dash"
+   },
+   {
+    "value": "creep",
+    "label": "creep",
+    "text": "creep"
+   },
+   {
+    "value": "stroll",
+    "label": "stroll",
+    "text": "stroll"
+   },
+   {
+    "value": "march",
+    "label": "march",
+    "text": "march"
+   }
+  ],
+  "answer": "stroll",
+  "correctAnswer": "stroll",
+  "distractorRationales": {
+   "march": "D-SAME-DOMAIN",
+   "dash": "D-SAME-DOMAIN",
+   "creep": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l2.C.synonym_shade.v106",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Pace and purpose distinguish strolling from rhythm, speed and stealth."
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l2.A.antonym_in_context.v107",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "word_relation",
+  "itemKey": "antonym_in_context",
+  "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word has the opposite meaning to ‘ancient’ here?",
+  "question": "Which word has the opposite meaning to ‘ancient’ here?",
+  "spokenPrompt": "Which word has the opposite meaning to ‘ancient’ here?",
+  "sentence": "The ancient tower has stood for hundreds of years.",
+  "choices": [
+   "historic",
+   "aged",
+   "modern",
+   "old"
+  ],
+  "answerOptions": [
+   {
+    "value": "historic",
+    "label": "historic",
+    "text": "historic"
+   },
+   {
+    "value": "aged",
+    "label": "aged",
+    "text": "aged"
+   },
+   {
+    "value": "modern",
+    "label": "modern",
+    "text": "modern"
+   },
+   {
+    "value": "old",
+    "label": "old",
+    "text": "old"
+   }
+  ],
+  "answer": "modern",
+  "correctAnswer": "modern",
+  "distractorRationales": {
+   "aged": "D-SAME-DOMAIN",
+   "old": "D-SAME-DOMAIN",
+   "historic": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The ancient tower has stood for hundreds of years.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l2.A.antonym_in_context.v107",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "The intended age sense is fixed by the building context."
+ },
+ {
+  "id": "lp3.antonyms_synonyms.l2.B.synonym_in_context.v108",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "antonyms_synonyms",
+  "assessmentSkillId": "antonyms_synonyms",
+  "skillName": "Antonyms & Synonyms",
+  "skill": "Antonyms & Synonyms",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "word_relation",
+  "itemKey": "synonym_in_context",
+  "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word can replace ‘faint’ without changing the meaning?",
+  "question": "Which word can replace ‘faint’ without changing the meaning?",
+  "spokenPrompt": "Which word can replace ‘faint’ without changing the meaning?",
+  "sentence": "A faint light glowed at the far end of the tunnel.",
+  "choices": [
+   "dim",
+   "bright",
+   "steady",
+   "flashing"
+  ],
+  "answerOptions": [
+   {
+    "value": "dim",
+    "label": "dim",
+    "text": "dim"
+   },
+   {
+    "value": "bright",
+    "label": "bright",
+    "text": "bright"
+   },
+   {
+    "value": "steady",
+    "label": "steady",
+    "text": "steady"
+   },
+   {
+    "value": "flashing",
+    "label": "flashing",
+    "text": "flashing"
+   }
+  ],
+  "answer": "dim",
+  "correctAnswer": "dim",
+  "distractorRationales": {
+   "bright": "D-OPPOSITE",
+   "steady": "D-SAME-DOMAIN",
+   "flashing": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "A faint light glowed at the far end of the tunnel.",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.antonyms_synonyms.l2.B.synonym_in_context.v108",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Context selects weak light rather than the collapse sense of faint."
  }
 ];

@@ -1,4 +1,4 @@
-// Individually authored comprehension evidence. Preserve stable item coordinates.
+// Individually authored comprehension evidence; stable item coordinates preserve saved attempts.
 export default {
   "skillId": "inference",
   "skillName": "Inference",
@@ -2498,6 +2498,390 @@ export default {
       ],
       "media": "text",
       "note": "Replace the second wet-umbrella inference with a mechanical diagnosis supported by elimination and a successful single-change repair."
+    },
+    {
+      "u": "feeling_from_evidence",
+      "lvl": 1,
+      "ph": 1,
+      "v": 40,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "feeling_from_evidence",
+      "media": "text",
+      "passage": "Mina opened a box from her old friend. Inside was the scarf she had lost. She pressed it to her cheek and smiled. Then she hurried to get a thank-you card. She kept the scarf beside her all evening.",
+      "prompt": "How does Mina probably feel?",
+      "choices": [
+        {
+          "t": "grateful",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "worried",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "jealous",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "bored",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for feeling from evidence. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "feeling_from_evidence",
+      "lvl": 1,
+      "ph": 2,
+      "v": 41,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "feeling_from_evidence",
+      "media": "text",
+      "passage": "Theo had practised tying his shoes for days. Today both bows stayed firm all morning. He showed them to everyone at the door. At playtime, he offered to help his friend. He grinned as he pointed to the bows.",
+      "prompt": "How does Theo probably feel about his new skill?",
+      "choices": [
+        {
+          "t": "pleased with himself",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "cross with his friend",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "afraid of going outside",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "sad about his shoes",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for feeling from evidence. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "where_am_i",
+      "lvl": 1,
+      "ph": 1,
+      "v": 42,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "where_am_i",
+      "media": "text",
+      "passage": "Rosa chose a loaf from a warm shelf. Trays of rolls stood behind the glass. A worker wore flour on her white apron. She wrapped Rosa's loaf in a paper bag. Rosa paid and carried it home for lunch.",
+      "prompt": "Where is Rosa most likely shopping?",
+      "choices": [
+        {
+          "t": "a bakery",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "a bookshop",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a toy shop",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a flower shop",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for where am i. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "where_am_i",
+      "lvl": 1,
+      "ph": 2,
+      "v": 43,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "where_am_i",
+      "media": "text",
+      "passage": "Rows of seats faced a wide red curtain. Ben found the number printed on his ticket. A bell rang, and people stopped chatting. The room grew dark as the curtain rose. Someone stepped forward beneath a bright lamp.",
+      "prompt": "Where has Ben most likely gone?",
+      "choices": [
+        {
+          "t": "a theatre",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "a playground",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a swimming pool",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "a grocery shop",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for where am i. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "what_happens_next",
+      "lvl": 1,
+      "ph": 1,
+      "v": 44,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "what_happens_next",
+      "media": "text",
+      "passage": "The class built a tall tower of blocks. Its bottom row had only two small pieces. Jo placed a heavy block on the top. The tower began to lean towards the rug. Everyone stepped away from the wobbling blocks.",
+      "prompt": "What will probably happen next?",
+      "choices": [
+        {
+          "t": "the tower will topple",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the tower will grow wider",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the bottom blocks will become larger",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the heavy block will float away",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for what happens next. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "what_happens_next",
+      "lvl": 1,
+      "ph": 2,
+      "v": 45,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "what_happens_next",
+      "media": "text",
+      "passage": "A puppy waited beside its empty water bowl. Its owner filled a jug at the tap. She carried the jug over and knelt down. The puppy wagged its tail and watched closely. She tipped fresh water into the bowl.",
+      "prompt": "What will the puppy probably do next?",
+      "choices": [
+        {
+          "t": "take a drink",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "fetch its lead",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "hide behind a chair",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "dig in the garden",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored concrete meaning probe for what happens next. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "why_did_they",
+      "lvl": 2,
+      "ph": 1,
+      "v": 46,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "why_did_they",
+      "media": "text",
+      "passage": "Eli usually chose the seat next to the classroom window. On Tuesday, he moved his chair beside a new pupil. The pupil had arrived that morning and spoke very quietly. Eli pointed to the picture timetable and showed his own work. At break, he waited while the new pupil found a coat. They walked outside together and joined a small group. Eli's usual friends waved to him from the far wall. He waved back but stayed with his new companion.",
+      "prompt": "Why did Eli probably change seats?",
+      "choices": [
+        {
+          "t": "to help someone feel included",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "to see the playground more clearly",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "to avoid finishing his own work",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "to keep his friends from the new pupil",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for why did they. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "why_did_they",
+      "lvl": 2,
+      "ph": 2,
+      "v": 47,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "why_did_they",
+      "media": "text",
+      "passage": "A group was building a model bridge from paper strips. Their first bridge bent in the middle under one small stone. Mara folded the next strips into shapes with straight ridges. She set the folded strips between the same two supports. This time the bridge held three stones before it bent. Mara drew both designs and counted the stones beside each. She asked the group to try another folded shape next. The size of the gap stayed the same for every test.",
+      "prompt": "Why did Mara keep the gap the same?",
+      "choices": [
+        {
+          "t": "to compare the designs under similar conditions",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "to make every bridge collapse after one stone",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "to avoid counting how many stones were used",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "to keep the paper from being folded again",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for why did they. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "what_went_unsaid",
+      "lvl": 2,
+      "ph": 1,
+      "v": 48,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "what_went_unsaid",
+      "media": "text",
+      "passage": "Each Friday, Sami borrowed a book from the class shelf. He always chose a thin book and returned it quickly. One week, the teacher offered to read its opening with him. Sami stayed after the others had left to play. He followed the words with his finger and asked about two. The next morning, he chose that same book again. At home time, he asked whether he could keep it longer. The teacher smiled and put a bookmark inside for him.",
+      "prompt": "What does Sami's change most strongly suggest?",
+      "choices": [
+        {
+          "t": "The shared start helped him want to continue reading.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "He wanted to stop choosing books from the class shelf.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "He had already memorised every book before that Friday.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "The teacher required him to miss every playtime that week.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for what went unsaid. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "what_went_unsaid",
+      "lvl": 2,
+      "ph": 2,
+      "v": 49,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "what_went_unsaid",
+      "media": "text",
+      "passage": "Leila's team had a spare ticket for the school match. At lunch, she heard Anya asking what time it began. Anya then counted the coins in her pocket and went quiet. Leila put the spare ticket beside Anya's lunch box. She said the team had one ticket they could not use. Anya looked up, smiled and folded it carefully into her pocket. After lunch, they planned where to meet before the match. Leila never mentioned the coins she had noticed.",
+      "prompt": "What is most likely true about Leila's choice?",
+      "choices": [
+        {
+          "t": "She offered help without drawing attention to Anya's money.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "She expected Anya to sell the ticket to someone else.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "She thought Anya already had several tickets for the match.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "She wanted Anya to stay away from the team's meeting.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for what went unsaid. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "evidence_pick",
+      "lvl": 2,
+      "ph": 1,
+      "v": 50,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "evidence_pick",
+      "media": "text",
+      "passage": "The class visited a workshop where a potter shaped clay. A wheel turned while her hands pressed the soft sides. When a pot leaned, she slowed the wheel and adjusted it. She did not throw away the uneven pot or hurry. She tried a small change, paused and looked again. Soon the rim stood level all the way around. The children watched without interrupting while she worked. Afterwards, one child praised her patience with the difficult task.",
+      "prompt": "Which detail best supports the child's view?",
+      "choices": [
+        {
+          "t": "She kept making careful adjustments instead of rushing.",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "She worked in a room with a turning wheel.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "The children visited the workshop together that morning.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "The clay was soft enough to shape with her hands.",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for evidence pick. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+    },
+    {
+      "u": "evidence_pick",
+      "lvl": 2,
+      "ph": 2,
+      "v": 51,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "evidence_pick",
+      "media": "text",
+      "passage": "The park had a sign asking visitors to protect new grass. A narrow path ran around the area marked with rope. On Saturday, fresh footprints crossed straight through the middle. A football lay beside the far fence, beyond the rope. The groundskeeper noticed flattened blades following the footprints towards the ball. Other parts of the new lawn were still upright. A child suggested someone had crossed the grass to collect it. The groundskeeper agreed, but nobody had actually seen the person cross.",
+      "prompt": "Which pair of clues best supports the child's inference?",
+      "choices": [
+        {
+          "t": "footprints towards the ball and grass bent along that route",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the rope around the grass and a path round the edge",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the sign in the park and the groundskeeper standing nearby",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "the upright grass and the fence around the playing area",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for evidence pick. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
     }
   ]
 };

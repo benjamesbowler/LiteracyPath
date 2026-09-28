@@ -1,3 +1,4 @@
+import depthItems from "./depth/initial_sounds.mjs";
 // Initial Sounds — v3 authored bank (wave W3, paired with final_sounds).
 // Construct: isolate the FIRST sound of a heard word, link it to its
 // letter. 24 defensible single-letter targets (a–z minus q/x), D-large. Two formats:
@@ -89,7 +90,7 @@ const ps = (u, lvl, ph, v, anchor, cards, keyWord, rationales, note = "") => ({
 // Rationale codes below name the actual contrast. A silent final letter or
 // one letter of a final digraph is not labelled as the final phoneme.
 
-export default {
+const bank = {
   skillId: "initial_sounds",
   skillName: "Initial Sounds",
   imageResolver: resolveImage,
@@ -401,3 +402,6 @@ export default {
     return item;
   })
 };
+
+bank.items.push(...depthItems);
+export default bank;

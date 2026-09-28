@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { elSkillsBlockCycles } from '../../src/data/elSkillsBlockCycles.js';
+import { CYCLE_WORD_BUILD_INVENTORY } from '../../src/data/cycleWordBuildInventory.js';
 import { FRY_WORD_FREQUENCY } from '../../src/data/fryWordFrequency.js';
 import { memoryBoards } from '../../src/utils/recognitionPractice.js';
 import { gameRandom } from '../../src/utils/gameReplay.js';
@@ -59,11 +60,15 @@ test('all Adventure Map cycles retain ordered word practice and eight matching c
   for (const cycle of cycles) {
     const station = cycle.cycleNumber < 25 ? 'quick' : 'spell';
     const rounds = buildStationRounds(cycle, station, { seed: 'cycle-word-order' });
-    const recognition = rounds.filter(round => round.mechanicId === 'sightWordChoice');
+    const recognition = rounds.filter(round => round.mechanicId === 'sightWordChoice' && !round.decodableWord);
     const half = recognition.length / 2;
     const ranks = recognition.slice(0, half).map(round => WORD_MATCH_WORDS.findIndex(item => item.word === round.targetWord));
     assert.ok(ranks.every((rank, index) => !index || rank > ranks[index - 1]));
     assert.deepEqual(recognition.slice(half).map(round => round.targetWord), recognition.slice(0, half).map(round => round.targetWord));
+    const decodable = rounds.filter(round => round.decodableWord);
+    assert.ok(decodable.length <= 6, 'CVC transfer remains a short strand beside ordered HFW practice');
+    assert.equal(new Set(decodable.map(round => round.targetWord)).size, decodable.length);
+    for (const round of decodable) assert.ok(CYCLE_WORD_BUILD_INVENTORY.some(item => item.word === round.targetWord));
     for (const round of rounds.filter(round => round.mechanicId === 'wordMemory')) {
       assert.equal(round.cards.length, 8);
       assert.equal(round.words.length, 4);

@@ -1,3 +1,4 @@
+import depthItems from "./depth/rhyming.mjs";
 // Rhyming — v3 authored bank (wave W4, paired with cvc_short_vowels).
 // L1 uses named picture choices with spoken-only fallback where no approved
 // picture can carry the exact word. L2 uses spoken choices without labels.
@@ -63,7 +64,7 @@ const odd = (u, lvl, ph, v, words, keyWord, note = "") => ({
   note: note || "three spoken words share a rime; one has a different rime"
 });
 
-export default {
+const bank = {
   skillId: "rhyming",
   skillName: "Rhyming",
   imageResolver: resolver,
@@ -330,3 +331,6 @@ export default {
     return item;
   })
 };
+
+bank.items.push(...depthItems);
+export default bank;

@@ -50,17 +50,32 @@ export function cycleSoundsEquivalent(a, b) { return a === b || EQUIVALENT.some(
 export function cycleSoundPosition(grapheme) { return ENDINGS.has(grapheme) ? 'ending' : 'first'; }
 const INITIAL_SOUND_SETS = new Map(Object.entries(CYCLE_SOUND_WORDS).filter(([key]) => !ENDINGS.has(key)).map(([key, words]) => [key, new Set(words)]));
 const FINAL_SOUND_OVERRIDES = Object.freeze({
+  // Authored spoken endings for the live picture inventory. Final written
+  // e and silent b are not final phonemes. Cambridge Dictionary headword
+  // pronunciations (thumb /θʌm/, glove /ɡlʌv/, etc.) supply these exceptions.
   apple: 'l', bicycle: 'l', turtle: 'l', table: 'l', noodle: 'l', whale: 'l', eagle: 'l',
-  mouse: 's', house: 's', juice: 's', necklace: 's', grapes: 's', goose: 's', horse: 's',
+  kettle: 'l', motorcycle: 'l', vegetable: 'l', waffle: 'l', thimble: 'l', whistle: 'l',
+  mouse: 's', house: 's', juice: 's', necklace: 's', grapes: 's', goose: 's', horse: 's', ambulance: 's', nurse: 's',
   cheese: 'z', nose: 'z', vase: 'z', giraffe: 'f',
+  cake: 'k', snake: 'k', envelope: 'p', engine: 'n', vine: 'n', gate: 't', kite: 't', thumb: 'm', glove: 'v',
   six: 'x', fox: 'x', box: 'x', wax: 'x', ax: 'x',
 });
 export function cycleSoundMatches(word, grapheme, position = cycleSoundPosition(grapheme)) {
   if (position === 'first') {
+    // /kw/ begins with /k/. A queen or quilt cannot be marked wrong when
+    // the child is finding the first /k/ sound (spelled c or k).
+    if (['c', 'k'].includes(grapheme) && INITIAL_SOUND_SETS.get('qu')?.has(word)) return true;
     if (INITIAL_SOUND_SETS.get(grapheme)?.has(word)) return true;
     return EQUIVALENT.some(group => group.includes(grapheme) && group.some(key => INITIAL_SOUND_SETS.get(key)?.has(word)));
   }
   if (['all', 'nk', 'ng', 'ang', 'ing', 'ong', 'ung'].includes(grapheme)) return word.endsWith(grapheme);
+  // https://dictionary.cambridge.org/us/pronunciation/english/vase
+  // Cambridge records UK /vɑːz/ and US /veɪs/. Either ordinary pronunciation
+  // must be excluded as a wrong final-sound option for /s/ or /z/.
+  if (word === 'vase') return ['s', 'z'].some(sound => cycleSoundsEquivalent(sound, grapheme));
   const phoneme = FINAL_SOUND_OVERRIDES[word] || (word.endsWith('ng') ? 'ng' : word.endsWith('sh') ? 'sh' : word.endsWith('ch') ? 'ch' : word.endsWith('th') ? 'th' : word.at(-1));
+  // The taught x ending is /ks/, whose final phoneme is /s/. It cannot be
+  // used as a false-negative picture when the literal task asks for /s/.
+  if (phoneme === 'x' && cycleSoundsEquivalent(grapheme, 's')) return true;
   return cycleSoundsEquivalent(phoneme, grapheme);
 }

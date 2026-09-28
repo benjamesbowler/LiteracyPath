@@ -1,6 +1,6 @@
 # Adventure Map games
 
-Current product contract, 13 September 2026. Scope: the child Adventure Map,
+Current product contract, 28 September 2026. Scope: the child Adventure Map,
 its practice stations and Cycle Quest across all 27 cycles. This implements the
 product owner's requested simple, spoken, picture-supported games and replaces
 the retired distinct-mechanics design and implementation plan.
@@ -18,10 +18,10 @@ response targets, progress and a Stop action.
 | --- | --- | --- |
 | Letter Match | Match the upper-case letter to its lower-case partner, or the reverse. | `letterPair` |
 | Sound Match | Hear a sound and tap its letter or letter team. | `soundChoice` |
-| Picture Sounds | Tap the picture whose name begins with the target sound. | `sceneHunt` |
-| Word Match | Hear a taught sight word and tap its printed form, interleaved with short word-pair boards. | `sightWordChoice`, `wordMemory` |
+| Picture Sounds | Match a first sound, final sound, ending chunk or heard whole word to a picture. | `sceneHunt` |
+| Word Match | Hear a taught sight word or reviewed CVC word and tap its printed form, interleaved with short word-pair boards. | `sightWordChoice`, `wordMemory` |
 | Letter Find | Find every requested big and small letter in a mixed grid. | `letterGrid` |
-| Missing Letters | Complete the first or final letter of a pictured, spoken CVC word. | `missingLetter` |
+| Missing Letters | Complete the first, middle or final letter of a pictured, spoken CVC word. | `missingLetter` |
 | Rhyme Time | Choose two pictured words that rhyme. | `rhymePair` |
 | Picture Words | Hear two pictured word parts and choose the compound word they make. | `compoundPicture` |
 | Picture Search | Find all matching initial-sound objects in a large illustrated scene. | `pictureSearch` |
@@ -85,8 +85,11 @@ there are no drag, timing, steering or typing requirements.
 Exact teacher cycle assignments are retained. Ordinary map progression, saved stars,
 learner identity and the classroom lock remain in the existing progress and
 session systems. A first visit starts with the current progress schema so its
-first earned star and completed station survive saving and reload. There is no
-progress reset or new hosted data field/service.
+first earned star and completed station survive saving and reload. The latest
+completed Cycle Quest retains the exact item, target, response, format and
+support in its existing progress document. An initial error is retained after
+a correct retry; legacy progress without item evidence is not reconstructed
+from today's question bank. No progress reset or new service is introduced.
 
 ## Recorded directions
 
@@ -128,3 +131,31 @@ hosted delivery, human listening, physical-device use and child observation are
 different evidence classes. A browser-sized iPad view is not a physical iPad or
 classroom observation. The current beta follows the Game Design Bible and
 continuous-QA policy; no unknown manual evidence is presented as a pass.
+
+## Content depth and transfer
+
+Picture Sounds now separates first sounds, final phonemes, ending chunks and
+whole-word vocabulary into explicitly labelled tasks. Its oral vocabulary is
+pictured and recorded; it does not introduce untaught decoding. Naming an
+answer picture is retained as support. The station remains available in
+Cycles 25–27 so later review also includes vocabulary and final-sound transfer.
+Shared pronunciation exceptions exclude false-negative silent-letter and
+accent-dependent alternatives. X's /ks/ ending is a chunk; its final /s/ and
+qu's initial /k/ are overlaps for distractor exclusion, not equivalent units.
+
+Missing Letters draws from all 38 reviewed CVC words when their code is taught.
+Each word offers initial, medial and final positions, with a maximum of four
+words and 12 decisions in an outing. A medial contrast requires two taught
+vowels. Given letters are retained in the evidence context: a first unprompted
+choice can be independent single-letter completion, never free whole-word
+encoding. Actual hints and repeated attempts remain supported.
+Word Match adds up to six heard-CVC-to-print decisions, choosing the closest
+available taught sound/letter contrast; the existing sight-word strand remains
+separate and the outing is bounded at 33 rounds. First/middle/last coaching
+and vocabulary feedback describe the actual task. No confirmation controls,
+new placement rules or compulsory optional wordplay are introduced.
+
+`cycleLearningDepth.test.js` verifies these families across all 27 cycles;
+`cycle-learning-depth.spec.js` exercises touch retry and automatic advancement
+in both tablet orientations. Browser audio doubles establish delivery-state
+behaviour, not human listening quality or physical-device performance.

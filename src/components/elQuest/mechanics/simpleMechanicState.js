@@ -1,5 +1,6 @@
 function evidence(round, response, supportLevel) {
-  return { construct: round.construct, target: round.answer ?? round.targetLetters ?? round.targetGrapheme, response, supportLevel: Math.max(0, Number(supportLevel) || 0) };
+  return { construct: round.construct, target: round.mechanicId === 'missingLetter' ? round.missingGrapheme : round.answer ?? round.targetLetters ?? round.targetGrapheme, response, supportLevel: Math.max(0, Number(supportLevel) || 0),
+    ...(round.mechanicId === 'missingLetter' ? { providedLetters: true, evidenceScope: 'single_grapheme_completion', missingIndex: round.missingIndex } : {}) };
 }
 
 export function chooseSimpleAnswer(round, selected, supportLevel = 0) {

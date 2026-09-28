@@ -8121,46 +8121,46 @@ export const questions = [
   "form": "R",
   "itemType": "final_sound",
   "itemKey": "g",
-  "formatType": "ENDING_SOUND",
-  "templateType": "ENDING_SOUND",
+  "formatType": "ENDING_SOUND_WORD_MATCH",
+  "templateType": "ENDING_SOUND_WORD_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which letter completes pe__?",
-  "question": "Which letter completes pe__?",
-  "spokenPrompt": "Peg. Which letter matches the final sound?",
+  "prompt": "Which word has the same final sound?",
+  "question": "Which word has the same final sound?",
+  "spokenPrompt": "Log. Which word has the same final sound?",
   "choices": [
-   "q",
-   "g",
-   "k",
-   "p"
+   "sun",
+   "dog",
+   "duck",
+   "lid"
   ],
   "answerOptions": [
    {
-    "value": "q",
-    "label": "q",
-    "text": "q"
+    "value": "sun",
+    "label": "sun",
+    "text": "sun"
    },
    {
-    "value": "g",
-    "label": "g",
-    "text": "g"
+    "value": "dog",
+    "label": "dog",
+    "text": "dog"
    },
    {
-    "value": "k",
-    "label": "k",
-    "text": "k"
+    "value": "duck",
+    "label": "duck",
+    "text": "duck"
    },
    {
-    "value": "p",
-    "label": "p",
-    "text": "p"
+    "value": "lid",
+    "label": "lid",
+    "text": "lid"
    }
   ],
-  "answer": "g",
-  "correctAnswer": "g",
+  "answer": "dog",
+  "correctAnswer": "dog",
   "distractorRationales": {
-   "q": "D-VISUAL-NEIGHBOR",
-   "k": "D-RIME-NEAR",
-   "p": "D-POSITION"
+   "sun": "D-RIME-NEAR",
+   "duck": "D-RIME-NEAR",
+   "lid": "D-POSITION"
   },
   "mediaTier": "audio-required",
   "phonicsPosition": "final",
@@ -8169,12 +8169,12 @@ export const questions = [
   "retentionOnly": true,
   "evidenceModality": "audio+print",
   "evidenceRole": "retention",
-  "constructClaim": "final_sound_grapheme_mapping",
+  "constructClaim": "final_sound_discrimination",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "audioRole": "target_word",
-  "targetWord": "peg",
+  "targetWord": "log",
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -8195,7 +8195,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "A new final-sound comparison within the reviewed common vocabulary; lid is the initial-position trap. This reserve uses a new response demand, not a new anchor word."
  },
  {
   "id": "lp3.final_sounds.l1.R.l.v20r",
@@ -9667,5 +9667,1679 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "thi+nt/d/t are non-words (thing, thin, this all stay out of the set)"
+ },
+ {
+  "id": "lp3.final_sounds.l1.A.b.v101",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "final_sound",
+  "itemKey": "b",
+  "formatType": "ENDING_SOUND_WORD_MATCH",
+  "templateType": "ENDING_SOUND_WORD_MATCH",
+  "questionType": "multiple_choice",
+  "prompt": "Which word has the same final sound?",
+  "question": "Which word has the same final sound?",
+  "spokenPrompt": "Rib. Which word has the same final sound?",
+  "choices": [
+   "tub",
+   "rat",
+   "cup",
+   "hen"
+  ],
+  "answerOptions": [
+   {
+    "value": "tub",
+    "label": "tub",
+    "text": "tub"
+   },
+   {
+    "value": "rat",
+    "label": "rat",
+    "text": "rat"
+   },
+   {
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
+   },
+   {
+    "value": "hen",
+    "label": "hen",
+    "text": "hen"
+   }
+  ],
+  "answer": "tub",
+  "correctAnswer": "tub",
+  "distractorRationales": {
+   "rat": "D-POSITION",
+   "cup": "D-RIME-NEAR",
+   "hen": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "rib",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.A.b.v101",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "A new heard-anchor and word comparison within the reviewed Level 1 vocabulary. The initial-sound rival and contrasting final sounds require attention to the ending, without a new spelling pattern."
+ },
+ {
+  "id": "lp3.final_sounds.l1.B.d.v102",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "final_sound",
+  "itemKey": "d",
+  "formatType": "ENDING_SOUND",
+  "templateType": "ENDING_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter completes re_?",
+  "question": "Which letter completes re_?",
+  "spokenPrompt": "red. Which letter matches the final sound?",
+  "choices": [
+   "b",
+   "d",
+   "r",
+   "t"
+  ],
+  "answerOptions": [
+   {
+    "value": "b",
+    "label": "b",
+    "text": "b"
+   },
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
+   },
+   {
+    "value": "r",
+    "label": "r",
+    "text": "r"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   }
+  ],
+  "answer": "d",
+  "correctAnswer": "d",
+  "distractorRationales": {
+   "r": "D-POSITION",
+   "t": "D-RIME-NEAR",
+   "b": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "red",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.B.d.v102",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "A new exact spoken target; printed answer options name single final sounds."
+ },
+ {
+  "id": "lp3.final_sounds.l1.C.g.v103",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "final_sound",
+  "itemKey": "g",
+  "formatType": "ENDING_SOUND_WORD_MATCH",
+  "templateType": "ENDING_SOUND_WORD_MATCH",
+  "questionType": "multiple_choice",
+  "prompt": "Which word has the same final sound?",
+  "question": "Which word has the same final sound?",
+  "spokenPrompt": "Bug. Which word has the same final sound?",
+  "choices": [
+   "duck",
+   "sun",
+   "bag",
+   "bed"
+  ],
+  "answerOptions": [
+   {
+    "value": "duck",
+    "label": "duck",
+    "text": "duck"
+   },
+   {
+    "value": "sun",
+    "label": "sun",
+    "text": "sun"
+   },
+   {
+    "value": "bag",
+    "label": "bag",
+    "text": "bag"
+   },
+   {
+    "value": "bed",
+    "label": "bed",
+    "text": "bed"
+   }
+  ],
+  "answer": "bag",
+  "correctAnswer": "bag",
+  "distractorRationales": {
+   "bed": "D-POSITION",
+   "duck": "D-RIME-NEAR",
+   "sun": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "bug",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.C.g.v103",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "A new heard-anchor and word comparison within the reviewed Level 1 vocabulary. The initial-sound rival and contrasting final sounds require attention to the ending, without a new spelling pattern."
+ },
+ {
+  "id": "lp3.final_sounds.l1.A.l.v104",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "final_sound",
+  "itemKey": "l",
+  "formatType": "ENDING_SOUND_WORD_MATCH",
+  "templateType": "ENDING_SOUND_WORD_MATCH",
+  "questionType": "multiple_choice",
+  "prompt": "Which word has the same final sound?",
+  "question": "Which word has the same final sound?",
+  "spokenPrompt": "Bell. Which word has the same final sound?",
+  "choices": [
+   "cup",
+   "tail",
+   "bed",
+   "hen"
+  ],
+  "answerOptions": [
+   {
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
+   },
+   {
+    "value": "tail",
+    "label": "tail",
+    "text": "tail"
+   },
+   {
+    "value": "bed",
+    "label": "bed",
+    "text": "bed"
+   },
+   {
+    "value": "hen",
+    "label": "hen",
+    "text": "hen"
+   }
+  ],
+  "answer": "tail",
+  "correctAnswer": "tail",
+  "distractorRationales": {
+   "bed": "D-POSITION",
+   "hen": "D-RIME-NEAR",
+   "cup": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "bell",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.A.l.v104",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "A new heard-anchor and word comparison within the reviewed Level 1 vocabulary. The initial-sound rival and contrasting final sounds require attention to the ending, without a new spelling pattern."
+ },
+ {
+  "id": "lp3.final_sounds.l1.B.m.v105",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "final_sound",
+  "itemKey": "m",
+  "formatType": "ENDING_SOUND_WORD_MATCH",
+  "templateType": "ENDING_SOUND_WORD_MATCH",
+  "questionType": "multiple_choice",
+  "prompt": "Which word has the same final sound?",
+  "question": "Which word has the same final sound?",
+  "spokenPrompt": "Ram. Which word has the same final sound?",
+  "choices": [
+   "hen",
+   "cup",
+   "gum",
+   "rat"
+  ],
+  "answerOptions": [
+   {
+    "value": "hen",
+    "label": "hen",
+    "text": "hen"
+   },
+   {
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
+   },
+   {
+    "value": "gum",
+    "label": "gum",
+    "text": "gum"
+   },
+   {
+    "value": "rat",
+    "label": "rat",
+    "text": "rat"
+   }
+  ],
+  "answer": "gum",
+  "correctAnswer": "gum",
+  "distractorRationales": {
+   "rat": "D-POSITION",
+   "hen": "D-RIME-NEAR",
+   "cup": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "ram",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.B.m.v105",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "A new heard-anchor and word comparison within the reviewed Level 1 vocabulary. The initial-sound rival and contrasting final sounds require attention to the ending, without a new spelling pattern."
+ },
+ {
+  "id": "lp3.final_sounds.l1.C.n.v106",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "final_sound",
+  "itemKey": "n",
+  "formatType": "ENDING_SOUND_WORD_MATCH",
+  "templateType": "ENDING_SOUND_WORD_MATCH",
+  "questionType": "multiple_choice",
+  "prompt": "Which word has the same final sound?",
+  "question": "Which word has the same final sound?",
+  "spokenPrompt": "Pan. Which word has the same final sound?",
+  "choices": [
+   "pot",
+   "ham",
+   "bed",
+   "sun"
+  ],
+  "answerOptions": [
+   {
+    "value": "pot",
+    "label": "pot",
+    "text": "pot"
+   },
+   {
+    "value": "ham",
+    "label": "ham",
+    "text": "ham"
+   },
+   {
+    "value": "bed",
+    "label": "bed",
+    "text": "bed"
+   },
+   {
+    "value": "sun",
+    "label": "sun",
+    "text": "sun"
+   }
+  ],
+  "answer": "sun",
+  "correctAnswer": "sun",
+  "distractorRationales": {
+   "ham": "D-RIME-NEAR",
+   "bed": "D-RIME-NEAR",
+   "pot": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "pan",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.C.n.v106",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "A new heard-anchor and word comparison within the reviewed Level 1 vocabulary. The initial-sound rival and contrasting final sounds require attention to the ending, without a new spelling pattern."
+ },
+ {
+  "id": "lp3.final_sounds.l1.A.p.v107",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "final_sound",
+  "itemKey": "p",
+  "formatType": "ENDING_SOUND_WORD_MATCH",
+  "templateType": "ENDING_SOUND_WORD_MATCH",
+  "questionType": "multiple_choice",
+  "prompt": "Which word has the same final sound?",
+  "question": "Which word has the same final sound?",
+  "spokenPrompt": "Cap. Which word has the same final sound?",
+  "choices": [
+   "tub",
+   "hen",
+   "map",
+   "cat"
+  ],
+  "answerOptions": [
+   {
+    "value": "tub",
+    "label": "tub",
+    "text": "tub"
+   },
+   {
+    "value": "hen",
+    "label": "hen",
+    "text": "hen"
+   },
+   {
+    "value": "map",
+    "label": "map",
+    "text": "map"
+   },
+   {
+    "value": "cat",
+    "label": "cat",
+    "text": "cat"
+   }
+  ],
+  "answer": "map",
+  "correctAnswer": "map",
+  "distractorRationales": {
+   "cat": "D-POSITION",
+   "tub": "D-RIME-NEAR",
+   "hen": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "cap",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.A.p.v107",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "A new heard-anchor and word comparison within the reviewed Level 1 vocabulary. The initial-sound rival and contrasting final sounds require attention to the ending, without a new spelling pattern."
+ },
+ {
+  "id": "lp3.final_sounds.l1.B.t.v108",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "final_sound",
+  "itemKey": "t",
+  "formatType": "ENDING_SOUND_WORD_MATCH",
+  "templateType": "ENDING_SOUND_WORD_MATCH",
+  "questionType": "multiple_choice",
+  "prompt": "Which word has the same final sound?",
+  "question": "Which word has the same final sound?",
+  "spokenPrompt": "Wet. Which word has the same final sound?",
+  "choices": [
+   "web",
+   "bed",
+   "hen",
+   "cat"
+  ],
+  "answerOptions": [
+   {
+    "value": "web",
+    "label": "web",
+    "text": "web"
+   },
+   {
+    "value": "bed",
+    "label": "bed",
+    "text": "bed"
+   },
+   {
+    "value": "hen",
+    "label": "hen",
+    "text": "hen"
+   },
+   {
+    "value": "cat",
+    "label": "cat",
+    "text": "cat"
+   }
+  ],
+  "answer": "cat",
+  "correctAnswer": "cat",
+  "distractorRationales": {
+   "hen": "D-RIME-NEAR",
+   "web": "D-POSITION",
+   "bed": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "wet",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.B.t.v108",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "A new heard-anchor and word comparison within the reviewed Level 1 vocabulary. The initial-sound rival and contrasting final sounds require attention to the ending, without a new spelling pattern."
+ },
+ {
+  "id": "lp3.final_sounds.l2.C.sh.v109",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "final_sound",
+  "itemKey": "sh",
+  "formatType": "ENDING_SOUND",
+  "templateType": "ENDING_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete cra__?",
+  "question": "Which letters complete cra__?",
+  "spokenPrompt": "crash. Which letters complete the ending?",
+  "choices": [
+   "cr",
+   "sh",
+   "ch",
+   "th"
+  ],
+  "answerOptions": [
+   {
+    "value": "cr",
+    "label": "cr",
+    "text": "cr"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   }
+  ],
+  "answer": "sh",
+  "correctAnswer": "sh",
+  "distractorRationales": {
+   "cr": "D-POSITION",
+   "ch": "D-RIME-NEAR",
+   "th": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "crash",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.C.sh.v109",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Choose the complete final spelling cluster, not a single component phoneme; contrasts include rival endings and onset intrusion."
+ },
+ {
+  "id": "lp3.final_sounds.l2.A.th.v110",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "final_sound",
+  "itemKey": "th",
+  "formatType": "ENDING_SOUND",
+  "templateType": "ENDING_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete tee__?",
+  "question": "Which letters complete tee__?",
+  "spokenPrompt": "teeth. Which letters complete the ending?",
+  "choices": [
+   "t",
+   "th",
+   "sh",
+   "ch"
+  ],
+  "answerOptions": [
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   }
+  ],
+  "answer": "th",
+  "correctAnswer": "th",
+  "distractorRationales": {
+   "ch": "D-RIME-NEAR",
+   "t": "D-POSITION",
+   "sh": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "teeth",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.th.v110",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Choose the complete final spelling cluster, not a single component phoneme; contrasts include rival endings and onset intrusion."
+ },
+ {
+  "id": "lp3.final_sounds.l2.B.ll.v111",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "final_sound",
+  "itemKey": "ll",
+  "formatType": "ENDING_SOUND",
+  "templateType": "ENDING_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete sme__?",
+  "question": "Which letters complete sme__?",
+  "spokenPrompt": "smell. Which letters complete the ending?",
+  "choices": [
+   "nd",
+   "sm",
+   "ll",
+   "ng"
+  ],
+  "answerOptions": [
+   {
+    "value": "nd",
+    "label": "nd",
+    "text": "nd"
+   },
+   {
+    "value": "sm",
+    "label": "sm",
+    "text": "sm"
+   },
+   {
+    "value": "ll",
+    "label": "ll",
+    "text": "ll"
+   },
+   {
+    "value": "ng",
+    "label": "ng",
+    "text": "ng"
+   }
+  ],
+  "answer": "ll",
+  "correctAnswer": "ll",
+  "distractorRationales": {
+   "ng": "D-RIME-NEAR",
+   "nd": "D-RIME-NEAR",
+   "sm": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "smell",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.B.ll.v111",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Choose the complete final spelling cluster, not a single component phoneme; contrasts include rival endings and onset intrusion."
+ },
+ {
+  "id": "lp3.final_sounds.l2.C.ng.v112",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "final_sound",
+  "itemKey": "ng",
+  "formatType": "ENDING_SOUND",
+  "templateType": "ENDING_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete ba__?",
+  "question": "Which letters complete ba__?",
+  "spokenPrompt": "bang. Which letters complete the ending?",
+  "choices": [
+   "nd",
+   "b",
+   "ng",
+   "nk"
+  ],
+  "answerOptions": [
+   {
+    "value": "nd",
+    "label": "nd",
+    "text": "nd"
+   },
+   {
+    "value": "b",
+    "label": "b",
+    "text": "b"
+   },
+   {
+    "value": "ng",
+    "label": "ng",
+    "text": "ng"
+   },
+   {
+    "value": "nk",
+    "label": "nk",
+    "text": "nk"
+   }
+  ],
+  "answer": "ng",
+  "correctAnswer": "ng",
+  "distractorRationales": {
+   "b": "D-POSITION",
+   "nk": "D-RIME-NEAR",
+   "nd": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "bang",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.C.ng.v112",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Choose the complete final spelling cluster, not a single component phoneme; contrasts include rival endings and onset intrusion."
+ },
+ {
+  "id": "lp3.final_sounds.l2.A.nd.v113",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "final_sound",
+  "itemKey": "nd",
+  "formatType": "ENDING_SOUND",
+  "templateType": "ENDING_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete sta__?",
+  "question": "Which letters complete sta__?",
+  "spokenPrompt": "stand. Which letters complete the ending?",
+  "choices": [
+   "nk",
+   "st",
+   "nd",
+   "nt"
+  ],
+  "answerOptions": [
+   {
+    "value": "nk",
+    "label": "nk",
+    "text": "nk"
+   },
+   {
+    "value": "st",
+    "label": "st",
+    "text": "st"
+   },
+   {
+    "value": "nd",
+    "label": "nd",
+    "text": "nd"
+   },
+   {
+    "value": "nt",
+    "label": "nt",
+    "text": "nt"
+   }
+  ],
+  "answer": "nd",
+  "correctAnswer": "nd",
+  "distractorRationales": {
+   "nt": "D-RIME-NEAR",
+   "nk": "D-RIME-NEAR",
+   "st": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "stand",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.nd.v113",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Choose the complete final spelling cluster, not a single component phoneme; contrasts include rival endings and onset intrusion."
+ },
+ {
+  "id": "lp3.final_sounds.l2.B.nk.v114",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "final_sound",
+  "itemKey": "nk",
+  "formatType": "ENDING_SOUND",
+  "templateType": "ENDING_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete si__?",
+  "question": "Which letters complete si__?",
+  "spokenPrompt": "sink. Which letters complete the ending?",
+  "choices": [
+   "ng",
+   "nt",
+   "s",
+   "nk"
+  ],
+  "answerOptions": [
+   {
+    "value": "ng",
+    "label": "ng",
+    "text": "ng"
+   },
+   {
+    "value": "nt",
+    "label": "nt",
+    "text": "nt"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   },
+   {
+    "value": "nk",
+    "label": "nk",
+    "text": "nk"
+   }
+  ],
+  "answer": "nk",
+  "correctAnswer": "nk",
+  "distractorRationales": {
+   "nt": "D-RIME-NEAR",
+   "s": "D-POSITION",
+   "ng": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "sink",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.B.nk.v114",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Choose the complete final spelling cluster, not a single component phoneme; contrasts include rival endings and onset intrusion."
+ },
+ {
+  "id": "lp3.final_sounds.l2.C.st.v115",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "final_sound",
+  "itemKey": "st",
+  "formatType": "ENDING_SOUND",
+  "templateType": "ENDING_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete che__?",
+  "question": "Which letters complete che__?",
+  "spokenPrompt": "chest. Which letters complete the ending?",
+  "choices": [
+   "sk",
+   "ft",
+   "ch",
+   "st"
+  ],
+  "answerOptions": [
+   {
+    "value": "sk",
+    "label": "sk",
+    "text": "sk"
+   },
+   {
+    "value": "ft",
+    "label": "ft",
+    "text": "ft"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "st",
+    "label": "st",
+    "text": "st"
+   }
+  ],
+  "answer": "st",
+  "correctAnswer": "st",
+  "distractorRationales": {
+   "ft": "D-RIME-NEAR",
+   "ch": "D-POSITION",
+   "sk": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "chest",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.C.st.v115",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Choose the complete final spelling cluster, not a single component phoneme; contrasts include rival endings and onset intrusion."
+ },
+ {
+  "id": "lp3.final_sounds.l2.A.sk.v116",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "final_sound",
+  "itemKey": "sk",
+  "formatType": "ENDING_SOUND",
+  "templateType": "ENDING_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete ta__?",
+  "question": "Which letters complete ta__?",
+  "spokenPrompt": "task. Which letters complete the ending?",
+  "choices": [
+   "st",
+   "nk",
+   "t",
+   "sk"
+  ],
+  "answerOptions": [
+   {
+    "value": "st",
+    "label": "st",
+    "text": "st"
+   },
+   {
+    "value": "nk",
+    "label": "nk",
+    "text": "nk"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "sk",
+    "label": "sk",
+    "text": "sk"
+   }
+  ],
+  "answer": "sk",
+  "correctAnswer": "sk",
+  "distractorRationales": {
+   "nk": "D-RIME-NEAR",
+   "t": "D-POSITION",
+   "st": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "task",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.sk.v116",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Choose the complete final spelling cluster, not a single component phoneme; contrasts include rival endings and onset intrusion."
+ },
+ {
+  "id": "lp3.final_sounds.l2.B.ft.v117",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "final_sound",
+  "itemKey": "ft",
+  "formatType": "ENDING_SOUND",
+  "templateType": "ENDING_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete dri__?",
+  "question": "Which letters complete dri__?",
+  "spokenPrompt": "drift. Which letters complete the ending?",
+  "choices": [
+   "ft",
+   "st",
+   "lt",
+   "dr"
+  ],
+  "answerOptions": [
+   {
+    "value": "ft",
+    "label": "ft",
+    "text": "ft"
+   },
+   {
+    "value": "st",
+    "label": "st",
+    "text": "st"
+   },
+   {
+    "value": "lt",
+    "label": "lt",
+    "text": "lt"
+   },
+   {
+    "value": "dr",
+    "label": "dr",
+    "text": "dr"
+   }
+  ],
+  "answer": "ft",
+  "correctAnswer": "ft",
+  "distractorRationales": {
+   "st": "D-RIME-NEAR",
+   "lt": "D-RIME-NEAR",
+   "dr": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "drift",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.B.ft.v117",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Choose the complete final spelling cluster, not a single component phoneme; contrasts include rival endings and onset intrusion."
+ },
+ {
+  "id": "lp3.final_sounds.l2.C.lt.v118",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "final_sound",
+  "itemKey": "lt",
+  "formatType": "ENDING_SOUND",
+  "templateType": "ENDING_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete qui__?",
+  "question": "Which letters complete qui__?",
+  "spokenPrompt": "quilt. Which letters complete the ending?",
+  "choices": [
+   "lt",
+   "ft",
+   "nt",
+   "qu"
+  ],
+  "answerOptions": [
+   {
+    "value": "lt",
+    "label": "lt",
+    "text": "lt"
+   },
+   {
+    "value": "ft",
+    "label": "ft",
+    "text": "ft"
+   },
+   {
+    "value": "nt",
+    "label": "nt",
+    "text": "nt"
+   },
+   {
+    "value": "qu",
+    "label": "qu",
+    "text": "qu"
+   }
+  ],
+  "answer": "lt",
+  "correctAnswer": "lt",
+  "distractorRationales": {
+   "ft": "D-RIME-NEAR",
+   "nt": "D-RIME-NEAR",
+   "qu": "D-POSITION"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_grapheme_mapping",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "quilt",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.C.lt.v118",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Choose the complete final spelling cluster, not a single component phoneme; contrasts include rival endings and onset intrusion."
  }
 ];

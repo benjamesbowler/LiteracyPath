@@ -1,3 +1,4 @@
+import depthItems from "./depth/r_controlled_vowels.mjs";
 // R-Controlled Vowels — v3 authored bank (wave W6, paired with vowel_teams).
 // The audit's best advanced bank — prune + harden, not rebuild. 5 units
 // (ar or er ir ur), both levels. L1: recognition in familiar words.
@@ -66,7 +67,7 @@ const cps = (u, lvl, ph, v, soundName, words, keyWord, rationales, note = "") =>
   };
 };
 
-export default {
+const bank = {
   skillId: "r_controlled_vowels",
   skillName: "R-Controlled Vowels",
   imageResolver: resolver,
@@ -275,3 +276,6 @@ export default {
     return item;
   })
 };
+
+bank.items.push(...depthItems);
+export default bank;

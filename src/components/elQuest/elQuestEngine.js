@@ -16,8 +16,8 @@ import { normalizeAdventureStationId } from '../../utils/adventureStationIds.js'
 
 export { normalizeAdventureStationId };
 
-import { CYCLE_SOUND_WORDS, cycleSoundPosition, isCyclePictureWordEligible } from "../../data/cycleSoundWords.js";
-import { cycleCardGraphemes, taughtCycleGraphemes, taughtCycleHighFrequencyWords, capPracticeRepetitions } from "../../utils/cyclePracticeVariation.js";
+import { CYCLE_SOUND_WORDS, cycleSoundPosition, cycleSoundMatches, isCyclePictureWordEligible } from "../../data/cycleSoundWords.js";
+import { cycleCardGraphemes, taughtCycleGraphemes, taughtCycleHighFrequencyWords, capPracticeRepetitions, wordContrast, CYCLE_FINAL_SOUND_WORDS } from "../../utils/cyclePracticeVariation.js";
 
 export { ADVENTURE_MECHANIC_IDS } from "./adventureRoundModel.js";
 export { ADVENTURE_WORD_BUILD_INVENTORY };
@@ -174,7 +174,8 @@ function buildLetterRounds(cycle) {
   }));
 }
 
-const ENDING_PATTERNS = new Set(["all", "nk", "ng", "ang", "ing", "ong", "ung", "ff", "ss", "zz", "ll"]);
+const ENDING_PATTERNS = new Set(["x", "all", "nk", "ng", "ang", "ing", "ong", "ung", "ff", "ss", "zz", "ll"]);
+const ENDING_CHUNKS = new Set(['x', 'all', 'nk', 'ang', 'ing', 'ong', 'ung']);
 const PATTERN_EXAMPLES = Object.freeze({
   ang: ["bang"], ing: ["ring"], ong: ["song"], ung: ["hung"], ff: ["puff"], ss: ["miss"], zz: ["buzz"], ll: ["bell"]
 });
@@ -226,7 +227,7 @@ function isInitialSoundDecoy(word, target) {
   return !sharesSound(onset, target) && !(onset === "qu" && sharesSound(target, "k"));
 }
 function buildHuntRounds(cycle) {
-  return huntTargets(cycle).flatMap(target => shuffleItems(initialPicturePool(target)).slice(0, 2).map((answer, index) => {
+  const initial = huntTargets(cycle).flatMap(target => shuffleItems(initialPicturePool(target)).slice(0, 2).map((answer, index) => {
     const decoys = shuffleItems(pictureDecoyPool(cycle).filter(item => isInitialSoundDecoy(item.word, target))).slice(0, 2);
     const objects = shuffleItems([answer, ...decoys]).map(item => ({ ...item, matches: item.word === answer.word }));
     return round(cycle, "sceneHunt", `${target}:${index}:${answer.word}`, {
@@ -236,6 +237,39 @@ function buildHuntRounds(cycle) {
       objects, choices: objects.map(item => item.word), answer: answer.word, choiceStyle: "picture"
     });
   }));
+  const picturedPool = unique(Object.values(CYCLE_SOUND_WORDS).flat()).map(picturedWord).filter(Boolean);
+  const endings = practiceTargets(cycle).flatMap(target => {
+    const words = cycleSoundPosition(target) === 'ending' ? CYCLE_SOUND_WORDS[target] : CYCLE_FINAL_SOUND_WORDS[target];
+    if (!words || !graphemeAudioPath(target)) return [];
+    return shuffleItems(words.map(picturedWord).filter(Boolean)).slice(0, 2).map(answer => {
+      const endingUnit = ENDING_CHUNKS.has(target) ? 'chunk' : 'phoneme';
+      const instruction = endingUnit === 'chunk' ? 'Listen. Tap the picture with this ending.' : 'Listen. Tap the picture that ends with this sound.';
+      const decoys = shuffleItems(picturedPool.filter(item => !cycleSoundMatches(item.word, target, 'ending'))).slice(0, 2);
+      const objects = shuffleItems([answer, ...decoys]).map(item => ({ ...item, matches: item.word === answer.word }));
+      return round(cycle, 'sceneHunt', `ending:${target}:${answer.word}`, {
+        type: 'hunt', variant: 'finalSound', construct: endingUnit === 'chunk' ? 'ending_pattern_picture_identification' : 'ending_sound_picture_identification', soundPosition: 'ending', endingUnit,
+        prompt: instruction, instruction,
+        targetGrapheme: target, audio: graphemeAudioPath(target), audioRequired: true,
+        objects, choices: objects.map(item => item.word), answer: answer.word, choiceStyle: 'picture',
+        targetKind: endingUnit === 'chunk' ? 'ending_chunk' : 'phoneme', responseFormat: endingUnit === 'chunk' ? 'heard_ending_chunk_to_picture' : 'heard_final_sound_to_picture',
+      });
+    });
+  });
+  const meanings = practiceTargets(cycle).flatMap(target => {
+    const bank = (CYCLE_SOUND_WORDS[target] || []).map(picturedWord).filter(Boolean);
+    return shuffleItems(bank).slice(0, 2).map(answer => {
+      const sameSound = shuffleItems(bank.filter(item => item.word !== answer.word));
+      const alternatives = [...sameSound, ...shuffleItems(picturedPool.filter(item => item.word !== answer.word && !sameSound.some(other => other.word === item.word)))].slice(0, 2);
+      const objects = shuffleItems([answer, ...alternatives]).map(item => ({ ...item, matches: item.word === answer.word }));
+      return round(cycle, 'sceneHunt', `meaning:${answer.word}`, {
+        type: 'hunt', variant: 'wordMeaning', construct: 'spoken_word_picture_matching', targetWord: answer.word, vocabularyGrapheme: target,
+        prompt: 'Listen. Tap the picture.', instruction: 'Listen. Tap the picture.',
+        audio: answer.audio, audioRequired: true, objects, choices: objects.map(item => item.word), answer: answer.word, choiceStyle: 'picture',
+        targetKind: 'oral_vocabulary', responseFormat: 'heard_word_to_picture', evidenceScope: 'spoken_word_picture_matching_practice',
+      });
+    });
+  });
+  return [...new Map([...initial, ...endings, ...meanings].map(item => [item.roundKey, item])).values()];
 }
 
 function practiceSightWords(cycle) {
@@ -292,7 +326,27 @@ function buildWordRounds(cycle, options = {}) {
     });
   }
   const targets = practiceSightWords(cycle);
-  return [...buildSightWordRounds(cycle, targets), ...buildMemoryRounds(cycle, targets)];
+  const eligible = eligibleCvcWords(cycle);
+  const cvcRounds = shuffleItems(eligible).slice(0, 6).flatMap(item => {
+    const alternatives = shuffleItems(eligible.filter(other => other.word !== item.word))
+      .sort((a, b) => wordContrast(a.word, item.word).rank - wordContrast(b.word, item.word).rank).slice(0, 2);
+    if (!alternatives.length) return [];
+    return [round(cycle, 'sightWordChoice', `cvc:${item.word}`, {
+      type: 'word', construct: 'auditory_word_recognition', targetWord: item.word, word: item.word,
+      prompt: 'Listen. Tap the word.', instruction: 'Listen. Tap the word.',
+      answer: item.word, choices: shuffleItems([item.word, ...alternatives.map(other => other.word)]),
+      audio: wordAudioPath(item.word), audioRequired: true, choiceStyle: 'word',
+      decodableWord: true, targetKind: 'taught_cvc_word', responseFormat: 'heard_word_to_print',
+      semanticKey: `cvcWordChoice:${item.word}`, evidenceScope: 'auditory_word_recognition_practice',
+      contrasts: Object.fromEntries(alternatives.map(other => [other.word, wordContrast(other.word, item.word).kind])),
+    })];
+  });
+  // Retain the authored HFW introduction/revisit order. CVC transfer and
+  // picture-free matching vary the outing without shuffling that sequence.
+  const transfer = spaceMixedRounds([...cvcRounds, ...buildMemoryRounds(cycle, targets)]);
+  const recognition = buildSightWordRounds(cycle, targets).flatMap((item, index) =>
+    index % 2 === 1 && transfer.length ? [item, transfer.shift()] : [item]);
+  return [...recognition, ...transfer];
 }
 
 // Exact short-vowel CVC spellings paired with visually reviewed, text-free
@@ -300,29 +354,44 @@ function buildWordRounds(cycle, options = {}) {
 // that the child is completing. Sat's labelled art and ambiguous man, fin,
 // dad, lot, gum, gap and vet pictures are deliberately absent. No HFW
 // membership authorizes phonics code; x represents /k s/ and is not CVC here.
-function buildMissingLetterRounds(cycle) {
+function eligibleCvcWords(cycle) {
   const taught = taughtGraphemesThrough(cycle.cycleNumber);
-  const focus = focusSpellings(cycle);
-  const eligible = ADVENTURE_WORD_BUILD_INVENTORY.filter(item => item.authorizedFromCycle <= cycle.cycleNumber
+  return ADVENTURE_WORD_BUILD_INVENTORY.filter(item => item.authorizedFromCycle <= cycle.cycleNumber
     && item.graphemes.every(letter => taught.includes(letter)) && wordAudioPath(item.word)
     && !blockedImageStems.has(item.image.replace(/\.(png|webp|jpe?g)$/iu, "")));
-  const focused = eligible.filter(item => item.graphemes.some(letter => focus.includes(letter)));
-  const entries = [...shuffleItems(focused), ...shuffleItems(eligible.filter(item => !focused.includes(item)))].slice(0, 4);
-  return entries.flatMap(entry => [0, 2].map(missingIndex => {
+}
+
+export function buildAdventureMissingLetterInventory(cycle) {
+  const taught = taughtGraphemesThrough(cycle.cycleNumber);
+  return eligibleCvcWords(cycle).flatMap(entry => [0, 1, 2].flatMap(missingIndex => {
     const missingGrapheme = entry.graphemes[missingIndex];
-    const missingPosition = missingIndex === 0 ? "start" : "end";
-    const choices = shuffleItems([missingGrapheme, ...shuffleItems(taught.filter(letter => letter.length === 1
-      && !/[aeiou]/u.test(letter) && !sharesSound(letter, missingGrapheme))).slice(0, 2)]);
-    const prompt = missingIndex === 0 ? "Choose the first letter." : "Choose the last letter.";
-    return round(cycle, "missingLetter", `${entry.word}:${missingPosition}`, {
-      type: "build", construct: missingIndex === 0 ? "initial_phoneme_completion" : "final_phoneme_completion",
+    const missingPosition = ['start', 'middle', 'end'][missingIndex];
+    const foils = shuffleItems(taught.filter(letter => letter.length === 1 && /[aeiou]/u.test(letter) === /[aeiou]/u.test(missingGrapheme)
+      && !sharesSound(letter, missingGrapheme))).slice(0, 2);
+    if (!foils.length) return [];
+    const choices = shuffleItems([missingGrapheme, ...foils]);
+    const prompt = missingIndex === 0 ? "Choose the first letter." : missingIndex === 2 ? "Choose the last letter." : "Listen. Tap the missing letter.";
+    return [round(cycle, "missingLetter", `${entry.word}:${missingPosition}`, {
+      type: "build", construct: ['initial_phoneme_completion', 'medial_vowel_completion', 'final_phoneme_completion'][missingIndex],
       prompt, instruction: prompt, word: entry.word, answer: entry.word, targetWord: entry.word,
+      targetGrapheme: missingGrapheme, targetKind: 'taught_cvc_word', responseFormat: `complete_${missingPosition}_grapheme`,
       graphemes: [...entry.graphemes], missingIndex, missingPosition, missingGrapheme,
       display: entry.graphemes.map((letter, index) => index === missingIndex ? "_" : letter).join(" "),
       image: entry.image, audio: wordAudioPath(entry.word), audioRequired: true, speechFallback: entry.word,
       choices, choiceStyle: "letter", inventoryAuthorization: "reviewed-short-vowel-cvc-v2"
-    });
+    })];
   }));
+}
+
+function buildMissingLetterRounds(cycle) {
+  const focus = focusSpellings(cycle);
+  const eligible = eligibleCvcWords(cycle);
+  const focused = eligible.filter(item => item.graphemes.some(letter => focus.includes(letter)));
+  const entries = [...shuffleItems(focused), ...shuffleItems(eligible.filter(item => !focused.includes(item)))].slice(0, 4);
+  const inventory = buildAdventureMissingLetterInventory(cycle);
+  // Interleave the missing position and word: a fresh decision, without
+  // showing all three spellings of one word back-to-back.
+  return [0, 1, 2].flatMap(missingIndex => entries.flatMap(entry => inventory.filter(item => item.word === entry.word && item.missingIndex === missingIndex)));
 }
 
 function buildGridRounds(cycle) {
@@ -430,9 +499,9 @@ function buildPictureSearchRounds(cycle) {
 const STANDARD_STATIONS = [
   { id: "letters", title: "Letter Match", subtitle: "Match big and small letters", icon: "letters", mechanicIds: ["letterPair"], build: buildLetterRounds },
   { id: "sounds", title: "Sound Match", subtitle: "Hear a sound and choose", icon: "sounds", mechanicIds: ["soundChoice"], build: buildSoundRounds },
-  { id: "hunt", title: "Picture Sounds", subtitle: "Find the first sound", icon: "hunt", mechanicIds: ["sceneHunt"], build: buildHuntRounds },
+  { id: "hunt", title: "Picture Sounds", subtitle: "Hear sounds and picture words", icon: "hunt", mechanicIds: ["sceneHunt"], build: buildHuntRounds },
   { id: "quick", title: "Word Match", subtitle: "Hear, find and pair words", icon: "quick", mechanicIds: ["sightWordChoice", "wordMemory"], build: buildWordRounds },
-  { id: "build", title: "Missing Letters", subtitle: "Start or finish the word", icon: "build", mechanicIds: ["missingLetter"], build: buildMissingLetterRounds },
+  { id: "build", title: "Missing Letters", subtitle: "Find the missing sound", icon: "build", mechanicIds: ["missingLetter"], build: buildMissingLetterRounds },
   { id: "play", title: "Rhyme Time", subtitle: "Listen for rhyming words", icon: "play", optional: true, mechanicIds: ["rhymePair"], build: buildRhymeRounds },
   { id: "compound", title: "Picture Words", subtitle: "Two pictures make one word", icon: "build", optional: true, mechanicIds: ["compoundPicture"], build: buildCompoundRounds },
   { id: "trace", title: "Letter Find", subtitle: "Find letters in the grid", icon: "trace", mechanicIds: ["letterGrid"], build: buildGridRounds },
@@ -447,6 +516,7 @@ const FLUENCY_STATIONS = [
   { ...STANDARD_STATIONS[5], id: "speed", icon: "speed" },
   STANDARD_STATIONS[6],
   { ...STANDARD_STATIONS[3], id: "spell", icon: "spell" },
+  STANDARD_STATIONS[2],
   STANDARD_STATIONS[8]
 ];
 export const STATIONS = STANDARD_STATIONS;
@@ -487,7 +557,7 @@ function createCycleQuestBlueprint(cycle, limit = 10) {
   const targetsOf = item => ["soundChoice", "sceneHunt", "pictureSearch"].includes(item.mechanicId)
     ? [item.targetGrapheme].filter(Boolean)
     : item.mechanicId === "missingLetter" ? [item.missingGrapheme].filter(Boolean) : [];
-  const wordOf = item => item.mechanicId === "sightWordChoice" ? item.targetWord : "";
+  const wordOf = item => item.mechanicId === "sightWordChoice" && !item.decodableWord ? item.targetWord : "";
   const availableTargets = new Set(candidates.flatMap(targetsOf));
   const assigned = cycle.focusLetters?.length ? cycle.focusLetters : cycle.reviewLetters || [];
   const focus = unique(assigned.flatMap(cycleCardGraphemes)).filter(value => availableTargets.has(value));

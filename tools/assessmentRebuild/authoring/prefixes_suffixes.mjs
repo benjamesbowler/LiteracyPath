@@ -1,3 +1,4 @@
+import depthItems from "./depth/prefixes_suffixes.mjs";
 // Prefixes & Suffixes — v3 authored bank.
 // Level 1 is deliberately ESL-accessible: one familiar base word, one common
 // affix meaning, and short spoken language. Abstract morpheme meanings remain
@@ -221,8 +222,11 @@ const freshPhaseItems = [
   transfer("suffix_ly", 2, 8, "She waited patiently. How did she wait?", "in a patient way", [P("with a patient", MOR), P("before waiting", MOR), P("without any patience", OPP)])
 ];
 
-export default {
+const bank = {
   skillId: "prefixes_suffixes",
   skillName: "Prefixes & Suffixes",
   items: [...levelOneItems, ...levelTwoItems, ...retentionItems, ...freshPhaseItems]
 };
+
+bank.items.push(...depthItems);
+export default bank;

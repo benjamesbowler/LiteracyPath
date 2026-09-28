@@ -41,6 +41,7 @@ import {
 } from "./excel/reportWorkbookKit.js";
 import { WORKBOOK_COLORS, WORKBOOK_FONTS } from "./excel/reportWorkbookTheme.js";
 import { buildStudentWorkspaceCsvRows } from "./exportStudentWorkspaceCsv.js";
+import { learningEvidenceResponseSummary } from "./learningEvidenceInsights.js";
 
 /** The most a teacher can act on in one week. A longer list is a shorter one nobody reads. */
 const TEACH_NEXT_LIMIT = 8;
@@ -168,6 +169,9 @@ export function buildActivityLines(workspace = {}) {
   if (other.arcadeGamesPlayed) {
     lines.push({ what: "Games", detail: `${other.arcadeGamesPlayed} played` });
   }
+  if (other.adventureCyclesPractised) {
+    lines.push({ what: "Adventure Map", detail: `${other.adventureCyclesPractised} cycles with recorded practice` });
+  }
   if (other.storyQuestsCompleted) {
     lines.push({ what: "Story Quests", detail: `${other.storyQuestsCompleted} finished` });
   }
@@ -190,6 +194,14 @@ export async function createSimpleStudentProgressWorkbook(workspace = {}, {
   const teachNext = buildProgressTeachNext(overview);
   const byArea = buildProgressByArea(overview);
   const activity = buildActivityLines(workspace);
+  const questionTeaching = [
+    ...(workspace.skillsCheck?.skills || []).flatMap(skill => (skill.learningEvidenceProfile?.nextSteps || []).map(target => ({
+      skill: `${skill.skillName}: ${target.label}`, source: "Skills assessment", detail: `${learningEvidenceResponseSummary(target)} ${target.nextAction}`
+    }))),
+    ...(workspace.otherLearning?.adventureMap?.cycles || []).flatMap(cycle => cycle.profile.nextSteps.map(target => ({
+      skill: `${cycle.title}: ${target.label}`, source: "Adventure Map practice", detail: `${learningEvidenceResponseSummary(target)} ${target.nextAction}`
+    })))
+  ].slice(0, TEACH_NEXT_LIMIT);
 
   const sheet = addSheet(workbook, "Report", { tabColor: WORKBOOK_COLORS.primary });
 
@@ -232,6 +244,18 @@ export async function createSimpleStudentProgressWorkbook(workspace = {}, {
   ], teachNext, { autoFilter: false, freezeHeader: false });
   const teachFirstRow = teachTable.firstDataRow;
   row = teachTable.nextRow;
+
+  let questionTeachingFirstRow = 0;
+  if (questionTeaching.length) {
+    row = addSectionHeading(sheet, row + 1, "From the latest saved questions", "Recorded responses suggest these teaching moves. Practice is separate from formal assessment.");
+    const questionTable = addTable(sheet, row, [
+      { key: "skill", header: "Target", width: 30, wrap: true },
+      { key: "source", header: "Source", width: 22, wrap: true },
+      { key: "detail", header: "Recorded response and next teaching move", width: 60, wrap: true }
+    ], questionTeaching, { autoFilter: false, freezeHeader: false });
+    questionTeachingFirstRow = questionTable.firstDataRow;
+    row = questionTable.nextRow;
+  }
 
   row = addSectionHeading(
     sheet,
@@ -276,6 +300,9 @@ export async function createSimpleStudentProgressWorkbook(workspace = {}, {
         sheet.getRow(first + index).height = Math.max(20, Math.min(72, lines * 15 + 6));
       });
     });
+  questionTeaching.forEach((entry, index) => {
+    sheet.getRow(questionTeachingFirstRow + index).height = Math.max(30, Math.ceil(entry.detail.length / 55) * 16 + 10);
+  });
 
   applyPrintSetup(sheet, { titleForFooter: `${studentName} — progress` });
 
@@ -320,7 +347,7 @@ export async function createSimpleStudentProgressWorkbook(workspace = {}, {
   // Keep the everyday report easy to read without throwing away the underlying
   // evidence. The Data sheet is the complete, machine-readable ledger used for
   // audits, transfers and a teacher's own follow-up analysis.
-  const dataRows = buildStudentWorkspaceCsvRows("skills-check", workspace, {
+  const exportOptions = {
     reportTitle: "Skills assessment report",
     className,
     learnerName: studentName,
@@ -329,7 +356,11 @@ export async function createSimpleStudentProgressWorkbook(workspace = {}, {
       "Report view": "Skills assessment",
       Period: periodLabel || "All saved results"
     }
-  }).map(row => Object.fromEntries(
+  };
+  const dataRows = [
+    ...buildStudentWorkspaceCsvRows("skills-check", workspace, exportOptions),
+    ...buildStudentWorkspaceCsvRows("other-learning", workspace, exportOptions).filter(row => ["Practice details", "Teach next"].includes(row.Section))
+  ].map(row => Object.fromEntries(
     Object.entries(row).map(([key, value]) => [key, workbookDataValue(value)])
   ));
   if (dataRows.length) {

@@ -7291,5 +7291,1085 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "Infer permeability from repeated passage of water while flexibility and strength are controlled; those true properties are not the tested distinction."
+ },
+ {
+  "id": "lp3.context_clues.l1.A.definition_clue.v40",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "context_clues",
+  "assessmentSkillId": "context_clues",
+  "skillName": "Context Clues",
+  "skill": "Context Clues",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "context_clues_cell",
+  "itemKey": "definition_clue",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What does shallow mean here?",
+  "question": "What does shallow mean here?",
+  "spokenPrompt": "What does shallow mean here?",
+  "passage": "A shallow pool lay beside the stream. The water was only a little deep. We could see small stones on the bottom. A bird stood in it with dry feathers. Our teacher asked us to look from the bank.",
+  "cell": "definition_clue",
+  "choices": [
+   "feeling extremely cold",
+   "stretching very far",
+   "having little depth",
+   "containing muddy water"
+  ],
+  "answerOptions": [
+   {
+    "value": "feeling extremely cold",
+    "label": "feeling extremely cold",
+    "text": "feeling extremely cold"
+   },
+   {
+    "value": "stretching very far",
+    "label": "stretching very far",
+    "text": "stretching very far"
+   },
+   {
+    "value": "having little depth",
+    "label": "having little depth",
+    "text": "having little depth"
+   },
+   {
+    "value": "containing muddy water",
+    "label": "containing muddy water",
+    "text": "containing muddy water"
+   }
+  ],
+  "answer": "having little depth",
+  "correctAnswer": "having little depth",
+  "distractorRationales": {
+   "stretching very far": "D-SAME-DOMAIN",
+   "containing muddy water": "D-SAME-DOMAIN",
+   "feeling extremely cold": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.A.definition_clue.v40",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/context_clues.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for definition clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.context_clues.l1.B.definition_clue.v41",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "context_clues",
+  "assessmentSkillId": "context_clues",
+  "skillName": "Context Clues",
+  "skill": "Context Clues",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "context_clues_cell",
+  "itemKey": "definition_clue",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What does moist mean?",
+  "question": "What does moist mean?",
+  "spokenPrompt": "What does moist mean?",
+  "passage": "The gardener called the soil moist. It felt slightly wet between her fingers. It was neither dusty nor full of water. She said the seeds would grow well there. We gently covered each seed and labelled the row.",
+  "cell": "definition_clue",
+  "choices": [
+   "completely dry",
+   "a little wet",
+   "very hard",
+   "full of stones"
+  ],
+  "answerOptions": [
+   {
+    "value": "completely dry",
+    "label": "completely dry",
+    "text": "completely dry"
+   },
+   {
+    "value": "a little wet",
+    "label": "a little wet",
+    "text": "a little wet"
+   },
+   {
+    "value": "very hard",
+    "label": "very hard",
+    "text": "very hard"
+   },
+   {
+    "value": "full of stones",
+    "label": "full of stones",
+    "text": "full of stones"
+   }
+  ],
+  "answer": "a little wet",
+  "correctAnswer": "a little wet",
+  "distractorRationales": {
+   "very hard": "D-SAME-DOMAIN",
+   "full of stones": "D-SAME-DOMAIN",
+   "completely dry": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.B.definition_clue.v41",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/context_clues.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for definition clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.context_clues.l1.C.example_clue.v42",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "context_clues",
+  "assessmentSkillId": "context_clues",
+  "skillName": "Context Clues",
+  "skill": "Context Clues",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "context_clues_cell",
+  "itemKey": "example_clue",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What are materials in this passage?",
+  "question": "What are materials in this passage?",
+  "spokenPrompt": "What are materials in this passage?",
+  "passage": "We sorted the materials for our class model. Paper, cloth and wood went in separate piles. Each material felt different under our fingers. We chose wood for the strong base. Soft cloth became curtains for the tiny windows.",
+  "cell": "example_clue",
+  "choices": [
+   "places where tools are stored",
+   "things used to make something",
+   "people who help build something",
+   "pictures showing a finished model"
+  ],
+  "answerOptions": [
+   {
+    "value": "places where tools are stored",
+    "label": "places where tools are stored",
+    "text": "places where tools are stored"
+   },
+   {
+    "value": "things used to make something",
+    "label": "things used to make something",
+    "text": "things used to make something"
+   },
+   {
+    "value": "people who help build something",
+    "label": "people who help build something",
+    "text": "people who help build something"
+   },
+   {
+    "value": "pictures showing a finished model",
+    "label": "pictures showing a finished model",
+    "text": "pictures showing a finished model"
+   }
+  ],
+  "answer": "things used to make something",
+  "correctAnswer": "things used to make something",
+  "distractorRationales": {
+   "pictures showing a finished model": "D-SAME-DOMAIN",
+   "places where tools are stored": "D-SAME-DOMAIN",
+   "people who help build something": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.C.example_clue.v42",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/context_clues.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for example clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.context_clues.l1.A.example_clue.v43",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "context_clues",
+  "assessmentSkillId": "context_clues",
+  "skillName": "Context Clues",
+  "skill": "Context Clues",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "context_clues_cell",
+  "itemKey": "example_clue",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What does creatures refer to?",
+  "question": "What does creatures refer to?",
+  "spokenPrompt": "What does creatures refer to?",
+  "passage": "Several creatures lived beneath the old garden pot. A worm wriggled away from the light. Two beetles hid under a curled leaf. We put the pot back very carefully. These creatures needed darkness and shelter to stay safe.",
+  "cell": "example_clue",
+  "choices": [
+   "fallen leaves",
+   "old containers",
+   "garden tools",
+   "living animals"
+  ],
+  "answerOptions": [
+   {
+    "value": "fallen leaves",
+    "label": "fallen leaves",
+    "text": "fallen leaves"
+   },
+   {
+    "value": "old containers",
+    "label": "old containers",
+    "text": "old containers"
+   },
+   {
+    "value": "garden tools",
+    "label": "garden tools",
+    "text": "garden tools"
+   },
+   {
+    "value": "living animals",
+    "label": "living animals",
+    "text": "living animals"
+   }
+  ],
+  "answer": "living animals",
+  "correctAnswer": "living animals",
+  "distractorRationales": {
+   "garden tools": "D-SAME-DOMAIN",
+   "fallen leaves": "D-SAME-DOMAIN",
+   "old containers": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.A.example_clue.v43",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/context_clues.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for example clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.context_clues.l1.B.action_clue.v44",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "context_clues",
+  "assessmentSkillId": "context_clues",
+  "skillName": "Context Clues",
+  "skill": "Context Clues",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "context_clues_cell",
+  "itemKey": "action_clue",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What does wedged mean here?",
+  "question": "What does wedged mean here?",
+  "spokenPrompt": "What does wedged mean here?",
+  "passage": "The ball was wedged between two thick roots. Jo pulled, but it would not move. She tried from the other side of the tree. It still stayed firmly in that narrow gap. An adult helped her loosen it gently.",
+  "cell": "action_clue",
+  "choices": [
+   "hidden completely",
+   "broken apart",
+   "stuck tightly",
+   "rolling freely"
+  ],
+  "answerOptions": [
+   {
+    "value": "hidden completely",
+    "label": "hidden completely",
+    "text": "hidden completely"
+   },
+   {
+    "value": "broken apart",
+    "label": "broken apart",
+    "text": "broken apart"
+   },
+   {
+    "value": "stuck tightly",
+    "label": "stuck tightly",
+    "text": "stuck tightly"
+   },
+   {
+    "value": "rolling freely",
+    "label": "rolling freely",
+    "text": "rolling freely"
+   }
+  ],
+  "answer": "stuck tightly",
+  "correctAnswer": "stuck tightly",
+  "distractorRationales": {
+   "broken apart": "D-SAME-DOMAIN",
+   "rolling freely": "D-SAME-DOMAIN",
+   "hidden completely": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.B.action_clue.v44",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/context_clues.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for action clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.context_clues.l1.C.action_clue.v45",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "context_clues",
+  "assessmentSkillId": "context_clues",
+  "skillName": "Context Clues",
+  "skill": "Context Clues",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "context_clues_cell",
+  "itemKey": "action_clue",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What does drizzled mean here?",
+  "question": "What does drizzled mean here?",
+  "spokenPrompt": "What does drizzled mean here?",
+  "passage": "Mum drizzled oil over the warm vegetables. A thin stream fell slowly from the spoon. She moved her hand across the whole dish. Only a little oil landed in each place. Then she carried the food to the table.",
+  "cell": "action_clue",
+  "choices": [
+   "removed with a dry cloth",
+   "filled right to the brim",
+   "added in a gentle trickle",
+   "mixed with a quick stir"
+  ],
+  "answerOptions": [
+   {
+    "value": "removed with a dry cloth",
+    "label": "removed with a dry cloth",
+    "text": "removed with a dry cloth"
+   },
+   {
+    "value": "filled right to the brim",
+    "label": "filled right to the brim",
+    "text": "filled right to the brim"
+   },
+   {
+    "value": "added in a gentle trickle",
+    "label": "added in a gentle trickle",
+    "text": "added in a gentle trickle"
+   },
+   {
+    "value": "mixed with a quick stir",
+    "label": "mixed with a quick stir",
+    "text": "mixed with a quick stir"
+   }
+  ],
+  "answer": "added in a gentle trickle",
+  "correctAnswer": "added in a gentle trickle",
+  "distractorRationales": {
+   "filled right to the brim": "D-SAME-DOMAIN",
+   "mixed with a quick stir": "D-SAME-DOMAIN",
+   "removed with a dry cloth": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.C.action_clue.v45",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/context_clues.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for action clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.context_clues.l2.A.synonym_clue.v46",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "context_clues",
+  "assessmentSkillId": "context_clues",
+  "skillName": "Context Clues",
+  "skill": "Context Clues",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "context_clues_cell",
+  "itemKey": "synonym_clue",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What does vacant mean in this passage?",
+  "question": "What does vacant mean in this passage?",
+  "spokenPrompt": "What does vacant mean in this passage?",
+  "passage": "The class found a vacant bird box near the playground. It was empty; no nest or bird was inside it. The entrance had become blocked with a dry leaf. An adult cleared the opening and checked the wooden sides. The children stood well back while the box was inspected. They hoped a pair of birds might use it in spring. A sign reminded everyone to keep the area quiet. The box stayed in its tree, ready for a future visitor.",
+  "cell": "synonym_clue",
+  "choices": [
+   "too crowded",
+   "not occupied",
+   "badly damaged",
+   "newly painted"
+  ],
+  "answerOptions": [
+   {
+    "value": "too crowded",
+    "label": "too crowded",
+    "text": "too crowded"
+   },
+   {
+    "value": "not occupied",
+    "label": "not occupied",
+    "text": "not occupied"
+   },
+   {
+    "value": "badly damaged",
+    "label": "badly damaged",
+    "text": "badly damaged"
+   },
+   {
+    "value": "newly painted",
+    "label": "newly painted",
+    "text": "newly painted"
+   }
+  ],
+  "answer": "not occupied",
+  "correctAnswer": "not occupied",
+  "distractorRationales": {
+   "newly painted": "D-SAME-DOMAIN",
+   "too crowded": "D-SAME-DOMAIN",
+   "badly damaged": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.A.synonym_clue.v46",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/context_clues.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for synonym clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.context_clues.l2.B.synonym_clue.v47",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "context_clues",
+  "assessmentSkillId": "context_clues",
+  "skillName": "Context Clues",
+  "skill": "Context Clues",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "context_clues_cell",
+  "itemKey": "synonym_clue",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What does fragile tell us about the shell?",
+  "question": "What does fragile tell us about the shell?",
+  "spokenPrompt": "What does fragile tell us about the shell?",
+  "passage": "The farmer inspected a fragile shell left beside the henhouse. It was delicate and could break under even gentle pressure. She placed it in a shallow dish lined with cotton. The children looked closely without passing it from hand to hand. A small opening showed where the chick had pushed through. They drew the shell and marked the opening on their pictures. Afterwards, the teacher carried the dish back to the classroom. Everyone moved slowly to keep their find in one piece.",
+  "cell": "synonym_clue",
+  "choices": [
+   "it has an unusual colour",
+   "it can stretch without tearing",
+   "it can be broken easily",
+   "it feels heavier than expected"
+  ],
+  "answerOptions": [
+   {
+    "value": "it has an unusual colour",
+    "label": "it has an unusual colour",
+    "text": "it has an unusual colour"
+   },
+   {
+    "value": "it can stretch without tearing",
+    "label": "it can stretch without tearing",
+    "text": "it can stretch without tearing"
+   },
+   {
+    "value": "it can be broken easily",
+    "label": "it can be broken easily",
+    "text": "it can be broken easily"
+   },
+   {
+    "value": "it feels heavier than expected",
+    "label": "it feels heavier than expected",
+    "text": "it feels heavier than expected"
+   }
+  ],
+  "answer": "it can be broken easily",
+  "correctAnswer": "it can be broken easily",
+  "distractorRationales": {
+   "it has an unusual colour": "D-SAME-DOMAIN",
+   "it can stretch without tearing": "D-SAME-DOMAIN",
+   "it feels heavier than expected": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.B.synonym_clue.v47",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/context_clues.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for synonym clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.context_clues.l2.C.antonym_contrast_clue.v48",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "context_clues",
+  "assessmentSkillId": "context_clues",
+  "skillName": "Context Clues",
+  "skill": "Context Clues",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "context_clues_cell",
+  "itemKey": "antonym_contrast_clue",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What does steep mean here?",
+  "question": "What does steep mean here?",
+  "spokenPrompt": "What does steep mean here?",
+  "passage": "Two routes led from the gate to the hilltop shelter. One wound gently around the side of the hill. The other was steep, climbing sharply in a much shorter distance. Our guide chose the gentle route for the whole group. We could walk together and stop to look at the view. A smaller group of experienced walkers took the short route. From below, we could see them climbing high above us. Both paths ended beside the same wooden shelter at the top.",
+  "cell": "antonym_contrast_clue",
+  "choices": [
+   "rising sharply",
+   "turning often",
+   "staying level",
+   "stretching far"
+  ],
+  "answerOptions": [
+   {
+    "value": "rising sharply",
+    "label": "rising sharply",
+    "text": "rising sharply"
+   },
+   {
+    "value": "turning often",
+    "label": "turning often",
+    "text": "turning often"
+   },
+   {
+    "value": "staying level",
+    "label": "staying level",
+    "text": "staying level"
+   },
+   {
+    "value": "stretching far",
+    "label": "stretching far",
+    "text": "stretching far"
+   }
+  ],
+  "answer": "rising sharply",
+  "correctAnswer": "rising sharply",
+  "distractorRationales": {
+   "turning often": "D-SAME-DOMAIN",
+   "staying level": "D-SAME-DOMAIN",
+   "stretching far": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.C.antonym_contrast_clue.v48",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/context_clues.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for antonym contrast clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.context_clues.l2.A.antonym_contrast_clue.v49",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "context_clues",
+  "assessmentSkillId": "context_clues",
+  "skillName": "Context Clues",
+  "skill": "Context Clues",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "context_clues_cell",
+  "itemKey": "antonym_contrast_clue",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What does absorbent mean in this test?",
+  "question": "What does absorbent mean in this test?",
+  "spokenPrompt": "What does absorbent mean in this test?",
+  "passage": "The two cloths behaved differently when we spilled water. One was absorbent, soaking up the puddle until the table dried. The other let the drops stay on top and roll off. We pressed each cloth with the same amount of force. Then we weighed them to find how much water they held. The absorbent cloth was much heavier after the test. We chose it for cleaning the painting tables at school. The other cloth became a cover to protect a tray.",
+  "cell": "antonym_contrast_clue",
+  "choices": [
+   "easy to tear into strips",
+   "quick to change its colour",
+   "able to take liquid in",
+   "able to push liquid away"
+  ],
+  "answerOptions": [
+   {
+    "value": "easy to tear into strips",
+    "label": "easy to tear into strips",
+    "text": "easy to tear into strips"
+   },
+   {
+    "value": "quick to change its colour",
+    "label": "quick to change its colour",
+    "text": "quick to change its colour"
+   },
+   {
+    "value": "able to take liquid in",
+    "label": "able to take liquid in",
+    "text": "able to take liquid in"
+   },
+   {
+    "value": "able to push liquid away",
+    "label": "able to push liquid away",
+    "text": "able to push liquid away"
+   }
+  ],
+  "answer": "able to take liquid in",
+  "correctAnswer": "able to take liquid in",
+  "distractorRationales": {
+   "able to push liquid away": "D-SAME-DOMAIN",
+   "easy to tear into strips": "D-SAME-DOMAIN",
+   "quick to change its colour": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.A.antonym_contrast_clue.v49",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/context_clues.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for antonym contrast clue. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.context_clues.l2.B.inference_clue.v50",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "context_clues",
+  "assessmentSkillId": "context_clues",
+  "skillName": "Context Clues",
+  "skill": "Context Clues",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "context_clues_cell",
+  "itemKey": "inference_clue",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What does buoyant mean?",
+  "question": "What does buoyant mean?",
+  "spokenPrompt": "What does buoyant mean?",
+  "passage": "At the pond, the class watched a leaf stay afloat. A small stone dropped straight to the bottom beside it. A twig bobbed near the leaf without disappearing under the surface. The teacher asked which other objects might be buoyant. Pupils chose another leaf, a cork and a metal key. They explained their choices before placing anything in the water. The cork behaved like the twig, while the key sank. Their observations helped them understand the new describing word from action.",
+  "cell": "inference_clue",
+  "choices": [
+   "able to change the colour of clear water",
+   "likely to sink quickly to the bottom",
+   "likely to make a loud noise when dropped",
+   "able to stay on the surface of liquid"
+  ],
+  "answerOptions": [
+   {
+    "value": "able to change the colour of clear water",
+    "label": "able to change the colour of clear water",
+    "text": "able to change the colour of clear water"
+   },
+   {
+    "value": "likely to sink quickly to the bottom",
+    "label": "likely to sink quickly to the bottom",
+    "text": "likely to sink quickly to the bottom"
+   },
+   {
+    "value": "likely to make a loud noise when dropped",
+    "label": "likely to make a loud noise when dropped",
+    "text": "likely to make a loud noise when dropped"
+   },
+   {
+    "value": "able to stay on the surface of liquid",
+    "label": "able to stay on the surface of liquid",
+    "text": "able to stay on the surface of liquid"
+   }
+  ],
+  "answer": "able to stay on the surface of liquid",
+  "correctAnswer": "able to stay on the surface of liquid",
+  "distractorRationales": {
+   "able to change the colour of clear water": "D-SAME-DOMAIN",
+   "likely to sink quickly to the bottom": "D-SAME-DOMAIN",
+   "likely to make a loud noise when dropped": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.B.inference_clue.v50",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/context_clues.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Infer buoyant from the leaf and twig staying up, then the cork repeating that behaviour while the stone and key sink. No direct definition supplies the answer."
+ },
+ {
+  "id": "lp3.context_clues.l2.C.inference_clue.v51",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "context_clues",
+  "assessmentSkillId": "context_clues",
+  "skillName": "Context Clues",
+  "skill": "Context Clues",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "context_clues_cell",
+  "itemKey": "inference_clue",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What does economical mean here?",
+  "question": "What does economical mean here?",
+  "spokenPrompt": "What does economical mean here?",
+  "passage": "The team had a limited supply of string for its model. Instead of using a whole length for each small join, Asha measured. She cut just enough to hold each pair of sticks firmly. She saved the short pieces for tying the smallest parts together. By the end, her group still had string to spare. The teacher described their method as economical. Another group had used twice as much for a similar model. Asha showed them how the leftover pieces could still be useful.",
+  "cell": "inference_clue",
+  "choices": [
+   "making every part exactly the same size",
+   "using no more resources than necessary",
+   "finishing before anyone else has begun",
+   "choosing the brightest materials available"
+  ],
+  "answerOptions": [
+   {
+    "value": "making every part exactly the same size",
+    "label": "making every part exactly the same size",
+    "text": "making every part exactly the same size"
+   },
+   {
+    "value": "using no more resources than necessary",
+    "label": "using no more resources than necessary",
+    "text": "using no more resources than necessary"
+   },
+   {
+    "value": "finishing before anyone else has begun",
+    "label": "finishing before anyone else has begun",
+    "text": "finishing before anyone else has begun"
+   },
+   {
+    "value": "choosing the brightest materials available",
+    "label": "choosing the brightest materials available",
+    "text": "choosing the brightest materials available"
+   }
+  ],
+  "answer": "using no more resources than necessary",
+  "correctAnswer": "using no more resources than necessary",
+  "distractorRationales": {
+   "choosing the brightest materials available": "D-SAME-DOMAIN",
+   "making every part exactly the same size": "D-SAME-DOMAIN",
+   "finishing before anyone else has begun": "D-SAME-DOMAIN"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.C.inference_clue.v51",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/context_clues.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Infer economical by combining measured cuts, reused short pieces, leftover string and the comparison with a group using twice as much. The passage never directly defines the word."
  }
 ];

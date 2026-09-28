@@ -10480,5 +10480,741 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "tube and tub contrast vowel sounds; hearing the word is necessary"
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.a_e.v101",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "a_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes n_m_?",
+  "question": "Which vowel pattern completes n_m_?",
+  "spokenPrompt": "name. Which vowel pattern completes the word?",
+  "choices": [
+   "a_e",
+   "i_e",
+   "o_e",
+   "u_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   }
+  ],
+  "answer": "a_e",
+  "correctAnswer": "a_e",
+  "distractorRationales": {
+   "i_e": "D-VOWEL",
+   "o_e": "D-VOWEL",
+   "u_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "name",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.a_e.v101",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New familiar VCe word rather than another permutation of an existing target."
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.B.i_e.v102",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "i_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes h_d_?",
+  "question": "Which vowel pattern completes h_d_?",
+  "spokenPrompt": "hide. Which vowel pattern completes the word?",
+  "choices": [
+   "i_e",
+   "a_e",
+   "o_e",
+   "u_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   }
+  ],
+  "answer": "i_e",
+  "correctAnswer": "i_e",
+  "distractorRationales": {
+   "o_e": "D-VOWEL",
+   "u_e": "D-VOWEL",
+   "a_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "hide",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.B.i_e.v102",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New familiar VCe word rather than another permutation of an existing target."
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.C.o_e.v103",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "o_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes n_s_?",
+  "question": "Which vowel pattern completes n_s_?",
+  "spokenPrompt": "nose. Which vowel pattern completes the word?",
+  "choices": [
+   "u_e",
+   "o_e",
+   "a_e",
+   "i_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   }
+  ],
+  "answer": "o_e",
+  "correctAnswer": "o_e",
+  "distractorRationales": {
+   "i_e": "D-VOWEL",
+   "u_e": "D-VOWEL",
+   "a_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "nose",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.C.o_e.v103",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New familiar VCe word rather than another permutation of an existing target."
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l1.A.u_e.v104",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "u_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes J_n_?",
+  "question": "Which vowel pattern completes J_n_?",
+  "spokenPrompt": "June. Which vowel pattern completes the word?",
+  "choices": [
+   "o_e",
+   "u_e",
+   "a_e",
+   "i_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   }
+  ],
+  "answer": "u_e",
+  "correctAnswer": "u_e",
+  "distractorRationales": {
+   "o_e": "D-VOWEL",
+   "a_e": "D-VOWEL",
+   "i_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "June",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l1.A.u_e.v104",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New familiar VCe word rather than another permutation of an existing target."
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.B.a_e.v105",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "a_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes b_k_?",
+  "question": "Which vowel pattern completes b_k_?",
+  "spokenPrompt": "bake. Which vowel pattern completes the word?",
+  "choices": [
+   "o_e",
+   "u_e",
+   "a_e",
+   "i_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   }
+  ],
+  "answer": "a_e",
+  "correctAnswer": "a_e",
+  "distractorRationales": {
+   "i_e": "D-VOWEL",
+   "o_e": "D-VOWEL",
+   "u_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "bake",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.B.a_e.v105",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Apply the VCe pattern within a consonant cluster or longer word; no vowel-team knowledge is required."
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.C.i_e.v106",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "i_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes sh_n_?",
+  "question": "Which vowel pattern completes sh_n_?",
+  "spokenPrompt": "shine. Which vowel pattern completes the word?",
+  "choices": [
+   "u_e",
+   "i_e",
+   "a_e",
+   "o_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   }
+  ],
+  "answer": "i_e",
+  "correctAnswer": "i_e",
+  "distractorRationales": {
+   "a_e": "D-VOWEL",
+   "o_e": "D-VOWEL",
+   "u_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "shine",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.C.i_e.v106",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Apply the VCe pattern within a consonant cluster or longer word; no vowel-team knowledge is required."
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.A.o_e.v107",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "o_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes st_n_?",
+  "question": "Which vowel pattern completes st_n_?",
+  "spokenPrompt": "stone. Which vowel pattern completes the word?",
+  "choices": [
+   "a_e",
+   "i_e",
+   "u_e",
+   "o_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   }
+  ],
+  "answer": "o_e",
+  "correctAnswer": "o_e",
+  "distractorRationales": {
+   "u_e": "D-VOWEL",
+   "a_e": "D-VOWEL",
+   "i_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "stone",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.A.o_e.v107",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Apply the VCe pattern within a consonant cluster or longer word; no vowel-team knowledge is required."
+ },
+ {
+  "id": "lp3.long_vowels_silent_e.l2.B.u_e.v108",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "long_vowels_silent_e",
+  "assessmentSkillId": "long_vowels_silent_e",
+  "skillName": "Long Vowels and Silent E",
+  "skill": "Long Vowels and Silent E",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "u_e",
+  "formatType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "templateType": "LONG_VOWEL_SILENT_E_PATTERN",
+  "questionType": "multiple_choice",
+  "prompt": "Which vowel pattern completes cost_m_?",
+  "question": "Which vowel pattern completes cost_m_?",
+  "spokenPrompt": "costume. Which vowel pattern completes the word?",
+  "choices": [
+   "a_e",
+   "i_e",
+   "o_e",
+   "u_e"
+  ],
+  "answerOptions": [
+   {
+    "value": "a_e",
+    "label": "a_e",
+    "text": "a_e"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "o_e",
+    "label": "o_e",
+    "text": "o_e"
+   },
+   {
+    "value": "u_e",
+    "label": "u_e",
+    "text": "u_e"
+   }
+  ],
+  "answer": "u_e",
+  "correctAnswer": "u_e",
+  "distractorRationales": {
+   "o_e": "D-VOWEL",
+   "a_e": "D-VOWEL",
+   "i_e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "silent_e_vowel_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "costume",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.long_vowels_silent_e.l2.B.u_e.v108",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Apply the VCe pattern within a consonant cluster or longer word; no vowel-team knowledge is required."
  }
 ];

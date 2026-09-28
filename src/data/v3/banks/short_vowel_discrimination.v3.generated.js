@@ -9160,5 +9160,925 @@ export const questions = [
     "imageAlt": "cup"
    }
   ]
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l1.A.short_a.v101",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_a",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "jam. Which letter spells the middle vowel sound?",
+  "choices": [
+   "a",
+   "e",
+   "u",
+   "o"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   }
+  ],
+  "answer": "a",
+  "correctAnswer": "a",
+  "distractorRationales": {
+   "e": "D-VOWEL",
+   "u": "D-VOWEL",
+   "o": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_medial_vowel_discrimination",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "jam",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l1.A.short_a.v101",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New short spoken word; no written target gives the vowel away."
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l1.B.short_e.v102",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "short_vowel",
+  "itemKey": "short_e",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "peg. Which letter spells the middle vowel sound?",
+  "choices": [
+   "a",
+   "u",
+   "e",
+   "i"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   }
+  ],
+  "answer": "e",
+  "correctAnswer": "e",
+  "distractorRationales": {
+   "a": "D-VOWEL",
+   "u": "D-VOWEL",
+   "i": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_medial_vowel_discrimination",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "peg",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l1.B.short_e.v102",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New short spoken word; no written target gives the vowel away."
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l1.C.short_i.v103",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_i",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "lid. Which letter spells the middle vowel sound?",
+  "choices": [
+   "o",
+   "u",
+   "i",
+   "e"
+  ],
+  "answerOptions": [
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   }
+  ],
+  "answer": "i",
+  "correctAnswer": "i",
+  "distractorRationales": {
+   "e": "D-VOWEL",
+   "o": "D-VOWEL",
+   "u": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_medial_vowel_discrimination",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "lid",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l1.C.short_i.v103",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New short spoken word; no written target gives the vowel away."
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l1.A.short_o.v104",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_o",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "rod. Which letter spells the middle vowel sound?",
+  "choices": [
+   "i",
+   "o",
+   "u",
+   "a"
+  ],
+  "answerOptions": [
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   }
+  ],
+  "answer": "o",
+  "correctAnswer": "o",
+  "distractorRationales": {
+   "u": "D-VOWEL",
+   "a": "D-VOWEL",
+   "i": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_medial_vowel_discrimination",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "rod",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l1.A.short_o.v104",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New short spoken word; no written target gives the vowel away."
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l1.B.short_u.v105",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "short_vowel",
+  "itemKey": "short_u",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "hug. Which letter spells the middle vowel sound?",
+  "choices": [
+   "o",
+   "a",
+   "e",
+   "u"
+  ],
+  "answerOptions": [
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   }
+  ],
+  "answer": "u",
+  "correctAnswer": "u",
+  "distractorRationales": {
+   "e": "D-VOWEL",
+   "o": "D-VOWEL",
+   "a": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_medial_vowel_discrimination",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "hug",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l1.B.short_u.v105",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New short spoken word; no written target gives the vowel away."
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l2.C.short_a.v106",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_a",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "sand. Which letter spells the middle vowel sound?",
+  "choices": [
+   "o",
+   "a",
+   "e",
+   "i"
+  ],
+  "answerOptions": [
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   }
+  ],
+  "answer": "a",
+  "correctAnswer": "a",
+  "distractorRationales": {
+   "e": "D-VOWEL",
+   "i": "D-VOWEL",
+   "o": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_medial_vowel_discrimination",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "sand",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l2.C.short_a.v106",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the medial vowel through a digraph or consonant cluster in a new target."
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l2.A.short_e.v107",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_e",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "tent. Which letter spells the middle vowel sound?",
+  "choices": [
+   "i",
+   "a",
+   "u",
+   "e"
+  ],
+  "answerOptions": [
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   }
+  ],
+  "answer": "e",
+  "correctAnswer": "e",
+  "distractorRationales": {
+   "i": "D-VOWEL",
+   "a": "D-VOWEL",
+   "u": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_medial_vowel_discrimination",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "tent",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l2.A.short_e.v107",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the medial vowel through a digraph or consonant cluster in a new target."
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l2.B.short_i.v108",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "short_vowel",
+  "itemKey": "short_i",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "fish. Which letter spells the middle vowel sound?",
+  "choices": [
+   "e",
+   "a",
+   "o",
+   "i"
+  ],
+  "answerOptions": [
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   }
+  ],
+  "answer": "i",
+  "correctAnswer": "i",
+  "distractorRationales": {
+   "o": "D-VOWEL",
+   "e": "D-VOWEL",
+   "a": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_medial_vowel_discrimination",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "fish",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l2.B.short_i.v108",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the medial vowel through a digraph or consonant cluster in a new target."
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l2.C.short_o.v109",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "short_vowel",
+  "itemKey": "short_o",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "frog. Which letter spells the middle vowel sound?",
+  "choices": [
+   "a",
+   "i",
+   "o",
+   "u"
+  ],
+  "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   }
+  ],
+  "answer": "o",
+  "correctAnswer": "o",
+  "distractorRationales": {
+   "i": "D-VOWEL",
+   "u": "D-VOWEL",
+   "a": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_medial_vowel_discrimination",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "frog",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l2.C.short_o.v109",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the medial vowel through a digraph or consonant cluster in a new target."
+ },
+ {
+  "id": "lp3.short_vowel_discrimination.l2.A.short_u.v110",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "short_vowel_discrimination",
+  "assessmentSkillId": "short_vowel_discrimination",
+  "skillName": "Short Vowel Discrimination",
+  "skill": "Short Vowel Discrimination",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "short_vowel",
+  "itemKey": "short_u",
+  "formatType": "LISTEN_CHOOSE_VOWEL",
+  "templateType": "LISTEN_CHOOSE_VOWEL",
+  "questionType": "multiple_choice",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "lump. Which letter spells the middle vowel sound?",
+  "choices": [
+   "u",
+   "o",
+   "i",
+   "e"
+  ],
+  "answerOptions": [
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   }
+  ],
+  "answer": "u",
+  "correctAnswer": "u",
+  "distractorRationales": {
+   "o": "D-VOWEL",
+   "i": "D-VOWEL",
+   "e": "D-VOWEL"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_medial_vowel_discrimination",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "lump",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.short_vowel_discrimination.l2.A.short_u.v110",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Isolate the medial vowel through a digraph or consonant cluster in a new target."
  }
 ];

@@ -11,11 +11,29 @@ import {
   SECURITY_BOUNDARY_MIGRATION,
   TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS,
   auditSecurityBoundarySource,
-  auditSecurityDefinerCatalog
+  auditSecurityDefinerCatalog,
+  unrevokedSecurityDefiners
 } from "../../tools/databasePolicyContract.mjs";
 import {
   AUTH_ONLY_PROBE_ARGS
 } from "../../tools/verifyDatabasePoliciesLive.mjs";
+
+test("security guard bounds function headers and checks every grouped revocation", () => {
+  const functions = `
+    create or replace function public.helper() returns jsonb language sql immutable as $$ select '{}'::jsonb $$;
+    create or replace function public.first(text) returns jsonb language plpgsql security definer as $$ begin return '{}'; end $$;
+    create or replace function public.second(uuid, jsonb) returns jsonb language plpgsql security definer as $$ begin return '{}'; end $$;
+  `;
+  assert.deepEqual(unrevokedSecurityDefiners(functions), ['first', 'second']);
+  assert.deepEqual(unrevokedSecurityDefiners(functions + 'revoke all on function public.first(text), public.second(uuid, jsonb) from public, anon, authenticated;'), []);
+  assert.deepEqual(unrevokedSecurityDefiners(functions + 'revoke all on function public.first(text) from public, anon, authenticated;'), ['second']);
+  assert.deepEqual(unrevokedSecurityDefiners(functions + 'revoke all on function public.first(text), public.second(uuid, jsonb) from authenticated;'), ['first', 'second']);
+  assert.deepEqual(unrevokedSecurityDefiners(functions + '-- revoke all on function public.first(text), public.second(uuid, jsonb) from public;'), ['first', 'second']);
+  const replacement = 'create or replace function public.known() returns void language plpgsql security definer as $$ begin end $$;';
+  assert.deepEqual(unrevokedSecurityDefiners(replacement, ['known()']), []);
+  assert.deepEqual(unrevokedSecurityDefiners(replacement.replace('known()', 'known(text)'), ['known()']), ['known']);
+  assert.deepEqual(unrevokedSecurityDefiners('alter function public.unknown() security definer;'), ['unparsed SECURITY DEFINER statement']);
+});
 
 function row(signature, { anon = false, authenticated = false, publicRole = false } = {}) {
   return {

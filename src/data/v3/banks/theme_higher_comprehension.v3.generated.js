@@ -5789,7 +5789,7 @@ export const questions = [
   "choices": [
    "Careful measuring can prevent repeating a mistake.",
    "Sharing a meal can help new friends meet.",
-   "Practising a poem helps you remember its words.",
+   "Following a recipe helps make enough food.",
    "A small amount never needs to be measured."
   ],
   "answerOptions": [
@@ -5804,9 +5804,9 @@ export const questions = [
     "text": "Sharing a meal can help new friends meet."
    },
    {
-    "value": "Practising a poem helps you remember its words.",
-    "label": "Practising a poem helps you remember its words.",
-    "text": "Practising a poem helps you remember its words."
+    "value": "Following a recipe helps make enough food.",
+    "label": "Following a recipe helps make enough food.",
+    "text": "Following a recipe helps make enough food."
    },
    {
     "value": "A small amount never needs to be measured.",
@@ -5818,7 +5818,7 @@ export const questions = [
   "correctAnswer": "Careful measuring can prevent repeating a mistake.",
   "distractorRationales": {
    "Sharing a meal can help new friends meet.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Practising a poem helps you remember its words.": "D-TOPIC-ADJACENT",
+   "Following a recipe helps make enough food.": "D-TOPIC-ADJACENT",
    "A small amount never needs to be measured.": "D-OPPOSITE"
   },
   "mediaTier": "text",
@@ -7200,5 +7200,1085 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "Replace a third quiet-service plot with honest limits and evidence checking; transfer reliable answering, not general kindness or presentation skill."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v40",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "lesson_mistake_fixed",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What did Ned learn?",
+  "question": "What did Ned learn?",
+  "spokenPrompt": "What did Ned learn?",
+  "passage": "Ned rushed to carry three cups at once. One tipped and spilled water on the floor. He fetched a cloth and wiped it up. Then he carried the cups one at a time. Everyone reached the table with a full drink.",
+  "cell": "lesson_mistake_fixed",
+  "choices": [
+   "a careful pace can prevent mistakes",
+   "carrying more always saves time",
+   "spills should be left for someone else",
+   "cups are safest when left empty"
+  ],
+  "answerOptions": [
+   {
+    "value": "a careful pace can prevent mistakes",
+    "label": "a careful pace can prevent mistakes",
+    "text": "a careful pace can prevent mistakes"
+   },
+   {
+    "value": "carrying more always saves time",
+    "label": "carrying more always saves time",
+    "text": "carrying more always saves time"
+   },
+   {
+    "value": "spills should be left for someone else",
+    "label": "spills should be left for someone else",
+    "text": "spills should be left for someone else"
+   },
+   {
+    "value": "cups are safest when left empty",
+    "label": "cups are safest when left empty",
+    "text": "cups are safest when left empty"
+   }
+  ],
+  "answer": "a careful pace can prevent mistakes",
+  "correctAnswer": "a careful pace can prevent mistakes",
+  "distractorRationales": {
+   "spills should be left for someone else": "D-PLAUSIBLE-UNSUPPORTED",
+   "cups are safest when left empty": "D-PLAUSIBLE-UNSUPPORTED",
+   "carrying more always saves time": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v40",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for lesson mistake fixed. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v41",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "lesson_mistake_fixed",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What can we learn from Aria?",
+  "question": "What can we learn from Aria?",
+  "spokenPrompt": "What can we learn from Aria?",
+  "passage": "Aria grabbed a puzzle piece and pushed it hard. Its corner bent because it did not fit. She stopped and looked closely at the picture. Then she turned another piece until it matched. After that, she checked before pressing each piece down.",
+  "cell": "lesson_mistake_fixed",
+  "choices": [
+   "the first choice must always be right",
+   "finishing quickly matters more than care",
+   "a mistake means the whole task must stop",
+   "look carefully before forcing a solution"
+  ],
+  "answerOptions": [
+   {
+    "value": "the first choice must always be right",
+    "label": "the first choice must always be right",
+    "text": "the first choice must always be right"
+   },
+   {
+    "value": "finishing quickly matters more than care",
+    "label": "finishing quickly matters more than care",
+    "text": "finishing quickly matters more than care"
+   },
+   {
+    "value": "a mistake means the whole task must stop",
+    "label": "a mistake means the whole task must stop",
+    "text": "a mistake means the whole task must stop"
+   },
+   {
+    "value": "look carefully before forcing a solution",
+    "label": "look carefully before forcing a solution",
+    "text": "look carefully before forcing a solution"
+   }
+  ],
+  "answer": "look carefully before forcing a solution",
+  "correctAnswer": "look carefully before forcing a solution",
+  "distractorRationales": {
+   "finishing quickly matters more than care": "D-PLAUSIBLE-UNSUPPORTED",
+   "a mistake means the whole task must stop": "D-PLAUSIBLE-UNSUPPORTED",
+   "the first choice must always be right": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v41",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for lesson mistake fixed. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l1.C.lesson_kindness_returned.v42",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "lesson_kindness_returned",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What does the story show?",
+  "question": "What does the story show?",
+  "spokenPrompt": "What does the story show?",
+  "passage": "Sol saw a younger child drop her crayons. He helped find every colour under the table. Later, Sol could not reach the glue shelf. The same child fetched the teacher to help. Sol thanked her, and they finished their pictures together.",
+  "cell": "lesson_kindness_returned",
+  "choices": [
+   "only tall people can be helpful",
+   "you should help only after receiving something",
+   "sharing always makes a job take longer",
+   "people can find ways to help each other"
+  ],
+  "answerOptions": [
+   {
+    "value": "only tall people can be helpful",
+    "label": "only tall people can be helpful",
+    "text": "only tall people can be helpful"
+   },
+   {
+    "value": "you should help only after receiving something",
+    "label": "you should help only after receiving something",
+    "text": "you should help only after receiving something"
+   },
+   {
+    "value": "sharing always makes a job take longer",
+    "label": "sharing always makes a job take longer",
+    "text": "sharing always makes a job take longer"
+   },
+   {
+    "value": "people can find ways to help each other",
+    "label": "people can find ways to help each other",
+    "text": "people can find ways to help each other"
+   }
+  ],
+  "answer": "people can find ways to help each other",
+  "correctAnswer": "people can find ways to help each other",
+  "distractorRationales": {
+   "you should help only after receiving something": "D-PLAUSIBLE-UNSUPPORTED",
+   "sharing always makes a job take longer": "D-PLAUSIBLE-UNSUPPORTED",
+   "only tall people can be helpful": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_kindness_returned.v42",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for lesson kindness returned. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v43",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "lesson_kindness_returned",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which lesson fits this story?",
+  "question": "Which lesson fits this story?",
+  "spokenPrompt": "Which lesson fits this story?",
+  "passage": "A bird drank from the bowl in Mara's garden. Each morning, Mara filled it with fresh water. One day she heard the bird sing nearby. She paused her digging and listened with a smile. Caring for the garden brought her a little joy.",
+  "cell": "lesson_kindness_returned",
+  "choices": [
+   "a garden grows better without any visitors",
+   "caring for living things can bring pleasure",
+   "animals must give something back for help",
+   "the loudest voice deserves the most attention"
+  ],
+  "answerOptions": [
+   {
+    "value": "a garden grows better without any visitors",
+    "label": "a garden grows better without any visitors",
+    "text": "a garden grows better without any visitors"
+   },
+   {
+    "value": "caring for living things can bring pleasure",
+    "label": "caring for living things can bring pleasure",
+    "text": "caring for living things can bring pleasure"
+   },
+   {
+    "value": "animals must give something back for help",
+    "label": "animals must give something back for help",
+    "text": "animals must give something back for help"
+   },
+   {
+    "value": "the loudest voice deserves the most attention",
+    "label": "the loudest voice deserves the most attention",
+    "text": "the loudest voice deserves the most attention"
+   }
+  ],
+  "answer": "caring for living things can bring pleasure",
+  "correctAnswer": "caring for living things can bring pleasure",
+  "distractorRationales": {
+   "a garden grows better without any visitors": "D-PLAUSIBLE-UNSUPPORTED",
+   "animals must give something back for help": "D-PLAUSIBLE-UNSUPPORTED",
+   "the loudest voice deserves the most attention": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v43",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for lesson kindness returned. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v44",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "lesson_effort_pays",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What helped Kai succeed?",
+  "question": "What helped Kai succeed?",
+  "spokenPrompt": "What helped Kai succeed?",
+  "passage": "Kai's first paper boat sank in the tray. He unfolded it and looked at the wet corner. He made another with a firmer fold there. This boat floated across the whole tray. Kai kept the old boat to remember his change.",
+  "cell": "lesson_effort_pays",
+  "choices": [
+   "learning from an unsuccessful attempt",
+   "hiding his mistake from the class",
+   "using the same folds without a change",
+   "waiting for someone to build it instead"
+  ],
+  "answerOptions": [
+   {
+    "value": "learning from an unsuccessful attempt",
+    "label": "learning from an unsuccessful attempt",
+    "text": "learning from an unsuccessful attempt"
+   },
+   {
+    "value": "hiding his mistake from the class",
+    "label": "hiding his mistake from the class",
+    "text": "hiding his mistake from the class"
+   },
+   {
+    "value": "using the same folds without a change",
+    "label": "using the same folds without a change",
+    "text": "using the same folds without a change"
+   },
+   {
+    "value": "waiting for someone to build it instead",
+    "label": "waiting for someone to build it instead",
+    "text": "waiting for someone to build it instead"
+   }
+  ],
+  "answer": "learning from an unsuccessful attempt",
+  "correctAnswer": "learning from an unsuccessful attempt",
+  "distractorRationales": {
+   "hiding his mistake from the class": "D-PLAUSIBLE-UNSUPPORTED",
+   "using the same folds without a change": "D-PLAUSIBLE-UNSUPPORTED",
+   "waiting for someone to build it instead": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v44",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for lesson effort pays. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v45",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "lesson_effort_pays",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "What does Ines's story teach?",
+  "question": "What does Ines's story teach?",
+  "spokenPrompt": "What does Ines's story teach?",
+  "passage": "Ines could clap the song but missed its ending. She practised just that small part with a friend. Then they tried the whole song again. This time her final clap landed with everyone else's. She smiled and joined the group for another turn.",
+  "cell": "lesson_effort_pays",
+  "choices": [
+   "focused practice can improve a difficult part",
+   "a difficult ending should always be skipped",
+   "being first matters more than staying together",
+   "good work happens without any practice"
+  ],
+  "answerOptions": [
+   {
+    "value": "focused practice can improve a difficult part",
+    "label": "focused practice can improve a difficult part",
+    "text": "focused practice can improve a difficult part"
+   },
+   {
+    "value": "a difficult ending should always be skipped",
+    "label": "a difficult ending should always be skipped",
+    "text": "a difficult ending should always be skipped"
+   },
+   {
+    "value": "being first matters more than staying together",
+    "label": "being first matters more than staying together",
+    "text": "being first matters more than staying together"
+   },
+   {
+    "value": "good work happens without any practice",
+    "label": "good work happens without any practice",
+    "text": "good work happens without any practice"
+   }
+  ],
+  "answer": "focused practice can improve a difficult part",
+  "correctAnswer": "focused practice can improve a difficult part",
+  "distractorRationales": {
+   "being first matters more than staying together": "D-PLAUSIBLE-UNSUPPORTED",
+   "good work happens without any practice": "D-PLAUSIBLE-UNSUPPORTED",
+   "a difficult ending should always be skipped": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v45",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored concrete meaning probe for lesson effort pays. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v46",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "theme_among_rivals",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which lesson is best supported by the ending?",
+  "question": "Which lesson is best supported by the ending?",
+  "spokenPrompt": "Which lesson is best supported by the ending?",
+  "passage": "Two groups were growing beans for the school display. One group hid its watering notes, hoping to have the tallest plants. The other group shared a useful way to check damp soil. When a dry weekend harmed both sets, the groups met together. They compared notes and made a shared plan for care. Most plants recovered, though neither group won a special prize. At the display, they explained what they had learned from working together. Their strongest result was knowledge everyone could use next time.",
+  "cell": "theme_among_rivals",
+  "choices": [
+   "success comes from following one experienced leader",
+   "fair contests help people recognise individual achievement",
+   "private practice helps people prepare for a challenge",
+   "sharing knowledge can matter more than winning"
+  ],
+  "answerOptions": [
+   {
+    "value": "success comes from following one experienced leader",
+    "label": "success comes from following one experienced leader",
+    "text": "success comes from following one experienced leader"
+   },
+   {
+    "value": "fair contests help people recognise individual achievement",
+    "label": "fair contests help people recognise individual achievement",
+    "text": "fair contests help people recognise individual achievement"
+   },
+   {
+    "value": "private practice helps people prepare for a challenge",
+    "label": "private practice helps people prepare for a challenge",
+    "text": "private practice helps people prepare for a challenge"
+   },
+   {
+    "value": "sharing knowledge can matter more than winning",
+    "label": "sharing knowledge can matter more than winning",
+    "text": "sharing knowledge can matter more than winning"
+   }
+  ],
+  "answer": "sharing knowledge can matter more than winning",
+  "correctAnswer": "sharing knowledge can matter more than winning",
+  "distractorRationales": {
+   "private practice helps people prepare for a challenge": "D-PLAUSIBLE-UNSUPPORTED",
+   "success comes from following one experienced leader": "D-PLAUSIBLE-UNSUPPORTED",
+   "fair contests help people recognise individual achievement": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v46",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Compare morally plausible rival lessons. The groups recover by exchanging knowledge, and the ending values shared learning despite no prize. No experienced leader, individual recognition or private preparation produces the resolution."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v47",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "theme_among_rivals",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which theme best fits the class's decision?",
+  "question": "Which theme best fits the class's decision?",
+  "spokenPrompt": "Which theme best fits the class's decision?",
+  "passage": "A class needed a leader for its river-cleaning project. Mina spoke confidently and suggested the biggest collection target. Quiet Ravi asked where younger pupils could work safely. He checked the route and found places for sorting the rubbish. On the day, Mina encouraged everyone and Ravi kept the plan organised. The teacher praised both kinds of contribution to the project. Afterwards, the class chose two leaders for its next event. They had learned that different strengths could support the same goal.",
+  "cell": "theme_among_rivals",
+  "choices": [
+   "a team benefits when its members contribute in varied ways",
+   "a team grows when every member learns the same skill",
+   "a team improves when its members take turns leading",
+   "a team learns when its members admit their mistakes"
+  ],
+  "answerOptions": [
+   {
+    "value": "a team benefits when its members contribute in varied ways",
+    "label": "a team benefits when its members contribute in varied ways",
+    "text": "a team benefits when its members contribute in varied ways"
+   },
+   {
+    "value": "a team grows when every member learns the same skill",
+    "label": "a team grows when every member learns the same skill",
+    "text": "a team grows when every member learns the same skill"
+   },
+   {
+    "value": "a team improves when its members take turns leading",
+    "label": "a team improves when its members take turns leading",
+    "text": "a team improves when its members take turns leading"
+   },
+   {
+    "value": "a team learns when its members admit their mistakes",
+    "label": "a team learns when its members admit their mistakes",
+    "text": "a team learns when its members admit their mistakes"
+   }
+  ],
+  "answer": "a team benefits when its members contribute in varied ways",
+  "correctAnswer": "a team benefits when its members contribute in varied ways",
+  "distractorRationales": {
+   "a team learns when its members admit their mistakes": "D-PLAUSIBLE-UNSUPPORTED",
+   "a team grows when every member learns the same skill": "D-PLAUSIBLE-UNSUPPORTED",
+   "a team improves when its members take turns leading": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v47",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Compare four positive lessons against the actual decision to appoint two leaders. Mina and Ravi contribute complementary strengths at the same time; they neither learn one shared skill, rotate leadership nor resolve admitted mistakes."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v48",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "theme_vs_plot",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which statement gives a lesson rather than a plot detail?",
+  "question": "Which statement gives a lesson rather than a plot detail?",
+  "spokenPrompt": "Which statement gives a lesson rather than a plot detail?",
+  "passage": "A visitor asked Nia where the community garden entrance was. Nia was unsure, but pointed confidently towards a locked gate. The visitor returned after walking a long way without finding it. Nia admitted she had guessed instead of knowing the answer. She asked the caretaker and walked with the visitor to the entrance. Later, someone asked her another question she could not answer. She paused. She said she was unsure and offered to find out. The second visitor thanked her for checking before giving directions.",
+  "cell": "theme_vs_plot",
+  "choices": [
+   "Nia asked the caretaker where the garden entrance was",
+   "a second visitor thanked Nia after she checked the route",
+   "being honest about uncertainty can make help more useful",
+   "a visitor walked towards a gate that had been locked"
+  ],
+  "answerOptions": [
+   {
+    "value": "Nia asked the caretaker where the garden entrance was",
+    "label": "Nia asked the caretaker where the garden entrance was",
+    "text": "Nia asked the caretaker where the garden entrance was"
+   },
+   {
+    "value": "a second visitor thanked Nia after she checked the route",
+    "label": "a second visitor thanked Nia after she checked the route",
+    "text": "a second visitor thanked Nia after she checked the route"
+   },
+   {
+    "value": "being honest about uncertainty can make help more useful",
+    "label": "being honest about uncertainty can make help more useful",
+    "text": "being honest about uncertainty can make help more useful"
+   },
+   {
+    "value": "a visitor walked towards a gate that had been locked",
+    "label": "a visitor walked towards a gate that had been locked",
+    "text": "a visitor walked towards a gate that had been locked"
+   }
+  ],
+  "answer": "being honest about uncertainty can make help more useful",
+  "correctAnswer": "being honest about uncertainty can make help more useful",
+  "distractorRationales": {
+   "Nia asked the caretaker where the garden entrance was": "D-PLAUSIBLE-UNSUPPORTED",
+   "a second visitor thanked Nia after she checked the route": "D-PLAUSIBLE-UNSUPPORTED",
+   "a visitor walked towards a gate that had been locked": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v48",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for theme vs plot. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v49",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "theme_vs_plot",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which statement expresses the theme rather than retelling an event?",
+  "question": "Which statement expresses the theme rather than retelling an event?",
+  "spokenPrompt": "Which statement expresses the theme rather than retelling an event?",
+  "passage": "Omar's class built a model town from cardboard. He wanted his tower in the centre because it was tallest. The group explained that it hid the smaller buildings behind. Omar moved it to the edge and looked from different sides. Now visitors could see every part of the town clearly. At the exhibition, a younger child admired both tower and houses. Omar felt proud that his change had helped the whole display. He showed the visitor how the group had arranged it together.",
+  "cell": "theme_vs_plot",
+  "choices": [
+   "adjusting a personal idea can improve a shared result",
+   "Omar moved his tall model from the middle to the edge",
+   "a visitor looked at several cardboard buildings in an exhibition",
+   "a group arranged houses around a tower made by Omar"
+  ],
+  "answerOptions": [
+   {
+    "value": "adjusting a personal idea can improve a shared result",
+    "label": "adjusting a personal idea can improve a shared result",
+    "text": "adjusting a personal idea can improve a shared result"
+   },
+   {
+    "value": "Omar moved his tall model from the middle to the edge",
+    "label": "Omar moved his tall model from the middle to the edge",
+    "text": "Omar moved his tall model from the middle to the edge"
+   },
+   {
+    "value": "a visitor looked at several cardboard buildings in an exhibition",
+    "label": "a visitor looked at several cardboard buildings in an exhibition",
+    "text": "a visitor looked at several cardboard buildings in an exhibition"
+   },
+   {
+    "value": "a group arranged houses around a tower made by Omar",
+    "label": "a group arranged houses around a tower made by Omar",
+    "text": "a group arranged houses around a tower made by Omar"
+   }
+  ],
+  "answer": "adjusting a personal idea can improve a shared result",
+  "correctAnswer": "adjusting a personal idea can improve a shared result",
+  "distractorRationales": {
+   "a group arranged houses around a tower made by Omar": "D-PLAUSIBLE-UNSUPPORTED",
+   "Omar moved his tall model from the middle to the edge": "D-PLAUSIBLE-UNSUPPORTED",
+   "a visitor looked at several cardboard buildings in an exhibition": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v49",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for theme vs plot. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l2.B.apply_theme.v50",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "apply_theme",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which new situation uses the same lesson?",
+  "question": "Which new situation uses the same lesson?",
+  "spokenPrompt": "Which new situation uses the same lesson?",
+  "passage": "A pair of children disagreed about their class mural. One wanted a river; the other preferred a busy market. They each explained what they liked about their own idea. Instead of voting at once, they drew a few plans together. Their final picture showed a market beside a river crossing. Both children could add details they had been excited to paint. Other classmates found space for their ideas as well. Listening had helped the group make something neither had imagined alone.",
+  "cell": "apply_theme",
+  "choices": [
+   "a pupil removes another person's work to make room for more",
+   "partners explain their ideas and design a shared solution",
+   "partners stop talking and each works over the other's drawing",
+   "a pupil insists everyone copy the first plan without discussion"
+  ],
+  "answerOptions": [
+   {
+    "value": "a pupil removes another person's work to make room for more",
+    "label": "a pupil removes another person's work to make room for more",
+    "text": "a pupil removes another person's work to make room for more"
+   },
+   {
+    "value": "partners explain their ideas and design a shared solution",
+    "label": "partners explain their ideas and design a shared solution",
+    "text": "partners explain their ideas and design a shared solution"
+   },
+   {
+    "value": "partners stop talking and each works over the other's drawing",
+    "label": "partners stop talking and each works over the other's drawing",
+    "text": "partners stop talking and each works over the other's drawing"
+   },
+   {
+    "value": "a pupil insists everyone copy the first plan without discussion",
+    "label": "a pupil insists everyone copy the first plan without discussion",
+    "text": "a pupil insists everyone copy the first plan without discussion"
+   }
+  ],
+  "answer": "partners explain their ideas and design a shared solution",
+  "correctAnswer": "partners explain their ideas and design a shared solution",
+  "distractorRationales": {
+   "a pupil removes another person's work to make room for more": "D-PLAUSIBLE-UNSUPPORTED",
+   "partners stop talking and each works over the other's drawing": "D-PLAUSIBLE-UNSUPPORTED",
+   "a pupil insists everyone copy the first plan without discussion": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.B.apply_theme.v50",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for apply theme. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+ },
+ {
+  "id": "lp3.theme_higher_comprehension.l2.C.apply_theme.v51",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "theme_higher_comprehension",
+  "assessmentSkillId": "theme_higher_comprehension",
+  "skillName": "Theme and Higher Comprehension",
+  "skill": "Theme and Higher Comprehension",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "theme_higher_comprehension_cell",
+  "itemKey": "apply_theme",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "multiple_choice",
+  "prompt": "Which action in another situation follows this lesson?",
+  "question": "Which action in another situation follows this lesson?",
+  "spokenPrompt": "Which action in another situation follows this lesson?",
+  "passage": "Tessa promised to water a neighbour's plants during a holiday. On the second morning, she forgot and went out to play. When she returned, she saw one pot beginning to dry. She watered it, told the neighbour what had happened, and set reminders. For the rest of the week, she checked every pot carefully. The neighbour thanked her for being honest and making a better plan. Tessa understood that repairing a mistake meant changing what came next. A promise needed actions that could be relied on each day.",
+  "cell": "apply_theme",
+  "choices": [
+   "a pupil hides an unfinished job and hopes it is overlooked",
+   "a pupil blames someone else whenever a promised job is missed",
+   "a pupil makes a larger promise without changing any daily habits",
+   "a pupil admits missing a job and sets up a reliable routine"
+  ],
+  "answerOptions": [
+   {
+    "value": "a pupil hides an unfinished job and hopes it is overlooked",
+    "label": "a pupil hides an unfinished job and hopes it is overlooked",
+    "text": "a pupil hides an unfinished job and hopes it is overlooked"
+   },
+   {
+    "value": "a pupil blames someone else whenever a promised job is missed",
+    "label": "a pupil blames someone else whenever a promised job is missed",
+    "text": "a pupil blames someone else whenever a promised job is missed"
+   },
+   {
+    "value": "a pupil makes a larger promise without changing any daily habits",
+    "label": "a pupil makes a larger promise without changing any daily habits",
+    "text": "a pupil makes a larger promise without changing any daily habits"
+   },
+   {
+    "value": "a pupil admits missing a job and sets up a reliable routine",
+    "label": "a pupil admits missing a job and sets up a reliable routine",
+    "text": "a pupil admits missing a job and sets up a reliable routine"
+   }
+  ],
+  "answer": "a pupil admits missing a job and sets up a reliable routine",
+  "correctAnswer": "a pupil admits missing a job and sets up a reliable routine",
+  "distractorRationales": {
+   "a pupil makes a larger promise without changing any daily habits": "D-PLAUSIBLE-UNSUPPORTED",
+   "a pupil hides an unfinished job and hopes it is overlooked": "D-PLAUSIBLE-UNSUPPORTED",
+   "a pupil blames someone else whenever a promised job is missed": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "text",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.C.apply_theme.v51",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Authored integrated evidence and transfer probe for apply theme. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
  }
 ];

@@ -1,3 +1,4 @@
+import depthItems from "./depth/nouns.mjs";
 // Nouns — v3 authored bank (wave W9, paired with verbs). The family-wide
 // re-keying: concept units (a child masters "nouns name people/places/things"),
 // never the 86 word-keys of the legacy bank.
@@ -109,7 +110,7 @@ const freshPhaseItems = [
   gnp("noun_two_step", 2, 2, 18, "___ shook wildly.", ["Leaves and branches", "The tall tree by itself", "The leaves, branches and flowers", "They all"])
 ];
 
-export default {
+const bank = {
   skillId: "nouns",
   skillName: "Nouns",
   items: [
@@ -272,3 +273,6 @@ export default {
       ["Snow covered rooftops.", "Snow fell silently all around us.", "Snow covered rooftops and pavements.", "It fell very softly."], [FS, FS, FS])
   ].map(item => ({ ...item, retention: true })))
 };
+
+bank.items.push(...depthItems);
+export default bank;

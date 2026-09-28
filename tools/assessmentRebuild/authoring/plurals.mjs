@@ -1,3 +1,4 @@
+import depthItems from "./depth/plurals.mjs";
 // Plurals — v3 authored bank (wave W11, paired with prefixes_suffixes).
 // The distractor law (BLUEPRINTS_LANGUAGE §19): fake forms live ONLY in
 // PLURAL_ERROR_SPOT and come from approvedWords.json approvedDevErrors —
@@ -88,7 +89,7 @@ const freshPhaseItems = [
   psc("plural_in_sentence", 2, 2, 9, "There are two ___. Each one has six strings.", ["guitars", "guitar", "piano", "flute"], [FS, SEM, SEM])
 ];
 
-export default {
+const bank = {
   skillId: "plurals",
   skillName: "Plurals",
   imageResolver: key => GROUP_IMAGES[key] || fallbackImageResolver(key),
@@ -274,3 +275,6 @@ export default {
       ["calves", "calf", "colt", "foal"], [FS, FS, FS])
   ].map(item => ({ ...item, retention: true })))
 };
+
+bank.items.push(...depthItems);
+export default bank;

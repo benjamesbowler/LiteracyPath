@@ -1,3 +1,4 @@
+import depthItems from "./depth/prepositions_of_place.mjs";
 // Prepositions of Place — v3 authored bank (wave W10, paired with adjectives).
 // Sixteen spatial concepts, each tied to visible scoring evidence.
 // L1 PREPOSITION_SCENE_CHOICE: ONE drawn scene, options differ ONLY by the
@@ -257,7 +258,7 @@ const freshPhaseItems = [
       ["inside", "outside", "under", "on"], [PU, PU, PU], "The pictured relationship supplies the location evidence.", "apple-inside-lunchbox")
 ];
 
-export default {
+const bank = {
   skillId: "prepositions_of_place",
   skillName: "Prepositions of Place",
   imageResolver: scene => SCENE_PATHS[scene] || null,
@@ -459,3 +460,6 @@ export default {
       "Geese surround the duck on the same pond surface.", "duck-among-geese")
   ].map(item => ({ ...item, retention: true })))
 };
+
+bank.items.push(...depthItems);
+export default bank;

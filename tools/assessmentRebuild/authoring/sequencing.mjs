@@ -1,4 +1,4 @@
-// Individually authored comprehension evidence; normal and reserve items share the same quality requirements.
+// Individually authored comprehension evidence; stable item coordinates preserve saved attempts.
 export default {
   "skillId": "sequencing",
   "skillName": "Sequencing",
@@ -2522,6 +2522,426 @@ export default {
       ],
       "media": "text",
       "note": "Track one image across taking, printing, entering and framing, described backwards."
+    },
+    {
+      "u": "first_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 40,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "first_event",
+      "media": "text",
+      "passage": "The class prepared apples for their snack. First, they washed the fruit under cool water. Next, an adult cut it into small slices. Last, the children shared the slices on plates. Everyone sat down at the clean table to eat.",
+      "prompt": "What did the class do first?",
+      "choices": [
+        {
+          "t": "cleaned the fruit",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "divided the pieces",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "cut the apples",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "sat down to eat",
+          "r": "D-SEQUENCE-SWAP"
+        }
+      ],
+      "note": "Authored concrete meaning probe for first event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "constructClaim": "story_event_order",
+      "evidenceModality": "audio+text",
+      "displayPassageDuringResponse": true
+    },
+    {
+      "u": "first_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 41,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "first_event",
+      "media": "text",
+      "passage": "A message arrived from the class next door. Our teacher read the note to everyone. The children thought of a reply together. Then one child wrote their answer on paper. At the end, two helpers delivered the finished message.",
+      "prompt": "What happened before the class planned a reply?",
+      "choices": [
+        {
+          "t": "they heard the message",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "they took their answer next door",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "they put their ideas on paper",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "they chose helpers to deliver it",
+          "r": "D-SEQUENCE-SWAP"
+        }
+      ],
+      "note": "Authored concrete meaning probe for first event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "constructClaim": "story_event_order",
+      "evidenceModality": "audio+text",
+      "displayPassageDuringResponse": true
+    },
+    {
+      "u": "middle_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 42,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "middle_event",
+      "media": "text",
+      "passage": "Mum made a simple bird feeder for our garden. She spread soft seed butter on a cone. Next, she rolled the sticky cone in seeds. Finally, she tied it to a tree branch. We watched from our window for visiting birds.",
+      "prompt": "What did Mum do just before hanging the feeder?",
+      "choices": [
+        {
+          "t": "covered it with seeds",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "coated it with seed butter",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "watched for visiting birds",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "chose a cone for the feeder",
+          "r": "D-SEQUENCE-SWAP"
+        }
+      ],
+      "note": "Authored concrete meaning probe for middle event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "constructClaim": "story_event_order",
+      "evidenceModality": "audio+text",
+      "displayPassageDuringResponse": true
+    },
+    {
+      "u": "middle_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 43,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "middle_event",
+      "media": "text",
+      "passage": "A tailor helped us mend the class puppet. She put thread through the eye of a needle. Then she stitched the tear in its arm. Last, she tied a knot to hold the thread. The puppet was ready for our next story.",
+      "prompt": "What happened between threading the needle and tying the knot?",
+      "choices": [
+        {
+          "t": "the tear was sewn shut",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the puppet joined the next story",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "the thread entered the needle",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "the knot held the thread",
+          "r": "D-SEQUENCE-SWAP"
+        }
+      ],
+      "note": "Authored concrete meaning probe for middle event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "constructClaim": "story_event_order",
+      "evidenceModality": "audio+text",
+      "displayPassageDuringResponse": true
+    },
+    {
+      "u": "last_event",
+      "lvl": 1,
+      "ph": 1,
+      "v": 44,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "last_event",
+      "media": "text",
+      "passage": "The team made a sign for their stall. They wrote the prices in dark blue paint. Then they left the card flat to dry. Finally, they fixed it to the front table. Now everyone could see what the fruit cost.",
+      "prompt": "What was the team's final job?",
+      "choices": [
+        {
+          "t": "putting the sign on display",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "writing prices on the card",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "waiting for the paint to dry",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "choosing a dark colour",
+          "r": "D-SEQUENCE-SWAP"
+        }
+      ],
+      "note": "Authored concrete meaning probe for last event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "constructClaim": "story_event_order",
+      "evidenceModality": "audio+text",
+      "displayPassageDuringResponse": true
+    },
+    {
+      "u": "last_event",
+      "lvl": 1,
+      "ph": 2,
+      "v": 45,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "last_event",
+      "media": "text",
+      "passage": "A fallen branch blocked the narrow garden path. The caretaker cut it into smaller pieces. Two helpers carried those pieces to a pile. Then they swept the path clear of twigs. Families could walk through the garden safely again.",
+      "prompt": "What did the helpers do after carrying the wood?",
+      "choices": [
+        {
+          "t": "cleared the small bits from the path",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "made the large branch into pieces",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "moved the pieces into a pile",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "found the branch across the path",
+          "r": "D-SEQUENCE-SWAP"
+        }
+      ],
+      "note": "Authored concrete meaning probe for last event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "constructClaim": "story_event_order",
+      "evidenceModality": "audio+text",
+      "displayPassageDuringResponse": true
+    },
+    {
+      "u": "before_after_relation",
+      "lvl": 2,
+      "ph": 1,
+      "v": 46,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "before_after_relation",
+      "media": "text",
+      "passage": "The school orchestra held a concert in the hall. Before the families arrived, musicians checked their instruments in small groups. The teacher gave a signal when everyone was ready. The players walked onto the stage and took their places. After the audience became quiet, the first song began. Between songs, a pupil explained the next piece of music. At the end, all the musicians stood for a bow. They packed away only after the families had left the hall.",
+      "prompt": "What happened just before the first song began?",
+      "choices": [
+        {
+          "t": "the audience settled into silence",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the musicians packed their instruments",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "a pupil explained the second piece",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "the families left the school hall",
+          "r": "D-SEQUENCE-SWAP"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for before after relation. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "constructClaim": "story_event_order",
+      "evidenceModality": "audio+text",
+      "displayPassageDuringResponse": true
+    },
+    {
+      "u": "before_after_relation",
+      "lvl": 2,
+      "ph": 2,
+      "v": 47,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "before_after_relation",
+      "media": "text",
+      "passage": "Our class made a timeline about the school garden. The beds had been dug before the winter holidays began. Seeds were planted when the class returned in spring. Several weeks later, small shoots rose through the soil. The gardener fitted supports before the climbing plants grew tall. By summer, the children could pick beans from the vines. They cooked some and saved others for next year's seeds. Their timeline included drawings from each visit to the garden.",
+      "prompt": "Which event happened before seeds were planted?",
+      "choices": [
+        {
+          "t": "the growing beds were prepared",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the first shoots rose above the soil",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "the gardener added the climbing supports",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "the class picked beans from the vines",
+          "r": "D-SEQUENCE-SWAP"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for before after relation. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "constructClaim": "story_event_order",
+      "evidenceModality": "audio+text",
+      "displayPassageDuringResponse": true
+    },
+    {
+      "u": "implied_order",
+      "lvl": 2,
+      "ph": 1,
+      "v": 48,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "implied_order",
+      "media": "text",
+      "passage": "When the class reached the campsite, their tents were already standing. The older pupils had arrived early to put them up. Sleeping bags still lay rolled beside the entrance to each tent. After choosing places, the children unrolled their bags inside. Soon the cook rang a bell beside the outdoor shelter. Everyone left their bags and carried a bowl to supper. By the time the stars appeared, the bowls were washed. A lantern glowed inside every tent before bedtime that night.",
+      "prompt": "Which event must have happened before the class arrived?",
+      "choices": [
+        {
+          "t": "the older pupils built the tent shelters",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "the children placed their sleeping bags inside",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "the cook served supper to the whole class",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "the children washed their bowls after the meal",
+          "r": "D-SEQUENCE-SWAP"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for implied order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "constructClaim": "story_event_order",
+      "evidenceModality": "audio+text",
+      "displayPassageDuringResponse": true
+    },
+    {
+      "u": "implied_order",
+      "lvl": 2,
+      "ph": 2,
+      "v": 49,
+      "form": "A",
+      "fmt": "COMPREHENSION",
+      "cell": "implied_order",
+      "media": "text",
+      "passage": "The school newspaper lay in a neat pile by lunchtime. Inside was a photograph of yesterday's winning relay team. The editor had chosen it from several pictures after breakfast. A caption beneath it named the runners in their race order. Before printing, the team captain checked those names for mistakes. Two volunteers then carried copies to each classroom door. By the final bell, pupils were discussing the photograph together. The remaining papers went on a shelf for families to take home.",
+      "prompt": "What must have happened before the captain checked the names?",
+      "choices": [
+        {
+          "t": "a caption had been written for the chosen picture",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "printed copies had reached every classroom door",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "families had taken all the spare papers home",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "pupils had discussed the picture at the final bell",
+          "r": "D-SEQUENCE-SWAP"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for implied order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "constructClaim": "story_event_order",
+      "evidenceModality": "audio+text",
+      "displayPassageDuringResponse": true
+    },
+    {
+      "u": "process_order",
+      "lvl": 2,
+      "ph": 1,
+      "v": 50,
+      "form": "B",
+      "fmt": "COMPREHENSION",
+      "cell": "process_order",
+      "media": "text",
+      "passage": "To make a clear leaf print, choose a fallen leaf. Put it flat on a firm table with veins upwards. Cover it with thin paper and hold the paper still. Rub the side of a crayon gently over the surface. The raised veins will show as lines on the paper. If the leaf moves, the pattern may blur or double. When the picture is finished, lift the paper carefully. Label the print with the tree's name before putting it away.",
+      "prompt": "Which action is needed before rubbing with the crayon?",
+      "choices": [
+        {
+          "t": "covering the still leaf with a sheet",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "lifting the finished print off the table",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "writing a name on the completed picture",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "putting the labelled picture in a folder",
+          "r": "D-SEQUENCE-SWAP"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for process order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "constructClaim": "story_event_order",
+      "evidenceModality": "audio+text",
+      "displayPassageDuringResponse": true
+    },
+    {
+      "u": "process_order",
+      "lvl": 2,
+      "ph": 2,
+      "v": 51,
+      "form": "C",
+      "fmt": "COMPREHENSION",
+      "cell": "process_order",
+      "media": "text",
+      "passage": "The class wanted to compare shadows at different times of day. They placed a stick upright in a pot of sand. Its base stayed in one marked place on the playground. At each visit, a child marked the shadow's tip with chalk. The group wrote the time beside every new chalk mark. Only after the final visit did they join the marks. Then they could compare both the direction and the length. Moving the pot between visits would have spoiled their comparison.",
+      "prompt": "What did the children do immediately after marking each shadow?",
+      "choices": [
+        {
+          "t": "recorded when that mark was made",
+          "r": "KEY",
+          "k": true
+        },
+        {
+          "t": "moved the pot to a new position",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "connected all the marks into a line",
+          "r": "D-SEQUENCE-SWAP"
+        },
+        {
+          "t": "removed the stick from its sandy pot",
+          "r": "D-SEQUENCE-SWAP"
+        }
+      ],
+      "note": "Authored integrated evidence and transfer probe for process order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "constructClaim": "story_event_order",
+      "evidenceModality": "audio+text",
+      "displayPassageDuringResponse": true
     }
   ]
 };

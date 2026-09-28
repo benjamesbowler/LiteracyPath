@@ -38,6 +38,29 @@ test("Legacy and unavailable-only check report missing accuracy, never zero lite
   assert.equal(unavailable.accuracy, null);
   assert.equal(unavailable.mediaFailedCount, 1);
 });
+test("contradictory Cycle response status and Boolean cannot invent independent evidence", () => {
+  const records = [
+    item("wrong-status", { responseStatus: "incorrect", isCorrect: true }),
+    item("right-status", { responseStatus: "correct", isCorrect: false }),
+    item("missing-boolean", { responseStatus: "correct", isCorrect: undefined })
+  ];
+  const original = JSON.stringify(records);
+  const result = normalizeAssessmentAttempt(attempt(records));
+  assert.deepEqual(result.questionRecords.map(row => row.responseStatus), Array(3).fill("legacy_unverified"));
+  assert.deepEqual(result.questionRecords.map(row => row.isCorrect), Array(3).fill(null));
+  assert.equal(result.scoredQuestions, 0);
+  assert.equal(result.correctCount, 0);
+  assert.equal(result.accuracy, null);
+  assert.equal(result.passed, false);
+  assert.equal(JSON.stringify(records), original);
+  assert.equal(normalizeAssessmentAttempt(result).scoredQuestions, 0);
+
+  const mixed = normalizeAssessmentAttempt(attempt([...records, item("verified-right"),
+    item("verified-wrong", { responseStatus: "incorrect", isCorrect: false })]));
+  assert.equal(mixed.scoredQuestions, 2);
+  assert.equal(mixed.correctCount, 1);
+  assert.equal(mixed.accuracy, 50);
+});
 test("Cycle practice never contributes formal assessment aggregate or item placement", () => {
   const record = attempt([item("a", { itemKey: "a", itemType: "letter" })]);
   const summary = summarizeAssessmentHistory([record]);

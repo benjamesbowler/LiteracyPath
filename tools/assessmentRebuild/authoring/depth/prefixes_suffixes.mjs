@@ -1,0 +1,15 @@
+import { author, text, key as K, wrong as W } from "./builders.mjs";
+const M = "D-MORPH-LITERAL", O = "D-OPPOSITE";
+export default author("prefixes_suffixes", [
+  text("prefix_un",1,"MORPHEME_MEANING_CONTEXT","What does ‘unpack’ mean?",[K("take things out of a bag"),W("put things into a bag",O),W("carry a bag to school",M),W("buy a bag in a shop",M)],"Reversing an action with un-, rather than only the not- meaning."),
+  text("prefix_re",1,"MORPHEME_TRANSFER","Your drawing tore. What does ‘redraw’ ask you to do?",[K("draw it again"),W("rub it out",M),W("colour it red",M),W("put it away",M)],"Apply re- to a familiar new base; red colour is a literal-letter trap."),
+  text("suffix_ful",1,"MORPHEME_MEANING_CONTEXT","What does ‘hopeful’ mean?",[K("full of hope"),W("without any hope",O),W("hoping yesterday",M),W("someone who hops",M)],"Meaningful ful/less contrast and a base-word sound distraction."),
+  text("suffix_less",1,"MORPHEME_TRANSFER","A room has no windows. Which word describes it?",[K("windowless"),W("window",M),W("windows",M),W("windowed",O)],"Apply less to a transparent compound-like familiar base; number is not absence."),
+  text("suffix_er_person",1,"MORPHEME_MEANING_CONTEXT","What does ‘helper’ mean?",[K("someone who helps"),W("something needing help",M),W("helping once before",M),W("helping very often",M)],"Agent suffix is separated from recipient, tense and frequency."),
+  text("suffix_s_es",2,"MORPHEME_BUILD","Add ‘es’ to ‘catch’. Which word finishes the sentence?",[K("catches"),W("catch",M),W("catching",M),W("caught",M)],"Apply es after a ch base; the explicit suffix instruction excludes the otherwise grammatical habitual past.",{sentence:"Every morning, she ___ the same bus."}),
+  text("suffix_ing",2,"MORPHEME_BUILD","Add ‘ing’ to ‘slide’. Which word is spelled correctly?",[K("sliding"),W("slid",M),W("slides",M),W("siding",M)],"Transfer the final-e deletion rule without using unapproved misspellings as options."),
+  text("suffix_ed",2,"MORPHEME_BUILD","Which word finishes the sentence?",[K("carried"),W("carry",M),W("carries",M),W("carrying",M)],"Apply consonant-y to ied with explicit past time.",{sentence:"Yesterday, the strong wind ___ our kite over the wall."}),
+  text("suffix_er_est",2,"MORPHEME_TRANSFER","Of all four paths, which word means the most narrow?",[K("narrowest"),W("narrower",M),W("narrow",M),W("narrowly",M)],"Compare the entire set: superlative, comparative, base and adverb all remain related real words."),
+  text("suffix_ly",2,"MORPHEME_TRANSFER","Which word describes HOW she answered?",[K("politely"),W("polite",M),W("politeness",M),W("impolite",O)],"Use an adverb in a new grammatical slot instead of copying a gloss.",{sentence:"She answered the visitor ___ and offered to help."}),
+  text("prefix_pre",2,"MORPHEME_TRANSFER","What should you do when a recipe says ‘preheat’?",[K("heat the oven before cooking"),W("heat the food after serving",M),W("heat the oven a second time",M),W("stop heating the oven completely",O)],"Transfer temporal pre- to a real instruction; before/again/after remain distinct.")
+]);

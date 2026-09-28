@@ -16663,5 +16663,4100 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "three spoken words share a rime; one has a different rime"
+ },
+ {
+  "id": "lp3.rhyming.l1.A.at.v101",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "rhyming_family",
+  "itemKey": "at",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "flat. Which word rhymes with it?",
+  "choices": [
+   "hat",
+   "flag",
+   "hot",
+   "leaf"
+  ],
+  "answerOptions": [
+   {
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
+   },
+   {
+    "value": "flag",
+    "label": "flag",
+    "text": "flag"
+   },
+   {
+    "value": "hot",
+    "label": "hot",
+    "text": "hot"
+   },
+   {
+    "value": "leaf",
+    "label": "leaf",
+    "text": "leaf"
+   }
+  ],
+  "answer": "hat",
+  "correctAnswer": "hat",
+  "distractorRationales": {
+   "flag": "D-ONSET",
+   "hot": "D-RIME-NEAR",
+   "leaf": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "flat",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.A.at.v101",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.B.an.v102",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "rhyming_family",
+  "itemKey": "an",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "pan. Which word rhymes with it?",
+  "choices": [
+   "pat",
+   "pen",
+   "pot",
+   "fan"
+  ],
+  "answerOptions": [
+   {
+    "value": "pat",
+    "label": "pat",
+    "text": "pat"
+   },
+   {
+    "value": "pen",
+    "label": "pen",
+    "text": "pen"
+   },
+   {
+    "value": "pot",
+    "label": "pot",
+    "text": "pot"
+   },
+   {
+    "value": "fan",
+    "label": "fan",
+    "text": "fan"
+   }
+  ],
+  "answer": "fan",
+  "correctAnswer": "fan",
+  "distractorRationales": {
+   "pot": "D-SEMANTIC",
+   "pat": "D-ONSET",
+   "pen": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "pan",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.B.an.v102",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.C.ap.v103",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "rhyming_family",
+  "itemKey": "ap",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "tap. Which word rhymes with it?",
+  "choices": [
+   "tip",
+   "tin",
+   "nap",
+   "tag"
+  ],
+  "answerOptions": [
+   {
+    "value": "tip",
+    "label": "tip",
+    "text": "tip"
+   },
+   {
+    "value": "tin",
+    "label": "tin",
+    "text": "tin"
+   },
+   {
+    "value": "nap",
+    "label": "nap",
+    "text": "nap"
+   },
+   {
+    "value": "tag",
+    "label": "tag",
+    "text": "tag"
+   }
+  ],
+  "answer": "nap",
+  "correctAnswer": "nap",
+  "distractorRationales": {
+   "tag": "D-ONSET",
+   "tip": "D-RIME-NEAR",
+   "tin": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "tap",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.C.ap.v103",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.A.am.v104",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "rhyming_family",
+  "itemKey": "am",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "clam. Which word rhymes with it?",
+  "choices": [
+   "crab",
+   "jam",
+   "clap",
+   "drum"
+  ],
+  "answerOptions": [
+   {
+    "value": "crab",
+    "label": "crab",
+    "text": "crab"
+   },
+   {
+    "value": "jam",
+    "label": "jam",
+    "text": "jam"
+   },
+   {
+    "value": "clap",
+    "label": "clap",
+    "text": "clap"
+   },
+   {
+    "value": "drum",
+    "label": "drum",
+    "text": "drum"
+   }
+  ],
+  "answer": "jam",
+  "correctAnswer": "jam",
+  "distractorRationales": {
+   "crab": "D-SEMANTIC",
+   "clap": "D-ONSET",
+   "drum": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "clam",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.A.am.v104",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.B.ag.v105",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "rhyming_family",
+  "itemKey": "ag",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "flag. Which word rhymes with it?",
+  "choices": [
+   "bag",
+   "flat",
+   "fog",
+   "cloth"
+  ],
+  "answerOptions": [
+   {
+    "value": "bag",
+    "label": "bag",
+    "text": "bag"
+   },
+   {
+    "value": "flat",
+    "label": "flat",
+    "text": "flat"
+   },
+   {
+    "value": "fog",
+    "label": "fog",
+    "text": "fog"
+   },
+   {
+    "value": "cloth",
+    "label": "cloth",
+    "text": "cloth"
+   }
+  ],
+  "answer": "bag",
+  "correctAnswer": "bag",
+  "distractorRationales": {
+   "cloth": "D-SEMANTIC",
+   "flat": "D-ONSET",
+   "fog": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "flag",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.B.ag.v105",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.C.ub.v106",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "rhyming_family",
+  "itemKey": "ub",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "club. Which word rhymes with it?",
+  "choices": [
+   "clap",
+   "cab",
+   "cup",
+   "tub"
+  ],
+  "answerOptions": [
+   {
+    "value": "clap",
+    "label": "clap",
+    "text": "clap"
+   },
+   {
+    "value": "cab",
+    "label": "cab",
+    "text": "cab"
+   },
+   {
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
+   },
+   {
+    "value": "tub",
+    "label": "tub",
+    "text": "tub"
+   }
+  ],
+  "answer": "tub",
+  "correctAnswer": "tub",
+  "distractorRationales": {
+   "clap": "D-ONSET",
+   "cab": "D-RIME-NEAR",
+   "cup": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "club",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.C.ub.v106",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.A.ed.v107",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "rhyming_family",
+  "itemKey": "ed",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "bed. Which word rhymes with it?",
+  "choices": [
+   "bad",
+   "blanket",
+   "red",
+   "bet"
+  ],
+  "answerOptions": [
+   {
+    "value": "bad",
+    "label": "bad",
+    "text": "bad"
+   },
+   {
+    "value": "blanket",
+    "label": "blanket",
+    "text": "blanket"
+   },
+   {
+    "value": "red",
+    "label": "red",
+    "text": "red"
+   },
+   {
+    "value": "bet",
+    "label": "bet",
+    "text": "bet"
+   }
+  ],
+  "answer": "red",
+  "correctAnswer": "red",
+  "distractorRationales": {
+   "blanket": "D-SEMANTIC",
+   "bet": "D-ONSET",
+   "bad": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "bed",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.A.ed.v107",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.B.en.v108",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "rhyming_family",
+  "itemKey": "en",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "hen. Which word rhymes with it?",
+  "choices": [
+   "egg",
+   "pen",
+   "hat",
+   "pin"
+  ],
+  "answerOptions": [
+   {
+    "value": "egg",
+    "label": "egg",
+    "text": "egg"
+   },
+   {
+    "value": "pen",
+    "label": "pen",
+    "text": "pen"
+   },
+   {
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
+   },
+   {
+    "value": "pin",
+    "label": "pin",
+    "text": "pin"
+   }
+  ],
+  "answer": "pen",
+  "correctAnswer": "pen",
+  "distractorRationales": {
+   "hat": "D-ONSET",
+   "pin": "D-RIME-NEAR",
+   "egg": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "hen",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.B.en.v108",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.C.et.v109",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "rhyming_family",
+  "itemKey": "et",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "net. Which word rhymes with it?",
+  "choices": [
+   "jet",
+   "neck",
+   "nut",
+   "fish"
+  ],
+  "answerOptions": [
+   {
+    "value": "jet",
+    "label": "jet",
+    "text": "jet"
+   },
+   {
+    "value": "neck",
+    "label": "neck",
+    "text": "neck"
+   },
+   {
+    "value": "nut",
+    "label": "nut",
+    "text": "nut"
+   },
+   {
+    "value": "fish",
+    "label": "fish",
+    "text": "fish"
+   }
+  ],
+  "answer": "jet",
+  "correctAnswer": "jet",
+  "distractorRationales": {
+   "fish": "D-SEMANTIC",
+   "neck": "D-ONSET",
+   "nut": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "net",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.C.et.v109",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.A.eg.v110",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "rhyming_family",
+  "itemKey": "eg",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "beg. Which word rhymes with it?",
+  "choices": [
+   "bed",
+   "bag",
+   "dog",
+   "leg"
+  ],
+  "answerOptions": [
+   {
+    "value": "bed",
+    "label": "bed",
+    "text": "bed"
+   },
+   {
+    "value": "bag",
+    "label": "bag",
+    "text": "bag"
+   },
+   {
+    "value": "dog",
+    "label": "dog",
+    "text": "dog"
+   },
+   {
+    "value": "leg",
+    "label": "leg",
+    "text": "leg"
+   }
+  ],
+  "answer": "leg",
+  "correctAnswer": "leg",
+  "distractorRationales": {
+   "bed": "D-ONSET",
+   "bag": "D-RIME-NEAR",
+   "dog": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "beg",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.A.eg.v110",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.B.ig.v111",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "rhyming_family",
+  "itemKey": "ig",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "big. Which word rhymes with it?",
+  "choices": [
+   "bug",
+   "small",
+   "pig",
+   "bin"
+  ],
+  "answerOptions": [
+   {
+    "value": "bug",
+    "label": "bug",
+    "text": "bug"
+   },
+   {
+    "value": "small",
+    "label": "small",
+    "text": "small"
+   },
+   {
+    "value": "pig",
+    "label": "pig",
+    "text": "pig"
+   },
+   {
+    "value": "bin",
+    "label": "bin",
+    "text": "bin"
+   }
+  ],
+  "answer": "pig",
+  "correctAnswer": "pig",
+  "distractorRationales": {
+   "bug": "D-RIME-NEAR",
+   "small": "D-SEMANTIC",
+   "bin": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "big",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.B.ig.v111",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.C.in.v112",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "rhyming_family",
+  "itemKey": "in",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "fin. Which word rhymes with it?",
+  "choices": [
+   "tail",
+   "tin",
+   "fish",
+   "fan"
+  ],
+  "answerOptions": [
+   {
+    "value": "tail",
+    "label": "tail",
+    "text": "tail"
+   },
+   {
+    "value": "tin",
+    "label": "tin",
+    "text": "tin"
+   },
+   {
+    "value": "fish",
+    "label": "fish",
+    "text": "fish"
+   },
+   {
+    "value": "fan",
+    "label": "fan",
+    "text": "fan"
+   }
+  ],
+  "answer": "tin",
+  "correctAnswer": "tin",
+  "distractorRationales": {
+   "fish": "D-ONSET",
+   "fan": "D-RIME-NEAR",
+   "tail": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "fin",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.C.in.v112",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.A.ip.v113",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "rhyming_family",
+  "itemKey": "ip",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "ship. Which word rhymes with it?",
+  "choices": [
+   "lip",
+   "shin",
+   "shop",
+   "boat"
+  ],
+  "answerOptions": [
+   {
+    "value": "lip",
+    "label": "lip",
+    "text": "lip"
+   },
+   {
+    "value": "shin",
+    "label": "shin",
+    "text": "shin"
+   },
+   {
+    "value": "shop",
+    "label": "shop",
+    "text": "shop"
+   },
+   {
+    "value": "boat",
+    "label": "boat",
+    "text": "boat"
+   }
+  ],
+  "answer": "lip",
+  "correctAnswer": "lip",
+  "distractorRationales": {
+   "shop": "D-RIME-NEAR",
+   "boat": "D-SEMANTIC",
+   "shin": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "ship",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.A.ip.v113",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.B.ock.v114",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "rhyming_family",
+  "itemKey": "ock",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "rock. Which word rhymes with it?",
+  "choices": [
+   "rod",
+   "rack",
+   "stone",
+   "sock"
+  ],
+  "answerOptions": [
+   {
+    "value": "rod",
+    "label": "rod",
+    "text": "rod"
+   },
+   {
+    "value": "rack",
+    "label": "rack",
+    "text": "rack"
+   },
+   {
+    "value": "stone",
+    "label": "stone",
+    "text": "stone"
+   },
+   {
+    "value": "sock",
+    "label": "sock",
+    "text": "sock"
+   }
+  ],
+  "answer": "sock",
+  "correctAnswer": "sock",
+  "distractorRationales": {
+   "rack": "D-RIME-NEAR",
+   "stone": "D-SEMANTIC",
+   "rod": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "rock",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.B.ock.v114",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.C.og.v115",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "rhyming_family",
+  "itemKey": "og",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "dog. Which word rhymes with it?",
+  "choices": [
+   "dig",
+   "cat",
+   "log",
+   "dot"
+  ],
+  "answerOptions": [
+   {
+    "value": "dig",
+    "label": "dig",
+    "text": "dig"
+   },
+   {
+    "value": "cat",
+    "label": "cat",
+    "text": "cat"
+   },
+   {
+    "value": "log",
+    "label": "log",
+    "text": "log"
+   },
+   {
+    "value": "dot",
+    "label": "dot",
+    "text": "dot"
+   }
+  ],
+  "answer": "log",
+  "correctAnswer": "log",
+  "distractorRationales": {
+   "cat": "D-SEMANTIC",
+   "dot": "D-ONSET",
+   "dig": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "dog",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.C.og.v115",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.A.op.v116",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "rhyming_family",
+  "itemKey": "op",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "hop. Which word rhymes with it?",
+  "choices": [
+   "jump",
+   "top",
+   "hot",
+   "hip"
+  ],
+  "answerOptions": [
+   {
+    "value": "jump",
+    "label": "jump",
+    "text": "jump"
+   },
+   {
+    "value": "top",
+    "label": "top",
+    "text": "top"
+   },
+   {
+    "value": "hot",
+    "label": "hot",
+    "text": "hot"
+   },
+   {
+    "value": "hip",
+    "label": "hip",
+    "text": "hip"
+   }
+  ],
+  "answer": "top",
+  "correctAnswer": "top",
+  "distractorRationales": {
+   "jump": "D-SEMANTIC",
+   "hot": "D-ONSET",
+   "hip": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "hop",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.A.op.v116",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.B.ot.v117",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "rhyming_family",
+  "itemKey": "ot",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "hot. Which word rhymes with it?",
+  "choices": [
+   "pot",
+   "hop",
+   "hut",
+   "warm"
+  ],
+  "answerOptions": [
+   {
+    "value": "pot",
+    "label": "pot",
+    "text": "pot"
+   },
+   {
+    "value": "hop",
+    "label": "hop",
+    "text": "hop"
+   },
+   {
+    "value": "hut",
+    "label": "hut",
+    "text": "hut"
+   },
+   {
+    "value": "warm",
+    "label": "warm",
+    "text": "warm"
+   }
+  ],
+  "answer": "pot",
+  "correctAnswer": "pot",
+  "distractorRationales": {
+   "hop": "D-ONSET",
+   "hut": "D-RIME-NEAR",
+   "warm": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "hot",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.B.ot.v117",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.C.ug.v118",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "rhyming_family",
+  "itemKey": "ug",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "slug. Which word rhymes with it?",
+  "choices": [
+   "slip",
+   "rag",
+   "snail",
+   "rug"
+  ],
+  "answerOptions": [
+   {
+    "value": "slip",
+    "label": "slip",
+    "text": "slip"
+   },
+   {
+    "value": "rag",
+    "label": "rag",
+    "text": "rag"
+   },
+   {
+    "value": "snail",
+    "label": "snail",
+    "text": "snail"
+   },
+   {
+    "value": "rug",
+    "label": "rug",
+    "text": "rug"
+   }
+  ],
+  "answer": "rug",
+  "correctAnswer": "rug",
+  "distractorRationales": {
+   "rag": "D-RIME-NEAR",
+   "snail": "D-SEMANTIC",
+   "slip": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "slug",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.C.ug.v118",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.A.un.v119",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "rhyming_family",
+  "itemKey": "un",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "sun. Which word rhymes with it?",
+  "choices": [
+   "sand",
+   "moon",
+   "run",
+   "sock"
+  ],
+  "answerOptions": [
+   {
+    "value": "sand",
+    "label": "sand",
+    "text": "sand"
+   },
+   {
+    "value": "moon",
+    "label": "moon",
+    "text": "moon"
+   },
+   {
+    "value": "run",
+    "label": "run",
+    "text": "run"
+   },
+   {
+    "value": "sock",
+    "label": "sock",
+    "text": "sock"
+   }
+  ],
+  "answer": "run",
+  "correctAnswer": "run",
+  "distractorRationales": {
+   "sand": "D-RIME-NEAR",
+   "moon": "D-SEMANTIC",
+   "sock": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "sun",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.A.un.v119",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.B.up.v120",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "rhyming_family",
+  "itemKey": "up",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "grown-up. Which word rhymes with it?",
+  "choices": [
+   "mum",
+   "cup",
+   "grow",
+   "cap"
+  ],
+  "answerOptions": [
+   {
+    "value": "mum",
+    "label": "mum",
+    "text": "mum"
+   },
+   {
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
+   },
+   {
+    "value": "grow",
+    "label": "grow",
+    "text": "grow"
+   },
+   {
+    "value": "cap",
+    "label": "cap",
+    "text": "cap"
+   }
+  ],
+  "answer": "cup",
+  "correctAnswer": "cup",
+  "distractorRationales": {
+   "grow": "D-ONSET",
+   "cap": "D-RIME-NEAR",
+   "mum": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "grown-up",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.B.up.v120",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l1.C.ut.v121",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "rhyming_family",
+  "itemKey": "ut",
+  "formatType": "RHYME_MATCH_PICTURE",
+  "templateType": "RHYME_MATCH_PICTURE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "nut. Which word rhymes with it?",
+  "choices": [
+   "cut",
+   "nap",
+   "net",
+   "seed"
+  ],
+  "answerOptions": [
+   {
+    "value": "cut",
+    "label": "cut",
+    "text": "cut"
+   },
+   {
+    "value": "nap",
+    "label": "nap",
+    "text": "nap"
+   },
+   {
+    "value": "net",
+    "label": "net",
+    "text": "net"
+   },
+   {
+    "value": "seed",
+    "label": "seed",
+    "text": "seed"
+   }
+  ],
+  "answer": "cut",
+  "correctAnswer": "cut",
+  "distractorRationales": {
+   "nap": "D-ONSET",
+   "net": "D-RIME-NEAR",
+   "seed": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "nut",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l1.C.ut.v121",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New spoken comparison with separate same-onset, near-rime and meaning distractors; print cannot substitute for listening."
+ },
+ {
+  "id": "lp3.rhyming.l2.A.ing.v122",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "rhyming_family",
+  "itemKey": "ing",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "spring. Which word rhymes with it?",
+  "choices": [
+   "rang",
+   "flower",
+   "wing",
+   "spray"
+  ],
+  "answerOptions": [
+   {
+    "value": "rang",
+    "label": "rang",
+    "text": "rang"
+   },
+   {
+    "value": "flower",
+    "label": "flower",
+    "text": "flower"
+   },
+   {
+    "value": "wing",
+    "label": "wing",
+    "text": "wing"
+   },
+   {
+    "value": "spray",
+    "label": "spray",
+    "text": "spray"
+   }
+  ],
+  "answer": "wing",
+  "correctAnswer": "wing",
+  "distractorRationales": {
+   "rang": "D-RIME-NEAR",
+   "flower": "D-SEMANTIC",
+   "spray": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "spring",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.A.ing.v122",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.B.ang.v123",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "rhyming_family",
+  "itemKey": "ang",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "rang. Which word rhymes with it?",
+  "choices": [
+   "rag",
+   "ring",
+   "bell",
+   "hang"
+  ],
+  "answerOptions": [
+   {
+    "value": "rag",
+    "label": "rag",
+    "text": "rag"
+   },
+   {
+    "value": "ring",
+    "label": "ring",
+    "text": "ring"
+   },
+   {
+    "value": "bell",
+    "label": "bell",
+    "text": "bell"
+   },
+   {
+    "value": "hang",
+    "label": "hang",
+    "text": "hang"
+   }
+  ],
+  "answer": "hang",
+  "correctAnswer": "hang",
+  "distractorRationales": {
+   "ring": "D-RIME-NEAR",
+   "bell": "D-SEMANTIC",
+   "rag": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "rang",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.B.ang.v123",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.C.ong.v124",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "rhyming_family",
+  "itemKey": "ong",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "strong. Which word rhymes with it?",
+  "choices": [
+   "long",
+   "string",
+   "sang",
+   "weak"
+  ],
+  "answerOptions": [
+   {
+    "value": "long",
+    "label": "long",
+    "text": "long"
+   },
+   {
+    "value": "string",
+    "label": "string",
+    "text": "string"
+   },
+   {
+    "value": "sang",
+    "label": "sang",
+    "text": "sang"
+   },
+   {
+    "value": "weak",
+    "label": "weak",
+    "text": "weak"
+   }
+  ],
+  "answer": "long",
+  "correctAnswer": "long",
+  "distractorRationales": {
+   "string": "D-ONSET",
+   "sang": "D-RIME-NEAR",
+   "weak": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "strong",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.C.ong.v124",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.A.ink.v125",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "rhyming_family",
+  "itemKey": "ink",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "think. Which word rhymes with it?",
+  "choices": [
+   "thin",
+   "tank",
+   "mind",
+   "sink"
+  ],
+  "answerOptions": [
+   {
+    "value": "thin",
+    "label": "thin",
+    "text": "thin"
+   },
+   {
+    "value": "tank",
+    "label": "tank",
+    "text": "tank"
+   },
+   {
+    "value": "mind",
+    "label": "mind",
+    "text": "mind"
+   },
+   {
+    "value": "sink",
+    "label": "sink",
+    "text": "sink"
+   }
+  ],
+  "answer": "sink",
+  "correctAnswer": "sink",
+  "distractorRationales": {
+   "mind": "D-SEMANTIC",
+   "thin": "D-ONSET",
+   "tank": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "think",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.A.ink.v125",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.B.ock.v126",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "rhyming_family",
+  "itemKey": "ock",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "clock. Which word rhymes with it?",
+  "choices": [
+   "block",
+   "clap",
+   "click",
+   "watch"
+  ],
+  "answerOptions": [
+   {
+    "value": "block",
+    "label": "block",
+    "text": "block"
+   },
+   {
+    "value": "clap",
+    "label": "clap",
+    "text": "clap"
+   },
+   {
+    "value": "click",
+    "label": "click",
+    "text": "click"
+   },
+   {
+    "value": "watch",
+    "label": "watch",
+    "text": "watch"
+   }
+  ],
+  "answer": "block",
+  "correctAnswer": "block",
+  "distractorRationales": {
+   "clap": "D-ONSET",
+   "click": "D-RIME-NEAR",
+   "watch": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "clock",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.B.ock.v126",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.C.ack.v127",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "rhyming_family",
+  "itemKey": "ack",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "black. Which word rhymes with it?",
+  "choices": [
+   "white",
+   "track",
+   "blank",
+   "brick"
+  ],
+  "answerOptions": [
+   {
+    "value": "white",
+    "label": "white",
+    "text": "white"
+   },
+   {
+    "value": "track",
+    "label": "track",
+    "text": "track"
+   },
+   {
+    "value": "blank",
+    "label": "blank",
+    "text": "blank"
+   },
+   {
+    "value": "brick",
+    "label": "brick",
+    "text": "brick"
+   }
+  ],
+  "answer": "track",
+  "correctAnswer": "track",
+  "distractorRationales": {
+   "blank": "D-ONSET",
+   "brick": "D-RIME-NEAR",
+   "white": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "black",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.C.ack.v127",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.A.ick.v128",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "rhyming_family",
+  "itemKey": "ick",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "thick. Which word rhymes with it?",
+  "choices": [
+   "quick",
+   "thin",
+   "check",
+   "wide"
+  ],
+  "answerOptions": [
+   {
+    "value": "quick",
+    "label": "quick",
+    "text": "quick"
+   },
+   {
+    "value": "thin",
+    "label": "thin",
+    "text": "thin"
+   },
+   {
+    "value": "check",
+    "label": "check",
+    "text": "check"
+   },
+   {
+    "value": "wide",
+    "label": "wide",
+    "text": "wide"
+   }
+  ],
+  "answer": "quick",
+  "correctAnswer": "quick",
+  "distractorRationales": {
+   "wide": "D-SEMANTIC",
+   "thin": "D-ONSET",
+   "check": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "thick",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.A.ick.v128",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.B.ill.v129",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "rhyming_family",
+  "itemKey": "ill",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "grill. Which word rhymes with it?",
+  "choices": [
+   "cook",
+   "hill",
+   "grin",
+   "well"
+  ],
+  "answerOptions": [
+   {
+    "value": "cook",
+    "label": "cook",
+    "text": "cook"
+   },
+   {
+    "value": "hill",
+    "label": "hill",
+    "text": "hill"
+   },
+   {
+    "value": "grin",
+    "label": "grin",
+    "text": "grin"
+   },
+   {
+    "value": "well",
+    "label": "well",
+    "text": "well"
+   }
+  ],
+  "answer": "hill",
+  "correctAnswer": "hill",
+  "distractorRationales": {
+   "grin": "D-ONSET",
+   "well": "D-RIME-NEAR",
+   "cook": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "grill",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.B.ill.v129",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.C.all.v130",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "rhyming_family",
+  "itemKey": "all",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "tall. Which word rhymes with it?",
+  "choices": [
+   "tell",
+   "high",
+   "small",
+   "tail"
+  ],
+  "answerOptions": [
+   {
+    "value": "tell",
+    "label": "tell",
+    "text": "tell"
+   },
+   {
+    "value": "high",
+    "label": "high",
+    "text": "high"
+   },
+   {
+    "value": "small",
+    "label": "small",
+    "text": "small"
+   },
+   {
+    "value": "tail",
+    "label": "tail",
+    "text": "tail"
+   }
+  ],
+  "answer": "small",
+  "correctAnswer": "small",
+  "distractorRationales": {
+   "tell": "D-RIME-NEAR",
+   "high": "D-SEMANTIC",
+   "tail": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "tall",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.C.all.v130",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.A.ell.v131",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "rhyming_family",
+  "itemKey": "ell",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "smell. Which word rhymes with it?",
+  "choices": [
+   "nose",
+   "shell",
+   "smile",
+   "spill"
+  ],
+  "answerOptions": [
+   {
+    "value": "nose",
+    "label": "nose",
+    "text": "nose"
+   },
+   {
+    "value": "shell",
+    "label": "shell",
+    "text": "shell"
+   },
+   {
+    "value": "smile",
+    "label": "smile",
+    "text": "smile"
+   },
+   {
+    "value": "spill",
+    "label": "spill",
+    "text": "spill"
+   }
+  ],
+  "answer": "shell",
+  "correctAnswer": "shell",
+  "distractorRationales": {
+   "nose": "D-SEMANTIC",
+   "smile": "D-ONSET",
+   "spill": "D-RIME-NEAR"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "smell",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.A.ell.v131",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.B.ash.v132",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "rhyming_family",
+  "itemKey": "ash",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "crash. Which word rhymes with it?",
+  "choices": [
+   "fresh",
+   "car",
+   "flash",
+   "crab"
+  ],
+  "answerOptions": [
+   {
+    "value": "fresh",
+    "label": "fresh",
+    "text": "fresh"
+   },
+   {
+    "value": "car",
+    "label": "car",
+    "text": "car"
+   },
+   {
+    "value": "flash",
+    "label": "flash",
+    "text": "flash"
+   },
+   {
+    "value": "crab",
+    "label": "crab",
+    "text": "crab"
+   }
+  ],
+  "answer": "flash",
+  "correctAnswer": "flash",
+  "distractorRationales": {
+   "crab": "D-ONSET",
+   "fresh": "D-RIME-NEAR",
+   "car": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "crash",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.B.ash.v132",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.C.ish.v133",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "rhyming_family",
+  "itemKey": "ish",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "dish. Which word rhymes with it?",
+  "choices": [
+   "dig",
+   "dash",
+   "plate",
+   "wish"
+  ],
+  "answerOptions": [
+   {
+    "value": "dig",
+    "label": "dig",
+    "text": "dig"
+   },
+   {
+    "value": "dash",
+    "label": "dash",
+    "text": "dash"
+   },
+   {
+    "value": "plate",
+    "label": "plate",
+    "text": "plate"
+   },
+   {
+    "value": "wish",
+    "label": "wish",
+    "text": "wish"
+   }
+  ],
+  "answer": "wish",
+  "correctAnswer": "wish",
+  "distractorRationales": {
+   "dash": "D-RIME-NEAR",
+   "plate": "D-SEMANTIC",
+   "dig": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "dish",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.C.ish.v133",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.A.uck.v134",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "rhyming_family",
+  "itemKey": "uck",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "stuck. Which word rhymes with it?",
+  "choices": [
+   "stack",
+   "glue",
+   "truck",
+   "stick"
+  ],
+  "answerOptions": [
+   {
+    "value": "stack",
+    "label": "stack",
+    "text": "stack"
+   },
+   {
+    "value": "glue",
+    "label": "glue",
+    "text": "glue"
+   },
+   {
+    "value": "truck",
+    "label": "truck",
+    "text": "truck"
+   },
+   {
+    "value": "stick",
+    "label": "stick",
+    "text": "stick"
+   }
+  ],
+  "answer": "truck",
+  "correctAnswer": "truck",
+  "distractorRationales": {
+   "stack": "D-RIME-NEAR",
+   "glue": "D-SEMANTIC",
+   "stick": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "stuck",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.A.uck.v134",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.B.ake.v135",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "rhyming_family",
+  "itemKey": "ake",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "lake. Which word rhymes with it?",
+  "choices": [
+   "late",
+   "like",
+   "pond",
+   "shake"
+  ],
+  "answerOptions": [
+   {
+    "value": "late",
+    "label": "late",
+    "text": "late"
+   },
+   {
+    "value": "like",
+    "label": "like",
+    "text": "like"
+   },
+   {
+    "value": "pond",
+    "label": "pond",
+    "text": "pond"
+   },
+   {
+    "value": "shake",
+    "label": "shake",
+    "text": "shake"
+   }
+  ],
+  "answer": "shake",
+  "correctAnswer": "shake",
+  "distractorRationales": {
+   "late": "D-ONSET",
+   "like": "D-RIME-NEAR",
+   "pond": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "lake",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.B.ake.v135",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.C.ame.v136",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "rhyming_family",
+  "itemKey": "ame",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "flame. Which word rhymes with it?",
+  "choices": [
+   "name",
+   "flat",
+   "foam",
+   "fire"
+  ],
+  "answerOptions": [
+   {
+    "value": "name",
+    "label": "name",
+    "text": "name"
+   },
+   {
+    "value": "flat",
+    "label": "flat",
+    "text": "flat"
+   },
+   {
+    "value": "foam",
+    "label": "foam",
+    "text": "foam"
+   },
+   {
+    "value": "fire",
+    "label": "fire",
+    "text": "fire"
+   }
+  ],
+  "answer": "name",
+  "correctAnswer": "name",
+  "distractorRationales": {
+   "foam": "D-RIME-NEAR",
+   "fire": "D-SEMANTIC",
+   "flat": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "flame",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.C.ame.v136",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.A.ide.v137",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "rhyming_family",
+  "itemKey": "ide",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "slide. Which word rhymes with it?",
+  "choices": [
+   "slip",
+   "sled",
+   "play",
+   "hide"
+  ],
+  "answerOptions": [
+   {
+    "value": "slip",
+    "label": "slip",
+    "text": "slip"
+   },
+   {
+    "value": "sled",
+    "label": "sled",
+    "text": "sled"
+   },
+   {
+    "value": "play",
+    "label": "play",
+    "text": "play"
+   },
+   {
+    "value": "hide",
+    "label": "hide",
+    "text": "hide"
+   }
+  ],
+  "answer": "hide",
+  "correctAnswer": "hide",
+  "distractorRationales": {
+   "slip": "D-ONSET",
+   "sled": "D-RIME-NEAR",
+   "play": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "slide",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.A.ide.v137",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.B.ight.v138",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "rhyming_family",
+  "itemKey": "ight",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "bright. Which word rhymes with it?",
+  "choices": [
+   "kite",
+   "brick",
+   "boat",
+   "lamp"
+  ],
+  "answerOptions": [
+   {
+    "value": "kite",
+    "label": "kite",
+    "text": "kite"
+   },
+   {
+    "value": "brick",
+    "label": "brick",
+    "text": "brick"
+   },
+   {
+    "value": "boat",
+    "label": "boat",
+    "text": "boat"
+   },
+   {
+    "value": "lamp",
+    "label": "lamp",
+    "text": "lamp"
+   }
+  ],
+  "answer": "kite",
+  "correctAnswer": "kite",
+  "distractorRationales": {
+   "boat": "D-RIME-NEAR",
+   "lamp": "D-SEMANTIC",
+   "brick": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "bright",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.B.ight.v138",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.C.oat.v139",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "rhyming_family",
+  "itemKey": "oat",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "float. Which word rhymes with it?",
+  "choices": [
+   "swim",
+   "goat",
+   "flat",
+   "foot"
+  ],
+  "answerOptions": [
+   {
+    "value": "swim",
+    "label": "swim",
+    "text": "swim"
+   },
+   {
+    "value": "goat",
+    "label": "goat",
+    "text": "goat"
+   },
+   {
+    "value": "flat",
+    "label": "flat",
+    "text": "flat"
+   },
+   {
+    "value": "foot",
+    "label": "foot",
+    "text": "foot"
+   }
+  ],
+  "answer": "goat",
+  "correctAnswer": "goat",
+  "distractorRationales": {
+   "flat": "D-ONSET",
+   "foot": "D-RIME-NEAR",
+   "swim": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "float",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.C.oat.v139",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.A.eep.v140",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "rhyming_family",
+  "itemKey": "eep",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "deep. Which word rhymes with it?",
+  "choices": [
+   "sleep",
+   "deer",
+   "dip",
+   "ocean"
+  ],
+  "answerOptions": [
+   {
+    "value": "sleep",
+    "label": "sleep",
+    "text": "sleep"
+   },
+   {
+    "value": "deer",
+    "label": "deer",
+    "text": "deer"
+   },
+   {
+    "value": "dip",
+    "label": "dip",
+    "text": "dip"
+   },
+   {
+    "value": "ocean",
+    "label": "ocean",
+    "text": "ocean"
+   }
+  ],
+  "answer": "sleep",
+  "correctAnswer": "sleep",
+  "distractorRationales": {
+   "deer": "D-ONSET",
+   "dip": "D-RIME-NEAR",
+   "ocean": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "deep",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.A.eep.v140",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.B.ouse.v141",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "rhyming_family",
+  "itemKey": "ouse",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "doghouse. Which word rhymes with it?",
+  "choices": [
+   "pet",
+   "mouse",
+   "dog",
+   "loose"
+  ],
+  "answerOptions": [
+   {
+    "value": "pet",
+    "label": "pet",
+    "text": "pet"
+   },
+   {
+    "value": "mouse",
+    "label": "mouse",
+    "text": "mouse"
+   },
+   {
+    "value": "dog",
+    "label": "dog",
+    "text": "dog"
+   },
+   {
+    "value": "loose",
+    "label": "loose",
+    "text": "loose"
+   }
+  ],
+  "answer": "mouse",
+  "correctAnswer": "mouse",
+  "distractorRationales": {
+   "loose": "D-RIME-NEAR",
+   "pet": "D-SEMANTIC",
+   "dog": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "doghouse",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.B.ouse.v141",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.C.ird.v142",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "rhyming_family",
+  "itemKey": "ird",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "heard. Which word rhymes with it?",
+  "choices": [
+   "board",
+   "ear",
+   "bird",
+   "head"
+  ],
+  "answerOptions": [
+   {
+    "value": "board",
+    "label": "board",
+    "text": "board"
+   },
+   {
+    "value": "ear",
+    "label": "ear",
+    "text": "ear"
+   },
+   {
+    "value": "bird",
+    "label": "bird",
+    "text": "bird"
+   },
+   {
+    "value": "head",
+    "label": "head",
+    "text": "head"
+   }
+  ],
+  "answer": "bird",
+  "correctAnswer": "bird",
+  "distractorRationales": {
+   "head": "D-ONSET",
+   "board": "D-RIME-NEAR",
+   "ear": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "heard",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.C.ird.v142",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.A.urn.v143",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "rhyming_family",
+  "itemKey": "urn",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "fern. Which word rhymes with it?",
+  "choices": [
+   "leaf",
+   "turn",
+   "fan",
+   "torn"
+  ],
+  "answerOptions": [
+   {
+    "value": "leaf",
+    "label": "leaf",
+    "text": "leaf"
+   },
+   {
+    "value": "turn",
+    "label": "turn",
+    "text": "turn"
+   },
+   {
+    "value": "fan",
+    "label": "fan",
+    "text": "fan"
+   },
+   {
+    "value": "torn",
+    "label": "torn",
+    "text": "torn"
+   }
+  ],
+  "answer": "turn",
+  "correctAnswer": "turn",
+  "distractorRationales": {
+   "torn": "D-RIME-NEAR",
+   "leaf": "D-SEMANTIC",
+   "fan": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "fern",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.A.urn.v143",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.B.ar.v144",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "rhyming_family",
+  "itemKey": "ar",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "star. Which word rhymes with it?",
+  "choices": [
+   "store",
+   "sky",
+   "far",
+   "stop"
+  ],
+  "answerOptions": [
+   {
+    "value": "store",
+    "label": "store",
+    "text": "store"
+   },
+   {
+    "value": "sky",
+    "label": "sky",
+    "text": "sky"
+   },
+   {
+    "value": "far",
+    "label": "far",
+    "text": "far"
+   },
+   {
+    "value": "stop",
+    "label": "stop",
+    "text": "stop"
+   }
+  ],
+  "answer": "far",
+  "correctAnswer": "far",
+  "distractorRationales": {
+   "stop": "D-ONSET",
+   "store": "D-RIME-NEAR",
+   "sky": "D-SEMANTIC"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "star",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.B.ar.v144",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
+ },
+ {
+  "id": "lp3.rhyming.l2.C.or.v145",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "rhyming",
+  "assessmentSkillId": "rhyming",
+  "skillName": "Rhyming",
+  "skill": "Rhyming",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "rhyming_family",
+  "itemKey": "or",
+  "formatType": "READ_FIND_RHYME",
+  "templateType": "READ_FIND_RHYME",
+  "questionType": "multiple_choice",
+  "prompt": "Which word rhymes with the word you hear?",
+  "question": "Which word rhymes with the word you hear?",
+  "spokenPrompt": "door. Which word rhymes with it?",
+  "choices": [
+   "dog",
+   "deer",
+   "room",
+   "more"
+  ],
+  "answerOptions": [
+   {
+    "value": "dog",
+    "label": "dog",
+    "text": "dog"
+   },
+   {
+    "value": "deer",
+    "label": "deer",
+    "text": "deer"
+   },
+   {
+    "value": "room",
+    "label": "room",
+    "text": "room"
+   },
+   {
+    "value": "more",
+    "label": "more",
+    "text": "more"
+   }
+  ],
+  "answer": "more",
+  "correctAnswer": "more",
+  "distractorRationales": {
+   "deer": "D-RIME-NEAR",
+   "room": "D-SEMANTIC",
+   "dog": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_rhyme_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "door",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.rhyming.l2.C.or.v145",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer rhyme across clusters or different spellings; compare complete spoken endings instead of looking for matching letter chunks."
  }
 ];

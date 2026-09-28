@@ -100,6 +100,11 @@ async function choose(page, round, correct = true) {
   }
   if (round.mechanicId === "wordBuild" && round.variant !== "wordParts") {
     const answer = Array.isArray(round.answer) ? round.answer : round.letters || round.graphemes || [...round.answer];
+    if (round.variant === 'wordComplete') {
+      const choice = round.choices.find(item => (String(item.value) === String(answer[round.missingIndex])) === correct);
+      await page.getByRole('button', { name: `Add ${choice.label || choice.value}`, exact: true }).click();
+      return;
+    }
     if (round.variant === "wordChange") {
       await page.getByRole("button", { name: `Change letter ${round.changeIndex + 1}: ${round.beforeLetters[round.changeIndex]}`, exact: true }).click();
       const choice = round.choices.find(item => (String(item.value) === String(answer[round.changeIndex])) === correct);

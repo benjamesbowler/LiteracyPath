@@ -1,3 +1,4 @@
+import depthItems from "./depth/adjectives.mjs";
 // Adjectives — v3 authored bank (wave W10, paired with prepositions_of_place).
 // Concept units by semantic dimension (size/color/texture-state/feeling) —
 // breadth comes from dimensions, not from recycling five words (the audit's
@@ -100,7 +101,7 @@ const freshPhaseItems = [
   gsf("adj_vs_noun_verb", 2, 2, 17, "The bed felt ___ after our long walk.", ["comfortable", "comfort", "comfortably", "comforts"], [FS, FS, FS])
 ];
 
-export default {
+const bank = {
   skillId: "adjectives",
   skillName: "Adjectives",
   items: [
@@ -254,3 +255,6 @@ export default {
     extract("adj_vs_noun_verb", 2, 2, 31, "The suitcase felt awkward to carry.", ["awkward", "suitcase", "felt", "carry"])
   ].map(item => ({ ...item, retention: true })))
 };
+
+bank.items.push(...depthItems);
+export default bank;

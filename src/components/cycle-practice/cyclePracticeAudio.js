@@ -50,7 +50,7 @@ export function resolveCyclePracticeAudio(round = {}) {
   // The target word names the correct picture. Playing it in pictureSound
   // would change sound discrimination into picture-vocabulary matching.
   const targetAudio = !instructionText || wordParts ? [] : uniqueAudio(
-    round.mechanicId === "pictureSound" ? [round.soundAudio]
+    round.mechanicId === "pictureSound" ? [round.variant === "wordMeaning" ? round.audio : round.soundAudio]
       : round.mechanicId === "letterMatch" && ["letterCase", "wordListen"].includes(round.variant) ? [round.audio]
       : round.mechanicId === "wordBuild" && round.variant === "wordChange"
         ? [round.beforeAudio, round.audio]

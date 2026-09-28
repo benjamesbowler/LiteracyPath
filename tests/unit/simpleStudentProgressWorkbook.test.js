@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { createSimpleStudentProgressWorkbook } from "../../src/utils/exportStudentProgressSimple.js";
+import { buildStudentReportingWorkspaceModel } from "../../src/data/studentReportingWorkspaceModel.js";
 
 function rowsAsObjects(sheet) {
   const headers = [];
@@ -90,4 +91,30 @@ test("simple progress workbook stays readable and retains the complete evidence 
     workbook.getWorksheet("Data").getSheetValues().flat(3).join(" "),
     /private-student-id|private-attempt|private-question/i
   );
+});
+
+test("the downloadable workbook includes saved Adventure teaching detail without scoring old aggregate practice", async () => {
+  const completedAt = "2026-09-28T10:00:00.000Z";
+  const workspace = buildStudentReportingWorkspaceModel({
+    studentId: "synthetic-workbook",
+    adventureMap: { schemaVersion: 2, progressEpoch: 2, cycles: {
+      "cycle-1": { plays: 2, lastPlayedAt: completedAt, lastCheck: { version: 1, source: "adventure_map", completedAt, questionRecords: [
+        { questionId: "saved-first", itemKey: "m", construct: "initial_sound", responseStatus: "incorrect", isCorrect: false, selectedAnswer: "net", correctAnswer: "moon" }
+      ] } },
+      "cycle-2": { plays: 1, lastPlayedAt: completedAt, stars: 3 }
+    } }
+  });
+  const workbook = await createSimpleStudentProgressWorkbook(workspace, { generatedAt: new Date(completedAt) });
+  const reportText = workbook.getWorksheet("Report").getSheetValues().flat(3).join(" ");
+  assert.match(reportText, /From the latest saved questions/);
+  assert.match(reportText, /0 of 1 independent responses correct/);
+  assert.match(reportText, /fresh pictured word/);
+  const rows = rowsAsObjects(workbook.getWorksheet("Data"));
+  const detailed = rows.find(row => row["Row type"] === "Adventure Map practice target");
+  assert.equal(detailed.Target, "m");
+  assert.equal(detailed["Independent responses"], "1");
+  assert.equal(detailed["Recorded contrasts"], "Selected net; expected moon (1)");
+  const runs = rows.filter(row => row["Row type"] === "Adventure Map latest run");
+  assert.equal(runs.length, 2);
+  assert.ok(runs.some(row => row["Independent responses"] === ""));
 });

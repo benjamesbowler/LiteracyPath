@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { elSkillsBlockCycles } from '../../src/data/elSkillsBlockCycles.js';
-import { cycleSoundPosition, CYCLE_SOUND_WORDS, CYCLE_PICTURE_WORD_HOLDOUTS } from '../../src/data/cycleSoundWords.js';
+import { cycleSoundPosition, cycleSoundMatches, CYCLE_SOUND_WORDS, CYCLE_PICTURE_WORD_HOLDOUTS } from '../../src/data/cycleSoundWords.js';
 import { cycleCardGraphemes, taughtCycleGraphemes, taughtCycleHighFrequencyWords, practiceRepetitionKey } from '../../src/utils/cyclePracticeVariation.js';
 import { buildCyclePracticePlan, buildCyclePracticePools, cyclePracticeReadiness } from '../../src/components/cycle-practice/cyclePracticeContent.js';
 import { buildStationRounds, stationsForCycle } from '../../src/components/elQuest/elQuestEngine.js';
@@ -112,7 +112,10 @@ test('replay changes actual sound pictures, rhyme families and compound targets,
     for (let pass = 0; pass < 12; pass++) {
       const rounds = buildStationRounds(cycles[0], station, { seed: `new-examples:${pass}` });
       selections.add(JSON.stringify(rounds.map(round => round.rhymingWords || round.answer)));
-      if (station === 'hunt') for (const round of rounds) assert.ok(CYCLE_SOUND_WORDS[round.targetGrapheme].includes(round.answer));
+      if (station === 'hunt') for (const round of rounds) {
+        if (round.variant === 'wordMeaning') assert.ok(CYCLE_SOUND_WORDS[round.vocabularyGrapheme].includes(round.answer));
+        else assert.ok(cycleSoundMatches(round.answer, round.targetGrapheme, round.soundPosition));
+      }
     }
     assert.ok(selections.size >= 8, `${station}: varied content on replay`);
   }

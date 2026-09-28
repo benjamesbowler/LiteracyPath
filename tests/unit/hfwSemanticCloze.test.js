@@ -75,10 +75,26 @@ const REJECTED_RIVALS = {
 // prompts, answer set, rationale codes, and retention role). Any future change
 // therefore requires another direct semantic review.
 const REVIEWED_FIXTURE_HASHES = {
-  hfw_1_25: "a8981866a987a417d507d7095925198e2b7794b8d30b454d7627a7eae95cd688",
+  hfw_1_25: "30bed00c5718c487a98aed5cc4d72c5f2647998b0c9f7efb0b7d7aef7bf7bc57",
   hfw_26_50: "95b2a1f0b1bc5eb8ea8236d271d8c6b69fcca1c13cf732b4bca4b1ba77520bd6",
-  hfw_51_75: "b4c71a02247c4eaec560a7d85941615ad8fe89d02986597921542e664ab882be",
+  hfw_51_75: "b4d0b98108fcdc7c4500f085b75d660d18275e04cd24039cbba8012804b7c099",
   hfw_76_100: "499e68b10f6f7affd6277c39d95cf9f17e2dc010c6cd178db007526cbe00fe37"
+};
+
+// Explicitly preserve the reviewed 54-item subset as the bank grows. The two
+// refreshed digests follow direct review of three intervening source edits;
+// see docs/skills-assessment-rebuild/HFW_DEPTH_REVIEW_2026-09-28.md.
+const ORIGINAL_REVIEWED_RESERVES = {
+  hfw_1_25: ["a.v7r", "for.v7r", "was.v7r", "they.v7r"],
+  hfw_26_50: ["said.v7r", "their.v7r", "were.v7r", "one.v7r"],
+  hfw_51_75: ["would.v7r", "write.v7r", "two.v8r", "many.v7r"],
+  hfw_76_100: ["could.v7r", "been.v7r", "who.v7r", "than.v7r"]
+};
+const DEPTH_REVIEW_HASHES = {
+  hfw_1_25: "9cb23ecee58a28a2a4a92b3d92ce2449f19e2dfc03df64cbefb6704c75584b53",
+  hfw_26_50: "bbb9faf33391e975aadea999694d8d2f533c88b8adea9db23e72ba699b8203d6",
+  hfw_51_75: "ab9cf99126262fe3eadba7d3e1dd3a717cf4b4ea15872ec5732a5ab55901bbef",
+  hfw_76_100: "e45586038ca02c768a5946f70a2b09141e3e011aa4f4b6e3284013adc0e0f13c"
 };
 
 async function loadClozeItems(skillId) {
@@ -120,7 +136,8 @@ test("independently rejected HFW rival completions stay out of their reviewed it
 
 test("independently reviewed HFW semantic fixtures remain unchanged", async () => {
   for (const skillId of SKILL_IDS) {
-    const items = await loadClozeItems(skillId);
+    const items = (await loadClozeItems(skillId)).filter(item => /\.v[12]$/.test(item.id)
+      || ORIGINAL_REVIEWED_RESERVES[skillId].some(suffix => item.id === `lp3.${skillId}.l1.R.${suffix}`));
     assert.equal(items.length, 54, skillId);
     assert.equal(items.filter(item => item.retentionOnly).length, 4, skillId);
     const digest = createHash("sha256")
@@ -131,6 +148,37 @@ test("independently reviewed HFW semantic fixtures remain unchanged", async () =
       REVIEWED_FIXTURE_HASHES[skillId],
       `${skillId} semantic fixture changed; repeat direct item-by-item review before updating the hash`
     );
+  }
+});
+
+test("the 200 reviewed depth contexts retain complete cues, distinct contexts and spelling tiles", async () => {
+  for (const skillId of SKILL_IDS) {
+    const source = (await import(`../../tools/assessmentRebuild/authoring/${skillId}.mjs`)).default;
+    const items = expandBank(source, skillBlueprints[skillId], source.imageResolver)
+      .filter(item => Number(item.id.match(/\.v(\d+)$/)?.[1]) >= 101)
+      .sort((left, right) => left.id.localeCompare(right.id));
+    assert.equal(items.length, 50, skillId);
+    assert.equal(new Set(items.map(item => item.itemKey)).size, 25, skillId);
+    assert.equal(new Set(items.map(item => item.sentence)).size, 50, skillId);
+    for (const level of [1, 2]) assert.equal(items.filter(item => item.level === level).length, 25, skillId);
+    for (const item of items) {
+      const complete = item.sentence.replace("___", item.answer).toLowerCase();
+      assert.ok(item.spokenPrompt.toLowerCase().includes(complete), `${item.id}: the heard sentence must pin the exact word`);
+      assert.equal(item.choices.filter(choice => choice === item.answer).length, 1, item.id);
+      if (item.level === 2) {
+        const remaining = [...item.letterTiles];
+        for (const letter of item.answer) {
+          const index = remaining.indexOf(letter);
+          assert.ok(index >= 0, `${item.id}: missing repeated letter ${letter}`);
+          remaining.splice(index, 1);
+        }
+        assert.ok(remaining.length >= 2, `${item.id}: preserve competing tiles`);
+      }
+    }
+    const fixture = reviewedFixture(items).map((item, index) => ({ ...item,
+      letterTiles: items[index].letterTiles, constructClaim: items[index].constructClaim }));
+    assert.equal(createHash("sha256").update(JSON.stringify(fixture)).digest("hex"), DEPTH_REVIEW_HASHES[skillId],
+      `${skillId}: repeat literal cue, answer and tile review before refreshing the depth fixture`);
   }
 });
 

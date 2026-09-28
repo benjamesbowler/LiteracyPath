@@ -9790,5 +9790,1121 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "A new two-syllable word tests medial ck without repeated printed pattern clues."
+ },
+ {
+  "id": "lp3.digraphs.l1.A.ch.v101",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ch",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Select the missing letters for __eese.",
+  "question": "Select the missing letters for __eese.",
+  "spokenPrompt": "cheese. Choose the missing letters.",
+  "choices": [
+   "c",
+   "sh",
+   "th",
+   "ch"
+  ],
+  "answerOptions": [
+   {
+    "value": "c",
+    "label": "c",
+    "text": "c"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   }
+  ],
+  "answer": "ch",
+  "correctAnswer": "ch",
+  "distractorRationales": {
+   "c": "D-ONSET",
+   "sh": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_digraph_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "cheese",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.A.ch.v101",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer to a new target; distinguish a two-letter spelling from reduction to one letter and rival digraphs. The blank asks for letters, not an ambiguous isolated sound."
+ },
+ {
+  "id": "lp3.digraphs.l1.B.sh.v102",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "sh",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __eep.",
+  "question": "Choose the missing letters for __eep.",
+  "spokenPrompt": "sheep. Choose the missing letters.",
+  "choices": [
+   "ch",
+   "wh",
+   "sh",
+   "s"
+  ],
+  "answerOptions": [
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   }
+  ],
+  "answer": "sh",
+  "correctAnswer": "sh",
+  "distractorRationales": {
+   "s": "D-ONSET",
+   "ch": "D-PATTERN-TRAP",
+   "wh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_digraph_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "sheep",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.B.sh.v102",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer to a new target; distinguish a two-letter spelling from reduction to one letter and rival digraphs. The blank asks for letters, not an ambiguous isolated sound."
+ },
+ {
+  "id": "lp3.digraphs.l1.C.th.v103",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "th",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __read.",
+  "question": "Choose the missing letters for __read.",
+  "spokenPrompt": "thread. Choose the missing letters.",
+  "choices": [
+   "ch",
+   "th",
+   "t",
+   "sh"
+  ],
+  "answerOptions": [
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   }
+  ],
+  "answer": "th",
+  "correctAnswer": "th",
+  "distractorRationales": {
+   "t": "D-ONSET",
+   "sh": "D-PATTERN-TRAP",
+   "ch": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_digraph_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "thread",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.C.th.v103",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer to a new target; distinguish a two-letter spelling from reduction to one letter and rival digraphs. The blank asks for letters, not an ambiguous isolated sound."
+ },
+ {
+  "id": "lp3.digraphs.l1.A.wh.v104",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "wh",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __ich.",
+  "question": "Choose the missing letters for __ich.",
+  "spokenPrompt": "which. Choose the missing letters.",
+  "choices": [
+   "wh",
+   "w",
+   "th",
+   "ph"
+  ],
+  "answerOptions": [
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "w",
+    "label": "w",
+    "text": "w"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "ph",
+    "label": "ph",
+    "text": "ph"
+   }
+  ],
+  "answer": "wh",
+  "correctAnswer": "wh",
+  "distractorRationales": {
+   "th": "D-PATTERN-TRAP",
+   "ph": "D-PATTERN-TRAP",
+   "w": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_digraph_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "which",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.A.wh.v104",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer to a new target; distinguish a two-letter spelling from reduction to one letter and rival digraphs. The blank asks for letters, not an ambiguous isolated sound."
+ },
+ {
+  "id": "lp3.digraphs.l1.B.ph.v105",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "ph",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __easant.",
+  "question": "Choose the missing letters for __easant.",
+  "spokenPrompt": "pheasant. Choose the missing letters.",
+  "choices": [
+   "p",
+   "th",
+   "wh",
+   "ph"
+  ],
+  "answerOptions": [
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   },
+   {
+    "value": "ph",
+    "label": "ph",
+    "text": "ph"
+   }
+  ],
+  "answer": "ph",
+  "correctAnswer": "ph",
+  "distractorRationales": {
+   "p": "D-ONSET",
+   "th": "D-PATTERN-TRAP",
+   "wh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_digraph_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "pheasant",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.B.ph.v105",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer to a new target; distinguish a two-letter spelling from reduction to one letter and rival digraphs. The blank asks for letters, not an ambiguous isolated sound."
+ },
+ {
+  "id": "lp3.digraphs.l1.C.ck.v106",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ck",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for lu__.",
+  "question": "Choose the missing letters for lu__.",
+  "spokenPrompt": "luck. Choose the missing letters.",
+  "choices": [
+   "ch",
+   "sh",
+   "ck",
+   "c"
+  ],
+  "answerOptions": [
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "ck",
+    "label": "ck",
+    "text": "ck"
+   },
+   {
+    "value": "c",
+    "label": "c",
+    "text": "c"
+   }
+  ],
+  "answer": "ck",
+  "correctAnswer": "ck",
+  "distractorRationales": {
+   "c": "D-ONSET",
+   "ch": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_digraph_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "luck",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l1.C.ck.v106",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer to a new target; distinguish a two-letter spelling from reduction to one letter and rival digraphs. The blank asks for letters, not an ambiguous isolated sound."
+ },
+ {
+  "id": "lp3.digraphs.l2.A.ch.v107",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ch",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Select the missing letters for cat__.",
+  "question": "Select the missing letters for cat__.",
+  "spokenPrompt": "catch. Choose the missing letters.",
+  "choices": [
+   "sh",
+   "ck",
+   "ch",
+   "c"
+  ],
+  "answerOptions": [
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "ck",
+    "label": "ck",
+    "text": "ck"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "c",
+    "label": "c",
+    "text": "c"
+   }
+  ],
+  "answer": "ch",
+  "correctAnswer": "ch",
+  "distractorRationales": {
+   "sh": "D-PATTERN-TRAP",
+   "ck": "D-PATTERN-TRAP",
+   "c": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_digraph_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "catch",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.A.ch.v107",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer to a new target; distinguish a two-letter spelling from reduction to one letter and rival digraphs. The blank asks for letters, not an ambiguous isolated sound."
+ },
+ {
+  "id": "lp3.digraphs.l2.B.sh.v108",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "sh",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for ru__.",
+  "question": "Choose the missing letters for ru__.",
+  "spokenPrompt": "rush. Choose the missing letters.",
+  "choices": [
+   "s",
+   "ch",
+   "th",
+   "sh"
+  ],
+  "answerOptions": [
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   }
+  ],
+  "answer": "sh",
+  "correctAnswer": "sh",
+  "distractorRationales": {
+   "ch": "D-PATTERN-TRAP",
+   "th": "D-PATTERN-TRAP",
+   "s": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_digraph_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "rush",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.B.sh.v108",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer to a new target; distinguish a two-letter spelling from reduction to one letter and rival digraphs. The blank asks for letters, not an ambiguous isolated sound."
+ },
+ {
+  "id": "lp3.digraphs.l2.C.th.v109",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "th",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for clo__.",
+  "question": "Choose the missing letters for clo__.",
+  "spokenPrompt": "cloth. Choose the missing letters.",
+  "choices": [
+   "th",
+   "t",
+   "sh",
+   "ch"
+  ],
+  "answerOptions": [
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   }
+  ],
+  "answer": "th",
+  "correctAnswer": "th",
+  "distractorRationales": {
+   "ch": "D-PATTERN-TRAP",
+   "t": "D-ONSET",
+   "sh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_digraph_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "cloth",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.C.th.v109",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer to a new target; distinguish a two-letter spelling from reduction to one letter and rival digraphs. The blank asks for letters, not an ambiguous isolated sound."
+ },
+ {
+  "id": "lp3.digraphs.l2.A.wh.v110",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "wh",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __irlpool.",
+  "question": "Choose the missing letters for __irlpool.",
+  "spokenPrompt": "whirlpool. Choose the missing letters.",
+  "choices": [
+   "w",
+   "th",
+   "ph",
+   "wh"
+  ],
+  "answerOptions": [
+   {
+    "value": "w",
+    "label": "w",
+    "text": "w"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "ph",
+    "label": "ph",
+    "text": "ph"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   }
+  ],
+  "answer": "wh",
+  "correctAnswer": "wh",
+  "distractorRationales": {
+   "th": "D-PATTERN-TRAP",
+   "ph": "D-PATTERN-TRAP",
+   "w": "D-ONSET"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_digraph_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "whirlpool",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.A.wh.v110",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer to a new target; distinguish a two-letter spelling from reduction to one letter and rival digraphs. The blank asks for letters, not an ambiguous isolated sound."
+ },
+ {
+  "id": "lp3.digraphs.l2.B.ph.v111",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "ph",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for __otograph.",
+  "question": "Choose the missing letters for __otograph.",
+  "spokenPrompt": "photograph. Choose the missing letters.",
+  "choices": [
+   "ph",
+   "p",
+   "th",
+   "wh"
+  ],
+  "answerOptions": [
+   {
+    "value": "ph",
+    "label": "ph",
+    "text": "ph"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   },
+   {
+    "value": "th",
+    "label": "th",
+    "text": "th"
+   },
+   {
+    "value": "wh",
+    "label": "wh",
+    "text": "wh"
+   }
+  ],
+  "answer": "ph",
+  "correctAnswer": "ph",
+  "distractorRationales": {
+   "p": "D-ONSET",
+   "th": "D-PATTERN-TRAP",
+   "wh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "initial",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_digraph_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "photograph",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.B.ph.v111",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer to a new target; distinguish a two-letter spelling from reduction to one letter and rival digraphs. The blank asks for letters, not an ambiguous isolated sound."
+ },
+ {
+  "id": "lp3.digraphs.l2.C.ck.v112",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "digraphs",
+  "assessmentSkillId": "digraphs",
+  "skillName": "Digraphs",
+  "skill": "Digraphs",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ck",
+  "formatType": "DIGRAPH_COMPLETE_WORD",
+  "templateType": "DIGRAPH_COMPLETE_WORD",
+  "questionType": "multiple_choice",
+  "prompt": "Choose the missing letters for cli__.",
+  "question": "Choose the missing letters for cli__.",
+  "spokenPrompt": "click. Choose the missing letters.",
+  "choices": [
+   "sh",
+   "ck",
+   "c",
+   "ch"
+  ],
+  "answerOptions": [
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
+   },
+   {
+    "value": "ck",
+    "label": "ck",
+    "text": "ck"
+   },
+   {
+    "value": "c",
+    "label": "c",
+    "text": "c"
+   },
+   {
+    "value": "ch",
+    "label": "ch",
+    "text": "ch"
+   }
+  ],
+  "answer": "ck",
+  "correctAnswer": "ck",
+  "distractorRationales": {
+   "c": "D-ONSET",
+   "ch": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "phonicsPosition": "final",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_digraph_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "click",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.digraphs.l2.C.ck.v112",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "Transfer to a new target; distinguish a two-letter spelling from reduction to one letter and rival digraphs. The blank asks for letters, not an ambiguous isolated sound."
  }
 ];

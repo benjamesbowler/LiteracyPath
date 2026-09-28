@@ -1,3 +1,4 @@
+import depthItems from "./depth/homophones_homonyms.mjs";
 // Homophones & Homonyms — v3 authored bank (wave W12, paired with antonyms).
 // 16 curated pair units (8 L1, 8 L2) + two nonGating homonym exposure units.
 // Law: the paired homophone rides as a MANDATORY D-HOMOPHONE distractor in
@@ -57,7 +58,7 @@ const freshPhaseItems = [
   hcc("made_maid", 2, 2, 6, "Yesterday our class ___ paper hats.", ["made", "maid", "making", "makes"], [HOM, FS, FS])
 ];
 
-export default {
+const bank = {
   skillId: "homophones_homonyms",
   skillName: "Homophones & Homonyms",
   items: [
@@ -313,3 +314,6 @@ export default {
       ["would", "wood", "wound", "wild"], [HOM, VN, VN])
   ].map(item => ({ ...item, retention: true })))
 };
+
+bank.items.push(...depthItems);
+export default bank;

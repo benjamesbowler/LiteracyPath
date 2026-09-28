@@ -10040,5 +10040,1201 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "A fresh short-oo word balances the reserve’s existing long-oo and contrast questions."
+ },
+ {
+  "id": "lp3.vowel_teams.l1.A.ai.v101",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ai",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete m__l?",
+  "question": "Which letters complete m__l?",
+  "spokenPrompt": "mail. Which letters complete the word?",
+  "choices": [
+   "oa",
+   "ai",
+   "ay",
+   "ea"
+  ],
+  "answerOptions": [
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
+   {
+    "value": "ai",
+    "label": "ai",
+    "text": "ai"
+   },
+   {
+    "value": "ay",
+    "label": "ay",
+    "text": "ay"
+   },
+   {
+    "value": "ea",
+    "label": "ea",
+    "text": "ea"
+   }
+  ],
+  "answer": "ai",
+  "correctAnswer": "ai",
+  "distractorRationales": {
+   "ay": "D-PATTERN-TRAP",
+   "ea": "D-PATTERN-TRAP",
+   "oa": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_vowel_team_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "mail",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.ai.v101",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New real-word target with same-sound rival spellings and alternative vowel-team sounds; exact spelling is necessary, not just the initial consonant."
+ },
+ {
+  "id": "lp3.vowel_teams.l1.B.ay.v102",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "ay",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete gr__?",
+  "question": "Which letters complete gr__?",
+  "spokenPrompt": "gray. Which letters complete the word?",
+  "choices": [
+   "oy",
+   "ow",
+   "ay",
+   "ai"
+  ],
+  "answerOptions": [
+   {
+    "value": "oy",
+    "label": "oy",
+    "text": "oy"
+   },
+   {
+    "value": "ow",
+    "label": "ow",
+    "text": "ow"
+   },
+   {
+    "value": "ay",
+    "label": "ay",
+    "text": "ay"
+   },
+   {
+    "value": "ai",
+    "label": "ai",
+    "text": "ai"
+   }
+  ],
+  "answer": "ay",
+  "correctAnswer": "ay",
+  "distractorRationales": {
+   "ai": "D-PATTERN-TRAP",
+   "oy": "D-PATTERN-TRAP",
+   "ow": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_vowel_team_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "gray",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.B.ay.v102",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New real-word target with same-sound rival spellings and alternative vowel-team sounds; exact spelling is necessary, not just the initial consonant."
+ },
+ {
+  "id": "lp3.vowel_teams.l1.C.ee.v103",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ee",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete d__p?",
+  "question": "Which letters complete d__p?",
+  "spokenPrompt": "deep. Which letters complete the word?",
+  "choices": [
+   "ea",
+   "ai",
+   "oo",
+   "ee"
+  ],
+  "answerOptions": [
+   {
+    "value": "ea",
+    "label": "ea",
+    "text": "ea"
+   },
+   {
+    "value": "ai",
+    "label": "ai",
+    "text": "ai"
+   },
+   {
+    "value": "oo",
+    "label": "oo",
+    "text": "oo"
+   },
+   {
+    "value": "ee",
+    "label": "ee",
+    "text": "ee"
+   }
+  ],
+  "answer": "ee",
+  "correctAnswer": "ee",
+  "distractorRationales": {
+   "ea": "D-PATTERN-TRAP",
+   "ai": "D-PATTERN-TRAP",
+   "oo": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_vowel_team_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "deep",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.ee.v103",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New real-word target with same-sound rival spellings and alternative vowel-team sounds; exact spelling is necessary, not just the initial consonant."
+ },
+ {
+  "id": "lp3.vowel_teams.l1.A.ea.v104",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "ea",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete m__t?",
+  "question": "Which letters complete m__t?",
+  "spokenPrompt": "meat. Which letters complete the word?",
+  "choices": [
+   "oa",
+   "oi",
+   "ea",
+   "ee"
+  ],
+  "answerOptions": [
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
+   {
+    "value": "oi",
+    "label": "oi",
+    "text": "oi"
+   },
+   {
+    "value": "ea",
+    "label": "ea",
+    "text": "ea"
+   },
+   {
+    "value": "ee",
+    "label": "ee",
+    "text": "ee"
+   }
+  ],
+  "answer": "ea",
+  "correctAnswer": "ea",
+  "distractorRationales": {
+   "oi": "D-PATTERN-TRAP",
+   "ee": "D-PATTERN-TRAP",
+   "oa": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_vowel_team_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "meat",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.ea.v104",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New real-word target with same-sound rival spellings and alternative vowel-team sounds; exact spelling is necessary, not just the initial consonant."
+ },
+ {
+  "id": "lp3.vowel_teams.l1.B.oa.v105",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "oa",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete fl__t?",
+  "question": "Which letters complete fl__t?",
+  "spokenPrompt": "float. Which letters complete the word?",
+  "choices": [
+   "ow",
+   "ai",
+   "oo",
+   "oa"
+  ],
+  "answerOptions": [
+   {
+    "value": "ow",
+    "label": "ow",
+    "text": "ow"
+   },
+   {
+    "value": "ai",
+    "label": "ai",
+    "text": "ai"
+   },
+   {
+    "value": "oo",
+    "label": "oo",
+    "text": "oo"
+   },
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   }
+  ],
+  "answer": "oa",
+  "correctAnswer": "oa",
+  "distractorRationales": {
+   "oo": "D-PATTERN-TRAP",
+   "ow": "D-PATTERN-TRAP",
+   "ai": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_vowel_team_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "float",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.B.oa.v105",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New real-word target with same-sound rival spellings and alternative vowel-team sounds; exact spelling is necessary, not just the initial consonant."
+ },
+ {
+  "id": "lp3.vowel_teams.l1.C.igh.v106",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "igh",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete h___?",
+  "question": "Which letters complete h___?",
+  "spokenPrompt": "high. Which letters complete the word?",
+  "choices": [
+   "igh",
+   "i_e",
+   "ay",
+   "ee"
+  ],
+  "answerOptions": [
+   {
+    "value": "igh",
+    "label": "igh",
+    "text": "igh"
+   },
+   {
+    "value": "i_e",
+    "label": "i_e",
+    "text": "i_e"
+   },
+   {
+    "value": "ay",
+    "label": "ay",
+    "text": "ay"
+   },
+   {
+    "value": "ee",
+    "label": "ee",
+    "text": "ee"
+   }
+  ],
+  "answer": "igh",
+  "correctAnswer": "igh",
+  "distractorRationales": {
+   "i_e": "D-PATTERN-TRAP",
+   "ay": "D-PATTERN-TRAP",
+   "ee": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_vowel_team_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "high",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.igh.v106",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New real-word target with same-sound rival spellings and alternative vowel-team sounds; exact spelling is necessary, not just the initial consonant."
+ },
+ {
+  "id": "lp3.vowel_teams.l2.A.oo.v107",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "oo",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete c__l?",
+  "question": "Which letters complete c__l?",
+  "spokenPrompt": "cool. Which letters complete the word?",
+  "choices": [
+   "ou",
+   "ow",
+   "oa",
+   "oo"
+  ],
+  "answerOptions": [
+   {
+    "value": "ou",
+    "label": "ou",
+    "text": "ou"
+   },
+   {
+    "value": "ow",
+    "label": "ow",
+    "text": "ow"
+   },
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
+   {
+    "value": "oo",
+    "label": "oo",
+    "text": "oo"
+   }
+  ],
+  "answer": "oo",
+  "correctAnswer": "oo",
+  "distractorRationales": {
+   "oa": "D-PATTERN-TRAP",
+   "ou": "D-PATTERN-TRAP",
+   "ow": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_vowel_team_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "cool",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.oo.v107",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New real-word target with same-sound rival spellings and alternative vowel-team sounds; exact spelling is necessary, not just the initial consonant."
+ },
+ {
+  "id": "lp3.vowel_teams.l2.B.ow.v108",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "ow",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete fr__n?",
+  "question": "Which letters complete fr__n?",
+  "spokenPrompt": "frown. Which letters complete the word?",
+  "choices": [
+   "aw",
+   "ow",
+   "ou",
+   "oa"
+  ],
+  "answerOptions": [
+   {
+    "value": "aw",
+    "label": "aw",
+    "text": "aw"
+   },
+   {
+    "value": "ow",
+    "label": "ow",
+    "text": "ow"
+   },
+   {
+    "value": "ou",
+    "label": "ou",
+    "text": "ou"
+   },
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   }
+  ],
+  "answer": "ow",
+  "correctAnswer": "ow",
+  "distractorRationales": {
+   "aw": "D-PATTERN-TRAP",
+   "ou": "D-PATTERN-TRAP",
+   "oa": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_vowel_team_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "frown",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.B.ow.v108",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New real-word target with same-sound rival spellings and alternative vowel-team sounds; exact spelling is necessary, not just the initial consonant."
+ },
+ {
+  "id": "lp3.vowel_teams.l2.C.ou.v109",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ou",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete m__th?",
+  "question": "Which letters complete m__th?",
+  "spokenPrompt": "mouth. Which letters complete the word?",
+  "choices": [
+   "oa",
+   "ou",
+   "ow",
+   "oo"
+  ],
+  "answerOptions": [
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
+   {
+    "value": "ou",
+    "label": "ou",
+    "text": "ou"
+   },
+   {
+    "value": "ow",
+    "label": "ow",
+    "text": "ow"
+   },
+   {
+    "value": "oo",
+    "label": "oo",
+    "text": "oo"
+   }
+  ],
+  "answer": "ou",
+  "correctAnswer": "ou",
+  "distractorRationales": {
+   "ow": "D-PATTERN-TRAP",
+   "oo": "D-PATTERN-TRAP",
+   "oa": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_vowel_team_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "mouth",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.C.ou.v109",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New real-word target with same-sound rival spellings and alternative vowel-team sounds; exact spelling is necessary, not just the initial consonant."
+ },
+ {
+  "id": "lp3.vowel_teams.l2.A.oi.v110",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "oi",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete j__n?",
+  "question": "Which letters complete j__n?",
+  "spokenPrompt": "join. Which letters complete the word?",
+  "choices": [
+   "oi",
+   "oy",
+   "ow",
+   "ou"
+  ],
+  "answerOptions": [
+   {
+    "value": "oi",
+    "label": "oi",
+    "text": "oi"
+   },
+   {
+    "value": "oy",
+    "label": "oy",
+    "text": "oy"
+   },
+   {
+    "value": "ow",
+    "label": "ow",
+    "text": "ow"
+   },
+   {
+    "value": "ou",
+    "label": "ou",
+    "text": "ou"
+   }
+  ],
+  "answer": "oi",
+  "correctAnswer": "oi",
+  "distractorRationales": {
+   "oy": "D-PATTERN-TRAP",
+   "ow": "D-PATTERN-TRAP",
+   "ou": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_vowel_team_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "join",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.oi.v110",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New real-word target with same-sound rival spellings and alternative vowel-team sounds; exact spelling is necessary, not just the initial consonant."
+ },
+ {
+  "id": "lp3.vowel_teams.l2.B.oy.v111",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "B",
+  "itemType": "phonics_pattern",
+  "itemKey": "oy",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete j__ful?",
+  "question": "Which letters complete j__ful?",
+  "spokenPrompt": "joyful. Which letters complete the word?",
+  "choices": [
+   "ow",
+   "ay",
+   "oy",
+   "oi"
+  ],
+  "answerOptions": [
+   {
+    "value": "ow",
+    "label": "ow",
+    "text": "ow"
+   },
+   {
+    "value": "ay",
+    "label": "ay",
+    "text": "ay"
+   },
+   {
+    "value": "oy",
+    "label": "oy",
+    "text": "oy"
+   },
+   {
+    "value": "oi",
+    "label": "oi",
+    "text": "oi"
+   }
+  ],
+  "answer": "oy",
+  "correctAnswer": "oy",
+  "distractorRationales": {
+   "ay": "D-PATTERN-TRAP",
+   "oi": "D-PATTERN-TRAP",
+   "ow": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_vowel_team_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "joyful",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.B.oy.v111",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New real-word target with same-sound rival spellings and alternative vowel-team sounds; exact spelling is necessary, not just the initial consonant."
+ },
+ {
+  "id": "lp3.vowel_teams.l2.C.ew.v112",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "C",
+  "itemType": "phonics_pattern",
+  "itemKey": "ew",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete d__?",
+  "question": "Which letters complete d__?",
+  "spokenPrompt": "dew. Which letters complete the word?",
+  "choices": [
+   "ou",
+   "ow",
+   "ew",
+   "oo"
+  ],
+  "answerOptions": [
+   {
+    "value": "ou",
+    "label": "ou",
+    "text": "ou"
+   },
+   {
+    "value": "ow",
+    "label": "ow",
+    "text": "ow"
+   },
+   {
+    "value": "ew",
+    "label": "ew",
+    "text": "ew"
+   },
+   {
+    "value": "oo",
+    "label": "oo",
+    "text": "oo"
+   }
+  ],
+  "answer": "ew",
+  "correctAnswer": "ew",
+  "distractorRationales": {
+   "oo": "D-PATTERN-TRAP",
+   "ou": "D-PATTERN-TRAP",
+   "ow": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_vowel_team_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "dew",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.C.ew.v112",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New real-word target with same-sound rival spellings and alternative vowel-team sounds; exact spelling is necessary, not just the initial consonant."
+ },
+ {
+  "id": "lp3.vowel_teams.l2.A.aw.v113",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "vowel_teams",
+  "assessmentSkillId": "vowel_teams",
+  "skillName": "Vowel Teams",
+  "skill": "Vowel Teams",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_2_phase_2",
+  "form": "A",
+  "itemType": "phonics_pattern",
+  "itemKey": "aw",
+  "formatType": "LONG_VOWEL_TEAM_COMPLETE",
+  "templateType": "LONG_VOWEL_TEAM_COMPLETE",
+  "questionType": "multiple_choice",
+  "prompt": "Which letters complete d__n?",
+  "question": "Which letters complete d__n?",
+  "spokenPrompt": "dawn. Which letters complete the word?",
+  "choices": [
+   "ou",
+   "aw",
+   "oa",
+   "ow"
+  ],
+  "answerOptions": [
+   {
+    "value": "ou",
+    "label": "ou",
+    "text": "ou"
+   },
+   {
+    "value": "aw",
+    "label": "aw",
+    "text": "aw"
+   },
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
+   {
+    "value": "ow",
+    "label": "ow",
+    "text": "ow"
+   }
+  ],
+  "answer": "aw",
+  "correctAnswer": "aw",
+  "distractorRationales": {
+   "oa": "D-PATTERN-TRAP",
+   "ow": "D-PATTERN-TRAP",
+   "ou": "D-PATTERN-TRAP"
+  },
+  "mediaTier": "audio-required",
+  "hadPTD": true,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_vowel_team_spelling",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
+  "targetWord": "dawn",
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.aw.v113",
+   "role": "text-only",
+   "paths": [],
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "New real-word target with same-sound rival spellings and alternative vowel-team sounds; exact spelling is necessary, not just the initial consonant."
  }
 ];
