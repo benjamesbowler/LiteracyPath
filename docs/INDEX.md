@@ -38,7 +38,7 @@ A dated document must never override current code.
 - [Present teaching lessons](PRESENT_REDESIGN_2026-07-28.md) — three daily formats across 27 cycles; interactive spelling, oral language, private notes and projection
 - [Learning policy](design/LEARNING_POLICY.md)
 - [Assessment media evidence](design/ASSESSMENT_MEDIA_EVIDENCE.md)
-- [EL benchmark suite](EL_ALIGNED_BENCHMARK_ASSESSMENT_SUITE_2026-07-21.md)
+- [Six teacher-administered assessments and EL benchmark suite](EL_ALIGNED_BENCHMARK_ASSESSMENT_SUITE_2026-07-21.md) — current forms, protected pupil display, diagnostic evidence and draft compatibility
 - [Guided Reading](guided-reading/INDEX.md)
 - [Story and Story Quest bible](content/STORY_AND_STORY_QUEST_BIBLE.md)
 - [Story writing standard](content/STORY_BIBLE_PART_1_WRITING.md)

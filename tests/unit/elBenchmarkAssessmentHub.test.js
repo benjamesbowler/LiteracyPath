@@ -127,7 +127,7 @@ test("the page is three derived steps: student, assessment, run it", () => {
     html.indexOf("<h4>Skills assessment</h4>") < html.indexOf("<h4>Letter names and sounds</h4>"),
     "the suggested assessment is not first"
   );
-  assert.match(html, /harder letter patterns the student recognises and sounds out/);
+  assert.match(html, /Separate knowledge of a letter pattern from using it to read a word, across 33 patterns/);
   assert.doesNotMatch(html, /harder letter patterns the student already reads and spells/);
   // The accuracy-vs-status caveat closes the assessment panel.
   assert.match(

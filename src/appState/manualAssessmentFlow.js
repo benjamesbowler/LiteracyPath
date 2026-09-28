@@ -1,3 +1,5 @@
+import { cleanDiagnosticObservation } from "../utils/manualDiagnosticEvidence.js";
+
 function cleanIdPart(value = "") {
   return String(value || "")
     .trim()
@@ -113,8 +115,9 @@ export function saveManualAssessmentDrafts({
 }
 
 function manualResponseOutcome(record = {}) {
+  if (record.metadata?.responsePending) return "";
   const status = String(record.responseStatus || "").trim().toLowerCase();
-  if (["correct", "incorrect", "not_administered"].includes(status)) return status;
+  if (["correct", "incorrect", "no_response", "not_scorable", "not_administered"].includes(status)) return status;
   if (record.isCorrect === true) return "correct";
   if (record.isCorrect === false) return "incorrect";
   return "not_administered";
@@ -231,6 +234,10 @@ export function restoreManualAssessmentDraftsFromHistory({
           soundOutcome,
           knowsName: nameOutcome === "correct",
           knowsSound: soundOutcome === "correct",
+          recorded: Boolean(nameOutcome && soundOutcome),
+          diagnosticVersion: nameRecord.metadata?.diagnosticVersion || "legacy",
+          formVersion: nameRecord.metadata?.formVersion || "legacy",
+          responseEvidence: { name: cleanDiagnosticObservation(nameRecord), sound: cleanDiagnosticObservation(soundRecord) },
           ...attemptOwnership(letterAttempt, studentId)
         };
       })
@@ -248,6 +255,12 @@ export function restoreManualAssessmentDraftsFromHistory({
           wordOutcome,
           soundCorrect: soundOutcome === "correct",
           wordCorrect: wordOutcome === "correct",
+          recorded: Boolean(soundOutcome && wordOutcome),
+          diagnosticVersion: soundRecord.metadata?.diagnosticVersion || "legacy",
+          formVersion: soundRecord.metadata?.formVersion || "legacy",
+          formIndex: soundRecord.metadata?.formIndex ?? 0,
+          group: soundRecord.metadata?.group || "",
+          responseEvidence: { sound: cleanDiagnosticObservation(soundRecord), word: cleanDiagnosticObservation(wordRecord) },
           ...attemptOwnership(patternAttempt, studentId)
         };
       })
@@ -257,11 +270,11 @@ export function restoreManualAssessmentDraftsFromHistory({
     found: Boolean(letterAssessment.length || patternAssessment.length),
     letterLatestStatus: latestLetterStatus,
     letterLatestAt: attemptTimestamp(latestLetterAttempt),
-    letterIndex: letterAssessment.length,
+    letterIndex: letterAssessment.findIndex(entry => entry.recorded === false) < 0 ? letterAssessment.length : letterAssessment.findIndex(entry => entry.recorded === false),
     letterAssessment,
     patternLatestStatus: latestPatternStatus,
     patternLatestAt: attemptTimestamp(latestPatternAttempt),
-    patternIndex: patternAssessment.length,
+    patternIndex: patternAssessment.findIndex(entry => entry.recorded === false) < 0 ? patternAssessment.length : patternAssessment.findIndex(entry => entry.recorded === false),
     patternAssessment
   };
 }

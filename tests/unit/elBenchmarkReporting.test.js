@@ -38,6 +38,26 @@ import { displayBenchmarkScopeLabel } from "../../src/data/elBenchmarkReportScop
 
 const student = { id: "student-1", name: "Ada", classId: "class-1" };
 const classmate = { id: "student-2", name: "Leo", classId: "class-1" };
+
+test("unscored reading discussion survives archive and export without changing fluency metrics", async () => {
+  const plan = getElBenchmarkPlan({ assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, grade: "2", window: "EOY", startMicrophase: "late_consolidated" });
+  const item = plan.items[0];
+  const session = { ...student, studentId: student.id, assessmentId: plan.assessmentId, grade: "2", window: "EOY", startMicrophase: "late_consolidated", administrationStatus: "completed", responses: { [item.id]: { status: "recorded", timerStatus: "complete", elapsedSeconds: 60, wordsAttempted: 40, errors: 2, selfCorrections: 0, passageAccurate: true } } };
+  const before = buildElBenchmarkAttempt(session);
+  session.responses[item.id] = { ...session.responses[item.id], fullPassageReadAfterTiming: true, meaningCheckResponse: "The animals needed safe places.", observationNote: "Grouped words into phrases." };
+  const after = buildElBenchmarkAttempt(session);
+  assert.deepEqual(after.metrics, before.metrics);
+  assert.deepEqual(after.candidatePlacement, before.candidatePlacement);
+  const stored = normalizeAssessmentAttempt(compactAssessmentAttemptForStorage(after));
+  assert.equal(stored.questionRecords[0].fullPassageReadAfterTiming, true);
+  const report = buildStudentElAssessmentReportData({ assessmentHistory: [stored], students: [student], studentId: student.id, classId: student.classId, benchmarkScope: { grade: "2", benchmarkWindow: "EOY" } });
+  const workbook = await createStudentElAssessmentWorkbook(report);
+  const row = worksheetRows(workbook.getWorksheet("Fluency Detail")).find(value => value["Passage ID"] === item.id);
+  assert.equal(row["Meaning-check response"], "The animals needed safe places.");
+  assert.equal(row["Teacher observation"], "Grouped words into phrases.");
+  assert.equal(row.WCPM, 38);
+});
+
 const common = {
   studentId: "student-1",
   studentName: "Ada",
@@ -509,7 +529,7 @@ test("A1 and A2 report the latest scored observation as Yes or No while unscored
       skillId: "el_letter_assessment",
       skillName: "Letter Names and Sounds",
       questionRecords: [
-        { questionId: "letter-a-name", itemKey: "a", itemType: "letter_name", targetLetter: "A", responseStatus: "correct", isCorrect: true },
+        { questionId: "letter-a-name", itemKey: "a", itemType: "letter_name", targetLetter: "A", responseStatus: "correct", isCorrect: true, responseText: "A", selectedAnswer: "A", responseCaptureMode: "teacher_transcription", responseDetailCaptured: true, selfCorrected: true, errorTags: ["letter_confusion"], notes: "First said H, then corrected independently." },
         { questionId: "letter-a-sound-unrecorded", itemKey: "a", itemType: "letter_sound", targetLetter: "A" },
         { questionId: "letter-a-lower-name-na", itemKey: "a", itemType: "letter_name", targetLetter: "a", responseStatus: "not_administered", isCorrect: false },
         { questionId: "letter-a-lower-sound-ns", itemKey: "a", itemType: "letter_sound", targetLetter: "a", responseStatus: "not_scorable", isCorrect: false }
@@ -533,6 +553,11 @@ test("A1 and A2 report the latest scored observation as Yes or No while unscored
   const individual = buildIndividualElFormalAssessmentReport({ student, assessmentHistory: history });
   const letterA = individual.individualLetterMatrix.find(row => row.letter === "a");
   assert.equal(letterA.uppercaseName.statusLabel, "Yes");
+  assert.equal(letterA.uppercaseName.details[0].responseText, "A");
+  assert.equal(letterA.uppercaseName.details[0].responseCaptureMode, "teacher_transcription");
+  assert.equal(letterA.uppercaseName.details[0].selfCorrected, true);
+  assert.deepEqual(letterA.uppercaseName.details[0].errorTags, ["letter_confusion"]);
+  assert.match(letterA.uppercaseName.details[0].notes, /corrected independently/);
   assert.equal(letterA.uppercaseSound.statusLabel, "");
   assert.equal(letterA.uppercaseSound.attempts, 0);
   assert.equal(letterA.uppercaseSound.incorrect, 0);
@@ -1470,7 +1495,7 @@ test("real scorer output survives normalization into exact, stop, and sequential
   const decoding = gradeOneReport.individualBenchmarkDetails.find(row => row.assessmentId === EL_BENCHMARK_IDS.DECODING);
   const fluency = gradeTwoReport.individualBenchmarkDetails.find(row => row.assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY);
 
-  assert.equal(encoding.exactSpellingCount, 8);
+  assert.equal(encoding.exactSpellingCount, encodingPlan.items.length);
   assert.equal(encoding.plausibleSpellingCount, 0);
   assert.equal(encoding.itemDetails[0].studentSpelling, encodingPlan.items[0].targetWord);
   assert.equal(decoding.stopEvidence.triggered, true);

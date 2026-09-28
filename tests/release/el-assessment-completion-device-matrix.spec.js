@@ -66,7 +66,7 @@ async function expectFullyInViewport(locator) {
   })).toBe(true);
 }
 
-test("@el-assessment-completion-device-matrix completes an 8-item route with reachable placement and finish controls", async ({
+test("@el-assessment-completion-device-matrix completes an 12-item route with reachable placement and finish controls", async ({
   page
 }) => {
   test.setTimeout(120_000);
@@ -84,15 +84,15 @@ test("@el-assessment-completion-device-matrix completes an 8-item route with rea
     await expect(finish).toBeDisabled();
     await expectFullyInViewport(stickyBar);
 
-    for (let itemNumber = 1; itemNumber <= 8; itemNumber += 1) {
+    for (let itemNumber = 1; itemNumber <= 12; itemNumber += 1) {
       await expect(page.getByRole("progressbar", {
-        name: `${itemNumber - 1} of 8 items resolved`
+        name: `${itemNumber - 1} of 12 items resolved`
       })).toBeVisible();
       await page.getByRole("button", { name: "Correct spelling", exact: true }).click();
       await expectFullyInViewport(stickyBar);
     }
 
-    await expect(page.getByRole("progressbar", { name: "8 of 8 items resolved" })).toBeVisible();
+    await expect(page.getByRole("progressbar", { name: "12 of 12 items resolved" })).toBeVisible();
     const choosePlacement = stickyBar.getByRole("button", {
       name: "Choose starting point",
       exact: true
@@ -119,7 +119,7 @@ test("@el-assessment-completion-device-matrix completes an 8-item route with rea
     await expectFullyInViewport(readyFinish);
     await readyFinish.click();
     const finishReview = page.getByRole("dialog", { name: "Review the tally before finishing" });
-    await expect(finishReview).toContainText("8 scored · 0 skipped");
+    await expect(finishReview).toContainText("12 scored · 0 skipped");
     await finishReview.getByRole("button", { name: "Confirm and finish", exact: true }).click();
     await expect(page.getByRole("heading", { name: "Assess a student", exact: true }))
       .toBeVisible({ timeout: 20_000 });

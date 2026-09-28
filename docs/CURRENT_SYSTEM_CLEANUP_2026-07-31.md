@@ -664,3 +664,24 @@ No learner data, unrelated art or hosted content was deleted. Runtime artwork
 loads from the application origin. The new lazy world bank has its own 16 MiB
 budget and 6 MiB per-model cap; the separate searchable model library retains its
 75 MiB cap. Verification details and visual evidence live in the scoped report.
+
+## Six teacher-administered assessment modes — 28 September 2026
+
+The letter and pattern screens now share one manual diagnostic runner and one
+response-evidence helper. Their former parallel marking components are removed;
+existing assessment identities and letter/pattern order remain. The benchmark
+runner consumes the current catalog plus its authored depth and parallel-form
+modules. New drafts freeze their exact plan so a content release cannot silently
+replace questions in an unfinished sitting. Completed report evidence continues
+to replay its stored record.
+
+The compact legacy-content module is retained only for exact reconstruction of
+pre-snapshot drafts; it cannot be selected for a new administration. It preserves
+historical stimuli rather than retroactively changing saved responses. It does
+not duplicate scoring or placement policy. This is required compatibility data,
+not a second current bank. Skills assessment sources and thresholds are unchanged.
+
+Generation scripts and intermediate legacy capture files are disposable after
+the frozen source is checked. Current proof, screenshots and reader-copy exports
+are under ignored `.artifacts/assessment-depth`; no learner records, original
+artwork, credentials or hosted data are removed by this cleanup.

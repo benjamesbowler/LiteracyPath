@@ -19,6 +19,7 @@ export {
   EL_FLUENCY_PASSAGES_BY_FORM,
   EL_ITEM_RESPONSE_STATUSES,
   getElBenchmarkPlan,
+  getElBenchmarkSessionPlan,
   listElBenchmarkRoutes
 } from "./elBenchmarkAssessmentCatalog.js";
 

@@ -84,6 +84,45 @@ const BENCHMARK_ADMINISTRATION = Object.freeze({
     "The student reads a passage on screen while the built-in one-minute timer runs."
 });
 
+const ASSESSMENT_GUIDES = Object.freeze({
+  "letter-names-and-sounds": {
+    label: "Two observations for every letter",
+    prepare: "Sit beside the student so you can switch between the pupil display and your scoring controls.",
+    steps: ["Show one capital or small letter.", "Ask for its name, then its sound, separately.", "Record the actual response when it differs; review any letter before saving."],
+    evidence: "Separate name and sound profiles for capitals and small letters, with response notes and teaching targets."
+  },
+  "phonics-patterns": {
+    label: "Pattern knowledge and word reading",
+    prepare: "Use a quiet one-to-one setting. The pupil display keeps prompts, answers and scoring controls out of view.",
+    steps: ["Show the letter pattern and ask for its sound.", "Reveal the example word only for the word-reading task.", "Record the sound and word responses separately; note substitutions or self-corrections."],
+    evidence: "A profile by pattern family, separating recognition from using a pattern to read a word."
+  },
+  [EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS]: {
+    label: "Listen, respond, record",
+    prepare: "No paper, print or pictures are needed. Keep the teacher's word prompts out of the student's view.",
+    steps: ["Read the exact oral prompt in a natural voice.", "Let the student respond without a model or corrective feedback.", "Record the outcome, adding the student's words when useful."],
+    evidence: "Observed responses across the sound-awareness strands, with practical oral activities for follow-up."
+  },
+  [EL_BENCHMARK_IDS.ENCODING]: {
+    label: "Hear the word. Write it independently.",
+    prepare: "Have blank paper and a pencil ready. The target spelling stays on the teacher's screen.",
+    steps: ["Say the word, read its sentence, then say the word again.", "Let the student write it independently on paper.", "Record the spelling exactly and distinguish conventional spelling from a plausible sound-based attempt."],
+    evidence: "Exact spelling and sound representation are reported separately, with pattern-level observations and a teacher-confirmed next step."
+  },
+  [EL_BENCHMARK_IDS.DECODING]: {
+    label: "Accurate reading before automatic reading",
+    prepare: "Use the suggested starting band from the student's evidence, or record why another band is appropriate.",
+    steps: ["Show one word without pictures, context or a spoken model.", "Record whether it was accurate straight away or accurate after sounding out.", "Complete the eight-word band and follow the review or stop decision."],
+    evidence: "Accuracy and automaticity stay separate; errors, self-corrections and the stopping evidence remain available."
+  },
+  [EL_BENCHMARK_IDS.ORAL_READING_FLUENCY]: {
+    label: "Listen to connected reading",
+    prepare: "Confirm the starting passage from word-reading evidence. Open the clean pupil display or print a reader copy.",
+    steps: ["Start timing with the student's first word.", "Follow the passage and record words reached, errors and self-corrections.", "Judge accuracy and phrasing; follow the passage decision before saving."],
+    evidence: "A full minute produces words correct per minute. An early finish remains a completed-text observation, with no extrapolated rate."
+  }
+});
+
 // Only these two EL domains start part-way through a word-pattern band, so only
 // these two need the third start-point question.
 const BENCHMARKS_WITH_A_BAND = Object.freeze([
@@ -102,6 +141,7 @@ function benchmarkEntry(source) {
     estimatedMinutes: source.estimatedMinutes,
     administration: BENCHMARK_ADMINISTRATION[source.id] || "Teacher paced.",
     administrationMode: source.administrationMode,
+    guide: ASSESSMENT_GUIDES[source.id],
     supportedGrades: source.supportedGrades,
     supportedWindows: source.supportedWindows,
     starter: ASSESSMENT_STARTERS.EL_BENCHMARK,
@@ -136,10 +176,11 @@ export const ASSESSMENT_CATALOG = Object.freeze([
   Object.freeze({
     id: "letter-names-and-sounds",
     label: "Letter names and sounds",
-    description: "Tells you which capital and small letters the student can name and sound out.",
+    description: "See which capital and small letters the student can name and sound, and where the two differ.",
     estimatedMinutes: 10,
     administration: "You show each letter and tap whether the name and the sound were right.",
     starter: ASSESSMENT_STARTERS.LETTER_CHECK,
+    guide: ASSESSMENT_GUIDES["letter-names-and-sounds"],
     startPoint: Object.freeze({
       kind: ASSESSMENT_START_POINT_KINDS.NONE,
       fields: Object.freeze([]),
@@ -151,10 +192,11 @@ export const ASSESSMENT_CATALOG = Object.freeze([
   Object.freeze({
     id: "phonics-patterns",
     label: "Phonics patterns",
-    description: "Tells you which of the harder letter patterns the student recognises and sounds out.",
+    description: "Separate knowledge of a letter pattern from using it to read a word, across 33 patterns.",
     estimatedMinutes: 10,
-    administration: "You show each pattern with an example word and tap what the student did. It adds detail; it does not replace the other assessments.",
+    administration: "Show the pattern first, then an example word. Record each response separately to build a useful phonics profile.",
     starter: ASSESSMENT_STARTERS.PHONICS_PATTERN_CHECK,
+    guide: ASSESSMENT_GUIDES["phonics-patterns"],
     startPoint: Object.freeze({
       kind: ASSESSMENT_START_POINT_KINDS.NONE,
       fields: Object.freeze([]),

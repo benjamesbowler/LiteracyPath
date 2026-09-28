@@ -57,8 +57,8 @@ function decodingResponses(items, automaticCount, correctCount = items.length) {
 }
 
 test("public catalog exposes all four original provisional assessment domains", () => {
-  assert.equal(EL_BENCHMARK_CONTENT_VERSION, "2026.07.21-v2");
-  assert.equal(EL_BENCHMARK_FORM_ID, "form-a-v2");
+  assert.equal(EL_BENCHMARK_CONTENT_VERSION, "2026.09.28-depth-v3");
+  assert.equal(EL_BENCHMARK_FORM_ID, "form-a-v3");
   assert.deepEqual(EL_BENCHMARK_CATALOG.map(row => row.id), ASSESSMENT_IDS);
   assert.ok(EL_BENCHMARK_CATALOG.every(row => row.framework.label === "Literacy Guide provisional"));
   assert.ok(EL_BENCHMARK_CATALOG.every(row => /not an official/i.test(row.framework.disclaimer)));
@@ -158,7 +158,7 @@ test("every named decoding band has exactly eight fixed items and the ≤5 stop 
       EXPECTED_DECODING_WORDS[microphase.id],
       `${microphase.id} fixed v2 word bank`
     );
-    assert.ok(items.every(item => item.id.endsWith("-v2")), `${microphase.id} item ids are versioned`);
+    assert.ok(items.every(item => item.id.endsWith("-v3")), `${microphase.id} item ids are versioned`);
   }
 });
 
@@ -269,19 +269,19 @@ test("phoneme manipulation regression keys each make the named single operation"
     }
   }
   const expected = {
-    "pa-1-eoy-09": ["Change the /b/ in brag to /d/", "drag"],
-    "pa-2-boy-07": ["Say crash without /r/", "cash"],
-    "pa-2-moy-08": ["Change the /t/ in track to /k/", "crack"],
-    "pa-2-eoy-05": ["every sound in sprint", "s p r i n t"],
-    "pa-2-eoy-09": ["Change the /l/ in clam to /r/", "cram"],
-    "pa-2-eoy-10": ["Change the /p/ in spoke to /t/", "stoke"],
-    "pa-2-eoy-12": ["Say paint without /t/", "pain"]
+    "pa-1-eoy-a-09-v3": ["Change the /b/ in brag to /d/", "drag"],
+    "pa-2-boy-a-07-v3": ["Say crash without /r/", "cash"],
+    "pa-2-moy-a-08-v3": ["Change the /t/ in track to /k/", "crack"],
+    "pa-2-eoy-a-05-v3": ["every sound in sprint", "s p r i n t"],
+    "pa-2-eoy-a-09-v3": ["Change the /l/ in clam to /r/", "cram"],
+    "pa-2-eoy-a-10-v3": ["Change the /p/ in spoke to /t/", "stoke"],
+    "pa-2-eoy-a-12-v3": ["Say paint without /t/", "pain"]
   };
   for (const [id, [promptPart, answer]] of Object.entries(expected)) {
     assert.ok(items.get(id).teacherSay.includes(promptPart), `${id} prompt`);
     assert.ok(items.get(id).expectedAnswers.includes(answer), `${id} answer`);
   }
-  assert.deepEqual(items.get("pa-k-moy-03").expectedAnswers.slice(0, 2), ["rab it", "rab-it"]);
+  assert.deepEqual(items.get("pa-k-moy-a-03-v3").expectedAnswers.slice(0, 2), ["rab it", "rab-it"]);
   const manipulationItems = Array.from(items.values()).filter(item =>
     item.strand === "phoneme_deletion" || item.strand === "phoneme_substitution" || item.task === "deletion"
   );
@@ -291,7 +291,7 @@ test("phoneme manipulation regression keys each make the named single operation"
 
 test("the train vowel item requires an unambiguous long-a oral judgment", () => {
   const pa = plan(EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS, "1", "MOY");
-  const train = pa.items.find(item => item.id === "pa-1-moy-04");
+  const train = pa.items.find(item => item.id === "pa-1-moy-a-04-v3");
   assert.ok(train);
   assert.equal(train.expectedAnswers.includes("a"), false);
   assert.equal(train.expectedAnswers.includes("/a/"), false);
@@ -332,7 +332,7 @@ test("PA scoring preserves partial and not-scorable item evidence while computin
   assert.equal(score.correctCount, 4);
   assert.equal(score.incorrectCount, 3);
   assert.equal(score.questionRecords.at(-1).responseStatus, "not_scorable");
-  assert.equal(score.completion.notScorableCount, 1);
+  assert.equal(score.completion.notScorableCount, pa.items.length - 7);
   assert.ok(score.subtestScores.strands.some(row => row.strand === "rhyme"));
   assert.ok(score.subtestScores.strands.some(row => row.strand === "phoneme_isolation"));
 });
@@ -1806,8 +1806,8 @@ test("persistence builder projects rich evidence and adds no generic mastery ver
   const second = buildElBenchmarkAttempt(session, ownership);
   assert.deepEqual(first, second, "attempt builder is deterministic");
   assert.equal(first.administrationStatus, "completed");
-  assert.equal(first.plannedQuestionCount, 8);
-  assert.equal(first.scoredCount, 8);
+  assert.equal(first.plannedQuestionCount, encoding.items.length);
+  assert.equal(first.scoredCount, encoding.items.length);
   assert.equal(first.framework.label, "Literacy Guide provisional");
   assert.equal(first.formVersion, EL_BENCHMARK_FORM_ID);
   assert.equal(first.contentVersion, EL_BENCHMARK_CONTENT_VERSION);

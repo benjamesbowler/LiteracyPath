@@ -213,6 +213,13 @@ test("a saved partial archive rebuilds a resumable manual assessment on another 
       soundOutcome: "incorrect",
       knowsName: true,
       knowsSound: false,
+      recorded: true,
+      diagnosticVersion: "legacy",
+      formVersion: "legacy",
+      responseEvidence: {
+        name: { responseText: "", selfCorrected: false, errorTags: [], notes: "", outcomeRecordedAt: "" },
+        sound: { responseText: "", selfCorrected: false, errorTags: [], notes: "", outcomeRecordedAt: "" }
+      },
       assessmentAttemptId: "letter-partial",
       assessmentStartedAt: "2026-07-27T09:00:00.000Z",
       assessmentStudentId: "student-1"

@@ -5,8 +5,8 @@ import {
   getElBenchmarkPlan
 } from "./elBenchmarkAssessments.js";
 
-export const EL_BENCHMARK_QUICK_ADMINISTRATION_VERSION = "2026.07.22-quick-v1";
-export const EL_BENCHMARK_RESPONSE_SCHEMA_VERSION = 2;
+export const EL_BENCHMARK_QUICK_ADMINISTRATION_VERSION = "2026.09.28-v2";
+export const EL_BENCHMARK_RESPONSE_SCHEMA_VERSION = 3;
 
 function recordGrade(record = {}) {
   return String(
@@ -64,17 +64,21 @@ export function isCompletedElBenchmarkRouteEvidence(record = {}) {
 }
 
 const FORM_IDS = Object.freeze(EL_BENCHMARK_FORM_DEFINITIONS.map(form => form.id));
+const REPLAYABLE_FORM_IDS = Object.freeze([...FORM_IDS, "form-a-v2", "form-b-v1", "form-c-v1"]);
 const MAX_RECORDED_FORM_EXPOSURES = 12;
 const FORM_ID_ALIASES = Object.freeze({
   a: EL_BENCHMARK_FORM_IDS.A,
   "form-a": EL_BENCHMARK_FORM_IDS.A,
-  "form-a-v2": EL_BENCHMARK_FORM_IDS.A,
+  "form-a-v3": EL_BENCHMARK_FORM_IDS.A,
+  "form-a-v2": "form-a-v2",
   b: EL_BENCHMARK_FORM_IDS.B,
   "form-b": EL_BENCHMARK_FORM_IDS.B,
-  "form-b-v1": EL_BENCHMARK_FORM_IDS.B,
+  "form-b-v2": EL_BENCHMARK_FORM_IDS.B,
+  "form-b-v1": "form-b-v1",
   c: EL_BENCHMARK_FORM_IDS.C,
   "form-c": EL_BENCHMARK_FORM_IDS.C,
-  "form-c-v1": EL_BENCHMARK_FORM_IDS.C
+  "form-c-v2": EL_BENCHMARK_FORM_IDS.C,
+  "form-c-v1": "form-c-v1"
 });
 
 function recordAssessmentId(record = {}) {
@@ -146,7 +150,7 @@ export function selectElBenchmarkForm({
   const latestCompletedAt = completed.length ? recordTimestamp(completed.at(-1)) : -1;
   const resumable = scoped
     .filter(isIncompleteAttempt)
-    .filter(record => FORM_IDS.includes(recordFormId(record)))
+    .filter(record => REPLAYABLE_FORM_IDS.includes(recordFormId(record)))
     .filter(record => recordTimestamp(record) > latestCompletedAt)
     .sort((a, b) => recordTimestamp(b) - recordTimestamp(a))[0] || null;
   const completedCount = completed.length;
@@ -154,7 +158,7 @@ export function selectElBenchmarkForm({
     ? recordFormId(resumable)
     : FORM_IDS[completedCount % FORM_IDS.length];
   const priorExposures = scoped
-    .filter(record => FORM_IDS.includes(recordFormId(record)))
+    .filter(record => REPLAYABLE_FORM_IDS.includes(recordFormId(record)))
     .sort((a, b) => recordTimestamp(a) - recordTimestamp(b))
     .map(record => ({
       attemptId: record.attemptId || record.id || "",
@@ -467,6 +471,7 @@ export function createElBenchmarkSession({
       exposure: formSelection.formExposure
     },
     planId: plan.planId,
+    planSnapshot: JSON.parse(JSON.stringify(plan)),
     contentVersion: plan.contentVersion,
     administrationVersion: EL_BENCHMARK_QUICK_ADMINISTRATION_VERSION,
     responseSchemaVersion: EL_BENCHMARK_RESPONSE_SCHEMA_VERSION,

@@ -155,6 +155,7 @@ export function AppSurface({ surface }) {
     resumeElBenchmarkAssessment, retryCheckpointSkill, retryTeacherSchoolName, returnFromElBenchmarkAssessment, returnFromStudentPreview, returnToStudentHome, returnToTeacherDashboard,
     returnFromCheck, reviewInitialSoundLevelOne, roundAnswers, saveElBenchmarkPartialAndExit, saveGuidedReadingRecord, saveTeacherSchool, selectedClassId,
     saveLetterAssessmentPartialAndExit, savePatternAssessmentPartialAndExit,
+    goToLetterAssessmentItem, goToPatternAssessmentItem, saveLetterAssessmentDraft, savePatternAssessmentDraft,
     selectedStudentEvidenceReadState, selectedStudentEvidenceReady, sessionMode, setAdminConfirm, setAdminConfirmBusy, setAllowPassageAudio,
     setAppView, setArchivedStudentList, setAuthDisplayName, setAuthEmail, setAuthMode, setAuthPassword,
     setAuthSchoolName, setClassDashboard, setCurrentQuestion, setCurrentSkillIndex, setEntryMode,
@@ -2196,6 +2197,8 @@ export function AppSurface({ surface }) {
             endAssessment={saveLetterAssessmentPartialAndExit}
             recordLetterResult={recordLetterResult}
             onPrevious={goToPreviousLetter}
+            onNavigate={goToLetterAssessmentItem}
+            onDraft={saveLetterAssessmentDraft}
             letterAssessment={letterAssessment}
             exportLetterAssessment={exportLetterAssessment}
             resetLetterAssessment={resetLetterAssessment}
@@ -2213,6 +2216,8 @@ export function AppSurface({ surface }) {
             endAssessment={savePatternAssessmentPartialAndExit}
             recordPatternResult={recordPatternResult}
             onPrevious={goToPreviousPattern}
+            onNavigate={goToPatternAssessmentItem}
+            onDraft={savePatternAssessmentDraft}
             patternAssessment={patternAssessment}
             exportPatternAssessment={exportPatternAssessment}
             resetPatternAssessment={resetPatternAssessment}

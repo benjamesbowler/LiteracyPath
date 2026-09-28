@@ -72,18 +72,18 @@ test("@el-assessment-route-resume @el-assessment-final-review restores the item 
   for (let itemNumber = 1; itemNumber <= 3; itemNumber += 1) {
     await page.getByRole("button", { name: "Correct spelling", exact: true }).click();
   }
-  await expect(page.getByRole("heading", { name: "Item 4 of 8", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Item 4 of 12", exact: true })).toBeVisible();
   await expect(page).toHaveURL(/#teacher\/checks\/el-benchmark\?.*item=4/);
 
   await page.reload();
   await expect(page.getByRole("heading", { name: "Word Encoding and Spelling", exact: true })).toBeVisible({
     timeout: 20_000
   });
-  await expect(page.getByRole("heading", { name: "Item 4 of 8", exact: true })).toBeVisible();
-  await expect(page.getByRole("progressbar", { name: "3 of 8 items resolved" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Item 4 of 12", exact: true })).toBeVisible();
+  await expect(page.getByRole("progressbar", { name: "3 of 12 items resolved" })).toBeVisible();
   await expect(page).toHaveURL(/#teacher\/checks\/el-benchmark\?.*item=4/);
 
-  for (let itemNumber = 4; itemNumber <= 7; itemNumber += 1) {
+  for (let itemNumber = 4; itemNumber <= 11; itemNumber += 1) {
     await page.getByRole("button", { name: "Correct spelling", exact: true }).click();
   }
   await page.getByRole("button", { name: "Not yet", exact: true }).click();
@@ -93,9 +93,9 @@ test("@el-assessment-route-resume @el-assessment-final-review restores the item 
     .getByRole("button", { name: "Finish assessment", exact: true })
     .click();
   let finishReview = page.getByRole("dialog", { name: "Review the tally before finishing" });
-  await expect(finishReview).toContainText("8 scored · 0 skipped");
+  await expect(finishReview).toContainText("12 scored · 0 skipped");
   await finishReview.getByRole("button", { name: "Change final answer", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Item 8 of 8", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Item 12 of 12", exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Correct spelling", exact: true }).click();
 
   await acceptPlacement(page);
@@ -103,7 +103,7 @@ test("@el-assessment-route-resume @el-assessment-final-review restores the item 
     .getByRole("button", { name: "Finish assessment", exact: true })
     .click();
   finishReview = page.getByRole("dialog", { name: "Review the tally before finishing" });
-  await expect(finishReview).toContainText("8 scored · 0 skipped");
+  await expect(finishReview).toContainText("12 scored · 0 skipped");
   await finishReview.getByRole("button", { name: "Confirm and finish", exact: true }).click();
 
   await expect(page.getByRole("heading", { name: "Assess a student", exact: true }))

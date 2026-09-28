@@ -533,7 +533,7 @@ test("blank detail is complete only when it carries a coherent quick teacher jud
 });
 
 test("quick outcomes auto-advance only after the resulting item is complete", () => {
-  assert.match(assessmentPageSource, /onQuickScore=\{patch => updateCurrentResponse\(patch, \{ advance: true \}\)\}/);
+  assert.match(assessmentPageSource, /onQuickScore=\{patch => updateCurrentResponse\(patch, \{ advance: session\.captureDetail !== true \}\)\}/);
   assert.match(assessmentPageSource, /const nextIndex = options\.advance &&\s+isResponseComplete\(kind, nextResponse, currentItem\)/);
   assert.match(assessmentPageSource, /kind !== ASSESSMENT_KINDS\.FLUENCY/);
   assert.match(assessmentPageSource, /currentBand\?\.indexes\.includes\(currentIndex \+ 1\)/);
@@ -1077,7 +1077,7 @@ test("ORF optional detail stays collapsed and does not compete with the timed pa
     window: "MOY"
   }));
 
-  assert.match(html, /Start the timer, then let the student read directly from this screen/);
+  assert.match(html, /Give the student a clean display or printed copy/);
   assert.match(html, /<details class="el-benchmark-optional-detail"><summary>Optional notes, printable copy, or couldn’t score<\/summary>/);
   assert.match(html, /<details class="el-benchmark-clean-passage"><summary>Printable clean passage<\/summary>/);
   assert.doesNotMatch(html, /<details class="el-benchmark-optional-detail" open/);
@@ -1350,6 +1350,8 @@ test("an interrupted timer cannot resume and must be reset before scoring", () =
 
 test("resetting the fluency timer clears every abandoned score and provenance field", () => {
   assert.deepEqual(getFluencyTimerResetPatch(), {
+    meaningCheckResponse: "",
+    fullPassageReadAfterTiming: false,
     accurate: null,
     accurateInOneMinute: null,
     accuracy: null,
@@ -1454,7 +1456,9 @@ test("ORF renders the routed current passage, never the legacy first passage", (
   }));
 
   assert.match(html, new RegExp(second.title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
-  assert.equal(html.includes(first.title), false);
+  const displayedPassage = html.match(/<section class="el-benchmark-passage-panel"[\s\S]*?<\/section>/)?.[0] || "";
+  assert.equal(displayedPassage.includes(first.title), false);
+  assert.ok(displayedPassage.includes(second.title));
   assert.match(html, /aria-label="Mark Nash as the last word reached, word 1"/);
 });
 
@@ -1717,4 +1721,66 @@ test("the discontinue form still requires a note only when Other is selected", (
   assert.equal(isDiscontinueEvidenceComplete("student_fatigue", ""), true);
   assert.equal(isDiscontinueEvidenceComplete("other", ""), false);
   assert.equal(isDiscontinueEvidenceComplete("other", "Documented context"), true);
+});
+
+test("detailed capture is opt-in, stays on the item, and exposes saved observations", () => {
+  const session = makeSession(EL_BENCHMARK_IDS.ENCODING);
+  const quick = renderAssessment(session);
+  assert.match(quick, /aria-pressed="true"[^>]*>Quick marks/);
+  assert.doesNotMatch(quick, />Next item<\/button>/);
+  const detailed = renderAssessment({ ...session, captureDetail: true });
+  assert.match(detailed, /aria-pressed="true"[^>]*>Add detail/);
+  assert.match(detailed, /el-benchmark-optional-detail" open/);
+  assert.match(buttonOpeningTag(detailed, "Next item"), /disabled/);
+  assert.match(detailed, /What you noticed/);
+});
+
+test("new benchmark forms expose unscored practice and private scoring guidance", () => {
+  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ENCODING, { formId: "form-a-v3" }));
+  assert.match(html, /What to listen for/);
+  assert.match(html, /Two letters work together/);
+  assert.match(html, /Open student display/);
+  assert.match(html, /Find an item or response/);
+});
+
+test("meaning discussion is unavailable before timing and requires the complete passage", () => {
+  const session = makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, { formId: "form-a-v3", grade: "1", window: "BOY", startMicrophase: "early_partial" });
+  const plan = getElBenchmarkPlan(session);
+  const item = plan.items[0];
+  assert.doesNotMatch(renderAssessment(session), /Talk about the passage/);
+  const response = { ...completedFluencyResponse(item), wordsAttempted: 20, lastWordIndex: 19 };
+  const partialRead = renderAssessment({ ...session, responses: { [item.id]: response } });
+  assert.match(partialRead, /Talk about the passage/);
+  assert.doesNotMatch(partialRead, /Student’s explanation/);
+  const afterRead = renderAssessment({ ...session, responses: { [item.id]: { ...response, fullPassageReadAfterTiming: true, meaningCheckResponse: "They fixed the gate." } } });
+  assert.match(afterRead, /Student’s explanation/);
+  assert.match(afterRead, /They fixed the gate/);
+});
+
+
+test("a new session's validated plan snapshot reaches the real runner without losing identity fields", () => {
+  const session = makeSession(EL_BENCHMARK_IDS.ENCODING, { formId: "form-a-v3" });
+  const plan = getElBenchmarkPlan(session);
+  const html = renderAssessment({ ...session, planId: plan.planId, contentVersion: plan.contentVersion, planSnapshot: plan });
+  assert.doesNotMatch(html, /Assessment unavailable/);
+  assert.match(html, /Item 1 of 12/);
+  const mismatched = renderAssessment({ ...session, planId: "incorrect-plan", contentVersion: plan.contentVersion, planSnapshot: plan });
+  assert.match(mismatched, /Assessment unavailable/);
+});
+
+test("earlier forms clearly retain original questions while current forms do not show a legacy warning", () => {
+  assert.match(renderAssessment(makeSession(EL_BENCHMARK_IDS.ENCODING)), /Earlier assessment form/);
+  assert.doesNotMatch(renderAssessment(makeSession(EL_BENCHMARK_IDS.ENCODING, { formId: "form-a-v3" })), /Earlier assessment form/);
+});
+
+test("the known invalid legacy fox item cannot be administered or scored as valid", () => {
+  const session = makeSession(EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS, { formId: "form-c-v1", grade: "K", window: "MOY", startMicrophase: undefined, currentItemIndex: 7 });
+  const html = renderAssessment(session);
+  assert.match(html, /This item needs a content correction/);
+  assert.match(html, /Record as not scorable/);
+  assert.doesNotMatch(html, /Blend \/f\/ \/o\/ \/x\//);
+  assert.doesNotMatch(html, /Was the spoken answer correct/);
+  const oldScore = renderAssessment({ ...session, responses: { "pa-k-moy-c-08-v1": { status: "correct", isCorrect: true, evaluation: "correct", responseText: "fox" } } });
+  assert.match(oldScore, /Review the earlier saved response/);
+  assert.ok(progressLabel(oldScore, 0, getElBenchmarkPlan(session).items.length));
 });

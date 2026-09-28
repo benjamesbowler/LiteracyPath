@@ -586,6 +586,11 @@ function formalEvidenceProvenance(detail = {}, { includeStudent = false } = {}) 
   if (detail.itemKey && detail.itemKey !== detail.questionId) parts.push(`Item key: ${detail.itemKey}`);
   parts.push(`Response: ${humanizeKey(detail.responseStatus || "unrecorded")}`);
   parts.push(`Result: ${formalEvidenceResult(detail)}`);
+  if (detail.responseText || detail.selectedAnswer) parts.push(`Student response: ${evidenceText(detail.responseText || detail.selectedAnswer)}`);
+  if (detail.responseCaptureMode) parts.push(`Capture: ${humanizeKey(detail.responseCaptureMode)}`);
+  if (detail.selfCorrected === true) parts.push("Self-corrected: yes");
+  if (detail.errorTags?.length) parts.push(`Observed errors: ${list(detail.errorTags.map(humanizeKey))}`);
+  if (detail.notes) parts.push(`Teacher note: ${detail.notes}`);
   if (detail.administrationStatus) parts.push(`Administration: ${humanizeKey(detail.administrationStatus)}`);
   if (detail.formVersion) parts.push(`Form: ${detail.formVersion}`);
   if (detail.contentVersion) parts.push(`Content: ${detail.contentVersion}`);
@@ -1021,6 +1026,7 @@ function addStudentPaDetailSheet(workbook, report = {}) {
     "Prompt",
     "Student response",
     "Response capture",
+    "Teacher observation",
     "Response status",
     "Not-scorable reason",
     "Not-scorable note",
@@ -1074,6 +1080,7 @@ function addStudentPaDetailSheet(workbook, report = {}) {
           "Prompt": item?.prompt || "",
           "Student response": evidenceText(item?.exactResponse),
           "Response capture": responseCaptureText(item),
+          "Teacher observation": item?.observationNote || item?.notes || "",
           "Response status": humanizeKey(item?.responseStatus),
           "Not-scorable reason": item?.notScorableReason || "",
           "Not-scorable note": item?.notScorableNote || "",
@@ -1121,6 +1128,7 @@ function addStudentEncodingDetailSheet(workbook, report = {}) {
     "Target spelling",
     "Student spelling",
     "Response capture",
+    "Teacher observation",
     "Response status",
     "Not-scorable reason",
     "Not-scorable note",
@@ -1174,6 +1182,7 @@ function addStudentEncodingDetailSheet(workbook, report = {}) {
         "Target spelling": item?.targetSpelling || item?.targetWord || "",
         "Student spelling": evidenceText(item?.studentSpelling ?? item?.exactResponse),
         "Response capture": responseCaptureText(item),
+        "Teacher observation": item?.observationNote || item?.notes || "",
         "Response status": humanizeKey(item?.responseStatus),
         "Not-scorable reason": item?.notScorableReason || "",
         "Not-scorable note": item?.notScorableNote || "",
@@ -1233,6 +1242,7 @@ function addStudentDecodingDetailSheet(workbook, report = {}) {
     "Target pattern",
     "Student response",
     "Response capture",
+    "Teacher observation",
     "Response status",
     "Not-scorable reason",
     "Not-scorable note",
@@ -1305,6 +1315,7 @@ function addStudentDecodingDetailSheet(workbook, report = {}) {
         "Target pattern": item?.targetPattern || "",
         "Student response": evidenceText(item?.exactResponse),
         "Response capture": responseCaptureText(item),
+        "Teacher observation": item?.observationNote || item?.notes || "",
         "Response status": humanizeKey(item?.responseStatus),
         "Not-scorable reason": item?.notScorableReason || "",
         "Not-scorable note": item?.notScorableNote || "",
@@ -1369,6 +1380,8 @@ function addStudentFluencyDetailSheet(workbook, report = {}) {
     "Passage judgment",
     "Student transcription",
     "Response capture",
+    "Teacher observation",
+    "Meaning-check response",
     "Not-scorable reason",
     "Not-scorable note",
     "Validation issues",
@@ -1454,6 +1467,8 @@ function addStudentFluencyDetailSheet(workbook, report = {}) {
                 : "Not recorded",
           "Student transcription": evidenceText(passage.exactResponse),
           "Response capture": responseCaptureText(passage),
+          "Teacher observation": passage.observationNote || passage.notes || "",
+          "Meaning-check response": passage.meaningCheckResponse || "",
           "Not-scorable reason": passage.notScorableReason || "",
           "Not-scorable note": passage.notScorableNote || "",
           "Validation issues": evidenceText(passage.validationIssues),
@@ -1787,6 +1802,8 @@ function addClassBenchmarkEvidenceDetailSheet(workbook, report = {}) {
     "Item ID",
     "Target / prompt",
     "Student response",
+    "Teacher observation",
+    "Meaning-check response",
     "Response capture",
     "Response status",
     "Not-scorable reason",
@@ -1884,6 +1901,8 @@ function addClassBenchmarkEvidenceDetailSheet(workbook, report = {}) {
         "Item ID": item?.questionId || item?.itemKey || detail.passageId || "",
         "Target / prompt": target,
         "Student response": evidenceText(item?.exactResponse || item?.studentSpelling),
+        "Teacher observation": item?.observationNote || item?.notes || "",
+        "Meaning-check response": item?.meaningCheckResponse || "",
         "Response capture": responseCaptureText(item),
         "Response status": humanizeKey(item?.responseStatus),
         "Not-scorable reason": item?.notScorableReason || "",

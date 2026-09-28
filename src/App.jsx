@@ -15,7 +15,8 @@ import { saveStudentAccessibilitySettings, saveStudentReducedChoiceMode } from "
 import { applyLearnerAccessibilityToDocument, learnerAccessibilityFromProfile } from "./accessibility/learnerAccessibility.js";
 import { loadStudentProfile } from "./utils/studentProfile.js";
 import { buildQuestMasteryReport } from "./utils/questReport.js";
-import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
+import { advancedPhonicsPatterns, PHONICS_PATTERN_FORM_VERSION } from "./data/advancedPhonicsPatterns";
+import { MANUAL_DIAGNOSTIC_VERSION, addManualDiagnosticEvidenceSheet, cleanDiagnosticObservation, diagnosticDraft, diagnosticOutcomeLabel, diagnosticAssessmentComplete, diagnosticOutcomeIsScored, diagnosticResponseFields, nextDiagnosticItemIndex, normalizeDiagnosticOutcome, summarizeDiagnostic, upsertDiagnosticEntry } from "./utils/manualDiagnosticEvidence.js";
 import { getAnswerRecordPromptAnswerSignature, getAnswerRecordSignature, getRepeatOptionSetSignature } from "./questionRepeatGuards";
 import { ASSESSMENT_RESPONSE_STATUSES, loadAssessmentAttempts, mergeAssessmentAttemptRecords, mergeAssessmentAttemptIntoItemMastery } from "./data/assessmentHistoryStore";
 import { APP_VIEWS } from "./appState/appViews.js";
@@ -35,7 +36,6 @@ import {
   loadManualAssessmentDrafts,
   manualAssessmentAdministrationStatus,
   manualAssessmentEntryOwnership,
-  replaceManualAssessmentEntry,
   restoreManualAssessmentAttemptSession,
   restoreManualAssessmentDraftsFromHistory,
   runSingleFlight,
@@ -1038,9 +1038,13 @@ export default function App() {
     type: letter === letter.toUpperCase() ? "uppercase" : "lowercase"
   }));
 
+  const patternFormIndex = patternAssessment[0]?.formIndex ?? patternAttempt;
   const patternItems = advancedPhonicsPatterns.map((item, index) => ({
     ...item,
-    exampleWord: item.examples[(patternAttempt + index) % item.examples.length]
+    formIndex: patternFormIndex,
+    exampleWord: patternAssessment[index]?.pattern === item.pattern && patternAssessment[index]?.exampleWord
+      ? patternAssessment[index].exampleWord
+      : item.examples[(patternFormIndex + index) % item.examples.length]
   }));
 
   function ensureTeacherAssessmentEvidenceReady(verifiedSyncStatus = "") {
@@ -1445,13 +1449,7 @@ export default function App() {
   }
 
   function normalizeManualAssessmentOutcome(value) {
-    if (value === true || value === ASSESSMENT_RESPONSE_STATUSES.CORRECT) {
-      return ASSESSMENT_RESPONSE_STATUSES.CORRECT;
-    }
-    if (value === false || value === ASSESSMENT_RESPONSE_STATUSES.INCORRECT) {
-      return ASSESSMENT_RESPONSE_STATUSES.INCORRECT;
-    }
-    return ASSESSMENT_RESPONSE_STATUSES.NOT_ADMINISTERED;
+    return normalizeDiagnosticOutcome(value);
   }
 
   function manualOutcomeIsCorrect(value) {
@@ -1459,10 +1457,7 @@ export default function App() {
   }
 
   function manualOutcomeWasScored(value) {
-    return [
-      ASSESSMENT_RESPONSE_STATUSES.CORRECT,
-      ASSESSMENT_RESPONSE_STATUSES.INCORRECT
-    ].includes(normalizeManualAssessmentOutcome(value));
+    return diagnosticOutcomeIsScored(value);
   }
 
   function beginManualAssessmentAttempt(attemptRef, assessmentType) {
@@ -1502,7 +1497,7 @@ export default function App() {
     return runSingleFlight(saveRef, operation);
   }
 
-  function buildPatternAssessmentEntry(current, soundOutcome, wordOutcome) {
+  function buildPatternAssessmentEntry(current, soundOutcome, wordOutcome, evidence = {}) {
     const attemptSession = ensureManualAssessmentAttempt(
       patternAssessmentAttemptRef,
       "advanced_phonics_patterns",
@@ -1511,15 +1506,21 @@ export default function App() {
     return {
       pattern: current.pattern,
       exampleWord: current.exampleWord,
-      soundOutcome: normalizeManualAssessmentOutcome(soundOutcome),
-      wordOutcome: normalizeManualAssessmentOutcome(wordOutcome),
+      soundOutcome: soundOutcome ? normalizeManualAssessmentOutcome(soundOutcome) : "",
+      wordOutcome: wordOutcome ? normalizeManualAssessmentOutcome(wordOutcome) : "",
+      recorded: Boolean(soundOutcome && wordOutcome),
+      diagnosticVersion: MANUAL_DIAGNOSTIC_VERSION,
+      formVersion: current.formVersion || PHONICS_PATTERN_FORM_VERSION,
+      formIndex: current.formIndex,
+      group: current.group,
+      responseEvidence: { sound: cleanDiagnosticObservation(evidence.sound), word: cleanDiagnosticObservation(evidence.word) },
       soundCorrect: manualOutcomeIsCorrect(soundOutcome),
       wordCorrect: manualOutcomeIsCorrect(wordOutcome),
       ...manualAssessmentEntryOwnership(attemptSession)
     };
   }
 
-  function buildLetterAssessmentEntry(current, nameOutcome, soundOutcome) {
+  function buildLetterAssessmentEntry(current, nameOutcome, soundOutcome, evidence = {}) {
     const attemptSession = ensureManualAssessmentAttempt(
       letterAssessmentAttemptRef,
       "el_letter_assessment",
@@ -1528,8 +1529,12 @@ export default function App() {
     return {
       letter: current.display,
       type: current.type,
-      nameOutcome: normalizeManualAssessmentOutcome(nameOutcome),
-      soundOutcome: normalizeManualAssessmentOutcome(soundOutcome),
+      nameOutcome: nameOutcome ? normalizeManualAssessmentOutcome(nameOutcome) : "",
+      soundOutcome: soundOutcome ? normalizeManualAssessmentOutcome(soundOutcome) : "",
+      recorded: Boolean(nameOutcome && soundOutcome),
+      diagnosticVersion: MANUAL_DIAGNOSTIC_VERSION,
+      formVersion: "letter-names-sounds-2026.09-v2",
+      responseEvidence: { name: cleanDiagnosticObservation(evidence.name), sound: cleanDiagnosticObservation(evidence.sound) },
       knowsName: manualOutcomeIsCorrect(nameOutcome),
       knowsSound: manualOutcomeIsCorrect(soundOutcome),
       ...manualAssessmentEntryOwnership(attemptSession)
@@ -1539,7 +1544,7 @@ export default function App() {
   async function archivePatternAssessment(nextAssessment, { allowPartial = false } = {}) {
     if (!studentId) return { durable: false };
     if (!nextAssessment.length) return { durable: true, skipped: true };
-    if (!allowPartial && nextAssessment.length < patternItems.length) {
+    if (!allowPartial && !diagnosticAssessmentComplete(nextAssessment, patternItems, "pattern")) {
       return { durable: true, skipped: true };
     }
     if (patternAssessmentArchivedRef.current) {
@@ -1560,7 +1565,7 @@ export default function App() {
     const patternStats = nextAssessment.map(item => {
       const outcomes = [item.soundOutcome, item.wordOutcome]
         .map(normalizeManualAssessmentOutcome);
-      const attempts = outcomes.filter(outcome => outcome !== ASSESSMENT_RESPONSE_STATUSES.NOT_ADMINISTERED).length;
+      const attempts = outcomes.filter(diagnosticOutcomeIsScored).length;
       const correct = outcomes.filter(outcome => outcome === ASSESSMENT_RESPONSE_STATUSES.CORRECT).length;
       return {
         pattern: item.pattern,
@@ -1568,14 +1573,11 @@ export default function App() {
         attempts,
         correct,
         incorrect: attempts - correct,
+        noResponse: outcomes.filter(outcome => outcome === "no_response").length,
+        notScorable: outcomes.filter(outcome => outcome === "not_scorable").length,
+        notAdministered: outcomes.filter(outcome => outcome === "not_administered").length,
         accuracy: attempts ? Math.round((correct / attempts) * 100) : null,
-        status: attempts === 0
-          ? "not_checked"
-          : attempts < 2
-            ? "not_enough_evidence"
-            : correct === 2
-              ? "developing"
-              : "needs_support"
+        status: attempts === 0 ? "not_checked" : "not_enough_evidence"
       };
     });
     const questionRecords = nextAssessment.flatMap((item, index) => ([
@@ -1587,10 +1589,10 @@ export default function App() {
         targetWord: item.exampleWord,
         itemKey: normalizeItemKey(item.pattern),
         itemType: "phonics_pattern",
-        correctAnswer: item.pattern,
-        selectedAnswer: manualOutcomeIsCorrect(item.soundOutcome) ? item.pattern : "",
-        isCorrect: manualOutcomeIsCorrect(item.soundOutcome),
-        responseStatus: normalizeManualAssessmentOutcome(item.soundOutcome),
+        correctAnswer: advancedPhonicsPatterns.find(pattern => pattern.pattern === item.pattern)?.soundGuidance || "A conventional pronunciation for this spelling part",
+        ...diagnosticResponseFields(item, "sound"),
+        expectedResponse: advancedPhonicsPatterns.find(pattern => pattern.pattern === item.pattern)?.soundGuidance || "",
+        construct: advancedPhonicsPatterns.find(pattern => pattern.pattern === item.pattern)?.construct || "grapheme_sound_correspondence",
         skillId: "advanced_phonics_patterns",
         templateType: "phonics_pattern_sound",
         level: 2,
@@ -1606,9 +1608,8 @@ export default function App() {
         itemKey: normalizeItemKey(item.pattern),
         itemType: "phonics_pattern",
         correctAnswer: item.exampleWord,
-        selectedAnswer: manualOutcomeIsCorrect(item.wordOutcome) ? item.exampleWord : "",
-        isCorrect: manualOutcomeIsCorrect(item.wordOutcome),
-        responseStatus: normalizeManualAssessmentOutcome(item.wordOutcome),
+        ...diagnosticResponseFields(item, "word"),
+        construct: "isolated_word_reading",
         skillId: "advanced_phonics_patterns",
         templateType: "phonics_pattern_word",
         level: 2,
@@ -1623,10 +1624,7 @@ export default function App() {
     // completes the administration even when the teacher explicitly records
     // "Not checked" for one subtask; those missing observations stay visible
     // in the counts and must not be turned into incorrect answers.
-    const administrationStatus = manualAssessmentAdministrationStatus(
-      nextAssessment.length,
-      patternItems.length
-    );
+    const administrationStatus = diagnosticAssessmentComplete(nextAssessment, patternItems, "pattern") ? "completed" : "partial";
     const persistence = await persistCompletedAssessmentAttempt({
       attemptId: attemptSession.attemptId,
       studentId,
@@ -1648,9 +1646,10 @@ export default function App() {
       status: administrationStatus,
       administrationStatus,
       masteredItems: [],
-      developingItems: patternStats.filter(row => row.status === "developing").map(row => row.pattern),
-      needsSupportItems: patternStats.filter(row => row.status === "needs_support").map(row => row.pattern),
+      developingItems: [],
+      needsSupportItems: [],
       patternStats,
+      metadata: { manualDiagnostic: { version: MANUAL_DIAGNOSTIC_VERSION, formVersion: PHONICS_PATTERN_FORM_VERSION, profile: summarizeDiagnostic(nextAssessment, patternItems, "pattern") } },
       answers: questionRecords.map(record => ({
         questionId: record.questionId,
         pattern: record.pattern,
@@ -1672,20 +1671,22 @@ export default function App() {
     };
   }
 
-  async function recordPatternResult(soundOutcome, wordOutcome) {
+  async function recordPatternResult(soundOutcome, wordOutcome, evidence = {}) {
     return runManualAssessmentSave(patternAssessmentSaveInFlightRef, async () => {
+      if (patternAssessmentArchivedRef.current && diagnosticAssessmentComplete(patternAssessment, patternItems, "pattern")) return false;
       const current =
         patternItems[patternIndex];
       if (!current) return false;
 
       // Keep persistence outside the React state updater. React may replay an
       // updater in development; a network write inside it can archive twice.
-      const nextAssessment = replaceManualAssessmentEntry(
+      const nextAssessment = upsertDiagnosticEntry(
         patternAssessment,
         patternIndex,
-        buildPatternAssessmentEntry(current, soundOutcome, wordOutcome)
+        buildPatternAssessmentEntry(current, soundOutcome, wordOutcome, evidence)
       );
-      const isFinalItem = nextAssessment.length >= patternItems.length;
+      patternAssessmentArchivedRef.current = false;
+      const isFinalItem = diagnosticAssessmentComplete(nextAssessment, patternItems, "pattern");
       if (isFinalItem) {
         // Archive the completed assessment before moving the UI to the summary.
         // If the save fails, the teacher's current choices stay on screen and a
@@ -1702,7 +1703,7 @@ export default function App() {
       // increment current mastery here; the aggregate is derived exactly once
       // from the stable archived attempt at Finish/Save & exit.
       setPatternAssessment(nextAssessment);
-      setPatternIndex(prev => prev + 1);
+      setPatternIndex(nextDiagnosticItemIndex(nextAssessment, patternItems, "pattern", patternIndex));
       return true;
     });
   }
@@ -1716,21 +1717,24 @@ export default function App() {
   }
 
   function goToPreviousPattern() {
+    if (patternAssessmentArchivedRef.current && diagnosticAssessmentComplete(patternAssessment, patternItems, "pattern")) return;
     setPatternIndex(previous => Math.max(0, previous - 1));
   }
 
-  async function recordLetterResult(nameOutcome, soundOutcome) {
+  async function recordLetterResult(nameOutcome, soundOutcome, evidence = {}) {
     return runManualAssessmentSave(letterAssessmentSaveInFlightRef, async () => {
+      if (letterAssessmentArchivedRef.current && diagnosticAssessmentComplete(letterAssessment, letterItems, "letter")) return false;
       const current =
         letterItems[letterIndex];
       if (!current) return false;
 
-      const nextAssessment = replaceManualAssessmentEntry(
+      const nextAssessment = upsertDiagnosticEntry(
         letterAssessment,
         letterIndex,
-        buildLetterAssessmentEntry(current, nameOutcome, soundOutcome)
+        buildLetterAssessmentEntry(current, nameOutcome, soundOutcome, evidence)
       );
-      const isFinalItem = nextAssessment.length >= letterItems.length;
+      letterAssessmentArchivedRef.current = false;
+      const isFinalItem = diagnosticAssessmentComplete(nextAssessment, letterItems, "letter");
       if (isFinalItem) {
         const archiveResult = await archiveLetterAssessment(nextAssessment);
         if (!archiveResult.durable) {
@@ -1740,7 +1744,7 @@ export default function App() {
       }
 
       setLetterAssessment(nextAssessment);
-      setLetterIndex(prev => prev + 1);
+      setLetterIndex(nextDiagnosticItemIndex(nextAssessment, letterItems, "letter", letterIndex));
       return true;
     });
   }
@@ -1753,13 +1757,54 @@ export default function App() {
   }
 
   function goToPreviousLetter() {
+    if (letterAssessmentArchivedRef.current && diagnosticAssessmentComplete(letterAssessment, letterItems, "letter")) return;
     setLetterIndex(previous => Math.max(0, previous - 1));
+  }
+
+  function saveLetterAssessmentDraft(nameOutcome, soundOutcome, evidence = {}) {
+    if (letterAssessmentArchivedRef.current && diagnosticAssessmentComplete(letterAssessment, letterItems, "letter")) return false;
+    const current = letterItems[letterIndex];
+    if (!current) return;
+    letterAssessmentArchivedRef.current = false;
+    const entry = buildLetterAssessmentEntry(current, nameOutcome, soundOutcome, evidence);
+    setLetterAssessment(previous => upsertDiagnosticEntry(previous, letterIndex, entry));
+  }
+
+  function savePatternAssessmentDraft(soundOutcome, wordOutcome, evidence = {}) {
+    if (patternAssessmentArchivedRef.current && diagnosticAssessmentComplete(patternAssessment, patternItems, "pattern")) return false;
+    const current = patternItems[patternIndex];
+    if (!current) return;
+    patternAssessmentArchivedRef.current = false;
+    const entry = buildPatternAssessmentEntry(current, soundOutcome, wordOutcome, evidence);
+    setPatternAssessment(previous => upsertDiagnosticEntry(previous, patternIndex, entry));
+  }
+
+  async function goToLetterAssessmentItem(index) {
+    if (letterAssessmentArchivedRef.current && diagnosticAssessmentComplete(letterAssessment, letterItems, "letter")) return false;
+    const target = Math.max(0, Math.min(Number(index) || 0, letterAssessment.length, letterItems.length));
+    if (target === letterItems.length) {
+      const result = await archiveLetterAssessment(letterAssessment);
+      if (!result.durable || result.skipped) return false;
+    }
+    setLetterIndex(target);
+    return true;
+  }
+
+  async function goToPatternAssessmentItem(index) {
+    if (patternAssessmentArchivedRef.current && diagnosticAssessmentComplete(patternAssessment, patternItems, "pattern")) return false;
+    const target = Math.max(0, Math.min(Number(index) || 0, patternAssessment.length, patternItems.length));
+    if (target === patternItems.length) {
+      const result = await archivePatternAssessment(patternAssessment);
+      if (!result.durable || result.skipped) return false;
+    }
+    setPatternIndex(target);
+    return true;
   }
 
   async function archiveLetterAssessment(nextAssessment, { allowPartial = false } = {}) {
     if (!studentId) return { durable: false };
     if (!nextAssessment.length) return { durable: true, skipped: true };
-    if (!allowPartial && nextAssessment.length < letterItems.length) {
+    if (!allowPartial && !diagnosticAssessmentComplete(nextAssessment, letterItems, "letter")) {
       return { durable: true, skipped: true };
     }
     if (letterAssessmentArchivedRef.current) {
@@ -1787,9 +1832,8 @@ export default function App() {
           itemKey: letter,
           itemType: "letter_name",
           correctAnswer: item.letter,
-          selectedAnswer: manualOutcomeIsCorrect(item.nameOutcome) ? item.letter : "",
-          isCorrect: manualOutcomeIsCorrect(item.nameOutcome),
-          responseStatus: normalizeManualAssessmentOutcome(item.nameOutcome),
+          ...diagnosticResponseFields(item, "name"),
+          construct: "letter_name_recognition",
           skillId: "el_letter_assessment",
           templateType: "letter_name",
           level: 1,
@@ -1803,10 +1847,10 @@ export default function App() {
           targetSound: letter,
           itemKey: letter,
           itemType: "letter_sound",
-          correctAnswer: letter,
-          selectedAnswer: manualOutcomeIsCorrect(item.soundOutcome) ? letter : "",
-          isCorrect: manualOutcomeIsCorrect(item.soundOutcome),
-          responseStatus: normalizeManualAssessmentOutcome(item.soundOutcome),
+          correctAnswer: `A conventional sound for ${item.letter}`,
+          expectedResponse: `A conventional sound for ${item.letter}; accept consistent dialect differences.`,
+            ...diagnosticResponseFields(item, "sound"),
+          construct: "letter_sound_recall",
           skillId: "el_letter_assessment",
           templateType: "letter_sound",
           level: 1,
@@ -1818,10 +1862,7 @@ export default function App() {
     const scoredRecords = questionRecords.filter(record => manualOutcomeWasScored(record.responseStatus));
     const correctCount = scoredRecords.filter(record => record.isCorrect).length;
 
-    const administrationStatus = manualAssessmentAdministrationStatus(
-      nextAssessment.length,
-      letterItems.length
-    );
+    const administrationStatus = diagnosticAssessmentComplete(nextAssessment, letterItems, "letter") ? "completed" : "partial";
     const persistence = await persistCompletedAssessmentAttempt({
       attemptId: attemptSession.attemptId,
       studentId,
@@ -1837,6 +1878,7 @@ export default function App() {
       completedAt,
       totalQuestions: scoredRecords.length,
       plannedQuestionCount: letterItems.length * 2,
+      metadata: { manualDiagnostic: { version: MANUAL_DIAGNOSTIC_VERSION, formVersion: "letter-names-sounds-2026.09-v2", profile: summarizeDiagnostic(nextAssessment, letterItems, "letter") } },
       correctCount,
       passed: false,
       status: administrationStatus,
@@ -1862,23 +1904,25 @@ export default function App() {
     setAppView(APP_VIEWS.ASSESSMENTS);
   }
 
-  async function savePatternAssessmentPartialAndExit(soundOutcome = "", wordOutcome = "") {
+  async function savePatternAssessmentPartialAndExit(soundOutcome = "", wordOutcome = "", evidence = {}) {
     return runManualAssessmentSave(patternAssessmentSaveInFlightRef, async () => {
+      if (patternAssessmentArchivedRef.current && diagnosticAssessmentComplete(patternAssessment, patternItems, "pattern")) return false;
       const hasCurrentChoice = Boolean(soundOutcome || wordOutcome);
       const current = patternItems[patternIndex];
       const nextAssessment = hasCurrentChoice && current
-        ? replaceManualAssessmentEntry(
+        ? upsertDiagnosticEntry(
             patternAssessment,
             patternIndex,
-            buildPatternAssessmentEntry(current, soundOutcome, wordOutcome)
+            buildPatternAssessmentEntry(current, soundOutcome, wordOutcome, evidence)
           )
-        : patternAssessment.slice(0, patternIndex);
+        : patternAssessment.slice();
 
       if (!nextAssessment.length) {
         returnToAssessmentHub("Assessment closed. No results were entered or saved.");
         return true;
       }
 
+      patternAssessmentArchivedRef.current = false;
       const archiveResult = await archivePatternAssessment(nextAssessment, { allowPartial: true });
       if (!archiveResult.durable) {
         setMessage("The assessment could not be saved. Your choices are still here. Keep this page open and try again.");
@@ -1886,7 +1930,7 @@ export default function App() {
       }
 
       setPatternAssessment(nextAssessment);
-      if (hasCurrentChoice && current) {
+      if (hasCurrentChoice && current && soundOutcome && wordOutcome) {
         setPatternIndex(previous => previous + 1);
       }
       returnToAssessmentHub(
@@ -1898,23 +1942,25 @@ export default function App() {
     });
   }
 
-  async function saveLetterAssessmentPartialAndExit(nameOutcome = "", soundOutcome = "") {
+  async function saveLetterAssessmentPartialAndExit(nameOutcome = "", soundOutcome = "", evidence = {}) {
     return runManualAssessmentSave(letterAssessmentSaveInFlightRef, async () => {
+      if (letterAssessmentArchivedRef.current && diagnosticAssessmentComplete(letterAssessment, letterItems, "letter")) return false;
       const hasCurrentChoice = Boolean(nameOutcome || soundOutcome);
       const current = letterItems[letterIndex];
       const nextAssessment = hasCurrentChoice && current
-        ? replaceManualAssessmentEntry(
+        ? upsertDiagnosticEntry(
             letterAssessment,
             letterIndex,
-            buildLetterAssessmentEntry(current, nameOutcome, soundOutcome)
+            buildLetterAssessmentEntry(current, nameOutcome, soundOutcome, evidence)
           )
-        : letterAssessment.slice(0, letterIndex);
+        : letterAssessment.slice();
 
       if (!nextAssessment.length) {
         returnToAssessmentHub("Assessment closed. No results were entered or saved.");
         return true;
       }
 
+      letterAssessmentArchivedRef.current = false;
       const archiveResult = await archiveLetterAssessment(nextAssessment, { allowPartial: true });
       if (!archiveResult.durable) {
         setMessage("The assessment could not be saved. Your choices are still here. Keep this page open and try again.");
@@ -1922,7 +1968,7 @@ export default function App() {
       }
 
       setLetterAssessment(nextAssessment);
-      if (hasCurrentChoice && current) {
+      if (hasCurrentChoice && current && nameOutcome && soundOutcome) {
         setLetterIndex(previous => previous + 1);
       }
       returnToAssessmentHub(
@@ -2010,12 +2056,12 @@ export default function App() {
     });
 
     const summaryValues = [
-      ["A5", "Total Names Known", countKnown(uppercaseResults, "knowsName") + countKnown(lowercaseResults, "knowsName")],
-      ["C5", "Total Sounds Known", countKnown(uppercaseResults, "knowsSound") + countKnown(lowercaseResults, "knowsSound")],
-      ["E5", "Uppercase Names Known", countKnown(uppercaseResults, "knowsName")],
-      ["A7", "Uppercase Sounds Known", countKnown(uppercaseResults, "knowsSound")],
-      ["C7", "Lowercase Names Known", countKnown(lowercaseResults, "knowsName")],
-      ["E7", "Lowercase Sounds Known", countKnown(lowercaseResults, "knowsSound")]
+      ["A5", "Total Names Correct", countKnown(uppercaseResults, "knowsName") + countKnown(lowercaseResults, "knowsName")],
+      ["C5", "Total Sounds Correct", countKnown(uppercaseResults, "knowsSound") + countKnown(lowercaseResults, "knowsSound")],
+      ["E5", "Uppercase Names Correct", countKnown(uppercaseResults, "knowsName")],
+      ["A7", "Uppercase Sounds Correct", countKnown(uppercaseResults, "knowsSound")],
+      ["C7", "Lowercase Names Correct", countKnown(lowercaseResults, "knowsName")],
+      ["E7", "Lowercase Sounds Correct", countKnown(lowercaseResults, "knowsSound")]
     ];
 
     summaryValues.forEach(([cellRef, label, value]) => {
@@ -2074,7 +2120,7 @@ export default function App() {
       cell.fill = {
         type: "pattern",
         pattern: "solid",
-        fgColor: { argb: cell.value === "Y" ? colors.yes : colors.no }
+        fgColor: { argb: cell.value === "Correct" ? colors.yes : ["Not yet", "No response"].includes(cell.value) ? colors.no : colors.summary }
       };
     }
 
@@ -2082,7 +2128,7 @@ export default function App() {
       const headerRow = 10;
       styleSectionHeader(headerRow, startCol, startCol + 2, title);
 
-      const columns = ["Letter", "Knows Name", "Knows Sound"];
+      const columns = ["Letter", "Name outcome", "Sound outcome"];
       columns.forEach((heading, index) => {
         const cell = worksheet.getCell(headerRow + 1, startCol + index);
         cell.value = heading;
@@ -2100,8 +2146,8 @@ export default function App() {
         const result = results.get(letter.toUpperCase());
         const values = [
           letter,
-          result?.knowsName ? "Y" : "N",
-          result?.knowsSound ? "Y" : "N"
+          diagnosticOutcomeLabel(diagnosticDraft(result, "letter").name.outcome),
+          diagnosticOutcomeLabel(diagnosticDraft(result, "letter").sound.outcome)
         ];
 
         values.forEach((value, columnIndex) => {
@@ -2133,6 +2179,7 @@ export default function App() {
 
     worksheet.views = [{ state: "frozen", ySplit: 10 }];
 
+    addManualDiagnosticEvidenceSheet(workbook, letterAssessment, letterItems, "letter");
     await addWorkbookExportProvenance(workbook, "letter", {
       className: classList.find(row => row.id === selectedClassId)?.name || "",
       learnerName: studentName || "Unnamed student",
@@ -2270,7 +2317,7 @@ export default function App() {
       cell.fill = {
         type: "pattern",
         pattern: "solid",
-        fgColor: { argb: cell.value === "Y" ? colors.yes : colors.no }
+        fgColor: { argb: cell.value === "Correct" ? colors.yes : ["Not yet", "No response"].includes(cell.value) ? colors.no : colors.summary }
       };
     }
 
@@ -2301,8 +2348,8 @@ export default function App() {
       const values = [
         item.pattern,
         result?.exampleWord || item.exampleWord,
-        result?.soundCorrect ? "Y" : "N",
-        result?.wordCorrect ? "Y" : "N"
+        diagnosticOutcomeLabel(diagnosticDraft(result, "pattern").sound.outcome),
+        diagnosticOutcomeLabel(diagnosticDraft(result, "pattern").word.outcome)
       ];
 
       values.forEach((value, columnIndex) => {
@@ -2320,6 +2367,7 @@ export default function App() {
 
     worksheet.views = [{ state: "frozen", ySplit: 10 }];
 
+    addManualDiagnosticEvidenceSheet(workbook, patternAssessment, patternItems, "pattern");
     await addWorkbookExportProvenance(workbook, "pattern", {
       className: classList.find(row => row.id === selectedClassId)?.name || "",
       learnerName: studentName || "Unnamed student",
@@ -3188,7 +3236,7 @@ export default function App() {
       logInDemoTeacher, logInTeacher, logOutStudent, logOutTeacher, mastery,
       message, moveToNextCheckpointSkill, nameSaved, newClassName, normalizeApprovalStatus,
       openAdminDashboard, openStudentPreview, patternAssessment, patternIndex, patternItems, pickQuestion,
-      prefersReducedMotion, profileLoaded, recordLetterResult, recordPatternResult, goToPreviousLetter, goToPreviousPattern, reviseLastAnswer,
+      prefersReducedMotion, profileLoaded, recordLetterResult, recordPatternResult, goToPreviousLetter, goToPreviousPattern, goToLetterAssessmentItem, goToPatternAssessmentItem, saveLetterAssessmentDraft, savePatternAssessmentDraft, reviseLastAnswer,
       regenerateClassCode, renderLearnFullscreenButton, reportSkillMasterySummary, reportStudentFocusContent, reportsAssessmentHistory, requestPasswordReset, retryAssessmentHistoryHydration, resetLetterAssessment,
       resetPatternAssessment, resetProgressDialogOpen, resetSelectedStudentProgress, resetStudent, resetStudentSymbolPassword, resettingProgress,
       resumeElBenchmarkAssessment, retryCheckpointSkill, retryTeacherSchoolName, returnFromElBenchmarkAssessment, returnFromStudentPreview, returnToStudentHome, returnToTeacherDashboard,

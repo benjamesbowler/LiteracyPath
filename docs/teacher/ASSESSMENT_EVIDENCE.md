@@ -47,6 +47,20 @@ owned privacy/erasure path.
 
 ## Compatibility and migration
 
+Benchmark drafts created from the September 2026 forms include an exact
+`planSnapshot`. The session resolver checks its assessment, grade, window,
+form, plan and content identities before using it. Pre-snapshot drafts with
+an old form ID reconstruct only their frozen legacy content, preserving item
+IDs and original response matches. New administrations select current forms.
+Completed reports continue to use the archived result rather than either
+draft reconstruction path.
+
+Manual diagnostic response evidence separates observed correctness from an
+actual transcript. Observation-only capture must never populate the selected
+answer with the expected letter, sound or word. Self-corrections, observed
+errors, access notes and form identity travel with each subtask. Edits before
+completion preserve later responses; terminal evidence remains append-only.
+
 The migration backfills existing attempts without claiming a version that was
 never recorded:
 

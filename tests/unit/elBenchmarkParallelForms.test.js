@@ -53,16 +53,16 @@ function selection(history = [], overrides = {}) {
   });
 }
 
-test("parallel form registry preserves Form A and exposes explicit versioned B and C forms", () => {
-  assert.equal(EL_BENCHMARK_FORM_ID, "form-a-v2");
+test("parallel form registry exposes the revised versions of all three current forms", () => {
+  assert.equal(EL_BENCHMARK_FORM_ID, "form-a-v3");
   assert.deepEqual(EL_BENCHMARK_FORM_IDS, {
-    A: "form-a-v2",
-    B: "form-b-v1",
-    C: "form-c-v1"
+    A: "form-a-v3",
+    B: "form-b-v2",
+    C: "form-c-v2"
   });
   assert.deepEqual(EL_BENCHMARK_FORM_DEFINITIONS.map(form => form.id), FORM_IDS);
-  assert.equal(EL_BENCHMARK_FORM_DEFINITIONS[0].contentVersion, "2026.07.21-v2");
-  assert.ok(EL_BENCHMARK_FORM_DEFINITIONS.slice(1).every(form => form.parallelSetId === "lp-el-parallel-2026-v1"));
+  assert.equal(EL_BENCHMARK_FORM_DEFINITIONS[0].contentVersion, "2026.09.28-depth-v3");
+  assert.ok(EL_BENCHMARK_FORM_DEFINITIONS.slice(1).every(form => form.parallelSetId === "lp-el-parallel-2026-depth-v2"));
   assert.ok(EL_BENCHMARK_FORM_DEFINITIONS.every(
     form => form.equatingStatus === "blueprint_matched_not_empirically_equated"
   ));
@@ -86,7 +86,11 @@ test("all 108 grade-window-domain-form plans are deterministic, distinct, and bl
           assert.equal(plan.items.length, blueprint.items.length);
           assert.equal(new Set(plan.items.map(item => item.id)).size, plan.items.length);
           assert.deepEqual(plan.items.map(item => item.kind), blueprint.items.map(item => item.kind));
-          assert.deepEqual(plan.items.map(item => item.featureTags), blueprint.items.map(item => item.featureTags));
+          if (assessmentId !== EL_BENCHMARK_IDS.ENCODING) {
+            assert.deepEqual(plan.items.map(item => item.featureTags), blueprint.items.map(item => item.featureTags));
+          } else {
+            assert.ok(plan.items.every(item => item.featureTags.length && item.featureGuidance.length), "Spelling uses the actual word’s feature tags, not copied tags from another form.");
+          }
           assert.deepEqual(plan.items.map(item => item.microphase || ""), blueprint.items.map(item => item.microphase || ""));
           assert.deepEqual(plan.items.map(item => item.strand || ""), blueprint.items.map(item => item.strand || ""));
           assert.deepEqual(plan.items.map(item => item.task || ""), blueprint.items.map(item => item.task || ""));
@@ -110,7 +114,7 @@ test("all 108 grade-window-domain-form plans are deterministic, distinct, and bl
   }
 });
 
-test("form aliases resolve without changing Form A and unsupported forms fail closed", () => {
+test("current form aliases resolve explicitly and unsupported forms fail closed", () => {
   const options = { assessmentId: EL_BENCHMARK_IDS.ENCODING, grade: "1", window: "MOY" };
   assert.equal(getElBenchmarkPlan({ ...options, formId: "A" }).formId, EL_BENCHMARK_FORM_IDS.A);
   assert.equal(getElBenchmarkPlan({ ...options, formId: "form-b" }).formId, EL_BENCHMARK_FORM_IDS.B);
@@ -118,7 +122,7 @@ test("form aliases resolve without changing Form A and unsupported forms fail cl
   assert.throws(() => getElBenchmarkPlan({ ...options, formId: "form-d" }), /unsupported.*form/i);
   const a = getElBenchmarkPlan({ ...options });
   assert.equal(a.items[0].targetWord, "cake");
-  assert.equal(a.items[0].id, "enc-1-moy-01");
+  assert.equal(a.items[0].id, "enc-1-moy-a-01-v3");
 });
 
 test("each form keeps Encoding targets separate from its complete Decoding bank", () => {
@@ -293,10 +297,10 @@ test("session creation locks the selected form and records auditable selection m
   assert.equal(session.formSelectionReason, "1_valid_completed_same_window_attempt");
   assert.equal(session.formSelection.formId, EL_BENCHMARK_FORM_IDS.B);
   assert.equal(session.formExposure.validCompletedCount, 1);
-  assert.equal(session.formParallelSetId, "lp-el-parallel-2026-v1");
+  assert.equal(session.formParallelSetId, "lp-el-parallel-2026-depth-v2");
   assert.equal(session.formEquatingStatus, "blueprint_matched_not_empirically_equated");
-  assert.match(session.planId, /form-b-v1/);
-  assert.equal(session.contentVersion, "2026.07.22-parallel-v1");
+  assert.match(session.planId, /form-b-v2/);
+  assert.equal(session.contentVersion, "2026.09.28-depth-v2");
 });
 
 test("persistence retains form id, purpose, reason, exposure, and per-form content version", () => {
@@ -336,8 +340,8 @@ test("persistence retains form id, purpose, reason, exposure, and per-form conte
   assert.equal(saved.metadata.formId, EL_BENCHMARK_FORM_IDS.B);
   assert.equal(saved.metadata.formPurpose, "same_window_retest");
   assert.equal(saved.metadata.formExposure.validCompletedCount, 1);
-  assert.equal(saved.metadata.formParallelSetId, "lp-el-parallel-2026-v1");
+  assert.equal(saved.metadata.formParallelSetId, "lp-el-parallel-2026-depth-v2");
   assert.equal(saved.metadata.formEquatingStatus, "blueprint_matched_not_empirically_equated");
-  assert.equal(saved.contentVersion, "2026.07.22-parallel-v1");
-  assert.equal(saved.benchmark.contentVersion, "2026.07.22-parallel-v1");
+  assert.equal(saved.contentVersion, "2026.09.28-depth-v2");
+  assert.equal(saved.benchmark.contentVersion, "2026.09.28-depth-v2");
 });

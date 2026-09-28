@@ -3913,10 +3913,10 @@ export function useAppSessionController(context) {
       );
       const recoveredLetterIndex = recoveredLetterAssessment === selectedManualDrafts.letterAssessment
         ? selectedManualDrafts.letterIndex
-        : recoveredLetterAssessment.length;
+        : archivedManualDrafts.letterIndex;
       const recoveredPatternIndex = recoveredPatternAssessment === selectedManualDrafts.patternAssessment
         ? selectedManualDrafts.patternIndex
-        : recoveredPatternAssessment.length;
+        : archivedManualDrafts.patternIndex;
       setLetterIndex(recoveredLetterIndex);
       setLetterAssessment(recoveredLetterAssessment);
       setPatternIndex(recoveredPatternIndex);

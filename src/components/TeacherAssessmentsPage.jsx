@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import "./assessment/assessment-start-guide.css";
 
 import {
   ASSESSMENT_GRADE_OPTIONS,
@@ -1045,6 +1046,14 @@ export function TeacherAssessmentsPage({
                 <p className="teacher-assess-note">{entry.administration}</p>
                 {entry.startPoint.help && (
                   <p className="teacher-assess-note">{entry.startPoint.help}</p>
+                )}
+                {entry.guide && (
+                  <section className="assessment-start-guide" aria-label={entry.guide.label}>
+                    <h4>{entry.guide.label}</h4>
+                    <p>{entry.guide.prepare}</p>
+                    <ol>{entry.guide.steps.map(step => <li key={step}>{step}</li>)}</ol>
+                    <p className="assessment-start-guide-evidence">{entry.guide.evidence}</p>
+                  </section>
                 )}
 
                 {entry.startPoint.kind === ASSESSMENT_START_POINT_KINDS.SKILL && (

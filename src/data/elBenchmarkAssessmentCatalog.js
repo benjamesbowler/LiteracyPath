@@ -1,3 +1,6 @@
+import { EL_LEGACY_BENCHMARK_CONTENT } from "./elBenchmarkLegacyContent.js";
+import { EL_FLUENCY_DESIGN } from "./elBenchmarkFluencyDesign.js";
+import { EL_PA_DEPTH_ITEMS, EL_ENCODING_DEPTH_ITEMS, benchmarkFeatureGuidance, benchmarkOralGuidance, EL_FLUENCY_PROSODY_LEVELS } from "./elBenchmarkContentDepth.js";
 import {
   EL_PARALLEL_DECODING_WORDS,
   EL_PARALLEL_ENCODING_CONTENT,
@@ -18,12 +21,12 @@ export { EL_DECODING_MICROPHASES } from "./elDecodingMicrophases.js";
  */
 
 export const EL_BENCHMARK_SCHEMA_VERSION = 1;
-export const EL_BENCHMARK_CONTENT_VERSION = "2026.07.21-v2";
-export const EL_BENCHMARK_FORM_ID = "form-a-v2";
+export const EL_BENCHMARK_CONTENT_VERSION = "2026.09.28-depth-v3";
+export const EL_BENCHMARK_FORM_ID = "form-a-v3";
 export const EL_BENCHMARK_FORM_IDS = Object.freeze({
   A: EL_BENCHMARK_FORM_ID,
-  B: "form-b-v1",
-  C: "form-c-v1"
+  B: "form-b-v2",
+  C: "form-c-v2"
 });
 export const EL_BENCHMARK_FORM_DEFINITIONS = Object.freeze([
   Object.freeze({
@@ -31,23 +34,23 @@ export const EL_BENCHMARK_FORM_DEFINITIONS = Object.freeze([
     key: "a",
     label: "Form A",
     contentVersion: EL_BENCHMARK_CONTENT_VERSION,
-    parallelSetId: "lp-el-parallel-2026-v1",
+    parallelSetId: "lp-el-parallel-2026-depth-v2",
     equatingStatus: "blueprint_matched_not_empirically_equated"
   }),
   Object.freeze({
     id: EL_BENCHMARK_FORM_IDS.B,
     key: "b",
     label: "Form B",
-    contentVersion: "2026.07.22-parallel-v1",
-    parallelSetId: "lp-el-parallel-2026-v1",
+    contentVersion: "2026.09.28-depth-v2",
+    parallelSetId: "lp-el-parallel-2026-depth-v2",
     equatingStatus: "blueprint_matched_not_empirically_equated"
   }),
   Object.freeze({
     id: EL_BENCHMARK_FORM_IDS.C,
     key: "c",
     label: "Form C",
-    contentVersion: "2026.07.22-parallel-v1",
-    parallelSetId: "lp-el-parallel-2026-v1",
+    contentVersion: "2026.09.28-depth-v2",
+    parallelSetId: "lp-el-parallel-2026-depth-v2",
     equatingStatus: "blueprint_matched_not_empirically_equated"
   })
 ]);
@@ -465,7 +468,7 @@ const ENCODING_FORMS = Object.freeze({
     encodingItem("enc-2-moy-05", "kindness", "Kindness helps a team.", ["suffix", "closed_syllables"]),
     encodingItem("enc-2-moy-06", "replay", "We can replay the song.", ["prefix", "vowel_team"]),
     encodingItem("enc-2-moy-07", "careful", "Be careful near the edge.", ["suffix", "r_controlled"], ["carefull"]),
-    encodingItem("enc-2-moy-08", "movement", "The movement was smooth.", ["suffix", "vowel_team"], ["moovment"])
+    encodingItem("enc-2-moy-08", "movement", "The movement was smooth.", ["suffix", "exceptional_vowel"], ["moovment"])
   ],
   "2-EOY": [
     encodingItem("enc-2-eoy-01", "adventure", "The hike was an adventure.", ["multisyllable", "r_controlled"]),
@@ -496,8 +499,10 @@ function fluencyPassage(microphaseId, title, text, referenceGrade, referenceWind
   const microphase = MICROPHASE_BY_ID[microphaseId];
   if (!microphase) throw new RangeError(`Unsupported fluency passage microphase: ${microphaseId}`);
   const words = text.match(/[A-Za-z]+(?:['’-][A-Za-z]+)*/g) || [];
+  const design = EL_FLUENCY_DESIGN[formKey]?.[microphaseId];
   return {
-    id: `orf-${microphaseId}-${formKey}-v1`,
+    id: `orf-${microphaseId}-${formKey}-v2`,
+    contentVersion: formKey === "a" ? EL_BENCHMARK_CONTENT_VERSION : "2026.09.28-depth-v2",
     kind: "fluency_passage",
     title,
     text,
@@ -519,16 +524,20 @@ function fluencyPassage(microphaseId, title, text, referenceGrade, referenceWind
     },
     featureAudit: {
       primaryPatterns: featureTags,
-      controlNotes: audit.controlNotes,
-      plannedSupportWords: audit.plannedSupportWords || [],
+      controlNotes: design ? "The listed focus words sample this named band's spelling structures in an original connected text. Supporting vocabulary is disclosed for teacher review and is not a word list to preteach. This audit does not certify every token as independently decodable or equate passage difficulty." : audit.controlNotes,
+      focusWords: design?.focusWords || [],
+      plannedSupportWords: design?.plannedSupportWords || audit.plannedSupportWords || [],
       originalAuthoredText: true
     },
     finishEarlyProtocol: "If the student reaches the end before 60 seconds, record finishedEarly and the actual elapsed time. Do not extrapolate or report WCPM; retain the completed-text accuracy observation and use teacher judgement before continuing.",
     prosodyRubric: {
       dimensions: ["expression", "phrasing", "smoothness", "pace"],
       minimum: 1,
-      maximum: 4
-    }
+      maximum: 4,
+      levels: EL_FLUENCY_PROSODY_LEVELS,
+      administrationNote: "Rate only what was observed. Use the descriptors separately for expression, phrasing, smoothness and pace; this is an original descriptive rubric, not a normed scale."
+    },
+    meaningCheck: { prompt: "Tell me what happened or what you learned in this passage.", expectedEvidence: "A relevant idea supported by this passage. Invite the student to point to the part they remember; record their exact words without awarding a score.", scored: false, administrationNote: "Optional, after timing and after the complete text has been read. Keep separate from fluency and placement evidence." }
   };
 }
 
@@ -543,67 +552,57 @@ function fluencyPassage(microphaseId, title, text, referenceGrade, referenceWind
 export const EL_FLUENCY_PASSAGES = Object.freeze([
   fluencyPassage(
     "middle_pre",
-    "Sam, Pip, and the Cat",
-    "Sam sat on a mat. Pip sat in a red pan. Sam had a tan cap, and Pip had a big hat. Sam can tap the pan. Pip can tap the mat. Tap, tap, tap! A cat ran in. The cat sat on the mat. Sam and Pip pat the cat. The cat can nap, but Sam and Pip can hum. Sam can hop. Pip can hop. The cat can run and sit. Now Sam, Pip, and the cat sit in the sun. It is fun to sit and tap.",
+    "A Cup for the Pup",
+    "Sam has a pup. The pup can run and hop. It can dig in the mud. Sam has a red cup for the pup. He can put the cup on a mat. The pup can get a sip. Sam sits on a log. The pup sits by him. Sam pats the pup on its back. The pup has a nap on the mat. Sam can get his cap and sit in the sun. The cup is on the mat by the pup.",
     "K",
     "BOY",
     ["vc", "cvc", "short_vowels", "repeated_sentence_frames"],
     {
       minimumOpportunityWords: 80,
-      controlNotes: "Content words are limited chiefly to VC/CVC short-vowel words with repeated syntax; a small planned set of function words carries the connected text.",
-      plannedSupportWords: ["a", "the", "and", "can", "but", "now", "to"]
     }
   ),
   fluencyPassage(
     "early_partial",
-    "The Hen in the Shed",
-    "Kim has a red hen in a pen by the shed. The hen pecks at a bug and runs to the mud. Kim shuts the pen, but the hen slips past the latch. It hides in a box near the path. Josh comes with a dish of corn. He sets the dish by the box. The hen hops out and rushes to the dish. Kim and Josh lead it back to the pen. They prop the latch with a short stick. The hen rests in the soft grass while Kim and Josh check the pen.",
+    "The Bag of Pots",
+    "Dan has a big bag. In it he has a red pot and a tan pot. He can fit a cup in the bag, but not a jug. The jug is too big. Dan puts the jug on a mat. He gets his dad to help. His dad has a tub. The jug can fit in the tub. Dan puts the bag by the tub. His dad can lift the tub, and Dan can lift the bag. They set them in the hut. Now each pot has a spot.",
     "K",
     "MOY",
-    ["cvc", "short_vowels", "initial_digraphs", "final_digraphs", "simple_blends"],
+    ["cvc", "short_vowels", "one_to_one_cvc"],
     {
       minimumOpportunityWords: 85,
-      controlNotes: "Short-vowel CVC words remain dominant while sh, ch, th, ck and simple blends recur in meaningful positions.",
-      plannedSupportWords: ["the", "by", "but", "near", "with", "while", "they"]
     }
   ),
   fluencyPassage(
     "middle_partial",
-    "The Drum Club",
-    "Fran brings a drum to the class club. Brad brings a red flag and a stack of cards. The friends plan a quick march on the grass. Fran taps the drum. Brad lifts the flag. The rest clap and step in time. A gust flips the cards from the stack. The cards land in the grass and drift past the bench. Fran stops the drum, and the club runs to grab them. When each card is back, the march starts again. This time Brad grips the stack, and the friends finish with a grand clap.",
+    "A Bell for the Cat",
+    "Jess has a cat with a bell on its neck. The cat can run up to a box and hop in. Jess can hear the bell, but she cannot see the cat. She looks in a sack and by a tall pot. Then the bell rings from the box. Jess lifts the lid. The cat jumps out and knocks a sock off the bed. What a mess! Jess puts the sock back. The cat sits by her and gives a soft puff. Jess can pat the cat as the bell goes still.",
     "K",
     "EOY",
-    ["short_vowels", "initial_blends", "final_blends", "digraphs", "consonant_clusters"],
+    ["closed_syllables", "final_ck", "final_double", "final_x"],
     {
       minimumOpportunityWords: 90,
-      controlNotes: "The passage concentrates short-vowel words with two-consonant blends and clusters; repeated action frames support phrasing without picture cues.",
-      plannedSupportWords: ["the", "to", "of", "when", "each", "again", "with"]
     }
   ),
   fluencyPassage(
     "late_partial",
-    "The Spring Camp",
-    "Nash and Beth camp near a fresh spring. They drag a thick branch from the brush and prop it next to the tent. Then they stretch a cloth from the branch to a stump. The cloth will block the damp wind. At lunch, Beth spots a chipmunk on the path. It sniffs a crust, grabs it, and darts into the brush. Nash laughs and checks the lunch bag. At dusk, frogs croak from the pond, and moths drift past the lamp. Nash and Beth sit snug in the tent and chat until the last frog stops.",
+    "A Shell on the Path",
+    "Chad and Beth walk on a path by a pond. Beth spots a shell in the mud. She lifts it and rubs off the mud with a cloth. The shell has a crack, but its pink stripes still show. Chad finds a flat rock. He puts the shell on it so Beth can sketch it in her pad. A frog jumps past them and lands with a splash. Beth shuts her pad and puts it in her bag. They leave the shell by the pond. On the way back, they tell Dad what they found.",
     "1",
     "BOY",
-    ["digraphs", "initial_blends", "final_blends", "three_consonant_clusters", "short_vowels"],
+    ["digraphs", "initial_blends", "final_blends"],
     {
       minimumOpportunityWords: 95,
-      controlNotes: "Digraphs and increasingly dense initial/final blends carry the content vocabulary; vowel patterns remain chiefly short and familiar.",
-      plannedSupportWords: ["they", "from", "the", "then", "will", "until"]
     }
   ),
   fluencyPassage(
     "early_full",
-    "The New Seedling",
-    "Ava places a seed in a wide clay pot. She sets the pot beside a bright window and gives it a little water each day. At first, the dark soil stays flat. On Friday, a green shoot pokes through. Ava smiles and makes a sign with the date. Each day, she checks the soil. She waits while the stem grows. The next week, two pale leaves unfold. Ava moves the pot so each leaf can face the light. She ties the stem to a stake with soft string. At last, the plant stands straight. Ava takes a note home to share the good news.",
+    "The Class Print Shop",
+    "The class has a plan to print cards for the school fair. Fran cuts a thick pad into the shape of a leaf. Brad dips it in red paint and presses it on a card. The first print has a blank spot. Fran checks the pad and finds a small lump. She trims it off. Brad tests the pad on a scrap, and the next print looks clear. The rest of the class help fold and stack the cards. They set them on a shelf to dry. At the fair, each card has a crisp print and a message from the class.",
     "1",
     "EOY",
-    ["silent_e", "common_vowel_teams", "digraphs", "blends", "inflections"],
+    ["digraphs", "initial_blends", "final_blends", "consonant_clusters"],
     {
       minimumOpportunityWords: 100,
-      controlNotes: "Silent-e and common vowel-team words are introduced in repeated sentence contexts while earlier digraph/blend patterns remain available.",
-      plannedSupportWords: ["the", "each", "while", "two", "home", "news"]
     }
   ),
   fluencyPassage(
@@ -711,6 +710,11 @@ const FLUENCY_PASSAGES_BY_FORM = Object.freeze(Object.fromEntries(
 
 const INSTRUCTIONS = Object.freeze({
   [EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS]: Object.freeze({
+    practiceExamples: [
+      { teacherSay: "Listen: bear and chair rhyme because their endings sound alike.", expectedResponse: "This is a model; no student answer is scored.", explanation: "Use this only to explain rhyme. Do not rehearse the scored target words." },
+      { teacherSay: "Listen: mush ... room makes mushroom. I can also say mushroom in two parts: mush ... room.", expectedResponse: "An unscored demonstration of joining and separating syllables.", explanation: "Keep syllable parts separate from individual phonemes." },
+      { teacherSay: "Listen: zoo starts with /z/. The sounds are /z/ /oo/.", expectedResponse: "An unscored demonstration of saying sounds rather than letter names.", explanation: "Use a pure consonant sound without adding 'uh'. Do not show the spelling." }
+    ],
     teacher: [
       "Administer orally without showing letters or written words to the student.",
       "Give the prompt once, repeat it once if requested, and do not stretch or segment sounds beyond the scripted prompt.",
@@ -719,9 +723,12 @@ const INSTRUCTIONS = Object.freeze({
       "Record not administered, no response, and not scorable separately; do not turn them into the same result."
     ],
     studentPrompt: "We are going to play with the sounds in words. Listen carefully and answer aloud.",
-    scoringNotes: ["Score the oral response, not pronunciation accent or dialect.", "Use error tags only when the observed response supports them."]
+    scoringNotes: ["Score the oral response, not pronunciation accent or dialect.", "Short vowel notation means the vowel in cat, bed, sit, hot or cup. Long vowel notation is explicitly marked; slash marks are teacher notation only.", "For segmentation, hear every sound or spoken syllable; a count alone does not demonstrate separation.", "Use error tags only when the observed response supports them."]
   }),
   [EL_BENCHMARK_IDS.ENCODING]: Object.freeze({
+    practiceExamples: [
+      { teacherSay: "Go. We can go now. Go.", expectedResponse: "go", explanation: "Unscored practice: check that the student knows to write the whole word. Explain the routine, then remove the practice spelling before assessment." }
+    ],
     teacher: [
       "Give the student a pencil and lined paper before beginning.",
       "Say the target word, read its sentence, then repeat the target word.",
@@ -733,6 +740,9 @@ const INSTRUCTIONS = Object.freeze({
     scoringNotes: ["Exact and plausible are separate evidence fields.", "Authored plausible examples are examples, not an exhaustive list; teacher judgement can override them."]
   }),
   [EL_BENCHMARK_IDS.DECODING]: Object.freeze({
+    practiceExamples: [
+      { teacherSay: "This practice word is me. Try reading it. During the assessment, I will show each word without saying it first.", expectedResponse: "me", explanation: "A model of the response routine only. Never speak a scored word before the student attempts it." }
+    ],
     teacher: [
       "Show one word at a time without pictures or sentence clues.",
       "Mark accurate when the final word is correct. Mark automatic only when it is read accurately without overt sounding out, using teacher judgement rather than an invented time cutoff.",
@@ -743,6 +753,9 @@ const INSTRUCTIONS = Object.freeze({
     scoringNotes: ["Five or fewer automatic words out of eight is stopping evidence for that band.", "The rule guides administration; it is not a normed grade-level cut score."]
   }),
   [EL_BENCHMARK_IDS.ORAL_READING_FLUENCY]: Object.freeze({
+    practiceExamples: [
+      { teacherSay: "When I say begin, start at the first word. Keep reading until I say stop. You may try a hard word and keep going.", expectedResponse: "The student understands where to start and the stop signal.", explanation: "Explain the routine without previewing or rehearsing the scored passage. Read no passage words aloud beforehand." }
+    ],
     teacher: [
       "Let the student read the passage directly from the screen. A printable clean copy is available in Optional details when needed.",
       "Start timing on the first spoken word. At 60 seconds, mark the last word attempted; let the student finish only if useful for instruction.",
@@ -775,14 +788,15 @@ function normalizeFormId(value) {
   const aliases = {
     a: EL_BENCHMARK_FORM_IDS.A,
     "form-a": EL_BENCHMARK_FORM_IDS.A,
-    "form-a-v2": EL_BENCHMARK_FORM_IDS.A,
+    "form-a-v3": EL_BENCHMARK_FORM_IDS.A,
     b: EL_BENCHMARK_FORM_IDS.B,
     "form-b": EL_BENCHMARK_FORM_IDS.B,
-    "form-b-v1": EL_BENCHMARK_FORM_IDS.B,
+    "form-b-v2": EL_BENCHMARK_FORM_IDS.B,
     c: EL_BENCHMARK_FORM_IDS.C,
     "form-c": EL_BENCHMARK_FORM_IDS.C,
-    "form-c-v1": EL_BENCHMARK_FORM_IDS.C
+    "form-c-v2": EL_BENCHMARK_FORM_IDS.C
   };
+  if (EL_LEGACY_BENCHMARK_CONTENT[normalized]) return normalized;
   if (aliases[normalized]) return aliases[normalized];
   throw new RangeError(`Unsupported EL benchmark form: ${value}`);
 }
@@ -835,20 +849,61 @@ function plannedMicrophases(route, selected) {
 }
 
 function formDefinition(formId) {
-  const definition = FORM_DEFINITION_BY_ID[formId];
+  const definition = FORM_DEFINITION_BY_ID[formId] || EL_LEGACY_BENCHMARK_CONTENT[formId]?.definition;
   if (!definition) throw new RangeError(`Unsupported EL benchmark form: ${formId}`);
   return definition;
 }
 
+function enrichPaItems(items, routeKey, formId) {
+  const definition = formDefinition(formId);
+  const rows = [...items, ...EL_PA_DEPTH_ITEMS[routeKey][definition.key]];
+  return rows.map((item, index) => ({
+    ...item,
+    id: `pa-${routeKey.toLowerCase()}-${definition.key}-${String(index + 1).padStart(2, "0")}-${definition.key === "a" ? "v3" : "v2"}`,
+    kind: "oral_sound_task",
+    prompt: "Listen and answer aloud.",
+    expectedAnswers: item.expectedAnswers.filter(answer => !/:\d+$/.test(answer)),
+    teacherJudgmentRequired: !(item.strand === "rhyme" && item.task === "recognition"),
+    dialectSensitive: true,
+    featureTags: [item.strand, item.task],
+    contentVersion: definition.contentVersion,
+    administrationNote: [item.administrationNote, "Oral only. Say slash-marked units as sounds, not letter names, with no extra vowel after a consonant. Repeat the exact script once if needed; do not add clues."].filter(Boolean).join(" "),
+    scoringGuidance: benchmarkOralGuidance(item)
+  }));
+}
+
+function enrichEncodingItems(items, routeKey, formId) {
+  const definition = formDefinition(formId);
+  const rows = [...items, ...EL_ENCODING_DEPTH_ITEMS[routeKey][definition.key]];
+  return rows.map((item, index) => ({
+    ...item,
+    id: `enc-${routeKey.toLowerCase()}-${definition.key}-${String(index + 1).padStart(2, "0")}-${definition.key === "a" ? "v3" : "v2"}`,
+    kind: "word_dictation",
+    prompt: "Listen, then write the word.",
+    teacherSay: `${item.targetWord}. ${item.sentence} ${item.targetWord}.`,
+    acceptedSpellings: [item.targetWord],
+    plausibleSpellings: item.plausibleSpellings || [],
+    contentVersion: definition.contentVersion,
+    administrationNote: "Say word, sentence, word. Keep spelling and feature guidance hidden until the student has written. Repeat the whole script once if requested without stretching or segmenting the word.",
+    featureGuidance: benchmarkFeatureGuidance(item.featureTags),
+    scoringGuidance: {
+      accept: "Exact spelling means conventional spelling. Phonologically plausible means every spoken phoneme is represented reasonably, allowing the student's accent; record these outcomes separately.",
+      doNotAccept: "A plausible spelling is not an exact spelling. Do not infer a pattern was secure from a copied or teacher-supplied answer.",
+      listenFor: "Record the actual letters written and compare the vowel, consonant groups, syllables and endings. Handwriting or language-access concerns can make an item not scorable."
+    }
+  }));
+}
+
 function parallelPaItems(routeKey, formId) {
-  if (formId === EL_BENCHMARK_FORM_IDS.A) return PA_FORMS[routeKey];
+  if (EL_LEGACY_BENCHMARK_CONTENT[formId]) return EL_LEGACY_BENCHMARK_CONTENT[formId].pa[routeKey];
+  if (formId === EL_BENCHMARK_FORM_IDS.A) return enrichPaItems(PA_FORMS[routeKey], routeKey, formId);
   const definition = formDefinition(formId);
   const replacements = EL_PARALLEL_PA_CONTENT[routeKey];
   const blueprint = PA_FORMS[routeKey];
   if (!Array.isArray(replacements) || replacements.length !== blueprint.length) {
     throw new RangeError(`Incomplete ${definition.label} Sound Awareness blueprint for ${routeKey}.`);
   }
-  return blueprint.map((item, index) => {
+  return enrichPaItems(blueprint.map((item, index) => {
     const replacement = replacements[index]?.[definition.key];
     if (!replacement) throw new RangeError(`Missing ${definition.label} Sound Awareness item ${routeKey} ${index + 1}.`);
     return {
@@ -857,11 +912,12 @@ function parallelPaItems(routeKey, formId) {
       teacherSay: replacement[0],
       expectedAnswers: replacement[1]
     };
-  });
+  }), routeKey, formId);
 }
 
 function parallelEncodingItems(routeKey, formId) {
-  if (formId === EL_BENCHMARK_FORM_IDS.A) return ENCODING_FORMS[routeKey];
+  if (EL_LEGACY_BENCHMARK_CONTENT[formId]) return EL_LEGACY_BENCHMARK_CONTENT[formId].encoding[routeKey];
+  if (formId === EL_BENCHMARK_FORM_IDS.A) return enrichEncodingItems(ENCODING_FORMS[routeKey], routeKey, formId);
   const definition = formDefinition(formId);
   const replacements = EL_PARALLEL_ENCODING_CONTENT[routeKey];
   const blueprint = ENCODING_FORMS[routeKey];
@@ -869,7 +925,7 @@ function parallelEncodingItems(routeKey, formId) {
     throw new RangeError(`Incomplete ${definition.label} Encoding blueprint for ${routeKey}.`);
   }
   const offset = definition.key === "b" ? 0 : 3;
-  return blueprint.map((item, index) => {
+  return enrichEncodingItems(blueprint.map((item, index) => {
     const replacement = replacements[index];
     const targetWord = replacement?.[offset];
     const sentence = replacement?.[offset + 1];
@@ -884,12 +940,14 @@ function parallelEncodingItems(routeKey, formId) {
       targetWord,
       sentence,
       acceptedSpellings: [targetWord],
-      plausibleSpellings
+      plausibleSpellings,
+      featureTags: replacement[6]?.[definition.key] || item.featureTags
     };
-  });
+  }), routeKey, formId);
 }
 
 function decodingItems(microphases, formId) {
+  if (EL_LEGACY_BENCHMARK_CONTENT[formId]) return microphases.flatMap(microphase => EL_LEGACY_BENCHMARK_CONTENT[formId].decoding[microphase.id]);
   const definition = formDefinition(formId);
   return microphases.flatMap(microphase => {
     const blueprint = DECODING_WORDS[microphase.id];
@@ -903,8 +961,8 @@ function decodingItems(microphases, formId) {
       const targetWord = replacementWords[index];
       return {
         id: definition.key === "a"
-          ? `dec-${microphase.id}-${String(index + 1).padStart(2, "0")}-v2`
-          : `dec-${microphase.id}-${definition.key}-${String(index + 1).padStart(2, "0")}-v1`,
+          ? `dec-${microphase.id}-${String(index + 1).padStart(2, "0")}-v3`
+          : `dec-${microphase.id}-${definition.key}-${String(index + 1).padStart(2, "0")}-v2`,
         kind: "word_reading",
         prompt: "Read this word.",
         displayWord: targetWord,
@@ -917,6 +975,10 @@ function decodingItems(microphases, formId) {
         progressionBasis: microphase.progressionBasis,
         bandId: microphase.id,
         position: index + 1,
+        contentVersion: definition.contentVersion,
+        administrationNote: "Show only the isolated word. Do not pronounce it, name its pattern or provide a picture before the response.",
+        featureGuidance: benchmarkFeatureGuidance(featureTags),
+        scoringGuidance: { accept: "The whole word read accurately in the student’s ordinary accent. Record a self-correction separately.", doNotAccept: "A word supplied by the adult or guessed from a picture/context. A sounded-out response is accurate but not automatic.", listenFor: "The printed spelling, all syllables and any endings, without applying an invented time threshold." },
         featureTags
       };
     });
@@ -925,7 +987,9 @@ function decodingItems(microphases, formId) {
 
 function fluencyPassagesFrom(selectedMicrophase, formId) {
   const definition = formDefinition(formId);
-  const passages = FLUENCY_PASSAGES_BY_FORM[definition.id];
+  const passages = EL_LEGACY_BENCHMARK_CONTENT[formId]
+    ? Object.fromEntries(EL_LEGACY_BENCHMARK_CONTENT[formId].fluency.map(item => [item.microphase, item]))
+    : FLUENCY_PASSAGES_BY_FORM[definition.id];
   return EL_DECODING_MICROPHASES
     .slice(selectedMicrophase.order - 1)
     .map((microphase, index) => ({
@@ -956,10 +1020,11 @@ export function getElBenchmarkPlan({
   startMicrophase,
   formId
 } = {}) {
-  const catalog = getCatalogEntry(assessmentId);
+  const currentCatalog = getCatalogEntry(assessmentId);
   const normalizedGrade = normalizeGrade(grade);
   const normalizedWindow = normalizeWindow(window);
   const normalizedFormId = normalizeFormId(formId);
+  const catalog = { ...currentCatalog, ...(EL_LEGACY_BENCHMARK_CONTENT[normalizedFormId]?.catalog[assessmentId] || {}) };
   const selectedForm = formDefinition(normalizedFormId);
   const routeKey = `${normalizedGrade}-${normalizedWindow}`;
   const route = ROUTES[routeKey];
@@ -1085,7 +1150,7 @@ export function getElBenchmarkPlan({
       microphaseLabel: route.rangeLabel,
       selectedMicrophaseLabel: selectedStart.label
     },
-    instructions: INSTRUCTIONS[assessmentId],
+    instructions: EL_LEGACY_BENCHMARK_CONTENT[normalizedFormId]?.instructions[assessmentId] || INSTRUCTIONS[assessmentId],
     administration: {
       allowedStatuses: COMMON_ALLOWED_STATUSES,
       stopRule,
@@ -1117,5 +1182,32 @@ export function listElBenchmarkRoutes() {
   return Object.keys(ROUTES).map(routeKey => {
     const [grade, window] = routeKey.split("-");
     return deepClone({ grade, window, ...ROUTES[routeKey] });
+  });
+}
+
+/** Resume the exact administered content, including drafts from older forms. */
+export function getElBenchmarkSessionPlan(session = {}) {
+  const snapshot = session.planSnapshot;
+  if (snapshot) {
+    if (!Array.isArray(snapshot.items) || !snapshot.items.length ||
+        snapshot.assessmentId !== session.assessmentId ||
+        snapshot.grade !== normalizeGrade(session.grade) ||
+        snapshot.window !== normalizeWindow(session.window) ||
+        snapshot.formId !== session.formId ||
+        snapshot.planId !== session.planId ||
+        snapshot.contentVersion !== session.contentVersion ||
+        (session.startMicrophase && snapshot.route?.selectedStartMicrophase !== session.startMicrophase) ||
+        snapshot.items.length > 100 || new Set(snapshot.items.map(item => item?.id)).size !== snapshot.items.length ||
+        snapshot.items.some(item => !item || typeof item.id !== "string" || !item.id || typeof item.kind !== "string")) {
+      throw new RangeError("The saved assessment plan does not match this session. Keep the original draft for review; do not replace its questions.");
+    }
+    return deepClone(snapshot);
+  }
+  return getElBenchmarkPlan({
+    assessmentId: session.assessmentId,
+    grade: session.grade,
+    window: session.window,
+    startMicrophase: session.startMicrophase,
+    formId: session.formId
   });
 }

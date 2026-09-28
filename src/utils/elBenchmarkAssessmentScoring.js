@@ -4,10 +4,12 @@ import {
   EL_BENCHMARK_SCHEMA_VERSION,
   EL_DECODING_MICROPHASES,
   EL_ITEM_RESPONSE_STATUSES,
-  getElBenchmarkPlan
+  getElBenchmarkSessionPlan
 } from "../data/elBenchmarkAssessmentCatalog.js";
+import { benchmarkInstructionalActions } from "./benchmarkInstructionalActions.js";
+import { getElBenchmarkItemContentIssue } from "../data/elBenchmarkContentIssues.js";
 
-export const EL_BENCHMARK_SCORING_VERSION = "2026.07.22-v2";
+export const EL_BENCHMARK_SCORING_VERSION = "2026.09.28-v3";
 export const EL_BENCHMARK_ATTEMPT_SCHEMA_VERSION = 3;
 
 const ADMINISTRATION_STATUS_SET = new Set(Object.values(EL_ADMINISTRATION_STATUSES));
@@ -245,6 +247,12 @@ function baseQuestionRecord(item, response, result = {}) {
     automatic: result.automatic ?? null,
     selfCorrected: Boolean(response?.selfCorrected || status === EL_ITEM_RESPONSE_STATUSES.SELF_CORRECTED),
     notes: response?.notes || "",
+    meaningCheckResponse: String(response?.meaningCheckResponse || ""),
+    observationNote: String(response?.observationNote || ""),
+    fullPassageReadAfterTiming: response?.fullPassageReadAfterTiming === true,
+    metadata: response?.contentIssueOriginalResponse
+      ? { contentIssueOriginalResponse: JSON.parse(JSON.stringify(response.contentIssueOriginalResponse)) }
+      : {},
     validationIssues: Array.from(new Set(validationIssues)),
     ...auditTrail(response, result)
   };
@@ -300,6 +308,19 @@ function scorePhonologicalAwareness(plan, responses, administrationStatus) {
   const records = plan.items.map(item => {
     const response = responseFor(responses, item.id);
     const status = responseStatus(response);
+    const contentIssue = getElBenchmarkItemContentIssue(item);
+    if (contentIssue && ![EL_ITEM_RESPONSE_STATUSES.NOT_ADMINISTERED, EL_ITEM_RESPONSE_STATUSES.NOT_SCORABLE].includes(status)) {
+      return {
+        ...baseQuestionRecord(item, response, {
+          status: EL_ITEM_RESPONSE_STATUSES.NOT_SCORABLE,
+          isCorrect: null,
+          validationIssues: ["legacy_prompt_requires_not_scorable_review"]
+        }),
+        notScorableReason: contentIssue.reason,
+        notScorableNote: contentIssue.message,
+        metadata: { legacyContentIssueId: contentIssue.id, legacyOriginalResponseStatus: status }
+      };
+    }
     let isCorrect = isExplicitlyCorrect(response, status);
     let evaluationSource = "teacher_judgment";
     const responseTextMissing = requiresRecordedResponseText(status, response) && !hasRecordedResponseText(response);
@@ -1421,13 +1442,7 @@ function scoreFluency(plan, responses, administrationStatus, session) {
 }
 
 function buildPlan(session) {
-  return getElBenchmarkPlan({
-    assessmentId: session.assessmentId,
-    grade: session.grade,
-    window: session.window,
-    startMicrophase: session.startMicrophase,
-    formId: session.formId
-  });
+  return getElBenchmarkSessionPlan(session);
 }
 
 /**
@@ -1530,7 +1545,10 @@ export function scoreElBenchmarkSession(session = {}) {
     discontinueReason: discontinueReasonFor(session),
     discontinueNote: String(session.discontinueNote || ""),
     note: session.note || session.notes || "",
-    recommendations: domain.recommendations,
+    recommendations: [
+      ...benchmarkInstructionalActions({ assessmentId: plan.assessmentId, questionRecords: domain.questionRecords, scoringSuppressed }),
+      ...domain.recommendations
+    ],
     observations: domain.observations,
     completion: domain.completion
   };

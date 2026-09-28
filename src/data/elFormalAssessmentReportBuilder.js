@@ -76,7 +76,14 @@ export const EL_FORMAL_CLASS_EVIDENCE_SCHEMA = Object.freeze([
   "targetWord",
   "correctAnswer",
   "selectedAnswer",
-  "resultType"
+  "resultType",
+  "responseText",
+  "responseCaptureMode",
+  "responseDetailCaptured",
+  "selfCorrected",
+  "errorTags",
+  "notes",
+  "outcomeRecordedAt"
 ]);
 
 const STATUS_LABELS = {
@@ -233,6 +240,10 @@ function questionEvidenceDetail(question = {}) {
     responseCaptureMode: evidenceValue(question, "responseCaptureMode") || "legacy_unspecified",
     responseDetailCaptured: evidenceValue(question, "responseDetailCaptured") ?? Boolean(String(exactResponse || "").trim()),
     outcomeRecordedAt: evidenceValue(question, "outcomeRecordedAt") || "",
+    notes: evidenceValue(question, "notes") || "",
+    observationNote: evidenceValue(question, "observationNote") || "",
+    meaningCheckResponse: evidenceValue(question, "meaningCheckResponse") || "",
+    fullPassageReadAfterTiming: evidenceValue(question, "fullPassageReadAfterTiming") ?? null,
     responseStatus: normalizedResponseStatus(question),
     notScorableReason: evidenceValue(question, "notScorableReason") || "",
     notScorableNote: evidenceValue(question, "notScorableNote") || "",
@@ -978,6 +989,13 @@ function addDetail(cell, question = {}, record = {}, now = new Date()) {
     targetPattern: question.targetPattern || question.pattern || "",
     correctAnswer: question.correctAnswer,
     selectedAnswer: question.selectedAnswer,
+    responseText: evidenceValue(question, "responseText") || question.selectedAnswer || "",
+    responseCaptureMode: evidenceValue(question, "responseCaptureMode") || "legacy_unspecified",
+    responseDetailCaptured: evidenceValue(question, "responseDetailCaptured") ?? Boolean(question.selectedAnswer),
+    selfCorrected: evidenceValue(question, "selfCorrected") ?? null,
+    errorTags: cloneValue(evidenceValue(question, "errorTags"), []),
+    notes: evidenceValue(question, "notes") || "",
+    outcomeRecordedAt: evidenceValue(question, "outcomeRecordedAt") || "",
     responseStatus: question.formalResponseStatus || "unrecorded",
     isCorrect,
     scored,

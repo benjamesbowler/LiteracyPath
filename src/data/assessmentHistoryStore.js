@@ -394,6 +394,9 @@ function normalizeQuestionRecord(item = {}, index, record, completedAt) {
     notScorableReason: item.notScorableReason || "",
     notScorableNote: item.notScorableNote || "",
     notes: item.notes || "",
+    observationNote: item.observationNote || existingMetadata.observationNote || "",
+    meaningCheckResponse: item.meaningCheckResponse || existingMetadata.meaningCheckResponse || "",
+    fullPassageReadAfterTiming: item.fullPassageReadAfterTiming ?? existingMetadata.fullPassageReadAfterTiming ?? null,
     features: {
       ...existingFeatures,
       featureTags,

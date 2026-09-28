@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import { getSelectedClassName } from "../../src/appState/studentSessionHelpers.js";
 import { TEACHER_COPY, PRESENT_COPY } from "../../src/copy/teacherCopy.js";
+import { MANUAL_DIAGNOSTIC_COPY } from "../../src/copy/manualDiagnosticCopy.js";
 
 const ROOT = new URL("../../", import.meta.url);
 
@@ -880,21 +881,19 @@ test("the printable class report lives in the teacher workflow and uses the sele
   assert.match(reports, /Missing or incomplete results are not counted as zero/);
 });
 
-test("teacher-run letter and pattern assessments keep their name and directions visible", async () => {
-  const [pages, assessmentCss, appCss] = await Promise.all([
-    source("src/components/AppPages.jsx"),
-    source("src/styles/assessment.css"),
-    source("src/App.css")
+test("teacher-run letter and pattern assessments retain visible directions and separated stimuli", async () => {
+  const [pages, runner] = await Promise.all([
+    source("src/components/AppPages.jsx"), source("src/components/assessment/ManualDiagnosticAssessment.jsx")
   ]);
-
-  assert.match(pages, /<h1>Letter name and sound assessment<\/h1>/);
-  assert.match(pages, /<h2>Show this letter to the student<\/h2>/);
-  assert.match(pages, /Ask for the letter name and the sound it makes\./);
-  assert.match(pages, /<h1>Phonics pattern assessment<\/h1>/);
-  assert.match(pages, /<h2>Show the pattern and example word<\/h2>/);
-  assert.match(pages, /ask the student to read the word/);
-  assert.match(assessmentCss, /\.assessment-meta h1/);
-  assert.match(appCss, /\.letter-topbar \.assessment-meta h1[\s\S]*white-space: normal/);
+  assert.match(pages, /ManualDiagnosticAssessment kind="letter"/);
+  assert.match(pages, /ManualDiagnosticAssessment kind="pattern"/);
+  assert.equal(MANUAL_DIAGNOSTIC_COPY.letterTitle, "Letter names and sounds");
+  assert.equal(MANUAL_DIAGNOSTIC_COPY.patternTitle, "Phonics patterns");
+  assert.match(MANUAL_DIAGNOSTIC_COPY.letterDescription, /names and sounds separately/);
+  assert.match(MANUAL_DIAGNOSTIC_COPY.patternDescription, /spelling part first, then read one word/);
+  assert.match(runner, /task === "word" \? item.exampleWord : item.pattern/);
+  assert.match(runner, /<TeacherPageHeader[\s\S]*description=\{kind === "letter" \? COPY.letterDescription : COPY.patternDescription\}/);
+  assert.match(runner, /<div className="md-stimulus"><p>\{prompt\}<\/p>/);
 });
 
 test("account setup failure uses teacher language and a clear recovery step", async () => {
@@ -988,7 +987,7 @@ test("the ordinary class-report route pauses print and EL exports on incomplete 
 test("manual letter and phonics checks save once, recover visibly, and preserve partial work", async () => {
   const [app, pages, surface, sessionController] = await Promise.all([
     source("src/App.jsx"),
-    source("src/components/AppPages.jsx"),
+    source("src/components/assessment/ManualDiagnosticAssessment.jsx"),
     source("src/components/AppSurface.jsx"),
     source("src/appState/useAppSessionController.js")
   ]);
@@ -1000,8 +999,8 @@ test("manual letter and phonics checks save once, recover visibly, and preserve 
   assert.match(app, /const patternAssessmentSaveInFlightRef = useRef\(null\)/);
   assert.match(app, /const letterAssessmentSaveInFlightRef = useRef\(null\)/);
   assert.match(app, /return runSingleFlight\(saveRef, operation\)/);
-  assert.match(app, /replaceManualAssessmentEntry\(\s*patternAssessment/);
-  assert.match(app, /replaceManualAssessmentEntry\(\s*letterAssessment/);
+  assert.match(app, /upsertDiagnosticEntry\(\s*patternAssessment/);
+  assert.match(app, /upsertDiagnosticEntry\(\s*letterAssessment/);
   assert.match(
     app,
     /if \(isFinalItem\) \{[\s\S]*?archivePatternAssessment\(nextAssessment\)[\s\S]*?setPatternAssessment\(nextAssessment\)/
@@ -1016,13 +1015,15 @@ test("manual letter and phonics checks save once, recover visibly, and preserve 
   assert.match(app, /plannedQuestionCount: letterItems\.length \* 2/);
   assert.match(
     app,
-    /const administrationStatus = manualAssessmentAdministrationStatus\(\s*nextAssessment\.length,\s*patternItems\.length/
+    /const administrationStatus = diagnosticAssessmentComplete\(nextAssessment, patternItems, "pattern"\) \? "completed" : "partial"/
   );
   assert.match(
     app,
-    /const administrationStatus = manualAssessmentAdministrationStatus\(\s*nextAssessment\.length,\s*letterItems\.length/
+    /const administrationStatus = diagnosticAssessmentComplete\(nextAssessment, letterItems, "letter"\) \? "completed" : "partial"/
   );
-  assert.match(app, /attempts < 2\s*\? "not_enough_evidence"/);
+  assert.match(app, /status: attempts === 0 \? "not_checked" : "not_enough_evidence"/);
+  assert.match(app, /masteredItems: \[\],\s*developingItems: \[\],\s*needsSupportItems: \[\]/);
+  assert.match(app, /letterAssessmentArchivedRef.current && diagnosticAssessmentComplete\(letterAssessment, letterItems, "letter"\)\) return false/);
   assert.doesNotMatch(
     app.slice(app.indexOf("async function recordPatternResult"), app.indexOf("function resetPatternAssessment")),
     /updateItemMastery|persistPatternItemResult/
@@ -1039,34 +1040,27 @@ test("manual letter and phonics checks save once, recover visibly, and preserve 
   assert.match(sessionController, /const selectedManualDrafts = loadManualAssessmentDrafts\(/);
   assert.match(sessionController, /restoreManualAssessmentDraftsFromHistory\(/);
   assert.match(sessionController, /chooseNewestManualAssessmentEntries\(/);
-  assert.match(pages, /Save & exit/);
-  assert.match(pages, /Finish and save/);
-  assert.match(pages, /Your choices are still here\. Try again\./);
+  assert.equal(MANUAL_DIAGNOSTIC_COPY.saveExit, "Save & exit");
+  assert.equal(MANUAL_DIAGNOSTIC_COPY.finish, "Finish and save");
+  assert.match(MANUAL_DIAGNOSTIC_COPY.saveError, /Your choices remain here\. Try again\./);
   assert.match(pages, /role="alert"/);
   assert.match(pages, /finally \{\s*setSaving\(false\);\s*\}/);
 });
 
-// The letter and phonics-pattern sittings are 52 and 33 items long. A dropdown
-// per field turned every item into two taps and a menu, which is why they were
-// reverted to green yes / red no buttons. The three recorded values are
-// unchanged, so the guard is on the interaction, not on the data.
-test("manual letter and pattern marking is a yes/no button pair, never a dropdown", async () => {
-  const pages = await source("src/components/AppPages.jsx");
-  const marking = pages.slice(
-    pages.indexOf("const MANUAL_OUTCOME_CHOICES"),
-    pages.indexOf("export function AssessmentPage")
-  );
-
-  assert.ok(marking.length > 0, "the marking components were found");
-  assert.doesNotMatch(marking, /<select|Choose result/);
-  assert.match(pages, /\{ value: "correct", label: "Yes", tone: "yes" \}/);
-  assert.match(pages, /\{ value: "incorrect", label: "No", tone: "no" \}/);
-  // The third state stays reachable: a skipped item is not a wrong answer.
-  assert.match(pages, /\{ value: "not_administered", label: "Not checked", tone: "skip" \}/);
-  assert.match(pages, /aria-pressed=\{pressed\}/);
-  for (const field of ["Letter name", "Letter sound", "Pattern sound", "Example word"]) {
-    assert.match(marking, new RegExp(`label="${field}"`), `${field} is marked with the button pair`);
-  }
+test("manual marking offers five distinct visible outcomes without a dropdown", async () => {
+  const runner = await source("src/components/assessment/ManualDiagnosticAssessment.jsx");
+  assert.doesNotMatch(runner, /<select|Choose result/);
+  assert.deepEqual(MANUAL_DIAGNOSTIC_COPY.outcomes, [
+    { value: "correct", label: "Correct" }, { value: "incorrect", label: "Not yet" },
+    { value: "no_response", label: "No response" }, { value: "not_scorable", label: "Not scorable" },
+    { value: "not_administered", label: "Not assessed" }
+  ]);
+  assert.match(runner, /COPY.outcomes.map\(choice => <button/);
+  assert.match(runner, /aria-pressed=\{observation.outcome === choice.value\}/);
+  assert.match(runner, /diagnosticObservationIssue/);
+  assert.match(runner, /root.inert = true/);
+  assert.match(runner, /const previousInert = root\?\.inert/);
+  assert.match(runner, /root.inert = previousInert/);
 });
 
 test("active assessments use a focused shell and their own durable exit handlers", async () => {

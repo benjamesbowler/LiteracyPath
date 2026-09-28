@@ -7,7 +7,7 @@ import "./App.css";
 import "./styles/ui-quality-pass.css";
 import { APP_VIEWS } from "./appState/appViews.js";
 import { readTeacherFunnelParams } from "./appState/appViewHelpers.js";
-import { EL_BENCHMARK_IDS } from "./data/elBenchmarkAssessments.js";
+import { EL_BENCHMARK_IDS, EL_BENCHMARK_FORM_ID } from "./data/elBenchmarkAssessments.js";
 import { Sidebar } from "./components/Sidebar.jsx";
 import { TeacherStudentsPage } from "./components/TeacherStudentsPage.jsx";
 import { TeacherTodayPage } from "./components/TeacherTodayPage.jsx";
@@ -20,6 +20,7 @@ import { PresentPage } from "./components/PresentPage.jsx";
 import { TeacherSettingsPage } from "./components/teacher/TeacherSettingsPage.jsx";
 import { FinishedReportPage } from "./components/FinishedReportPage.jsx";
 import { ELBenchmarkAssessmentPage } from "./components/assessment/ELBenchmarkAssessmentPage.jsx";
+import { ManualDiagnosticPreview } from "./components/assessment/ManualDiagnosticPreview.jsx";
 import { GuidedReadingPage } from "./components/guided-reading/GuidedReadingPage.jsx";
 import { TrailRun } from "./components/quest/world/Encounters.jsx";
 import {
@@ -277,6 +278,8 @@ function viewForSurface(value) {
     settings: APP_VIEWS.TEACHER_SETTINGS,
     report: APP_VIEWS.FINISHED,
     assessment: APP_VIEWS.EL_BENCHMARK,
+    "letter-assessment": APP_VIEWS.LETTERS,
+    "pattern-assessment": APP_VIEWS.ADVANCED_PHONICS,
     "guided-reading": APP_VIEWS.GUIDED_READING,
     accessibility: APP_VIEWS.STUDENT_HOME
   }[value] || APP_VIEWS.TEACHER_DASHBOARD;
@@ -844,24 +847,52 @@ function Settings() {
 }
 
 function Assessment() {
-  const [session, setSession] = useState({
-    assessmentId: EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
-    formId: "form-a-v2",
-    grade: "K",
-    startMicrophase: "middle_partial",
+  const assessmentId = params.get("assessment") || EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS;
+  const draftKey = `assessment-depth-preview:${assessmentId}`;
+  const [saveState, setSaveState] = useState("");
+  const saveAttempts = useRef(0);
+  const [session, setSession] = useState(() => {
+    if (params.get("resume") === "1") {
+      try {
+        const draft = JSON.parse(localStorage.getItem(draftKey));
+        if (draft?.assessmentId === assessmentId) return draft;
+      } catch { /* A corrupt preview draft must not block the fixture. */ }
+    }
+    return {
+    assessmentId,
+    formId: params.get("form") || EL_BENCHMARK_FORM_ID,
+    grade: params.get("grade") || "K",
+    startMicrophase: params.get("start") || "middle_partial",
     studentId,
     studentName: "Aarav",
-    window: "EOY",
+    window: params.get("window") || "EOY",
     responses: {}
+    };
   });
+  const updateSession = next => {
+    setSession(next);
+    localStorage.setItem(draftKey, JSON.stringify(next));
+  };
+  const save = async next => {
+    saveAttempts.current += 1;
+    if (params.get("save") === "fail-once" && saveAttempts.current === 1) {
+      throw new Error("Preview save failed. Try again; responses are retained.");
+    }
+    updateSession(next);
+    setSaveState(next.administrationStatus || "saved");
+    return { ok: true };
+  };
   return (
+    <>
+    {saveState && <p role="status" data-testid="assessment-preview-saved">Saved: {saveState}</p>}
     <ELBenchmarkAssessmentPage
       session={session}
-      onSessionChange={setSession}
-      onComplete={asyncNoop}
-      onSaveAndExit={asyncNoop}
+      onSessionChange={updateSession}
+      onComplete={save}
+      onSaveAndExit={save}
       onCancel={noop}
     />
+    </>
   );
 }
 
@@ -902,6 +933,10 @@ function Surface() {
       return <Report />;
     case "assessment":
       return <Assessment />;
+    case "letter-assessment":
+      return <ManualDiagnosticPreview kind="letter" params={params} />;
+    case "pattern-assessment":
+      return <ManualDiagnosticPreview kind="pattern" params={params} />;
     case "guided-reading":
       return <GuidedReading />;
     case "accessibility":
@@ -917,6 +952,8 @@ export function TeacherA11yPreview() {
   const classEntryPreview = surface === "today"
     && (previewStartsWithoutClass || previewNewTeacher);
   const focused = surface === "assessment"
+    || surface === "letter-assessment"
+    || surface === "pattern-assessment"
     || surface === "accessibility"
     || classEntryPreview;
   return (

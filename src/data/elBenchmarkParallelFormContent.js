@@ -1,10 +1,10 @@
 /**
  * Original Literacy Guide-authored parallel content for EL Assessments 3-6.
  *
- * Form A remains in elBenchmarkAssessmentCatalog.js unchanged. These compact
+ * Form A lives in elBenchmarkAssessmentCatalog.js. These compact
  * specifications provide controlled Form B and Form C replacements. The
- * catalog copies the Form A blueprint (construct, item order, feature tags,
- * route and administration rules) and replaces only the exposed content.
+ * catalog keeps the Form A construct sequence and item order; any word-specific
+ * feature exceptions are authored explicitly. Route and administration rules stay shared.
  */
 
 const pair = (bPrompt, bAnswers, cPrompt, cAnswers) => Object.freeze({
@@ -31,7 +31,7 @@ export const EL_PARALLEL_PA_CONTENT = Object.freeze({
     pair("What is the last sound in cat?", ["t", "/t/"], "What is the last sound in cup?", ["p", "/p/"]),
     pair("What is the last sound in pig?", ["g", "/g/"], "What is the last sound in red?", ["d", "/d/"]),
     pair("Blend /k/ /a/ /t/.", ["cat"], "Blend /p/ /i/ /g/.", ["pig"]),
-    pair("Blend /h/ /e/ /n/.", ["hen"], "Blend /f/ /o/ /x/.", ["fox"]),
+    pair("Blend /h/ /e/ /n/.", ["hen"], "Blend /m/ /o/ /p/.", ["mop"]),
     pair("Tell me every sound in van.", ["v a n", "/v/ /a/ /n/"], "Tell me every sound in cup.", ["c u p", "k u p", "/k/ /u/ /p/"]),
     pair("Tell me every sound in jet.", ["j e t", "/j/ /e/ /t/"], "Tell me every sound in log.", ["l o g", "/l/ /o/ /g/"])
   ]),
@@ -80,7 +80,7 @@ export const EL_PARALLEL_PA_CONTENT = Object.freeze({
     pair("What vowel sound do you hear in fork?", ["or", "/or/", "/ɔr/"], "What vowel sound do you hear in bird?", ["ir", "er", "/ur/", "/ɜr/"]),
     pair("Blend /s/ /p/ /l/ /a/ /sh/.", ["splash"], "Blend /s/ /k/ /r/ /a/ /p/.", ["scrap"]),
     pair("Tell me every sound in crisp.", ["c r i s p", "k r i s p", "/k/ /r/ /i/ /s/ /p/"], "Tell me every sound in blend.", ["b l e n d", "/b/ /l/ /e/ /n/ /d/"]),
-    pair("Say skate without /s/.", ["Kate", "kate"], "Say train without /t/.", ["rain"]),
+    pair("Say slide without /s/.", ["lied", "lide"], "Say snow without /s/.", ["know", "no"]),
     pair("Say blend without /l/.", ["bend"], "Say crash without /r/.", ["cash"]),
     pair("Change the /k/ in crab to /g/. What word now?", ["grab"], "Change the /p/ in plan to /k/. What word now?", ["clan"]),
     pair("Change the /r/ in brush to /l/. What word now?", ["blush"], "Change the /l/ in glass to /r/. What word now?", ["grass"]),
@@ -88,36 +88,36 @@ export const EL_PARALLEL_PA_CONTENT = Object.freeze({
     pair("Change the /n/ in rain to /d/. What word now?", ["raid"], "Change the /t/ in boat to /n/. What word now?", ["bone"])
   ]),
   "2-BOY": Object.freeze([
-    pair("Say calculator in parts.", ["cal cu la tor", "cal-cu-la-tor", "calculator:4"], "Say discovery in parts.", ["dis cov er y", "dis-cov-er-y", "discovery:4"]),
+    pair("Say computer in parts.", ["com pu ter", "com-pu-ter"], "Say tomato in parts.", ["to ma to", "to-ma-to"]),
     pair("Say sunlight without sun.", ["light"], "Say playground without play.", ["ground"]),
     pair("What vowel sound do you hear in brown?", ["ow", "ou", "/ou/", "/aʊ/"], "What vowel sound do you hear in coin?", ["oi", "oy", "/oi/", "/ɔɪ/"]),
     pair("Blend /s/ /p/ /l/ /i/ /t/.", ["split"], "Blend /s/ /t/ /r/ /a/ /p/.", ["strap"]),
     pair("Tell me every sound in plant.", ["p l a n t", "/p/ /l/ /a/ /n/ /t/"], "Tell me every sound in crust.", ["c r u s t", "k r u s t", "/k/ /r/ /u/ /s/ /t/"]),
-    pair("Say skate without /s/.", ["Kate", "kate"], "Say train without /t/.", ["rain"]),
+    pair("Say spill without /s/.", ["pill"], "Say bread without /b/.", ["red"]),
     pair("Say plant without /l/.", ["pant"], "Say blend without /l/.", ["bend"]),
     pair("Change the /b/ in brag to /d/. What word now?", ["drag"], "Change the /t/ in track to /k/. What word now?", ["crack"]),
     pair("Change the /r/ in brush to /l/. What word now?", ["blush"], "Change the /l/ in glass to /r/. What word now?", ["grass"]),
     pair("Change the /g/ in bag to /t/. What word now?", ["bat"], "Change the /d/ in road to /m/. What word now?", ["roam"])
   ]),
   "2-MOY": Object.freeze([
-    pair("Say celebration in parts.", ["cel e bra tion", "cel-e-bra-tion", "celebration:4"], "Say remembered in parts.", ["re mem bered", "re-mem-bered", "remembered:3"]),
+    pair("Say visitor in parts.", ["vis i tor", "vis-i-tor"], "Say remembered in parts.", ["re mem bered", "re-mem-bered", "remembered:3"]),
     pair("Say preview without pre.", ["view"], "Say rebuild without re.", ["build"]),
     pair("What vowel sound do you hear in cloud?", ["ou", "ow", "/ou/", "/aʊ/"], "What vowel sound do you hear in point?", ["oi", "oy", "/oi/", "/ɔɪ/"]),
     pair("Blend /s/ /t/ /r/ /e/ /ch/.", ["stretch"], "Blend /s/ /k/ /r/ /a/ /p/.", ["scrap"]),
     pair("Tell me every sound in trust.", ["t r u s t", "/t/ /r/ /u/ /s/ /t/"], "Tell me every sound in blend.", ["b l e n d", "/b/ /l/ /e/ /n/ /d/"]),
-    pair("Say skate without /s/.", ["Kate", "kate"], "Say train without /t/.", ["rain"]),
+    pair("Say flight without /f/.", ["light"], "Say prize without /p/.", ["rise"]),
     pair("Say plant without /l/.", ["pant"], "Say crash without /r/.", ["cash"]),
     pair("Change the /p/ in plan to /k/. What word now?", ["clan"], "Change the /b/ in brag to /d/. What word now?", ["drag"]),
     pair("Change the /r/ in brush to /l/. What word now?", ["blush"], "Change the /l/ in slip to /k/. What word now?", ["skip"]),
     pair("Change the /d/ in slide to /m/. What word now?", ["slime"], "Change the /n/ in rain to /d/. What word now?", ["raid"])
   ]),
   "2-EOY": Object.freeze([
-    pair("Say communication in parts.", ["com mu ni ca tion", "com-mu-ni-ca-tion", "communication:5"], "Say imagination in parts.", ["i mag i na tion", "i-mag-i-na-tion", "imagination:5"]),
+    pair("Say helicopter in parts.", ["hel i cop ter", "hel-i-cop-ter"], "Say calculator in parts.", ["cal cu la tor", "cal-cu-la-tor"]),
     pair("Say disagreement without dis.", ["agreement"], "Say rereading without re.", ["reading"]),
     pair("What vowel sound do you hear in cloud?", ["ou", "ow", "/ou/", "/aʊ/"], "What vowel sound do you hear in point?", ["oi", "oy", "/oi/", "/ɔɪ/"]),
     pair("Blend /s/ /k/ /r/ /a/ /p/.", ["scrap"], "Blend /s/ /p/ /l/ /i/ /t/.", ["split"]),
-    pair("Tell me every sound in crust.", ["c r u s t", "k r u s t", "/k/ /r/ /u/ /s/ /t/"], "Tell me every sound in plant.", ["p l a n t", "/p/ /l/ /a/ /n/ /t/"]),
-    pair("Say skate without /s/.", ["Kate", "kate"], "Say train without /t/.", ["rain"]),
+    pair("Tell me every sound in strand.", ["s t r a n d", "/s/ /t/ /r/ /a/ /n/ /d/"], "Tell me every sound in splint.", ["s p l i n t", "/s/ /p/ /l/ /i/ /n/ /t/"]),
+    pair("Say spout without /s/.", ["pout"], "Say crease without /k/.", ["Reese", "reese"]),
     pair("Say plant without /l/.", ["pant"], "Say crash without /r/.", ["cash"]),
     pair("Change the /k/ in crab to /g/. What word now?", ["grab"], "Change the /t/ in track to /k/. What word now?", ["crack"]),
     pair("Change the /r/ in brush to /l/. What word now?", ["blush"], "Change the /l/ in slip to /k/. What word now?", ["skip"]),
@@ -141,8 +141,8 @@ export const EL_PARALLEL_ENCODING_CONTENT = Object.freeze({
     ["bus", "The bus is here.", [], "gum", "The gum is pink.", []]
   ],
   "K-MOY": [
-    ["ham", "We had ham for lunch.", [], "van", "The van is blue.", []],
-    ["pen", "Use the red pen.", [], "jet", "The jet is fast.", []],
+    ["ham", "We had ham for lunch.", [], "tap", "Turn off the tap.", []],
+    ["pen", "Use the red pen.", [], "peg", "Hang it on a peg.", []],
     ["fin", "The fish has a fin.", [], "zip", "Zip the bag.", []],
     ["box", "Put it in the box.", ["boks"], "fox", "The fox ran.", ["foks"]],
     ["bun", "The bun is soft.", [], "cub", "The bear cub slept.", []],
@@ -164,8 +164,8 @@ export const EL_PARALLEL_ENCODING_CONTENT = Object.freeze({
     ["chop", "Chop the carrots.", [], "moth", "A moth landed.", []],
     ["rush", "Do not rush.", [], "such", "It was such a surprise.", []],
     ["path", "Stay on the path.", [], "cash", "Put the cash away.", []],
-    ["clap", "Clap your hands.", [], "plan", "We made a plan.", []],
-    ["frog", "The frog jumped.", [], "drop", "A drop fell.", []],
+    ["clap", "Clap your hands.", [], "grab", "Grab the rope.", []],
+    ["frog", "The frog jumped.", [], "plot", "We have a small garden plot.", []],
     ["sand", "The sand felt warm.", [], "lamp", "Turn on the lamp.", []],
     ["pink", "The shell is pink.", [], "silk", "The silk felt smooth.", []],
     ["last", "I came last.", [], "camp", "We set up camp.", []]
@@ -204,16 +204,16 @@ export const EL_PARALLEL_ENCODING_CONTENT = Object.freeze({
     ["reader", "The reader chose a book.", [], "sailor", "The sailor tied a rope.", []],
     ["cheerful", "The class felt cheerful.", ["cheerfull"], "dreamless", "It was a dreamless sleep.", ["dreemless"]],
     ["misplace", "Do not misplace the key.", [], "inside", "Wait inside the hall.", []],
-    ["quietly", "We walked quietly.", [], "deeply", "The child breathed deeply.", []],
+    ["neatly", "We stacked the books neatly.", [], "deeply", "The child breathed deeply.", []],
     ["sadness", "The story showed sadness.", [], "softness", "Feel the softness.", []],
     ["preheat", "Please preheat the oven.", [], "repaint", "We will repaint the wall.", []],
     ["fearful", "The rabbit seemed fearful.", ["feerful"], "harmful", "The smoke is harmful.", ["harmfull"]],
-    ["payment", "The payment was due.", ["paiment"], "treatment", "The treatment helped.", []]
+    ["payment", "The payment was due.", ["paiment"], "treatment", "The treatment helped.", [], { b: ["suffix", "vowel_team"], c: ["suffix", "vowel_team"] }]
   ],
   "2-EOY": [
     ["departure", "The departure was delayed.", [], "furniture", "The furniture was moved.", []],
     ["misbehave", "The puppies may misbehave.", [], "disappear", "The tracks may disappear.", []],
-    ["unhelpful", "The clue was unhelpful.", [], "disagreement", "The disagreement ended.", []],
+    ["unhelpful", "The clue was unhelpful.", [], "disagreement", "The disagreement ended.", [], { b: ["prefix", "suffix", "multisyllable"], c: ["prefix", "suffix", "multisyllable"] }],
     ["appointment", "The appointment is today.", ["apointment"], "employment", "The job offered employment.", []],
     ["incorrect", "That answer is incorrect.", [], "impatient", "The child felt impatient.", []],
     ["celebration", "The celebration began.", ["celebrashun"], "operation", "The operation was careful.", ["operashun"]],
@@ -224,11 +224,11 @@ export const EL_PARALLEL_ENCODING_CONTENT = Object.freeze({
 
 export const EL_PARALLEL_DECODING_WORDS = Object.freeze({
   b: Object.freeze({
-    middle_pre: ["at", "is", "in", "it", "ox", "us", "ran", "tap"],
+    middle_pre: ["at", "if", "in", "it", "on", "up", "ran", "tap"],
     early_partial: ["dad", "lap", "net", "yes", "rib", "pot", "hut", "mug"],
     middle_partial: ["tack", "fell", "miss", "lock", "luck", "tax", "fuzz", "quiz"],
     late_partial: ["shop", "chip", "with", "when", "spin", "glad", "pond", "mask"],
-    early_full: ["shift", "chimp", "think", "whilst", "split", "trust", "spent", "frost"],
+    early_full: ["shift", "chimp", "think", "chomp", "split", "trust", "spent", "frost"],
     middle_full: ["late", "five", "bone", "rule", "wait", "team", "soap", "gray"],
     late_full: ["fork", "herd", "third", "curl", "boil", "toy", "mouth", "broom"],
     early_consolidated: ["sunfish", "muffin", "cactus", "bathtub", "magnet", "robin", "singer", "rested"],
@@ -240,7 +240,7 @@ export const EL_PARALLEL_DECODING_WORDS = Object.freeze({
     early_partial: ["dam", "cap", "men", "vet", "dip", "sob", "fun", "nut"],
     middle_partial: ["pack", "sell", "fill", "rock", "tuck", "max", "muff", "quill"],
     late_partial: ["shut", "chop", "bath", "whim", "frog", "clap", "tent", "soft"],
-    early_full: ["fresh", "lunch", "thump", "wharf", "strap", "drift", "grand", "blast"],
+    early_full: ["fresh", "lunch", "thump", "shrink", "strap", "drift", "grand", "blast"],
     middle_full: ["made", "like", "rose", "huge", "train", "green", "goal", "clay"],
     late_full: ["short", "term", "girl", "hurt", "coin", "joy", "house", "food"],
     early_consolidated: ["sunset", "rabbit", "napkin", "backpack", "insect", "tiger", "painter", "hunted"],
@@ -253,11 +253,11 @@ const passage = (title, text) => Object.freeze({ title, text });
 
 export const EL_PARALLEL_FLUENCY_CONTENT = Object.freeze({
   b: Object.freeze({
-    middle_pre: passage("Ben and the Red Hen", "Ben had a red hen. The hen sat in a pen. Ben put a pan by the pen. The hen ran to the pan and had a sip. Ben sat on a log. The hen ran to Ben. Ben can pat the hen. The hen can hop and run. It can peck at a bug. Ben and the hen had fun in the sun. At last, the hen went back to the pen. Ben shut the pen and put the pan by a big rock. Then Ben and the red hen had a nap."),
-    early_partial: passage("The Lost Sock", "Meg has a red sock and a black sock. She puts them on the bed, but the red sock slips off. Meg checks the rug and the box by the desk. The sock is not there. Her dog, Pip, runs past with a lump in his mouth. Meg calls Pip back. He drops the red sock on the mat. It is damp but not torn. Meg rubs it with a cloth and clips it by the fan. Pip sits by the bed and wags his tail. Meg pats him, then puts both socks in the top desk drawer."),
-    middle_partial: passage("The Class Plant", "Bran brings a small plant to class. The plant has a thick stem and six flat leaves. Miss Grant sets it on a shelf near the glass. Each child gets a task. Fran fills a jug. Scott checks the soil. Kim clips a bent leaf from the stem. At lunch, a gust slips through the open window. The plant tips, but Bran grabs the pot. The class claps. They set the pot back and prop it with a block. Then they shut the window. The plant stands firm, and the class gets back to its jobs."),
-    late_partial: passage("Lunch by the Pond", "Beth and Frank trek to a pond for lunch. They spread a cloth on the grass and set down fresh bread, crisp snacks, and a flask. A frog jumps from a thick clump of reeds. It splashes, then rests on a flat rock. Frank spots a small fish flash past the bank. Beth points to three ducklings as they drift behind a duck. A strong wind lifts the cloth. Beth grips one end while Frank stacks the lunch bags on the next. When the wind drops, they sit and chat. The frog gives one last splash before they pack up."),
-    early_full: passage("A Kite at the Lake", "Grace takes a bright kite to the lake. A soft breeze moves through the pine trees, so she finds a wide place beside the path. She holds the line while Jake lifts the kite. On the third try, the breeze takes it high. The long tail waves over the reeds. Grace gives Jake a turn with the line. A white bird glides past the kite, then lands near the shore. Dark clouds begin to rise, and drops spot the path. Grace and Jake wind the line, fold the kite, and race home. They place it by the stove to dry for the next fine day."),
+    middle_pre: passage("The Map in the Bag", "Ben has a map in a bag. He puts the bag on a bed. A cat sits on the bag. Ben pats the cat. The cat hops off, and Ben gets the map. It has a red dot on it. Ben can tap the dot. The dot is by a hut. Ben can see the hut from his home. He puts the map in the bag. Then he gets his cap. Ben and his dad can go to the hut. The cat has a nap on the bed."),
+    early_partial: passage("The Mud on the Rug", "Pam has a tan rug by a red mat. Her dog runs in with mud on his legs. He sits on the rug. Pam gets a rag and a tub. She can rub the mud off the dog. Her mom can help with the rug. They put the wet rug in the sun. Pam has a pet bed for the dog. He sits in it and has a nap. The rug can dry in the sun. Pam puts the rag by the tub and sits with her dog."),
+    middle_partial: passage("The Duck in the Box", "Ross has a duck that likes to sit in a box. The box has a soft pad in it. One day, the duck gets wet. Ross puts a thick cloth in the box and sets it by the sun. The duck hops in and gives a little quack. Ross sits on a log to watch. A bug lands on his neck. He flicks it off. The duck comes out to peck at the bug. Soon the duck goes back in the box. Ross shuts the gate so the duck can rest."),
+    late_partial: passage("The Flag at Camp", "Glen and Kim help put up a flag at camp. Glen grips the pole while Kim clips the flag to it. A strong gust makes the flag flap. The pole tips, and Glen calls for help. Kim fetches Dad. He digs a deep hole and sets the pole in it. Glen packs mud by the pole to hold it still. Then Kim tugs on the flag. This time the pole stands firm. They step back to check their work. The flag snaps in the wind as the rest of the group come to camp. Dad nods."),
+    early_full: passage("A Shelter for the Plants", "A gust of wind bends the stems in the class plant bed. The class plans a shelter to block the wind. Trent brings thick sticks, and Beth gets a strip of mesh. They press the sticks into the mud and stretch the mesh from end to end. At first, the mesh sags. Beth lifts it while Trent clips it to each stick. Then they add a strip at the back. The next gust hits the mesh, but the plants stay still. The class checks that light and rain can still reach the bed. Their small shelter has done its job."),
     middle_full: passage("The Boat Race", "Three teams meet beside the stream to test small boats. Mia makes a green boat from folded card. Jose uses a wide leaf, and Ruby shapes one from clay. They place each boat behind a stone line. At the same time, they let go. The leaf boat rides the fast stream first. Mia's card boat follows, but a wave turns it sideways. The clay boat moves slowly and sinks near a reed. Jose cheers when the leaf reaches the bridge. The teams make notes about shape and weight. Then they trade materials and create new boats for one more careful race. Each team hopes to improve."),
     late_full: passage("The Storm Lantern", "During a summer storm, Nora hears thunder roll beyond the farm. Rain pounds the roof, and the power turns off. Her father finds a lantern in the hall cupboard. Nora carries it to the porch while he checks the doors. The warm light makes a golden circle around them. A branch has fallen across the garden path, but the young trees are safe. They hear a frightened bird flutter under a chair. Nora sets a dry towel near it and steps back. Soon the bird darts toward the barn. When the storm moves north, the moon shines through a break in the clouds, and the lights return. Everyone feels calm again."),
     early_consolidated: passage("Building a Bird Table", "The children want to watch birds from their classroom window, so they decide to build a feeding table. First, they measure a square board and mark the center. Their teacher helps them attach four short rails around the edge. Two children sand the rough corners while another team paints the wooden post. When every part is dry, they fasten the board on top. Outside, they press the post deep into the garden soil. They scatter seeds, crushed nuts, and small pieces of apple on the table. The next morning, a blackbird lands first. Sparrows follow and share the food. The class records each visitor in a notebook and plans to refill the table every Friday."),
@@ -265,11 +265,11 @@ export const EL_PARALLEL_FLUENCY_CONTENT = Object.freeze({
     late_consolidated: passage("Why Wetlands Matter", "Wetlands may look like muddy, unimportant places, but they perform several remarkable jobs. During heavy rain, wetland plants slow the moving water and reduce flooding downstream. Their tangled roots also trap soil that might otherwise wash into rivers. This filtration creates cleaner water for fish, birds, insects, and nearby communities. Wetlands provide shelter and breeding areas for many animals, including species that cannot survive elsewhere. Unfortunately, construction and pollution have destroyed large wetland areas. Restoration teams can reverse some damage by reopening natural channels, removing waste, and planting native reeds. Protecting these environments is practical as well as responsible because a healthy wetland supports wildlife while making the surrounding landscape safer for people. Careful monitoring helps communities recognize improvements and respond quickly when new threats appear." )
   }),
   c: Object.freeze({
-    middle_pre: passage("Tom and the Pup", "Tom sat on a rug with his pup. The pup had a red cap. It ran to a box and put the cap in it. Tom got the cap and put it on his lap. The pup ran back and sat by Tom. Tom can rub the pup. The pup can nap, dig, and run. It dug in the mud, then ran in the sun. Tom had a rag, so he got the mud off the pup. At last, Tom and the pup sat on the rug. Tom put the red cap on, and the pup had a nap."),
-    early_partial: passage("A Duck in the Yard", "Sam spots a duck in the back yard. The duck pecks at a patch of grass and dips its bill in a tub. Sam shuts the gate so it cannot run to the road. His mum brings a dish of water and a box with a soft rag. The duck flaps when a cat comes past the fence. Sam claps, and the cat trots off. Soon a man from the next farm comes to get the duck. He checks its tag and thanks Sam. The duck hops into his truck, and Sam lifts the latch to let them out."),
-    middle_partial: passage("The Windy Picnic", "The class plans a picnic on the grass. Jess brings a basket of snacks. Greg brings cups and a flask. They spread a cloth beside a bench and stack the cups in a box. A strong gust hits the cloth. The cups flip and roll down the path. Jess grabs the flask while Greg and the rest run after the cups. One cup gets stuck in a clump of plants. Another lands by the pond. When every cup is back, Miss Bell clips the cloth to the basket. The class sits on the bench, shares the snacks, and laughs about the quick cup hunt."),
-    late_partial: passage("The Crab in the Sand", "Chris and Ruth walk along a stretch of wet sand. They spot a crab tucked beneath a flat shell. Chris bends down, but Ruth asks him not to touch it. The crab lifts one claw and shifts back into the sand. A strong wave rushes up the beach and fills the small trench beside it. The crab scuttles toward a clump of dark rocks. Chris and Ruth step back and watch it slip through a crack. They sketch the shell and the tracks in a pad. Then they brush the sand from their hands and trek back to camp before the next big wave."),
-    early_full: passage("The Brave Goat", "Rose and Mike hike beside a wide field. Near the gate, they hear a faint cry from a stone ditch. A small white goat has pushed through the fence and cannot climb back. Rose stays by the ditch while Mike runs to find the farmer. The farmer brings a rope and makes a safe loop. He guides the goat up the slope, then checks its legs. The goat is fine. It shakes, takes a bite of grass, and trots toward the herd. Rose helps mend the loose wire with bright tape. Before they leave, the farmer gives them a note to thank them for making a wise choice."),
+    middle_pre: passage("The Red Cap", "Meg has a red cap. She puts it on a bed. Her cat sits on the cap. Meg can pat the cat, but the cat will not get up. Meg gets a cup. She puts it on a mat for the cat. The cat gets up and has a sip. Meg can get the cap. She puts it on and sits by the cat. The cat is on the mat. Meg can rub its back. Then the cat has a nap, and Meg sits in the sun."),
+    early_partial: passage("The Hen and the Cup", "Jen has a hen in a pen. Each day, Jen puts a cup of food in the pen. The hen can peck at it. One day, the cup is not in the pen. Jen looks by a log and in a tub. She can see a red cup, but it is not the hen's cup. Her dad has it. He can fill it and put it back. Jen pats the hen. The hen has its food. Jen and her dad sit on the log as the sun sets."),
+    middle_partial: passage("The Picnic Sack", "Nell has a sack with six buns in it. She puts the sack by a rock. Dad has a cup and a pot of jam. They sit on a log for a picnic. A gust hits the sack, and a bun tips out. It lands in the grass. Nell picks it up, but it has mud on it. She puts that bun in a box to take home. Dad gets a clean bun from the sack. Nell has jam on her bun. They pack the cups and put the box back in the sack."),
+    late_partial: passage("The Frog by the Bench", "Ruth and Jim sit on a bench by the pond. A small frog hops from the grass to a flat rock. Jim bends to look at it. Ruth asks him to stay back so the frog can rest. They spot its thin legs and wide mouth. Jim gets a pad from his bag and sketches the frog. A duck swims past with a splash. The frog jumps into the pond. Ruth and Jim watch it swim to the far bank. Then they put the pad in the bag and head back up the path to class."),
+    early_full: passage("The Track in the Sand", "Frank and Ash spot a track in the sand by the pond. A thin line runs between two sets of prints. They crouch to look but do not touch it. Ash thinks a bird made the track. Frank points to the line in the middle. Could it be a tail mark? They scan the bank and find a small lizard by a stump. It darts into a crack, leaving a fresh track. Ash checks the new prints against the first set. They match. Frank sketches the tracks in a pad so the class can discuss what made the tracks in the sand."),
     middle_full: passage("A Day at the Beach", "Kai and Elena reach the beach before the tide is high. They carry a striped shade, two spades, and a pail. Kai digs a deep channel while Elena shapes a round wall of sand. Small waves creep closer and fill the channel. They place shells along the wall and make a gate for the water. A larger wave breaks through and flattens one side. Instead of giving up, they study the marks and build a wider base. Their next wall stays firm through three waves. When the tide begins to fall, they smooth the sand, gather their things, and stroll home along the coast. They smile."),
     late_full: passage("The Bird Count", "Early on Saturday, Priya joins a bird count in the park. Her group follows a curved path through tall ferns and around a quiet pond. At first, they hear only the chirp of a sparrow. Then two bright finches swoop toward a feeder. Priya records each kind and the number seen. Near the north gate, a woodpecker drums against an old tree. Farther along, a heron stands in shallow water and watches for fish. The group pauses under an oak to compare notes. Their careful count will help the park team learn which birds return each season and which habitats need more protection. They plan another count in early spring."),
     early_consolidated: passage("Testing Paper Towers", "Each science team receives ten sheets of paper and a short strip of tape. Their challenge is to build the tallest tower that can hold a small book. At first, one team stacks folded sheets, but the tower bends quickly. Another team rolls paper into tubes and joins three tubes at the base. Their structure stands longer, although the top still leans. The children compare both designs and notice that wide bases provide better support. They rebuild the second tower with four tubes below and two above. This time, the book remains balanced for a full minute. Everyone sketches the final design, labels the strongest parts, and explains how testing helped improve the tower. Success!"),
