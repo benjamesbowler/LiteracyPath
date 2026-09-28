@@ -1,8 +1,10 @@
 # Present mode: weekly classroom lessons
 
-Present offers five teacher-led lessons of about 15 minutes for every numbered
-EL cycle. Monday is selected initially. The whole-cycle option remains a resource
-collection, not a timed daily lesson. Assessment weeks retain their separate decks.
+Present offers five teacher-led lessons for each of the 27 numbered EL cycles,
+with three formats: Daily lesson (15 minutes), Explore further (25 minutes), and
+Quick revisit (8 minutes). This gives 405 cycle/day/format choices. Monday is
+selected initially. The whole-cycle option remains an untimed resource collection;
+assessment weeks retain their separate decks.
 
 ## Curriculum and sources
 
@@ -23,7 +25,8 @@ assigns N to Monday and I to Tuesday. Present follows the live app sequence.
 
 ## Daily teaching contract
 
-Each daily deck and its teacher plan share five activity budgets:
+Each daily deck and its private teacher plan share five activity budgets. The
+Daily lesson uses the following windows:
 
 | Activity | Minutes | Purpose |
 | --- | --- | --- |
@@ -32,6 +35,12 @@ Each daily deck and its teacher plan share five activity budgets:
 | High-frequency words | 3 | Read, spell, use in speech, then write from memory and compare |
 | Apply | 4 | Taught-word application, dictation and supported shared writing |
 | Show what you know | 2 | Everyone responds; sample individuals and identify what needs reteaching |
+
+Explore further allocates 3, 7, 5, 7 and 3 minutes to those same blocks. It adds
+word building, a one-part word change where the taught code permits a valid pair,
+supported sentence tracking, and a second oral-language card. Quick revisit uses
+1, 2, 2, 2 and 1 minutes, selecting a shorter retrieval sequence without formation
+animations or shared sentence composition.
 
 Timings include interaction and feedback; they are teaching budgets, not measured
 classroom durations or slide-count estimates. The projected pacing label identifies
@@ -53,9 +62,17 @@ the current block's window. A teacher may pause, model again, or shorten a repea
   Pictures support meaning, not guessing an unknown printed word.
 - Sentence application accepts any meaningful use of the taught word. Its example
   is a teaching model, never a uniquely scored answer.
-- Word blending stays within the cycle's taught code. Later pattern cycles have
-  explicit spelling-part reading; a spelling part can represent multiple sounds.
+- Word blending and word changes stay within code introduced by the selected
+  day, including the day of a new digraph or word ending. Regular short-vowel
+  examples come from a curated bank; letter membership alone is insufficient.
+  Later pattern cycles have explicit spelling-part reading. A spelling part can
+  represent multiple sounds; `x` is excluded from one-sound-per-letter examples.
 - High-frequency words retain their authored case, including the pronoun `I`.
+- The 54 oral-language cards in `presentVocabulary.js` provide two distinct
+  words per cycle, each with a meaning, question, model and extension prompt.
+  They reuse current shared artwork and recorded word audio. Later weekdays
+  revisit the words with a deeper question; these are adult-supported language
+  tasks, not independent reading or scored comprehension items.
 - Answers are hidden visually and from accessibility until revealed. Writing
   prompts withhold the spelling until children have attempted it.
 - Recaps and group responses do not create scores or formal mastery judgements.
@@ -63,19 +80,33 @@ the current block's window. A teacher may pause, model again, or shorten a repea
 
 ## Implementation and verification
 
-`presentationBuilder.js` owns daily plans, lesson assembly, teacher guidance and
-projected content. `PresentPage.jsx` shows the same plan and previews the actual
-deck in a same-origin `srcdoc` iframe. `public/present/deck.js` handles scaling,
-projection, answer reveals, thinking time and navigation. `present.css` styles
-the teacher picker.
+`presentationBuilder.js` owns daily plans, lesson assembly, private teacher
+metadata and projected content. `PresentPage.jsx` uses that single assembly for
+its searchable slide outline, interactive preview, support/extension guidance
+and printable lesson plan. The teacher can start from any selected slide.
+Teacher notes are removed from the projector HTML, including dictation targets.
+The preview and popup report navigation back to the teacher workspace.
 
-The fixed 1920×1080 stage scales to the screen. Child-decoded glyphs use Andika;
-chrome uses the existing display fonts. Asset references, audio and stroke models
+`public/present/deck.js` handles scaling, ordered word-building input, spelling
+emphasis during guided blending, teacher-controlled sentence tracking, formation,
+answer reveals, silent thinking time, a slide chooser, screen pause, fullscreen
+and keyboard navigation. Audio and running animations stop on navigation or
+screen pause. Native button activation takes priority over deck shortcuts.
+`present.css` styles the responsive teacher workspace and printable notes.
+
+The fixed 1920×1080 stage scales to the screen. Child-decoded glyphs use the
+self-hosted Andika regular/bold files in `public/fonts/present/`, with their OFL
+licence. Chrome uses the existing display fonts. Motion demonstrates formation,
+spelling sequence or the current spoken word; decorative looping was removed.
+Reduced-motion preferences suppress nonessential transitions. Asset references, audio and stroke models
 continue to come from current shared sources. Popup decks keep their same-origin
 external script for CSP compatibility.
 
-Behavioural coverage checks all 135 cycle/day combinations for complete timed
-blocks, consistent preview indexing, word coverage, varied warm-ups, retained
-letter-day assignments and assessment-week separation. Browser checks must also
-exercise the real picker, projector, new slide types, reveals and keyboard controls;
-mechanical checks do not establish observed classroom pacing.
+Unit coverage checks all 405 daily choices for complete budgets, consistent
+preview indexing, format-specific content and assessment separation. It checks
+all 54 vocabulary cards and their media, retained letter-day assignments and
+representative day boundaries for new spellings. Browser checks exercise the
+real picker at desktop/tablet/phone widths, projector controls under CSP, private
+notes, popup recovery, all new activities, printed notes and representative
+stage fit. Automated and rendered checks do not establish observed classroom
+pacing, physical projector/iPad behaviour or human listening evidence.

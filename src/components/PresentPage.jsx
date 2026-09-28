@@ -1,378 +1,364 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { TeacherPageShell, TeacherPageHeader, TeacherFilterBar } from "./teacher/ui/TeacherPrimitives.jsx";
+import { PRESENT_COPY as COPY } from "../copy/teacherCopy.js";
 import {
   presentationCycleOptions,
   getPresentationCycle,
   buildCyclePresentation,
   openCyclePresentation,
   presentationCycleDisplayTitle,
-  presentationSlideIndex,
   PRESENTATION_DAYS,
+  PRESENTATION_FORMATS,
   presentationDayPlan
 } from "../utils/present/presentationBuilder.js";
 import "../styles/worksheets.css";
 import "../styles/present.css";
 
 const LAST_PRESENTED_KEY = "lp-present-last";
-
-// Slide class -> the word a teacher would use for it. Kept here rather than in
-// the builder so the deck stays free of picker vocabulary.
-const SLIDE_LABELS = {
-  "p-cover": "Cover",
-  "p-pattern-read": "Read the pattern",
-  "p-sound-hunt": "Sound hunt",
-  "p-word-recall": "Spell from memory",
-  "p-application": "Dictation",
-  "p-word-apply": "Use a word",
-  "p-exit-check": "Quick check",
-  "p-goal-slide": "Goal",
-  "p-letter-slide": "Sound",
-  "p-writing": "Write it",
-  "p-sound-review": "Sound check",
-  "p-blend": "Blend",
-  "p-sight-slide": "Word practice",
-  "p-phoneme": "Warm-up",
-  "p-together": "Together",
-  "p-books-slide": "Books",
-  "p-routines-slide": "This week",
-  "p-close": "Close"
-};
+const EMPTY_SLIDES = [];
+const SLIDE_LABELS = COPY.slideLabels;
 
 function slideLabel(entry) {
-  const key = String(entry.cls || "").split(/\s+/).find(c => SLIDE_LABELS[c]);
-  return SLIDE_LABELS[key] || entry.section || "Slide";
+  const key = String(entry?.cls || "").split(/\s+/).find(name => SLIDE_LABELS[name]);
+  return SLIDE_LABELS[key] || entry?.section || COPY.slideFallback;
 }
 
 function lastPresentedCycle(options) {
   try {
     const last = window.localStorage.getItem(LAST_PRESENTED_KEY);
-    if (last && options.some(opt => opt.id === last)) return last;
+    if (last && options.some(option => option.id === last)) return last;
   } catch {
-    // localStorage unavailable (private mode) - fall through to the default.
+    // The current class still works when browser storage is unavailable.
   }
   return "";
 }
 
-// The five teaching days plus the whole-cycle deck, as a grid the teacher can
-// hit with one tap. The old <select> hid the fact that a day deck is a
-// different, shorter lesson - the slide counts make that visible.
-const DAY_TILES = PRESENTATION_DAYS
-  .filter(option => option.value)
-  .map(option => ({ value: option.value, short: option.label.slice(0, 3) }));
+const DAY_TILES = PRESENTATION_DAYS.filter(option => option.value);
 
-// The preview iframe is the real deck (same-origin srcdoc); deck.js follows
-// the thumbnail rail via postMessage when it detects it is framed. Posted on
-// every preview change AND on iframe load, so a rebuilt deck still lands on
-// the selected slide.
 function postPreviewToFrame(frame, index) {
-  if (!frame || !frame.contentWindow) return;
+  if (!frame?.contentWindow) return;
   try {
     frame.contentWindow.postMessage({ type: "lp-present-show", index }, window.location.origin);
   } catch {
-    // The frame is mid-navigation - the onLoad re-post covers it.
+    // The frame's load event retries after a lesson change.
   }
 }
 
-export function PresentPage({
-  className = "",
-  currentCycleId = "",
-  onBack
-}) {
+function PrintLessonPlan({ cycleTitle, dayLabel, formatLabel, lessonPlan, slideIndex }) {
+  if (typeof document === "undefined") return null;
+  return createPortal(
+    <article className="pr-print-plan" aria-label={COPY.printRegion}>
+      <header>
+        <p>{COPY.printBrand}</p>
+        <h1>{cycleTitle}</h1>
+        <h2>{COPY.dayTitle(dayLabel, lessonPlan.title)}</h2>
+        <p>{COPY.printSummary(formatLabel, lessonPlan.minutes, slideIndex.length)}</p>
+      </header>
+      {lessonPlan.focus && <p><strong>{COPY.printFocus}</strong> {lessonPlan.focus}</p>}
+      <p><strong>{COPY.prepare}</strong> {lessonPlan.preparation}</p>
+      <ol className="pr-print-blocks">
+        {lessonPlan.blocks.map(block => (
+          <li key={block.id}>
+            <h3>{COPY.printBlock(block.label, block.minutes)}</h3>
+            <p>{block.guidance}</p>
+          </li>
+        ))}
+      </ol>
+      {lessonPlan.support && <p><strong>{COPY.printSupport}</strong> {lessonPlan.support}</p>}
+      {lessonPlan.stretch && <p><strong>{COPY.printStretch}</strong> {lessonPlan.stretch}</p>}
+      <h2>{COPY.printNotes}</h2>
+      <ol className="pr-print-slides">
+        {slideIndex.map(entry => (
+          <li key={entry.index}>
+            <strong>{entry.title || slideLabel(entry)}</strong>
+            <span>{entry.blockLabel || entry.section || slideLabel(entry)}</span>
+            {entry.teacher && <p>{entry.teacher}</p>}
+          </li>
+        ))}
+      </ol>
+      <footer>{COPY.printFootnote}</footer>
+    </article>,
+    document.body
+  );
+}
+
+export function PresentPage({ className = "", currentCycleId = "", onBack }) {
   const cycleOptions = useMemo(() => presentationCycleOptions(), []);
-  const teachingCycles = useMemo(
-    () => cycleOptions.filter(option => option.type !== "assessment"),
-    [cycleOptions]
-  );
-  const assessmentWeeks = useMemo(
-    () => cycleOptions.filter(option => option.type === "assessment"),
-    [cycleOptions]
-  );
+  const teachingCycles = useMemo(() => cycleOptions.filter(option => option.type !== "assessment"), [cycleOptions]);
+  const assessmentWeeks = useMemo(() => cycleOptions.filter(option => option.type === "assessment"), [cycleOptions]);
   const [cycleId, setCycleId] = useState(() =>
-    // The class's own current cycle wins: the teacher almost always wants the
-    // cycle their class is actually on, not the one they opened last month.
-    (currentCycleId && cycleOptions.some(o => o.id === currentCycleId) ? currentCycleId : "") ||
-    lastPresentedCycle(cycleOptions) ||
-    cycleOptions.find(opt => opt.cycleNumber)?.id ||
-    cycleOptions[0]?.id || ""
+    (currentCycleId && cycleOptions.some(option => option.id === currentCycleId) ? currentCycleId : "") ||
+    lastPresentedCycle(cycleOptions) || cycleOptions.find(option => option.cycleNumber)?.id || cycleOptions[0]?.id || ""
   );
   const [day, setDay] = useState("monday");
+  const [format, setFormat] = useState("core");
   const [preview, setPreview] = useState(0);
+  const [query, setQuery] = useState("");
   const [note, setNote] = useState("");
   const [fallbackUrl, setFallbackUrl] = useState("");
   const fallbackRef = useRef("");
   const frameRef = useRef(null);
-
+  const outlineRef = useRef(null);
   const cycle = useMemo(() => getPresentationCycle(cycleId), [cycleId]);
   const isAssessment = cycle?.type === "assessment";
   const effectiveDay = isAssessment ? "" : day;
-  const lessonPlan = useMemo(() => presentationDayPlan(cycleId, effectiveDay), [cycleId, effectiveDay]);
-
-  const slideIndex = useMemo(() => {
+  const deck = useMemo(() => {
     try {
-      return presentationSlideIndex(cycleId, { day: effectiveDay });
+      return buildCyclePresentation(cycleId, { day: effectiveDay, format });
     } catch {
-      return [];
+      return null;
     }
-  }, [cycleId, effectiveDay]);
-
-  const deckHtml = useMemo(() => {
-    try {
-      return buildCyclePresentation(cycleId, { day: effectiveDay }).html;
-    } catch {
-      return "";
-    }
-  }, [cycleId, effectiveDay]);
-
-  const dayCounts = useMemo(() => {
-    const out = { "": 0 };
-    for (const option of PRESENTATION_DAYS) {
-      try {
-        out[option.value] = buildCyclePresentation(cycleId, { day: option.value }).slideCount;
-      } catch {
-        out[option.value] = 0;
-      }
-    }
-    return out;
-  }, [cycleId]);
-
-  // The contents list is built from the SAME cycle record the deck reads, so it
-  // cannot drift from what actually projects.
+  }, [cycleId, effectiveDay, format]);
+  const lessonPlan = useMemo(() => {
+    if (!deck) return null;
+    return deck.lessonPlan || presentationDayPlan(cycleId, effectiveDay, { format });
+  }, [deck, cycleId, effectiveDay, format]);
+  const slideIndex = deck?.slideIndex || EMPTY_SLIDES;
+  const totalSlides = slideIndex.length;
+  const selectedIndex = Math.min(preview, Math.max(0, totalSlides - 1));
+  const current = slideIndex[selectedIndex];
+  const currentBlock = lessonPlan?.blocks.find(block => block.id === current?.block);
+  const selectedFormat = PRESENTATION_FORMATS.find(option => option.value === format) || PRESENTATION_FORMATS[0];
+  const cycleTitle = presentationCycleDisplayTitle(cycle);
+  const dayLabel = DAY_TILES.find(option => option.value === effectiveDay)?.label || "";
+  const filteredSlides = useMemo(() => {
+    const term = query.trim().toLowerCase();
+    if (!term) return slideIndex;
+    return slideIndex.filter(entry => [entry.index + 1, entry.title, entry.teacher, entry.blockLabel, entry.section, slideLabel(entry)]
+      .join(" ").toLowerCase().includes(term));
+  }, [slideIndex, query]);
   const contents = useMemo(() => {
     if (!cycle) return [];
     const rows = [];
-    const letters = (cycle.focusLetters || []).length ? cycle.focusLetters : cycle.reviewLetters || [];
-    const graphemes = letters.map(c => `${c.grapheme}${c.sound ? ` ${c.sound}` : ""}`).filter(Boolean);
-    if (graphemes.length) rows.push(["Sounds", graphemes.join(" · ")]);
-    if ((cycle.highFrequencyWords || []).length) rows.push(["High-frequency words", cycle.highFrequencyWords.join(" · ")]);
-    if ((cycle.phonemicAwareness || []).length) rows.push(["Warm-ups", cycle.phonemicAwareness.join(" · ")]);
-    const rec = cycle.guidedReadingRecommendations || {};
-    const books = [rec.fiction, rec.nonfiction].filter(Boolean).map(b => b.title);
-    if (books.length) rows.push(["Books", books.join(" · ")]);
-    if (cycle.friday) rows.push(["Friday", cycle.friday]);
+    const letters = cycle.focusLetters?.length ? cycle.focusLetters : cycle.reviewLetters || [];
+    const graphemes = letters.map(card => `${card.grapheme}${card.sound ? ` ${card.sound}` : ""}`).filter(Boolean);
+    if (graphemes.length) rows.push([COPY.resourceLabels.sounds, graphemes.join(" · ")]);
+    if (cycle.highFrequencyWords?.length) rows.push([COPY.resourceLabels.words, cycle.highFrequencyWords.join(" · ")]);
+    if (cycle.phonemicAwareness?.length) rows.push([COPY.resourceLabels.warmups, cycle.phonemicAwareness.join(" · ")]);
+    const books = [cycle.guidedReadingRecommendations?.fiction, cycle.guidedReadingRecommendations?.nonfiction]
+      .filter(Boolean).map(book => book.title);
+    if (books.length) rows.push([COPY.resourceLabels.books, books.join(" · ")]);
+    if (cycle.friday) rows.push([COPY.resourceLabels.friday, cycle.friday]);
     return rows;
   }, [cycle]);
 
+  useEffect(() => { postPreviewToFrame(frameRef.current, selectedIndex); }, [selectedIndex]);
+
   useEffect(() => {
-    postPreviewToFrame(frameRef.current, preview);
-  }, [preview]);
+    function receivePreview(event) {
+      if (event.source !== frameRef.current?.contentWindow || event.origin !== window.location.origin) return;
+      if (event.data?.type !== "lp-present-preview") return;
+      const index = event.data.index;
+      if (Number.isInteger(index) && index >= 0 && index < totalSlides) setPreview(index);
+    }
+    window.addEventListener("message", receivePreview);
+    return () => window.removeEventListener("message", receivePreview);
+  }, [totalSlides]);
+
+  useEffect(() => {
+    let channel;
+    try {
+      channel = new BroadcastChannel("lp-present-live");
+      channel.onmessage = event => {
+        const message = event.data;
+        if (message?.type !== "lp-present-slide" || message.deckKey !== `${cycleId}:${effectiveDay}:${format}`) return;
+        if (Number.isInteger(message.index) && message.index >= 0 && message.index < totalSlides) setPreview(message.index);
+      };
+    } catch {
+      // Preview and printed notes remain available without cross-window updates.
+    }
+    return () => channel?.close();
+  }, [cycleId, effectiveDay, format, totalSlides]);
+
+  useEffect(() => {
+    const outline = outlineRef.current;
+    const selected = outline?.querySelector('[aria-current="step"]');
+    if (!selected) return;
+    const itemBounds = selected.getBoundingClientRect();
+    const listBounds = outline.getBoundingClientRect();
+    if (itemBounds.top < listBounds.top || itemBounds.bottom > listBounds.bottom) {
+      outline.scrollTop += itemBounds.top - listBounds.top - outline.clientHeight / 2 + selected.clientHeight / 2;
+    }
+    if (itemBounds.left < listBounds.left || itemBounds.right > listBounds.right) {
+      outline.scrollLeft += itemBounds.left - listBounds.left - outline.clientWidth / 2 + selected.clientWidth / 2;
+    }
+  }, [selectedIndex, query]);
+
+  useEffect(() => {
+    function preparePrint() {
+      if (lessonPlan) document.body.classList.add("pr-printing");
+    }
+    function finishPrint() { document.body.classList.remove("pr-printing"); }
+    window.addEventListener("beforeprint", preparePrint);
+    window.addEventListener("afterprint", finishPrint);
+    return () => {
+      window.removeEventListener("beforeprint", preparePrint);
+      window.removeEventListener("afterprint", finishPrint);
+      finishPrint();
+    };
+  }, [lessonPlan]);
 
   function replaceFallbackUrl(url) {
-    if (fallbackRef.current) {
-      try {
-        URL.revokeObjectURL(fallbackRef.current);
-      } catch {
-        // Already revoked - nothing to clean up.
-      }
-    }
+    if (fallbackRef.current) URL.revokeObjectURL(fallbackRef.current);
     fallbackRef.current = url;
     setFallbackUrl(url);
   }
 
   useEffect(() => () => {
-    if (!fallbackRef.current) return;
-    try {
-      URL.revokeObjectURL(fallbackRef.current);
-    } catch {
-      // The browser already released it.
-    }
+    if (fallbackRef.current) URL.revokeObjectURL(fallbackRef.current);
   }, []);
 
-  function chooseCycle(nextCycleId) {
-    setCycleId(nextCycleId);
+  function resetSelection() {
     setPreview(0);
+    setQuery("");
     setNote("");
     replaceFallbackUrl("");
   }
 
-  function chooseDay(nextDay) {
-    setDay(nextDay);
-    setPreview(0);
-    setNote("");
-    replaceFallbackUrl("");
-  }
+  function chooseCycle(value) { setCycleId(value); resetSelection(); }
+  function chooseDay(value) { setDay(value); resetSelection(); }
+  function chooseFormat(value) { setFormat(value); resetSelection(); }
 
-  function handlePresent() {
+  function handlePresent(startIndex = 0) {
     setNote("");
     replaceFallbackUrl("");
     let result;
     try {
-      result = openCyclePresentation(cycleId, { day: effectiveDay });
+      result = openCyclePresentation(cycleId, { day: effectiveDay, format, startIndex });
     } catch {
-      setNote("We couldn't open that presentation. Your choice is still here. Try again.");
+      setNote(COPY.openFailed);
       return;
     }
-    try {
-      window.localStorage.setItem(LAST_PRESENTED_KEY, cycleId);
-    } catch {
-      // localStorage unavailable - last-used memory is a nice-to-have only.
-    }
+    try { window.localStorage.setItem(LAST_PRESENTED_KEY, cycleId); } catch { /* Optional browser memory. */ }
     if (!result.ok) {
-      setNote("Your browser blocked the pop-up window. Click the link below to open the presentation in a new tab, or allow pop-ups for this site and press Present again.");
+      setNote(COPY.popupBlocked);
       replaceFallbackUrl(result.url || "");
     }
   }
 
-  const totalSlides = slideIndex.length;
-  const current = slideIndex[Math.min(preview, Math.max(0, totalSlides - 1))];
-
   return (
-    <main className="ws-page pr-page" data-teacher-route="present">
-      <nav className="ws-route-nav" aria-label="Presentation navigation">
-        <button type="button" className="ws-back-link" onClick={onBack}>
-          ← Back to Resources
-        </button>
+    <TeacherPageShell className="ws-page pr-page" product="present" intent="resources" data-teacher-route="present">
+      <nav className="ws-route-nav" aria-label={COPY.navigation}>
+        <button type="button" className="ws-back-link" onClick={onBack}>{COPY.back}</button>
       </nav>
-
-      <header className="pr-head">
-        <div>
-          <h1>Present a cycle</h1>
-          <p>
-            {className ? `${className} is on ` : "Your class is on "}
-            <strong>{presentationCycleDisplayTitle(cycle)}</strong>. Pick a day and preview the deck before you project it.
-          </p>
-        </div>
+      <TeacherPageHeader className="pr-head" eyebrow={COPY.eyebrow(className)} title={COPY.title} description={COPY.description}>
         <div className="pr-head-actions">
-          <button type="button" className="ws-primary pr-present" onClick={handlePresent}>
+          {lessonPlan && <button type="button" className="pr-text-button" onClick={() => window.print()}>{COPY.print}</button>}
+          <button type="button" className="ws-primary pr-present" onClick={() => handlePresent()} disabled={!totalSlides}>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v2H3V4Zm1 3h16v9H13v2l3 2v1H8v-1l3-2v-2H4V7Z" /></svg>
-            Present full screen
+            {COPY.present}
           </button>
         </div>
-      </header>
+      </TeacherPageHeader>
 
-      <div className="pr-grid">
-        <div className="pr-choices">
-          <section className="pr-card" aria-label="Presentation options">
-            <label className="ws-field">
-              <span>Cycle</span>
-              <select value={cycleId} onChange={e => chooseCycle(e.target.value)}>
-                <optgroup label="Teaching cycles">
-                  {teachingCycles.map(opt => (
-                    <option key={opt.id} value={opt.id}>{opt.label}</option>
-                  ))}
-                </optgroup>
-                {assessmentWeeks.length > 0 && (
-                  <optgroup label="Assessment weeks">
-                    {assessmentWeeks.map(opt => (
-                      <option key={opt.id} value={opt.id}>{opt.label}</option>
-                    ))}
-                  </optgroup>
-                )}
-              </select>
-            </label>
+      {note && <p className="ws-note pr-note" role="status">{note}{fallbackUrl && <> <a href={fallbackUrl} target="_blank" rel="noreferrer">{COPY.openTab}</a></>}</p>}
 
-            {!isAssessment && (
-              <div className="pr-days">
-                <span className="pr-days-label">Day</span>
-                <div className="pr-day-grid" role="group" aria-label="Teaching day">
-                  {DAY_TILES.map(tile => (
-                    <button
-                      key={tile.value}
-                      type="button"
-                      className={`pr-day${day === tile.value ? " active" : ""}`}
-                      aria-pressed={day === tile.value}
-                      onClick={() => chooseDay(tile.value)}
-                    >
-                      <span className="pr-day-name">{tile.short}</span>
-                      <span className="pr-day-count">15 min · {dayCounts[tile.value] || 0} slides</span>
-                    </button>
-                  ))}
-                  <button
-                    type="button"
-                    className={`pr-day${day === "" ? " active" : ""}`}
-                    aria-pressed={day === ""}
-                    onClick={() => chooseDay("")}
-                  >
-                    <span className="pr-day-name">Whole</span>
-                    <span className="pr-day-count">{dayCounts[""] || 0} slides</span>
-                  </button>
-                </div>
-              </div>
-            )}
-          </section>
-
-          <section className="pr-card pr-contents" aria-label="Deck contents">
-            <span className="pr-card-title">{lessonPlan ? `${lessonPlan.title} · about 15 minutes` : "Cycle resources"}</span>
-            {lessonPlan && <>
-              <ol className="pr-lesson-plan">
-                {lessonPlan.blocks.map(block => <li key={block.id}><strong>{block.minutes} min · {block.label}</strong><p>{block.guidance}</p></li>)}
-              </ol>
-              <p className="pr-foot"><strong>Prepare:</strong> {lessonPlan.preparation}</p>
-            </>}
-            <span className="pr-card-title">This week’s resources</span>
-            <dl className="pr-list">
-              {contents.map(([term, value]) => (
-                <div className="pr-list-row" key={term}>
-                  <dt>{term}</dt>
-                  <dd>{value}</dd>
-                </div>
-              ))}
-            </dl>
-            <p className="pr-foot">
-              {isAssessment
-                ? "This is an assessment week. The slides show this week's short assessment routines."
-                : lessonPlan
-                  ? "Pacing includes modelling, partner talk, writing and feedback. The quick check guides reteaching; use the separate Cycle Check for formal assessment."
-                  : "This is the whole-cycle resource deck. Choose Monday–Friday for five planned 15-minute lessons."}
-            </p>
-          </section>
-        </div>
-
-        <section className="pr-card pr-preview" aria-label="Deck preview">
-          <div className="pr-preview-head">
-            <span className="pr-card-title">
-              Preview{current ? ` · ${slideLabel(current)}` : ""} · slide {Math.min(preview + 1, totalSlides)} of {totalSlides}
-            </span>
-            <div className="pr-preview-nav">
-              <button type="button" onClick={() => setPreview(p => Math.max(0, p - 1))} aria-label="Previous slide">‹</button>
-              <button type="button" onClick={() => setPreview(p => Math.min(totalSlides - 1, p + 1))} aria-label="Next slide">›</button>
+      <TeacherFilterBar className="pr-setup" label={COPY.options}>
+        <div className="pr-selection-row">
+          <label className="ws-field pr-cycle-field">
+            <span>{COPY.cycle}</span>
+            <select value={cycleId} onChange={event => chooseCycle(event.target.value)}>
+              <optgroup label={COPY.teachingCycles}>{teachingCycles.map(option => <option key={option.id} value={option.id}>{option.label}</option>)}</optgroup>
+              {assessmentWeeks.length > 0 && <optgroup label={COPY.assessmentWeeks}>{assessmentWeeks.map(option => <option key={option.id} value={option.id}>{option.label}</option>)}</optgroup>}
+            </select>
+          </label>
+          {!isAssessment && <div className="pr-days">
+            <span className="pr-control-label">{COPY.day}</span>
+            <div className="pr-day-grid" role="group" aria-label={COPY.day}>
+              {DAY_TILES.map(tile => <button key={tile.value} type="button" className={`pr-day${day === tile.value ? " active" : ""}`} aria-pressed={day === tile.value} aria-label={tile.label} onClick={() => chooseDay(tile.value)}>{tile.label.slice(0, 3)}</button>)}
+              <button type="button" className={`pr-day pr-day-resources${day === "" ? " active" : ""}`} aria-pressed={day === ""} onClick={() => chooseDay("")}>{COPY.allResources}</button>
             </div>
-          </div>
+          </div>}
+        </div>
+        {lessonPlan ? <div className="pr-formats" role="group" aria-label={COPY.lessonLength}>
+          {PRESENTATION_FORMATS.map(option => <button key={option.value} type="button" className={`pr-format${format === option.value ? " active" : ""}`} aria-pressed={format === option.value} onClick={() => chooseFormat(option.value)}>
+            <span className="pr-format-heading"><strong>{option.label}</strong><span>{COPY.shortMinutes(option.minutes)}</span></span>
+            <span className="pr-format-description">{option.description}</span>
+          </button>)}
+        </div> : <p className="pr-resource-context">{isAssessment ? COPY.assessmentContext : COPY.resourceContext}</p>}
+      </TeacherFilterBar>
 
-          {/* The real deck, in an iframe, scaled down. It is the same HTML that
-              projects — a picture of the deck can go stale, the deck cannot. */}
-          <div className="pr-stage">
-            <iframe
-              ref={frameRef}
-              className="pr-frame"
-              title="Deck preview"
-              srcDoc={deckHtml}
-              onLoad={() => postPreviewToFrame(frameRef.current, preview)}
-            />
-          </div>
-
-          <div className="pr-thumbs">
-            {slideIndex.map(entry => (
-              <button
-                key={entry.index}
-                type="button"
-                className={`pr-thumb${entry.index === preview ? " active" : ""}`}
-                onClick={() => setPreview(entry.index)}
-              >
-                <span className="pr-thumb-n">{entry.index + 1}</span>
-                <span className="pr-thumb-label">{slideLabel(entry)}</span>
-              </button>
-            ))}
-          </div>
-        </section>
+      <div className="pr-workspace-heading">
+        <div>
+          <p className="pr-eyebrow">{cycleTitle}</p>
+          <h2>{lessonPlan ? COPY.dayTitle(dayLabel, lessonPlan.title) : isAssessment ? COPY.assessmentTitle : COPY.resourceTitle}</h2>
+        </div>
+        <p className="pr-lesson-meta">{lessonPlan && <span>{COPY.approximateMinutes(lessonPlan.minutes)}</span>}<span>{COPY.slides(totalSlides)}</span>{lessonPlan?.focus && <span>{COPY.focus(lessonPlan.focus)}</span>}</p>
       </div>
 
-      <details className="ws-present-help">
-        <summary>Projector and keyboard help</summary>
-        <p>Use the arrow keys or on-screen arrows to move. Enter shows the answer on a warm-up slide. Press F for full screen and Esc to leave.</p>
-      </details>
+      <div className="pr-workspace">
+        <div className="pr-main-column">
+          <section className="pr-preview" aria-label={COPY.previewRegion}>
+            <div className="pr-preview-head">
+              <div><strong>{COPY.preview}</strong><span className="pr-slide-counter" aria-live="polite">{COPY.slidePosition(totalSlides ? selectedIndex + 1 : 0, totalSlides)}</span></div>
+              <div className="pr-preview-nav">
+                <button type="button" onClick={() => setPreview(index => Math.max(0, index - 1))} aria-label={COPY.previous} disabled={!totalSlides || selectedIndex === 0}>‹</button>
+                <button type="button" onClick={() => setPreview(index => Math.min(totalSlides - 1, index + 1))} aria-label={COPY.next} disabled={!totalSlides || selectedIndex === totalSlides - 1}>›</button>
+              </div>
+            </div>
+            <div className="pr-stage">
+              {deck ? <iframe ref={frameRef} className="pr-frame" title={COPY.previewRegion} srcDoc={deck.html} onLoad={() => postPreviewToFrame(frameRef.current, selectedIndex)} /> : <div className="pr-preview-error" role="alert"><strong>{COPY.previewFailed}</strong><p>{COPY.previewRecovery}</p></div>}
+            </div>
+            <div className="pr-preview-footer">
+              <p>{COPY.previewHint}</p>
+              <button type="button" className="pr-text-button" onClick={() => handlePresent(selectedIndex)} disabled={!totalSlides}>{COPY.presentFrom(selectedIndex + 1)} <span aria-hidden="true">↗</span></button>
+            </div>
+          </section>
 
-      {note && (
-        <p className="ws-note" role="status">
-          {note}
-          {fallbackUrl && (
-            <>
-              {" "}
-              <a href={fallbackUrl} target="_blank" rel="noreferrer">
-                Open the presentation in a new tab
-              </a>
-            </>
-          )}
-        </p>
-      )}
-    </main>
+          {current && <section className="pr-teacher-notes" aria-label={COPY.notesRegion}>
+            <div className="pr-notes-heading"><p className="pr-eyebrow">{COPY.notesHeading(selectedIndex + 1)}</p><span>{COPY.notesPrivate}</span></div>
+            <h3>{current.title || slideLabel(current)}</h3>
+            <p className="pr-current-guidance">{current.teacher || currentBlock?.guidance || COPY.defaultGuidance}</p>
+            {currentBlock && <p className="pr-block-context"><strong>{COPY.blockTiming(currentBlock.label, currentBlock.minutes)}</strong><span>{currentBlock.guidance}</span></p>}
+            {(lessonPlan?.support || lessonPlan?.stretch) && <div className="pr-adaptations">
+              {lessonPlan.support && <div><h4>{COPY.support}</h4><p>{lessonPlan.support}</p></div>}
+              {lessonPlan.stretch && <div><h4>{COPY.stretch}</h4><p>{lessonPlan.stretch}</p></div>}
+            </div>}
+          </section>}
+
+          {lessonPlan && <section className="pr-plan" aria-label={COPY.planRegion}>
+            <div className="pr-section-heading"><h3>{COPY.planTitle}</h3><span>{COPY.approximateMinutes(lessonPlan.minutes)}</span></div>
+            <p className="pr-preparation"><strong>{COPY.prepare}</strong> {lessonPlan.preparation}</p>
+            <ol className="pr-lesson-plan">
+              {lessonPlan.blocks.map(block => {
+                const firstSlide = slideIndex.find(entry => entry.block === block.id);
+                return <li key={block.id} className={current?.block === block.id ? "active" : ""}>
+                  <span className="pr-block-minutes">{block.minutes}<small>{COPY.minuteUnit}</small></span>
+                  <div><h4>{block.label}</h4><p>{block.guidance}</p>{firstSlide && <button type="button" className="pr-text-button" onClick={() => { setQuery(""); setPreview(firstSlide.index); }}>{COPY.previewActivity} <span aria-hidden="true">→</span></button>}</div>
+                </li>;
+              })}
+            </ol>
+            <p className="pr-plan-footnote">{COPY.planFootnote}</p>
+          </section>}
+        </div>
+
+        <aside className="pr-outline" aria-label={COPY.outlineRegion}>
+          <div className="pr-outline-head"><h3>{COPY.outlineTitle}</h3><span>{COPY.slides(totalSlides)}</span></div>
+          <label className="pr-search"><span>{COPY.findSlide}</span><input type="search" aria-label={COPY.findSlide} value={query} onChange={event => setQuery(event.target.value)} placeholder={COPY.searchPlaceholder} /></label>
+          <div className="pr-outline-results" aria-live="polite">{query ? COPY.filteredSlides(filteredSlides.length, totalSlides) : COPY.outlineHint}</div>
+          <ol className="pr-slide-list" ref={outlineRef}>
+            {filteredSlides.map((entry, index) => {
+              const group = entry.blockLabel || entry.section;
+              const previous = filteredSlides[index - 1];
+              const previousGroup = previous?.blockLabel || previous?.section;
+              return <li key={entry.index}>
+                {group && group !== previousGroup && <p className="pr-outline-group">{group}</p>}
+                <button type="button" className={`pr-slide-item${entry.index === selectedIndex ? " active" : ""}`} aria-current={entry.index === selectedIndex ? "step" : undefined} onClick={() => setPreview(entry.index)}>
+                  <span className="pr-slide-number">{entry.index + 1}</span>
+                  <span className="pr-slide-text"><strong>{entry.title || slideLabel(entry)}</strong><span>{slideLabel(entry)}</span></span>
+                  {entry.index === selectedIndex && <span className="pr-slide-marker" aria-hidden="true">▶</span>}
+                </button>
+              </li>;
+            })}
+          </ol>
+          {!filteredSlides.length && <div className="pr-empty"><p>{COPY.noMatches(query)}</p><button type="button" className="pr-text-button" onClick={() => setQuery("")}>{COPY.showAll}</button></div>}
+          <details className="pr-cycle-resources"><summary>{COPY.weekResources}</summary><dl>{contents.map(([term, value]) => <div key={term}><dt>{term}</dt><dd>{value}</dd></div>)}</dl></details>
+        </aside>
+      </div>
+
+      <details className="pr-help"><summary>{COPY.helpTitle}</summary><p>{COPY.help}</p></details>
+      {lessonPlan && <PrintLessonPlan cycleTitle={cycleTitle} dayLabel={dayLabel} formatLabel={selectedFormat.label} lessonPlan={lessonPlan} slideIndex={slideIndex} />}
+    </TeacherPageShell>
   );
 }

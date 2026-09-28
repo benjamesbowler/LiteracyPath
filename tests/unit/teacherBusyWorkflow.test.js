@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 import { getSelectedClassName } from "../../src/appState/studentSessionHelpers.js";
-import { TEACHER_COPY } from "../../src/copy/teacherCopy.js";
+import { TEACHER_COPY, PRESENT_COPY } from "../../src/copy/teacherCopy.js";
 
 const ROOT = new URL("../../", import.meta.url);
 
@@ -632,11 +632,11 @@ test("resources are class-aware whole-class tools without a second student picke
   assert.match(worksheet, /Class: \{className\}/);
   assert.match(worksheet, /Open print preview/);
   assert.match(worksheet, /Back to Resources/);
-  // The redesigned picker folds the class name into the headline sentence
-  // ("<class> is on Cycle N") instead of a detached "Class:" chip.
-  assert.match(present, /\$\{className\} is on/);
-  assert.match(present, /Projector and keyboard help/);
-  assert.match(present, /Back to Resources/);
+  // Class identity stays attached to the workspace while selecting other cycles.
+  assert.match(present, /eyebrow=\{COPY.eyebrow\(className\)\}/);
+  assert.match(PRESENT_COPY.eyebrow("K-Co"), /K-Co/);
+  assert.match(PRESENT_COPY.helpTitle, /Projector and keyboard help/);
+  assert.match(PRESENT_COPY.back, /Back to Resources/);
   assert.match(viewHelpers, /"resources\/worksheets"/);
   assert.match(viewHelpers, /"resources\/present"/);
 });

@@ -34,9 +34,10 @@ test("teacher resource subroutes expose main landmarks and a real route back", (
   assert.match(worksheet, /<main className="ws-page" data-teacher-route="worksheets">/);
   assert.match(worksheet, /<nav className="ws-route-nav" aria-label="Worksheet navigation">/);
   assert.match(worksheet, /← Back to Resources/);
-  assert.match(present, /<main className="ws-page pr-page" data-teacher-route="present">/);
-  assert.match(present, /<nav className="ws-route-nav" aria-label="Presentation navigation">/);
-  assert.match(present, /← Back to Resources/);
+  assert.match(present, /<TeacherPageShell[\s\S]*?data-teacher-route="present"/);
+  assert.match(present, /<nav className="ws-route-nav" aria-label=\{COPY.navigation\}>/);
+  assert.match(present, /COPY.back/);
+  assert.match(source("src/copy/teacherCopy.js"), /← Back to Resources/);
   assert.match(students, /<main[\s\S]*?data-teacher-route="login-cards"/);
   assert.match(students, /<nav className="teacher-login-card-route-actions" aria-label="Sign-in card navigation">/);
   assert.match(students, /← Back to Students/);

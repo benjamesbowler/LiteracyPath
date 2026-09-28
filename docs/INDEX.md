@@ -35,7 +35,7 @@ A dated document must never override current code.
 - [Question blueprints](skills-assessment-rebuild/BLUEPRINTS_PHONOLOGICAL.md)
 - [Question design bible](content/QUESTION_DESIGN_BIBLE.md)
 - [Worksheet design bible](content/WORKSHEET_DESIGN_BIBLE.md)
-- [Present teaching lessons](PRESENT_REDESIGN_2026-07-28.md) — five daily lessons per cycle; taught-word application, dictation and shared writing
+- [Present teaching lessons](PRESENT_REDESIGN_2026-07-28.md) — three daily formats across 27 cycles; interactive spelling, oral language, private notes and projection
 - [Learning policy](design/LEARNING_POLICY.md)
 - [Assessment media evidence](design/ASSESSMENT_MEDIA_EVIDENCE.md)
 - [EL benchmark suite](EL_ALIGNED_BENCHMARK_ASSESSMENT_SUITE_2026-07-21.md)

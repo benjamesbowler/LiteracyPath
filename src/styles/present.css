@@ -1,315 +1,340 @@
-/* Present-mode picker (teacher-facing).
-   Sits on top of worksheets.css — the shared teacher page shell, back link and
-   button styles still come from there. This file only adds what the redesigned
-   picker needs: the day grid, the contents list and the live deck preview.
-   All colours are the app's --lp-* teacher tokens, NOT the deck's palette: the
-   deck is a children's surface, this is a tool the adult drives. */
-
-.pr-page {
-  max-width: 1200px;
+/* Teacher workspace. Projected slides keep their own child-facing theme. */
+.teacher-product-page.pr-page {
+  display: block;
+  width: 100%;
+  padding: 24px 20px 48px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  max-width: 1460px;
+  color: var(--lp-color-text-strong);
 }
 
-/* ── Header ─────────────────────────────────────────────────────────────── */
-.pr-head {
+.pr-page button,
+.pr-page input,
+.pr-page select { font: inherit; }
+
+.pr-page button {
+  touch-action: manipulation;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.pr-page button:active:not(:disabled) { transform: translateY(1px); }
+.pr-page button:disabled { opacity: .46; cursor: default; }
+.pr-page button:focus-visible,
+.pr-page summary:focus-visible,
+.pr-page input:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--lp-color-primary) 38%, transparent);
+  outline-offset: 3px;
+}
+
+.pr-page h1,
+.pr-page h2,
+.pr-page h3,
+.pr-page h4 { text-wrap: balance; }
+
+.pr-page .teacher-page-header.pr-head {
   display: flex;
-  align-items: flex-end;
   justify-content: space-between;
+  align-items: flex-end;
   gap: 24px;
   flex-wrap: wrap;
-  margin-bottom: 18px;
+  margin: 0 0 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent !important;
 }
 
-.pr-head h1 {
-  margin: 0 0 4px;
+.pr-head > div:first-child { text-align: left; }
+.pr-head .panel-label { color: var(--lp-color-primary); font-size: .79rem; font-weight: 750; letter-spacing: .015em; }
+
+.pr-head h1,
+.pr-page .pr-head h2 {
+  margin: 4px 0 8px;
   font-family: var(--lp-font-reading);
-  font-size: 1.9rem;
+  font-size: clamp(1.9rem, 3vw, 2.65rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--lp-color-text-strong);
+  letter-spacing: -.035em;
+  line-height: 1.16;
 }
 
-.pr-head p {
+.pr-page .pr-head p:not(.panel-label) {
+  max-width: 62ch;
   margin: 0;
-  max-width: 64ch;
   color: var(--lp-color-text-muted);
+  line-height: 1.6;
 }
 
-.pr-head p strong {
-  color: var(--lp-color-text-strong);
+.pr-page .pr-eyebrow {
+  margin: 0;
+  color: var(--lp-color-primary);
+  font-size: .79rem;
+  font-weight: 750;
+  letter-spacing: .015em;
 }
 
-.pr-head-actions {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
+.pr-head-actions { display: flex; align-items: center; gap: 18px; }
+.pr-page .pr-present { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; }
+.pr-page .pr-present svg { width: 21px; height: 21px; fill: currentColor; }
 
-.pr-present {
+.pr-page .pr-text-button {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-}
-
-.pr-present svg {
-  width: 18px;
-  height: 18px;
-  fill: currentColor;
-}
-
-/* ── Layout ─────────────────────────────────────────────────────────────── */
-.pr-grid {
-  display: grid;
-  grid-template-columns: 380px minmax(0, 1fr);
-  gap: 20px;
-  align-items: start;
-}
-
-.pr-choices {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  min-width: 0;
-}
-
-.pr-card {
-  background: var(--lp-color-surface);
-  border: 1px solid var(--lp-color-border);
-  border-radius: 16px;
-  box-shadow: var(--lp-shadow-card);
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  min-width: 0;
-}
-
-.pr-card-title {
-  font-size: 0.75rem;
-  font-weight: 750;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: var(--lp-color-text-muted);
-}
-
-/* ── Day grid ───────────────────────────────────────────────────────────── */
-.pr-days {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.pr-days-label {
-  font-weight: 600;
-  color: var(--lp-color-text-strong);
-  font-size: 0.9rem;
-}
-
-.pr-day-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-}
-
-.pr-day {
-  min-height: 56px;
-  border-radius: 10px;
-  border: 1.5px solid var(--lp-color-border-strong);
-  background: var(--lp-color-surface);
-  font: inherit;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 2px;
-  color: var(--lp-color-text-strong);
-  transition: border-color 0.12s, background 0.12s;
-}
-
-.pr-day:hover {
-  border-color: var(--lp-color-primary);
-}
-
-.pr-day:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--lp-color-primary) 35%, transparent);
-  outline-offset: 2px;
-}
-
-.pr-day.active {
-  border-color: var(--lp-color-primary);
-  background: var(--lp-color-primary);
-  color: #fff;
-}
-
-.pr-day-name {
-  font-size: 0.875rem;
-  font-weight: 700;
-}
-
-.pr-day-count {
-  font-size: 0.75rem;
-  color: var(--lp-color-text-muted);
-}
-
-.pr-day.active .pr-day-count {
-  color: color-mix(in srgb, #fff 78%, var(--lp-color-primary));
-}
-
-/* ── Contents ───────────────────────────────────────────────────────────── */
-.pr-contents {
-  max-height: 340px;
-  overflow: auto;
-}
-
-.pr-list {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.pr-list-row {
-  display: flex;
-  gap: 10px;
-  align-items: baseline;
-}
-
-.pr-list-row dt {
-  width: 104px;
-  flex-shrink: 0;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--lp-color-text-muted);
-}
-
-.pr-list-row dd {
-  margin: 0;
-  font-size: 0.94rem;
-  font-weight: 600;
-  color: var(--lp-color-text-strong);
-  min-width: 0;
-}
-
-.pr-foot {
-  margin: 0;
-  padding-top: 12px;
-  border-top: 1px solid var(--lp-color-border);
-  color: var(--lp-color-text-muted);
-  font-size: 0.85rem;
-}
-
-/* ── Preview ────────────────────────────────────────────────────────────── */
-.pr-preview {
-  gap: 12px;
-}
-
-.pr-preview-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.pr-preview-nav {
-  display: flex;
-  gap: 6px;
-}
-
-.pr-preview-nav button {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  border: 1.5px solid var(--lp-color-border-strong);
-  background: var(--lp-color-surface);
-  cursor: pointer;
-  color: var(--lp-color-text-strong);
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.pr-preview-nav button:hover {
-  background: var(--lp-color-surface-subtle);
-  border-color: var(--lp-color-primary);
-}
-
-/* The preview is the real deck in an iframe at 16:9, so it can never fall out
-   of date with what projects. Pointer events are off: the teacher drives the
-   preview from the thumbnail rail, not by clicking inside the deck. */
-.pr-stage {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 12px;
-  overflow: hidden;
-  background: var(--lp-color-background);
-  box-shadow: var(--lp-shadow-soft);
-}
-
-.pr-frame {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  pointer-events: none;
-}
-
-.pr-thumbs {
-  display: flex;
   gap: 8px;
-  overflow-x: auto;
-  padding-bottom: 4px;
+  padding: 8px 0;
+  min-height: 44px;
+  border: 0;
+  border-radius: 5px;
+  color: var(--lp-color-primary);
+  background: transparent;
+  font-size: .86rem;
+  font-weight: 750;
+  cursor: pointer;
 }
 
-.pr-thumb {
-  flex: 0 0 auto;
-  width: 104px;
-  min-height: 52px;
+.pr-page .pr-text-button:hover:not(:disabled) { color: var(--lp-color-primary-strong); text-decoration: underline; text-underline-offset: 4px; }
+.pr-note { margin-bottom: 20px; }
+
+/* Controls occupy the full row, leaving the lesson preview the most space. */
+.pr-setup {
+  margin: 0 0 30px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: 18px;
+  background: var(--lp-color-surface);
+  overflow: hidden;
+}
+
+.pr-selection-row {
+  display: grid;
+  grid-template-columns: minmax(240px, .8fr) minmax(0, 1.2fr);
+  align-items: end;
+  gap: 26px;
+  padding: 20px 24px;
+}
+
+.pr-cycle-field { font-size: .83rem; }
+.pr-cycle-field select { width: 100%; font-size: .94rem; }
+.pr-days { display: grid; gap: 6px; }
+.pr-control-label { font-weight: 600; font-size: .83rem; }
+.pr-day-grid { display: grid; grid-template-columns: repeat(5, minmax(44px, 1fr)) minmax(110px, 1.6fr); gap: 5px; }
+
+.pr-page .pr-day {
+  min-height: 46px;
+  padding: 9px 5px;
+  border: 1px solid transparent;
   border-radius: 8px;
-  border: 2px solid var(--lp-color-border);
   background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-text-muted);
+  font-weight: 700;
+  font-size: .87rem;
   cursor: pointer;
-  padding: 6px 8px;
+}
+
+.pr-page .pr-day:hover { border-color: var(--lp-color-primary); color: var(--lp-color-primary); }
+.pr-page .pr-day.active { background: var(--lp-color-primary); border-color: var(--lp-color-primary); color: white; }
+.pr-page .pr-day-resources { font-size: .78rem; }
+
+.pr-formats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  padding: 0 12px 12px;
+  background: var(--lp-color-surface);
+}
+
+.pr-page .pr-format {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 5px;
+  padding: 13px 14px 14px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
   text-align: left;
-  transition: border-color 0.12s;
+  cursor: pointer;
+  color: var(--lp-color-text-muted);
 }
 
-.pr-thumb:hover {
-  border-color: var(--lp-color-primary);
+.pr-page .pr-format.active { background: var(--lp-color-primary-soft); border-color: color-mix(in srgb, var(--lp-color-primary) 28%, transparent); }
+.pr-page .pr-format:hover { background: var(--lp-color-surface-subtle); }
+.pr-page .pr-format.active:hover { background: var(--lp-color-primary-soft); }
+.pr-format-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.pr-format-heading strong { color: var(--lp-color-text-strong); font-size: .9rem; font-weight: 700; }
+.pr-format-heading > span { white-space: nowrap; color: var(--lp-color-primary); font-size: .78rem; font-weight: 750; font-variant-numeric: tabular-nums; }
+.pr-format-description { font-size: .76rem; line-height: 1.45; }
+.pr-resource-context { margin: 0; padding: 0 24px 20px; color: var(--lp-color-text-muted); font-size: .9rem; }
+
+.pr-workspace-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; margin-bottom: 18px; }
+.pr-workspace-heading h2 { margin: 4px 0 0; font-size: 1.28rem; line-height: 1.4; font-family: var(--lp-font-reading); }
+.pr-lesson-meta { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 4px 16px; margin: 0 0 2px; max-width: 42%; color: var(--lp-color-text-muted); font-size: .8rem; font-variant-numeric: tabular-nums; }
+.pr-workspace { display: grid; grid-template-columns: minmax(0, 1fr) 302px; align-items: start; gap: 24px; }
+.pr-main-column { min-width: 0; }
+
+/* The real deck remains interactive: reveals, audio and navigation all work. */
+.pr-preview { min-width: 0; }
+.pr-preview-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.pr-preview-head > div:first-child { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.pr-preview-head strong { font-size: .85rem; font-weight: 700; }
+.pr-slide-counter { color: var(--lp-color-text-muted); font-size: .78rem; font-variant-numeric: tabular-nums; }
+.pr-preview-nav { display: flex; gap: 6px; }
+.pr-preview-nav button { width: 44px; height: 44px; border: 1px solid var(--lp-color-border); border-radius: 8px; background: var(--lp-color-surface); cursor: pointer; color: var(--lp-color-text-strong); font-size: 1.4rem; line-height: 1; }
+.pr-preview-nav button:hover:not(:disabled) { background: var(--lp-color-primary-soft); border-color: var(--lp-color-primary); }
+.pr-stage { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--lp-color-border); border-radius: 14px; background: var(--lp-color-background); box-shadow: 0 12px 32px -18px color-mix(in srgb, var(--lp-color-primary) 35%, transparent); }
+.pr-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.pr-preview-error { display: grid; height: 100%; place-content: center; padding: 24px; text-align: center; }
+.pr-preview-error p { max-width: 36ch; color: var(--lp-color-text-muted); }
+.pr-preview-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 9px 2px; }
+.pr-preview-footer p { margin: 0; color: var(--lp-color-text-muted); font-size: .76rem; }
+.pr-page .pr-preview-footer .pr-text-button { flex-shrink: 0; font-size: .79rem; }
+
+/* Notes are kept in the teacher page and never inserted in projected HTML. */
+.pr-teacher-notes { margin-top: 12px; padding: 22px 24px; border-radius: 14px; background: var(--lp-color-surface); border-left: 3px solid var(--lp-color-primary); animation: pr-arrive 240ms ease-out both; }
+.pr-notes-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.pr-notes-heading > span { color: var(--lp-color-text-muted); font-size: .72rem; }
+.pr-teacher-notes h3 { margin: 10px 0 8px; font-size: 1.2rem; font-family: var(--lp-font-reading); }
+.pr-current-guidance { margin: 0; max-width: 78ch; font-size: .97rem; line-height: 1.65; }
+.pr-block-context { display: grid; gap: 5px; margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--lp-color-border); color: var(--lp-color-text-muted); font-size: .81rem; line-height: 1.6; }
+.pr-block-context strong { color: var(--lp-color-text-strong); font-size: .79rem; }
+.pr-adaptations { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 18px; }
+.pr-adaptations h4 { margin: 0 0 5px; font-size: .8rem; color: var(--lp-color-primary); }
+.pr-adaptations p { margin: 0; color: var(--lp-color-text-muted); font-size: .8rem; line-height: 1.6; }
+
+/* The outline lists actual slides, with activities grouped by lesson block. */
+.pr-outline { position: sticky; top: 20px; min-width: 0; padding: 18px 14px 0; background: var(--lp-color-surface); border: 1px solid var(--lp-color-border); border-radius: 14px; }
+.pr-outline-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 0 2px; }
+.pr-outline-head h3 { margin: 0; font-family: var(--lp-font-reading); font-size: 1rem; }
+.pr-outline-head > span { color: var(--lp-color-text-muted); font-size: .72rem; white-space: nowrap; }
+.pr-search { display: grid; gap: 5px; margin: 18px 2px 0; font-size: .74rem; font-weight: 700; }
+.pr-search input { width: 100%; min-width: 0; min-height: 44px; padding: 8px 10px; border: 1px solid var(--lp-color-border-strong); border-radius: 8px; background: var(--lp-color-surface); color: var(--lp-color-text-strong); font-size: .8rem; }
+.pr-search input::placeholder { color: var(--lp-color-text-muted); opacity: 1; }
+.pr-outline-results { margin: 9px 2px 5px; color: var(--lp-color-text-muted); font-size: .7rem; }
+.pr-slide-list { margin: 0 -5px 0 0; padding: 0 5px 12px 0; max-height: min(62vh, 700px); overflow-y: auto; overscroll-behavior: contain; list-style: none; scrollbar-width: thin; scrollbar-color: var(--lp-color-border-strong) transparent; }
+.pr-outline-group { margin: 16px 8px 7px; color: var(--lp-color-text-muted); font-size: .7rem; font-weight: 700; }
+.pr-page .pr-slide-item { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 58px; margin-top: 3px; padding: 10px 8px; border: 1px solid transparent; border-radius: 8px; background: transparent; color: var(--lp-color-text-strong); text-align: left; cursor: pointer; }
+.pr-page .pr-slide-item:hover { background: var(--lp-color-surface-subtle); }
+.pr-page .pr-slide-item.active { background: var(--lp-color-primary-soft); border-color: color-mix(in srgb, var(--lp-color-primary) 28%, transparent); }
+.pr-slide-number { flex: 0 0 25px; color: var(--lp-color-text-muted); font-size: .76rem; font-variant-numeric: tabular-nums; text-align: center; }
+.pr-page .pr-slide-item.active .pr-slide-number { color: var(--lp-color-primary); font-weight: 750; }
+.pr-slide-text { display: grid; min-width: 0; flex: 1; gap: 3px; }
+.pr-slide-text strong { font-size: .81rem; line-height: 1.45; font-weight: 650; overflow-wrap: anywhere; }
+.pr-slide-text > span { color: var(--lp-color-text-muted); font-size: .67rem; }
+.pr-slide-marker { color: var(--lp-color-primary); font-size: .6rem; }
+.pr-empty { padding: 10px; font-size: .83rem; color: var(--lp-color-text-muted); }
+.pr-cycle-resources { margin: 0 -14px; padding: 0 16px; border-top: 1px solid var(--lp-color-border); }
+.pr-cycle-resources summary { padding: 14px 0; min-height: 44px; color: var(--lp-color-text-strong); font-weight: 700; font-size: .78rem; cursor: pointer; }
+.pr-cycle-resources dl { display: grid; gap: 13px; margin: 0 0 18px; }
+.pr-cycle-resources dt { margin-bottom: 3px; color: var(--lp-color-text-muted); font-size: .7rem; }
+.pr-cycle-resources dd { margin: 0; color: var(--lp-color-text-strong); font-size: .8rem; line-height: 1.55; }
+
+.pr-plan { margin-top: 28px; padding: 8px 0 0; }
+.pr-section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; }
+.pr-section-heading h3 { margin: 0; font-size: 1.15rem; font-family: var(--lp-font-reading); }
+.pr-section-heading > span { color: var(--lp-color-text-muted); font-size: .77rem; font-variant-numeric: tabular-nums; }
+.pr-preparation { margin: 12px 0 16px; color: var(--lp-color-text-muted); font-size: .87rem; line-height: 1.6; }
+.pr-preparation strong { color: var(--lp-color-text-strong); }
+.pr-lesson-plan { margin: 0; padding: 0; list-style: none; }
+.pr-lesson-plan > li { display: grid; grid-template-columns: 43px minmax(0, 1fr); align-items: start; gap: 17px; padding: 18px 0; border-top: 1px solid var(--lp-color-border); }
+.pr-block-minutes { display: grid; justify-items: center; gap: 0; padding: 5px 0 6px; border-radius: 8px; background: var(--lp-color-surface); color: var(--lp-color-primary); font-size: 1.22rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.pr-block-minutes small { font-size: .62rem; font-weight: 600; }
+.pr-lesson-plan > li.active .pr-block-minutes { background: var(--lp-color-primary-soft); }
+.pr-lesson-plan h4 { margin: 0 0 5px; font-size: .9rem; }
+.pr-lesson-plan p { margin: 0; color: var(--lp-color-text-muted); font-size: .84rem; line-height: 1.6; }
+.pr-page .pr-lesson-plan .pr-text-button { font-size: .76rem; margin-top: 1px; min-height: 38px; }
+.pr-plan-footnote { margin: 4px 0 0; padding-top: 14px; border-top: 1px solid var(--lp-color-border); color: var(--lp-color-text-muted); font-size: .75rem; line-height: 1.6; }
+.pr-help { margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--lp-color-border); color: var(--lp-color-text-muted); font-size: .83rem; }
+.pr-help summary { min-height: 44px; cursor: pointer; font-weight: 700; }
+.pr-help p { max-width: 90ch; margin: 0; line-height: 1.7; }
+.pr-print-plan { display: none; }
+
+@keyframes pr-arrive { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (min-width: 1500px) { .pr-workspace { grid-template-columns: minmax(0, 1fr) 320px; gap: 30px; } }
+@media (max-width: 1100px) {
+  .pr-selection-row { grid-template-columns: minmax(200px, .8fr) minmax(0, 1.2fr); gap: 18px; padding: 18px; }
+  .pr-workspace { grid-template-columns: minmax(0, 1fr) 260px; gap: 18px; }
+  .pr-format-heading { flex-wrap: wrap; gap: 3px 10px; }
+  .pr-preview-footer { align-items: flex-start; flex-direction: column; gap: 0; padding-top: 12px; }
+  .pr-teacher-notes { padding: 18px; }
+  .pr-adaptations { grid-template-columns: 1fr; gap: 14px; }
+}
+@media (max-width: 1100px) {
+  .pr-workspace { display: flex; flex-direction: column; gap: 18px; }
+  .pr-main-column { display: contents; }
+  .pr-preview { order: 0; width: 100%; }
+  .pr-teacher-notes { order: 2; width: 100%; margin-top: 0; }
+  .pr-plan { order: 3; width: 100%; margin-top: 12px; }
+  .pr-outline { position: static; order: 1; width: 100%; padding: 16px 14px 0; }
+  .pr-slide-list { display: flex; gap: 8px; max-height: 170px; overflow-x: auto; overflow-y: auto; padding-bottom: 10px; }
+  .pr-slide-list > li { flex: 0 0 190px; display: flex; align-items: flex-end; }
+  .pr-outline-group { display: none; }
+  .pr-page .pr-slide-item { min-height: 77px; height: 100%; background: var(--lp-color-surface-subtle); }
+  .pr-outline-results { margin-bottom: 10px; }
+  .pr-search { margin-top: 12px; }
+  .pr-search span { display: none; }
+  .pr-cycle-resources { border-top: 0; }
+  .pr-cycle-resources summary { padding-top: 9px; padding-bottom: 10px; }
+}
+@media (max-width: 820px) {
+  .teacher-product-page.pr-page { padding-inline: 16px; }
+  .pr-head { gap: 16px; }
+  .pr-head-actions { width: 100%; justify-content: space-between; }
+  .pr-selection-row { grid-template-columns: 1fr; gap: 16px; }
+  .pr-formats { padding: 0 9px 9px; }
+  .pr-page .pr-format { padding: 12px 10px; }
+  .pr-workspace-heading { align-items: flex-start; flex-direction: column; gap: 9px; }
+  .pr-lesson-meta { max-width: none; justify-content: flex-start; }
+  .pr-preview-footer { flex-direction: row; align-items: center; gap: 14px; }
+  .pr-adaptations { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 540px) {
+  .teacher-product-page.pr-page { padding-inline: 12px; }
+  .pr-head h1, .pr-head h2 { font-size: 2rem; }
+  .pr-head p { font-size: .88rem; }
+  .pr-head-actions { gap: 10px; flex-wrap: wrap; }
+  .pr-page .pr-head-actions .pr-present { flex: 1; font-size: .85rem; }
+  .pr-page .pr-head-actions > .pr-text-button { font-size: .8rem; }
+  .pr-selection-row { padding: 16px 12px; }
+  .pr-day-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .pr-page .pr-day-resources { grid-column: 1 / -1; min-height: 38px; }
+  .pr-formats { grid-template-columns: 1fr; gap: 4px; }
+  .pr-page .pr-format { gap: 2px; }
+  .pr-format-heading { flex-wrap: nowrap; }
+  .pr-format-description { font-size: .73rem; }
+  .pr-setup { margin-bottom: 22px; }
+  .pr-workspace-heading h2 { font-size: 1.13rem; }
+  .pr-outline { padding-top: 13px; }
+  .pr-stage { border-radius: 9px; }
+  .pr-preview-head > div:first-child { gap: 4px; flex-direction: column; align-items: flex-start; }
+  .pr-preview-footer { flex-direction: column; align-items: flex-start; gap: 0; }
+  .pr-teacher-notes { padding: 17px 15px; }
+  .pr-adaptations { grid-template-columns: 1fr; }
+  .pr-current-guidance { font-size: .91rem; }
+  .pr-section-heading { gap: 6px; flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pr-page *, .pr-page *::before, .pr-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 
-.pr-thumb.active {
-  border-color: var(--lp-color-primary);
-  background: var(--lp-color-primary-soft);
+@page present-lesson-plan { size: A4 portrait; margin: 16mm; }
+@media print {
+  body.pr-printing { background: white !important; }
+  body.pr-printing > :not(.pr-print-plan) { display: none !important; }
+  body.pr-printing > .pr-print-plan,
+  body.pr-printing > .pr-print-plan * { visibility: visible !important; }
+  body.pr-printing > .pr-print-plan { display: block !important; page: present-lesson-plan; color: #172720; background: white; font: 10pt/1.5 Andika, Arial, sans-serif; }
+  .pr-print-plan header { border-bottom: 1pt solid #456153; padding-bottom: 10pt; margin-bottom: 14pt; }
+  .pr-print-plan h1 { margin: 5pt 0; font-size: 21pt; line-height: 1.2; }
+  .pr-print-plan h2 { margin: 16pt 0 8pt; font-size: 14pt; }
+  .pr-print-plan h3 { margin: 8pt 0 3pt; font-size: 11pt; }
+  .pr-print-plan p { margin: 5pt 0 8pt; }
+  .pr-print-plan .pr-print-blocks, .pr-print-plan .pr-print-slides { padding-left: 20pt; }
+  .pr-print-plan li { padding-left: 5pt; break-inside: avoid; margin-bottom: 10pt; }
+  .pr-print-plan .pr-print-slides span { display: block; color: #456153; font-size: 8pt; }
+  .pr-print-plan footer { border-top: 1pt solid #a7b7ad; padding-top: 8pt; font-size: 8pt; }
 }
-
-.pr-thumb-n {
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--lp-color-text-subtle);
-}
-
-.pr-thumb-label {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--lp-color-text-strong);
-  line-height: 1.2;
-}
-
-@media (max-width: 1024px) {
-  .pr-grid {
-    grid-template-columns: 1fr;
-  }
-  .pr-contents {
-    max-height: none;
-  }
-}
-
-.pr-lesson-plan { margin: 12px 0; padding-left: 22px; }
-.pr-lesson-plan li { padding: 5px 0; }
-.pr-lesson-plan p { margin: 4px 0 8px; line-height: 1.45; }

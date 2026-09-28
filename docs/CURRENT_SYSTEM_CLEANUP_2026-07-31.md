@@ -1,5 +1,20 @@
 # Current system cleanup — 31 July 2026
 
+## Present classroom workspace — 28 September 2026
+
+Present now derives its outline, preview, print plan and projector from one
+lesson assembly. Removed the projected teacher strip, repeated picker builds,
+unused presentation styling and perpetual decorative character motion. Private
+dictation guidance stays in teacher metadata. The former letter-membership-only
+short-vowel filter is replaced by a curated, day-aware bank; original shared
+artwork and recordings remain active. Removed code is recoverable from Git.
+
+The existing [Present teaching contract](PRESENT_REDESIGN_2026-07-28.md) remains
+the authority. `presentVocabulary.js` owns only the new oral-language prompts;
+cycle order and media mapping continue to use their current shared sources.
+Self-hosted Andika fonts retain their licence beside the files. Browser captures,
+verification logs and release evidence belong in ignored `.artifacts/present/`.
+
 ## Learning content and teaching evidence — 28 September 2026
 
 The 30 current Skills banks, Cycle Practice and Adventure Map remain the only

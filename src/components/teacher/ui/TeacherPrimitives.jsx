@@ -7,10 +7,12 @@ export function TeacherPageShell({
   className = "",
   product = "",
   intent = "",
-  children
+  children,
+  ...props
 }) {
   return (
     <Element
+      {...props}
       className={joinClassNames("teacher-product-page", className)}
       data-teacher-product={product || undefined}
       data-teacher-intent={intent || undefined}

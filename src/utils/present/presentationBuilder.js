@@ -1,31 +1,8 @@
-// Whole-class "Present" mode: builds a self-contained, fullscreen teaching deck
-// for one cycle, opened in a new window for the projector. Deterministic (same
-// cycle + same day => same deck bytes). Uses existing gold-voice audio and
-// picture-word images. Decks can be built for the whole cycle (default) or for
-// a single teaching day (Monday..Friday). Daily lessons combine source-aligned
-// teaching and response activities in five explicit budgets totalling 15 minutes.
-//
-// 2026-07-28 REDESIGN. Three structural changes, everything else is unchanged:
-//
-//  1. FIXED 1920x1080 STAGE. Slides used to be sized in vh/vw against whatever
-//     window the teacher happened to open, so a letter-sound slide with three
-//     word cards clipped on a short window and looked different on every
-//     projector. The deck now lays out at exactly 1920x1080 and deck.js scales
-//     that box to fit. Every size in DECK_CSS is a plain px value against that
-//     box, so what you author is what projects.
-//  2. A PERSISTENT FRAME. Every teaching slide declares `data-section`
-//     ("Sounds", "Writing", ...). deck.js reads the sections present in THIS
-//     deck and draws the rail, so a Friday deck shows a shorter rail and the
-//     rail can never drift from what the deck actually contains.
-//  3. ORGANIC THEME. Cream ground, terracotta accent, sage second voice,
-//     Caprasimo for chrome. Andika is kept for every glyph a CHILD decodes
-//     (graphemes, sight words and chips) - a display face must never
-//     be the letterform a five-year-old is learning to copy.
-//
-// New slide behaviour (all handled by public/present/deck.js):
-//   data-reveal    - quiz-style slides hide their answer until the teacher asks
-//   data-timer     - warm-ups get a thinking-time ring
-//   data-teacher   - the articulation tip renders as a quiet bottom strip
+// Whole-class Present lessons and classroom resources. The same assembly owns
+// the teacher plan, slide metadata, interactive preview and projector document.
+// Timed 8/15/25-minute formats follow the fixed EL sequence. Notes are extracted
+// before projection, and every projected asset uses an absolute same-origin URL.
+// The stage is authored at 1920x1080; the external CSP-safe runtime scales it.
 import { elSkillsBlockCycles, LETTER_EXAMPLES } from "../../data/elSkillsBlockCycles.js";
 import { graphemeAudioPath, wordAudioPath } from "../../components/elQuest/elQuestEngine.js";
 import { getChildWordAsset } from "../../data/childAssets.js";
@@ -33,6 +10,7 @@ import { guidedReadingBooks } from "../../data/guidedReadingBooks.js";
 import { themeWorldForCycle } from "../../utils/palWorlds.js";
 import { LETTER_STROKES, LETTER_GUIDES } from "../../data/letterStrokes.js";
 import { openHtmlDocument } from "../openHtmlDocument.js";
+import { PRESENT_VOCABULARY } from "../../data/presentVocabulary.js";
 import {
   cycleOptionLabel,
   cycleTopic,
@@ -119,6 +97,17 @@ export const PRESENTATION_DAYS = [
   { value: "friday", label: "Friday" }
 ];
 
+export const PRESENTATION_FORMATS = [
+  { value: "core", label: "Daily lesson", minutes: 15, description: "Model, practise and apply today's learning." },
+  { value: "extended", label: "Explore further", minutes: 25, description: "Add word building, vocabulary and shared reading." },
+  { value: "review", label: "Quick revisit", minutes: 8, description: "Return to familiar sounds and words after teaching." }
+];
+
+function normalizeFormat(format = "core") {
+  if (!PRESENTATION_FORMATS.some(item => item.value === format)) throw new Error(`Unknown presentation format: ${format}`);
+  return format;
+}
+
 const DAY_LABELS = {
   monday: "Monday",
   tuesday: "Tuesday",
@@ -137,7 +126,10 @@ export const PRESENTATION_SECTIONS = [
   "Words",
   "Together",
   "Books",
-  "This week"
+  "This week",
+  "Vocabulary",
+  "Shared reading",
+  "Review"
 ];
 
 function normalizeDay(day) {
@@ -303,16 +295,17 @@ function graphemeFontSize(text) {
 }
 
 function exampleWords(spelling, limit = 3) {
-  const own = LETTER_EXAMPLES[spelling] || [];
+  const own = (LETTER_EXAMPLES[spelling] || []).filter(word => spelling !== "wh" || word !== "who");
   const list = own.length ? own : (PATTERN_EXAMPLES[spelling] || []);
   return list.filter(w => /^[a-z]{2,6}$/.test(w)).slice(0, limit);
 }
 
-function taughtSinglesThrough(cycleNumber) {
+function taughtSinglesThrough(cycleNumber, day = "") {
   const taught = new Set();
   for (const cycle of elSkillsBlockCycles) {
     if (!cycle.cycleNumber || cycle.cycleNumber > cycleNumber) continue;
-    for (const card of cycle.focusLetters || []) {
+    for (const card of focusCards(cycle)) {
+      if (day && cycle.cycleNumber === cycleNumber && card.day && Object.values(DAY_LABELS).indexOf(card.day) > Object.keys(DAY_LABELS).indexOf(day)) continue;
       const spelling = String(card.spelling || "").toLowerCase();
       if (/^[a-z]$/.test(spelling)) taught.add(spelling);
     }
@@ -320,17 +313,20 @@ function taughtSinglesThrough(cycleNumber) {
   return taught;
 }
 
+// This bank is deliberately short-vowel and transparent. Letter membership
+// alone admits ball, wolf and lamb before their spelling patterns are taught.
+const SHORT_VOWEL_WORDS = new Set(("am at mat sat sam tap map nap man tan pan pat rat ran ram fan fat fit fin fig sit sip tip tin pin pit dip did dig dim dog dot log lot pot top pop mop hop hot hat ham hen red net ten men met bed fed pet pen wet web vet van bag bat bad big bin bit bug bun bus but cap can cat cup cut cot cub gap gas gum gut get pig pup rib rim rip rug rub run sad set sun sum mud mug mad jam jet jug zip zap yes yet nod not nut leg let lid lip lap lad win wig wag wax six mix fox box kit kid sun lamp tent desk nest gift jump hand sand pond damp camp bent best milk silk list lift mint must rust swim stop spin spot step skip skin snug trap trip clap clip drop drum flag flat frog grin plug plum sled slim slip snap snip spit stem stub twin went wind mask task tusk").split(/\s+/));
 const BLEND_DIGRAPHS = ["sh", "ch", "th", "wh", "ng", "nk", "qu", "ck"];
 function isBlendable(word) {
-  if (!/^[a-z]{3,4}$/.test(word)) return false;
+  if (!SHORT_VOWEL_WORDS.has(word) || !/^[a-z]{3,4}$/.test(word) || word.includes("x")) return false;
   const vowels = [...word].filter(ch => "aeiou".includes(ch));
   if (vowels.length !== 1 || "aeiou".includes(word[word.length - 1])) return false;
   return !BLEND_DIGRAPHS.some(d => word.includes(d));
 }
 
-function blendWordsFor(cycle, offset = 0) {
+function blendWordsFor(cycle, offset = 0, day = "") {
   if (isFluencyCycle(cycle) || (cycle.cycleNumber || 0) < 2) return [];
-  const taught = taughtSinglesThrough(cycle.cycleNumber);
+  const taught = taughtSinglesThrough(cycle.cycleNumber, day);
   const own = focusCards(cycle).flatMap(card => exampleWords(card.spelling, 6));
   const broad = [...taught].flatMap(letter => LETTER_EXAMPLES[letter] || []);
   const pool = [...new Set([...own, ...broad])].filter(word =>
@@ -358,9 +354,9 @@ function slide(world, inner, opts = {}) {
   // stage, so a timer slide gets the dial and the mascot yields.
   const timer = opts.timer ? timerDial(opts.timer) : "";
   const char = !timer && opts.char ? palImg(world, opts.char, "p-pal-corner") : "";
-  const teacher = opts.teacher
-    ? `<p class="p-foryou"><b>For you</b><span>${esc(opts.teacher)}</span></p>`
-    : "";
+  // Notes are extracted for the teacher workspace, then removed from the
+  // projected document. Dictation answers must never appear on the projector.
+  const teacher = opts.teacher ? `<template data-teacher-note>${esc(opts.teacher)}</template>` : "";
   return `<section class="slide ${opts.cls || ""}" ${data}>${inner}${teacher}${timer}${char}</section>`;
 }
 
@@ -377,8 +373,8 @@ function audioButton(src, label = "Play sound") {
   return `<button class="p-audio" data-play="${esc(assetUrl(src))}" type="button">${ICON_SPEAKER}<span>${esc(label)}</span></button>`;
 }
 
-function revealButton() {
-  return `<button class="p-reveal-btn" type="button" data-reveal-toggle>${ICON_EYE}<span>Show the answer</span></button>`;
+function revealButton(kind = "answer") {
+  return `<button class="p-reveal-btn" type="button" data-reveal-toggle data-reveal-kind="${kind}">${ICON_EYE}<span>Show ${kind === "example" ? "an example" : "the answer"}</span></button>`;
 }
 
 function timerDial(seconds = 60) {
@@ -542,18 +538,19 @@ function sightWordSlide(word, cycle, world) {
   });
 }
 
-function blendSlides(cycle, world, offset = 0) {
-  return blendWordsFor(cycle, offset).map(word => {
+function blendSlides(cycle, world, offset = 0, day = "") {
+  return blendWordsFor(cycle, offset, day).map(word => {
     const letters = word.split("").map(ch =>
       `<button class="p-tile-btn" data-play="${esc(graphemeAudio(ch))}" type="button">${esc(ch)}</button>`).join("");
     return slide(world, `
       <p class="p-kicker">Blend with me</p>
       <div class="p-compound" data-blend-word="${esc(word)}">${letters}${ICON_ARROW}<button class="p-made" data-play="${esc(wordAudio(word))}" type="button">${esc(word)}</button></div>
-      <h2 class="p-h2">Say each sound on its own. Then say the whole word.</h2>`,
+      <h2 class="p-h2">Say each sound on its own. Then say the whole word.</h2>
+      <button class="p-audio p-audio-ghost" type="button" data-model-blend>Guide the blend</button>`,
     {
       cls: "p-blend",
       section: "Blending",
-      audio: wordAudio(word),
+      teacher: "Let children try before playing the word. Guide the blend points to each spelling, then sweeps through the whole word; model pure sounds without adding an uh.",
       char: "wave"
     });
   });
@@ -877,10 +874,11 @@ function cardsAvailableOn(cycle, day) {
   return focusCards(cycle).filter(card => !card.day || Object.values(DAY_LABELS).indexOf(card.day) <= dayIndex);
 }
 
-export function presentationDayPlan(cycleId, day = "monday") {
+export function presentationDayPlan(cycleId, day = "monday", { format = "core" } = {}) {
   const cycle = getPresentationCycle(cycleId);
   if (!cycle) throw new Error("Unknown cycle");
   const key = normalizeDay(day);
+  const formatKey = normalizeFormat(format);
   if (!key || cycle.type === "assessment") return null;
   const labels = {
     monday: "Meet and notice", tuesday: "Recall and practise", wednesday: "Read and use",
@@ -890,25 +888,28 @@ export function presentationDayPlan(cycleId, day = "monday") {
   const newCards = cards.filter(card => card.day === DAY_LABELS[key]);
   const focus = isFluencyCycle(cycle) ? CYCLE_PATTERN_SORTS[cycle.cycleNumber].label
     : (newCards.length ? newCards : cards).map(displayGrapheme).join(" · ");
+  const budgets = formatKey === "extended" ? [3, 7, 5, 7, 3] : formatKey === "review" ? [1, 2, 2, 2, 1] : [2, 4, 3, 4, 2];
   return {
-    day: key, title: labels[key], minutes: 15, focus,
+    day: key, format: formatKey, title: formatKey === "review" ? "Remember and use" : labels[key], minutes: budgets.reduce((a, b) => a + b, 0), focus,
+    support: "Model one response, say it together, then let the child try again. Offer the letter mat and one word at a time. Adults read picture labels and sentence models.",
+    stretch: "Ask children to explain the spelling they used, build another sentence, or describe what changed. Keep independent reading within taught code.",
     preparation: "Mini whiteboards or paper, pencils, and two counters per child. Use the cycle's letter or clay mat for formation support.",
     blocks: [
-      { id: "listen", label: "Listen and warm up", minutes: 2, guidance: "Model one oral example. Everyone tries the next; hear a few individual voices." },
-      { id: "code", label: newCards.length && !isFluencyCycle(cycle) ? `Say and form ${focus}` : "Retrieve sounds and read", minutes: 4, guidance: "Model, practise together, then ask children to try without the model. Correct and retry." },
-      { id: "words", label: "Read, spell and use words", minutes: 3, guidance: `Practise ${cycle.highFrequencyWords.join(", ")}. Read the sentence aloud; children use the focus word in speech.` },
-      { id: "apply", label: key === "thursday" ? "Listen, write and check" : "Use sounds and words", minutes: 4, guidance: "Say a sentence using a taught word. Listen and write a taught sound or word, compare with the model, and repair. Teacher scribes untaught spellings when the class writes a sentence together." },
-      { id: "recap", label: "Show what you know", minutes: 2, guidance: "All children respond first. Sample individual responses, note support needed, and choose tomorrow's reteach." }
+      { id: "listen", label: "Listen and warm up", minutes: budgets[0], guidance: "Model one oral example. Everyone tries the next; hear a few individual voices." },
+      { id: "code", label: newCards.length && !isFluencyCycle(cycle) ? `Say and form ${focus}` : "Retrieve sounds and read", minutes: budgets[1], guidance: "Model, practise together, then ask children to try without the model. Correct and retry." },
+      { id: "words", label: "Read, spell and use words", minutes: budgets[2], guidance: `Practise ${cycle.highFrequencyWords.join(", ")}. Read the sentence aloud; children use the focus word in speech.` },
+      { id: "apply", label: key === "thursday" ? "Listen, write and check" : "Use sounds and words", minutes: budgets[3], guidance: "Say a sentence using a taught word. Listen and write a taught sound or word, compare with the model, and repair. Teacher scribes untaught spellings when the class writes a sentence together." },
+      { id: "recap", label: "Show what you know", minutes: budgets[4], guidance: "All children respond first. Sample individual responses, note support needed, and choose tomorrow's reteach." }
     ]
   };
 }
 
-function responseSlide(world, { title, prompt, answer, teacher, section = "Writing", cls = "p-application", audio = "" }) {
+function responseSlide(world, { title, prompt, answer, teacher, section = "Writing", cls = "p-application", audio = "", revealKind = "answer" }) {
   return slide(world, `<p class="p-kicker">${esc(title)}</p>
     <h2 class="p-h2">${esc(prompt)}</h2>
     ${audioButton(audio, "Hear the word")}
     <div class="p-answer"><p class="p-response">${esc(answer)}</p></div>
-    ${revealButton()}`, { cls, section, reveal: true, teacher });
+    ${revealButton(revealKind)}`, { cls, section, reveal: true, teacher });
 }
 
 function wordRecallSlide(cycle, world, word) {
@@ -928,13 +929,13 @@ function wordApplySlide(cycle, world, day) {
   return responseSlide(world, {
     title: day === "thursday" ? "Say it · help me write it" : "Tell your partner",
     prompt: `Say a sentence with ${word}.`, answer: model || word,
-    section: "Words", cls: "p-word-apply", audio: wordAudio(word),
+    section: "Words", cls: "p-word-apply", audio: wordAudio(word), revealKind: "example",
     teacher: "Accept any meaningful sentence using the word. Model the example if needed; it is one possible sentence, not a scored answer. Scribe untaught spellings when writing together, then reread."
   });
 }
 
 function dictationSlide(cycle, world, day) {
-  const words = isFluencyCycle(cycle) ? CYCLE_PATTERN_SORTS[cycle.cycleNumber].words : PATTERN_READING[cycle.cycleNumber]?.map(parts => parts.join("")) || blendWordsFor(cycle);
+  const words = readingPartsFor(cycle, day).map(parts => parts.join(""));
   const target = words[day === "friday" ? Math.min(1, words.length - 1) : 0];
   const card = cardsAvailableOn(cycle, day)[0];
   return responseSlide(world, {
@@ -955,16 +956,102 @@ const PATTERN_READING = {
   24: [["p", "u", "ff"], ["m", "i", "ss"], ["b", "u", "zz"], ["w", "i", "ll"]]
 };
 
+function patternPartsFor(cycle, day = "") {
+  const introduced = new Set();
+  for (const item of elSkillsBlockCycles) {
+    if (!item.cycleNumber || item.cycleNumber > cycle.cycleNumber) continue;
+    for (const card of item.cycleNumber === cycle.cycleNumber && day ? cardsAvailableOn(item, day) : focusCards(item)) introduced.add(card.spelling);
+  }
+  return (PATTERN_READING[cycle.cycleNumber] || []).filter(parts => parts.every(part =>
+    introduced.has(part) || (/^[bcdfghjklmnpqrstvwxyz]+$/.test(part) && [...part].every(c => introduced.has(c)) && !BLEND_DIGRAPHS.some(d => part.includes(d)))));
+}
+
+function readingPartsFor(cycle, day) {
+  if (isFluencyCycle(cycle)) return CYCLE_PATTERN_SORTS[cycle.cycleNumber].words.map(word => [word]);
+  const pattern = patternPartsFor(cycle, day);
+  if (pattern.length) return pattern;
+  return blendWordsFor(cycle, Math.max(0, Object.keys(DAY_LABELS).indexOf(day)), day).map(word => [...word]);
+}
+
+function wordBuildSlide(cycle, world, day) {
+  const dayIndex = Math.max(0, Object.keys(DAY_LABELS).indexOf(day));
+  const options = readingPartsFor(cycle, day);
+  const reading = options[dayIndex % options.length];
+  const word = reading?.join("") || cycle.highFrequencyWords[dayIndex % cycle.highFrequencyWords.length];
+  if (!word) return "";
+  // Fluency words use letter tiles here; the task is spelling, not phoneme count.
+  const parts = reading?.length > 1 ? reading : [...word];
+  const bank = parts.map((part, index) => ({ part, index })).reverse();
+  return slide(world, `<p class="p-kicker">Build a word</p>
+    <h2 class="p-h2">Listen. Choose the spelling parts in order.</h2>
+    ${audioButton(wordAudio(word), "Hear the word")}
+    <div class="p-build" data-build-target="${esc(JSON.stringify(parts))}">
+      <div class="p-build-slots" aria-label="Your word">${parts.map((_, i) => `<span class="p-build-slot" aria-label="Spelling part ${i + 1}"></span>`).join("")}</div>
+      <div class="p-build-bank" role="group" aria-label="Spelling parts">${bank.map(({ part, index }) => `<button type="button" class="p-tile-btn" data-build-part="${esc(part)}" data-tile-id="${index}">${esc(part)}</button>`).join("")}</div>
+      <p class="p-build-feedback" role="status">Say the word before you build it.</p>
+      <button type="button" class="p-audio p-audio-ghost" data-build-reset>Start again</button>
+    </div>`, { cls: "p-word-build", section: "Writing", teacher: `Say ${word}. Children rehearse or write before a volunteer builds it. Each box holds a spelling part, not necessarily one sound. Read the completed word together. ${reading ? "Use the taught code to explain each part." : "This is a taught high-frequency word; model any unusual spelling."}` });
+}
+
+function wordChangeSlide(cycle, world, day) {
+  const taught = taughtSinglesThrough(cycle.cycleNumber, day);
+  const pattern = patternPartsFor(cycle, day);
+  const bank = isFluencyCycle(cycle)
+    ? CYCLE_PATTERN_SORTS[cycle.cycleNumber].words.map(word => [...word])
+    : pattern.length ? pattern : [...SHORT_VOWEL_WORDS].filter(word => isBlendable(word) && [...word].every(letter => taught.has(letter)) && wordAudioPath(word)).map(word => [...word]);
+  const pairs = [];
+  for (let i = 0; i < bank.length; i++) for (let j = i + 1; j < bank.length; j++) {
+    if (bank[i].length === bank[j].length && bank[i].filter((part, index) => part !== bank[j][index]).length === 1) pairs.push([bank[i], bank[j]]);
+  }
+  if (!pairs.length) return "";
+  const pair = pickPer(pairs, cycle.cycleNumber, 1, Object.keys(DAY_LABELS).indexOf(day))[0];
+  const [before, after] = pair;
+  return slide(world, `<p class="p-kicker">Change one part</p><h2 class="p-h2">Read this word. Listen to the next word.</h2>
+    <div class="p-change-row"><div class="p-compound">${before.map(part => `<span class="p-tile">${esc(part)}</span>`).join("")}</div>${ICON_ARROW}<div class="p-answer p-compound">${after.map((part, index) => `<span class="p-tile${part !== before[index] ? " p-changed-part" : ""}">${esc(part)}</span>`).join("")}</div></div>
+    <p class="p-sentence">Which spelling part needs to change?</p>
+    <div class="p-lesson-actions">${audioButton(wordAudio(after.join("")), "Hear the next word")}${revealButton()}</div>`, {
+    cls: "p-word-change", section: "Blending", reveal: true,
+    teacher: `Read ${before.join("")}, then say ${after.join("")}. Children identify the changed spelling part and write the new word. Reveal and explain what stayed the same. Read both words; the highlighted part is a spelling unit, not necessarily one phoneme.`
+  });
+}
+
+function vocabularySlide(cycle, world, day, second = false) {
+  const bank = PRESENT_VOCABULARY[cycle.cycleNumber] || [];
+  const index = Math.max(0, Object.keys(DAY_LABELS).indexOf(day));
+  const card = bank[(index + Number(second)) % bank.length];
+  if (!card) return "";
+  return slide(world, `<div class="p-vocabulary-layout">
+    <div class="p-vocabulary-picture"><img src="${esc(wordImage(card.word))}" alt="${esc(card.word)}"/><span>${esc(card.word)}</span>${audioButton(wordAudio(card.word), "Hear the word")}</div>
+    <div class="p-col-right"><p class="p-kicker">Look · think · talk</p>
+      <h2 class="p-h2">${esc(index >= 3 ? card.stretch : card.prompt)}</h2>
+      <p class="p-hint">Think first. Tell a partner. Share an idea.</p>
+      <div class="p-answer p-vocabulary-model"><strong>${esc(card.meaning)}</strong><p>${esc(card.model)}</p></div>
+      ${revealButton("example")}
+    </div></div>`, { cls: "p-vocabulary", section: "Vocabulary", reveal: true, teacher: `Name ${card.word}, explain its meaning, and accept sensible ideas supported by the picture or children's experience. The example is a model, not the only answer. This is oral language; adults read the label and model. ${card.meaning}` });
+}
+
+function sentenceSlide(cycle, world, day) {
+  const index = Math.max(0, Object.keys(DAY_LABELS).indexOf(day));
+  const word = cycle.highFrequencyWords[index % cycle.highFrequencyWords.length];
+  const sentence = hfwSentence(cycle, word);
+  if (!sentence) return "";
+  return slide(world, `<p class="p-kicker">Read with me</p>
+    <h2 class="p-h2">Listen to my sentence. Read it with me.</h2>
+    <div class="p-shared-sentence" data-track-sentence>${sentence.split(/\s+/).map(token => `<span data-track-word>${esc(token)}</span>`).join(" ")}</div>
+    <div class="p-lesson-actions"><button type="button" class="p-audio" data-track-next>Point to the next word</button><button type="button" class="p-audio p-audio-ghost" data-track-reset>Read again</button></div>
+    <p class="p-hint">Now say a new sentence with ${esc(word)}.</p>`, { cls: "p-sentence-track", section: "Shared reading", teacher: `Read the complete sentence naturally. Tap to track each spoken word and notice the spaces. Reread with phrasing, then invite a new sentence using ${word}. Adults support untaught spellings; this is not independent decoding evidence.` });
+}
+
 function dailyReadingSlides(cycle, world, day) {
-  const bank = PATTERN_READING[cycle.cycleNumber];
+  const bank = patternPartsFor(cycle, day);
   const index = Object.keys(DAY_LABELS).indexOf(day);
-  if (!bank) return blendSlides(cycle, world, index);
+  if (!bank.length) return blendSlides(cycle, world, index, day);
   return [...bank.slice(index % bank.length), ...bank.slice(0, index % bank.length)].slice(0, 2).map(parts => {
     const word = parts.join("");
     return slide(world, `<p class="p-kicker">Read the spelling pattern</p>
       <div class="p-compound" data-pattern-word="${word}">${parts.map(part => `<span class="p-tile">${part}</span>`).join("")}</div>
       <h2 class="p-h2">Read each part. Blend the word.</h2>
-      <div class="p-answer"><span class="p-response">${word}</span>${audioButton(wordAudio(word), "Read the word")}</div>${revealButton()}`,
+      <div class="p-answer"><span class="p-response">${word}</span>${audioButton(wordAudio(word), "Read the word")}</div>${revealButton()}<button class="p-audio p-audio-ghost" type="button" data-model-blend>Guide the blend</button>`,
       { cls: "p-pattern-read", section: "Blending", reveal: true,
         teacher: "Point to each spelling part, blend, then reread smoothly. A part may contain more than one sound. Reveal after children try; explain the word orally." });
   });
@@ -979,7 +1066,7 @@ function soundHuntSlide(cycle, world, day) {
   if (!words.length) return "";
   const selected = [...words.slice(index % words.length), ...words.slice(0, index % words.length)].slice(0, 3);
   return slide(world, `<p class="p-kicker">Listen and find the sound</p>
-    <h2 class="p-h2">Where do you hear ${esc(card.sound || card.spelling)}?</h2>
+    <h2 class="p-h2">Name the pictures. Listen for ${esc(card.sound || card.spelling)}.</h2>
     <div class="p-words p-words-${selected.length}">${selected.map(word => `<button class="p-word" type="button" data-play="${esc(wordAudio(word))}"><img src="${esc(wordImage(word))}" alt="${esc(word)}"/><span>${esc(word)}</span></button>`).join("")}</div>
     <div class="p-answer"><span class="p-chip accent">${esc(displayGrapheme(card))}</span></div>${revealButton()}`,
     { cls: "p-sound-hunt", section: "Sounds", reveal: true,
@@ -998,8 +1085,8 @@ function recapSlide(cycle, world, day) {
   });
 }
 
-function assembleDailySlides(cycle, world, day) {
-  const plan = presentationDayPlan(cycle.id, day);
+function assembleDailySlides(cycle, world, day, format = "core") {
+  const plan = presentationDayPlan(cycle.id, day, { format });
   const index = Object.keys(DAY_LABELS).indexOf(day);
   const cards = cardsAvailableOn(cycle, day);
   const newCards = cards.filter(card => card.day === DAY_LABELS[day]);
@@ -1015,20 +1102,31 @@ function assembleDailySlides(cycle, world, day) {
   if (!fluency && !check) groups[1].push(soundHuntSlide(cycle, world, day));
   groups.push([...chosenWords.map(word => sightWordSlide(word, cycle, world)), wordRecallSlide(cycle, world, chosenWords[chosenWords.length - 1])]);
   groups.push([check || day === "thursday" || index >= 2 ? dictationSlide(cycle, world, day)
-    : callResponseSlide(cycle, world, index), wordApplySlide(cycle, world, day)]);
+    : callResponseSlide(cycle, world, index), wordApplySlide(cycle, world, day), vocabularySlide(cycle, world, day)]);
   groups.push([recapSlide(cycle, world, day)]);
+  if (format === "extended") {
+    if (newCards.length && !fluency) groups[1].push(...dailyReadingSlides(cycle, world, day));
+    groups[1].push(wordChangeSlide(cycle, world, day));
+    groups[2].push(wordBuildSlide(cycle, world, day));
+    groups[3].push(sentenceSlide(cycle, world, day), vocabularySlide(cycle, world, day, true));
+  } else if (format === "review") {
+    groups[0] = [titleSlide(cycle, world, `${DAY_LABELS[day]} · Quick revisit`, "Remember the learning. Try it. Explain it."), ...paSlides(cycle, world, { skillIndex: index % 2, offset: index * 2 }).slice(0, 1)];
+    groups[1] = [fluency ? patternSlide(cycle, world) : soundReviewSlide(cards, world), ...dailyReadingSlides(cycle, world, day).slice(0, 1)];
+    groups[2] = [sightWordSlide(chosenWords[0], cycle, world), wordRecallSlide(cycle, world, chosenWords[0])];
+    groups[3] = [dictationSlide(cycle, world, day), wordApplySlide(cycle, world, day)];
+  }
   let elapsed = 0;
   return groups.flatMap((group, i) => {
     const block = plan.blocks[i];
     const start = elapsed;
     elapsed += block.minutes;
-    return group.filter(Boolean).map((html, slideIndex) => html.replace(/<section class="([^"]*)"/, `<section class="$1" data-lesson-block="${block.id}" data-block-minutes="${block.minutes}" data-block-start="${slideIndex === 0 ? "1" : "0"}"`)
+    return group.filter(Boolean).map((html, slideIndex) => html.replace(/<section class="([^"]*)"/, `<section class="$1" data-lesson-block="${block.id}" data-block-label="${esc(block.label)}" data-block-minutes="${block.minutes}" data-block-start="${slideIndex === 0 ? "1" : "0"}"`)
       .replace('</section>', `<p class="p-pacing">${start}–${elapsed} min · ${esc(block.label)}</p></section>`));
   });
 }
 
 // ── Deck assembly ────────────────────────────────────────────────────────────
-function assembleSlides(cycle, world, day) {
+function assembleSlides(cycle, world, day, format) {
   const fluency = isFluencyCycle(cycle);
   const assessment = cycle.type === "assessment";
   const cards = focusCards(cycle);
@@ -1064,81 +1162,85 @@ function assembleSlides(cycle, world, day) {
     push(callResponseSlide(cycle, world, 0));
     pushAll(hfwSlides());
     pushAll(paSlides(cycle, world));
-    push(books, endSlide(cycle, world));
+    push(wordChangeSlide(cycle, world, "friday"), wordBuildSlide(cycle, world, "friday"), vocabularySlide(cycle, world, "monday"), vocabularySlide(cycle, world, "tuesday"), sentenceSlide(cycle, world, "friday"), books, endSlide(cycle, world));
   } else {
     // Daily lessons have activity budgets, not a slide-count estimate.
-    return assembleDailySlides(cycle, world, day);
+    return assembleDailySlides(cycle, world, day, format);
   }
   return slides;
 }
 
-export function buildCyclePresentation(cycleId, { day = "" } = {}) {
+function plainText(html = "") {
+  return String(html).replace(/<[^>]*>/g, " ").replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim();
+}
+
+function indexSlides(slides) {
+  return slides.map((html, index) => {
+    const attrs = /<section class="slide ([^"]*)"([^>]*)>/.exec(html);
+    const attribute = name => plainText(new RegExp(`${name}="([^"]*)"`).exec(attrs?.[2] || "")?.[1] || "");
+    const heading = /class="p-kicker[^"]*">([\s\S]*?)<\/p>/.exec(html)?.[1];
+    const target = /class="p-(?:sight|letter)"[^>]*>([^<]*)</.exec(html)?.[1]
+      || /class="p-vocabulary-picture"><img[^>]*alt="([^"]*)"/.exec(html)?.[1];
+    return {
+      index, cls: attrs?.[1] || "", section: attribute("data-section"),
+      title: [plainText(heading), plainText(target)].filter(Boolean).join(" · ") || "Lesson",
+      teacher: plainText(/<template data-teacher-note>([\s\S]*?)<\/template>/.exec(html)?.[1] || "Invite everyone to respond. Model clearly, give thinking time, and listen to individual voices before moving on."),
+      block: attribute("data-lesson-block"), blockLabel: attribute("data-block-label")
+    };
+  });
+}
+
+export function buildCyclePresentation(cycleId, { day = "", format = "core", startIndex = 0 } = {}) {
   const cycle = getPresentationCycle(cycleId);
   if (!cycle) throw new Error("Unknown cycle");
-  const dayKey = normalizeDay(day);
+  const requestedDay = normalizeDay(day);
+  const dayKey = cycle.type === "assessment" ? "" : requestedDay;
+  const formatKey = normalizeFormat(format);
   const world = presentationWorldFor(cycle);
-
-  const slides = assembleSlides(cycle, world, dayKey);
-
-  const baseTitle = cycle.cycleNumber
-    ? `Cycle ${cycle.cycleNumber} - ${cycleTopic(cycle)}`
-    : presentationCycleDisplayTitle(cycle);
-  const title = dayKey ? `${baseTitle} - ${DAY_LABELS[dayKey]}` : baseTitle;
-  const deckScriptUrl = `${typeof window === "undefined" ? "" : window.location.origin}/present/deck.js`;
+  const slides = assembleSlides(cycle, world, dayKey, formatKey);
+  const slideIndex = indexSlides(slides);
+  const projectedSlides = slides.map(html => html.replace(/<template data-teacher-note>[\s\S]*?<\/template>/g, ""));
+  const initial = Number.isFinite(Number(startIndex)) ? Math.max(0, Math.min(slides.length - 1, Math.trunc(Number(startIndex)))) : 0;
+  const baseTitle = cycle.cycleNumber ? `Cycle ${cycle.cycleNumber} - ${cycleTopic(cycle)}` : presentationCycleDisplayTitle(cycle);
+  const title = dayKey ? `${baseTitle} - ${DAY_LABELS[dayKey]} - ${PRESENTATION_FORMATS.find(item => item.value === formatKey).label}` : baseTitle;
+  const deckScriptUrl = assetUrl("/present/deck.js");
   const railLabel = dayKey ? `${railTitle(cycle)} · ${DAY_LABELS[dayKey]}` : railTitle(cycle);
-  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>${esc(title)}</title>
-<style>${DECK_CSS}</style></head>
-<body data-deck-key="${esc(`${cycleId}:${dayKey}`)}">
+  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(title)}</title>
+<style>${fontFaces()}${DECK_CSS}</style></head>
+<body data-deck-key="${esc(`${cycleId}:${dayKey}:${formatKey}`)}" data-start-index="${initial}" data-world="${world.id}">
 <div id="scaler"><div id="stage">
   <header id="rail"><span id="rail-title">${esc(railLabel)}</span><nav id="rail-sections" aria-label="Lesson sections"></nav></header>
-  <div id="deck">${slides.join("")}</div>
-  <div id="nav"><button id="prev" type="button" aria-label="Previous">&#8249;</button><span id="counter"></span><button id="next" type="button" aria-label="Next">&#8250;</button></div>
+  <div id="deck">${projectedSlides.join("")}</div>
+  <div id="lesson-progress" role="progressbar" aria-label="Lesson progress" aria-valuemin="1" aria-valuemax="${slides.length}"><span></span></div>
+  <nav id="nav" aria-label="Presentation controls"><button id="overview-toggle" type="button" aria-label="Choose a slide">Slides</button><button id="blank-toggle" type="button" aria-label="Pause the screen">Pause</button><button id="fullscreen-toggle" type="button" aria-label="Toggle full screen">Full screen</button><button id="prev" type="button" aria-label="Previous">&#8249;</button><span id="counter" aria-live="polite"></span><button id="next" type="button" aria-label="Next">&#8250;</button></nav>
+  <div id="overview" role="dialog" aria-modal="true" aria-label="Choose a slide" hidden><header><h2>Choose a slide</h2><button id="overview-close" type="button">Back to lesson</button></header><div id="overview-list">${slideIndex.map(entry => `<button type="button" data-go-slide="${entry.index}"><span>${entry.index + 1}</span>${esc(entry.title)}</button>`).join("")}</div></div>
+  <button id="blank-screen" type="button" hidden>Ready when you are<span>Tap or press B to return</span></button>
+  <p id="audio-status" role="status"></p>
 </div></div>
-<div id="start"><button id="startBtn" type="button">${ICON_PLAY}<span>Start presentation</span></button><p>Best on a projector. Arrow keys move, F is full screen, Esc leaves.</p></div>
+<div id="start"><p class="p-kicker">Whole-class learning</p><h1>${esc(baseTitle)}</h1><button id="startBtn" type="button">${ICON_PLAY}<span>Start presentation</span></button><p>Arrow keys move · Enter reveals · B pauses the screen · F opens full screen</p></div>
 <script src="${deckScriptUrl}"></script>
 </body></html>`;
-  return { title, slideCount: slides.length, html, lessonPlan: dayKey && cycle.type !== "assessment" ? presentationDayPlan(cycleId, dayKey) : null };
+  return { title, slideCount: slides.length, html, slideIndex, lessonPlan: dayKey ? presentationDayPlan(cycleId, dayKey, { format: formatKey }) : null };
 }
 
-// Per-slide metadata for the picker's preview rail. Derived from the SAME html
-// the deck ships, so a thumbnail can never describe a slide the deck does not
-// contain. (PresentPage renders these as the thumbnail strip.)
-export function presentationSlideIndex(cycleId, { day = "" } = {}) {
-  const { html } = buildCyclePresentation(cycleId, { day });
-  const out = [];
-  const re = /<section class="slide ([^"]*)"([^>]*)>/g;
-  let match = re.exec(html);
-  while (match) {
-    const cls = match[1].trim();
-    const attrs = match[2] || "";
-    const section = /data-section="([^"]*)"/.exec(attrs)?.[1] || "";
-    out.push({
-      index: out.length,
-      cls,
-      section
-    });
-    match = re.exec(html);
-  }
-  return out;
+export function presentationSlideIndex(cycleId, options = {}) {
+  return buildCyclePresentation(cycleId, options).slideIndex;
 }
 
-export function openCyclePresentation(cycleId, { day = "" } = {}) {
-  const { html, title } = buildCyclePresentation(cycleId, { day });
-  const result = openHtmlDocument({
-    html,
-    name: "lp-present",
-    features: "width=1280,height=800",
-    keepUrlWhenBlocked: true
-  });
+export function openCyclePresentation(cycleId, options = {}) {
+  const { html, title } = buildCyclePresentation(cycleId, options);
+  const result = openHtmlDocument({ html, name: "lp-present", features: "width=1280,height=800", keepUrlWhenBlocked: true });
   return { ok: result.ok, url: result.url, title };
 }
 
-// Font stacks. Caprasimo is the display voice for CHROME only. Andika is the
-// literacy face and stays on every glyph a child decodes - a display face must
-// never be the letterform a five-year-old is copying. Both fall back to system
-// stacks so the deck is still legible on an offline classroom projector.
+function fontFaces() {
+  return [400, 700].map(weight => `@font-face {font-family: Andika; font-style: normal; font-weight: ${weight}; font-display: swap; src: url("${assetUrl(`/fonts/present/andika-latin-${weight}-normal.woff2`)}") format("woff2");}`).join("");
+}
+
+// Self-hosted Andika is the literacy face, including headings. System stacks
+// retain readable glyphs while the small font files load.
 const FONT_BODY = `'Figtree','Segoe UI','Helvetica Neue',Arial,sans-serif`;
-const FONT_DISPLAY = `'Caprasimo','Segoe UI Rounded','Arial Rounded MT Bold','Trebuchet MS',sans-serif`;
+const FONT_DISPLAY = `'Andika','Segoe UI Rounded','Arial Rounded MT Bold','Trebuchet MS',sans-serif`;
 const FONT_LETTER = `'Andika','Segoe UI Rounded','Arial Rounded MT Bold','Trebuchet MS',sans-serif`;
 
 const DECK_CSS = `
@@ -1173,14 +1275,14 @@ const DECK_CSS = `
     --radius: 28px;
     --shadow-md: 0 3px 10px rgba(46,43,37,.16);
     --shadow-lg: 0 12px 32px rgba(46,43,37,.22);
-    /* Type scale for a 1920x1080 stage. Nothing here goes below 26px. */
+    /* Type scale authored against the fixed classroom stage. */
     --t-rail: 26px;
     --t-kicker: 32px;
     --t-small: 30px;
     --t-body: 44px;
     --t-h2: 72px;
     --t-h1: 120px;
-    --t-title: 168px;
+    --t-title: 116px;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; height: 100%; overflow: hidden; background: var(--n-900);
@@ -1205,12 +1307,12 @@ const DECK_CSS = `
   /* ── The persistent frame ───────────────────────────────────────────────── */
   #rail { position: absolute; top: 0; left: 0; right: 0; height: 128px; z-index: 5;
     display: flex; align-items: center; justify-content: space-between; gap: 40px;
-    padding: 0 104px; pointer-events: none; transition: opacity .25s ease; }
-  #stage.chromeless #rail { opacity: 0; }
-  #rail-title { font-size: var(--t-rail); font-weight: 600; color: var(--n-700); white-space: nowrap; }
-  #rail-sections { display: flex; align-items: center; gap: 10px; }
-  .rail-pill { font-size: var(--t-rail); font-weight: 600; color: var(--n-600);
-    padding: 8px 20px; border-radius: 999px; white-space: nowrap; }
+    padding: 0 80px; transition: opacity .25s ease; }
+  #stage.chromeless #rail { visibility: hidden; }
+  #rail-title { font-size: var(--t-rail); font-weight: 600; color: var(--n-700); white-space: nowrap; max-width: 460px; overflow: hidden; text-overflow: ellipsis; }
+  #rail-sections { display: flex; align-items: center; gap: 4px; overflow: auto; scrollbar-width: thin; }
+  .rail-pill { border: 0; background: transparent; font-family: inherit; cursor: pointer; font-size: 23px; font-weight: 600; color: var(--n-600);
+    padding: 10px 14px; border-radius: 999px; white-space: nowrap; }
   .rail-pill.on { background: var(--accent-200); color: var(--accent-700); }
   .rail-pill.done { color: var(--n-500); }
 
@@ -1369,8 +1471,8 @@ const DECK_CSS = `
     font-family: ${FONT_LETTER}; font-size: 104px; font-weight: 700; color: var(--sage-800);
     cursor: pointer; transition: background .15s ease; }
   .p-panel:hover { background: var(--sage-300); }
-  .p-panel.odd { background: var(--accent-200); color: var(--accent-700); }
-  .p-panel.odd:hover { background: var(--accent-300); }
+  .slide.revealed .p-panel.odd { background: var(--accent-200); color: var(--accent-700); }
+  .slide.revealed .p-panel.odd:hover { background: var(--accent-300); }
 
   /* ── Writing demo ───────────────────────────────────────────────────────── */
   .p-paper { background: var(--surface); border-radius: 36px; padding: 40px 56px;
@@ -1391,7 +1493,7 @@ const DECK_CSS = `
 
   .p-books { display: grid; grid-template-columns: repeat(2, 1fr); gap: 56px; }
   .p-book { margin: 0; display: flex; flex-direction: column; gap: 24px; }
-  .p-book-cover { width: 100%; height: 440px; object-fit: cover; border-radius: var(--radius);
+  .p-book-cover { width: 100%; height: 440px; object-fit: contain; border-radius: var(--radius);
     box-shadow: var(--shadow-lg); }
   .p-book figcaption { display: flex; flex-direction: column; gap: 10px; }
   .p-book-title { font-family: ${FONT_DISPLAY}; font-size: 44px; line-height: 1.15; }
@@ -1401,25 +1503,14 @@ const DECK_CSS = `
   .p-routines li { background: var(--surface); border-radius: var(--radius); padding: 24px 40px;
     box-shadow: var(--shadow-md); }
 
-  /* ── The teacher strip ──────────────────────────────────────────────────
-     The articulation tip is written for the ADULT. On the old deck it sat in
-     the middle of the slide in a yellow ribbon, competing with the letter the
-     class was meant to be looking at. Here it is a quiet rule at the base. */
-  .p-foryou { position: absolute; left: 104px; right: 330px; bottom: 38px; margin: 0;
-    display: flex; align-items: center; gap: 20px; border-top: 2px solid var(--n-300);
-    padding-top: 24px; }
-  .p-foryou b { font-size: var(--t-rail); font-weight: 700; letter-spacing: .1em;
-    text-transform: uppercase; color: var(--sage-600); flex: 0 0 auto; }
-  .p-foryou span { font-size: var(--t-small); color: var(--n-700); }
-
   /* ── Mascot ─────────────────────────────────────────────────────────────── */
   .p-pal-corner { position: absolute; bottom: 152px; right: 104px; height: 200px;
-    pointer-events: none; z-index: 1; animation: bob 3.4s ease-in-out infinite;
+    pointer-events: none; z-index: 1; animation: mascot-enter .6s ease-out both;
     filter: drop-shadow(0 12px 20px rgba(46,43,37,.22)); }
   .p-pal-hero { position: relative; height: 540px; object-fit: contain;
-    animation: bob 3.4s ease-in-out infinite; filter: drop-shadow(0 24px 40px rgba(0,0,0,.35)); }
+    animation: mascot-enter .6s ease-out both; filter: drop-shadow(0 24px 40px rgba(0,0,0,.35)); }
   .p-close .p-pal-hero { height: 500px; filter: drop-shadow(0 20px 34px rgba(46,43,37,.3)); }
-  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+  @keyframes mascot-enter { from { opacity: 0; transform: translateY(24px) rotate(3deg); } to { opacity: 1; transform: none; } }
 
   /* ── Start overlay and nav ──────────────────────────────────────────────── */
   #start { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center;
@@ -1430,14 +1521,72 @@ const DECK_CSS = `
   #start button:hover { background: var(--accent-600); }
   #start button:active { background: var(--accent-700); }
   #start p { color: var(--n-600); font-size: 20px; }
-  #nav { position: absolute; right: 48px; bottom: 40px; z-index: 6; display: none;
-    align-items: center; gap: 20px; }
+  #nav { position: absolute; right: 48px; bottom: 28px; z-index: 6; display: flex;
+    align-items: center; gap: 14px; }
   #nav button { font-size: 40px; line-height: 1; background: var(--surface); color: var(--n-700);
     border: 3px solid var(--n-300); border-radius: 999px; width: 72px; height: 72px;
     cursor: pointer; transition: border-color .15s ease, color .15s ease; }
   #nav button:hover { border-color: var(--accent); color: var(--accent-700); }
   #counter { color: var(--n-600); font-size: var(--t-rail); font-weight: 600; min-width: 7ch;
     text-align: center; }
+
+  [hidden] { display: none !important; }
+  button:disabled { cursor: default; opacity: .4; }
+  #nav #overview-toggle, #nav #blank-toggle, #nav #fullscreen-toggle { width: auto; padding: 0 24px; font: 700 27px ${FONT_BODY}; }
+  #nav button:focus-visible, .rail-pill:focus-visible { outline: 5px solid var(--sage-700); outline-offset: 4px; }
+  #lesson-progress { position: absolute; bottom: 0; inset-inline: 0; height: 8px; background: var(--n-300); z-index: 7; }
+  #lesson-progress span { display: block; height: 100%; background: var(--accent); transform-origin: left; transition: transform .3s ease; }
+  #start { padding: 30px; text-align: center; }
+  #start h1 { font-family: ${FONT_LETTER}; max-width: 22ch; font-size: clamp(28px, 4vw, 56px); margin: 0 0 16px; }
+  #start p { max-width: 60ch; line-height: 1.5; }
+  #overview { position: absolute; inset: 40px; z-index: 8; padding: 42px; background: var(--surface); border: 3px solid var(--n-300); border-radius: 32px; box-shadow: var(--shadow-lg); }
+  #overview header { display: flex; justify-content: space-between; align-items: center; gap: 30px; margin-bottom: 32px; }
+  #overview h2 { font-size: 48px; margin: 0; }
+  #overview button { font: 700 32px ${FONT_BODY}; border: 2px solid var(--n-300); background: var(--bg); color: var(--ink); border-radius: 16px; padding: 24px; cursor: pointer; }
+  #overview-list { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; max-height: 820px; overflow: auto; padding: 6px; }
+  #overview-list button { text-align: left; display: flex; gap: 22px; align-items: center; }
+  #overview-list button span { font-variant-numeric: tabular-nums; font-size: 26px; color: var(--n-700); }
+  #overview-list [aria-current="true"] { border-color: var(--accent); background: var(--accent-100); }
+  #blank-screen { position: absolute; inset: 0; z-index: 9; border: 0; background: #203c33; color: #fff8ef; font: 700 76px ${FONT_LETTER}; cursor: pointer; width: 100%; }
+  #blank-screen span { display: block; font: 400 32px ${FONT_BODY}; margin-top: 32px; }
+  #audio-status { position: absolute; left: 80px; bottom: 38px; max-width: 720px; margin: 0; font-size: 24px; color: var(--ink); background: var(--surface); border-radius: 14px; z-index: 7; }
+  #audio-status:not(:empty) { padding: 16px; }
+  .p-change-row { display: flex; align-items: center; gap: 40px; }
+  .p-change-row .p-tile { font-size: 90px; }
+  .p-changed-part { background: var(--accent-200); color: var(--accent-700); outline: 5px solid var(--accent-700); outline-offset: 4px; }
+  .p-lesson-actions { display: flex; flex-wrap: wrap; gap: 24px; }
+  .p-build { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
+  .p-build-slots, .p-build-bank { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+  .p-build-slot { min-width: 130px; min-height: 138px; display: grid; place-items: center; padding: 12px 24px; border: 4px dashed var(--n-400); border-radius: 22px; font: 700 84px ${FONT_LETTER}; }
+  .p-build-slot.filled { border-style: solid; border-color: var(--sage-700); background: var(--sage-100); animation: fill-part .2s ease-out; }
+  .p-build-feedback { font-size: 36px; margin: 0; min-height: 50px; }
+  .p-build-bank button:disabled { opacity: .25; }
+  .p-word-build .p-h2 { font-size: 60px; max-width: none; }
+  .p-word-build { gap: 24px; }
+  .p-vocabulary-layout { display: grid; grid-template-columns: 570px 1fr; gap: 72px; width: 100%; align-items: center; }
+  .p-vocabulary-picture { display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 32px; background: var(--surface); border-radius: 40px; }
+  .p-vocabulary-picture img { width: 410px; height: 380px; object-fit: contain; }
+  .p-vocabulary-picture > span { font: 700 64px ${FONT_LETTER}; }
+  .p-vocabulary .p-h2 { font-size: 56px; }
+  .p-vocabulary-model { font: 400 35px/1.4 ${FONT_LETTER}; border-left: 6px solid var(--sage); padding-left: 28px; }
+  .p-vocabulary-model p { margin: 16px 0 0; }
+  .p-vocabulary .p-col-right { gap: 24px; }
+  .p-shared-sentence { display: flex; flex-wrap: wrap; gap: 14px 22px; padding: 36px; border-radius: 28px; background: var(--surface); font: 700 76px/1.5 ${FONT_LETTER}; max-width: 1660px; }
+  .p-shared-sentence span { border-radius: 12px; padding: 0 10px; border-bottom: 6px solid transparent; }
+  .p-shared-sentence .is-guided { background: var(--accent-200); border-bottom-color: var(--accent-700); }
+  .p-compound .is-guided { transform: translateY(-14px); outline: 6px solid var(--accent-700); outline-offset: 8px; background: var(--accent-200); color: var(--ink); }
+  .p-compound .p-tile, .p-compound .p-tile-btn, .p-compound .p-made { transition: transform .22s ease, background .22s ease; }
+  .p-pattern-read { gap: 24px; }
+  .p-pattern-read .p-tile { font-size: 100px; padding: 12px 32px; }
+  .p-pattern-read .p-answer { display: flex; align-items: center; gap: 24px; }
+  .p-pattern-read .p-response { font-size: 80px; padding: 18px 40px; }
+  .try-again { animation: try-part .24s ease; }
+  @keyframes fill-part { from { opacity: .5; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  @keyframes try-part { 50% { transform: translateX(8px); } }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .p-compound .is-guided { transform: none; }
+  }
 
   @media print {
     #scaler { position: static; display: block; overflow: visible; }
