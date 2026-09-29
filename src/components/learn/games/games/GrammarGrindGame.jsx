@@ -25,7 +25,7 @@ import { createRenderer, createScene, createPerspectiveCamera, attachResize, cre
 import { createArcadePremiumRenderPipeline } from "../shared/arcadePremiumRender.js";
 
 import { createSpellSkater } from "./spellSkaterAsset.js";
-import { createSkateTextSign, createSkateRampGeometry, createSkateBowlGeometry, createSkateDeckGeometry, createSkateParkDressing, sampleSkateSurface, skateSurfaceTilt, skateObstacleAt, planSkateRoute, skateFrameSteps, nextSkateQuality, skateSteering, skateMotion, skateAction, chooseSkateDestination } from "./spellSkatePark.js";
+import { createSkateTextSign, createSkateRampGeometry, createSkateBowlGeometry, createSkateDeckGeometry, createSkateParkDressing, sampleSkateSurface, skateSurfaceTilt, resolveSkateObstacleContact, planSkateRoute, skateFrameSteps, nextSkateQuality, skateSteering, skateMotion, skateAction, chooseSkateDestination } from "./spellSkatePark.js";
 
 const THEMES = {
   easy: {
@@ -818,7 +818,9 @@ function startGame(mount, opts) {
     recoverTime: 0,
     surfacePitch: 0,
     surfaceRoll: 0,
-    motorRecoveries: 0
+    motorRecoveries: 0,
+    landingRecoveries: 0,
+    lastContact: null
   };
   let assistRoute = [];
   const assistTravelLog=[];
@@ -1322,12 +1324,13 @@ function startGame(mount, opts) {
 
     const previousPosition = player.pos.clone();
     const previousHeight = player.air;
+    const wasGrounded = player.onGround;
     if (player.grind <= 0) {
       const dir = new THREE.Vector3(Math.sin(player.yaw), 0, Math.cos(player.yaw));
       player.pos.addScaledVector(dir, player.speed * dt);
     }
     let surface = sampleSkateSurface(player.pos.x, player.pos.z, rampZones, platformZones);
-    if (player.onGround && (skateObstacleAt(player.pos.x,player.pos.z,parkObstacles) || surface.height - previousHeight > Math.max(.5, Math.abs(player.speed) * dt * .9))) {
+    if (player.onGround && surface.height - previousHeight > Math.max(.5, Math.abs(player.speed) * dt * .9)) {
       player.pos.copy(previousPosition);
       player.speed *= -.18;
       player.stun = .25;
@@ -1367,6 +1370,25 @@ function startGame(mount, opts) {
       }
     } else if (player.onGround && player.grind <= 0) {
       player.air = surfaceHeight;
+    }
+
+    if (player.onGround && player.grind <= 0) {
+      const contact = resolveSkateObstacleContact(player.pos, previousPosition, parkObstacles, PLAYER_RADIUS);
+      if (contact) {
+        // This is local collision separation, not a respawn. Resolve at landing
+        // as well as on the ground; the previous airborne position may already
+        // overlap the object and must never become a permanent rollback target.
+        const dx = contact.x - player.pos.x, dz = contact.z - player.pos.z;
+        player.lastContact = { kind: wasGrounded ? "ground" : "landing", from: { x: player.pos.x, z: player.pos.z }, to: { ...contact } };
+        if (!wasGrounded) player.landingRecoveries += 1;
+        const inward = (Math.sin(player.yaw) * dx + Math.cos(player.yaw) * dz) * player.speed < 0;
+        player.pos.x = contact.x;
+        player.pos.z = contact.z;
+        player.air = sampleSkateSurface(contact.x, contact.z, rampZones, platformZones).height;
+        if (inward) player.speed *= -.18;
+        player.stun = .25;
+        player.motorRecoveries += 1;
+      }
     }
 
     updateRamps(dt);
@@ -1700,6 +1722,17 @@ function startGame(mount, opts) {
   let introActive = false;
 
   const api = {
+    debugSnapshot() {
+      return {
+        phase, paused, completed, levelIndex, lineStep, mistakes, score,
+        position: { x: player.pos.x, z: player.pos.z },
+        heading: player.yaw, speed: player.speed, height: player.air,
+        grounded: player.onGround, stun: player.stun, grind: player.grind,
+        motorRecoveries: player.motorRecoveries, landingRecoveries: player.landingRecoveries, lastContact: player.lastContact, activeSeconds: activeSimulationSeconds,
+        assistRoute: assistRoute.map(point => ({ ...point })),
+        obstacles: parkObstacles.map(obstacle => ({ ...obstacle }))
+      };
+    },
     pause() {
       paused = true;
       releaseControls();

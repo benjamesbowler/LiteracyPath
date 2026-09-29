@@ -155,19 +155,19 @@ test("Sentence Grove offers named hold-safe movement buttons as an alternative t
   assert.match(grove, /addEventListener\("lostpointercapture", up\)/);
 });
 
-test("Sentence Express keeps its teaching cue and replay control outside the carriage work area", async () => {
+test("Sentence Express keeps its current cue beside the choices and names both replay actions", async () => {
   const [express, expressCss] = await Promise.all([
     source("src/components/learn/games/games/SentenceExpressGame.jsx"),
     source("src/styles/sentence-express.css")
   ]);
   assert.match(express, /className="sx-objective" data-child-instruction/);
   assert.match(express, /className="sx-target">\{targetSentence\}/);
-  assert.match(express, /aria-label="Hear the sentence again"/);
-  assert.match(expressCss, /\.sx-yard \{[\s\S]*grid-template-rows: minmax\(0,1fr\) auto/);
-  assert.match(expressCss, /\.sx-stage \.sx-yard \.sx-target \{ color: #fff0ca/);
-  assert.match(expressCss, /\.sx-bell \{[\s\S]*?min-width: 56px; height: 56px; min-height: 56px/);
+  assert.match(express, /aria-label=\{isSoundEnabled \? "Hear the sentence again" : "Sentence replay unavailable while sound is off"\}/);
+  assert.match(express, /"Instruction replay unavailable while sound is off" : "Hear the instruction again"/);
+  assert.match(express, /className="sx-taskbar"[\s\S]*className="sx-workbench"/);
+  assert.match(expressCss, /\.sx-yard \{[^}]*grid-template-rows: auto minmax\(0, 1fr\) auto/);
+  assert.match(expressCss, /\.sx-replay \{[^}]*min-width: 56px; min-height: 56px/);
   assert.match(expressCss, /\.sx-stage, \.sx-mainline \{ overflow: clip/);
-
 });
 
 test("reported Arcade objectives and replay controls keep child-readable hierarchy", async () => {

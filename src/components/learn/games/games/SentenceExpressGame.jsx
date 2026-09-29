@@ -9,6 +9,8 @@ import "../../../../styles/sentence-express.css";
 import { loadExpressSnapshot, saveExpressSnapshot } from "./sentenceExpressSession.js";
 import { createJourneyClock } from "./sentenceExpressJourney.js";
 import CarSvg from "./SentenceExpressRollingStock.jsx";
+import { SENTENCE_EXPRESS_INSTRUCTIONS } from "./sentenceExpressInstructions.js";
+import { getLedaInstructionAudioPath } from "../../../../data/ledaProductionAudio.js";
 
 // SENTENCE EXPRESS - flagship game. You are the yard master: rebuild the
 // broken sentence-train (couple carriages in order, swap the rusty wrong-word
@@ -43,19 +45,6 @@ function StarIcon({ filled }) {
   );
 }
 
-// The station master's brass lantern - the "listen" beacon.
-function LanternBadge() {
-  return (
-    <svg viewBox="0 0 40 52" width="40" height="52" aria-hidden="true">
-      <rect x="17" y="2" width="6" height="7" rx="2" fill="#3c485c" stroke="#10151d" strokeWidth="2" />
-      <rect x="10" y="8" width="20" height="8" rx="3" fill="#5b4226" stroke="#10151d" strokeWidth="2" />
-      <rect x="12" y="16" width="16" height="24" rx="5" fill="#ffd76a" stroke="#10151d" strokeWidth="2.5" />
-      <circle cx="20" cy="28" r="5" fill="#fff3c4" />
-      <rect x="10" y="40" width="20" height="7" rx="3" fill="#5b4226" stroke="#10151d" strokeWidth="2" />
-    </svg>
-  );
-}
-
 function BellIcon() {
   return (
     <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
@@ -79,12 +68,12 @@ function GhostSvg() {
 // Dust kicked up when a carriage slams into place (dx, dy scatter).
 const DUST = [[-34, -8], [-20, -24], [0, -30], [20, -24], [34, -8], [10, -34]];
 
-function TrainCar({ kind = "wagon", tone = 0, word, ghost = false, lit = false, rusty = false, arrived = false, small = false, smoking = false, blasting = false, onClick, label }) {
-  const cls = `sx-carbox sx-kind-${kind} ${small ? "sx-small" : ""} ${ghost ? "sx-ghostbox" : ""} ${lit ? "sx-lit" : ""} ${arrived ? "sx-arrive" : ""}`;
+function TrainCar({ kind = "wagon", tone = 0, word, ghost = false, lit = false, rusty = false, arrived = false, next = false, smoking = false, blasting = false, onClick, label }) {
+  const cls = `sx-carbox sx-kind-${kind} ${ghost ? "sx-ghostbox" : ""} ${lit ? "sx-lit" : ""} ${arrived ? "sx-arrive" : ""} ${next ? "sx-nextslot" : ""}`;
   const body = (
     <>
       {ghost ? <GhostSvg /> : <CarSvg kind={kind} tone={tone} rusty={rusty} />}
-      <span className={`sx-carword ${kind === "caboose" ? "sx-markword" : ""}`}>{ghost ? "+" : word}</span>
+      <span className={`sx-carword ${kind === "caboose" ? "sx-markword" : ""}`}>{ghost ? (next ? "Next" : "") : word}</span>
       {rusty && <span className="sx-rustwisp" aria-hidden="true" />}
       {smoking && (
         <span className="sx-smokes" aria-hidden="true">
@@ -242,7 +231,9 @@ export default function SentenceExpressGame({
   const [blast, setBlast] = useState(false);     // whistle steam burst
   const [comboToast, setComboToast] = useState("");
   const [hint, setHint] = useState(""); // one-line corrective hint after a miss
+  const [engineTransfer, setEngineTransfer] = useState(null);
 
+  const focusNextChoice = useRef(false);
   const paused = useRef(false);
   const stageRef = useRef(null);
   const pausedAnimations = useRef([]);
@@ -278,9 +269,32 @@ export default function SentenceExpressGame({
 
   const needsEngine = Boolean(train.engine) && engineChoice === null;
   const nextSlot = coupled.length;
+  const needsRepair = Boolean(train.rusty) && !rustyFixed;
+  const needsCrate = Boolean(train.gap) && !gapFilled;
   const trackDone = coupled.length === train.words.length
     && (!train.caboose || cabooseChoice === train.endMark)
     && (!train.engine || engineChoice === train.engine.correct);
+
+  const task = needsEngine ? "engine" : needsRepair ? "repair" : needsCrate ? "gap"
+    : coupled.length < train.words.length ? "build" : !trackDone ? "caboose" : "send";
+  const yardInstruction = SENTENCE_EXPRESS_INSTRUCTIONS[task];
+  const stageNumber = needsEngine ? 1 : trackDone ? 3 : 2;
+  const instructionPath = getLedaInstructionAudioPath(yardInstruction);
+
+  // Keep the live insertion point in view without reversing reading order.
+  useLayoutEffect(() => {
+    if (focusNextChoice.current) {
+      stageRef.current?.querySelector(".sx-workbench button")?.focus({ preventScroll: true });
+      focusNextChoice.current = false;
+    }
+    const rail = stageRef.current?.querySelector(".sx-train");
+    const next = rail?.querySelector(".sx-nextslot") || rail?.lastElementChild;
+    if (!rail || !next) return;
+    const bounds = next.getBoundingClientRect();
+    const railBounds = rail.getBoundingClientRect();
+    if (bounds.right > railBounds.right - 16) rail.scrollLeft += bounds.right - railBounds.right + 16;
+    if (bounds.left < railBounds.left + 16) rail.scrollLeft -= railBounds.left - bounds.left + 16;
+  }, [coupled.length, task]);
 
   useEffect(() => {
     soundRef.current = isSoundEnabled;
@@ -339,6 +353,7 @@ export default function SentenceExpressGame({
     const pendingTimers = timers.current;
     const liveAudios = wordAudios.current;
     return () => {
+      speechGeneration.current += 1;
       cancelAnimationFrame(departureFrame.current);
       for (const timer of pendingTimers) window.clearTimeout(timer.native);
       pendingTimers.clear();
@@ -360,6 +375,28 @@ export default function SentenceExpressGame({
     };
     speakNext();
   }
+  function replayInstruction() {
+    if (!soundRef.current || paused.current || !instructionPath) return;
+    const generation = ++speechGeneration.current;
+    audioRef.current?.pause?.();
+    announceResume.current = null;
+    const audio = new Audio(instructionPath);
+    audioRef.current = audio;
+    wordAudios.current.add(audio);
+    const finish = () => {
+      wordAudios.current.delete(audio);
+      if (generation === speechGeneration.current && task !== "engine" && task !== "send") announce();
+    };
+    audio.addEventListener("ended", finish, { once: true });
+    audio.addEventListener("error", () => wordAudios.current.delete(audio), { once: true });
+    audio.play().catch(() => wordAudios.current.delete(audio));
+  }
+  useEffect(() => {
+    if (phase === PHASES.SHUNT) replayInstruction();
+    // The cue changes with the visible action; words can still be chosen during it.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [yardInstruction, train.id, phase, isSoundEnabled]);
+
   // A fresh train rolls IN from off-screen, then the station master reads
   // the target sentence.
   useEffect(() => {
@@ -370,10 +407,9 @@ export default function SentenceExpressGame({
     const stopArrivalChuff = isSoundEnabled ? sfx.startChuff() : () => {};
     chuffStop.current = stopArrivalChuff; // so enginePause silences it too
     const tChuff = later(registry, 1300, stopArrivalChuff);
-    const tSay = later(registry, 1500, () => announce());
     return () => {
       cancelLater(registry, t0); cancelLater(registry, tIn);
-      cancelLater(registry, tChuff); cancelLater(registry, tSay);
+      cancelLater(registry, tChuff);
       stopArrivalChuff();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- run once per train entry
@@ -406,12 +442,13 @@ export default function SentenceExpressGame({
   }
 
   function goodBump() {
+    setHint("");
     if (isSoundEnabled) sfx.clunk();
     setBump(true);
     later(timers.current, 240, () => setBump(false));
   }
 
-  function couple(wordIndex) {
+  function couple(wordIndex, event) {
     if (phaseRef.current !== PHASES.SHUNT || paused.current || needsEngine || coupled.includes(wordIndex)) return;
     if (train.rusty && wordIndex === train.rusty.index && !rustyFixed) {
       miss("rusty"); // rusty car won't couple - repair shed first
@@ -420,6 +457,7 @@ export default function SentenceExpressGame({
     // Correct if this carriage carries the word the next empty slot needs
     // (identical words like "the" are interchangeable by design).
     if (solution[wordIndex] === solution[nextSlot]) {
+      focusNextChoice.current = event?.detail === 0;
       setCoupled(c => c.includes(wordIndex) ? c : [...c, wordIndex]);
       goodBump();
       return;
@@ -427,28 +465,39 @@ export default function SentenceExpressGame({
     miss("order");
   }
 
-  function chooseEngine(option) {
+  function chooseEngine(option, event) {
     if (phaseRef.current !== PHASES.SHUNT || paused.current) return;
     if (option === train.engine.correct) {
+      const source = event?.currentTarget?.getBoundingClientRect();
+      const stageBounds = stageRef.current?.getBoundingClientRect();
+      const destination = stageRef.current?.querySelector(".sx-train > .sx-kind-engine")?.getBoundingClientRect();
+      if (source && destination && stageBounds && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        setEngineTransfer({ word: option, x: source.left - stageBounds.left, y: source.top - stageBounds.top, width: source.width, height: source.height,
+          dx: destination.left - source.left, dy: destination.top - source.top,
+          sx: destination.width / source.width, sy: destination.height / source.height,
+          font: getComputedStyle(event.currentTarget.querySelector(".sx-carword")).fontSize });
+        later(timers.current, 480, () => setEngineTransfer(null));
+      }
+      focusNextChoice.current = event?.detail === 0;
       setEngineChoice(option);
       setCoupled(c => (c.includes(0) ? c : [0, ...c]));
       goodBump();
     } else miss("engine");
   }
-  function chooseCaboose(mark) {
+  function chooseCaboose(mark, event) {
     if (phaseRef.current !== PHASES.SHUNT || paused.current) return;
     if (coupled.length < train.words.length) { miss("early-caboose"); return; }
-    if (mark === train.endMark) { setCabooseChoice(mark); goodBump(); }
+    if (mark === train.endMark) { focusNextChoice.current = event?.detail === 0; setCabooseChoice(mark); goodBump(); }
     else miss("caboose");
   }
-  function repairRusty(option) {
+  function repairRusty(option, event) {
     if (phaseRef.current !== PHASES.SHUNT || paused.current) return;
-    if (option === train.rusty.correct) { setRustyFixed(true); if (isSoundEnabled) sfx.ding(); }
+    if (option === train.rusty.correct) { focusNextChoice.current = event?.detail === 0; setHint(""); setRustyFixed(true); if (isSoundEnabled) sfx.ding(); }
     else miss("repair");
   }
-  function loadCrate(option) {
+  function loadCrate(option, event) {
     if (phaseRef.current !== PHASES.SHUNT || paused.current) return;
-    if (option === train.gap.correct) { setGapFilled(true); if (isSoundEnabled) sfx.ding(); }
+    if (option === train.gap.correct) { focusNextChoice.current = event?.detail === 0; setHint(""); setGapFilled(true); if (isSoundEnabled) sfx.ding(); }
     else miss("crate");
   }
 
@@ -476,7 +525,7 @@ export default function SentenceExpressGame({
       chuffStop.current = sfx.startChuff();
     }
     setPhase(PHASES.DEPART);
-    // The completed sentence starts travel automatically. Reading follows the moving train,
+    // Send is available only for the fully completed sentence. Reading follows the moving train,
     // with one current clip and no narration gate before departure or next play.
     const generation = ++speechGeneration.current;
     audioRef.current?.pause?.();
@@ -571,17 +620,6 @@ export default function SentenceExpressGame({
     }
   }
 
-  // Completion is the literacy action itself. Keep a short, pause-aware
-  // feedback beat, then depart or advance without an extra confirmation.
-  useEffect(() => {
-    if (!trackDone || phase !== PHASES.SHUNT || finished) return undefined;
-    const registry = timers.current;
-    const timer = later(registry, 420, depart);
-    if (paused.current) pauseTimers(registry);
-    return () => cancelLater(registry, timer);
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- one departure per completed train; refs guard reentry
-  }, [trackDone, phase, train.id, finished]);
-
   useEffect(() => {
     if (phase !== PHASES.TALLY || finished) return undefined;
     const registry = timers.current;
@@ -605,20 +643,9 @@ export default function SentenceExpressGame({
 
   const rolling = phase === PHASES.DEPART;
   const targetSentence = `${solution.join(" ")}${train.endMark}`;
-  const yardInstruction = needsEngine
-    ? "Choose the capital engine."
-    : train.rusty && !rustyFixed
-      ? "Fix the rusty word."
-      : train.gap && !gapFilled
-        ? "Load the missing word."
-        : coupled.length < train.words.length
-          ? "Tap the word cars in sentence order."
-          : train.caboose && !cabooseChoice
-            ? "Choose the end mark."
-            : "Sentence complete — off we go!";
 
   return (
-    <div ref={stageRef} className={`sx-stage sx-${world} sx-motion-${motion} ${jolt ? "sx-jolt" : ""} ${bump ? "sx-bump" : ""} ${rolling ? "sx-scroll" : ""}`} data-phase={phase} data-train-id={train.id} data-journey={journey.toFixed(3)} style={{ "--route-position": `${(levelIndex * 9 + trainIndex * 3) % 100}%` }}>
+    <div ref={stageRef} className={`sx-stage sx-${world} sx-motion-${motion} ${jolt ? "sx-jolt" : ""} ${bump ? "sx-bump" : ""} ${rolling ? "sx-scroll" : ""} ${engineTransfer ? "sx-engine-moving" : ""}`} data-phase={phase} data-task={task} data-stage={stageNumber} data-train-id={train.id} data-journey={journey.toFixed(3)} style={{ "--route-position": `${(levelIndex * 9 + trainIndex * 3) % 100}%` }}>
       <div className="sx-sky"><Scenery world={world} isPaused={() => paused.current} /></div>
       <div className="sx-flash" aria-hidden="true" />
 
@@ -644,20 +671,20 @@ export default function SentenceExpressGame({
         <div className={`sx-signal ${(trackDone && phase === PHASES.SHUNT) || rolling ? "sx-go" : ""}`} aria-hidden="true">
           <i className="sx-arm" /><i className="sx-lamp" />
         </div>
-        <div className={`sx-train ${rolling || motion !== "idle" ? "sx-rolling" : ""}`} role="region" aria-label="Sentence train: scroll to see every carriage" tabIndex={0}>
+        <div className={`sx-train ${rolling || motion !== "idle" ? "sx-rolling" : ""}`} role="region" aria-label="Your sentence, read from left to right" dir="ltr" tabIndex={0}>
           <TrainCar kind="engine" word={train.engine ? (engineChoice ?? "?") : solution[0]}
-            ghost={train.engine ? engineChoice === null : coupled.length === 0}
+            ghost={train.engine ? engineChoice === null : coupled.length === 0} next={nextSlot === 0} arrived={coupled.length === 1 && !engineTransfer}
             onClick={phase === PHASES.SHUNT && coupled.length === 1 ? () => { setCoupled([]); setEngineChoice(null); setCabooseChoice(null); } : undefined} label="Uncouple last car" lit={litWord === 0} smoking={rolling || motion !== "idle"} blasting={blast} />
           {solution.slice(1).map((word, i) => {
             const slot = i + 1;
             const filled = coupled.length > slot;
             return (
-              <TrainCar key={slot} tone={slot % TONES.length} word={word} ghost={!filled}
+              <TrainCar key={slot} tone={slot % TONES.length} word={word} ghost={!filled} next={slot === nextSlot}
                 onClick={filled && coupled.length === slot + 1 && phase === PHASES.SHUNT ? () => { setCoupled(c => c.slice(0, -1)); setCabooseChoice(null); } : undefined} label="Uncouple last car" lit={litWord === slot} arrived={filled && coupled.length === slot + 1 && phase === PHASES.SHUNT} />
             );
           })}
           <TrainCar kind="caboose" word={train.caboose ? (cabooseChoice ?? "?") : train.endMark}
-            ghost={Boolean(train.caboose) && !cabooseChoice} />
+            ghost={Boolean(train.caboose) && !cabooseChoice} next={task === "caboose"} />
         </div>
         <div className="sx-trackbed" />
         <div className="sx-fore" aria-hidden="true"><ForeSvg world={world} /><ForeSvg world={world} /></div>
@@ -674,92 +701,68 @@ export default function SentenceExpressGame({
       </div>
 
       {phase === PHASES.SHUNT && (
-        <section className="sx-yard">
-          <div className="sx-workbench" role="region" aria-label="Sidings and repair tools: scroll for more" tabIndex={0}>
-          <div className="sx-spur">
-            <div className="sx-spurlabel">SIDINGS - TAP TO COUPLE</div>
-            <div className="sx-spurcars">
-              {train.sidingOrder.filter(i => i !== 0 || !train.engine).map(i => {
-                // Coupled cars leave a stable empty space so nothing re-flows
-                // under a child's finger mid-level.
-                if (coupled.includes(i)) {
-                  return <span key={i} className="sx-carbox sx-small sx-heldslot" aria-hidden="true" />;
-                }
-                // The lost-crate car waits as a ghost until its crate loads.
-                if (train.gap && i === train.gap.index && !gapFilled) {
-                  return <TrainCar key={i} small ghost word="?" />;
-                }
-                const isRusty = train.rusty && i === train.rusty.index && !rustyFixed;
-                return (
-                  <TrainCar key={i} small tone={i % TONES.length} rusty={isRusty}
-                    word={isRusty ? train.rusty.wrong : solution[i]}
-                    onClick={() => couple(i)} label={`couple ${isRusty ? train.rusty.wrong : solution[i]}`} />
-                );
-              })}
+        <section className="sx-yard" aria-label={`Step ${stageNumber} of 3`}>
+          <div className="sx-taskbar">
+            <div className="sx-instruction">
+              <span className="sx-step">{stageNumber} / 3 · {needsEngine ? "Choose the engine" : trackDone ? "Send the train" : "Build the sentence"}</span>
+              <p className="sx-objective" data-child-instruction>{yardInstruction}</p>
+              {hint && <p className="sx-hint" role="status">{hint}</p>}
             </div>
-            <div className="sx-spurtrack" />
+            <button type="button" className="sx-replay" onClick={replayInstruction}
+              disabled={!isSoundEnabled || !instructionPath}
+              aria-label={!isSoundEnabled ? "Instruction replay unavailable while sound is off" : "Hear the instruction again"}>
+              <BellIcon /><span>{isSoundEnabled ? "Hear how" : "Sound off"}</span>
+            </button>
           </div>
-
-          <div className="sx-structures">
-            {train.engine && engineChoice === null && (
-              <div className="sx-structure sx-engineshed">
-                <h4>ENGINE SHED - pick the leader</h4>
-                <div className="sx-optionrow">
-                  {train.engine.options.map(o => (
-                    <TrainCar key={o} small kind="engine" word={o} onClick={() => chooseEngine(o)} label={`engine ${o}`} />
-                  ))}
-                </div>
-                <small>Only a capital can lead the train!</small>
+          <div className="sx-workbench">
+            {needsEngine ? (
+              <div className="sx-engineshed" role="group" aria-label="Choose an engine">
+                {train.engine.options.map(option => (
+                  <TrainCar key={option} kind="engine" word={option} onClick={event => chooseEngine(option, event)} label={`engine ${option}`} />
+                ))}
               </div>
-            )}
-            {train.rusty && !rustyFixed && (
-              <div className="sx-structure sx-shed">
-                <h4>REPAIR SHED - swap the rusty car</h4>
-                <div className="sx-optionrow">
-                  {train.rusty.options.map(o => (
-                    <button key={o} type="button" className="sx-plate" onClick={() => repairRusty(o)}>{o}</button>
-                  ))}
+            ) : needsRepair ? (
+              <div className="sx-repairbench">
+                <TrainCar rusty word={train.rusty.wrong} />
+                <div className="sx-optionrow" role="group" aria-label="Fix the rusty word">
+                  {train.rusty.options.map(option => <button key={option} type="button" className="sx-plate" onClick={event => repairRusty(option, event)}>{option}</button>)}
                 </div>
               </div>
-            )}
-            {train.gap && !gapFilled && (
-              <div className="sx-structure sx-crates">
-                <h4>LOST CRATE - load the missing word</h4>
-                <div className="sx-optionrow">
-                  {train.gap.options.map(o => (
-                    <button key={o} type="button" className="sx-crate" onClick={() => loadCrate(o)}>{o}</button>
-                  ))}
-                </div>
+            ) : needsCrate ? (
+              <div className="sx-optionrow" role="group" aria-label="Choose the missing word">
+                {train.gap.options.map(option => <button key={option} type="button" className="sx-crate" onClick={event => loadCrate(option, event)}>{option}</button>)}
               </div>
-            )}
-            {train.caboose && coupled.length === train.words.length && !cabooseChoice && (
-              <div className="sx-structure sx-cabooserack">
-                <h4>PICK THE CABOOSE MARK</h4>
-                <div className="sx-optionrow">
-                  {train.caboose.options.map(o => (
-                    <button key={o} type="button" className="sx-disc" onClick={() => chooseCaboose(o)}>{o}</button>
-                  ))}
+            ) : task === "caboose" ? (
+              <div className="sx-optionrow" role="group" aria-label="Choose the end mark">
+                {train.caboose.options.map(option => <button key={option} type="button" className="sx-disc" onClick={event => chooseCaboose(option, event)}>{option}</button>)}
+              </div>
+            ) : trackDone ? (
+              <button type="button" className="sx-send" onClick={depart}>Send the train! <span aria-hidden="true">→</span></button>
+            ) : (
+              <div className="sx-spur">
+                <div className="sx-spurcars" role="group" aria-label="Words to finish the sentence">
+                  {train.sidingOrder.filter(i => i !== 0 || !train.engine).map(i => coupled.includes(i)
+                    ? <span key={i} className="sx-carbox sx-heldslot" aria-hidden="true" />
+                    : <TrainCar key={i} tone={i % TONES.length} word={solution[i]} onClick={event => couple(i, event)} label={`couple ${solution[i]}`} />)}
                 </div>
+                <div className="sx-spurtrack" />
               </div>
             )}
           </div>
-
-          </div>
-          <div className="sx-master">
-            <span className="sx-pal" aria-hidden="true"><LanternBadge /></span>
-            <div className="sx-bubble">
-              <p className="sx-objective" data-child-instruction>{hint ? <span className="sx-hint" role="status">{hint}</span> : yardInstruction}</p>
-              <p className="sx-target">{targetSentence}</p>
-              {isSoundEnabled ? (
-                <button type="button" className="sx-bell" onClick={announce} aria-label="Hear the sentence again">
-                  <BellIcon /> Hear sentence again
-                </button>
-              ) : null}
-            </div>
-          </div>
-
+          {!needsEngine && <div className="sx-sentence-cue">
+            <p className="sx-target">{targetSentence}</p>
+            <button type="button" className="sx-replay" onClick={announce} disabled={!isSoundEnabled}
+              aria-label={isSoundEnabled ? "Hear the sentence again" : "Sentence replay unavailable while sound is off"}>
+              <BellIcon /><span>{isSoundEnabled ? "Hear sentence" : "Sound off"}</span>
+            </button>
+          </div>}
         </section>
       )}
+      {engineTransfer && <div className="sx-engine-transfer" aria-hidden="true" style={{
+        left: engineTransfer.x, top: engineTransfer.y, width: engineTransfer.width, height: engineTransfer.height,
+        "--transfer-x": `${engineTransfer.dx}px`, "--transfer-y": `${engineTransfer.dy}px`,
+        "--transfer-sx": engineTransfer.sx, "--transfer-sy": engineTransfer.sy, "--transfer-font": engineTransfer.font
+      }}><TrainCar kind="engine" word={engineTransfer.word} /></div>}
 
       {stamp && <div className="sx-stamp" aria-hidden="true">EXPRESS!<em>ON TIME</em></div>}
       {comboToast && <div className="sx-combotoast" aria-hidden="true">{comboToast}</div>}

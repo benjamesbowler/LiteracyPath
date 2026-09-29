@@ -10890,5 +10890,13 @@ export const ASSESSMENT_LEDA_GAP_AUDIO_BY_ROLE = Object.freeze({
     "yell ... you spot land": "/audio/production/en-US/supplemental/yell-you-spot-land-2104498382.mp3",
     "you ... a fine job": "/audio/production/en-US/supplemental/you-a-fine-job-7ac4268323.mp3",
     "you ... fast today": "/audio/production/en-US/supplemental/you-fast-today-5171cf5fe5.mp3"
+  },
+  "instruction": {
+    "tap send the train": "/audio/production/en-US/instruction/tap-send-the-train-5d235e27d5.mp3",
+    "tap the engine with a capital letter": "/audio/production/en-US/instruction/tap-the-engine-with-a-capital-letter-f3cd57d9dc.mp3",
+    "tap the mark that ends the sentence": "/audio/production/en-US/instruction/tap-the-mark-that-ends-the-sentence-184a013dfa.mp3",
+    "tap the missing word": "/audio/production/en-US/instruction/tap-the-missing-word-ec1513a9f1.mp3",
+    "tap the word that fixes the rusty carriage": "/audio/production/en-US/instruction/tap-the-word-that-fixes-the-rusty-carriage-3c5e6e7180.mp3",
+    "tap the words to finish the sentence": "/audio/production/en-US/instruction/tap-the-words-to-finish-the-sentence-6e24981071.mp3"
   }
 });

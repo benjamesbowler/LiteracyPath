@@ -51,7 +51,7 @@ test("Sentence Express prints its sentence goal beside a generous replay control
   const action = player.locator(".sx-objective");
   const target = player.locator(".sx-target");
   const replay = player.getByRole("button", { name: "Hear the sentence again", exact: true });
-  await expect(action).toHaveText("Tap the word cars in sentence order.");
+  await expect(action).toHaveText("Tap the words to finish the sentence.");
   await expect(target).toBeVisible();
   await expect(target).not.toBeEmpty();
   await expect(replay).toBeVisible();
@@ -176,4 +176,44 @@ test("Sound Racer keeps its 56-pixel replay and readable label text", async ({ p
   expect(replayStyles.fontSize).toBeGreaterThanOrEqual(16);
   expect(replayStyles.width).toBeGreaterThanOrEqual(56);
   expect(replayStyles.height).toBeGreaterThanOrEqual(56);
+});
+
+test("Sentence Express reveals one current job, preserves retries and sends only a completed sentence", async ({ page }) => {
+  await page.goto("/preview/game-overlay.html?game=sentence-express&difficulty=medium&sound=1&music=0");
+  const stage = page.locator(".sx-stage");
+  await expect(stage).toHaveAttribute("data-task", "engine");
+  await expect(page.getByText("Tap the engine with a capital letter.", { exact: true })).toBeVisible();
+  await expect(page.getByRole("group", { name: "Words to finish the sentence" })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "Send the train!", exact: true })).toHaveCount(0);
+  const choices = page.getByRole("group", { name: "Choose an engine" }).getByRole("button");
+  const names = await choices.allTextContents();
+  const goodIndex = names.findIndex(word => /^[A-Z]/.test(word));
+  const wrongIndex = 1 - goodIndex;
+  const beforeTrain = await stage.getAttribute("data-train-id");
+  await choices.nth(wrongIndex).click();
+  await expect(stage).toHaveAttribute("data-task", "engine");
+  await expect(page.locator(".sx-hint")).toHaveText("Only a capital can lead the train!");
+  await choices.nth(goodIndex).focus();
+  await page.keyboard.press("Enter");
+  await expect(stage).toHaveAttribute("data-task", "build");
+  await expect(stage).toHaveAttribute("data-train-id", beforeTrain);
+  await expect(page.locator(".sx-train .sx-carword").first()).toHaveText(names[goodIndex]);
+  await expect(page.locator(".sx-nextslot")).toBeVisible();
+  await expect(page.locator(".sx-workbench button").first()).toBeFocused();
+  const sentence = await page.locator(".sx-target").textContent();
+  const words = sentence.replace(/[.?!]$/, "").split(" ");
+  for (const word of words.slice(1)) {
+    await page.getByRole("button", { name: `couple ${word}`, exact: true }).first().click();
+  }
+  if (await stage.getAttribute("data-task") === "caboose") {
+    await page.getByRole("group", { name: "Choose the end mark" }).getByRole("button", { name: sentence.slice(-1), exact: true }).click();
+  }
+  await expect(stage).toHaveAttribute("data-task", "send");
+  await expect(stage).toHaveAttribute("data-phase", "shunt");
+  const shownWords = await page.locator(".sx-train .sx-carword").allTextContents();
+  expect(shownWords).toEqual([...words, sentence.slice(-1)]);
+  await page.getByRole("button", { name: "Send the train!", exact: true }).focus();
+  await page.keyboard.press("Space");
+  await expect(stage).toHaveAttribute("data-phase", "depart");
+  await expect(page.getByRole("button", { name: "Send the train!", exact: true })).toHaveCount(0);
 });

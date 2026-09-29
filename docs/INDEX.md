@@ -66,7 +66,7 @@ immediately. Missing review metadata is not a publication queue.
 - [School-linked parent area](product/PARENT_AREA_SPEC.md) — guardian access, released family reports, privacy boundary and seeded preview; Family Bridge is retired
 - [Child surface rules](design/CHILD_SURFACE_RULES.md)
 - [Complete game upgrade plan](design/GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md) — all 22 games plus Sound Seekers; gameplay, graphics, learning, reported defects and per-game acceptance
-- [Game design bible](design/GAME_DESIGN_BIBLE.md) — preserves original Arcade gameplay, including Sound Beat rhythm; instruction playback never blocks activity input
+- [Game design bible](design/GAME_DESIGN_BIBLE.md) — preserves original Arcade gameplay, including Sound Beat rhythm; Sentence Express uses engine, sentence and labelled departure stages; instruction playback never blocks activity input
 - [Arcade saved journeys](design/GAME_DESIGN_BIBLE.md#arcade-saved-journeys) — twelve saved outings per Arcade game, replay variation and scoped continuity data
 - [Word Match progression](design/GAME_DESIGN_BIBLE.md#word-match-progression) — cycle-ordered matching, four-pair boards and frequency-ordered continuation
 - [Game visual and playability production guide](design/GAME_VISUAL_PLAYABILITY_PRODUCTION_GUIDE.md) — agent workflow for authored visual, asset, audio, performance and evidence quality

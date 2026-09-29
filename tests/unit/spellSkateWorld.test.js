@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { createSkateParkDressing, createSkateTextSign, sampleSkateSurface, skateRampProfile, skateSurfaceTilt, createSkateRampGeometry, createSkateDeckGeometry, planSkateRoute, skateObstacleAt, skateDeckClearance, skateFrameSteps, nextSkateQuality, skateMotion, skateAction, measureSkateTravel, chooseSkateDestination, SKATE_DESTINATION_DISTANCE } from '../../src/components/learn/games/games/spellSkatePark.js';
+import { createSkateParkDressing, createSkateTextSign, sampleSkateSurface, skateRampProfile, skateSurfaceTilt, createSkateRampGeometry, createSkateDeckGeometry, planSkateRoute, skateObstacleAt, resolveSkateObstacleContact, skateDeckClearance, skateFrameSteps, nextSkateQuality, skateMotion, skateAction, measureSkateTravel, chooseSkateDestination, SKATE_DESTINATION_DISTANCE } from '../../src/components/learn/games/games/spellSkatePark.js';
 import { chooseSkaterState, SPELL_SKATER_STATES } from '../../src/components/learn/games/games/spellSkaterAsset.js';
 import { grammarGrindLadder } from '../../src/utils/grammarGrindLevels.js';
 test('the planted park hills face outward and upward to receive daylight',()=>{
@@ -368,4 +368,144 @@ test('forward acceleration reaches cruising speed without a boost resource and r
   const reverse = { ...state };
   for (let n = 0; n < 90; n++) Object.assign(reverse, skateMotion(reverse, { ...controls, push: 0, boost: false, brake: 1 }, 1 / 60));
   assert.equal(reverse.speed, -4.05);
+});
+
+
+test('landing anywhere in park furniture resolves contact once without trapping movement', () => {
+  for (const difficulty of ['easy', 'medium', 'hard']) {
+    const park = createSkateParkDressing({ accent2: '#42b9a7' }, difficulty);
+    const obstacles = park.userData.obstacles;
+    for (const obstacle of obstacles) for (const depth of [0, .2, .8, .999]) {
+      for (let angle = 0; angle < Math.PI * 2; angle += Math.PI / 8) {
+        const position = {
+          x: obstacle.x + Math.sin(angle) * (obstacle.radius + 2.15) * depth,
+          z: obstacle.z + Math.cos(angle) * (obstacle.radius + 2.15) * depth
+        };
+        const previous = { x: position.x + .1, z: position.z + .1 };
+        const contact = resolveSkateObstacleContact(position, previous, obstacles);
+        assert.ok(contact, `${difficulty}: landing must resolve`);
+        assert.ok(Number.isFinite(contact.x) && Number.isFinite(contact.z));
+        assert.equal(skateObstacleAt(contact.x, contact.z, obstacles), null);
+        assert.equal(resolveSkateObstacleContact(contact, contact, obstacles), null, 'stationary next frame must not restart stun');
+        assert.ok(Math.hypot(contact.x - position.x, contact.z - position.z) < 10, 'separation stays local to the furniture');
+      }
+    }
+    park.traverse(node => {
+      node.geometry?.dispose();
+      for (const material of Array.isArray(node.material) ? node.material : [node.material]) material?.dispose();
+    });
+  }
+});
+
+test('landing resolves overlapping furniture, coincident centres and shallow contacts', () => {
+  for (const obstacles of [
+    [{ x: 0, z: 0, radius: 5.4 }, { x: 7, z: 1, radius: 2.5 }],
+    [{ x: 0, z: 0, radius: 2 }, { x: 0, z: 0, radius: 5 }],
+    [{ x: 0, z: 0, radius: 2 }, { x: 3, z: 0, radius: 2 }, { x: 1.5, z: 2, radius: 2 }]
+  ]) {
+    const contact = resolveSkateObstacleContact({ x: 0, z: 0 }, { x: 0, z: 0 }, obstacles);
+    assert.ok(contact);
+    assert.equal(skateObstacleAt(contact.x, contact.z, obstacles), null);
+  }
+  const obstacle = [{ x: 0, z: 0, radius: 5 }];
+  const shallow = resolveSkateObstacleContact({ x: 7.14, z: 0 }, { x: 7.2, z: 0 }, obstacle);
+  assert.ok(Math.abs(shallow.x - 7.14) < .021, 'a shallow impact must not jump to a spawn point');
+  assert.equal(resolveSkateObstacleContact({ x: 10, z: 0 }, { x: 10, z: 0 }, obstacle), null);
+});
+
+test('a spelling choice remains reachable from furniture landings throughout all authored parks', () => {
+  const target = { x: 0, z: 36 };
+  for (const difficulty of ['easy', 'medium', 'hard']) {
+    const park = createSkateParkDressing({ accent2: '#42b9a7' }, difficulty);
+    const obstacles = park.userData.obstacles;
+    const ramps = [
+      { x: -51, z: -14, rot: Math.PI, width: 12, depth: 18, height: 3.6 },
+      { x: -51, z: -39, rot: 0, width: 32, depth: 32, radius: 16, height: 3.6, kind: 'bowl' }
+    ];
+    const platforms = [];
+    if (difficulty === 'easy') ramps.push({ x: 35, z: -64, rot: -Math.PI * .12, width: 15, depth: 18, height: 3.2 });
+    else {
+      ramps.push(...[
+        [38, 32, Math.PI * 1.18, 20, 22, 5.2], [-2, 56, Math.PI, 32, 18, 4.1], [44, -46, -Math.PI * .38, 16, 18, 3.8]
+      ].map(([x, z, rot, width, depth, height]) => ({ x, z, rot, width, depth, height })));
+      ramps.push(...[
+        [-58, 22, Math.PI * .48, 24, 7.8], [58, -24, -Math.PI * .52, 28, 8.2], [-2, -68, 0, 34, 7.4]
+      ].map(([x, z, rot, width, depth]) => ({ x, z, rot, width, depth, height: depth, kind: 'quarter' })));
+      platforms.push(...[
+        [-20, -18, Math.PI * .08, 22, 10, 1.7], [25, 24, -Math.PI * .12, 26, 9, 1.9], [7, -34, Math.PI * .42, 18, 8, 1.45]
+      ].map(([x, z, rot, width, depth, height]) => ({ x, z, rot, width, depth, height })));
+    }
+    for (const obstacle of obstacles) for (let angle = 0; angle < Math.PI * 2; angle += Math.PI / 8) {
+      const position = {
+        x: obstacle.x + Math.sin(angle) * (obstacle.radius + 2.15) * .8,
+        z: obstacle.z + Math.cos(angle) * (obstacle.radius + 2.15) * .8
+      };
+      const start = resolveSkateObstacleContact(position, position, obstacles);
+      const route = planSkateRoute(start, target, ramps, platforms, obstacles);
+      assert.ok(route.length, `${difficulty}: no escape route at ${JSON.stringify(start)}`);
+      assert.deepEqual(route.at(-1), target);
+      let previous = start;
+      for (const [index, point] of route.entries()) {
+        for (const solid of obstacles) {
+          let distance = Math.hypot(previous.x - solid.x, previous.z - solid.z);
+          const escaping = index === 0 && distance < solid.radius + 4;
+          for (let n = 1; n <= 20; n++) {
+            const x = previous.x + (point.x - previous.x) * n / 20;
+            const z = previous.z + (point.z - previous.z) * n / 20;
+            const nextDistance = Math.hypot(x - solid.x, z - solid.z);
+            assert.ok(nextDistance >= solid.radius + (escaping ? 2.15 : 4) - 1e-7, 'route enters furniture');
+            if (escaping) assert.ok(nextDistance >= distance - 1e-7, 'first edge approaches an enclosing object');
+            distance = nextDistance;
+          }
+        }
+        previous = point;
+      }
+    }
+    park.traverse(node => {
+      node.geometry?.dispose();
+      for (const material of Array.isArray(node.material) ? node.material : [node.material]) material?.dispose();
+    });
+  }
+});
+
+test('the first route segment leaves the actual contact position without cutting through it', () => {
+  const obstacles = [{ x: 0, z: 0, radius: 5.4 }];
+  const start = { x: 7.56, z: 0 };
+  assert.deepEqual(planSkateRoute(start, { x: 12, z: 0 }, [], [], obstacles), [{ x: 12, z: 0 }]);
+  assert.deepEqual(planSkateRoute(start, { x: 6, z: 6 }, [], [], obstacles), [], 'nearby target cannot bypass the actual first-segment collision');
+  const overlapping = [{ x: 0, z: 0, radius: 5.4 }, { x: 7, z: 1, radius: 2.5 }];
+  const contact = resolveSkateObstacleContact({ x: 6, z: 0 }, { x: 6, z: 0 }, overlapping);
+  const route = planSkateRoute(contact, { x: 20, z: -20 }, [], [], overlapping);
+  assert.ok(route.length);
+  for (const obstacle of overlapping) {
+    const dx = contact.x - obstacle.x, dz = contact.z - obstacle.z;
+    if (Math.hypot(dx, dz) < obstacle.radius + 4) {
+      assert.ok(dx * (route[0].x - contact.x) + dz * (route[0].z - contact.z) >= 0, 'escape must leave both overlapping margins');
+    }
+  }
+});
+
+test('egress beside a raised deck preserves its wall and restores normal clearance afterward', () => {
+  const deck = { x: 0, z: 0, rot: .24, width: 10, depth: 8, height: 2 };
+  const distanceToDeck = point => {
+    const x = point.x * Math.cos(deck.rot) - point.z * Math.sin(deck.rot);
+    const z = point.x * Math.sin(deck.rot) + point.z * Math.cos(deck.rot);
+    return Math.hypot(Math.max(0, Math.abs(x) - 5), Math.max(0, Math.abs(z) - 4));
+  };
+  const start = { x: 5.5 * Math.cos(deck.rot), z: -5.5 * Math.sin(deck.rot) };
+  const route = planSkateRoute(start, { x: -20, z: 0 }, [], [deck], []);
+  assert.ok(route.length);
+  let previous = start;
+  for (const [index, point] of route.entries()) {
+    let distance = distanceToDeck(previous);
+    for (let n = 1; n <= 40; n++) {
+      const sample = { x: previous.x + (point.x - previous.x) * n / 40, z: previous.z + (point.z - previous.z) * n / 40 };
+      const nextDistance = distanceToDeck(sample);
+      assert.ok(nextDistance > 0, 'route must never enter the raised deck wall');
+      if (index === 0) assert.ok(nextDistance >= distance - 1e-7, 'escape must move away from the deck');
+      else assert.ok(skateDeckClearance(sample.x, sample.z, [deck], 2), 'later segments retain board clearance');
+      distance = nextDistance;
+    }
+    previous = point;
+  }
 });

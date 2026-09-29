@@ -7,6 +7,7 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { normalizeSpokenCloze as spokenCloze } from "../src/utils/assessmentSpokenText.js";
+import { SENTENCE_EXPRESS_INSTRUCTIONS } from "../src/components/learn/games/games/sentenceExpressInstructions.js";
 import { buildAssessmentSpeechInput } from "./assessmentSpeechInput.mjs";
 
 import {
@@ -35,6 +36,7 @@ const repairChangedSsml = process.argv.includes("--repair-changed-ssml");
 const filesOnly = process.argv.includes("--files-only");
 // Prepare exact recordings before publication. A new bank cannot pass its
 // audio gate if the generator only sees the previously published questions.
+const sentenceExpressOnly = process.argv.includes("--sentence-express-only");
 const useAuthored = process.argv.includes("--authored");
 // Freeze and record one reviewed bank at a time while other authors work.
 // Unselected catalogue entries are preserved by the merge below.
@@ -106,7 +108,7 @@ function request(role, text) {
   if (!current || rolePriority[role] > rolePriority[current.role]) requested.set(normalized, { role, exactText, normalized });
 }
 
-const banks = useAuthored ? await (async () => {
+const banks = sentenceExpressOnly ? [] : useAuthored ? await (async () => {
   const { expandBank, makeImageResolver, AUTHORING_DIR } = await import("./assessmentRebuild/lib.mjs");
   const { skillBlueprints } = await import("../src/content/blueprints/skillBlueprints.js");
   return Promise.all(selectSkillIds(Object.keys(skillBlueprints)).map(async skill => {
@@ -121,6 +123,10 @@ for (const item of banks.flat()) {
   for (const card of item.imageCards || []) request("isolated_word", card.word);
   for (const choice of item.choices || []) request("isolated_word", choice);
   if (!item.suppressStimulusAudio && item.targetWord && !/[/_]/.test(item.targetWord)) request("isolated_word", item.targetWord);
+}
+
+if (sentenceExpressOnly) {
+  for (const text of Object.values(SENTENCE_EXPRESS_INSTRUCTIONS)) request("instruction", text);
 }
 
 function outputFor(record) {

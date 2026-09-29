@@ -8,11 +8,9 @@
   --sx-ink: #10151d;
   --sx-parch: #fdf6e3;
   --sx-brass: #f4b942;
-  --carw: clamp(88px, 14vw, 182px);
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 520px;
   overflow: hidden;
   border-radius: 14px;
   isolation: isolate;
@@ -40,8 +38,7 @@
     radial-gradient(circle at 12% 9%, rgba(174, 207, 255, 0.24), transparent 27%),
     linear-gradient(180deg, #080e2c 0%, #182649 25%, #1d3a37 38%, #0b1714 100%);
 }
-.sx-sky::before,
-.sx-sky::after {
+.sx-sky::before, .sx-sky::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -61,8 +58,7 @@
 .sx-moonwood { color: #eef2f9; }
 
 .sx-landscape {
-  position: absolute; inset: 0 -3% auto; height: 66%;
-  background-position: center bottom; background-size: cover;
+  position: absolute; inset: 0 -3% auto; height: 66%; background-size: cover;
   transform-origin: 50% 80%;
   transition: height .7s ease;
 }
@@ -76,7 +72,7 @@
 .sx-meadow { --sx-ground: #486745; }
 .sx-dino { --sx-ground: #715039; }
 .sx-moonwood { --sx-ground: #142e31; }
-.sx-scroll .sx-landscape { height: 80%; animation: sx-landscape-travel 10s linear both; }
+.sx-scroll .sx-landscape { height: 80%; }
 @keyframes sx-landscape-travel { from { transform: translateX(0) scale(1.02); } to { transform: translateX(2%) scale(1.04); } }
 .sx-glowbug { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #c5edbf; box-shadow: 0 0 8px 2px #b5eac777; animation: sx-float 3s ease-in-out infinite; }
 @keyframes sx-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
@@ -99,16 +95,9 @@
 .sx-jolt .sx-flash { opacity: 1; }
 
 /* ── HUD: wooden signboard ─────────────────────────────────────────────── */
-.sx-hud {
-  position: absolute; top: 0; left: 0; right: 0; z-index: 12;
-  display: flex; align-items: center; gap: 10px;
-  padding: 9px 14px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.13), transparent 38%),
-    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.08) 0 3px, transparent 3px 26px),
-    linear-gradient(#5b4226, #3c2b17);
+.sx-hud { top: 0; left: 0; right: 0;
+  display: flex; align-items: center;
   border-bottom: 3px solid var(--sx-ink);
-  box-shadow: inset 0 -1px 0 rgba(255, 214, 133, 0.16), 0 10px 28px rgba(5, 9, 14, 0.28);
   color: #f4ead2;
   font-size: 14px;
 }
@@ -116,9 +105,8 @@
   font-weight: 700; letter-spacing: 1.5px; color: var(--sx-brass);
   text-shadow: 1px 2px 0 rgba(0, 0, 0, 0.55);
 }
-.sx-linechip {
-  background: #2f6b4f; border: 2px solid var(--sx-ink); border-radius: 999px;
-  padding: 3px 12px; font-weight: 700; font-size: 12px; letter-spacing: 0.6px;
+.sx-linechip { border-radius: 999px;
+  padding: 3px 12px; font-weight: 700; letter-spacing: 0.6px;
 }
 .sx-dino .sx-linechip { background: #8a4a1f; }
 .sx-moonwood .sx-linechip { background: #5a3f93; }
@@ -134,7 +122,7 @@
   padding: 3px 10px 3px 4px; font-weight: 700;
 }
 .sx-clockface {
-  position: relative; width: 26px; height: 26px; border-radius: 50%;
+  position: relative; border-radius: 50%;
   background: #fdf6e3; border: 2px solid var(--sx-ink); display: inline-block;
 }
 .sx-hand {
@@ -154,15 +142,13 @@
   position: absolute; left: 0; right: 0; top: 24%; z-index: 6;
   transition: top 0.7s ease;
 }
-.sx-stage[data-phase="intro"] .sx-mainline,
-.sx-stage[data-phase="depart"] .sx-mainline,
-.sx-stage[data-phase="tally"] .sx-mainline { top: 34%; }
+.sx-stage[data-phase="intro"] .sx-mainline, .sx-stage[data-phase="depart"] .sx-mainline, .sx-stage[data-phase="tally"] .sx-mainline { top: 34%; }
 .sx-train {
   position: relative; z-index: 2;
-  display: flex; align-items: flex-end; gap: 7px;
+  display: flex; align-items: flex-end;
   /* Head-room inside the scroll box so chimney smoke isn't clipped
      (overflow-x:auto forces vertical clipping too). */
-  padding: 140px 16px 0; margin-top: -140px; margin-bottom: -14px;
+  padding: 140px 16px 0; margin-top: -140px;
   overflow-x: auto; scrollbar-width: none;
 }
 .sx-train::-webkit-scrollbar { display: none; }
@@ -170,7 +156,6 @@
 .sx-train > :first-child { margin-left: auto; }
 .sx-train > :last-child { margin-right: auto; }
 .sx-trackbed {
-  height: 54px;
   background:
     linear-gradient(transparent 0 10px, #c9ccd4 10px 16px, transparent 16px 36px, #c9ccd4 36px 42px, transparent 42px),
     repeating-linear-gradient(90deg, #7a5a3a 0 30px, #8a6845 30px 60px);
@@ -189,8 +174,8 @@
 
 /* ── Semaphore signal (planted beside the track) ───────────────────────── */
 .sx-signal {
-  position: absolute; right: 30px; bottom: 46px; z-index: 1;
-  width: 13px; height: 175px; background: #3c485c;
+  position: absolute; z-index: 1;
+  width: 13px; background: #3c485c;
   border: 2px solid var(--sx-ink); border-radius: 5px;
 }
 .sx-arm {
@@ -211,19 +196,16 @@
 /* ── Rolling stock ─────────────────────────────────────────────────────── */
 .sx-carbox {
   position: relative; flex: 0 0 auto;
-  width: var(--carw); height: calc(var(--carw) * 0.78);
   background: none; border: none; padding: 0; cursor: default;
   filter: drop-shadow(0 10px 7px rgba(7, 12, 18, 0.42)) drop-shadow(-1px 1px 0 rgba(255, 255, 255, 0.18));
   transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.25, 1), filter 0.18s ease;
 }
-.sx-carbox.sx-kind-engine { width: calc(var(--carw) * 1.12); }
 button.sx-carbox { cursor: pointer; }
 button.sx-carbox:active { transform: translateY(2px); }
 .sx-carsvg { width: 100%; height: 100%; display: block; }
 .sx-carword {
   position: absolute; left: 6%; right: 6%; top: 36%;
   text-align: center; font-weight: 700;
-  font-size: clamp(16px, 2.3vw, 30px);
   color: #fff; text-shadow: 0 2px 3px rgba(0, 0, 0, 0.55);
   pointer-events: none;
 }
@@ -237,8 +219,6 @@ button.sx-carbox:active { transform: translateY(2px); }
 .sx-lit { transform: scale(1.07); transition: transform 0.15s ease; }
 .sx-arrive { animation: sx-arrive 0.3s cubic-bezier(0.3, 1.6, 0.5, 1); }
 @keyframes sx-arrive { from { transform: translateY(-26px); opacity: 0.4; } to { transform: translateY(0); opacity: 1; } }
-.sx-small { width: calc(var(--carw) * 0.82); height: calc(var(--carw) * 0.64); }
-.sx-small .sx-carword { font-size: clamp(15px, 1.9vw, 24px); }
 .sx-rustwisp {
   position: absolute; top: -14px; left: 24%; width: 10px; height: 10px;
   border-radius: 50%; background: rgba(140, 140, 140, 0.65);
@@ -270,27 +250,15 @@ button.sx-carbox:active { transform: translateY(2px); }
 }
 
 /* ── Shunt yard ────────────────────────────────────────────────────────── */
-.sx-yard {
-  position: absolute; left: 0; right: 0; bottom: 0; z-index: 7;
-  top: calc(24% + var(--carw) * 0.78 + 96px);
-  display: flex; flex-direction: column; justify-content: center; gap: 22px;
-  padding: 12px 16px 14px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 24%),
-    linear-gradient(rgba(22, 32, 46, 0.12), rgba(12, 20, 31, 0.42));
+.sx-yard { left: 0; right: 0; bottom: 0;
+  top: calc(24% + var(--carw) * 0.78 + 96px); flex-direction: column; justify-content: center;
   border-top: 4px solid rgba(91, 66, 38, 0.8);
-  box-shadow: inset 0 14px 26px rgba(6, 11, 18, 0.14);
   overflow-y: auto;
 }
 .sx-spur { position: relative; padding-bottom: 24px; }
-.sx-spurlabel {
-  font-size: 13px; font-weight: 700; letter-spacing: 1.6px; color: #fff;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6); margin-bottom: 8px;
-  text-align: center;
-}
 .sx-spurcars {
   position: relative; z-index: 2;
-  display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+  display: flex;
 }
 .sx-spurtrack {
   position: absolute; left: -16px; right: -16px; bottom: 6px; height: 22px;
@@ -298,33 +266,11 @@ button.sx-carbox:active { transform: translateY(2px); }
     linear-gradient(transparent 0 5px, #b9bdc6 5px 9px, transparent 9px 15px, #b9bdc6 15px 19px, transparent 19px),
     repeating-linear-gradient(90deg, rgba(91, 66, 38, 0.9) 0 22px, rgba(110, 82, 50, 0.9) 22px 44px);
 }
-
-/* Structures: shed / crates / engine shed / caboose rack */
-.sx-structures {
-  display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start;
-  justify-content: center; padding: 0 170px 56px;
-}
-.sx-structure {
-  position: relative;
-  background: rgba(253, 246, 227, 0.96);
-  border: 3px solid var(--sx-ink); border-radius: 10px;
-  padding: 16px 12px 10px;
-  box-shadow: 5px 5px 0 rgba(10, 15, 24, 0.4);
-  color: var(--sx-ink);
-}
-.sx-structure::before {
-  content: ""; position: absolute; top: -11px; left: -7px; right: -7px; height: 13px;
-  background: #a3552e; border: 3px solid var(--sx-ink); border-radius: 6px;
-}
 .sx-engineshed::before { background: #3c485c; }
 .sx-crates::before { background: #8a6845; }
 .sx-cabooserack::before { background: #5a3f93; }
-.sx-structure h4 {
-  margin: 0 0 8px; font-size: 11px; letter-spacing: 1px; font-weight: 700;
-}
 .sx-shed h4 { color: #b03a28; }
-.sx-structure small { display: block; margin-top: 6px; font-weight: 600; font-size: 11px; color: #6b5b3e; }
-.sx-optionrow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.sx-optionrow { display: flex; align-items: center; }
 
 .sx-plate {
   min-width: 74px; min-height: 56px; padding: 12px 14px;
@@ -364,64 +310,19 @@ button.sx-carbox:active { transform: translateY(2px); }
   }
 }
 
-/* Station master */
-.sx-master {
-  position: absolute; left: 18px; bottom: 14px; z-index: 9;
-  display: flex; align-items: flex-end; gap: 8px;
-  width: min(490px, calc(100% - 230px));
-}
-.sx-pal { font-size: 42px; filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.4)); }
-.sx-bubble {
-  background: rgba(253, 246, 227, 0.97); border: 3px solid var(--sx-ink);
-  width: min(420px, 100%);
-  border-radius: 14px 14px 14px 4px; padding: 14px 18px 16px;
-  box-shadow: 5px 6px 0 rgba(10, 15, 24, 0.42); color: var(--sx-ink);
-}
-.sx-bubble p { margin: 0 0 6px; font-weight: 600; font-size: 13px; }
-.sx-bubble .sx-objective {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 800;
-  line-height: 1.18;
-  text-wrap: balance;
-}
-.sx-bubble .sx-target {
-  margin: 5px 0 10px;
-  font-size: clamp(20px, 1.7vw, 24px);
-  font-weight: 800;
-  line-height: 1.12;
-  color: #214d3e;
-  overflow-wrap: anywhere;
-}
-.sx-bubble .sx-hint { margin: 8px 0 0; font-weight: 700; font-size: 15px; line-height: 1.2; color: #a03a2a; }
-.sx-bell {
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  background: #2f6b4f; color: #fff; border: 2px solid var(--sx-ink);
-  border-radius: 12px; padding: 10px 18px;
-  font-family: inherit; font-weight: 800; font-size: 16px; line-height: 1.1; cursor: pointer;
-  min-width: 210px; min-height: 60px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24), 0 4px 0 #1b372b;
-  transition: transform 0.16s ease, filter 0.16s ease, box-shadow 0.16s ease;
-}
-.sx-bell:active { transform: translateY(2px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 2px 0 #1b372b; }
-@media (hover: hover) and (pointer: fine) {
-  .sx-bell:hover { filter: brightness(1.08); }
-}
-
 /* ── Depart run extras ─────────────────────────────────────────────────── */
 .sx-karaoke {
+  /* Flex gaps preserve spaces when the current word is highlighted. */
+  display: flex; flex-wrap: wrap; justify-content: center; column-gap: .3em;
   width: fit-content; max-width: 92%;
-  margin: 34px auto 0;
   background: rgba(5, 8, 14, 0.84); color: #eef2f9;
-  border: 2px solid #3aa17e; border-radius: 999px;
-  padding: 14px 32px; font-size: clamp(19px, 2.6vw, 30px); font-weight: 700;
+  border: 2px solid #3aa17e; border-radius: 999px; font-weight: 700;
   text-align: center; line-height: 1.4; overflow-wrap: break-word;
 }
 .sx-word-lit { color: var(--sx-brass); text-decoration: underline; }
 .sx-stamp {
-  position: absolute; top: 15%; right: 10%; z-index: 13;
-  border: 5px solid #c9302c; color: #c9302c; border-radius: 10px;
-  padding: 6px 18px; font-weight: 700; font-size: 26px; letter-spacing: 2px;
+  position: absolute; z-index: 13;
+  border: 5px solid #c9302c; color: #c9302c; border-radius: 10px; font-weight: 700; letter-spacing: 2px;
   background: rgba(253, 246, 227, 0.92);
   transform: rotate(-9deg);
   animation: sx-slam 0.5s cubic-bezier(0.2, 1.8, 0.4, 1);
@@ -433,10 +334,9 @@ button.sx-carbox:active { transform: translateY(2px); }
   to { transform: rotate(-9deg) scale(1); opacity: 1; }
 }
 .sx-banner {
-  position: absolute; left: 50%; top: 47%; transform: translateX(-50%); z-index: 14;
+  position: absolute; left: 50%; transform: translateX(-50%); z-index: 14;
   background: rgba(5, 8, 14, 0.85); color: #fff;
-  border: 2px solid var(--sx-brass); border-radius: 999px;
-  padding: 10px 26px; font-weight: 700; font-size: 17px; white-space: nowrap;
+  border: 2px solid var(--sx-brass); border-radius: 999px; font-weight: 700; white-space: nowrap;
   animation: sx-bannerin 0.3s ease;
 }
 @keyframes sx-bannerin { from { transform: translate(-50%, 12px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
@@ -455,12 +355,6 @@ button.sx-carbox:active { transform: translateY(2px); }
   text-align: center; color: var(--sx-ink);
 }
 .sx-ticket h2 { margin: 0 0 4px; font-size: 21px; letter-spacing: 1.5px; }
-.sx-ticketsub { margin: 0 0 8px; font-weight: 600; font-size: 13px; color: #6b5b3e; }
-.sx-faults {
-  margin: 0 0 14px; font-weight: 600; font-size: 13px;
-  background: rgba(217, 79, 61, 0.12); border: 2px dashed #c9563f;
-  border-radius: 8px; padding: 7px 10px;
-}
 .sx-stars { font-size: 38px; margin: 6px 0; }
 .sx-tallyrows { display: flex; flex-direction: column; gap: 4px; margin-bottom: 14px; font-weight: 600; font-size: 14px; }
 .sx-tallyrows b { color: #b8741a; }
@@ -482,7 +376,6 @@ button.sx-carbox:active { transform: translateY(2px); }
 /* The locomotive faces left; enter from the right and depart engine-first. */
 .sx-train { transition: transform 1.15s cubic-bezier(0.22, 0.75, 0.3, 1); }
 .sx-motion-enter .sx-train { transform: translateX(115%); transition: none; }
-.sx-motion-out .sx-train { transform: translateX(-118vw); transition: transform 1.5s cubic-bezier(0.55, 0, 0.85, 0.4); }
 .sx-motion-out .sx-wheel { animation-duration: 0.28s; }
 /* Track is empty while the ticket shows or the train has left. */
 .sx-stage[data-phase="intro"] .sx-train, .sx-stage[data-phase="tally"] .sx-train { transform: translateX(-115%); transition: none; }
@@ -515,7 +408,7 @@ button.sx-carbox:active { transform: translateY(2px); }
 
 /* ── Foreground strip (grass / rocks / mushrooms), loops on depart ─────── */
 .sx-fore {
-  display: flex; width: 200%; height: 40px;
+  display: flex; width: 200%;
   margin-top: -2px; pointer-events: none;
 }
 .sx-foresvg { width: 50%; height: 100%; flex: 0 0 50%; }
@@ -544,27 +437,6 @@ button.sx-carbox:active { transform: translateY(2px); }
 .sx-word-lit { display: inline-block; animation: sx-wordpop 0.3s ease; }
 @keyframes sx-wordpop { from { transform: scale(1.45); } }
 
-/* ── Route map dots on the intro ticket ────────────────────────────────── */
-.sx-route {
-  display: flex; align-items: center; justify-content: center; gap: 5px;
-  margin: 2px 0 10px;
-}
-.sx-route i {
-  width: 11px; height: 11px; border-radius: 50%;
-  background: none; border: 2px solid #9b8a68;
-  position: relative;
-}
-.sx-route i:not(:last-child)::after {
-  content: ""; position: absolute; left: 100%; top: 50%;
-  width: 5px; height: 2px; background: #9b8a68; transform: translateY(-50%);
-}
-.sx-route i.sx-done { background: #6b8f5a; border-color: #4a6b3c; }
-.sx-route i.sx-here {
-  background: var(--sx-brass); border-color: var(--sx-ink);
-  transform: scale(1.35);
-  animation: sx-throb 1.4s ease-in-out infinite;
-}
-
 /* ── Tally confetti ────────────────────────────────────────────────────── */
 .sx-confetti {
   position: absolute; top: -14px;
@@ -587,10 +459,7 @@ button.sx-carbox:active { transform: translateY(2px); }
 
 /* ── Accessibility + small screens ─────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .sx-rolling > .sx-carbox, .sx-rolling .sx-wheel, .sx-scroll .sx-trackbed, .sx-scroll .sx-landscape,
-  .sx-glowbug, .sx-rustwisp, .sx-smoke, .sx-jolt, .sx-bump,
-  .sx-dust, .sx-confetti, .sx-word-lit, .sx-scroll .sx-fore,
-  .sx-route i.sx-here { animation: none; }
+  .sx-rolling > .sx-carbox, .sx-rolling .sx-wheel, .sx-scroll .sx-trackbed, .sx-scroll .sx-landscape, .sx-glowbug, .sx-rustwisp, .sx-smoke, .sx-jolt, .sx-bump, .sx-dust, .sx-confetti, .sx-word-lit, .sx-scroll .sx-fore { animation: none; }
   .sx-train, .sx-motion-out .sx-train { transition: none; }
   .sx-plate, .sx-crate, .sx-disc, .sx-golden, .sx-carbox { transition: none; }
 }
@@ -601,48 +470,27 @@ button.sx-carbox:active { transform: translateY(2px); }
 @media (max-width: 700px) {
   .sx-stage { --carw: clamp(64px, 13vw, 92px); }
   .sx-hud { flex-wrap: wrap; font-size: 11px; }
-  .sx-structures { padding: 0 120px 48px; }
-  .sx-master { left: 10px; bottom: 8px; width: calc(100% - 176px); }
-  .sx-pal { display: none; }
-  .sx-bubble { width: 100%; padding: 11px 12px 12px; }
-  .sx-bubble .sx-objective { font-size: 18px; }
-  .sx-bubble .sx-target { font-size: 20px; }
-  .sx-bell { width: 100%; min-width: 0; min-height: 56px; font-size: 16px; padding: 8px 10px; }
   .sx-karaoke { white-space: normal; }
 }
 
 /* Workbench rows reserve space for every control; car banks scroll at full size. */
-.sx-stage { min-height: 0; --carw: 116px; display: grid; grid-template-rows: auto minmax(120px, 1fr) minmax(180px, 1fr); container-type: size; }
-.sx-hud { position: relative; inset: auto; min-height: 36px; flex-wrap: wrap; gap: 6px; padding: 6px 12px; z-index: 6; }
+.sx-stage { min-height: 0; --carw: 116px; display: grid; container-type: size; }
+.sx-hud { position: relative; inset: auto; flex-wrap: wrap; gap: 6px; padding: 6px 12px; z-index: 6; }
 .sx-title { display: none; }
 .sx-mainline, .sx-stage[data-phase="depart"] .sx-mainline, .sx-stage[data-phase="tally"] .sx-mainline { position: relative; top: auto; min-height: 0; align-self: end; padding-top: 36px; }
-.sx-train { gap: 4px; padding-left: 12px; padding-right: 12px; }
+.sx-train { padding-left: 12px; padding-right: 12px; }
 .sx-trackbed { height: 25px; }
 .sx-fore { height: 20px; }
 .sx-signal { height: 90px; bottom: 25px; right: 12px; }
 .sx-carbox { width: var(--car-length, var(--carw)); height: 90px; min-width: 100px; min-height: 56px; }
-.sx-carbox.sx-small { width: var(--car-length, 106px); height: 82px; min-width: 100px; min-height: 56px; }
 .sx-carbox.sx-kind-engine { width: max(130px, var(--car-length, 130px)); }
-.sx-carword, .sx-small .sx-carword { font-size: 20px; line-height: 1.1; }
-.sx-yard { position: relative; inset: auto; min-height: 0; display: grid; grid-template-rows: minmax(90px,1fr) auto; grid-template-columns: minmax(0,1fr) auto; gap: 0; padding: 0; overflow: hidden; background: linear-gradient(#16251e60,#12231ee8); }
-.sx-workbench { grid-column: 1 / -1; display: flex; align-items: center; overflow: auto; min-height: 0; padding: 4px 12px 8px; gap: 16px; }
-.sx-spur { flex: 1 0 auto; padding: 0; }
-.sx-spurcars { flex-wrap: nowrap; justify-content: flex-start; gap: 8px; }
-.sx-spurlabel { font-size: 11px; color: #fff2d6; }
+.sx-carword { font-size: 20px; line-height: 1.1; }
+.sx-yard { position: relative; inset: auto; min-height: 0; display: grid; }
+.sx-workbench { grid-column: 1 / -1; min-height: 0; }
+.sx-spur { padding: 0; }
+.sx-spurcars { flex-wrap: nowrap; justify-content: flex-start; }
 .sx-spurtrack { margin-top: -8px; }
-.sx-structures { display: flex; flex-wrap: nowrap; padding: 0; gap: 8px; flex: 0 0 auto; }
-.sx-structure { padding: 6px 8px; flex: 0 0 auto; }
-.sx-structure h4 { margin: 0 0 3px; }
-.sx-structure small { display: none; }
-.sx-optionrow { flex-wrap: nowrap; gap: 8px; }
-.sx-master { position: relative; inset: auto; width: auto; min-width: 0; padding: 6px 10px; }
-.sx-pal { display: none; }
-.sx-bubble { display: grid; grid-template-columns: minmax(0,1fr) auto; column-gap: 8px; width: auto; max-width: none; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; color: #fff4dc; }
-.sx-bubble::before, .sx-bubble::after { display: none; }
-.sx-bubble .sx-objective { grid-column: 1; margin: 0; font-size: 18px; }
-.sx-bubble .sx-target { grid-column: 1; margin: 2px 0; font-size: 20px; line-height: 1.2; }
-.sx-bell { grid-column: 2; grid-row: 1 / 3; width: 56px; min-width: 56px; height: 56px; min-height: 56px; padding: 6px; font-size: 0; }
-.sx-bell svg { width: 28px; height: 28px; }
+.sx-optionrow { flex-wrap: nowrap; }
 .sx-hint { grid-column: 1 / -1; margin: 0; font-size: 13px; color: #ffe5a6; }
 .sx-karaoke { margin: 8px auto; padding: 8px 16px; font-size: 21px; }
 .sx-stage[data-phase="depart"] { grid-template-rows: auto 1fr 0; }
@@ -651,20 +499,11 @@ button.sx-carbox:active { transform: translateY(2px); }
 .sx-combotoast { display: none; }
 .sx-banner { top: 44px; padding: 4px 12px; font-size: 13px; pointer-events: none; }
 @container (max-height: 430px) {
-  .sx-hud { min-height: 26px; padding: 2px 8px; }
   .sx-clock, .sx-combochip { display: none; }
-  .sx-mainline { padding-top: 12px; }
   .sx-stage .sx-carbox { height: 72px; }
-  .sx-stage .sx-small { height: 64px; }
   .sx-workbench { padding-top: 0; padding-bottom: 0; }
-  .sx-spurlabel { display: none; }
   .sx-fore { height: 8px; }
   .sx-trackbed { height: 12px; }
-  .sx-bubble .sx-target { font-size: 20px; }
-  .sx-bubble .sx-objective { font-size: 18px; }
-  .sx-master { padding: 2px 8px; }
-  .sx-structure { padding: 2px 6px; }
-  .sx-structure h4 { font-size: 9px; }
 }
 @media (max-height: 600px) {
  .sx-stage { grid-template-rows: auto minmax(86px,1fr) minmax(124px,1.1fr); }
@@ -673,18 +512,12 @@ button.sx-carbox:active { transform: translateY(2px); }
 }
 @media (max-width: 480px) {
  .sx-stage { grid-template-rows: auto minmax(130px,1fr) minmax(180px,1fr); }
- .sx-bubble { grid-template-columns: minmax(0,1fr); }
- .sx-bell { grid-column: 1; grid-row: auto; width: 56px; }
 }
 .sx-stage { grid-template-columns: minmax(0, 1fr); }
 .sx-mainline, .sx-yard, .sx-workbench { min-width: 0; }
-.sx-yard { grid-template-rows: minmax(0,1fr) auto; }
-.sx-master { display: block; }
-.sx-bubble { width: 100%; }
 @container (max-height: 430px) {
  .sx-workbench { align-items: end; }
  .sx-yard { row-gap: 0; }
- .sx-master { padding: 0 8px; }
 }
 /* A following camera keeps the sentence readable while the railway passes. */
 .sx-landscape { left: -65%; right: -5%; background-position: var(--route-position) bottom; }
@@ -693,10 +526,10 @@ button.sx-carbox:active { transform: translateY(2px); }
 .sx-motion-out .sx-train { transform: none; transition: none; animation: sx-follow-train 6.5s linear both; }
 @keyframes sx-follow-train { 0% { transform: translateX(0); } 20% { transform: translateX(-6%); } 76% { transform: translateX(-10%); } 100% { transform: translateX(-118vw); } }
 .sx-scroll .sx-fore { animation-direction: reverse; }
-.sx-station, .sx-destination { position: absolute; pointer-events: none; z-index: 1; left: 12%; top: 15%; width: 150px; height: 72px; padding-top: 18px; background: linear-gradient(90deg,#543e2b 0 6%,#b78d58 6% 88%,#745435 88%); border: 3px solid #493222; box-shadow: 12px 9px 0 #18231a40; }
+.sx-station, .sx-destination { position: absolute; pointer-events: none; z-index: 1; left: 12%; top: 15%; padding-top: 18px; }
 .sx-station::before, .sx-destination::before { content: ''; position: absolute; top: -13px; left: -12px; width: 174px; height: 24px; background: linear-gradient(#8b4937,#4e2d28); clip-path: polygon(10% 0,90% 0,100% 100%,0 100%); }
-.sx-station span, .sx-destination span { display: block; position: absolute; top: 5px; left: 5px; right: 5px; background: #203d36; border: 2px solid #e1c17a; color: #fff1ce; text-align: center; font-size: 12px; }
-.sx-station i, .sx-destination i { display: inline-block; width: 26px; height: 33px; margin: 9px 15px; background: linear-gradient(90deg,transparent 46%,#613d23 46% 54%,transparent 54%),linear-gradient(#f8d687 45%,#654928 45% 53%,#e9b969 53%); border: 3px solid #5e3e23; }
+.sx-station span, .sx-destination span { display: block; position: absolute; left: 5px; right: 5px; background: #203d36; border: 2px solid #e1c17a; color: #fff1ce; text-align: center; font-size: 12px; }
+.sx-station i, .sx-destination i { display: inline-block; }
 .sx-scroll .sx-station { animation: sx-station-pass 6.5s linear both; }
 @keyframes sx-station-pass { to { transform: translateX(130vw); } }
 .sx-destination { left: -180px; animation: sx-arriving-station 6.5s linear both; }
@@ -705,7 +538,6 @@ button.sx-carbox:active { transform: translateY(2px); }
 @media (prefers-reduced-motion: reduce) { .sx-motion-out .sx-train { animation: none; transform: translateX(-6%); } .sx-station, .sx-destination { animation: none; } }
 /* Only the two deliberate railway strips may scroll, never the whole scene. */
 .sx-stage, .sx-mainline { overflow: clip; }
-.sx-stage .sx-yard .sx-target { color: #fff0ca; }
 /* Small railway signs identify the authored panoramic stations without hiding them. */
 .sx-station, .sx-destination { background: none; border: 0; box-shadow: none; height: 60px; width: 150px; }
 .sx-station::before, .sx-destination::before { display: none; }
@@ -728,5 +560,98 @@ button.sx-carbox:active { transform: translateY(2px); }
 @keyframes sx-stock-roll{0%{transform:translate(0,0)}12.5%{transform:translate(-25%,0)}25%{transform:translate(-50%,0)}37.5%{transform:translate(-75%,0)}50%{transform:translate(0,-50%)}62.5%{transform:translate(-25%,-50%)}75%{transform:translate(-50%,-50%)}87.5%{transform:translate(-75%,-50%)}}
 @media(prefers-reduced-motion:reduce){.sx-rolling .sx-stock img{animation:none}}
 
-/* The completed sentence departs itself; the station instruction gets the full row. */
-.sx-master { grid-column: 1 / -1; }
+/* The active railway job owns the space immediately above its controls. */
+.sx-stage { grid-template-rows: auto minmax(150px, .9fr) minmax(250px, 1.1fr); }
+.sx-hud { background: #30271fe8; min-height: 30px; border-bottom-width: 1px; box-shadow: none; }
+.sx-linechip { background: none; border: 0; font-size: 11px; }
+.sx-combochip, .sx-clock { font-size: 11px; border-width: 1px; background: #2b2c27; color: #f5e7d0; animation: none; }
+.sx-clockface { width: 18px; height: 18px; }
+.sx-mainline { padding-top: 28px; padding-bottom: 12px; }
+.sx-train { direction: ltr; flex-direction: row; gap: 8px; padding-bottom: 12px; margin-bottom: -12px; }
+.sx-stage[data-task="engine"] .sx-mainline .sx-carbox:not(.sx-nextslot) { opacity: .2; }
+.sx-carbox.sx-nextslot { opacity: 1; }
+.sx-nextslot .sx-carword { color: #162d35; text-shadow: none; background: #fff4c8; border: 2px solid #ddac43; border-radius: 8px; top: 34%; font-size: 18px; padding: 3px 8px; }
+.sx-ghostbox:not(.sx-nextslot) { opacity: .38; }
+.sx-train .sx-carbox { height: 110px; min-width: 114px; }
+.sx-train .sx-carword { font-size: 24px; }
+.sx-stage .sx-carbox.sx-kind-engine:not(.sx-ghostbox) .sx-carword { left: 8%; right: 8%; top: 43%; background: #fff7dd; color: #172f38; text-shadow: none; border: 2px solid #694f29; border-radius: 6px; padding: 2px 4px; }
+.sx-yard { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) auto; z-index: 7; margin: 0 12px 12px; padding: 12px 18px; gap: 8px; background: #fff4dcf7; border: 2px solid #80613c; border-radius: 18px; box-shadow: 0 5px 18px #15211e44; overflow: hidden; }
+.sx-taskbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-width: 0; }
+.sx-instruction { min-width: 0; }
+.sx-step { display: block; color: #65513c; font-size: 13px; font-weight: 650; }
+.sx-objective { color: #172f38; font-size: clamp(22px, 2.8vw, 30px); line-height: 1.2; font-weight: 800; margin: 4px 0 0; text-wrap: balance; }
+.sx-yard .sx-hint { color: #933819; font-size: 17px; font-weight: 650; line-height: 1.2; margin: 4px 0 0; }
+.sx-workbench { display: flex; align-items: center; justify-content: safe center; padding: 8px 4px; gap: 12px; overflow: auto; }
+.sx-stage[data-task="engine"] .sx-yard { grid-template-rows: auto auto; align-content: center; row-gap: 20px; }
+.sx-engineshed { display: flex; align-items: center; justify-content: center; gap: clamp(16px, 5vw, 64px); }
+.sx-engineshed .sx-carbox.sx-kind-engine { width: clamp(148px, 23vw, 240px); height: clamp(104px, 16vw, 170px); min-width: 0; border: 3px solid #bb9460; border-radius: 16px; background: #fffdf0; box-shadow: 0 4px 0 #aa804b; }
+.sx-stage .sx-engineshed .sx-kind-engine:not(.sx-ghostbox) .sx-carword { font-size: clamp(34px, 4.7vw, 46px); top: 41%; line-height: 1; padding: 3px; }
+.sx-spur { flex: 0 0 auto; max-width: none; }
+.sx-spurcars { gap: 12px; }
+.sx-spurcars .sx-carbox { height: 116px; width: max(124px, var(--car-length, 124px)); }
+.sx-spurcars .sx-carword { font-size: 26px; }
+.sx-heldslot { opacity: .18; border-bottom: 3px dashed #82663e; }
+.sx-repairbench { display: flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 16px; }
+.sx-repairbench > .sx-carbox { height: 106px; }
+.sx-optionrow { justify-content: center; gap: 12px; }
+.sx-yard .sx-plate, .sx-yard .sx-crate, .sx-yard .sx-disc { min-width: 76px; min-height: 64px; font-size: 27px; }
+.sx-replay { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 56px; min-height: 56px; border: 2px solid #4c6c60; border-radius: 12px; background: #e4eddf; color: #24493c; padding: 8px 12px; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer; }
+.sx-replay svg { width: 28px; height: 28px; }
+.sx-replay:disabled { background: #e5dfd2; color: #655f53; border-color: #aca18a; cursor: default; }
+.sx-sentence-cue { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid #cdbb99; padding-top: 8px; }
+.sx-stage .sx-yard .sx-target { color: #354e44; font-size: clamp(20px, 2.5vw, 27px); line-height: 1.2; font-weight: 650; margin: 0; text-align: left; }
+.sx-send { min-width: 240px; min-height: 76px; border: 3px solid #17392e; border-radius: 16px; background: #2d7655; color: #fff9dd; padding: 12px 24px; font: inherit; font-size: 30px; font-weight: 800; box-shadow: 0 5px 0 #17392e; cursor: pointer; }
+.sx-send span { margin-left: 12px; }
+.sx-send:active { transform: translateY(3px); box-shadow: 0 2px 0 #17392e; }
+.sx-engine-moving .sx-train > .sx-kind-engine { opacity: 0; }
+.sx-engine-transfer { position: absolute; z-index: 30; pointer-events: none; transform-origin: top left; animation: sx-engine-join .48s cubic-bezier(.2,.65,.3,1) both; }
+.sx-engine-transfer .sx-carbox.sx-kind-engine { width: 100%; height: 100%; }
+.sx-engine-transfer .sx-carword { font-size: var(--transfer-font); }
+@keyframes sx-engine-join { to { transform: translate(var(--transfer-x), var(--transfer-y)) scale(var(--transfer-sx), var(--transfer-sy)); } }
+@media (max-width: 600px) {
+  .sx-yard { margin: 0 6px 6px; padding: 10px; gap: 6px; }
+  .sx-objective { font-size: 22px; }
+  .sx-replay { width: 56px; padding: 8px; }
+  .sx-replay span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .sx-engineshed { gap: 12px; }
+  .sx-engineshed .sx-carbox.sx-kind-engine { width: clamp(118px, 38vw, 180px); height: 114px; }
+  .sx-stage .sx-engineshed .sx-kind-engine:not(.sx-ghostbox) .sx-carword { font-size: 34px; }
+  .sx-sentence-cue { gap: 8px; }
+  .sx-yard .sx-optionrow { flex-wrap: wrap; }
+}
+@container (max-height: 430px) {
+  .sx-stage { grid-template-rows: auto minmax(76px, .65fr) minmax(156px, 1fr); }
+  .sx-hud { min-height: 22px; padding: 0 8px; }
+  .sx-mainline { padding-top: 0; padding-bottom: 0; }
+  .sx-train .sx-carbox { height: 68px; }
+  .sx-train .sx-carword { font-size: 20px; }
+  .sx-yard { padding: 4px 10px; gap: 3px; margin-bottom: 4px; border-radius: 12px; }
+  .sx-taskbar { gap: 8px; }
+  .sx-step { font-size: 11px; }
+  .sx-objective { font-size: 20px; margin-top: 1px; }
+  .sx-workbench { padding: 1px 4px 4px; }
+  .sx-engineshed .sx-carbox.sx-kind-engine { width: 154px; height: 76px; }
+  .sx-stage .sx-engineshed .sx-kind-engine:not(.sx-ghostbox) .sx-carword { font-size: 30px; top: 36%; }
+  .sx-spurcars .sx-carbox { height: 66px; min-width: 104px; }
+  .sx-spurcars .sx-carword { font-size: 22px; }
+  .sx-sentence-cue { padding-top: 0; border-top: 0; }
+  .sx-sentence-cue .sx-target { font-size: 20px; }
+  .sx-sentence-cue .sx-replay { min-height: 56px; }
+  .sx-replay { width: 56px; padding: 6px; }
+  .sx-replay span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .sx-send { min-height: 56px; font-size: 24px; padding: 4px 18px; }
+  .sx-yard .sx-hint { font-size: 14px; }
+  .sx-yard .sx-plate, .sx-yard .sx-crate, .sx-yard .sx-disc { min-height: 56px; }
+}
+@media (prefers-reduced-motion: reduce) { .sx-engine-transfer { animation: none; } }
+/* Short landscape keeps the sentence visible; Hear how also reads it aloud. */
+@media (max-height: 520px) {
+  .sx-stage { grid-template-rows: auto minmax(65px, .5fr) minmax(154px, 1fr); }
+  .sx-mainline { padding-top: 0; padding-bottom: 0; }
+  .sx-yard { grid-template-rows: auto minmax(56px, 1fr) auto; }
+  .sx-sentence-cue .sx-replay { display: none; }
+  .sx-sentence-cue .sx-target { font-size: 18px; }
+  .sx-stage[data-task="engine"] .sx-yard { row-gap: 3px; }
+  .sx-engineshed .sx-carbox.sx-kind-engine { height: 68px; }
+  .sx-stage .sx-engineshed .sx-kind-engine:not(.sx-ghostbox) .sx-carword { font-size: 28px; }
+}

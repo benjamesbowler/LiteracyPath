@@ -16,6 +16,13 @@ The product owner restored the continuous Arcade engines on 2026-09-10. Preserve
 
 Completing the literacy task completes its game task. After a short readable feedback beat, advance automatically: no bell, whistle, GO tap, duplicate built-word gate, or finish-flag walk may be required after the answer is settled. Replay, next outing and exit remain explicit choices at natural stopping points. Preserve the existing save/recovery transaction before changing outings.
 
+Sentence Express is the explicit product-owner exception: its three stages are
+choose the capital engine, build and repair the sentence, then **Send the train!**
+The final labelled button becomes available only when the existing sentence
+completion predicate passes. It cannot award extra learning credit or require
+another answer. Keep the instruction and replay beside the current choices,
+and keep the assembled sentence left to right during departure.
+
 Arrow and WASD movement continues after clicking in-game controls. Enter/Space retain the focused button action; typing fields, inactive surfaces and modal dialogs keep their native keys. Opening a game and dismissing help/pause return focus to the playfield.
 
 ## Arcade saved journeys
@@ -374,6 +381,10 @@ unknown until each changed build is exercised on a real supported iPad.
 - **Level ladder and prompt/audio:** ten levels per difficulty introduce single-letter spellings, digraphs, vowel teams and split digraphs before increasing movement pressure.
 - **Generator and ambiguity:** `grammarGrindLevels.js` rebuilds three unique grapheme choices at every step and one correct final gate; `gameSurfaces.test.js` exercises every difficulty and repeated-error rule.
 - **Feedback and reward:** the first miss teaches the contrast; a repeated miss points to the correct spelling. Score, combo and stars reflect completed word builds and recoveries.
+- **Object contact:** a landing inside solid park furniture resolves the local
+  overlap against all adjoining colliders. The next stationary frame must not
+  reapply collision stun; movement, jumping and spelling choices remain usable.
+  Motor recovery never clears earned spelling or adds a language mistake.
 
 #### SoundKeys 2.0
 

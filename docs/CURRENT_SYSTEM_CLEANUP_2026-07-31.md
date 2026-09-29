@@ -685,3 +685,27 @@ Generation scripts and intermediate legacy capture files are disposable after
 the frozen source is checked. Current proof, screenshots and reader-copy exports
 are under ignored `.artifacts/assessment-depth`; no learner records, original
 artwork, credentials or hosted data are removed by this cleanup.
+
+## Arcade object contact and Sentence Express stages — 29 September 2026
+
+The Game Design Bible remains the current gameplay authority. It now records
+the requested Sentence Express exception to automatic departure: choose the
+capital engine, build and repair the sentence, then use the labelled Send the
+train button. Existing completion, retry and reward rules remain. Exact visible
+instructions and their six production recordings share
+`sentenceExpressInstructions.js`; the established Leda generator retains the
+rest of its catalogue when generating only these cues.
+
+Spell & Skate resolves a grounded furniture overlap at its nearest exposed
+boundary, including landings inside adjoining objects. The route planner can
+leave its additional steering margin without entering a solid object. Neither
+operation resets the session, changes a language response or clears progress.
+
+Removed Sentence Express's unused corner-instruction components and retired
+styling after checking their references. Local reproduction, browser play,
+responsive screenshots and gate results remain under ignored
+`.artifacts/arcade-repair` and `.artifacts/sentence-repair`. The disposable copy
+of the unmodified base and a redundant browser trace were removed after the
+unchanged phone-login screenshot failure was captured; the base is recoverable
+from Git and its comparison images and log are retained. No source artwork,
+learner records or hosted data were removed.

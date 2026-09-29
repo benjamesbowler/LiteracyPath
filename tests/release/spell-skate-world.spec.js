@@ -312,32 +312,104 @@ test('medium first word verifies safe navigation and measured frame budget',asyn
 
 
 test('five skate controls build speed and share jump, repeat-air trick and keyboard action', async ({ page }) => {
+  test.setTimeout(90000);
+  await page.clock.install({ time: new Date('2026-09-29T00:00:00Z') });
   const world = await open(page);
+  // Keep real keyboard events and the unchanged animation/physics loop, but
+  // advance frames explicitly so assertion/screenshot latency cannot consume
+  // the flight on a busy GPU. This checks input transitions, not performance.
+  await page.clock.pauseAt(new Date('2026-09-29T01:00:00Z'));
   await expect(page.locator('[data-gg-btn]')).toHaveCount(5);
   await expect(page.getByRole('button', { name: 'Boost', exact: true })).toHaveCount(0);
   await page.keyboard.down('ArrowUp');
+  await page.clock.runFor(320);
   await expect.poll(async () => Number(await world.getAttribute('data-skater-speed'))).toBeGreaterThan(12);
   await page.keyboard.up('ArrowUp');
   const jump = page.getByRole('button', { name: 'Jump trick', exact: true });
   await jump.focus();
   await page.keyboard.press('Enter');
+  await page.clock.runFor(112);
   await expect(world).toHaveAttribute('data-skater-grounded', 'false');
   await page.keyboard.press('Enter');
+  await page.clock.runFor(112);
   await expect(world).toHaveAttribute('data-skater-air-tricks', '1');
   await expect.poll(async () => Number(await world.getAttribute('data-skater-spin'))).toBeGreaterThan(.2);
-  await page.screenshot({ path: `${out}/context-air-spin.png` });
   await page.keyboard.press('Enter');
-  await page.keyboard.press('Enter');
+  await page.clock.runFor(112);
   await expect(world).toHaveAttribute('data-skater-air-tricks', '2');
+  // The extra press must be consumed in a separate frame so it tests the cap,
+  // rather than being coalesced with the previous press by the input latch.
+  await page.keyboard.press('Enter');
+  await page.clock.runFor(112);
+  await expect(world).toHaveAttribute('data-skater-air-tricks', '2');
+  await page.screenshot({ path: `${out}/context-air-spin.png` });
+  await page.clock.runFor(1500);
   await expect(world).toHaveAttribute('data-skater-grounded', 'true', { timeout: 2500 });
   await expect(world).toHaveAttribute('data-skater-air-tricks', '0');
   await expect(world).toHaveAttribute('data-spelling-step', '0');
   // A focused forward button has the same acceleration contract as W/up.
   await page.getByRole('button', { name: 'Move forward', exact: true }).focus();
   await page.keyboard.down('Space');
+  await page.clock.runFor(112);
   await expect(world).toHaveAttribute('data-skater-auto-speed', 'true');
   await page.keyboard.up('Space');
+  await page.clock.runFor(112);
   await expect(world).toHaveAttribute('data-skater-auto-speed', 'false');
+});
+
+test('landing in park furniture releases contact and keeps the next spelling choice playable', async ({ page }) => {
+  test.setTimeout(180000);
+  fs.mkdirSync(out, { recursive: true });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.clock.install({ time: new Date('2026-09-29T00:00:00Z') });
+  const world = await open(page);
+  await page.clock.pauseAt(new Date('2026-09-29T01:00:00Z'));
+  const snapshot = () => page.evaluate(() => window.__arcadePreviewSnapshot());
+  const checkpoint = () => page.evaluate(() => localStorage.getItem('literacy-guide-learn-games:fullscreen-overlay-preview'));
+  const initial = await snapshot(), saved = await checkpoint();
+  // Drive from the normal spawn and ollie over the bench into its planter.
+  // Only time is controlled: keyboard handlers, gravity and collisions are live.
+  await page.keyboard.down('ArrowLeft');
+  await page.clock.runFor(585);
+  await page.keyboard.up('ArrowLeft');
+  await page.keyboard.down('ArrowUp');
+  await page.clock.runFor(650);
+  await page.keyboard.press('Space');
+  await page.clock.runFor(112);
+  await expect(world).toHaveAttribute('data-skater-grounded', 'false');
+  let landing = await snapshot();
+  for (let elapsed = 0; landing.landingRecoveries === 0 && elapsed < 1800; elapsed += 32) {
+    await page.clock.runFor(32);
+    landing = await snapshot();
+  }
+  await page.keyboard.up('ArrowUp');
+  expect(landing.landingRecoveries).toBeGreaterThan(0);
+  expect(landing.lastContact.kind).toBe('landing');
+  expect(landing.grounded).toBe(true);
+  expect(landing.obstacles.some(obstacle => Math.hypot(landing.lastContact.from.x - obstacle.x, landing.lastContact.from.z - obstacle.z) < obstacle.radius + 2.15)).toBe(true);
+  expect(landing.obstacles.every(obstacle => Math.hypot(landing.position.x - obstacle.x, landing.position.z - obstacle.z) >= obstacle.radius + 2.15)).toBe(true);
+  // Choose immediately, while the separated board is still inside the route
+  // planner's wider margin; waiting for coasting would conceal the egress bug.
+  await skate(page, 'c');
+  expect((await snapshot()).assistRoute.length).toBeGreaterThan(0);
+  await page.clock.runFor(512);
+  const recovered = await snapshot();
+  expect(recovered.stun).toBe(0);
+  expect(recovered.motorRecoveries).toBe(landing.motorRecoveries);
+  expect(recovered.score).toBe(landing.score);
+  expect(recovered.mistakes).toBe(initial.mistakes);
+  expect(recovered.lineStep).toBe(initial.lineStep);
+  expect(recovered.levelIndex).toBe(initial.levelIndex);
+  expect(await checkpoint()).toBe(saved);
+  let arrived = await snapshot();
+  for (let elapsed = 0; arrived.lineStep === 0 && elapsed < 15000; elapsed += 250) {
+    await page.clock.runFor(250);
+    arrived = await snapshot();
+  }
+  expect(Math.hypot(arrived.position.x - recovered.position.x, arrived.position.z - recovered.position.z)).toBeGreaterThan(4);
+  expect(arrived.lineStep).toBe(1);
+  expect(arrived.mistakes).toBe(initial.mistakes);
+  fs.writeFileSync(`${out}/landing-contact-regression.json`, JSON.stringify({ initial, landing, recovered, arrived }, null, 2));
 });
 
 for (const side of [1, -1]) test(`park banner is readable from its ${side === 1 ? 'front' : 'back'} approach`, async ({ page }) => {

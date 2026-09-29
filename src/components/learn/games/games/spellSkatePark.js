@@ -340,6 +340,40 @@ export function createSkateBowlGeometry(radius, height) {
 export function skateObstacleAt(x, z, obstacles, radius = 2.15) {
   return obstacles.find(o => Math.hypot(x - o.x, z - o.z) < o.radius + radius) || null;
 }
+
+// Resolve the contact manifold, including a landing already inside a collider.
+// Rolling back to the previous position cannot resolve that case: it preserves
+// the penetration and re-applies stun forever. The nearest exposed boundary of
+// a union of circles is either a radial projection or a circle intersection.
+// Checking both also avoids pushing a skater from a bench into its planter.
+export function resolveSkateObstacleContact(position, previous, obstacles, radius = 2.15) {
+  if (!skateObstacleAt(position.x, position.z, obstacles, radius)) return null;
+  const skin = .01;
+  const circles = obstacles.map(obstacle => ({ ...obstacle, r: obstacle.radius + radius + skin }));
+  let nearest = null;
+  let distance = Infinity;
+  const consider = (x, z) => {
+    if (circles.some(c => Math.hypot(x - c.x, z - c.z) < c.r - 1e-7)) return;
+    const d = Math.hypot(x - position.x, z - position.z);
+    if (d < distance) { nearest = { x, z }; distance = d; }
+  };
+  for (let i = 0; i < circles.length; i++) {
+    const a = circles[i];
+    let dx = position.x - a.x, dz = position.z - a.z;
+    if (Math.hypot(dx, dz) < 1e-8) { dx = previous.x - a.x; dz = previous.z - a.z; }
+    if (Math.hypot(dx, dz) < 1e-8) dx = 1;
+    const length = Math.hypot(dx, dz);
+    consider(a.x + dx / length * a.r, a.z + dz / length * a.r);
+    for (let j = i + 1; j < circles.length; j++) {
+      const b = circles[j], x = b.x - a.x, z = b.z - a.z, d = Math.hypot(x, z);
+      if (d < 1e-8 || d > a.r + b.r || d < Math.abs(a.r - b.r)) continue;
+      const along = (a.r * a.r - b.r * b.r + d * d) / (2 * d);
+      const across = Math.sqrt(Math.max(0, a.r * a.r - along * along));
+      for (const side of [-1, 1]) consider(a.x + x / d * along - side * z / d * across, a.z + z / d * along + side * x / d * across);
+    }
+  }
+  return nearest;
+}
 export function skateDeckClearance(x, z, platforms, radius = 4) {
   return platforms.every(deck => {
     const p = skateLocalPoint(x, z, deck);
@@ -357,7 +391,41 @@ export function planSkateRoute(start, target, ramps, platforms, obstacles) {
     x: snap(start.x),
     z: snap(start.z)
   };
-  const clearEdge = (from, to) => {
+  const neighbors = [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]];
+  const escapeNeighbors = [...neighbors];
+  if (skateObstacleAt(start.x, start.z, obstacles, 4) || !skateDeckClearance(start.x, start.z, avoidDecks)) {
+    // A nearby post can block the adjacent grid cell even when a safe outward
+    // segment exists. Connect the real start to the next ring as well.
+    for (let x = -2; x <= 2; x++) for (let z = -2; z <= 2; z++) {
+      if (Math.max(Math.abs(x), Math.abs(z)) === 2) escapeNeighbors.push([x, z]);
+    }
+  }
+  const clearEdge = (from, to, leavingStart = false) => {
+    const dx = to.x - from.x, dz = to.z - from.z;
+    const lengthSquared = dx * dx + dz * dz;
+    for (const obstacle of obstacles) {
+      const ox = from.x - obstacle.x, oz = from.z - obstacle.z;
+      const distance = Math.hypot(ox, oz);
+      const escaping = leavingStart && distance < obstacle.radius + 4;
+      // A landing can leave the board clear of furniture but inside the extra
+      // steering margin. Only the first edge may leave that existing margin,
+      // and only while moving continuously away from every enclosing object.
+      if (escaping && ox * dx + oz * dz < -1e-8) return false;
+      const t = lengthSquared ? clamp(-(ox * dx + oz * dz) / lengthSquared, 0, 1) : 0;
+      const clearance = obstacle.radius + (escaping ? 2.15 : 4);
+      if (Math.hypot(ox + dx * t, oz + dz * t) < clearance - 1e-7) return false;
+    }
+    const edgeDecks = [];
+    for (const deck of avoidDecks) {
+      if (leavingStart && !skateDeckClearance(from.x, from.z, [deck])) {
+        const a = skateLocalPoint(from.x, from.z, deck), b = skateLocalPoint(to.x, to.z, deck);
+        const ox = a.x - clamp(a.x, -deck.width / 2, deck.width / 2);
+        const oz = a.z - clamp(a.z, -deck.depth / 2, deck.depth / 2);
+        // The distance to this convex deck must increase from the existing
+        // clear position; entering its wall is never an escape route.
+        if (Math.hypot(ox, oz) < 1e-7 || ox * (b.x - a.x) + oz * (b.z - a.z) < -1e-8) return false;
+      } else edgeDecks.push(deck);
+    }
     const count = Math.max(1, Math.ceil(Math.hypot(to.x - from.x, to.z - from.z)));
     let previous = sampleSkateSurface(from.x, from.z, ramps, platforms).height;
     for (let n = 1; n <= count; n++) {
@@ -365,7 +433,7 @@ export function planSkateRoute(start, target, ramps, platforms, obstacles) {
         x = from.x + (to.x - from.x) * t,
         z = from.z + (to.z - from.z) * t;
       const height = sampleSkateSurface(x, z, ramps, platforms).height;
-      if (skateObstacleAt(x, z, obstacles, 4) || !skateDeckClearance(x, z, avoidDecks) || height - previous > .6) return false;
+      if (!skateDeckClearance(x, z, edgeDecks) || height - previous > .6) return false;
       previous = height;
     }
     return true;
@@ -381,21 +449,22 @@ export function planSkateRoute(start, target, ramps, platforms, obstacles) {
   for (let visited = 0; open.length && visited < 2400; visited++) {
     open.sort((a, b) => a.rank - b.rank);
     const current = open.shift();
-    if (Math.hypot(current.x - target.x, current.z - target.z) < step * 1.6 && clearEdge(current, target)) {
+    const leavingStart = key(current.x, current.z) === key(startNode.x, startNode.z);
+    const origin = leavingStart ? start : current;
+    if (Math.hypot(current.x - target.x, current.z - target.z) < step * 1.6 && clearEdge(origin, target, leavingStart)) {
       found = current;
       break;
     }
     const height = sampleSkateSurface(current.x, current.z, ramps, platforms).height;
-    for (const [dx, dz] of [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]]) {
+    for (const [dx, dz] of leavingStart ? escapeNeighbors : neighbors) {
       const x = current.x + dx * step,
         z = current.z + dz * step;
-      if (Math.abs(x) > limit || Math.abs(z) > limit || skateObstacleAt(x, z, obstacles, 4) || skateObstacleAt((x + current.x) / 2, (z + current.z) / 2, obstacles, 4)) continue;
-      if (!skateDeckClearance(x, z, avoidDecks) || !skateDeckClearance((x + current.x) / 2, (z + current.z) / 2, avoidDecks)) continue;
-      const origin = key(current.x, current.z) === key(startNode.x, startNode.z) ? start : current;
+      if (Math.abs(x) > limit || Math.abs(z) > limit || skateObstacleAt(x, z, obstacles, 4)) continue;
+      if (!skateDeckClearance(x, z, avoidDecks)) continue;
       if (!clearEdge(origin, {
         x,
         z
-      })) continue;
+      }, leavingStart)) continue;
       const nextHeight = sampleSkateSurface(x, z, ramps, platforms).height;
       if (nextHeight - height > 1.2) continue;
       const nextCost = current.cost + Math.hypot(dx, dz) + Math.abs(nextHeight - height) * .5,
