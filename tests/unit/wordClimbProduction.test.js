@@ -120,3 +120,17 @@ test("older long-corridor saves adopt the short route without losing earned word
   assert.equal(restored.world.y,safe.y);
   assert.equal(restored.world.x,safe.x);
 });
+
+test("existing checkpoints adopt visible roomier thorns while retaining exact progress and position",()=>{
+ const storage=memory(),key=climbSessionKey("roomier-resume"),session=createWordClimbSession("easy");
+ const world=createClimbJourney(session);world.x=470;world.y=100;world.journey.collected=[world.journey.lights[0].id];
+ for(const o of world.journey.obstacles){o.x-=o.side*20;o.width=122;}
+ writeClimbSession(storage,key,session,world);const restored=readClimbSession(storage,key,0,true);
+ assert.equal(restored.world.x,470);assert.equal(restored.world.y,100);
+ assert.deepEqual(restored.world.platforms,world.platforms);assert.deepEqual(restored.world.journey.collected,world.journey.collected);
+ assert.equal(restored.world.step,0);assert.equal(restored.world.wrong,0);
+ for(let i=0;i<world.journey.obstacles.length;i++){
+  const old=world.journey.obstacles[i],next=restored.world.journey.obstacles[i];
+  assert.equal(next.width,104);assert.equal(next.x,old.x+old.side*20);assert.equal(next.id,old.id);assert.equal(next.y,old.y);
+ }
+});

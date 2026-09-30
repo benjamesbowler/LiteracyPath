@@ -2331,7 +2331,6 @@ for (const profileId of STUDENT_FULLSCREEN_DEVICE_IDS) {
 
     await page.goto("/preview/guided-reading-preview.html?book=level-c-nonfiction-01-bees");
     const readerControls = page.getByRole("group", { name: "Reader view controls" });
-    await readerControls.getByRole("button", { name: "Full screen", exact: true }).click();
     await expectFullscreenHistory(page, ["enter"], `${profile.id} reader enter`);
     const reader = page.locator(".guided-reader-shell");
     await expect(reader).toHaveClass(/fullscreen/);

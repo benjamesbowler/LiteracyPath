@@ -624,12 +624,12 @@ function startGame(mount, opts) {
     '</div>' +
     '<div data-gg="banner" style="position:absolute;left:50%;bottom:100px;transform:translateX(-50%);max-width:75%;padding:7px 14px;border-radius:12px;background:rgba(12,39,47,.9);text-align:center;font-size:1.1rem;font-weight:800;display:none"></div>' +
     '<div data-gg-controls="left" style="position:absolute;bottom:18px;left:18px;display:flex;gap:10px;pointer-events:auto">' +
-      '<button data-gg-btn="push" aria-label="Move forward" style="width:76px;height:64px;border:1px solid rgba(125,242,255,.52);background:linear-gradient(160deg,#7df2ff,#38bdf8);color:#07101d;font-size:.82rem;font-weight:950;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.3)">↑<br>FORWARD</button>' +
-      '<button data-gg-btn="brake" aria-label="Move back" style="width:76px;height:64px;border:1px solid rgba(255,255,255,.3);background:rgba(6,10,28,.76);color:#fff;font-size:.82rem;font-weight:950;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.3)">↓<br>BACK</button>' +
-    '</div>' +
-    '<div data-gg-controls="right" style="position:absolute;bottom:18px;right:18px;display:flex;gap:10px;pointer-events:auto">' +
       '<button data-gg-btn="left" aria-label="Turn left" style="width:70px;height:64px;border:1px solid rgba(125,242,255,.42);background:rgba(6,10,28,.76);color:#fff;font-size:1.6rem;font-weight:950;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.3)">←</button>' +
       '<button data-gg-btn="right" aria-label="Turn right" style="width:70px;height:64px;border:1px solid rgba(125,242,255,.42);background:rgba(6,10,28,.76);color:#fff;font-size:1.6rem;font-weight:950;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.3)">→</button>' +
+    '</div>' +
+    '<div data-gg-controls="right" style="position:absolute;bottom:18px;right:18px;display:flex;gap:10px;pointer-events:auto">' +
+      '<button data-gg-btn="push" aria-label="Move forward" style="width:76px;height:64px;border:1px solid rgba(125,242,255,.52);background:linear-gradient(160deg,#7df2ff,#38bdf8);color:#07101d;font-size:.82rem;font-weight:950;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.3)">↑<br>FORWARD</button>' +
+      '<button data-gg-btn="brake" aria-label="Move back" style="width:76px;height:64px;border:1px solid rgba(255,255,255,.3);background:rgba(6,10,28,.76);color:#fff;font-size:.82rem;font-weight:950;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.3)">↓<br>BACK</button>' +
       '<button data-gg-btn="jump" aria-label="Jump trick" style="width:86px;height:68px;border:1px solid rgba(255,255,255,.58);background:linear-gradient(160deg,#fff0a8,#ffc83d 55%,#f59e0b);color:#201400;font-weight:950;border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,.3),inset 0 -8px 0 rgba(0,0,0,.2)">JUMP /<br>TRICK</button>' +
     '</div>' +
     (difficulty === "easy"
@@ -707,13 +707,13 @@ function startGame(mount, opts) {
       [data-gg-controls="left"] {
         bottom: 10px !important;
         left: 10px !important;
-        gap: 7px !important;
+        gap: 8px !important;
       }
       [data-gg-controls="right"] {
         left: auto !important;
         right: 10px !important;
         bottom: 10px !important;
-        gap: 7px !important;
+        gap: 8px !important;
         justify-content: space-between !important;
       }
       [data-gg-btn] {

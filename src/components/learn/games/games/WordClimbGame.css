@@ -32,9 +32,12 @@
 .wc-world:has([data-wc-scene="ready"]) .wc-branches { display:none; }
 .wc-bottom-bar { position:relative; z-index:10; display:flex; align-items:center; gap:8px; padding:4px 8px; background:linear-gradient(100deg,#223b33,#324a40); }
 .wc-bottom-bar p { margin:0; flex:1; font-size:clamp(12px,1.5vw,16px); line-height:1.2; }
-.wc-air-controls { display:flex; gap:8px; }
+.wc-air-controls { display:flex; align-items:center; gap:12px; width:100%; }
+.wc-steer-controls { display:flex; gap:8px; flex:none; }
+.wc-air-controls p { flex:1; text-align:center; }
+.wc-air-controls button small { display:block; font-size:10px; line-height:1; }
 .wc-air-controls button { width:56px; height:56px; border:1px solid #d9edc38a; border-radius:18px; background:linear-gradient(#517768,#284c46); box-shadow:0 3px 0 #173b36; color:#fff9d6; font:700 28px var(--kid-font-display,Fredoka,sans-serif); touch-action:none; }
-.wc-air-controls button:active { background:#788962; }
+.wc-air-controls button:active,.wc-air-controls button[data-pressed] { background:#788962; }
 .wc-summit-dialog { position:absolute; z-index:30; left:50%; top:50%; transform:translate(-50%,-50%); width:min(88%,360px); padding:18px 22px; text-align:center; border:2px solid #d6c88d; border-radius:24px; background:linear-gradient(145deg,#294d3df2,#172f2ff5); box-shadow:0 14px 60px #102c3a88; }
 .wc-summit-dialog>span { color:#ffe699; font-size:35px; }
 .wc-summit-dialog h2 { margin:0 0 8px; font-size:26px; }
@@ -77,3 +80,11 @@
 .wc-mission-card { border-bottom:2px solid #c6b87b; background:linear-gradient(105deg,#172f32,#304d45); }
 .wc-bottom-bar { border-top:1px solid #d2c48b66; background:linear-gradient(100deg,#172f32,#284b43); }
 @media(max-height:420px) { .wc-next-words { top:2px; padding:3px 12px 5px; } .wc-next-words>span { display:none; } .wc-next-words strong { font-size:18px; } }
+
+@media(min-width:768px) and (min-height:421px) {
+  .word-climb { grid-template-rows:64px minmax(0,1fr) 84px; }
+  .wc-bottom-bar { padding:6px max(16px,env(safe-area-inset-right)) 6px max(16px,env(safe-area-inset-left)); }
+  .wc-air-controls button { width:72px; height:72px; font-size:32px; }
+  .wc-air-controls button small { font-size:12px; }
+}
+@media(max-width:520px) { .wc-air-controls { gap:8px; } .wc-air-controls p { font-size:11px; } }

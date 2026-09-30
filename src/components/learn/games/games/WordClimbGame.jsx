@@ -35,6 +35,7 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
   const [selected, setSelected] = useState(1);
   const callbacks = useRef({});
   const input = useRef({ left: false, right: false, up:false });
+  const controlPointers = useRef({});
   const completionDelay = useRef(null);
   const completionReported = useRef(false);
   const replayButton = useRef(null);
@@ -140,7 +141,11 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
 
   useEffect(() => { if (!isSoundEnabled) cancelSpeech(); else if (!world.paused) void speakPhoneme(session.target); }, [isSoundEnabled, session.target, world]);
   useEffect(() => {
-    const clear = () => { input.current = { left: false, right: false,up:false }; };
+    const clear = () => {
+      input.current = { left: false, right: false,up:false };
+      controlPointers.current = {};
+      worldElement.current?.parentElement.querySelectorAll("[data-wc-control]").forEach(button => delete button.dataset.pressed);
+    };
     // A destination button disables during flight and may lose focus to body.
     // Release held keys even when keyup no longer bubbles through the game.
     const release = event => {
@@ -186,6 +191,38 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
     return () => window.removeEventListener("keydown", handle);
   }, []);
 
+  function controlButton(direction) {
+    const press = () => {
+      if (world.paused || world.completed) return;
+      if (canJump) {
+        if (direction === "up") jump(reachable[selected]?.id);
+        else setSelected(value => (value + (direction === "right" ? 1 : 2)) % 3);
+      } else setDirection(direction, true);
+    };
+    const release = event => {
+      if (event.pointerId !== undefined && controlPointers.current[direction] !== event.pointerId) return;
+      delete event.currentTarget.dataset.pressed;
+      delete controlPointers.current[direction];
+      setDirection(direction, false);
+    };
+    return <button type="button" key={direction} data-wc-control={direction}
+      aria-label={direction === "up" ? (canJump ? "Jump to selected ledge" : "Climb upward") : `Move ${direction}`}
+      onPointerDown={event => {
+        event.preventDefault(); event.stopPropagation();
+        if (controlPointers.current[direction] !== undefined) return;
+        controlPointers.current[direction] = event.pointerId;
+        event.currentTarget.setPointerCapture(event.pointerId); event.currentTarget.dataset.pressed="true"; press();
+      }}
+      onPointerUp={release} onPointerCancel={release} onLostPointerCapture={release}
+      onBlur={event => { delete event.currentTarget.dataset.pressed; setDirection(direction, false); }}
+      onKeyDown={event => {
+        if ([" ", "Enter"].includes(event.key)) { event.preventDefault(); event.stopPropagation(); if (!event.repeat) press(); }
+      }} onKeyUp={event => { event.stopPropagation(); setDirection(direction, false); }}>
+      <span aria-hidden="true">{direction === "left" ? "←" : direction === "up" ? "↑" : "→"}</span>
+      {direction === "up" && <small>{canJump ? "JUMP" : "CLIMB"}</small>}
+    </button>;
+  }
+
   return <section className="word-climb" aria-label={`Word Climb. Choose words that start with ${session.target}.`}
     tabIndex={0} onKeyUp={event => {
       if (["arrowleft", "a"].includes(event.key.toLowerCase())) setDirection("left", false);
@@ -208,7 +245,10 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
       </div>}
       <svg className="wc-branches" viewBox={`0 0 1000 ${viewport.viewHeight}`} preserveAspectRatio="none" aria-hidden="true">
         <polygon points={[...routeProfile.map(p=>`${p.center-p.radius},${p.screen}`),...[...routeProfile].reverse().map(p=>`${p.center+p.radius},${p.screen}`)].join(" ")} fill="#785232" />
-        {world.journey.obstacles.filter(o=>Math.abs(o.y-world.y)<600).map(o=><rect key={o.id} x={o.x-o.width/2} y={projectY(o.y)*viewport.viewHeight/100-9} width={o.width} height="18" rx="6" fill="#442f20" stroke="#c59863" strokeWidth="2" />)}
+        {world.journey.obstacles.filter(o=>Math.abs(o.y-world.y)<600).map(o=><g key={o.id} transform={`translate(${o.x},${projectY(o.y)*viewport.viewHeight/100})`}>
+          <rect x={-o.width/2} y="-9" width={o.width} height="18" rx="6" fill="#7b2540" stroke="#ffe3ad" strokeWidth="5" />
+          {[-1,0,1].map(k=><path key={k} d={`M${k*o.width*.27-10} -7 L${k*o.width*.27+4} -27 L${k*o.width*.27+12} -7 Z`} fill="#ffe3ad" />)}
+        </g>)}
         {world.journey.lights.filter(o=>!world.journey.collected.includes(o.id)&&Math.abs(o.y-world.y)<600).map(o=><ellipse key={o.id} cx={o.x} cy={projectY(o.y)*viewport.viewHeight/100} rx="15" ry="7" fill="#ffdc83" />)}
 
         {["clinging", "recovering"].includes(world.state) && <path className="wc-safety-vine" d={`M500 ${viewport.viewHeight - (world.y - world.camera - viewport.cameraOffset) - 180} Q${world.x + 50} ${viewport.viewHeight - (world.y - world.camera - viewport.cameraOffset) - 110} ${world.x} ${viewport.viewHeight - (world.y - world.camera - viewport.cameraOffset) - 20}`} />}
@@ -232,14 +272,10 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
       </div>
     </div>
     <div className="wc-bottom-bar" inert={finished || undefined}>
-      <p data-wc="feedback" role="status" aria-live="polite">{feedback}</p>
       <div className="wc-air-controls" aria-label="Climb and steer">
-        {["left", "up", "right"].map(direction => <button type="button" key={direction} aria-label={direction==="up"?(canJump?"Jump to selected ledge":"Climb upward"):`Move ${direction}`}
-          onPointerDown={event => { event.currentTarget.setPointerCapture(event.pointerId); if(direction==="up"&&canJump)jump(reachable[selected]?.id);else setDirection(direction, true); }}
-          onPointerUp={() => setDirection(direction, false)} onPointerCancel={() => setDirection(direction, false)}
-          onLostPointerCapture={() => setDirection(direction, false)} onBlur={() => setDirection(direction, false)}
-          onKeyDown={event => { if ([" ", "Enter"].includes(event.key)){event.preventDefault();if(direction==="up"&&canJump&&!event.repeat)jump(reachable[selected]?.id);else setDirection(direction, true);} }}
-          onKeyUp={() => setDirection(direction, false)}>{direction === "left" ? "←" : direction==="up"?"↑":"→"}</button>)}
+        <div className="wc-steer-controls">{["left", "right"].map(controlButton)}</div>
+        <p data-wc="feedback" role="status" aria-live="polite">{feedback}</p>
+        {controlButton("up")}
       </div>
     </div>
     {finished && <div className="wc-summit-dialog" role="alertdialog" aria-modal="true" aria-label="Word Climb complete"

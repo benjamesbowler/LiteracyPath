@@ -3,7 +3,8 @@ import { advanceClimbWorld, createClimbWorld } from "./wordClimbWorld.js";
 export const CLIMB_TRAVEL_SPEED = 108;
 export const CLIMB_APPROACH_HEIGHT = 300;
 export const CLIMB_STAGE_NAMES = ["Rootways", "Windward Canopy", "Lantern Ridge"];
-const STEER_SPEED = 310;
+// A short thumb press should adjust a grip, not cross the whole trunk.
+const STEER_SPEED = 180;
 export const CLIMB_ROUTE_HALF_WIDTH = 160;
 
 // Authored route families use different bends, obstacle sides and wind. Neither
@@ -41,7 +42,7 @@ export function createClimbJourney(session,stageIndex=0,startStep=0,random=Math.
     world.platforms.push({id:`base-${section}`,row:section,kind:"base",word:"",correct:true,x:500,y:start+travelPerSection,width:240});
     for(let local=travelPerSection-80,index=0;local<travelPerSection-40;local+=480,index++){
       const y=start+local,side=(index+section+stageIndex)%2?1:-1,center=climbRouteCenter(journey,y);
-      journey.obstacles.push({id:`branch-${section}-${index}`,section,y,x:center+side*76,width:122,side});
+      journey.obstacles.push({id:`branch-${section}-${index}`,section,y,x:center+side*96,width:104,side});
       journey.lights.push({id:`light-${section}-${index}`,section,y:y-100,x:climbRouteCenter(journey,y-100)-side*82});
     }
   }
@@ -87,9 +88,12 @@ export function advanceClimbJourney(world,seconds,input={}) {
     world.x+=(steer*STEER_SPEED+climbJourneyWind(journey,world.y,world.elapsed))*dt;
     world.y=Math.min(base.y,world.y+(input.up?CLIMB_TRAVEL_SPEED*dt:0));
     const center=climbRouteCenter(journey,world.y,journey.branchStartX);
+    // The outer bark catches an oversteer. Hazards still require a deliberate
+    // route around them, and neither motor event changes reading evidence.
+    const radius=climbRouteRadius(journey,world.y)-12;
+    world.x=Math.max(center-radius,Math.min(center+radius,world.x));
     const obstruction=journey.obstacles.find(o=>o.section===world.step&&Math.abs(o.y-world.y)<20&&Math.abs(o.x-world.x)<o.width/2);
-    if(Math.abs(world.x-center)>climbRouteRadius(journey,world.y))recover(world,"edge");
-    else if(obstruction)recover(world,"branch");
+    if(obstruction)recover(world,"branch");
     else{
       for(const hold of world.platforms){
         if(hold.kind==="rest"&&hold.row===world.step&&hold.y<=world.y&&world.y-hold.y<18&&Math.abs(world.x-hold.x)<=hold.width/2+25&&hold.y>journey.safeRest.y){journey.safeRest={id:hold.id,x:hold.x,y:hold.y};world.safeId=hold.id;}

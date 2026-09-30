@@ -741,3 +741,7 @@ of the unmodified base and a redundant browser trace were removed after the
 unchanged phone-login screenshot failure was captured; the base is recoverable
 from Git and its comparison images and log are retained. No source artwork,
 learner records or hosted data were removed.
+
+## iPad game controls and child reader launch
+
+The Game Design Bible now follows the owner's 30 September 2026 control direction: left/right steering at the left and independent climb/forward/action at the right, or opposite corners for steering-only games. The Arcade runtime retains direct answer touch for games without continuous movement. Sound Seekers’ live woodland chapter uses the same split movement controls and keeps its path action clear of both thumb zones. Word Climb has slower steering, a bounded edge catch and contrasting thorn branches. Child Guided Reading launches into the existing picture-book transport through a viewport portal; the portal owns focus, background isolation and return cleanup, and native fullscreen is optional. Teacher marking and synchronized sessions retain their tools.
