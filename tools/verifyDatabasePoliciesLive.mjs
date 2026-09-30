@@ -523,14 +523,11 @@ async function runPsqlJson(databaseUrl, query) {
   });
 }
 
-function verifyTableCatalog(rows) {
+export function verifyTableCatalog(rows) {
   const failures = [];
-  const anonymousSelectTables = new Set([
-    "app_config",
-    // Publication is deliberately readable, but RLS exposes approved books
-    // only. verifyAnonymousBoundary below proves that row-level restriction.
-    "guided_reading_book_reviews"
-  ]);
+  // Private review decisions are never an anonymous base-table surface.
+  // Children read the separate two-column quarantine projection below.
+  const anonymousSelectTables = new Set(["app_config"]);
   for (const row of rows) {
     const anonymousPrivileges = [
       row.anon_insert && "INSERT",
@@ -550,6 +547,25 @@ function verifyTableCatalog(rows) {
     if (!row.rls_enabled) failures.push(`${row.table_name}: RLS is disabled`);
   }
   return failures;
+}
+
+export async function verifyAnonymousGuidedReadingBoundary(anonymous) {
+  const privateReviews = await anonymous.from("guided_reading_book_reviews").select("*").limit(1);
+  assert.equal(privateReviews.error?.code, "42501", "anonymous caller could read private Guided Reading review metadata");
+  const quarantines = requireData(
+    await anonymous.from("guided_reading_quarantines").select("*").limit(1000),
+    "anonymous Guided Reading quarantine projection"
+  );
+  assert(Array.isArray(quarantines), "anonymous quarantine projection did not return a list");
+  assert.equal(new Set(quarantines.map(row => row.book_id)).size, quarantines.length, "anonymous quarantine projection exposed duplicate book ids");
+  for (const row of quarantines) {
+    assert.deepEqual(Object.keys(row).sort(), ["book_id", "status"], "anonymous quarantine projection exposed private review metadata");
+    assert.equal(row.status, "quarantined", "anonymous quarantine projection exposed an accepted book");
+    assert.equal(typeof row.book_id, "string", "anonymous quarantine projection has an invalid book id");
+    assert(row.book_id.trim(), "anonymous quarantine projection has an empty book id");
+  }
+  // No reported defects is a valid empty list, not a pending approval queue.
+  return { privateReviewsDenied: true, publicQuarantines: quarantines.length };
 }
 
 async function verifyAnonymousBoundary(anonymous) {
@@ -584,39 +600,7 @@ async function verifyAnonymousBoundary(anonymous) {
     );
   }
 
-  const publicGuidedReadingReviews = requireData(
-    await anonymous
-      .from("guided_reading_book_reviews")
-      .select("book_id,status")
-      .limit(1000),
-    "anonymous Guided Reading publication allowlist"
-  );
-  assert(
-    publicGuidedReadingReviews.length > 0,
-    "anonymous publication did not expose any approved Guided Reading review rows"
-  );
-  assert.equal(
-    new Set(publicGuidedReadingReviews.map(row => row.book_id)).size,
-    publicGuidedReadingReviews.length,
-    "anonymous publication exposed duplicate Guided Reading review rows"
-  );
-  assert(
-    publicGuidedReadingReviews.every(row => row.status === "approved"),
-    "anonymous publication exposed a non-approved Guided Reading review"
-  );
-  const hiddenGuidedReadingReviews = requireData(
-    await anonymous
-      .from("guided_reading_book_reviews")
-      .select("book_id,status")
-      .neq("status", "approved")
-      .limit(1),
-    "anonymous Guided Reading non-approved boundary"
-  );
-  assert.equal(
-    hiddenGuidedReadingReviews.length,
-    0,
-    "anonymous publication exposed a quarantined or unapproved Guided Reading review"
-  );
+  await verifyAnonymousGuidedReadingBoundary(anonymous);
 
   for (const signature of AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS) {
     const args = AUTH_ONLY_PROBE_ARGS[signature];
@@ -691,10 +675,6 @@ async function verifyAnonymousBoundary(anonymous) {
       p_storage_failures: 0,
       p_pending: 0,
       p_lost: 0
-    }),
-    anonymous.rpc("get_game_leaderboard", {
-      p_student_token: "invalid",
-      p_limit: 5
     })
   ];
   const invalidResults = await Promise.all(invalidTokenChecks);

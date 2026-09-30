@@ -18,7 +18,9 @@ import {
   unrevokedSecurityDefiners
 } from "../../tools/databasePolicyContract.mjs";
 import {
-  AUTH_ONLY_PROBE_ARGS
+  AUTH_ONLY_PROBE_ARGS,
+  verifyAnonymousGuidedReadingBoundary,
+  verifyTableCatalog
 } from "../../tools/verifyDatabasePoliciesLive.mjs";
 
 test("security guard bounds function headers and checks every grouped revocation", () => {
@@ -316,4 +318,35 @@ test("catalog audit requires the current token RPCs and rejects regranting the r
   assert.match(auditSecurityDefinerCatalog(catalog).failures.join("\n"), /anonymous SECURITY DEFINER surface differs/);
   const incomplete = validCatalog().filter(item => item.signature !== "student_get_focus_session(text, text, boolean)");
   assert.match(auditSecurityDefinerCatalog(incomplete).failures.join("\n"), /anonymous SECURITY DEFINER surface differs/);
+});
+
+
+function publicationProbeClient({ quarantines = [], privateError = { code: "42501" }, projectionError = null } = {}) {
+  return { from: table => ({ select: columns => ({ limit: async () => {
+    assert.equal(columns, "*");
+    if (table === "guided_reading_book_reviews") return { data: [], error: privateError };
+    assert.equal(table, "guided_reading_quarantines");
+    return { data: quarantines, error: projectionError };
+  } }) }) };
+}
+
+test("publication verifier requires private review denial and permits an empty quarantine projection", async () => {
+  assert.deepEqual(await verifyAnonymousGuidedReadingBoundary(publicationProbeClient()), { privateReviewsDenied: true, publicQuarantines: 0 });
+  assert.deepEqual(await verifyAnonymousGuidedReadingBoundary(publicationProbeClient({ quarantines: [{ book_id: "reported-book", status: "quarantined" }] })), { privateReviewsDenied: true, publicQuarantines: 1 });
+  await assert.rejects(verifyAnonymousGuidedReadingBoundary(publicationProbeClient({ privateError: null })), /could read private/);
+  await assert.rejects(verifyAnonymousGuidedReadingBoundary(publicationProbeClient({ privateError: { code: "PGRST205" } })), /could read private/);
+  await assert.rejects(verifyAnonymousGuidedReadingBoundary(publicationProbeClient({ projectionError: { message: "unavailable" } })), /unavailable/);
+});
+
+test("publication verifier rejects accepted books, leaked review notes and duplicate ids", async () => {
+  for (const quarantines of [
+    [{ book_id: "a", status: "approved" }],
+    [{ book_id: "a", status: "quarantined", review_note: "private repair details" }],
+    [{ book_id: "a", status: "quarantined" }, { book_id: "a", status: "quarantined" }]
+  ]) await assert.rejects(verifyAnonymousGuidedReadingBoundary(publicationProbeClient({ quarantines })), /accepted book|private review metadata|duplicate book ids/);
+});
+
+test("table catalogue forbids anonymous private review SELECT", () => {
+  assert.deepEqual(verifyTableCatalog([{ table_name: "app_config", rls_enabled: true, anon_select: true }]), []);
+  assert.match(verifyTableCatalog([{ table_name: "guided_reading_book_reviews", rls_enabled: true, anon_select: true }]).join("\n"), /unexpected anonymous SELECT/);
 });
