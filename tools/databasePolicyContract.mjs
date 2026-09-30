@@ -123,6 +123,40 @@ export const TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS = Object.freeze(
     .sort()
 );
 
+// August's immutable boundary is still audited above. Later, reviewed token
+// sessions extend that API surface, and the child peer-score RPC is now retired.
+const CURRENT_TOKEN_SESSION_RPCS = Object.freeze({
+  "student_complete_focus_assessment(text, uuid, jsonb)": "20260922160000_skills_assessment_runtime_validity.sql",
+  "student_complete_focus_cycle_practice(text, uuid, jsonb)": "20260909090000_cycle_practice_activity_audio_contract.sql",
+  "student_complete_focus_session(text, uuid)": "20260828120000_student_focus_sessions.sql",
+  "student_get_focus_session(text, text, boolean)": "20260922160000_skills_assessment_runtime_validity.sql",
+  "student_revoke_session(text)": "20260908114742_student_session_recovery.sql",
+  "student_save_focus_assessment_answer(text, uuid, jsonb)": "20260903013233_student_focus_answer_assignment_check.sql",
+  "student_save_focus_item_mastery(text, uuid, jsonb)": "20260828120000_student_focus_sessions.sql"
+});
+const CURRENT_TEACHER_SESSION_RPCS = Object.freeze({
+  "teacher_end_student_focus_session(uuid, text)": "20260831233417_extend_student_focus_sessions_adventure_map.sql",
+  "teacher_get_student_focus_session(uuid)": "20260908122903_cycle_practice_independent_evidence.sql",
+  "teacher_start_cycle_practice_session(uuid, uuid[], jsonb, integer, text, boolean)": "20260907090000_cycle_practice_focus_sessions.sql",
+  "teacher_start_student_focus_session(uuid, text, uuid[], jsonb, integer, text, boolean)": "20260831233417_extend_student_focus_sessions_adventure_map.sql"
+});
+export const LIVE_ANON_SECURITY_DEFINER_RPCS = Object.freeze([
+  ...ANON_SECURITY_DEFINER_RPCS.filter(signature => signature !== "get_game_leaderboard(text, integer)"),
+  ...Object.keys(CURRENT_TOKEN_SESSION_RPCS)
+].sort());
+export const LIVE_AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
+  ...AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS,
+  ...Object.keys(CURRENT_TEACHER_SESSION_RPCS)
+].sort());
+export const LIVE_AUTHENTICATED_SECURITY_DEFINER_RPCS = Object.freeze([
+  ...LIVE_ANON_SECURITY_DEFINER_RPCS,
+  ...LIVE_AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS
+].sort());
+export const LIVE_TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS = Object.freeze(
+  LIVE_AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS.filter(signature => signature.startsWith("teacher_"))
+);
+export const CHILD_LEADERBOARD_RETIREMENT_MIGRATION = "20260930161040_retire_child_game_leaderboard.sql";
+
 const LEGACY_RPC_SIGNATURES = Object.freeze([
   // Replaced by search_school_names(text): the no-argument form returned every
   // school name to anon in one call.
@@ -193,6 +227,59 @@ export function unrevokedSecurityDefiners(sql, inheritedSignatures = []) {
     .map(match => match[1].toLowerCase());
 }
 
+function functionPrivilegeStatements(source, action) {
+  const pattern = action === "grant"
+    ? /\bgrant\s+execute\s+on\s+function\s+([\s\S]*?)\s+to\s+([^;]+);/gi
+    : /\brevoke\s+(?:execute|all(?:\s+privileges)?)\s+on\s+function\s+([\s\S]*?)\s+from\s+([^;]+);/gi;
+  return [...source.matchAll(pattern)].flatMap(([, signatures, roles]) =>
+    [...signatures.matchAll(/public\.([a-z0-9_]+\s*\([^)]*\))/gi)].map(([, signature]) => ({
+      signature: comparableSignature(signature),
+      roles: roles.toLowerCase().split(",").map(role => role.trim()).sort()
+    }))
+  );
+}
+
+export function auditCurrentSessionRpcSource({ sources = {} } = {}) {
+  const failures = [];
+  const read = file => withoutSqlComments(sources[file] ?? fs.readFileSync(path.join(migrationDir, file), "utf8"));
+  for (const [signature, file] of Object.entries({ ...CURRENT_TOKEN_SESSION_RPCS, ...CURRENT_TEACHER_SESSION_RPCS })) {
+    const source = read(file);
+    const teacher = signature.startsWith("teacher_");
+    const expectedRoles = teacher ? ["authenticated"] : ["anon", "authenticated"];
+    const grants = functionPrivilegeStatements(source, "grant").filter(item => item.signature === signature);
+    const revokes = functionPrivilegeStatements(source, "revoke").filter(item => item.signature === signature);
+    if (grants.length !== 1 || JSON.stringify(grants[0].roles) !== JSON.stringify(expectedRoles)) {
+      failures.push(`current session RPC has unexpected grants: ${signature}`);
+    }
+    if (!revokes.some(item => ["public", "anon", "authenticated"].every(role => item.roles.includes(role)))) {
+      failures.push(`current session RPC lacks explicit privilege reset: ${signature}`);
+    }
+    const declarations = [...source.matchAll(/create\s+(?:or\s+replace\s+)?function\s+public\.([a-z0-9_]+)\s*\(([^)]*)\)/gi)];
+    const declaration = declarations.find(match => {
+      const types = match[2].split(",").map(parameter => parameter.trim().replace(/\s+default\s+[\s\S]*/i, "").replace(/^\w+\s+/, ""));
+      return comparableSignature(`${match[1]}(${types.join(", ")})`) === signature;
+    });
+    const body = declaration ? source.slice(declaration.index).match(/^[\s\S]*?as\s+\$\$([\s\S]*?)\$\$/i)?.[1] : null;
+    if (!body) {
+      failures.push(`current session RPC declaration is missing: ${signature}`);
+    } else if (teacher && !/\bbegin\s+perform public\.assert_current_actor_teacher_access\(\);/i.test(body)) {
+      failures.push(`current teacher session RPC lacks its entry guard: ${signature}`);
+    } else if (!teacher && signature === "student_revoke_session(text)" && !/where token = p_token and revoked = false/i.test(body)) {
+      failures.push(`session revocation is not bounded to its token: ${signature}`);
+    } else if (!teacher && signature !== "student_revoke_session(text)" && !/public\.student_from_token\(p_token\)/i.test(body)) {
+      failures.push(`current student session RPC lacks token identity: ${signature}`);
+    }
+  }
+  const retirement = read(CHILD_LEADERBOARD_RETIREMENT_MIGRATION);
+  for (const signature of ["get_game_leaderboard(text, integer)", "get_game_leaderboard(integer)", "get_game_leaderboard(integer, uuid)"]) {
+    if (!functionPrivilegeStatements(retirement, "revoke").some(item => item.signature === signature && ["public", "anon", "authenticated"].every(role => item.roles.includes(role)))) {
+      failures.push(`retired child leaderboard remains exposed: ${signature}`);
+    }
+  }
+  if (functionPrivilegeStatements(retirement, "grant").length) failures.push("child leaderboard retirement must not regrant execution");
+  return { failures, anonymousRpcCount: LIVE_ANON_SECURITY_DEFINER_RPCS.length, authenticatedRpcCount: LIVE_AUTHENTICATED_SECURITY_DEFINER_RPCS.length };
+}
+
 export function auditSecurityBoundarySource({
   files = fs.readdirSync(migrationDir).filter(file => file.endsWith(".sql")).sort(),
   source = fs.readFileSync(path.join(migrationDir, SECURITY_BOUNDARY_MIGRATION), "utf8"),
@@ -205,7 +292,8 @@ export function auditSecurityBoundarySource({
     "utf8"
   )
 } = {}) {
-  const failures = [];
+  const currentSessionReport = auditCurrentSessionRpcSource();
+  const failures = [...currentSessionReport.failures];
   if (!files.includes(SECURITY_BOUNDARY_MIGRATION)) {
     failures.push(`missing ${SECURITY_BOUNDARY_MIGRATION}`);
   }
@@ -298,7 +386,9 @@ export function auditSecurityBoundarySource({
     files,
     anonymousRpcCount: ANON_SECURITY_DEFINER_RPCS.length,
     authenticatedRpcCount: AUTHENTICATED_SECURITY_DEFINER_RPCS.length,
-    legacyRpcCount: LEGACY_RPC_SIGNATURES.length
+    legacyRpcCount: LEGACY_RPC_SIGNATURES.length,
+    currentAnonymousRpcCount: currentSessionReport.anonymousRpcCount,
+    currentAuthenticatedRpcCount: currentSessionReport.authenticatedRpcCount
   };
 }
 
@@ -316,7 +406,7 @@ export function auditSecurityDefinerCatalog(rows) {
   }
   const unsafeSearchPath = normalized.filter(row => {
     const settings = Array.isArray(row.settings) ? row.settings : [];
-    return !settings.some(setting => /^search_path=public(?:,\s*extensions)?$/.test(setting));
+    return !settings.some(setting => /^search_path=(?:public(?:,\s*extensions)?|""|)$/.test(setting));
   });
   if (unsafeSearchPath.length) {
     failures.push(
@@ -327,12 +417,12 @@ export function auditSecurityDefinerCatalog(rows) {
   const authenticated = normalized
     .filter(row => row.authenticated_execute)
     .map(row => row.signature);
-  if (!sameValues(anon, ANON_SECURITY_DEFINER_RPCS)) {
+  if (!sameValues(anon, LIVE_ANON_SECURITY_DEFINER_RPCS)) {
     failures.push(
       `live anonymous SECURITY DEFINER surface differs from allow-list; actual: ${sorted(anon).join(", ")}`
     );
   }
-  if (!sameValues(authenticated, AUTHENTICATED_SECURITY_DEFINER_RPCS)) {
+  if (!sameValues(authenticated, LIVE_AUTHENTICATED_SECURITY_DEFINER_RPCS)) {
     failures.push(
       `live authenticated SECURITY DEFINER surface differs from allow-list; actual: ${sorted(authenticated).join(", ")}`
     );

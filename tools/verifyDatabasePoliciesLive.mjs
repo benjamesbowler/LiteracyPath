@@ -8,8 +8,8 @@ import { randomUUID } from "node:crypto";
 import { createClient } from "@supabase/supabase-js";
 
 import {
-  AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS,
-  TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS,
+  LIVE_AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS as AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS,
+  LIVE_TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS as TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS,
   auditSecurityDefinerCatalog
 } from "./databasePolicyContract.mjs";
 import { auditHostedSchemaDriftCatalog } from "./hostedSchemaDriftContract.mjs";
@@ -160,6 +160,21 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
   },
   "teacher_delete_saved_assessment_report(text)": {
     p_report_id: "audit-forbidden"
+  },
+  "teacher_end_student_focus_session(uuid, text)": {
+    p_session_id: "00000000-0000-0000-0000-000000000000",
+    p_end_action: "return_home"
+  },
+  "teacher_get_student_focus_session(uuid)": {
+    p_session_id: "00000000-0000-0000-0000-000000000000"
+  },
+  "teacher_start_cycle_practice_session(uuid, uuid[], jsonb, integer, text, boolean)": {
+    p_class_id: EXPECTED.teacherA.classId, p_student_ids: [], p_assignments: {},
+    p_duration_minutes: 60, p_content_version: "audit-probe", p_whole_class: false
+  },
+  "teacher_start_student_focus_session(uuid, text, uuid[], jsonb, integer, text, boolean)": {
+    p_class_id: EXPECTED.teacherA.classId, p_target: "skills_practice", p_student_ids: [],
+    p_assignments: {}, p_duration_minutes: 60, p_content_version: "audit-probe", p_whole_class: false
   },
   "teacher_end_reading_session(uuid)": {
     p_session_id: "00000000-0000-0000-0000-000000000000"

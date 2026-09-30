@@ -4,8 +4,11 @@ import test from "node:test";
 
 import {
   ANON_SECURITY_DEFINER_RPCS,
-  AUTHENTICATED_SECURITY_DEFINER_RPCS,
-  AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS,
+  LIVE_ANON_SECURITY_DEFINER_RPCS,
+  LIVE_AUTHENTICATED_SECURITY_DEFINER_RPCS,
+  LIVE_AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS,
+  LIVE_TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS,
+  auditCurrentSessionRpcSource,
   RETIRED_FEATURES_MIGRATION,
   RETIRED_FEATURE_RPC_SIGNATURES,
   SECURITY_BOUNDARY_MIGRATION,
@@ -46,8 +49,8 @@ function row(signature, { anon = false, authenticated = false, publicRole = fals
 }
 
 function validCatalog() {
-  const exposed = AUTHENTICATED_SECURITY_DEFINER_RPCS.map(signature => row(signature, {
-    anon: ANON_SECURITY_DEFINER_RPCS.includes(signature),
+  const exposed = LIVE_AUTHENTICATED_SECURITY_DEFINER_RPCS.map(signature => row(signature, {
+    anon: LIVE_ANON_SECURITY_DEFINER_RPCS.includes(signature),
     authenticated: true
   }));
   exposed.push(row("student_from_token(text)"));
@@ -93,7 +96,7 @@ test("database lint repairs preserve the final boundary and honest volatility", 
 test("every authenticated-only RPC has a safe anonymous-denial probe", () => {
   assert.deepEqual(
     Object.keys(AUTH_ONLY_PROBE_ARGS).sort(),
-    [...AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS].sort()
+    [...LIVE_AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS].sort()
   );
 });
 
@@ -118,8 +121,9 @@ test("security boundary rejects a teacher RPC missing from the account-status in
 test("catalog audit accepts exact API grants and private helpers", () => {
   const report = auditSecurityDefinerCatalog(validCatalog());
   assert.deepEqual(report.failures, []);
-  assert.equal(report.anonymousRpcCount, 12);
-  assert.equal(report.authenticatedRpcCount, 76);
+  assert.equal(report.anonymousRpcCount, 18);
+  assert.equal(report.authenticatedRpcCount, 86);
+  assert.equal(LIVE_TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS.length, 50);
   assert.equal(report.privateHelperCount, 4);
 });
 
@@ -269,4 +273,47 @@ test("teacher signup creates its bounded school inside the auth trigger", () => 
     app.slice(app.indexOf("async function signUpTeacher"), app.indexOf("async function logInTeacher")),
     /from\("pending_teacher_accounts"\)[\s\S]{0,200}\.eq\("username"/
   );
+});
+
+
+test("current session source overlay retains exact roles, token identity and teacher entry guards", () => {
+  assert.deepEqual(auditCurrentSessionRpcSource().failures, []);
+  const file = "20260831233417_extend_student_focus_sessions_adventure_map.sql";
+  const source = fs.readFileSync(new URL(`../../supabase/migrations/${file}`, import.meta.url), "utf8");
+  const teacherEndGrant = "grant execute on function public.teacher_end_student_focus_session(uuid, text)\n  to authenticated;";
+  const exposed = auditCurrentSessionRpcSource({ sources: { [file]: source.replace(teacherEndGrant, teacherEndGrant.replace("to authenticated", "to anon, authenticated")) } });
+  assert.match(exposed.failures.join("\n"), /unexpected grants: teacher_end_student_focus_session/);
+  const missingGuard = auditCurrentSessionRpcSource({ sources: { [file]: source.replaceAll("perform public.assert_current_actor_teacher_access();", "perform public.end_expired_student_focus_sessions();") } });
+  assert.match(missingGuard.failures.join("\n"), /lacks its entry guard/);
+  const tokenFile = "20260908114742_student_session_recovery.sql";
+  const tokenSource = fs.readFileSync(new URL(`../../supabase/migrations/${tokenFile}`, import.meta.url), "utf8");
+  const unbounded = auditCurrentSessionRpcSource({ sources: { [tokenFile]: tokenSource.replace("where token = p_token and revoked = false", "where revoked = false") } });
+  assert.match(unbounded.failures.join("\n"), /revocation is not bounded to its token/);
+  const noReset = auditCurrentSessionRpcSource({ sources: { [tokenFile]: tokenSource.replace("revoke all on function public.student_revoke_session(text) from public, anon, authenticated", "revoke all on function public.student_revoke_session(text) from anon, authenticated") } });
+  assert.match(noReset.failures.join("\n"), /lacks explicit privilege reset/);
+
+});
+
+test("catalog audit permits an explicit empty path but rejects untrusted or implicit paths", () => {
+  for (const safeSetting of ['search_path=""', "search_path="]) {
+    const catalog = validCatalog();
+    catalog.find(item => item.signature === "student_get_focus_session(text, text, boolean)").settings = [safeSetting];
+    assert.deepEqual(auditSecurityDefinerCatalog(catalog).failures, []);
+  }
+  for (const unsafeSetting of ["search_path=evil, public", 'search_path="$user", public', "search_path=public, evil", "search_path=pg_temp", "work_mem=4MB"]) {
+    const catalog = validCatalog();
+    catalog[0].settings = [unsafeSetting];
+    assert.match(auditSecurityDefinerCatalog(catalog).failures.join("\n"), /lack a fixed safe search_path/);
+  }
+});
+
+test("catalog audit requires the current token RPCs and rejects regranting the retired leaderboard", () => {
+  const catalog = validCatalog();
+  catalog.push(row("get_game_leaderboard(text, integer)"));
+  assert.deepEqual(auditSecurityDefinerCatalog(catalog).failures, []);
+  catalog.at(-1).anon_execute = true;
+  catalog.at(-1).authenticated_execute = true;
+  assert.match(auditSecurityDefinerCatalog(catalog).failures.join("\n"), /anonymous SECURITY DEFINER surface differs/);
+  const incomplete = validCatalog().filter(item => item.signature !== "student_get_focus_session(text, text, boolean)");
+  assert.match(auditSecurityDefinerCatalog(incomplete).failures.join("\n"), /anonymous SECURITY DEFINER surface differs/);
 });
