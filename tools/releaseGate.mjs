@@ -62,6 +62,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [1, 2, 3, 4, 10]
   },
   {
+    id: "story-quests",
+    label: "Story Quest route causality, reading bands and exact decoded narration",
+    command: ["npm", "run", "check:story-quests-release"],
+    areas: [1, 2, 3, 4, 10]
+  },
+  {
     id: "guided-reading-story-bible",
     label: "Guided Reading Story Bible, level ladder, exact narration, and locked manuscript review",
     command: ["npm", "run", "check:guided-reading-story-bible", "--", "--release"],

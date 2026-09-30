@@ -5,13 +5,13 @@ import test from "node:test";
 
 import {
   getLedaInstructionAudioPath,
-  getLedaProductionAudioPath,
   getLedaWordAudioPath,
   isLedaProductionAudioPath
 } from "../../src/data/ledaProductionAudio.js";
 import { LEDA_PRODUCTION_AUDIO_BY_ROLE } from "../../src/data/generated/ledaProductionAudio.generated.js";
 import { wordAudioPath } from "../../src/components/elQuest/elQuestEngine.js";
 import { storyQuests } from "../../src/data/storyQuests.js";
+import { getStoryQuestLedaAudioPath } from "../../src/data/storyQuestLedaAudio.js";
 import { getTargetWordAudioPath } from "../../src/utils/assessmentAudioRoles.js";
 import { wordSrc } from "../../src/utils/questAudio.js";
 
@@ -75,9 +75,9 @@ test("every live story-quest page resolves to its Leda narration", async () => {
     }))
   ).filter(page => page.text);
 
-  assert.equal(pages.length, 340);
+  assert.equal(pages.length, 190);
   for (const page of pages) {
-    const audioPath = getLedaProductionAudioPath(page.text, ["story_page"]);
+    const audioPath = getStoryQuestLedaAudioPath(page.text);
     assert.match(audioPath, /^\/audio\/production\/en-US\/story_page\//, page.id);
     await access(path.join(repositoryRoot, "public", audioPath));
   }

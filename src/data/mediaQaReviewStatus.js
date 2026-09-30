@@ -106,6 +106,22 @@ export function mergeMediaQaReviewItems(items = [], overrides = readMediaQaRevie
   return items.map(item => {
     const reviewId = item.reviewId || getMediaQaReviewId(item);
     const decision = decisions.get(reviewId);
+    if (decision && item.area === "story_quests") {
+      // Saved decisions include a content snapshot. Current story text and media
+      // stay authoritative when the manuscript changes under the same review ID.
+      const sameMedia = Boolean(item.mediaFingerprint)
+        && decision.mediaFingerprint === item.mediaFingerprint;
+      const historicalDate = decision.reviewedAt ? ` (${decision.reviewedAt})` : "";
+      return {
+        ...item,
+        reviewId,
+        status: normalizeStatus(decision.status),
+        reviewedAt: sameMedia ? decision.reviewedAt ?? item.reviewedAt : "",
+        notes: sameMedia
+          ? decision.notes ?? item.notes
+          : `Historical review${historicalDate} for earlier or unverified content: ${decision.notes || "No notes recorded."}`
+      };
+    }
     return decision
       ? { ...item, ...decision, reviewId, status: normalizeStatus(decision.status) }
       : { ...item, reviewId, status: normalizeStatus(item.status || "accepted") };

@@ -259,8 +259,8 @@ test("endings and the resumed page are read from real data, never counted up", (
       `${quest.id} must offer at least two endings for "N endings" to be worth saying`
     );
   }
-  assert.equal(questPageNumber("p03_pip_edge"), 3);
-  assert.equal(questPageNumber("page-07"), 7);
+  assert.equal(questPageNumber("p03_pip_edge"), null);
+  assert.equal(questPageNumber("page-07", ["start", "fork", "page-07"]), 3);
   assert.equal(questPageNumber(""), null);
   assert.equal(questPageNumber("start"), null);
 });
@@ -287,32 +287,32 @@ test("a quest badge says what to do, and the note under it is true", () => {
   const quest = { id: "q", title: "Q", level: "A", pages: [{ choices: [{ nextPageId: "end" }] }] };
 
   const carryOn = buildQuestCard({ quest, row: { opened: true, lastPageId: "p03_x" } });
-  assert.equal(carryOn.badge, "Carry on");
-  assert.equal(carryOn.note, "You are on page 3");
+  assert.equal(carryOn.badge, "Continue");
+  assert.equal(carryOn.note, "Continue your story");
 
   const done = buildQuestCard({ quest, row: { opened: true, completed: true } });
-  assert.equal(done.badge, "Done");
-  assert.equal(done.note, "You finished this");
+  assert.equal(done.badge, "Read again");
+  assert.equal(done.note, "You choose what happens");
 
   const fresh = buildQuestCard({ quest, row: {} });
   assert.equal(fresh.badge, "New");
-  assert.equal(fresh.note, "1 ending");
+  assert.equal(fresh.note, "You choose what happens");
 
   const ahead = buildQuestCard({
     quest: { ...quest, level: "C", series: "Moonwood Tales" },
     row: {},
     reachedIndex: 0
   });
-  assert.equal(ahead.badge, "Next world");
-  assert.equal(ahead.note, "Moonwood Tales");
+  assert.equal(ahead.badge, "New");
+  assert.equal(ahead.note, "You choose what happens");
 
   // A story already started is never demoted to "Next world" by where it lives.
   const startedAhead = buildQuestCard({
     quest: { ...quest, level: "C" },
-    row: { opened: true },
+    row: { opened: true, lastPageId: "p01" },
     reachedIndex: 0
   });
-  assert.equal(startedAhead.badge, "Carry on");
+  assert.equal(startedAhead.badge, "Continue");
 });
 
 test("the quest grid never borrows stories from another world", () => {
@@ -343,7 +343,7 @@ test("the story you are in is the one the grid puts first", () => {
     world: "meadow"
   });
   assert.equal(cards[0].id, inProgress.id);
-  assert.equal(cards[0].badge, "Carry on");
+  assert.equal(cards[0].badge, "Continue");
 });
 
 // The comments in both screens NAME the counters that were removed, which is
@@ -411,4 +411,20 @@ test("the two screens fit the canvas: fixed rows, fractional columns", () => {
     [],
     "every selector in kids-library.css must carry the .kg-stage prefix"
   );
+});
+
+test("a replay in progress remains resumable after a past completion", () => {
+  const quest = { id: "q", level: "A" };
+  assert.equal(buildQuestCard({ quest, row: { opened: true, completed: true, routeFinished: false, lastPageId: "fork" } }).state, "carry-on");
+  assert.equal(buildQuestCard({ quest, row: { opened: true, completed: true, routeFinished: true, lastPageId: "ending" } }).badge, "Read again");
+});
+
+test("first recommendations respect reading track and current route, not alphabetic title", () => {
+  const quests = [
+    { id: "early", title: "A title", level: "Early" },
+    { id: "a", title: "Z title", level: "A" }
+  ];
+  assert.equal(buildQuestGrid({ quests, readingLevel: "A" })[0].id, "a");
+  assert.equal(buildQuestGrid({ quests, readingLevel: "Early" })[0].id, "early");
+  assert.equal(buildQuestGrid({ quests, readingLevel: "A", progress: { early: { opened: true, lastPageId: "fork" } } })[0].id, "early");
 });

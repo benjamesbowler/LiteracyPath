@@ -1,8 +1,7 @@
 /* eslint-disable react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { preloadMediaSet } from "../utils/preloadMedia.js";
-import { buildStoryQuestResumeHistory } from "../utils/storyQuestProgress.js";
+import { resolveStoryQuestResume } from "../utils/storyQuestProgress.js";
 import { getLedaInstructionAudioPath } from "../data/ledaProductionAudio.js";
 import { getStoryQuestLedaAudioPath } from "../data/storyQuestLedaAudio.js";
 import {
@@ -13,19 +12,51 @@ import {
 } from "../utils/browserFullscreen.js";
 import { STOP_CHILD_AUDIO_EVENT } from "../utils/audio/childAudioLifecycle.js";
 import { spellingAudioPaths, wordSrc } from "../utils/questAudio.js";
+import { storyQuestDecisionText } from "../data/storyQuestReaderCopy.js";
+import { StoryQuestSpeaker } from "./StoryQuestSpeaker.jsx";
 import "./StoryQuestPlayer.css";
 
 function tokenizeStoryQuestLine(line = "") {
-  return String(line)
-    .split(/([A-Za-z]+(?:[’'][A-Za-z]+)*)/g)
-    .filter(Boolean)
-    .map(token => ({
-      token,
-      isWord: /^[A-Za-z]+(?:[’'][A-Za-z]+)*$/.test(token)
-    }));
+  return String(line).match(/\S+|\s+/g) || [];
 }
 
-function StoryQuestImage({ src, title }) {
+function StoryQuestText({ lines, onHearWord }) {
+  const [focusedWord, setFocusedWord] = useState(0);
+  let wordIndex = 0;
+  function moveWordFocus(event) {
+    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+    event.preventDefault();
+    const words = [...event.currentTarget.closest(".story-quest-text").querySelectorAll(".story-quest-word")];
+    const current = words.indexOf(event.currentTarget);
+    const next = event.key === "Home" ? 0 : event.key === "End" ? words.length - 1
+      : Math.max(0, Math.min(words.length - 1, current + (event.key === "ArrowRight" ? 1 : -1)));
+    words[next]?.focus();
+  }
+  return (
+    <div className="story-quest-text">
+      {lines.map((line, lineIndex) => (
+        <p key={lineIndex} aria-label={line}>
+          {tokenizeStoryQuestLine(line).map((token, tokenIndex) => {
+            if (!/[A-Za-z]/.test(token)) return <span key={tokenIndex}>{token}</span>;
+            const index = wordIndex++;
+            return <button
+              aria-label={`Hear ${token.replace(/^[^A-Za-z]+|[^A-Za-z]+$/g, "")}`}
+              aria-describedby="story-quest-keyboard-hint"
+              className="story-quest-word" key={tokenIndex} type="button"
+              tabIndex={index === focusedWord ? 0 : -1}
+              onFocus={() => setFocusedWord(index)} onKeyDown={moveWordFocus}
+              onClick={() => onHearWord(token)}
+            >{token}</button>;
+          })}
+        </p>
+      ))}
+      <span className="story-quest-word-hint">Tap a word to hear it.</span>
+      <span className="story-quest-keyboard-hint" id="story-quest-keyboard-hint">Use left and right arrows to choose a word, then Enter to hear it. Tab moves to the story choices.</span>
+    </div>
+  );
+}
+
+function StoryQuestImage({ src, title, alt }) {
   const [imageFailed, setImageFailed] = useState(false);
 
   useEffect(() => {
@@ -42,7 +73,7 @@ function StoryQuestImage({ src, title }) {
 
   return (
     <img
-      alt={`Story illustration for ${title}`}
+      alt={alt || title}
       className="story-quest-image"
       decoding="async"
       fetchPriority="high"
@@ -60,15 +91,6 @@ function getStoryQuestPageAudioUrl(page) {
   if (rebuiltAudioUrl) return rebuiltAudioUrl;
   if (page.narrationNeedsRebuild) return "";
   return getLedaInstructionAudioPath(pageText) || page.audioUrl || "";
-}
-
-function storyQuestWordProgressLabel(seenCount = 0, totalCount = 0) {
-  const total = Math.max(0, Number(totalCount) || 0);
-  const seen = Math.min(total, Math.max(0, Number(seenCount) || 0));
-  const remaining = total - seen;
-  if (!total) return "Story words";
-  if (!remaining) return "All story words seen";
-  return `${remaining} more story ${remaining === 1 ? "word" : "words"} to see`;
 }
 
 function closeMoreMenuAndRun(event, action) {
@@ -115,30 +137,24 @@ export function StoryQuestPlayer({
     return new Map((quest?.pages || []).map(page => [page.id, page]));
   }, [quest]);
 
-  const getStartPageId = useCallback(() =>
-    initialPageId && pageById.has(initialPageId)
-      ? initialPageId
-      : quest?.startPageId || quest?.pages?.[0]?.id || "", [initialPageId, pageById, quest]);
-  const getInitialHistory = useCallback(() => buildStoryQuestResumeHistory({
-    currentPageId: getStartPageId(),
-    progress: initialProgress,
-    validPageIds: Array.from(pageById.keys())
-  }), [getStartPageId, initialProgress, pageById]);
-
-  const [currentPageId, setCurrentPageId] = useState(getStartPageId);
-  const [history, setHistory] = useState(getInitialHistory);
+  const getInitialRoute = () => resolveStoryQuestResume(quest, initialProgress, initialPageId);
+  const [currentPageId, setCurrentPageId] = useState(() => getInitialRoute().pageId);
+  const [history, setHistory] = useState(() => getInitialRoute().history);
   const [audioAvailable, setAudioAvailable] = useState(false);
   const [audioChecking, setAudioChecking] = useState(false);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const [audioError, setAudioError] = useState("");
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [activeWordSupport, setActiveWordSupport] = useState(null);
   const audioRef = useRef(null);
   const playerRef = useRef(null);
-  const wordSupportStageRef = useRef(new Map());
+  const headingRef = useRef(null);
+  const previousPageRef = useRef(currentPageId);
   const wordSupportPlaybackTokenRef = useRef(0);
 
   const currentPage = pageById.get(currentPageId) || quest?.pages?.[0] || null;
+  const activeWordCard = (quest?.wordCards || []).find(card => card.word?.toLowerCase() === activeWordSupport?.word?.toLowerCase());
   const currentAudioUrl = getStoryQuestPageAudioUrl(currentPage);
   const currentSceneNumber = history.length + 1;
   const visitedPageIds = useMemo(() => new Set([...history, currentPageId].filter(Boolean)), [currentPageId, history]);
@@ -156,26 +172,25 @@ export function StoryQuestPlayer({
         ...(initialWordSignature ? initialWordSignature.split("\u0000") : []),
         ...(quest?.pages || [])
           .filter(page => visitedPageIds.has(page.id))
-          .flatMap(page => page.skillTags || [])
+          .flatMap(page => {
+            const printedWords = new Set((page.text || []).join(" ").toLowerCase().match(/[a-z]+(?:['’][a-z]+)*/g) || []);
+            return (page.skillTags || []).filter(tag => printedWords.has(String(tag).toLowerCase()));
+          })
       ]
         .map(tag => String(tag).toLowerCase())
         .filter(tag => targetWords.has(tag))
     ));
   }, [initialWordSignature, quest, visitedPageIds]);
-  const targetWordTotal = quest?.targetWords?.length || 0;
-  const wordProgressPercent = targetWordTotal ? (foundWords.length / targetWordTotal) * 100 : 0;
-  const wordProgressLabel = storyQuestWordProgressLabel(foundWords.length, targetWordTotal);
-  const currentPageWords = (currentPage?.skillTags || [])
-    .filter(tag => !["short_a", "hfw_1_25"].includes(String(tag).toLowerCase()))
-    .slice(0, 4);
   const progressSnapshot = useMemo(() => ({
     lastPageId: currentPageId,
     targetWordCount: quest?.targetWords?.length || 0,
     visitedPageCount: visitedPageIds.size,
     visitedPageIds: Array.from(visitedPageIds),
     wordsFound: foundWords,
-    wordsFoundCount: foundWords.length
-  }), [currentPageId, foundWords, quest?.targetWords, visitedPageIds]);
+    wordsFoundCount: foundWords.length,
+    contentRevision: quest?.contentRevision || "",
+    routeFinished: isComplete
+  }), [currentPageId, foundWords, quest?.targetWords, quest?.contentRevision, visitedPageIds, isComplete]);
 
   useEffect(() => {
     if (!currentPageId || isComplete) return;
@@ -184,18 +199,31 @@ export function StoryQuestPlayer({
 
   useEffect(() => {
     setActiveWordSupport(null);
-    wordSupportStageRef.current.clear();
+    setAudioError("");
+    if (previousPageRef.current !== currentPageId) {
+      headingRef.current?.focus({ preventScroll: true });
+      const scroller = playerRef.current?.closest(".story-quest-active-page");
+      scroller?.scrollTo({ top: 0, behavior: "instant" });
+      playerRef.current?.scrollTo({ top: 0, behavior: "instant" });
+      previousPageRef.current = currentPageId;
+    }
   }, [currentPageId]);
 
   useEffect(() => {
     const stopForRouteChange = () => {
+      wordSupportPlaybackTokenRef.current += 1;
       const audio = audioRef.current;
       audioRef.current = null;
       audio?.pause();
       setIsAudioPlaying(false);
     };
     window.addEventListener(STOP_CHILD_AUDIO_EVENT, stopForRouteChange);
-    return () => window.removeEventListener(STOP_CHILD_AUDIO_EVENT, stopForRouteChange);
+    return () => {
+      window.removeEventListener(STOP_CHILD_AUDIO_EVENT, stopForRouteChange);
+      wordSupportPlaybackTokenRef.current += 1;
+      audioRef.current?.pause();
+      audioRef.current = null;
+    };
   }, []);
 
   useEffect(() => {
@@ -283,19 +311,25 @@ export function StoryQuestPlayer({
   async function playWordSupportSequence(paths) {
     stopAudio();
     if (!paths.length) return;
+    setAudioError("");
     const playbackToken = wordSupportPlaybackTokenRef.current;
     setIsAudioPlaying(true);
 
     for (const path of paths) {
       if (playbackToken !== wordSupportPlaybackTokenRef.current) return;
-      await new Promise(resolve => {
+      const played = await new Promise(resolve => {
         const audio = new Audio(path);
         audioRef.current = audio;
-        audio.playbackRate = 0.88;
-        audio.onended = resolve;
-        audio.onerror = resolve;
-        audio.play().catch(resolve);
+        audio.playbackRate = 1;
+        audio.onended = () => resolve(true);
+        audio.onpause = () => resolve(false);
+        audio.onerror = () => resolve(false);
+        audio.play().catch(() => resolve(false));
       });
+      if (!played && playbackToken === wordSupportPlaybackTokenRef.current) {
+        setAudioError("That audio could not play. Tap to hear it again.");
+        break;
+      }
     }
 
     if (playbackToken === wordSupportPlaybackTokenRef.current) {
@@ -304,49 +338,21 @@ export function StoryQuestPlayer({
     }
   }
 
-  function handleStoryWordClick(displayedWord, wordKey) {
+  function handleStoryWordClick(displayedWord) {
     const word = String(displayedWord || "").replace(/^[^A-Za-z]+|[^A-Za-z]+$/g, "");
     if (!word) return;
+    const path = getStoryQuestLedaAudioPath(word) || wordSrc(word);
+    setActiveWordSupport({ word, audioAvailable: Boolean(path) });
+    if (path) void playWordSupportSequence([path]);
+  }
 
-    const previousStage = wordSupportStageRef.current.get(wordKey) || "";
-    const stage = previousStage === "whole_word" ? "letter_spelling" : "whole_word";
-    const paths = stage === "whole_word"
-      ? [wordSrc(word)].filter(Boolean)
-      : spellingAudioPaths(word);
-    const letters = word.toLowerCase().replace(/[^a-z]/g, "").split("");
-    wordSupportStageRef.current.set(wordKey, stage);
-    setActiveWordSupport({
-      word,
-      stage,
-      audioAvailable: paths.length > 0,
-      message: stage === "whole_word"
-        ? `Hear the whole word: ${word}.`
-        : `Spell ${word}: ${letters.join(" · ")}.`
-    });
-    if (paths.length) void playWordSupportSequence(paths);
+  function hearText(text) {
+    const path = getStoryQuestLedaAudioPath(text) || getLedaInstructionAudioPath(text);
+    if (path) void playWordSupportSequence([path]);
   }
 
   function replayAudio() {
-    if (!audioAvailable || !currentAudioUrl) return;
-    stopAudio();
-    const audio = new Audio(currentAudioUrl);
-    audioRef.current = audio;
-    audio.onended = () => {
-      audioRef.current = null;
-      setIsAudioPlaying(false);
-    };
-    audio.onerror = () => {
-      audioRef.current = null;
-      setIsAudioPlaying(false);
-      setAudioAvailable(false);
-    };
-    audio.play()
-      .then(() => setIsAudioPlaying(true))
-      .catch(() => {
-        audioRef.current = null;
-        setIsAudioPlaying(false);
-        setAudioAvailable(false);
-      });
+    if (audioAvailable && currentAudioUrl) void playWordSupportSequence([currentAudioUrl]);
   }
 
   function goToPage(choice) {
@@ -360,7 +366,7 @@ export function StoryQuestPlayer({
     if (nextPageId === "end") {
       stopAudio();
       setIsComplete(true);
-      onComplete?.(progressSnapshot);
+      onComplete?.({ ...progressSnapshot, routeFinished: true, endingPageId: currentPageId });
       return;
     }
     if (!pageById.has(nextPageId)) return;
@@ -430,225 +436,85 @@ export function StoryQuestPlayer({
     );
   }
 
-  if (isComplete) {
-    return (
-      <section
-        aria-label={`${quest.title} complete`}
-        className={[
-          "story-quest-player story-quest-reader story-quest-reader-complete card",
-          previewMode ? "story-quest-preview-reader" : "",
-          isFullscreen ? "fullscreen" : ""
-        ].filter(Boolean).join(" ")}
-        ref={playerRef}
-      >
-        <header className="story-quest-header">
-          <div>
-            <span className="story-quest-kicker">{previewMode ? "Teacher preview" : "Reading adventure"}</span>
-            <h1>{quest.title}</h1>
-            <p>Adventure complete</p>
-            {previewMode && (
-              <span className="story-quest-preview-badge" role="status">
-                Student progress is not saved
-              </span>
-            )}
-          </div>
-          <div className="story-quest-header-actions">
-            <button className="lp-button lp-button-secondary" onClick={toggleFullscreen} type="button">
-              {isFullscreen ? "Exit full screen" : "Full screen"}
-            </button>
-          </div>
-        </header>
-
-        <div className="story-quest-image-placeholder story-quest-complete-panel">
-          <span>Great reading!</span>
-          {targetWordTotal > 0 && (
-            <p>
-              {foundWords.length >= targetWordTotal
-                ? "You saw every story word."
-                : `You saw ${foundWords.length} ${foundWords.length === 1 ? "story word" : "story words"} on this adventure. Try another path to see ${targetWordTotal - foundWords.length} more.`}
-            </p>
-          )}
-        </div>
-
-        <div className="story-quest-choice-grid">
-          <button className="story-quest-choice-button" onClick={restart} type="button">
-            Read again
-          </button>
-          {onExit && (
-            <button className="story-quest-choice-button" onClick={exitReader} type="button">
-              Back to Story Quests
-            </button>
-          )}
-        </div>
-      </section>
-    );
-  }
+  const decisionText = storyQuestDecisionText(currentPage);
+  const decisionAudio = getStoryQuestLedaAudioPath(decisionText) || getLedaInstructionAudioPath(decisionText);
 
   return (
     <section
-      className={[
-        "story-quest-player story-quest-reader card",
-        previewMode ? "story-quest-preview-reader" : "",
-        isFullscreen ? "fullscreen" : ""
-      ].filter(Boolean).join(" ")}
+      className={["story-quest-player story-quest-reader card", previewMode ? "story-quest-preview-reader" : "", isFullscreen ? "fullscreen" : "", isComplete ? "story-quest-reader-complete" : ""].filter(Boolean).join(" ")}
       ref={playerRef}
-      aria-label={`${quest.title} Story Quest`}
+      aria-label={`${quest.title} ${isComplete ? "complete" : "Story Quest"}`}
+      data-page-id={currentPage.id}
     >
       <header className="story-quest-header">
-        <div>
-          <span className="story-quest-kicker">{previewMode ? "Teacher preview" : quest.adventureType || "Read"}</span>
-          <h1>{quest.title}</h1>
-          {previewMode && (
-            <span className="story-quest-preview-badge" role="status">
-              Student progress is not saved
-            </span>
-          )}
+        {onExit && <button className="lp-button lp-button-secondary" onClick={exitReader} type="button" aria-label="Back to Story Quests">Back</button>}
+        <div className="story-quest-heading">
+          <h1 ref={headingRef} tabIndex={-1}>{quest.shortTitle || quest.title}</h1>
+          <span className="story-quest-position" role="status">{isComplete ? "The end" : `Scene ${currentSceneNumber}`}</span>
+          {previewMode && <span className="story-quest-preview-badge">Student progress is not saved</span>}
         </div>
-        <div className="story-quest-header-actions">
-          <button className="lp-button lp-button-secondary" disabled={history.length === 0} onClick={goBack} type="button">
-            Previous scene
-          </button>
-          {onExit && (
-            <button className="lp-button lp-button-secondary" onClick={exitReader} type="button">
-              Back to Story Quests
-            </button>
-          )}
-          <StoryQuestMoreMenu
-            isFullscreen={isFullscreen}
-            onRestart={restart}
-            onToggleFullscreen={toggleFullscreen}
-          />
-        </div>
+        <StoryQuestMoreMenu isFullscreen={isFullscreen} onRestart={restart} onToggleFullscreen={toggleFullscreen} />
       </header>
 
-      <div
-        className="story-quest-progress"
-        aria-label={`Scene ${currentSceneNumber} on this route. ${wordProgressLabel}.`}
-        role="status"
-      >
-        <div className="story-quest-progress-top">
-          <span>Scene {currentSceneNumber}</span>
-          <span>{wordProgressLabel}</span>
-        </div>
-        <div className="story-quest-progress-bar">
-          <span style={{ width: `${wordProgressPercent}%` }} />
-        </div>
+      <div className="story-quest-image-stage">
+        <StoryQuestImage src={currentPage.imageUrl} title={quest.title} alt={currentPage.imageAlt} />
       </div>
-
-      <AnimatePresence mode="wait">
-        <motion.div
-          className="story-quest-image-stage"
-          key={`${currentPage.id}-image`}
-          initial={{ opacity: 0, y: 12, scale: 0.985 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -8, scale: 0.99 }}
-          transition={{ duration: 0.24 }}
-        >
-          <StoryQuestImage src={currentPage.imageUrl} title={quest.title} />
-        </motion.div>
-      </AnimatePresence>
 
       <div className="story-quest-read-row">
         <button
-          className={[
-            "lp-button lp-button-secondary story-quest-audio-button",
-            audioChecking ? "audio-feedback-loading" : "",
-            isAudioPlaying ? "audio-feedback-playing" : ""
-          ].filter(Boolean).join(" ")}
+          className={`lp-button lp-button-secondary story-quest-audio-button${isAudioPlaying ? " audio-feedback-playing" : ""}`}
           disabled={!audioAvailable}
-          onClick={replayAudio}
+          onClick={isAudioPlaying ? stopAudio : replayAudio}
           type="button"
+          aria-label={isAudioPlaying ? "Stop audio" : "Hear the story"}
         >
-          {audioChecking && <span className="audio-loading-dot" aria-hidden="true" />}
-          {audioChecking
-            ? "Checking audio"
-            : isAudioPlaying
-              ? "Playing audio"
-              : audioAvailable
-                ? "Replay audio"
-                : currentAudioUrl
-                  ? "Audio unavailable"
-                  : "No audio for this scene"}
+          <StoryQuestSpeaker />
+          {audioChecking ? "Loading audio" : isAudioPlaying ? "Stop" : audioAvailable ? "Hear the story" : "Audio unavailable"}
         </button>
-        <AnimatePresence mode="wait">
-          <motion.div
-            animate={{ opacity: 1, y: 0 }}
-            aria-live="polite"
-            className="story-quest-text"
-            exit={{ opacity: 0, y: -6 }}
-            initial={{ opacity: 0, y: 8 }}
-            key={`${currentPage.id}-text`}
-            transition={{ duration: 0.2 }}
-          >
-            {(currentPage.text || []).map((line, lineIndex) => (
-              <p key={`${currentPage.id}-${lineIndex}`}>
-                {tokenizeStoryQuestLine(line).map(({ token, isWord }, tokenIndex) => isWord ? (
-                  <button
-                    aria-label={`Get word and spelling audio for ${token}`}
-                    className="story-quest-word"
-                    key={`${currentPage.id}-${lineIndex}-${tokenIndex}`}
-                    onClick={() => handleStoryWordClick(token, `${currentPage.id}:${lineIndex}:${tokenIndex}`)}
-                    title="Tap once for the word. Tap again to spell it."
-                    type="button"
-                  >
-                    {token}
-                  </button>
-                ) : (
-                  <span aria-hidden="true" key={`${currentPage.id}-${lineIndex}-${tokenIndex}`}>{token}</span>
-                ))}
-              </p>
-            ))}
-            {activeWordSupport && (
-              <div
-                aria-live="polite"
-                className={`story-quest-word-support stage-${activeWordSupport.stage}`}
-                role="status"
-              >
-                <strong>{activeWordSupport.stage === "whole_word" ? "Word audio" : "Spell the word"}</strong>
-                <span>{activeWordSupport.message}</span>
-                {!activeWordSupport.audioAvailable && <small>Recorded audio is unavailable for this word.</small>}
-              </div>
-            )}
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      <div className="story-quest-word-panel" aria-label="Story words seen">
-        <span>{wordProgressLabel}</span>
-        <div>
-          {(quest.targetWords || []).map(word => {
-            const normalizedWord = word.toLowerCase();
-            const found = foundWords.includes(normalizedWord);
-            const current = currentPageWords.map(item => String(item).toLowerCase()).includes(normalizedWord);
-            return (
-              <span className={[found ? "found" : "", current ? "current" : ""].filter(Boolean).join(" ")} key={word}>
-                {word}
-              </span>
-            );
-          })}
-        </div>
-      </div>
-
-      <div className="story-quest-decision" aria-label="Choose what happens next">
-        {currentPage.choicePrompt && (
-          <div className="story-quest-choice-prompt" aria-live="polite">
-            {currentPage.choicePrompt}
+        <StoryQuestText key={currentPage.id} lines={currentPage.text || []} onHearWord={handleStoryWordClick} />
+        {audioError && <p className="story-quest-audio-error" role="status">{audioError}</p>}
+        {activeWordSupport && (
+          <div className="story-quest-word-support" role="group" aria-label={`Word help for ${activeWordSupport.word}`}>
+            {activeWordCard && <img className="story-quest-word-picture" src={activeWordCard.imageUrl} alt={`Illustration of ${activeWordCard.word}`} />}
+            <strong>{activeWordSupport.word}</strong>
+            <button type="button" onClick={() => handleStoryWordClick(activeWordSupport.word)} disabled={!activeWordSupport.audioAvailable}>Hear the word</button>
+            <button type="button" onClick={() => playWordSupportSequence(spellingAudioPaths(activeWordSupport.word))} disabled={!spellingAudioPaths(activeWordSupport.word).length}>Hear the letters</button>
+            <button type="button" aria-label="Close word help" onClick={() => setActiveWordSupport(null)}>×</button>
           </div>
         )}
+      </div>
 
-        <div className="story-quest-choice-grid">
-          {(currentPage.choices || []).slice(0, 2).map(choice => (
-            <button
-              className="story-quest-choice-button"
-              disabled={choice.nextPageId !== "end" && !pageById.has(choice.nextPageId)}
-              key={`${currentPage.id}-${choice.label}`}
-              onClick={() => goToPage(choice)}
-              type="button"
-            >
-              {choice.label}
-            </button>
-          ))}
-        </div>
+      <div className="story-quest-decision" aria-label={isComplete ? "Read another story" : "Choose what happens next"}>
+        {isComplete ? (
+          <>
+            <div className="story-quest-decision-heading">
+              <p className="story-quest-choice-prompt">{currentPage.replayPrompt || "Try a different path."}</p>
+              <button className="story-quest-hear" type="button" aria-label="Hear the ending options" onClick={() => playWordSupportSequence([currentPage.replayPrompt || "Try a different path.", "Read again", "Choose a story"].map(text => getStoryQuestLedaAudioPath(text) || getLedaInstructionAudioPath(text)).filter(Boolean))}><StoryQuestSpeaker /></button>
+            </div>
+            <div className="story-quest-choice-grid">
+              <button className="story-quest-choice-button" onClick={restart} type="button">Read again</button>
+              {onExit && <button className="story-quest-choice-button" onClick={exitReader} type="button">Choose a story</button>}
+            </div>
+          </>
+        ) : (
+          <>
+            {currentPage.choices?.length > 1 && (
+              <div className="story-quest-decision-heading">
+                <p className="story-quest-choice-prompt">{currentPage.choicePrompt}</p>
+                <button className="story-quest-hear" type="button" onClick={() => hearText(decisionText)} disabled={!decisionAudio} aria-label="Hear the choices"><StoryQuestSpeaker /></button>
+              </div>
+            )}
+            <div className={`story-quest-choice-grid${currentPage.choices?.length === 1 ? " single" : ""}`}>
+              {(currentPage.choices || []).map(choice => (
+                <div className="story-quest-choice" key={`${currentPage.id}-${choice.label}`}>
+                  <button className="story-quest-choice-button" disabled={choice.nextPageId !== "end" && !pageById.has(choice.nextPageId)} onClick={() => goToPage(choice)} type="button">{choice.label}</button>
+                  <button className="story-quest-hear" type="button" aria-label={`Hear choice: ${choice.label}`} onClick={() => hearText(choice.label)} disabled={!getStoryQuestLedaAudioPath(choice.label) && !getLedaInstructionAudioPath(choice.label)}><StoryQuestSpeaker /></button>
+                </div>
+              ))}
+            </div>
+            <button className="story-quest-previous" disabled={history.length === 0} onClick={goBack} type="button">Previous scene</button>
+          </>
+        )}
       </div>
     </section>
   );

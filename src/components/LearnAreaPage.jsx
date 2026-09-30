@@ -95,11 +95,11 @@ export function LearnAreaPage({
   const primaryQuestStarted = Boolean(primaryQuest && questProgress[primaryQuest.id]?.opened);
   const activeQuestProgress = activeQuest ? questProgress[activeQuest.id] || {} : {};
   const activeQuestInitialPageId =
-    activeQuest && !activeQuestProgress.completed && activeQuestProgress.lastPageId
+    activeQuest && activeQuestProgress.routeFinished !== true && (!activeQuestProgress.completed || activeQuestProgress.routeFinished === false) && activeQuestProgress.lastPageId
       ? activeQuestProgress.lastPageId
       : "";
   const activeQuestInitialProgress =
-    activeQuest && !activeQuestProgress.completed
+    activeQuest && activeQuestProgress.routeFinished !== true && (!activeQuestProgress.completed || activeQuestProgress.routeFinished === false)
       ? activeQuestProgress
       : {};
 

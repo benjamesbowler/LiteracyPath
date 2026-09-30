@@ -59,6 +59,8 @@ jobs:
         run: npm run check:content-rubric
       - name: Narrative-content admission and evidence gate
         run: npm run check:story-content-policy
+      - name: Story Quest routes and reading bands
+        run: npm run check:story-quests && npm run check:story-quest-levels
       - name: Guided Reading Story Bible, level and exact-audio gate
         run: npm run check:guided-reading-story-bible
       - name: Guided Reading illustration alignment gate

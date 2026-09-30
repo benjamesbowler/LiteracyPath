@@ -1,11 +1,12 @@
 import { execFileSync, spawn } from "node:child_process";
 import { createHash } from "node:crypto";
-import { mkdir, stat, unlink, writeFile } from "node:fs/promises";
+import { mkdir, readFile, stat, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { storyQuests } from "../src/data/storyQuests.js";
-import { normalizeLedaAudioText } from "../src/data/ledaProductionAudio.js";
+import { storyQuestSpokenItems } from "../src/data/storyQuestReaderCopy.js";
+import { getLedaWordAudioPath, normalizeLedaAudioText } from "../src/data/ledaProductionAudio.js";
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputDirectory = path.join(repositoryRoot, "public/audio/production/en-US/story_page");
@@ -13,6 +14,8 @@ const generatedModulePath = path.join(
   repositoryRoot,
   "src/data/generated/storyQuestLedaAudio.generated.js"
 );
+const manifestPath = path.join(repositoryRoot, "src/content/storyQuestNarrationManifest.generated.json");
+const repairs = JSON.parse(await readFile(new URL("./storyQuestAudioRepairs.json", import.meta.url), "utf8"));
 const projectId = "project-3c66c1c8-cc9e-4d6d-bdf";
 const voiceName = "en-US-Chirp3-HD-Leda";
 const endpoint = "https://texttospeech.googleapis.com/v1/text:synthesize";
@@ -26,10 +29,6 @@ if (questIdFlagIndex >= 0 && !selectedQuestId) {
 
 if (selectedQuestId && !storyQuests.some(quest => quest.id === selectedQuestId)) {
   throw new Error(`Unknown Story Quest ID: ${selectedQuestId}`);
-}
-
-function readablePageText(page = {}) {
-  return Array.isArray(page.text) ? page.text.join(" ") : String(page.text || "");
 }
 
 function slug(value) {
@@ -111,7 +110,7 @@ async function synthesize(accessToken, record, attempt = 0) {
       "x-goog-user-project": projectId
     },
     body: JSON.stringify({
-      input: { text: record.text },
+      input: { text: record.synthesisText },
       voice: { languageCode: "en-US", name: voiceName },
       audioConfig: { audioEncoding: "LINEAR16", sampleRateHertz: 24000 }
     })
@@ -141,39 +140,33 @@ async function synthesize(accessToken, record, attempt = 0) {
 
 await mkdir(outputDirectory, { recursive: true });
 
-const records = storyQuests.flatMap(quest =>
-  (quest.pages || []).map(page => {
-    const text = readablePageText(page).trim();
-    const key = normalizeLedaAudioText(text);
-    const id = `${slug(key) || "story-page"}-${hash(`${voiceName}|story_page|${key}`)}`;
-    return {
-      questId: quest.id,
-      pageId: page.id,
-      key,
-      text,
-      wavPath: path.join(outputDirectory, `${id}.wav`),
-      mp3Path: path.join(outputDirectory, `${id}.mp3`),
-      publicPath: `/audio/production/en-US/story_page/${id}.mp3`
-    };
-  })
-);
+const spokenItems = storyQuestSpokenItems(storyQuests);
+const repairedKeys = new Set(spokenItems.filter(item => (
+  (item.pageId.endsWith("-word") && repairs.words.includes(normalizeLedaAudioText(item.text)))
+  || repairs.controls.includes(item.text)
+  || repairs.pages.some(page => page.questId === item.questId && page.pageId === item.pageId)
+)).map(item => normalizeLedaAudioText(item.text)));
+const records = spokenItems.map(item => {
+  const text = item.text.trim();
+  const key = normalizeLedaAudioText(text);
+  const repairRevision = repairedKeys.has(key) ? repairs.revision : "";
+  const id = `${slug(key) || "story-page"}-${hash(`${voiceName}|story_page|${key}${repairRevision ? `|${repairRevision}` : ""}`)}`;
+  const existingWordPath = !repairRevision && item.pageId.endsWith("-word") ? getLedaWordAudioPath(text) : "";
+  return {
+    ...item, key, text, repairRevision,
+    synthesisText: repairRevision && !/[.!?]$/.test(text) ? `${text}.` : text,
+    wavPath: path.join(outputDirectory, `${id}.wav`),
+    mp3Path: existingWordPath ? path.join(repositoryRoot, "public", existingWordPath) : path.join(outputDirectory, `${id}.mp3`),
+    publicPath: existingWordPath || `/audio/production/en-US/story_page/${id}.mp3`
+  };
+});
 
 const selectedRecords = selectedQuestId
-  ? records.filter(record => record.questId === selectedQuestId)
+  ? records.filter(record => record.questId === selectedQuestId || record.questId === "reader")
   : records;
 
-const duplicateKeys = records.filter(
-  (record, index) => records.findIndex(candidate => candidate.key === record.key) !== index
-);
-if (duplicateKeys.length) {
-  const conflicting = duplicateKeys.filter(record =>
-    records.find(candidate => candidate.key === record.key)?.text !== record.text
-  );
-  if (conflicting.length) {
-    throw new Error(`Story page normalization collision: ${conflicting[0].key}`);
-  }
-}
-
+// The live resolver intentionally folds case, whitespace and final punctuation.
+// Synthesize the first canonical utterance once for each actual resolver key.
 const uniqueRecords = records.filter(
   (record, index) => records.findIndex(candidate => candidate.key === record.key) === index
 );
@@ -217,13 +210,35 @@ const moduleText =
   `export const STORY_QUEST_LEDA_AUDIO = Object.freeze(${JSON.stringify(map, null, 2)});\n`;
 await writeFile(generatedModulePath, moduleText);
 
+const clips = await Promise.all(uniqueRecords.filter(record => map[record.key]).map(async record => ({
+  key: record.key,
+  text: record.text,
+  synthesisText: record.synthesisText,
+  ...(record.repairRevision ? { repairRevision: record.repairRevision } : {}),
+  audioPath: record.publicPath,
+  audioSha256: createHash("sha256").update(await readFile(record.mp3Path)).digest("hex"),
+  voice: voiceName,
+  source: record.publicPath.includes("/isolated_word/") ? "existing Leda word bank" : "Google Cloud Text-to-Speech",
+  references: records.filter(item => item.key === record.key).map(item => ({ questId: item.questId, pageId: item.pageId, text: item.text }))
+})));
+await mkdir(path.dirname(manifestPath), { recursive: true });
+await writeFile(manifestPath, JSON.stringify({
+  generator: "tools/generateStoryQuestLedaAudio.mjs",
+  language: "en-US", voice: voiceName,
+  reviewMode: "continuous-pass-by-exception",
+  observation: "Exact source-to-file mapping and byte provenance; no human listening claim.",
+  clips
+}, null, 2) + "\n");
+
 console.log(JSON.stringify({
   quests: selectedQuestId ? 1 : storyQuests.length,
   questId: selectedQuestId || "all",
-  pages: selectedRecords.length,
+  storyPages: storyQuests.filter(quest => !selectedQuestId || quest.id === selectedQuestId).reduce((sum, quest) => sum + quest.pages.length, 0),
+  utteranceReferences: selectedRecords.length,
   availableClips: Object.keys(map).length,
   generated: missingRecords.length,
-  reused: selectedRecords.length - missingRecords.length,
+  reusedUniqueClips: new Set(selectedRecords.map(record => record.key)).size - missingRecords.length,
   outputDirectory: path.relative(repositoryRoot, outputDirectory),
-  generatedModule: path.relative(repositoryRoot, generatedModulePath)
+  generatedModule: path.relative(repositoryRoot, generatedModulePath),
+  provenanceManifest: path.relative(repositoryRoot, manifestPath)
 }, null, 2));

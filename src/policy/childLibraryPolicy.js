@@ -351,67 +351,32 @@ export function questEndings(quest = {}) {
   ).length;
 }
 
-/**
- * The page number inside a saved `lastPageId` — "p03_pip_edge" and "page-03"
- * are both page three. Branching stories have no linear index, but every page
- * id in this data carries the page it belongs to, so this is read, never
- * counted. Returns null when the id does not carry one.
- */
-export function questPageNumber(lastPageId = "") {
-  const match = /^p(?:age[-_])?(\d+)/i.exec(String(lastPageId || "").trim());
-  if (!match) return null;
-  const value = Number(match[1]);
-  return Number.isFinite(value) && value > 0 ? value : null;
+/** A route position comes from saved traversal, never digits in a scene ID. */
+export function questPageNumber(lastPageId = "", visitedPageIds = []) {
+  const route = [...new Set(visitedPageIds.filter(Boolean))];
+  const index = route.indexOf(lastPageId);
+  return index >= 0 ? index + 1 : null;
 }
 
-/**
- * One quest card: its badge state and the one short line under its title.
- *
- * The four states are the spec's own: an in-progress story says Carry on, a
- * finished one says Done, a story in a world the child has not reached yet
- * says Next world, and everything else is New.
- */
-export function buildQuestCard({ quest = {}, row = {}, reachedIndex = 0 } = {}) {
+export function buildQuestCard({ quest = {}, row = {} } = {}) {
   const world = questWorldId(quest);
-  const index = worldIndex(world);
-  const opened = Boolean(row?.opened);
-  const completed = Boolean(row?.completed);
-  const endings = questEndings(quest);
-  const page = questPageNumber(row?.lastPageId);
-
-  const state = completed
-    ? "done"
-    : opened
-      ? "carry-on"
-      : index > reachedIndex
-        ? "next-world"
-        : "new";
-
-  const badge = {
-    "carry-on": "Carry on",
-    done: "Done",
-    "next-world": "Next world",
-    new: "New"
-  }[state];
-
-  const endingsNote = endings > 1 ? `${endings} endings` : endings === 1 ? "1 ending" : "";
-  const note = state === "carry-on"
-    ? (page ? `You are on page ${page}` : "Carry on reading")
-    : state === "done"
-      ? "You finished this"
-      : state === "next-world"
-        ? (quest.series || endingsNote || STORY_WORLDS[index].label)
-        : (endingsNote || STORY_WORLDS[index].label);
-
+  const canContinue = Boolean(row.opened && row.lastPageId && row.routeFinished !== true
+    && (!row.completed || row.routeFinished === false));
+  const state = canContinue ? "carry-on" : row.completed ? "done" : "new";
+  const page = questPageNumber(row.lastPageId, row.visitedPageIds || []);
   return {
     id: quest.id,
-    title: quest.title || "",
+    title: quest.shortTitle || quest.title || "",
+    fullTitle: quest.title || "",
+    hook: quest.hook || "",
+    level: quest.level,
     art: quest.coverImageUrl || quest.pages?.[0]?.imageUrl || "",
-    world,
-    state,
-    badge,
-    note,
-    endings,
+    world, state,
+    badge: { "carry-on": "Continue", done: "Read again", new: "New" }[state],
+    note: canContinue ? "Continue your story" : quest.hook || "You choose what happens",
+    readingNote: String(quest.level).toUpperCase() === "EARLY" ? "Short a sounds" : "",
+    endings: questEndings(quest),
+    updatedAt: row.updatedAt || "",
     page
   };
 }
@@ -428,23 +393,25 @@ export function buildQuestGrid({
   quests = [],
   progress = {},
   world = STORY_WORLDS[0].id,
-  reachedWorld = STORY_WORLDS[0].id,
+  readingLevel = "",
   slots = QUEST_GRID_SLOTS
 } = {}) {
-  const reachedIndex = worldIndex(reachedWorld);
   const cards = quests.map(quest => buildQuestCard({
     quest,
-    row: progress[quest.id] || {},
-    reachedIndex
+    row: progress[quest.id] || {}
   }));
 
-  const stateRank = { "carry-on": 0, new: 1, "next-world": 2, done: 3 };
+  const stateRank = { "carry-on": 0, new: 1, done: 2 };
+  const level = String(readingLevel || "A").toUpperCase();
+  const order = new Map(quests.map((quest, index) => [quest.id, index]));
   return cards
     .filter(card => card.world === world)
     .slice()
     .sort((a, b) => (
       stateRank[a.state] - stateRank[b.state]
-      || String(a.title).localeCompare(String(b.title))
+      || (a.state === "carry-on" ? String(b.updatedAt).localeCompare(String(a.updatedAt)) : 0)
+      || (String(b.level).toUpperCase() === level) - (String(a.level).toUpperCase() === level)
+      || order.get(a.id) - order.get(b.id)
     ))
     .slice(0, slots);
 }

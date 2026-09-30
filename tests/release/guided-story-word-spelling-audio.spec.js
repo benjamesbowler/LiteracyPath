@@ -60,21 +60,24 @@ test("Guided Reading splits em-dash neighbours into separate audible word button
     .toContain("/audio/production/en-US/isolated_word/safe-");
 });
 
-test("Story Quest word taps play the word, then its recorded spelling", async ({ page }) => {
+test("Story Quest word taps repeat the word; spelling is an explicit separate choice", async ({ page }) => {
   await page.addInitScript(captureAudioPlayback);
   await page.goto("/preview/child-surfaces.html?surface=story-quests");
   await page.getByRole("button", { name: "Dino", exact: true }).click();
-  await page.getByRole("button").filter({ hasText: "Shy's Snail Shade" }).click();
+  await page.locator(".kg-quest-open").filter({ hasText: "Shy’s Snail Trail" }).click();
 
-  const reader = page.getByRole("region", { name: "Shy's Snail Shade Story Quest" });
-  const word = reader.locator(".story-quest-word").first();
+  const reader = page.locator(".story-quest-reader");
+  const word = reader.getByRole("button", { name: "Hear snail", exact: true });
   await word.click();
-  await expect(reader.locator(".story-quest-word-support.stage-whole_word")).toBeVisible();
+  await expect(reader.getByRole("group", { name: "Word help for snail" })).toBeVisible();
   await expect.poll(() => page.evaluate(() => window.__childReadingAudioSources.at(-1) || ""))
     .toContain("/audio/production/en-US/isolated_word/");
 
+  const wholeWord = await page.evaluate(() => window.__childReadingAudioSources.at(-1));
   await word.click();
-  await expect(reader.locator(".story-quest-word-support.stage-letter_spelling")).toBeVisible();
+  await expect.poll(() => page.evaluate(() => window.__childReadingAudioSources.at(-1))).toBe(wholeWord);
+  expect(await page.evaluate(() => window.__childReadingAudioSources.some(src => src.includes("/letter_name/")))).toBe(false);
+  await reader.getByRole("button", { name: "Hear the letters", exact: true }).click();
   await expect.poll(() => page.evaluate(() => window.__childReadingAudioSources.at(-1) || ""))
     .toContain("/audio/production/en-US/letter_name/");
 });

@@ -1,11 +1,19 @@
 ---
 type: current-state
 status: active
-updated: 2026-09-16
+updated: 2026-09-30
 authority: orientation-only
 ---
 
 # Current state
+
+## Story Quest source and media
+
+The current fourteen-book catalogue has 190 scenes and 52 finite routes.
+Use its [source and media handoff](decisions/2026-09-30-story-quest-source-and-media-authority.md)
+and [production contract](../content/STORY_QUEST_PRODUCTION.md); historical audit
+pages and old Admin QA wording are not an alternative manuscript. Local media
+cleanup and verification are separate from hosted release evidence.
 
 ## Startup and offline loading
 

@@ -9,6 +9,7 @@ import { fileURLToPath } from "node:url";
 import { getRuntimeGuidedReadingBooks } from "../src/utils/guidedReading/runtimeBooks.js";
 import { getGuidedReadingPageAudioPath } from "../src/utils/guidedReading/readAloudPolicy.js";
 import { storyQuests } from "../src/data/storyQuests.js";
+import { storyQuestReviewFingerprint } from "./storyQuestReviewFingerprint.mjs";
 import { getStoryQuestLedaAudioPath } from "../src/data/storyQuestLedaAudio.js";
 import { buildGuidedReadingAudioInventory } from "./guidedReadingAudioPipelineLib.mjs";
 import { auditScienceReadAloudNarration, validateScienceReadAloudManuscript } from "./meadowPalsScienceGateLib.mjs";
@@ -65,24 +66,6 @@ function guidedReadingFingerprint() {
       }))
     })),
     releaseReadiness: GUIDED_READING_RELEASE_READINESS
-  });
-}
-
-function storyQuestFingerprint(quest) {
-  return fingerprint({
-    id: quest.id,
-    title: quest.title,
-    level: quest.level,
-    series: quest.series,
-    pages: quest.pages.map(page => ({
-      id: page.id,
-      text: page.text,
-      choicePrompt: page.choicePrompt,
-      choices: page.choices,
-      imageUrl: page.imageUrl,
-      audioUrl: page.audioUrl,
-      narrationNeedsRebuild: page.narrationNeedsRebuild
-    }))
   });
 }
 
@@ -325,7 +308,7 @@ for (const quest of storyQuests) {
     }
   }
 
-  const currentFingerprint = storyQuestFingerprint(quest);
+  const currentFingerprint = storyQuestReviewFingerprint(quest);
   if (currentFingerprint !== review.sourceFingerprint) {
     addError(
       `${quest.id}: source fingerprint changed to ${currentFingerprint}; ` +

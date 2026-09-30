@@ -77,7 +77,9 @@ wants, complete a plan
 
 ### 2.3 Moonwood — Level C
 
-**Audience:** usually ages 7–9; mid-to-high readers
+**Audience:** extended Guided Reading books usually ages 7–9; compact Story
+Quests have ages 5–6 interest with read-aloud support. These are distinct text
+profiles, not equivalent independent-reading claims.
 **Story character:** mystery, wonder, stronger causal chains, contrasting personalities,
 earned emotion
 **Locations:** Hollow Oak, Crystal Stream, Fog Marsh, Deep Dark, old roots, glow cave,
@@ -90,7 +92,7 @@ hyper-textured or over-sharpened
 door or potion must use the same rule throughout its story.
 **Typical goals:** follow a clue, restore or locate a natural light, repair a magical mistake,
 reunite a creature, open a rule-bound door
-**Narrative page profile:** one connected, child-clear paragraph per page, normally 24–34
+**Extended Guided Reading page profile:** one connected, child-clear paragraph per page, normally 24–34
 words in 2–4 short sentences and intended to wrap to roughly 4–5 reader lines. Every page
 must name the active character or object, explain the immediate cause or reaction, connect
 to the preceding beat and prepare the next. Cryptic fragments, unexplained pronouns and
@@ -98,6 +100,12 @@ compressed report-like summaries are prohibited.
 **Narrative tense and pronouns:** Moonwood book narration uses simple past consistently;
 present tense remains natural inside dialogue or for a stable fact. Glimmer uses they/them
 pronouns in every book.
+
+**Story Quest profile:** present-tense narration, up to three short authored
+lines and 22 words per scene, with 8–14 scenes on a route. The same cause,
+clue, character and magical-rule continuity applies. A scene can have one
+**Next** continuation; two options are reserved for meaningful decisions.
+Do not lengthen this profile to the extended book paragraph specification.
 
 “It is magic” is not a substitute for cause and effect.
 
@@ -199,10 +207,17 @@ These are known issues, not permission to continue the drift:
 
 1. **Two characters are called Bouncy.** Internally and in every asset manifest, use
    `MEADOW-BOUNCY` and `DINO-BOUNCY`. Never search or prompt with “Bouncy” alone.
-2. **Dewdrop has incompatible body designs in existing Moonwood art.** No new Dewdrop media
-   ships until one master model is approved.
-3. **Moonwood rendering style varies between flat cel art and painterly storybook art.**
-   Choose one master style and re-render sequences rather than mixing them.
+2. **Dewdrop's Story Quest model is resolved.** The current connected Hidden Glow
+   opening establishes pale translucent blue skin, long flowing pale-blue hair,
+   pointed ears, two arms, two legs and a watery pale dress. The locked
+   [quest reference sheets](references/story-quests/README.md) preserve this model
+   across all fifteen scenes. The disconnected dark-teal Guided Reading-derived
+   sheet is not authority for this sequence. Other Moonwood formats retain their
+   own connected source models; this decision does not replace their artwork.
+3. **Moonwood Story Quest rendering is resolved.** All four active sequences use
+   clean smooth cartoon shapes, controlled soft shading and restrained magical
+   glow, with no grain, canvas texture or changing character treatment. Their
+   reference sheets and hash-locked final scene reviews govern subsequent edits.
 4. **Clucky’s colour and relative size drift in existing Meadow art.** Lock one model and
    scale chart before the next Clucky sequence.
 5. **Some spring-legged characters have been drawn without feet.** Every approved model

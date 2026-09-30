@@ -6,7 +6,7 @@ export const appVisualAssetReview = {
   "reviewedBy": "codex-direct-visual-audit",
   "status": "complete",
   "scope": {
-    "imageCount": 7151,
+    "imageCount": 6871,
     "sources": [
       "runtime-media-registry",
       "source-literals",
@@ -25893,2473 +25893,1264 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/images/story-quests/covers/bouncy-berries.webp",
+      "sha256": "3ce0a540226bbdefc99a993e228dd85389f2e4a3a7ac9845b2bdaa9ec3046b81",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
+    },
+    {
+      "path": "/images/story-quests/covers/chompy-picnic.webp",
+      "sha256": "e9f8ec570c087c2da1187be3b4e8804353d8b08f97b0ffac471ec6c28c7a1c4a",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
+    },
+    {
+      "path": "/images/story-quests/covers/flying-map.webp",
+      "sha256": "ff9e750ef6099ade84d632dadbc286063a061e2f64e177ea7dd42d08823cfbf5",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
+    },
+    {
+      "path": "/images/story-quests/covers/grumpy-nap.webp",
+      "sha256": "acc1eadd54ff0d7f19b617cb442f03088f05073b2278eb65773d767088756e7c",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
+    },
+    {
+      "path": "/images/story-quests/covers/hidden-glow.webp",
+      "sha256": "59188ab2c998bfb77fad82e451f00423d32123aef7a863173d5abaf8ecace0c1",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
+    },
+    {
+      "path": "/images/story-quests/covers/little-rescue.webp",
+      "sha256": "1a966f23923f77d490f73ffaca17fb9ba6c1fe7f246295120ef338ab44e95b90",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
+    },
+    {
+      "path": "/images/story-quests/covers/loud-thing.webp",
+      "sha256": "11ed235297dfb867c22996e5723eb3589358d7a89cb4ee9029db1185f47bc611",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
+    },
+    {
+      "path": "/images/story-quests/covers/missing-hat.webp",
+      "sha256": "d74dcb2054092d6d04e0ddeebad849955da9541e3fc7bacd8c01c14770815ba6",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
+    },
+    {
+      "path": "/images/story-quests/covers/quiet-hello.webp",
+      "sha256": "00d20859961a37341995566bc94aa43f1d2f9c66bf69c6ed4a65615fbd02f44b",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
+    },
+    {
+      "path": "/images/story-quests/covers/sam-pam.webp",
+      "sha256": "5bd53e0ea4ea6b7dc790a0d776c81a9e6e3b5a18027fd69c83c69102a886d38d",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
+    },
+    {
+      "path": "/images/story-quests/covers/shy-snail-trail.webp",
+      "sha256": "348865245fd4f05f58483e05e22b78297ffee3644b100f53ffc00f05f6acaf1e",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
+    },
+    {
+      "path": "/images/story-quests/covers/star-shell-door.webp",
+      "sha256": "fe44371cb8641c006f2a47a53066ba8e00ee7fbc758acf8c043c37dacda19487",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
+    },
+    {
+      "path": "/images/story-quests/covers/sunny-rainy-rescue.webp",
+      "sha256": "ec47bc834031824187dd541cb64796f92dcac3cf341fa2872fefdf24d98d18b4",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
+    },
+    {
+      "path": "/images/story-quests/covers/walking-garden.webp",
+      "sha256": "54345dc71b9f6651c069ca3b711ac13014be5b7e398738d597029f8534f9df6f",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
+    },
+    {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p01_start.webp",
-      "sha256": "b618f0298e78d4ef3dc06c02cf0ffcc9abdfecdf945b167edf8dc502939e6abe",
-      "status": "approved"
+      "sha256": "81ac8cb6fa17b17cefa43fcf3d6c5c106c500cb53996186c0dee9ad5539a6e47",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p02_berry_corner.webp",
-      "sha256": "f1a359b11c3b2789be2cf408f48efba7d91012003ce96ee24b50a0d3ce43a76f",
-      "status": "approved"
+      "sha256": "8ee1221e3d83e14abb9b421ee655f4355663508eb02fbc24e7f5241997bfd987",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p02_cozy_cave.webp",
-      "sha256": "32da0a0c85d0d1fd875accfec8a36f79951ab72be332f6555cf6cf818e81caf0",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p03_bounce_inside.webp",
-      "sha256": "6458d1d5abd2f66d75be5acbc31d7894c5a9d1380199f41549b675ab5332b3b9",
-      "status": "approved"
+      "sha256": "cbc876dd02afdc62ba1b716696ce7f405550372f66bdc3ba6ae4d136bf947faf",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p03_help_chompy.webp",
-      "sha256": "5b04e6ecc16d36d7b7165659599c1b0bf993033599ac286705be6eddaa9b2dde",
+      "sha256": "8d232c59c206eb3dc8e2e0f3ee7287a18d887b64832f8ab21e43d6ed6b5975f1",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p03_tiptoe_out.webp",
-      "sha256": "67bb4fe376602e7331ad40f9492f2b74e0778a944cda170da09cd0d114789246",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p03_too_fast.webp",
-      "sha256": "4a1f0cfc0e009af6e826f8e0f823dcc9ea69091657225b909a851fdcedcbf938",
-      "status": "approved"
+      "sha256": "dc6aa8432488370b84a8cba70355ddeb957e112dd2cb0e120d99cd2aaf7ec052",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p04_big_bounce.webp",
-      "sha256": "381add9045122130cc292d28f0e54f03e94ab194d7ceeda1155060f9676c20b0",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p04_bush_crash.webp",
-      "sha256": "250e582582be22ee18a91339baf33866c5ac8613ca229106dc1ad99e01ac8618",
-      "status": "approved"
+      "sha256": "27686a962bc32de771d4259c037cf7a8bf5f9646b647bfcbc05eef4a70e19916",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p04_careful_bounce.webp",
-      "sha256": "5efea3f3611b7abf11c06f7d13358c52e111a83374358da1187692e24d1b8766",
+      "sha256": "8dead9908a40e5abfef1b24e677269d70f927b67fcbf8d01d1fffdc303fc338e",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p04_cave_chaos.webp",
-      "sha256": "e4a12c753da979b5a6d12f985a0dbe2436fced5b592258bd9fe7643e2a59a760",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p04_nearly_there.webp",
-      "sha256": "3c6b43383cb1b6a9b74d8ada00852847d834f0b3970d3063a99f4b4ba0cf128c",
-      "status": "approved"
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p04_pebble_trip.webp",
-      "sha256": "02d811674c7faeefca2de70a79256940055b61628cf6f3929407fca771302cdf",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p04_puddle_bounce.webp",
-      "sha256": "f37f09c6848daffe1ce6962fe87dfece869ac9991b6df1d2fd0184e68b15e24c",
-      "status": "approved"
+      "sha256": "e37773308ee886fbbd1a0c901527bb9d833e49c29be88c9b509858e89ab1ab00",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p04_quiet_exit.webp",
-      "sha256": "d13375ca7069e121c9d26bc160d58b17e822f1beef95ae3bae115be3012dde05",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p05_apology_before_wiggly.webp",
-      "sha256": "41b4d856b284cb92a971fc84759ed6e7eace4153ac095da38d14a94b6e523f37",
-      "status": "approved"
+      "sha256": "1e569cf5c1dd60f151621fda67c9150447d399ed570cdd37dc1ecaa50afd1491",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p05_berries_fly.webp",
-      "sha256": "5a3510cb379bcdd2805997efc12c3015a1199da5d08ebd7cb92b244a05a0bcde",
-      "status": "approved"
+      "sha256": "89a01a8f943f371652652b42ce3360d6ab83cda5e96ac31315b7ae50186af33a",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p05_cave_echo.webp",
-      "sha256": "58473f32a48b8384837b6c66631b3d8fa047a786ed674436b74612a88f92640f",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p05_fancy_bush_hit.webp",
-      "sha256": "c420027a97020e42d01f2a5d9c03a1ca2f3a57ef1e78ab3b695d1f4b3c816eb0",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p05_launched_out.webp",
-      "sha256": "150687ebafcb818d0e1022cd20cd1b6cfe0c2c0b028247e7ba650dbb1890c29d",
-      "status": "approved"
+      "sha256": "4c7910032e98c9ed11e17bcf84bb6c99d4a6dc91d3ce44d0f7d5d2d4c6af5de0",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p05_legs_give_up.webp",
-      "sha256": "0d228aee266ac76a4efafb2e2574f4815a2a7e87a18e0e9d4f1fa4a506e5a34b",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p05_mud_everywhere.webp",
-      "sha256": "677a5c4bdc450184e2415999954fd269498fc31c863f03a598be3c9044130c5b",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p05_wiggly_enters.webp",
-      "sha256": "3523118afb902db7825302293e63d56a243b7e41ee91f9e746f5bd8c98123a2c",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p06_bouncy_launched.webp",
-      "sha256": "5363263cf40405ed0864e8c9395ee485daf5e94993b049246c3fa7e4f14a2a53",
-      "status": "approved"
+      "sha256": "580ea5976043ece620d8f094fe95d82a4fb9a8c9b9621685c81ca52c33d73b23",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p06_chompy_catches.webp",
-      "sha256": "e4c7c52133d85ec07d847bfac49c57184b6b6418d1ed6e747987e94f992a5b0a",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p06_dozy_wide_awake.webp",
-      "sha256": "d81d196710547e6e00e073c85124c8f81771df4c5c8e26e1c615be0cc4636c91",
-      "status": "approved"
+      "sha256": "1b5d25f08aa02438d61e1d8af906a3a8662b559019c3245c43c57332c5cf78c9",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p06_everyone_sticky.webp",
-      "sha256": "a3338502c70b57532d0294999cfd28c6089504ca24c2fe34fe78627f11745998",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p06_fancy_dismay.webp",
-      "sha256": "2a74d3f97d137deba92737b17bca106db4caad8864c8e5982a6a34e43260064e",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p06_fancy_mud_sail.webp",
-      "sha256": "3e48768ffc6c88a02489ba83b9a3e8611891269ed88e0d33b28ae6d75fec02e9",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p06_outside_paths.webp",
-      "sha256": "07bf380ea62df6252e57064990068810635d84972bd43042beb64ad3759988b3",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p06_over_stream.webp",
-      "sha256": "f29156c7b03c870ece1eca9c53c132fb082c3930b376e8cd57bc36b9187592b6",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p06_quiet_stream_path.webp",
-      "sha256": "e10bf93c94851e25c0024d6ac4115427529e7f51cb2e1bafe5bd880a6c715c23",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p07_big_flat_rock.webp",
-      "sha256": "c8e2b900f537fcbf4919ae63f1a0126e90befcdd76fa29811a000394c6834519",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p07_bouncy_repairs.webp",
-      "sha256": "849ed39297b34a679ae4335b3db7b5625adbca951903fe6e254cc0fe5d926cdf",
-      "status": "approved"
+      "sha256": "c72582129366601a707932ca1d1a22844d4c99f3da1b83bdbaf3d534480fc88e",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p07_dozy_advice.webp",
-      "sha256": "9c2d488b476b403eab453877e21ae597be210fd834dcaedf55da261a85ecfaa7",
-      "status": "approved"
+      "sha256": "43c8462d7e998a3a7124111bfb532853440d2cf988a5ef5f01ea5026851d8870",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p07_grumpy_nose.webp",
-      "sha256": "fcced6f4383afe2c874d516e81f03cda5fa924375a4b274945ba2aea66b380cf",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p07_grumpy_sticky.webp",
-      "sha256": "e57415a6121bb8166f99655ffc829281b1a24c76f4849ebbf0197fdf4ec99c6d",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p07_grumpy_stream.webp",
-      "sha256": "9c9e4d5670b90b9868eb393d6f4852f0784699e0051f64a65a40edad08e18794",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p07_new_bush.webp",
-      "sha256": "0ab7938b5e3010b3932424857c4ca153cfe058dfeaa9b22cb179a74e2929264c",
-      "status": "approved"
+      "sha256": "16659af42d27d85165a122586ad7d099d843b4b97150256f2dbc6a6b6cfb4597",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p08_berry_ending.webp",
-      "sha256": "f059016be6c243bca1a9a5f4e91320d30d04c3d4e7c852338cc65d2b29ed3273",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p08_fancy_ending.webp",
-      "sha256": "58a9d385639edf77816ffca251960610204f47fdbd70fd0995d4bfb496189b36",
-      "status": "approved"
+      "sha256": "f983fcce65fc98f2092cc76f615335eb7d802d323f10b5fd52ba1a38fba3ec64",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p08_quiet_rock_ending.webp",
-      "sha256": "a1457fba5c969ef4f063dcc60ccb2c4f9ea6cf2a9023166ff74a729bd692b2c3",
-      "status": "approved"
+      "sha256": "ea902e764e5d9f5eb066df325e38f6ee313f1aff04f384c2d41220830001d9b9",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p08_rock_ending.webp",
-      "sha256": "04d0f054628de721ee111f21b396a51f9b44393ae0275132097bebf1fd05fbbb",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p08_stream_ending.webp",
-      "sha256": "ad73c75a9692ad67c571bdb9b5350df221464a6552da990a6964727c049a528c",
-      "status": "approved"
+      "sha256": "f55235002afa317426ef520286391a951471a1b0e962082fe8fafed2216fa035",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p01_start.webp",
       "sha256": "a439a3bd19f5b81ae9963a4ca1bfb183adc26f53256069c7603e9fcc1198da8d",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p02_berries.webp",
-      "sha256": "b27a6202972f79ca63ec9a2f192d831532b059706864a5a57345480bf345e6d9",
-      "status": "approved"
+      "sha256": "07ade7117e757ef705509002c19ab339855a1f2bc99897668009f16b9e84f411",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p02_cave_door.webp",
-      "sha256": "ef5ab8e9c41032f84da563084525bdcccb2cb286a7d07254e0f9719d4c744604",
-      "status": "approved"
+      "sha256": "e788be67eb22d0b2f009d54a404d1544bdfc42eb37a4eb580f4b002f4c8b88c0",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p03_ask_sunny.webp",
-      "sha256": "31fc64c36b79214c09709e66bacca1f882c8145f59c5e12e34451fafc3188737",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p03_eat_berries.webp",
-      "sha256": "2703a6a612dd89c4bd5a7555e65ce0c479b28e426833ce57356fea289d7d07ed",
-      "status": "approved"
+      "sha256": "7a18064011d91d537926337ccaafe980514cfcd346aa11cdce4a3dc06e219651",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p03_save_berries.webp",
       "sha256": "1afff72f45276535caa246cf827343b2131b68bf95b8e2f7dde52ffb7ff430ae",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p03_sniff_path.webp",
-      "sha256": "2a1880baa8bc151095dba019a53378bae7b5deaa94583a7bc1d655e5e66a5e9a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p04_grumpy_berries.webp",
-      "sha256": "1b6d4beade8a800c2c0e2cc8bb44f9d539fc0e0f15ffb017c05937527cdcfab2",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p04_leaf_lunch.webp",
-      "sha256": "ded50d56b7c9b54032ea0f8948dd69c7ab1b4bbe61beb4f24afeba284ec90d01",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p04_more_food.webp",
-      "sha256": "f848ba9a4a04afbc778a1597b5ff3fbe8ffc00b02da718dcace29fb2d470beb0",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p04_mud_smell.webp",
-      "sha256": "33ff7f32fb4324fa9c20373cff149cf831324924d365f97112d0571d684c96c3",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p04_not_full.webp",
-      "sha256": "6ec7a6f80d35e7b62a34c7fde1094cd4bce11b4ed6aafcd4209e322800a38cb4",
-      "status": "approved"
+      "sha256": "63211efc963d046e1f3d44b62103048e364a7eb3d0ffdf40b1bc2067ce1a89a5",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p04_sunny_shares.webp",
-      "sha256": "28654d4e028c93e602d5087039220792d7dc86a6688a55a9e1ba29270c0ed3e7",
-      "status": "approved"
+      "sha256": "464f4b8656965c373cb44d6cb5a73adbace47d17f7236c89e07435673df4315a",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p05_big_flat_rock.webp",
-      "sha256": "feee4fa1fa237b1e5d2204db40e29863cb5ab4eda4f4ab23f983e535870eba0c",
-      "status": "approved"
+      "sha256": "0cf528939e4b9ea11f20b008db3d5495fdb7394226a4de1085c36d932a95eb75",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p05_grumpy_tiny_smile.webp",
-      "sha256": "9d2ae5f5866bda6b438422092a91464abe71c94247c6ef62f817315d369ea473",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p05_long_meadow.webp",
-      "sha256": "608c1a7324636647b4faa2b438687d9e83f15401f76bd292f1a2fb7cdb29f7e6",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p05_mud_face.webp",
-      "sha256": "e7f5f53198ad98d47d2aaf357ddf7d2a041182a514751ee8066b50c77b70d25f",
-      "status": "approved"
+      "sha256": "202dba6cbf29c5af9337388e65da1f4f5d4ddf0040f017f69cb9672141f02ea0",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p06_bouncy_lunch.webp",
-      "sha256": "b8ed91eaa7fed40cb110ea5817fa6f19bb62d4361c4c8d5cd41150222d0210b1",
-      "status": "approved"
+      "sha256": "d544bed51f3bd6d5739e270a8644a514b9f9e8d4748a1a0560199ee0308ce377",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p06_everyone_eats.webp",
-      "sha256": "079e88595d6932b188b8f66053e87906a0bec2037da8135c88580d8adac714f7",
-      "status": "approved"
+      "sha256": "1a2d8e6676e9795229d5caaef2ec07eef3f95489d6abbb2413dcd49b65c26ea3",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p06_grumpy_full.webp",
-      "sha256": "818ff95a517d6ace8a011c3fb070ffa2590d574821503ec45e6a7d51d7a12e72",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p06_tummy_big.webp",
-      "sha256": "727526bc28ec3bc86930bc6b782466a398f22d4704e16e80a08e8341cf5bc91c",
-      "status": "approved"
+      "sha256": "b6783897a78159f0631dd2099000d7b77c27f4d416eaa1ddfe81d724baea0bc0",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p07_berry_rain.webp",
-      "sha256": "8612a644615e1b2a6a5f4bce63801f5c9c599489e795a6576391108a46579fb8",
-      "status": "approved"
+      "sha256": "b91e6237aaa7aef8a02f4f73cee72c4043e85627410e537fea66fe502d161d64",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p07_leaf_hat.webp",
-      "sha256": "1b29bf3a8af7c6ac34c836928544cb80f2f547e94070ef2cbe3afeeb87c04336",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p07_more_please.webp",
-      "sha256": "6c5b1d217292ec0499b4326ed11b9093734efe0c43946f04a80bae7c8bdb996f",
-      "status": "approved"
+      "sha256": "fcec37db7844956e3b24f41334f3ff94093f80636cb8787c2692f703b3072725",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p08_berry_mess_ending.webp",
-      "sha256": "3fe46f5936a9652f6fa8c3b962d5cbcdb49db1738eaf56ea266ba3f1fb74445e",
-      "status": "approved"
+      "sha256": "3c91ba54a6a6f6e3c5cd48c2a5f3ec7c3eaef1dfb1828a6486bb3b3dded2681f",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p08_leaf_hat_ending.webp",
-      "sha256": "e7bbe23fd38a3482861cab25547303e7eb697af8a2c8fca03a0e99e7dc3bf341",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p08_star_ending.webp",
-      "sha256": "cd1f2873918564ec0412c0a179680007f6f4e60cf2ccc66c6c36a4d3686c7e0f",
-      "status": "approved"
+      "sha256": "2d225f63214cc6cc2cd93ab8f220aa920f48fed444e23a2a4995007fd2d404bd",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/chompy-lunch-hunt/p08_thank_you_ending.webp",
-      "sha256": "4a8437a200f28f6700e1d39fa060998070ffa6cc86f14779b62d75210d2a9da7",
-      "status": "approved"
+      "sha256": "bea152a1b54ea4ec3c080d364d68867aee7d46cf8f28e42458353474604174ee",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p01_start.webp",
-      "sha256": "9eaed9f5cf3a43c6ab402b0abd23c947b32978c8838ebaa9995f1f497ed1b7a4",
-      "status": "approved"
+      "sha256": "487461cfbf7c35c3143d2efc63b7fa3cce10de23d1bae5a96c3213f5111758d2",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p02_bush.webp",
-      "sha256": "856564649f390dcb9d682116b39b8fd3f48edb7de41641c30df4eaddb13e0748",
-      "status": "approved"
+      "sha256": "182ff383d1f5cde8028b41234aaff29beef0e6a3e11e42d3ca330f0fb93fdbdc",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p02_stream.webp",
-      "sha256": "1f5d31047e9be41fd56ff620e6f042500c9aa145d194db51dc9d51ba370d8c25",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p03_berry_protest.webp",
-      "sha256": "973078d754c64dcc65f34506f55f0822d3b4a92405823416aeea8e784baefceb",
-      "status": "approved"
+      "sha256": "92cf9078b908edec30ba7ed8bbf6439af6dc8af5425c4b0352f1e3b1feeb1792",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p03_chompy_finds.webp",
-      "sha256": "3d2624bf060cc0adebb975361809a82bed0841b74eb3f0c20e0bea2c10869874",
-      "status": "approved"
+      "sha256": "a8d75dc7c50c9e70db4f07508e105ae682d0fe084b7e382469d79a2bdf800d0f",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p03_list_making.webp",
-      "sha256": "802a838cf58cdfe41fb32c139b1f69909e649a23731d3add2108093140a5568a",
-      "status": "approved"
+      "sha256": "6b00d49d536f2da5adae4d1a15c3eefd6dfab0f4a043f07547a6de28b1faf86c",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p03_stones_fall.webp",
-      "sha256": "2fb2ae8deb617249e79a09315de0f610010f182e731502b3245e7df1583d45a7",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p04_berry_throw.webp",
-      "sha256": "e4e719b6e2a2cf07aa70377e05e0a5a401fc690f916fbbaf7b821f64456d21c2",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p04_eat_secretly.webp",
-      "sha256": "08eb917eb7db13becf6b5139b77e3af7829aa02f34fdcb7382cdbcca526cd76d",
-      "status": "approved"
+      "sha256": "88cf05346b527379fb05bfb71cfafb7e8515a2bd2461eb07ad5be98def925ccb",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p04_ignore_chompy.webp",
-      "sha256": "3d660dc43c1ac5e4517e7388750304cd82c66cf105514f84b79f64a366a22e87",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p04_look_at_stones.webp",
-      "sha256": "a9df751444ee7ec47a4beb3d9af6f73a015cee2db3f5a40f519313c0b6ce4b4f",
-      "status": "approved"
+      "sha256": "dbb8759bc9a251b9f8ea9df6b2666b8438ad5472139dc52651257d0118e034c2",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p04_splash_chompy.webp",
-      "sha256": "76b9a925c51add60d98df7a961857aba0c9e49bdf05ce04e4a6b81607b012324",
-      "status": "approved"
+      "sha256": "6df0ea9b690c06c6e12d20b3271edc87ef379fd00f53cb716c4c9f2c366e2f72",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p04_tell_fancy.webp",
       "sha256": "0580cf7e55f6fe188b1f1ee237263a34642f8aedf697aec5ea5161e9e102874a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p04_tell_sunny.webp",
-      "sha256": "778da7b64f2883d18d605886b86573df25f98528cb3fb89ebc11bb29c298c82f",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p05_bouncy_berries.webp",
-      "sha256": "71a85635202c89adbc0f651b0fb979dcd63ed373d996e107a21e1261e3017fd3",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p05_chompy_delight.webp",
-      "sha256": "26c7f3dbeb733eac4202c2bd2addd210d46f44b2f82b19c8b5967d8cc01271cd",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p05_dozy_finds.webp",
-      "sha256": "739758f71c97f69842f5ae886266c769d7569ca5073f1a0e0cbf015b18b2390b",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p05_fancy_stones.webp",
-      "sha256": "58dce16b37d35c6f1b70704a1e10ea72a696ca4fa2caa433382fe1d6e1f62550",
-      "status": "approved"
+      "sha256": "9282433c0f760908e932ba79500aed289c2f12e623b6493a88d925119c073b9c",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p05_quiet_stream.webp",
       "sha256": "0387c8c2da7e2c4dcc19d54181f5434f77aef844f6521ea885f427459ad635b8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p05_sunny_helps.webp",
-      "sha256": "e5fba75f5c9887efa100e143f09bd70bd766f3b6dd1ab50aa8ac0f8fff19ac39",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p06_berry_chaos.webp",
-      "sha256": "f85f1f892aac51ae95de19c927fc14ea5d6c7a6efb18015a899f75ed8fac5b8f",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p06_fish_jumps.webp",
-      "sha256": "6ff112e1d6d9500bbb634fcc1c2707e95b74e4008022046c4f1e7566689e54d9",
-      "status": "approved"
+      "sha256": "b984b9c393c71327820ab004c7a4eda9fb91ad944e98082a8d5ed977a71a1557",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p06_rebuild_stones.webp",
-      "sha256": "4571daf61e451c10c15af4ddea4ade8e97302199f6ff934c46a90b13ce3a2d61",
-      "status": "approved"
+      "sha256": "c2af766237cdc40bdb0f62ac2f117f9a1c42faf82f338354a4e072d4a62cb12b",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p06_twig_fixed.webp",
-      "sha256": "cb0f085d55d70c093f9cf314a5028b087496860e1a08c3194ce0c56dfaabb580",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p06_warm_sun.webp",
-      "sha256": "f881db9259178a9fc7ccbb40ce6e1509aa1b283ddafd35c96c61e58a382e75b3",
-      "status": "approved"
+      "sha256": "54a98178c4a683ff572806ae660a130b8b52dfb1946901bd8a150f6cb1f7bf3c",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p06_wiggly_splash.webp",
       "sha256": "98737baa1a9209cd6c2781d220ba673540fc6e9f380677255c0876984d76167e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p07_all_soaked.webp",
-      "sha256": "1f281dc6569b599ba4d281de3603fb11766ef8b9f0370bddb2a1a15e1c321c69",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p07_berry_everywhere.webp",
-      "sha256": "f7a9e08843ae5ae1b1d067956a262090dd07b296bdd49e2bccff4fe4409aa01f",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p07_grumpy_naps.webp",
-      "sha256": "4ac3a34a7575454c12f6061ecc321031458891c14d01592a94f14121c1413275",
-      "status": "approved"
+      "sha256": "4b705c010e65498745a4e117acdfba5cd862ee9adb5d55117b7b216d1485b5b6",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p07_one_thing_done.webp",
-      "sha256": "94ea2056f5463dcbd44f2dd34389f1b6ee9a9aeb26045dce3123e137aac6a823",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p07_peaceful_stream.webp",
-      "sha256": "e55cc58054067cc6251e9f300a631701f41f3f8a8ebb9b08963c9dc010f757e3",
-      "status": "approved"
+      "sha256": "66a1a569a40941ac0fc3c6a6a8cc859b5309924e55d5d7ef9571be7d6df37b03",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p07_tower_rebuilt.webp",
-      "sha256": "801486e409a74f22f64a375150f48b40947f3275dbc7d55eb67b9855469336ae",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p08_almost_ending.webp",
-      "sha256": "1cb24b7bafa3492986e0f0ebe2ecd4016566b5bc33c0061edbce6af8eed87b58",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p08_long_nap_ending.webp",
-      "sha256": "4f68169c78d0d190a40d7f722fabc0000f99b82e772c8ffdd75fd4afee6f23cd",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p08_nap_ending.webp",
-      "sha256": "9a7e76c80b2937592cb5c07fc21ca236de20e2ddf6dfac8ff07120342f199500",
-      "status": "approved"
+      "sha256": "1a705b522bb561ed83db1b0d6f28e2af7ca538011486735afb74efa2cce9e741",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p08_soaked_ending.webp",
-      "sha256": "0994bd5cd51c34a2873fb3a583529a7148d56c731887b5df973728402bee98cc",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p08_stone_ending.webp",
-      "sha256": "a5e05d390640495a3a4fdf268874538bc92f42744bd58b75cc43b01904c29b99",
-      "status": "approved"
+      "sha256": "e02ba2d8ee3998b28b82221dbc045f5b286f9ebb739f83a808fbee2e7b0b29d9",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p08_sunny_help_ending.webp",
-      "sha256": "da51e95f3b7da66e3000013ed432b2340138167d99be6c7a41a77a55150f843a",
-      "status": "approved"
+      "sha256": "5a96c4a0d5cd756a8381ad47f72a0335ddcf063a87f542540c00f1228541fe98",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/grumpy-almost-good-day/p08_warm_ground_ending.webp",
-      "sha256": "a1dc511c16f26590e3a8cf19460d6dbc8b664d30f4896ad4e3cfefc4e0bfd7fa",
-      "status": "approved"
+      "sha256": "2e3cc2b27b29d90630c6c98ddfc7e134026207a5b354058c4e2c6123bd07c0a9",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p01_start.webp",
       "sha256": "71eaceb6be73ef3817e19ce1abb38be1cfb1f50e351dd61759510b2ad0e9615c",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p02_leaf_failure.webp",
-      "sha256": "1c89d53c4a332c51fc21a5e364371ddd7527076d463206311be6c50e017e5d76",
+      "sha256": "fb07f657eaba9783915963f89d0e5a92a5672f4c9bbab0ea310f4e00fc312cda",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p02_twig_failure.webp",
-      "sha256": "e7ecb8cc49265cb8725e139f9dd003c82ed83c7e85e59534f05736499f8e7194",
+      "sha256": "df0a2d3e43788ebe0ccec5dca8cd91516023137a40ce26656d24815605499d5e",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p03_bark.webp",
       "sha256": "cb5a40c0062087e067e1d41b983bae9a6a9950559b434fb46112e4ca0c533e4c",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p03_moss.webp",
       "sha256": "3bf34cbc9d088fc3e76e00bedfdcee8395884bde2c14379b425dd2a0aabd175e",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p04_bark_steps.webp",
-      "sha256": "2e1c73cf8b3b738b73b26d763a9bb3e9e26d74de98d140ca6e945dc5c47edbe8",
+      "sha256": "2e6439284c6e7969816d8eb38ef2904fc7f4606ded15aa5907310a11a4221182",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/shy-snail-shade/p04_bark_strip.webp",
-      "sha256": "79f3cd0c7fd4ae07486dc31fb5b1fc9c05ceb4c4163fd73a9d2a26c6764dd978",
-      "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p04_moss_dots.webp",
-      "sha256": "040730b75398d98681e6a00c537d7cde5da17441ad3aacf5e3158f8a4d68c9c9",
+      "sha256": "55663a795b9669ca5a3455adadfd6e90594caf61ededd37089850c836d6d3eb5",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p04_moss_strip.webp",
-      "sha256": "0a24ad79a79c1188371be4fe63fa476c1d692ba7ae68d76bec2fac131a1d1135",
+      "sha256": "6600405cbc84bbf2156ef0eb3ef0f4e8d4f261152a029e70959ec2f2679f5d65",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p05_bark.webp",
-      "sha256": "0fe0d70be2c7b6cd0f9ea1e0863826d22f51a871725d3eb7ec604ffb21fca682",
+      "sha256": "42cc2448181dbd7ecf82f90b4fd19487824f4432e7455bea49a67fc8de43962a",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p05_moss.webp",
       "sha256": "5051a6200ab986bfc614e3bc53baf1305ba00f42ee2602d70832fda20be17ec0",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p06_fern_ending.webp",
-      "sha256": "41e28c7d3c5d23145b0426e888b4b66e676ba96122f383c53fb48d66815171c1",
+      "sha256": "020981c7c0ec2d41a38caef8b94800bfbdc58a51c4fcd1dfbb905966dd90bde1",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p06_log_ending.webp",
       "sha256": "d8d95626d4df74300489f57607678520b2f339fc0cc32ce879e34f075648d55e",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/shy-snail-shade/p06_root_ending.webp",
-      "sha256": "7fa6a8de7d0a1279bfb492b1d85c8bf7685fe0660f9c11d0ede73e830ec56fc4",
-      "status": "approved",
-      "reviewedAt": "2026-09-08"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/shy-snail-shade/p06_stone_ending.webp",
-      "sha256": "d5df3f7838b93a59201439c485d3516579be6d192f779567cc1615b763cd8486",
-      "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p01_start.webp",
       "sha256": "6ce0541a6aad06c44d9d754a266539ff4476c0a63fac3ac3ead04514b5fa70eb",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p02_dozy.webp",
-      "sha256": "8bcb3bc80ee174a029d441dbc1666f627f3ed3fecf1f83b44fb6d88f6f6bd0f4",
-      "status": "approved"
+      "sha256": "b186e57641e36f85ef7304d598efe8b54258fdcef3417f2b94e5ede2cedff2fc",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p02_grumpy.webp",
       "sha256": "5458821557f515cb7e9dc24b94bf9a89f9fa388fe631ecbd0865b8b0f335ceae",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p03_cozy_cave.webp",
-      "sha256": "179e4e88fd931f823d74029eb6b74c9caa6c6ec4b216776ee0f7c14cf8a5307a",
-      "status": "approved"
+      "sha256": "a79e927f3a617f1276568a558af1af95160ebc1e603b5cb44fcb53d19911bc5d",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p03_dry_rock.webp",
-      "sha256": "1917f91232da98b8b067779fbf90660330689094b2ef531d337723b95108daed",
-      "status": "approved"
+      "sha256": "41f95251f2961c211d7f9c03c956377dc6671645ff233ecac1dc2fe4b039c4b8",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p03_puddle.webp",
-      "sha256": "0702531cab5b5e2813e4eb5403a13bbcb4ba012fe8e040752cfeee01af372c79",
-      "status": "approved"
+      "sha256": "75513ae51e1708ede8c08bb1d088e8e620615ec7c47f0db6d9ac5e073cf001d6",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p04_cave_grumpy.webp",
-      "sha256": "bdde940f420f0f536e145cf870d720013944a34a39564e8374949ec532985758",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p04_splash.webp",
-      "sha256": "f992565557675798b3680aea0b3e5cdfd3fcc0283c8c39c90d8c201b081c60a4",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p04_wait.webp",
-      "sha256": "89a152e420e9f9879d6779e216af91e15bf4a72f85e4b43133941838a528ccfd",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p04_wiggly_tail.webp",
-      "sha256": "7fab4578ba24eaf31571127d7a7cd273b4b12978dc1061e38f2f66039d4eb287",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p05_dozy_splash.webp",
-      "sha256": "3a3d3ce7e7fede46319940249fe311f5955fac2e29b4e4831d8b205e93e53f7a",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p05_grumpy_splash.webp",
-      "sha256": "d6feb14498c2a78e307c795332b2e0e8b9c90bb6e5bdc23e9427b8b2beee3b2f",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p05_honky_rain.webp",
-      "sha256": "cdeca7fc7d2b1d2c5c966cc23f2c93746a655769724a953fae42073310731e58",
-      "status": "approved"
+      "sha256": "5a137f0fcbdef5ccb3da56dcfd1970d34a2d5bb68b3275bb9cd590020a58e7d5",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p05_leaf_roof.webp",
-      "sha256": "1239a3bf40863c98840b74ff71f001c5b2ecd942660803f94815cd1f2392a2fa",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p05_tail_wave.webp",
-      "sha256": "3e0c021005f50d7cd3fad4c5ea745026a19a00c499f6d35bdb89e0cf9d833be3",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p06_dozy_again.webp",
-      "sha256": "e022976a9d18b0140aa62daa7c6d152bba9e5a6e21689aa08e14dfd2d9636553",
-      "status": "approved"
+      "sha256": "0cfc8260d5ef26a6713a68bd5f192bb52f9ae3b44c83576860308bbe0d30a590",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p06_dozy_dry.webp",
-      "sha256": "9578953fbd2d97bea968165326143a3b054199a374046f3093af1f9e54dcd4c4",
-      "status": "approved"
+      "sha256": "8358d97b49e64c7db237b5ab32e9a15e9dc6a9afbe93e8d566f90d6784e32ac6",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p06_grumpy_dry.webp",
-      "sha256": "c487ab9146c45ffcb22fe7961ca94afba737e23b7e9467dcc8a43552c76e9697",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p06_grumpy_ears.webp",
-      "sha256": "b9d361eafbf5d7c48fb667d5240cf4f6c0868c0516d1cb04e2f08c9a73b556de",
-      "status": "approved"
+      "sha256": "7e1783241d6ee0b6ddb07ac7743529cb6d2d89198ff29a518ce558b4a0efcd3b",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p06_grumpy_smile.webp",
-      "sha256": "5df778819e5a61dc04df45a7d628cc6fdcb2040d950cf5d566aeb180e6c0ce87",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p06_leaf_rain.webp",
-      "sha256": "7f92aec3271d7b8cd75e43888286ec0f6c8a0e8616b0207426828f5197dff7cd",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p06_sorry_grumpy.webp",
-      "sha256": "6bf028aafad0f5bf8545bd77879739c47d0056f5b65ca3b8bc5b5411656e874a",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p07_everyone_puddle.webp",
-      "sha256": "e2cee57eb24bc2ea6781373766868345e5994a0d9a0a024c25706ee8eae97950",
-      "status": "approved"
+      "sha256": "fdb84b48fc993f655f964097f38aafd60e2ef1d579675423b82025c53d040753",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p07_leaf_boat.webp",
-      "sha256": "39089fff9c56978f1480a6b15217687a7da2c43e9171d6c914c13f9831cac472",
-      "status": "approved"
+      "sha256": "2e40e4d9b8eedb6e4d38aaad5cfe5bf3e59ec58447cefc7f4a26b55986079f56",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p08_grumpy_laugh_ending.webp",
-      "sha256": "5debc66bd92428420cb670ade0982a6c05f5f303d9355cdc966d0e5cbb3c7bba",
-      "status": "approved"
+      "sha256": "72f3b9882f2d6297016cdd634052ac2b29839950c612a6003adf7fdf286a3d28",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p08_quiet_ending.webp",
-      "sha256": "bc3788946738dbb35a873efff3a5a8a29a2c78edd0e37bb5985de0f6c997821e",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p08_rainbow_ending.webp",
-      "sha256": "8ab8f94acbbd4582a3f689c4ccd26cec9657d0813ecdf03b62749aa5e05793b4",
-      "status": "approved"
+      "sha256": "5a116f9b6c26f4f20e27c68f820a5ea7de66cdeeac1c30a00ee9f577abcbd98b",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p01_start.webp",
-      "sha256": "5a4aa2b23f5e74a14c5acbe8a2a1c16928c4102b7f3016e8a688c8c8e70bf6e0",
-      "status": "approved"
+      "sha256": "d33f32dacd4200de44acab0a51667e90150aec328b42f39f490142cb5a664617",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p02_bouncy.webp",
-      "sha256": "ca35c99825a6454fe5919a26d4427b2cbd1fb8dd811828c751a6b7f21035b2ae",
-      "status": "approved"
+      "sha256": "b6c542d5cd1fdd90f61a14e2f615a32c6fc4ff4c41d2200eb611c506f9fec162",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p02_speedy.webp",
-      "sha256": "db6c28a186a87effc8936019a5fa85aa3ed1f2b44c0ffc63a18200ce4944ef72",
-      "status": "approved"
+      "sha256": "3fb5b18284e1470a84a1a800a5e0dec4e31d4863cf310e3dbe9235f3baee9503",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p03_barn_fast.webp",
-      "sha256": "a450a85a342062deeb31c0c7f1035c8ce08e76c7036a4192c197f719554b7c8b",
-      "status": "approved"
+      "sha256": "bc86936f1622f056af68d7738a4b7f705f6caa9caad611abc0020e8f6b3bafbd",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p03_barn.webp",
-      "sha256": "6cdbab4a27180bcb05d954bfcdedb0dafd1105c87ef0702ea5fdf4a0ba05a805",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p03_hill_fast.webp",
-      "sha256": "60d29cd11bc6bd9239f4ca12b538d004e1be92b5cad42ce14893702eb4b6c87f",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p03_pond.webp",
-      "sha256": "969eeaa9166912655add358896dcf5fbcc86ea0747495849e78eb7bd8152b5d4",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p04_boot.webp",
-      "sha256": "1d6c3b19b8ea864c47622ba4d34c13937e5f890abebea69aebe213517aa85885",
-      "status": "approved"
+      "sha256": "d97b106e7d392c8357cabe9114fe93d12870dfb3780d1e4f85025a316db2a999",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p04_map_caught.webp",
-      "sha256": "e08fa22f6a0a55f354ee337e9c04a245d7cb8e427d31435a6fd2f0852822d0ba",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p04_map_splash.webp",
-      "sha256": "1a9fd8c58cacbc29f289ee9d7aadc06665b16b5de2a49108e67dc1e1adfae2aa",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p04_speedy_stops.webp",
-      "sha256": "574b681aa8ab5df0d172bfaefc78a22653755955cd8e8e0686cd3f84253990c6",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p04_splashy_help.webp",
-      "sha256": "f83d8b4fefe99bcc10dcb9d2206243a27b5f37438f050ded2147119f82fd2fe5",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p04_tiny_map.webp",
-      "sha256": "a8cd40be58aa1db5f9eb00451be0a53490953e9c0d3f748f5f9a055a001b7b76",
-      "status": "approved"
+      "sha256": "9961336399573c4842a282fb1167ddca3bebfb89cddce7d9622425ea7b71046e",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p04_too_fast.webp",
-      "sha256": "731921b4f837136ed438021903d33450092708f1ad87c73a8b27a0054ead7aaa",
-      "status": "approved"
+      "sha256": "6bb7dc5260067c08c1e12d20a565a03604f71455d395ee082b97d7a47aafb120",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p05_big_tree.webp",
-      "sha256": "e0ee8457e29773fc2a2810765f76b43b7921e496874e12df5b3c5f185f3c4329",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p05_bouncy_wet.webp",
-      "sha256": "685ff061d236b4d78681721d284a44b763731226c204661002c4594116946b7f",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p05_grumpy_boot.webp",
-      "sha256": "dd60cfe614261be52f56d99758d30e2d76aa92c3291dec4b2e4094c9c97b989a",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p05_grumpy_wet.webp",
-      "sha256": "fdc8fb4d8bc82fc4cd2f75ee2f3715965ff6672a27aa2e8b84b890d3bb5005e3",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p05_muddy_map.webp",
-      "sha256": "5036ad2abadc897fcd7789efc9a2da7a8a3433d36b8854a7fb9b776d0251cef5",
-      "status": "approved"
+      "sha256": "6fd68419d680de0e3c167e6ab1c94b3e0a18236abaef324ee10125f4f2fccc9d",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p05_speedy_waits.webp",
-      "sha256": "9cce73119023535845c9e4d8c3a18afb2c79c0051d4dfb58e854aefa37457cc1",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p06_bouncy_muddy.webp",
-      "sha256": "124e8479fe6088ea0e39b43fdb70247086e35e02793edd80097d494ebed15169",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p06_lost_again.webp",
-      "sha256": "ac9d57e8de0e343ed997b455e8617bb817b6c55f1f1032bd773e3626c2e86880",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p06_speedy_muddy.webp",
-      "sha256": "9f35b5f1adb362b5ced2cb9ddd64f8c4a1c3f9741b9ac070dc5a1ae87516465f",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p07_tree_stop.webp",
-      "sha256": "8ea0a9dc432aa8c3d75b4c6e4592855e914f6d6e4df4507a1599e30d0244a363",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p08_farm_view.webp",
-      "sha256": "106474a24b1e0e239d28e536a3675f900cb10fa7e019d17fd09865f16a5faa70",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p08_tiny_snack.webp",
-      "sha256": "1c8e0967732a7e317e54f6923f09439f75beaa6a9b6dab637f628e53ab41c385",
-      "status": "approved"
+      "sha256": "c843dd628a4bee3573fa7ae293e3771a9d50c718c6dc846d64a6d1379cb961de",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p09_home_ending.webp",
-      "sha256": "cb2fd27b96c9a85278177235cce55f906200cc141d196bebbd377f04ef9f0f4f",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p09_race_ending.webp",
-      "sha256": "ed6cd3793fa2274a24ed5d73b0c78ed24cab03efbc9b68617bc904663d1375d9",
-      "status": "approved"
+      "sha256": "0ad290fa527eadd7d4df3bcde5dcd083abb47e4724c15732100666df06b88984",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p09_tiny_snack_ending.webp",
-      "sha256": "94f2827cbaa9960c495b5a6b5636b9925dcef6503d90d7f05175075ba4a1f198",
-      "status": "approved"
+      "sha256": "eef011a831a454c9c02eb974814d90f81ee567caadb9c3ea2e706c86326b05e2",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p01_start.webp",
-      "sha256": "ded5dca67500531d1b53f79ed9e08b60e3291a745a126b6efbd7ba8e9e1e28a4",
-      "status": "approved"
+      "sha256": "676e2399d1cb2cc500d8383b9bd5da985f3849107e995b88b8c77f644d8f038f",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p02_brave.webp",
-      "sha256": "6e87586ad413dbb97cc084866f670048f976fd80d9772e4f03e2a07235ad1d26",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p02_tiny.webp",
-      "sha256": "e87a80ad73c350d1ef05c65a8fcee8440ee020b40a51a8c727ffccb2e489a60f",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p03_hat.webp",
-      "sha256": "3d73b8acf33d172f446a12fd12a8cdc83661c95aeadd8c6ae67eddfbab3c4358",
-      "status": "approved"
+      "sha256": "c6cca0aa5943bcaf277cd2ce0cadfc457facbee7cf6e382afe2f542da024f421",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p03_pot.webp",
-      "sha256": "e02ce7e59d9311c831b656382c942099a58a8c898339d753f0cdae02f44a83d8",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p03_wall.webp",
-      "sha256": "ef485f898731d3cb756bd655deb63a113b8d81eb1f428028657558386bfd30ff",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p03_woolly.webp",
-      "sha256": "b5a0270ad0533750d8b71c0976a8d2a5bdd170d5d8efbffdfc2cc19e1a20e8f8",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p04_clucky_wall.webp",
-      "sha256": "84eac08467d1973f7ead673b6588e130c7a12dc00aa549dfe3e32acae1fcb5a1",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p04_feather.webp",
-      "sha256": "10dfe25226fda9cbb7a47a44b1d44feb594573c5154751ca6dc63d0f5e070a5a",
-      "status": "approved"
+      "sha256": "bb3e1ea03beb283d066c20baa1ba495e6108cf150bff57f2ff8f6994f7c13331",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p04_hat_in_pot.webp",
-      "sha256": "b5b01c600140c385520c28979b3be0652844eebd96e23e0db94b07bcbe5e472d",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p04_hat_on_wall.webp",
-      "sha256": "d3d7fd6259f3e7d3ffd876bc57b48b0dc3b1c88009e9e6995ff3f48634a92f73",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p04_stream.webp",
-      "sha256": "202214b82cda45b49f0323d2e46ed86b7e79009199cc1a0c6758041f296cd190",
-      "status": "approved"
+      "sha256": "d7a722b11c0d2242a3f23710e0fec6e7e0a881ae9eb45a90f0b11ce210e39c1e",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p04_tiny_in_pot.webp",
-      "sha256": "bebf26c6d62be9cf60c4bbdf48ea0ad83b6d1170fd1b386ae181fa4827ec18a3",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p04_under_wool.webp",
-      "sha256": "ad82d5c2deccb5620cef2d7e97ef280ae871edba71c5a5abe986959f82410c04",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p05_bell_found.webp",
-      "sha256": "7a9c282ab747ba6207c6fed6ad9ecca7c0a6a32bc60a17e75b819948f0580bf1",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p05_bell_stream.webp",
-      "sha256": "28588d2e444aab77318506f89a0e287df4031697985990c678737ee9ffafeb93",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p05_brave_climbs.webp",
-      "sha256": "960bb147a2154a8af6deed76b9914c0a0214459a8d63b2db1702f83b11ec81b1",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p05_brave_in_wool.webp",
-      "sha256": "1808a12e7b7617940514b25c869a019e824c5f18257421b0bfa86c25f8d01792",
-      "status": "approved"
+      "sha256": "03dd3ab21974396c26e7a7db12e74faa5ef49d115246ec4f97994316ea995fc3",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p05_brave_stuck.webp",
-      "sha256": "39e39883d9210ac87f61536da3eb197922affe2e75a728221eb6cde96bf2c355",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p05_feather_back.webp",
-      "sha256": "4f8a6591c993df2f683acb84f4bbef8c2f73e711c15b1badfbf98734102d1638",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p05_feather_brave.webp",
-      "sha256": "2df522098a86c3e69f8ce6de93a71fad7092e7bf4a4739f129d9e4cc4fdccd46",
-      "status": "approved"
+      "sha256": "ce102640c78a4779a625595e0d2eba523bc72d8eb119c54458e11bbce772e5a0",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p05_hat_found.webp",
-      "sha256": "1e6a5024bceef447b4bab7d0c1689ba43df5508f33bd4a5e9c4562d064d57a87",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p05_tiny_climbs.webp",
-      "sha256": "fa8d65e5e01659b2c2ee92bf53c743178d4f807dc2b8faa67ac9d18f1500e155",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p06_bell_ring.webp",
-      "sha256": "0bbdbf71f91977ced068f5c8078ca921eec35655e27f05cc84ad84b16537d72d",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p06_brave_boost.webp",
-      "sha256": "83b34a3d41083c459996254b126d43b3772d972c20c52fbbe605d4af937ecbc0",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p06_brave_slips.webp",
-      "sha256": "62c484b9ab536f39d74f78d06ecbe4d9d2727c7efff1c677cbbef0b8d1ac06e0",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p06_brave_stream.webp",
-      "sha256": "4e5268047f1a3c6c5be180a600079b44bd1e31459646f40e44bc4ed7fb98a529",
-      "status": "approved"
+      "sha256": "ab7f1f4bfdbf55c6069fb6b3df9f018ec12ea025c5081c445a9840e430ee9959",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p06_hat_on_brave.webp",
-      "sha256": "84fde78b5ac1ee0d935659c8d77fda719adc43f24043f1634265370b5599b750",
-      "status": "approved"
+      "sha256": "a1cb943f0339503006c90d71cef7ea20990d3d95c0652e6c293030b97da9340d",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p06_tiny_helps.webp",
-      "sha256": "b015ee7d97a7de43468be4a1d72b5da1420748c76175763c5fa5c7f3f0ee39c9",
-      "status": "approved"
+      "sha256": "74a36854e237bc575352347e873b4f540ed5b562771fcc03e2e380b595a66b7a",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p06_woolly_helps.webp",
-      "sha256": "fe57442a46720453d6ba8f4eef8993a71392928f5226b950df5db7ba4b1d1ff1",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p06_woolly_laughs.webp",
-      "sha256": "37cb58ef8192527062f618e76a4e445b67840627fbb58611c5814bf350fcadf9",
-      "status": "approved"
+      "sha256": "03daa990772223aac3c6dd9d9aab5b421ababc680f95a6f822f08927c84a9659",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p07_clucky_happy.webp",
-      "sha256": "0953d723b000e18c47a2bcccc2db480438b17467d2b9cee03cad301757ec87ea",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p07_woolly_happy.webp",
-      "sha256": "97f78778cf4ca22d9db87452636ce52991be9c93d5e86058d417e0edf8fe8c52",
-      "status": "approved"
+      "sha256": "ef29b3406bab575beb639dc628d3ddc38dbc7315a661fd3926681f82bf8cf92a",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p09_fancy_brave_ending.webp",
-      "sha256": "7ddd1688f355f673b91a6d4778ea100ae492888f3b0853227ce7b27ca6b99d47",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p09_helpful_ending.webp",
-      "sha256": "fee00ec39c8810670f770f1e7673be72345a0fb09c675de995bb821c22bc67d8",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/brave-tiny-rescue/p09_loud_bell_ending.webp",
-      "sha256": "1ce3ddf96c9fa7e36f720a07aefef664b61404035afa2c5d37e6fce5a827e1ea",
-      "status": "approved"
+      "sha256": "ec17927c975d1c1934b4d6f83afea4f9b2307586fcbf117a131bd4edf603f8e8",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p01_start.webp",
       "sha256": "eea8ad0b97049a2caabba14b88a1b713783975a780bd8e8eb37e455249312ff5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p02_muddy.webp",
       "sha256": "a470e6f1b209729bc65829fea481dc4af3830e4c5bfd499252afe14687c68d8a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p02_splashy.webp",
       "sha256": "2bacc87ea600ef438c12e47b1f85b37087f6613ecd2292e3a87fd3fe240a3d08",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p03_meet_splashy.webp",
-      "sha256": "ab913744301be5c7146c954861499ac7287b44bd4b19d800cc2dd09950fe30bb",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p03_mud_pat.webp",
-      "sha256": "254ba3380a6edcd9955fc646935d4b9dbb87098c86e9cdea2e31fd42d00e103c",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p03_water_splash.webp",
-      "sha256": "bad5cb0811e60057da8f61fc02e76d24817c09968a2ac13fea0faac10d6a927c",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p04_hat_found_early.webp",
-      "sha256": "6fcdea73bc7741d114c926b152312d56cea411e3c88786271eb8e96fa1c3162e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p04_leaf.webp",
       "sha256": "223fc5020fc47aec89d55c672c9762395dd64940652c95ec8c9b95008d280b3f",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p04_mud_search.webp",
-      "sha256": "a22518eb0d1f967f3eb15f78030147a7e1795e7afe4248289cfb72fabde10cb1",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p04_pond_search.webp",
-      "sha256": "6c7f4238526f8f22622f13557e9ceda0f849d9f3d65e843a0629af2e98921b4c",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p04_stick.webp",
       "sha256": "774bce7b7795270708568757d4f3535385d69be62f9137042aa07bd2df70e835",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p05_boot.webp",
-      "sha256": "0c6ec14db1d2f4e4094d6d87dff70362974adc6383274682bed088db21604fc6",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p05_frog_ask.webp",
-      "sha256": "ccdeb89664c5002c7bee0e5e89e3cebf45671a855bc7a9db66d6ab0f8b7cd1f3",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p05_frog.webp",
-      "sha256": "064f3828c69d0f33839537fa9c86fc1c936125c496705b0d91903711e6cbf0bd",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p05_grumpy_boot.webp",
-      "sha256": "6750174bd93db4e4d3dfc0ba911a24dc3779fb0ed3d36a4e1749f182b88e0ab4",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p06_big_splash.webp",
-      "sha256": "f5a7f653afdc308bc38ba7a7f77d5569990dd5e00b84c2942f5488c07260def9",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p06_hat_muddy.webp",
       "sha256": "6d50754751614fbbdf7e31a7fd365e3e201277bc4fa9881c1c4c0181146381a4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p06_hat_wet.webp",
       "sha256": "30e7c5296d20abacf10c2037398d37a8b79cc8dd271d337af8403f6df41f6a98",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p07_clucky_muddy_hat.webp",
-      "sha256": "3e7699ea2da5704dc5ea882f7c0d7ffe118cc2594ee32b9f14bac9b1dd235d60",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p07_clucky_wet_hat.webp",
-      "sha256": "3adcca46f53cf36bfcd09133807135723f6acfc1da74ee5d00723beccee063dc",
-      "status": "approved"
+      "sha256": "2ba86d67acb5629a0d635b38b7a5e205661b1b6f363273f0a217de2bcdddd8d0",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p07_dry_hat.webp",
       "sha256": "a48dff74106bf8a07c7774b36e01acf70dcae6c24227739dfa987e4b26f98dc6",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p07_wash_hat.webp",
       "sha256": "1efffce466be33b9dd0559a5d35756bc7c805bc0190ac00ed2760ca560b4a727",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p08_clucky_grumpy.webp",
-      "sha256": "b1313ceac848991ad67d7a726a2c9f336fe31caf940cc436f3b0262eb13271e8",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p08_hat_on_clucky.webp",
-      "sha256": "941e257e8ea6310f6280902584cc6922e49edcc77767010f1313f71e85808bd7",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p08_hat_on_muddy.webp",
-      "sha256": "065880e1e95bc526eb6ad1a7c0b2235cf8c34a7199cd24c2b55fc8188d20d53a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p09_fancy_muddy_ending.webp",
       "sha256": "8f8a91e70d59f9a265859e6531052f9502d103c17f42eca7c55b2fc3a7d47055",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p09_mud_ending.webp",
-      "sha256": "6b1e9b0d62ad83d37297fbe27289983273bb1da18cc5284407e7604e980b5dbe",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/muddy-splashy-hat/p09_pond_ending.webp",
       "sha256": "871d7a01a7fa9d86b6693f716b5af6eb20f2818241f5a3ae49e677ecce8d2cea",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p01_start.webp",
-      "sha256": "9bd02f17a22768e8624ca19196d0d3ded65858cf9f557a9367958f9c3d6a868d",
-      "status": "approved"
+      "sha256": "615763405ee75d07ca945329c8e22903a7e29134787f956fe1d769aa37f76c16",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p02_cuddly.webp",
-      "sha256": "a707ffb564d513ea0beadd51af83a007e230f4fe2a9c0475a63c71e9916d1461",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p02_shy.webp",
-      "sha256": "1f2bcc29d02fe75da8c47acc609c0beacd4239780185b87cda44edf7b7f5fca5",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p03_barn_look.webp",
-      "sha256": "671c69b9a429fe3edade412063e6071415d9cfe1dd683d4d6053f835defc3714",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p03_peek.webp",
-      "sha256": "2af91b572279853343bfe13198a93184f532b5b8aca100b38453fa0652c2a70e",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p03_stay_still.webp",
-      "sha256": "b9c5b336d4a5000a246737569cadbe855d30e28f1446427b3540a74ac9cbe3fc",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p03_tree_look.webp",
-      "sha256": "04d462a72d340fd1781d52ffa14eb0600cfcdb031419102dbdb1c706f332ad53",
-      "status": "approved"
+      "sha256": "f6ec595d2ff7e959dbbb0cfc396e86bfe7614e1441bf1a05fa402b103d362c55",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p04_call_shy.webp",
-      "sha256": "6e5b14db6c186b51e4495d581c6465cbcee4fc2a0cc27b3c95d5205c44e392d6",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p04_hide_again.webp",
-      "sha256": "c1551f4a9de63cb2d3c9fb1bd655c837cb8d8a532be09a7c115d0dcbe4fbec27",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p04_little_wave.webp",
-      "sha256": "8b74daf9ee35a0c34e77bd7486b8d466150d8a0439866306cf601b9d810d4848",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p04_quiet_tiny.webp",
-      "sha256": "8f790c97d45595f50ca61ac6f8e867108a810a43c7513bbaf5982f827a8bf196",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p04_say_hi_tiny.webp",
-      "sha256": "b340014ff507bd41646aadd2439620569dca12787fbe17c56d71ee9f07024af3",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p04_tree_look_up.webp",
-      "sha256": "6ea2030c27407e2393ea7dfe632bdda752a737a9bb78e6e5c6b3cf1c8b274c5f",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p04_tree_sit.webp",
-      "sha256": "910cdf0209267c2b14893a8e9d451db51f835823430b5c588335f8c411bd06a6",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p04_wait_quietly.webp",
-      "sha256": "12e4c3e2398eba36189857eb5192232f22d413fb7c8ec5a9824ffad9abd52aff",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p05_bird.webp",
-      "sha256": "d95930833076b09800df65c763d85acdce4b6defd49649b15e5d1d5f09da2c90",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p05_cuddly_arrives.webp",
-      "sha256": "01e667d3f233efa522ebd721f09b4c976fb1801c837e1dbf025c875e3c948203",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p05_sit_together.webp",
-      "sha256": "0bc0074976f6b7cc762172e6e9823a0091a40cf254787bb6925ee7ebd0995610",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p05_tiny_tree.webp",
-      "sha256": "8295ced25d6992802cda5dbbb1a755ecd709bd3311a99d707989414902840e5c",
-      "status": "approved"
+      "sha256": "1d085922ba11ada98f316f3affb66441efdfec4e5fd91bef8fddb99ef1c7f5ea",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p06_go_to_tree.webp",
-      "sha256": "3f23217ce1ac588e525360b937a667becb57aa68e023185f3a7c1682bbece197",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p06_tree_find_shy.webp",
-      "sha256": "8953fd1774c22f06b4d7a5449554b26073309422011a4ff7f0622d9c9fd92c64",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p07_tiny_waits.webp",
-      "sha256": "687dc4e37b18f696701d2fbca5138d5bb8b338ae0c51e1d38e230e2d7acca04c",
-      "status": "approved"
+      "sha256": "3c2a274d1d346d2ae34eabe15a7b5aaf13d5e7036c5c2fd3cb6d1a14ca846d08",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p07_tree_under.webp",
       "sha256": "8d41e25bcc8a2ff1781a532cfe9594ac7cbceda1b78d6aa1f5e8debbadf7502a",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p07_tree_up.webp",
-      "sha256": "fb76f9fb0800db58eda7ff6f536f7306d8f0a59977a6c70b99310b624ae80f25",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p08_barn_hug.webp",
-      "sha256": "5d6fb9945e4fdb3425dd7911a086264264e00bc8cb4da55a162f08a0c8c65ad8",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p08_tree_hug.webp",
       "sha256": "7f48866a1f3ff3c337fbeaf2b2001b281ed45d8d8c85998181e6e4530525078e",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p08_tree_purr.webp",
       "sha256": "4d182674c6ae2488685e3e971a30f39af01b8a42eed9e0ce952013807c1c1024",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p08_wave_from_tree.webp",
-      "sha256": "b843e81967d9143c297fcbb377fe5aa9e986f6ad7ef1fee7753aa0122c542c85",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p09_almost_hug_ending.webp",
-      "sha256": "abee04551d91236471db1b0245c83714beab421a9c6a0829a2abfb9dbf6599f3",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p09_quiet_ending.webp",
-      "sha256": "22b0918ab1a7b5218614f310efc0622ebde8771836bf93b8a183903ec747e8a0",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p09_soft_hug_ending.webp",
-      "sha256": "c9c9eff84dcaea70ec419ca25b896c6ebf8bd660d406f65e29233e1b69dfe59b",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/meadow-pals/shy-cuddly-quiet/p09_tree_happy_ending.webp",
-      "sha256": "b1dbb71ce01d566c3a95121e55a6120a12d44b9115271058e075e4b0033ddd68",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p01_start.webp",
-      "sha256": "238f3f1f763980f1840050f8062f1d53a85e3c2e106c02512e294095fffe0610",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p02_dewdrop_listens.webp",
-      "sha256": "998c358e82f1abf2e0efe80d34d25456fe8b718162f8cef39b641948cacf7a4b",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p02_flint_shakes.webp",
-      "sha256": "e56769aee2474a743b653f165eedb2f2d1cdda87e15ddc715508d2a2eb1a252b",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p03_lantern_path.webp",
-      "sha256": "17c555f1b39d8bcf40e5ba2438287858e053421fd21de7e48135e038f10e1966",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p03_spark_bush.webp",
-      "sha256": "ec6b85148507056cebb4bd462b78cbacf08578366a291950dee1334b688eb171",
-      "status": "approved"
+      "sha256": "0ad73c8aa95ee5d0a2093d3bd1f27d0fd24c0e3ebae7e2b4621d50c084d8d8ff",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p03_water_whisper.webp",
-      "sha256": "347a557838bdb42e827f7d6a60432d22560718bb02d86bd0d1c0852c7cdc29e4",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p03_wren_arrives.webp",
-      "sha256": "67a1f6a969a6367a17afb9ae93efc5912f601b994e70c8bc364d64110a40dbe1",
-      "status": "approved"
+      "sha256": "d71dda13beb6f41ddf95129b610f90d1aaf6604bd6abcbb2603af3c7094750b6",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p04_deep_dark_edge.webp",
-      "sha256": "a536b81bf81467d145dc48f7098d7de249f7ce58dd935c694c7cca60cb906ad2",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p04_fern_garden.webp",
-      "sha256": "d2f4b0444faa569a90d893c7608f166ce6717b5efc7132cb5a3fc171480d6588",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p04_pip_glows.webp",
-      "sha256": "12e52fb816b3471690a0007e04935359fcb109c1fb44759e1609511b11a249db",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p04_spark_jar.webp",
-      "sha256": "4150d12888c68cffed3efeb578c4231c51306f6c0fe8d1f61c6b5089253bd491",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p04_under_stones.webp",
-      "sha256": "31f228d49cbc52bca91bf5917423df422923778140fdd0563f2223a4a6699570",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p04_upstream_dark.webp",
-      "sha256": "c90e5f6b760752fdc16cb7fd37a2b2a3bddcd322c12dc10160046e718a88e1da",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p04_wren_spell.webp",
-      "sha256": "8f79a92e9152165523c737c076414462ea05761db69932408e2c1dcf26d2806a",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_crack_path.webp",
-      "sha256": "4d428c4442b24059fa8dda98345aed6224933d9eb2513e2bd789948ef6553006",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_fern_clue.webp",
-      "sha256": "5bed8d54778a9f9bba542a0abcbd044fb7c1ad03779bd0677d675e1fbfe3de4e",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_fern_joins.webp",
-      "sha256": "84341a308a2ca194f82d796fd7393447731d460ff19fda3e8feb3229db5983eb",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_fish_answer.webp",
-      "sha256": "3262f8bb5ff16f74018eb3b58b2bb12956b88d2a5fae1f63d75c63378fcf8edd",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_fish_tunnel.webp",
-      "sha256": "9c7ce82bdc40d9c92b720e03d926953e2a49691ff06dfebfbf3af0e3a091ef52",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_pip_lamp.webp",
-      "sha256": "43dc803c750646a8abaeb1153893f69b20038ba763eb4841fc9ef8e0d39864c3",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_shadow_moth.webp",
-      "sha256": "74e7735289d18d60b2934ba72aaff10929e10292e72d5a75e75a9314ff1588d5",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_smoke_arrow.webp",
-      "sha256": "f6dd62964c6af3dada0695c55652e3df8cd3e081823436acc90463eefe749402",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_spark_water.webp",
-      "sha256": "fb360ba3f4699afbfaec9dc2c61960544f4fe4a2c5839905017ceb94fef9a0db",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_stone_lifts.webp",
-      "sha256": "0e990f9985e5af27ddd76784d134788130e50cc594cad288389bc989e68bc672",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_wren_stops.webp",
-      "sha256": "9ca2d62ad6a35c4b9b0af2de8fd01a30eb4596616d65658ed9166cae45790d2c",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_burrow_dig.webp",
-      "sha256": "8d7ee3ed8f22d476ca882366e98e8bb8378525c29f320e8d961094adeb9ffba7",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_crack_opens.webp",
-      "sha256": "f5c63eb9635ad3732be32b1765f51769ee2f14f6eefa40d4acdf27672987ed4a",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_dewdrop_alone.webp",
-      "sha256": "2135ba75f50d2f8b8a5fcc325c9760e60752eaa484e6cf7e5eb46ded41afa498",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_dry_path.webp",
-      "sha256": "19778286d0e3e8efbddf243cfdc7a013a352c25cfd8454b02fd097a4a1fa8082",
-      "status": "approved"
+      "sha256": "08f1566a09822456f3f53b05a959813590437565ca2496c268972cbc58876a58",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_glow_cave.webp",
-      "sha256": "383bce452391d436447492be91a5a37483946aea4f0e7ef22f3a58306ed17859",
-      "status": "approved"
+      "sha256": "5f3246ec6e21f0bd4ce546b76ac04da0474a9eeb99de13e9de23228c749c0e58",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_lantern_pop.webp",
-      "sha256": "6bbfe6cd571a36dcac90ad3e7d4772d164efe6cace9badbc98c8c897ef3793cc",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_moth_caught.webp",
-      "sha256": "ccc6d4c7dd27ba4a0bd8937b114b394d7d0468f1934b41fdaa494545dfef7e6c",
-      "status": "approved"
+      "sha256": "28f23059efed687bb1c9496108949f00178c7298a36b95c17fbad3d02c8cca84",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_moth_path.webp",
-      "sha256": "48b09db9f6d50a728b3a8d78e9aae3128d42e4c5ead9a25f743a112de02b2052",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_pip_mushroom.webp",
-      "sha256": "0d016a2961a07c42c27569141ea169c303a83f942dacb5d34d59f6a7e42819b9",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_question_path.webp",
-      "sha256": "edba6ceb09c8f443a929b53db700bc5c2e63dfe1c1ed886d46c3f768184dec2d",
-      "status": "approved"
+      "sha256": "573cdfaf6ef79f9edda7fca0184e5b48c13bb4fe4bc71e6807857b23140d1c45",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_quiet_tree.webp",
-      "sha256": "2821c6acb7f71bd1a1ca20955128f7d38ba5c679b9438691e658366e17c51bbb",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_stone_guard.webp",
-      "sha256": "58a484813ad29d728881c094be2e2fb11929e39f88841142a43923da95eaf8a9",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_water_answer.webp",
-      "sha256": "58ad98cf440b319bd998754056fdbd01a95c719d88db7c4891a02afe205a9df3",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_door_question.webp",
-      "sha256": "4c4573581750aae80cbe5228f659c913f7185f86ffc0538ea71f9d3d18111a81",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_dry_crawl.webp",
-      "sha256": "f370e5712e61c9e9a808b6e993e8ce43fef51bf5c873309817d90090dde64d2e",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_fern_song.webp",
-      "sha256": "1abc128a8f1a495ba2fccf1414742a9f75c6cc9402cf287ae04e6ea82897ee70",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_footprint_voice.webp",
-      "sha256": "42820e5d345368b835beb20047b8c4dbe50630c90a53b65d93771c232bf85f75",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_frog_guard.webp",
-      "sha256": "d253e5f66fd40214a8b82f628bcc223ab4e41039e5e2f62040836e2f169b66c0",
-      "status": "approved"
+      "sha256": "7e806997f28a3f5a9705455eb01d2db780308c1bb6cd756317fd4fb5750d1595",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_glow_sleeps.webp",
-      "sha256": "3593e7bf08305a6b53f4d37ca73c392ddc75b174fa970dcd32073dec72b78fe5",
-      "status": "approved"
+      "sha256": "bbe268e4d1847e63e19c0f0e9ecb184b10148ce15b9dd118d91d6da312b86123",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_glow_wakes.webp",
-      "sha256": "2c835c9d743b0e0620ae4fac052b931aec705b5c9cd5cca0642ac59adbbcd1ad",
-      "status": "approved"
+      "sha256": "950fec802caf423dd89653fa984e84e4d2e99c088ca0049b47f50f563db60ac4",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_heavy_crystal.webp",
-      "sha256": "883c8c68bf23a07d16f5345edf4668c22aab235978dce0bee583998660c44fbb",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_lantern_crack.webp",
-      "sha256": "3050cf549288ad740ec5dd53d1d99d25e2200efef89287f24a401b5462cf8261",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_lantern_rolls.webp",
-      "sha256": "9f47a7fdacc2f5a21b4775b94e63e81d7e89ad8a06e8ece2bfe47d46fe170012",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_moth_lantern.webp",
-      "sha256": "1c3d1c8a2b5d0db98f9dce954d5e6721085cb71757c4af221b4da3ed3c317b25",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_moth_thanks.webp",
-      "sha256": "487a7257fee50a20effcac342781666e5839914738dcca9f2ea11fa7532eb299",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_pip_lamp_big.webp",
-      "sha256": "f063602df94666ce754a72d7de00dae8ba539d8d121a557cf4a5edbfb2d53500",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_pip_sits.webp",
-      "sha256": "207b726ff6394621710c74ade443f5e3aebf5a6735d7a6eade3e08aafd727d55",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_puddle_laugh.webp",
-      "sha256": "de083134bfa7340f37dfe49d33822da36e06df3bfce6fbb8a3e5b2489c72e549",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_soft_feet.webp",
-      "sha256": "bde1fe459d42d1ed812dcb3c2c9ec168b3fd8db5b2caa390c8d2cb041adc502d",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_tiny_door.webp",
-      "sha256": "4835c957e842365b4aca6fb4bbb5ee24ac81acb4f72827e55c67fa9d2283fce5",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_waiting_room.webp",
-      "sha256": "f62be1df420fcd6f2d1434a72624f66f154019ff455cc5f4e79f41b4a9291b12",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_water_call.webp",
-      "sha256": "1e4e0db8d54e3b3b63b0eaf9305c0d8dabff8453bfcaa12c0a001e618a807639",
-      "status": "approved"
+      "sha256": "38d071e963f4ad32a03c19c1ba7ae85ee1c959bf92bafbda68b9f769020858cc",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_crystal_moves.webp",
-      "sha256": "06bc59915e8b4b5c7392e7067fb92a066e89cf17cfbe80e7ee44b847714178dd",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_frog_ending_path.webp",
-      "sha256": "f39e1818a1ae3e76a73d46e6c00cfdc5bcfa034d0137f81e884e272b23c98409",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_glow_story.webp",
-      "sha256": "24761efbe1a7bff5e71b4dbe0c5343bd6c1e6c1e44f75a90aaa8047e61dd9af6",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_lantern_light.webp",
-      "sha256": "345beafe3c9a2f661e9f3fb0d20ec01db019ad69ec6c8f3eef47a6a792c6a160",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_pip_proud.webp",
-      "sha256": "ccbc128950884df6b811242f2625a6436c263867e3f59d82367eedde3778cd17",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_quiet_wait.webp",
-      "sha256": "779a0e9e872d3ae94f3d654dfdcd8bc6666425b15d57a5c751476005220ba96a",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_safe_promise.webp",
-      "sha256": "49c82221a5b94724d061052727b20c55c08a2be80172ebd5be1834a959438437",
-      "status": "approved"
+      "sha256": "96e03be98ef1cfd042d0cebfc7153597944027db65d2cea9a81f81f7df7b8e3d",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_sorry_glow.webp",
-      "sha256": "70b16ecf93c91e5d769e8dd66952c0bc67fcd4b1897da3eb8320ab2c2e4010db",
-      "status": "approved"
+      "sha256": "efbec3a36732ff636a7cf4e7f2308c875731a8296f6b9dc6d55b411901835311",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_team_pull.webp",
-      "sha256": "b5516dd8496d575d5cba3cd8ab054f658cf684ca3e7022305215c728028ac59c",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_two_crystals.webp",
-      "sha256": "d6b16fe1db401993c4c042de92f524747cbb23feea552d3d655f686102512334",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_water_song.webp",
-      "sha256": "2d3ec9db2c4b563d4cbf089be13ebc46c34a32ee4f0b586f1fbe170f839bcee9",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_bright_wrong.webp",
-      "sha256": "9d4093d206edffb9a2c4c5733c7d89bbb24da2a47664c0c9151cb48cf5d4a750",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_everyone_helps.webp",
-      "sha256": "05b5650fb3abf1c335d2ea7cc7ed6b2850373d36ab199de7e0afb031694e6140",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_fern_repairs.webp",
-      "sha256": "17d95c8a44e30f11b1c8e0f0a7410fd8a03436cf1e15db1f5b02487b58de4ae8",
-      "status": "approved"
+      "sha256": "cff2c58154686fa99ea4ea543f053eec2218e43c874f5ff742a9b3a49ff7ecf5",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_glow_chooses.webp",
-      "sha256": "93d81f12eba07e57d12a7379473e5c2ae6f2262a320e06c15ea4cd62602dc692",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_stream_returns.webp",
-      "sha256": "9267ad5605411b1248f4da592287ffe7bc8f5c05ecc950c2d3d81fb83bc18aec",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_wren_rule.webp",
-      "sha256": "45af1d8e737721763247ac16a300f4631d6eee4dc102bd82a1acc4b6e6b6e0a3",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_frog_ending.webp",
-      "sha256": "c0cc575c5fdacae2b7537141b55533c96bb4b3f44fa36ea98be7e7bfcbee03f9",
-      "status": "approved"
+      "sha256": "bf105a6eb5522c02bb4a12d69b78ecc3d0e714aa354bac099fd025ee4feba68a",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_gentle_ending.webp",
-      "sha256": "ed304fd609c31edb9b1a151715158223d708c3a74cc0a9cf3418da67ffd891e9",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_lantern_ending.webp",
-      "sha256": "28498edc36885c30a3c980258ad9d578f6a59c51c660aa686fa4419c890d2ce3",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_pip_ending.webp",
-      "sha256": "e55ef2742237d27df38a8a1a3b1c9ae202b90e76999ce9c4c841cc8da449f7a5",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_splash_ending.webp",
-      "sha256": "d1187161ed59ca2a16218f076160227bfe924b69b8e116944a24f7d1544dfbd4",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_wren_ending.webp",
-      "sha256": "9e8400c2d334091f97810492ac9fe5a7584338687aa119fc40109d519cb7909e",
-      "status": "approved"
+      "sha256": "c745627843008365b88c98b76c53cd13ead3730b67a77b6349d62a8b245b5d2f",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p01_start.webp",
-      "sha256": "982f329528c172d65230142dc9cb0b334bf71490da5dee12452c32162790723f",
-      "status": "approved"
+      "sha256": "6a7f4f3e23128caa8273d760292e70ea56ff7ee4d635c9075a19a05dce817bec",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p02_recipe.webp",
-      "sha256": "cc92cffd257c4a678b097ad01da4b1253264c8ccd16582d4cd0dbe707499d1b1",
+      "sha256": "5089ba9a49d0626bcb8ecaa9fc45ecd5d8577c47ccefbfd34660302575d68795",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p03_pour_potion.webp",
-      "sha256": "517dc5932eb703ee0722ef0d0860be1071b61dcf3621a04d9945e5cd65b800fe",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p03_wrong_colour.webp",
-      "sha256": "cc479109e0cd59d0340e92449a72c7ecf38c83ffdc85f956f9eadfb28ddf08e5",
-      "status": "approved"
+      "sha256": "b54872095e31c9fb4862b999fca4116a465591309e1932e79e361bfb8073075e",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p04_all_walk.webp",
-      "sha256": "2460c0124f1f0ee387ddb326825b2a99573932a3ed77e5161807e13924d24547",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p04_fern_warns.webp",
-      "sha256": "1231059d108db5bfd68c9306fd0881c746059556261409c7a74839a0824cc8de",
-      "status": "approved"
+      "sha256": "3c896d4b943173e43584e25f2c53d13b75e404231ce86921c7d1e9d2a641e05e",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p04_small_plant.webp",
-      "sha256": "6226b0ac19fa43fdfca903b12f2c605c325f242033c2d275ceccdcd81ed0c8c0",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p05_fern_calm.webp",
-      "sha256": "4cc9507ec9903ebf57f66ad80a04405596df7d10fbf7651cfe42060cc516f2da",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p05_garden_empty.webp",
-      "sha256": "9efc11a75daebc1cdac330db40ac9f6489a05c2de3a984d4f73ea9b86b5e9fee",
-      "status": "approved"
+      "sha256": "9e611245fb081531c0e75feb821ee218ba0c75d7dcacbd782e369648b1b202ab",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p05_tiny_escape.webp",
-      "sha256": "ad084acd09cd503482b6a5ed65ab5977ed4ab6763432bc1bcaef95f867f1739a",
-      "status": "approved"
+      "sha256": "da256b83033e611191322dc45c3abf5ac60f340f49e61e3d2e16d1062b14dbd0",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p05_too_late.webp",
-      "sha256": "b70a1d47343fe7b92abd6068dcf04342e5649a93c95a3093ea9f6bd356895b8d",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p05_wren_panic.webp",
-      "sha256": "0ec78702b193b2e2c2257f89169a2d97c86afe83281a9ac5a666da152831beb1",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p06_crystal_stream.webp",
-      "sha256": "842a9808382546b2d57613dee475bc10e2f6dbbfa71a25d30a23f1ef21e624d8",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p06_fast_spell.webp",
-      "sha256": "ab9ea702eca9b45a41a3b98a6d105585cd15c05316315bd788f0c0b0dff2e36d",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p06_plants_everywhere.webp",
-      "sha256": "5b42ae553a30dba7274195a9c625c181f73411b2ceffb28bcabbc822185d335e",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p06_wrong_book.webp",
-      "sha256": "025b5883a45fec25bdca655de450c01e77b91329cb56fd6d782ac17a75c08056",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p07_book_fix.webp",
-      "sha256": "b40f4e562aec45368b90ba36386a7b0a3f5723e15baebf01b29b07b2390a2fe4",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p07_dewdrop_laughs.webp",
-      "sha256": "5797b5c1974c1fd2ead13afef08243cb95102a9d61a504ca062d658423a3b162",
-      "status": "approved"
+      "sha256": "8b8863f69c57487fbddcdfd5c5b51900709e10f18f1ddbcb55b0e198bff2f0fd",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p07_sing_softly.webp",
-      "sha256": "8cd471096f946cfde409089ea668f3fe38f97aca2670f641870fab440be62dc0",
-      "status": "approved"
+      "sha256": "36f34f7ab9b2b78afccfd74d4cb05cfe55fbd925c4ab423105c234626ffea481",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p08_almost_fixed.webp",
-      "sha256": "3617b48889dec6f50f7ebb99d8b1e1165c7aba5ac96eee463cc6e5152c87d484",
-      "status": "approved"
+      "sha256": "011b767eef6b9cbf13c30f51582d554d530a1c225373e289ab6fd7d475edc7ec",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p08_return_home.webp",
-      "sha256": "8e37e6a5337349ed703d3b270cfe25403407d06f8fd76cb028900f38c9aabdd1",
-      "status": "approved"
+      "sha256": "c2da7345be3a92ff1137c5781bf176d0ce01bf83b03cb232b4b132d74499baa7",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p08_tiny_dance.webp",
-      "sha256": "2caae3168384ec2d635b0d663fe41b89b8525e5a5708893063f2f81dfd15e400",
-      "status": "approved"
+      "sha256": "939377c8c9e168c5f74fd1d0fe95978ac1a2813b09fd30a62ae4d51afb7c70b3",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p09_plants_settle.webp",
-      "sha256": "92685345644113540e632085c254e236b3da533a9e6167eed5e3fb058163b434",
-      "status": "approved"
+      "sha256": "15358815d3ba4df3301b1191f2271d6d5f95895e9fc9d21d24fc971f60e2a0cd",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p09_silly_garden.webp",
-      "sha256": "51eb62116b80da19ed2af2c9a4791992cfce2db4337a7dce8225a9610dbc00c0",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p09_tiny_bow.webp",
-      "sha256": "4cc2efd6d6064bcf41a5c3800bc2864512e9cab14e089cc9ad528c19d20ace15",
-      "status": "approved"
+      "sha256": "d80892b97c893ed381359509719d697eb526cc524b5eec50411014eb02a16a47",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p10_garden_safe.webp",
-      "sha256": "41d53fabfcab270d79fb661dfc0c514ddf5b566c6148616c08e473fdd4e0cd5a",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p10_wren_sorry.webp",
-      "sha256": "6fdfa3ab221f20007b37b9ca1af4435fe9aef320903c2abf4f236aa48aa71ea2",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p11_fewer_books.webp",
-      "sha256": "cfa70b97336b1977b970a5c0a2917818f3a531fcb8f5ec7785b52a60cc6797e8",
-      "status": "approved"
+      "sha256": "979c8837f461763fc78181e1ef371262333cb6feecbba44012a7974f4a9d5545",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p12_ending_calm.webp",
-      "sha256": "b29690da122a2af5f6584634b1a0c64398b1ab59bfe77e97a168ecd0a658d8ab",
-      "status": "approved"
+      "sha256": "39e2256574a4f3dc4fe9a0e3b5a12983d92ea69253e72d3cf18c0d4a05d25b30",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p01_start.webp",
-      "sha256": "999fa1970fb6fa88c56cbea9f2f389f0b7cf35d149f37ea90c747a309a33cbe8",
-      "status": "approved"
+      "sha256": "bc7f88c7d050f33cb02de7663aed3fd3805daa9d5fe517eb506dc2991f3d29b3",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p02_moon_map.webp",
-      "sha256": "2e5b266f0dc423bcc9bbd6654e529e2ee695862f612a2c11fcb47bdc50d11a06",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p02_shell_song.webp",
-      "sha256": "427662f44b5a680218804c97a83480646e31ac93aec45135aaa2cf5ec15edfcd",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p03_marsh_path.webp",
-      "sha256": "4f5702012d8c84f2796ca23da12b81cc5710f9d55d83ecc8a119c3a0303d93c5",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p03_root_path.webp",
-      "sha256": "075f0aa4f6714e2911911ac81dd028be78d29dd3aaacbcfd929bb5fa2e59777a",
-      "status": "approved"
+      "sha256": "225b21487edecf50c85f013b7a8abb5d1650b58ecf5b0db6f4e4e6355c727061",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p03_stream_path.webp",
-      "sha256": "9f5393a3e365b5674c627e52c3dd1d66c92e12e2eac772d7f3d946eadb3306a2",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p04_bird_riddle.webp",
-      "sha256": "12abf7403a3d7fb24173d96f342f68dbb93dd99533fa267b5d28e5f3cc3fa8c2",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p04_bridge_shadow.webp",
-      "sha256": "225bc7b2b3a6255351e0c9d200de5729268924377c5fb6fdbd9e0a95c54d697f",
-      "status": "approved"
+      "sha256": "68b54cc6f0a46736a347315bbb53e6a397ed7a3abd70b799b9ee76f8fc17b010",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p04_burrow_digs.webp",
-      "sha256": "cffae007d865221c52b988a89a7186a4b5814cde25286f62c271f03012e048c2",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p04_pip_arrives.webp",
-      "sha256": "1d231be4601ba0a1b9edafe2c3b408fe0d5b4fa319415cc1d72ebeb1785a2e92",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p04_quiet_mist.webp",
-      "sha256": "84f37358a7e55e386dba5f9a120733e2748a1c1e743be2323578a342b35a3051",
-      "status": "approved"
+      "sha256": "f4876fd8621c7dbc1c438ff023fc3c6bcb9138554bb9f1d65ef2e3a69d927372",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p04_upstream.webp",
-      "sha256": "330f629a5be8be946828d0bece1bf4a697275fc195981c12a227af242647814c",
-      "status": "approved"
+      "sha256": "baaa94610b37b76850b074322b242675417da9c1e8738bd6368ff921332903b6",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_burrow_repairs.webp",
-      "sha256": "4a51aee8632557bd3a292bfef336165b95564174d975d5bccdedb729a47ec5fe",
-      "status": "approved"
+      "sha256": "33d9c0df23dfe5b7ba68d119d4c6322061e2890a37da7fda131c114dbd4fe4f1",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_cracked_shell.webp",
-      "sha256": "cef7beae54841a523045039166802bec30cee92e27c340cecfa2df2528d385c2",
-      "status": "approved"
+      "sha256": "408cc421fbb14ead8991d6aaf48b9de01dab94830ebe637b12e9ae2a0d8a7ede",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_cross_stones.webp",
-      "sha256": "0840401f4b829eeeca10caf612684b734e488d4c86194e83d3292ac776ddf604",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_door_answer.webp",
-      "sha256": "8847c952bd3c85962c18aa617819ce14014eac5a2d0b7521964452f8b4d938d9",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_feather.webp",
-      "sha256": "0274fd75283da26a87b9712498fd6f65681d16d5e23b723af5ae875e39344cbf",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_kind_choice.webp",
-      "sha256": "2cdb2238558eb9946b6e66d8d807ba5a842a8005b881e5273ec27aa59483db56",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_leaf_boat.webp",
-      "sha256": "ca50b6e2e967a05c462dc07ea93909daf82857a23f1ced974610869d150f3382",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_pip_leads.webp",
-      "sha256": "a2607694725fee7cd7664011366df3935b0d5c8e61d3f5da016b5932741e9636",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_song_answer.webp",
-      "sha256": "948d7985a4d7e02215b97b930d7eb3131ea4734c988d1989313a9a24cb3e258b",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_tunnel_wide.webp",
-      "sha256": "22a137223b18f1beaeea30cd30202a0bfdb828b2721cd524d00a78c47b4f340d",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p06_burrow_catches_map.webp",
-      "sha256": "de5d18602dc69956f5b6df2aaeae694d5926be1a250a78d3e2b53dc281756204",
-      "status": "approved"
+      "sha256": "711dfd22d9351a514d5b6b082033b753efdd863e192ca9f8b1ed3df070378b6c",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p06_hidden_door.webp",
-      "sha256": "1ecd17631c761388cdf800c7c5532c09ebb0528a4a7012f4b4aca83b14de93b8",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p06_map_sings.webp",
-      "sha256": "aa96eb27e3746a99d1a8f0b1abf1c0546b92e50bc033569a0a4d3fd585156273",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p06_stone_helps.webp",
-      "sha256": "596ea3499f18099c568688041b4925c71d3d1ad09e6a940edb9090f900e05015",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p06_stream_gate.webp",
-      "sha256": "14d8543d57690c6477b1b8adbddbc1ab2af76cdeb9fd06c5cb9f7b9358ffa76c",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p06_wren_warning.webp",
-      "sha256": "600678ac0b09a2547f64d7e30136e3effdbba5d88f3d93637899f7df896f0903",
-      "status": "approved"
+      "sha256": "eeef846dbc396b9c8feaf6d8fec91941cc082cdce128d69fa90d52a619bd3c86",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_door_opens.webp",
-      "sha256": "0ac6388db5dad6907705b8e5505852bc192f19883bf24f99219e775eb6b5a05f",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_knock_reply.webp",
-      "sha256": "cedda5f09749e3ab76276a01a46aa8fa6d15fab0ea3b7be873372f7868683f67",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_luna_fixes.webp",
-      "sha256": "caad4770771feba7a0783fe951be661da68bf910d6446b9e3e7480532ab7f985",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_moss_laughs.webp",
-      "sha256": "ed71fdd768f9d28e7ec2098328bfec81e47439ef60637cff0d6b00192f36e1e1",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_star_fish.webp",
-      "sha256": "aadc8e0113bc5ed496382938793e266fef606c38bc3032b0ce6a4bd906bb66f3",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_stone_too_big.webp",
-      "sha256": "c141b05d5b4371ea9dd35567e9fd06309b26f4ec42c46b95ebe72bc375d33a0f",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_wren_checks.webp",
-      "sha256": "d864e1b2ac1e501f085051ab7050564fefb9ab4a893c46cb30dd8da1bad72ef9",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_wrong_shell.webp",
-      "sha256": "03cd1f838863c41879531aaff79a5538823170dde42bb27c5fec712461a709b6",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p08_key_joke.webp",
-      "sha256": "aab3ef5a42221b32415447e0e49a60fe6967c588f4dc91181bb525dff0d78d9e",
-      "status": "approved"
+      "sha256": "2c09fb8bc64340ffec75502a124a205de4c3569030ba4eccc43dd331893fc887",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p08_map_inside.webp",
-      "sha256": "9c8529362b18fb7f1ac076779cdc5a608ba7b15102097d6c2f35000b4a58ea9b",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p08_polite_door.webp",
-      "sha256": "4f8aa2eaebbfedf37d8e49cf39cf96e961c31fe2a02d477be78891e02fbdc337",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p08_sorry_path.webp",
-      "sha256": "9d2c12988738e5e3bcf57df24432983912a30ce32da2bbc1f03a8ed692ff71d6",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p08_star_room.webp",
-      "sha256": "b5752e146901f9657b67cabb5f4569c9ec96037bfa63f2a1dda00cf209d0f90f",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p08_stone_guard.webp",
-      "sha256": "cd452cedeaa2bb4ca4d0f4b6f3f6231819b7ea1cef79d17d74ba47ee85675053",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_blue_path.webp",
-      "sha256": "be60d9075b0b38294b199753d5d95d7e09b81dc7d60ed8b954b57ecdadb9434c",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_door_answer.webp",
-      "sha256": "dcf78b465944d0587c660059dbaf4fc82f8ad4ad7a08315a48780c54d7c8eb0c",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_echo_room.webp",
-      "sha256": "ece95d45f651e07f54a818746d94cd85de745e8394e4efcd7aea7cc4ee3d3f1f",
-      "status": "approved"
+      "sha256": "2385f5c225ede20d2be990ecf1f32b6c89f7476763f0b2bc8ce01812ca293f75",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_gold_path.webp",
-      "sha256": "9089bcec020164cdd3e3caa1416d6901052f1632ea06568d2b07513aa4d73cee",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_kind_sleep.webp",
-      "sha256": "f338b1f52c4506bf626e92e8f6edd5b6ff46aa86e7a5b4e5d62bce4ad71242c4",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_luna_laughs.webp",
-      "sha256": "30f0f3fd67b7c1766107214b8bb0d36a6f53ff7fb2368332e5ac5e5ffe5e1dce",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_star_choice.webp",
-      "sha256": "13b6bce25ba9a25dcb58141414adae30c2e3f0ed04941464cc11492993186ac2",
-      "status": "approved"
+      "sha256": "c840f6260c5a6d98c21b61776836b97533d8f90181a5183a4f83b3a485849e6b",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_door_open_ending.webp",
-      "sha256": "6518e6bdefa4039aabb21e26e12e0631a45fdbdccffaf03866d3cd30da003693",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_free_seed.webp",
-      "sha256": "ddb4c41a9f0db46025f019ac650e1f2175d52914deef873f2d9c5e6e244b8fb7",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_funny_ending.webp",
-      "sha256": "b0cad464c10f1953702027d358446d27f4cb0d9cf84925dacf02f3dc47e33161",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_home_seed.webp",
-      "sha256": "1a8bdce17b86e2598effd0f43b29f3660bd148b295a2b2661c70239b12c20491",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_marsh_light.webp",
-      "sha256": "42cda1728c4498c8361a1812ebdc944ea5e4937e63793336488932848f45d180",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_quiet_ending.webp",
-      "sha256": "1fce83b936ff9fd1a31f4ee166e5b8dd33cfe15f853e2b06a0b0528b6e1bcc6b",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_stone_star.webp",
-      "sha256": "2b9ce0af30b4bac9393896f715c8dae61935992076cdbfad26dce8fa30ffdaf1",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_wren_ending.webp",
-      "sha256": "f6a3c31e07800aa85704c8945f6a8de30d9e42e1634cdf9cb9f147ceb70210c8",
-      "status": "approved"
+      "sha256": "1b26cead2ee9dffd9f6b6a3ba944c16f95c7df632d5bab8c93a4b7b4f9dfd8b6",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p01_start.webp",
-      "sha256": "68ad683a239a6eeb0f63894d60e6c5858ab2ff0f1c78a00d03efea852eb1bc53",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p02_pip_wants_to_go.webp",
-      "sha256": "ec2d4fd7249c5d5ccd7ecda83f09b826db4979aec22469396c632107220de69d",
+      "sha256": "004c78c1ae3e6b681d04cf91b5a1cd3db259c01de4d92732c6d36c24b56e604e",
       "status": "approved",
-      "reviewedAt": "2026-09-08"
-    },
-    {
-      "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p02_stone_waits.webp",
-      "sha256": "e80369793cacb4423ae1139f29b0de77d48e0f550f5da0af77ca5bce2d418b27",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p03_luna_says_together.webp",
-      "sha256": "e18223bd2173e3c08f8468c318a0bcfe0dc414c0cd8e68fe0d8ce2464b8951fc",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p03_pip_edge.webp",
-      "sha256": "b939641e9835538047ee6198c6a7879660db11e70d7adaecf5bdb6cff1b071f1",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p03_stone_one_foot.webp",
-      "sha256": "bbafaadd699bf21b52931e1b736e6fc1d79e748ae112458dc95e623e130827a1",
-      "status": "approved"
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p04_inside_marsh.webp",
-      "sha256": "163d06734974c9d50af7177ab00e8dc7b68379d3755aa8292312923ec5399e2d",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p04_stone_appears.webp",
-      "sha256": "bf314590144b478b781b1b3c81bd02f7989ab9a5ab802bbe819fe9cc5ae6bf3b",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p04_stone_leads.webp",
-      "sha256": "5a4b60379466b0de1ebcec2706b7698ec63d12266d1f5cfd9954cdb22234c6e6",
-      "status": "approved"
+      "sha256": "b8f15c82ae8709c2f6369644f6af1ab2ebc1b0da5d3697497a487bf215b799a2",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p05_reeds_shake.webp",
-      "sha256": "b8d1c191d0db6e4deb9ffdf55b82af100697c8ae17202965b5c5ca51547ef46c",
-      "status": "approved"
+      "sha256": "04babab36036546611fef763476f96274be64aee1c972f1b2f3400ed65843655",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p05_tiny_tracks.webp",
-      "sha256": "9e1263d88f49c104ba0d5b31fbcb539ad4d97b03f9f5fc4819ed715eaa679620",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p05_together.webp",
-      "sha256": "8062aee9336c088ed1cdb8a822a4478b8a691e86d85b0e74f511bf48663eebe0",
-      "status": "approved"
+      "sha256": "35beff9559ee0d98f9afa8deae4e5730296e2a94b157572b24b71302e2327a27",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p06_mossy_stone.webp",
-      "sha256": "8c720882437501b8e256ac78214486eecd63d4fb2e7431610f691f6d22a0ea6a",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p06_small_answer.webp",
-      "sha256": "761c87417e632660f5ba864e62b9672f9bb54f37a4703464492ca18487ed2736",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p06_stone_bends.webp",
-      "sha256": "d49f747c90b0f061b5cb8f4408e3419581c0234571cc090f02bbd80b036362ab",
-      "status": "approved"
+      "sha256": "2b3c7c5d809e3fff898c94d532d974f93c6265df2c72f5d5f5e66ad21dfd96d3",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p07_pip_speaks.webp",
-      "sha256": "98a3c8585410f11bd5bcbfc2e4938bc0b603f01d93a7b4e74ace5bb4f174d213",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p07_stone_gentle.webp",
-      "sha256": "29a66e7d9709cda7530661fb52db24c28876e8b3f68201e05628fb66ef4f34ea",
-      "status": "approved"
+      "sha256": "18460c972259f30fb06a8227d9bf577172f59895001c789a6389411a7660f220",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p08_search_family.webp",
-      "sha256": "0b96fa5fd0cfe5d2560d7ad165f8fce18c0ed12fad8ccb91fbd773262e381f0e",
-      "status": "approved"
+      "sha256": "66dafbd2e0388277e0277d8d466303c30ed6ad45bc45c50a825220e72be86b48",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p08_stone_calls.webp",
-      "sha256": "5ad5af06032abbd6ef8f54ec1b2b84b6d0993e70bb4f503e9f178c8a0cefdc31",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p08_stone_carries.webp",
-      "sha256": "c04367836273314f22fa4a01273a586fb2268a225e7ededa375ce3dc4d0cb6f2",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p09_answer_far_side.webp",
-      "sha256": "f48503062b3c090c44f0521d1a6f7cf2766d87a092937c0a339accb8ecdc03e2",
-      "status": "approved"
+      "sha256": "b0d8ddfaef8c960aae74b052a82665a913cf8d48cfec5d046e981a7cd79bc2cd",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p09_pip_covers_ears.webp",
-      "sha256": "ecd3302972e75ff6d54d9c1186f1f929889f3616d3d6537411964248a8668687",
-      "status": "approved"
+      "sha256": "c8ea51d17d5864b60cb568e46ac2dcff08953e66077fd2cbb1eed58af5244fcc",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p09_pip_listens.webp",
-      "sha256": "d9926687b876cd07fccbdeb6cf3f9485dc8e835471a88e4a25de17b37a28acc7",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p09_soft_call.webp",
-      "sha256": "532f180f80ddf7f6871f3a518399d4071d6e37120a01f665c3ab979a0b55d5d4",
-      "status": "approved"
+      "sha256": "c9fe9a865636c8bbcaf3a8536e8f05f8e853c5f2eb30faf0ed102724c320bad5",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p09_toadling_calls.webp",
-      "sha256": "5a3a8cdcecbe5271ec90000820b680b26464c61143273220a3f6808020f2a9f2",
-      "status": "approved"
+      "sha256": "655dada01d956f588c99f299f52870bb9f8876237817c41346b6d0a6363dc31e",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p10_family_found.webp",
-      "sha256": "01b9fb2c7156c4585b91577b090b4c74040bf43fd418a9f714efbbf6f7c162c1",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p11_back_home.webp",
-      "sha256": "aec5f035503312d70e3ed1bbcd39719524525e9bcb0a6df8a980aee1ba6ce011",
-      "status": "approved"
+      "sha256": "501f8066e23d2c6cd34496657ae2b097cbca5fc7722289d35510c0a37ce6baea",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p11_toadling_answer.webp",
-      "sha256": "252b51cf9d82898ec5110d7f28935a040f063a0a304c80af3fec3202ca336cc0",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p12_ending_loud.webp",
-      "sha256": "5eef717210818bc5f8aeae665ada827086f976abec1e438a5c83b3a2bfdf18d9",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p12_ending_quiet.webp",
-      "sha256": "60292cf877089c9ef13fb6a277fc2f345b0bc96ada8a1afb89adb36b7ea2e91b",
-      "status": "approved"
+      "sha256": "78e97362bd5ce28cceab7650dbc26ec71ae4a639b36276db79777161fa8c3aa3",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/sam-pam/page-01.webp",
-      "sha256": "799ede5b93f7fe46efa6c751316412117735251f4c7bae8fcb8afc39d86ef754",
-      "status": "approved"
+      "sha256": "e3f29a5116896e8e12aa2cdac69ce5c1429f8dcd6bdfe8e3ffae693fa661b230",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/sam-pam/page-02.webp",
-      "sha256": "8790da9757ad64108b775e05f0cce6567deedf6e23d21953add233e14b619ecf",
-      "status": "approved"
+      "sha256": "cd51ab7ecff3e4028092f22aa5b820c50495e546152480f91f460e1997dbbd40",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/sam-pam/page-03.webp",
-      "sha256": "07df8ae6f34cdeee476c1c48d998509765d77b3627799d9aee4931c5fc60508f",
-      "status": "approved"
+      "sha256": "d3f18e09e2f530a280eefed07438be50560daf604ff99e0ea7c3dbbee987fe37",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/sam-pam/page-04.webp",
       "sha256": "d9387aea802f0bf171ded8924479ffb969f7ef06c3b6c34e1d6bbf1c427324e3",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/sam-pam/page-05.webp",
       "sha256": "e76aa8c19420e89218bd05c84b197c5be3121488133399607b708ea091e0fa2a",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/sam-pam/page-06.webp",
-      "sha256": "4f4e92a4c5b00e332031cf152cc12d1ac53777748ee11ac5b4e33274cc46d246",
-      "status": "approved"
+      "sha256": "5c326690b58d298fa00a285a66a6231f309c6f474627a4d9d8e5ca2836e7fa0c",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/sam-pam/page-07.webp",
-      "sha256": "c9b72da2fcb391f8267d8bbec61fc64fc48a2aad5fdac96181e06343a6abd325",
-      "status": "approved"
-    },
-    {
-      "path": "/images/story-quests/sam-pam/page-08.webp",
-      "sha256": "65e6666627a2163c6e55874a91328bea227e5c0bc9df852ed23e52439439e425",
-      "status": "approved"
+      "sha256": "d32d233c2f7623abae5983ea14ecf5f287712455065c72ee80536c892e54a441",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/sam-pam/page-09.webp",
-      "sha256": "b65e4529b01a49990ff26537f98d76879ba2a46cef4902ac13ae171ffee37e76",
-      "status": "approved"
+      "sha256": "40dc548db3c15b2ec9b731d6bc43482d04b11a7077526430ed142ba259b8f559",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/sam-pam/page-10.webp",
-      "sha256": "89f0e1dc239ef14228d4e09c505ce655e5ac8dd5961634961e49534d8fd5357b",
-      "status": "approved"
+      "sha256": "10a02f57d087d96cd1bdf96983f6752ee76e7dcb48315a7dffe8042b03db8497",
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/sam-pam/words/word-bag.webp",
       "sha256": "b47aeccaa57d09ded712e47dc64149be27b9be1c586ba046aa7f09e924bd46a5",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/sam-pam/words/word-cat.webp",
       "sha256": "00c50e7ce10df858b12c356661231f99d03e095d4ea6db96b36523c7dff67122",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/sam-pam/words/word-jam.webp",
       "sha256": "df2e24c50f68472244bf5f6c21bf8cbd5504bfdc5922d1e536231103c2d3a255",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/sam-pam/words/word-map.webp",
       "sha256": "49099deec9b58b33f5724e13ef8438f8acc5f306117fe7c330b65b323cc9c4b7",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/sam-pam/words/word-mat.webp",
       "sha256": "4b42e801ba4598a1664b4972b2144622c2da1fd61626a0a44070b5daf84216b4",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/story-quests/sam-pam/words/word-van.webp",
       "sha256": "892cb0a1b1b680a64ff47089bbc0b0c2656af44cfb0e50b86e74fd1803f6ea66",
-      "status": "approved"
+      "status": "approved",
+      "reviewedAt": "2026-09-30"
     },
     {
       "path": "/images/vocabulary/apple.webp",

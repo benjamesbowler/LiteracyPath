@@ -1,75 +1,41 @@
 import { expect, test } from "@playwright/test";
 
-test("Shy's Snail Shade traverses a mixed-material route in the real child player", async ({ page }) => {
+test("Shy's snail routes preserve materials, audible choices and the ending illustration", async ({ page }) => {
   const runtimeErrors = [];
   page.on("pageerror", error => runtimeErrors.push(error.message));
-
   await page.goto("/preview/child-surfaces.html?surface=story-quests");
   await page.getByRole("button", { name: "Dino", exact: true }).click();
-
-  const questCard = page.getByRole("button").filter({ hasText: "Shy's Snail Shade" });
-  await expect(questCard).toBeVisible();
-  await expect(questCard.locator("img")).toHaveAttribute(
-    "src",
-    new RegExp("^/images/story-quests/dino-pals/shy-snail-shade/p01_start\\.webp\\?v=[a-f0-9]{12}$")
-  );
-  await questCard.click();
-
-  const reader = page.getByRole("region", { name: "Shy's Snail Shade Story Quest" });
-  await expect(reader).toBeVisible();
-  await expect(reader.getByRole("heading", { name: "Shy's Snail Shade" })).toBeVisible();
-  await expect(reader).toContainText("Hot sun dries one snail trail.");
-  const audioButton = reader.locator(".story-quest-audio-button");
-  await expect(audioButton).toBeEnabled();
-  await expect(audioButton).toHaveText("Replay audio");
-  await audioButton.click();
-  await expect(audioButton).toHaveText("Playing audio");
-
-  await reader.getByRole("button", { name: "Slide a broad leaf", exact: true }).click();
-  await expect(reader).toContainText("The smooth leaf tips. Back on sand.");
-  await expect(reader.locator(".story-quest-image-stage img")).toHaveAttribute(
-    "src",
-    new RegExp("^/images/story-quests/dino-pals/shy-snail-shade/p02_leaf_failure\\.webp\\?v=[a-f0-9]{12}$")
-  );
-
-  await reader.getByRole("button", { name: "Try rough bark", exact: true }).click();
-  await expect(reader).toContainText("The snail grips it and crawls.");
-  await reader.getByRole("button", { name: "Use short pieces", exact: true }).click();
-  await expect(reader).toContainText("Three bark pieces cross the hot sand.");
-
-  await reader.getByRole("button", { name: "Finish with moss", exact: true }).click();
-  await expect(reader).toContainText("Shy joins the moss into one damp path.");
-  await expect(reader.locator(".story-quest-image-stage img")).toHaveAttribute(
-    "src",
-    new RegExp("^/images/story-quests/dino-pals/shy-snail-shade/p05_moss\\.webp\\?v=[a-f0-9]{12}$")
-  );
-
-  await reader.getByRole("button", { name: "Under the broad fern", exact: true }).click();
-  await expect(reader).toContainText("One feeler peeks past Shy's foot.");
-  await expect(reader.getByRole("status")).toContainText("Scene 6");
-  await expect(reader.locator(".story-quest-image-stage img")).toHaveAttribute(
-    "src",
-    new RegExp("^/images/story-quests/dino-pals/shy-snail-shade/p06_fern_ending\\.webp\\?v=[a-f0-9]{12}$")
-  );
-
+  const card = page.locator(".kg-quest-open").filter({ hasText: "Shy’s Snail Trail" });
+  await expect(card.locator("img")).toHaveAttribute("src", /covers\/shy-snail-trail\.webp/);
+  await card.click();
+  const reader = page.locator(".story-quest-reader");
+  await expect(reader).toHaveAttribute("data-page-id", "p01_start");
+  await expect(reader.locator(".story-quest-audio-button")).toBeEnabled();
+  await reader.getByRole("button", { name: "Hear choice: Offer a leaf", exact: true }).click();
+  await expect(reader).toHaveAttribute("data-page-id", "p01_start");
+  await reader.getByRole("button", { name: "Offer a leaf", exact: true }).click();
+  await expect(reader).toContainText("The leaf tips under the snail.");
+  await reader.getByRole("button", { name: "Lay damp moss", exact: true }).click();
+  for (const next of ["p04_moss_dots", "p04_moss_strip", "p05_moss", "p06_fern_ending"]) {
+    await reader.getByRole("button", { name: "Next", exact: true }).click();
+    await expect(reader).toHaveAttribute("data-page-id", next);
+  }
+  await expect(reader).toContainText("One feeler peeks past Shy’s foot.");
+  await expect(reader.locator(".story-quest-position")).toHaveText("Scene 7");
+  const endingImage = await reader.locator(".story-quest-image").getAttribute("src");
   await reader.getByRole("button", { name: "Finish", exact: true }).click();
-  await expect(page.getByRole("region", { name: "Shy's Snail Shade complete" })).toBeVisible();
-
-  await page.getByRole("button", { name: "Read again", exact: true }).click();
-  await expect(reader).toContainText("Hot sun dries one snail trail.");
-  await reader.getByRole("button", { name: "Roll a small twig", exact: true }).click();
-  await expect(reader).toContainText("The snail pulls in and stops.");
-  await reader.getByRole("button", { name: "Bridge with bark", exact: true }).click();
-  await reader.getByRole("button", { name: "Use one strip", exact: true }).click();
-  await reader.getByRole("button", { name: "Finish with bark", exact: true }).click();
-  await expect(reader).toContainText("It reaches the shaded fern bank.");
-  await expect(reader.locator(".story-quest-image-stage img")).toHaveAttribute(
-    "src",
-    new RegExp("^/images/story-quests/dino-pals/shy-snail-shade/p05_bark\\.webp\\?v=[a-f0-9]{12}$")
-  );
-  await reader.getByRole("button", { name: "Under the old log", exact: true }).click();
-  await expect(reader).toContainText("The snail reaches cool bark under the log.");
-  await reader.getByRole("button", { name: "Finish", exact: true }).click();
-  await expect(page.getByRole("region", { name: "Shy's Snail Shade complete" })).toBeVisible();
+  await expect(reader.locator(".story-quest-position")).toHaveText("The end");
+  await expect(reader.locator(".story-quest-image")).toHaveAttribute("src", endingImage);
+  await expect(reader).toContainText("One feeler peeks past Shy’s foot.");
+  await reader.getByRole("button", { name: "Read again", exact: true }).click();
+  await expect(reader).toHaveAttribute("data-page-id", "p01_start");
+  await reader.getByRole("button", { name: "Lay a twig", exact: true }).click();
+  await reader.getByRole("button", { name: "Lay flat bark", exact: true }).click();
+  for (const next of ["p04_bark_steps", "p05_bark", "p06_log_ending"]) {
+    await reader.getByRole("button", { name: "Next", exact: true }).click();
+    await expect(reader).toHaveAttribute("data-page-id", next);
+  }
+  await expect(reader).toContainText("The snail rests in the log.");
+  await expect(reader.locator(".story-quest-position")).toHaveText("Scene 6");
   expect(runtimeErrors).toEqual([]);
 });

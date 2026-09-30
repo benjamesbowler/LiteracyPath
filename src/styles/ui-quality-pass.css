@@ -1054,61 +1054,6 @@
     display: none;
   }
 
-  /* The rebuilt Story Quests front door must reflow too. Its landscape header
-     otherwise gives the world tray a 690px intrinsic width and clips both the
-     filters and story cards on a 320px phone. */
-  .kg-stage .kg-quests {
-    grid-template-rows: auto auto;
-    height: auto;
-    min-height: 100%;
-  }
-
-  .kg-stage .kg-quests-head {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: 8px;
-    min-width: 0;
-  }
-
-  .kg-stage .kg-quests-head > .kg-spacer {
-    display: none;
-  }
-
-  .kg-stage .kg-quests-pill {
-    grid-column: 2;
-    min-width: 0;
-    white-space: normal;
-  }
-
-  .kg-stage .kg-quests-head .kg-segment-tray {
-    display: grid;
-    grid-column: 1 / -1;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    width: 100%;
-    min-width: 0;
-  }
-
-  .kg-stage .kg-quests-head .kg-segment {
-    min-width: 0 !important;
-    padding-inline: 6px;
-  }
-
-  .kg-stage .kg-quest-region,
-  .kg-stage .kg-quest-grid {
-    overflow: visible;
-  }
-
-  .kg-stage .kg-quest-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: none;
-  }
-
-  .kg-stage .kg-quests button.kg-quest-card {
-    /* The glass shell's physical hit floor is !important; match that cascade
-       deliberately so the artwork row cannot collapse to a one-pixel strip. */
-    min-height: 250px !important;
-  }
-
   /* Arcade */
   .kg-stage .student-surface-arcade,
   .kg-stage .student-surface-arcade .lg-arcade,
@@ -1774,68 +1719,10 @@
     white-space: nowrap;
   }
 
-  .kg-stage .kg-quests,
-  .kg-stage .kg-quests-head {
-    gap: 6px;
-  }
-
   /* Font fallbacks can make both header lines wrap on Linux, pushing the
      complete first story behind the fixed navigation. Keep the same 250px
      illustrated card and 56px controls by authoring two bounded header rows:
      Back plus copy, then the three world choices. */
-  .kg-stage .kg-quests-head {
-    grid-template-columns: 56px minmax(0, 1fr);
-    grid-template-rows: 58px 58px;
-    column-gap: 6px;
-    row-gap: 6px;
-  }
-
-  .kg-stage .kg-quests-head > .kg-back {
-    grid-column: 1;
-    grid-row: 1;
-    width: 56px;
-    min-width: 56px;
-    height: 56px;
-  }
-
-  .kg-stage .kg-quests-head .kg-title {
-    grid-column: 2;
-    grid-row: 1;
-    align-self: start;
-    min-width: 0;
-    margin: 0;
-    font-size: 28px;
-    line-height: 32px;
-    white-space: nowrap;
-  }
-
-  .kg-stage .kg-quests-pill {
-    grid-column: 2;
-    grid-row: 1;
-    align-self: end;
-    width: 100%;
-    min-width: 0;
-    height: 24px;
-    min-height: 0;
-    margin: 0;
-    padding: 2px 6px;
-    box-sizing: border-box;
-    font-size: 13px;
-    line-height: 1.1;
-    white-space: nowrap;
-  }
-
-  .kg-stage .kg-quests-head .kg-segment-tray {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    height: 58px;
-    padding: 0;
-  }
-
-  .kg-stage .kg-quests-head .kg-segment {
-    height: 56px;
-    min-height: 56px !important;
-  }
 
   .kg-stage .kg-books-head {
     height: 68px;
@@ -2445,119 +2332,6 @@
     left: 226px;
   }
 
-  /* Story Quests uses one compact header row and a horizontal illustrated
-     recommendation card. Further quests remain in the route's own flow. */
-  .kg-stage .kg-quests {
-    grid-template-rows: auto auto;
-    height: auto;
-    min-height: 100%;
-    gap: 6px;
-    padding: 6px;
-  }
-
-  .kg-stage .kg-quests-head {
-    display: grid;
-    grid-template-columns: 56px minmax(150px, 1fr) minmax(270px, 1.45fr);
-    grid-template-rows: 58px;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .kg-stage .kg-quests-head > .kg-back {
-    grid-column: 1;
-    grid-row: 1;
-    width: 56px;
-    height: 56px;
-  }
-
-  .kg-stage .kg-quests-head .kg-title {
-    grid-column: 2;
-    grid-row: 1;
-    align-self: start;
-    margin-top: 4px;
-    overflow: hidden;
-    font-size: 1.35rem;
-    line-height: 1;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .kg-stage .kg-quests-pill {
-    grid-column: 2;
-    grid-row: 1;
-    align-self: end;
-    height: 24px;
-    min-height: 0;
-    margin-bottom: 1px;
-    padding: 2px 6px;
-    font-size: 0.7rem;
-    white-space: nowrap;
-  }
-
-  .kg-stage .kg-quests-head > .kg-spacer {
-    display: none;
-  }
-
-  .kg-stage .kg-quests-head .kg-segment-tray {
-    grid-column: 3;
-    grid-row: 1;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    width: 100%;
-    height: 58px;
-    padding: 0;
-  }
-
-  .kg-stage .kg-quests-head .kg-segment {
-    height: 56px;
-    min-height: 56px !important;
-    padding-inline: 4px;
-    font-size: 13px;
-  }
-
-  .kg-stage .kg-quest-region,
-  .kg-stage .kg-quest-grid {
-    overflow: visible;
-  }
-
-  .kg-stage .kg-quest-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: none;
-    gap: 6px;
-  }
-
-  .kg-stage .kg-quests button.kg-quest-card {
-    display: grid;
-    grid-template-columns: 150px minmax(0, 1fr);
-    grid-template-rows: 122px;
-    height: 122px;
-    min-height: 122px !important;
-  }
-
-  .kg-stage .kg-quest-card-art {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .kg-stage .kg-quest-card-foot {
-    grid-column: 2;
-    grid-row: 1;
-    align-self: center;
-    padding: 8px 12px;
-  }
-
-  .kg-stage .kg-quest-card-title {
-    font-size: 17px;
-    line-height: 1.05;
-  }
-
-  .kg-stage .kg-quest-card-note {
-    font-size: 12px;
-  }
-
-  .kg-stage .kg-quest-card-action {
-    margin-top: 5px;
-  }
-
   /* Reading keeps filters in a deliberate horizontal header scroller and
      lays the current recommendation out as one complete action row. */
   .kg-stage .kg-books {
@@ -3054,36 +2828,11 @@
     white-space: normal;
   }
 
-  .kg-stage .kg-quests-head {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto auto;
-    gap: 8px;
-    min-width: 0;
-  }
-
   /* Linux's display font is a little wider than macOS's at this six-column
      breakpoint. Keep long one-word labels such as "Adventure" inside their
      door without reducing the card count or clipping the child's choice. */
   .kg-stage .kg-home-door .kg-card-title {
     font-size: 16px;
-  }
-
-  .kg-stage .kg-quests-head > .kg-spacer {
-    display: none;
-  }
-
-  .kg-stage .kg-quests-head .kg-segment-tray {
-    display: grid;
-    grid-column: 1 / -1;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    width: 100%;
-    min-width: 0;
-  }
-
-  .kg-stage .kg-quests-head .kg-segment {
-    min-width: 0 !important;
-    justify-content: center;
-    padding-inline: 8px;
   }
 }
 

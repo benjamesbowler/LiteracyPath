@@ -423,7 +423,11 @@ Weak:
 
 ### 4.2 Choice language
 
-- Two options per scene.
+- Two options at a meaningful decision. Between decisions, use one **Next**
+  control and let the action unfold; never manufacture a fork to fill a layout.
+- Both actions must be heard without selecting them. Prompts, choice labels,
+  titles and hooks count toward the child's total language load, with exact
+  recorded support available independently of selection.
 - Four words or fewer per option.
 - Start with a concrete verb where possible.
 - Name the object or character when ambiguity is possible.
@@ -577,7 +581,8 @@ and precise detail
 
 Hard limits:
 
-- standard Level C books: up to 3 lines and 22 words per page;
+- standard Level C books and Moonwood Story Quests: up to 3 lines and 22 words
+  per page (up to 9 words per authored line in a Quest);
 - Moonwood extended-narrative books: one connected paragraph designed to wrap to
   roughly 4–5 short reader lines, normally 24–34 words and never more than 38 words;
 - Moonwood paragraphs use 2–4 short sentences, with no sentence carrying more than
@@ -602,7 +607,7 @@ Writing rules:
 - In the Moonwood extended-narrative profile, name the acting character, object and
   consequence clearly enough that a child never has to decode a cryptic fragment or guess
   what an unexplained pronoun refers to.
-- Each Moonwood page must make sense as a paragraph and must also pick up a visible action,
+- Each extended Moonwood book page must make sense as a paragraph and must also pick up a visible action,
   object, question or feeling from the previous page before preparing the next beat.
 
 Example:
@@ -627,6 +632,10 @@ Moonwood extended-narrative example:
 - Do not add an attractive but out-of-scope destination word.
 - Do not make pictures a guessing strategy.
 - Keep the story coherent despite the restricted code.
+- Keep articles and other grammar needed for natural English. Do not omit
+  **a** or **the** to save a word. Declare story decoding words separately from
+  spoken navigation and choice support; UI words are never silently counted as
+  independently decodable story text.
 
 ---
 

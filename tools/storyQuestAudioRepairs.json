@@ -1,0 +1,10 @@
+{
+  "revision": "2026-09-29-clarity-1",
+  "reason": "Fresh exact-text takes for ambiguity flagged by two independent unprompted local speech screens. Recognition differences are screening evidence, not a human listening claim.",
+  "words": ["the", "am", "comes", "climbs", "make", "her", "finds", "folded", "hole", "fit", "an", "listens", "wake", "hurries", "pulls", "picnic", "takes", "makes", "fold", "hill", "bare", "thread", "gets"],
+  "controls": ["Hear the choices"],
+  "pages": [
+    {"questId": "mw_ra_c_01_pip_stone_loud_thing", "pageId": "p04_inside_marsh"},
+    {"questId": "story_quest_short_a_sam_pam_01", "pageId": "page-02"}
+  ]
+}

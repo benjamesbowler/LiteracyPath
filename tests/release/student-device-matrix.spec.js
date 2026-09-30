@@ -1242,6 +1242,47 @@ for (const profile of STUDENT_DEVICE_PROFILES) {
   });
 }
 
+for (const profile of STUDENT_DEVICE_PROFILES) {
+  test(`A3.6 Story Quest shelf and reader at ${profile.id}`, async ({ page }) => {
+    await installFullscreenMock(page);
+    const route = CHILD_SURFACE_ROUTES.find(candidate => candidate.id === "story-quests");
+    const surface = await openChildSurface(page, route, profile);
+    await expectHeadingTextFragmentsContained(surface, profile.id);
+    await expectPrimaryActionInInitialPane(surface, profile.id);
+    await expectNoHorizontalOverflow(page, profile.id);
+    await expectMinimumTargets(surface, profile.id);
+    await expectKeyboardState(page, surface, profile.id);
+    await expect.soft(page).toHaveScreenshot(`student-device-story-quests-${profile.id}.png`, {
+      animations: "disabled", caret: "hide", maxDiffPixelRatio: 0.01
+    });
+    await page.getByRole("button", { name: "Moonwood", exact: true }).click();
+    await page.getByRole("button", { name: "Open Dewdrop and Flint: The Hidden Glow", exact: true }).click();
+    const reader = page.locator(".story-quest-reader");
+    await expectVisibleImagesReady(page, `${profile.id} Story Quest reader`);
+    await expectMinimumTargets(reader, `${profile.id} Story Quest reader`);
+    await expectNoHorizontalOverflow(page, `${profile.id} Story Quest reader`);
+    await reader.getByRole("button", { name: "Next", exact: true }).scrollIntoViewIfNeeded();
+    await expect(reader.getByRole("button", { name: "Next", exact: true })).toBeInViewport();
+    await reader.locator("summary").click();
+    await reader.getByRole("button", { name: "Full screen", exact: true }).click();
+    await expect(reader).toHaveClass(/fullscreen/);
+    await expectFullscreenHistory(page, ["enter"], `${profile.id} Story Quest reader`);
+    const pictureHeight = await reader.locator(".story-quest-image-stage").evaluate(element => element.getBoundingClientRect().height);
+    expect(pictureHeight, `${profile.id} full screen must not collapse the illustration`).toBeGreaterThan(100);
+    await expectMinimumTargets(reader, `${profile.id} fullscreen Story Quest`);
+    await expectNoHorizontalOverflow(page, `${profile.id} fullscreen Story Quest`);
+    await page.mouse.move(0, 0);
+    await expect.soft(page).toHaveScreenshot(`story-quest-reader-${profile.id}.png`, {
+      animations: "disabled", caret: "hide", maxDiffPixelRatio: 0.01
+    });
+    await reader.getByRole("button", { name: "Next", exact: true }).scrollIntoViewIfNeeded();
+    await expect(reader.getByRole("button", { name: "Next", exact: true })).toBeInViewport();
+    await reader.locator("summary").click();
+    await reader.getByRole("button", { name: "Exit full screen", exact: true }).click();
+    await expectFullscreenHistory(page, ["enter", "exit"], `${profile.id} Story Quest reader`);
+  });
+}
+
 test("A3.6 heading containment rejects near-boundary glyph clipping", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 768, height: 1024 });

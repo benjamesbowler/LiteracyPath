@@ -1,32 +1,8 @@
-// STORY QUESTS — the child's shelf of choose-what-happens stories (phase D of
-// the 2026-07-29 kids-side redesign).
-//
-// Binding spec: mockups/design-handoff-kids-side/README.md, "### 5. Story
-// Quests". Layout lives in src/styles/kids-library.css; every glass surface,
-// radius, blur, type step and control comes from src/styles/kids-glass.css
-// (phase A). The badge states come from src/policy/childLibraryPolicy.js,
-// shared with Books.
-//
-// IT IS REACHED FROM BOOKS, AND THE BOOKS TAB STAYS LIT. There are five tabs
-// and eight places; the spec puts Story Quests behind Books. `active="stories"`
-// is mapped onto the Books tab by selectActiveStudentTab, so the bar is never
-// left dark and the back chevron goes where the child came from.
-//
-// IT IS A FRONT DOOR, NOT A REPLACEMENT. Tapping a story opens the real
-// player, which keeps everything it has: branching choices, resume on the route
-// the child was actually on, page audio, fullscreen, the word panel and the
-// completion screen with Read again. Nothing was culled.
-//
-// THE THREE NUMBERS THAT DO NOT COME BACK. The old shelf page led with
-// "3 complete", "2 in progress" and "30 of 119 story words seen". The child UI
-// caps its numeric systems at two — stars and coins — and those were a third, a
-// fourth and a fifth. What replaced them is a per-story BADGE that says what to
-// do rather than how much has been counted: Carry on, New, Done, Next world.
-// "You are on page 3" survives because a page is a position in the story being
-// read, not a score.
-
 import { useEffect, useMemo, useState } from "react";
 
+import { useStoryQuestAudio } from "../utils/useStoryQuestAudio.js";
+import { storyQuestInvitation } from "../data/storyQuestReaderCopy.js";
+import { StoryQuestSpeaker } from "./StoryQuestSpeaker.jsx";
 import StudentGlassShell from "./StudentGlassShell.jsx";
 import { storyQuests } from "../data/storyQuests.js";
 import { filterSample } from "../policy/freeTierContent.js";
@@ -97,6 +73,7 @@ export function StudentStoryQuestsPage({
   renderQuest
 }) {
   const [playingId, setPlayingId] = useState("");
+  const narration = useStoryQuestAudio();
   // Held in state and re-read when the child comes back from a story, so the
   // badges show the progress the player just saved rather than the state this
   // screen started in. Re-read in the event handler, never in an effect.
@@ -121,9 +98,9 @@ export function StudentStoryQuestsPage({
     quests,
     progress: read.progress,
     world,
-    reachedWorld,
+    readingLevel,
     slots: QUEST_GRID_SLOTS
-  }), [quests, read.progress, reachedWorld, world]);
+  }), [quests, read.progress, readingLevel, world]);
 
   if (playingId && renderQuest) {
     return renderQuest({
@@ -159,6 +136,7 @@ export function StudentStoryQuestsPage({
             <BackGlyph />
           </button>
           <h1 className="kg-title" data-child-title="">Story Quests</h1>
+          <button className="kg-quest-listen" type="button" aria-label="Hear how Story Quests work" onClick={() => narration.play("You choose what happens")}><StoryQuestSpeaker /><span className="kg-quest-hear-label">Hear</span></button>
           <span className="kg-pill kg-quests-pill" data-child-instruction="">
             {read.ok ? "You choose what happens" : "We could not open your stories"}
           </span>
@@ -167,7 +145,7 @@ export function StudentStoryQuestsPage({
               page grouped stories by Level A / B / C and let a child jump
               between the groups; the groups are named by their world here,
               because "Meadow" is a place a five-year-old can point at. Every
-              story stays reachable — thirteen stories, six cells. */}
+              story stays reachable in its world. */}
           <div className="kg-glass kg-segment-tray" role="group" aria-label="Story worlds">
             {STORY_WORLDS.map(entry => (
               <button
@@ -175,7 +153,7 @@ export function StudentStoryQuestsPage({
                 type="button"
                 className={`kg-segment${entry.id === world ? " is-active" : ""}`}
                 aria-pressed={entry.id === world}
-                onClick={() => setWorld(entry.id)}
+                onClick={() => { setWorld(entry.id); narration.play(entry.label); }}
               >
                 <span
                   className="kg-segment-dot"
@@ -190,22 +168,21 @@ export function StudentStoryQuestsPage({
 
         {/* The section is where the child's state is shown (every badge); the
             grid inside it is the set of choices. */}
+        {narration.status && <p role="status">{narration.status}</p>}
         <section className="kg-quest-region" aria-label="Your stories" data-child-progress="">
           {cards.length
             ? (
               <div className="kg-quest-grid" data-child-choices="">
                 {cards.map((card, index) => (
-                  <button
+                  <article
                     key={card.id}
-                    type="button"
                     className={`kg-glass kg-glass--tinted kg-quest-card${index === 0 ? " kg-quest-card--pick" : ""}`}
-                    onClick={() => setPlayingId(card.id)}
                     data-quest-state={card.state}
                     data-quest-world={card.world}
-                    {...(index === 0
-                      ? { "data-child-primary": "", "data-child-emphasis": "primary" }
-                      : { "data-child-emphasis": "choice" })}
                   >
+                    <button {...(index === 0
+                      ? { "data-child-primary": "", "data-child-emphasis": "primary" }
+                      : { "data-child-emphasis": "choice" })} className="kg-quest-open" type="button" onClick={() => { narration.stop(); setPlayingId(card.id); }} aria-label={`${card.state === "carry-on" ? "Continue" : "Open"} ${card.fullTitle}`}>
                     <span className="kg-quest-art">
                       <img
                         src={card.art}
@@ -223,13 +200,16 @@ export function StudentStoryQuestsPage({
                     <span className="kg-quest-foot">
                       <strong className="kg-quest-title">{card.title}</strong>
                       <small className="kg-quest-note">{card.note}</small>
+                      {card.readingNote && <small className="kg-quest-reading-note">{card.readingNote}</small>}
                       {index === 0 && (
                         <small className="kg-quest-action" data-child-emphasis-cue="">
-                          {card.state === "carry-on" ? "Carry on" : "Start story"}
+                          {card.state === "carry-on" ? "Continue" : card.state === "done" ? "Read again" : "Start story"}
                         </small>
                       )}
                     </span>
-                  </button>
+                    </button>
+                    <button className="kg-quest-listen" type="button" aria-label={`Hear about ${card.fullTitle}`} onClick={() => narration.play(storyQuestInvitation(quests.find(quest => quest.id === card.id)))}><StoryQuestSpeaker /> Hear this story</button>
+                  </article>
                 ))}
               </div>
             )

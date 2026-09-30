@@ -1,5 +1,37 @@
 # Current system cleanup — 31 July 2026
 
+## Story Quest catalogue and media — 30 September 2026
+
+The fourteen Story Quests now use 190 current scenes, fourteen dedicated covers
+and six unchanged Sam/Pam picture-word cards. Removed exactly 150 illustrations
+for the original audit's retired pages, 144 older registry-only illustrations
+outside that audit, and 43 superseded narration files created during this
+revision. Each cohort passed fresh hash, live/source/test/operational reference,
+dynamic-consumer and canon checks. The six active word cards were explicitly
+preserved. Current scene art, covers, narration, shared word audio, original
+source art and other books' assets remain intact. The removed
+illustration bytes are recoverable from their recorded Git commit and blobs;
+the superseded audio can be synthesized again from the recorded inputs, but its
+exact untracked MP3 bytes were not committed.
+
+Scoped visual-review retirement uses the existing recorder with direct review
+receipts. Audio existence catalogues and the public media inventory are rebuilt
+through their generators. `tools/syncStoryQuestMediaQa.mjs` replaces only stale
+Story Quest Admin QA rows with the 190 current pages and exact media metadata;
+unrelated rows and quarantine decisions remain intact. Its `--check` mode is
+part of the Story Quest release check. Saved review snapshots cannot replace
+current content, and notes for a different media fingerprint remain historical.
+The current [production contract](content/STORY_QUEST_PRODUCTION.md)
+owns manuscript, reader and media behavior. Exact deletion, preservation and
+verification receipts and the original-page resolution report remain in ignored
+`.artifacts/story-quests-remediation-2026-09-29/`; these are evidence, not a second
+runtime catalogue. No learner records, hosted state or original-checkout media
+were deleted.
+
+Removed the task's reproducible offline speech environment and three model
+caches after preserving recognition reports, model hashes and generation inputs.
+The original Codex-generated artwork and required review evidence remain intact.
+
 ## Present classroom workspace — 28 September 2026
 
 Present now derives its outline, preview, print plan and projector from one

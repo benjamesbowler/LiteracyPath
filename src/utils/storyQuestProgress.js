@@ -86,6 +86,23 @@ export function buildStoryQuestResumeHistory({
   return route;
 }
 
+/** A rewritten story must never resume inside a route whose clues have changed. */
+export function resolveStoryQuestResume(quest = {}, progress = {}, requestedPageId = "") {
+  const start = quest.startPageId || quest.pages?.[0]?.id || "";
+  const pages = new Map((quest.pages || []).map(page => [page.id, page]));
+  const fresh = { pageId: start, history: [] };
+  if (quest.contentRevision && progress.contentRevision !== quest.contentRevision) return fresh;
+  if (!requestedPageId || !pages.has(requestedPageId)) return fresh;
+  const history = buildStoryQuestResumeHistory({
+    currentPageId: requestedPageId, progress, validPageIds: [...pages.keys()]
+  });
+  const route = [...history, requestedPageId];
+  if (route[0] !== start) return fresh;
+  if (route.some((pageId, index) => index > 0
+    && !pages.get(route[index - 1])?.choices?.some(choice => choice.nextPageId === pageId))) return fresh;
+  return { pageId: requestedPageId, history };
+}
+
 export function mergeStoryQuestProgressRow(
   previous = {},
   patch = {},

@@ -45,6 +45,7 @@ content and rejects any unsupported approval claim. `npm run
 check:story-content-release` is the strict publication verdict; it remains red while any
 registered narrative item is not approved.
 
-The current evidence record is:
-
-[Story Quest policy audit and complete remediation blueprint — 31 July 2026](./STORY_QUEST_POLICY_AUDIT_2026-07-31.md)
+The [Story Quest production contract](./STORY_QUEST_PRODUCTION.md) owns reader
+behavior and the production workflow. Current, fingerprinted review records live
+in `src/content/storyContentReviews.js`; generated audits are evidence, not a
+second manuscript or a permanent alternative source.

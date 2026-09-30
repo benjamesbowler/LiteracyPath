@@ -57,567 +57,752 @@ export const guidedReadingSharedStoryReviews = Object.freeze([Object.freeze({
   narrationManifest: "public/audio/production/en-US/meadow_science/missing-sandwich/manifest.json"
 })]);
 
-const historicalStoryQuestPolicyReviews = Object.freeze([
-  Object.freeze({
-    id: "mw_ra_c_01_pip_stone_loud_thing",
-    sourceFingerprint: "9ecae1158714f9323080ab21ad09a0bd1ef43c398a006b3505a3ca0ec165f98f",
-    status: "approved",
-    reviewer: "Codex editorial audit",
-    reviewedAt: "2026-07-31",
-    scores: { character: 4, goal: 4, causality: 4, obstacle: 4, agency: 4, ending: 4, language: 4, voice: 4, delight: 4, canon: 4, illustration: 4, audio: 4 },
-    mandatoryViolations: [],
-    summary: "Approved at 48/48. A crash and small call establish an urgent fog-marsh rescue. Concrete choices test tracks, reeds, noise and listening; Stone's loud call fails as the fog thickens; softer calls and careful listening locate the frog family; and the final choice determines whether Pip and Stone share the rescue or keep the marsh quiet. All 25 pages have route-true Moonwood art and exact-text Leda narration.",
-    targetGoal: "Pip and Stone must find the source of the crash and return the lost toadling to its family before the fog closes over the marsh.",
-    rewriteActions: [
-      "No manuscript repair remains open; any future text, prompt or route change must invalidate this fingerprint and trigger a fresh review."
+// Current compact Story Quest editorial and media review. Scores are bounded
+// editorial judgments, not child-outcome or human-listening evidence.
+export const storyQuestPolicyReviews = Object.freeze([
+  {
+    "id": "mw_ra_c_01_pip_stone_loud_thing",
+    "sourceFingerprint": "d819a698434b27e3b8608860bc1bcb59764ce70cbf526c5a5fdca5926d1bca0a",
+    "status": "approved",
+    "reviewer": "Codex editorial and direct visual review",
+    "reviewedAt": "2026-09-30",
+    "scores": {
+      "character": 3,
+      "goal": 4,
+      "causality": 4,
+      "obstacle": 4,
+      "agency": 4,
+      "ending": 4,
+      "language": 3,
+      "voice": 3,
+      "delight": 4,
+      "canon": 3,
+      "illustration": 3,
+      "audio": 3
+    },
+    "mandatoryViolations": [],
+    "targetGoal": "Find the hidden source of the enormous croak and help the separated frogs reunite.",
+    "summary": "Replaced near-identical forks with two real decisions; visible tracks, quiet listening and stepping stones support the frog reunion.",
+    "rewriteActions": [
+      "Replaced near-identical forks with two real decisions; visible tracks, quiet listening and stepping stones support the frog reunion.",
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
     ],
-    illustrationActions: [
-      "Preserve the approved Pip and Stone models, bright clean flat 2D cartoon treatment, frog scale, Hollow Oak, marsh reeds and route-specific fog/action continuity."
+    "illustrationActions": [
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
     ],
-    routeEvidence: Object.freeze({
-      completeRoutes: 1629,
-      pageNodes: 25,
-      method: "Exhaustive finite graph traversal excluding Read again replay edges; Story Quest integrity gate passed."
-    }),
-    pageEvidence: Object.freeze({
-      pages: 25,
-      images: 25,
-      imageTextMatches: 25,
-      method: "All 25 active Moonwood illustrations were individually checked against the locked manuscript and route state; no replacement art was required."
-    }),
-    audioEvidence: Object.freeze({
-      pages: 25,
-      exactTextMappings: 25,
-      voice: "en-US-Chirp3-HD-Leda",
-      format: "MP3 128 kbps from 24 kHz LINEAR16 source"
-    })
-  }),
-  Object.freeze({
-    id: "mw_ra_c_02_fern_wren_walking_garden",
-    sourceFingerprint: "51c1dfd3e7dd4abd38f05d834f05d05d542d92c85a066dce3952bffa9608632f",
-    status: "approved",
-    reviewer: "Codex editorial audit",
-    reviewedAt: "2026-07-31",
-    scores: { character: 4, goal: 4, causality: 4, obstacle: 4, agency: 4, ending: 4, language: 4, voice: 4, delight: 4, canon: 4, illustration: 4, audio: 4 },
-    mandatoryViolations: [],
-    summary: "Wren asks to test her purple potion, one pot steps toward the gate, and the problem grows into a garden-wide escape. Every prompt now names a concrete action; grabbing a pot causes the others to scatter, while the corrected recipe, Fern's quiet song, careful counting and locking the potion away produce distinct consequences. All 23 pages have exact-text Leda narration and page-true Moonwood art.",
-    targetGoal: "Fern and Wren must stop the potion-powered walking plants, return the garden safely and decide whether one harmless pot may keep its legs.",
-    rewriteActions: [
-      "Every prompt now identifies the real book, potion, catch, follow, song, count or lock decision.",
-      "The failed catch explicitly scatters the remaining pots and motivates the calmer recipe and song solutions.",
-      "No manuscript repair remains open; any future text, prompt or route change must invalidate this fingerprint and trigger a fresh review."
+    "routeEvidence": {
+      "completeRoutes": 4,
+      "pageNodes": 13,
+      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+    },
+    "pageEvidence": {
+      "pages": 13,
+      "images": 13,
+      "imageTextMatches": 13,
+      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+    },
+    "audioEvidence": {
+      "pages": 13,
+      "exactTextMappings": 13,
+      "pendingExactTextMappings": 0,
+      "pendingListeningValidation": 13,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
+      "provenance": "src/content/storyQuestNarrationManifest.generated.json",
+      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
+      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+    }
+  },
+  {
+    "id": "mw_ra_c_02_fern_wren_walking_garden",
+    "sourceFingerprint": "e2d09a428f0a3eda076c704fd9bc0d9225e63401f78ba5b613ebe2d92f50698f",
+    "status": "approved",
+    "reviewer": "Codex editorial and direct visual review",
+    "reviewedAt": "2026-09-30",
+    "scores": {
+      "character": 3,
+      "goal": 4,
+      "causality": 4,
+      "obstacle": 4,
+      "agency": 4,
+      "ending": 4,
+      "language": 3,
+      "voice": 3,
+      "delight": 4,
+      "canon": 3,
+      "illustration": 3,
+      "audio": 3
+    },
+    "mandatoryViolations": [],
+    "targetGoal": "Restore Fern's drooping plant while controlling Wren's walking-foot potion.",
+    "summary": "Established two potion rules before use; green lifts leaves, purple grows feet; water removes feet and one dancer can remain.",
+    "rewriteActions": [
+      "Established two potion rules before use; green lifts leaves, purple grows feet; water removes feet and one dancer can remain.",
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
     ],
-    illustrationActions: [
-      "Preserve the approved recipe-page anatomy, Moonwood character models and the replacement silly-garden ending with exactly one two-legged pot."
+    "illustrationActions": [
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
     ],
-    routeEvidence: Object.freeze({
-      completeRoutes: 604,
-      pageNodes: 23,
-      method: "Exhaustive finite graph traversal excluding Read again replay edges; Story Quest integrity gate passed."
-    }),
-    pageEvidence: Object.freeze({
-      pages: 23,
-      images: 23,
-      imageTextMatches: 23,
-      method: "All active page images were checked against the locked manuscript; p09_silly_garden was replaced and inspected at 1536 by 864."
-    }),
-    audioEvidence: Object.freeze({
-      pages: 23,
-      exactTextMappings: 23,
-      voice: "en-US-Chirp3-HD-Leda",
-      format: "MP3 128 kbps from 24 kHz LINEAR16 source"
-    })
-  }),
-  Object.freeze({
-    id: "mw_ra_c_03_luna_burrow_star_shell_door",
-    sourceFingerprint: "3fc762f24a3be2deaf575fda956e3785e9772ee0a7f4bf5d395fecabdbe20553",
-    status: "approved",
-    reviewer: "Codex editorial audit",
-    reviewedAt: "2026-07-31",
-    scores: { character: 4, goal: 4, causality: 4, obstacle: 4, agency: 4, ending: 4, language: 4, voice: 4, delight: 4, canon: 4, illustration: 4, audio: 4 },
-    mandatoryViolations: [],
-    summary: "Approved at 48/48. Luna and Burrow must open the star-shell door before moonset. The shell song, glowing map, kind-hands rule and star-fish line now supply reusable clues; the false star cracks as a genuine failed attempt; hiding it delays the door while returning it restores the kind path; and the former disconnected star-fish ending now points back to the round door. All 25 pages have page-true Moonwood art and exact-text Leda narration.",
-    targetGoal: "Luna and Burrow must use the star-shell map to open the hidden door before moonset seals it for another night.",
-    rewriteActions: [
-      "No manuscript repair remains open; any future text, prompt or route change must invalidate this fingerprint and trigger a fresh review."
+    "routeEvidence": {
+      "completeRoutes": 4,
+      "pageNodes": 15,
+      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+    },
+    "pageEvidence": {
+      "pages": 15,
+      "images": 15,
+      "imageTextMatches": 15,
+      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+    },
+    "audioEvidence": {
+      "pages": 15,
+      "exactTextMappings": 15,
+      "pendingExactTextMappings": 0,
+      "pendingListeningValidation": 15,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
+      "provenance": "src/content/storyQuestNarrationManifest.generated.json",
+      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
+      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+    }
+  },
+  {
+    "id": "mw_ra_c_03_luna_burrow_star_shell_door",
+    "sourceFingerprint": "648522187208866b23dbc799dc937a178b1b9aedad286356f23291f0cf7e0a25",
+    "status": "approved",
+    "reviewer": "Codex editorial and direct visual review",
+    "reviewedAt": "2026-09-30",
+    "scores": {
+      "character": 3,
+      "goal": 4,
+      "causality": 4,
+      "obstacle": 4,
+      "agency": 4,
+      "ending": 4,
+      "language": 3,
+      "voice": 3,
+      "delight": 4,
+      "canon": 3,
+      "illustration": 3,
+      "audio": 3
+    },
+    "mandatoryViolations": [],
+    "targetGoal": "Follow the map and fit the star shell to open the door, then choose what to explore.",
+    "summary": "Kept the folded map and shell through both routes; upside-down insertion fails before both pieces turn and fit.",
+    "rewriteActions": [
+      "Kept the folded map and shell through both routes; upside-down insertion fails before both pieces turn and fit.",
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
     ],
-    illustrationActions: [
-      "Preserve the approved Luna, Burrow, Pip and Wren models, full-moon night palette, star-shell markings, map, cracked-star state and round-door continuity."
+    "illustrationActions": [
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
     ],
-    routeEvidence: Object.freeze({
-      completeRoutes: 620,
-      pageNodes: 25,
-      method: "Exhaustive finite graph traversal excluding Read again replay edges; Story Quest integrity gate passed."
-    }),
-    pageEvidence: Object.freeze({
-      pages: 25,
-      images: 25,
-      imageTextMatches: 25,
-      method: "All 25 active Moonwood illustrations were individually checked against the locked manuscript and route state; the sorry-page text was corrected to match Luna's visible presence."
-    }),
-    audioEvidence: Object.freeze({
-      pages: 25,
-      exactTextMappings: 25,
-      voice: "en-US-Chirp3-HD-Leda",
-      format: "MP3 128 kbps from 24 kHz LINEAR16 source"
-    })
-  }),
-  Object.freeze({
-    id: "mw_ra_c_04_dewdrop_flint_lost_glow",
-    sourceFingerprint: "7adee8393b95f2123d9b5150881e8cee57f58035423613b3dc95cec4e151cdb3",
-    status: "approved",
-    reviewer: "Codex editorial audit",
-    reviewedAt: "2026-07-31",
-    scores: { character: 4, goal: 4, causality: 4, obstacle: 4, agency: 4, ending: 4, language: 4, voice: 4, delight: 4, canon: 4, illustration: 4, audio: 4 },
-    mandatoryViolations: [],
-    summary: "Approved at 48/48. Dewdrop and Flint must restore Crystal Stream's missing glow before Moonwood paths go dark. Water rings, gold traces, warm air, Fern's leaf veins and a gold-dusted moth now form one clue language; Flint's drowned lantern is a genuine failed attempt; and story, apology or choice routes all restore the stream and paths. All 28 active scenes use the same blue water-spirit Dewdrop model and exact-text Leda narration.",
-    targetGoal: "Dewdrop and Flint must restore the stream's hidden glow before the Moonwood paths go dark.",
-    rewriteActions: [
-      "No manuscript repair remains open; any future text, prompt or route change must invalidate this fingerprint and trigger a fresh review."
+    "routeEvidence": {
+      "completeRoutes": 4,
+      "pageNodes": 13,
+      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+    },
+    "pageEvidence": {
+      "pages": 13,
+      "images": 13,
+      "imageTextMatches": 13,
+      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+    },
+    "audioEvidence": {
+      "pages": 13,
+      "exactTextMappings": 13,
+      "pendingExactTextMappings": 0,
+      "pendingListeningValidation": 13,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
+      "provenance": "src/content/storyQuestNarrationManifest.generated.json",
+      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
+      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+    }
+  },
+  {
+    "id": "mw_ra_c_04_dewdrop_flint_lost_glow",
+    "sourceFingerprint": "b4f5c5dea545163a933efc01e45a36bce3a75a721851a7d4b2ddee9838c950a5",
+    "status": "approved",
+    "reviewer": "Codex editorial and direct visual review",
+    "reviewedAt": "2026-09-30",
+    "scores": {
+      "character": 3,
+      "goal": 4,
+      "causality": 4,
+      "obstacle": 4,
+      "agency": 4,
+      "ending": 4,
+      "language": 3,
+      "voice": 3,
+      "delight": 4,
+      "canon": 3,
+      "illustration": 3,
+      "audio": 3
+    },
+    "mandatoryViolations": [],
+    "targetGoal": "Find the missing glow and restore light to the stream without forcing it awake.",
+    "summary": "Kept the stream, fallen slab and dark lantern state coherent; gentle water and the lever produce visible changes.",
+    "rewriteActions": [
+      "Kept the stream, fallen slab and dark lantern state coherent; gentle water and the lever produce visible changes.",
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
     ],
-    illustrationActions: [
-      "Preserve the approved blue water-spirit Dewdrop, red-haired explorer Flint, active Wren/Fern/Stone models, lantern state, water level, gold-glow intensity and Moonwood night palette."
+    "illustrationActions": [
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
     ],
-    routeEvidence: Object.freeze({
-      completeRoutes: 792,
-      pageNodes: 28,
-      method: "Exhaustive finite graph traversal excluding Read again replay edges; Story Quest integrity gate passed."
-    }),
-    pageEvidence: Object.freeze({
-      pages: 28,
-      images: 28,
-      imageTextMatches: 28,
-      method: "All 28 active illustrations were individually checked against the locked manuscript; the active set consistently uses Dewdrop's blue water-spirit model and one contour language."
-    }),
-    audioEvidence: Object.freeze({
-      pages: 28,
-      exactTextMappings: 28,
-      voice: "en-US-Chirp3-HD-Leda",
-      format: "MP3 128 kbps from 24 kHz LINEAR16 source"
-    })
-  }),
-  Object.freeze({
-    id: "dp_ra_b_01_chompy_big_lunch_hunt",
-    sourceFingerprint: "f427de980860ff6d0827e0026ffdc01636c987bd479b014594c80c2120df7786",
-    status: "approved",
-    reviewer: "Codex editorial audit",
-    reviewedAt: "2026-07-31",
-    scores: { character: 4, goal: 4, causality: 4, obstacle: 4, agency: 4, ending: 4, language: 4, voice: 4, delight: 4, canon: 4, illustration: 4, audio: 4 },
-    mandatoryViolations: [],
-    summary: "Hungry Chompy plans a picnic for every friend. His one-food berry plan fails when it neither fills him nor suits Grumpy, so he asks what friends like and gathers berries, fruit, melon and leaves. Every branch now produces a varied shared lunch, with 21 exact-text Leda clips and page-true Dino Pals art. All active Bouncy scenes show two canonical green feet above two separate coil springs.",
-    targetGoal: "Chompy must gather a fair lunch for every Dino Pal before the picnic begins.",
-    rewriteActions: [
-      "Chompy's one-food berry plan now visibly fails and motivates asking Grumpy and Sunny what each friend likes.",
-      "Every prompt now names a food, friend, location or repair decision with a route-specific consequence.",
-      "No manuscript repair remains open; any future text, prompt or route change must invalidate this fingerprint and trigger a fresh review."
+    "routeEvidence": {
+      "completeRoutes": 4,
+      "pageNodes": 15,
+      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+    },
+    "pageEvidence": {
+      "pages": 15,
+      "images": 15,
+      "imageTextMatches": 15,
+      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+    },
+    "audioEvidence": {
+      "pages": 15,
+      "exactTextMappings": 15,
+      "pendingExactTextMappings": 0,
+      "pendingListeningValidation": 15,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
+      "provenance": "src/content/storyQuestNarrationManifest.generated.json",
+      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
+      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+    }
+  },
+  {
+    "id": "dp_ra_b_01_chompy_big_lunch_hunt",
+    "sourceFingerprint": "40b6f5e0fbc548df4da23666c2b1efb3806479a284081d161ec543820ad66c16",
+    "status": "approved",
+    "reviewer": "Codex editorial and direct visual review",
+    "reviewedAt": "2026-09-30",
+    "scores": {
+      "character": 4,
+      "goal": 4,
+      "causality": 4,
+      "obstacle": 4,
+      "agency": 4,
+      "ending": 4,
+      "language": 4,
+      "voice": 3,
+      "delight": 4,
+      "canon": 3,
+      "illustration": 3,
+      "audio": 3
+    },
+    "mandatoryViolations": [],
+    "targetGoal": "Gather picnic food and invite companions who can choose what they enjoy.",
+    "summary": "Preserved Grumpy's refusal and practical leaf basket; berry mishaps lead to a specific shared picnic.",
+    "rewriteActions": [
+      "Preserved Grumpy's refusal and practical leaf basket; berry mishaps lead to a specific shared picnic.",
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
     ],
-    illustrationActions: [
-      "Preserve the six approved replacement scenes, Dino Bouncy's exact two-feet/two-springs anatomy, the leaf basket and the route-specific varied food inventory."
+    "illustrationActions": [
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
     ],
-    routeEvidence: Object.freeze({
-      completeRoutes: 133,
-      pageNodes: 21,
-      method: "Exhaustive finite graph traversal excluding Read again replay edges; Story Quest integrity gate passed."
-    }),
-    pageEvidence: Object.freeze({
-      pages: 21,
-      images: 21,
-      imageTextMatches: 21,
-      method: "All active page images were checked against the locked manuscript; six Bouncy/picnic scenes were replaced and inspected at 1536 by 864."
-    }),
-    audioEvidence: Object.freeze({
-      pages: 21,
-      exactTextMappings: 21,
-      voice: "en-US-Chirp3-HD-Leda",
-      format: "MP3 128 kbps from 24 kHz LINEAR16 source"
-    })
-  }),
-  Object.freeze({
-    id: "dp_ra_b_02_sunnys_rainy_day_rescue",
-    sourceFingerprint: "19266d55b7b2bf6f2feaa75472e68fb6c2d93efbd2a8e284d6f35ad591048d08",
-    status: "approved",
-    reviewer: "Codex editorial audit",
-    reviewedAt: "2026-07-31",
-    scores: { character: 4, goal: 4, causality: 4, obstacle: 4, agency: 4, ending: 4, language: 4, voice: 4, delight: 4, canon: 4, illustration: 4, audio: 4 },
-    mandatoryViolations: [],
-    summary: "Cold rain soaks Grumpy and Dozy, and every branch now keeps Sunny's promise to help both friends active. The wet rock and muddy splash are genuine failed attempts; the cave, leaf roof, apology, Wiggly's help and leaf boat produce clear consequences. All 22 pages have exact-text Leda narration and page-true Dino Pals art, including a replacement ending with all four required friends.",
-    targetGoal: "Sunny must help Grumpy and Dozy escape the cold rain and reach a safe, warm ending.",
-    rewriteActions: [
-      "Both rescue needs remain explicit through every converging route and each ending resolves the storm safely.",
-      "Every prompt now names a shelter, apology, helper, boat or weather decision with a visible consequence.",
-      "No manuscript repair remains open; any future text, prompt or route change must invalidate this fingerprint and trigger a fresh review."
+    "routeEvidence": {
+      "completeRoutes": 2,
+      "pageNodes": 17,
+      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+    },
+    "pageEvidence": {
+      "pages": 17,
+      "images": 17,
+      "imageTextMatches": 17,
+      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+    },
+    "audioEvidence": {
+      "pages": 17,
+      "exactTextMappings": 17,
+      "pendingExactTextMappings": 0,
+      "pendingListeningValidation": 17,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
+      "provenance": "src/content/storyQuestNarrationManifest.generated.json",
+      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
+      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+    }
+  },
+  {
+    "id": "dp_ra_b_02_sunnys_rainy_day_rescue",
+    "sourceFingerprint": "333b07148c3397ac5d2aac17e3e24c8326e358ac2a99db4723e673f51446e7a3",
+    "status": "approved",
+    "reviewer": "Codex editorial and direct visual review",
+    "reviewedAt": "2026-09-30",
+    "scores": {
+      "character": 4,
+      "goal": 4,
+      "causality": 4,
+      "obstacle": 4,
+      "agency": 4,
+      "ending": 4,
+      "language": 4,
+      "voice": 3,
+      "delight": 4,
+      "canon": 3,
+      "illustration": 3,
+      "audio": 3
+    },
+    "mandatoryViolations": [],
+    "targetGoal": "Get Grumpy and Dozy dry when rain exposes each shelter's weakness.",
+    "summary": "Made shelter failures visible; Dozy's star pillow and Sunny's supported leaf roof remain consistent.",
+    "rewriteActions": [
+      "Made shelter failures visible; Dozy's star pillow and Sunny's supported leaf roof remain consistent.",
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
     ],
-    illustrationActions: [
-      "Preserve the approved wet-to-dry weather progression, canonical Dino Pals models and the replacement p08_grumpy_laugh_ending with Sunny, Grumpy, Dozy, Wiggly, the dry blue pillow and leaf boat."
+    "illustrationActions": [
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
     ],
-    routeEvidence: Object.freeze({
-      completeRoutes: 128,
-      pageNodes: 22,
-      method: "Exhaustive finite graph traversal excluding Read again replay edges; Story Quest integrity gate passed."
-    }),
-    pageEvidence: Object.freeze({
-      pages: 22,
-      images: 22,
-      imageTextMatches: 22,
-      method: "All active page images were checked against the locked manuscript; p08_grumpy_laugh_ending was replaced and inspected at 1536 by 864."
-    }),
-    audioEvidence: Object.freeze({
-      pages: 22,
-      exactTextMappings: 22,
-      voice: "en-US-Chirp3-HD-Leda",
-      format: "MP3 128 kbps from 24 kHz LINEAR16 source"
-    })
-  }),
-  Object.freeze({
-    id: "dp_ra_b_03_grumpy_almost_good_day",
-    sourceFingerprint: "51b645477e1f8797e0fcc7e4ea317f42855bd0aacde4d321bae4630a39166047",
-    status: "approved",
-    reviewer: "Codex editorial audit",
-    reviewedAt: "2026-07-31",
-    scores: { character: 4, goal: 4, causality: 4, obstacle: 4, agency: 4, ending: 4, language: 4, voice: 4, delight: 4, canon: 4, illustration: 4, audio: 4 },
-    mandatoryViolations: [],
-    summary: "Approved at 48/48. Grumpy now pursues one concrete Level B goal: find a cool, quiet place to nap. The stream, stone tower, berry bush, noisy friends and poking twig are connected tests of that goal; ignoring Chompy creates a genuine failed attempt; repairing the tower, moving the twig, sharing the berries or adapting to the stream produces visible consequences; and every route earns a quiet rest. All 29 pages have route-true Dino Pals art and exact-text Leda narration.",
-    targetGoal: "Grumpy must find one cool, quiet place to nap; every apparent spot creates a problem that Grumpy must repair or adapt to.",
-    rewriteActions: [
-      "No manuscript repair remains open; any future text, prompt or route change must invalidate this fingerprint and trigger a fresh review."
+    "routeEvidence": {
+      "completeRoutes": 4,
+      "pageNodes": 14,
+      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+    },
+    "pageEvidence": {
+      "pages": 14,
+      "images": 14,
+      "imageTextMatches": 14,
+      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+    },
+    "audioEvidence": {
+      "pages": 14,
+      "exactTextMappings": 14,
+      "pendingExactTextMappings": 0,
+      "pendingListeningValidation": 14,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
+      "provenance": "src/content/storyQuestNarrationManifest.generated.json",
+      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
+      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+    }
+  },
+  {
+    "id": "dp_ra_b_03_grumpy_almost_good_day",
+    "sourceFingerprint": "d9a60e33d0ced7294aa1b21a18fa980d168fa80e5e2f71812c196d49f127ce49",
+    "status": "approved",
+    "reviewer": "Codex editorial and direct visual review",
+    "reviewedAt": "2026-09-30",
+    "scores": {
+      "character": 4,
+      "goal": 4,
+      "causality": 4,
+      "obstacle": 4,
+      "agency": 4,
+      "ending": 4,
+      "language": 4,
+      "voice": 3,
+      "delight": 4,
+      "canon": 3,
+      "illustration": 3,
+      "audio": 3
+    },
+    "mandatoryViolations": [],
+    "targetGoal": "Find a cool quiet nap through practical repairs, help or a different resting place.",
+    "summary": "Replaced mood-correction language with nap choices; seven stones, twig repair and quiet boundaries stay consistent.",
+    "rewriteActions": [
+      "Replaced mood-correction language with nap choices; seven stones, twig repair and quiet boundaries stay consistent.",
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
     ],
-    illustrationActions: [
-      "Preserve the approved Grumpy, Chompy, Wiggly, Fancy, Dozy, Sunny and Dino Bouncy models, and keep the stream wetness, rebuilt tower, berry spill, pillow, twig and final resting place consistent with each route."
+    "illustrationActions": [
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
     ],
-    routeEvidence: Object.freeze({
-      completeRoutes: 77,
-      pageNodes: 29,
-      method: "Exhaustive finite graph traversal excluding Read again replay edges; Story Quest integrity gate passed."
-    }),
-    pageEvidence: Object.freeze({
-      pages: 29,
-      images: 29,
-      imageTextMatches: 29,
-      method: "All 29 active Dino Pals illustrations were individually checked against the locked manuscript and route state; seven contradictory scenes were replaced and visually inspected at 1536 by 864."
-    }),
-    audioEvidence: Object.freeze({
-      pages: 29,
-      exactTextMappings: 29,
-      voice: "en-US-Chirp3-HD-Leda",
-      format: "MP3 128 kbps from 24 kHz LINEAR16 source"
-    })
-  }),
-  Object.freeze({
-    id: "dp_ra_b_04_bouncy_big_bounce",
-    sourceFingerprint: "e49b5f975f88a3af98dc59414580ce2ff0950326b068681ab315675160cd7238",
-    status: "approved",
-    reviewer: "Codex editorial audit",
-    reviewedAt: "2026-07-31",
-    scores: { character: 4, goal: 4, causality: 4, obstacle: 4, agency: 4, ending: 4, language: 4, voice: 4, delight: 4, canon: 4, illustration: 4, audio: 4 },
-    mandatoryViolations: [],
-    summary: "Approved at 48/48. Bouncy now pursues one concrete Level B goal: carry the berry basket to the picnic at Big Flat Rock. Berry loss, weak springs, a bent bush, mud, a rattling cave shortcut and a loose pebble are causal delivery setbacks; friends help only after the child's decisions; and all five endings complete the same basket delivery. All 30 pages have route-true Dino Pals art and exact-text Leda narration.",
-    targetGoal: "Bouncy must carry a basket of berries to the picnic at Big Flat Rock; every branch is a different route or setback on that delivery.",
-    rewriteActions: [
-      "No manuscript repair remains open; any future text, prompt or route change must invalidate this fingerprint and trigger a fresh review."
+    "routeEvidence": {
+      "completeRoutes": 5,
+      "pageNodes": 21,
+      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+    },
+    "pageEvidence": {
+      "pages": 21,
+      "images": 21,
+      "imageTextMatches": 21,
+      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+    },
+    "audioEvidence": {
+      "pages": 21,
+      "exactTextMappings": 21,
+      "pendingExactTextMappings": 0,
+      "pendingListeningValidation": 21,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
+      "provenance": "src/content/storyQuestNarrationManifest.generated.json",
+      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
+      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+    }
+  },
+  {
+    "id": "dp_ra_b_04_bouncy_big_bounce",
+    "sourceFingerprint": "d05feb164f1648147121f08b3cd5ac2748e70c8e58a3d13684d9069689b187f0",
+    "status": "approved",
+    "reviewer": "Codex editorial and direct visual review",
+    "reviewedAt": "2026-09-30",
+    "scores": {
+      "character": 4,
+      "goal": 4,
+      "causality": 4,
+      "obstacle": 4,
+      "agency": 4,
+      "ending": 4,
+      "language": 4,
+      "voice": 3,
+      "delight": 4,
+      "canon": 3,
+      "illustration": 3,
+      "audio": 3
+    },
+    "mandatoryViolations": [],
+    "targetGoal": "Pick and carry berries, changing the bounce and route when berries spill.",
+    "summary": "Established two-legged spring anatomy and fixed basket; different bounces change berry loss and cave travel.",
+    "rewriteActions": [
+      "Established two-legged spring anatomy and fixed basket; different bounces change berry loss and cave travel.",
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
     ],
-    illustrationActions: [
-      "Preserve the approved Dino Bouncy model with exactly two green three-toed feet above two separate silver coils, keep Wiggly's blue tail visually separate, and track the single basket, berry count, mud, repaired bush, cave position and Big Flat Rock destination exactly."
+    "illustrationActions": [
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
     ],
-    routeEvidence: Object.freeze({
-      completeRoutes: 70,
-      pageNodes: 30,
-      method: "Exhaustive finite graph traversal excluding Read again replay edges; all 50 non-terminal choice edges advanced and backtracked correctly in the live child preview."
-    }),
-    pageEvidence: Object.freeze({
-      pages: 30,
-      images: 30,
-      imageTextMatches: 30,
-      method: "All 30 unique pages were opened through their real choice paths in the live child preview; all 30 newly produced illustrations loaded, matched the locked route state and were visually checked at 1536 by 864."
-    }),
-    audioEvidence: Object.freeze({
-      pages: 30,
-      exactTextMappings: 30,
-      voice: "en-US-Chirp3-HD-Leda",
-      format: "MP3 128 kbps from 24 kHz LINEAR16 source"
-    })
-  }),
-  Object.freeze({
-    id: "dp_ra_b_05_shys_snail_shade",
-    sourceFingerprint: "ddfc6d52127963ad33b888173ac5130572c38b161931d029aa9dacb2cbe899ae",
-    status: "approved",
-    reviewer: "Independent Codex review",
-    reviewedAt: "2026-08-02",
-    scores: { character: 4, goal: 4, causality: 4, obstacle: 4, agency: 4, ending: 4, language: 4, voice: 4, delight: 4, canon: 4, illustration: 4, audio: 4 },
-    mandatoryViolations: [],
-    summary: "Approved at 48/48 after a fresh independent review. Shy must guide one stranded snail from drying hot sand into Fernwood shade. A smooth leaf tips and a rolling twig startles the snail; rough bark or damp moss then supports four visible layouts, an explicit final-path choice and four distinct shaded resting places. All 15 scenes have route-true Dino Pals art and exact-text Leda narration.",
-    targetGoal: "Shy must guide one stranded snail into damp Fernwood shade before the hot sun dries its trail.",
-    rewriteActions: [
-      "No manuscript repair remains open; any future text, prompt, route or narration-flag change must invalidate this fingerprint and trigger a fresh review."
+    "routeEvidence": {
+      "completeRoutes": 3,
+      "pageNodes": 19,
+      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+    },
+    "pageEvidence": {
+      "pages": 19,
+      "images": 19,
+      "imageTextMatches": 19,
+      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+    },
+    "audioEvidence": {
+      "pages": 19,
+      "exactTextMappings": 19,
+      "pendingExactTextMappings": 0,
+      "pendingListeningValidation": 19,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
+      "provenance": "src/content/storyQuestNarrationManifest.generated.json",
+      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
+      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+    }
+  },
+  {
+    "id": "dp_ra_b_05_shys_snail_shade",
+    "sourceFingerprint": "6567045ebee7350f2a875c67a64d3f0e7153ed2ce88c7104d9b9da3c10e6652a",
+    "status": "approved",
+    "reviewer": "Codex editorial and direct visual review",
+    "reviewedAt": "2026-09-30",
+    "scores": {
+      "character": 4,
+      "goal": 4,
+      "causality": 4,
+      "obstacle": 4,
+      "agency": 4,
+      "ending": 4,
+      "language": 4,
+      "voice": 3,
+      "delight": 4,
+      "canon": 3,
+      "illustration": 3,
+      "audio": 3
+    },
+    "mandatoryViolations": [],
+    "targetGoal": "Help a snail reach shade using stable reused bark or a joined damp moss path.",
+    "summary": "Removed unsupported snail-sand generalisations; leaf/twig instability, three reused bark pieces and a filled moss gap drive action.",
+    "rewriteActions": [
+      "Removed unsupported snail-sand generalisations; leaf/twig instability, three reused bark pieces and a filled moss gap drive action.",
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
     ],
-    illustrationActions: [
-      "Preserve the approved mint-green teal-spotted Shy model, single ordinary snail, late-afternoon Fernwood edge, leaf and twig failure states, bark and moss layout distinctions, final path endpoint, and four ending anchors exactly."
+    "illustrationActions": [
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
     ],
-    routeEvidence: Object.freeze({
-      completeRoutes: 32,
-      pageNodes: 15,
-      method: "Exhaustive finite graph traversal excluding Read again replay edges; every route has six scenes and one full-beat failure. Two representative complete routes, replay and finish were also exercised in the live child player."
-    }),
-    pageEvidence: Object.freeze({
-      pages: 15,
-      images: 15,
-      imageTextMatches: 15,
-      method: "All 15 production illustrations were independently inspected at 1536 by 864 against the locked manuscript and route state; p05_bark and p06_fern_ending were repaired and accepted on a fresh review pass."
-    }),
-    audioEvidence: Object.freeze({
-      pages: 15,
-      exactTextMappings: 15,
-      voice: "en-US-Chirp3-HD-Leda",
-      format: "MP3 128 kbps from 24 kHz LINEAR16 source"
-    })
-  }),
-  Object.freeze({
-    id: "story_quest_short_a_sam_pam_01",
-    sourceFingerprint: "e7ee567aa1f77c58cf0733fe4478e877474bbe2eb6daef29bc820c4738547be2",
-    status: "approved",
-    reviewer: "Codex editorial audit",
-    reviewedAt: "2026-07-31",
-    scores: { character: 4, goal: 4, causality: 4, obstacle: 4, agency: 4, ending: 4, language: 4, voice: 4, delight: 4, canon: 4, illustration: 4, audio: 4 },
-    mandatoryViolations: [],
-    summary: "Approved at 48/48. Sam and Pam now state and pursue one Early-reader goal: pack the map and bag, then reach the van. Every prompt names the concrete short-a decision, the cat sitting on the map is a genuine setback, both endings complete the trip, all ten illustrations match the page state, and all ten pages have exact-text Leda narration.",
-    targetGoal: "Sam and Pam must pack the map and reach the van for their trip, using only the declared short-a and high-frequency-word scope.",
-    rewriteActions: [
-      "No manuscript repair remains open; any future text, prompt or route change must invalidate this fingerprint and trigger a fresh review."
+    "routeEvidence": {
+      "completeRoutes": 4,
+      "pageNodes": 12,
+      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+    },
+    "pageEvidence": {
+      "pages": 12,
+      "images": 12,
+      "imageTextMatches": 12,
+      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+    },
+    "audioEvidence": {
+      "pages": 12,
+      "exactTextMappings": 12,
+      "pendingExactTextMappings": 0,
+      "pendingListeningValidation": 12,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
+      "provenance": "src/content/storyQuestNarrationManifest.generated.json",
+      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
+      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+    }
+  },
+  {
+    "id": "story_quest_short_a_sam_pam_01",
+    "sourceFingerprint": "5b079c76807830f5066062ee703a91d60abb077ba9c4e822713a06c8a7522773",
+    "status": "approved",
+    "reviewer": "Codex editorial and direct visual review",
+    "reviewedAt": "2026-09-30",
+    "scores": {
+      "character": 3,
+      "goal": 4,
+      "causality": 4,
+      "obstacle": 3,
+      "agency": 3,
+      "ending": 4,
+      "language": 4,
+      "voice": 3,
+      "delight": 3,
+      "canon": 3,
+      "illustration": 3,
+      "audio": 3
+    },
+    "mandatoryViolations": [],
+    "targetGoal": "Move the cat from the map and choose a trip or a picnic at home.",
+    "summary": "Declared the short-a track and exception words; kept grammar natural and cat/map/mat/van/bag states coherent.",
+    "rewriteActions": [
+      "Declared the short-a track and exception words; kept grammar natural and cat/map/mat/van/bag states coherent.",
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
     ],
-    illustrationActions: [
-      "Preserve the approved Sam, Pam, Dad and cat models and the exact map, bag, mat, jam and van state shown on each route."
+    "illustrationActions": [
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
     ],
-    routeEvidence: Object.freeze({
-      completeRoutes: 46,
-      pageNodes: 10,
-      method: "Exhaustive finite graph traversal excluding Read again replay edges; Story Quest integrity gate passed."
-    }),
-    pageEvidence: Object.freeze({
-      pages: 10,
-      images: 10,
-      imageTextMatches: 10,
-      method: "All ten existing illustrations were individually checked against the locked manuscript and route state; no replacement art was required."
-    }),
-    audioEvidence: Object.freeze({
-      pages: 10,
-      exactTextMappings: 10,
-      voice: "en-US-Chirp3-HD-Leda",
-      format: "MP3 128 kbps from 24 kHz LINEAR16 source"
-    })
-  }),
-  Object.freeze({
-    id: "mp_ra_a_01_muddy_splashy_missing_hat",
-    sourceFingerprint: "3b786089f1ee32675d1a7d50531171f0f20e40e9bbeba2b7485a6aa283ecd820",
-    status: "approved",
-    reviewer: "Codex editorial audit",
-    reviewedAt: "2026-07-31",
-    scores: { character: 4, goal: 4, causality: 4, obstacle: 4, agency: 4, ending: 4, language: 4, voice: 4, delight: 4, canon: 4, illustration: 4, audio: 4 },
-    mandatoryViolations: [],
-    summary: "Approved at 48/48. The opening now shows and names the wind taking Clucky's red hat; every search choice changes the clue path; the muddy-hat attempt genuinely fails; every ending returns the same red hat or shows Clucky granting Muddy permission to try it; the ambiguous signboard is removed; and all 20 pages have exact-text Leda narration.",
-    targetGoal: "Muddy and Splashy must find Clucky's missing hat and return it before the wind carries it away.",
-    rewriteActions: [
-      "No manuscript repair remains open; any future text, prompt or route change must invalidate this fingerprint and trigger a fresh review."
+    "routeEvidence": {
+      "completeRoutes": 4,
+      "pageNodes": 9,
+      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+    },
+    "pageEvidence": {
+      "pages": 9,
+      "images": 9,
+      "imageTextMatches": 9,
+      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+    },
+    "audioEvidence": {
+      "pages": 9,
+      "exactTextMappings": 9,
+      "pendingExactTextMappings": 0,
+      "pendingListeningValidation": 9,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
+      "provenance": "src/content/storyQuestNarrationManifest.generated.json",
+      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
+      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+    }
+  },
+  {
+    "id": "mp_ra_a_01_muddy_splashy_missing_hat",
+    "sourceFingerprint": "b65ca12b6e9e46dae6d8a466ee4ef78941606e1ce085b86cc3369e68ae360a65",
+    "status": "approved",
+    "reviewer": "Codex editorial and direct visual review",
+    "reviewedAt": "2026-09-30",
+    "scores": {
+      "character": 4,
+      "goal": 4,
+      "causality": 4,
+      "obstacle": 3,
+      "agency": 4,
+      "ending": 4,
+      "language": 4,
+      "voice": 3,
+      "delight": 3,
+      "canon": 3,
+      "illustration": 3,
+      "audio": 3
+    },
+    "mandatoryViolations": [],
+    "targetGoal": "Recover Clucky's red hat and choose who wears it after the muddy surprise.",
+    "summary": "Removed forced noun possessives and cosmetic decisions; hat identity, muddy reveal and ending wearer stay consistent.",
+    "rewriteActions": [
+      "Removed forced noun possessives and cosmetic decisions; hat identity, muddy reveal and ending wearer stay consistent.",
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
     ],
-    illustrationActions: [
-      "Preserve the approved single red hat, Meadow Pals models, mud and water state, and sign-free meeting scene in future media revisions."
+    "illustrationActions": [
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
     ],
-    routeEvidence: Object.freeze({
-      completeRoutes: 111,
-      pageNodes: 20,
-      method: "Exhaustive finite graph traversal excluding Read again replay edges; Story Quest integrity gate passed."
-    }),
-    pageEvidence: Object.freeze({
-      pages: 20,
-      images: 20,
-      imageTextMatches: 20,
-      method: "All active page images were checked against the locked manuscript; the opening and meeting page were replaced and inspected at 1536 by 864."
-    }),
-    audioEvidence: Object.freeze({
-      pages: 20,
-      exactTextMappings: 20,
-      voice: "en-US-Chirp3-HD-Leda",
-      format: "MP3 128 kbps from 24 kHz LINEAR16 source"
-    })
-  }),
-  Object.freeze({
-    id: "mp_ra_a_02_shy_cuddly_quiet_adventure",
-    sourceFingerprint: "5084f6430c4e2dc58b209ce7321c407cd50e5fe48ee4cb0ae1ce9e18352fb24f",
-    status: "approved",
-    reviewer: "Codex editorial audit",
-    reviewedAt: "2026-07-31",
-    scores: { character: 4, goal: 4, causality: 4, obstacle: 4, agency: 4, ending: 4, language: 4, voice: 4, delight: 4, canon: 4, illustration: 4, audio: 4 },
-    mandatoryViolations: [],
-    summary: "Cuddly comes to meet Shy, and every route lets the child protect Shy's pace through a wave, quiet waiting, shared rest, space or an invited hug. All 21 pages now have exact-text Leda narration and page-true art; the faulty crowded wave ending was replaced with a clean Shy-and-Cuddly scene.",
-    targetGoal: "Cuddly comes to meet Shy while the child chooses a comfortable way for the friends to spend time together.",
-    rewriteActions: [
-      "The meeting goal is explicit in the opening and remains active through every route.",
-      "Shy's communicated preference is carried into distinct wave, rest, space and hug endings.",
-      "No manuscript repair remains open; any future text, prompt or route change must invalidate this fingerprint and trigger a fresh review."
+    "routeEvidence": {
+      "completeRoutes": 4,
+      "pageNodes": 12,
+      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+    },
+    "pageEvidence": {
+      "pages": 12,
+      "images": 12,
+      "imageTextMatches": 12,
+      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+    },
+    "audioEvidence": {
+      "pages": 12,
+      "exactTextMappings": 12,
+      "pendingExactTextMappings": 0,
+      "pendingListeningValidation": 12,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
+      "provenance": "src/content/storyQuestNarrationManifest.generated.json",
+      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
+      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+    }
+  },
+  {
+    "id": "mp_ra_a_02_shy_cuddly_quiet_adventure",
+    "sourceFingerprint": "9958eabc043f85532ba25a42fb5ca7d757f21162a914494199ce1abad5875535",
+    "status": "approved",
+    "reviewer": "Codex editorial and direct visual review",
+    "reviewedAt": "2026-09-30",
+    "scores": {
+      "character": 4,
+      "goal": 4,
+      "causality": 4,
+      "obstacle": 3,
+      "agency": 4,
+      "ending": 4,
+      "language": 4,
+      "voice": 3,
+      "delight": 3,
+      "canon": 3,
+      "illustration": 3,
+      "audio": 3
+    },
+    "mandatoryViolations": [],
+    "targetGoal": "Let Shy choose space or a quiet greeting, and have Cuddly respect that choice.",
+    "summary": "Preserved quietness as valid; separated requesting space from accepting contact and made the final greeting visible.",
+    "rewriteActions": [
+      "Preserved quietness as valid; separated requesting space from accepting contact and made the final greeting visible.",
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
     ],
-    illustrationActions: [
-      "Preserve the approved two-character wave ending, established Meadow Pals models, readable body language and comfort-level spacing in future media revisions."
+    "illustrationActions": [
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
     ],
-    routeEvidence: Object.freeze({
-      completeRoutes: 86,
-      pageNodes: 21,
-      method: "Exhaustive finite graph traversal excluding Read again replay edges; Story Quest integrity gate passed."
-    }),
-    pageEvidence: Object.freeze({
-      pages: 21,
-      images: 21,
-      imageTextMatches: 21,
-      method: "All active page images were checked against the locked manuscript; p08_wave_from_tree was replaced and inspected at 1536 by 864."
-    }),
-    audioEvidence: Object.freeze({
-      pages: 21,
-      exactTextMappings: 21,
-      voice: "en-US-Chirp3-HD-Leda",
-      format: "MP3 128 kbps from 24 kHz LINEAR16 source"
-    })
-  }),
-  Object.freeze({
-    id: "mp_ra_a_03_bouncy_speedy_fast_map",
-    sourceFingerprint: "5e0fae81594b2136aa73f0f843d6cd19d8163cbaab4b6336fde313867da61479",
-    status: "approved",
-    reviewer: "Codex editorial audit",
-    reviewedAt: "2026-07-31",
-    scores: { character: 4, goal: 4, causality: 4, obstacle: 4, agency: 4, ending: 4, language: 4, voice: 4, delight: 4, canon: 4, illustration: 4, audio: 4 },
-    mandatoryViolations: [],
-    summary: "Bouncy and Speedy follow Tiny's map past the barn, pond, hill, mouse tracks and big boot to the big tree. Speedy's rush can lose or muddy the map, while waiting, drying it or reading its clues repairs the mistake. All 27 pages now use concrete Level A language, page-true art and exact-text Leda narration.",
-    targetGoal: "Bouncy and Speedy must follow Tiny's map to the big tree, overcome the consequences of rushing and discover who made the map.",
-    rewriteActions: [
-      "The BIG TREE promise is explicit on page one and every barn, pond, hill, track and map clue narrows the route or identifies Tiny.",
-      "Speedy's too-fast choice now has a real consequence: the map is lost or muddied and must be caught, dried, retrieved or read carefully.",
-      "Every ending confirms that Tiny made the map; no manuscript repair remains open, and future changes must invalidate this fingerprint."
+    "routeEvidence": {
+      "completeRoutes": 2,
+      "pageNodes": 7,
+      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+    },
+    "pageEvidence": {
+      "pages": 7,
+      "images": 7,
+      "imageTextMatches": 7,
+      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+    },
+    "audioEvidence": {
+      "pages": 7,
+      "exactTextMappings": 7,
+      "pendingExactTextMappings": 0,
+      "pendingListeningValidation": 7,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
+      "provenance": "src/content/storyQuestNarrationManifest.generated.json",
+      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
+      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+    }
+  },
+  {
+    "id": "mp_ra_a_03_bouncy_speedy_fast_map",
+    "sourceFingerprint": "65d64331fa23f9aa18dde797b9633a1adcd8835c1b0d0a2d03ae23a44a473a82",
+    "status": "approved",
+    "reviewer": "Codex editorial and direct visual review",
+    "reviewedAt": "2026-09-30",
+    "scores": {
+      "character": 4,
+      "goal": 4,
+      "causality": 4,
+      "obstacle": 3,
+      "agency": 4,
+      "ending": 4,
+      "language": 4,
+      "voice": 3,
+      "delight": 3,
+      "canon": 3,
+      "illustration": 3,
+      "audio": 3
+    },
+    "mandatoryViolations": [],
+    "targetGoal": "Recover Tiny's wind-blown map and follow its actual landmarks to find him.",
+    "summary": "Locked the diagram's barn/pond/oak geometry and authorship; waiting and recovering the map change the route.",
+    "rewriteActions": [
+      "Locked the diagram's barn/pond/oak geometry and authorship; waiting and recovering the map change the route.",
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
     ],
-    illustrationActions: [
-      "Preserve the approved Meadow Pals models: yellow woolly Bouncy with exactly two woolly arms and exactly two coil-spring legs (four limbs total), black-and-white Speedy with one tail and very small grey Tiny.",
-      "Preserve the readable map state, tiny mouse tracks, muddy-map action, mouse signature and open-map ending in future media revisions."
+    "illustrationActions": [
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
     ],
-    routeEvidence: Object.freeze({
-      completeRoutes: 119,
-      pageNodes: 27,
-      method: "Exhaustive finite graph traversal excluding Read again replay edges; Story Quest integrity gate passed."
-    }),
-    pageEvidence: Object.freeze({
-      pages: 27,
-      images: 27,
-      imageTextMatches: 27,
-      method: "All 27 unique pages were opened through their real choice paths in Chromium; five misleading or non-canon scenes were replaced and inspected at 1536 by 864."
-    }),
-    audioEvidence: Object.freeze({
-      pages: 27,
-      exactTextMappings: 27,
-      voice: "en-US-Chirp3-HD-Leda",
-      format: "MP3 128 kbps from 24 kHz LINEAR16 source"
-    })
-  }),
-  Object.freeze({
-    id: "mp_ra_a_04_brave_tiny_big_little_rescue",
-    sourceFingerprint: "d2f766390bf15e9afa109747a82ba000c269bfebb71cf6a26f1efc24e9b48bc6",
-    status: "approved",
-    reviewer: "Codex editorial audit",
-    reviewedAt: "2026-07-31",
-    scores: { character: 4, goal: 4, causality: 4, obstacle: 4, agency: 4, ending: 4, language: 4, voice: 4, delight: 4, canon: 4, illustration: 4, audio: 4 },
-    mandatoryViolations: [],
-    summary: "The child selects one parade rescue on page one: recover Clucky's hat or Woolly's bell. Every later choice remains inside that selected object state, Brave's pot attempt is a genuine failure, Tiny's size changes the solution, and all endings visibly return the chosen item. All 32 pages use concrete Level A language, page-true art and exact-text Leda narration.",
-    targetGoal: "The child chooses one missing parade item—Clucky's hat or Woolly's bell—and Brave and Tiny must return that selected item before the parade begins.",
-    rewriteActions: [
-      "The opening now names both missing parade items and makes the child's first choice lock the active rescue.",
-      "Hat and bell routes remain separated; every clue, action and ending preserves the selected object state.",
-      "Brave's stuck-pot and slipped-stone attempts have visible consequences, while Tiny's scale enables string, pot and stone solutions."
+    "routeEvidence": {
+      "completeRoutes": 4,
+      "pageNodes": 11,
+      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+    },
+    "pageEvidence": {
+      "pages": 11,
+      "images": 11,
+      "imageTextMatches": 11,
+      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+    },
+    "audioEvidence": {
+      "pages": 11,
+      "exactTextMappings": 11,
+      "pendingExactTextMappings": 0,
+      "pendingListeningValidation": 11,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
+      "provenance": "src/content/storyQuestNarrationManifest.generated.json",
+      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
+      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+    }
+  },
+  {
+    "id": "mp_ra_a_04_brave_tiny_big_little_rescue",
+    "sourceFingerprint": "9a7d996dd1f2356764ac5d358524daf2d80ce28a29d7edfe3f99a6bbf555cc8f",
+    "status": "approved",
+    "reviewer": "Codex editorial and direct visual review",
+    "reviewedAt": "2026-09-30",
+    "scores": {
+      "character": 4,
+      "goal": 4,
+      "causality": 4,
+      "obstacle": 3,
+      "agency": 4,
+      "ending": 4,
+      "language": 4,
+      "voice": 3,
+      "delight": 3,
+      "canon": 3,
+      "illustration": 3,
+      "audio": 3
+    },
+    "mandatoryViolations": [],
+    "targetGoal": "Recover Clucky's hat using Brave's effort, Tiny's rope or Woolly's help.",
+    "summary": "Separated the rope and Woolly rescue routes; anchored the climb, kept the hat handoffs and two feathers explicit.",
+    "rewriteActions": [
+      "Separated the rope and Woolly rescue routes; anchored the climb, kept the hat handoffs and two feathers explicit.",
+      "Natural compact prose, explicit Next links, story-specific replay and independently audible invitations/decisions replace repetitive forced questions."
     ],
-    illustrationActions: [
-      "Preserve the approved Meadow scale order: Tiny smallest, Brave small, adult russet Clucky larger and Woolly largest.",
-      "The pot scene must contain only the selected red hat; Clucky's feather ending keeps her recovered hat; both bell endings keep exactly one bell on Woolly."
+    "illustrationActions": [
+      "Current scene art and dedicated cover inspected against final prose, anatomy, recurring props and incoming route state; exact accepted bytes are locked by cache identity and the scoped app visual review."
     ],
-    routeEvidence: Object.freeze({
-      completeRoutes: 102,
-      pageNodes: 32,
-      method: "Exhaustive finite graph traversal excluding Read again replay edges; Story Quest integrity gate passed."
-    }),
-    pageEvidence: Object.freeze({
-      pages: 32,
-      images: 32,
-      imageTextMatches: 32,
-      method: "All 32 unique pages were opened through their real choice paths in Chromium; the mixed-object pot scene and two false endings were replaced and inspected at 1536 by 864."
-    }),
-    audioEvidence: Object.freeze({
-      pages: 32,
-      exactTextMappings: 32,
-      voice: "en-US-Chirp3-HD-Leda",
-      format: "MP3 128 kbps from 24 kHz LINEAR16 source"
-    })
-  })
-]);
-
-// Reconciled 2026-09-13: the four fingerprints changed only for cache-version
-// queries added by 290f1baf5. All 19 image bytes match existing 2026-09-08
-// visual approvals; removing those queries reproduces the prior hashes.
-const currentStoryQuestReviewState = Object.freeze({
-  mw_ra_c_01_pip_stone_loud_thing: Object.freeze({ fingerprint: "206871889fb7dcc53c433e10a06890976fb1279c5ace1d0b723f9da94057b520", pages: 24, routes: 1329, exactAudio: 24, pendingAudio: 0, listeningPending: 0 }),
-  mw_ra_c_02_fern_wren_walking_garden: Object.freeze({ fingerprint: "35f84be8f5fe29b8791f0f6f2b36eca9fefa959e7a74ec6e2036109203c14905", pages: 23, routes: 604, exactAudio: 23, pendingAudio: 0, listeningPending: 0 }),
-  mw_ra_c_03_luna_burrow_star_shell_door: Object.freeze({ fingerprint: "7c44429a15b5094dc1c16321735b1f6f953ea35a49f41622b5f6b97667fd5ace", pages: 26, routes: 704, exactAudio: 26, pendingAudio: 0, listeningPending: 0 }),
-  mw_ra_c_04_dewdrop_flint_lost_glow: Object.freeze({ fingerprint: "0f12ac1a8c6eab26344ffa39184919baf2b47e420dcb32e110ac919d5c42b820", pages: 30, routes: 532, exactAudio: 30, pendingAudio: 0, listeningPending: 0 }),
-  dp_ra_b_01_chompy_big_lunch_hunt: Object.freeze({ fingerprint: "e2e7674c5fa13ace426ea5e486c6684a075b4532821750efacf1a500ae3a13dd", pages: 21, routes: 133, exactAudio: 21, pendingAudio: 0, listeningPending: 0 }),
-  dp_ra_b_02_sunnys_rainy_day_rescue: Object.freeze({ fingerprint: "310588331bfae8e53d291a33059b3df6202d9da4c209b3e16672ff644d5f0982", pages: 22, routes: 108, exactAudio: 22, pendingAudio: 0, listeningPending: 0 }),
-  dp_ra_b_03_grumpy_almost_good_day: Object.freeze({ fingerprint: "931d8eea33bb131c6e78bb81bd3843bc88a1b7652e770d2d353b5fe3d0fa60f2", pages: 34, routes: 69, exactAudio: 34, pendingAudio: 0, listeningPending: 0 }),
-  dp_ra_b_04_bouncy_big_bounce: Object.freeze({ fingerprint: "d28336bb91e3f89e13ebe798caad91a48df6987abc29ad1c52c76c6e3d96bbb8", pages: 35, routes: 67, exactAudio: 35, pendingAudio: 0, listeningPending: 0 }),
-  dp_ra_b_05_shys_snail_shade: Object.freeze({ fingerprint: "bb5d9f44ba9733b114bbae2cfd4356047900f0fcdaca56fcdff1bcc70d8949ec", pages: 15, routes: 32, exactAudio: 15, pendingAudio: 0, listeningPending: 0 }),
-  story_quest_short_a_sam_pam_01: Object.freeze({ fingerprint: "7739fe8fc5fe57bb29bf00d4f2bf5e009d7005f4c5a70dc62cd0612e9b54dac9", pages: 10, routes: 50, exactAudio: 10, pendingAudio: 0, listeningPending: 0 }),
-  mp_ra_a_01_muddy_splashy_missing_hat: Object.freeze({ fingerprint: "e45ea08ec01148f3b31dae5c78954159889f8764492f9db31dba313ba7feccd8", pages: 20, routes: 106, exactAudio: 20, pendingAudio: 0, listeningPending: 0 }),
-  mp_ra_a_02_shy_cuddly_quiet_adventure: Object.freeze({ fingerprint: "53ea487ec09ad2959ef00804522d693e89c367ac1d8e90e1a7bb1129cd3d5dd0", pages: 21, routes: 86, exactAudio: 21, pendingAudio: 0, listeningPending: 0 }),
-  mp_ra_a_03_bouncy_speedy_fast_map: Object.freeze({ fingerprint: "644bd6c2d1990e76f3de2020fb71e063156454bf0d0fe820510cac67c00f4043", pages: 27, routes: 119, exactAudio: 27, pendingAudio: 0, listeningPending: 0 }),
-  mp_ra_a_04_brave_tiny_big_little_rescue: Object.freeze({ fingerprint: "8d205d99f79cceaa0ad404f88d172fd27d9a5a669deaf0e2468471dbc5b5bd40", pages: 32, routes: 102, exactAudio: 32, pendingAudio: 0, listeningPending: 0 })
-});
-
-export const storyQuestPolicyReviews = Object.freeze(
-  historicalStoryQuestPolicyReviews.map(review => {
-    const current = currentStoryQuestReviewState[review.id];
-    if (!current) return review;
-
-    const audioReady = current.pendingAudio === 0 && current.listeningPending === 0;
-    const audioViolation = current.pendingAudio > 0
-      ? `audio-truth: ${current.pendingAudio} page narrations still require exact-text generation.`
-      : `audio-truth: ${current.listeningPending} exact-current-text Leda page narrations still require human listening validation.`;
-    return Object.freeze({
-      ...review,
-      sourceFingerprint: current.fingerprint,
-      status: audioReady ? "approved" : "audited-fail",
-      reviewedAt: "2026-08-22",
-      scores: Object.freeze({
-        ...review.scores,
-        audio: audioReady ? 4 : 0
-      }),
-      mandatoryViolations: audioReady
-        ? Object.freeze([])
-        : Object.freeze([
-            audioViolation
-          ]),
-      summary: audioReady
-        ? `The current manuscript, branching graph, and strict visual audit pass for all ${current.pages} active pages across ${current.routes.toLocaleString("en-US")} finite routes. All ${current.exactAudio} pages resolve to exact-current-text Leda narration, so the current review remains approved.`
-        : `The current manuscript, branching graph, and strict visual audit pass for all ${current.pages} active pages across ${current.routes.toLocaleString("en-US")} finite routes. Exact-current-text Leda narration is available for all ${current.exactAudio} pages; release approval is withheld until the remaining ${current.listeningPending} clips pass human listening validation.`,
-      routeEvidence: Object.freeze({
-        completeRoutes: current.routes,
-        pageNodes: current.pages,
-        method: "Exhaustive finite graph traversal excluding Read again replay edges; current Story Quest integrity gate passed."
-      }),
-      pageEvidence: Object.freeze({
-        pages: current.pages,
-        images: current.pages,
-        imageTextMatches: current.pages,
-        method: "Every current page image was directly scanned in complete-quest sequence on 2026-08-22 for text truth, route state, anatomy, continuity, canon, and visual style. Three confirmed defects across the 340-scene set were replaced and rechecked at 1536 by 864."
-      }),
-      audioEvidence: Object.freeze({
-        pages: current.pages,
-        exactTextMappings: current.exactAudio,
-        pendingExactTextMappings: current.pendingAudio,
-        pendingListeningValidation: current.listeningPending,
-        voice: "en-US-Chirp3-HD-Leda",
-        format: "MP3 128 kbps from 24 kHz LINEAR16 source"
-      })
-    });
-  })
-);
+    "routeEvidence": {
+      "completeRoutes": 4,
+      "pageNodes": 12,
+      "method": "Exhaustive finite graph and browser traversal of all 52 current routes; replay edges excluded."
+    },
+    "pageEvidence": {
+      "pages": 12,
+      "images": 12,
+      "imageTextMatches": 12,
+      "method": "Every current image directly inspected against the revised scene; corrected images reviewed again and final hashes recorded. Original 340-page dispositions consolidate to 190 active scenes and 150 retired."
+    },
+    "audioEvidence": {
+      "pages": 12,
+      "exactTextMappings": 12,
+      "pendingExactTextMappings": 0,
+      "pendingListeningValidation": 12,
+      "voice": "en-US-Chirp3-HD-Leda",
+      "format": "MP3 128 kbps from 24 kHz LINEAR16 source",
+      "provenance": "src/content/storyQuestNarrationManifest.generated.json",
+      "method": "914 current clips hash-checked and fully decoded; independent unprompted local recognition screening prompted 26 clearer takes. Recognition ambiguity is recorded separately from confirmed defects.",
+      "limitation": "No direct human listening, classroom or physical-device observation is claimed. Acceptance follows continuous QA pass-by-exception."
+    }
+  }
+].map(review => Object.freeze(review)));
 
 export const storyContentReviewRegistry = Object.freeze({
   policyVersion: STORY_CONTENT_POLICY_VERSION,

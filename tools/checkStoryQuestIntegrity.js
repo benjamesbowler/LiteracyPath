@@ -135,24 +135,6 @@ function pageText(page) {
   return Array.isArray(page?.text) ? page.text.join(" ") : "";
 }
 
-function collectNarrativeReachable(pageById, firstPageId, startPageId) {
-  const reachable = new Set();
-  const stack = [firstPageId];
-
-  while (stack.length > 0) {
-    const pageId = stack.pop();
-    if (!pageId || pageId === "end" || reachable.has(pageId)) continue;
-    const page = pageById.get(pageId);
-    if (!page) continue;
-    reachable.add(pageId);
-    (page.choices || []).forEach(choice => {
-      if (!isReplayChoice(choice, startPageId)) stack.push(choice.nextPageId);
-    });
-  }
-
-  return reachable;
-}
-
 function shortestNarrativeRouteLength(pageById, startPageId) {
   const queue = [[startPageId, 1]];
   const shortestSeen = new Map([[startPageId, 1]]);
@@ -181,92 +163,138 @@ function requireTextMatch(quest, pageById, pageId, pattern, description) {
   if (!pattern.test(pageText(page))) addError(quest, `${pageId} ${description}`);
 }
 
-function validateNarrativeContracts(quest, pageById, startPageId, endingPages) {
-  const minimumRouteByLevel = { A: 5, B: 6, C: 8 };
-  const minimumRoute = minimumRouteByLevel[quest.level];
-  if (minimumRoute) {
-    const shortestRoute = shortestNarrativeRouteLength(pageById, startPageId);
-    if (shortestRoute < minimumRoute) {
-      addError(quest, `shortest route is only ${shortestRoute} scenes; Level ${quest.level} requires at least ${minimumRoute}`);
+function narrativeRoutes(pageById, startPageId) {
+  const routes = [];
+  function walk(id, route) {
+    if (route.includes(id) || !pageById.has(id)) return;
+    const nextRoute = [...route, id];
+    for (const choice of pageById.get(id).choices || []) {
+      if (choice.nextPageId === "end") routes.push(nextRoute);
+      else if (!isReplayChoice(choice, startPageId)) walk(choice.nextPageId, nextRoute);
     }
   }
+  walk(startPageId, []);
+  return routes;
+}
 
+function validateNarrativeContracts(quest, pageById, startPageId, endingPages) {
+  const minimumRouteByLevel = { Early: 5, A: 5, B: 6, C: 8 };
+  const minimumRoute = minimumRouteByLevel[quest.level];
+  const shortestRoute = shortestNarrativeRouteLength(pageById, startPageId);
+  if (minimumRoute && shortestRoute < minimumRoute) {
+    addError(quest, `shortest route is only ${shortestRoute} scenes; ${quest.level} requires at least ${minimumRoute}`);
+  }
   endingPages.forEach(page => {
-    const hasReplay = (page.choices || []).some(choice => isReplayChoice(choice, startPageId));
-    const hasFinish = (page.choices || []).some(choice => choice.nextPageId === "end");
-    if (!hasReplay || !hasFinish) addError(quest, `${page.id} must offer both Read again and Finish`);
+    if (!(page.choices || []).some(choice => isReplayChoice(choice, startPageId))
+      || !(page.choices || []).some(choice => choice.nextPageId === "end")) {
+      addError(quest, `${page.id} must offer both Read again and Finish`);
+    }
+    if (!page.replayPrompt?.trim()) addError(quest, `${page.id} needs a story-specific replay invitation`);
   });
 
-  if (quest.id === "mw_ra_c_01_pip_stone_loud_thing") {
-    const softCall = pageById.get("p09_soft_call");
-    if ((softCall?.choices || []).some(choice => choice.nextPageId === "p11_back_home")) {
-      addError(quest, "p09_soft_call must reunite the lost toadling before the return-home route");
-    }
-    requireTextMatch(quest, pageById, "p11_toadling_answer", /family|reunite/i, "must resolve the lost-toadling search");
-  }
-
-  if (quest.id === "mw_ra_c_04_dewdrop_flint_lost_glow") {
-    endingPages.forEach(page => {
-      if (!/stream/i.test(pageText(page)) || !/glow|shone|shining|shine/i.test(pageText(page))) {
-        addError(quest, `${page.id} must confirm that the stream's glow was restored`);
+  const routes = narrativeRoutes(pageById, startPageId);
+  function everyRouteIncludes(ids, reason) {
+    for (const route of routes) {
+      let previous = -1;
+      for (const id of ids) {
+        const index = route.indexOf(id);
+        if (index <= previous) {
+          addError(quest, `${reason}: ${route.join(" -> ")} misses ordered beat ${id}`);
+          break;
+        }
+        previous = index;
       }
-    });
+    }
   }
-
-  if (quest.id === "dp_ra_b_02_sunnys_rainy_day_rescue") {
-    endingPages.forEach(page => {
-      if (!/Dozy/i.test(pageText(page)) || !/Grumpy/i.test(pageText(page))) {
-        addError(quest, `${page.id} must resolve both Dozy's and Grumpy's rainy-day needs`);
+  function before(later, earlier, reason) {
+    for (const route of routes.filter(path => path.includes(later))) {
+      if (!route.includes(earlier) || route.indexOf(earlier) >= route.indexOf(later)) {
+        addError(quest, `${reason}: ${earlier} must precede ${later}`);
       }
-    });
-  }
-
-  if (quest.id === "dp_ra_b_03_grumpy_almost_good_day") {
-    const stoneDamage = pageById.get("p03_stones_fall");
-    if ((stoneDamage?.choices || []).some(choice => choice.nextPageId === "p04_ignore_chompy")) {
-      addError(quest, "p03_stones_fall cannot abandon Fancy's damaged stone tower");
     }
   }
+  function text(id, pattern, reason) { requireTextMatch(quest, pageById, id, pattern, reason); }
 
-  if (quest.id === "story_quest_short_a_sam_pam_01") {
-    endingPages.forEach(page => {
-      // 2026-07-26: was /park/i. "park" is an r-controlled vowel and cannot appear in a
-      // short-a CVC decodable, which is what this quest declares. Same intent, legal evidence:
-      // the trip completes when they reach the van, which is drawn on both ending pages.
-      if (!/van/i.test(pageText(page))) addError(quest, `${page.id} must complete the planned trip`);
-    });
-  }
-
-  if (quest.id === "mp_ra_a_03_bouncy_speedy_fast_map") {
-    // 2026-07-26: was /surprise/i. "surprise" is three syllables with an r-controlled vowel and a
-    // split digraph — it cannot appear in a Level A text. Same intent, legal evidence: the start
-    // page must establish the map, which is the object the whole quest is about. "map" is CVC.
-    requireTextMatch(quest, pageById, "p01_start", /map/i, "must establish the map the quest is about");
-    const bootText = pageText(pageById.get("p04_boot"));
-    if (/not the map/i.test(bootText)) addError(quest, "p04_boot must be a useful map clue, not a contradiction");
-    endingPages.forEach(page => {
-      if (!/map/i.test(pageText(page))) addError(quest, `${page.id} must pay off the map mystery`);
-    });
-  }
-
-  if (quest.id === "mp_ra_a_04_brave_tiny_big_little_rescue") {
-    const startChoices = pageById.get(startPageId)?.choices || [];
-    const firstChoiceLabel = String(startChoices[0]?.label || "");
-    const secondChoiceLabel = String(startChoices[1]?.label || "");
-    if (!/Clucky|hat/i.test(firstChoiceLabel)) {
-      addError(quest, `${startPageId} first choice must clearly open Clucky's hat rescue`);
-    }
-    if (!/Woolly|bell/i.test(secondChoiceLabel)) {
-      addError(quest, `${startPageId} second choice must clearly open Woolly's bell rescue`);
-    }
-    const hatReachable = collectNarrativeReachable(pageById, startChoices[0]?.nextPageId, startPageId);
-    const bellReachable = collectNarrativeReachable(pageById, startChoices[1]?.nextPageId, startPageId);
-    const hatOnlyPages = new Set(["p03_pot", "p03_wall", "p03_hat", "p04_hat_in_pot", "p04_tiny_in_pot", "p04_feather", "p04_clucky_wall", "p04_hat_on_wall", "p05_hat_found", "p06_hat_on_brave", "p05_brave_stuck", "p05_feather_brave", "p05_feather_back", "p05_tiny_climbs", "p05_brave_climbs", "p06_tiny_helps", "p06_woolly_helps", "p06_brave_boost", "p06_brave_slips", "p07_clucky_happy", "p09_fancy_brave_ending"]);
-    const bellOnlyPages = new Set(["p03_woolly", "p04_under_wool", "p04_stream", "p05_brave_in_wool", "p05_bell_stream", "p05_bell_found", "p06_bell_ring", "p06_woolly_laughs", "p06_brave_stream", "p07_woolly_happy", "p09_loud_bell_ending"]);
-    const hatCrossovers = [...bellOnlyPages].filter(pageId => hatReachable.has(pageId));
-    const bellCrossovers = [...hatOnlyPages].filter(pageId => bellReachable.has(pageId));
-    if (hatCrossovers.length > 0) addError(quest, `hat mystery crosses into bell-only scenes: ${hatCrossovers.join(", ")}`);
-    if (bellCrossovers.length > 0) addError(quest, `bell mystery crosses into hat-only scenes: ${bellCrossovers.join(", ")}`);
+  switch (quest.id) {
+    case "story_quest_short_a_sam_pam_01":
+      everyRouteIncludes(["page-01", "page-02", "page-04", "page-05", "page-07"], "Packing, obstruction and map recovery must precede either family ending");
+      text("page-07", /Sam has the map/, "must confirm recovery before choosing the day");
+      if (pageById.get("page-07")?.choicePrompt !== "Will they go or stay?") addError(quest, "The stay-home ending must be an explicit family choice");
+      break;
+    case "mp_ra_a_01_muddy_splashy_missing_hat":
+      everyRouteIncludes(["p07_dry_hat", "p07_clucky_muddy_hat"], "The wet hat must dry and return to its owner before lending");
+      before("p07_wash_hat", "p06_hat_muddy", "Washing follows finding the muddy hat");
+      for (const route of routes.filter(path => path.includes("p06_hat_muddy"))) {
+        if (!route.includes("p07_wash_hat") || route.indexOf("p07_wash_hat") > route.indexOf("p07_dry_hat")) addError(quest, "Mud route needs washing before drying");
+      }
+      // Pond routes arrive wet but already clean; they do not need the mud wash.
+      break;
+    case "mp_ra_a_02_shy_cuddly_quiet_adventure":
+      everyRouteIncludes(["p04_call_shy", "p02_cuddly", "p06_go_to_tree", "p07_tree_under"], "The startled friend receives space and leads the next step");
+      text("p08_tree_purr", /rests nearby/, "must honour the space choice");
+      break;
+    case "mp_ra_a_03_bouncy_speedy_fast_map":
+      everyRouteIncludes(["p02_speedy", "p03_barn_fast", "p04_too_fast", "p05_speedy_waits", "p03_barn", "p05_big_tree"], "Both catches must recover the map and complete the search for Tiny");
+      text("p05_speedy_waits", /spread out the map/, "must make recovered map possession explicit");
+      break;
+    case "mp_ra_a_04_brave_tiny_big_little_rescue":
+      everyRouteIncludes(["p05_brave_stuck", "p05_hat_found", "p07_clucky_happy"], "Both rescues must free Brave and return Clucky's hat");
+      before("p04_tiny_in_pot", "p06_tiny_helps", "Brave cannot climb the rope before Tiny provides it");
+      text("p06_tiny_helps", /rope/, "must provide the rescue equipment");
+      break;
+    case "dp_ra_b_01_chompy_big_lunch_hunt":
+      everyRouteIncludes(["p02_berries", "p03_save_berries"], "Picnic branches begin with gathered food");
+      before("p08_thank_you_ending", "p03_ask_sunny", "Grumpy's chosen food must arrive before his ending");
+      before("p08_leaf_hat_ending", "p08_berry_mess_ending", "Spilled food must be collected and washed before lunch");
+      text("p08_berry_mess_ending", /washes/, "must repair the spill");
+      break;
+    case "dp_ra_b_02_sunnys_rainy_day_rescue":
+      everyRouteIncludes(["p04_cave_grumpy", "p05_leaf_roof", "p06_grumpy_dry", "p06_dozy_dry", "p06_grumpy_smile"], "Every ending must follow shelter, leak repair and a dry pillow");
+      text("p06_grumpy_smile", /pillow dries/, "must resolve Dozy's need before the final choice");
+      before("p08_grumpy_laugh_ending", "p07_leaf_boat", "The boat must exist before its payoff");
+      break;
+    case "dp_ra_b_03_grumpy_almost_good_day":
+      before("p07_tower_rebuilt", "p06_rebuild_stones", "The damaged tower must be repaired");
+      for (const route of routes.filter(path => path.includes("p03_stones_fall"))) {
+        if (!route.includes("p06_rebuild_stones")) addError(quest, "A route abandons Fancy's damaged tower");
+      }
+      endingPages.forEach(page => { if (!/nap/i.test(pageText(page))) addError(quest, `${page.id} must resolve Grumpy's original need for rest`); });
+      break;
+    case "dp_ra_b_04_bouncy_big_bounce":
+      everyRouteIncludes(["p02_berry_corner", "p03_help_chompy"], "Every route must establish the berry picnic");
+      before("p08_berry_ending", "p06_everyone_sticky", "Fallen berries need washing before eating");
+      before("p05_cave_echo", "p02_cozy_cave", "Bouncy must receive the basket before setting it down");
+      before("p08_rock_ending", "p07_dozy_advice", "Dozy must be invited before the four-friend picnic");
+      text("p02_cozy_cave", /Bouncy takes the basket/, "must make the handoff explicit");
+      break;
+    case "dp_ra_b_05_shys_snail_shade":
+      for (const route of routes) {
+        const bark = route.includes("p03_bark");
+        if (route.some(id => id.includes(bark ? "moss" : "bark"))) addError(quest, "A snail route changes path material without an action");
+        if (route.at(-1) !== (bark ? "p06_log_ending" : "p06_fern_ending")) addError(quest, "Snail route ends at the wrong shelter");
+      }
+      before("p04_moss_strip", "p04_moss_dots", "Filling the moss gap must follow encountering it");
+      break;
+    case "mw_ra_c_01_pip_stone_loud_thing":
+      everyRouteIncludes(["p06_mossy_stone", "p07_pip_speaks", "p08_stone_calls", "p09_pip_covers_ears", "p09_pip_listens"], "The frog's need, failed loud call and heard answer precede either reunion");
+      endingPages.forEach(page => { if (!/family/i.test(pageText(page))) addError(quest, `${page.id} must reunite the frog's family`); });
+      break;
+    case "mw_ra_c_02_fern_wren_walking_garden":
+      everyRouteIncludes(["p02_recipe", "p03_pour_potion", "p04_all_walk", "p05_too_late", "p08_return_home"], "Potion rules, spill, failed catch and return must precede both solutions");
+      endingPages.forEach(page => { if (!/green drop/i.test(pageText(page)) || !/leaves/i.test(pageText(page))) addError(quest, `${page.id} leaves the original drooping plant unresolved`); });
+      break;
+    case "mw_ra_c_03_luna_burrow_star_shell_door":
+      everyRouteIncludes(["p02_moon_map", "p06_hidden_door", "p05_cracked_shell", "p05_burrow_repairs", "p07_door_opens", "p08_map_inside"], "Both discoveries require the map, broken shell and visible repair");
+      text("p06_hidden_door", /upside down/, "must explain the failed fit");
+      text("p07_door_opens", /turn/i, "must correct the fit rather than magically repair it");
+      break;
+    case "mw_ra_c_04_dewdrop_flint_lost_glow":
+      everyRouteIncludes(["p03_water_whisper", "p06_glow_cave", "p07_glow_sleeps", "p06_lantern_pop", "p07_heavy_crystal", "p08_team_pull", "p08_crystal_moves", "p07_glow_wakes", "p08_sorry_glow"], "Both endings require a seeded water rule, released flow and respect for the glow's quiet home");
+      text("p07_heavy_crystal", /dark lantern/, "must preserve the extinguished lantern state");
+      endingPages.forEach(page => { if (!/Gold light fills the path/i.test(pageText(page))) addError(quest, `${page.id} must resolve the dark path`); });
+      break;
+    default:
+      addError(quest, "missing reviewed narrative contract");
   }
 }
 
@@ -287,9 +315,6 @@ if (!Array.isArray(storyQuests) || storyQuests.length === 0) {
   if (!Array.isArray(quest.pages) || quest.pages.length === 0) {
     addError(quest, "missing pages array");
     return;
-  }
-  if (quest.pages.length < 10) {
-    addError(quest, `must contain at least 10 authored scenes (found ${quest.pages.length})`);
   }
 
   const pageById = new Map();
@@ -327,7 +352,7 @@ if (!Array.isArray(storyQuests) || storyQuests.length === 0) {
     if (typeof page.audioUrl !== "string" || !page.audioUrl.trim()) {
       addError(quest, `${page.id || `page ${index + 1}`} missing audioUrl`);
     }
-    if (typeof page.choicePrompt !== "string" || !page.choicePrompt.trim()) {
+    if (page.choices?.length > 1 && (typeof page.choicePrompt !== "string" || !page.choicePrompt.trim())) {
       addError(quest, `${page.id || `page ${index + 1}`} missing choicePrompt`);
     }
     if (page.narrationNeedsRebuild !== undefined && typeof page.narrationNeedsRebuild !== "boolean") {
@@ -344,8 +369,11 @@ if (!Array.isArray(storyQuests) || storyQuests.length === 0) {
     if (!Array.isArray(page.choices)) {
       addError(quest, `${page.id || `page ${index + 1}`} choices must be an array`);
     } else {
-      if (page.choices.length < 2) {
-        addError(quest, `${page.id} must offer at least two choices`);
+      if (page.choices.length < 1 || page.choices.length > 2) {
+        addError(quest, `${page.id} must offer one continuation or two meaningful choices`);
+      }
+      if (page.choices.length === 1 && page.choices[0].label !== "Next") {
+        addError(quest, `${page.id} single continuation must say Next`);
       }
       const normalizedLabels = page.choices.map(choice => String(choice?.label || "").trim().toLowerCase());
       if (normalizedLabels.some((label, labelIndex) => label && normalizedLabels.indexOf(label) !== labelIndex)) {

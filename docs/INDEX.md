@@ -44,7 +44,7 @@ A dated document must never override current code.
 - [Story writing standard](content/STORY_BIBLE_PART_1_WRITING.md)
 - [Little Literacy Guides SEL Books 1-10](content/sel-books/README.md)
 - [Story canon](content/STORY_BIBLE_PART_2_CANON.md)
-- [Story Quest authoring rules](STORY_QUEST_REWRITE_2026-07-26.md)
+- [Story Quest production contract](content/STORY_QUEST_PRODUCTION.md)
 
 The Skills assessment has one current progression threshold: the 70% phase rule in
 `src/content/blueprints/skillBlueprints.js`. Publication is controlled by the ten
