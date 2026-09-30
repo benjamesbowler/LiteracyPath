@@ -87,10 +87,12 @@ test("simple progress workbook stays readable and retains the complete evidence 
   assert.equal(rows.filter(row => row["Row type"] === "Question result").length, 2);
   assert.ok(rows.some(row => row.Field === "Student" && row.Value === "Aarav"));
   assert.ok(rows.some(row => row.Field === "Class" && row.Value === "Audit Class A"));
-  assert.doesNotMatch(
-    workbook.getWorksheet("Data").getSheetValues().flat(3).join(" "),
-    /private-student-id|private-attempt|private-question/i
-  );
+  assert.deepEqual(rows.filter(row => row["Row type"] === "Assessment attempt").map(row => row["Attempt ID"]), ["private-attempt-1", "private-attempt-2"]);
+  assert.deepEqual(rows.filter(row => row["Row type"] === "Question result").map(row => row["Question ID"]), ["private-question-1", "private-question-2"]);
+  assert.ok(rows.some(row => row.Field === "Student ID" && row.Value === "private-student-id"));
+  for (const name of ["Report", "Skills"]) {
+    assert.doesNotMatch(workbook.getWorksheet(name).getSheetValues().flat(3).join(" "), /private-student-id|private-attempt|private-question/i);
+  }
 });
 
 test("the downloadable workbook includes saved Adventure teaching detail without scoring old aggregate practice", async () => {

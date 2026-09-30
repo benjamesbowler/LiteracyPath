@@ -184,6 +184,9 @@ jobs:
         run: npm run seed:audit-school
       - name: Prepare restricted private source-map vault
         run: echo "LP_PRIVATE_SOURCE_MAP_KEEP_ROOT=$RUNNER_TEMP/private-source-maps" >> "$GITHUB_ENV"
+      - name: Build requested export compatibility bundle
+        if: github.event_name == 'workflow_dispatch' && inputs.release_only != '' && contains(inputs.release_only, 'report-export-provenance')
+        run: npm run build
       - name: Run canonical whole-product release gate
         id: whole-product
         continue-on-error: true

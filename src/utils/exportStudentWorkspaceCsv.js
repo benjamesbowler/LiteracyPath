@@ -255,6 +255,10 @@ function skillsCheckRows(workspace = {}, options = {}) {
   const itemRows = asArray(report.items).map(item => ({
     "Section": "Result details",
     "Row type": "Item summary",
+    ...(options.includeIdentifiers ? {
+      "Evidence ID": item.evidenceId || "",
+      "Source attempt IDs": asArray(item.provenance?.sourceRecordIds)
+    } : {}),
     "Skill": item.concept?.label || "",
     "Status": statusLabel(item.status),
     "Attempts": item.details?.observations ?? "",
@@ -268,6 +272,15 @@ function skillsCheckRows(workspace = {}, options = {}) {
     return {
       "Section": "Result details",
       "Row type": "Assessment attempt",
+      ...(options.includeIdentifiers ? {
+        "Student ID": raw.studentId || workspace.student?.id || "",
+        "Attempt ID": attempt.attemptId || raw.attemptId || "",
+        "Assessment ID": raw.assessmentType || raw.assessmentId || "",
+        "Skill ID": raw.skillId || "",
+        "Assessment version": attempt.formVersion || raw.formVersion || "",
+        "Content version": attempt.contentVersion || raw.contentVersion || "",
+        "Scoring version": attempt.scoringVersion || raw.scoringVersion || raw.scoringRuleVersion || ""
+      } : {}),
       "Skill": raw.skillName || raw.skillId || "",
       "Status": statusLabel(attempt.status || attempt.scoreStatus),
       "Attempts": 1,
@@ -284,6 +297,12 @@ function skillsCheckRows(workspace = {}, options = {}) {
       return {
         "Section": "Result details",
         "Row type": "Question result",
+        ...(options.includeIdentifiers ? {
+          "Student ID": raw.studentId || workspace.student?.id || "",
+          "Attempt ID": attempt.attemptId || raw.attemptId || "",
+          "Question ID": question.questionId || question.id || "",
+          "Item key": question.itemKey || question.itemId || ""
+        } : {}),
         "Skill": raw.skillName || raw.skillId || "",
         "Status": kind === "mediaFailed" ? "media_failed" : kind,
         "Recorded response status": question.responseStatus || "",
@@ -394,11 +413,17 @@ export function buildStudentWorkspaceCsvRows(viewId, workspace = {}, options = {
     versionSummary: options.versionSummary,
     appVersion: options.appVersion,
     definitions: "Figure explanation rows are included in this CSV file."
-  }).filter(row => !TEACHER_HIDDEN_REPORT_FIELDS.has(row.field)).map(row => ({
+  }).filter(row => options.includeIdentifiers || !TEACHER_HIDDEN_REPORT_FIELDS.has(row.field)).map(row => ({
     "Section": "About this report",
     "Row type": "Report detail",
     "Field": row.field,
     "Value": row.value
   }));
-  return [...provenanceRows, ...reportRows, ...definitionRows];
+  const identityRows = options.includeIdentifiers ? [
+    { field: "Student ID", value: options.learnerId || workspace.student?.id || "" },
+    { field: "Class ID", value: workspace.student?.classId || workspace.student?.class_id || "" }
+  ].filter(row => row.value).map(row => ({
+    "Section": "About this report", "Row type": "Report detail", "Field": row.field, "Value": row.value
+  })) : [];
+  return [...provenanceRows, ...identityRows, ...reportRows, ...definitionRows];
 }

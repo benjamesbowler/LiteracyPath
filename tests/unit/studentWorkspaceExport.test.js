@@ -78,3 +78,23 @@ test("the seeded 520-item skills assessment export keeps every summary, attempt,
   assert.ok(questions.every(row => !Object.hasOwn(row, "Question ID")));
   assert.equal(new Set(questions.map(row => row.Question)).size, 1);
 });
+
+test("the machine-readable ledger retains all 520 attempt and item identifiers with provenance", () => {
+  const assessmentHistory = Array.from({ length: HIGH_VOLUME_COUNT }, (_, index) => seededHighVolumeAttempt(index));
+  const workspace = buildStudentReportingWorkspaceModel({ student, assessmentHistory });
+  const rows = buildStudentWorkspaceCsvRows("skills-check", workspace, { includeIdentifiers: true });
+  const attempts = rows.filter(row => row["Row type"] === "Assessment attempt");
+  const questions = rows.filter(row => row["Row type"] === "Question result");
+  assert.equal(attempts.length, HIGH_VOLUME_COUNT);
+  assert.equal(questions.length, HIGH_VOLUME_COUNT);
+  assert.deepEqual(new Set(attempts.map(row => row["Attempt ID"])), new Set(assessmentHistory.map(row => row.attemptId)));
+  assert.deepEqual(new Set(questions.map(row => row["Attempt ID"])), new Set(assessmentHistory.map(row => row.attemptId)));
+  assert.deepEqual(new Set(questions.map(row => row["Question ID"])), new Set(assessmentHistory.map(row => row.questionRecords[0].questionId)));
+  assert.deepEqual(new Set(questions.map(row => row["Item key"])), new Set(assessmentHistory.map(row => row.questionRecords[0].itemKey)));
+  assert.ok(attempts.every(row => row["Student ID"] === student.id));
+  assert.ok(rows.some(row => row.Field === "Student ID" && row.Value === student.id));
+  assert.ok(rows.some(row => row.Field === "Class ID" && row.Value === student.classId));
+  for (const field of ["App version(s)", "Assessment version(s)", "Content version(s)", "Scoring version(s)"]) {
+    assert.ok(rows.some(row => row.Field === field), `missing ${field}`);
+  }
+});

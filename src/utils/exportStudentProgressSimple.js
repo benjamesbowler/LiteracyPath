@@ -348,6 +348,7 @@ export async function createSimpleStudentProgressWorkbook(workspace = {}, {
   // evidence. The Data sheet is the complete, machine-readable ledger used for
   // audits, transfers and a teacher's own follow-up analysis.
   const exportOptions = {
+    includeIdentifiers: true,
     reportTitle: "Skills assessment report",
     className,
     learnerName: studentName,
