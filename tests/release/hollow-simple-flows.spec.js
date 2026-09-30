@@ -93,6 +93,11 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }
       await expect(surface.locator("[data-child-primary]")).toBeInViewport();
       expect(await surface.evaluate(el => ({ x: el.scrollWidth > el.clientWidth + 1, y: el.scrollHeight > el.clientHeight + 1 }))).toEqual({ x: false, y: false });
     }
+    await page.getByRole("button", { name: "← My Hollow", exact: true }).click();
+    await page.getByRole("button", { name: "Open your gift", exact: true }).click();
+    await expect(page.locator(".hollow-beastie")).toHaveCount(1);
+    await expect(surface.locator("[data-child-primary]")).toBeInViewport();
+    expect(await surface.evaluate(el => ({ x: el.scrollWidth > el.clientWidth + 1, y: el.scrollHeight > el.clientHeight + 1 }))).toEqual({ x: false, y: false });
   });
 }
 
@@ -118,3 +123,31 @@ test("a full room keeps the bought decoration selected while making space", asyn
   expect(Object.values((await ledger(page)).layout.slots)).toContain(bought);
   await expect(page.locator(".hollow-picker")).toHaveCount(0);
 });
+
+for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }, { width: 1194, height: 834 }]) {
+  test(`a full collection page and its next page stay usable at ${viewport.width}x${viewport.height}`, async ({ page }) => {
+    await page.setViewportSize(viewport);
+    await page.addInitScript(({ scope }) => {
+      localStorage.setItem(`lp-hollow:${scope}`, JSON.stringify({
+        purchases: Array.from({ length: 5 }, (_, i) => ({ id: `friend-${i}`, item: i ? "egg-bronze" : "egg-welcome", cost: i ? 100 : 0, at: "2026-09-01T00:00:00Z" })),
+        feeds: [], chests: [], layout: { slots: {}, equipped: {} }
+      }));
+      localStorage.setItem(`literacyPath.guidedReadingRecords.${scope}`, JSON.stringify(Object.fromEntries(Array.from({ length: 50 }, (_, i) => [`book-${i}`, { readCount: 1 }]))));
+    }, { scope });
+    await page.goto(route);
+    await page.getByRole("button", { name: "Beasties", exact: true }).click();
+    await expect(page.locator(".hollow-beastie")).toHaveCount(4);
+    for (const count of [4, 1]) {
+      await expect(page.locator(".hollow-beastie")).toHaveCount(count);
+      const clipped = await page.locator(".hollow-stage").evaluate(stage => {
+        const box = stage.getBoundingClientRect();
+        return [...stage.querySelectorAll(".hollow-beastie, .hollow-market-pages button")].filter(el => {
+          const rect = el.getBoundingClientRect();
+          return rect.bottom > box.bottom + 1 || rect.right > box.right + 1 || rect.top < box.top - 1 || rect.left < box.left - 1;
+        }).map(el => el.textContent.trim());
+      });
+      expect(clipped).toEqual([]);
+      if (count === 4) await page.getByRole("button", { name: "More friends", exact: true }).click();
+    }
+  });
+}
