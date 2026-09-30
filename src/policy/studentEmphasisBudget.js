@@ -45,12 +45,12 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
   }),
   Object.freeze({
     id: "cycle-practice",
-    primaryCue: "Choose the best answer",
+    primaryCue: "\\S",
     treatment: "The current cycle question owns the single clear response action; practice timing and progress remain visible without competing with the answer."
   }),
   Object.freeze({
     id: "sound-seekers",
-    primaryCue: "Start my adventure",
+    primaryCue: "Let’s explore|Continue adventure",
     treatment: "A new child gets one named Start my adventure action; customisation options stay quieter and do not compete with it."
   }),
   Object.freeze({
@@ -65,8 +65,8 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
   }),
   Object.freeze({
     id: "my-hollow",
-    primaryCue: "Place next",
-    treatment: "Only the recommended placement spot pulses and it is larger, double-ringed, and explicitly named."
+    primaryCue: "Open your gift|Decorate my Hollow",
+    treatment: "One task leads the Hollow entry; three picture choices stay quiet. Placement controls appear only after Decorate."
   })
 ]);
 

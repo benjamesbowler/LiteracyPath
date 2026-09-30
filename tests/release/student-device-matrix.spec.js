@@ -683,117 +683,18 @@ async function expectVisibleRecommendationReasons(surface, state, expectedSurfac
 }
 
 async function expectCompactHollowOverlaysSeparated(surface, state) {
+  await expect(surface.locator(".hollow-doorways button"), state).toHaveCount(3);
+  await expect(surface.locator(".hollow-spot, .hollow-world-button, .hollow-tabs"), state).toHaveCount(0);
   const geometry = await surface.evaluate(element => {
-    const box = selector => {
-      const node = element.querySelector(selector);
-      if (!node) return null;
-      const rect = node.getBoundingClientRect();
-      if (rect.width < 1 || rect.height < 1) return null;
-      return {
-        left: rect.left,
-        top: rect.top,
-        right: rect.right,
-        bottom: rect.bottom
-      };
-    };
-    const firstVisibleBox = selector => [...element.querySelectorAll(selector)]
-      .map(node => {
-        const style = getComputedStyle(node);
-        const rect = node.getBoundingClientRect();
-        if (
-          style.display === "none"
-          || style.visibility === "hidden"
-          || rect.width < 1
-          || rect.height < 1
-        ) return null;
-        return {
-          left: rect.left,
-          top: rect.top,
-          right: rect.right,
-          bottom: rect.bottom
-        };
-      })
-      .find(Boolean) || null;
-    const overlaps = (first, second) => Boolean(first && second)
-      && first.left < second.right - 1
-      && first.right > second.left + 1
-      && first.top < second.bottom - 1
-      && first.bottom > second.top + 1;
-    const room = box(".hollow-room");
-    const pageTitle = box(".hollow-title");
-    const primaryCue = box("[data-child-primary] [data-child-emphasis-cue]");
-    const recommendedSpot = box("[data-child-primary]");
-    const roomName = box(".hollow-room-name");
-    const instruction = firstVisibleBox("[data-child-instruction]");
-    const world = box(".hollow-world-button");
-    const nextRoom = box(".hollow-room-arrow.right");
-    const roomControls = [...element.querySelectorAll(".hollow-room button")]
-      .map(control => {
-        const rect = control.getBoundingClientRect();
-        if (rect.width < 1 || rect.height < 1) return null;
-        return {
-          left: rect.left,
-          top: rect.top,
-          right: rect.right,
-          bottom: rect.bottom
-        };
-      })
-      .filter(Boolean);
-    return {
-      hasParts: Boolean(
-        room && pageTitle && instruction && primaryCue && recommendedSpot && world && nextRoom
-      ),
-      room,
-      pageTitle,
-      primaryCue,
-      recommendedSpot,
-      roomName,
-      instruction,
-      world,
-      nextRoom,
-      primaryCueContained: Boolean(room && primaryCue)
-        && primaryCue.left >= room.left - 1
-        && primaryCue.right <= room.right + 1
-        && primaryCue.top >= room.top - 1
-        && primaryCue.bottom <= room.bottom + 1,
-      instructionContained: Boolean(room && instruction)
-        && instruction.left >= room.left - 1
-        && instruction.right <= room.right + 1
-        && instruction.top >= room.top - 1
-        && instruction.bottom <= room.bottom + 1,
-      instructionControlCollision: roomControls.some(control => overlaps(instruction, control)),
-      overlayCollision: [
-        [roomName, instruction],
-        [roomName, recommendedSpot],
-        [instruction, recommendedSpot],
-        [instruction, primaryCue],
-        [instruction, world],
-        [instruction, nextRoom]
-      ].some(([first, second]) => overlaps(first, second)),
-      worldNextOverlap: overlaps(world, nextRoom)
-    };
+    const box = selector => element.querySelector(selector).getBoundingClientRect();
+    const instruction = box("[data-child-instruction]");
+    const primary = box("[data-child-primary]");
+    const choices = box(".hollow-doorways");
+    const overlap = (a, b) => a.left < b.right - 1 && a.right > b.left + 1 && a.top < b.bottom - 1 && a.bottom > b.top + 1;
+    return { overlap: overlap(instruction, primary) || overlap(primary, choices),
+      contained: [primary, choices].every(rect => rect.left >= 0 && rect.right <= innerWidth + 1 && rect.top >= 0 && rect.bottom <= innerHeight + 1) };
   });
-  expect(geometry.hasParts, `${state} exposes its title, primary cue and room controls`).toBe(true);
-  expect(
-    geometry.overlayCollision,
-    `${state} keeps room overlays clear of its placement controls: ${JSON.stringify(geometry)}`
-  ).toBe(false);
-  expect(
-    geometry.worldNextOverlap,
-    `${state} separates the World and next-room controls: ${JSON.stringify(geometry)}`
-  ).toBe(false);
-  expect(
-    geometry.primaryCueContained,
-    `${state} keeps the visible primary cue inside the room: ${JSON.stringify(geometry)}`
-  ).toBe(true);
-  expect(
-    geometry.instructionContained,
-    `${state} keeps its visible instruction inside the room: ${JSON.stringify(geometry)}`
-  ).toBe(true);
-  expect(
-    geometry.instructionControlCollision,
-    `${state} keeps its instruction clear of every room control: ${JSON.stringify(geometry)}`
-  ).toBe(false);
+  expect(geometry, `${state} keeps the task and three choices visible and separate`).toEqual({ overlap: false, contained: true });
 }
 
 async function expectLibraryHeaderControlsClear(surface, state) {
@@ -997,7 +898,7 @@ async function expectFocusedControlFullyRevealed(control, state, { focusControl 
     const outlineOffset = Number.parseFloat(style.outlineOffset) || 0;
     const expectedOutlineColor = element.matches(".kg-segment.is-active")
       ? "rgb(255, 255, 255)"
-      : "rgb(32, 66, 58)";
+      : "rgb(24, 38, 62)";
     const focusRingOutset = element.matches(":focus-visible")
       ? Math.max(0, outlineWidth + outlineOffset)
       : 0;

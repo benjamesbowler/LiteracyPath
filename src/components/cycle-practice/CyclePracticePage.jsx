@@ -548,7 +548,7 @@ function CyclePracticeSession({
     setSubtarget({ roundRunKey, object: authored });
   };
   const instructionRow = <div className="cycle-instruction-row wa-instruction">
-    <div><span className="cycle-activity-name">{shownRound.stationTitle}</span><p data-child-instruction="">{currentAudio.instructionText}</p></div>
+    <div><span className="cycle-activity-name">{shownRound.stationTitle}</span><p data-child-instruction="" data-child-emphasis-cue="">{currentAudio.instructionText}</p></div>
     <ActivityButton type="button" className="cycle-listen-button wa-audio" data-audio-action="replay" data-audio-state={audioStatus === "ready" && !teachingReady ? "pending" : audioStatus} aria-label="Hear what to do" disabled={frozen} onClick={() => { triggerTactileFeedback(16); replayInstruction(true); }}><SpeakerIcon /><span>{listening ? "Listening…" : "Listen"}</span></ActivityButton>
   </div>;
 
@@ -574,7 +574,7 @@ function CyclePracticeSession({
       <section className={`cycle-playground cycle-playground--${shownRound.mechanicId}`} data-mechanic-stage={shownRound.mechanicId} data-child-choices="" aria-label={shownRound.stationTitle} data-feedback={feedbackTone}>
         <div className="cycle-scenery" aria-hidden="true"><i /><i /><i /><i /></div>
         {!compact && instructionRow}
-        <div ref={activitySpace} className="cycle-activity-space wa-stage" data-child-primary="" onLoadCapture={checkPictures} inert={frozen || mediaFailed || !picturesReady ? true : undefined}>
+        <div ref={activitySpace} className="cycle-activity-space wa-stage" data-child-primary="" data-child-emphasis="primary" onLoadCapture={checkPictures} inert={frozen || mediaFailed || !picturesReady ? true : undefined}>
           <CycleActivityRenderer key={(shownRound.mechanicId === "soundSort" && shownRound.objects?.length) || (shownRound.mechanicId === "wordBuild" && shownRound.variant !== "wordParts") ? feedbackActivityKey || roundRunKey : feedbackKey || roundKey} round={shownRound} disabled={frozen || mediaFailed || !picturesReady}
             mediaRevision={mediaRevision}
             supportLevel={mode === "assessment" ? 0 : attempts} reducedMotion={reducedMotion}

@@ -34,16 +34,16 @@
    * Lifted verbatim from home-sage.css so the home page remains the single
    * source of truth for the palette; it now simply consumes these instead of
    * declaring its own copy. */
-  --lp-sage: #5CA091;
-  --lp-cream: #FBF4EA;
-  --lp-ink: #182620;
-  --lp-ink-soft: #4A5A52;
-  --lp-line: #E9E1D4;
-  --lp-forest: #2E4B3E;
+  --lp-sage: #3454C8;
+  --lp-cream: #F7F8FA;
+  --lp-ink: #18263E;
+  --lp-ink-soft: #5C677A;
+  --lp-line: #DFE3EB;
+  --lp-forest: #18263E;
   --lp-tan: #C98F54;
   --lp-promo: #D9924E;
   --lp-gold: #F2B33D;
-  --lp-sky: #BFE3D8;
+  --lp-sky: #E9EDF9;
   --lp-pill: rgba(255, 255, 255, 0.28);
   --lp-white: #FFFFFF;
 

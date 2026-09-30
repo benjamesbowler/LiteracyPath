@@ -5,6 +5,8 @@ import {
   STUDENT_EMPHASIS_VIEWPORTS
 } from "../../src/policy/studentEmphasisBudget.js";
 import { expectVisibleImagesReady } from "./support/visualReadiness.js";
+import { cycleStorageKey } from "../../src/components/cycle-practice/cyclePracticeState.js";
+import { CYCLE_PRACTICE_VERSION, CYCLE_ACTIVITY_REVISION } from "../../src/policy/cyclePracticePolicy.js";
 
 async function waitForPrimaryMedia(primary) {
   const image = primary.locator("img").first();
@@ -22,11 +24,21 @@ for (const viewport of STUDENT_EMPHASIS_VIEWPORTS) {
       page.on("pageerror", error => pageErrors.push(error.message));
       await page.emulateMedia({ reducedMotion: "reduce" });
       await page.setViewportSize(viewport);
+      if (route.id === "cycle-practice") {
+        await page.addInitScript(({ key, version, revision }) => {
+          localStorage.setItem(key, JSON.stringify({
+            version, activityRevision: revision, mode: "practice", practiceSeed: "child-device-matrix",
+            practiceIndex: 0, pass: 0, assessmentIndex: 0, assessmentRecords: [], practiceRecords: [],
+            attempts: 0, pendingAttempt: null, result: null, paused: false, earnedCount: 0,
+            attemptId: "synthetic-device-matrix", startedAt: "2026-09-30T00:00:00.000Z"
+          }));
+        }, { key: cycleStorageKey("child-surface-preview", "preview", "cycle-1"), version: CYCLE_PRACTICE_VERSION, revision: CYCLE_ACTIVITY_REVISION });
+      }
       await page.goto(`/preview/child-surfaces.html?surface=${route.id}`);
 
       const surface = page.locator(`[data-child-surface="${route.id}"]`);
       const primary = surface.locator("[data-child-primary]");
-      const cue = surface.locator(
+      const cue = route.id === "cycle-practice" ? surface.locator("[data-child-instruction]") : surface.locator(
         "[data-child-primary] [data-child-emphasis-cue],"
         + "[data-child-primary][data-child-emphasis-cue]"
       );
@@ -39,10 +51,10 @@ for (const viewport of STUDENT_EMPHASIS_VIEWPORTS) {
       await expect(cue).toBeVisible();
       await expect(cue).toContainText(new RegExp(route.primaryCue, "i"));
 
-      const hierarchy = await surface.evaluate(element => {
+      const hierarchy = await surface.evaluate((element, routeId) => {
         const actions = [...element.querySelectorAll("button, a")];
         const primaryAction = element.querySelector("[data-child-primary]");
-        const cueElement = primaryAction?.matches("[data-child-emphasis-cue]")
+        const cueElement = routeId === "cycle-practice" ? element.querySelector("[data-child-instruction]") : primaryAction?.matches("[data-child-emphasis-cue]")
           ? primaryAction
           : primaryAction?.querySelector("[data-child-emphasis-cue]");
         const level = action => Number.parseInt(
@@ -69,7 +81,7 @@ for (const viewport of STUDENT_EMPHASIS_VIEWPORTS) {
             && cueBox.left >= 0
             && cueBox.right <= window.innerWidth)
         };
-      });
+      }, route.id);
 
       expect(hierarchy).toEqual({
         primaryLevel: 3,
@@ -78,6 +90,9 @@ for (const viewport of STUDENT_EMPHASIS_VIEWPORTS) {
         cueInViewport: true
       });
       await waitForPrimaryMedia(primary);
+      if (route.id === "cycle-practice") {
+        await expect(surface.getByText("Your turn — tap", { exact: true })).toBeVisible({ timeout: 30000 });
+      }
       await expectVisibleImagesReady(page, `${route.id} ${viewport.id} emphasis screenshot`);
       await expect(page).toHaveScreenshot(
         `student-emphasis-${route.id}-${viewport.id}.png`,
@@ -93,66 +108,17 @@ for (const viewport of STUDENT_EMPHASIS_VIEWPORTS) {
   }
 }
 
-test("A3.9 My Hollow keeps its instruction clear of World on compact portrait phones", async ({ page }) => {
+test("A3.9 My Hollow entry keeps one task and three picture choices on compact phones", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.setViewportSize({ width: 320, height: 844 });
   await page.goto("/preview/child-surfaces.html?surface=my-hollow");
-
-  const surface = page.locator('[data-child-surface="my-hollow"]');
-  const instruction = surface.locator(".hollow-room-hint[data-child-instruction]");
-  const world = surface.locator(".hollow-world-button");
-  const room = surface.locator(".hollow-room");
-
   for (const width of [320, 390, 400]) {
     await page.setViewportSize({ width, height: 844 });
-    await expect(surface).toBeVisible();
-    await expect(room).toBeVisible();
-    await expect(instruction).toBeVisible();
-    await expect(world).toBeVisible();
-
-    const geometry = await surface.evaluate(element => {
-      const bounds = selector => {
-        const rect = element.querySelector(selector)?.getBoundingClientRect();
-        return rect ? {
-          left: rect.left,
-          top: rect.top,
-          right: rect.right,
-          bottom: rect.bottom
-        } : null;
-      };
-      const instructionBox = bounds(".hollow-room-hint[data-child-instruction]");
-      const worldBox = bounds(".hollow-world-button");
-      const roomBox = bounds(".hollow-room");
-      const overlapWidth = Math.max(
-        0,
-        Math.min(instructionBox.right, worldBox.right)
-          - Math.max(instructionBox.left, worldBox.left)
-      );
-      const overlapHeight = Math.max(
-        0,
-        Math.min(instructionBox.bottom, worldBox.bottom)
-          - Math.max(instructionBox.top, worldBox.top)
-      );
-      return {
-        instruction: instructionBox,
-        world: worldBox,
-        room: roomBox,
-        overlapArea: overlapWidth * overlapHeight,
-        instructionContained: instructionBox.left >= roomBox.left - 1
-          && instructionBox.top >= roomBox.top - 1
-          && instructionBox.right <= roomBox.right + 1
-          && instructionBox.bottom <= roomBox.bottom + 1
-      };
-    });
-
-    expect(
-      geometry.overlapArea,
-      `${width}px My Hollow keeps its instruction out of the World action: ${JSON.stringify(geometry)}`
-    ).toBe(0);
-    expect(
-      geometry.instructionContained,
-      `${width}px My Hollow keeps its instruction inside the room: ${JSON.stringify(geometry)}`
-    ).toBe(true);
+    const surface = page.locator('[data-child-surface="my-hollow"]');
+    await expect(surface.locator("[data-child-primary]")).toHaveCount(1);
+    await expect(surface.locator(".hollow-doorways button")).toHaveCount(3);
+    await expect(surface.locator(".hollow-doorways")).toBeInViewport();
+    await expect(surface.locator("[data-child-instruction]")).toBeInViewport();
+    await expect(surface.locator(".hollow-spot, .hollow-world-button, .hollow-tabs")).toHaveCount(0);
   }
 });
 

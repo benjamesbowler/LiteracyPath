@@ -21,8 +21,9 @@ our books:
 | **Moonwood** | Moonwood Tales books (25) | Advanced — hard games, Levels C–D, cycles 19–27 | Twilight forest: dusk violet `#5E4D9C`, moonlight `#BFD3F2`, deep pine `#1E3A34`, firefly gold `#E8B563` |
 
 One rule everywhere: **the world supplies warmth (backgrounds, accents,
-characters); the UI itself stays clean** — frosted glass panels, Lexend/
-Inter type, generous touch targets. Themed, never cluttered.
+characters); the UI itself stays clean** — opaque white panels, cobalt actions, readable
+type and generous touch targets. The current chrome direction is
+[Blue interface and simpler Hollow](design/BLUE_UI_AND_SIMPLE_HOLLOW.md). Themed, never cluttered.
 
 ## Learning activity presentation
 
@@ -93,9 +94,9 @@ current production scenes when they exist.
 9. **Celebrations/overlays**: confetti colors, gem colors, and Phinny
    poses tinted per world.
 10. **My Hollow**: owns Little Literacy Guide changes and the permanent
-    Beastie nook. The first Guide choice is free; later changes cost 10 earned
+    Beasties picture doorway. The first Guide choice is free; later changes cost 10 earned
     stars. Guide choices are book characters only. Every hatched beastie is
-    reachable from the nook or the Beasties tab.
+    reachable from the Beasties doorway.
 
 ## Persistent Little Literacy Guide policy
 

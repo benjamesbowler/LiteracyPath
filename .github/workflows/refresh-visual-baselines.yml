@@ -12,6 +12,7 @@ on:
           - all
           - authenticated-missing
           - guided-reading-controls
+          - ui-chrome
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -31,11 +32,13 @@ jobs:
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
       - name: Install Supabase CLI
+        if: inputs.scope != 'ui-chrome'
         uses: supabase/setup-cli@v2
         with:
           version: 2.109.1
           github-token: ${{ github.token }}
       - name: Start and seed isolated audit database
+        if: inputs.scope != 'ui-chrome'
         run: |
           supabase start --exclude realtime,storage,imgproxy,inbucket,meta,studio,edge-runtime,functions,analytics,vector
           supabase db reset --local --no-seed
@@ -53,6 +56,7 @@ jobs:
             echo "LP_AUDIT_TEACHER_PASSWORD=$audit_password"
           } >> "$GITHUB_ENV"
       - name: Seed deterministic audit school
+        if: inputs.scope != 'ui-chrome'
         run: npm run seed:audit-school
       - name: Refresh every reviewed Linux baseline
         if: inputs.scope == 'all'
@@ -73,6 +77,21 @@ jobs:
             tests/release/teacher-roster-device-matrix.spec.js \
             --project=desktop --workers=1 --update-snapshots=all
           env -u LP_AUDIT_TEACHER_PASSWORD npx playwright test \
+            tests/release/teacher-roster-device-matrix.spec.js \
+            --project=desktop --workers=1 --update-snapshots=all
+      - name: Refresh shared UI preview baselines
+        if: inputs.scope == 'ui-chrome'
+        run: |
+          npx playwright test \
+            tests/release/guided-reading-control-hierarchy.spec.js \
+            tests/release/key-route-visuals.spec.js \
+            tests/release/student-device-matrix.spec.js \
+            tests/release/student-emphasis-budget.spec.js \
+            tests/release/student-home-card-states.spec.js \
+            tests/release/student-home-hierarchy.spec.js \
+            tests/release/student-login-panel.spec.js \
+            tests/release/student-login-recovery.spec.js \
+            tests/release/student-rail-accessibility.spec.js \
             tests/release/teacher-roster-device-matrix.spec.js \
             --project=desktop --workers=1 --update-snapshots=all
       - name: Refresh and verify child reader Linux controls
@@ -113,5 +132,5 @@ jobs:
           if-no-files-found: warn
           retention-days: 3
       - name: Stop local Supabase
-        if: always()
+        if: always() && inputs.scope != 'ui-chrome'
         run: supabase stop --no-backup

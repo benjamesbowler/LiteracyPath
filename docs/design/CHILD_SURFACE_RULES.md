@@ -72,10 +72,10 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
   series. The chosen Guide appears on Home and in the signed-in header.
 - Later Guide changes live only in **My Hollow → My Guide** and cost 10 earned
   stars. Choosing the current Guide again never spends stars.
-- Hatched beasties appear in the main Hollow's **Beastie nook** and open the
-  complete Beasties collection when tapped. On short phone landscape screens,
-  the **Beasties** tab keeps that collection available while the room omits
-  the duplicate nook so it cannot cover placement or the next action.
+- Hollow follows [the owner-approved blue and simpler Hollow direction](BLUE_UI_AND_SIMPLE_HOLLOW.md).
+  The permanent Beasties picture doorway opens the owned collection. Entry
+  shows one task and Decorate / My Guide / Beasties; placement controls, shop
+  shelves and currencies appear inside the relevant task.
 - Reading Library disclosure order is **Fiction / Non-fiction → series → book**.
   Series are meaningful reader groups (including Bob and Nan), not a flat
   cover wall. Completed books carry a visible and accessible read tick.
@@ -100,13 +100,13 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
 | Sound Seekers | PASS | PASS | PASS | PASS | PASS | The fresh-state creature builder names the task, part step, choices, and one hatch action inside the Sound Seekers root. |
 | Story Quests | PASS | PASS | PASS | PASS | PASS | Added a single Start/Continue recommendation and a text title fallback that remains visible when the raster logo is suppressed. |
 | Reading Library | PASS | PASS | PASS | PASS | PASS | Fiction/non-fiction, then series, then paged books; completed books show a read tick. |
-| My Hollow | PASS | PASS | PASS | PASS | PASS | Recommends placement only with an owned placeable item; otherwise offers the available gift or Market, with illustrated spoken recovery. Guide changes and hatched beasties have permanent homes. |
+| My Hollow | PASS | PASS | PASS | PASS | PASS | Entry offers the available gift, then decorating; three picture doorways disclose the remaining tasks. Purchase, placement and feeding save automatically. Owned Beasties and Guide changes remain reachable. |
 
 ## Verification
 
 The unit contract proves registry coverage for every `STUDENT_ALLOWED_VIEWS`
 entry plus sign-in and Arcade, as well as the forward-map, persistent-Guide,
-library hierarchy, Beastie nook and teacher class-entry contracts. The browser
+library hierarchy, Beasties doorway and teacher class-entry contracts. The browser
 contract mounts the real component for all nine child rows and requires the
 route root, all five visible regions, exactly one `h1`, exactly one primary
 action, and zero page errors. The 1280×720 ship check additionally requires

@@ -6,12 +6,12 @@
 @import './components/teacher/ui/teacherTokens.css';
 
 :root {
-  --lp-color-primary: #0C6B65;
-  --lp-color-primary-strong: #084E4A;
-  --lp-color-primary-soft: #E3F4F2;
+  --lp-color-primary: #3454C8;
+  --lp-color-primary-strong: #2844A9;
+  --lp-color-primary-soft: #E9EDF9;
   /* The border that goes with primary-soft fills. Named in the teacher redesign
      handoff as an existing token; it was only ever written as a literal. */
-  --lp-color-primary-mid: #C0E6E3;
+  --lp-color-primary-mid: #CCD5F4;
   --lp-color-accent-warm: #d68a11;
   --lp-color-accent-warm-soft: #fff7e8;
   --lp-color-success: #15803D;
@@ -22,32 +22,32 @@
   --lp-color-warning-soft: #FEF3C7;
   --lp-color-danger: #B91C1C;
   --lp-color-danger-soft: #FEF2F2;
-  --lp-color-text: #172033;
-  --lp-color-text-strong: #101828;
+  --lp-color-text: #18263E;
+  --lp-color-text-strong: #18263E;
   /* Darkened to pass WCAG AA (4.5:1) on white surfaces */
-  --lp-color-text-muted: #51607A;
+  --lp-color-text-muted: #5C677A;
   /* Keeps small teacher metadata above 4.5:1 on white, subtle and selected fills. */
-  --lp-color-text-subtle: #586579;
+  --lp-color-text-subtle: #5C677A;
   --lp-color-surface: #ffffff;
   --lp-color-surface-warm: #ffffff;
-  --lp-color-surface-subtle: #F8FAFC;
-  --lp-color-background: #F1F5F9;
-  --lp-color-background-warm: #F1F5F9;
-  --lp-color-background-warm-strong: #F1F5F9;
-  --lp-color-border: #E2E8F0;
-  --lp-color-border-strong: #CBD5E1;
-  --lp-color-border-subtle: #E2E8F0;
+  --lp-color-surface-subtle: #F7F8FA;
+  --lp-color-background: #F7F8FA;
+  --lp-color-background-warm: #F7F8FA;
+  --lp-color-background-warm-strong: #F7F8FA;
+  --lp-color-border: #DFE3EB;
+  --lp-color-border-strong: #929DAF;
+  --lp-color-border-subtle: #DFE3EB;
   --lp-shadow-card: 0 1px 4px rgba(15, 23, 42, 0.06), 0 4px 16px rgba(15, 23, 42, 0.06);
   --lp-shadow-nav: 0 1px 3px rgba(15, 23, 42, 0.08);
   --lp-shadow-soft: 0 4px 24px rgba(15, 23, 42, 0.08);
-  --lp-shadow-focus: 0 0 0 3px rgba(12, 107, 101, 0.22);
+  --lp-shadow-focus: 0 0 0 3px rgba(52, 84, 200, 0.22);
   --lp-radius-sm: 4px;
   --lp-radius-md: 6px;
   --lp-radius-lg: 8px;
   --lp-radius-xl: 10px;
   --lp-radius-card: 10px;
   --lp-radius-pill: 999px;
-  --lp-font-ui: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --lp-font-ui: "Source Sans 3", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --lp-font-reading: Lexend, "Atkinson Hyperlegible", Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --lp-font-readable: "Atkinson Hyperlegible", Lexend, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   /* Assessment print must make the tested glyph unambiguous. Andika keeps
@@ -149,7 +149,7 @@ body {
   place-items: center;
   padding: 24px;
   background:
-    linear-gradient(135deg, rgba(12, 107, 101, 0.08), rgba(12, 107, 101, 0) 36%),
+    linear-gradient(135deg, rgba(52, 84, 200, 0.08), rgba(52, 84, 200, 0) 36%),
     linear-gradient(180deg, #f8fafc 0%, #ffffff 58%, #f8fafc 100%);
 }
 
@@ -291,7 +291,7 @@ body {
 .student-flow-tile:focus-visible,
 .symbol-password-tile:focus-visible,
 .student-home-card:focus-visible {
-  outline: 4px solid rgba(12, 107, 101, 0.32);
+  outline: 4px solid rgba(52, 84, 200, 0.32);
   outline-offset: 4px;
 }
 
@@ -482,7 +482,7 @@ body {
 }
 
 .student-flow-stepper li.current {
-  border-color: rgba(12, 107, 101, 0.35);
+  border-color: rgba(52, 84, 200, 0.35);
   background: var(--lp-color-primary-soft);
   color: var(--lp-color-primary-strong);
 }
@@ -1136,7 +1136,7 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   display: flex;
   align-items: center;
   cursor: pointer;
-  color: var(--lp-color-text-strong, #172033);
+  color: var(--lp-color-text-strong, #18263E);
   font-weight: 800;
 }
 
@@ -1208,7 +1208,7 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   display: flex;
   align-items: center;
   cursor: pointer;
-  color: var(--lp-color-text-strong, #172033);
+  color: var(--lp-color-text-strong, #18263E);
   font-weight: 800;
 }
 
@@ -1228,7 +1228,7 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   min-height: 52px;
   display: flex;
   align-items: center;
-  color: var(--lp-color-text-strong, #172033);
+  color: var(--lp-color-text-strong, #18263E);
   cursor: pointer;
   font-weight: 800;
 }
@@ -1308,7 +1308,7 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   width: 46px;
   height: 46px;
   padding: 0;
-  border: 2px solid rgba(12, 107, 101, 0.35);
+  border: 2px solid rgba(52, 84, 200, 0.35);
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.96);
   color: var(--lp-color-primary);
@@ -2738,14 +2738,14 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
 }
 
 .lp-action-feedback.is-pending .lp-action-feedback-mark {
-  border: 2px solid rgba(12, 107, 101, 0.22);
+  border: 2px solid rgba(52, 84, 200, 0.22);
   border-top-color: var(--lp-color-primary);
   background: transparent;
   animation: lp-action-feedback-spin 0.8s linear infinite;
 }
 
 .lp-action-feedback.is-success {
-  border-color: rgba(12, 107, 101, 0.28);
+  border-color: rgba(52, 84, 200, 0.28);
   background: var(--lp-color-primary-soft);
 }
 
@@ -3097,7 +3097,7 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   align-content: center;
   gap: 4px;
   padding: 12px;
-  border: 1px solid rgba(12, 107, 101, 0.18);
+  border: 1px solid rgba(52, 84, 200, 0.18);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.72);
 }
@@ -4965,14 +4965,14 @@ body:has(.kg-viewport) .student-home-float { display: none; }
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.94);
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.14);
-  color: #172033;
+  color: #18263E;
   cursor: pointer;
   font-weight: 800;
   padding: 0;
 }
 
 .learn-fullscreen-toggle.active {
-  background: #172033;
+  background: #18263E;
   color: #ffffff;
 }
 
@@ -5158,7 +5158,7 @@ body:has(.kg-viewport) .student-home-float { display: none; }
   min-height: 32px;
   flex: 0 0 auto;
   padding: 6px 11px;
-  border: 1px solid rgba(12, 107, 101, 0.24);
+  border: 1px solid rgba(52, 84, 200, 0.24);
   border-radius: 999px;
   background: var(--lp-color-success-soft);
   color: var(--lp-color-success-text);
@@ -6344,7 +6344,7 @@ body:has(.kg-viewport) .student-home-float { display: none; }
 }
 
 .guided-reader-modebar.student {
-  border-color: rgba(12, 107, 101, 0.18);
+  border-color: rgba(52, 84, 200, 0.18);
   background: linear-gradient(180deg, #ffffff 0%, var(--lp-color-success-soft) 100%);
 }
 
@@ -10425,7 +10425,7 @@ select:focus {
 
 .initial-sound-card.selected {
   border-color: var(--lp-color-primary);
-  box-shadow: 0 0 0 3px rgba(12, 107, 101, 0.18), 0 12px 28px rgba(12, 107, 101, 0.1);
+  box-shadow: 0 0 0 3px rgba(52, 84, 200, 0.18), 0 12px 28px rgba(52, 84, 200, 0.1);
 }
 
 .initial-sound-image-button {
@@ -10525,7 +10525,7 @@ select:focus {
 
 .visual-assessment-card.selected {
   border-color: var(--lp-color-primary);
-  box-shadow: 0 0 0 3px rgba(12, 107, 101, 0.18), 0 8px 22px rgba(22, 34, 51, 0.08);
+  box-shadow: 0 0 0 3px rgba(52, 84, 200, 0.18), 0 8px 22px rgba(22, 34, 51, 0.08);
 }
 
 .visual-assessment-card.selected .visual-assessment-card-button {
@@ -11610,7 +11610,7 @@ select:focus {
 }
 
 .first-sound-image-placeholder svg {
-  filter: drop-shadow(0 4px 10px rgba(12, 107, 101, 0.18));
+  filter: drop-shadow(0 4px 10px rgba(52, 84, 200, 0.18));
 }
 
 .first-sound-answer-grid {
@@ -14632,7 +14632,7 @@ select:focus {
   margin: 0 auto;
   overflow: hidden;
   padding: 0;
-  color: #172033;
+  color: #18263E;
   background: #f6f8fb;
 }
 
@@ -16016,7 +16016,7 @@ select:focus {
 }
 
 .learn-stroke-canvas strong {
-  color: #172033;
+  color: #18263E;
   font-family: var(--lp-font-reading);
   font-size: clamp(6rem, 16vw, 12rem);
   line-height: 0.86;
@@ -16304,7 +16304,7 @@ select:focus {
   gap: 10px;
   align-self: stretch;
   align-content: center;
-  color: #172033;
+  color: #18263E;
   text-align: left;
 }
 
@@ -16412,7 +16412,7 @@ select:focus {
 .learn-reader-page-strip p {
   display: -webkit-box;
   overflow: hidden;
-  color: #172033;
+  color: #18263E;
   font-size: clamp(0.85rem, 1.25vw, 1rem);
   font-weight: 800;
   line-height: 1.2;
@@ -16542,7 +16542,7 @@ select:focus {
   border: 2px solid #d8e4ee;
   border-radius: 12px;
   background: #f8fbfd;
-  color: #172033;
+  color: #18263E;
   text-align: left;
 }
 
@@ -18592,7 +18592,7 @@ select:focus {
   border: 1px solid #d8e4ee;
   border-radius: 12px;
   background: #ffffff;
-  color: #172033;
+  color: #18263E;
 }
 
 .learn-created-deck-card > span,
@@ -18743,7 +18743,7 @@ select:focus {
   padding: 22px;
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.08) 25%, transparent 25% 50%, rgba(255, 255, 255, 0.08) 50% 75%, transparent 75%),
-    #172033;
+    #18263E;
   background-size: 42px 42px;
   color: #ffffff;
   text-align: center;
@@ -23878,7 +23878,7 @@ select:focus {
   gap: 12px;
   width: fit-content;
   padding: 8px 14px;
-  border: 1px solid rgba(12, 107, 101, 0.3);
+  border: 1px solid rgba(52, 84, 200, 0.3);
   border-radius: var(--lp-radius-pill);
   background: var(--lp-color-primary-soft);
   color: var(--lp-color-primary-strong);
@@ -24046,7 +24046,7 @@ select:focus {
     0 8px 20px rgba(15, 23, 42, 0.06),
     0 24px 60px rgba(15, 23, 42, 0.08);
   --mesh-student:
-    radial-gradient(620px 420px at 8% -4%, rgba(12, 107, 101, 0.13), transparent 60%),
+    radial-gradient(620px 420px at 8% -4%, rgba(52, 84, 200, 0.13), transparent 60%),
     radial-gradient(540px 380px at 96% 12%, rgba(214, 138, 17, 0.10), transparent 58%),
     radial-gradient(700px 520px at 50% 110%, rgba(59, 130, 196, 0.08), transparent 62%),
     linear-gradient(180deg, #FAFBFC 0%, #F2F5F8 100%);
@@ -24086,7 +24086,7 @@ select:focus {
 .student-home-card:hover {
   box-shadow:
     0 2px 4px rgba(15, 23, 42, 0.04),
-    0 18px 40px rgba(12, 107, 101, 0.14);
+    0 18px 40px rgba(52, 84, 200, 0.14);
 }
 
 .student-mission-celebrate-card,
@@ -24199,7 +24199,7 @@ select:focus {
   gap: 7px;
   min-height: 40px;
   padding: 0 16px;
-  border: 1px solid var(--lp-color-border, #E2E8F0);
+  border: 1px solid var(--lp-color-border, #DFE3EB);
   border-radius: 999px;
   background: #ffffff;
   color: var(--lp-color-text-strong, #0F172A);
@@ -24209,8 +24209,8 @@ select:focus {
 }
 
 .auth-back-button:hover {
-  border-color: var(--lp-color-primary, #0C6B65);
-  color: var(--lp-color-primary, #0C6B65);
+  border-color: var(--lp-color-primary, #3454C8);
+  color: var(--lp-color-primary, #3454C8);
 }
 
 .login-auth-shell {
@@ -24371,7 +24371,7 @@ summary:focus-visible {
   width: 30px;
   height: 30px;
   border: 3px solid var(--lp-color-border, #e2e8f0);
-  border-top-color: var(--lp-color-primary, #0c6b65);
+  border-top-color: var(--lp-color-primary, #3454c8);
   border-radius: 50%;
   animation: lazy-fallback-spin 0.8s linear infinite;
 }
@@ -24389,7 +24389,7 @@ summary:focus-visible {
   display: inline-block;
   font-size: 2.2rem;
   font-weight: 800;
-  color: var(--lp-color-primary, #0c6b65);
+  color: var(--lp-color-primary, #3454c8);
   rotate: 90deg;
 }
 
@@ -24567,7 +24567,7 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 ::selection {
-  background: rgba(12, 107, 101, 0.18);
+  background: rgba(52, 84, 200, 0.18);
 }
 
 /* ─── Student report upgrades (2026-07-10): pass rules, per-question review,

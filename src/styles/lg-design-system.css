@@ -1,7 +1,7 @@
 /*
  * Literacy Guide — Design System Overrides
  * Drop this import at the TOP of App.css, after the Google Fonts @import.
- * These rules replace the old warm-blue palette with the new teal brand system.
+ * These rules replace the old warm-blue palette with the shared cobalt brand system.
  *
  * @import './styles/lg-design-system.css';  ← add this line to App.css line 2
  */
@@ -16,9 +16,9 @@
   /* Sidebar */
   --lg-sidebar-width-open:      200px;
   --lg-sidebar-width-collapsed: 52px;
-  --lg-sidebar-bg:              #0F172A;
-  --lg-sidebar-item-active-bg:  rgba(12, 107, 101, 0.3);
-  --lg-sidebar-item-hover-bg:   rgba(255, 255, 255, 0.07);
+  --lg-sidebar-bg:              #FFFFFF;
+  --lg-sidebar-item-active-bg:  #E9EDF9;
+  --lg-sidebar-item-hover-bg:   #F7F8FA;
   --lg-sidebar-transition:      0.22s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Skill-domain accent colours (used on tiles, section headers, chips) */
@@ -111,7 +111,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 14px 10px 12px;
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 0.5px solid #DFE3EB;
   flex-shrink: 0;
   min-width: 0;
   gap: 6px;
@@ -147,7 +147,7 @@ body {
 .lg-sb-name {
   font-size: 13.5px;
   font-weight: 700;
-  color: #ffffff;
+  color: #18263E;
   white-space: nowrap;
   overflow: hidden;
   opacity: 1;
@@ -339,20 +339,20 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.08);
+  background: #DFE3EB;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.45);
+  color: #5C677A;
   transition: background 0.15s, color 0.15s;
   padding: 0;
 }
 
 .lg-sb-toggle:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
+  background: #E9EDF9;
+  color: #18263E;
 }
 
 .lg-sb-toggle-icon {
@@ -370,7 +370,7 @@ body {
 .lg-sb-class {
   font-size: 10px;
   font-weight: 700;
-  color: #94A3B8;
+  color: #5C677A;
   text-transform: uppercase;
   letter-spacing: 0.07em;
   padding: 10px 12px 6px;
@@ -407,7 +407,7 @@ body {
   gap: 10px;
   padding: 9px 8px;
   border-radius: 7px;
-  color: #CBD5E1;
+  color: #5C677A;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -458,16 +458,16 @@ body {
 
 .lg-sb-item.active {
   background: var(--lg-sidebar-item-active-bg);
-  color: #ffffff;
+  color: #18263E;
 }
 
 .lg-sb-item.active .lg-sb-item-icon {
-  color: #5DCAA5;
+  color: #3454C8;
 }
 
 .lg-sb-item:hover:not(.active) {
   background: var(--lg-sidebar-item-hover-bg);
-  color: rgba(255, 255, 255, 0.85);
+  color: #18263E;
 }
 
 .lg-sb-item:disabled {
@@ -477,7 +477,7 @@ body {
 
 .lg-sb-item:disabled:hover {
   background: none;
-  color: rgba(255, 255, 255, 0.45);
+  color: #5C677A;
 }
 
 .lg-sb-intent + .lg-sb-intent {
@@ -491,7 +491,7 @@ body {
   left: calc(100% + 10px);
   top: 50%;
   transform: translateY(-50%);
-  background: #1E293B;
+  background: #18263E;
   color: #ffffff;
   font-size: 12px;
   font-weight: 600;
@@ -521,7 +521,7 @@ body {
 /* Footer */
 .lg-sb-footer {
   padding: 8px 6px;
-  border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+  border-top: 0.5px solid #DFE3EB;
   flex-shrink: 0;
 }
 

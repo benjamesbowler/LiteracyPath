@@ -275,7 +275,7 @@ export default function StudentGlassShell({
 
           <span className="kg-spacer" />
 
-          {showWallet && (
+          {showWallet && active !== "hollow" && (
             <>
               <Currency
                 kind="stars"

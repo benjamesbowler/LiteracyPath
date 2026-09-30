@@ -239,7 +239,7 @@ test("Den themes enforce their lifetime-gem unlock thresholds", () => {
 
   const page = fs.readFileSync("src/components/HollowPage.jsx", "utf8");
   assert.match(page, /if \(!isDenThemeUnlocked\(next, treasury\.gems\)\) return/, "direct selection bypasses the threshold");
-  assert.match(page, /disabled=\{!unlocked\}/, "locked backdrops remain selectable");
+  assert.match(page, /disabled=\{!isDenThemeUnlocked\(world, treasury\.gems\)\}/, "locked backdrops remain selectable");
 });
 
 test("hollow progress area exists and has a storage key", () => {

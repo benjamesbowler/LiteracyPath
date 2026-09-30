@@ -63,9 +63,11 @@ export const A11Y_KEY_MODAL_STATES = Object.freeze([
     regionRole: true
   }),
   Object.freeze({
-    id: "sound-seekers-creator",
+    id: "sound-seekers-pause",
     url: "/preview/child-surfaces.html?surface=sound-seekers",
-    dialogName: "Who will you be?"
+    startControl: "Let’s explore",
+    openControl: "Pause adventure",
+    dialogName: "Adventure paused"
   }),
   Object.freeze({
     id: "arcade-game",

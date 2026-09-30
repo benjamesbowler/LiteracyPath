@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { computeTreasury } from "../utils/treasureTrail.js";
 import {
   computeHollow, canBuy, findCatalogItem,
-  COIN_RATES, BEASTIES, EXPANSIONS, WELCOME_EGG
+  EXPANSIONS, WELCOME_EGG
 } from "../utils/hollowEconomy.js";
 import { loadHollowLedger, recordPurchase, recordFeed, saveLayout, markCoinsSeen } from "../utils/hollowState.js";
 import { DEN_THEMES, isDenThemeUnlocked } from "../utils/denRewards.js";
@@ -17,15 +17,15 @@ import {
   saveStudentProfile
 } from "../utils/studentProfile.js";
 import { playStarChime } from "../utils/audio/gameSfx.js";
-import { CoinIcon, BerryIcon, SparkIcon } from "./shared/CurrencyIcons.jsx";
-import { BookOpenText, GameController, MapTrifold, SpeakerHigh, Toolbox } from "@phosphor-icons/react";
+import { CoinIcon, BerryIcon } from "./shared/CurrencyIcons.jsx";
+import { SpeakerHigh } from "@phosphor-icons/react";
 import { lockedItemAffordance } from "../policy/lockedItemAffordance.js";
 import { hollowNextAction } from "../policy/hollowNextActionPolicy.js";
 import { speakStudentRailLabel } from "../policy/studentRailPolicy.js";
 
 // My Hollow - Rewards V2. A GAME ROOM, not a webpage: one slim top bar
-// (title + tabs + wallet) and a stage that fills the rest of the screen.
-// Nothing scrolls. The Hollow itself pages sideways between "rooms" (the
+// (contextual title and progress) and a stage that fills the rest of the screen.
+// Nothing scrolls. The Decorate view pages sideways between "rooms" (the
 // main hollow, each owned expansion, and the next locked one); the Market
 // splits into shelves that each fit the stage. Earnings are derived
 // (hollowEconomy.js); only spending is stored.
@@ -145,10 +145,10 @@ export function PalFigure({ companion, equipped = {} }) {
 }
 
 const MARKET_SHELVES = [
-  { id: "caravan", label: "Caravan" },
+  { id: "home", label: "Decorations" },
   { id: "gear", label: "Guide gear" },
-  { id: "home", label: "For your Hollow" },
-  { id: "eggs", label: "Mystery eggs" }
+  { id: "eggs", label: "Eggs" },
+  { id: "caravan", label: "Specials" }
 ];
 
 export function HollowPage({ studentName, progressScopeKey = "default" }) {
@@ -166,8 +166,12 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   const hollow = useMemo(() => computeHollow(ledger, treasury.breakdown), [ledger, treasury]);
   const [companion, setCompanionState] = useState(() => getCompanion(scope));
   const [tab, setTab] = useState("hollow");
+  const [decorating, setDecorating] = useState(false);
+  const [pendingItem, setPendingItem] = useState("");
+  const [notice, setNotice] = useState("");
+  const [beastiePage, setBeastiePage] = useState(0);
   const [roomIndex, setRoomIndex] = useState(0);
-  const [shelf, setShelf] = useState("caravan");
+  const [shelf, setShelf] = useState("home");
   const [marketPage, setMarketPage] = useState(0);
   const [pickingSpot, setPickingSpot] = useState(null);
   const pickerRef = useRef(null);
@@ -181,6 +185,12 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   // Admin-placed spot positions (Admin → Hollow Spots). Cached first so the
   // room never renders with the wrong spots for a frame, then refreshed.
   const [spotOverride, setSpotOverride] = useState(() => getCachedHollowOverride());
+
+  useEffect(() => {
+    if (!hatched) return;
+    const timer = window.setTimeout(() => setHatched(null), 4000);
+    return () => window.clearTimeout(timer);
+  }, [hatched]);
 
   function closePlacementPicker() {
     setPickingSpot(null);
@@ -248,6 +258,18 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
     if (item.id.startsWith("egg-")) {
       const next = computeHollow(loadHollowLedger(scope), treasury.breakdown);
       setHatched(next.beasties.find(b => !before.has(b.id)) || next.beasties[0] || null);
+      setTab("beasties");
+    } else if (item.slot) {
+      saveLayout(scope, { equipped: { ...hollow.equipped, [item.slot]: item.id }, slots: hollow.slots });
+      setTab("pal");
+      setNotice(`${item.name} is on your Guide.`);
+    } else if (item.id.startsWith("hollow-")) {
+      setPendingItem(item.id);
+      setTab("hollow");
+      setDecorating(true);
+      const openRoom = rooms.findIndex(r => r.kind === "open" && r.spots.some(s => !hollow.slots[s.spotId]));
+      setRoomIndex(Math.max(0, openRoom));
+      setNotice("Tap an empty spot to place it.");
     }
     refresh();
   }
@@ -266,6 +288,7 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
       return;
     }
     playStarChime();
+    setNotice("Fed! Your friend is growing.");
     refresh();
   }
 
@@ -275,6 +298,8 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
     else delete slots[spotId];
     saveLayout(scope, { equipped: hollow.equipped, slots });
     setPickingSpot(null);
+    if (itemId) setPendingItem("");
+    setNotice(itemId ? `${findCatalogItem(itemId)?.name || "Your decoration"} is in your Hollow.` : "Put away. You can place it again.");
     refresh();
   }
 
@@ -310,21 +335,22 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
     }
   }, [pickingSpot, placeable.length]);
   const nextExpansion = EXPANSIONS.find(e => !hollow.ownedIds.has(e.id));
-  const hungry = hollow.beasties.filter(b => b.growth.next && hollow.berries > 0).length;
   const welcomeEggWaiting = !ledger.purchases.some(p => p?.item === WELCOME_EGG.id);
   const season = hollow.market.season;
   const caravanWares = [...hollow.market.gear, ...hollow.market.hollow].filter(i => i.caravan !== undefined);
   const everydayGear = hollow.market.gear.filter(i => i.caravan === undefined);
   const everydayHollow = hollow.market.hollow.filter(i => i.caravan === undefined);
-  const gearShopPreview = [...hollow.market.gear].sort((a, b) => a.price - b.price).slice(0, 3);
-  const marketItems = shelf === "caravan"
+  const marketItems = (shelf === "caravan"
     ? caravanWares
     : shelf === "gear"
       ? everydayGear
       : shelf === "home"
         ? everydayHollow
-        : hollow.market.eggs;
-  const marketPageSize = shelf === "caravan" ? 6 : 12;
+        : hollow.market.eggs).slice().sort((a, b) => {
+          const rank = item => canBuy(hollow, item.id).ok ? 0 : hollow.ownedIds.has(item.id) ? 2 : 1;
+          return rank(a) - rank(b) || a.price - b.price;
+        });
+  const marketPageSize = 6;
   const marketPageCount = Math.max(1, Math.ceil(marketItems.length / marketPageSize));
   const safeMarketPage = Math.min(marketPage, marketPageCount - 1);
   const visibleMarketItems = marketItems.slice(
@@ -363,6 +389,8 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
     welcomeEggWaiting
   });
   const recommendedSpotId = nextAction.spotId || "";
+  const replacementSpotId = pendingItem && !recommendedSpotId && room?.kind === "open"
+    ? room.spots.find(spot => hollow.slots[spot.spotId])?.spotId || "" : "";
 
   function openMarket() {
     setPickingSpot(null);
@@ -380,18 +408,10 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   }
 
   function hearNextAction() {
-    setSpeechStatus(speakStudentRailLabel(nextAction.instruction)
+    setSpeechStatus(speakStudentRailLabel(instruction)
       ? "Reading it out."
       : "Sound is unavailable. You can still follow the words and picture.");
   }
-
-  const earnWays = [
-    { icon: SparkIcon, label: "Quest star", coins: COIN_RATES.questStar, berries: 0 },
-    { icon: GameController, label: "Game star", coins: COIN_RATES.gameStar, berries: 0 },
-    { icon: BookOpenText, label: "Book", coins: COIN_RATES.bookRead, berries: 1 },
-    { icon: MapTrifold, label: "Story quest", coins: COIN_RATES.storyQuest, berries: 2 },
-    { icon: Toolbox, label: "All 3 daily tasks", coins: COIN_RATES.dailyChest, berries: 0 }
-  ];
 
   function renderSpot(spot) {
     const itemId = hollow.slots[spot.spotId];
@@ -399,9 +419,11 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
     const style = { left: `${spot.x}%`, top: `${spot.y}%` };
     if (item) {
       return (
-        <button key={spot.spotId} type="button" className="hollow-spot filled" style={style} title={`Put away ${item.name}`} onClick={() => placeItem(spot.spotId, "")}>
+        <button key={spot.spotId} type="button" className="hollow-spot filled" style={style} title={`Put away ${item.name}`} onClick={() => placeItem(spot.spotId, "")}
+          {...(spot.spotId === replacementSpotId ? { "data-child-primary": "", "data-child-emphasis": "primary" } : {})}>
           <ItemArt id={item.id} size={86} />
           <span className="hollow-spot-name">{item.name}</span>
+          {spot.spotId === replacementSpotId && <span className="hollow-spot-next" data-child-emphasis-cue="">Make space</span>}
         </button>
       );
     }
@@ -415,8 +437,11 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
         aria-label={!placeable.length ? "Empty display spot" : spot.spotId === recommendedSpotId
           ? "Empty spot - add something. Recommended next."
           : "Empty spot - add something"}
-        onClick={event => { pickerTriggerRef.current = event.currentTarget; setPickingSpot({ id: spot.spotId, x: spot.x, y: spot.y }); }}
-        data-child-primary={spot.spotId === recommendedSpotId ? "" : undefined}
+        onClick={event => {
+          if (pendingItem) placeItem(spot.spotId, pendingItem);
+          else { pickerTriggerRef.current = event.currentTarget; setPickingSpot({ id: spot.spotId, x: spot.x, y: spot.y }); }
+        }}
+        data-child-primary={!pickingSpot && spot.spotId === recommendedSpotId ? "" : undefined}
         data-child-emphasis={spot.spotId === recommendedSpotId ? "primary" : "choice"}
       >
         <span aria-hidden="true">＋</span>
@@ -442,10 +467,11 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
               <button type="button" className="hollow-buy" onClick={followEmptyAction} data-child-primary="" data-child-emphasis="primary"><span data-child-emphasis-cue="">{welcomeEggWaiting ? "Open your gift" : "Visit the Market"}</span></button>
               <button type="button" className="hollow-pick hollow-hear" aria-label="Hear what to do next" onClick={hearNextAction}><SpeakerHigh size={22} aria-hidden="true" /></button>
             </div>
-          : placeable.map(item => (
-            <button key={item.id} type="button" className="hollow-pick" title={item.name} onClick={() => placeItem(pickingSpot.id, item.id)}>
+          : placeable.map((item, index) => (
+            <button key={item.id} type="button" className="hollow-pick" title={item.name} onClick={() => placeItem(pickingSpot.id, item.id)}
+              {...(index === 0 ? { "data-child-primary": "", "data-child-emphasis": "primary" } : {})}>
               <ItemArt id={item.id} size={52} />
-              <span>{item.name}</span>
+              <span data-child-emphasis-cue={index === 0 ? "" : undefined}>{item.name}</span>
             </button>
           ))}
         <button type="button" className="hollow-pick cancel" aria-label="Close placement choices" onClick={closePlacementPicker}>✕</button>
@@ -453,377 +479,160 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
     );
   }
 
-  function renderWare(item) {
+  const visibleBeasties = hollow.beasties.slice(beastiePage * 4, beastiePage * 4 + 4);
+  const feedNext = visibleBeasties.find(b => b.growth.next && hollow.berries > 0);
+  const instruction = tab === "market" ? "Choose something for your Hollow."
+    : tab === "pal" ? "Tap your gear to wear it."
+    : tab === "beasties" ? (welcomeEggWaiting ? "Tap the egg to meet your first friend." : "Feed your friends to help them grow.")
+    : decorating ? (replacementSpotId ? "Tap a decoration to make space." : recommendedSpotId ? "Tap a blue spot to place your decoration." : "Choose a decoration for your Hollow.")
+    : welcomeEggWaiting ? "Tap the egg to meet your first friend." : "Make yourself at home.";
+  const primaryProps = { "data-child-primary": "", "data-child-emphasis": "primary" };
+  const title = tab === "pal" ? "My Guide" : tab === "beasties" ? "My Beasties"
+    : tab === "market" ? "Shop" : decorating ? "Decorate" : studentName ? `${studentName}'s Hollow` : "My Hollow";
+
+  function goHome() {
+    setTab("hollow"); setDecorating(false); setPickingSpot(null);
+    setPickingWorld(false); setPendingItem(""); setNotice(""); setGuidePickerOpen(false);
+  }
+
+  function renderWare(item, primary = false) {
     const verdict = canBuy(hollow, item.id);
-    return (
-      <button
-        key={item.id}
-        type="button"
-        className="hollow-ware"
-        data-locked-item-card={verdict.reason === "coins" ? "hollow-market" : undefined}
-        disabled={!verdict.ok}
-        onClick={() => buy(item.id)}
-      >
-        <ItemArt id={item.id} size={62} />
-        <strong>{item.name}</strong>
-        <CoinPrice verdict={verdict} price={item.price} />
-      </button>
-    );
+    return <button key={item.id} type="button" className="hollow-ware"
+      data-locked-item-card={verdict.reason === "coins" ? "hollow-market" : undefined}
+      disabled={!verdict.ok} onClick={() => buy(item.id)} {...(primary ? primaryProps : {})}>
+      <ItemArt id={item.id} size={76} />
+      <strong>{item.name}</strong>
+      <CoinPrice verdict={verdict} price={item.price} />
+      {primary && <span data-child-emphasis-cue="">{shelf === "eggs" ? "Hatch an egg" : "Choose this"}</span>}
+    </button>;
   }
 
   return (
-    <main className="hollow-page" data-pal-world={activeTheme.id} data-child-surface="my-hollow">
+    <main className="hollow-page hollow-simple" data-pal-world={activeTheme.id} data-child-surface="my-hollow">
       <header className="hollow-topbar">
-        {/* Global student back circle sits top-left; keep the corner clear. */}
-        <h1 className="hollow-title" data-child-title="">{studentName ? `${studentName}'s Hollow` : "My Hollow"}</h1>
-        <nav className="hollow-tabs" aria-label="Hollow areas" data-child-choices="">
-          {[
-            { id: "hollow", label: "My Hollow" },
-            { id: "pal", label: "My Guide" },
-            { id: "beasties", label: "Beasties", note: welcomeEggWaiting ? "A gift is waiting" : hungry ? `${hungry} hungry` : "" },
-            { id: "market", label: "Market" }
-          ].map(t => (
-            <button
-              key={t.id}
-              type="button"
-              className={`hollow-tab${tab === t.id ? " active" : ""}`}
-              aria-pressed={tab === t.id}
-              onClick={() => { setTab(t.id); setPickingSpot(null); setPickingWorld(false); }}
-            >
-              {t.label}{t.note ? <span className="hollow-tab-note">{t.note}</span> : null}
-            </button>
-          ))}
-        </nav>
-        <span className="hollow-wallet" aria-label={`${hollow.coins} coins and ${hollow.berries} berries`} data-child-progress="">
-          <strong className="hollow-wallet-coins"><CoinIcon size={20} /> {hollow.coins}</strong>
-          <em className="hollow-wallet-berries"><BerryIcon size={17} /> {hollow.berries}</em>
-        </span>
+        {(tab !== "hollow" || decorating) && <button type="button" className="hollow-back" onClick={goHome}>← My Hollow</button>}
+        <h1 className="hollow-title" data-child-title="">{title}</h1>
+        <span className="hollow-progress" data-child-progress="">{hollow.beasties.length} {hollow.beasties.length === 1 ? "friend" : "friends"} at home</span>
+        {tab === "market" && <span className="hollow-wallet" aria-label={`${hollow.coins} coins`}><CoinIcon size={22} /> <strong>{hollow.coins}</strong></span>}
+        {tab === "beasties" && hollow.beasties.length > 0 && <span className="hollow-wallet" aria-label={`${hollow.berries} berries`}><BerryIcon size={22} /> <strong>{hollow.berries}</strong></span>}
       </header>
-
-      <section className="hollow-stage">
-        {tab === "hollow" && room && (
-          <div className="hollow-room-frame">
-            {room.kind === "open" ? (
-              <div className="hollow-room" style={{ backgroundImage: room.image }}>
-                {room.tint && <span className="hollow-room-tint" style={{ background: room.tint }} aria-hidden="true" />}
-                <span className="hollow-room-name">{room.name}</span>
-                {room.spots.map(renderSpot)}
-                {room.id === "main" && hollow.beasties.length > 0 && (
-                  <aside className="hollow-beastie-nook" aria-label="Your hatched beasties">
-                    <span className="hollow-beastie-nook-label">Beastie nook</span>
-                    <span className="hollow-beastie-nook-row">
-                      {hollow.beasties.slice(0, 8).map(b => (
-                        <button
-                          key={b.id}
-                          type="button"
-                          title={`${b.name}, ${b.growth.name}`}
-                          onClick={() => setTab("beasties")}
-                        >
-                          <ItemArt id={b.id} stage={b.growth.stage} size={54} />
-                          <span>{b.name}</span>
-                        </button>
-                      ))}
-                    </span>
-                  </aside>
-                )}
-                {renderPicker()}
-                {!recommendedSpotId && !pickingSpot && <aside className="hollow-room-next" aria-label="Your next Hollow action">
-                  <ItemArt id={welcomeEggWaiting ? "egg-welcome" : everydayHollow[0]?.id || "egg-welcome"} size={52} />
-                  <button type="button" className="hollow-buy" onClick={followEmptyAction} data-child-primary="" data-child-emphasis="primary">
-                    <span data-child-emphasis-cue="">{nextAction.label}</span>
-                  </button>
-                  <button type="button" className="hollow-pick hollow-hear" aria-label="Hear what to do next" onClick={hearNextAction}><SpeakerHigh size={22} aria-hidden="true" /></button>
-                </aside>}
-                <p className="hollow-room-hint" data-child-instruction="">{nextAction.instruction}</p>
-                <button
-                  type="button"
-                  className="hollow-world-button"
-                  onClick={() => setPickingWorld(v => !v)}
-                  data-child-emphasis="choice"
-                >
-                  <span className="hollow-world-glyph" aria-hidden="true" />
-                  World
-                </button>
-                {pickingWorld && (
-                  <div className="hollow-world-pop" role="dialog" aria-label="Choose your world">
-                    {DEN_THEMES.map(world => {
-                      const unlocked = isDenThemeUnlocked(world, treasury.gems);
-                      return (
-                        <button key={world.id} type="button" disabled={!unlocked} className={`hollow-world-thumb${activeTheme.id === world.id ? " active" : ""}`} onClick={() => chooseTheme(world)}>
-                          <img src={world.art} alt="" onError={hideOnError} />
-                          <span>{unlocked ? world.name : `${world.name} · ${world.at} gems`}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            ) : (
-              <div className="hollow-room locked" style={{ backgroundImage: room.image }}>
-                <div className="hollow-room-lock">
-                  <span className="hollow-room-lock-icon" aria-hidden="true" />
-                  <strong>{room.name}</strong>
-                  <span>A whole new part of your Hollow, with {room.expansion.slots} more spots.</span>
-                  <button type="button" className="hollow-buy" disabled={!canBuy(hollow, room.expansion.id).ok} onClick={() => { buy(room.expansion.id); }}>
-                    <CoinPrice verdict={canBuy(hollow, room.expansion.id)} price={room.expansion.price} />
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {rooms.length > 1 && (
-              <>
-                <button
-                  type="button"
-                  className="hollow-room-arrow left"
-                  disabled={roomIndex === 0}
-                  aria-label="Previous place"
-                  onClick={() => { setRoomIndex(i => Math.max(0, i - 1)); setPickingSpot(null); }}
-                ><ChevronGlyph direction="left" /></button>
-                <button
-                  type="button"
-                  className="hollow-room-arrow right"
-                  disabled={roomIndex >= rooms.length - 1}
-                  aria-label={roomIndex + 1 < rooms.length ? `Go to ${rooms[roomIndex + 1].name}` : "No more places"}
-                  onClick={() => { setRoomIndex(i => Math.min(rooms.length - 1, i + 1)); setPickingSpot(null); }}
-                ><ChevronGlyph /></button>
-                <div className="hollow-room-dots" aria-hidden="true">
-                  {rooms.map((r, index) => (
-                    <span key={r.id} className={index === roomIndex ? "on" : ""} data-room-state={r.kind} />
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
-        )}
-
-        {tab === "pal" && (
-          <div className="hollow-panel">
-            <div className="hollow-pal-row">
-              <div className="hollow-pal-stage">
-                <PalFigure companion={companion} equipped={hollow.equipped} />
-                <h2>{companion?.name || "Choose a guide"}</h2>
-                <p className="hollow-guide-kicker">My Little Literacy Guide</p>
-                <p className="hollow-pal-caption">
-                  {Object.keys(hollow.equipped).length
-                    ? `Wearing: ${Object.values(hollow.equipped).map(id => findCatalogItem(id)?.name).filter(Boolean).join(", ")}`
-                    : "Buy gear at the Market, then tap it here to wear it."}
-                </p>
-                <button
-                  className="hollow-change-guide"
-                  type="button"
-                  onClick={() => {
-                    setGuideNotice("");
-                    setGuidePickerOpen(value => !value);
-                  }}
-                >
-                  Change guide · ★ {LITTLE_LITERACY_GUIDE_CHANGE_COST}
-                </button>
-                <p className="hollow-guide-balance">★ {guideStarsAvailable} available</p>
-              </div>
-              <div className="hollow-gear-grid">
-                {hollow.ownedGear.map(gear => {
-                  const worn = hollow.equipped[gear.slot] === gear.id;
-                  return (
-                    <button key={gear.id} type="button" className={`hollow-gear${worn ? " worn" : ""}`} onClick={() => toggleGear(gear)}>
-                      <ItemArt id={gear.id} size={52} />
-                      <strong>{gear.name}</strong>
-                      <em>{worn ? "Wearing ✓" : GEAR_SLOT_LABELS[gear.slot] || gear.slot}</em>
-                    </button>
-                  );
-                })}
-                {hollow.ownedGear.length === 0 && gearShopPreview.map(gear => (
-                  <button key={gear.id} type="button" className="hollow-gear preview" onClick={() => { setTab("market"); setShelf("gear"); }}>
-                    <ItemArt id={gear.id} size={52} />
-                    <strong>{gear.name}</strong>
-                    <CoinPrice verdict={canBuy(hollow, gear.id)} price={gear.price} />
-                    <em>In the Market now →</em>
-                  </button>
-                ))}
-              </div>
+      <div className="hollow-instruction-row">
+        <p data-child-instruction="">{instruction}</p>
+        <button type="button" className="hollow-hear" aria-label="Hear what to do next" onClick={hearNextAction}><SpeakerHigh size={24} aria-hidden="true" /></button>
+        <span className="hollow-notice" role="status">{notice}</span>
+      </div>
+      <section className="hollow-stage" data-child-choices="" aria-label={title}>
+        {tab === "hollow" && !decorating && <div className="hollow-overview" style={{ backgroundImage: rooms[0].image }}>
+          <div className="hollow-next-card">
+            <ItemArt id={welcomeEggWaiting ? "egg-welcome" : "hollow-glow-jar"} size={110} />
+            <div><h2>{welcomeEggWaiting ? "A gift for you" : "Your cosy home"}</h2>
+              <p>{welcomeEggWaiting ? "A new friend is waiting inside." : "Choose a decoration and make it yours."}</p>
+              <button type="button" className="hollow-buy" {...primaryProps} onClick={() => {
+                if (welcomeEggWaiting) grant(WELCOME_EGG);
+                else { setDecorating(true); setRoomIndex(0); }
+              }}><span data-child-emphasis-cue="">{welcomeEggWaiting ? "Open your gift" : "Decorate my Hollow"}</span></button>
             </div>
-            {guidePickerOpen && (
-              <section className="hollow-guide-picker" aria-label="Choose a Little Literacy Guide">
-                <header>
-                  <div>
-                    <h2>Choose your Little Literacy Guide</h2>
-                    <p>Every guide is a character from one of your books.</p>
-                  </div>
-                  <button type="button" onClick={() => setGuidePickerOpen(false)} aria-label="Close guide choices">×</button>
-                </header>
-                <div>
-                  {COMPANIONS.map(item => {
-                    const current = companion?.id === item.id;
-                    const affordable = current || guideStarsAvailable >= LITTLE_LITERACY_GUIDE_CHANGE_COST;
-                    return (
-                      <button
-                        key={item.id}
-                        type="button"
-                        className={current ? "active" : ""}
-                        disabled={!affordable}
-                        onClick={() => chooseGuide(item.id)}
-                      >
-                        <img src={item.image} alt="" onError={hideOnError} />
-                        <strong>{item.name}</strong>
-                        <span>{item.series}</span>
-                        <em>{current ? "Your guide" : affordable ? `★ ${LITTLE_LITERACY_GUIDE_CHANGE_COST}` : `Need ${LITTLE_LITERACY_GUIDE_CHANGE_COST - guideStarsAvailable} more`}</em>
-                      </button>
-                    );
-                  })}
-                </div>
-              </section>
-            )}
-            {guideNotice && <p className="hollow-guide-notice" role="status">{guideNotice}</p>}
           </div>
-        )}
+          <nav className="hollow-doorways" aria-label="Things to do in your Hollow">
+            <button type="button" onClick={() => { setDecorating(true); setRoomIndex(0); }}><ItemArt id="hollow-mushroom-stool" size={64} /><strong>Decorate</strong></button>
+            <button type="button" onClick={() => setTab("pal")}><img src={companion?.image} alt="" /><strong>My Guide</strong></button>
+            <button type="button" onClick={() => setTab("beasties")}><ItemArt id={hollow.beasties[0]?.id || "egg-welcome"} stage={hollow.beasties[0]?.growth.stage} size={64} /><strong>Beasties</strong></button>
+          </nav>
+        </div>}
 
-        {tab === "beasties" && (
-          <div className="hollow-panel">
-            <p className="hollow-hint">Berries come from reading. Feed a beastie to grow it: Baby → Young → Grand. Grand beasties move into your Hollow.</p>
-
-            {welcomeEggWaiting && (
-              <div className="hollow-welcome-egg">
-                <ItemArt id="egg-welcome" size={58} />
-                <div>
-                  <strong>A welcome gift from the Market!</strong>
-                  <span>Your very first egg, free. Something is moving inside…</span>
-                </div>
-                <button type="button" className="hollow-buy" onClick={() => grant(WELCOME_EGG)}>Crack it open!</button>
-              </div>
-            )}
-
-            <div className="hollow-beastie-grid">
-              {hollow.beasties.map(b => (
-                <div key={b.id} className={`hollow-beastie rarity-${b.rarity}`}>
-                  {b.rarity !== "common" && <span className="hollow-rarity">{b.rarity === "epic" ? "Epic" : "Rare"}</span>}
-                  <ItemArt id={b.id} stage={b.growth.stage} size={64} />
-                  <strong>{b.name}</strong>
-                  <em>{b.growth.name}{b.growth.next ? ` · ${b.growth.feedsToNext} more to grow` : " · fully grown!"}</em>
-                  <span className="hollow-meter" role="progressbar" aria-valuemin={0} aria-valuemax={8} aria-valuenow={Math.min(8, b.growth.feeds)}>
-                    <span style={{ width: `${Math.min(100, (b.growth.feeds / 8) * 100)}%` }} />
-                  </span>
-                  {b.growth.next ? (
-                    <button type="button" className="hollow-buy small" disabled={hollow.berries < 1} onClick={() => feed(b.id)}>
-                      {hollow.berries < 1 ? "Read to earn berries" : <>Feed <BerryIcon size={14} /></>}
-                    </button>
-                  ) : (
-                    <span className="hollow-price owned">In your Hollow ✓</span>
-                  )}
-                </div>
-              ))}
-              {BEASTIES.filter(species => !hollow.beasties.some(b => b.id === species.id)).map(species => (
-                <div key={species.id} className="hollow-beastie mystery">
-                  <span className="hollow-silhouette"><ItemArt id={species.id} stage={1} size={56} /></span>
-                  <strong>? ? ?</strong>
-                  <em>{species.rarity === "epic" ? "Gold egg only" : species.rarity === "rare" ? "Silver or gold egg" : "Any egg"}</em>
-                </div>
-              ))}
+        {tab === "hollow" && decorating && room && <div className="hollow-room-frame">
+          {room.kind === "open" ? <div className="hollow-room" style={{ backgroundImage: room.image }}>
+            {room.tint && <span className="hollow-room-tint" style={{ background: room.tint }} aria-hidden="true" />}
+            <span className="hollow-room-name">{room.name}</span>
+            {room.spots.filter(spot => hollow.slots[spot.spotId] || placeable.length > 0).map(renderSpot)}
+            {renderPicker()}
+            {!recommendedSpotId && !replacementSpotId && !pickingSpot && <aside className="hollow-room-next">
+              <ItemArt id="hollow-glow-jar" size={64} />
+              <button type="button" className="hollow-buy" onClick={openMarket} {...primaryProps}><span data-child-emphasis-cue="">Choose a decoration</span></button>
+            </aside>}
+            <div className="hollow-room-tools">
+              {recommendedSpotId && <button type="button" className="hollow-back" onClick={openMarket}>Shop</button>}
+              <button type="button" className="hollow-world-button" onClick={() => setPickingWorld(v => !v)}>Change world</button>
             </div>
-            <button type="button" className="hollow-buy hollow-market-cta" onClick={() => { setTab("market"); setShelf("eggs"); }}>
-              Get an egg at the Market →
+            {pickingWorld && <div className="hollow-world-pop" role="dialog" aria-label="Choose your world">
+              {DEN_THEMES.map(world => <button key={world.id} type="button" disabled={!isDenThemeUnlocked(world, treasury.gems)}
+                className={`hollow-world-thumb${activeTheme.id === world.id ? " active" : ""}`} onClick={() => chooseTheme(world)}>
+                <img src={world.art} alt="" /><span>{isDenThemeUnlocked(world, treasury.gems) ? world.name : `${world.name} · ${world.at} gems`}</span>
+              </button>)}
+              <button type="button" onClick={() => setPickingWorld(false)}>Close</button>
+            </div>}
+          </div> : <div className="hollow-room locked" style={{ backgroundImage: room.image }}><div className="hollow-room-lock">
+            <h2>{room.name}</h2><p>More space for your decorations.</p>
+            <button type="button" className="hollow-buy" disabled={!canBuy(hollow, room.expansion.id).ok} onClick={() => buy(room.expansion.id)}>
+              <CoinPrice verdict={canBuy(hollow, room.expansion.id)} price={room.expansion.price} />
             </button>
-          </div>
-        )}
+          </div></div>}
+          {rooms.length > 1 && <nav className="hollow-room-navigation" aria-label="Places in your Hollow">
+            <button type="button" disabled={roomIndex === 0} aria-label="Previous place" onClick={() => { setRoomIndex(i => Math.max(0, i - 1)); setPickingSpot(null); }}><ChevronGlyph direction="left" /></button>
+            <span>{room.name}</span>
+            <button type="button" disabled={roomIndex >= rooms.length - 1} aria-label={rooms[roomIndex + 1] ? `Go to ${rooms[roomIndex + 1].name}` : "No more places"} onClick={() => { setRoomIndex(i => Math.min(rooms.length - 1, i + 1)); setPickingSpot(null); }}><ChevronGlyph /></button>
+          </nav>}
+        </div>}
 
-        {tab === "market" && (
-          <div className="hollow-panel hollow-market">
-            <div className="hollow-market-top">
-              <div className="hollow-shelf-tabs">
-                {MARKET_SHELVES.map(s => (
-                  <button
-                    key={s.id}
-                    type="button"
-                    className={`hollow-shelf-tab${shelf === s.id ? " active" : ""}`}
-                    aria-pressed={shelf === s.id}
-                    onClick={() => {
-                      setShelf(s.id);
-                      setMarketPage(0);
-                    }}
-                  >
-                    {s.label}
-                  </button>
-                ))}
-              </div>
-              {shelf === "caravan" && (
-                <span className="hollow-caravan-note">{season.name} is in town for {season.daysLeft} more day{season.daysLeft === 1 ? "" : "s"}!</span>
-              )}
+        {tab === "pal" && <div className="hollow-panel">
+          <div className="hollow-pal-row">
+            <div className="hollow-pal-stage"><PalFigure companion={companion} equipped={hollow.equipped} /><h2>{companion?.name || "Choose a Guide"}</h2>
+              <button type="button" className="hollow-change-guide" onClick={() => { setGuideNotice(""); setGuidePickerOpen(v => !v); }}>Change Guide</button>
             </div>
-
-            {shelf === "caravan" && (
-              <div className="hollow-shelf hollow-caravan-shelf">
-                <div className="hollow-merchant">
-                  <ItemArt id="market-merchant" size={92} />
-                  <span>New things on this shelf, then the caravan moves on!</span>
-                </div>
-                <div className="hollow-market-grid">
-                  {visibleMarketItems.map(renderWare)}
-                </div>
-              </div>
-            )}
-            {shelf === "gear" && (
-              <div className="hollow-shelf">
-                <div className="hollow-market-grid">{visibleMarketItems.map(renderWare)}</div>
-              </div>
-            )}
-            {shelf === "home" && (
-              <div className="hollow-shelf">
-                <div className="hollow-market-grid">{visibleMarketItems.map(renderWare)}</div>
-              </div>
-            )}
-            {shelf === "eggs" && (
-              <div className="hollow-shelf">
-                <div className="hollow-market-grid hollow-eggs">
-                  {visibleMarketItems.map(egg => (
-                    <button key={egg.id} type="button" className={`hollow-ware egg-${egg.tier}`} disabled={!canBuy(hollow, egg.id).ok} onClick={() => buy(egg.id)}>
-                      <ItemArt id={egg.id} size={84} />
-                      <strong>{egg.name}</strong>
-                      <em className="hollow-egg-note">
-                        {egg.tier === "bronze" ? "Hatches a beastie" : egg.tier === "silver" ? "Better chance of rare" : "Always rare or better"}
-                      </em>
-                      <CoinPrice verdict={canBuy(hollow, egg.id)} price={egg.price} />
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {marketPageCount > 1 && (
-              <nav className="hollow-market-pages" aria-label={`${MARKET_SHELVES.find(item => item.id === shelf)?.label} pages`}>
-                <button type="button" disabled={safeMarketPage === 0} onClick={() => setMarketPage(page => Math.max(0, page - 1))}>←</button>
-                <span>{safeMarketPage + 1} of {marketPageCount}</span>
-                <button type="button" disabled={safeMarketPage === marketPageCount - 1} onClick={() => setMarketPage(page => Math.min(marketPageCount - 1, page + 1))}>→</button>
-              </nav>
-            )}
-
-            <div className="hollow-earn-row" aria-label="How to earn coins">
-              <span className="hollow-earn-title">Earn coins:</span>
-              {earnWays.map(way => (
-                <span key={way.label} className="hollow-earn-chip" title={way.label}>
-                  <way.icon size={16} weight="duotone" aria-hidden="true" /> {way.label}
-                  <strong><CoinIcon size={13} /> {way.coins}
-                    {way.berries > 0 && <><span aria-hidden="true"> + </span><BerryIcon size={13} aria-hidden="true" /> × {way.berries}</>}
-                  </strong>
-                </span>
-              ))}
+            <div className="hollow-gear-grid">
+              {hollow.ownedGear.map(gear => <button key={gear.id} type="button" className={`hollow-gear${hollow.equipped[gear.slot] === gear.id ? " worn" : ""}`} onClick={() => toggleGear(gear)}>
+                <ItemArt id={gear.id} size={64} /><strong>{gear.name}</strong><em>{hollow.equipped[gear.slot] === gear.id ? "Wearing ✓" : GEAR_SLOT_LABELS[gear.slot]}</em>
+              </button>)}
+              <button type="button" className="hollow-buy" {...primaryProps} onClick={() => { setTab("market"); setShelf("gear"); setMarketPage(0); }}><span data-child-emphasis-cue="">Find Guide gear</span></button>
             </div>
           </div>
-        )}
+          {guidePickerOpen && <section className="hollow-guide-picker" role="dialog" aria-label="Choose a Little Literacy Guide">
+            <header><div><h2>Choose your Guide</h2><p>Changing costs {LITTLE_LITERACY_GUIDE_CHANGE_COST} stars. You have {guideStarsAvailable}.</p></div><button type="button" onClick={() => setGuidePickerOpen(false)} aria-label="Close guide choices">×</button></header>
+            <div>{COMPANIONS.map(item => { const current = companion?.id === item.id; return <button key={item.id} type="button" className={current ? "active" : ""}
+              disabled={!current && guideStarsAvailable < LITTLE_LITERACY_GUIDE_CHANGE_COST} onClick={() => chooseGuide(item.id)}>
+              <img src={item.image} alt="" /><strong>{item.name}</strong><em>{current ? "Your Guide" : `★ ${LITTLE_LITERACY_GUIDE_CHANGE_COST}`}</em></button>; })}</div>
+          </section>}
+          {guideNotice && <p role="status">{guideNotice}</p>}
+        </div>}
+
+        {tab === "beasties" && <div className="hollow-panel">
+          {welcomeEggWaiting && <div className="hollow-next-card hollow-gift"><ItemArt id="egg-welcome" size={100} /><div><h2>A gift for you</h2>
+            <button type="button" className="hollow-buy" onClick={() => grant(WELCOME_EGG)} {...primaryProps}><span data-child-emphasis-cue="">Open your gift</span></button></div></div>}
+          <div className="hollow-beastie-grid">
+            {visibleBeasties.map(b => <div key={b.id} className="hollow-beastie">
+              <ItemArt id={b.id} stage={b.growth.stage} size={100} /><strong>{b.name}</strong>
+              <em>{b.growth.next ? `${b.growth.feedsToNext} feeds to grow` : "Fully grown!"}</em>
+              <span className="hollow-meter" role="progressbar" aria-label={`${b.name} growth`} aria-valuemin={0} aria-valuemax={8} aria-valuenow={Math.min(8, b.growth.feeds)}><span style={{ width: `${Math.min(100, b.growth.feeds / 8 * 100)}%` }} /></span>
+              {b.growth.next && <button type="button" className="hollow-buy" disabled={hollow.berries < 1} onClick={() => feed(b.id)} {...(!welcomeEggWaiting && feedNext?.id === b.id ? primaryProps : {})}>
+                <span data-child-emphasis-cue="">Feed {b.name}</span><BerryIcon size={18} /></button>}
+            </div>)}
+          </div>
+          {!welcomeEggWaiting && <div className="hollow-beastie-actions">
+            {hollow.berries < 1 && hollow.beasties.some(b => b.growth.next) && <p>Read a book to earn food for your friends.</p>}
+            <button type="button" className={feedNext ? "hollow-back" : "hollow-buy"} {...(!feedNext ? primaryProps : {})} onClick={() => { setTab("market"); setShelf("eggs"); setMarketPage(0); }}><span data-child-emphasis-cue="">Find another friend</span></button>
+          </div>}
+          {hollow.beasties.length > 4 && <nav className="hollow-market-pages" aria-label="Beastie pages">
+            <button type="button" aria-label="Previous friends" disabled={beastiePage === 0} onClick={() => setBeastiePage(p => p - 1)}>←</button>
+            <span>{beastiePage + 1} of {Math.ceil(hollow.beasties.length / 4)}</span>
+            <button type="button" aria-label="More friends" disabled={(beastiePage + 1) * 4 >= hollow.beasties.length} onClick={() => setBeastiePage(p => p + 1)}>→</button>
+          </nav>}
+        </div>}
+
+        {tab === "market" && <div className="hollow-panel hollow-market">
+          <nav className="hollow-shelf-tabs" aria-label="Shop shelves">{MARKET_SHELVES.map(s => <button key={s.id} type="button" className={`hollow-shelf-tab${shelf === s.id ? " active" : ""}`} aria-pressed={shelf === s.id} onClick={() => { setShelf(s.id); setMarketPage(0); }}>{s.label}</button>)}</nav>
+          {shelf === "caravan" && <p className="hollow-hint">{season.name} specials · {season.daysLeft} days left</p>}
+          <div className="hollow-market-grid">{visibleMarketItems.map(item => renderWare(item, item.id === visibleMarketItems.find(i => canBuy(hollow, i.id).ok)?.id))}</div>
+          {marketPageCount > 1 && <nav className="hollow-market-pages" aria-label="Shop pages">
+            <button type="button" aria-label="Previous items" disabled={safeMarketPage === 0} onClick={() => setMarketPage(p => Math.max(0, p - 1))}>←</button>
+            <span>{safeMarketPage + 1} of {marketPageCount}</span>
+            <button type="button" aria-label="More items" disabled={safeMarketPage === marketPageCount - 1} onClick={() => setMarketPage(p => Math.min(marketPageCount - 1, p + 1))}>→</button>
+          </nav>}
+          <p className="hollow-hint">Read and play to earn coins.</p>
+          {!visibleMarketItems.some(i => canBuy(hollow, i.id).ok) && <button type="button" className="hollow-buy" {...primaryProps} onClick={goHome}><span data-child-emphasis-cue="">Back to my Hollow</span></button>}
+        </div>}
       </section>
-      <p className="sr-only" role="status">{speechStatus}</p>
-
-      {hatched && (
-        <div className="hollow-hatch-overlay" role="dialog" aria-label={`Your egg hatched a ${hatched.name}`}>
-          <div className="hollow-hatch-card">
-            <span className="hollow-hatch-burst">Your egg hatched!</span>
-            <ItemArt id={hatched.id} stage={1} size={110} />
-            <h3>{hatched.name}</h3>
-            <p>{hatched.rarity === "epic" ? "An EPIC beastie!" : hatched.rarity === "rare" ? "A rare beastie!" : "A new friend for your Hollow."} Feed it berries to help it grow.</p>
-            <button type="button" className="hollow-buy" onClick={() => { setHatched(null); setTab("beasties"); }}>
-              Meet {hatched.name} →
-            </button>
-          </div>
-        </div>
-      )}
+      <p className="sr-only" role="status">{speechStatus} {notice}</p>
+      {hatched && <aside className="hollow-hatched-notice" role="status"><ItemArt id={hatched.id} stage={1} size={64} /><strong>{hatched.name} is home!</strong><button type="button" className="hollow-back" aria-label="Close new friend message" onClick={() => setHatched(null)}>×</button></aside>}
     </main>
   );
 }

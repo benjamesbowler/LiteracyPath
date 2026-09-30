@@ -4,11 +4,11 @@
    .hollow-page only. */
 
 .hollow-page {
-  --hw-ink: #3A2A18;
-  --hw-ink-soft: #6B5233;
-  --hw-parchment: rgba(255, 251, 240, 0.95);
-  --hw-parchment-solid: #FFFBF0;
-  --hw-line: rgba(139, 90, 43, 0.28);
+  --hw-ink: #18263E;
+  --hw-ink-soft: #5C677A;
+  --hw-parchment: #FFFFFF;
+  --hw-parchment-solid: #FFFFFF;
+  --hw-line: #DFE3EB;
   --hw-gold: #FFC93C;
   --hw-gold-deep: #F5A623;
   --hw-green: #2F6B4F;
@@ -59,38 +59,8 @@
   color: var(--hw-ink);
   white-space: nowrap;
 }
-.hollow-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-inline: auto; }
-.hollow-tab {
-  display: inline-flex; align-items: center; gap: 7px;
-  border: 1px solid var(--hw-line); border-radius: 999px; padding: 9px 18px;
-  font-family: "Fredoka", "Nunito", sans-serif; font-weight: 600; font-size: 0.98rem;
-  background: #fff; color: var(--hw-ink); cursor: pointer;
-  transition: transform 100ms ease, background 100ms ease;
-}
-.hollow-tab:hover { background: #FFF3C9; }
-.hollow-tab.active { background: var(--hw-green); border-color: rgba(20, 50, 36, 0.6); color: #F2FBF5; }
-.hollow-tab-note {
-  font-size: 0.72rem; font-weight: 800; padding: 1px 8px; border-radius: 999px;
-  background: var(--hw-gold); color: #4A3208;
-}
-.hollow-tab.active .hollow-tab-note { background: rgba(255, 255, 255, 0.24); color: #F2FBF5; }
 
 .hollow-wallet { display: flex; gap: 8px; align-items: center; }
-.hollow-wallet-coins, .hollow-wallet-berries {
-  display: inline-flex; align-items: center; gap: 6px;
-  border-radius: 999px; padding: 6px 14px;
-  font-size: 1.05rem; font-weight: 900; font-style: normal;
-  color: #4A3208;
-  background: linear-gradient(180deg, #FFDD75, var(--hw-gold) 55%, var(--hw-gold-deep));
-  border: 1.5px solid rgba(122, 82, 12, 0.55);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
-}
-.hollow-wallet-berries {
-  font-size: 0.95rem;
-  color: #F3ECFF;
-  background: linear-gradient(180deg, #7A5FD0, #5B4B8A);
-  border-color: rgba(40, 28, 78, 0.6);
-}
 
 /* ── The stage ── */
 .hollow-stage {
@@ -225,32 +195,6 @@ main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):
 .hollow-art img { position: relative; width: 100%; height: 100%; object-fit: contain; }
 
 /* Room arrows + dots */
-.hollow-room-arrow {
-  position: absolute; top: 50%; transform: translateY(-50%); z-index: 6;
-  width: 54px; height: 54px; border-radius: 50%;
-  border: 1.5px solid rgba(122, 82, 12, 0.55);
-  background: linear-gradient(180deg, #FFDD75, var(--hw-gold) 55%, var(--hw-gold-deep));
-  color: #4A3208; font-size: 2rem; font-weight: 900; line-height: 1;
-  cursor: pointer;
-  box-shadow: 0 6px 16px rgba(5, 8, 14, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.7);
-}
-.hollow-room-arrow.left { left: 14px; }
-.hollow-room-arrow.right { right: 14px; }
-main.hollow-page button.hollow-room-arrow:is(:hover, :focus, :focus-visible, :active):not(:disabled) {
-  transform: translateY(-50%);
-}
-.hollow-room-arrow:disabled { opacity: 0.25; cursor: default; }
-.hollow-room-dots {
-  position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%); z-index: 5;
-  display: flex; gap: 8px; align-items: center;
-}
-.hollow-room-dots span {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 12px; height: 12px; border-radius: 50%;
-  background: rgba(255, 251, 240, 0.45); border: 1px solid rgba(16, 24, 32, 0.4);
-  font-size: 9px; line-height: 1;
-}
-.hollow-room-dots span.on { background: var(--hw-gold); width: 14px; height: 14px; }
 
 /* Locked room = a door with the price on it */
 .hollow-room.locked::before {
@@ -376,7 +320,6 @@ main.hollow-page button.hollow-room-arrow:is(:hover, :focus, :focus-visible, :ac
 }
 @media (max-width: 700px) and (max-height: 430px) and (orientation: landscape) {
   .kg-stage .hollow-room-next { top: 50%; bottom: auto; left: 40%; transform: translate(-50%, -50%); }
-  .kg-stage .hollow-room-dots { bottom: 2px; }
   .kg-stage .hollow-picker:has(.hollow-picker-empty) {
     top: 50% !important; left: 50% !important; transform: translate(-50%, -50%);
     width: min(440px, calc(100% - 16px)); max-width: none; padding: 6px 60px 6px 6px;
@@ -509,48 +452,14 @@ main.hollow-page button.hollow-room-arrow:is(:hover, :focus, :focus-visible, :ac
 .hollow-guide-picker span, .hollow-guide-picker em { font-size: .75rem; font-style: normal; text-align: center; }
 
 /* ── Beasties ── */
-.hollow-welcome-egg {
-  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-  padding: 12px 16px;
-  border: 1.5px solid rgba(122, 82, 12, 0.4); border-radius: 16px;
-  background: linear-gradient(105deg, #FFF3C9, #FFE49A);
-  box-shadow: var(--hw-shadow);
-}
-.hollow-welcome-egg > div { flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 2px; }
-.hollow-welcome-egg strong { font-family: "Fredoka", "Nunito", sans-serif; font-weight: 600; font-size: 1.05rem; }
-.hollow-welcome-egg span { font-weight: 700; color: var(--hw-ink-soft); font-size: 0.9rem; }
 
 .hollow-beastie-grid {
   flex: 1; min-height: 0; align-content: start;
   display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;
 }
-
-.hollow-beastie-nook {
-  position: absolute;
-  left: 70px;
-  bottom: 12px;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  max-width: calc(100% - 260px);
-  padding: 6px 10px;
-  border: 1px solid rgba(255,255,255,.35);
-  border-radius: 16px;
-  background: rgba(18, 25, 32, .68);
-  color: #fff;
-  backdrop-filter: blur(10px);
-}
-.hollow-beastie-nook-label { font-size: .72rem; font-weight: 900; white-space: nowrap; }
-.hollow-beastie-nook-row { display: flex; gap: 6px; min-width: 0; }
-.hollow-beastie-nook-row button {
-  display: grid; justify-items: center; gap: 1px; width: 62px; padding: 2px;
-  border: 0; background: transparent; color: #fff; font-size: .62rem; font-weight: 900; cursor: pointer;
-}
 @media (max-width: 700px) and (max-height: 430px) and (orientation: landscape) {
   /* The Beasties tab keeps the full collection available. Leave this short
      room clear for display spots and the next action instead of duplicating it. */
-  .kg-stage .hollow-beastie-nook { display: none; }
 }
 .hollow-beastie {
   position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px;
@@ -564,19 +473,11 @@ main.hollow-page button.hollow-room-arrow:is(:hover, :focus, :focus-visible, :ac
   background: rgba(255, 251, 240, 0.6);
   box-shadow: none; color: var(--hw-ink-soft);
 }
-.hollow-silhouette .hollow-art { filter: grayscale(1) brightness(0.45); opacity: 0.5; }
-.hollow-rarity {
-  position: absolute; top: 8px; left: 8px;
-  border-radius: 999px; padding: 2px 9px; font-size: 0.66rem; font-weight: 900;
-  background: #5B4B8A; color: #F3ECFF;
-}
-.rarity-epic .hollow-rarity { background: #B33A2B; }
 .hollow-meter {
   width: 100%; height: 10px; border-radius: 999px;
   background: #EFE6D2; border: 1px solid var(--hw-line); overflow: hidden;
 }
 .hollow-meter span { display: block; height: 100%; background: linear-gradient(90deg, #9A6BD0, #5B4B8A); }
-.hollow-market-cta { align-self: center; }
 
 /* ── Market ── */
 .hollow-market { gap: 10px; }
@@ -588,7 +489,6 @@ main.hollow-page button.hollow-room-arrow:is(:hover, :focus, :focus-visible, :ac
   background: #fff; color: var(--hw-ink); cursor: pointer;
 }
 .hollow-shelf-tab.active { background: var(--hw-night); border-color: rgba(16, 24, 32, 0.7); color: #F2EFE6; }
-.hollow-caravan-note { font-weight: 800; font-size: 0.9rem; color: #5B4B8A; }
 
 .hollow-shelf { flex: 1; min-height: 0; overflow: auto; border-radius: 16px; }
 .hollow-caravan-shelf {
@@ -596,10 +496,6 @@ main.hollow-page button.hollow-room-arrow:is(:hover, :focus, :focus-visible, :ac
   background: linear-gradient(120deg, #2C3E70, #5B4B8A);
   border: 1px solid rgba(20, 24, 44, 0.6);
   box-shadow: var(--hw-shadow);
-}
-.hollow-merchant {
-  display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
-  color: #F2EFE6; font-weight: 800; font-size: 0.95rem;
 }
 .hollow-market-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px;
@@ -624,18 +520,6 @@ main.hollow-page button.hollow-room-arrow:is(:hover, :focus, :focus-visible, :ac
 .hollow-eggs .hollow-ware { padding: 20px 14px; }
 .hollow-eggs .hollow-ware.egg-silver { background: linear-gradient(180deg, #FFFFFF, #EEF1F8); }
 .hollow-eggs .hollow-ware.egg-gold { background: linear-gradient(180deg, #FFFDF4, #FFF1C4); }
-
-.hollow-earn-row {
-  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
-  padding-top: 4px;
-}
-.hollow-earn-title { font-weight: 900; font-size: 0.85rem; color: var(--hw-ink-soft); }
-.hollow-earn-chip {
-  display: inline-flex; align-items: center; gap: 5px;
-  border: 1px solid var(--hw-line); border-radius: 999px; padding: 4px 12px;
-  background: #fff; font-weight: 700; font-size: 0.78rem; color: var(--hw-ink);
-}
-.hollow-earn-chip strong { display: inline-flex; align-items: center; gap: 3px; color: #855A0B; }
 .hollow-market-pages { display: flex; align-items: center; justify-content: center; gap: 10px; }
 .hollow-market-pages button {
   width: 34px; height: 28px; border: 0; border-radius: 999px;
@@ -660,10 +544,6 @@ main.hollow-page button.hollow-room-arrow:is(:hover, :focus, :focus-visible, :ac
   padding: 7px 14px;
 }
 .kg-stage .hollow-title { font-size: 1.15rem; }
-.kg-stage .hollow-tabs { flex-wrap: nowrap; gap: 6px; }
-.kg-stage .hollow-tab { padding: 7px 12px; font-size: .85rem; }
-.kg-stage .hollow-wallet-coins,
-.kg-stage .hollow-wallet-berries { padding: 5px 10px; font-size: .9rem; }
 .kg-stage .hollow-panel { position: relative; padding: 12px 16px; overflow: hidden; }
 .kg-stage .hollow-pal-row { flex-wrap: nowrap; }
 .kg-stage .hollow-pal-stage { flex-basis: 280px; padding: 10px; gap: 4px; }
@@ -690,34 +570,15 @@ main.hollow-page button.hollow-room-arrow:is(:hover, :focus, :focus-visible, :ac
 .kg-stage .hollow-room-hint { left: auto; right: 86px; transform: none; }
 
 /* ── Hatch reveal ── */
-.hollow-hatch-overlay {
-  position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center;
-  background: rgba(12, 16, 26, 0.66);
-}
-.hollow-hatch-card {
-  width: min(430px, 92vw); text-align: center; padding: 30px 26px;
-  border: 1px solid var(--hw-line); border-radius: 24px;
-  background: var(--hw-parchment-solid);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
-  animation: hollow-pop 260ms ease;
-}
-.hollow-hatch-burst {
-  display: block; font-family: "Fredoka", "Nunito", sans-serif; font-weight: 600;
-  letter-spacing: 0.5px; color: var(--hw-green); margin-bottom: 8px; font-size: 1.05rem;
-}
-.hollow-hatch-card h3 { margin: 10px 0 4px; font-family: "Fredoka", "Nunito", sans-serif; font-size: 1.7rem; font-weight: 700; color: var(--hw-ink); }
-.hollow-hatch-card p { margin: 0 0 16px; color: var(--hw-ink-soft); font-weight: 700; }
 @keyframes hollow-pop { from { transform: scale(0.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
 /* ── Small screens ── */
 @media (max-width: 760px) {
   .hollow-topbar { padding-right: 16px; gap: 8px; }
   .hollow-title { font-size: 1.05rem; }
-  .hollow-tabs { order: 3; width: 100%; margin-inline: 0; }
   .hollow-wallet { margin-left: auto; }
   .hollow-pal-row { flex-direction: column; }
   .hollow-pal-stage { flex-basis: auto; }
-  .hollow-room-arrow { width: 44px; height: 44px; font-size: 1.6rem; }
   .hollow-picker { max-width: 88vw; }
 }
 
@@ -818,4 +679,112 @@ main.hollow-page button.hollow-room-arrow:is(:hover, :focus, :focus-visible, :ac
     color: GrayText;
     opacity: 1;
   }
+}
+
+/* Owner-approved simplified Hollow: one task, then three picture doorways. */
+.kg-stage .hollow-page.hollow-simple {
+  position: relative; inset: auto; height: 100%; padding: 0;
+  background: #F7F8FA; color: #18263E; font-family: Andika, Nunito, sans-serif;
+}
+.kg-stage .hollow-simple .hollow-topbar {
+  padding: 12px 20px; min-height: 66px; gap: 14px; flex-wrap: nowrap;
+  background: #FFFFFF; box-shadow: none; border-bottom: 1px solid #DFE3EB;
+}
+.kg-stage .hollow-simple .hollow-title { font: 700 25px/1.2 Andika, sans-serif; white-space: normal; }
+.kg-stage .hollow-simple .hollow-progress { margin-left: auto; color: #5C677A; font-size: 16px; }
+.kg-stage .hollow-simple .hollow-wallet { display: flex; gap: 8px; color: #18263E; }
+.kg-stage .hollow-simple .hollow-instruction-row { display: flex; align-items: center; gap: 12px; padding: 8px 20px; min-height: 64px; background: #FFFFFF; }
+.kg-stage .hollow-simple .hollow-instruction-row p { margin: 0; font-size: 18px; }
+.kg-stage .hollow-simple .hollow-notice { color: #5C677A; margin-left: auto; font-size: 15px; }
+.kg-stage .hollow-simple .hollow-overview { display: flex; flex-direction: column; justify-content: space-between; gap: 22px; padding: clamp(20px, 4vw, 48px); background-size: cover; background-position: center; }
+.kg-stage .hollow-simple .hollow-next-card { display: flex; align-items: center; gap: 24px; padding: 26px; width: min(580px, 100%); background: #FFFFFF; border: 1px solid #DFE3EB; border-radius: 20px; }
+.kg-stage .hollow-simple .hollow-next-card h2 { font: 700 28px/1.2 Andika, sans-serif; margin: 0 0 10px; color: #18263E; }
+.kg-stage .hollow-simple .hollow-next-card p { font-size: 18px; margin: 0 0 20px; }
+.kg-stage .hollow-simple .hollow-doorways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.kg-stage .hollow-simple .hollow-doorways button { display: flex; align-items: center; justify-content: center; gap: 16px; min-height: 104px; background: #FFFFFF; border: 1px solid #929DAF; border-radius: 16px; color: #18263E; font: 700 22px Andika, sans-serif; }
+.kg-stage .hollow-simple .hollow-doorways img { width: 64px; height: 64px; object-fit: contain; }
+.kg-stage .hollow-simple :is(.hollow-back,.hollow-hear,.hollow-world-button,.hollow-change-guide,.hollow-shelf-tab,.hollow-market-pages button,.hollow-room-navigation button) { min-height: 56px; border: 1px solid #929DAF; border-radius: 12px; padding: 10px 16px; background: #FFFFFF; color: #18263E; font: 700 17px Andika, sans-serif; box-shadow: none; position: static; }
+.kg-stage .hollow-simple .hollow-buy { min-height: 56px; background: #E9EDF9; color: #2844A9; border: 1px solid #929DAF; box-shadow: none; border-radius: 12px; font: 700 19px Andika, sans-serif; }
+.kg-stage .hollow-simple [data-child-primary] { --child-emphasis-level: 3; background: #3454C8; color: #FFFFFF; border: 2px solid #2844A9; box-shadow: none; }
+.kg-stage .hollow-simple .hollow-buy:disabled { background: #F7F8FA; color: #5C677A; border-color: #929DAF; opacity: 1; }
+.kg-stage .hollow-simple .hollow-panel { overflow: hidden; padding: 20px; gap: 16px; background: #F7F8FA; }
+.kg-stage .hollow-simple :is(.hollow-ware,.hollow-beastie,.hollow-gear) { border: 1px solid #929DAF; border-radius: 16px; background: #FFFFFF; box-shadow: none; color: #18263E; }
+.kg-stage .hollow-simple .hollow-ware[data-child-primary] { background: #E9EDF9; color: #18263E; border: 2px solid #3454C8; }
+.kg-stage .hollow-simple .hollow-ware [data-child-emphasis-cue] { background: #3454C8; color: #FFFFFF; padding: 7px 12px; border-radius: 8px; }
+.kg-stage .hollow-simple .hollow-price { background: none; box-shadow: none; color: #5C677A; border: 0; }
+.kg-stage .hollow-simple .hollow-market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; flex: 1; min-height: 0; }
+.kg-stage .hollow-simple .hollow-ware { display: flex; flex-direction: column; justify-content: center; gap: 8px; min-height: 0; padding: 12px; }
+.kg-stage .hollow-simple .hollow-shelf-tabs { gap: 10px; }
+.kg-stage .hollow-simple .hollow-shelf-tab.active { background: #E9EDF9; color: #2844A9; border-color: #3454C8; }
+.kg-stage .hollow-simple .hollow-beastie-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; min-height: 0; flex: 1; }
+.kg-stage .hollow-simple .hollow-beastie { display: flex; flex-direction: column; justify-content: center; gap: 12px; }
+.kg-stage .hollow-simple .hollow-beastie-actions { text-align: center; }
+.kg-stage .hollow-simple .hollow-beastie-actions p { margin: 0 0 12px; }
+.kg-stage .hollow-simple .hollow-meter > span { background: #3454C8; }
+.kg-stage .hollow-simple .hollow-room { border-radius: 0; }
+.kg-stage .hollow-simple .hollow-room-tools { display: flex; position: absolute; top: 16px; right: 16px; gap: 12px; }
+.kg-stage .hollow-simple .hollow-room-navigation { display: flex; position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); align-items: center; gap: 16px; padding: 6px; background: #FFFFFF; border-radius: 14px; }
+.kg-stage .hollow-simple .hollow-room-navigation button { display: flex; align-items: center; justify-content: center; width: 56px; padding: 10px; }
+.kg-stage .hollow-simple .hollow-room-next { top: 45%; bottom: auto; left: 50%; transform: translate(-50%, -50%); box-shadow: none; }
+.kg-stage .hollow-simple .hollow-spot.empty { width: 64px; height: 64px; opacity: 1; background: #FFFFFF; color: #3454C8; border: 2px solid #929DAF; text-shadow: none; box-shadow: none; }
+.kg-stage .hollow-simple .hollow-spot.empty.recommended { width: 72px; height: 72px; background: #3454C8; color: #FFFFFF; border: 3px solid #FFFFFF; outline: 2px solid #3454C8; animation: none; box-shadow: none; }
+.kg-stage .hollow-simple .hollow-spot-next { background: #FFFFFF; color: #2844A9; border: 1px solid #929DAF; }
+.kg-stage .hollow-simple .hollow-hatched-notice { display: flex; gap: 14px; align-items: center; position: absolute; right: 20px; bottom: 20px; z-index: 10; background: #FFFFFF; border: 1px solid #929DAF; border-radius: 16px; padding: 12px; }
+.kg-stage .hollow-simple .hollow-pal-caption { font-family: Andika, sans-serif; }
+@media (max-width: 600px) {
+  .kg-stage .hollow-simple .hollow-topbar { min-height: 60px; padding: 8px 12px; gap: 8px; }
+  .kg-stage .hollow-simple .hollow-title { font-size: 21px; }
+  .kg-stage .hollow-simple .hollow-progress { font-size: 13px; }
+  .kg-stage .hollow-simple .hollow-instruction-row { padding: 8px 12px; }
+  .kg-stage .hollow-simple .hollow-instruction-row p { font-size: 16px; }
+  .kg-stage .hollow-simple .hollow-notice { display: none; }
+  .kg-stage .hollow-simple .hollow-overview { padding: 16px; justify-content: space-evenly; }
+  .kg-stage .hollow-simple .hollow-next-card { gap: 14px; padding: 18px; }
+  .kg-stage .hollow-simple .hollow-next-card h2 { font-size: 23px; }
+  .kg-stage .hollow-simple .hollow-next-card p { font-size: 16px; }
+  .kg-stage .hollow-simple .hollow-doorways { gap: 8px; }
+  .kg-stage .hollow-simple .hollow-doorways button { flex-direction: column; min-height: 112px; padding: 10px 4px; gap: 6px; font-size: 16px; }
+  .kg-stage .hollow-simple .hollow-panel { padding: 12px; gap: 10px; }
+  .kg-stage .hollow-simple .hollow-market-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .kg-stage .hollow-simple .hollow-beastie-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .kg-stage .hollow-simple .hollow-shelf-tabs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .kg-stage .hollow-simple .hollow-shelf-tab { font-size: 15px; }
+  .kg-stage .hollow-simple .hollow-hatched-notice { left: 12px; right: 12px; bottom: 12px; }
+}
+@media (max-height: 430px) and (orientation: landscape) {
+  .kg-stage .hollow-simple .hollow-topbar { min-height: 52px; padding-block: 4px; }
+  .kg-stage .hollow-simple .hollow-instruction-row { min-height: 48px; padding-block: 0; }
+  .kg-stage .hollow-simple .hollow-overview { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 16px; padding: 12px; }
+  .kg-stage .hollow-simple .hollow-next-card { padding: 12px; gap: 10px; }
+  .kg-stage .hollow-simple .hollow-next-card > .hollow-art { width: 64px !important; height: 64px !important; }
+  .kg-stage .hollow-simple .hollow-next-card h2 { font-size: 20px; }
+  .kg-stage .hollow-simple .hollow-next-card p { display: none; }
+  .kg-stage .hollow-simple .hollow-doorways { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .kg-stage .hollow-simple .hollow-doorways button { flex-direction: column; font-size: 15px; padding: 6px; gap: 0; }
+  .kg-stage .hollow-simple .hollow-market-grid { grid-template-columns: repeat(6, 1fr); }
+  .kg-stage .hollow-simple .hollow-ware { font-size: 13px; padding: 4px; gap: 4px; }
+  .kg-stage .hollow-simple .hollow-ware > .hollow-art { width: 46px !important; height: 46px !important; }
+  .kg-stage .hollow-simple .hollow-shelf-tabs { display: flex; }
+  .kg-stage .hollow-simple .hollow-beastie-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-height: 430px) and (orientation: landscape) {
+  .kg-stage .hollow-simple .hollow-overview { padding: 8px; gap: 8px; }
+  .kg-stage .hollow-simple .hollow-next-card { padding: 8px; gap: 8px; }
+  .kg-stage .hollow-simple .hollow-next-card h2 { display: none; }
+  .kg-stage .hollow-simple .hollow-next-card > .hollow-art { width: 44px !important; height: 44px !important; }
+  .kg-stage .hollow-simple .hollow-next-card .hollow-buy { font-size: 15px; padding: 8px; min-height: 56px; }
+  .kg-stage .hollow-simple .hollow-doorways button { min-height: 72px; font-size: 14px; }
+  .kg-stage .hollow-simple .hollow-doorways .hollow-art,
+  .kg-stage .hollow-simple .hollow-doorways img { width: 36px !important; height: 36px !important; }
+}
+@media (max-width: 600px) and (min-height: 431px) and (max-height: 650px) {
+  .kg-stage .hollow-simple .hollow-overview { padding: 12px; gap: 12px; }
+  .kg-stage .hollow-simple .hollow-next-card { padding: 12px; gap: 10px; }
+  .kg-stage .hollow-simple .hollow-next-card > .hollow-art { width: 64px !important; height: 64px !important; }
+  .kg-stage .hollow-simple .hollow-next-card h2 { font-size: 21px; margin-bottom: 8px; }
+  .kg-stage .hollow-simple .hollow-next-card p { display: none; }
+  .kg-stage .hollow-simple .hollow-next-card .hollow-buy { font-size: 16px; padding: 10px; }
+  .kg-stage .hollow-simple .hollow-doorways button { min-height: 94px; font-size: 15px; }
+  .kg-stage .hollow-simple .hollow-doorways .hollow-art,
+  .kg-stage .hollow-simple .hollow-doorways img { width: 48px !important; height: 48px !important; }
 }

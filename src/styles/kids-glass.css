@@ -1,8 +1,8 @@
 /* KIDS GLASS — the child area's design system (phase A of the 2026-07-29 redesign).
  *
- * Binding spec: mockups/design-handoff-kids-side/README.md (sections "Design
- * Tokens", "Global Chrome", "Interactions & Behaviour", "Responsive"). Every
- * colour, radius, blur and geometry value below is copied from it, not invented.
+ * Current colour and panel direction: owner-approved cobalt and opaque surfaces
+ * (30 September 2026), recorded in docs/design/BLUE_UI_AND_SIMPLE_HOLLOW.md.
+ * Existing stage geometry, teaching fonts and touch targets remain in use.
  *
  * WHAT THIS FILE IS FOR. Phases B–F build the seven child screens on top of the
  * classes here. Nothing in those phases should re-declare a glass recipe, a
@@ -32,27 +32,10 @@
  * stage and touches nothing outside it. Screen stylesheets built on this file
  * must carry the same prefix for the same reason; kids-home.css does.
  *
- * FOUR RULES THAT COST REAL DEBUGGING TIME. Read them before adding anything.
- *
- *   1. THE INSET HIGHLIGHT IS THE GLASS. Tier 2's `inset 0 1px 1px
- *      rgba(255,255,255,.90)` is what makes a panel read as a lit edge rather
- *      than a grey box. The outer shadow's large NEGATIVE spread (-24px) is
- *      deliberate: it reads as ambient occlusion under the panel, not as a drop
- *      shadow behind it. Do not "simplify" either away.
- *   2. NEVER WHITE TEXT ON LIGHT GLASS OVER AN ILLUSTRATION. That is what
- *      .kg-scrim and the tier-3 dark glass exist for. There is no text-shadow
- *      anywhere in this file, and there must never be one: reaching for
- *      text-shadow is the symptom of a missing scrim.
- *   3. NEVER COMBINE A CENTRING TRANSFORM WITH AN ANIMATED ONE. `kgBob` animates
- *      `transform`, which silently overrides `transform: translate(-50%,-100%)`
- *      and drops the sprite in the wrong place. Split them: .kg-sprite is an
- *      outer positioned wrapper that centres with NEGATIVE MARGINS, and .kg-bob
- *      goes on the inner <img>. Both classes enforce this — .kg-sprite has no
- *      transform of its own and .kg-bob refuses to be a positioning context.
- *   4. ALWAYS SHIP -webkit-backdrop-filter ALONGSIDE backdrop-filter, and always
- *      pair the blur with saturate(). Unsaturated blur turns the warm ambient
- *      gradient grey; iPad Safari is the primary device and still wants the
- *      prefix.
+ * The owner-approved opaque recipes replace the earlier blur and inset-glass
+ * recipes. Keep readable dark ink on white panels and white ink on dark art
+ * scrims. Keep sprite centring separate from animated transforms: .kg-sprite
+ * centres with negative margins, while .kg-bob animates only its inner image.
  */
 
 /* Each glass tier publishes its own border and shadow as --kg-self-* so the
@@ -79,19 +62,19 @@
 .kg-viewport,
 .kg-stage {
   /* ink & surface */
-  --kg-ink: #16302A;
-  --kg-ink-deep: #20423A;
-  --kg-ink-mid: #2B4A40;
-  --kg-ink-muted: #5C6E66;
+  --kg-ink: #18263E;
+  --kg-ink-deep: #18263E;
+  --kg-ink-mid: #28405D;
+  --kg-ink-muted: #5C677A;
   --kg-ink-disabled: #8FA396;
   --kg-ink-disabled-soft: #A8B3AC;
-  --kg-ink-on-accent: #1B2E12;
-  --kg-canvas: #F7F4EC;
-  --kg-page: #E9EFE8;
+  --kg-ink-on-accent: #FFFFFF;
+  --kg-canvas: #F7F8FA;
+  --kg-page: #F7F8FA;
 
   /* accent & semantic */
-  --kg-accent: #F2B33D;
-  --kg-accent-rgb: 242, 179, 61;
+  --kg-accent: #3454C8;
+  --kg-accent-rgb: 52, 84, 200;
   --kg-accent-terracotta: #E2725B;
   --kg-accent-sky: #8EC9E8;
   --kg-accent-leaf: #5FA052;
@@ -105,7 +88,7 @@
   --kg-ink-amber: #8A7038;
   --kg-ink-terracotta: #A05B3E;
   --kg-ink-brown: #7A5320;
-  --kg-sage: #3E776B;
+  --kg-sage: #3454C8;
 
   /* world dots (Arcade filter) */
   --kg-world-meadow: #6FB35F;
@@ -251,7 +234,7 @@
     radial-gradient(680px 500px at 12% -6%, rgba(143, 205, 180, 0.55), transparent 62%),
     radial-gradient(720px 520px at 96% 8%, rgba(255, 214, 150, 0.5), transparent 64%),
     radial-gradient(760px 620px at 62% 108%, rgba(163, 203, 232, 0.46), transparent 62%),
-    linear-gradient(170deg, #FBF7EF, #EFF3EA);
+    linear-gradient(170deg, #F7F8FA, #F7F8FA);
 }
 
 /* The content area between the header and the tab bar. */
@@ -386,144 +369,56 @@
 
 /* Tier 1 — chrome. Header and tab bar; sits directly on the ambient gradient. */
 .kg-stage .kg-glass-chrome {
-  --kg-self-border: rgba(255, 255, 255, 0.7);
-  --kg-self-shadow: 0 1px 24px -10px rgba(30, 60, 50, 0.28);
-  position: relative;
-  z-index: 5;
-  flex: 0 0 auto;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(var(--kg-blur-chrome)) saturate(1.5);
-  -webkit-backdrop-filter: blur(var(--kg-blur-chrome)) saturate(1.5);
-  box-shadow: var(--kg-self-shadow);
-}
-
-/* Tier 2 — panels and cards. The workhorse. Alpha and blur move within the
-   spec's ranges by prominence: --quiet .40 / --strong .56. */
-.kg-stage .kg-glass {
-  --kg-self-border: rgba(255, 255, 255, 0.82);
-  --kg-self-shadow:
-    0 14px 30px -24px rgba(30, 60, 50, 0.55),
-    inset 0 1px 1px rgba(255, 255, 255, 0.9);
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(var(--kg-blur-card)) saturate(1.4);
-  -webkit-backdrop-filter: blur(var(--kg-blur-card)) saturate(1.4);
-  border: 1px solid var(--kg-self-border);
-  box-shadow: var(--kg-self-shadow);
-}
-
-.kg-stage .kg-glass--quiet {
-  --kg-self-border: rgba(255, 255, 255, 0.72);
-  background: rgba(255, 255, 255, 0.4);
-}
-
-.kg-stage .kg-glass--strong {
-  --kg-self-border: rgba(255, 255, 255, 0.85);
-  background: rgba(255, 255, 255, 0.56);
-  backdrop-filter: blur(var(--kg-blur-panel)) saturate(1.4);
-  -webkit-backdrop-filter: blur(var(--kg-blur-panel)) saturate(1.4);
-}
-
-/* TIER 2, TINTED — the answer to "calm reads as flat".
- *
- * Same tier-2 glass, but the panel's own fill carries the place's colour
- * (--kg-tint, from the doorway tints at the top of this file) instead of plain
- * white. The tints are the SPEC's, at the spec's alpha, so this adds hue
- * without adding saturation weight: a tinted card is still tier one in the
- * emphasis budget — no accent amber, no scale change, no motion — it is simply
- * not grey. The gradient runs white -> tint so the lit top edge survives.
- *
- * The accent amber is deliberately NOT available here. Amber belongs to the one
- * recommended action, and a tinted card that borrowed it would be competing. */
-.kg-stage .kg-glass--tinted {
-  --kg-self-border: rgba(255, 255, 255, 0.85);
-  background:
-    linear-gradient(
-      168deg,
-      rgba(255, 255, 255, 0.72),
-      var(--kg-tint, rgba(255, 255, 255, 0.5)) 68%
-    );
-}
-
-/* Depth, not drama. A card that should sit ABOVE the page rather than on it
-   takes this: the same ambient-occlusion shape as tier 2, thrown further. Never
-   an offset drop shadow — the system has none and must not gain one. */
-.kg-stage .kg-glass--raised {
-  --kg-self-shadow:
-    0 22px 38px -26px rgba(30, 60, 50, 0.62),
-    0 4px 10px -8px rgba(30, 60, 50, 0.28),
-    inset 0 1px 1px rgba(255, 255, 255, 0.9);
-}
-
-/* Tier 3 — dark glass. ONLY over illustrations, so white text has contrast.
-   Using this on the plain ambient gradient is the mistake it exists to prevent. */
-.kg-stage .kg-glass-dark {
-  --kg-self-border: rgba(255, 255, 255, 0.42);
-  --kg-self-shadow: 0 10px 22px -16px rgba(20, 45, 38, 0.6);
-  background: rgba(18, 44, 38, 0.5);
-  backdrop-filter: blur(18px) saturate(1.4);
-  -webkit-backdrop-filter: blur(18px) saturate(1.4);
-  border: 1px solid var(--kg-self-border);
-  box-shadow: var(--kg-self-shadow);
-  color: #FFFFFF;
-}
-
-.kg-stage .kg-glass-dark--deep {
-  background: rgba(18, 44, 38, 0.62);
-}
-
-/* Accent glass — primary actions. Follows --kg-accent. */
-.kg-stage .kg-glass-accent {
-  --kg-self-border: rgba(255, 255, 255, 0.7);
-  --kg-self-shadow:
-    0 14px 28px -16px rgba(30, 60, 50, 0.6),
-    inset 0 1px 2px rgba(255, 255, 255, 0.8);
-  background: linear-gradient(
-    150deg,
-    rgba(var(--kg-accent-rgb), 0.94),
-    rgba(var(--kg-accent-rgb), 0.72)
-  );
-  backdrop-filter: blur(var(--kg-blur-button)) saturate(1.6);
-  -webkit-backdrop-filter: blur(var(--kg-blur-button)) saturate(1.6);
-  border: 1px solid var(--kg-self-border);
-  box-shadow: var(--kg-self-shadow);
-  color: var(--kg-ink-on-accent);
-}
-
-/* LIGHT GLASS ON ARTWORK — the fourth surface, added in phase B for the Home
- * hero's eyebrow pill and its "Hear this" button, and reusable by every later
- * scene that needs a pale chip ON an illustration.
- *
- * It is NOT tier 2. Tier 2 is white glass on the ambient gradient and takes
- * INK-coloured text; this is a translucent white veil over a photograph, sits
- * inside a .kg-scrim, and takes WHITE text. Using it anywhere the scrim is
- * missing is exactly the contrast failure rule 2 forbids. */
-.kg-stage .kg-glass-light {
-  --kg-self-border: rgba(255, 255, 255, 0.55);
-  --kg-self-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.26);
-  backdrop-filter: blur(var(--kg-blur-button)) saturate(1.4);
-  -webkit-backdrop-filter: blur(var(--kg-blur-button)) saturate(1.4);
-  border: 1px solid var(--kg-self-border);
-  box-shadow: var(--kg-self-shadow);
-  color: #FFFFFF;
-}
-
-.kg-stage .kg-glass-light--quiet {
-  --kg-self-border: rgba(255, 255, 255, 0.42);
+  --kg-self-border: #DFE3EB;
   --kg-self-shadow: none;
-  background: rgba(255, 255, 255, 0.24);
+  position: relative; z-index: 5; flex: 0 0 auto;
+  background: #FFFFFF;
+  border-block: 1px solid var(--kg-self-border);
+  box-shadow: none;
 }
 
-/* Dark accent glass — the active tab, hero panels, the Arcade featured panel. */
-.kg-stage .kg-glass-deep {
-  --kg-self-border: rgba(255, 255, 255, 0.4);
-  --kg-self-shadow:
-    0 14px 26px -14px rgba(20, 45, 38, 0.6),
-    inset 0 1px 2px rgba(255, 255, 255, 0.4);
-  background: linear-gradient(150deg, rgba(46, 75, 62, 0.94), rgba(62, 119, 107, 0.86));
+.kg-stage .kg-glass,
+.kg-stage .kg-glass--quiet,
+.kg-stage .kg-glass--strong,
+.kg-stage .kg-glass--tinted,
+.kg-stage .kg-glass--raised {
+  --kg-self-border: #DFE3EB;
+  --kg-self-shadow: 0 2px 8px rgba(24, 38, 62, .04);
+  background: #FFFFFF;
   border: 1px solid var(--kg-self-border);
   box-shadow: var(--kg-self-shadow);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.kg-stage .kg-glass-dark,
+.kg-stage .kg-glass-dark--deep,
+.kg-stage .kg-glass-deep {
+  --kg-self-border: #18263E;
+  --kg-self-shadow: none;
+  background: #18263E;
   color: #FFFFFF;
+  border: 1px solid var(--kg-self-border);
+  box-shadow: none;
+}
+
+.kg-stage .kg-glass-accent {
+  --kg-self-border: #3454C8;
+  --kg-self-shadow: none;
+  background: var(--kg-accent);
+  color: #FFFFFF;
+  border: 1px solid var(--kg-self-border);
+  box-shadow: none;
+}
+
+.kg-stage .kg-glass-light,
+.kg-stage .kg-glass-light--quiet {
+  --kg-self-border: #929DAF;
+  --kg-self-shadow: none;
+  background: #FFFFFF;
+  color: #18263E;
+  border: 1px solid var(--kg-self-border);
+  box-shadow: none;
 }
 
 /* ── Scrims ───────────────────────────────────────────────────────────────────
@@ -973,9 +868,8 @@
   align-items: center;
   padding: 0 var(--kg-space-20);
   border-top: 1px solid rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(28px) saturate(1.5);
-  -webkit-backdrop-filter: blur(28px) saturate(1.5);
-  box-shadow: 0 -1px 28px -12px rgba(30, 60, 50, 0.32);
+  background: #FFFFFF;
+  box-shadow: none;
 }
 
 .kg-stage .kg-tab {
@@ -1013,12 +907,10 @@
    dark (Story Quests lights Books; the Adventure Map and Letters light
    Sounds). */
 .kg-stage .kg-tab.is-active {
-  --kg-self-border: rgba(255, 255, 255, 0.4);
-  --kg-self-shadow:
-    0 14px 26px -14px rgba(20, 45, 38, 0.6),
-    inset 0 1px 2px rgba(255, 255, 255, 0.4);
-  background: linear-gradient(150deg, rgba(46, 75, 62, 0.94), rgba(62, 119, 107, 0.86));
-  color: #FFFFFF;
+  --kg-self-border: #CCD5F4;
+  --kg-self-shadow: none;
+  background: #E9EDF9;
+  color: #2844A9;
 }
 
 /* ── Hover ────────────────────────────────────────────────────────────────────

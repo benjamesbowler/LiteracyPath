@@ -90,7 +90,7 @@ test("the entry gateway gives students and teachers their own branded destinatio
   assert.match(entrySource, /aria-describedby="teacher-entry-description"/);
   assert.match(
     entryStyles,
-    /\.student-entry-page\.pals-entry\.lp-landing\s*\{[\s\S]*?--landing-paper: #f7f0e4;/,
+    /\.student-entry-page\.pals-entry\.lp-landing\s*\{[\s\S]*?--landing-paper: #F7F8FA;/,
     "the shared gateway must use a neutral platform background"
   );
   assert.match(

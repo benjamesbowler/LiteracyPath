@@ -370,7 +370,7 @@ function declarations(property) {
 test("every backdrop-filter ships the -webkit- prefix and pairs blur with saturate", () => {
   const standard = declarations("backdrop-filter");
   const prefixed = declarations("-webkit-backdrop-filter");
-  assert.ok(standard.length >= 6, `only ${standard.length} backdrop-filters found — the scan has drifted`);
+  assert.ok(standard.length >= 1, `only ${standard.length} backdrop-filters found — the scan has drifted`);
   assert.deepEqual(
     standard,
     prefixed,
@@ -389,36 +389,20 @@ test("every backdrop-filter ships the -webkit- prefix and pairs blur with satura
   }
 });
 
-test("tier 2 keeps the inset highlight and the ambient-occlusion spread", () => {
-  const tier2 = css.match(/^\.kg-stage \.kg-glass \{[\s\S]*?\n\}/m);
-  assert.ok(tier2, "the tier-2 .kg-glass rule is gone");
-  assert.match(
-    tier2[0],
-    /inset 0 1px 1px rgba\(255, 255, 255, 0\.9\)/,
-    "the inset highlight is what sells the glass — keep it"
-  );
-  assert.match(
-    tier2[0],
-    /0 14px 30px -24px rgba\(30, 60, 50, 0\.55\)/,
-    "the large negative spread is deliberate: it reads as ambient occlusion, not a drop shadow"
-  );
-  assert.match(tier2[0], /background: rgba\(255, 255, 255, 0\.5\)/);
+test("child panels are opaque with a restrained border and no background blur", () => {
+  const panels = css.match(/\.kg-stage \.kg-glass,\n[\s\S]*?\n\}/m);
+  assert.ok(panels);
+  assert.match(panels[0], /background: #FFFFFF/);
+  assert.match(panels[0], /--kg-self-border: #DFE3EB/);
+  assert.match(panels[0], /backdrop-filter: none/);
 });
 
-test("the three tiers plus accent and deep glass all exist and are dark where they must be", () => {
-  for (const tier of [
-    ".kg-glass-chrome",
-    ".kg-glass",
-    ".kg-glass-dark",
-    ".kg-glass-accent",
-    ".kg-glass-deep"
-  ]) {
-    assert.ok(css.includes(`.kg-stage ${tier} {`), `${tier} is missing from the system`);
-  }
-  // Tier 3 and the deep glass are the only places white ink is legal, and they
-  // are dark precisely so it is.
-  assert.match(css.match(/^\.kg-stage \.kg-glass-dark \{[\s\S]*?\n\}/m)[0], /background: rgba\(18, 44, 38, 0\.5\)/);
-  assert.match(css.match(/^\.kg-stage \.kg-glass-deep \{[\s\S]*?\n\}/m)[0], /color: #FFFFFF/);
+test("primary controls use cobalt with white ink and dark panels retain contrast", () => {
+  assert.match(css, /--kg-accent: #3454C8/);
+  const primary = css.match(/\.kg-stage \.kg-glass-accent \{[\s\S]*?\n\}/m);
+  assert.match(primary[0], /background: var\(--kg-accent\)/);
+  assert.match(primary[0], /color: #FFFFFF/);
+  assert.match(css, /background: #18263E;\n {2}color: #FFFFFF/);
 });
 
 test("there is no text-shadow anywhere — a missing scrim is what makes you want one", () => {

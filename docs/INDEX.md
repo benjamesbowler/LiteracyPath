@@ -112,3 +112,5 @@ Do not restore retired audits, generated review inventories, dated handoff promp
 preview evidence, release scorecards, or historical media requests. If a standard
 changes, edit the current standard in place. If the app and a document disagree,
 correct or delete the document.
+
+- [Blue interface and simpler Hollow](design/BLUE_UI_AND_SIMPLE_HOLLOW.md) — owner-approved 30 September 2026 chrome and disclosure direction.

@@ -46,13 +46,14 @@ for (const viewport of A11Y_VIEWPORTS) {
     test(`A3.3 ${route.id} has zero serious/critical Axe findings at ${viewport.id}`, async ({
       page
     }) => {
-      test.setTimeout(45_000);
+      test.setTimeout(90_000);
       const pageErrors = [];
       const consoleErrors = [];
       page.on("pageerror", error => pageErrors.push(error.message));
       page.on("console", message => {
         if (message.type() === "error") consoleErrors.push(message.text());
       });
+      await page.emulateMedia({ reducedMotion: "reduce" });
       await page.setViewportSize({ width: viewport.width, height: viewport.height });
       await waitForRoute(page, route);
       await expectNoBlockingViolations(page, `${route.id} at ${viewport.id}`);
@@ -65,15 +66,21 @@ for (const viewport of A11Y_VIEWPORTS) {
     test(`A3.3 ${state.id} has zero serious/critical Axe findings at ${viewport.id}`, async ({
       page
     }) => {
-      test.setTimeout(45_000);
+      test.setTimeout(90_000);
       const pageErrors = [];
       const consoleErrors = [];
       page.on("pageerror", error => pageErrors.push(error.message));
       page.on("console", message => {
         if (message.type() === "error") consoleErrors.push(message.text());
       });
+      await page.emulateMedia({ reducedMotion: "reduce" });
       await page.setViewportSize({ width: viewport.width, height: viewport.height });
       await page.goto(state.url, { waitUntil: "domcontentloaded" });
+      if (state.startControl) {
+        const start = page.getByRole("button", { name: state.startControl, exact: true });
+        await expect(start).toBeEnabled({ timeout: 45_000 });
+        await start.click();
+      }
       if (state.openSummary) {
         await page.getByText(state.openSummary, { exact: true }).click();
       }

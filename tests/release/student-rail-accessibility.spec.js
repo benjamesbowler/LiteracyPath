@@ -72,7 +72,7 @@ test("A2.5 full child navigation exposes stable tabs, all destinations, and reco
 
   await page.locator(".kg-home-explore").getByRole("button", { name: "Hear this" }).click();
   await expect.poll(() => page.evaluate(() => window.__spokenRailAudio)).toEqual(
-    ["Adventure Map", "Books", "Story Quests", "Arcade", "Letters", "My Hollow"]
+    ["Or go anywhere you like.", "Adventure Map", "Books", "Story Quests", "Arcade", "Letters", "My Hollow"]
       .map(expectedAudioPath)
   );
   expect(pageErrors).toEqual([]);
@@ -96,7 +96,7 @@ test("A2.5 teacher-reduced choices close alternate tab routes, persist, and rema
 
   await page.locator(".kg-home-explore").getByRole("button", { name: "Hear this" }).click();
   await expect.poll(() => page.evaluate(() => window.__spokenRailAudio)).toEqual(
-    ["Books", "Letters"].map(expectedAudioPath)
+    ["Or go anywhere you like.", "Books", "Letters"].map(expectedAudioPath)
   );
 
   await expect(navigation).toHaveScreenshot("student-rail-reduced-choice-v2.png", {

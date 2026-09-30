@@ -241,6 +241,7 @@
     "@fontsource/lexend": "^5.3.0",
     "@fontsource/nunito": "^5.3.0",
     "@fontsource/press-start-2p": "^5.3.0",
+    "@fontsource/source-sans-3": "^5.2.5",
     "@phosphor-icons/react": "^2.1.10",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",

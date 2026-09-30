@@ -59,3 +59,8 @@ import "@fontsource/nunito/500.css";
 import "@fontsource/nunito/600.css";
 import "@fontsource/nunito/700.css";
 import "@fontsource/nunito/800.css";
+
+/* Source Sans 3 — the shared adult UI; teaching glyph fonts remain separate. */
+import "@fontsource/source-sans-3/latin-400.css";
+import "@fontsource/source-sans-3/latin-600.css";
+import "@fontsource/source-sans-3/latin-700.css";

@@ -44,17 +44,18 @@ test("Guide selection is persistent, book-led and only changed in My Hollow", ()
   assert.match(home, /My Little Literacy Guide/);
   assert.doesNotMatch(home, /Skip for now/);
 
-  assert.match(hollow, /label: "My Guide"/);
+  assert.match(hollow, /<strong>My Guide<\/strong>/);
   assert.match(hollow, /changeLittleLiteracyGuide/);
   assert.match(hollow, /LITTLE_LITERACY_GUIDE_CHANGE_COST/);
   assert.match(hollow, /label: "Guide gear"/);
 });
 
-test("hatched beasties have a visible home in the main Hollow room", () => {
-  assert.match(hollow, /className="hollow-beastie-nook"/);
-  assert.match(hollow, /hollow\.beasties\.slice\(0, 8\)/);
+test("owned Beasties have a permanent picture doorway and a paged collection", () => {
+  assert.match(hollow, /className="hollow-doorways"/);
   assert.match(hollow, /onClick=\{\(\) => setTab\("beasties"\)\}/);
-  assert.match(hollowCss, /\.hollow-beastie-nook/);
+  assert.match(hollow, /hollow\.beasties\[0\]\?\.id/);
+  assert.match(hollow, /hollow\.beasties\.slice\(beastiePage \* 4/);
+  assert.doesNotMatch(hollow, /hollow-beastie mystery/);
 });
 
 test("Hollow touch targets keep their map position and do not lift on sticky hover", () => {
@@ -62,10 +63,7 @@ test("Hollow touch targets keep their map position and do not lift on sticky hov
     hollowCss,
     /main\.hollow-page button\.hollow-spot:is\(:hover, :focus, :focus-visible, :active\):not\(:disabled\)\s*\{[^}]*transform:\s*translate\(-50%, -50%\)/
   );
-  assert.match(
-    hollowCss,
-    /main\.hollow-page button\.hollow-room-arrow:is\(:hover, :focus, :focus-visible, :active\):not\(:disabled\)\s*\{[^}]*transform:\s*translateY\(-50%\)/
-  );
+  assert.doesNotMatch(hollow, /className="hollow-room-arrow/);
   assert.doesNotMatch(
     hollowCss,
     /\.hollow-(?:tab|pick|buy|gear|ware):hover[^{}]*\{[^}]*transform:/
