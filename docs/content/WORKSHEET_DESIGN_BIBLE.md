@@ -1,6 +1,6 @@
 # LiteracyPath Worksheet Design Bible
 
-**Policy version:** `2026-08-09.1`
+**Policy version:** `2026-09-30.1`
 **Applies to:** every generated, downloaded or printed LiteracyPath worksheet and practice pack for learners aged 4–12.
 **Parent standard:** [Question Design Bible](QUESTION_DESIGN_BIBLE.md).
 **Permanent gates:** `npm run check:worksheet-design-policy` and `npm run check:worksheet-print-layout`
@@ -181,6 +181,18 @@ Before release, argue for every alternative as if it were correct. Add context o
 - A one-sheet mini-book uses the correct eight-panel order, upside-down top row, fold lines and adult centre-cut guide. Instructions must be sufficient to assemble the book without inventing missing steps.
 - Print games keep the reading target central, supply every board or tracker needed to play, and do not rely on a reward mechanic as evidence of learning.
 
+### Character colour by word and picture crosswords
+
+- Character colour-by-word pages use the six current book Guides: Muddy, Chompy, Pip, Fluff, Chips and Socks. The source portraits are the live `COMPANIONS` records; final local line art and reviewed label coordinates are defined in `worksheetCharacterArt.js`.
+- Colour codes use current or earlier taught sight words. The code names every colour in text. Connected colouring areas cannot receive conflicting codes; facial features, small markings and unlabelled regions remain available for free colouring.
+- Print the code words as live text over the artwork. Never bake curriculum words into the raster illustration. Preserve character likeness and keep word labels out of eyes, mouths and critical contours.
+- Picture crosswords contain two to four connected words, one letter per square, across/down labels and clue numbers in reading order. Crossings agree; parallel neighbours and accidental extra words are prohibited.
+- Use exact pictured spelling cues, a solved example on the first page, initial-letter help next, then remove the word bank. An initial-sound picture example is not evidence that its entire spelling is taught. Beginner word pools exclude untaught vowel teams and add consonant digraphs only after their introduction.
+- Teacher answer pages are generated from the same task metadata and printed separately from child packs. Open drawing, composition and transfer work explicitly allows varied responses. Adult-read sentence and dictation work does not claim independent decoding.
+- The teacher studio previews the exact selected child page before printing, and exposes every page in a pack. Its preview uses the same embedded reading font as the final print document.
+- Final character art lives in `public/images/worksheets/{guide}-colouring.png`, edited with the built-in image generator from the corresponding live `public/images/companions/{guide}.webp` portrait. The production brief preserves each character's face, species, proportions, hair, ears, clothing and markings; it requests a white square, clean black outlines, large blank colouring areas, three separate leaves on the left and three stars on the right, with no text, shading or watermark. The builder places all word codes as live text.
+- `worksheetPrintFont.js` embeds the Andika regular Latin WOFF2 from the installed `@fontsource/andika` package. Its SIL Open Font License is retained at `public/images/worksheets/Andika-OFL.txt`.
+
 ### Comprehension, vocabulary and writing for Bands B–D
 
 - Supply the complete passage, image, diagram or source.
@@ -241,7 +253,10 @@ The permanent gate checks every available type for every cycle, normally at six 
 15. representative PDFs produce one physical page per logical page with no clipped instructional content.
 16. every word-search answer appears in its declared grid direction;
 17. colouring pages retain visible outlines in greyscale printing;
-18. cut, sort, matching and mini-book pages retain complete cut, fold and assembly guides.
+18. cut, sort, matching and mini-book pages retain complete cut, fold and assembly guides;
+19. crossword clue answers agree with every crossing and numbered start square;
+20. character colour codes use taught sight words and reviewed region labels;
+21. embedded print type, separate teacher answers and exact page preview remain reproducible.
 
 The release gate fails on any hard error. It may not be made green by suppressing a worksheet type, reducing the expected page count, changing the normaliser to count page labels, or recording a waiver without a versioned policy change.
 

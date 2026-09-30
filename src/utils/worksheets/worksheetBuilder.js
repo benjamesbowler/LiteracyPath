@@ -11,9 +11,18 @@
 import { elSkillsBlockCycles, LETTER_EXAMPLES } from "../../data/elSkillsBlockCycles.js";
 import { cycleOptionLabel } from "../cycleTitles.js";
 import { getChildWordAsset } from "../../data/childAssets.js";
+import { makePictureCrossword } from "./pictureCrossword.js";
+import { WORKSHEET_CHARACTER_ART } from "./worksheetCharacterArt.js";
+import { WORKSHEET_PRINT_FONT } from "./worksheetPrintFont.js";
 import { openHtmlDocument } from "../openHtmlDocument.js";
 
 export const WORKSHEET_TYPES = [
+  { id: "characterColouring", label: "Character colour by word", category: "colouring", format: "Colour", blurb: "Read the word code and colour Muddy, Chompy, Pip, Fluff, Chips and Socks." },
+  { id: "crossword", label: "Picture crossword", category: "puzzles", format: "Puzzle", blurb: "Name the pictures and fill a small connected crossword, one letter per box." },
+  { id: "pictureMatching", label: "Picture and word matching", category: "practice", format: "Match", blurb: "Match, choose and spell familiar pictured words with less help on each page." },
+  { id: "writingPractice", label: "Read, draw and write", category: "practice", format: "Write", blurb: "Use a word, draw an idea and write on roomy handwriting guides." },
+  { id: "wordTracing", label: "Word tracing", category: "practice", format: "Trace", blurb: "Follow a clear word model, trace, copy and then write from memory." },
+  { id: "sentenceBuilder", label: "Sentence builder", category: "practice", format: "Write", blurb: "Read a model, order sentence strips and write your own sentence." },
   { id: "letterFormation", label: "Letter formation", category: "practice", format: "Write", blurb: "Trace and write the cycle's focus letters, then hunt for them." },
   { id: "wordBuilding", label: "Word building", category: "practice", format: "Write", blurb: "Read, complete and build words made from the cycle's sounds." },
   { id: "sightWords", label: "Sight words", category: "practice", format: "Write", blurb: "Trace, find and use the cycle's high-frequency words in real sentences." },
@@ -43,7 +52,7 @@ function isFluencyCycle(cycle) {
 // Which worksheet types make sense for a given cycle.
 export function availableWorksheetTypes(cycle) {
   if (!cycle) return [];
-  const ids = [];
+  const ids = ["characterColouring", "writingPractice", "wordTracing", "sentenceBuilder"];
   const hasRealLetters = !isFluencyCycle(cycle) && focusCards(cycle).length > 0;
   if (hasRealLetters) ids.push("letterFormation");
   // A word-building sheet must not ask a child to spell with untaught letters.
@@ -53,6 +62,8 @@ export function availableWorksheetTypes(cycle) {
   if (hasRealLetters && cycle.cycleNumber !== 24 && pictureWordPool(cycle).length >= 2) ids.push("wordBuilding");
   if ((cycle.highFrequencyWords || []).length > 0) ids.push("sightWords");
   if (isFluencyCycle(cycle)) ids.push("patternFluency");
+  if (pictureWordPool(cycle).length >= 3) ids.push("pictureMatching");
+  if (Array.from({ length: 6 }, (_, page) => makePictureCrossword(pictureWordPool(cycle, page)).placements.length >= 2).every(Boolean)) ids.push("crossword");
   if (wordSearchPool(cycle).length >= 4) ids.push("wordSearch");
   if (hasRealLetters) ids.push("letterColouring");
   if ((cycle.highFrequencyWords || []).length > 0) ids.push("sightWordColouring");
@@ -93,12 +104,24 @@ export function worksheetCycleLabel(cycle = {}) {
 // ── Curriculum-aware content selectors (all deterministic) ───────────────────
 const VOWELS = new Set(["a", "e", "i", "o", "u"]);
 const CVC_POOL = [
-  "ant", "cat", "map", "bag", "tap", "ham", "van", "mat", "sat", "pan", "fan",
+  "ant", "can", "cap", "man", "dad", "mum", "pat", "sad", "fat", "hat", "bat", "rat", "cat", "map", "bag", "tap", "ham", "van", "mat", "sat", "pan", "fan",
   "bed", "ten", "net", "peg", "hen", "wet", "pet", "leg", "red", "men",
   "pig", "sit", "lip", "fin", "win", "dig", "pin", "bin", "hit", "zip",
   "dog", "hop", "pot", "mop", "log", "cot", "top", "pop", "fog", "box",
   "sun", "bug", "cup", "mud", "run", "hut", "bus", "nut", "rug", "jug"
 ];
+
+// Consonant digraphs are added only after that exact grapheme is taught.
+// Whole-word examples such as goat/boat are initial-sound teaching cues, not
+// permission to ask beginners to decode untaught vowel teams.
+const DIGRAPH_WORDS = {
+  sh: ["ship", "shop", "shed", "shut", "fish", "dish"],
+  ch: ["chin", "chat", "chip", "chop", "much", "rich"],
+  th: ["thin", "moth", "bath"],
+  wh: ["whip", "wham", "when", "whiz"],
+  nk: ["tank", "ink", "sink", "mink", "wink"],
+  ng: ["ring", "king", "wing", "sing", "song", "bang", "long", "hang"]
+};
 
 // These repository images are unsuitable as small worksheet cues: they either
 // print the answer in the artwork, represent an abstract word through a busy
@@ -152,15 +175,16 @@ function cycleWords(cycle) {
   const cards = focusCards(cycle);
   const taught = new Set(taughtLettersThrough(cycle.cycleNumber || 1));
   const usesTaught = word => word.split("").every(ch => taught.has(ch));
+  const permittedWords = new Set([...CVC_POOL, ...Object.entries(DIGRAPH_WORDS).filter(([grapheme]) => taught.has(grapheme)).flatMap(([, words]) => words)]);
   const fromExamples = cards
     .flatMap(card => LETTER_EXAMPLES[card.spelling] || [])
-    .filter(word => /^[a-z]{2,5}$/.test(word));
+    .filter(word => permittedWords.has(word));
   const seen = [];
   // 1) Focus-letter example words fully decodable with taught letters.
   for (const word of fromExamples) if (usesTaught(word) && !seen.includes(word)) seen.push(word);
   // 2) CVC words that use a focus letter and only taught letters.
   const focusSet = new Set(cards.map(c => c.spelling));
-  for (const word of CVC_POOL) {
+  for (const word of permittedWords) {
     if (seen.length >= 10) break;
     if (usesTaught(word) && word.split("").some(ch => focusSet.has(ch)) && !seen.includes(word)) seen.push(word);
   }
@@ -200,8 +224,8 @@ function earlierSightWords(cycle) {
 const HFW_SENTENCES = {
   am: "I ___ six.",
   i: "___ can hop and run.",
-  a: "The word for one is ___.",
-  the: "We use ___ for a dog we both know.",
+  a: "I see ___ cat.",
+  the: "Please shut ___ door.",
   an: "I see ___ ant on the log.",
   and: "Mum ___ I hop.",
   is: "The cat ___ on the mat.",
@@ -267,6 +291,23 @@ const HFW_SENTENCES = {
   friend: "You are my best ___.",
   half: "I ate ___ of the plum."
 };
+
+// A sight word keeps its normal form in a word list, but takes a capital
+// when it opens a sentence. Mark the authored blank, never a substring of
+// another word (for example, "he" inside "the").
+function sentenceTargetWord(word) {
+  const shown = displayWord(word);
+  return /^["“\s]*___/.test(HFW_SENTENCES[word] || "") ? shown[0].toUpperCase() + shown.slice(1) : shown;
+}
+
+function sentenceText(word) {
+  return HFW_SENTENCES[word]?.replace("___", sentenceTargetWord(word));
+}
+
+function markedSentence(word) {
+  const [before, after] = HFW_SENTENCES[word].split("___");
+  return `${esc(before)}<b>${esc(sentenceTargetWord(word))}</b>${esc(after)}`;
+}
 
 // ── Fluency cycle data (25-27): each cycle drills ITS OWN pattern ─────────────
 const CYCLE_PATTERNS = {
@@ -453,7 +494,7 @@ function startSoundPictures(cycle, card, page) {
   if (decoys.length < 2) return "";
   const items = rotate([...targets, ...decoys], page).map(word =>
     `<span class="ws-pic"><img src="${esc(wordImage(word))}" alt="${esc(word)}"/></span>`).join("");
-  return `<div class="ws-block" data-task-kind="initial-sound-pictures" data-task-id="initial-${esc(card.spelling)}-${page}">
+  return `<div class="ws-block" data-task-kind="initial-sound-pictures" data-task-id="initial-${esc(card.spelling)}-${page}" data-answer="${esc(targets.join("|"))}">
       <div class="ws-block-title small ws-instruction">Circle the pictures that start with the <b class="ws-school-model">${esc(card.spelling)}</b> sound.</div>
       <div class="ws-pics">${items}</div>
     </div>`;
@@ -481,9 +522,9 @@ function stageFor(page) {
 
 function traceCardRows(cards, page, lineCount = 2) {
   return cards.slice(0, 2).map((card, index) => {
-    const big = card.spelling.length === 1 ? `${card.spelling.toUpperCase()}${card.spelling}` : card.grapheme;
+    const big = card.spelling.length === 1 ? `${card.spelling.toUpperCase()}${card.spelling}` : card.spelling;
     const trace = Array.from({ length: 4 }, () => `<span class="ws-trace ws-school-model">${esc(big)}</span>`).join("");
-    return `<div class="ws-block" data-task-kind="letter-trace" data-task-id="trace-${esc(card.spelling)}-${page}-${index}">
+    return `<div class="ws-block" data-task-kind="letter-trace" data-task-id="trace-${esc(card.spelling)}-${page}-${index}" data-answer="${esc(big)}">
       <div class="ws-block-title ws-school-model">${esc(big)} <span class="ws-sound">${esc(childSoundExample(card))}</span></div>
       <div class="ws-trace-row">${trace}</div>
       ${traceLines(lineCount)}
@@ -536,10 +577,19 @@ function initialLetterPictureBlock(cards, page) {
 }
 
 function letterMemoryBlock(cards, page) {
+  const single = cards.every(card => card.spelling.length === 1);
   return `<div class="ws-block" data-task-kind="letter-retrieval" data-task-id="letter-memory-${page}">
-      <div class="ws-block-title small ws-instruction">Write each letter you are learning. Write the capital and small letter.</div>
-      <div class="ws-memory">${cards.slice(0, 2).map(card => `<div data-answer="${esc(card.spelling.toUpperCase())}${esc(card.spelling)}"><b class="ws-school-model">${esc(card.spelling)} ${esc(childSoundExample(card))}</b>${traceLines(2)}</div>`).join("")}</div>
+      <div class="ws-block-title small ws-instruction">${single ? "Cover the models. Ask an adult to say each letter. Write its capital and small form." : "Cover the models. Ask an adult to say each sound. Write its letters."}</div>
+      <div class="ws-memory">${cards.slice(0, 2).map((card,index) => `<div data-answer="${esc(single ? card.spelling.toUpperCase() + card.spelling : card.spelling)}"><b>${index + 1}.</b>${traceLines(2)}</div>`).join("")}</div>
     </div>`;
+}
+
+function letterConstructBlock(cards, page) {
+  const single = cards.every(card => card.spelling.length === 1);
+  return `<div class="ws-block" data-task-kind="letter-construct" data-task-id="letter-construct-${page}">
+    <div class="ws-block-title small ws-instruction">${single ? "Write the missing capital or small letter." : "Read the letter or letter pair. Copy it in the boxes."}</div>
+    <div class="ws-build-rows">${cards.slice(0,3).map((card,index) => `<div class="ws-build-row" data-answer="${esc(single ? (index % 2 ? card.spelling.toUpperCase() : card.spelling) : card.spelling)}"><b class="ws-school-model">${esc(single ? (index % 2 ? card.spelling : card.spelling.toUpperCase()) : card.spelling)}</b><span class="ws-boxes">${Array(single ? 1 : card.spelling.length).fill('<span class="ws-box"></span>').join('')}</span></div>`).join('')}</div>
+  </div>`;
 }
 
 function letterFormationPage(cycle, page) {
@@ -554,11 +604,8 @@ function letterFormationPage(cycle, page) {
       return `${letterHuntBlock(cycle, target, page)}${traceCardRows(cards.slice(0, 1), page, 2)}`;
     case 2:
       return `${capitalLowercaseMatchBlock(cycle, cards, page)}${traceCardRows(cards, page, 1)}`;
-    case 3: {
-      const pictureTasks = `${startSoundPictures(cycle, cards[0], page)}${startSoundPictures(cycle, cards[1] || cards[0], page + 1)}`;
-      const supportTask = pictureTasks ? traceCardRows(cards.slice(0, 1), page, 1) : letterHuntBlock(cycle, target, page);
-      return `${pictureTasks}${supportTask}${pictureTasks ? "" : traceCardRows(cards.slice(0, 1), page, 1)}`;
-    }
+    case 3:
+      return `${letterConstructBlock(cards, page)}${traceCardRows(cards.slice(0,1), page, 1)}`;
     case 4: {
       const pictureTask = initialLetterPictureBlock(cards, page);
       return `${pictureTask || letterHuntBlock(cycle, target, page)}${traceCardRows(cards, page, 1)}`;
@@ -574,7 +621,7 @@ function pictureWordPool(cycle, page = 0) {
     ...cycleWords(cycle),
     ...CVC_POOL.filter(word => word.split("").every(letter => taught.includes(letter)))
   ])].filter(word => wordImage(word));
-  const rotated = rotate(decodable, page * 2);
+  const rotated = rotate(decodable, page * 2 + (cycle.cycleNumber || 1) * 3);
   if (page === 0 && decodable.includes("ant")) return ["ant", ...rotated.filter(word => word !== "ant")];
   return rotated;
 }
@@ -588,7 +635,7 @@ function missingLetterBlock(words, position, page) {
     const answer = isFirst ? word[0] : word[1];
     return `<div class="ws-fill" data-answer="${esc(answer)}"><img class="ws-cue" src="${esc(wordImage(word))}" alt="${esc(word)}"/>${esc(before)}<span class="ws-blank"></span>${esc(after)}</div>`;
   }).join("");
-  const label = isFirst ? "FIRST" : "MIDDLE";
+  const label = isFirst ? "first" : "middle";
   return `<div class="ws-block" data-task-kind="missing-letter" data-task-id="missing-${position}-${page}">
       <div class="ws-block-title small ws-instruction">Write the missing ${label} letter.</div>
       <div class="ws-fill-grid">${prompts}</div>
@@ -642,22 +689,22 @@ function wordBuildingPage(cycle, page) {
   const words = pictureWordPool(cycle, page);
   switch (page % 6) {
     case 0:
-      return `${missingLetterBlock(words, "first", page)}${copyWordsBlock(words, page)}`;
+      return `${exampleBlock(`<img class="ws-example-cue" src="${esc(wordImage(words[0]))}" alt="${words[0]}"/> <b>${words[0]}</b> starts with <b>${words[0][0]}</b>.`)}${missingLetterBlock(words, "first", page)}${copyWordsBlock(words, page)}`;
     case 1:
       return `${missingLetterBlock(words, "middle", page)}${copyWordsBlock(words.slice().reverse(), page, "Read each word. Copy it once.")}`;
     case 2:
-      return `${pictureBuildBlock(words, page, false)}${missingLetterBlock(words, "first", page)}`;
+      return `${pictureWordChoiceBlock(words, page)}${missingLetterBlock(words.slice().reverse(), "first", page)}`;
     case 3:
-      return `${pictureWordMatchBlock(words, page)}${copyWordsBlock(words, page, "Read each matched word. Copy it once.")}`;
+      return `${pictureBuildBlock(words, page, false)}${copyWordsBlock(words, page)}`;
     case 4:
-      return `${pictureWordChoiceBlock(words, page)}${missingLetterBlock(words.slice().reverse(), "middle", page)}`;
+      return `${pictureWordMatchBlock(words, page)}${copyWordsBlock(words, page, "Read each matched word. Copy it once.")}`;
     default:
-      return `${pictureBuildBlock(words, page, true)}${copyWordsBlock(words.slice().reverse(), page, "Check each spelling. Copy it once.")}`;
+      return `${pictureBuildBlock(words, page, true)}<div class="ws-block" data-task-kind="spelling-review" data-task-id="spelling-review-${page}"><div class="ws-block-title small ws-instruction">Read your spellings to an adult. Check them together.</div>${traceLines(1)}</div>`;
   }
 }
 
 function sightWordTraceBlock(words, page) {
-  const trace = words.slice(0, 4).map(word => `<div class="ws-copy" data-answer="${esc(displayWord(word))}"><span class="ws-trace">${esc(displayWord(word))}</span>${traceLines(1)}</div>`).join("");
+  const trace = words.slice(0, 3).map(word => `<div class="ws-copy" data-answer="${esc(displayWord(word))}"><span class="ws-trace">${esc(displayWord(word))}</span>${traceLines(1)}</div>`).join("");
   return `<div class="ws-block" data-task-kind="sight-word-trace" data-task-id="sight-trace-${page}">
       <div class="ws-block-title small ws-instruction">Trace each sight word. Write it once.</div>
       ${trace}
@@ -686,10 +733,10 @@ function sightWordHuntBlock(cycle, words, page) {
 function sightWordClozeBlock(words, page, limit = 3) {
   const clozeWords = rotate(words, page).slice(0, limit).filter(w => HFW_SENTENCES[w]);
   const sentences = clozeWords.map(word =>
-    `<div class="ws-sentence" data-answer="${esc(displayWord(word))}">${esc(HFW_SENTENCES[word]).replace("___", '<span class="ws-line"></span>')}</div>`).join("");
+    `<div class="ws-cloze-model">Model: ${esc(sentenceText(word))}</div><div class="ws-sentence" data-answer="${esc(sentenceTargetWord(word))}">${esc(HFW_SENTENCES[word]).replace("___", '<span class="ws-line"></span>')}</div>`).join("");
   const bank = clozeWords.map(w => esc(displayWord(w))).join(" &nbsp;·&nbsp; ");
   return sentences ? `<div class="ws-block" data-task-kind="sight-word-cloze" data-task-id="sight-cloze-${page}">
-      <div class="ws-block-title small ws-instruction">Finish each sentence with a word from the box: <b>${bank}</b></div>
+      <div class="ws-block-title small ws-instruction">Read the model. Write its missing word: <b>${bank}</b></div>
       ${sentences}
     </div>` : "";
 }
@@ -706,9 +753,7 @@ function sightWordSentenceFindBlock(words, page) {
   return `<div class="ws-block" data-task-kind="sight-word-in-sentence" data-task-id="sentence-find-${page}">
       <div class="ws-block-title small ws-instruction">Read each sentence. Circle the bold sight word.</div>
       ${entries.map(word => {
-        const full = HFW_SENTENCES[word].replace("___", displayWord(word));
-        const marked = esc(full).replace(esc(displayWord(word)), `<b>${esc(displayWord(word))}</b>`);
-        return `<div class="ws-sentence" data-answer="${esc(displayWord(word))}">${marked}</div>`;
+        return `<div class="ws-sentence" data-answer="${esc(sentenceTargetWord(word))}">${markedSentence(word)}</div>`;
       }).join("")}
     </div>`;
 }
@@ -717,7 +762,7 @@ function sightWordSentenceCopyBlock(words, page) {
   const entries = words.filter(word => HFW_SENTENCES[word]).slice(0, 3);
   return `<div class="ws-block" data-task-kind="sentence-copy" data-task-id="sentence-copy-${page}">
       <div class="ws-block-title small ws-instruction">Read each sentence. Copy it on the line.</div>
-      ${entries.map(word => `<div class="ws-sentence-copy" data-answer="${esc(HFW_SENTENCES[word].replace("___", displayWord(word)))}"><span>${esc(HFW_SENTENCES[word].replace("___", displayWord(word)))}</span>${traceLines(1)}</div>`).join("")}
+      ${entries.map(word => `<div class="ws-sentence-copy" data-answer="${esc(sentenceText(word))}"><span>${esc(sentenceText(word))}</span>${traceLines(1)}</div>`).join("")}
     </div>`;
 }
 
@@ -742,7 +787,7 @@ function sightWordsPage(cycle, page) {
     case 4:
       return `${sightWordSentenceCopyBlock(words, page)}${sightWordTraceBlock(words, page)}`;
     default:
-      return `${sightWordDictationBlock(words, page)}${sightWordClozeBlock(words, page, 2)}`;
+      return `${sightWordDictationBlock(words, page)}<div class="ws-block" data-task-kind="dictation-review" data-task-id="dictation-review-${page}"><div class="ws-block-title small ws-instruction">Read your words. Ask an adult to check them.</div>${traceLines(2)}</div>`;
   }
 }
 
@@ -815,7 +860,7 @@ function makeWordSearch(cycle, page) {
   const words = rotate(wordSearchPool(cycle), page * 2).slice(0, 6).map(word => word.toLowerCase());
   const size = 10;
   const grid = Array.from({ length: size }, () => Array(size).fill(""));
-  const directions = rotate([[1, 0], [0, 1], [1, 1]], page);
+  const directions = page === 0 ? [[0, 1]] : page === 1 ? [[0, 1], [1, 0]] : rotate([[1, 0], [0, 1], [1, 1]], page);
   const candidates = [];
   for (const [rowStep, colStep] of directions) {
     for (let row = 0; row < size; row += 1) {
@@ -865,7 +910,7 @@ function wordSearchPage(cycle, page) {
   const wordList = words.map(word => `<span>${esc(displayWord(word))}</span>`).join("");
   const cells = grid.flat().map(letter => `<span>${esc(letter.toUpperCase())}</span>`).join("");
   return `<div class="ws-block" data-task-kind="word-search" data-task-id="word-search-${page}" data-answer="${esc(answer)}">
-      <div class="ws-block-title small ws-instruction">Find and circle ${words.length} words. Look across, down and diagonally.</div>
+      <div class="ws-block-title small ws-instruction">Find and circle ${words.length} words. ${page === 0 ? "Look across." : page === 1 ? "Look across and down." : "Look across, down and diagonally."}</div>
       <div class="ws-search-layout">
         <div class="ws-word-search" aria-label="Word search letter grid">${cells}</div>
         <div class="ws-search-words"><b>Words to find</b>${wordList}</div>
@@ -923,7 +968,15 @@ function letterColourGridBlock(cycle, cards, page) {
 
 function letterColouringPage(cycle, page) {
   const cards = rotate(focusCards(cycle), page);
-  return `${letterOutlineColourBlock(cards, page)}${letterColourGridBlock(cycle, cards, page)}`;
+  const colour = letterOutlineColourBlock(cards, page), code = letterColourGridBlock(cycle, cards, page);
+  switch (page) {
+    case 0: return `${colour}${code}`;
+    case 1: return `${colour}${letterHuntBlock(cycle,cards[0].spelling,page)}`;
+    case 2: return `${code}${capitalLowercaseMatchBlock(cycle,cards,page)}`;
+    case 3: return `${colour}${letterConstructBlock(cards,page)}`;
+    case 4: return `${code}${initialLetterPictureBlock(cards,page) || traceCardRows(cards,page,1)}`;
+    default: return `${colour}${letterMemoryBlock(cards,page)}`;
+  }
 }
 
 function sightWordOutlineBlock(words, page) {
@@ -951,14 +1004,22 @@ function sightWordColourGridBlock(cycle, words, page) {
 
 function sightWordColouringPage(cycle, page) {
   const words = sightWords(cycle);
-  return `${sightWordOutlineBlock(words, page)}${sightWordColourGridBlock(cycle, words, page)}`;
+  const colour = sightWordOutlineBlock(words,page), code = sightWordColourGridBlock(cycle,words,page);
+  switch (page) {
+    case 0: return `${colour}${code}`;
+    case 1: return `${code}${sightWordTraceBlock(words,page)}`;
+    case 2: return `${code}${sightWordClozeBlock(words,page,2)}`;
+    case 3: return `${colour}${sightWordCoverWriteBlock(words,page)}`;
+    case 4: return `${code}${sightWordSentenceCopyBlock(words.slice(0,2),page)}`;
+    default: return `${colour}${sightWordCoverWriteBlock(words,page)}`;
+  }
 }
 
 const SORT_FINISHES = [
   "Say each card after you sort it.",
   "Trace each sorted card with your finger.",
   "Put matching cards beside each other.",
-  "Read the cards from left to right.",
+  "Copy one card from each group.",
   "Choose one card from each group and copy it.",
   "Mix the cards and sort them once more."
 ];
@@ -1020,7 +1081,7 @@ const PAIR_CHALLENGES = [
   "Spell each pair aloud.",
   "Put the pairs in alphabet order.",
   "Choose two pairs and copy them.",
-  "Use one pair in a sentence.",
+  "Name the first letter in each pair.",
   "Turn the cards over and play memory."
 ];
 
@@ -1029,7 +1090,7 @@ function matchingCardsPage(cycle, page) {
   const pairs = rotate(tokens.flatMap(token => [token, token]), page * 5);
   const answer = tokens.map(displayWord).join("|");
   return `<div class="ws-block" data-task-kind="matching-card-set" data-task-id="matching-cards-${page}" data-answer="${esc(answer)}">
-      <div class="ws-block-title small ws-instruction">Cut out the cards. Find the two cards in each pair.</div>
+      <div class="ws-block-title small ws-instruction">Ask an adult to help cut. Match the pairs.</div>
       <div class="ws-matching-cards">${pairs.map(token => `<span>${esc(displayWord(token))}<small>cut</small></span>`).join("")}</div>
     </div>
     <div class="ws-block" data-task-kind="matching-card-review" data-task-id="matching-review-${page}" data-answer="${esc(answer)}">
@@ -1049,7 +1110,7 @@ const MINI_BOOK_MODES = [
 
 function miniBookPanel(word, mode, index, upsideDown = false) {
   const display = displayWord(word);
-  const sentence = HFW_SENTENCES[String(word).toLowerCase()]?.replace("___", display);
+  const sentence = sentenceText(String(word).toLowerCase());
   const body = mode.action === "Use" && sentence
     ? `<span>${esc(sentence)}</span>`
     : mode.action === "Build"
@@ -1097,7 +1158,7 @@ const ROLL_CHALLENGES = [
 ];
 
 function rollAndReadPage(cycle, page) {
-  const tokens = rotate(activityTokens(cycle), page * 3);
+  const tokens = rotate(uniqueTokens([...sightWords(cycle).map(displayWord), ...cycleWords(cycle), ...cyclePatternWords(cycle), ...earlierSightWords(cycle).map(displayWord)]), page * 3);
   const rows = Array.from({ length: 6 }, (_unused, row) => {
     const rowWords = Array.from({ length: 4 }, (_item, col) => tokens[(row * 3 + col + page) % tokens.length]);
     return { number: row + 1, words: rowWords };
@@ -1113,7 +1174,115 @@ function rollAndReadPage(cycle, page) {
     </div>`;
 }
 
+function exampleBlock(text) {
+  return `<div class="ws-example"><b>Example</b><span>${text}</span></div>`;
+}
+
+function crosswordPage(cycle, page) {
+  const { grid, placements } = makePictureCrossword(pictureWordPool(cycle, page), page < 2 ? 3 : 4);
+  const starts = new Map(placements.map(p => [`${p.row},${p.col}`, p.number]));
+  const shown = new Map();
+  if (page === 0) {
+    const model = placements[0];
+    [...model.word].forEach((letter, i) => shown.set(`${model.row + (model.direction === 'down' ? i : 0)},${model.col + (model.direction === 'across' ? i : 0)}`, letter));
+  } else if (page === 1) {
+    placements.forEach(p => shown.set(`${p.row},${p.col}`, p.word[0]));
+  }
+  const cells = grid.map((row, r) => row.map((letter, c) => {
+    const key = `${r},${c}`, number = starts.get(key);
+    return letter ? `<span class="ws-cross-cell" data-row="${r}" data-col="${c}" data-answer="${letter}">${number ? `<small>${number}</small>` : ''}<b>${shown.get(key) || ''}</b></span>` : '<span class="ws-cross-gap"></span>';
+  }).join('')).join('');
+  const clues = placements.map(p => `<div class="ws-cross-clue" data-answer="${esc(p.word)}" data-direction="${p.direction}" data-row="${p.row}" data-col="${p.col}"><b>${p.number} ${p.direction === 'across' ? '→ Across' : '↓ Down'}</b><img class="ws-cue large" src="${esc(wordImage(p.word))}" alt="${esc(p.word)}"/></div>`).join('');
+  return `<div class="ws-block" data-task-kind="picture-crossword" data-task-id="crossword-${page}">
+    <div class="ws-block-title small ws-instruction">Name each picture. Write one letter in each box.</div>
+    ${page < 2 ? exampleBlock(page === 0 ? `The first picture is <b>${esc(placements[0].word)}</b>. Its word is filled in.` : 'The first letter helps you start. Shared boxes use the same letter.') : ''}
+    <div class="ws-cross-layout"><div class="ws-crossword" style="--cross-columns:${grid[0].length}" aria-label="Picture crossword grid">${cells}</div><div class="ws-cross-clues">${clues}</div></div>
+    ${page < 3 ? `<div class="ws-wordstrip ws-cross-bank"><b>Word bank</b>${rotate(placements.map(p => p.word), 1).map(w => `<span class="ws-chip">${esc(w)}</span>`).join('')}</div>` : ''}
+  </div><div class="ws-block" data-task-kind="crossword-review" data-task-id="crossword-review-${page}">
+    <div class="ws-block-title small ws-instruction">${['Read the words with an adult.', 'Copy two words from the crossword.', 'Circle the letters shared by two words.', 'Write one crossword word from memory.', 'Use one word in a spoken sentence.', 'Cover the clues. Write two words you remember.'][page]}</div>${traceLines(page === 0 ? 1 : 2)}
+  </div>`;
+}
+
+function characterColouringPage(cycle, page, { characterIndex = 0 } = {}) {
+  const art = WORKSHEET_CHARACTER_ART[(page + characterIndex) % WORKSHEET_CHARACTER_ART.length];
+  const words = rotate(cumulativeSightWords(cycle), page).slice(0, page < 2 ? 2 : 3).map(displayWord);
+  const colours = ['blue', 'green', 'yellow'];
+  const labels = art.regions.map(([x, y, group], i) => `<span class="ws-art-label" style="left:${x / 10.24}%;top:${y / 10.24}%" data-region="${i + 1}" data-answer="${esc(words[group % words.length])}:${colours[group % words.length]}">${esc(words[group % words.length])}</span>`).join('');
+  return `<div class="ws-block" data-task-kind="character-colour-code" data-task-id="character-colour-${page}" data-character="${art.id}" data-answer="${esc(words.map((w,i) => `${w}:${colours[i]}`).join('|'))}">
+    <div class="ws-block-title small ws-instruction">Read each word. Use the code to colour ${art.name}.</div>
+    <div class="ws-colour-key">${words.map((word, i) => `<span><b>${esc(word)}</b><span class="ws-colour-swatch" data-colour="${colours[i]}"></span>${colours[i]}</span>`).join('')}</div>
+    ${page === 0 ? exampleBlock(`<b>${esc(words[0])}</b> means blue. Colour a part with that word blue.`) : ''}
+    <div class="ws-character-art"><img src="/images/worksheets/${art.id}-colouring.png" alt="${art.name} with large outlined colouring areas, leaves and stars"/>${labels}</div>
+    <p class="ws-colour-note">Leave unlabelled parts white, or choose your own colour.</p>
+  </div><div class="ws-block" data-task-kind="character-word-review" data-task-id="character-review-${page}">
+    <div class="ws-block-title small ws-instruction">${['Trace the code words. Write each once.', 'Read the code words. Copy two.', 'Write the word you coloured green.', 'Cover the code. Write one word.', 'Say a sentence with a code word. Write it.', 'Cover the picture and code. Write the words you remember.'][page]}</div>
+    ${page === 0 ? `<div class="ws-trace-row">${words.map(w => `<span class="ws-trace">${esc(w)}</span>`).join('')}</div>` : ''}${traceLines(page > 3 ? 2 : 1)}
+  </div>`;
+}
+
+function pictureMatchingPage(cycle, page) {
+  const words = pictureWordPool(cycle, page);
+  switch (page) {
+    case 0: return `${exampleBlock(`<img class="ws-example-cue" src="${esc(wordImage(words[0]))}" alt="${words[0]}"/> → <b>${esc(words[0])}</b>. Draw a line to match.`)}${pictureWordMatchBlock(words.slice(1), page)}${copyWordsBlock(words, page)}`;
+    case 1: return `${pictureWordChoiceBlock(words, page)}${copyWordsBlock(words.slice().reverse(), page)}`;
+    case 2: return `${pictureWordMatchBlock(words, page)}${missingLetterBlock(words, 'first', page)}`;
+    case 3: return `${pictureBuildBlock(words, page)}${copyWordsBlock(words.slice().reverse(), page)}`;
+    case 4: return `${pictureWordChoiceBlock(words, page)}${pictureBuildBlock(words.slice().reverse(), page)}`;
+    default: return `${pictureBuildBlock(words, page, true)}<div class="ws-block" data-task-kind="spelling-review" data-task-id="matching-spelling-review-${page}"><div class="ws-block-title small ws-instruction">Read your spellings to an adult. Check them together.</div>${traceLines(2)}</div>`;
+  }
+}
+
+function writingPracticePage(cycle, page) {
+  const words = rotate(cumulativeSightWords(cycle), page).slice(0, 2);
+  const modelWord = words[0], model = sentenceText(modelWord);
+  const prompts = ['Read the model with an adult. Copy the bold word.', 'Choose a word. Say your idea to an adult.', 'Draw your idea. Label one part with a word.', 'Write a sentence about your drawing.', 'Write two sentences about your drawing.', 'Write your idea. Read it back to an adult.'];
+  return `<div class="ws-block" data-task-kind="writing-plan" data-task-id="writing-plan-${page}">
+    <div class="ws-block-title small ws-instruction">${prompts[page]}</div>
+    <div class="ws-wordstrip">${words.map(word => `<span class="ws-chip">${esc(displayWord(word))}</span>`).join('')}</div>
+    ${page < 2 && model ? exampleBlock(markedSentence(modelWord)) : ''}
+    <div class="ws-drawing-space"><span>My picture</span></div>
+  </div><div class="ws-block" data-task-kind="writing-compose" data-task-id="writing-compose-${page}">
+    <div class="ws-block-title small ws-instruction">${page === 0 ? 'Trace the word. Copy it on the lines.' : page === 2 ? 'Write a label or sentence for your picture.' : 'Write your idea on the lines.'}</div>
+    ${page === 0 ? `<span class="ws-trace ws-writing-model">${esc(sentenceTargetWord(modelWord))}</span>` : ''}${traceLines(page < 3 ? 3 : 4)}
+    ${page >= 3 ? '<div class="ws-writing-checks"><span>□ Capital letter</span><span>□ Finger spaces</span><span>□ Full stop</span></div>' : ''}
+  </div>`;
+}
+
+function wordTracingPage(cycle, page) {
+  const words = rotate(uniqueTokens([...sightWords(cycle).map(displayWord), ...cycleWords(cycle)]), page).slice(0, 3);
+  const instructions = ['Read the model. Trace each word. Copy it.', 'Trace each word. Write it once.', 'Read each word. Trace it with your finger. Copy it.', 'Write each word twice. Use the model.', 'Read each word. Cover it. Write it. Check it.', 'Ask an adult to say the words. Write what you hear.'];
+  const rows = words.map((word, index) => `<div class="ws-tracing-card" data-answer="${esc(word)}"><span class="ws-tracing-number">${index + 1}</span>${page < 5 ? `<b class="ws-tracing-model">${esc(word)}</b>` : '<span>Listen and write</span>'}${page < 3 ? `<div class="ws-guided-trace">${Array(page === 0 && word.length <= 4 ? 3 : 2).fill(`<span class="ws-trace">${esc(word)}</span>`).join('')}</div>` : ''}${traceLines(page < 3 ? 1 : 2)}</div>`).join('');
+  return `<div class="ws-block" data-task-kind="guided-word-tracing" data-task-id="word-tracing-${page}">
+    <div class="ws-block-title small ws-instruction">${instructions[page]}</div>${rows}
+  </div><div class="ws-block" data-task-kind="tracing-review" data-task-id="tracing-review-${page}">
+    <div class="ws-block-title small ws-instruction">${['Circle the word you traced most carefully.', 'Read your words aloud.', 'Circle the shortest word.', 'Say a sentence with one word.', 'Write one word from memory.', 'Ask an adult to help check your spellings.'][page]}</div>${traceLines(1)}
+  </div>`;
+}
+
+function sentenceBuilderPage(cycle, page) {
+  // An adult reads the sentence model: this is composition/transcription
+  // practice, never a claim that every word in the model is independently decodable.
+  const words = rotate(cumulativeSightWords(cycle).filter(w => HFW_SENTENCES[w]), page);
+  const selected = words.slice(0, 2);
+  return selected.map((word, index) => {
+    const sentence = sentenceText(word);
+    const tiles = sentence.split(' ');
+    return `<div class="ws-block" data-task-kind="sentence-construction" data-task-id="sentence-builder-${page}-${index}" data-answer="${esc(sentence)}">
+      <div class="ws-block-title small ws-instruction">${['Read with an adult. Trace the sentence.', 'Read with an adult. Copy the sentence.', 'Read with an adult. Number the words in order.', 'Read with an adult. Order the words. Write the sentence.', 'Read with an adult. Write a new sentence using the bold word.', 'Ask an adult to read. Cover the model. Write the sentence.'][page]}</div>
+      ${page === 0 ? `<div class="ws-trace ws-sentence-model">${esc(sentence)}</div>` : page === 2 || page === 3 ? `<div class="ws-sentence-tiles">${rotate(tiles, 1 + index).map(tile => `<span>${esc(tile)}<small>□</small></span>`).join('')}</div>` : `<div class="ws-sentence-model">${markedSentence(word)}</div>`}
+      ${page === 2 ? exampleBlock(`Start with <b>${esc(tiles[0])}</b>. It has the capital letter.`) : ''}${traceLines(2)}
+      ${page === 4 ? '<p class="ws-open-response">Your own idea can be different from the model.</p>' : ''}
+    </div>`;
+  }).join('');
+}
+
 const PAGE_BUILDERS = {
+  characterColouring: characterColouringPage,
+  crossword: crosswordPage,
+  pictureMatching: pictureMatchingPage,
+  writingPractice: writingPracticePage,
+  wordTracing: wordTracingPage,
+  sentenceBuilder: sentenceBuilderPage,
   letterFormation: letterFormationPage,
   wordBuilding: wordBuildingPage,
   sightWords: sightWordsPage,
@@ -1130,7 +1299,7 @@ const PAGE_BUILDERS = {
 const WS_STYLES = `
   @page { size: A4 portrait; margin: 13mm; }
   * { box-sizing: border-box; }
-  html { --ws-school-font: "Comic Sans MS", "Chalkboard SE", "Chalkboard", "Comic Neue", cursive; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  html { --ws-school-font: "Worksheet Andika", Arial, sans-serif; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   body { margin: 0; background: #fff; font-family: Andika, Atkinson Hyperlegible, Arial, sans-serif; color: #14110c; font-size: 16px; line-height: 1.35; }
   .page { min-height: 267mm; padding: 0 0 5mm; page-break-after: always; break-after: page; display: flex; flex-direction: column; }
   .page:last-child { page-break-after: auto; }
@@ -1255,44 +1424,161 @@ const WS_STYLES = `
   .ws-round-checks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
   .ws-round-checks span { padding: 10px; border: 1.5px solid #64748b; border-radius: 8px; text-align: center; }
   .ws-footer { margin-top: auto; padding-top: 8px; text-align: center; color: #475569; font-size: 12px; }
-  @media print { body { background: #fff; } .page { overflow: hidden; } }
+  /* A shared reading face is embedded in the document and available offline. */
+  @font-face { font-family: "Worksheet Andika"; src: url(data:font/woff2;base64,${WORKSHEET_PRINT_FONT}) format("woff2"); font-weight: 400; font-display: block; }
+  body { font-family: var(--ws-school-font); font-size: 14pt; color: #192a42; }
+  .ws-head { border-color: #243d68; margin-bottom: 4mm; }
+  .ws-meta { font-size: 16pt; display: flex; justify-content: space-between; gap: 5mm; }
+  .ws-type { float: none; color: #243d68; font-size: 14pt; text-align: right; }
+  .ws-stage { border: 0; border-left: 3px solid #243d68; background: #f3f5f8; border-radius: 0; padding: 2mm 3mm; margin: 0 0 4mm; }
+  .ws-stage strong { color: #243d68; font-size: 14pt; white-space: nowrap; }
+  .ws-stage span { font-size: 14pt; }
+  .ws-block { margin-bottom: 4mm; }
+  .ws-block-title { color: #243d68; }
+  .ws-block-title.small { font-size: 14pt; line-height: 1.4; color: #192a42; }
+  .ws-trace { color: white; -webkit-text-stroke: 1px #64748b; paint-order: fill stroke; }
+  .ws-rule { height: 9mm; border-color: #64748b; }
+  .ws-rule::before { border-color: #8994a3; }
+  .ws-write { gap: 3mm; }
+  .ws-trace-row { font-size: 40pt; }
+  .ws-copy .ws-trace { font-size: 27pt; }
+  .ws-copy .ws-write { margin-top: 1mm; }
+  .ws-cloze-model { font-size: 14pt; color: #334155; margin-top: 2mm; }
+  .ws-colour-note, .ws-open-response { font-size: 14pt; margin: 2mm 0 0; }
+  .ws-example { display: flex; align-items: center; gap: 3mm; border: 1.3px dashed #64748b; padding: 2mm 3mm; margin-bottom: 3mm; font-size: 14pt; }
+  .ws-example > b { flex-shrink: 0; color: #243d68; }
+  .ws-example-cue { width: 14mm; height: 14mm; object-fit: contain; }
+  .ws-cross-layout { display: grid; grid-template-columns: 1fr 45mm; gap: 6mm; align-items: start; margin: 3mm 0; }
+  .ws-crossword { display: grid; grid-template-columns: repeat(var(--cross-columns), 12mm); width: max-content; }
+  .ws-cross-cell, .ws-cross-gap { width: 12mm; height: 12mm; position: relative; display: grid; place-items: center; }
+  .ws-cross-cell { border: 1.5px solid #334155; font-size: 22pt; }
+  .ws-cross-cell small { position: absolute; top: 0; left: 1mm; font: 8pt Arial, sans-serif; }
+  .ws-cross-clues { display: grid; gap: 3mm; }
+  .ws-cross-clue { display: flex; align-items: center; justify-content: space-between; font-size: 14pt; }
+  .ws-cross-clue b { max-width: 25mm; }
+  .ws-cross-clue img { width: 18mm; height: 18mm; }
+  .ws-cross-bank { align-items: center; }
+  .ws-colour-key { display: flex; justify-content: space-between; gap: 4mm; margin-bottom: 3mm; }
+  .ws-colour-key > span { display: flex; align-items: center; gap: 2mm; font-size: 14pt; border: 1.5px solid #334155; border-radius: 2mm; padding: 1.5mm 3mm; }
+  .ws-colour-key b { font-size: 18pt; }
+  .ws-colour-swatch { width: 5mm; height: 5mm; border: 1px solid #334155; border-radius: 50%; }
+  .ws-colour-swatch[data-colour="blue"] { background: #93c5fd; }
+  .ws-colour-swatch[data-colour="green"] { background: #86efac; }
+  .ws-colour-swatch[data-colour="yellow"] { background: #fde68a; }
+  .ws-character-art { width: 136mm; height: 136mm; margin: 0 auto; position: relative; }
+  .ws-character-art img { display: block; width: 100%; height: 100%; }
+  .ws-block[data-task-kind="character-word-review"] .ws-trace-row { font-size: 27pt; line-height: 1.15; }
+  .ws-art-label { background: #fff; padding: 0 0.5mm; border-radius: 1mm; position: absolute; transform: translate(-50%, -50%); font-size: 14pt; font-weight: 700; color: #172333; white-space: nowrap; }
+  .ws-tracing-card { position: relative; padding: 3mm 0 3mm 8mm; border-bottom: 1px solid #cbd5e1; margin-bottom: 3mm; }
+  .ws-tracing-number { position: absolute; left: 0; top: 4mm; font-size: 14pt; }
+  .ws-tracing-model { display: inline-block; font-size: 25pt; margin-bottom: 2mm; }
+  .ws-guided-trace { display: flex; justify-content: space-between; align-items: end; padding: 2mm 0; border-bottom: 1.5px solid #64748b; background: repeating-linear-gradient(transparent 0 7mm, #eef1f5 7mm 7.2mm); font-size: 30pt; }
+  .ws-drawing-space { height: 72mm; border: 1.5px solid #64748b; border-radius: 2mm; padding: 3mm; margin-top: 3mm; }
+  .ws-drawing-space span { font-size: 14pt; color: #475569; }
+  .ws-writing-model { font-size: 32pt; }
+  .ws-writing-checks { display: flex; justify-content: space-between; gap: 3mm; margin-top: 3mm; font-size: 14pt; }
+  .ws-sentence-model { font-size: 20pt; line-height: 1.6; margin: 3mm 0; }
+  .ws-sentence-tiles { display: flex; flex-wrap: wrap; gap: 2mm; margin: 3mm 0; }
+  .ws-sentence-tiles span { display: flex; flex-direction: column; align-items: center; gap: 1mm; border: 1.5px dashed #64748b; border-radius: 2mm; padding: 1mm 3mm; font-size: 18pt; }
+  .ws-sentence-tiles small { font-size: 14pt; }
+  .ws-chip { border-color: #64748b; color: #192a42; }
+  .ws-answer-task { margin-bottom: 5mm; padding-bottom: 2mm; border-bottom: 1px solid #cbd5e1; }
+  .ws-answer-task h2 { font-size: 16pt; margin: 0 0 1mm; }
+  .ws-answer-task p { font-size: 14pt; margin: 1mm 0; }
+  .ws-answer-task .ws-answer-values { font-weight: 700; }
+  @media screen { body { padding: 13mm; } .page { width: 184mm; } }
+
+  @media print { body { background: #fff; } }
 `;
+
+// Character choice fits the existing saved recipe's text type field, so it
+// follows the teacher across devices without a new hosted schema or column.
+export function resolveWorksheetType(type) {
+  const [baseType, characterId, ...extra] = String(type).split(":");
+  const characterIndex = characterId ? WORKSHEET_CHARACTER_ART.findIndex(art => art.id === characterId) : 0;
+  if (extra.length || (characterId && (baseType !== "characterColouring" || characterIndex < 0))) throw new Error("Unknown worksheet character");
+  return { baseType, characterIndex, characterId: WORKSHEET_CHARACTER_ART[characterIndex]?.id };
+}
 
 // Build the full printable HTML document for a recipe. Returns { title, html }.
 export function buildWorksheetDocument({ cycleId, type, pages = 1 }) {
   const cycle = getWorksheetCycle(cycleId);
   if (!cycle) throw new Error("Unknown cycle");
-  const builder = PAGE_BUILDERS[type];
-  const typeMeta = WORKSHEET_TYPES.find(t => t.id === type);
+  const { baseType, characterIndex } = resolveWorksheetType(type);
+  const builder = PAGE_BUILDERS[baseType];
+  const typeMeta = WORKSHEET_TYPES.find(t => t.id === baseType);
   if (!builder || !typeMeta) throw new Error("Unknown worksheet type");
-  if (!availableWorksheetTypes(cycle).includes(type)) {
+  if (!availableWorksheetTypes(cycle).includes(baseType)) {
     throw new Error(`${typeMeta.label} is not available for Cycle ${cycle.cycleNumber}`);
   }
-  const count = Math.max(1, Math.min(6, Number(pages) || 1));
+  const count = Math.max(1, Math.min(6, Math.floor(Number(pages) || 1)));
   const pagesHtml = Array.from({ length: count }, (_unused, i) => {
     const stage = stageFor(i);
     return `
     <section class="page" data-worksheet-page="${i + 1}" data-worksheet-stage="${esc(stage.id)}" aria-labelledby="worksheet-title-${i + 1}">
       ${pageHeader(cycle, typeMeta.label)}
       <div class="ws-stage"><strong id="worksheet-title-${i + 1}">${esc(stage.label)}</strong><span>${esc(stage.purpose)}</span></div>
-      ${builder(cycle, i)}
+      ${builder(cycle, i, { characterIndex })}
       <div class="ws-footer">Literacy Guide - Cycle ${esc(cycle.cycleNumber)} - ${esc(typeMeta.label)} - Page ${i + 1} of ${count}</div>
     </section>`;
   }).join("");
-  const title = `Cycle ${cycle.cycleNumber} - ${typeMeta.label}`;
+  const title = `Cycle ${cycle.cycleNumber} - ${typeMeta.label}${baseType === "characterColouring" ? ` - ${WORKSHEET_CHARACTER_ART[characterIndex].name}` : ""}`;
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(title)}</title>
     <style>${WS_STYLES}</style></head>
     <body>${pagesHtml}</body></html>`;
-  return { title, html };
+  return { title, html, pageCount: count };
 }
 
 // Open the worksheet in a new window and trigger the print / save-as-PDF dialog.
-export function printWorksheet(recipe) {
-  const { html } = buildWorksheetDocument(recipe);
+export function printWorksheet(recipe, { answerKey = false } = {}) {
+  const { html } = answerKey ? buildWorksheetAnswerKeyDocument(recipe) : buildWorksheetDocument(recipe);
   return openHtmlDocument({
     prepareHtml: () => embedWorksheetImages(html),
     name: "lp-worksheet",
     features: "width=900,height=1100",
     autoPrint: true
   });
+}
+
+export function buildWorksheetPreviewDocument(recipe, pageIndex = 0) {
+  const { html, title, pageCount } = buildWorksheetDocument(recipe);
+  const sections = [...html.matchAll(/<section class="page"[\s\S]*?<\/section>/g)].map(match => match[0]);
+  const index = Math.max(0, Math.min(pageCount - 1, Math.floor(Number(pageIndex) || 0)));
+  return { title, html: html.replace(/<body>[\s\S]*?<\/body>/, `<body>${sections[index]}</body>`), pageIndex: index, pageCount };
+}
+
+function plainWorksheetText(value) {
+  return value.replace(/<[^>]*>/g, ' ').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+// Teacher answers are derived from the same task metadata used by policy QA.
+// They are printed separately, so a child pack never acquires answer pages.
+export function worksheetAnswerRecords(recipe) {
+  const { html } = buildWorksheetDocument(recipe);
+  const sections = [...html.matchAll(/<section class="page"[\s\S]*?<\/section>/g)].map(match => match[0]);
+  return sections.map((section, pageIndex) => {
+    const starts = [...section.matchAll(/<div class="ws-block[^>]*data-task-kind="([^"]+)"[^>]*>/g)];
+    const tasks = starts.map((start, index) => {
+      const body = section.slice(start.index, starts[index + 1]?.index || section.indexOf('<div class="ws-footer">'));
+      const kind = start[1];
+      const instruction = body.match(/<div class="ws-block-title[^>]*>([\s\S]*?)<\/div>/)?.[1] || kind.replaceAll('-', ' ');
+      let answers = [...body.matchAll(/data-answer="([^"]+)"/g)].map(match => plainWorksheetText(match[1]));
+      if (kind === 'picture-crossword') answers = [...body.matchAll(/class="ws-cross-clue" data-answer="([^"]+)" data-direction="([^"]+)"[^>]*><b>(\d+)/g)].map(m => `${m[3]} ${m[2]}: ${m[1]}`);
+      if (kind === 'character-colour-code') answers = [answers[0].replaceAll('|', '; ').replaceAll(':', ' = ')];
+      const openResponse = ['writing-plan', 'writing-compose', 'tracing-review', 'word-search-review', 'crossword-review', 'character-word-review', 'matching-card-review'].includes(kind) || (kind === 'sentence-construction' && pageIndex === 4);
+      return { kind, instruction: plainWorksheetText(instruction), answers: openResponse ? [] : [...new Set(answers)], review: openResponse ? 'Responses vary. Check against the printed direction, taught words and the child\'s idea.' : answers.length ? '' : 'Use the printed model to check formation, reading or matching. This task does not have one written key.' };
+    });
+    return { page: pageIndex + 1, stage: WORKSHEET_PAGE_STAGES[pageIndex].label, tasks };
+  });
+}
+
+export function buildWorksheetAnswerKeyDocument(recipe) {
+  const { title } = buildWorksheetDocument(recipe);
+  const records = worksheetAnswerRecords(recipe);
+  const pages = records.map(record => `<section class="page" data-answer-key-page="${record.page}">
+    <div class="ws-head"><div class="ws-meta"><strong>Teacher answers</strong><span class="ws-type">Page ${record.page}</span></div><p>${esc(title)} · ${esc(record.stage)}</p></div>
+    ${records.length > 1 && record.page === 1 ? '<p>Print separately from the child pack. Adult-read tasks practise transcription, not independent decoding.</p>' : ''}
+    ${record.tasks.map((task, i) => `<div class="ws-answer-task"><h2>${i + 1}. ${esc(task.kind.replaceAll('-', ' '))}</h2><p>${esc(task.instruction)}</p><p class="ws-answer-values">${esc(task.answers.join(' · ').replaceAll('|', ', '))}</p>${task.review ? `<p>${esc(task.review)}</p>` : ''}</div>`).join('')}
+    <div class="ws-footer">Literacy Guide · Teacher copy · Student page ${record.page}</div></section>`).join('');
+  return { title: `${title} - Teacher answers`, html: `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(title)} - Teacher answers</title><style>${WS_STYLES}</style></head><body>${pages}</body></html>`, pageCount: records.length };
 }

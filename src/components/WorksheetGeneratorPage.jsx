@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import {
   WORKSHEET_TYPES,
   WORKSHEET_CATEGORIES,
+  WORKSHEET_PAGE_STAGES,
+  buildWorksheetPreviewDocument,
   worksheetCycleOptions,
   worksheetCycleLabel,
   getWorksheetCycle,
@@ -15,6 +17,9 @@ import {
   deleteWorksheetRecipe
 } from "../utils/worksheets/worksheetBank.js";
 import { ActionFeedback } from "./ActionFeedback.jsx";
+import { WORKSHEET_CHARACTER_ART } from "../utils/worksheets/worksheetCharacterArt.js";
+import { WorksheetPreview } from "./WorksheetPreview.jsx";
+import { Printer, BookmarkSimple, ArrowLeft, ArrowRight, MagnifyingGlass, Check, FileText } from "@phosphor-icons/react";
 import "../styles/worksheets.css";
 
 const TYPE_LABEL = Object.fromEntries(WORKSHEET_TYPES.map(t => [t.id, t.label]));
@@ -42,7 +47,9 @@ export function WorksheetGeneratorPage({ className = "", onBack }) {
     } catch { /* first visit or storage unavailable */ }
     return cycleOptions[0]?.id || "";
   });
-  const [type, setType] = useState("");
+  const [type, setType] = useState("characterColouring");
+  const [previewPage, setPreviewPage] = useState(0);
+  const [characterId, setCharacterId] = useState("muddy");
   const [pages, setPages] = useState(2);
   const [category, setCategory] = useState("all");
   const [activityQuery, setActivityQuery] = useState("");
@@ -108,17 +115,38 @@ export function WorksheetGeneratorPage({ className = "", onBack }) {
     return () => { alive = false; };
   }, []);
 
-  const recipe = { cycleId, type: effectiveType, pages };
+  const recipeType = effectiveType === "characterColouring" ? `${effectiveType}:${characterId}` : effectiveType;
+  const recipe = { cycleId, type: recipeType, pages };
+  const currentPage = Math.min(previewPage, pages - 1);
+  const preview = useMemo(() => {
+    if (!effectiveType) return null;
+    try { return buildWorksheetPreviewDocument({ cycleId, type: recipeType, pages }, currentPage); }
+    catch { return null; }
+  }, [cycleId, effectiveType, recipeType, pages, currentPage]);
+
+  function chooseType(nextType) { setType(nextType); setPreviewPage(0); }
+  function handleActivityKey(event, index) {
+    let nextIndex;
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") nextIndex = (index + 1) % visibleActivityTypes.length;
+    else if (event.key === "ArrowLeft" || event.key === "ArrowUp") nextIndex = (index - 1 + visibleActivityTypes.length) % visibleActivityTypes.length;
+    else if (event.key === "Home") nextIndex = 0;
+    else if (event.key === "End") nextIndex = visibleActivityTypes.length - 1;
+    else return;
+    event.preventDefault();
+    chooseType(visibleActivityTypes[nextIndex].id);
+    event.currentTarget.parentElement.querySelectorAll('[role="radio"]')[nextIndex]?.focus();
+  }
 
   function rememberCycle(nextCycleId) {
     setCycleId(nextCycleId);
+    setPreviewPage(0);
     try { window.localStorage.setItem(LAST_CYCLE_KEY, nextCycleId); } catch { /* best effort */ }
   }
 
-  function handleGenerate() {
+  function handleGenerate(answerKey = false) {
     setNote("");
     try {
-      const result = printWorksheet(recipe);
+      const result = printWorksheet(recipe, { answerKey });
       if (!result.ok) {
         setNote("Please allow pop-ups for this site so the worksheet can open.");
         return;
@@ -203,108 +231,71 @@ export function WorksheetGeneratorPage({ className = "", onBack }) {
         </button>
       </nav>
       <header className="ws-page-head">
-        <h1>Printable activity library</h1>
-        <p>Choose a teaching cycle, then pick practice, puzzles, colouring, crafts or a classroom game.</p>
-        <p className="ws-library-count">{librarySize} cycle-matched activities across {cycleOptions.length} teaching cycles.</p>
-        {className && <span className="ws-context">Class: {className}</span>}
+        <div><span className="ws-eyebrow">Resources / Print studio</span>
+          <h1>Little pages. Big possibilities.</h1>
+          <p>Thoughtful practice, familiar characters and space to make it their own.</p>
+        </div>
+        <div className="ws-header-note"><strong>{librarySize}</strong><span>cycle-matched activities</span>{className && <span className="ws-context">Class: {className}</span>}</div>
       </header>
 
       <section className="ws-builder" aria-label="Worksheet options">
         <div className="ws-builder-controls">
           <label className="ws-field ws-cycle-field">
-            <span>Teaching cycle</span>
+            <span>1. Choose your teaching cycle</span>
             <select value={cycleId} onChange={e => rememberCycle(e.target.value)}>
-              {cycleOptions.map(opt => (
-                <option key={opt.id} value={opt.id}>{worksheetCycleLabel(opt)}</option>
-              ))}
+              {cycleOptions.map(opt => <option key={opt.id} value={opt.id}>{worksheetCycleLabel(opt)}</option>)}
             </select>
           </label>
-
           <label className="ws-field ws-pages-field">
-            <span>Pack length</span>
-            <select value={pages} onChange={e => setPages(Number(e.target.value))}>
-              {[1, 2, 3, 4, 5, 6].map(n => (
-                <option key={n} value={n}>{n} page{n === 1 ? "" : "s"}</option>
-              ))}
+            <span>2. Choose your pack length</span>
+            <select value={pages} onChange={e => { setPages(Number(e.target.value)); setPreviewPage(0); }}>
+              {[1, 2, 3, 4, 5, 6].map(n => <option key={n} value={n}>{n} page{n === 1 ? "" : "s"}{n === 6 ? " · Full progression" : ""}</option>)}
             </select>
           </label>
         </div>
-
-        <fieldset className="ws-activity-picker">
-          <legend>Choose an activity</legend>
-          <p>{availableTypes.length} activities match {worksheetCycleLabel(cycle)}.</p>
-          <div className="ws-library-tools">
-            <label className="ws-field ws-search-field">
-              <span>Find an activity</span>
-              <input
-                type="search"
-                value={activityQuery}
-                onChange={event => setActivityQuery(event.target.value)}
-                placeholder="Try word search, colour or cut"
-              />
-            </label>
-            <div className="ws-category-filters" aria-label="Activity categories">
-              {WORKSHEET_CATEGORIES.map(item => (
-                <button
-                  key={item.id}
-                  type="button"
-                  aria-pressed={category === item.id}
-                  onClick={() => setCategory(item.id)}
-                >
-                  {item.label}
-                </button>
-              ))}
+        <div className="ws-studio-layout">
+          <fieldset className="ws-activity-picker">
+            <legend>3. Find their next activity</legend>
+            <p>{availableTypes.length} activities for {worksheetCycleLabel(cycle)}.</p>
+            <div className="ws-library-tools">
+              <label className="ws-search-field"><span className="ws-sr-only">Find an activity</span><MagnifyingGlass size={20} aria-hidden="true"/>
+                <input type="search" value={activityQuery} onChange={event => setActivityQuery(event.target.value)} placeholder="Search tracing, puzzles, matching…"/>
+              </label>
+              <div className="ws-category-filters" aria-label="Activity categories">
+                {WORKSHEET_CATEGORIES.map(item => <button key={item.id} type="button" aria-pressed={category === item.id} onClick={() => setCategory(item.id)}>{item.label}</button>)}
+              </div>
             </div>
-          </div>
-
-          {visibleActivityTypes.length ? (
-            <div className="ws-activity-grid" role="radiogroup" aria-label="Available printable activities">
-              {visibleActivityTypes.map(item => (
-                <button
-                  key={item.id}
-                  type="button"
-                  role="radio"
-                  aria-checked={effectiveType === item.id}
-                  className={`ws-activity-card${effectiveType === item.id ? " is-selected" : ""}`}
-                  onClick={() => setType(item.id)}
-                >
-                  <span className="ws-activity-format">{item.format}</span>
-                  <strong>{item.label}</strong>
-                  <span>{item.blurb}</span>
-                </button>
-              ))}
+            {visibleActivityTypes.length ? <div className="ws-activity-grid" role="radiogroup" aria-label="Available printable activities">
+              {visibleActivityTypes.map((item, index) => <button key={item.id} type="button" role="radio" aria-checked={effectiveType === item.id}
+                tabIndex={effectiveType === item.id || (!visibleActivityTypes.some(t => t.id === effectiveType) && index === 0) ? 0 : -1}
+                onKeyDown={event => handleActivityKey(event, index)} className={`ws-activity-card${effectiveType === item.id ? " is-selected" : ""}`} onClick={() => chooseType(item.id)}>
+                <ActivityArtwork type={item.id} format={item.format}/>
+                <div className="ws-card-copy"><span className="ws-activity-format">{item.format}</span><strong>{item.label}</strong><span>{item.blurb}</span></div>
+                <span className="ws-card-check" aria-hidden="true">{effectiveType === item.id ? <Check size={15} weight="bold"/> : null}</span>
+              </button>)}
+            </div> : <div className="ws-library-empty" role="status"><strong>No matching activities</strong><span>Try another word or category.</span><button type="button" onClick={() => { setActivityQuery(""); setCategory("all"); }}>Show all activities</button></div>}
+          </fieldset>
+          <aside className="ws-preview" aria-label="Worksheet preview">
+            <div className="ws-preview-heading"><div><span className="ws-eyebrow">Your printable pack</span><h2>{TYPE_LABEL[effectiveType]}</h2></div><span className="ws-paper-badge">A4</span></div>
+            <p className="ws-preview-blurb">{effectiveTypeMeta?.blurb}</p>
+            {effectiveType === "characterColouring" && <label className="ws-field ws-character-picker"><span>Start with your favourite Guide</span><select value={characterId} onChange={e => { setCharacterId(e.target.value); setPreviewPage(0); }}>{WORKSHEET_CHARACTER_ART.map(art => <option key={art.id} value={art.id}>{art.name}</option>)}</select></label>}
+            <div className="ws-preview-pager" aria-label="Preview pages">
+              <button type="button" aria-label="Previous preview page" disabled={currentPage === 0} onClick={() => setPreviewPage(currentPage - 1)}><ArrowLeft size={18}/></button>
+              <span aria-live="polite">Page {currentPage + 1} of {pages} <b>{WORKSHEET_PAGE_STAGES[currentPage].label}</b></span>
+              <button type="button" aria-label="Next preview page" disabled={currentPage >= pages - 1} onClick={() => setPreviewPage(currentPage + 1)}><ArrowRight size={18}/></button>
             </div>
-          ) : (
-            <div className="ws-library-empty" role="status">
-              <strong>No matching activities</strong>
-              <span>Clear the search or choose another category.</span>
-              <button type="button" onClick={() => { setActivityQuery(""); setCategory("all"); }}>
-                Show all activities
-              </button>
-            </div>
-          )}
-        </fieldset>
-
-        <div className="ws-selection-summary" aria-live="polite">
-          <span><b>Cycle</b>{worksheetCycleLabel(cycle)}</span>
-          <span><b>Activity</b>{TYPE_LABEL[effectiveType] || "Choose an activity"}</span>
-          <span><b>Pack</b>{pages} page{pages === 1 ? "" : "s"}</span>
-          <p>{effectiveTypeMeta?.blurb}</p>
+            <div className="ws-paper-tray">{preview ? <WorksheetPreview html={preview.html} title={`${TYPE_LABEL[effectiveType]} · Page ${currentPage + 1}`}/> : <p role="alert">This preview could not be built. Choose another activity or cycle.</p>}</div>
+            <div className="ws-pack-progress" aria-label="Pack progression">{WORKSHEET_PAGE_STAGES.slice(0, pages).map((stage, i) => <button key={stage.id} type="button" aria-label={`Preview page ${i + 1}: ${stage.label}`} aria-pressed={currentPage === i} onClick={() => setPreviewPage(i)}>{i + 1}</button>)}</div>
+            <div className="ws-actions"><button type="button" className="ws-primary" onClick={() => handleGenerate()} disabled={!effectiveType}><Printer size={20}/>Open print preview</button><button type="button" className="ws-ghost" onClick={handleSave} disabled={!effectiveType || busy}><BookmarkSimple size={19}/>{busy ? "Saving…" : "Save to bank"}</button></div>
+            <button type="button" className="ws-answer-link" onClick={() => handleGenerate(true)} disabled={!effectiveType}><FileText size={18}/>Print teacher answers separately</button>
+            <p className="ws-print-hint">Print at 100% on A4, or choose “Save as PDF”.</p>
+            {note && <p className="ws-note" role="status">{note}</p>}
+          </aside>
         </div>
-
-        <div className="ws-actions">
-          <button type="button" className="ws-primary" onClick={handleGenerate} disabled={!effectiveType}>
-            Open print preview
-          </button>
-          <button type="button" className="ws-ghost" onClick={handleSave} disabled={!effectiveType || busy}>
-            Save to bank
-          </button>
-        </div>
-        {note && <p className="ws-note" role="status">{note}</p>}
       </section>
 
       <section className="ws-bank" aria-label="Saved worksheets">
-        <h2>Your worksheet bank</h2>
+        <div className="ws-bank-heading"><div><span className="ws-eyebrow">Ready for another day</span><h2>Your worksheet bank</h2></div><span>{bankReadState.status === "complete" ? `${bank.length} saved` : "Saved activities"}</span></div>
         {bankReadState.status === "loading" && (
           <p className="ws-bank-loading" role="status">Loading saved worksheets…</p>
         )}
@@ -320,7 +311,7 @@ export function WorksheetGeneratorPage({ className = "", onBack }) {
           />
         )}
         {bankReadState.status === "complete" && bank.length === 0 ? (
-          <p className="ws-empty">No saved worksheets yet. Build one above and press “Save to bank”.</p>
+          <p className="ws-empty">Keep a favourite for next time. Choose an activity above and save it to your bank.</p>
         ) : bankReadState.status === "complete" ? (
           <ul className="ws-bank-list">
             {bank.map(item => (
@@ -361,4 +352,16 @@ export function WorksheetGeneratorPage({ className = "", onBack }) {
       </section>
     </main>
   );
+}
+
+function ActivityArtwork({ type, format }) {
+  return <span className={`ws-card-art ws-art-${format.toLowerCase()}`} aria-hidden="true">
+    {type === "characterColouring" ? <img src="/images/worksheets/muddy-colouring.png" alt=""/> :
+      type === "crossword" || type === "wordSearch" ? <span className="ws-mini-grid">{(type === "crossword" ? ["", "c", "", "c", "a", "t", "", "p", ""] : ["s", "u", "n", "a", "a", "o", "t", "m", "p"]).map((letter,i) => <i key={i}>{letter}</i>)}</span> :
+      format === "Colour" ? <span className="ws-mini-outline">Aa</span> :
+      format === "Cut" || format === "Fold" ? <span className="ws-mini-cards"><i>cat</i><i>cat</i><i>sun</i><i>sun</i></span> :
+      format === "Game" ? <span className="ws-mini-die">⚄<small>read</small></span> :
+      format === "Match" ? <span className="ws-mini-match">a → A<br/>m → M</span> :
+      <span className="ws-mini-writing"><b>{type === "letterFormation" ? "Aa" : "cat"}</b><i/><i/></span>}
+  </span>;
 }

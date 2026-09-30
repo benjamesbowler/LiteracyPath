@@ -170,7 +170,7 @@ for (const option of worksheetCycleOptions()) {
 }
 
 const summary = {
-  policyVersion: "2026-08-01.1",
+  policyVersion: "2026-09-30.1",
   documentsChecked: documentCount,
   pagesChecked: pageCount,
   tasksChecked: taskCount,

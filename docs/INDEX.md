@@ -34,7 +34,7 @@ A dated document must never override current code.
 - [High-frequency word expansion review](skills-assessment-rebuild/HFW_DEPTH_REVIEW_2026-09-28.md)
 - [Question blueprints](skills-assessment-rebuild/BLUEPRINTS_PHONOLOGICAL.md)
 - [Question design bible](content/QUESTION_DESIGN_BIBLE.md)
-- [Worksheet design bible](content/WORKSHEET_DESIGN_BIBLE.md)
+- [Worksheet design bible](content/WORKSHEET_DESIGN_BIBLE.md) — cycle-matched print studio, character colouring, picture puzzles, writing progression and separate teacher answers.
 - [Present teaching lessons](PRESENT_REDESIGN_2026-07-28.md) — three daily formats across 27 cycles; interactive spelling, oral language, private notes and projection
 - [Learning policy](design/LEARNING_POLICY.md)
 - [Assessment media evidence](design/ASSESSMENT_MEDIA_EVIDENCE.md)

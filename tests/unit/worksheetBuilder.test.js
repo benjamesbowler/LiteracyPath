@@ -214,9 +214,9 @@ test("printable child copy never exposes slash or IPA sound notation", () => {
   }
 });
 
-test("letter and word models use the school-style single-storey font stack", () => {
+test("letter and word models use the embedded school reading face", () => {
   const { html } = buildWorksheetDocument({ cycleId: "cycle-1", type: "letterFormation", pages: 6 });
-  assert.match(html, /--ws-school-font:\s*"Comic Sans MS", "Chalkboard SE", "Chalkboard", "Comic Neue", cursive/);
+  assert.match(html, /--ws-school-font:\s*"Worksheet Andika", Arial, sans-serif/);
   assert.match(html, /\.ws-school-model,[\s\S]*?\.ws-roll-board\s*\{\s*font-family:\s*var\(--ws-school-font\)/);
   assert.match(html, /class="ws-trace ws-school-model">Aa<\/span>/);
   assert.doesNotMatch(html, /class="ws-sound">\s*\//);
@@ -263,14 +263,14 @@ test("every sight-word page uses that cycle's own words in real sentences", () =
     const own = (cycle.highFrequencyWords || []).map(w => String(w).toLowerCase());
     assert.ok(own.some(w => html.includes(`<span class="ws-trace">${w}</span>`)),
       `cycle ${cycle.cycleNumber}: no own word traced`);
-    assert.ok(html.includes("Finish each sentence"), `cycle ${cycle.cycleNumber}: no cloze sentences`);
+    assert.ok(html.includes("Read the model. Write its missing word"), `cycle ${cycle.cycleNumber}: no cloze sentences`);
   }
 });
 
 test("known sight-word contrast pairs have answer-determining cloze context", () => {
   const cycle2 = buildWorksheetDocument({ cycleId: "cycle-2", type: "sightWords", pages: 3 }).html;
-  assert.ok(cycle2.includes("The word for one is"), "a/the contrast identifies a as the word for one");
-  assert.ok(cycle2.includes("for a dog we both know"), "a/the contrast gives the a shared known-dog cue");
+  assert.ok(cycle2.includes("Model: I see a cat."), "a has an exact printed sentence model");
+  assert.ok(cycle2.includes("Model: Please shut the door."), "the has an exact printed sentence model");
 
   const cycle13 = buildWorksheetDocument({ cycleId: "cycle-13", type: "sightWords", pages: 3 }).html;
   assert.ok(cycle13.includes("belongs to Mum"), "her is anchored to Mum");
