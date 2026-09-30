@@ -137,3 +137,18 @@ Keep automated, direct rendered, hosted, human listening, classroom duration and
 physical iPad evidence separate. Tests of full recording delivery do not establish
 human pronunciation review; software-rendered browser performance does not prove
 physical school hardware. Never describe the twenty-hour target as measured play.
+
+The 30 September release is live at `literacy.guide`: implementation commit
+`f51dd0807c13d923eefb7eee3feec35abd210103`, automatic deployment
+`dpl_DcYBhzHaXjYBgm3EtQ3kjMopwRKR`, verified READY with the production alias.
+The owner-approved pure helper update passed live synthetic Undo, current-item
+hearing and narrative-inventory checks without changing learner rows or access.
+The separate public try-out exercised the rendered world, real Find/Help route,
+recorded teaching, native answer and Home/Carry on restoration at step 4 of 8;
+all thirty places were visible across three worlds and no browser warnings or
+errors were observed. Integrated checks covered 99 unique device-matrix cases,
+16 native desktop/mobile routes and eight split-thumb control cases. Compact
+proof, passing visual evidence and helper rollback definitions remain in ignored
+`.artifacts/app-fixes-child`. Physical iPad performance, authenticated hosted
+learner roundtrips, human listening and child-paced classroom duration are not
+established by these checks.
