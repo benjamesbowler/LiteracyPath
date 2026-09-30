@@ -83,6 +83,7 @@ jobs:
         if: inputs.scope == 'ui-chrome'
         run: |
           npx playwright test \
+            tests/release/hollow-simple-flows.spec.js \
             tests/release/guided-reading-control-hierarchy.spec.js \
             tests/release/key-route-visuals.spec.js \
             tests/release/student-device-matrix.spec.js \

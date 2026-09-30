@@ -19,7 +19,7 @@ Each row was reviewed at 1280 × 900 and 390 × 844 with reduced motion enabled.
 | Phonics | PASS | PASS | PASS | PASS | PASS | PASS | The next letter alone has a warm field, strong ring, and Start here badge. |
 | Arcade | PASS | PASS | PASS | PASS | PASS | PASS | Alternative game art is quietened; the next unplayed game keeps full colour, double highlight, and Play next. |
 | Adventure Map | PASS | PASS | PASS | PASS | PASS | PASS | The current stop alone keeps its sign, double ring, avatar, and Go next badge. |
-| Sound Seekers | PASS | PASS | PASS | PASS | PASS | PASS | The woodland chapter's named start or continue action owns the strongest emphasis. |
+| Sound Seekers | PASS | PASS | PASS | PASS | PASS | PASS | The expanded campaign's named start or carry-on action owns the strongest emphasis; Woodland remains reachable. |
 | Story Quests | PASS | PASS | PASS | PASS | PASS | PASS | The named start/continue button is larger and deeper than level filters and cover cards. |
 | Reading Library | PASS | PASS | PASS | PASS | PASS | PASS | The next book is enlarged and double-framed; the goal panel is quieter support. |
 | My Hollow | PASS | PASS | PASS | PASS | PASS | PASS | Entry has one gift or decorating task and three quiet picture choices. Editing highlights one placement or make-space spot without continuous motion. |

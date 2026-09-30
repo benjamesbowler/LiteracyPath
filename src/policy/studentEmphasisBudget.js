@@ -50,8 +50,8 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
   }),
   Object.freeze({
     id: "sound-seekers",
-    primaryCue: "Let’s explore|Continue adventure",
-    treatment: "A new child gets one named Start my adventure action; customisation options stay quieter and do not compete with it."
+    primaryCue: "Start exploring|Carry on",
+    treatment: "The campaign gives a new child one named Start exploring action; Woodland and navigation remain quieter alternatives."
   }),
   Object.freeze({
     id: "story-quests",

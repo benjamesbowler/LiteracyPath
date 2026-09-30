@@ -27,3 +27,6 @@
 }
 @media(max-width:380px){.rc-explore-footer>.rc-primary{left:128px;bottom:64px;transform:none;width:calc(100% - 192px);min-width:112px;max-width:none}.rc-explore-footer:has(>.rc-primary)>p{display:none}}
 @media(max-height:420px){.rc-explore-footer>p{display:none}}
+
+.rc-title .rc-eyebrow { color: #18263E; opacity: 1; }
+.rc-title [data-child-primary] { --child-emphasis-level: 3; }
