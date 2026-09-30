@@ -1,4 +1,4 @@
-// The woodland chapter owns its map, mini games and saves. This boundary
+// Sound Seekers owns its campaign, optional chapter and separate saves. This boundary
 // returns the child to their existing home when they leave the adventure.
 
 export function StudentSoundTrailPage({ renderQuest, onHome, onNavigate }) {

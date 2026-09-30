@@ -1,75 +1,131 @@
 # Sound Seekers current product Bible
 
-The live child entry is **The Lost Little Lights: A Woodland Homecoming**.
-The owner explicitly requested replacing the previous game with this small
-chapter on 15 September 2026 and preserving the previous game for reuse.
-The approved direction is a rounded 3D adventure with direct 2D/2.5D activities.
-The [chapter specification](../demos/sound-seekers/CHAPTER_ONE.md) owns its
-content, prerequisites, visual direction and acceptance criteria.
+The child entry is the expanded rounded 3D adventure with Bouncy. On 30 September
+2026 the owner requested all app audit repairs followed by the complete campaign
+expansion. This extends the approved 15 September storybook direction; it does
+not reinstate the former pixel game. The existing Woodland Homecoming remains a
+separately selectable chapter with its own saved progress.
 
-## Active implementation
+## Campaign and current owners
 
-`src/features/soundSeekers/SoundSeekersRoute.jsx` preserves the app's full-screen
-portal, focus containment, learner identity and return-to-home boundary.
-`WoodlandChapter.jsx` mounts `demos/sound-seekers/src/chapter/Chapter.jsx`.
-The chapter's content, progress, paths and scenery modules own five projects,
-15 visits, 120 round slots and the complete homecoming. Shared `world.js` owns
-the smooth Blender models, camera and movement; `audio.js` owns cancellable
-recorded playback. Movement does not decide literacy correctness.
+The forty canonical curriculum anchors in `src/data/questSequence.js` map into
+thirty authored places: ten in Sunny Meadow Farm, ten in Sunny Hollow and ten in
+Moonwood. `v3/content/campaign.js` owns those places, five main missions and two
+optional missions per place: 150 main and 60 optional missions. The campaign has
+210 authored mission packs. Forty anchors are not forty stage IDs. Main missions
+follow their declared prerequisites; extras never gate the ending. Twenty hours
+is a content and pacing target, not a measured child duration. No timer, waiting
+or repeated-answer quota manufactures it.
 
-`assetUrls.js` packages owned media as hashed, same-origin URLs, including
-short recordings that must not be inlined under the live security policy.
-The scoped styles cannot change the surrounding app. The standalone previews
-alone own document/body sizing; the live route owns its portal.
+`SoundSeekersRoute.jsx` owns the full-screen portal, focus containment, learner
+identity and return boundary. Its default `rounded/RoundedCampaign.jsx` mounts
+`campaignWorld.js`, `campaignWorldLayouts.js`, `campaignRestorations.js` and
+`CampaignActivity.jsx`. The route offers free keyboard/touch movement, branched
+paths, nearby encounter entry, optional carry/use discoveries and operating
+objects. The Find action walks along a collision-safe route; it never opens an
+encounter automatically. Places provides direct motor assistance to the same
+missions. Finishing a mission returns control to exploration, without forcing
+the next mission open. Each completed main mission leaves its exact authored
+repair; a finale or optional action cannot stand in for the other four repairs.
 
-## Progress and learning boundary
+`campaignChallenges.js` and `campaignInstructions.js` remain the single teaching
+and judging authority. Twelve authored activity families use sound introductions,
+sound/letter choices, oral or read sorting, ordered sound-piece construction,
+message construction and spoken object placement. The rounded activity presents
+the exact semantic choices, distinct repeated pieces and canonical art, with
+specific retries, undo where appropriate, replay and labelled support. Correct
+completion advances automatically. The controller alone receives private answer
+keys; canvas motion, movement assistance and optional discoveries never judge
+literacy. Failed picture media offers deliberate supported text recovery.
 
-This chapter provides supported practice in first sounds, missing letters,
-CVC spelling, sound sorting and spoken object placement. It does not award
-assessment mastery or invent teacher evidence. Its 30–40-minute authoring
-target is not measured child play; the complete 20-hour game remains later work.
+## Art, audio and access
 
-Each learner has a separate local checkpoint through
-`woodlandChapterStorageKey` in `src/utils/progressKeys.js`. It retains exact
-partial words, project choices, repairs and settings, and participates in
-learner deletion and practice reset. A hydrated teacher reset remounts the
-chapter after cleanup. Storage failure is shown honestly in the game.
-Authenticated learners also queue the exact chapter checkpoint in the separate
-`woodland_homecoming_v1` progress row. Its compatibility packet uses the deployed
-v2 merge transport while retaining chapter identity, partial choices, reset epoch
-and forward repairs. Hydration restores this chapter without reading retired
-trail assignments. Participation is labelled supported practice, separate from
-assessment conclusions; a sync timestamp alone is not recent play.
-The public try-out keeps the existing memory-only storage boundary and labels
-its progress as just for this visit. There is no anonymous-preview migration
-and no anonymous cloud progress. The previous campaign's local and cloud records stay separate.
+The approved Blender Bouncy is the golden spring-legged lamb. Bouncy, Woolly,
+Clucky and Splashy use the four original GLBs and their authored animation clips,
+with editable source and hashes in the demo character provenance. Other Pals
+appear as their canonical illustrated portraits and encounter art. Do not present
+unrelated placeholder models as a named resident. Three world palettes and the
+thirty place layouts, problem objects and repairs share this book-world direction.
+Simpler scenery and gentle motion preserve paths, controls and learning content.
 
-## Preserved earlier game
+`demos/sound-seekers/src/audio.js` owns one unlocked Web Audio context, ordered
+recorded playback, cancellation, retry and a bounded decoded working set. Existing
+campaign Leda recordings, isolated word and phoneme recordings are reused through
+same-origin catalogues. Speech synthesis is not a fallback. Teaching exposure is
+credited only after the complete still-current recording sequence, or explicitly
+labelled visual support. Option replay does not choose an answer. Pause, exit,
+new input and content change cancel obsolete cues. Muted play has a visual support
+path. Music is optional and does not start with the game.
 
-The [campaign reference](SOUND_SEEKERS_CAMPAIGN_REFERENCE.md) retains its
-mechanics, media, teaching content, evidence policies and save codec. Source
-remains under `src/features/soundSeekers/v3/`, with older compatibility sources
-under `src/components/quest/`. Media in `public/game-assets/sound-seekers/`,
-`public/audio/sound-seekers/` and related shared libraries remains available
-for reuse. No learner history or original artwork was deleted.
+`assetUrls.js` packages owned demo media as hashed same-origin assets. The offline
+worker caches requested models and bounded active-mission audio; it does not warm
+the entire campaign. A first visit still needs an online load and worker control.
+Do not claim a place or recording is downloaded before it has actually been cached.
 
-`src/quest-preview.jsx` remains a local campaign review entry. These preview
-HTML pages are excluded from the normal live build. The live route imports
-only the woodland chapter; the Vite build rejects reintroduced playable
-campaign, QuestRoot or QuestPixelWorld entries. Old data/merge code remains
-where existing learner history still requires it. The pre-cutover source is
-also recoverable at Git commit `bd240cf3f`.
+## Progress, participation and privacy
+
+`v3/campaignStorage.js` is the canonical storage owner. It retains immutable packs,
+choice order, partial pieces, attempts, mistakes, support, current place, scoped
+3D position, observed activity time and exact completion. Local-only try-out saves
+never queue cloud writes. The public try-out retains its memory-only boundary and
+labels progress as just for the visit. Authenticated learners use the existing
+`sound_seekers_v3` row, compatibility transport, hydration, reset and conflict
+rules; no new database schema or permissions are required. Newer, unreadable or
+conflicting saves are preserved and blocked from replacement. A failed local save
+cannot silently advance or exit an unfinished task.
+
+Earlier campaign choices and evidence are retained. Old stop completion supplies
+narrative anchors only; it does not fabricate new mission completion or relabel a
+historical hero as Bouncy. New rounded positions have an explicit coordinate basis;
+old pixel coordinates cannot teleport a new scene. Game discoveries merge as
+narrative rewards, separate from formative responses and assessment mastery.
+
+`rounded/campaignSummary.js` owns Home and teacher participation projections.
+Home counts thirty places and 150 main adventures; the sixty extras stay optional.
+Missing progress is unavailable, not an invented zero. Teacher projections contain
+only completion/attempt identifiers, place and an explicit participation cache;
+no checkpoint challenges, answer keys or raw response bodies. Exact response IDs
+supply totals. A sync timestamp is not recent play; the date is labelled Last
+reported practice answer. Sound Seekers is formative practice, never an automatic
+assessment or mastery decision. Learner deletion and teacher reset include both
+the campaign and the separate Woodland checkpoint.
+
+The rounded checkpoint merge migration keeps the two existing pure, invoker
+server helpers aligned with the client: action revisions preserve deliberate
+Undo, listening delivery belongs to the current sort item, and narrative
+discoveries/inventory merge without resurrecting a delivered object. This
+compatibility update must be verified on the authorized target before releasing
+the expanded client. It changes no learner rows, tables or permissions.
+
+## Retained chapter and historical sources
+
+`WoodlandChapter.jsx` continues to mount the complete five-project, 120-round
+[Woodland Homecoming](../demos/sound-seekers/CHAPTER_ONE.md). It retains its independent
+`woodland_homecoming_v1` cloud row, v2 checkpoint transport and exact local save.
+It is selected from the campaign entrance; returning to it never consumes retired
+assignments or replaces campaign progress.
+
+The [campaign reference](SOUND_SEEKERS_CAMPAIGN_REFERENCE.md) preserves former
+presentation details and reusable curriculum/media/save rules. The default child
+route reuses its pure content and authority modules, not `SoundSeekersCampaign`,
+`QuestRoot` or `QuestPixelWorld`. Vite rejects those old playable runtimes from the
+normal live build. Isolated preview HTML entries are excluded from that build;
+synthetic stage fixtures never belong to the child route or learning evidence.
+No learner history, canonical artwork or editable approved model source is removed.
 
 ## Verification and release
 
-Run the chapter/demo content and audio tests, scoped save/privacy checks,
-route isolation, child-surface and device tests, plus the regression profile.
-Inspect the actual 3D scene, mini games, save/return/reload, sound, pause,
-keyboard/touch controls, loading recovery and small-screen fit. A normal
-production build must contain the woodland chapter and no playable legacy
-runtime. Verify the exact deployed commit and exercise the live child entry.
+Verify all thirty places and 210 mission entrances, collision-safe travel, actual
+object discoveries, all 150 exact repairs and the ending. Exercise every mechanic
+and family, wrong answers, repeated pieces, automatic completion, cue cancellation,
+muted and failed-media recovery, pause/focus, keyboard/touch, small screens and
+both scene qualities. Run actual continuous routes as well as pure whole-corpus
+checks; fixture-unlocked places are not earned completion. Verify partial resume,
+support retention, scope isolation, hydration/acknowledgement/reset/conflict,
+Home totals, teacher privacy and controlled-worker offline recovery. Run the normal
+production build and exact-commit hosted checks after a scoped Git release.
 
-Keep automated, direct rendered, hosted, human listening, child-paced duration
-and physical iPad evidence separate. Earlier chapter playthroughs reached all
-120 rounds and replay in development and the packaged preview; those do not
-establish twenty hours, physical-device performance or human listening approval.
+Keep automated, direct rendered, hosted, human listening, classroom duration and
+physical iPad evidence separate. Tests of full recording delivery do not establish
+human pronunciation review; software-rendered browser performance does not prove
+physical school hardware. Never describe the twenty-hour target as measured play.

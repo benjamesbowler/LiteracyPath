@@ -741,3 +741,20 @@ of the unmodified base and a redundant browser trace were removed after the
 unchanged phone-login screenshot failure was captured; the base is recoverable
 from Git and its comparison images and log are retained. No source artwork,
 learner records or hosted data were removed.
+
+## Rounded Sound Seekers campaign — 30 September 2026
+
+The Sound Seekers release Bible now owns the expanded rounded presentation,
+thirty places and 210 authored missions. The original campaign content, teaching
+authority and save transport remain active inputs; Woodland Homecoming remains
+a separate selectable chapter with its independent checkpoint. Retired pixel
+playable runtimes remain excluded from the normal build. Approved artwork,
+editable model sources and learner history are preserved.
+
+Removed the task's failed partial production build, superseded browser failure
+outputs after replacement checks passed, and the disposable palette conversion
+script. These are reproducible local outputs. Accepted device baselines, final
+rendered repair states, native interaction and save regressions remain under
+ignored `.artifacts/`. The current server-helper definitions are retained there
+for recovery until the separately authorized compatibility update is verified;
+cleanup changes no hosted learner records, schema or permissions.

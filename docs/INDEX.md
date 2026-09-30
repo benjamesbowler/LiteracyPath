@@ -80,9 +80,9 @@ immediately. Missing review metadata is not a publication queue.
 
 ## Current product bibles
 
-- [Sound Seekers release bible](SOUND_SEEKERS_RELEASE_BIBLE.md) — three-world exploration, continuous platform puzzles and illustrated animation; automatic spoken guidance, persistent sound pictures and labelled replay/movement controls; current media, formative evidence and verification boundaries
+- [Sound Seekers release bible](SOUND_SEEKERS_RELEASE_BIBLE.md) — current rounded 3D campaign: 30 places, 150 main and 60 optional missions covering 40 curriculum anchors; approved character assets, scoped saves, formative evidence and verification boundaries
 - [Sound Seekers curriculum matrix](SOUND_SEEKERS_CURRICULUM_MECHANIC_MATRIX.md)
-- [Sound Seekers 3D woodland chapter](../demos/sound-seekers/CHAPTER_ONE.md) — current live Sound Seekers chapter preserving the approved storybook direction; five projects, five interaction families and 120 contextual rounds. Its 30–40-minute target awaits child-paced observation; learner saves are device-local and the full 20-hour game remains later work.
+- [Sound Seekers 3D woodland chapter](../demos/sound-seekers/CHAPTER_ONE.md) — separately selectable Woodland Homecoming preserving the approved storybook direction; five projects, five interaction families and 120 contextual rounds with separate local/cloud checkpoints. Its 30–40-minute target awaits child-paced observation.
 - [Phoneme recording standard](audio/PHONEME_RECORDING_STANDARD.md)
 - [Shared game curriculum](GAME_CURRICULUM_FRAMEWORK_2026-07-06.md)
 - [Sound Seekers world blueprint](SOUND_SEEKERS_WORLD_V2_BLUEPRINT.md) — retained v2 design/compatibility reference; the release bible defines the current child route
@@ -90,7 +90,7 @@ immediately. Missing review metadata is not a publication queue.
 
 ## Product plans
 
-- [Sound Seekers three-world adventure](design/SOUND_SEEKERS_THREE_WORLD_ADVENTURE_PLAN.md) — retained campaign plan and reusable content from the previous game; the woodland chapter is the current direction. See also the [preserved campaign reference](SOUND_SEEKERS_CAMPAIGN_REFERENCE.md).
+- [Sound Seekers three-world adventure](design/SOUND_SEEKERS_THREE_WORLD_ADVENTURE_PLAN.md) — retained campaign authoring plan; the release Bible owns the expanded rounded presentation and current route. See also the [preserved campaign reference](SOUND_SEEKERS_CAMPAIGN_REFERENCE.md).
 - [Public free tier spec](product/FREE_TIER_SPEC.md) — email + password, two children, ~20% of the
   content, no parent reporting. Spec only; no code.
 ## Operations, research, legal and security

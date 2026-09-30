@@ -1,4 +1,5 @@
 import { WOODLAND_PROGRESS_ROW, woodlandParticipation } from '../features/soundSeekers/woodlandProgress.js';
+import { CAMPAIGN_PROGRESS_ROW, CAMPAIGN_PARTICIPATION_SELECT, campaignParticipationSummary } from '../features/soundSeekers/rounded/campaignSummary.js';
 /* eslint-disable react-hooks/exhaustive-deps -- Context values preserve App's original effect contracts during staged controller extraction. */
 import { useEffect, useEffectEvent, useLayoutEffect, useRef, useState } from "react";
 import { isSupabaseConfigured, supabase } from "../supabaseClient.js";
@@ -3127,12 +3128,25 @@ export function useAppSessionController(context) {
 
     const soundSeekersResult = await settleTeacherRead(
       "Dashboard Sound Seekers",
-      () => selectAllRows(() => supabase
-        .table("student_progress")
-        .select("student_id, key, payload, updated_at")
-        .eq("area", "phonics_quest")
-        .in("key", ["__all__", WOODLAND_PROGRESS_ROW])
-        .in("student_id", studentIds)),
+      async () => {
+        const [history, campaign] = await Promise.all([
+          selectAllRows(() => supabase
+            .table("student_progress")
+            .select("student_id, key, payload, updated_at")
+            .eq("area", "phonics_quest")
+            .in("key", ["__all__", WOODLAND_PROGRESS_ROW])
+            .in("student_id", studentIds)),
+          selectAllRows(() => supabase
+            .table("student_progress")
+            .select(CAMPAIGN_PARTICIPATION_SELECT)
+            .eq("area", "phonics_quest")
+            .eq("key", CAMPAIGN_PROGRESS_ROW)
+            .in("student_id", studentIds))
+        ]);
+        return { data: [...(history.data || []), ...(campaign.data || [])],
+          error: history.error || campaign.error || null,
+          truncated: Boolean(history.truncated || campaign.truncated) };
+      },
       { data: [], truncated: false }
     );
 
@@ -3207,7 +3221,13 @@ export function useAppSessionController(context) {
     const soundSeekersByStudent = new Map();
     for (const row of soundSeekerRows) {
       const previous = soundSeekersByStudent.get(row.student_id) || {};
-      if (row.key === WOODLAND_PROGRESS_ROW) {
+      if (row.key === CAMPAIGN_PROGRESS_ROW) {
+        const campaign = campaignParticipationSummary(row);
+        if (campaign) {
+          const lastActiveAt = [previous.lastActiveAt, campaign.lastActiveAt].filter(Boolean).sort().at(-1) || "";
+          soundSeekersByStudent.set(row.student_id, { ...previous, campaign, lastActiveAt });
+        }
+      } else if (row.key === WOODLAND_PROGRESS_ROW) {
         const woodland = woodlandParticipation(row.payload);
         soundSeekersByStudent.set(row.student_id, { ...previous, woodland, lastActiveAt: woodland?.lastActiveAt || previous.lastActiveAt || "" });
       } else {

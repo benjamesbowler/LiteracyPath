@@ -6,8 +6,8 @@ its rounded storybook woodland, canonical Blender cast, calm camera, direct
 controls and large tactile activities.
 
 On 15 September 2026 the owner explicitly requested this chapter replace the
-classroom Sound Seekers game and be pushed live. `SoundSeekersRoute.jsx` now
-mounts this chapter through `WoodlandChapter.jsx`; the original `index.html`
+classroom Sound Seekers game and be pushed live. `SoundSeekersRoute.jsx` mounts this chapter through `WoodlandChapter.jsx`
+as the separately selectable Woodland Homecoming from the expanded campaign entrance; the original `index.html`
 and standalone `chapter.html` remain review entries. The [release Bible](../../docs/SOUND_SEEKERS_RELEASE_BIBLE.md)
 owns app integration, scoped saves and preservation of the previous game.
 
@@ -18,7 +18,10 @@ words, muted play and failed-media recovery were exercised; the 29 chapter and
 original-demo checks pass. Source Blender files and media provenance are kept
 with the implementation. The original five-minute demo remains available.
 
-The full 20-hour game is still the later production goal. This checkpoint is
+On 30 September 2026 the owner requested the complete campaign expansion. The
+current [release Bible](../../docs/SOUND_SEEKERS_RELEASE_BIBLE.md) owns the expanded
+30-place rounded campaign; this chapter remains independently saved and playable.
+The full 20-hour duration remains an unmeasured pacing target. This checkpoint is
 one implemented chapter, with the 30–40-minute authoring target still awaiting
 observed child play. Human listening and physical iPad checks remain open.
 The next expansion should preserve this approved visual direction and first

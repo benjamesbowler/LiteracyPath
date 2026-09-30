@@ -1,4 +1,6 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 import { runInNewContext } from "node:vm";
 import test from "node:test";
 
@@ -7,11 +9,18 @@ import { questOfflinePlugin, serviceWorkerSource } from "../../tools/viteQuestOf
 function createWorkerHarness({ cachedResponse = null, networkResponse, questAssets = [] }) {
   const listeners = new Map();
   const cacheWrites = [];
+  const stored = new Map();
   const messages = [];
   let skipWaitingCalls = 0;
   const cache = {
-    async match() { return cachedResponse; },
-    async put(request, response) { cacheWrites.push({ request, response }); }
+    async match(request) {
+      const key = typeof request === "string" ? request : request.url;
+      return cachedResponse || stored.get(key)?.clone() || null;
+    },
+    async put(request, response) {
+      cacheWrites.push({ request, response });
+      stored.set(typeof request === "string" ? request : request.url, response.clone());
+    }
   };
   const worker = {
     location: { origin: "https://literacy.guide" },
@@ -31,7 +40,7 @@ function createWorkerHarness({ cachedResponse = null, networkResponse, questAsse
       async keys() { return []; },
       async delete() { return true; }
     },
-    fetch: async () => networkResponse(),
+    fetch: async request => networkResponse(request),
     self: worker
   });
 
@@ -54,13 +63,48 @@ function createWorkerHarness({ cachedResponse = null, networkResponse, questAsse
         request,
         respondWith(value) { responsePromise = Promise.resolve(value); }
       });
-      assert.ok(responsePromise, "the worker should handle Guided Reading media");
+      assert.ok(responsePromise, "the worker should handle the requested owned media");
       return responsePromise;
     }
   };
 }
 
 const AUDIO_URL = "https://literacy.guide/audio/production/en-US/guided_page/bob-runs-alone-5821bb27b4.mp3";
+
+test("loaded rounded GLB bytes under Vite's hashed asset root survive an offline scene reload", async () => {
+  const modelPaths = ['characters/bouncy.glb', 'forest/tree.glb', 'forest/rock.glb', 'forest/mushrooms.glb',
+    'characters/woolly.glb', 'characters/splashy.glb', 'characters/clucky.glb'];
+  const models = new Map(modelPaths.map(path => {
+    const bytes = readFileSync(new URL(`../../demos/sound-seekers/assets/${path}`, import.meta.url));
+    assert.equal(bytes.readUInt32LE(0), 0x46546c67, `${path} is an actual binary glTF model`);
+    const stem = path.split('/').at(-1).replace('.glb', '');
+    const hash = createHash('sha256').update(bytes).digest('hex').slice(0, 8);
+    return [`https://literacy.guide/assets/${stem}-${hash}.glb`, bytes];
+  }));
+  let online = true, networkCalls = 0;
+  const harness = createWorkerHarness({ networkResponse: request => {
+    networkCalls++;
+    if (!online) throw new Error('offline');
+    const bytes = models.get(request.url);
+    assert.ok(bytes, 'only exact current scene model requests are fetched');
+    return new Response(bytes, { status: 200, headers: { 'Content-Type': 'model/gltf-binary' } });
+  } });
+  for (const [url, bytes] of models) {
+    const response = await harness.fetch(new Request(url));
+    assert.deepEqual(new Uint8Array(await response.arrayBuffer()), new Uint8Array(bytes));
+  }
+  assert.equal(harness.cacheWrites.length, models.size);
+  online = false;
+  for (const [url, bytes] of models) {
+    const restored = await harness.fetch(new Request(url));
+    assert.deepEqual(new Uint8Array(await restored.arrayBuffer()), new Uint8Array(bytes));
+  }
+  assert.equal(networkCalls, models.size, 'the offline reload uses saved full model bytes without a network request');
+  assert.equal(harness.cacheWrites.length, models.size);
+  const resolver = readFileSync(new URL('../../demos/sound-seekers/src/assetUrls.js', import.meta.url), 'utf8');
+  assert.match(resolver, /import\.meta\.glob\('[^']*\.\{glb,mp3,png,webp\}'/);
+  assert.match(resolver, /query: '\?url&no-inline'/);
+});
 
 test("the offline worker returns uncached 206 audio without trying to cache it", async () => {
   const harness = createWorkerHarness({
@@ -126,6 +170,34 @@ test("the offline worker warms canonical book-character art without accepting ge
     completed: 1,
     failed: 0
   }]);
+});
+
+test("campaign warming caches its exact canonical audio roots and excludes private data and unrelated audio", async () => {
+  const harness = createWorkerHarness({ networkResponse: () => new Response(new Uint8Array([1, 2, 3]), { status: 200 }) });
+  const allowed = [
+    "/audio/sound-seekers/campaign/stage-meadow-01-problem.mp3",
+    "/audio/phonemes/reviewed/canonical.mp3",
+    "/audio/production/en-US/isolated_word/canonical.mp3",
+    "/audio/production/en-US/supplemental/canonical.mp3",
+    "/audio/production/en-US/pattern/canonical.mp3"
+  ];
+  await harness.message({ type: "LP_WARM_QUEST_ASSETS", requestId: "mission-warm", chapterId: "meadow-01-1",
+    urls: [...allowed, "/api/student_progress", "/audio/production/en-US/private/answer.mp3",
+      "https://private.example/audio/sound-seekers/campaign/answer.mp3"] });
+  assert.deepEqual(harness.cacheWrites.map(item => new URL(item.request, "https://literacy.guide").pathname), allowed);
+  assert.equal(harness.messages[0].requested, allowed.length);
+  assert.equal(harness.messages[0].completed, allowed.length);
+  assert.equal(harness.messages[0].failed, 0);
+});
+
+test("a warmed campaign prompt remains playable offline without caching a partial range response", async () => {
+  const cached = new Response(new Uint8Array(2222), { status: 200 });
+  const harness = createWorkerHarness({ cachedResponse: cached, networkResponse: () => { throw new Error("offline"); } });
+  const response = await harness.fetch(new Request("https://literacy.guide/audio/sound-seekers/campaign/stage-meadow-01-problem.mp3",
+    { headers: { Range: "bytes=0-511" } }));
+  assert.equal(response, cached);
+  assert.equal((await response.arrayBuffer()).byteLength, 2222);
+  assert.equal(harness.cacheWrites.length, 0);
 });
 
  test("offline precache follows selected v2 runtime without reviving emitted legacy chunks", async () => {

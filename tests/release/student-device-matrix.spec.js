@@ -2166,6 +2166,7 @@ test(`A3.6 Sound Seekers woodland entrance remains reachable at ${profile.id}`, 
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: profile.width, height: profile.height });
   await page.goto("/preview/child-surfaces.html?surface=sound-seekers");
+  await page.getByRole("button", { name: "Woodland Homecoming", exact: true }).click();
   const surface = page.locator('[data-child-surface="sound-seekers"]');
   await expect(surface.getByRole("heading", { name: "The lost little lights." })).toBeVisible();
   await expect(surface.getByRole("button", { name: "Let’s explore" })).toBeEnabled();
@@ -2182,6 +2183,7 @@ test("A3.6 Sound Seekers woodland pause keeps focus inside its active dialog", a
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 1024, height: 768 });
   await page.goto("/preview/child-surfaces.html?surface=sound-seekers");
+  await page.getByRole("button", { name: "Woodland Homecoming", exact: true }).click();
   await page.getByRole("button", { name: "Let’s explore", exact: true }).click();
   const pause = page.getByRole("button", { name: "Pause adventure", exact: true });
   await pause.click();

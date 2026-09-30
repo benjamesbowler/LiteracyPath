@@ -48,6 +48,8 @@ export function normalizeCampaignProgress(raw, catalog = {}, fallbackHero = 'spe
     activeMissionId: saved.activeMissionId || null,
     completedMissions: object(saved.completedMissions),
     repairs: object(saved.repairs),
+    gameDiscoveries: object(saved.gameDiscoveries),
+    gameInventory: object(saved.gameInventory),
     visitedStageIds: ids(saved.visitedStageIds),
     checkpoints: object(saved.checkpoints),
     attemptIds: object(saved.attemptIds),
@@ -191,6 +193,11 @@ const earliest = (a, b) => !a ? b : !b ? a
     : (a.at ?? Infinity) > (b.at ?? Infinity) ? b : stable(a) <= stable(b) ? a : b;
 const unionRecords = (a, b) => Object.fromEntries(ids([...Object.keys(a || {}), ...Object.keys(b || {})])
   .sort().map(id => [id, copy(earliest(a?.[id], b?.[id]))]));
+const latestGameInventory = (a = {}, b = {}) => Object.fromEntries(ids([...Object.keys(a), ...Object.keys(b)]).sort().map(id => {
+  const left = a[id], right = b[id];
+  const winner = !left ? right : !right ? left : left.at > right.at ? left : left.at < right.at ? right : stable(left) <= stable(right) ? left : right;
+  return [id, copy(winner)];
+}));
 
 function campaignEvents(progress) {
   const events = new Map();
@@ -233,7 +240,7 @@ function mergeTargets(a, b) {
 
 function authorityRank(state = {}) {
   return [Number(Boolean(state.done)), state.itemIndex || 0,
-    Array.isArray(state.placed) ? state.placed.length : 0, state.cardsHeard?.length || 0];
+    state.actionRevision || 0, Array.isArray(state.placed) ? state.placed.length : 0, state.cardsHeard?.length || 0];
 }
 function compareRanks(a, b) {
   for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return a[i] > b[i] ? 1 : -1;
@@ -252,7 +259,8 @@ function mergeBeatState(a, b, winner) {
   for (const field of ['heardSources', 'cardsHeard']) {
     if (a[field] || b[field]) result[field] = ids([...(a[field] || []), ...(b[field] || [])]).sort();
   }
-  if ('heard' in a || 'heard' in b) result.heard = Boolean(a.heard || b.heard);
+  if ('heard' in a || 'heard' in b) result.heard = (a.itemIndex || 0) !== (b.itemIndex || 0)
+    ? Boolean(winner.heard) : Boolean(a.heard || b.heard);
   if ('slotErrors' in a || 'slotErrors' in b) result.slotErrors = Math.max(a.slotErrors || 0, b.slotErrors || 0);
   if (a.sceneRepairs || b.sceneRepairs) result.sceneRepairs = unionRecords(a.sceneRepairs, b.sceneRepairs);
   if (a.itemErrors || b.itemErrors) result.itemErrors = Object.fromEntries(ids([...Object.keys(a.itemErrors || {}), ...Object.keys(b.itemErrors || {})]).map(id => [id, Math.max(a.itemErrors?.[id] || 0, b.itemErrors?.[id] || 0)]));
@@ -339,10 +347,15 @@ export function mergeCampaignProgress(left, right, catalog) {
   merged.updatedAt = Math.max(a.updatedAt || 0, b.updatedAt || 0);
   merged.campaign = { ...merged.campaign, completedMissions,
     repairs: unionRecords(a.campaign.repairs, b.campaign.repairs),
+    gameDiscoveries: unionRecords(a.campaign.gameDiscoveries, b.campaign.gameDiscoveries),
+    gameInventory: latestGameInventory(a.campaign.gameInventory, b.campaign.gameInventory),
     storyAnchors: unionRecords(a.campaign.storyAnchors, b.campaign.storyAnchors),
     visitedStageIds: ids([...a.campaign.visitedStageIds, ...b.campaign.visitedStageIds]).sort(),
     startedAttemptIds: { ...a.campaign.startedAttemptIds, ...b.campaign.startedAttemptIds },
     ...(a.campaign.legacySave || b.campaign.legacySave ? { legacySave: copy(earliest(a.campaign.legacySave, b.campaign.legacySave)) } : {}),
     checkpoints, attemptIds: Object.fromEntries([...events.keys()].sort().map(key => [key, true])) };
+  for (const [stageId, entry] of Object.entries(merged.campaign.gameInventory)) {
+    if (entry.carryingId && merged.campaign.gameDiscoveries[`${stageId}:${entry.carryingId}`]) merged.campaign.gameInventory[stageId] = { ...entry, carryingId: null };
+  }
   return { scopeKey: left.scopeKey, progress: merged };
 }
