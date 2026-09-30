@@ -96,7 +96,8 @@ export function soundSeekersPracticeSummary(report) {
       ? `${progress(practice.stagesCompleted, practice.totalStages, "stages")} · ${progress(practice.missionsCompleted, practice.totalMissions, "missions")}`
       : progress(practice.projectsCompleted, practice.totalProjects, "projects"),
     responses: count(practice.attempts),
-    lastActiveAt: practice.lastActiveAt || null
+    lastActiveAt: practice.lastActiveAt || null,
+    ...(campaign ? { lastActivityLabel: practice.lastActivityLabel || "Last reported practice answer" } : {})
   };
 }
 

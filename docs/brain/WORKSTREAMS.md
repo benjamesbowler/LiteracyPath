@@ -1,7 +1,7 @@
 ---
 type: workstream-register
 status: active
-updated: 2026-09-15
+updated: 2026-09-30
 authority: coordination-only
 ---
 
@@ -16,14 +16,14 @@ authoritative source or decision note.
 
 | Workstream | Status | Scope | Collision or handoff note | Task |
 | --- | --- | --- | --- | --- |
-| Sound Seekers woodland chapter | Release | `demos/sound-seekers`, live SoundSeekersRoute, scoped local saves, verification and notes | Owner authorized replacing the previous live game on 15 September. Preserve the approved rounded 3D direction, independent learner saves and original design demo. Legacy campaign source/media/history remains for reuse; the live build rejects playable old entries. See the [release Bible](../SOUND_SEEKERS_RELEASE_BIBLE.md). Full 20-hour production and human/device evidence remain open. | `01a09e5a-4fcc-7a01-89bd-da54748ebb39` |
+| Sound Seekers rounded campaign | Active: release verification | `rounded/`, canonical campaign content/storage, separate Woodland checkpoint | The owner approved the narrow save compatibility update on 30 September. Both live helpers passed synthetic Undo, hearing and narrative-inventory merge checks; learner rows, permissions and schema were unchanged. The complete 30-place/210-mission expansion covering 40 curriculum anchors passed local content, rendered repairs, native progression, scoped saves and packaged public try-out checks. Current iPad controls are being reconciled before the client push and exact hosted deployment verification. The original audit repairs are already live. The release Bible owns counts and evidence boundaries. Retain independent Woodland saves, approved model sources and helper definitions for recovery. | `01a0f032-3160-7413-9aad-2f9303d75068` |
 | Shared agent context | Complete | `docs/brain`, global Codex startup | New tasks load the compact brief and selectively inspect related active tasks. The startup hook is installed and trusted. | `019fc6ba-bf07-73d3-8e02-5d38641797b8` |
 | Game visual and playability production | Handoff | `docs/design/GAME_VISUAL_PLAYABILITY_PRODUCTION_GUIDE.md`, `docs/design/GAME_DESIGN_BIBLE.md`, `TASKS.md` | Active Sound Seekers and Adventure Map work must reconcile their finished visual, motion, audio, fallback and evidence states with the new guide before merge. Their isolated worktrees remain independent. | `01a06093-11cf-75d0-bde4-0cc64977cd8e` |
 | Game improvement programme | Active | All 22 catalogue games; shared input/audio/HUD boundaries | The parent task took over implementation after auditing d8447fc52. Active checkout: `.worktrees/restore-arcade`, branch `fix/complete-gameplay-upgrades`. Luna is idle; its partial patch is not programme completion. The owner has deferred further SoundKeys upgrades to conserve usage; preserve its local draft but exclude it from releases. Longer arcade/Phonics outings and shared next/replay are implemented; the full visual production programme remains open. Sound Seekers is now separately owned by task `01a08980-ad87-7082-9161-d0c046648fd8` in `.worktrees/sound-seekers-adventure`; do not edit its feature files here. That task preserves this lane’s shared audio ownership. The owner rejected staged select/confirm replacements. Use the restored engines as the baseline and the [complete upgrade plan](../design/GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md) for current direction. The plan includes reported blockers and full gameplay overhauls; it is not implementation evidence. Serialize edits to shared wrappers, practice engines, audio and result persistence. Recheck live task status and worktree changes before resuming; historical package counts and `.worktrees/g13-rocket-run` are not current release authority. | `01a088de-2e7a-7823-83e8-a13365467d07` |
 
 ## Entry rules
 
-Preserved campaign handoff (superseded for the live presentation by the woodland lane above): task `01a08980-ad87-7082-9161-d0c046648fd8` owns `.worktrees/sound-seekers-adventure`, the campaign runtime/content/media and shared progress merge/queue/storage changes. Do not duplicate those edits. Its campaign SQL merge and fixed-search-path migrations were applied with explicit owner authorization on 10 September; hosted engine parity and retry idempotence passed before client release. See the [release Bible](../SOUND_SEEKERS_RELEASE_BIBLE.md) for the current implementation and verification scope.
+Historical campaign handoff (pure content and save authority reused by the rounded campaign above; former playable renderer remains retired): task `01a08980-ad87-7082-9161-d0c046648fd8` owns `.worktrees/sound-seekers-adventure`, the campaign runtime/content/media and shared progress merge/queue/storage changes. Do not duplicate those edits. Its campaign SQL merge and fixed-search-path migrations were applied with explicit owner authorization on 10 September; hosted engine parity and retry idempotence passed before client release. See the [release Bible](../SOUND_SEEKERS_RELEASE_BIBLE.md) for the current implementation and verification scope.
 
 - Use `Active`, `Blocked`, `Handoff`, or `Complete`.
 - Name concrete files or surfaces when collision risk exists.

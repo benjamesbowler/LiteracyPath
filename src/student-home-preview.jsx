@@ -22,8 +22,9 @@ import {
   saveStudentProfile,
   setCompanion
 } from "./utils/studentProfile.js";
-import { freshChapter } from "../demos/sound-seekers/src/chapter/progress.js";
-import { localProgressStorageKey, woodlandChapterStorageKey } from "./utils/progressKeys.js";
+import { createCampaignPreviewProgress } from './features/soundSeekers/preview/campaignPreview.js';
+import { campaignStorageKey } from './features/soundSeekers/v3/campaignStorage.js';
+import { localProgressStorageKey } from "./utils/progressKeys.js";
 import { markMissionDone } from "./utils/dailyMission.js";
 
 const PREVIEW_SCOPE = "student-home-preview";
@@ -60,10 +61,7 @@ if (["continuation", "card-states"].includes(PREVIEW_SCENARIO)) {
       celebratedSteps: ["quest", "book", "game"]
     })
   );
-  const chapter = freshChapter(61);
-  for (const id of ['picnic', 'brook', 'garden']) chapter.jobs[id] = { act: 3, round: 0, built: '', used: [], pending: false };
-  chapter.active = 'parcels'; chapter.attempts = 72;
-  window.localStorage.setItem(woodlandChapterStorageKey(PREVIEW_SCOPE), JSON.stringify(chapter));
+  window.localStorage.setItem(campaignStorageKey(PREVIEW_SCOPE), JSON.stringify(createCampaignPreviewProgress('meadow-04')));
 
 }
 

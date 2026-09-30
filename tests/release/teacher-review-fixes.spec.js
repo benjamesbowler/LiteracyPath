@@ -37,9 +37,15 @@ for (const practice of ["woodland", "campaign"]) {
   test(`${practice} participation stays distinct from earlier trail history and Skills evidence`, async ({ page }) => {
     await page.goto(`/preview/teacher-a11y.html?surface=classes&learner=1&sound-seekers-practice=${practice}`);
     await page.getByText("More for Aarav", { exact: true }).click();
+    await expect(page.getByLabel("Aarav results summary")).toContainText("3 of 3");
     const summary = page.locator('[data-sound-seekers-evidence="practice"]');
     await expect(summary).toContainText(practice === "campaign" ? "3 of 30 stages · 15 of 150 missions" : "2 of 5 projects");
     await expect(summary).toContainText("supported practice, separate from Skills results");
+    if (practice === "campaign") {
+      await expect(summary).toContainText("Last reported practice answer");
+      await expect(summary).toContainText("45 practice responses");
+      await expect(summary).not.toContainText("mastered");
+    }
     await page.getByRole("button", { name: "Show Aarav's sound map", exact: true }).click();
     await expect(page.locator(".quest-heat-panel")).toContainText("Earlier trail history");
     await expect(page.getByRole("button", { name: "Assign practice", exact: true })).toHaveCount(0);

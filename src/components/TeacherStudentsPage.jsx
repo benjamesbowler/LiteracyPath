@@ -405,6 +405,7 @@ function SoundSeekersPracticeSummary({ report }) {
       <strong>{practice.label}</strong>
       <span>{practice.progress}</span>
       <small>{countPhrase(practice.responses, "practice response")} · supported practice, separate from Skills results</small>
+      {practice.lastActivityLabel && practice.lastActiveAt && <small>{practice.lastActivityLabel}: {formatLastActive(practice.lastActiveAt)}</small>}
     </div>
   );
 }

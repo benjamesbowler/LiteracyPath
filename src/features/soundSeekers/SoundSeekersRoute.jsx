@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import WoodlandChapter from "./WoodlandChapter.jsx";
+import RoundedCampaign from "./rounded/RoundedCampaign.jsx";
 import { warmQuestOfflineExecutable } from "../../utils/offlineShell.js";
 
 const EMPTY_ACCESSIBILITY_SETTINGS = Object.freeze({});
@@ -73,6 +74,7 @@ export default function SoundSeekersRoute({
     throw new TypeError("Sound Seekers route props are invalid");
   }
   const [portalHost, setPortalHost] = useState(null);
+  const [journey, setJourney] = useState('campaign');
   useEffect(() => { void warmQuestOfflineExecutable(); }, []);
   const returnFocusRef = useRef(
     typeof document !== "undefined" && typeof document.activeElement?.focus === "function"
@@ -155,15 +157,23 @@ export default function SoundSeekersRoute({
     onExit();
   }, [onExit]);
 
-  // One keyed woodland chapter owns this learner's scene and local save.
+  // The expanded rounded3D journey and original chapter keep separate saves.
   const game = (
-    <WoodlandChapter
+    journey === 'woodland' ? <WoodlandChapter
       key={progressScopeKey}
       progressScopeKey={progressScopeKey}
       isSoundEnabled={isSoundEnabled}
       ephemeral={ephemeral}
       onExit={leave}
       accessibilitySettings={accessibilitySettings}
+    /> : <RoundedCampaign
+      key={progressScopeKey}
+      progressScopeKey={progressScopeKey}
+      isSoundEnabled={isSoundEnabled}
+      ephemeral={ephemeral}
+      accessibilitySettings={accessibilitySettings}
+      onExit={leave}
+      onOpenWoodland={() => setJourney('woodland')}
     />
   );
   return portalHost ? createPortal(game, portalHost) : null;

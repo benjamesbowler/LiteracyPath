@@ -34,6 +34,7 @@ test('campaign SQL merge matches client evidence, checkpoints, replay and retain
   const sql = await readFile(new URL('../../supabase/migrations/20260910120000_sound_seekers_campaign_merge.sql', import.meta.url), 'utf8');
   await db.exec(sql);
   await db.exec(await readFile(new URL('../../supabase/migrations/20260910123000_sound_seekers_campaign_search_path.sql', import.meta.url), 'utf8'));
+  await db.exec(await readFile(new URL('../../supabase/migrations/20260930071526_sound_seekers_rounded_checkpoint_merge.sql', import.meta.url), 'utf8'));
   const serverMerge = async (a, b) => (await db.query('select public.lp_merge_phonics_quest($1::jsonb,$2::jsonb) result', [JSON.stringify(a), JSON.stringify(b)])).rows[0].result;
   const compare = async (a, b) => {
     const expected = clientMerge(a, b);
@@ -104,6 +105,36 @@ test('campaign SQL merge matches client evidence, checkpoints, replay and retain
     const b = state({ cardsHeard:['b'],heardSources:['audio-b'],sceneRepairs:{1:{type:'CHOOSE',choiceId:'b'}} });
     await compare(a,b);
     await assert.rejects(serverMerge(state({placed:['a']}),state({placed:['b']})),/placement sequence/);
+  });
+  await t.test('rounded undo wins stale longer placements, retains errors/support and remains idempotent', async () => {
+    const base = start(fresh());
+    const longer = updateCampaignCheckpoint(base, 'bridge', { attemptId:'bridge-attempt', beatState:{placed:['m','a'],actionRevision:4,errors:2,supportUsed:['model']} }, 10);
+    const undo = updateCampaignCheckpoint(base, 'bridge', { attemptId:'bridge-attempt', beatState:{placed:['m'],actionRevision:5} }, 10);
+    const merged = await compare(longer,undo);
+    assert.deepEqual(merged.campaign.checkpoints.bridge.beatState.placed,['m']);
+    assert.equal(merged.campaign.checkpoints.bridge.beatState.errors,2);
+    assert.deepEqual(merged.campaign.checkpoints.bridge.beatState.supportUsed,['model']);
+    assert.deepEqual(await serverMerge(merged,longer),clientMerge(merged,longer));
+  });
+  await t.test('sort delivery remains tied to the current item across stale checkpoint and ACK merges', async () => {
+    const base = start(fresh());
+    const heard = updateCampaignCheckpoint(base, 'bridge', { attemptId:'bridge-attempt', beatState:{itemIndex:0,heard:true,placed:{first:'bin'},actionRevision:2} }, 10);
+    const next = updateCampaignCheckpoint(base, 'bridge', { attemptId:'bridge-attempt', beatState:{itemIndex:1,heard:false,placed:{first:'bin'},actionRevision:3} }, 10);
+    const merged = await compare(heard,next);
+    assert.equal(merged.campaign.checkpoints.bridge.beatState.heard,false);
+    assert.deepEqual(await serverMerge(merged,heard),clientMerge(merged,heard));
+  });
+  await t.test('disjoint world discoveries and carried objects merge without narrative resurrection or response credit', async () => {
+    const a=fresh(), b=fresh();
+    a.campaign.gameDiscoveries={'stage:carry':{id:'carry',stageId:'stage',at:10,narrativeOnly:true}};
+    b.campaign.gameDiscoveries={'stage:operate':{id:'operate',stageId:'stage',at:20,narrativeOnly:true}};
+    a.campaign.gameInventory={stage:{stageId:'stage',carryingId:null,at:10,narrativeOnly:true}};
+    b.campaign.gameInventory={stage:{stageId:'stage',carryingId:'carry',at:20,narrativeOnly:true}};
+    const merged=await compare(a,b);
+    assert.equal(Object.keys(merged.campaign.gameDiscoveries).length,2);
+    assert.equal(merged.campaign.gameInventory.stage.carryingId,null);
+    assert.equal(merged.evidence.length,0);
+    assert.equal(Object.keys(merged.campaign.completedMissions).length,0);
   });
   await t.test('workshop replacement keeps exact word units and partial bridge receipts through stale merges', async () => {
     const base = beginCampaignMission(fresh(), 'bridge', { attemptId: 'bridge-attempt',

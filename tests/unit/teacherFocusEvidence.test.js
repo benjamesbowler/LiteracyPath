@@ -119,6 +119,8 @@ test("current Sound Seekers participation is labelled practice with catalog tota
   assert.equal(soundSeekersPracticeSummary({
     campaign: { stagesCompleted: 3, totalStages: 30, missionsCompleted: 15, totalMissions: 150, attempts: 45 }
   }).progress, "3 of 30 stages · 15 of 150 missions");
+  assert.equal(soundSeekersPracticeSummary({ campaign: { lastActiveAt: observedAt } }).lastActivityLabel,
+    "Last reported practice answer");
   assert.equal(soundSeekersPracticeSummary({ campaign: { stagesCompleted: 3, missionsCompleted: 15 } }).progress,
     "3 stages completed · 15 missions completed");
   assert.equal(soundSeekersPracticeSummary({ stopsCompleted: 40 }), null);

@@ -2,7 +2,7 @@ import {
   isSoundSeekersTrailId
 } from "../data/soundSeekersContract.js";
 import { getLetterPracticeProgress } from "../utils/letterPracticeProgress.js";
-import { woodlandHomeSummary } from '../features/soundSeekers/woodlandProgress.js';
+import { campaignHomeSummary } from '../features/soundSeekers/rounded/campaignSummary.js';
 
 /**
  * Canonical learning-policy owner.
@@ -488,8 +488,8 @@ function stateResult(label, progressText = "") {
 
 export function buildStudentHomeCardState(activityId, progress = {}) {
   if (activityId === "sound-seekers") {
-    const chapter = woodlandHomeSummary(progress.soundSeekers);
-    return stateResult(chapter.started ? 'Continue' : 'New', chapter.started ? `${chapter.completed} of 5 woodland projects` : '');
+    const journey = campaignHomeSummary(progress.soundSeekers);
+    return stateResult(journey.started ? 'Continue' : 'New', journey.started ? `${journey.stagesCompleted} of 30 places helped` : '');
   }
 
   if (activityId === "phonics-learning") {
@@ -603,13 +603,15 @@ export function buildStudentHomeContinuation({
   }
 
   if (activity.id === "sound-seekers") {
-    const { remaining } = woodlandHomeSummary(soundSeekersProgress);
+    const journey = campaignHomeSummary(soundSeekersProgress);
+    if (!journey.available) return { label: 'Open Sound Seekers', remaining: null, goal: 'Saved adventure' };
+    const remaining = journey.totalMissions - journey.missionsCompleted;
     return {
       label: remaining > 0
-        ? `Continue Sound Seekers — ${pluralized(remaining, "project")} left`
-        : "Replay Sound Seekers — woodland complete",
+        ? `Continue Sound Seekers — ${pluralized(remaining, "adventure")} left`
+        : "Replay Sound Seekers — all three worlds helped",
       remaining,
-      goal: "Woodland projects"
+      goal: "Main adventures"
     };
   }
 

@@ -13,17 +13,69 @@ function answer(id) {
   let progress = beginCampaignMission(fresh(), missionId, { attemptId: 'same-attempt', challenges: [beat], beatState: createCampaignBeatState(beat) }, catalog, 1);
   return recordCampaignEvidence(progress, missionId, { id, attemptId: 'same-attempt', independent: true, targetIds: ['gpc-a'] }, catalog, 2);
 }
-function harness(queueSave) {
+function harness(queueSave, options = {}) {
   const data = new Map(), timers = new Map(), listeners = new Set(), calls = [];
   let nextTimer = 0;
   const storage = { getItem: key => data.has(key) ? data.get(key) : null, setItem: (key, value) => data.set(key, String(value)), removeItem: key => data.delete(key) };
   const eventTarget = { addEventListener: (type, cb) => { assert.ok(['storage', 'lp-progress-hydrated'].includes(type)); listeners.add(cb); }, removeEventListener: (type, cb) => listeners.delete(cb) };
-  const service = createCampaignStorage({ storage, eventTarget,
+  const service = createCampaignStorage({ storage, eventTarget, ...options,
     schedule: callback => { const id = ++nextTimer; timers.set(id, callback); return id; }, cancel: id => timers.delete(id),
     queueSave: (...args) => { calls.push(args); return queueSave ? queueSave(...args) : true; } });
   const event = (key, newValue) => { if (newValue === null) data.delete(key); else data.set(key, newValue); for (const cb of listeners) cb({ key, newValue, storageArea: storage }); };
   return { ...service, storage, data, timers, listeners, calls, event };
 }
+
+test('explicit public-visit identity saves full, authority and position journals without scheduling or queuing cloud', async () => {
+  const h = harness(() => { throw new Error('Public visit must never reach cloud'); }, { localOnly: true });
+  const scope = 'try-visit-42';
+  let p = h.saveCampaignProgress(scope, answer('first'), { forceSync: true }).progress;
+  assert.equal(h.loadCampaignProgress(scope).status, 'loaded');
+  const cp = p.campaign.checkpoints[missionId];
+  p = updateCampaignCheckpoint(p, missionId, { attemptId: cp.attemptId,
+    beatState: { ...cp.beatState, errors: 1, supportUsed: ['text-help'] } }, 10);
+  assert.equal(h.saveCampaignProgress(scope, p, { forceSync: true }).status, 'local-only');
+  assert.ok(h.storage.getItem(campaignStorageKey(scope) + ':live-v1'));
+  p = h.loadCampaignProgress(scope).progress;
+  p = updateCampaignCheckpoint(p, missionId, { attemptId: cp.attemptId,
+    position: { v: 1, x: 3, y: -4, vx: 0, vy: 0, facing: 1, recoveries: 0, lastCheckpointId: 'rounded3d:meadow-01' } }, 20);
+  assert.equal(h.saveCampaignProgress(scope, p, { positionOnly: true, forceSync: true }).status, 'local-only');
+  assert.ok(h.storage.getItem(campaignStorageKey(scope) + ':position-v1'));
+  assert.equal(h.timers.size, 0);
+  assert.equal((await h.flushCampaignProgress(scope)).status, 'local-only');
+  for (const callback of h.listeners) callback({ detail: { studentId: scope, resetApplied: true, rows: [] } });
+  assert.equal(h.loadCampaignProgress(scope).ok, true, 'an unrelated cloud hydration cannot alter the visit facade');
+  const reloaded = createCampaignStorage({ storage: h.storage, localOnly: true }).loadCampaignProgress(scope);
+  assert.equal(reloaded.progress.campaign.checkpoints[missionId].position.lastCheckpointId, 'rounded3d:meadow-01');
+  assert.deepEqual(reloaded.progress.campaign.checkpoints[missionId].beatState.supportUsed, ['text-help']);
+  await h.disposeCampaignStorage(scope);
+  assert.equal(h.calls.length, 0);
+  assert.equal(h.listeners.size, 0);
+});
+
+test('local-only failure and practice reset retain honest recovery without cloud retry', async () => {
+  const h = harness(() => false, { localOnly: true });
+  h.storage.setItem = () => { throw new Error('QuotaExceededError'); };
+  assert.equal(h.saveCampaignProgress('public', answer('first')).status, 'unavailable');
+  assert.equal((await h.flushCampaignProgress('public')).status, 'unavailable');
+  assert.equal(h.timers.size, 0);
+  h.event(campaignStorageKey('public'), null);
+  assert.equal(h.loadCampaignProgress('public').status, 'reset');
+  await h.disposeCampaignStorage('public');
+  assert.equal(h.calls.length, 0);
+});
+
+test('cloud copy derives compact activity from actual formative answers and does not change local evidence', async () => {
+  const h = harness();
+  const p = answer('actual');
+  p.evidence[0].at = Date.parse('2026-09-29T08:00:00Z');
+  p.updatedAt = Date.parse('2026-09-30T08:00:00Z');
+  const saved = h.saveCampaignProgress('A', p);
+  await h.flushCampaignProgress('A');
+  assert.deepEqual(h.calls[0][2].campaign.participation, { v: 1, attempts: 1, lastAnsweredAt: '2026-09-29T08:00:00.000Z' });
+  assert.equal(saved.progress.campaign.participation, undefined);
+  assert.deepEqual(h.calls[0][2].evidence, saved.progress.evidence);
+  await h.disposeCampaignStorage('A');
+});
 
 test('canonical key matches v3, local save precedes queue, default scope never uploads', async () => {
   const h = harness();

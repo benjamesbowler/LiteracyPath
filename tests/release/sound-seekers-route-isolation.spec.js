@@ -12,8 +12,8 @@ async function openRoute(page) {
   await opener.focus();
   await opener.click();
   await expect(page.locator(PORTAL)).toHaveCount(1);
-  await expect(page.getByRole("main", { name: "Sound Seekers woodland adventure" })).toBeFocused();
-  await expect(page.getByRole("button", { name: "Let’s explore", exact: true })).toBeEnabled();
+  await expect(page.getByRole("main", { name: "Sound Seekers", exact: true })).toBeFocused();
+  await expect(page.getByRole("button", { name: "Start exploring", exact: true })).toBeEnabled();
   return opener;
 }
 
@@ -65,7 +65,7 @@ test("real route owns one isolated fullscreen host and restores exact page state
   }))).toEqual({ sameHost: true, keydownListeners: 1 });
   expect(originalPortal).toBe("");
 
-  await page.getByRole("button", { name: "Back to home" }).click();
+  await page.getByRole("button", { name: "Home", exact: true }).click();
   await expect(page.locator(PORTAL)).toHaveCount(0);
   await expect(opener).toBeFocused();
   expect(await page.evaluate(() => ({
@@ -104,7 +104,7 @@ test("route traps forward and reverse Tab while nested sheets retain their own f
   expect(count).toBeGreaterThan(2);
   const first = tabOrder.first();
   const last = tabOrder.last();
-  const routeSurface = page.getByRole("main", { name: "Sound Seekers woodland adventure" });
+  const routeSurface = page.getByRole("main", { name: "Sound Seekers", exact: true });
 
   await page.keyboard.press("Shift+Tab");
   await expect(last).toBeFocused();
@@ -119,14 +119,17 @@ test("route traps forward and reverse Tab while nested sheets retain their own f
   await page.keyboard.press("Shift+Tab");
   await expect(last).toBeFocused();
 
-  await page.getByRole("button", { name: "Let’s explore" }).click();
-  const settingsOpener = page.getByRole("button", { name: "Pause adventure" });
+  await page.getByRole("button", { name: "Start exploring", exact: true }).click();
+  const settingsOpener = page.getByRole("button", { name: "Pause", exact: true });
   await settingsOpener.focus();
   await settingsOpener.click();
-  const dialog = page.getByRole("dialog", { name: "Adventure paused" });
-  const close = page.getByRole("button", { name: "Keep exploring" });
-  const save = page.getByRole("button", { name: "Save and leave" });
+  const dialog = page.getByRole("dialog", { name: "Paused", exact: true });
+  const resume = page.getByRole("button", { name: "Resume", exact: true });
+  const close = page.getByRole("button", { name: "Close Paused", exact: true });
+  const save = page.getByRole("button", { name: "Leave for Home", exact: true });
   await expect(dialog).toBeVisible();
+  await expect(resume).toBeFocused();
+  await page.keyboard.press("Shift+Tab");
   await expect(close).toBeFocused();
   await page.keyboard.press("Shift+Tab");
   await expect(save).toBeFocused();

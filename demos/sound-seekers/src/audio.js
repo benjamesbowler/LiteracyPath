@@ -19,6 +19,7 @@ export function createAudio({
   fetcher = globalThis.fetch?.bind(globalThis),
   onError = () => {},
   onSpeakingChange = () => {},
+  maxDecodedClips = 64,
 } = {}) {
   let context = null;
   let voiceGain = null;
@@ -78,7 +79,11 @@ export function createAudio({
   }
 
   function load(path) {
-    if (decoded.has(path)) return decoded.get(path);
+    if (decoded.has(path)) {
+      const cached = decoded.get(path);
+      decoded.delete(path); decoded.set(path, cached);
+      return cached;
+    }
     const pending = (async () => {
       const audioContext = ensureContext();
       if (!audioContext || !fetcher) throw new Error('Audio playback is unavailable.');
@@ -102,6 +107,7 @@ export function createAudio({
       }
     })();
     decoded.set(path, pending);
+    while (decoded.size > Math.max(8, maxDecodedClips)) decoded.delete(decoded.keys().next().value);
     pending.catch(() => { failed.add(path); if (decoded.get(path) === pending) decoded.delete(path); });
     return pending;
   }

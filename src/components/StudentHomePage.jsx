@@ -60,8 +60,8 @@ import {
 import { GAME_LIST } from "../data/learnGamesData.js";
 import { filterSample } from "../policy/freeTierContent.js";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
-import { woodlandHomeSummary } from '../features/soundSeekers/woodlandProgress.js';
-import { parseChapter } from '../../demos/sound-seekers/src/chapter/progress.js';
+import { campaignHomeSummary } from '../features/soundSeekers/rounded/campaignSummary.js';
+import { createCampaignStorage } from '../features/soundSeekers/v3/campaignStorage.js';
 import { readElQuestLocalProgress } from "../utils/adventureMapLocalProgress.js";
 import { CoinIcon } from "./shared/CurrencyIcons.jsx";
 import { skillBlueprints } from "../content/blueprints/skillBlueprints.js";
@@ -87,7 +87,7 @@ import {
   StudentWelcomeGuide
 } from "./StudentWelcomeGuide.jsx";
 import { ChildRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
-import { localProgressStorageKey, woodlandChapterStorageKey } from "../utils/progressKeys.js";
+import { localProgressStorageKey } from "../utils/progressKeys.js";
 import {
   beginStudentWelcomeVisit,
   dismissStudentWelcomePrompt
@@ -137,13 +137,11 @@ function readJsonArea(area, scopeKey) {
 }
 
 function readStudentHomeProgress(scopeKey) {
-  let woodland = { ok: true, value: {} };
-  try {
-    const raw = window.localStorage.getItem(woodlandChapterStorageKey(scopeKey));
-    if (raw) { const value = parseChapter(raw); woodland = value ? { ok: true, value } : { ok: false, value: {} }; }
-  } catch { woodland = { ok: false, value: {} }; }
+  let campaign;
+  try { const saved = createCampaignStorage({ storage: window.localStorage }).loadCampaignProgress(scopeKey); campaign = { ok: saved.ok, value: saved.progress || {} }; }
+  catch { campaign = { ok: false, value: {} }; }
   const areas = {
-    soundSeekers: woodland,
+    soundSeekers: campaign,
     phonics: readJsonArea("phonics_letters", scopeKey),
     adventureMap: readJsonArea("el_quest", scopeKey),
     arcade: readJsonArea("learn_games", scopeKey),
@@ -312,7 +310,8 @@ function arcadeGameCount() {
 // say something true and general rather than inventing one.
 function heroStopLine({ activityId, progress, mission }) {
   if (activityId === "sound-seekers") {
-    return woodlandHomeSummary(progress.soundSeekers).next;
+    const summary = campaignHomeSummary(progress.soundSeekers);
+    return summary.next?.label || summary.stageName || '';
   }
   if (activityId === "adventure-map") {
     const playable = elSkillsBlockCycles.filter(cycle => cycle.cycleNumber);

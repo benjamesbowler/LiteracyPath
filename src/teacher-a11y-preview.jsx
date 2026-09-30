@@ -85,6 +85,11 @@ const misconceptionPreviewAnswers = params.has("misconception") ? [
   is_correct: false,
   answered_at
 })) : null;
+const previewSkillTree = [
+  { id: "initial_sounds", label: "Initial Sounds" },
+  { id: "final_sounds", label: "Final Sounds" },
+  { id: "cvc_short_vowels", label: "CVC Short Vowels" }
+];
 const progressRows = [
   {
     ...students[0],
@@ -161,7 +166,7 @@ const previewProgressRows = requestedStudentCount > progressRows.length
       ...student,
       answered: 6 + (index % 18),
       accuracy: index % 4 === 0 ? 35 : 82,
-      masteredCount: index % 5,
+      masteredCount: index % (previewSkillTree.length + 1),
       currentSkill: index % 2 === 0 ? "Initial Sounds" : "Final Sounds",
       evidenceReadStatus: "complete",
       evidenceSkills: ["Initial Sounds"],
@@ -319,7 +324,8 @@ function Dashboard({ page }) {
         ...row.soundSeekers,
         [params.get("sound-seekers-practice") === "campaign" ? "campaign" : "woodland"]:
           params.get("sound-seekers-practice") === "campaign"
-            ? { practiceOnly: true, stagesCompleted: 3, totalStages: 30, missionsCompleted: 15, totalMissions: 150, attempts: 45 }
+            ? { practiceOnly: true, stagesCompleted: 3, totalStages: 30, missionsCompleted: 15, totalMissions: 150, attempts: 45,
+              lastActiveAt: new Date(Date.now() - 86_400_000).toISOString(), lastActivityLabel: "Last reported practice answer" }
             : { practiceOnly: true, projectsCompleted: 2, totalProjects: 5, attempts: 14 }
       }
     } : {}),
@@ -441,7 +447,7 @@ function Dashboard({ page }) {
       teacherId={teacherId}
       classDashboard={dashboardRows}
       loadClassDashboard={asyncNoop}
-      skillTree={[{ id: "initial_sounds", label: "Initial Sounds" }]}
+      skillTree={previewSkillTree}
       updateStudentSymbolPassword={asyncNoop}
       resetStudentSymbolPassword={asyncNoop}
       startStudentLogin={noop}

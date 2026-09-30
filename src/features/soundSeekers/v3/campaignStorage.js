@@ -8,6 +8,7 @@ import { localProgressStorageKey, localProgressStorageKeyForRow } from '../../..
 import { CAMPAIGN_VERSION, CAMPAIGN_STAGES, CAMPAIGN_MISSIONS } from './content/campaign.js';
 import { MECHANICS, publicBeat } from './engine/challenges.js';
 import { normalizeCampaignProgress, mergeCampaignProgress, mergeCheckpoint, CAMPAIGN_PROGRESS_VERSION } from './engine/campaignProgress.js';
+import { campaignParticipationCache } from '../rounded/campaignSummary.js';
 
 const catalog = { version: CAMPAIGN_VERSION, stages: CAMPAIGN_STAGES, missions: CAMPAIGN_MISSIONS };
 const AREA = 'phonics_quest';
@@ -109,6 +110,7 @@ export function validateCampaignSavedProgress(progress, trusted = null) {
     const state = checkpoint.beatState;
     requireShape(state.beatId === beat.id && state.mechanic === beat.mechanic && natural(state.errors)
       && strings(state.supportUsed) && typeof state.done === 'boolean' && typeof state.modelShown === 'boolean');
+    if (state.actionRevision !== undefined) requireShape(natural(state.actionRevision));
     if (beat.mechanic === MECHANICS.SIGNPOST) requireShape(strings(state.cardsHeard)
       && state.cardsHeard.every(id => beat.view.cards.some(card => card.targetId === id)));
     if ([MECHANICS.WORD_FORGE, 'sentence_build'].includes(beat.mechanic)) requireShape(strings(state.placed)
@@ -140,7 +142,7 @@ function decode(text) {
 }
 
 function cloudCopy(progress) {
-  const safe = { ...progress, campaign: { ...progress.campaign } };
+  const safe = { ...progress, campaign: { ...progress.campaign, participation: campaignParticipationCache(progress) } };
   // Original migration snapshots are device recovery data. In particular, old
   // teacher assignments and telemetry must not slip through nested payloads.
   delete safe.assignment;
@@ -153,11 +155,14 @@ function cloudCopy(progress) {
  * asynchronous queues testable without importing Supabase or contacting it.
  * API results are {ok,status,progress,error?}; subscribe receives that shape.
  */
-export function createCampaignStorage({ storage, getStorage = () => storage,
+export function createCampaignStorage({ storage, getStorage = () => storage, localOnly = false,
   queueSave = () => false, eventTarget = null,
   schedule = (callback, delay) => setTimeout(callback, delay), cancel = handle => clearTimeout(handle),
   debounceMs = 800, positionSyncMs = 30_000, clockNow = () => Date.now() } = {}) {
   const scopes = new Map();
+  // A public visit can have an explicit preview identity while still using its
+  // memory facade. That identity must never be treated as a cloud learner.
+  const isLocalOnly = scope => localOnly === true || scope === 'default';
   let listening = false;
   const getEntry = scope => {
     if (!scopes.has(scope)) scopes.set(scope, { progress: null, subscribers: new Set(), timer: null,
@@ -243,9 +248,9 @@ export function createCampaignStorage({ storage, getStorage = () => storage,
           for(const id of changed){const cp=reconciled.campaign.checkpoints[id];journal.positions[id]={attemptId:cp.attemptId,beatIndex:cp.beatIndex,position:cp.position,playTime:cp.playTime,updatedAt:cp.updatedAt};}
           const candidate=freeze(applyCampaignPositions(progress,journal));
           store.setItem(sideKey,JSON.stringify(journal));
-          entry.progress=candidate;entry.revision++;entry.dirty=scope!=='default';
-          if(scope!=='default') {if(forceSync)void flushCampaignProgress(scope);else scheduleSave(scope,entry,Math.max(0,positionSyncMs-(clockNow()-entry.lastQueuedAt)));}
-          return emit(entry,{ok:true,status:scope==='default'?'local-only':'saved-local',progress:candidate});
+          entry.progress=candidate;entry.revision++;entry.dirty=!isLocalOnly(scope);
+          if(!isLocalOnly(scope)) {if(forceSync)void flushCampaignProgress(scope);else scheduleSave(scope,entry,Math.max(0,positionSyncMs-(clockNow()-entry.lastQueuedAt)));}
+          return emit(entry,{ok:true,status:isLocalOnly(scope)?'local-only':'saved-local',progress:candidate});
         }catch(error){if(error.message==='unreadable'){entry.blocked=true;return emit(entry,failure('unreadable',entry.progress));}}
       }
     }
@@ -267,9 +272,9 @@ export function createCampaignStorage({ storage, getStorage = () => storage,
           const journal=buildCampaignLiveJournal(entry.cachedProgress,candidate,entry.baseSignature),bytes=JSON.stringify(journal);
           store.setItem(campaignLiveKey(key),bytes);entry.liveBytes=bytes;
           store.removeItem(campaignPositionKey(key));
-          entry.progress=freeze(candidate);entry.revision++;entry.dirty=scope!=='default';
-          if(scope!=='default'){if(forceSync)void flushCampaignProgress(scope);else scheduleSave(scope,entry);}
-          return emit(entry,{ok:true,status:scope==='default'?'local-only':'saved-local',progress:entry.progress});
+          entry.progress=freeze(candidate);entry.revision++;entry.dirty=!isLocalOnly(scope);
+          if(!isLocalOnly(scope)){if(forceSync)void flushCampaignProgress(scope);else scheduleSave(scope,entry);}
+          return emit(entry,{ok:true,status:isLocalOnly(scope)?'local-only':'saved-local',progress:entry.progress});
         }catch(error){if(error.message==='unreadable'){entry.blocked=true;return emit(entry,failure('unreadable',entry.progress));}}
       }
     }
@@ -297,9 +302,9 @@ export function createCampaignStorage({ storage, getStorage = () => storage,
       if(store.getItem(campaignLiveKey(campaignStorageKey(scope)))!==null)store.removeItem(campaignLiveKey(campaignStorageKey(scope)));
       if(store.getItem(campaignPositionKey(campaignStorageKey(scope)))!==null)store.removeItem(campaignPositionKey(campaignStorageKey(scope)));
       entry.localSaved = true;
-      result = { ok: true, status: scope === 'default' ? 'local-only' : 'saved-local', progress: freeze(candidate) };
+      result = { ok: true, status: isLocalOnly(scope) ? 'local-only' : 'saved-local', progress: freeze(candidate) };
     } catch { entry.localSaved = false; result = failure('unavailable', candidate); }
-    if (scope !== 'default') {
+    if (!isLocalOnly(scope)) {
       if (forceSync) void flushCampaignProgress(scope);
       else scheduleSave(scope, entry, positionOnly ? Math.max(0, positionSyncMs - (clockNow() - entry.lastQueuedAt)) : debounceMs);
     }
@@ -313,7 +318,7 @@ export function createCampaignStorage({ storage, getStorage = () => storage,
   async function flushEntry(scope, entry) {
     if (entry.timer !== null) { cancel(entry.timer); entry.timer = null; entry.timerDueAt = null; }
     if (entry.blocked) return entry.last || failure('conflict', entry.progress);
-    if (!entry.dirty || !entry.progress || scope === 'default') return entry.last || { ok: true, status: 'local-only', progress: freeze(entry.progress) };
+    if (!entry.dirty || !entry.progress || isLocalOnly(scope)) return entry.last || { ok: true, status: 'local-only', progress: freeze(entry.progress) };
     if (entry.inflight) return entry.inflight;
     const revision = entry.revision;
     entry.inflightRevision = revision;
@@ -335,6 +340,7 @@ export function createCampaignStorage({ storage, getStorage = () => storage,
     return entry.inflight;
   }
   function onHydrated(event) {
+    if (localOnly === true) return;
     const scope = event.detail?.studentId;
     if (!scopes.has(scope)) return;
     if (event.detail?.resetApplied) { onStorage({ key: campaignStorageKey(scope), newValue: null }); return; }

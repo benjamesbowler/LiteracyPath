@@ -1,4 +1,5 @@
-import { freshChapter } from "../../demos/sound-seekers/src/chapter/progress.js";
+import { createCampaignPreviewProgress } from "../../src/features/soundSeekers/preview/campaignPreview.js";
+import { CAMPAIGN_MISSIONS } from "../../src/features/soundSeekers/v3/content/campaign.js";
 import assert from "node:assert/strict";
 import test from "node:test";
 
@@ -135,27 +136,26 @@ test("continuation CTA names the selected daily activity and remaining tasks", (
   assert.equal(continuation.goal, "daily mission tasks");
 });
 
-test("Sound Seekers Home ignores retired trail assignments and counts current woodland projects", () => {
+test("Sound Seekers Home ignores retired assignments and counts only expanded main stages", () => {
   const old = { assignment: { targets: ["m", "s"] }, trail: { stopsDone: ["s1", "s1", "s2", "s41"] } };
   assert.equal(countCompletedSoundSeekersTrails(old), 2, "historical reporting still recognises valid anchors");
   assert.deepEqual(buildStudentHomeCardState("sound-seekers", { soundSeekers: old }), { label: "New", tone: "new", progressText: "" });
-  const chapter = freshChapter(61);
-  for (const id of ['picnic', 'brook', 'garden']) chapter.jobs[id] = { act: 3, round: 0, built: '', used: [], pending: false };
-  chapter.active = 'parcels'; chapter.attempts = 72;
-  const continuation = buildStudentHomeContinuation({ activity: { id: "sound-seekers" }, soundSeekersProgress: chapter });
-  assert.equal(continuation.label, "Continue Sound Seekers — 2 projects left");
-  assert.equal(continuation.remaining, 2);
-  assert.equal(continuation.goal, "Woodland projects");
-  assert.deepEqual(buildStudentHomeCardState("sound-seekers", { soundSeekers: chapter }), { label: "Continue", tone: "continue", progressText: "3 of 5 woodland projects" });
+  const journey = createCampaignPreviewProgress('meadow-04');
+  journey.assignment = old.assignment; journey.trail = old.trail;
+  const continuation = buildStudentHomeContinuation({ activity: { id: "sound-seekers" }, soundSeekersProgress: journey });
+  assert.equal(continuation.label, "Continue Sound Seekers — 135 adventures left");
+  assert.equal(continuation.remaining, 135);
+  assert.equal(continuation.goal, "Main adventures");
+  assert.deepEqual(buildStudentHomeCardState("sound-seekers", { soundSeekers: journey }), { label: "Continue", tone: "continue", progressText: "3 of 30 places helped" });
 });
 
-test("Sound Seekers completion names the completed current woodland", () => {
-  const chapter = freshChapter(7);
-  for (const job of Object.values(chapter.jobs)) job.act = 3;
-  chapter.complete = true;
-  const continuation = buildStudentHomeContinuation({ activity: { id: "sound-seekers" }, soundSeekersProgress: chapter });
-  assert.equal(continuation.label, "Replay Sound Seekers — woodland complete");
+test("Sound Seekers completion counts150 main missions without requiring extras", () => {
+  const journey = createCampaignPreviewProgress('meadow-01');
+  journey.campaign.completedMissions = Object.fromEntries(CAMPAIGN_MISSIONS.filter(m => m.kind === 'main').map(m => [m.id, {at:1,attemptId:'synthetic-completion'}]));
+  const continuation = buildStudentHomeContinuation({ activity: { id: "sound-seekers" }, soundSeekersProgress: journey });
+  assert.equal(continuation.label, "Replay Sound Seekers — all three worlds helped");
   assert.equal(continuation.remaining, 0);
+  assert.equal(Object.keys(journey.campaign.completedMissions).length,150);
 });
 
 test("card state distinguishes Continue from New without child-facing scores", () => {

@@ -48,3 +48,37 @@ for (const failure of ['HTTP error', 'cached HTML fallback']) {
     } finally { audio.dispose(); }
   });
 }
+
+test('a long campaign bounds decoded audio while keeping recently used clips and complete sequences', async () => {
+  const requests = [];
+  const catalog = Object.fromEntries(Array.from({ length: 12 }, (_, i) => [`clip-${i}`, `/audio/sound-seekers/campaign/clip-${i}.mp3`]));
+  const owner = createAudio({ catalog, AudioContextClass: FakeAudioContext, maxDecodedClips: 8,
+    fetcher: async path => { requests.push(path); return { ok: true, arrayBuffer: async () => new Uint8Array([1]).buffer }; } });
+  try {
+    await owner.unlock();
+    assert.equal(await owner.sequence(Object.keys(catalog).slice(0, 8)), true);
+    assert.equal(await owner.play('clip-0'), true, 'touch the oldest clip before loading a new one');
+    assert.equal(await owner.play('clip-8'), true);
+    assert.equal(await owner.play('clip-0'), true, 'recently heard clip stays decoded');
+    assert.equal(requests.filter(path => path === catalog['clip-0']).length, 1);
+    assert.equal(await owner.play('clip-1'), true);
+    assert.equal(requests.filter(path => path === catalog['clip-1']).length, 2, 'least recently used clip is fetched again');
+    assert.equal(await owner.sequence(Object.keys(catalog)), true, 'eviction cannot truncate an already loaded sequence');
+  } finally { owner.dispose(); }
+});
+
+test('cancelling a pending recording never reports that it was heard', async () => {
+  let deliver;
+  const owner = createAudio({ catalog: { slow: '/audio/sound-seekers/campaign/slow.mp3' }, AudioContextClass: FakeAudioContext,
+    fetcher: () => new Promise(resolve => { deliver = resolve; }) });
+  try {
+    await owner.unlock();
+    const playing = owner.play('slow');
+    owner.stop();
+    assert.equal(await playing, false);
+    deliver({ ok: true, arrayBuffer: async () => new Uint8Array([1]).buffer });
+    assert.equal(await owner.play('slow'), true, 'a deliberate new replay can use the delivered recording');
+    owner.setMuted(true);
+    assert.equal(await owner.play('slow'), false);
+  } finally { owner.dispose(); }
+});

@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { PRODUCT_NAME } from "../src/data/teacherBrand.js";
+import { CAMPAIGN_OFFLINE_AUDIO_PREFIXES } from "../src/features/soundSeekers/rounded/campaignAudioCatalog.js";
 
 function collectChunkClosure(bundle, seeds, { includeDynamic = false } = {}) {
   const selected = new Set();
@@ -33,7 +34,8 @@ const QUEST_MEDIA_PREFIXES = [
   "/game-assets/sound-seekers/characters/",
   "/audio/music/quest/",
   "/game-assets/sound-seekers/v2/",
-  "/audio/quest-v2/"
+  "/audio/quest-v2/",
+  ...${JSON.stringify(CAMPAIGN_OFFLINE_AUDIO_PREFIXES)}
 ];
 
 function isQuestMedia(pathname) {
