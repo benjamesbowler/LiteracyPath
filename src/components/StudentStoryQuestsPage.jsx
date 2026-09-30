@@ -199,7 +199,7 @@ export function StudentStoryQuestsPage({
                     </span>
                     <span className="kg-quest-foot">
                       <strong className="kg-quest-title">{card.title}</strong>
-                      <small className="kg-quest-note">{card.note}</small>
+                      <small className="kg-quest-note">{card.state === "carry-on" ? card.note : quests.find(quest => quest.id === card.id)?.childSynopsis || card.note}</small>
                       {card.readingNote && <small className="kg-quest-reading-note">{card.readingNote}</small>}
                       {index === 0 && (
                         <small className="kg-quest-action" data-child-emphasis-cue="">

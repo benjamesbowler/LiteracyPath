@@ -74,7 +74,7 @@ test("Students defaults to a scannable roster and opens one layer at a time", as
   assert.match(students, /const ROSTER_PAGE_SIZE = 10;/);
   assert.match(
     students,
-    /"--teacher-roster-grid-min-width": `\$\{640 \+ visibleRosterColumns\.length \* 150\}px`/
+    /"--teacher-roster-grid-min-width": `\$\{672 \+ visibleRosterColumns\.length \* 150\}px`/
   );
   assert.match(students, /className="teacher-roster-pagination"/);
   assert.match(students, /teacher-students-secondary teacher-students-overview/);
@@ -95,7 +95,7 @@ test("Students defaults to a scannable roster and opens one layer at a time", as
   assert.doesNotMatch(students, /Re-engage quiet readers|low attainment|highest current total/);
   assert.doesNotMatch(students, /No practice yet|<option value="not-started">Not started/);
   assert.match(students, /No scored answers yet/);
-  assert.match(students, /Run first Skills checks/);
+  assert.match(students, /Run first Skills assessments/);
   assert.match(students, /<strong>Current focus:<\/strong>/);
   // The roster is a grid, so every table part states its role explicitly:
   // changing a table element's display drops the implicit one.
@@ -877,7 +877,8 @@ test("the printable class report lives in the teacher workflow and uses the sele
   assert.match(reports, /filters\?\.\["Assessment period"\]/);
   assert.match(reports, /<span>Class accuracy<\/span>/);
   assert.match(reports, /: "Not enough results"/);
-  assert.match(reports, /Missing or incomplete results are not counted as zero/);
+  assert.match(reports, /TEACHER_COPY\.reports\.classSummaryResultsHelp/);
+  assert.match(TEACHER_COPY.reports.classSummaryResultsHelp, /Missing or incomplete results are not counted as zero/);
 });
 
 test("teacher-run letter and pattern assessments retain visible directions and separated stimuli", async () => {

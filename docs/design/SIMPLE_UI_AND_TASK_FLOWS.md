@@ -48,7 +48,7 @@ under `.artifacts/overcomplication-audit`; this document records product decisio
 
 - Today presents named useful actions before metrics. Missing evidence,
   operational preparation and difficulty evidence are distinct reasons.
-- Student sessions begin with Practise, Check or Read together. All existing
+- Student sessions begin with Practise, Assess or Read together. All existing
   server session types remain accessible. Supported practice stays distinct
   from independent assessment. Confirmation shows exact content, audience and
   duration before the existing start call.
@@ -56,14 +56,18 @@ under `.artifacts/overcomplication-audit`; this document records product decisio
   can deliberately change it; per-student cycle exceptions remain available.
   Teaching-cycle choices are stored per class, scoped to the teacher.
 - Live sessions distinguish unavailable content, connection waiting, incomplete
-  checks and finished work. Human time labels summarize unchanged raw evidence;
+  assessments and finished work. Human time labels summarize unchanged raw evidence;
   full coverage, provenance and supported/independent details remain accessible.
 - Roster routine View, Assess and Practice actions lead; maintenance and removal
   live in Manage. Student detail begins with current focus, evidence and next
   action before history and maintenance.
 - Summary begins with the current teaching priority, then optional full evidence.
   Unknown evidence remains unknown. Export offers actual supported serializers
-  with explicit scope and formats.
+  with explicit scope and formats. Human reports use readable labels; the Data
+  worksheet preserves the complete ledger and stable identifiers.
+- Insight practice plans retain their exact targets and original reasoning on
+  teacher-owned records. The source cannot be rewritten, and removing a student
+  erases their embedded source. These plans do not alter child game progress.
 - Present opens the current lesson with one Present action. Plan and Preview
   remain available. Teacher notes remain outside the public projection.
 

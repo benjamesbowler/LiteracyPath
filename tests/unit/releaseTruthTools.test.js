@@ -177,7 +177,8 @@ test("Linux visual baselines have an isolated reviewed refresh workflow", () => 
   assert.match(workflow, /authenticated-missing/);
   assert.match(workflow, /supabase db reset --local --no-seed/);
   assert.match(workflow, /npm run seed:audit-school/);
-  assert.equal(workflow.match(/--update-snapshots=all/g)?.length, 5);
+  assert.equal(workflow.match(/--update-snapshots=all/g)?.length, 9);
+  assert.match(workflow, /if: inputs.scope == 'app-simplification'[\s\S]*teacher-action-layout\.spec\.js/);
   assert.match(
     workflow,
     /env -u LP_AUDIT_TEACHER_PASSWORD npx playwright test[\s\S]*teacher-roster-device-matrix\.spec\.js[\s\S]*--update-snapshots=all/

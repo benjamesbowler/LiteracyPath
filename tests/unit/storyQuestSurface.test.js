@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import assert from "node:assert/strict";
 import test from "node:test";
 import { storyQuests } from "../../src/data/storyQuests.js";
+import { storyQuestSpokenItems } from "../../src/data/storyQuestReaderCopy.js";
 import { STUDENT_RAIL_DESTINATIONS, selectActiveStudentTab } from "../../src/policy/studentRailPolicy.js";
 import {
   buildStoryQuestResumeHistory,
@@ -20,6 +21,24 @@ const appSource = readFileSync("src/components/AppSurface.jsx", "utf8");
 const appRootSource = readFileSync("src/App.jsx", "utf8");
 const teacherStudentsSource = readFileSync("src/components/TeacherStudentsPage.jsx", "utf8");
 const comicThemeStyles = readFileSync("src/styles/comic-theme.css", "utf8");
+
+test("all fourteen shelf synopses stay short without changing recorded invitations or story narration", () => {
+  assert.equal(storyQuests.length, 14);
+  for (const quest of storyQuests) {
+    assert.ok(quest.childSynopsis, `${quest.id} needs a child shelf synopsis`);
+    assert.ok(quest.childSynopsis.split(/\s+/).length <= 8, `${quest.id}: ${quest.childSynopsis}`);
+    assert.doesNotMatch(quest.childSynopsis, /\b(?:assessments?|evidence|learners?|students?|checkpoints?|wrong|failed|incorrect)\b/i);
+  }
+  const withoutVisualSynopses = storyQuests.map(quest => {
+    const original = { ...quest };
+    delete original.childSynopsis;
+    return original;
+  });
+  assert.deepEqual(storyQuestSpokenItems(storyQuests), storyQuestSpokenItems(withoutVisualSynopses));
+  const shelfSource = readFileSync("src/components/StudentStoryQuestsPage.jsx", "utf8");
+  assert.match(shelfSource, /card\.state === "carry-on" \? card\.note[\s\S]*?\.childSynopsis/);
+  assert.match(shelfSource, /narration\.play\(storyQuestInvitation\(/);
+});
 
 function channel(hex) {
   const value = Number.parseInt(hex, 16) / 255;

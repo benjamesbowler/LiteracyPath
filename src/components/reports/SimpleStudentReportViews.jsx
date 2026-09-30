@@ -305,19 +305,19 @@ export function SimpleOverviewReportView({
         <p>{teacherReportText(priority?.reason || (overview.checkedCount
           ? "No current item is flagged for additional teaching. This does not establish proficiency in the unchecked areas."
           : "No saved independent result supports a teaching judgement yet. Missing evidence remains unknown."))}</p>
-        {priority?.latestAt && <small>Evidence updated {new Date(priority.latestAt).toLocaleDateString()} · {priority.domainLabel || REPORTING_DOMAIN_LABELS[priority.domain] || priority.domain}</small>}
+        {priority?.latestAt && <small>Results updated {new Date(priority.latestAt).toLocaleDateString()} · {priority.domainLabel || REPORTING_DOMAIN_LABELS[priority.domain] || priority.domain}</small>}
         <p><strong>Next:</strong> {priorityNeedsEvidence
           ? "Review the saved responses and collect a current independent assessment before making a learning judgement."
-          : "Model this named target, practise together, then assess independently. Keep practice and assessment as separate evidence."}</p>
-        <small>This is a suggested focus for teacher review. Formal assessments, observations and supported practice retain their own evidence; they are not averaged.</small>
+          : "Model this named target, practise together, then assess independently. Keep practice and assessment results separate."}</p>
+        <small>This is a suggested focus for teacher review. Formal assessments, observations and supported practice retain their own saved results; they are not averaged.</small>
         {onStartAssessment && <button className="lp-button lp-button-primary" type="button" onClick={onStartAssessment}>Open assessments for {studentName}</button>}
       </section>
       {workspace.wholeChild?.evidenceHealth && (
         <EvidenceHealthReview health={workspace.wholeChild.evidenceHealth} />
       )}
-      {populatedGroup && <section aria-label="Evidence for the next action"><OverviewGroup key={populatedGroup.id} group={{ ...populatedGroup, defaultOpen: true }} /></section>}
+      {populatedGroup && <section aria-label="Saved results for the next action"><OverviewGroup key={populatedGroup.id} group={{ ...populatedGroup, defaultOpen: true }} /></section>}
       <details className="simple-report-coverage">
-        <summary>All evidence and coverage · {overview.totalCount} source items</summary>
+        <summary>All saved results and coverage · {overview.totalCount} source items</summary>
       <section className="simple-report-summary" aria-label="Learning overview">
         {groups.map(group => (
           <article className={group.id} key={group.id}>

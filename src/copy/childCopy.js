@@ -22,6 +22,13 @@ export const CHILD_COPY = Object.freeze({
     moreToGo: count => `${count} more to go`,
     complete: "You did it!"
   }),
+  arcade: Object.freeze({
+    savedStop: (stop, total) => total ? `Your saved stop: ${stop} of ${total}` : `Your saved stop: ${stop}`,
+    resumePrompt: "Carry on where you left off?"
+  }),
+  soundSeekers: Object.freeze({
+    startInstruction: "Find sounds. Build words to help the Pals."
+  }),
   tracing: Object.freeze({
     prompt: "Trace the grey letter.",
     check: "Check my letter",

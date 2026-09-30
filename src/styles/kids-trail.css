@@ -747,3 +747,7 @@
   .kg-stage .kg-map .kg-map-scene { min-height: 0; height: 100%; width: auto; max-width: 100%; aspect-ratio: 2752 / 1536; }
   .kg-stage .kg-map .kg-map-card { padding-block: 10px; }
 }
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .kg-stage .kg-map .kg-map-cards { grid-row: 2 / 4; }
+}

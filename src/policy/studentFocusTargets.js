@@ -39,12 +39,12 @@ export const STUDENT_FOCUS_TARGET_OPTIONS = Object.freeze([
   Object.freeze({
     id: STUDENT_FOCUS_TARGETS.ADVENTURE_MAP,
     label: "Adventure Map",
-    description: "Keep students at one shared map space or each child at their own current space."
+    description: "Keep students at one shared map space or each student at their own current space."
   }),
   Object.freeze({
     id: STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE,
     label: "Cycle Practice",
-    description: "30 minutes of cycle-bounded practice, then a Cycle Check."
+    description: "30 minutes of cycle-bounded practice, then a short assessment."
   })
 ]);
 

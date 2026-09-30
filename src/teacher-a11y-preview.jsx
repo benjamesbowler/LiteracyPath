@@ -321,6 +321,12 @@ function Dashboard({ page }) {
         lastActive: new Date().toISOString()
       }
     } : {}),
+    ...(params.has("focus-sparse") && row.id === studentId ? {
+      answered: 1,
+      currentAnswered: 1,
+      currentAccuracy: 0,
+      focusEvidence: { skill: row.currentSkill, answered: 1, correct: 0, accuracy: 0, lastActive: new Date().toISOString() }
+    } : {}),
     ...(params.has("sound-seekers-practice") ? {
       soundSeekers: {
         ...row.soundSeekers,
@@ -435,7 +441,11 @@ function Dashboard({ page }) {
       onClearStudent={() => setSelectedPreviewStudentId("")}
       selectedGroupId="all"
       onSelectGroup={noop}
-      onStartCheck={asyncNoop}
+      onStartCheck={async row => { window.__teacherPreviewAssessment = { studentId: row.id }; }}
+      currentCycleId={params.get("cycle") ?? "cycle-3"}
+      onStartStudentSession={(studentIds, context) => {
+        window.__teacherPreviewPractice = { studentIds, context };
+      }}
       onOpenReport={noop}
       onOpenGuidedReading={noop}
       onOpenStoryQuests={noop}

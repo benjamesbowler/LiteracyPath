@@ -165,6 +165,20 @@
   .kg-stage .student-surface-arcade .lg-simple-arcade h2 { font-size: 18px; }
 }
 @media (max-height: 430px) and (orientation: landscape) {
+  /* This picker is authored in physical pixels. Keep its shell native too:
+     a scaled tablet shell would mix inverse-sized targets with scaled rows. */
+  .kg-stage:has(.student-surface-phonics .phonics-simple-picker) { --kg-header-height: 60px; --kg-tabbar-height: 64px; --kg-tab-height: 56px; --kg-physical-hit: 56px !important; width: 100% !important; height: 100%; transform: translate(-50%, -50%); }
+  .kg-stage:has(.student-surface-phonics .phonics-simple-picker) .kg-header { flex: 0 0 var(--kg-header-height); gap: 4px; padding-inline: 6px; }
+  .kg-stage:has(.student-surface-phonics .phonics-simple-picker) .kg-tabbar { flex: 0 0 var(--kg-tabbar-height); gap: 6px; padding-inline: 6px; }
+  .kg-stage:has(.student-surface-phonics .phonics-simple-picker) :is(.kg-avatar, .kg-iconbutton, .kg-home-music-control) { width: 56px; height: 56px; }
+  .kg-stage:has(.student-surface-phonics .phonics-simple-picker) .kg-identity { display: none; }
+  .kg-stage .student-surface-phonics .phonics-island-view:has(.phonics-simple-picker) { display: grid; grid-template-columns: 64px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); gap: 4px; }
+  .kg-stage .student-surface-phonics .phonics-island-view:has(.phonics-simple-picker) .phonics-island-switcher { grid-template-columns: minmax(0, 1fr); align-content: start; gap: 6px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity:has(.phonics-simple-picker) .phonics-island-card { display: grid; grid-template-rows: 28px auto; justify-items: center; gap: 0; height: var(--kg-physical-hit); min-height: var(--kg-physical-hit) !important; padding: 2px; }
+  .kg-stage .student-surface-phonics .phonics-island-view:has(.phonics-simple-picker) .phonics-island-card svg { width: 28px; height: 28px; }
+  .kg-stage .student-surface-phonics .phonics-island-view:has(.phonics-simple-picker) .phonics-island-card > span[aria-hidden] { font-size: 24px; line-height: 28px; }
+  .kg-stage .student-surface-phonics .phonics-island-view:has(.phonics-simple-picker) .phonics-island-label strong { font-size: 14px; line-height: 16px; }
+  .kg-stage .student-surface-phonics .phonics-island-view:has(.phonics-simple-picker) .phonics-island-label small { display: none; }
   .kg-stage .kg-books.kg-books { grid-template-columns: minmax(180px, 1fr) minmax(0, 1.5fr); grid-template-rows: 56px minmax(0, 1fr); gap: 6px; padding: 4px; }
   .kg-stage .kg-books .kg-books-head { grid-column: 1 / -1; grid-row: 1; gap: 8px; min-height: 56px; }
   .kg-stage .kg-books .kg-continue { grid-column: 1; grid-row: 2; min-height: 0; padding: 5px; gap: 4px; grid-template-columns: 56px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) 56px; }
@@ -184,23 +198,35 @@
   .kg-stage .kg-books .kg-picture-shelf .kg-book-card-main { grid-column: 2; grid-row: 1; gap: 2px; }
   .kg-stage .kg-books .kg-picture-shelf .kg-book-title { font-size: 12px; }
   .kg-stage .kg-books .kg-picture-shelf .kg-book-purpose { font-size: 10px; white-space: normal; }
-  .kg-stage .student-surface-phonics .phonics-picker.phonics-simple-picker { display: grid !important; grid-template-columns: minmax(140px, 1fr) minmax(0, 1.5fr); grid-template-rows: auto auto minmax(56px, 1fr) auto; gap: 6px; padding: 4px; }
-  .kg-stage .student-surface-phonics .phonics-simple-picker > h1, .kg-stage .student-surface-phonics .phonics-simple-picker > p { grid-column: 1; }
-  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-recommendation-reason { grid-column: 1; grid-row: 1; display: flex; justify-self: end; width: 56px; height: 56px; margin: 0; padding: 0; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-picker.phonics-simple-picker { display: grid !important; width: 100%; max-width: none; grid-template-columns: minmax(180px, 1fr) minmax(264px, 1.5fr); grid-template-rows: var(--kg-physical-hit) minmax(64px, 1fr) 24px; gap: 4px; padding: 4px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-simple-picker > h1 { grid-column: 1; grid-row: 1; align-self: start; max-width: calc(100% - 64px); margin: 0; font-size: 20px; line-height: 1.2; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-simple-picker > p[data-child-instruction] { grid-column: 1; grid-row: 1; align-self: end; max-width: calc(100% - 64px); margin: 0; font-size: 13px; line-height: 1.2; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-recommendation-reason { position: static; grid-column: 1; grid-row: 1; display: flex; justify-self: end; width: var(--kg-physical-hit); height: var(--kg-physical-hit); margin: 0; padding: 0; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-recommendation-hear { position: static; margin: 0; transform: none; }
   .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-recommendation-reason > [data-recommendation-explanation] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-feature { grid-column: 1; grid-row: 3; min-height: 64px; gap: 6px; padding: 6px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-feature { grid-column: 1; grid-row: 2; min-height: 64px; max-height: none; gap: 6px; padding: 6px; }
   .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-feature > span:last-child { gap: 4px; }
   .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-feature strong { font-size: 18px; line-height: 1.2; white-space: nowrap; }
   .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-feature small { font-size: 13px; line-height: 1.2; white-space: nowrap; }
   .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-feature .phonics-letter-symbol { font-size: 42px; }
   .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-alphabet-toggle { grid-column: 2; grid-row: 1; }
-  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-picker-progress { grid-column: 1; grid-row: 4; font-size: 12px; }
-  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-familiar-letters { grid-column: 2; grid-row: 2 / 5; display: grid; align-content: center; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto 56px; gap: 6px; }
-  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-familiar-letters > span { grid-column: 1 / -1; }
-  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-familiar-letters .phonics-letter-card { width: 100%; height: 56px; }
-  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-alphabet-discovery { grid-column: 2; grid-row: 2 / 5; }
-  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-grid { grid-template-columns: repeat(3, minmax(56px, 1fr)); grid-template-rows: minmax(56px, 1fr); }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-picker-progress { grid-column: 1; grid-row: 3; min-height: 24px; margin: 0; padding: 2px 4px; font-size: 12px; line-height: 1.2; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-familiar-letters { grid-column: 2; grid-row: 2 / 4; display: grid; align-content: center; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto var(--kg-physical-hit); gap: 6px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-familiar-letters > span { grid-column: 1 / -1; font-size: 14px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-simple-picker .phonics-letter-card { height: var(--kg-physical-hit); min-height: var(--kg-physical-hit) !important; align-self: center; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-familiar-letters .phonics-letter-card { width: 100%; height: var(--kg-physical-hit); }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-card .phonics-letter-symbol { font-size: 32px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-card.inprogress { display: grid; grid-template-rows: minmax(0, 1fr) auto; padding: 2px; gap: 0; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-card.inprogress .phonics-letter-symbol { font-size: 24px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-card.inprogress .phonics-letter-rounds { position: static; font-size: 12px; line-height: 1.1; color: var(--kg-ink); }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-card.inprogress .phonics-letter-status { display: none; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-alphabet-discovery { grid-column: 2; grid-row: 1 / 4; min-height: 128px; grid-template-rows: minmax(64px, 1fr) var(--kg-physical-hit); gap: 4px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-simple-picker .phonics-letter-grid { align-self: start; height: 64px; grid-template-columns: repeat(3, minmax(var(--kg-physical-hit), 1fr)); grid-template-rows: var(--kg-physical-hit); padding: 4px; gap: 8px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker[data-alphabet-open="true"] .phonics-letter-grid { width: calc(100% - 72px); }
+  .kg-stage .student-surface-phonics .phonics-simple-picker[data-alphabet-open="true"] .phonics-alphabet-toggle { justify-self: end; align-self: start; width: 64px; padding-inline: 4px; z-index: 2; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-alphabet-toggle { font-size: 17px; }
   .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-alphabet-pages button { font-size: 12px; padding-inline: 4px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-alphabet-pages [role=status] { font-size: 15px; }
   .kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-scrollbody { display: grid; grid-template-columns: minmax(170px, 1fr) minmax(0, 1.4fr); grid-template-rows: 56px minmax(0, 1fr); gap: 6px; }
   .kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-topband { grid-column: 1 / -1; grid-row: 1; padding: 0 142px 0 0; }
   .kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-bottomband { position: absolute; right: 0; top: 0; min-height: 56px !important; height: 56px; width: 138px; padding: 0 !important; margin: 0; border: 0; background: transparent; }

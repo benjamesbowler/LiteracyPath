@@ -106,6 +106,15 @@ test("the export glossary documents only figures that have an on-screen home", (
   }
 });
 
+test("saved activity explains local-only progress exclusions in the same teacher wording on screen and in exports", () => {
+  const tooltip = metricDefinitionText("active");
+  const exported = buildMetricDefinitionRows().find(row => row["Figure key"] === "active");
+  assert.match(tooltip, /Only activity received by this dashboard is counted/);
+  assert.match(tooltip, /progress saved only on a device/);
+  assert.equal(exported.Excludes, METRIC_DEFINITIONS.active.excludes);
+  assert.doesNotMatch(`${tooltip}\n${exported.Excludes}`, /\bcheckpoints?\b/i);
+});
+
 test("every threshold number in a definition is the number the policy holds", () => {
   const { accuracyPercent, minimumEvidence, recency } = LEARNING_EVIDENCE_POLICY;
   assert.match(

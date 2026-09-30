@@ -81,7 +81,7 @@ test("report actions stay specific to their evidence area", () => {
   // 2026-07-27: renamed with the section - assessments have their own funnel now.
   assert.match(finishedReportSource, /Open assessments/);
   assert.match(finishedReportSource, /Start an assessment/);
-  assert.match(finishedReportSource, /Download progress and evidence workbook \(XLSX\)/);
+  assert.match(finishedReportSource, /Download progress and results workbook \(XLSX\)/);
   assert.match(finishedReportSource, /This workbook covers progress across tabs/);
   assert.match(finishedReportSource, /exportSimpleStudentProgressExcel\(reportingWorkspace/);
   const rows = buildStudentWorkspaceCsvRows("whole-child", {

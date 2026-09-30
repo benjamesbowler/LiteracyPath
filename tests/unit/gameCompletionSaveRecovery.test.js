@@ -12,6 +12,7 @@ import { arcadeGuideForGame } from "../../src/components/learn/games/shared/arca
 import * as surfaceNames from "../../src/utils/fullscreenOverlayNames.js";
 import { newGameSeed } from "../../src/utils/gameReplay.js";
 import * as wordMatchProgression from "../../src/utils/wordMatchProgression.js";
+import { CHILD_COPY } from "../../src/copy/childCopy.js";
 
 const scope = "completion-recovery";
 const key = `literacy-guide-learn-games:${scope}`;
@@ -96,7 +97,7 @@ function setup(t, gameId = "rhyme-pop") {
   let paused = false;
   const api = { pause() { paused = true; }, resume() { paused = false; } };
   const imports = {
-    ...hooks, ...progress, ...surfaceNames, ...wordMatchProgression, ...arcadeJourneys, element,
+    ...hooks, ...progress, ...surfaceNames, ...wordMatchProgression, ...arcadeJourneys, element, CHILD_COPY,
     useActivityMusic: () => hooks.useState(false), newGameSeed,
     Component: class {}, Suspense: "Suspense", createPortal: content => content,
     GAME_LIST, LEARN_GAMES: { [gameId]: Engine }, premiumProfileForGame, arcadeGuideForGame,

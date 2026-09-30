@@ -15,6 +15,9 @@ const SELECT_FIELDS = [
   "student_ids",
   "focus",
   "activity",
+  "source_action",
+  "insight_snapshot",
+  "practice_targets",
   "planned_for",
   "status",
   "delivered_at",
@@ -792,6 +795,9 @@ export function InterventionLoop({
                   <div><dt>Teacher</dt><dd>{intervention.owner_label}</dd></div>
                   <div><dt>Group</dt><dd>{(intervention.student_ids || []).length} {intervention.student_ids?.length === 1 ? "student" : "students"}</dd></div>
                   <div><dt>Activity</dt><dd>{intervention.activity}</dd></div>
+                  {intervention.source_action === "assign_practice" && (
+                    <div><dt>Teacher-led practice</dt><dd>{(intervention.practice_targets || []).join(", ")} · Practise these sounds with your group.</dd></div>
+                  )}
                   {intervention.outcome && (
                     <div><dt>Result</dt><dd>{friendlySupportResult(intervention.outcome)}</dd></div>
                   )}
@@ -800,6 +806,14 @@ export function InterventionLoop({
                     <div><dt>Next review</dt><dd>{friendlyPlanDate(intervention.next_review_on)}</dd></div>
                   )}
                 </dl>
+                {intervention.insight_snapshot && (
+                  <details className="teacher-intervention-source">
+                    <summary>Original reason for this plan</summary>
+                    <p>{intervention.insight_snapshot.label}</p>
+                    {intervention.insight_snapshot.reason && <p>{intervention.insight_snapshot.reason}</p>}
+                    <p>{intervention.insight_snapshot.focus}</p>
+                  </details>
+                )}
 
                 {intervention.status === "planned" && (
                   <>

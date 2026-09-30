@@ -79,7 +79,7 @@ export function buildClassActivitySyncHealth(
         ? "Sync delayed"
         : totals.attempted > 0
           ? "Sync healthy"
-          : "No sync telemetry"
+          : "No saved activity received yet"
   };
 }
 

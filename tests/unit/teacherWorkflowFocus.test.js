@@ -32,7 +32,7 @@ test("a sparse Summary leads with evidence collection, opens populated evidence 
   assert.ok(html.indexOf('aria-label="Current instructional priority"') < html.indexOf('class="simple-report-coverage"'));
   assert.match(html, /One scored response cannot support a learning judgement/);
   assert.match(html, /collect a current independent assessment/);
-  assert.match(html, /All evidence and coverage · 126 source items/);
+  assert.match(html, /All saved results and coverage · 126 source items/);
   assert.match(html, /class="simple-report-group not-enough-yet" open=""/);
   assert.doesNotMatch(html, /class="simple-report-group needs-teaching" open=""/);
   assert.match(html, /Not checked is not a low result/);
@@ -45,7 +45,7 @@ test("a sparse Summary leads with evidence collection, opens populated evidence 
 test("one Export disclosure names student, report and serializer scope without a second download", () => {
   const html = renderToStaticMarkup(React.createElement(StudentReportShell, {
     activeView: "whole-child", studentName: "Ada", onViewChange() {}, onExport() {},
-    exportLabel: "Download progress and evidence workbook (XLSX)",
+    exportLabel: "Download progress and results workbook (XLSX)",
     exportScope: "Current judgements: latest 90 days. All source items and saved Skills detail.",
     provenanceRows: [{ field: "Content version(s)", value: "frozen-source-v1" }]
   }));

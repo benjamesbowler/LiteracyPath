@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "snapshots": {
     "guidedReading": {
-      "sha256": "0be3c15637c9e7d18e9a84f9f2c05e73ab3a201cb2a7be84809eac328b4b6c42",
+      "sha256": "4a74b2c9616035a023360043d5bfd4f2f5190e1c4525bfcce96e14ae5005add5",
       "sheetNames": [
         "Report summary",
         "Summary",
@@ -16,7 +16,7 @@
       "cells": 186
     },
     "studentEl": {
-      "sha256": "8b0745c3ca59267e7d9dceb20cb49c5ee1d3e725e2f6e8a2d2cdf537ec373bec",
+      "sha256": "d23a08aad8b88fa05be222b2c2ae99e70479b20f87940c1a486aa650a4f51e1a",
       "sheetNames": [
         "Student Summary",
         "Letter Names & Sounds",
@@ -30,10 +30,10 @@
         "How figures are worked out"
       ],
       "rows": 110,
-      "cells": 1483
+      "cells": 1493
     },
     "classEl": {
-      "sha256": "88e70add7195bfb5b31bdd7ab1862967f290490042a613eeb6010520e5e8bf25",
+      "sha256": "26cf9b70532664ebafa5d158f87e612cf95d91d23983e3ae82dc46c5ecba4505",
       "sheetNames": [
         "Class Summary",
         "Letter Sound Class Matrix",
@@ -47,7 +47,7 @@
         "How figures are worked out"
       ],
       "rows": 116,
-      "cells": 1395
+      "cells": 1399
     }
   }
 }

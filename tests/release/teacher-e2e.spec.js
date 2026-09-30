@@ -109,7 +109,7 @@ test("A10.7 teacher A completes login → class → learner → assessment → r
 
   const downloadPromise = page.waitForEvent("download");
   await page.locator(".lg-report-export-menu > summary").click();
-  await page.getByRole("button", { name: "Download progress and evidence workbook (XLSX)", exact: true }).click();
+  await page.getByRole("button", { name: "Download progress and results workbook (XLSX)", exact: true }).click();
   const download = await downloadPromise;
   expect(download.suggestedFilename()).toMatch(/\.xlsx$/i);
   const workbook = await readDownloadWorkbook(download);
@@ -125,7 +125,13 @@ test("A10.7 teacher A completes login → class → learner → assessment → r
   expect(questionRows.length).toBeGreaterThanOrEqual(520);
   expect(dataText).toContain("Aarav");
   expect(dataText).toContain("Audit Class A");
-  expect(dataText).not.toMatch(/Attempt ID|Question ID|audit-long-history|audit-item-/i);
+  // The readable report hides internal references; the machine-readable ledger
+  // retains stable IDs required by Reporting Bible X.4 for joining exports.
+  expect(dataText).toContain("audit-long-history");
+  expect(dataText).toContain("audit-item-");
+  for (const name of ["Report", "Skills"]) {
+    expect(worksheetText(workbook.getWorksheet(name))).not.toMatch(/Attempt ID|Question ID|audit-long-history|audit-item-/i);
+  }
   expect(pageErrors).toEqual([]);
 });
 

@@ -227,7 +227,7 @@ test("Overview keeps descriptive EL assessments separate from learning-status to
   assert.match(html, /Phonological and Phonemic Awareness/);
   assert.match(html, /These assessments are reported separately/);
   assert.match(html, /do not change the Secure, Developing, or Not checked totals/);
-  assert.match(html, />Download progress and evidence workbook \(XLSX\)</);
+  assert.match(html, />Download progress and results workbook \(XLSX\)</);
 });
 
 test("finished report exposes expandable semantic answer details for every benchmark domain", async t => {

@@ -92,7 +92,7 @@ export function buildTeacherFocusPracticeRecommendation(row) {
     name: row.name,
     studentIds: [row.id],
     focus: row.focus,
-    activity: `Model ${row.focus}, practise together, then try independently. Record this teaching observation separately from the next Skills check.`
+    activity: `Model ${row.focus}, practise together, then try independently. Record this teaching observation separately from the next Skills assessment.`
   };
 }
 
@@ -191,7 +191,7 @@ export function buildTeacherTodayBriefing(
           evidence: "No Skills answers saved yet.",
           explanation: {
             evidence: "No Skills answers have been saved for this student. Other assessments and practice are shown separately.",
-            dependency: "A first Skills check helps you choose the right starting skill.",
+            dependency: "A first Skills assessment helps you choose the right starting skill.",
             confidence: "No learning level is guessed before the first result.",
             unlock: "The first saved Skills answers give you a starting point for later progress."
           }

@@ -1091,7 +1091,17 @@ test.describe("student route and device combinations", () => {
       await expectMinimumTargets(surface, state);
       await expectKeyboardState(page, surface, state);
       if (route.id === "student-home") await expectHomeDoorLabels(surface, state);
-      if (route.id === "adventure-map") await expectPrimaryMapDestinationLabel(surface, state);
+      if (route.id === "adventure-map") {
+        await expectPrimaryMapDestinationLabel(surface, state);
+        const overflow = await surface.locator(".kg-map-card-text :is(strong, small)").evaluateAll(labels => labels.flatMap(label => {
+          const card = label.closest(".kg-map-card").getBoundingClientRect();
+          const range = document.createRange(); range.selectNodeContents(label);
+          const fragments = [...range.getClientRects()].filter(box => box.width > 0 && box.height > 0);
+          return fragments.some(box => box.top < card.top - 1 || box.bottom > card.bottom + 1 || box.left < card.left - 1 || box.right > card.right + 1)
+            ? [label.textContent.trim()] : [];
+        }));
+        expect(overflow, `${state} contains the complete destination and its explanation after keyboard interaction`).toEqual([]);
+      }
       if (route.id === "adventure-map" && profile.id === "tablet-portrait") {
         await expectTabletMapDestinationLabels(surface, state);
       }

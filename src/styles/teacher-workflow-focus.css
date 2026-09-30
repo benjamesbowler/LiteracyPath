@@ -18,10 +18,38 @@
   font-weight: 650;
   cursor: pointer;
 }
-.teacher-roster-teaching-actions { display: flex; flex-wrap: wrap; gap: 4px 12px; }
-.teacher-roster-teaching-actions > button { min-height: 44px; }
-.teacher-roster-row-manage > summary { color: var(--lp-color-text-muted); font-size: .82rem; }
-.teacher-roster-row-manage > button { min-height: 44px; }
+.teacher-roster-teaching-actions { display: flex; flex-wrap: nowrap; align-items: center; gap: 4px; }
+.teacher-students-page .teacher-roster-teaching-actions > button {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 4px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.teacher-roster-row-manage { position: relative; margin: 0; }
+.teacher-roster-row-manage > summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  padding: 0;
+  color: var(--lp-color-text-muted);
+  font-size: 1.5rem;
+  list-style: none;
+}
+.teacher-roster-row-manage > summary::-webkit-details-marker { display: none; }
+.teacher-roster-management-actions {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  z-index: 5;
+  min-width: 140px;
+  padding: 8px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: 8px;
+  background: var(--lp-color-surface);
+  box-shadow: 0 4px 12px #14233b24;
+}
 .teacher-roster-manage-menu { position: relative; }
 .teacher-roster-manage-menu[open] .teacher-manage-actions {
   display: flex;

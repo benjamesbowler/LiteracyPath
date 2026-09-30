@@ -54,6 +54,20 @@ const IPAD_VIEWPORTS = [
   { name: "short landscape", width: 568, height: 320 }
 ];
 
+test("session purposes distinguish independent assessment from supported practice", async ({ page }) => {
+  await page.goto("/preview/student-session-controls.html");
+  const dialog = page.getByRole("dialog", { name: "Start student session", exact: true });
+  await dialog.getByRole("button", { name: "Assess", exact: true }).click();
+  await expect(dialog.getByRole("button", { name: "Assess", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await expect(dialog.locator(".student-session-targets > button")).toHaveCount(1);
+  await expect(dialog).toContainText("Practice and supported answers do not count as independent assessment results.");
+  await expect(dialog.getByRole("button", { name: /^Each student's next skill/ })).toBeVisible();
+  await dialog.getByRole("button", { name: "Practise", exact: true }).click();
+  await expect(dialog.getByRole("button", { name: "Practise", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await expect(dialog).toContainText("This session does not replace an independent Skills assessment.");
+  await expect(dialog.locator(".student-session-targets > button.selected")).toContainText("Cycle Practice");
+});
+
 async function pageGeometry(page) {
   return page.evaluate(() => {
     const dialog = document.querySelector(".student-session-setup");
@@ -82,7 +96,7 @@ test("Adventure Map whole-class setup stays usable across classroom iPad sizes",
     const adventure = page.getByRole("button", { name: /^Adventure Map/ });
     await adventure.scrollIntoViewIfNeeded();
     await adventure.click();
-    await expect(page.getByRole("button", { name: /^Each child's current space/ })).toHaveAttribute("aria-pressed", "true");
+    await expect(page.getByRole("button", { name: /^Each student's current space/ })).toHaveAttribute("aria-pressed", "true");
     await expect(page.getByRole("button", { name: /^Whole class/ })).toHaveAttribute("aria-pressed", "true");
 
     const exactMode = page.getByRole("button", { name: /^One space for everyone/ });
@@ -99,7 +113,7 @@ test("Adventure Map whole-class setup stays usable across classroom iPad sizes",
     const keyControlHeights = await Promise.all([
       adventure,
       exactMode,
-      page.getByRole("button", { name: /^Each child's current space/ }),
+      page.getByRole("button", { name: /^Each student's current space/ }),
       start
     ].map(locator => locator.evaluate(element => element.getBoundingClientRect().height)));
     expect(Math.min(...keyControlHeights), `${viewport.name} controls meet the 44px touch floor`)
@@ -153,7 +167,7 @@ test("Cycle Practice reserves time for 30 minutes of practice and its check", as
     await expect(expiry).toHaveValue("60");
     await expect(expiry.locator("option")).toHaveText(["1 hour", "90 minutes", "2 hours"]);
     await expiry.scrollIntoViewIfNeeded();
-    await expect(page.getByText("Allows 30 minutes of active practice and a short check.")).toBeVisible();
+    await expect(page.getByText("Allows 30 minutes of active practice and a short assessment.")).toBeVisible();
     const geometry = await pageGeometry(page);
     expect(geometry.dialogFitsViewport, viewport.name).toBe(true);
     expect(geometry.documentOverflowX, viewport.name).toBeLessThanOrEqual(1);
@@ -218,7 +232,7 @@ test("a preselected small group can use each learner's current map space", async
     "aria-pressed",
     "true"
   );
-  await expect(page.getByRole("button", { name: /^Each child's current space/ })).toHaveAttribute(
+  await expect(page.getByRole("button", { name: /^Each student's current space/ })).toHaveAttribute(
     "aria-pressed",
     "true"
   );
@@ -261,13 +275,13 @@ test("Cycle practice teacher results show independent denominator and unscored r
   await expect(page.getByText(/^No independent score\./).first()).toBeVisible();
   await expect(page.getByText(/Active practice 30 min 10 sec/).first()).toBeVisible();
   await expect(page.getByText("Media unavailable", { exact: true })).toHaveCount(3);
-  await page.getByText("View practice and check evidence", {exact:true}).first().click();
+  await page.getByText("View practice and assessment results", {exact:true}).first().click();
   await expect(page.getByText(/Areas practised .*letter sound .*12 responses/).first()).toBeVisible();
-  await expect(page.getByText("Areas checked: letter sound, letter formation, phoneme").first()).toBeVisible();
+  await expect(page.getByText("Areas assessed: letter sound, letter formation, phoneme").first()).toBeVisible();
   const download = page.waitForEvent("download");
   await page.getByRole("button", { name: "Export practice results" }).click();
   expect((await download).suggestedFilename()).toBe("cycle-practice-results.csv");
-  await expect(page.getByText("Practice evidence · not a formal assessment").first()).toBeVisible();
+  await expect(page.getByText("Practice results · not a formal assessment").first()).toBeVisible();
   const evidence = page.getByText(/1 of 2 independent responses correct/);
   expect(await evidence.evaluate(element => {
     const box = element.getBoundingClientRect();

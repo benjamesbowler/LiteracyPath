@@ -13,6 +13,7 @@ on:
           - authenticated-missing
           - guided-reading-controls
           - ui-chrome
+          - app-simplification
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -94,6 +95,33 @@ jobs:
             tests/release/student-login-recovery.spec.js \
             tests/release/student-rail-accessibility.spec.js \
             tests/release/teacher-roster-device-matrix.spec.js \
+            --project=desktop --workers=1 --update-snapshots=all
+      - name: Verify integrated simplification flows and affected Linux baselines
+        if: inputs.scope == 'app-simplification'
+        run: |
+          npx playwright test \
+            tests/release/simplified-entry-flows.spec.js \
+            tests/release/student-hub-simplification.spec.js \
+            tests/release/activity-control-clarity.spec.js \
+            tests/release/teacher-workflow-focus.spec.js \
+            tests/release/teacher-cycle-context.spec.js \
+            tests/release/worksheet-cycle-context.spec.js \
+            tests/release/student-session-controls.spec.js \
+            tests/release/teacher-review-fixes.spec.js \
+            tests/release/teacher-action-layout.spec.js \
+            tests/release/teacher-roster-device-matrix.spec.js \
+            --project=desktop --workers=1 --update-snapshots=all
+          npx playwright test \
+            tests/release/student-device-matrix.spec.js \
+            tests/release/student-emphasis-budget.spec.js \
+            --grep 'adventure-map|phonics|sound-seekers|story-quests|truncated' \
+            --project=desktop --workers=1 --update-snapshots=all
+          env -u LP_AUDIT_TEACHER_PASSWORD npx playwright test \
+            tests/release/teacher-roster-device-matrix.spec.js \
+            --project=desktop --workers=1 --update-snapshots=all
+          npx playwright test \
+            tests/release/key-route-visuals.spec.js \
+            --grep 'Sound Seekers|Learn|sound-seekers|story-quests' \
             --project=desktop --workers=1 --update-snapshots=all
       - name: Refresh and verify child reader Linux controls
         if: inputs.scope == 'guided-reading-controls'

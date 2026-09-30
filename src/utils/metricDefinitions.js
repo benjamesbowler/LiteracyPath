@@ -101,7 +101,7 @@ export const METRIC_DEFINITIONS = Object.freeze({
     label: "Saved activity",
     counts: "Students with a saved Skills answer or a recorded Sound Seekers activity date. Only activity received by this dashboard is counted.",
     timeWindow: "Today when the figure says today; otherwise the period shown beside it.",
-    excludes: "Unsaved play, device-only checkpoints, and books or other practice that do not send an activity date to this dashboard."
+    excludes: "Unsaved play, progress saved only on a device, and books or other practice that do not send an activity date to this dashboard."
   }),
   started: Object.freeze({
     id: "started",

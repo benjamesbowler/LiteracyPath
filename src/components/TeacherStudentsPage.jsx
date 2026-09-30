@@ -904,8 +904,8 @@ export function TeacherStudentsPage({
       ? "Some saved results could not be loaded, so no summary is shown."
       : selectedStudentRow.currentAnswered === 0
         ? selectedStudentRow.answered > 0
-          ? "Older Skills answers are saved, but there are no current scored answers in the learning window. Collect current evidence."
-          : "No Skills answers yet. A first Skills check gives you a starting point."
+          ? "Older Skills answers are saved, but there are no current scored answers in the learning window. Collect current results."
+          : "No Skills answers yet. A first Skills assessment gives you a starting point."
         : selectedStudentRow.focusLearningConclusion?.ready
           ? `${selectedStudentRow.focusLearningConclusion.status.label} in ${selectedStudentRow.currentSkill}. ${countPhrase(selectedStudentRow.focusLearningConclusion.attempts, "saved answer")} for this skill in the last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`
           : `Working on ${selectedStudentRow.currentSkill}. ${selectedStudentRow.focusLearningConclusion.status.label} for this skill.`;
@@ -958,7 +958,7 @@ export function TeacherStudentsPage({
         id: "nudge",
         tone: "info",
         title: inactive.some(row => row.answered === 0)
-          ? "Run first Skills checks"
+          ? "Run first Skills assessments"
           : "Follow up with students who have not practised recently",
         detail: `${inactiveNames} ${inactive.length === 1 ? "has" : "have"} no scored answers or no recent saved activity.`,
         explanation: {
@@ -1039,13 +1039,13 @@ export function TeacherStudentsPage({
     ...(enabledRosterColumns.has("focus-accuracy") ? ["minmax(92px, .7fr)"] : []),
     "minmax(108px, .9fr)",
     ...(enabledRosterColumns.has("last-active") ? ["minmax(90px, .8fr)"] : []),
-    "minmax(180px, 1.2fr)",
+    "minmax(216px, 1.2fr)",
     ...(enabledRosterColumns.has("progress") ? ["minmax(140px, 1fr)"] : []),
     ...(enabledRosterColumns.has("sound-seekers") ? ["minmax(140px, 1fr)"] : [])
   ].join(" ");
   const rosterGridStyle = {
     "--teacher-roster-grid-template": rosterGridTemplate,
-    "--teacher-roster-grid-min-width": `${640 + visibleRosterColumns.length * 150}px`
+    "--teacher-roster-grid-min-width": `${672 + visibleRosterColumns.length * 150}px`
   };
 
   // The roster summary is not a complete inventory of every record linked to a
@@ -1845,7 +1845,7 @@ export function TeacherStudentsPage({
         eyebrow={TEACHER_COPY.classes.label}
         title={rosterTitle}
         description={knownSelectedClass
-          ? "View a student, check their current focus, or start practice. Class maintenance is under Manage."
+          ? "View a student, assess their current focus, or start practice. Class maintenance is under Manage."
           : TEACHER_COPY.classes.descriptionWithoutClass}
       >
         <div className="teacher-students-header-actions">
@@ -2081,7 +2081,7 @@ export function TeacherStudentsPage({
               </label>
             ))}
           </fieldset>
-          <p>Student, current focus, focus status and teaching actions stay visible. Extra evidence columns are saved on this device.</p>
+          <p>Student, current focus, focus status and teaching actions stay visible. Your extra results columns are saved on this device.</p>
           <button
             className="text-button"
             type="button"
@@ -2296,9 +2296,9 @@ export function TeacherStudentsPage({
                         <button className="text-button" type="button" aria-label={`View ${row.name}`} onClick={() => onLoadStudent?.(row.id, row.name)}>View</button>
                         <button className="text-button teacher-start-check" type="button" aria-label={`Assess ${row.name}`} onClick={() => onStartCheck?.(row)}>Assess</button>
                         {onStartStudentSession && <button className="text-button" type="button" aria-label={`Start practice for ${row.name}`} onClick={() => onStartStudentSession([row.id], { target: "cycle_practice", cycleId: currentCycleId })}>Practice</button>}
-                      </div>
                       <details className="teacher-roster-row-manage">
-                        <summary aria-label={`Manage ${row.name}`}>Manage</summary>
+                        <summary aria-label={`Manage ${row.name}`} title={`Manage ${row.name}`}><span aria-hidden="true">⋯</span></summary>
+                        <div className="teacher-roster-management-actions">
                         <button
                           className="text-button teacher-roster-remove-student"
                           type="button"
@@ -2306,7 +2306,9 @@ export function TeacherStudentsPage({
                           aria-label={`Remove ${row.name} from class`}
                           onClick={() => openRosterOperation("delete", row)}
                         >Remove…</button>
+                        </div>
                       </details>
+                      </div>
                     </td>
                     {enabledRosterColumns.has("progress") && <td data-label="Progress" role="cell">
                       {resultsAvailable ? <div className="teacher-progress-cell">
@@ -2457,7 +2459,7 @@ export function TeacherStudentsPage({
                 ) : "Results unavailable"}
               </p>
               <p className="teacher-student-panel-summary">{selectedStudentSummary}</p>
-              {selectedStudentResultsAvailable && selectedStudentRow.focusEvidence?.lastActive && <small>Focus evidence updated {formatLastActive(selectedStudentRow.focusEvidence.lastActive)}.</small>}
+              {selectedStudentResultsAvailable && selectedStudentRow.focusEvidence?.lastActive && <small>Focus results updated {formatLastActive(selectedStudentRow.focusEvidence.lastActive)}.</small>}
               <button className="text-button" type="button" onClick={onClearStudent}>
                 Close student details
               </button>
@@ -2505,7 +2507,7 @@ export function TeacherStudentsPage({
                   <strong>Across skills:</strong>{" "}
                   {selectedStudentRow.learningConclusion.status.label}.
                   {!selectedStudentRow.learningConclusion.ready && selectedStudentRow.currentAnswered > 0
-                    ? ` ${selectedStudentRow.learningConclusion.reason}. A named-skill result can be ready before a whole-learner summary.`
+                    ? ` ${selectedStudentRow.learningConclusion.reason}. A result for one skill can be ready before the student's overall summary.`
                     : " This broader summary uses results across skills."}
                 </p>
               )}

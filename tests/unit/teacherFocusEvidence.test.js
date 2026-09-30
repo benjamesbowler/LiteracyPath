@@ -107,7 +107,7 @@ test("the practice shortcut preserves the named learner/skill and leaves assessm
   assert.deepEqual(seed.studentIds, [student.id]);
   assert.equal(seed.focus, "Initial Sounds");
   assert.match(seed.activity, /Model Initial Sounds/);
-  assert.match(seed.activity, /separately from the next Skills check/);
+  assert.match(seed.activity, /separately from the next Skills assessment/);
   assert.equal(buildTeacherFocusPracticeRecommendation({ ...attention, focus: "Review recent results" }), null);
 });
 

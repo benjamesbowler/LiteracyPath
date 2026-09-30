@@ -393,6 +393,7 @@ export const storyQuests = [
       }
     ],
     "shortTitle": "The Loud Thing",
+    "childSynopsis": "A tiny voice makes a very big noise.",
     "hook": "A tiny voice makes a very big noise.",
     "readingSupport": "Listen together or read with an adult; independent reading depends on the child’s taught words and reading experience.",
     "coverImageAlt": "A tiny voice makes a very big noise.",
@@ -840,6 +841,7 @@ export const storyQuests = [
       }
     ],
     "shortTitle": "The Walking Garden",
+    "childSynopsis": "Wren’s potion gives the flowerpots feet.",
     "hook": "Wren’s potion gives the flowerpots feet.",
     "readingSupport": "Listen together or read with an adult; independent reading depends on the child’s taught words and reading experience.",
     "coverImageAlt": "Wren’s potion gives the flowerpots feet.",
@@ -1237,6 +1239,7 @@ export const storyQuests = [
       }
     ],
     "shortTitle": "The Star Shell Door",
+    "childSynopsis": "A glowing map leads to a locked door.",
     "hook": "A glowing map leads to a locked door.",
     "readingSupport": "Listen together or read with an adult; independent reading depends on the child’s taught words and reading experience.",
     "coverImageAlt": "A glowing map leads to a locked door.",
@@ -1687,6 +1690,7 @@ export const storyQuests = [
       }
     ],
     "shortTitle": "The Hidden Glow",
+    "childSynopsis": "Find the missing glow in the dark.",
     "hook": "The paths are dark. Where is the little glow?",
     "readingSupport": "Listen together or read with an adult; independent reading depends on the child’s taught words and reading experience.",
     "coverImageAlt": "The paths are dark. Where is the little glow?",
@@ -2188,6 +2192,7 @@ export const storyQuests = [
       }
     ],
     "shortTitle": "Chompy’s Picnic",
+    "childSynopsis": "Will everyone find a favourite picnic food?",
     "hook": "Will everyone find a favourite picnic food?",
     "contentRevision": "2026-09-29-story-quests-v2"
   },
@@ -2594,6 +2599,7 @@ export const storyQuests = [
       }
     ],
     "shortTitle": "Sunny’s Rainy Rescue",
+    "childSynopsis": "Help Sunny find shelter from the rain.",
     "hook": "A wet pillow, a leaky cave—and a leafy idea.",
     "contentRevision": "2026-09-29-story-quests-v2"
   },
@@ -3187,6 +3193,7 @@ export const storyQuests = [
       }
     ],
     "shortTitle": "Grumpy Needs a Nap",
+    "childSynopsis": "Can Grumpy find one quiet, comfy spot?",
     "hook": "Can Grumpy find one quiet, comfy spot?",
     "contentRevision": "2026-09-29-story-quests-v2"
   },
@@ -3724,6 +3731,7 @@ export const storyQuests = [
       }
     ],
     "shortTitle": "Bouncy and the Berries",
+    "childSynopsis": "One big bounce—or three little ones?",
     "hook": "One big bounce—or three little ones?",
     "contentRevision": "2026-09-29-story-quests-v2"
   },
@@ -4086,6 +4094,7 @@ export const storyQuests = [
       }
     ],
     "shortTitle": "Shy’s Snail Trail",
+    "childSynopsis": "Help one tiny snail reach the cool shade.",
     "hook": "Help one tiny snail reach the cool shade.",
     "contentRevision": "2026-09-29-story-quests-v2"
   },
@@ -4390,6 +4399,7 @@ export const storyQuests = [
       }
     ],
     "shortTitle": "Sam and Pam",
+    "childSynopsis": "The cat sits on Sam and Pam’s map.",
     "hook": "The cat sits on their map just when it is time to go.",
     "phonicsScope": {
       "vowel": "short a",
@@ -4798,6 +4808,7 @@ export const storyQuests = [
       }
     ],
     "shortTitle": "The Missing Hat",
+    "childSynopsis": "Find Clucky’s hat in the mud.",
     "hook": "A red hat blows away, and two friends find a muddy surprise.",
     "contentRevision": "2026-09-29-story-quests-v2"
   },
@@ -5000,6 +5011,7 @@ export const storyQuests = [
       }
     ],
     "shortTitle": "A Quiet Hello",
+    "childSynopsis": "Help Shy find a quiet way to meet.",
     "hook": "Cuddly's big hello is too loud, so Shy chooses a quieter way to meet.",
     "contentRevision": "2026-09-29-story-quests-v2"
   },
@@ -5302,6 +5314,7 @@ export const storyQuests = [
       }
     ],
     "shortTitle": "The Flying Map",
+    "childSynopsis": "Their map blows away. Where is Tiny?",
     "hook": "Their map blows away before they can find Tiny at the big tree.",
     "contentRevision": "2026-09-29-story-quests-v2"
   },
@@ -5619,6 +5632,7 @@ export const storyQuests = [
       }
     ],
     "shortTitle": "The Little Rescue",
+    "childSynopsis": "Brave falls into a flowerpot. Who can help?",
     "hook": "Brave falls into a flowerpot while helping Clucky find her hat.",
     "contentRevision": "2026-09-29-story-quests-v2"
   }

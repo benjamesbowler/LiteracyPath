@@ -38,7 +38,7 @@ test("Summary opens relevant evidence, retains every source item, and exports th
   await page.locator('.lg-report-nav a[href*="whole-child"]').click();
   await expect(page.getByRole("region", { name: "Current instructional priority" })).toContainText("independent assessment");
   await expect(page.locator(".simple-report-coverage")).not.toHaveAttribute("open", "");
-  const relevant = page.getByRole("region", { name: "Evidence for the next action" });
+  const relevant = page.getByRole("region", { name: "Saved results for the next action" });
   await expect(relevant.locator("details")).toHaveAttribute("open", "");
   await expect(relevant).not.toContainText("Nothing is in this group yet");
   await page.locator(".simple-report-coverage > summary").click();
@@ -48,7 +48,7 @@ test("Summary opens relevant evidence, retains every source item, and exports th
   await expect(page.locator(".lg-report-export-options")).toContainText("Aarav · Summary");
   await expect(page.locator(".lg-report-export-options")).toContainText("progress across tabs");
   const downloadEvent = page.waitForEvent("download");
-  await page.getByRole("button", { name: "Download progress and evidence workbook (XLSX)", exact: true }).click();
+  await page.getByRole("button", { name: "Download progress and results workbook (XLSX)", exact: true }).click();
   const download = await downloadEvent;
   expect(download.suggestedFilename()).toMatch(/^aarav-progress-\d{4}-\d{2}-\d{2}\.xlsx$/);
   const workbook = await readDownloadWorkbook(download);
@@ -65,6 +65,6 @@ test("report print preparation restores disclosures after the print dialog close
   await page.evaluate(() => { window.print = () => { window.__printExpanded = [...document.querySelectorAll('.lg-report-main details')].every(row => row.open); window.dispatchEvent(new Event('afterprint')); }; });
   await page.locator(".lg-report-export-menu > summary").click();
   await page.getByRole("button", { name: "Print current summary / Save as PDF", exact: true }).click();
-  expect(await page.evaluate(() => window.__printExpanded)).toBe(true);
+  await expect.poll(() => page.evaluate(() => window.__printExpanded)).toBe(true);
   expect(await page.locator(".lg-report-main details").evaluateAll(rows => rows.map(row => row.open))).toEqual(before);
 });

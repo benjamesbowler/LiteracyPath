@@ -1,6 +1,7 @@
 import { arcadeJourneyChapter, completedArcadeChapters, nextArcadeChapter, validArcadeChapter } from "../../../utils/arcadeJourneys.js";
 import { useActivityMusic } from "../../../utils/audio/useActivityMusic.js";
 import { newGameSeed } from "../../../utils/gameReplay.js";
+import { CHILD_COPY } from "../../../copy/childCopy.js";
 import { nextWordMatchBoard, replayWordMatchBoard } from '../../../utils/wordMatchProgression.js';
 import { Component, Suspense, useCallback, useEffect, useRef, useState, useMemo } from "react";
 import { createPortal } from "react-dom";
@@ -659,7 +660,8 @@ export function GamePlayer({
         >
           <div>
             <h2>Welcome back</h2>
-            <p>You reached checkpoint {resumePoint.level + 1}{resumePoint.totalLevels ? ` of ${resumePoint.totalLevels}` : ""}. Pick up where you left off?</p>
+            <p>{CHILD_COPY.arcade.savedStop(resumePoint.level + 1, resumePoint.totalLevels)}</p>
+            <p>{CHILD_COPY.arcade.resumePrompt}</p>
             <div>
               <button type="button" ref={resumeActionRef} onClick={continueGame}>Continue</button>
               <button type="button" className="danger" onClick={restartGame}>Start over</button>

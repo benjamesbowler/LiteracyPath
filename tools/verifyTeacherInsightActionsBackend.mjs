@@ -1,5 +1,6 @@
 import process from "node:process";
 import { createClient } from "@supabase/supabase-js";
+import { isDeepStrictEqual } from "node:util";
 
 const TEACHER_A = {
   email: "audit-teacher-a@literacypath.invalid",
@@ -71,6 +72,11 @@ async function main() {
 
   const createdInterventionIds = [];
   try {
+    const progressBefore = requireNoError(
+      await teacherA.from("student_progress").select("payload,updated_at")
+        .eq("student_id", TEACHER_A.studentId).eq("area", "phonics_quest").eq("key", "__all__").maybeSingle(),
+      "Student game progress before the teacher-led practice plan"
+    );
     const practice = requireNoError(
       await teacherA.rpc("teacher_create_insight_intervention", {
         p_action_type: "assign_practice",
@@ -82,30 +88,49 @@ async function main() {
         p_activity: "Assign one exact target and review the response",
         p_planned_for: "2026-07-23"
       }).single(),
-      "Owned insight practice assignment"
+      "Owned insight teacher-led practice plan"
     );
     createdInterventionIds.push(practice.data.id);
     requireCondition(
       practice.data.group_label === "Backend verifier insight practice"
         && practice.data.student_ids[0] === TEACHER_A.studentId,
-      "Practice assignment did not create the linked owned intervention"
+      "Practice plan did not create the linked owned intervention"
     );
+
+    const savedPlan = requireNoError(
+      await teacherA.from("teacher_interventions")
+        .select("source_action,practice_targets,insight_snapshot")
+        .eq("id", practice.data.id).single(),
+      "Saved teacher-led practice source read"
+    );
+    requireCondition(
+      savedPlan.data.source_action === "assign_practice"
+        && isDeepStrictEqual(savedPlan.data.practice_targets, ["m"])
+        && isDeepStrictEqual(savedPlan.data.insight_snapshot, insight),
+      "Practice plan did not retain its exact target and complete original insight"
+    );
+    const hiddenPlan = requireNoError(
+      await teacherB.from("teacher_interventions").select("id,insight_snapshot")
+        .eq("id", practice.data.id),
+      "Cross-teacher practice source read"
+    );
+    requireCondition(hiddenPlan.data.length === 0, "RLS exposed another teacher's practice source");
+    const alteredPlan = await teacherA.from("teacher_interventions")
+      .update({ insight_snapshot: { ...insight, reason: "Rewritten original source" } }).eq("id", practice.data.id);
+    requireCondition(Boolean(alteredPlan.error), "Browser client could rewrite the original practice source");
 
     const progress = requireNoError(
       await teacherA.from("student_progress")
-        .select("payload")
+        .select("payload,updated_at")
         .eq("student_id", TEACHER_A.studentId)
         .eq("area", "phonics_quest")
         .eq("key", "__all__")
-        .single(),
-      "Assigned student progress read"
+        .maybeSingle(),
+      "Student game progress after the teacher-led practice plan"
     );
     requireCondition(
-      progress.data.payload?.assignment?.targets?.length === 1
-        && progress.data.payload.assignment.targets[0] === "m"
-        && progress.data.payload.assignment.insight?.criterion?.type === "exact-sound-item"
-        && progress.data.payload.assignment.insight?.evidence?.independentAttempts === 4,
-      "Practice action did not retain its exact target and evidence-backed insight"
+      isDeepStrictEqual(progress.data, progressBefore.data),
+      "Teacher-led practice planning changed student game progress or wrote a retired assignment"
     );
 
     const observation = requireNoError(

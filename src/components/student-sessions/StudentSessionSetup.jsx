@@ -424,10 +424,10 @@ export function StudentSessionSetup({
       : target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT
         ? skillAssignmentMode === STUDENT_SKILL_ASSIGNMENT_MODES.ONE_SKILL_FOR_EVERYONE
           ? chosenSkill?.label || ""
-          : "Each child's next skill"
+          : "Each student's next skill"
     : target === STUDENT_FOCUS_TARGETS.ADVENTURE_MAP
           ? adventureMapMode === STUDENT_ADVENTURE_MAP_MODES.EACH_CHILD_CURRENT
-            ? "Each child's current space"
+            ? "Each student's current space"
             : selectedMapSpace
               ? `${selectedMapSpace.spaceName}, Cycle ${selectedMapSpace.cycleNumber}`
               : ""
@@ -458,11 +458,11 @@ export function StudentSessionSetup({
         <section className="student-session-section" aria-labelledby="student-session-activity-title">
           <h3 id="student-session-activity-title">1. What are students doing?</h3>
           <div className="student-session-intents" aria-label="Session purpose">
-            {[{id:"practise",label:"Practise",target:STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE},{id:"check",label:"Check",target:STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT},{id:"read",label:"Read together",target:GUIDED_READING_TOGETHER}].map(item => (
+            {[{id:"practise",label:"Practise",target:STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE},{id:"check",label:"Assess",target:STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT},{id:"read",label:"Read together",target:GUIDED_READING_TOGETHER}].map(item => (
               <button type="button" key={item.id} aria-pressed={intent === item.id} onClick={() => {setIntent(item.id);chooseTarget(item.target);}}>{item.label}</button>
             ))}
           </div>
-          <p>{intent === "check" ? "Independent Skills assessment. Practice and supported answers do not count as independent assessment evidence." : intent === "read" ? "Teacher-led reading with a small group." : "Supported learning and play. This session does not replace an independent Skills assessment."}</p>
+          <p>{intent === "check" ? "Independent Skills assessment. Practice and supported answers do not count as independent assessment results." : intent === "read" ? "Teacher-led reading with a small group." : "Supported learning and play. This session does not replace an independent Skills assessment."}</p>
           <div className="student-session-targets">
             {STUDENT_FOCUS_TARGET_OPTIONS.filter(option => intent === "check" ? option.id === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT : intent === "practise" && option.id !== STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT).map(option => (
               <button
@@ -500,8 +500,8 @@ export function StudentSessionSetup({
                   }}
                   type="button"
                 >
-                  <strong>Each child&apos;s next skill</strong>
-                  <span>Use each child&apos;s current skill and next eligible phase.</span>
+                  <strong>Each student&apos;s next skill</strong>
+                  <span>Use each student&apos;s current skill and next eligible phase.</span>
                 </button>
                 <button
                   aria-pressed={skillAssignmentMode === STUDENT_SKILL_ASSIGNMENT_MODES.ONE_SKILL_FOR_EVERYONE}
@@ -513,7 +513,7 @@ export function StudentSessionSetup({
                   type="button"
                 >
                   <strong>One skill for everyone</strong>
-                  <span>Use one skill, while keeping each child at their own next eligible phase.</span>
+                  <span>Use one skill, while keeping each student at their own next eligible phase.</span>
                 </button>
               </div>
               {skillAssignmentMode === STUDENT_SKILL_ASSIGNMENT_MODES.ONE_SKILL_FOR_EVERYONE && (
@@ -547,8 +547,8 @@ export function StudentSessionSetup({
                   }}
                   type="button"
                 >
-                  <strong>Each child&apos;s current space</strong>
-                  <span>Open the map at each child&apos;s own saved place.</span>
+                  <strong>Each student&apos;s current space</strong>
+                  <span>Open the map at each student&apos;s own saved place.</span>
                 </button>
                 <button
                   aria-pressed={adventureMapMode === STUDENT_ADVENTURE_MAP_MODES.ONE_SPACE_FOR_EVERYONE}
@@ -807,7 +807,7 @@ export function StudentSessionSetup({
                               ? assignment?.skill_id
                                 ? `${assignment.skill_label}, Level ${assignment.level} phase ${assignment.phase}`
                                 : "No eligible skill is available"
-                              : "Assessment evidence still loading"
+                              : "Assessment results still loading"
                             : student.symbol_password ? "Ready to sign in" : "Sign-in pictures needed"}</small>
                         </span>
                       </label>
@@ -822,7 +822,7 @@ export function StudentSessionSetup({
         {target !== GUIDED_READING_TOGETHER && (
           <section className="student-session-section student-session-start" aria-labelledby="student-session-finish-title">
             <div>
-              <h3 id="student-session-finish-title">3. Check and start</h3>
+              <h3 id="student-session-finish-title">3. Review and start</h3>
               <p className="student-session-start-summary">
                 <strong>{selectedActivityLabel}{chosenContentLabel ? `: ${chosenContentLabel}` : ""}</strong>
                 <span>{audienceLabel}</span>
@@ -841,7 +841,7 @@ export function StudentSessionSetup({
                 </select>
               </label>
               {target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE && (
-                <p>Allows 30 minutes of active practice and a short check.</p>
+                <p>Allows 30 minutes of active practice and a short assessment.</p>
               )}
             </div>
             <button

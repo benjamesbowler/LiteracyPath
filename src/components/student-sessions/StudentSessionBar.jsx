@@ -18,10 +18,10 @@ export function StudentSessionBar({ session, members = [], students = [], connec
   const completed = members.filter(member => member.status === "completed").length;
   const contentUnavailable = members.filter(member => ["Content unavailable", "Media unavailable"].includes(studentSessionOperationalState(member))).length;
   const waiting = members.filter(member => studentSessionOperationalState(member) === "Waiting for connection").length;
-  const incomplete = members.filter(member => studentSessionOperationalState(member) === "Check incomplete").length;
+  const incomplete = members.filter(member => studentSessionOperationalState(member) === "Assessment incomplete").length;
   const resolvedConfig = members.find(member => member?.resolved_config)?.resolved_config || {};
   const mapTitle = resolvedConfig.map_mode === STUDENT_ADVENTURE_MAP_MODES.EACH_CHILD_CURRENT
-    ? "Each child's current space"
+    ? "Each student's current space"
     : resolvedConfig.map_mode === STUDENT_ADVENTURE_MAP_MODES.ONE_SPACE_FOR_EVERYONE
       ? `One space for everyone · ${resolvedConfig.space_name || "Map space"}${resolvedConfig.cycle_number ? `, Cycle ${resolvedConfig.cycle_number}` : ""}`
       : "";
@@ -66,7 +66,7 @@ export function StudentSessionBar({ session, members = [], students = [], connec
       <div className="student-session-bar-summary">
         <span className="student-session-live">Live</span>
         <strong>{studentFocusLabel(session.target)}{exactTitle ? `: ${exactTitle}` : ""}</strong>
-        <span>{audienceLabel} · {members.length} assigned · {connected} connected · {completed} finished{contentUnavailable ? ` · ${contentUnavailable} content unavailable` : ""}{waiting ? ` · ${waiting} waiting for connection` : ""}{incomplete ? ` · ${incomplete} check incomplete` : ""}</span>
+        <span>{audienceLabel} · {members.length} assigned · {connected} connected · {completed} finished{contentUnavailable ? ` · ${contentUnavailable} content unavailable` : ""}{waiting ? ` · ${waiting} waiting for connection` : ""}{incomplete ? ` · ${incomplete} assessment incomplete` : ""}</span>
         {connection === "reconnecting" && <span className="student-session-reconnecting">Reconnecting…</span>}
       </div>
       <details>
@@ -81,14 +81,14 @@ export function StudentSessionBar({ session, members = [], students = [], connec
                 <div className="student-session-cycle-evidence">
                   <p>{cycleResultSummary(member.cycle_practice_result)}</p>
                   <p>{cycleDurationSummary(member.cycle_practice_result)}</p>
-                  <details><summary>View practice and check evidence</summary>
+                  <details><summary>View practice and assessment results</summary>
                   <p>Areas practised (client-reported): {member.cycle_practice_result.practiceManifest?.length
                     ? member.cycle_practice_result.practiceManifest.map(area => `${area.construct.replace(/_/g, " ")} (${area.responses} responses)`).join(", ")
                     : "Not recorded"}</p>
-                  <p>Areas checked: {member.cycle_practice_result.checkedConstructs?.length
+                  <p>Areas assessed: {member.cycle_practice_result.checkedConstructs?.length
                     ? member.cycle_practice_result.checkedConstructs.map(area => area.replace(/_/g, " ")).join(", ")
                     : "Not recorded"}</p>
-                  <small>Practice evidence · not a formal assessment</small>
+                  <small>Practice results · not a formal assessment</small>
                   <LearningEvidenceProfile profile={cyclePracticeEvidenceProfile(member.cycle_practice_result)} title="Practice coverage and next steps" />
                   {member.cycle_practice_result.receivedAfterSessionEnd && <p>Recovered after the session ended.</p>}
                   </details>

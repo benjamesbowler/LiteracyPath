@@ -75,7 +75,7 @@ export const TEACHER_COPY = Object.freeze({
   }),
   today: Object.freeze({
     title: "Start with these students",
-    description: "Review the current teaching focus, plan extra practice, and see whose Skills check is due.",
+    description: "Review the current teaching focus, plan extra practice, and see whose Skills assessment is due.",
     descriptionWithoutClass: "Choose a class to see today's next actions."
   }),
   classes: Object.freeze({
@@ -124,7 +124,7 @@ export const TEACHER_COPY = Object.freeze({
       }),
       Object.freeze({
         id: "assessment",
-        title: "Do your first Skills check with one student",
+        title: "Do your first Skills assessment with one student",
         description: "Skills results appear as soon as you save the answers."
       })
     ])
@@ -183,6 +183,10 @@ export const TEACHER_COPY = Object.freeze({
     aboutBody: "Review the student, class, result dates and information included in this report."
   }),
   reports: Object.freeze({
+    changeStudentOrClassSummary: "Change student or class summary",
+    acrossSkillsStatusHelp: "Across skills: these overall student statuses require results from more than one skill. A current-focus result can be ready before this broader summary.",
+    classStatusSplitLabel: "Overall student status split",
+    classSummaryResultsHelp: "“Enough results” means the student has enough recent scored answers across skills for a fair overall student summary. A named-skill result can be ready before this broader summary. Missing or incomplete results are not counted as zero.",
     accuracyFooter: "Answer accuracy and learning status are shown separately. A high percentage alone does not prove that learning is secure.",
     masteredDescription: "Enough saved results currently support a secure judgement.",
     developingDescription: "The student has started this and is still building consistency.",
@@ -228,6 +232,16 @@ export const TEACHER_COPY = Object.freeze({
     classAccuracyUnavailable: "No class accuracy figure yet.",
     classSkillsAssessed: (assessed, total) => `${assessed} of ${total}`,
     elBenchmarkFooter: "EL benchmark assessments are reported separately. They do not change the Secure, Developing or Not checked totals."
+  }),
+  skillsAssessment: Object.freeze({
+    retentionTitle: "Retention assessment",
+    retentionPassed: "The retention assessment passed. This skill is Secure.",
+    retentionNeedsPractice: "This retention assessment needs more practice. You can try it again.",
+    levelTwoComplete: "Both Level 2 phases are complete. A retention assessment opens after three days. You can move to the next skill now.",
+    retentionReady: "The retention assessment is ready.",
+    startRetention: "Start retention assessment",
+    retryRetention: "Retry retention assessment",
+    retentionTitleForSkill: skill => `Retention assessment · ${skill}`
   }),
   formalEl: Object.freeze({
     choosePeriodIntro: "Choose one grade and time of year before creating a class PDF or spreadsheet.",
@@ -542,7 +556,7 @@ export const PRESENT_COPY = Object.freeze({
   prepare: "Prepare:",
   minuteUnit: "min",
   previewActivity: "Preview this activity",
-  planFootnote: "Timings include modelling, partner talk, writing and feedback. Shared responses guide reteaching; use the separate Cycle Check for formal assessment.",
+  planFootnote: "Timings include modelling, partner talk, writing and feedback. Shared responses guide reteaching; use the separate Cycle assessment for formal assessment.",
   outlineRegion: "Lesson slide outline",
   outlineTitle: "Inside this lesson",
   findSlide: "Find a slide",

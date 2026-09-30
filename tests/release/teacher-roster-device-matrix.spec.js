@@ -158,6 +158,25 @@ async function expectReadableFocusPills(roster, expectedLabels = ["Initial Sound
   ).toEqual([]);
 }
 
+async function expectCompactTeachingActions(roster) {
+  const rows = await roster.locator("tbody > tr").evaluateAll(items => items.map(row => ({
+    height: row.getBoundingClientRect().height,
+    actions: [...row.querySelectorAll(".teacher-roster-teaching-actions > button, .teacher-roster-row-manage > summary")]
+      .map(action => action.getBoundingClientRect().toJSON())
+  })));
+  expect(rows).toHaveLength(10);
+  for (const row of rows) {
+    expect(row.height, "Teaching actions must not turn a roster row into a stack").toBeLessThan(100);
+    expect(row.actions).toHaveLength(4);
+    for (const [index, action] of row.actions.entries()) {
+      expect(action.width).toBeGreaterThanOrEqual(44);
+      expect(action.height).toBeGreaterThanOrEqual(44);
+      expect(Math.abs(action.top - row.actions[0].top)).toBeLessThan(1);
+      if (index) expect(action.left).toBeGreaterThanOrEqual(row.actions[index - 1].right);
+    }
+  }
+}
+
 test("@teacher-roster-device-matrix keeps a configurable roster and student panel usable on Chromebook and tablet", async ({
   page
 }, testInfo) => {
@@ -176,6 +195,7 @@ test("@teacher-roster-device-matrix keeps a configurable roster and student pane
   await expectNoViewportOverflow(page);
   await expect.poll(() => roster.evaluate(table => table.scrollWidth <= table.clientWidth + 1)).toBe(true);
   await expectReadableFocusPills(roster);
+  await expectCompactTeachingActions(roster);
 
   const columnPicker = page.locator(".teacher-roster-column-picker");
   await columnPicker.getByText(/More filters and columns/).click();
@@ -263,6 +283,7 @@ test("@teacher-roster-device-matrix keeps a configurable roster and student pane
   await expect.poll(() => tabletRow.evaluate(row => getComputedStyle(row).display)).toBe("grid");
   await expect.poll(() => roster.evaluate(table => table.scrollWidth <= table.clientWidth + 1)).toBe(true);
   await expectReadableFocusPills(roster);
+  await expectCompactTeachingActions(roster);
   const tabletRowBox = await tabletRow.boundingBox();
   const rosterBox = await roster.boundingBox();
   expect(tabletRowBox).not.toBeNull();

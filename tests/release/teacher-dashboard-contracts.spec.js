@@ -118,7 +118,11 @@ test("@teacher-six-intention-ia @teacher-assessment-hub @teacher-contextual-help
   for (const step of ["Choose a class", "Who are the reports for?", "Choose a report"]) {
     await expect(page.getByRole("heading", { name: step, exact: true })).toBeVisible();
   }
+  const reportRecipients = page.getByRole("region", { name: "Who are the reports for?", exact: true });
+  await expect(reportRecipients.locator(".teacher-funnel-step-answer")).toContainText("Aarav");
+  await reportRecipients.getByRole("button", { name: "Change", exact: true }).click();
   await expect(page.getByRole("button", { name: /Multiple student EL reports/ })).toBeVisible();
+  await expectCurrentTeacherClass(page, "Audit Class A");
 
   await primaryNav.getByRole("button", { name: "Resources", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Teach, print, project", exact: true })).toBeVisible();
@@ -389,9 +393,19 @@ test("@teacher-today-briefing @teacher-urgency-order @teacher-action-feedback @t
 
   const briefing = page.getByRole("region", { name: "Today's class briefing" });
   await expect(briefing).toBeVisible();
-  await expect(briefing.getByRole("region", { name: "Who needs attention" })).toBeVisible();
+  await expect(briefing.getByRole("heading", { name: "Do next", exact: true })).toBeVisible();
   await expect(briefing.getByRole("region", { name: "What's due" })).toBeVisible();
-  await expect(briefing.getByRole("button").first()).toBeVisible();
+  const zones = briefing.locator(".teacher-today-priority-grid > .teacher-today-zone");
+  const zoneOrder = await zones.evaluateAll(items => items.map(zone => ({
+    kind: ["attention", "due", "collect"].find(kind => zone.classList.contains(kind)),
+    count: Number(zone.querySelector(".teacher-today-zone-head > strong")?.textContent)
+  })));
+  expect(zoneOrder.every(zone => zone.count > 0)).toBe(true);
+  expect(zoneOrder.map(zone => ["attention", "due", "collect"].indexOf(zone.kind)))
+    .toEqual(zoneOrder.map(zone => ["attention", "due", "collect"].indexOf(zone.kind)).sort((a, b) => a - b));
+  await expect(briefing.locator(".teacher-today-priority-grid .teacher-start-check").first()).toBeVisible();
+  await expect(briefing.locator("details.teacher-class-briefing")).not.toHaveAttribute("open", "");
+  await expect(briefing.locator(".teacher-today-metrics")).toBeHidden();
   await expect(page.locator("details.teacher-dashboard-secondary")).not.toHaveAttribute("open", "");
   await expect(page.locator(".teacher-roster-table")).toHaveCount(0);
   expect(pageErrors).toEqual([]);
@@ -483,7 +497,7 @@ test("@teacher-metric-definitions @report-export-provenance @el-empty-export-pol
   await chooseStudentReportView(page, "skills-check");
   const downloadPromise = page.waitForEvent("download");
   await page.locator(".lg-report-export-menu > summary").click();
-  await page.getByRole("button", { name: "Download progress and evidence workbook (XLSX)", exact: true }).click();
+  await page.getByRole("button", { name: "Download progress and results workbook (XLSX)", exact: true }).click();
   const workbook = await readDownloadWorkbook(await downloadPromise);
   expect(workbook.worksheets.map(sheet => sheet.name)).toEqual(["Report", "Skills", "Data"]);
   const dataText = worksheetText(workbook.getWorksheet("Data"));
@@ -799,7 +813,7 @@ test("@release-readiness-surface reachable 520-item report is paginated and expo
 
   const downloadPromise = page.waitForEvent("download");
   await page.locator(".lg-report-export-menu > summary").click();
-  await page.getByRole("button", { name: "Download progress and evidence workbook (XLSX)", exact: true }).click();
+  await page.getByRole("button", { name: "Download progress and results workbook (XLSX)", exact: true }).click();
   const workbook = await readDownloadWorkbook(await downloadPromise);
   const dataRows = worksheetRowsAsObjects(workbook.getWorksheet("Data"));
   const itemRows = dataRows.filter(row => row["Row type"] === "Item summary");
@@ -809,6 +823,12 @@ test("@release-readiness-surface reachable 520-item report is paginated and expo
   expect(attemptRows.length).toBeGreaterThanOrEqual(520);
   expect(questionRows.length).toBeGreaterThanOrEqual(520);
   expect(worksheetText(workbook.getWorksheet("Data")))
-    .not.toMatch(/Attempt ID|Question ID|audit-long-history|audit-item-/i);
+    .toMatch(/audit-long-history/);
+  expect(worksheetText(workbook.getWorksheet("Data")))
+    .toMatch(/audit-item-/);
+  for (const sheetName of ["Report", "Skills"]) {
+    expect(worksheetText(workbook.getWorksheet(sheetName)))
+      .not.toMatch(/audit-long-history|audit-item-/i);
+  }
   expect(pageErrors).toEqual([]);
 });

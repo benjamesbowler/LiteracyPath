@@ -978,7 +978,7 @@ export function TeacherSettingsPage({
                         )}
                       </div>
                       <div className="page-stack">
-                        <div className="teacher-settings-card"><h4>Personal game progress</h4><p>Children see their own progress. Peer rankings are unavailable.</p></div>
+                        <div className="teacher-settings-card"><h4>Personal game progress</h4><p>Students see their own progress. Peer rankings are unavailable.</p></div>
                         <section
                           className={`teacher-class-access-summary${visibleAccessSummary?.anomaly ? " anomaly" : ""}${visibleAccessSummaryError ? " error" : ""}`}
                           role={visibleAccessSummary?.anomaly || visibleAccessSummaryError ? "alert" : "status"}

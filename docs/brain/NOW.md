@@ -1,11 +1,21 @@
 ---
 type: current-state
 status: active
-updated: 2026-09-30
+updated: 2026-10-01
 authority: orientation-only
 ---
 
 # Current state
+
+## Simple student and teacher flows
+
+The owner-approved cobalt direction and complete simplification decisions are in
+[Simple UI and task flows](../design/SIMPLE_UI_AND_TASK_FLOWS.md). Home leads with
+one daily action; complete books, games, letters and places remain available
+through deliberate browsing. Teacher routine actions lead before maintenance.
+The teacher insight source fields require migration `20261001090000`; source
+snapshots remain teacher-owned, immutable and subject to student-data erasure.
+Release evidence stays in task artifacts; this brief does not establish live status.
 
 ## Story Quest source and media
 

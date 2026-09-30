@@ -56,6 +56,10 @@ test("the everyday class download is a one-page planning summary, not a second f
   assert.match(html, /What to teach next|Teach next/);
   assert.match(html, /Suggested groups/);
   assert.match(html, /How to read this/);
+  assert.match(html, /across skills for a fair overall student summary/);
+  assert.match(html, /A named-skill result can be ready before this broader summary/);
+  assert.match(html, /Missing or incomplete results are not counted as zero/);
+  assert.doesNotMatch(html, /\blearners?\b/i);
   assert.match(html, /Last 30 days/);
   assert.doesNotMatch(html, /Should not print/);
   assert.doesNotMatch(html, /Student progress|Reading summary|assessment attempt/i);

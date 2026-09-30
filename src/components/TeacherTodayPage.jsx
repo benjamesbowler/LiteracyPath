@@ -263,17 +263,17 @@ function TodayBriefing({
   const dueZone = briefing.allFirstCheckDue ? (
     <div className="teacher-today-first-day">
       <strong>{className || "This class"}</strong>
-      <span className="teacher-today-pill">Collect evidence</span>
+      <span className="teacher-today-pill">Collect results</span>
       <p>
         {countPhrase(briefing.due.length, "student is", "students are")} waiting on a
-        first Skills check. No Skills answers are saved yet; other assessments and practice are shown separately.
+        first Skills assessment. No Skills answers are saved yet; other assessments and practice are shown separately.
       </p>
       <button
         className="lp-button lp-button-primary teacher-start-check"
         type="button"
         onClick={() => onStartCheck?.(briefing.due[0])}
       >
-        Do the first Skills check
+        Do the first Skills assessment
       </button>
     </div>
   ) : briefing.due.length ? (
@@ -284,10 +284,10 @@ function TodayBriefing({
             <div>
               <div className="teacher-today-row-title">
                 <strong>{row.name}</strong>
-                  <span className="teacher-today-pill">{row.title === "First Skills check due" ? "Collect evidence" : "Check overdue"}</span>
+                  <span className="teacher-today-pill">{row.title === "First Skills check due" ? "Collect results" : "Assessment overdue"}</span>
               </div>
               <small>{row.evidence}</small>
-              <small>{row.title === "First Skills check due" ? "Evidence: no saved Skills answers; learning is unknown." : "Activity date only; this is not a learning-difficulty claim."}</small>
+              <small>{row.title === "First Skills check due" ? "No saved Skills answers; learning is unknown." : "Activity date only; this is not a learning-difficulty claim."}</small>
               <TeacherRecommendationExplanation
                 explanation={row.explanation}
                 surface="teacher-today"
@@ -300,7 +300,7 @@ function TodayBriefing({
                 aria-label={`Assess ${row.name}`}
                 onClick={() => onStartCheck?.(row)}
               >
-                {row.title === "First Skills check due" ? "Start Skills check" : "Check again"}
+                {row.title === "First Skills check due" ? "Start Skills assessment" : "Assess again"}
               </button>
             </div>
           </li>
@@ -370,13 +370,13 @@ function TodayBriefing({
     },
     {
       id: "collect",
-      title: "Collect current evidence",
-      label: "Collect current evidence",
+      title: "Collect current results",
+      label: "Collect current results",
       count: collectionRows.length,
       info: null,
       body: <TodayZoneList rows={collectionRows}>{row => <li key={row.id}>
         <div>
-          <div className="teacher-today-row-title"><strong>{row.name}</strong><span className="teacher-today-pill">Collect evidence</span></div>
+          <div className="teacher-today-row-title"><strong>{row.name}</strong><span className="teacher-today-pill">Collect results</span></div>
           <span className="teacher-today-row-focus">{row.currentSkill}</span>
           <small>{(row.focusLearningConclusion || row.learningConclusion)?.reason || "Too few current scored answers for a fair judgement."} This is not demonstrated learning difficulty.</small>
           <small>Latest saved activity: {formatLastActive(row.lastActive)}</small>
@@ -417,7 +417,7 @@ function TodayBriefing({
       <details className="teacher-class-briefing">
         <summary>Class briefing and counts</summary>
         <TodayMetrics rows={rows} />
-        {briefing.insufficientEvidenceCount > 0 && <p>{countPhrase(briefing.insufficientEvidenceCount, "student has", "students have")} too few answers for a fair suggestion. Collect more evidence before naming a difficulty.</p>}
+        {briefing.insufficientEvidenceCount > 0 && <p>{countPhrase(briefing.insufficientEvidenceCount, "student has", "students have")} too few answers for a fair suggestion. Collect more results before naming a difficulty.</p>}
       </details>
 
       <ClassHeatPanel rows={rows} onOpenReports={onOpenProgress} />

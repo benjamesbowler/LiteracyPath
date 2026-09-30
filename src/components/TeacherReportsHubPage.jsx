@@ -13,6 +13,7 @@ import { ElStudentBatchReportPicker } from "./reports/ElStudentBatchReportPicker
 import { getClassListReadView } from "../appState/classListReadState.js";
 import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
 import { getClassDashboardReadView } from "../appState/classDashboardReadState.js";
+import { TEACHER_COPY } from "../copy/teacherCopy.js";
 
 // ── THE SAME SHAPE AS CHECKS ────────────────────────────────────────────────
 //
@@ -637,7 +638,7 @@ export function TeacherReportsHubPage({
                 <button className="lp-button lp-button-secondary" type="button" onClick={() => {
                   setShowing(false);
                   setEditingStep(2);
-                }}>Change learner or class summary</button>
+                }}>{TEACHER_COPY.reports.changeStudentOrClassSummary}</button>
                 {!wholeClass && <button className="lp-button lp-button-secondary" type="button" onClick={() => {
                   setShowing(false);
                   setEditingStep(3);

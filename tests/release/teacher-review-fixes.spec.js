@@ -33,7 +33,7 @@ test("one click opens the current class report and keeps report choices changeab
   await expect(page.getByRole("heading", { name: "Audit Class A · class report", exact: true })).toBeFocused();
   await expect.poll(() => page.evaluate(() => new URLSearchParams(location.hash.split("?")[1]).get("who"))).toBe("class");
   await expect.poll(() => page.evaluate(() => new URLSearchParams(location.hash.split("?")[1]).get("show"))).toBe("1");
-  await page.getByRole("button", { name: "Change learner or class summary", exact: true }).click();
+  await page.getByRole("button", { name: "Change student or class summary", exact: true }).click();
   await expect(page.getByRole("searchbox", { name: "Find a student" })).toBeVisible();
 });
 

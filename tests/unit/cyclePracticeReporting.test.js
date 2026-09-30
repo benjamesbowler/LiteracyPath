@@ -77,7 +77,7 @@ test("Teacher session export preserves null score and separate durations", async
     supportedCount: 2, mediaFailedCount: 2, practiceSeconds: 1810, sessionElapsedSeconds: 2000, checkSeconds: 40, status: "incomplete" };
   assert.match(cycleResultSummary(result), /No independent score/);
   assert.match(cycleResultSummary(result), /2 supported; 2 unavailable media/);
-  assert.match(cycleDurationSummary(result), /Active practice 30 min 10 sec · Check 40 sec · Session 33 min 20 sec/);
+  assert.match(cycleDurationSummary(result), /Active practice 30 min 10 sec · Assessment 40 sec · Session 33 min 20 sec/);
   const csv = exportCycleSessionResultsCsv([{ student_id: "s", cycle_practice_result: result }], [{ id: "s", name: "=formula" }]);
   assert.match(csv, /"'=formula"/);
   assert.match(csv, /"4","0","0","","2","2","1810","40","2000"/);

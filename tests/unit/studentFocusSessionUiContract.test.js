@@ -64,7 +64,7 @@ test("Adventure Map setup offers current-space and exact-space modes from the ca
   assert.match(sessionSetup, /trailModule\.ADVENTURE_MAP_PARTS/);
   assert.match(sessionSetup, /STUDENT_ADVENTURE_MAP_MODES\.EACH_CHILD_CURRENT/);
   assert.match(sessionSetup, /STUDENT_ADVENTURE_MAP_MODES\.ONE_SPACE_FOR_EVERYONE/);
-  assert.match(sessionSetup, /<strong>Each child&apos;s current space<\/strong>/);
+  assert.match(sessionSetup, /<strong>Each student&apos;s current space<\/strong>/);
   assert.match(sessionSetup, /<strong>One space for everyone<\/strong>/);
   assert.match(sessionSetup, /id="student-session-map-space"/);
   assert.match(sessionSetup, /adventureMapMode,[\s\S]*selectedMapSpace/);
@@ -73,7 +73,7 @@ test("Adventure Map setup offers current-space and exact-space modes from the ca
 
 test("active Adventure Map controls show the mode and keep both end destinations distinct", () => {
   assert.match(sessionBar, /resolvedConfig\.map_mode === STUDENT_ADVENTURE_MAP_MODES\.EACH_CHILD_CURRENT/);
-  assert.match(sessionBar, /Each child's current space/);
+  assert.match(sessionBar, /Each student's current space/);
   assert.match(sessionBar, /One space for everyone · \$\{resolvedConfig\.space_name/);
   assert.match(sessionBar, /end\(STUDENT_FOCUS_END_ACTIONS\.RETURN_HOME\)/);
   assert.match(sessionBar, /end\(STUDENT_FOCUS_END_ACTIONS\.STUDENT_PICKER\)/);

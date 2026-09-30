@@ -4,7 +4,8 @@ import { getLedaInstructionAudioPath } from '../../src/data/ledaProductionAudio.
 import { arcadeGuideForGame } from '../../src/components/learn/games/shared/arcadeGuideExamples.js';
 import { CAMPAIGN_MISSIONS } from '../../src/features/soundSeekers/v3/content/campaign.js';
 import { isCampaignMissionUnlocked } from '../../src/features/soundSeekers/v3/engine/campaignProgress.js';
-import { ROUND_CAMPAIGN } from '../../src/features/soundSeekers/rounded/campaignController.js';
+import { ROUND_CAMPAIGN, startRoundedMission, currentCampaignBeat, currentCampaignCheckpoint, judgeRoundedAction, advanceRoundedMission } from '../../src/features/soundSeekers/rounded/campaignController.js';
+import { campaignStorageKey } from '../../src/features/soundSeekers/v3/campaignStorage.js';
 import { createCampaignPreviewProgress } from '../../src/features/soundSeekers/preview/campaignPreview.js';
 
 test.use({ viewport: { width: 1024, height: 768 }, hasTouch: true, actionTimeout: 15000 });
@@ -198,6 +199,37 @@ test('S13/S14 walking arrives before help and Places leads with eligible adventu
   await page.screenshot({ path: testInfo.outputPath('walk-arrival.png') });
   await page.getByRole('button', { name: 'Help Muddy', exact: true }).click();
   await expect(game).toHaveAttribute('data-mode', 'activity');
+});
+
+test('S15 activity header shows the exact resumed local step once in plain words', async ({ page }, testInfo) => {
+  const scope = `header-progress-${testInfo.project.name}`;
+  const mission = CAMPAIGN_MISSIONS.find(item => item.id === 'meadow-01-1');
+  let progress = startRoundedMission(createCampaignPreviewProgress('meadow-01'), mission.id, { attemptId: scope, now: 1 });
+  // Settle the first real signpost through the controller, then render its
+  // saved second step. A fresh title-page fixture cannot catch duplicate
+  // progress, an off-by-one numerator, or a campaign-wide denominator.
+  for (const card of currentCampaignBeat(progress).view.cards) {
+    progress = judgeRoundedAction(progress, { type: 'HEARD_CARD', targetId: card.targetId }, 2).progress;
+  }
+  progress = judgeRoundedAction(progress, { type: 'FINISH' }, 3).progress;
+  progress = advanceRoundedMission(progress, 4);
+  const checkpoint = currentCampaignCheckpoint(progress);
+  expect(checkpoint.beatIndex).toBe(1);
+  expect(checkpoint.challenges).toHaveLength(8);
+  await page.addInitScript(({ key, saved }) => localStorage.setItem(key, JSON.stringify(saved)), {
+    key: campaignStorageKey(`sound-seekers-preview:rounded:${scope}`), saved: progress
+  });
+  await page.goto(`/preview/rounded-campaign.html?stage=meadow-01&scope=${scope}&simple=1&resume=1`);
+  await page.getByRole('button', { name: 'Carry on', exact: true }).click();
+  const game = page.locator('[data-sound-seekers-game="rounded-campaign"]');
+  await expect(game).toHaveAttribute('data-mode', 'activity');
+  const header = game.locator('.rc-header');
+  await expect(header.locator('[aria-label="Mission steps"]')).toHaveText('2 of 8');
+  await expect(header.locator(':scope > span').nth(1)).toHaveText(mission.title);
+  const text = await header.innerText();
+  expect(text.match(/\b2 of 8\b/g)).toHaveLength(1);
+  expect(text).not.toMatch(/\b\d+\s*\/\s*\d+\b/);
+  await page.screenshot({ path: testInfo.outputPath('resumed-local-progress.png') });
 });
 
 test('S15 pause has one Keep playing action and excludes paused practice time', async ({ page }, testInfo) => {

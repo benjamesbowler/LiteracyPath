@@ -100,8 +100,7 @@ function scanText({ audience, file, node, value, findings }) {
   }
 }
 
-function scanSourceFile(file, audience, findings) {
-  const source = fs.readFileSync(file, "utf8");
+export function scanAppCopySource(source, { file, audience }, findings = []) {
   const ast = parse(source, {
     sourceType: "module",
     plugins: ["jsx", "importAttributes"],
@@ -130,6 +129,7 @@ function scanSourceFile(file, audience, findings) {
     } else if (
       /copy\/(?:childCopy|teacherCopy)\.js$/.test(file.replaceAll(path.sep, "/"))
       && node.type === "StringLiteral"
+      && !(parent?.type === "ObjectProperty" && parent.key === node)
     ) {
       scanText({ audience, file, node, value: node.value, findings });
     }
@@ -141,6 +141,11 @@ function scanSourceFile(file, audience, findings) {
     });
   }
   visit(ast);
+  return findings;
+}
+
+function scanSourceFile(file, audience, findings) {
+  scanAppCopySource(fs.readFileSync(file, "utf8"), { file, audience }, findings);
 }
 
 function runRenderedScan() {
@@ -173,25 +178,31 @@ function runExportScan() {
   });
 }
 
-const findings = [];
-listSourceFiles(sourceRoot).forEach(file => {
-  const audience = audienceFor(file);
-  if (audience) scanSourceFile(file, audience, findings);
-});
+async function main() {
+  const findings = [];
+  listSourceFiles(sourceRoot).forEach(file => {
+    const audience = audienceFor(file);
+    if (audience) scanSourceFile(file, audience, findings);
+  });
 
-if (findings.length) {
-  console.error(`App copy source scan failed with ${findings.length} finding(s):`);
-  findings.forEach(finding => console.error(`- ${finding}`));
-  process.exitCode = 1;
-} else {
-  console.log("App copy source pre-filter passed.");
-  if (renderedMode) {
-    try {
-      await runExportScan();
-      await runRenderedScan();
-    } catch (error) {
-      console.error(error.message);
-      process.exitCode = 1;
+  if (findings.length) {
+    console.error(`App copy source scan failed with ${findings.length} finding(s):`);
+    findings.forEach(finding => console.error(`- ${finding}`));
+    process.exitCode = 1;
+  } else {
+    console.log("App copy source pre-filter passed.");
+    if (renderedMode) {
+      try {
+        await runExportScan();
+        await runRenderedScan();
+      } catch (error) {
+        console.error(error.message);
+        process.exitCode = 1;
+      }
     }
   }
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  await main();
 }

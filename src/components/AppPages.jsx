@@ -1394,10 +1394,9 @@ function ClassReportStatusSplit({ model }) {
   return (
     <>
       <p className="muted-text">
-        Across skills: these whole-learner statuses require results from more than one skill.
-        A current-focus result can be ready before this broader summary.
+        {TEACHER_COPY.reports.acrossSkillsStatusHelp}
       </p>
-      <section className="teacher-class-report-split" aria-label="Whole-learner class status split">
+      <section className="teacher-class-report-split" aria-label={TEACHER_COPY.reports.classStatusSplitLabel}>
         {cards.map(card => (
           <article
             className={`teacher-class-report-split-card ${card.statusId}`}
@@ -1861,7 +1860,7 @@ export function CheckpointDecisionPage({
   const primaryPassedLabel = completedLevelOne || completedLevelTwo || pathStatus.finalStepComplete
     ? `Move to next skill${checkpoint.nextSkillLabel ? `: ${checkpoint.nextSkillLabel}` : ""}`
     : pathStatus.nextActionLabel;
-  const retryLabel = checkpoint.assessmentMode === "retention" ? "Retry retention check" : checkpoint.accuracyPassed
+  const retryLabel = checkpoint.assessmentMode === "retention" ? TEACHER_COPY.skillsAssessment.retryRetention : checkpoint.accuracyPassed
     ? `Continue ${pathStatus.label}`
     : `Retry ${pathStatus.label}`;
 
@@ -1874,12 +1873,12 @@ export function CheckpointDecisionPage({
           <strong>{pathStatus.label}</strong>
           <p>
             {checkpoint.assessmentMode === "retention"
-              ? checkpoint.passed ? "The retention check passed. This skill is Secure." : "This retention check needs more practice. You can try it again."
+              ? checkpoint.passed ? TEACHER_COPY.skillsAssessment.retentionPassed : TEACHER_COPY.skillsAssessment.retentionNeedsPractice
               : checkpoint.passed
               ? completedLevelOne
                 ? "Level 1 is complete. Move to the next skill, or try the optional Level 2 extension."
                 : completedLevelTwo || pathStatus.finalStepComplete
-                  ? "Both Level 2 phases are complete. A retention check opens after three days. You can move to the next skill now."
+                  ? TEACHER_COPY.skillsAssessment.levelTwoComplete
                   : `Next formal step: ${pathStatus.nextActionLabel}.`
               : `Stay on ${pathStatus.label} until this phase is passed.`}
           </p>
@@ -2034,11 +2033,11 @@ export function CheckpointDecisionPage({
 
         {checkpoint.skillStatus?.level2?.passed && (
           <div className="level-mastery-callout">
-            <strong>{checkpoint.skillStatus.retention?.passed ? "Secure" : "Retention check"}</strong>
+            <strong>{checkpoint.skillStatus.retention?.passed ? "Secure" : TEACHER_COPY.skillsAssessment.retentionTitle}</strong>
             {!checkpoint.skillStatus.retention?.passed && <p>{checkpoint.skillStatus.retention?.eligible
-              ? "The retention check is ready."
+              ? TEACHER_COPY.skillsAssessment.retentionReady
               : `Available from ${new Date(checkpoint.skillStatus.retention?.unlockAt).toLocaleDateString()}. Open this skill again on that date.`}</p>}
-            {checkpoint.skillStatus.retention?.eligible && !checkpoint.skillStatus.retention?.passed && <button className="report-button" onClick={continueSkill} type="button">Start retention check</button>}
+            {checkpoint.skillStatus.retention?.eligible && !checkpoint.skillStatus.retention?.passed && <button className="report-button" onClick={continueSkill} type="button">{TEACHER_COPY.skillsAssessment.startRetention}</button>}
           </div>
         )}
 
@@ -2302,7 +2301,7 @@ export function AssessmentPage({
       <div className="assessment-meta">
         <span>{studentName || "Unnamed student"}</span>
         <h1>
-          {assessmentMode === "retention" ? `Retention check · ${safeCurrentStage.label}` : independentAssessment
+          {assessmentMode === "retention" ? TEACHER_COPY.skillsAssessment.retentionTitleForSkill(safeCurrentStage.label) : independentAssessment
             ? `Skills Assessment · ${safeCurrentStage.label}`
             : assessmentMode === "targetedReview"
             ? "Targeted Review"

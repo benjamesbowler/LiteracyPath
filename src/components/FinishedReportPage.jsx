@@ -1240,7 +1240,7 @@ export function FinishedReportPage({
           enabled: Boolean(exportReadingReport)
         }
       : {
-          label: "Download progress and evidence workbook (XLSX)",
+          label: "Download progress and results workbook (XLSX)",
           scope: `Current judgements: latest ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days. The Report and Skills sheets cover all source items; Data keeps saved Skills questions and practice detail. This workbook covers progress across tabs. EL assessment periods and reading-answer history have their own exports.`,
           enabled: Boolean(reportingWorkspace.wholeChild?.concepts?.length || reportingWorkspace.wholeChild?.descriptiveAssessments?.length)
         };

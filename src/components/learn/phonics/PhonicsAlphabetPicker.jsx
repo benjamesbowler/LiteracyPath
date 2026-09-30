@@ -48,7 +48,7 @@ export function PhonicsAlphabetPicker({ progress = {}, rounds = {}, teachingCycl
     <div className="phonics-picker phonics-simple-picker" data-alphabet-open={showAlphabet ? "true" : "false"}>
       <h1 data-child-title="">Letters</h1>
 
-      <p data-child-instruction="">{narrowPhoneBrowse ? "Practise this letter." : "Practise this letter. Your place is saved."}</p>
+      <p data-child-instruction="">{compactBrowse || narrowPhoneBrowse ? "Practise this letter." : "Practise this letter. Your place is saved."}</p>
       {recommendedLetter && (
         <p className="phonics-recommendation-reason">
           <ChildRecommendationExplanation
@@ -71,7 +71,7 @@ export function PhonicsAlphabetPicker({ progress = {}, rounds = {}, teachingCycl
           <span className="phonics-letter-symbol">{letter}</span>
         </button>)}
       </div>}
-      <button type="button" className="phonics-alphabet-toggle" aria-expanded={showAlphabet} aria-controls="phonics-all-letters" onClick={() => setShowAlphabet(open => !open)}>{showAlphabet ? "Close alphabet" : "Choose a letter"}</button>
+      <button type="button" className="phonics-alphabet-toggle" aria-label={showAlphabet ? "Close alphabet" : undefined} aria-expanded={showAlphabet} aria-controls="phonics-all-letters" onClick={() => setShowAlphabet(open => !open)}>{showAlphabet ? compactBrowse ? "Close" : "Close alphabet" : "Choose a letter"}</button>
       {showAlphabet && <section id="phonics-all-letters" className="phonics-alphabet-discovery">
       <div className="phonics-letter-grid" role="group" aria-label="All letters" data-child-choices="">
         {alphabetLetters.map(letter => {
@@ -96,7 +96,7 @@ export function PhonicsAlphabetPicker({ progress = {}, rounds = {}, teachingCycl
               {isRecommended && (
                 <span className="phonics-letter-next" data-child-emphasis-cue="">Start here</span>
               )}
-              {status === "inprogress" && <span className="phonics-letter-rounds" aria-hidden="true">{rounds[letter]?.completedCount || 0}/{LETTER_PRACTICE_ROUND_COUNT}</span>}
+              {status === "inprogress" && <span className="phonics-letter-rounds" aria-hidden="true">{rounds[letter]?.completedCount || 0} of {LETTER_PRACTICE_ROUND_COUNT}</span>}
               <span className="phonics-letter-status" aria-hidden="true">
                 {status === "completed" && "✓"}
                 {status === "inprogress" && <span className="phonics-status-pulse" />}

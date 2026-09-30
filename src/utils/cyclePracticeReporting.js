@@ -29,8 +29,8 @@ export function cycleResultSummary(result) {
   return `${score}. ${result.totalQuestions} items presented; ${result.supportedCount} supported; ${result.mediaFailedCount} unavailable media.`;
 }
 export function cycleDurationSummary(result) {
-  if (result.practiceSeconds == null) return "Activity time not verified for this older check.";
-  return `Active practice ${humanActivityDuration(result.practiceSeconds)} · Check ${humanActivityDuration(result.checkSeconds)} · Session ${humanActivityDuration(result.sessionElapsedSeconds)}. Client-reported activity.`;
+  if (result.practiceSeconds == null) return "Activity time not verified for this older assessment.";
+  return `Active practice ${humanActivityDuration(result.practiceSeconds)} · Assessment ${humanActivityDuration(result.checkSeconds)} · Session ${humanActivityDuration(result.sessionElapsedSeconds)}. Client-reported activity.`;
 }
 export function exportCycleSessionResultsCsv(members = [], students = []) {
   const names = new Map(students.map(student => [student.id, student.name]));
@@ -55,7 +55,7 @@ export function exportCycleSessionResultsCsv(members = [], students = []) {
 
 export function cyclePracticeNextRows(result) {
   const labels = { incorrect: "Try this mapping again", supported: "Practise with support, then try independently",
-    media_failed: "Replay the required media before checking", legacy_unverified: "Independent evidence not recorded" };
+    media_failed: "Replay the required media before assessing", legacy_unverified: "Independent results not recorded" };
   const profile = cyclePracticeEvidenceProfile(result);
   return (result?.questionRecords || []).filter(row => labels[row.responseStatus]).map(row => ({
     id: row.questionId,
@@ -78,6 +78,6 @@ export function studentSessionOperationalState(member) {
   if (Number(member.cycle_practice_result?.mediaFailedCount) > 0) return "Media unavailable";
   if (member.status === "completed") return "Finished";
   if (!member.connected) return "Waiting for connection";
-  if (member.status === "needs_attention") return "Check incomplete";
+  if (member.status === "needs_attention") return "Assessment incomplete";
   return "Working";
 }

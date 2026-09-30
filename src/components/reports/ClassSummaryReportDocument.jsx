@@ -1,3 +1,5 @@
+import { TEACHER_COPY } from "../../copy/teacherCopy.js";
+
 function formatReportDate(value) {
   const date = new Date(value || Date.now());
   if (!Number.isFinite(date.getTime())) return "Date unavailable";
@@ -129,10 +131,7 @@ export function ClassSummaryReportDocument({
           <section className="formal-class-report-provenance" aria-label="Report details">
             <h3>How to read this</h3>
             <p>
-              “Enough results” means the student has enough recent scored answers
-              across skills for a fair whole-learner summary. A named-skill result
-              can be ready before this broader summary.
-              Missing or incomplete results are not counted as zero.
+              {TEACHER_COPY.reports.classSummaryResultsHelp}
             </p>
             <dl>
               <div>

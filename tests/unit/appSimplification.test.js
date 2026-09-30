@@ -36,7 +36,7 @@ test('prepared class entry carries only a validated roster code in a fragment', 
 test('session status separates operational faults from incomplete learning checks', () => {
   assert.equal(studentSessionOperationalState({content_ok:false,status:'needs_attention',connected:true}),'Content unavailable');
   assert.equal(studentSessionOperationalState({status:'needs_attention',connected:false}),'Waiting for connection');
-  assert.equal(studentSessionOperationalState({status:'needs_attention',connected:true}),'Check incomplete');
+  assert.equal(studentSessionOperationalState({status:'needs_attention',connected:true}),'Assessment incomplete');
   assert.equal(studentSessionOperationalState({status:'completed',connected:false}),'Finished');
   assert.equal(studentSessionOperationalState({content_ok:true,connected:true,status:'needs_attention',cycle_practice_result:{mediaFailedCount:1}}),'Media unavailable');
   assert.equal(humanActivityDuration(1810),'30 min 10 sec');
