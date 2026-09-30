@@ -3871,3 +3871,50 @@
   .lg-game-player .lg-illustrated-game .lg-game-build.lg-build-phase-blending > p:first-child { display: none; }
   .lg-game-player .lg-illustrated-game .lg-game-build .lg-build-hint { display: block; position: absolute; left: 4px; top: 66px; width: 88px; text-align: center; background: var(--lg-surface); font-size: .85rem; border-radius: 6px; }
 }
+
+/* Frequent controls occupy the two thumb zones. Steering is always left when
+   an independent forward/jump/action is present. Native answer taps stay direct. */
+.lg-game-player [data-gg-controls],
+.lg-game-player [data-role="move-controls"],
+.lg-game-player [data-role="steer-controls"] {
+  gap: 8px !important;
+  bottom: max(16px, env(safe-area-inset-bottom)) !important;
+}
+.lg-game-player [data-gg-controls="left"],
+.lg-game-player [data-role="move-controls"] {
+  left: max(16px, env(safe-area-inset-left)) !important;
+  right: auto !important;
+}
+.lg-game-player [data-gg-controls="right"],
+.lg-game-player [data-role="steer-controls"] {
+  right: max(16px, env(safe-area-inset-right)) !important;
+  left: auto !important;
+  display: grid !important;
+  grid-template-columns: auto auto;
+  align-items: end;
+}
+.lg-game-player :is([data-gg-btn="push"], [data-role="move-forward"]) { grid-column:1; grid-row:2; }
+.lg-game-player :is([data-gg-btn="brake"], [data-role="move-back"]) { grid-column:1; grid-row:1; }
+.lg-game-player :is([data-gg-btn="jump"], [data-role="cut"]) { grid-column:2; grid-row:2; }
+/* Sentence Grove keeps a separate status row below its thumb controls. */
+.lg-game-player .sg-game-hud :is([data-role="move-controls"], [data-role="steer-controls"]) {
+  bottom: max(48px, calc(env(safe-area-inset-bottom) + 32px)) !important;
+}
+@media(min-width:768px) and (min-height:421px) {
+  .lg-game-player :is([data-ll="left"], [data-ll="right"], [data-ll="jump"], [data-wb="left"], [data-wb="right"], [data-wb="action"], [data-rr="left"], [data-rr="right"], [data-rr="cast"], [data-sr-steer-control], [data-rr-steer-control], [data-gg-btn], [data-role="turn-left"], [data-role="turn-right"], [data-role="move-forward"], [data-role="move-back"], [data-role="cut"]) {
+    min-width:72px !important;
+    min-height:72px !important;
+    touch-action:none;
+  }
+}
+@media(max-width:520px), (max-height:420px) {
+  .lg-game-player [data-ll="move-controls"] { left:max(6px,env(safe-area-inset-left)) !important; gap:8px !important; }
+  .lg-game-player [data-ll="move-controls"] button { width:56px !important; min-width:56px !important; height:56px !important; }
+  .lg-game-player [data-gg-controls], .lg-game-player [data-role="move-controls"], .lg-game-player [data-role="steer-controls"] { bottom:max(6px,env(safe-area-inset-bottom)) !important; }
+  .lg-game-player [data-gg-controls="left"], .lg-game-player [data-role="move-controls"] { left:max(6px,env(safe-area-inset-left)) !important; }
+  .lg-game-player [data-gg-controls="right"], .lg-game-player [data-role="steer-controls"] { right:max(6px,env(safe-area-inset-right)) !important; }
+  .lg-game-player :is([data-gg-btn], [data-role="turn-left"], [data-role="turn-right"], [data-role="move-forward"], [data-role="move-back"], [data-role="cut"]) { width:56px !important; min-width:56px !important; height:56px !important; padding:0 3px !important; font-size:12px !important; }
+  .lg-game-player :is([data-role="turn-left"], [data-role="turn-right"]) { font-size:28px !important; }
+  .lg-game-player .sg-game-hud :is([data-role="move-controls"], [data-role="steer-controls"]) { bottom:max(36px,calc(env(safe-area-inset-bottom) + 28px)) !important; }
+  .lg-game-player .sg-game-hud [data-role="status-bars"] { bottom:6px !important; }
+}

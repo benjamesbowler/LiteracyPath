@@ -65,7 +65,7 @@ export function advanceClimbWorld(world, seconds, steer = 0) {
     }
     if (["airborne", "recovering"].includes(world.state)) {
       const beforeY = world.y;
-      if (world.state === "airborne") world.vx += steer * 1400 * dt;
+      if (world.state === "airborne") world.vx += steer * 650 * dt;
       world.x += world.vx * dt;
       world.y += world.vy * dt - 0.5 * GRAVITY * dt * dt;
       world.vy -= GRAVITY * dt;

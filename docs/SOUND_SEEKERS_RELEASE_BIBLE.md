@@ -28,6 +28,14 @@ missions. Finishing a mission returns control to exploration, without forcing
 the next mission open. Each completed main mission leaves its exact authored
 repair; a finale or optional action cannot stand in for the other four repairs.
 
+Movement follows the current Game Design Bible: left/right steering at the
+lower left, independent forward/back controls at the lower right and the
+nearby contextual action between the thumb zones. Held pointers combine;
+releasing or cancelling one finger leaves the other active. Lost capture,
+pause, visibility loss and departure clear held movement. A short tap uses
+the same bounded collision steps as continuous movement. Controls are 72px
+on roomy iPads and retain the 56px floor on smaller or shorter viewports.
+
 `campaignChallenges.js` and `campaignInstructions.js` remain the single teaching
 and judging authority. Twelve authored activity families use sound introductions,
 sound/letter choices, oral or read sorting, ordered sound-piece construction,

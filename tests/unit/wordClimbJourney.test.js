@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { createWordClimbSession } from "../../src/utils/wordClimbLevels.js";
-import { advanceClimbJourney,climbRouteCenter,CLIMB_TRAVEL_SPEED,createClimbJourney } from "../../src/components/learn/games/games/wordClimbJourney.js";
+import { advanceClimbJourney,climbRouteCenter,climbRouteRadius,CLIMB_TRAVEL_SPEED,createClimbJourney } from "../../src/components/learn/games/games/wordClimbJourney.js";
 import { jumpToClimbPlatform,reachableClimbPlatforms } from "../../src/components/learn/games/games/wordClimbWorld.js";
 
 function steer(world){
@@ -30,15 +30,17 @@ for(const [difficulty,stage] of [["easy",0],["medium",1],["hard",2],["easy",3],[
   assert.deepEqual(world.platforms.filter(p=>p.kind==="word").map(p=>[p.id,p.word,p.x,p.y]),originalWords);
   assert.equal(world.journey.obstacles.length,world.summit);assert.equal(world.journey.lights.length,world.summit);
 });
-test("release pauses active climbing immediately; edge slips are local motor events",()=>{
+test("release stops climbing, edge catches preserve height, and pause freezes the route",()=>{
   const world=createClimbJourney(createWordClimbSession("easy"));
   for(let i=0;i<60;i++)advanceClimbJourney(world,1/60,steer(world));
   const y=world.y;for(let i=0;i<60;i++)advanceClimbJourney(world,1/60,{});assert.equal(world.y,y);
-  for(let i=0;i<180&&!world.motorFalls;i++)advanceClimbJourney(world,1/60,{up:true,right:true});
-  assert.equal(world.motorFalls,1);assert.equal(world.wrong,0);assert.equal(world.step,0);
-  world.event=null;const frozen=JSON.stringify(world);world.paused=true;const paused=JSON.stringify(world);advanceClimbJourney(world,1,{});assert.equal(JSON.stringify(world),paused);world.paused=false;
-  for(let i=0;i<60;i++)advanceClimbJourney(world,1/60,{});
-  assert.equal(world.y,world.journey.safeRest.y);assert.ok(world.y>0);assert.notEqual(JSON.stringify(world),frozen);
+  // Oversteer without forward movement cannot fling the child off the trunk.
+  for(let i=0;i<180;i++)advanceClimbJourney(world,1/60,{right:true});
+  assert.equal(world.motorFalls,0);assert.equal(world.wrong,0);assert.equal(world.step,0);assert.equal(world.y,y);
+  const center=climbRouteCenter(world.journey,y,world.journey.branchStartX);
+  assert.ok(Math.abs(world.x-center)<=climbRouteRadius(world.journey,y));
+  world.event=null;world.paused=true;const paused=JSON.stringify(world);advanceClimbJourney(world,1,{});assert.equal(JSON.stringify(world),paused);
+  world.paused=false;advanceClimbJourney(world,1/60,{left:true});assert.equal(world.y,y);
 });
 
 test("a branch contact recovers to a physically touched hold without awarding reading progress",()=>{
@@ -72,7 +74,7 @@ test("held climb control never answers a word station automatically",()=>{
 });
 
 test("the route remains traversable with discrete steering decisions",()=>{
- for(const cadence of [2,6]){
+ for(const cadence of [2,6,12]){
   const world=createClimbJourney(createWordClimbSession("easy"));let input={},ticks=0;
   while(world.journey.phase==='climb'&&ticks<4000){if(ticks%cadence===0)input=steer(world);advanceClimbJourney(world,1/60,input);ticks++;}
   assert.equal(world.journey.phase,'word',`steering every ${cadence}/60 seconds reaches the first station`);

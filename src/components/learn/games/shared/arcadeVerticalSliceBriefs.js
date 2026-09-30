@@ -238,7 +238,7 @@ const ORIGINAL_BRIEFS = deepFreeze({
     },
     controls: {
       keyboard: ["Hold ArrowUp or W to climb", "ArrowLeft or A and ArrowRight or D steer; at a station they select a word ledge", "ArrowUp or W jumps to the selected ledge; Space or Enter also acts when focus is on the playfield", "Tab or Shift+Tab reaches active word ledges; Enter or Space launches the focused ledge jump"],
-      touch: ["Hold the up, left and right controls to climb or steer; release, cancel or lose capture to stop", "Tap an active word ledge to launch a jump, or use the up control to jump toward the selected ledge"],
+      touch: ["Left thumb steers with the left/right pair; right thumb holds CLIMB or taps JUMP; release, cancel or lose capture to stop", "Tap an active word ledge to launch a jump, or use the up control to jump toward the selected ledge"],
       minimumTargetCssPixels: 56,
       pointerReleaseEvents: ["pointerup", "pointercancel", "lostpointercapture"]
     },
@@ -248,7 +248,7 @@ const ORIGINAL_BRIEFS = deepFreeze({
     },
     gameFeel: {
       movement: "Continuous trunk climbing leads into a physical word-platform jump roughly every three seconds of clear upward travel; steering and optional lights add decisions during each short approach.",
-      forgiveness: ["No timer pressure", "Wrong words retain earned progress and all three choices", "Motor falls recover locally without reducing reading accuracy", "The actual onset is named", "Pausing freezes physics and completion feedback"],
+      forgiveness: ["No timer pressure", "Wrong words retain earned progress and all three choices", "Slower sideways grip adjustments and an outer-bark edge catch prevent overshoot falls", "Outlined thorn branches retain real collision and local recovery without reducing reading accuracy", "Gentle air steering preserves deliberate ledge choices", "The actual onset is named", "Pausing freezes physics and completion feedback"],
       camera: "A responsive camera follows the physical climber through the forest while the target, upcoming-word preview and movement controls remain fixed and readable.",
       successFeedback: "The climber settles on the matching ledge, the word count increases and the next approach opens immediately.",
       errorFeedback: "The selected word and its actual beginning sound are printed while the requested target stays visible; a safety vine recovers the climber for another jump."

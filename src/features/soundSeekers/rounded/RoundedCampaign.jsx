@@ -21,6 +21,9 @@ import { warmQuestOfflineAssets } from '../../../utils/offlineShell.js';
 import { ROUND_CAMPAIGN, currentCampaignCheckpoint, currentCampaignBeat, campaignResumeStage, enterCampaignStage, recordRoundedDiscovery, recordRoundedInventory, startRoundedMission, judgeRoundedAction, advanceRoundedMission, roundedPosition, restoreRoundedPosition } from './campaignController.js';
 import './rounded-campaign.css';
 
+const MOVE_DIRECTIONS = { ArrowUp: [0, -1], w: [0, -1], ArrowDown: [0, 1], s: [0, 1], ArrowLeft: [-1, 0], a: [-1, 0], ArrowRight: [1, 0], d: [1, 0] };
+const MOVE_BUTTONS = [[-1, 0, 'Left'], [1, 0, 'Right'], [0, -1, 'Up'], [0, 1, 'Down']];
+
 function Modal({ title, children, onClose }) {
   const ref = useRef(null);
   useEffect(() => {
@@ -68,6 +71,14 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
   const [speaking, setSpeaking] = useState(false);
   const [audioError, setAudioError] = useState('');
   const host = useRef(null), world = useRef(null), sceneStateRef = useRef(null), audio = useRef(null), audioCatalog = useRef({}), cueGeneration = useRef(0), replayGeneration = useRef(0), advanceTimer = useRef(null), positionAt = useRef(0), playClock = useRef(null), nearMission = useRef(null);
+  const motorPointers = useRef(new Map()), motorKeys = useRef(new Set());
+  const moveMotor = useCallback((tapStep = false) => {
+    const vectors = [...motorPointers.current.values(), ...[...motorKeys.current].map(name => MOVE_DIRECTIONS[name]).filter(Boolean)];
+    const vector = vectors.reduce((sum, direction) => [sum[0] + direction[0], sum[1] + direction[1]], [0, 0]);
+    world.current?.move(...vector, { tapStep });
+    world.current?.run(motorKeys.current.has('Shift'));
+  }, []);
+  const releaseMotorPointer = event => { motorPointers.current.delete(event.pointerId); moveMotor(); };
   const stageId = progress ? campaignResumeStage(progress) : CAMPAIGN_STAGES[0].id;
   const stage = getCampaignStage(stageId) || CAMPAIGN_STAGES[0];
   const checkpoint = currentCampaignCheckpoint(progress), beat = currentCampaignBeat(progress), mission = getCampaignMission(checkpoint?.missionId);
@@ -276,25 +287,19 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
     save(updateCampaignCheckpoint(progressRef.current, checkpoint.missionId, { attemptId: checkpoint.attemptId, position: roundedPosition(snapshot) }, Date.now()), { positionOnly: true });
   }, [snapshot, checkpoint, mode, paused, save]);
   useEffect(() => {
-    const held = new Set();
-    const directions = { ArrowUp: [0, -1], w: [0, -1], ArrowDown: [0, 1], s: [0, 1], ArrowLeft: [-1, 0], a: [-1, 0], ArrowRight: [1, 0], d: [1, 0] };
-    const move = () => {
-      const vector = [...held].reduce((sum, name) => { const d = directions[name]; return d ? [sum[0] + d[0], sum[1] + d[1]] : sum; }, [0, 0]);
-      world.current?.move(...vector); world.current?.run(held.has('Shift'));
-    };
     const key = event => {
       if (event.key === 'Escape' && !modal) { event.preventDefault(); setModal('pause'); return; }
       if (mode !== 'explore' || paused || event.target.closest('input,textarea,select,dialog,[contenteditable="true"]')) return;
       const name = event.key.length === 1 ? event.key.toLowerCase() : event.key;
-      if (directions[name] || name === 'Shift') { event.preventDefault(); held.add(name); move(); }
+      if (MOVE_DIRECTIONS[name] || name === 'Shift') { event.preventDefault(); motorKeys.current.add(name); moveMotor(); }
       if (name === 'e' && !event.repeat) { event.preventDefault(); if (nearMission.current) begin(nearMission.current); else world.current?.interact(); }
     };
-    const release = event => { held.delete(event.key.length === 1 ? event.key.toLowerCase() : event.key); move(); };
-    const stop = () => { held.clear(); world.current?.move(0, 0); world.current?.run(false); };
+    const release = event => { motorKeys.current.delete(event.key.length === 1 ? event.key.toLowerCase() : event.key); moveMotor(); };
+    const stop = () => { motorKeys.current.clear(); motorPointers.current.clear(); world.current?.move(0, 0); world.current?.run(false); };
     window.addEventListener('keydown', key); window.addEventListener('keyup', release); window.addEventListener('blur', stop);
     document.addEventListener('visibilitychange', stop);
     return () => { window.removeEventListener('keydown', key); window.removeEventListener('keyup', release); window.removeEventListener('blur', stop); document.removeEventListener('visibilitychange', stop); stop(); };
-  }, [begin, modal, mode, paused]);
+  }, [begin, modal, mode, paused, moveMotor]);
 
   const statusLine = !saveState.ok ? saveState.error?.message : ephemeral ? 'Just for this visit' : cloudStatus === 'saved' ? 'Saved for you' : 'Saved on this device';
   const observedInput = () => { if (playClock.current) playClock.current = advanceCampaignPlayClock(playClock.current, { nowMs: Date.now(), activity: true, paused, hidden: document.hidden }); };
@@ -305,7 +310,7 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
     {mode === 'explore' && <>
       <section className="rc-objective"><img src={objectiveResident?.sprite} alt={objectiveResident?.name || ''} /><div><h1>{stage.name}</h1><p>{stageRepaired ? 'Everyone here is ready. Try an extra adventure, or explore the next place.' : stage.problem}</p>{focusedMission && <button className="rc-primary" onClick={() => sceneReady ? world.current?.walkToMission(focusedMission.id) : begin(focusedMission.id)}>{sceneReady ? 'Find' : 'Help'} {CAST[focusedMission.residentId]?.name || 'your Pal'}</button>}{!focusedMission && <p>Every Pal here has been helped.</p>}{nextStage && isCampaignStageUnlocked(progress, nextStage.id, ROUND_CAMPAIGN) && <button onClick={() => { save(enterCampaignStage(progressRef.current, nextStage.id, Date.now())); }}>Explore {nextStage.name}</button>}{totalMain === 150 && <p className="rc-finished">All three worlds are ready. You can visit your Pals or play again.</p>}</div>{(!stageRepaired || focusedMission) && <button aria-label="Hear the current Pal's problem" onClick={hearProblem}>Listen</button>}</section>
       {sceneReady && snapshot.markers?.filter(marker => marker.visible && available.some(item => item.id === marker.missionId)).map(marker => <button key={marker.missionId} className="rc-world-marker" style={{ left: marker.x, top: marker.y }} aria-label={`Walk to ${getCampaignMission(marker.missionId)?.title}`} onClick={() => world.current?.walkToMission(marker.missionId)}><CampaignPropArt descriptor={{kind:marker.objectKind || 'lantern'}} /></button>)}
-      <footer className="rc-explore-footer"><p>{sceneError || (sceneReady ? snapshot.worldInteraction?.prompt || (snapshot.carrying ? `Carrying ${snapshot.carrying.title}. Bring it to the entrance.` : 'Tap the path to walk. Choose a Pal to help.') : 'Opening the landscape…')}<small>{statusLine}</small></p><div className="rc-movement" aria-label="Move Bouncy">{[[0,-1,'Up'],[-1,0,'Left'],[0,1,'Down'],[1,0,'Right']].map(([x,z,label]) => <button key={label} aria-label={`Move ${label.toLowerCase()}`} onPointerDown={event => { event.currentTarget.setPointerCapture(event.pointerId); world.current?.move(x,z); }} onPointerUp={() => world.current?.move(0,0)} onPointerCancel={() => world.current?.move(0,0)}>{({Up:'↑',Left:'←',Down:'↓',Right:'→'})[label]}</button>)}</div>{snapshot.nearMissionId ? <button className="rc-primary" onClick={() => begin(snapshot.nearMissionId)}>Help here</button> : snapshot.worldInteraction && <button className="rc-primary" onClick={() => world.current?.interact()}>{({pickup:'Pick it up',place:'Put it here',operate:'Use it'})[snapshot.worldInteraction.action]}</button>}</footer>
+      <footer className="rc-explore-footer"><p>{sceneError || (sceneReady ? snapshot.worldInteraction?.prompt || (snapshot.carrying ? `Carrying ${snapshot.carrying.title}. Bring it to the entrance.` : 'Tap the path to walk. Choose a Pal to help.') : 'Opening the landscape…')}<small>{statusLine}</small></p><div className="rc-movement" aria-label="Move Bouncy">{MOVE_BUTTONS.map(([x,z,label]) => <button key={label} data-direction={label.toLowerCase()} aria-label={`Move ${label.toLowerCase()}`} onPointerDown={event => { event.preventDefault(); event.currentTarget.setPointerCapture(event.pointerId); motorPointers.current.set(event.pointerId, [x, z]); moveMotor(true); }} onPointerUp={releaseMotorPointer} onPointerCancel={releaseMotorPointer} onLostPointerCapture={releaseMotorPointer} onClick={event => { if (event.detail === 0) world.current?.move(x, z, { tapStep: true, tapOnly: true }); }}>{({Up:'↑',Left:'←',Down:'↓',Right:'→'})[label]}</button>)}</div>{snapshot.nearMissionId ? <button className="rc-primary" onClick={() => begin(snapshot.nearMissionId)}>Help here</button> : snapshot.worldInteraction && <button className="rc-primary" onClick={() => world.current?.interact()}>{({pickup:'Pick it up',place:'Put it here',operate:'Use it'})[snapshot.worldInteraction.action]}</button>}</footer>
     </>}
     {mode === 'activity' && beat && <section className="rc-activity" aria-label={mission.title}><CampaignActivity beat={publicBeat(beat)} state={checkpoint.beatState} residentId={mission.residentId} onAction={dispatch} onReplay={replay} onOptionAudio={playSources} onPictureShown={() => dispatch({ type: 'PICTURE_CUE_SHOWN' })} pictureCue={checkpoint.beatState.modelShown ? soundPictureCue(beat) : null} supportText={supportText} feedback={feedback} speaking={speaking} reducedMotion={settings.reduced} /><p className="rc-audio-error" role="status">{audioError}</p>{!saveState.ok && <div role="alert"><p>{statusLine}</p><button onClick={() => save(progressRef.current)}>Try saving again</button></div>}</section>}
     {sceneError && mode !== 'activity' && <button className="rc-retry-scene" onClick={() => setSceneRevision(value => value + 1)}>Try landscape again</button>}

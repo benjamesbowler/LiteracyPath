@@ -168,8 +168,11 @@ export function createClimbSceneKit(platforms,summit,viewWidth,shelfHeight,journ
     }
     for(const obstacle of journey.obstacles){
       const branch=new THREE.Group();branch.name=obstacle.id;const x=(obstacle.x-500)/1000*viewWidth,w=obstacle.width/1000*viewWidth,z=climbSurfaceDepth(journey,obstacle.y,obstacle.x,viewWidth)+12;
-      branch.add(tube([[x-w/2,obstacle.y,z],[x,obstacle.y+4,z+4],[x+w/2,obstacle.y,z]],[6*detailScale,8*detailScale,5*detailScale],mats.bark[1],"branch-obstruction",10));
-      for(let k=0;k<3;k++)branch.add(tube([[x+(k-1)*w*.27,obstacle.y+3,z],[x+(k-1)*w*.27+4,obstacle.y+17*detailScale,z+3]],[2.5*detailScale,.4],mats.bark[2],"branch-tip",6));
+      const hazard=material(0x7b2540,{emissive:0x511225,emissiveIntensity:.4});
+      const rim=material(0xffe3ad,{emissive:0xffc36c,emissiveIntensity:.6});
+      branch.add(tube([[x-w/2,obstacle.y,z],[x,obstacle.y+4,z+4],[x+w/2,obstacle.y,z]],[8*detailScale,10*detailScale,7*detailScale],rim,"thorn-outline",10));
+      branch.add(tube([[x-w/2,obstacle.y,z+10],[x,obstacle.y+4,z+14],[x+w/2,obstacle.y,z+10]],[5*detailScale,7*detailScale,4*detailScale],hazard,"branch-obstruction",10));
+      for(let k=0;k<3;k++)branch.add(tube([[x+(k-1)*w*.27,obstacle.y+3,z+7],[x+(k-1)*w*.27+4,obstacle.y+20*detailScale,z+9]],[4*detailScale,.4],rim,"branch-tip",6));
       batchSurfaces(branch);root.add(branch);
     }
     for(const light of journey.lights){

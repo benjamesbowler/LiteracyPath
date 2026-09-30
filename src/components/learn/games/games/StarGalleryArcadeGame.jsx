@@ -1019,7 +1019,7 @@ function createHud() {
       <div data-role="score" style="font-size:22px;font-weight:900;">0 pts</div>
       <div data-role="streak" style="margin-top:4px;font-size:13px;font-weight:900;color:#fff1a8;"></div>
     </div>
-    <div style="position:absolute;left:22px;right:22px;bottom:14px;height:22px;">
+    <div data-role="status-bars" style="position:absolute;left:22px;right:22px;bottom:14px;height:22px;">
       <div style="position:absolute;left:0;bottom:0;width:40%;height:10px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:99px;overflow:hidden;">
         <div data-role="progress" style="height:100%;width:0%;background:#52ffe1;"></div>
       </div>
@@ -1029,12 +1029,12 @@ function createHud() {
       </div>
     </div>
     <div data-role="move-controls" style="position:absolute;left:22px;bottom:48px;display:flex;gap:10px;pointer-events:auto;">
-      <button data-role="move-forward" type="button" aria-label="Move forward" style="width:76px;height:64px;border:2px solid rgba(105,255,230,.68);background:linear-gradient(160deg,#7fffe9,#38bdf8);color:#052e2b;font-family:inherit;font-size:13px;font-weight:900;border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);touch-action:none;">↑<br>FORWARD</button>
-      <button data-role="move-back" type="button" aria-label="Move back" style="width:76px;height:64px;border:2px solid rgba(255,255,255,.42);background:rgba(3,7,18,.82);color:#fff;font-family:inherit;font-size:13px;font-weight:900;border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);touch-action:none;">↓<br>BACK</button>
-    </div>
-    <div data-role="steer-controls" style="position:absolute;right:22px;bottom:48px;display:flex;align-items:flex-end;gap:10px;pointer-events:auto;">
       <button data-role="turn-left" type="button" aria-label="Turn left" style="width:64px;height:64px;border:2px solid rgba(105,255,230,.58);background:rgba(3,7,18,.82);color:#fff;font-family:inherit;font-size:28px;font-weight:900;border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);touch-action:none;">←</button>
       <button data-role="turn-right" type="button" aria-label="Turn right" style="width:64px;height:64px;border:2px solid rgba(105,255,230,.58);background:rgba(3,7,18,.82);color:#fff;font-family:inherit;font-size:28px;font-weight:900;border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);touch-action:none;">→</button>
+    </div>
+    <div data-role="steer-controls" style="position:absolute;right:22px;bottom:48px;display:flex;align-items:flex-end;gap:10px;pointer-events:auto;">
+      <button data-role="move-forward" type="button" aria-label="Move forward" style="width:76px;height:64px;border:2px solid rgba(105,255,230,.68);background:linear-gradient(160deg,#7fffe9,#38bdf8);color:#052e2b;font-family:inherit;font-size:13px;font-weight:900;border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);touch-action:none;">↑<br>FORWARD</button>
+      <button data-role="move-back" type="button" aria-label="Move back" style="width:76px;height:64px;border:2px solid rgba(255,255,255,.42);background:rgba(3,7,18,.82);color:#fff;font-family:inherit;font-size:13px;font-weight:900;border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);touch-action:none;">↓<br>BACK</button>
       <button data-role="cut" type="button" aria-label="Cut the nearby answer tree" style="min-width:116px;height:64px;padding:0 20px;font-family:inherit;font-size:23px;font-weight:900;color:#052e2b;background:#52ffe1;border:3px solid rgba(255,255,255,.88);border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);cursor:pointer;touch-action:none;">CUT</button>
     </div>
     <div data-role="feedback" style="position:absolute;left:50%;top:166px;transform:translateX(-50%);min-width:min(360px,78vw);max-width:680px;padding:14px 22px;background:rgba(3,7,18,.84);border:2px solid rgba(255,226,92,.68);clip-path:polygon(4% 0,97% 0,100% 24%,96% 100%,4% 100%,0 76%,0 18%);text-align:center;opacity:0;transition:opacity .12s linear;">

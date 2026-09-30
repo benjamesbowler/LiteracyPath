@@ -49,8 +49,8 @@
   font-size: 16px !important; background: #0c2234ed; color: #fff2c6;
 }
 @container (max-width: 600px) {
-  .sg-game-hud [data-role="move-controls"] { left: 10px !important; gap: 6px !important; bottom: 44px !important; }
-  .sg-game-hud [data-role="steer-controls"] { right: 10px !important; gap: 6px !important; bottom: 44px !important; }
+  .sg-game-hud [data-role="move-controls"] { left: 10px !important; gap: 8px !important; bottom: 44px !important; }
+  .sg-game-hud [data-role="steer-controls"] { right: 10px !important; gap: 8px !important; bottom: 44px !important; }
   .sg-game-hud [data-role="move-controls"] button,
   .sg-game-hud [data-role="steer-controls"] button { width: 56px !important; min-width: 56px !important; height: 56px !important; padding: 0 !important; }
   .sg-game-hud [data-role="move-controls"] [data-role="move-forward"] { width: 76px !important; padding-inline: 4px !important; }
@@ -59,6 +59,13 @@
 }
 
 @container (max-width: 370px) {
-  .sg-game-hud [data-role="move-controls"] { flex-direction: column; align-items: center; }
-  .gg-game-hud [data-gg-controls="left"] { flex-direction: column; align-items: center; }
+  .sg-game-hud [data-role="move-controls"] { flex-direction: row; align-items: center; }
+  .gg-game-hud [data-gg-controls="left"] { flex-direction: row; align-items: center; }
+}
+
+/* A short landscape playfield has room for one prompt row above the controls. */
+@container (max-height: 300px) and (min-width: 371px) {
+  .sg-game-hud [data-role="prompt-panel"], .gg-game-hud [data-gg-panel="center"] { top:6px !important; width:calc(100% - 20px) !important; }
+  .sg-game-hud [data-role="panel-left"], .sg-game-hud [data-role="panel-right"],
+  .gg-game-hud [data-gg-panel="left"], .gg-game-hud [data-gg-panel="right"] { display:none; }
 }

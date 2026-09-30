@@ -103,8 +103,10 @@ If any link is missing, the activity is decoration around a quiz or movement aro
 
 LiteracyPath product decision: the preschool touch target is **56 by 56 CSS pixels minimum**, stricter than the 44-pixel WCAG enhanced target. There must be at least 8 pixels of clear separation between adjacent primary controls.
 
-- Forward and back live at the lower left.
-- Left, right and contextual actions live at the lower right.
+- When movement needs forward, climb, jump or another independent action, left/right steering lives at the lower left and the forward/action controls at the lower right. Actions needed together must be reachable with different thumbs.
+- If only left/right steering is required, place left at the lower left and right at the lower right. Do not add an unnecessary forward button.
+- Use at least 72-pixel primary motor controls on roomy iPad viewports; retain the 56-pixel floor and separation on smaller/shorter screens. Direct answer taps remain on the answer.
+- This layout follows the owner's 30 September 2026 direction and [Apple's handheld interface guidance](https://developer.apple.com/videos/play/meet-with-apple/243/) and [Microsoft's control placement guidance](https://learn.microsoft.com/en-us/gaming/gdk/docs/features/common/game-streaming/building-touch-layouts/game-streaming-tak-designers-guide).
 - Controls respect safe-area insets and remain within the visible game frame at 320px landscape height and standard iPad landscape/portrait sizes.
 - A held pointer keeps the action active; pointer-up, pointer-cancel and lost-pointer-capture always release it.
 - A tap produces a visible response even if released before the next animation frame.

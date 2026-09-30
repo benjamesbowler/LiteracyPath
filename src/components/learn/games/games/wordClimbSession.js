@@ -1,4 +1,4 @@
-import { createClimbJourney } from "./wordClimbJourney.js";
+import { climbRouteCenter, createClimbJourney } from "./wordClimbJourney.js";
 export function climbSessionKey(scope = "default", difficulty = "easy") { return `literacy-guide-word-climb:${scope}:${difficulty}`; }
 export function readClimbSession(storage, key, checkpoint, checkpointPresent) {
   if (!checkpointPresent) return null;
@@ -26,6 +26,15 @@ export function readClimbSession(storage, key, checkpoint, checkpointPresent) {
       refreshed.journey.safeRest={id:safe.id,x:safe.x,y:safe.y};
       refreshed.journey.collected=(world.journey.collected || []).filter(id=>refreshed.journey.lights.some(l=>l.id===id));
       return {session:saved.session,world:refreshed};
+    }
+    // Adopt the roomier thorn route in existing saves without resetting a
+    // child's position, earned words, collected lights or recovery state.
+    if (Array.isArray(world.journey?.obstacles)) {
+      world.journey.obstacles = world.journey.obstacles.map(obstacle => ({
+        ...obstacle,
+        x: climbRouteCenter(world.journey, obstacle.y) + obstacle.side * 96,
+        width: 104
+      }));
     }
     return {session:saved.session,world:{...world,paused:false,event:null}};
   } catch { return null; }

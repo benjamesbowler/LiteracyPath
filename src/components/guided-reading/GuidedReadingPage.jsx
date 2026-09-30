@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { useEffect, useEffectEvent, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { ImmersiveReader } from "./ImmersiveReader.jsx";
 import { announceMissionReturn, notifyMissionTaskDone } from "../../utils/dailyMission.js";
 import { printCertificate } from "../../utils/printCertificate.js";
 import { countBooksRead } from "../../utils/treasureTrail.js";
@@ -766,9 +767,10 @@ export function GuidedReadingPage({
     setPageIndex(0);
     setShowSummary(false);
     setReaderOpen(true);
+    setIsReaderFullscreen(isStudentMode);
     setReaderInteractionMode("reading");
     onLaunchBookHandled?.();
-  }, [launchBookId, onLaunchBookHandled, runtimeGuidedReadingBooks]);
+  }, [launchBookId, onLaunchBookHandled, runtimeGuidedReadingBooks, isStudentMode]);
 
   const recommendedBooks = recommendBooksForStudent({
     books: runtimeGuidedReadingBooks,
@@ -987,12 +989,16 @@ export function GuidedReadingPage({
     if (typeof document === "undefined") return undefined;
 
     function handleFullscreenChange() {
-      setIsReaderFullscreen(getBrowserFullscreenElement(document) === guidedReaderShellRef.current);
+      // Native exit returns to the same immersive child reader.
+      // Browsers without the API still use the viewport-filling layout.
+      const element = getBrowserFullscreenElement(document);
+      if (element && element === guidedReaderShellRef.current) setIsReaderFullscreen(true);
+      else if (!isStudentMode) setIsReaderFullscreen(false);
       setReaderLayoutVersion(version => version + 1);
     }
 
     return addBrowserFullscreenListener(document, handleFullscreenChange);
-  }, []);
+  }, [isStudentMode]);
 
   useEffect(() => {
     if (!readerOpen || scoreSummaryOpen) return undefined;
@@ -1192,6 +1198,7 @@ export function GuidedReadingPage({
     setPageIndex(0);
     setShowSummary(false);
     setReaderOpen(true);
+    setIsReaderFullscreen(isStudentMode);
     setReaderInteractionMode("reading");
   }
 
@@ -1241,10 +1248,17 @@ export function GuidedReadingPage({
       void exitBrowserFullscreen(document);
     }
     setReaderOpen(false);
+    setIsReaderFullscreen(false);
     setShowSummary(false);
     // Phase D: hand the child back to the Books screen they opened this from.
     onCloseReader?.();
   }
+
+  useEffect(() => {
+    if (readerOpen && isStudentMode && isReaderFullscreen) {
+      void requestBrowserFullscreen(guidedReaderShellRef.current);
+    }
+  }, [readerOpen, isStudentMode, isReaderFullscreen]);
 
   async function toggleReaderFullscreen() {
     const shell = guidedReaderShellRef.current;
@@ -1256,6 +1270,7 @@ export function GuidedReadingPage({
     try {
       if (getBrowserFullscreenElement(document) === shell) {
         await exitBrowserFullscreen(document);
+        setIsReaderFullscreen(false);
       } else if (isReaderFullscreen) {
         setIsReaderFullscreen(false);
       } else if (!(await requestBrowserFullscreen(shell))) {
@@ -2413,6 +2428,7 @@ export function GuidedReadingPage({
       )}
 
       {readerOpen && !scoreSummaryOpen ? (
+        <ImmersiveReader active={isStudentMode && isReaderFullscreen}>
         <section
           className={[
             "guided-reader-shell",
@@ -2451,7 +2467,7 @@ export function GuidedReadingPage({
                 onFinish={completeBook}
                 isReviewMode={isReviewMode}
                 isFullscreen={isReaderFullscreen}
-                onToggleFullscreen={toggleReaderFullscreen}
+                onToggleFullscreen={isStudentMode ? closeReader : toggleReaderFullscreen}
                 onClose={closeReader}
                 lineFocusEnabled={lineFocusEnabled}
                 onToggleLineFocus={() => {
@@ -2967,6 +2983,7 @@ export function GuidedReadingPage({
             </div>
           </aside>}
         </section>
+        </ImmersiveReader>
       ) : scoreSummaryOpen ? (
         <section className="guided-reading-summary">
           <div>
