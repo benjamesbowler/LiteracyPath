@@ -72,8 +72,10 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
   series. The chosen Guide appears on Home and in the signed-in header.
 - Later Guide changes live only in **My Hollow → My Guide** and cost 10 earned
   stars. Choosing the current Guide again never spends stars.
-- Hatched beasties remain visible in the main Hollow's **Beastie nook** and
-  open the complete Beasties collection when tapped.
+- Hatched beasties appear in the main Hollow's **Beastie nook** and open the
+  complete Beasties collection when tapped. On short phone landscape screens,
+  the **Beasties** tab keeps that collection available while the room omits
+  the duplicate nook so it cannot cover placement or the next action.
 - Reading Library disclosure order is **Fiction / Non-fiction → series → book**.
   Series are meaningful reader groups (including Bob and Nan), not a flat
   cover wall. Completed books carry a visible and accessible read tick.
@@ -92,13 +94,13 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
 |---|---:|---:|---:|---:|---:|---|
 | Student sign in | PASS | PASS | PASS | PASS | PASS | Step title, recovery instruction, stepper, code choices, and one contextual Go action are explicit. |
 | Student home | PASS | PASS | PASS | PASS | PASS | Removed the duplicate top-bar continuation; the recommended activity card now owns the one named continuation action. |
-| Phonics | PASS | PASS | PASS | PASS | PASS | Added a route title contract and promotes the first available unfinished letter while keeping the island switcher subordinate. |
+| Phonics | PASS | PASS | PASS | PASS | PASS | Promotes practice from the known teaching cycle or confirmed placement, then resumes letter practice or offers open exploration. All letters stay available; the suggested letter leads the compact grid. |
 | Arcade | PASS | PASS | PASS | PASS | PASS | Added a direct instruction and marks the first unplayed game as “Play next”; the rest remain ordinary choices. |
 | Adventure Map | PASS | PASS | PASS | PASS | PASS | Forward-only Meadow → Dino → Moonwood path; only the first unfinished stop opens outside a temporary, single-stop teacher session. |
 | Sound Seekers | PASS | PASS | PASS | PASS | PASS | The fresh-state creature builder names the task, part step, choices, and one hatch action inside the Sound Seekers root. |
 | Story Quests | PASS | PASS | PASS | PASS | PASS | Added a single Start/Continue recommendation and a text title fallback that remains visible when the raster logo is suppressed. |
 | Reading Library | PASS | PASS | PASS | PASS | PASS | Fiction/non-fiction, then series, then paged books; completed books show a read tick. |
-| My Hollow | PASS | PASS | PASS | PASS | PASS | Guide changes and hatched beasties have permanent homes; room and market collections page without child scrolling. |
+| My Hollow | PASS | PASS | PASS | PASS | PASS | Recommends placement only with an owned placeable item; otherwise offers the available gift or Market, with illustrated spoken recovery. Guide changes and hatched beasties have permanent homes. |
 
 ## Verification
 

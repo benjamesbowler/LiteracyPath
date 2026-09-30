@@ -126,6 +126,25 @@ test('real picker opens selected slide and offers a working blocked-popup fallba
   await expect(page.locator('.pr-slide-counter')).toHaveText(/^Slide 2 of /);
   await recovery.close();
 });
+
+test('Present restores the selected lesson and slide for each class after navigation', async ({ page }) => {
+  await page.goto(`${preview}&workspace-class=class-a`);
+  await page.getByRole('button', { name: 'Thursday', exact: true }).click();
+  await page.getByRole('button', { name: /Explore further 25 min/ }).click();
+  await page.getByRole('button', { name: 'Next slide', exact: true }).click();
+  await page.getByRole('button', { name: 'Next slide', exact: true }).click();
+  await expect(page.locator('.pr-slide-counter')).toHaveText(/^Slide 3 of /);
+  await page.reload();
+  await expect(page.getByRole('button', { name: 'Thursday', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.getByRole('button', { name: /Explore further 25 min/ })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('.pr-slide-counter')).toHaveText(/^Slide 3 of /);
+  await page.goto(`${preview}&workspace-class=class-b`);
+  await page.getByRole('button', { name: 'Friday', exact: true }).click();
+  await expect(page.locator('.pr-slide-counter')).toHaveText(/^Slide 1 of /);
+  await page.goto(`${preview}&workspace-class=class-a`);
+  await expect(page.getByRole('button', { name: 'Thursday', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('.pr-slide-counter')).toHaveText(/^Slide 3 of /);
+});
 test('representative slide content fits the stage with answers shown and real fonts loaded',async({page})=>{
   test.setTimeout(180000);await page.setViewportSize({width:1920,height:1080});
   const issues=[];

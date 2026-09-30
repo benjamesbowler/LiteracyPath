@@ -10,6 +10,8 @@ export function PhonicsLearnPage({
   lockedToLetters = false,
   lockedGameId = null,
   onLockedGameAvailabilityChange = null,
+  teachingCycleId = "",
+  confirmedPlacement = null,
   progressScopeKey = "default"
 }) {
   const exactGameLock = lockedGameId !== null;
@@ -31,6 +33,8 @@ export function PhonicsLearnPage({
           lockedToLetters={lockedToLetters}
           lockedGameId={lockedGameId}
           onLockedGameAvailabilityChange={onLockedGameAvailabilityChange}
+          teachingCycleId={teachingCycleId}
+          confirmedPlacement={confirmedPlacement}
           progressScopeKey={progressScopeKey}
         />
       </section>

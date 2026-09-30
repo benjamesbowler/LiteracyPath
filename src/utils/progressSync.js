@@ -4,6 +4,7 @@ import { campaignPositionKey, applyCampaignPositions } from './campaignPosition.
 import { createCampaignAckTracker } from './campaignDelta.js';
 import { encodeCampaignTransport } from './campaignTransport.js';
 import { normalizeCampaignProgress } from '../features/soundSeekers/v3/engine/campaignProgress.js';
+import { WOODLAND_PROGRESS_ROW, encodeWoodlandProgress, decodeWoodlandProgress, mergeWoodlandProgress } from '../features/soundSeekers/woodlandProgress.js';
 import { encodeProgressStorage, decodeProgressStorage } from './progressStorageCodec.js';
 import { supabase } from "../supabaseClient.js";
 import { selectAllRows } from "../data/pagedSelect.js";
@@ -20,6 +21,7 @@ import {
   localProgressStorageKeyForRow,
   localProgressStorageKey,
   localProgressStorageKeysForArea,
+  woodlandChapterStorageKey,
   retiredLocalProgressStorageKey,
   RESET_AREA,
   shouldApplyReset
@@ -807,6 +809,17 @@ export async function hydrateCloudProgress(session) {
   rows.forEach(row => {
     const storageKey = localProgressStorageKeyForRow(row.area, row.key, session.studentId);
     if (!storageKey) return;
+    if (row.area === 'phonics_quest' && row.key === WOODLAND_PROGRESS_ROW) {
+      const localKey = woodlandChapterStorageKey(session.studentId);
+      const local = readStoredJson(localKey), cloudCache = readStoredJson(storageKey);
+      if (!local.ok || !cloudCache.ok) return;
+      const merged = mergeWoodlandProgress(
+        mergeWoodlandProgress(cloudCache.value, local.exists ? encodeWoodlandProgress(local.value) : null), row.payload
+      );
+      const chapter = decodeWoodlandProgress(merged);
+      if (chapter && writeJson(localKey, chapter) !== false) writeJson(storageKey, merged);
+      return;
+    }
     if (row.area === "phonics_quest" && row.key === "sound_seekers_v3") {
       let campaignStored = readStoredJson(storageKey);
       if (!campaignStored.exists) {

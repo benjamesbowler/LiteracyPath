@@ -3,6 +3,7 @@ import { printPracticePack } from "../utils/worksheets/practicePack.js";
 import { classHeatSummary } from "../utils/questReport.js";
 import {
   allocateTeacherTodayUrgentPreviews,
+  buildTeacherFocusPracticeRecommendation,
   buildTeacherTodayBriefing
 } from "../utils/teacherTodayBriefing.js";
 import {
@@ -144,6 +145,7 @@ function TodayMetrics({ rows }) {
           />
         )}
         label={TEACHER_COPY.metrics.havePlayed}
+        note="All saved Skills answers"
         value={progressPhrase(startedCount, total)}
       />
       <TodayMetric
@@ -155,6 +157,7 @@ function TodayMetrics({ rows }) {
           />
         )}
         label={TEACHER_COPY.metrics.playedToday}
+        note="Activity received by this dashboard"
         value={progressPhrase(activeTodayCount, total)}
       />
       <TodayMetric
@@ -183,6 +186,7 @@ function TodayBriefing({
   onLoadStudent,
   onOpenClasses,
   onStartCheck,
+  onPlanFocusPractice,
   onOpenProgress
 }) {
   const briefing = useMemo(() => buildTeacherTodayBriefing(rows), [rows]);
@@ -217,13 +221,23 @@ function TodayBriefing({
                 />
               </div>
               <div className="teacher-today-row-actions">
+                {row.focus !== "Review recent results" && (
+                  <button
+                    className="lp-button lp-button-primary"
+                    type="button"
+                    aria-label={`Plan focused practice for ${row.name} in ${row.focus}`}
+                    onClick={() => onPlanFocusPractice?.(row)}
+                  >
+                    Plan focused practice
+                  </button>
+                )}
                 <button
-                  className="lp-button lp-button-primary teacher-start-check"
+                  className="lp-button lp-button-secondary teacher-start-check"
                   type="button"
                   aria-label={`Assess ${row.name}`}
                   onClick={() => onStartCheck?.(row)}
                 >
-                  Assess
+                  Check again
                 </button>
                 <button
                   className="lp-button teacher-today-ghost"
@@ -254,14 +268,14 @@ function TodayBriefing({
     <div className="teacher-today-first-day">
       <p>
         {countPhrase(briefing.due.length, "student is", "students are")} waiting on a
-        first assessment. Nothing is saved yet, so there is nothing to review.
+        first Skills check. No Skills answers are saved yet; other assessments and practice are shown separately.
       </p>
       <button
         className="lp-button lp-button-primary teacher-start-check"
         type="button"
         onClick={() => onStartCheck?.(briefing.due[0])}
       >
-        Do the first assessment
+        Do the first Skills check
       </button>
     </div>
   ) : briefing.due.length ? (
@@ -287,7 +301,7 @@ function TodayBriefing({
                 aria-label={`Assess ${row.name}`}
                 onClick={() => onStartCheck?.(row)}
               >
-                Assess
+                {row.title === "First Skills check due" ? "Start Skills check" : "Check again"}
               </button>
               <button
                 className="lp-button teacher-today-ghost"
@@ -491,22 +505,23 @@ function ClassHeatPanel({ rows, onOpenReports }) {
   }
 
   return (
-    <section className="teacher-sound-map" aria-label="Class sound map">
+    <section className="teacher-sound-map" aria-label="Earlier trail class sound map">
       <div className="teacher-sound-map-head">
         <div>
           <span className="teacher-sound-map-title">
-            <strong>Class sound map and small groups</strong>
+            <strong>Earlier trail sound map and small groups</strong>
             <MetricDefinition
               metricId="accuracy"
               label="Sound status"
               counts="Each tile is one sound, with its status across the class: got it, almost there, needs re-teaching, or not met yet. Status comes from correct answers out of scored answers for that sound."
-              timeWindow="All saved Sound Seekers play for this class."
-              excludes="Sounds the class has not met yet — those show as not met, not as a low score."
+              timeWindow="Saved earlier trail records, before the current Sound Seekers game."
+              excludes="Current woodland/campaign practice and formal Skills results."
             />
           </span>
           <p className="teacher-sound-map-summary">
             {countPhrase(summary.studentsWithEvidence, "student", "students")} with results · {groupSummary}
           </p>
+          <p className="muted-text">Earlier trail history. Current 3D game participation is shown separately in Students.</p>
         </div>
       </div>
       <div
@@ -593,6 +608,7 @@ export function TeacherTodayPage({
   const [creatingClass, setCreatingClass] = useState(false);
   const [createClassError, setCreateClassError] = useState("");
   const [supportFollowUpOpen, setSupportFollowUpOpen] = useState(false);
+  const [focusPracticeRequest, setFocusPracticeRequest] = useState(null);
   const [supportQueueState, setSupportQueueState] = useState({
     count: 0,
     loading: true,
@@ -639,6 +655,9 @@ export function TeacherTodayPage({
     row => row.evidenceReadStatus !== "complete"
   );
   const hasIncompleteEvidence = incompleteEvidenceRows.length > 0;
+  const focusPracticeRecommendation = focusPracticeRequest?.classId === selectedClassId
+    ? focusPracticeRequest.recommendation
+    : null;
   const {
     hasSetupClass,
     setupSteps,
@@ -704,6 +723,17 @@ export function TeacherTodayPage({
     });
     if (count > 0) setSupportFollowUpOpen(true);
   }, []);
+
+  function handlePlanFocusPractice(row) {
+    const recommendation = buildTeacherFocusPracticeRecommendation(row);
+    if (!recommendation) return;
+    setFocusPracticeRequest({ classId: selectedClassId, recommendation });
+    setSupportFollowUpOpen(true);
+    requestAnimationFrame(() => {
+      supportPlannerHeadingRef.current?.focus();
+      supportPlannerHeadingRef.current?.scrollIntoView({ block: "start" });
+    });
+  }
 
   // Every step except the last is done on the Students page, so Continue takes
   // the teacher there AND says which control to open. The checklist stays on
@@ -979,6 +1009,7 @@ export function TeacherTodayPage({
             rows={studentRows}
             onLoadStudent={onLoadStudent}
             onStartCheck={onStartCheck}
+            onPlanFocusPractice={handlePlanFocusPractice}
             onOpenClasses={onOpenClasses}
             onOpenProgress={onOpenProgress}
           />
@@ -1020,6 +1051,8 @@ export function TeacherTodayPage({
             classId={selectedClass.id}
             className={selectedClass.name}
             rows={studentRows}
+            recommendation={focusPracticeRecommendation}
+            onRecommendationConsumed={() => setFocusPracticeRequest(null)}
             onTodayQueueChange={handleSupportQueueChange}
             headingRef={supportPlannerHeadingRef}
           />

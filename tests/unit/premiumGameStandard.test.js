@@ -131,7 +131,7 @@ test("every substantial vertical slice is complete, traceable to checks, and hon
 
   const playerImplementation = readFileSync("src/components/learn/games/GamePlayer.jsx", "utf8");
   assert.match(playerImplementation, /const hasPremiumCompletionOverlay = Boolean\(completionResult && premiumProfile && premiumProfile\.completionPresentation !== "engine"\)/);
-  assert.match(playerImplementation, /const hasBlockingOverlay = startLevel === null \|\| showQuit \|\| showGuide \|\| hasPremiumCompletionOverlay \|\| saveRecovery/);
+  assert.match(playerImplementation, /const hasBlockingOverlay = startLevel === null \|\| showQuit \|\| showGuide \|\| showPause \|\| hasPremiumCompletionOverlay \|\| saveRecovery/);
   assert.match(playerImplementation, /const hasEngineOwnedCompletion = Boolean\(completionResult && !hasPremiumCompletionOverlay\)/);
   assert.match(playerImplementation, /querySelectorAll\("\.lg-game-player-main button:not\(\[disabled\]\)"\)/);
   assert.match(playerImplementation, /<main[^>]*className="lg-game-player-main" inert=\{hasBlockingOverlay \? true : undefined\}>/);

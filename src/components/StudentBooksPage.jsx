@@ -44,9 +44,8 @@ import {
   getKnowledgeJourney,
   knowledgeJourneyBooks
 } from "../data/knowledgeJourneys.js";
-import { classifyBookReadingPurpose } from "../policy/literacyExperiencePolicy.js";
+import { childBookReadingPurpose, classifyBookReadingPurpose } from "../policy/literacyExperiencePolicy.js";
 import {
-  childGuidedReadingModeLabel,
   guidedReadingLevelLabel,
   splitLevelCBooks
 } from "../policy/guidedReadingCatalogPolicy.js";
@@ -311,7 +310,6 @@ export function StudentBooksPage({
   const panelProgress = continueRow?.progress
     || (panelBook ? bookReadingProgress(panelBook, guidedReadingRecords[panelBook.id] || {}) : null);
   const resuming = Boolean(continueRow);
-  const panelRecommendation = recommended.find(item => item.book.id === panelBook?.id) || null;
 
   const knowledgeJourneys = useMemo(
     () => KNOWLEDGE_JOURNEYS.filter(journey => (
@@ -328,9 +326,11 @@ export function StudentBooksPage({
   );
 
   function purposeFor(book) {
-    return recommended.find(item => item.book.id === book.id)?.readingPurpose
-      || classifyBookReadingPurpose(book, studentProgress || {});
+    return childBookReadingPurpose(recommended.find(item => item.book.id === book.id)?.readingPurpose
+      || classifyBookReadingPurpose(book, recommendationEvidenceReady ? studentProgress || {} : {}));
   }
+
+  const panelPurpose = panelBook ? purposeFor(panelBook) : null;
 
   const shelves = useMemo(() => {
     const common = {
@@ -576,7 +576,7 @@ export function StudentBooksPage({
                   <ChildRecommendationExplanation
                     className="kg-body kg-continue-reason"
                     surface="guided-reading"
-                    reason={panelRecommendation?.readingPurpose?.reason || "Open this book with reading help."}
+                    reason={panelPurpose.reason}
                   />
                 )}
                 {resuming && panelProgress?.totalPages > 0 && (
@@ -609,9 +609,10 @@ export function StudentBooksPage({
                   type="button"
                   className="kg-speaker kg-speaker--md kg-glass kg-glass--strong kg-continue-hear"
                   aria-label="Hear this"
-                  onClick={() => hear(
-                    studentBookPanelAudioText(resuming, panelBook.title)
-                  )}
+                  onClick={() => hear([
+                    studentBookPanelAudioText(resuming, panelBook.title),
+                    ...(resuming ? [] : [panelPurpose.reason])
+                  ])}
                 >
                   <SpeakerGlyph />
                 </button>
@@ -671,7 +672,7 @@ export function StudentBooksPage({
                   <BookCover book={book} className="kg-knowledge-book-cover" loading="lazy" />
                   <span>
                     <strong>{book.title}</strong>
-                    <small>{purpose.shortLabel}</small>
+                    <small>{purpose.label}</small>
                   </span>
                 </button>
               );
@@ -714,7 +715,7 @@ export function StudentBooksPage({
                           loading="lazy"
                         />
                         <strong className="kg-book-title">{book.title}</strong>
-                        <small className="kg-book-purpose">{[...new Set([childGuidedReadingModeLabel(book), purpose.shortLabel].filter(Boolean))].join(" · ")}</small>
+                        <small className="kg-book-purpose">{purpose.label}</small>
                       </span>
                     </button>
                   );

@@ -29,14 +29,20 @@ CVC spelling, sound sorting and spoken object placement. It does not award
 assessment mastery or invent teacher evidence. Its 30–40-minute authoring
 target is not measured child play; the complete 20-hour game remains later work.
 
-Each learner has a separate **device-local** checkpoint through
+Each learner has a separate local checkpoint through
 `woodlandChapterStorageKey` in `src/utils/progressKeys.js`. It retains exact
 partial words, project choices, repairs and settings, and participates in
 learner deletion and practice reset. A hydrated teacher reset remounts the
 chapter after cleanup. Storage failure is shown honestly in the game.
+Authenticated learners also queue the exact chapter checkpoint in the separate
+`woodland_homecoming_v1` progress row. Its compatibility packet uses the deployed
+v2 merge transport while retaining chapter identity, partial choices, reset epoch
+and forward repairs. Hydration restores this chapter without reading retired
+trail assignments. Participation is labelled supported practice, separate from
+assessment conclusions; a sync timestamp alone is not recent play.
 The public try-out keeps the existing memory-only storage boundary and labels
 its progress as just for this visit. There is no anonymous-preview migration
-and no cloud progress sync for this small chapter. The previous campaign's local and cloud records stay separate.
+and no anonymous cloud progress. The previous campaign's local and cloud records stay separate.
 
 ## Preserved earlier game
 

@@ -128,7 +128,7 @@ test("Today due separates unstarted students from inactive students", () => {
   ], { now });
 
   assert.deepEqual(briefing.due.map(row => row.id), ["new", "quiet"]);
-  assert.equal(briefing.due[0].title, "First assessment due");
+  assert.equal(briefing.due[0].title, "First Skills check due");
   assert.match(briefing.due[1].evidence, /10 days/);
   briefing.due.forEach(row => {
     assert.deepEqual(

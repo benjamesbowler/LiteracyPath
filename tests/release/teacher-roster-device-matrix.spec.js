@@ -77,6 +77,18 @@ async function expectNoViewportOverflow(page) {
     document.documentElement.scrollWidth <= window.innerWidth
     && document.body.scrollWidth <= window.innerWidth
   ))).toBe(true);
+  await page.evaluate(() => document.fonts.ready);
+  const headerOverflow = await page.locator(".teacher-roster-grid th").evaluateAll(headers => headers.flatMap(header => {
+    const cell = header.getBoundingClientRect();
+    const range = document.createRange();
+    range.selectNodeContents(header);
+    const clipped = [...range.getClientRects()].some(rect => (
+      rect.left < cell.left - 1 || rect.right > cell.right + 1
+      || rect.top < cell.top - 1 || rect.bottom > cell.bottom + 1
+    ));
+    return clipped ? [header.textContent.trim()] : [];
+  }));
+  expect(headerOverflow, "Roster headings must fit their own columns").toEqual([]);
 }
 
 async function expectReadableFocusPills(roster, expectedLabels = ["Initial Sounds", "Final Sounds"]) {
@@ -156,7 +168,7 @@ test("@teacher-roster-device-matrix keeps a configurable roster and student pane
   const roster = page.locator(".teacher-roster-table");
   // The compact design keeps every essential learning field fixed. Sign-in
   // readiness is permanently visible under the student's name.
-  for (const column of ["Student", "Current focus", "Accuracy", "Status", "Last active", "Actions"]) {
+  for (const column of ["Student", "Current focus", "Focus accuracy", "Focus status", "Last active", "Actions"]) {
     await expect(roster.getByRole("columnheader", { name: column, exact: true })).toBeAttached();
   }
   await expect(roster.getByRole("columnheader", { name: "Sound Seekers", exact: true })).toHaveCount(0);

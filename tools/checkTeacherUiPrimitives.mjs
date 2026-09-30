@@ -100,21 +100,25 @@ assert.ok(
   "Intent pages must import the consolidated page primitives."
 );
 
-for (const snapshot of [
-  "teacher-roster-chromebook.png",
-  "teacher-roster-tablet.png",
-  "teacher-learner-drawer-chromebook.png",
-  "teacher-learner-drawer-tablet.png"
-]) {
+const baselineVariants = process.platform === "linux"
+  ? ["preview", "authenticated"]
+  : ["preview"];
+for (const snapshot of baselineVariants.flatMap(variant => [
+  `teacher-roster-chromebook-${variant}.png`,
+  `teacher-roster-tablet-${variant}.png`,
+  `teacher-learner-drawer-chromebook-${variant}.png`,
+  `teacher-learner-drawer-tablet-${variant}.png`
+])) {
   const snapshotPath = path.join(
     root,
     "tests/release/teacher-roster-device-matrix.spec.js-snapshots",
     ...(process.platform === "linux" ? ["linux"] : []),
     snapshot
   );
-  assert.ok(fs.statSync(snapshotPath).size > 10_000, `Visual baseline ${snapshot} is missing or empty.`);
+  assert.ok(fs.existsSync(snapshotPath), `Visual baseline ${snapshot} is missing.`);
+  assert.ok(fs.statSync(snapshotPath).size > 10_000, `Visual baseline ${snapshot} is empty.`);
 }
 
 console.log(
-  "Teacher UI primitives: tokens, page shells, filters, tables, modal dialogs, and drawers are consolidated; four authenticated device baselines are present."
+  `Teacher UI primitives: tokens, page shells, filters, tables, modal dialogs, and drawers are consolidated; ${baselineVariants.length * 4} current ${baselineVariants.join("/")} device baselines are present. File presence does not establish a new hosted browser run.`
 );

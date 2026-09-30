@@ -9,6 +9,8 @@ import {
   STUDENT_SOFTWARE_KEYBOARD_VIEWPORTS
 } from "../../src/policy/studentDeviceMatrix.js";
 import { expectVisibleImagesReady } from "./support/visualReadiness.js";
+import { CYCLE_ACTIVITY_REVISION, CYCLE_PRACTICE_VERSION } from "../../src/policy/cyclePracticePolicy.js";
+import { cycleStorageKey } from "../../src/components/cycle-practice/cyclePracticeState.js";
 
 const INTERACTIVE_SELECTOR = [
   "button:not([disabled])",
@@ -37,10 +39,11 @@ async function expectNoHorizontalOverflow(page, state) {
 }
 
 async function visibleControls(root) {
-  const controls = root.locator(INTERACTIVE_SELECTOR);
+  // Freeze element identities: asynchronous canvas readiness can change a
+  // tabindex and shift nth() selectors halfway through a geometry check.
+  const controls = await root.locator(INTERACTIVE_SELECTOR).elementHandles();
   const visible = [];
-  for (let index = 0; index < await controls.count(); index += 1) {
-    const control = controls.nth(index);
+  for (const control of controls) {
     if (await control.isVisible()) visible.push(control);
   }
   return visible;
@@ -718,8 +721,8 @@ async function expectCompactHollowOverlaysSeparated(surface, state) {
       && first.bottom > second.top + 1;
     const room = box(".hollow-room");
     const pageTitle = box(".hollow-title");
-    const primaryCue = box(".hollow-spot-next");
-    const recommendedSpot = box(".hollow-spot.recommended");
+    const primaryCue = box("[data-child-primary] [data-child-emphasis-cue]");
+    const recommendedSpot = box("[data-child-primary]");
     const roomName = box(".hollow-room-name");
     const instruction = firstVisibleBox("[data-child-instruction]");
     const world = box(".hollow-world-button");
@@ -1190,21 +1193,38 @@ async function openChildSurface(page, route, profile) {
   page.on("pageerror", error => errors.push(error.message));
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: profile.width, height: profile.height });
+  if (route.id === "cycle-practice") {
+    // Inspect the same authored question at every size. Real sessions still
+    // choose their own seed; a random question cannot be a visual baseline.
+    await page.addInitScript(({ key, version, revision }) => {
+      localStorage.setItem(key, JSON.stringify({
+        version, activityRevision: revision, mode: "practice", practiceSeed: "child-device-matrix",
+        practiceIndex: 0, pass: 0, assessmentIndex: 0, assessmentRecords: [], practiceRecords: [],
+        attempts: 0, pendingAttempt: null, result: null, paused: false, earnedCount: 0,
+        attemptId: "synthetic-device-matrix", startedAt: "2026-09-30T00:00:00.000Z"
+      }));
+    }, { key: cycleStorageKey("child-surface-preview", "preview", "cycle-1"), version: CYCLE_PRACTICE_VERSION, revision: CYCLE_ACTIVITY_REVISION });
+  }
   await page.goto(`/preview/child-surfaces.html?surface=${route.id}`);
   const surface = page.locator(`[data-child-surface="${route.id}"]`);
   await expect(surface).toBeVisible();
   await expect(surface.locator("[data-child-title]")).toBeVisible();
   await expect(surface.locator("[data-child-primary]")).toHaveCount(1);
-  await expectVisibleImagesReady(page, `${route.id} at ${profile.id}`);
+  if (route.id === "sound-seekers") {
+    await expect(surface.locator("[data-child-primary]")).toBeEnabled();
+    await expect(surface.locator('canvas')).toHaveAttribute('tabindex', '-1');
+  }
+  await expectVisibleImagesReady(surface, `${route.id} at ${profile.id}`);
   await page.evaluate(() => document.fonts?.ready);
   expect(errors, `${route.id} at ${profile.id} has no page errors`).toEqual([]);
   return surface;
 }
 
-for (const profile of STUDENT_DEVICE_PROFILES) {
-  test(`A3.6 every student route passes the ${profile.id} matrix`, async ({ page }) => {
-    test.setTimeout(150_000);
+test.describe("student route and device combinations", () => {
+  test.describe.configure({ mode: "parallel" });
+  for (const profile of STUDENT_DEVICE_PROFILES) {
     for (const route of CHILD_SURFACE_ROUTES) {
+      test(`A3.6 ${route.id} passes the ${profile.id} matrix`, async ({ page }) => {
       const state = `${route.id} at ${profile.id}`;
       const surface = await openChildSurface(page, route, profile);
       await expectHeadingTextFragmentsContained(surface, state);
@@ -1238,9 +1258,10 @@ for (const profile of STUDENT_DEVICE_PROFILES) {
         fullPage: false,
         maxDiffPixelRatio: 0.01
       });
+      });
     }
-  });
-}
+  }
+});
 
 for (const profile of STUDENT_DEVICE_PROFILES) {
   test(`A3.6 Story Quest shelf and reader at ${profile.id}`, async ({ page }) => {
@@ -1788,6 +1809,7 @@ test("A3.6 Reading Library portrait header Tab order follows its visual order", 
     "Level A",
     "Level B",
     "Level C",
+    "Read Together",
     "All books",
     "Bob & Nan",
     "Meadow Pals",
@@ -1876,7 +1898,7 @@ test("A3.6 Reading Library phone Tab navigation reveals every level choice", asy
   await page.setViewportSize({ width: 320, height: 568 });
   await page.goto("/preview/child-surfaces.html?surface=reading-library");
   const levels = page.locator('[data-child-surface="reading-library"] .kg-segment');
-  await expect(levels).toHaveCount(3);
+  await expect(levels).toHaveText(["Level A", "Level B", "Level C", "Read Together"]);
   await levels.first().focus();
 
   for (let index = 0; index < await levels.count(); index += 1) {
@@ -2274,7 +2296,14 @@ for (const profileId of STUDENT_FULLSCREEN_DEVICE_IDS) {
     await page.goto("/preview/game-overlay.html?game=cvc-word-builder");
     const game = page.getByRole("dialog", { name: "CVC Word Builder", exact: true });
     await expect(game).toBeVisible();
-    await expect(game.getByText("Build this word.", { exact: true })).toBeVisible();
+    await expect(game.getByRole("region", { name: "build game", exact: true })
+      .getByText(/^Put the sounds together/)).toBeVisible();
+    const titleFit = await game.locator(".lg-game-title-chip strong").evaluate(element => ({
+      width: element.clientWidth, textWidth: element.scrollWidth,
+      height: element.clientHeight, textHeight: element.scrollHeight
+    }));
+    expect(titleFit.textWidth, `${profile.id} keeps the complete game name visible`).toBeLessThanOrEqual(titleFit.width);
+    expect(titleFit.textHeight, `${profile.id} keeps every game-name line visible`).toBeLessThanOrEqual(titleFit.height);
     await expectVisibleImagesReady(page, `${profile.id} fullscreen game`);
     await expectFullscreenHistory(page, ["enter"], `${profile.id} game enter`);
     await expectNoHorizontalOverflow(page, `${profile.id} fullscreen game`);
@@ -2285,6 +2314,15 @@ for (const profileId of STUDENT_FULLSCREEN_DEVICE_IDS) {
       fullPage: false,
       maxDiffPixelRatio: 0.01
     });
+    await game.getByRole("button", { name: "Pause CVC Word Builder", exact: true }).click();
+    const paused = page.getByRole("dialog", { name: "CVC Word Builder paused", exact: true });
+    await expect(paused).toBeVisible();
+    await expect(paused.getByRole("button", { name: "Resume game", exact: true })).toBeFocused();
+    await expectFullscreenHistory(page, ["enter"], `${profile.id} pause preserves fullscreen`);
+    await expectNoHorizontalOverflow(page, `${profile.id} paused fullscreen game`);
+    await expectMinimumTargets(paused, `${profile.id} paused fullscreen game`);
+    await paused.getByRole("button", { name: "Resume game", exact: true }).click();
+    await expect(paused).not.toBeVisible();
     await page.keyboard.press("Escape");
     const quit = page.getByRole("alertdialog", { name: "Quit CVC Word Builder", exact: true });
     await expect(quit).toBeVisible();

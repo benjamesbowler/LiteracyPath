@@ -1470,6 +1470,10 @@ export function AppSurface({ surface }) {
                 <HollowPage
                   studentName={studentName}
                   progressScopeKey={childProgressScopeKey}
+                  teachingCycleId={assignedCyclePracticeId || assignedAdventureCycleId || ""}
+                  currentCycleId={assignedCyclePracticeId || assignedAdventureCycleId || ""}
+                  confirmedPlacement={selectedStudentEvidenceReady ? confirmedElPlacement : null}
+                  recommendedSkill={selectedStudentEvidenceReady ? currentStage?.id : ""}
                 />
               </Suspense>
             </div>
@@ -2045,6 +2049,10 @@ export function AppSurface({ surface }) {
                   lockedGameId={assignedGameId}
                   onLockedGameAvailabilityChange={reportExactStudentFocusContent}
                   progressScopeKey={childProgressScopeKey}
+                  teachingCycleId={assignedCyclePracticeId || assignedAdventureCycleId || ""}
+                  currentCycleId={assignedCyclePracticeId || assignedAdventureCycleId || ""}
+                  confirmedPlacement={selectedStudentEvidenceReady ? confirmedElPlacement : null}
+                  recommendedSkill={selectedStudentEvidenceReady ? currentStage?.id : ""}
                 />
               </div>
             ))}
@@ -2170,6 +2178,7 @@ export function AppSurface({ surface }) {
           <Suspense fallback={<LazyPageFallback label="Loading Present mode..." />}>
             <PresentPage
               className={getSelectedClassName(classList, selectedClassId)}
+              classId={selectedClassId}
               currentCycleId={teacherCycleId}
               onBack={() => goToTeacherIntent(APP_VIEWS.TEACHER_RESOURCES)}
             />

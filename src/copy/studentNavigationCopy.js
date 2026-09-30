@@ -1,7 +1,7 @@
 // Exact Home/Books copy shared with the compact navigation-audio generator.
 // These formatters take display facts; they never load learning or book data.
 export const STUDENT_HOME_ACTIVITY_TITLES = Object.freeze({
-  "sound-seekers": "The Sound Trail",
+  "sound-seekers": "Sound Seekers",
   "phonics-learning": "Letters",
   "adventure-map": "Adventure Map",
   arcade: "Arcade",

@@ -5,6 +5,7 @@ import { elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
 import { saveStudentFocusCyclePracticeAttempt } from "../../data/studentFocusSessionCore.js";
 import { resolveCyclePracticeAudio, getCyclePracticeFeedbackAudio, getCyclePracticeWordAudio } from "./cyclePracticeAudio.js";
 import { CycleActivityRenderer, CycleIcon } from "./CycleActivityRenderer.jsx";
+import { cyclePracticeCorrection } from "./cyclePracticeCorrections.js";
 import { SpeakerIcon } from "../elQuest/AdventureRoundFrame.jsx";
 import { playCueAudio, playCueSequence, preloadCueAudio, stopCueAudio, retainCueAudioSources } from "../../utils/audio/cuePlayer.js";
 import { triggerTactileFeedback } from "../../utils/tactileFeedback.js";
@@ -77,6 +78,7 @@ function CyclePracticeSession({
   const [feedbackRound, setFeedbackRound] = useState(null);
   const [feedbackKey, setFeedbackKey] = useState("");
   const [feedbackActivityKey, setFeedbackActivityKey] = useState("");
+  const [feedbackSequence, setFeedbackSequence] = useState([]);
   const [compact, setCompact] = useState(() => globalThis.matchMedia?.("(max-height: 560px)").matches || false);
   const [mediaFailed, setMediaFailed] = useState(false);
   const [mediaRevision, setMediaRevision] = useState(0);
@@ -309,10 +311,10 @@ function CyclePracticeSession({
     playRoundAudio(includeContent, { ...callbacks, playImmediately: true });
   }
   function resetFeedback() {
-    setFeedback(""); setFeedbackTone("ready"); setFeedbackRound(null); setFeedbackKey(""); setFeedbackActivityKey("");
+    setFeedback(""); setFeedbackTone("ready"); setFeedbackRound(null); setFeedbackKey(""); setFeedbackActivityKey(""); setFeedbackSequence([]);
   }
-  function playFeedbackThen(key, round, done, selectedAudio = "") {
-    const sequence = [getCyclePracticeFeedbackAudio(key), selectedAudio, key === "correct" ? round.audio : ""].filter(Boolean);
+  function playFeedbackThen(key, round, done, correctionSequence = null) {
+    const sequence = correctionSequence || [getCyclePracticeFeedbackAudio(key), key === "correct" ? round.audio : ""].filter(Boolean);
     feedbackResume.current = done;
     cancelFeedbackVoice();
     let resolve;
@@ -361,13 +363,20 @@ function CyclePracticeSession({
     setAnswerPending(true);
     setFeedbackRound(currentRound); setFeedbackKey(roundKey); setFeedbackActivityKey(roundRunKey);
     setFeedbackTone(outcome.correct ? "correct" : "incorrect");
-    setFeedback(outcome.correct ? "That's right!" : mode === "assessment" ? "Not quite" : "Try again");
-    const selectedChoice = currentRound.choices?.find(choice => String(choice.value) === String(outcome.selected));
-    const release = () => { resetFeedback(); setAnswerPending(false); commitGuard.current = false; };
+    const correction = outcome.correct ? null : cyclePracticeCorrection(responseRound, outcome, mode);
+    setFeedback(outcome.correct ? "That's right!" : correction.text);
+    setFeedbackSequence(mode === "practice" ? correction?.sequence || [] : []);
+    const release = () => {
+      if (!outcome.correct && mode === "practice") {
+        // Keep the useful correction visible while the same choices reopen.
+        setFeedbackRound(null); setFeedbackKey(""); setFeedbackActivityKey("");
+      } else resetFeedback();
+      setAnswerPending(false); commitGuard.current = false;
+    };
     if (outcome.partial) {
       if (mode === "assessment") update({ assessmentRecords: [...current.assessmentRecords, record] });
       else update({ practiceRecords: [...current.practiceRecords, record], attempts: outcome.correct ? current.attempts : current.attempts + 1 });
-      playFeedbackThen(outcome.correct ? "correct" : mode === "assessment" ? "notQuite" : "retry", responseRound, release);
+      playFeedbackThen(outcome.correct ? "correct" : mode === "assessment" ? "notQuite" : "retry", responseRound, release, correction?.sequence);
       return;
     }
     if (mode === "assessment") {
@@ -385,7 +394,7 @@ function CyclePracticeSession({
     const practiceRecords = [...current.practiceRecords, record];
     if (!outcome.correct) {
       update({ attempts: current.attempts + 1, practiceRecords });
-      playFeedbackThen("retry", responseRound, release, selectedChoice?.audio);
+      playFeedbackThen("retry", responseRound, release, correction.sequence);
       return;
     }
     const last = practiceIndex + 1 >= practicePlan.length;
@@ -553,7 +562,7 @@ function CyclePracticeSession({
         </div>
         <div className="cycle-practice-topbar__round" data-child-progress="" aria-label={`${mode === "assessment" ? "Cycle Check" : "Practice"}, activity ${currentRoundNumber} of ${totalRounds}`}>
           <div className="cycle-star-trail" aria-hidden="true">{Array.from({ length: 6 }, (_, i) => <CycleIcon key={i} name="star" className={i < starsInSet ? "is-earned" : ""} />)}</div>
-          <strong>{mode === "assessment" ? <><span className="cycle-check-label">Cycle Check · </span>{currentRoundNumber} / {totalRounds}</> : <>{earned} activities<span className="cycle-trail-count"> · {Math.floor(earned / 6)} star trails</span></>}</strong>
+          <strong>{mode === "assessment" ? <><span className="cycle-check-label">Cycle Check · </span>{currentRoundNumber} / {totalRounds}</> : <>{starsInSet} / 6 in this trail</>}</strong>
         </div>
         {compact && instructionRow}
         <div className="cycle-practice-topbar__actions">
@@ -575,6 +584,14 @@ function CyclePracticeSession({
         </div>
         <div className={`cycle-feedback${feedback ? " is-visible" : ""}`} role="status" aria-live="polite">
           {feedback && <><CycleIcon name={feedbackTone === "correct" ? "tick" : "retry"} /><span>{feedback}</span>{feedbackTone === "correct" && <CycleIcon name="star" />}</>}
+          {feedbackSequence.length > 0 && <ActivityButton type="button" className="cycle-feedback-hear wa-audio" aria-label="Hear the hint again" disabled={frozen}
+            onClick={() => {
+              activity(); cancelFeedbackVoice(); invalidateTeaching();
+              const epoch = audioEpoch.current;
+              playCueSequence(feedbackSequence, { gapMs: 90, playImmediately: true, onDelivery: event => {
+                if (epoch === audioEpoch.current && event.type === "completed") replayInstruction(true);
+              } });
+            }}><SpeakerIcon /></ActivityButton>}
         </div>
         {!frozen && !mediaFailed && !soundBlocked && <div className={`cycle-readiness${listening ? " cycle-readiness--listening" : ""}`} role="status" aria-label="Activity readiness">
           {listening ? <><SpeakerIcon /><span>Play while you listen</span><span className="cycle-audio-pulse" aria-hidden="true"><i /><i /><i /></span></> : !picturesReady ? <><CycleIcon name="retry" /><span>Loading pictures</span></> : <><CycleIcon name="tick" /><span>{shownRound.mechanicId === "letterTrace" ? "Your turn — trace" : "Your turn — tap"}</span></>}

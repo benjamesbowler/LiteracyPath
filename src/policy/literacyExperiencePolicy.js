@@ -16,6 +16,24 @@ export const READING_PURPOSES = Object.freeze({
   SUPPORTED: "supported"
 });
 
+// Keep the teaching rationale available to grown-ups. Children hear one
+// concrete action, using the same independent/supported classification.
+export const CHILD_READING_PURPOSE_COPY = Object.freeze({
+  independent: "Try reading these words yourself.",
+  supported: "You can listen while you read.",
+  together: "Listen and read with a grown-up."
+});
+
+export function childBookReadingPurpose(purpose = {}) {
+  if (purpose.id === READING_PURPOSES.INDEPENDENT) {
+    return { label: "Read it yourself", reason: CHILD_READING_PURPOSE_COPY.independent };
+  }
+  if (purpose.label === "Read Together") {
+    return { label: "Read together", reason: CHILD_READING_PURPOSE_COPY.together };
+  }
+  return { label: "Listen and read", reason: CHILD_READING_PURPOSE_COPY.supported };
+}
+
 function splitSpellings(value = "") {
   return String(value || "")
     .toLowerCase()

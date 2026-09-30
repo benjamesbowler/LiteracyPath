@@ -14,11 +14,11 @@ test("A2.2 continuation names the policy activity and its seeded remaining goal"
     "data-recommendation-source",
     "daily-mission-complete:fallback"
   );
-  await expect(home.getByRole("heading", { name: "The Sound Trail", level: 1 })).toBeVisible();
-  await expect(continuation).toHaveAccessibleName("Continue Sound Seekers — 2 trails left");
+  await expect(home.getByRole("heading", { name: "Sound Seekers", level: 1 })).toBeVisible();
+  await expect(continuation).toHaveAccessibleName("Continue Sound Seekers — 2 projects left");
   await expect(continuation.locator('[data-child-emphasis-cue]')).toHaveText("Play");
   await expect(continuation).toHaveAttribute("data-continuation-activity", "sound-seekers");
-  await expect(continuation).toHaveAttribute("data-continuation-goal", "Sound Seekers trails");
+  await expect(continuation).toHaveAttribute("data-continuation-goal", "Woodland projects");
   await expect(continuation).toHaveAttribute("data-continuation-remaining", "2");
   await expect(page.getByText("Keep playing", { exact: true })).toHaveCount(0);
 

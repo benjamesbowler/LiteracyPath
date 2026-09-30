@@ -60,6 +60,14 @@ class average, outlier or general recommendation. The UI renders **Not enough
 evidence** for the broader scope and discloses attempts, diversity, recency,
 confidence, and recorded support use.
 
+Teacher roster **Focus accuracy** and **Focus status** use the same named-skill
+conclusion as Today, with evidence aligned to the displayed current focus.
+**Across skills** and whole-learner report counts retain the general scope;
+a ready focus result does not make that broader summary ready. Saved Skills
+answers and received activity are labelled separately. Current Sound Seekers
+project/campaign completion and responses are supported-practice participation,
+never a Skills result or an independent mastery judgement.
+
 ## Change control
 
 Change the policy version whenever a threshold, recency window, confidence

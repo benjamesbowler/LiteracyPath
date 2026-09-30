@@ -130,7 +130,9 @@ export function ClassSummaryReportDocument({
             <h3>How to read this</h3>
             <p>
               “Enough results” means the student has enough recent scored answers
-              for a fair summary. Missing or incomplete results are not counted as zero.
+              across skills for a fair whole-learner summary. A named-skill result
+              can be ready before this broader summary.
+              Missing or incomplete results are not counted as zero.
             </p>
             <dl>
               <div>

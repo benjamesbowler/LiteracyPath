@@ -44,9 +44,11 @@ included single-letter correspondences and short vowels (the selected CVC bank
 contains content introduced through cycle 12). It is not a first introduction
 to all of those sounds and does not confer assessment mastery. Oral labels and
 directions support vocabulary. The standalone preview has an anonymous local
-save; the app has independent device-local saves for each learner, included in
-privacy cleanup and teacher resets. Neither writes assessment or teacher
-evidence, and neither imports the previous campaign's progress.
+save; the app has separate local checkpoints for each learner, included in
+privacy cleanup and teacher resets. Authenticated chapter checkpoints also
+follow the learner through the separate `woodland_homecoming_v1` cloud row.
+Neither writes assessment mastery, and neither imports the previous campaign's
+progress. Teacher summaries report chapter participation as supported practice.
 
 The 30–40-minute target is an authoring estimate: 120 rounds at roughly
 12–16 seconds of child-paced listening, response and feedback, plus 6–8

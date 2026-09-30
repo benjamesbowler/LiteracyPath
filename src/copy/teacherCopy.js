@@ -75,7 +75,7 @@ export const TEACHER_COPY = Object.freeze({
   }),
   today: Object.freeze({
     title: "Start with these students",
-    description: "Two urgent lists, capped at three names each. Everything else is one click away.",
+    description: "Review the current teaching focus, plan extra practice, and see whose Skills check is due.",
     descriptionWithoutClass: "Choose a class to see today's next actions."
   }),
   classes: Object.freeze({
@@ -95,7 +95,7 @@ export const TEACHER_COPY = Object.freeze({
     firstTitle: "Get set up in four steps",
     completeTitle: "Your class is ready",
     firstBody: "Do these once, and results appear on their own.",
-    completeBody: "Your class, students, sign-in pictures, and first saved assessment are ready.",
+    completeBody: "Your class, students, sign-in pictures, and first saved Skills answers are ready.",
     completeState: "Done",
     nextState: "Next",
     laterState: "Later",
@@ -124,8 +124,8 @@ export const TEACHER_COPY = Object.freeze({
       }),
       Object.freeze({
         id: "assessment",
-        title: "Do your first assessment with one student",
-        description: "Results appear as soon as you save it."
+        title: "Do your first Skills check with one student",
+        description: "Skills results appear as soon as you save the answers."
       })
     ])
   }),
@@ -272,8 +272,8 @@ export const TEACHER_COPY = Object.freeze({
     summaryAriaLabel: "Class summary",
     students: "Students",
     readyToSignIn: "Ready to sign in",
-    havePlayed: "Have played",
-    playedToday: "Played today",
+    havePlayed: "Skills answers saved",
+    playedToday: "Saved activity today",
     classAccuracy: "Class accuracy",
     notEnough: "Not enough results yet",
     equalChildren: "Averaging students equally",
@@ -355,8 +355,8 @@ export const TEACHER_COPY = Object.freeze({
     description: "Tap a group to see just those students",
     everyone: "Everyone",
     needsHelp: "Needs help",
-    notStarted: "No scored answers",
-    playedToday: "Played today",
+    notStarted: "No Skills answers",
+    playedToday: "Saved activity today",
     suggested: "Suggested group",
     showAll: "Show everyone"
   }),
@@ -504,6 +504,9 @@ export const PRESENT_COPY = Object.freeze({
   teachingCycles: "Teaching cycles",
   assessmentWeeks: "Assessment weeks",
   day: "Teaching day",
+  todayLesson: "Use today's teaching day",
+  savedForClass: "Day, lesson length and slide are remembered for this class on this device.",
+  chooseClassToRemember: "Choose a class to remember your lesson on this device.",
   allResources: "All resources",
   lessonLength: "Lesson length",
   assessmentContext: "Assessment-week slides keep their own routines. Preview the instructions and prepare the materials before you begin.",

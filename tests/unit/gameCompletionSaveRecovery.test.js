@@ -99,7 +99,7 @@ function setup(t, gameId = "rhyme-pop") {
     useActivityMusic: () => hooks.useState(false), newGameSeed,
     Component: class {}, Suspense: "Suspense", createPortal: content => content,
     GAME_LIST, LEARN_GAMES: { [gameId]: Engine }, premiumProfileForGame,
-    cancelSpeech: noop, hasRecordedSpeech: () => false, speak: noop, cancelGameSfx: noop,
+    cancelSpeech: noop, stopCueAudio: noop, hasRecordedSpeech: () => false, speak: noop, cancelGameSfx: noop,
     startGameMusic: noop, stopGameMusic: noop, SoundToggle: "SoundToggle", MusicToggle: "MusicToggle", ProgressStars: "ProgressStars",
     worldForDifficulty: () => ({ id: "meadow" }), worldStyle: () => ({}), sceneForKey: () => "",
     getBrowserFullscreenElement: () => null, requestBrowserFullscreen: noop, exitBrowserFullscreen: noop,

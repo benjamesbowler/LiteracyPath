@@ -12,26 +12,20 @@ import {
   PRESENTATION_FORMATS,
   presentationDayPlan
 } from "../utils/present/presentationBuilder.js";
+import {
+  currentTeachingDay,
+  readPresentWorkspaceState,
+  rememberPresentWorkspaceState
+} from "../utils/present/presentWorkspaceState.js";
 import "../styles/worksheets.css";
 import "../styles/present.css";
 
-const LAST_PRESENTED_KEY = "lp-present-last";
 const EMPTY_SLIDES = [];
 const SLIDE_LABELS = COPY.slideLabels;
 
 function slideLabel(entry) {
   const key = String(entry?.cls || "").split(/\s+/).find(name => SLIDE_LABELS[name]);
   return SLIDE_LABELS[key] || entry?.section || COPY.slideFallback;
-}
-
-function lastPresentedCycle(options) {
-  try {
-    const last = window.localStorage.getItem(LAST_PRESENTED_KEY);
-    if (last && options.some(option => option.id === last)) return last;
-  } catch {
-    // The current class still works when browser storage is unavailable.
-  }
-  return "";
 }
 
 const DAY_TILES = PRESENTATION_DAYS.filter(option => option.value);
@@ -83,22 +77,29 @@ function PrintLessonPlan({ cycleTitle, dayLabel, formatLabel, lessonPlan, slideI
   );
 }
 
-export function PresentPage({ className = "", currentCycleId = "", onBack }) {
+export function PresentPage({ classId = "", ...props }) {
+  return <PresentWorkspacePage key={classId || "unscoped"} classId={classId} {...props} />;
+}
+
+function PresentWorkspacePage({ classId, className = "", currentCycleId = "", onBack }) {
   const cycleOptions = useMemo(() => presentationCycleOptions(), []);
   const teachingCycles = useMemo(() => cycleOptions.filter(option => option.type !== "assessment"), [cycleOptions]);
   const assessmentWeeks = useMemo(() => cycleOptions.filter(option => option.type === "assessment"), [cycleOptions]);
-  const [cycleId, setCycleId] = useState(() =>
-    (currentCycleId && cycleOptions.some(option => option.id === currentCycleId) ? currentCycleId : "") ||
-    lastPresentedCycle(cycleOptions) || cycleOptions.find(option => option.cycleNumber)?.id || cycleOptions[0]?.id || ""
-  );
-  const [day, setDay] = useState("monday");
-  const [format, setFormat] = useState("core");
-  const [preview, setPreview] = useState(0);
+  const [initialWorkspace] = useState(() => readPresentWorkspaceState({
+    classId,
+    currentCycleId,
+    cycleOptions
+  }));
+  const [cycleId, setCycleId] = useState(initialWorkspace.cycleId);
+  const [day, setDay] = useState(initialWorkspace.day);
+  const [format, setFormat] = useState(initialWorkspace.format);
+  const [preview, setPreview] = useState(initialWorkspace.preview);
   const [query, setQuery] = useState("");
   const [note, setNote] = useState("");
   const [fallbackUrl, setFallbackUrl] = useState("");
   const fallbackRef = useRef("");
   const frameRef = useRef(null);
+  const previewSyncIndexRef = useRef(initialWorkspace.preview);
   const outlineRef = useRef(null);
   const cycle = useMemo(() => getPresentationCycle(cycleId), [cycleId]);
   const isAssessment = cycle?.type === "assessment";
@@ -122,6 +123,7 @@ export function PresentPage({ className = "", currentCycleId = "", onBack }) {
   const selectedFormat = PRESENTATION_FORMATS.find(option => option.value === format) || PRESENTATION_FORMATS[0];
   const cycleTitle = presentationCycleDisplayTitle(cycle);
   const dayLabel = DAY_TILES.find(option => option.value === effectiveDay)?.label || "";
+  const today = currentTeachingDay();
   const filteredSlides = useMemo(() => {
     const term = query.trim().toLowerCase();
     if (!term) return slideIndex;
@@ -143,13 +145,25 @@ export function PresentPage({ className = "", currentCycleId = "", onBack }) {
     return rows;
   }, [cycle]);
 
-  useEffect(() => { postPreviewToFrame(frameRef.current, selectedIndex); }, [selectedIndex]);
+  useEffect(() => {
+    previewSyncIndexRef.current = selectedIndex;
+    postPreviewToFrame(frameRef.current, selectedIndex);
+  }, [selectedIndex]);
+
+  useEffect(() => {
+    rememberPresentWorkspaceState(classId, { cycleId, day, format, preview: selectedIndex });
+  }, [classId, cycleId, day, format, selectedIndex]);
 
   useEffect(() => {
     function receivePreview(event) {
       if (event.source !== frameRef.current?.contentWindow || event.origin !== window.location.origin) return;
       if (event.data?.type !== "lp-present-preview") return;
       const index = event.data.index;
+      // The newly loaded iframe announces slide zero before it receives the
+      // saved preview position. Wait for that position's acknowledgement so
+      // its startup message cannot erase a resumed lesson.
+      if (previewSyncIndexRef.current !== null && index !== previewSyncIndexRef.current) return;
+      previewSyncIndexRef.current = null;
       if (Number.isInteger(index) && index >= 0 && index < totalSlides) setPreview(index);
     }
     window.addEventListener("message", receivePreview);
@@ -230,7 +244,6 @@ export function PresentPage({ className = "", currentCycleId = "", onBack }) {
       setNote(COPY.openFailed);
       return;
     }
-    try { window.localStorage.setItem(LAST_PRESENTED_KEY, cycleId); } catch { /* Optional browser memory. */ }
     if (!result.ok) {
       setNote(COPY.popupBlocked);
       replaceFallbackUrl(result.url || "");
@@ -269,6 +282,8 @@ export function PresentPage({ className = "", currentCycleId = "", onBack }) {
               {DAY_TILES.map(tile => <button key={tile.value} type="button" className={`pr-day${day === tile.value ? " active" : ""}`} aria-pressed={day === tile.value} aria-label={tile.label} onClick={() => chooseDay(tile.value)}>{tile.label.slice(0, 3)}</button>)}
               <button type="button" className={`pr-day pr-day-resources${day === "" ? " active" : ""}`} aria-pressed={day === ""} onClick={() => chooseDay("")}>{COPY.allResources}</button>
             </div>
+            {today && <button className="pr-text-button" type="button" onClick={() => chooseDay(today)}>{COPY.todayLesson}</button>}
+            <small>{classId ? COPY.savedForClass : COPY.chooseClassToRemember}</small>
           </div>}
         </div>
         {lessonPlan ? <div className="pr-formats" role="group" aria-label={COPY.lessonLength}>
@@ -298,7 +313,10 @@ export function PresentPage({ className = "", currentCycleId = "", onBack }) {
               </div>
             </div>
             <div className="pr-stage">
-              {deck ? <iframe ref={frameRef} className="pr-frame" title={COPY.previewRegion} srcDoc={deck.html} onLoad={() => postPreviewToFrame(frameRef.current, selectedIndex)} /> : <div className="pr-preview-error" role="alert"><strong>{COPY.previewFailed}</strong><p>{COPY.previewRecovery}</p></div>}
+              {deck ? <iframe ref={frameRef} className="pr-frame" title={COPY.previewRegion} srcDoc={deck.html} onLoad={() => {
+                previewSyncIndexRef.current = selectedIndex;
+                postPreviewToFrame(frameRef.current, selectedIndex);
+              }} /> : <div className="pr-preview-error" role="alert"><strong>{COPY.previewFailed}</strong><p>{COPY.previewRecovery}</p></div>}
             </div>
             <div className="pr-preview-footer">
               <p>{COPY.previewHint}</p>

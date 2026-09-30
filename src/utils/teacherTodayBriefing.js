@@ -71,6 +71,31 @@ function sourceConclusion(source, now) {
   });
 }
 
+// A named-focus judgement is shared by Today and the roster. Results from
+// another skill must never be attributed to the current teaching focus.
+export function evaluateTeacherFocusConclusion(row, { now = new Date() } = {}) {
+  if ((row?.evidenceReadStatus || "complete") !== "complete") return null;
+  const currentSkill = normalizedSkill(row?.currentSkill);
+  const focusEvidence = row?.focusEvidence;
+  const focusSkill = normalizedSkill(
+    focusEvidence?.skill || focusEvidence?.skillName || focusEvidence?.currentSkill
+  );
+  if (!currentSkill || !focusSkill || currentSkill !== focusSkill) return null;
+  return sourceConclusion(focusEvidence, now);
+}
+
+export function buildTeacherFocusPracticeRecommendation(row) {
+  if (!row?.id || !row.focus || row.focus === "Review recent results") return null;
+  return {
+    key: `focus-practice-${row.id}`,
+    id: row.id,
+    name: row.name,
+    studentIds: [row.id],
+    focus: row.focus,
+    activity: `Model ${row.focus}, practise together, then try independently. Record this teaching observation separately from the next Skills check.`
+  };
+}
+
 function overallConclusion(row, now) {
   if (row?.learningConclusion) return row.learningConclusion;
   return evaluateLearningConclusion({
@@ -86,20 +111,9 @@ function overallConclusion(row, now) {
 
 function attentionEvidence(row, now) {
   if ((row?.evidenceReadStatus || "complete") !== "complete") return null;
-  const currentSkill = normalizedSkill(row?.currentSkill);
-  const focusEvidence = row?.focusEvidence;
-  const focusSkill = normalizedSkill(
-    focusEvidence?.skill || focusEvidence?.skillName || focusEvidence?.currentSkill
-  );
-  const focusAligned = Boolean(
-    focusEvidence
-    && currentSkill
-    && focusSkill
-    && focusSkill === currentSkill
-  );
-
-  if (focusAligned) {
-    const conclusion = sourceConclusion(focusEvidence, now);
+  const focusConclusion = evaluateTeacherFocusConclusion(row, { now });
+  if (focusConclusion) {
+    const conclusion = focusConclusion;
     if (!conclusion.ready || conclusion.status.id !== LEARNING_STATUS_IDS.NEEDS_SUPPORT) {
       return null;
     }
@@ -158,13 +172,8 @@ export function buildTeacherTodayBriefing(
 
   const insufficientEvidence = rows.filter(row => {
     if ((row?.evidenceReadStatus || "complete") !== "complete") return false;
-    const focusEvidence = row?.focusEvidence;
-    const focusAligned = focusEvidence
-      && normalizedSkill(focusEvidence.skill || focusEvidence.skillName || focusEvidence.currentSkill)
-        === normalizedSkill(row.currentSkill);
-    const conclusion = focusAligned
-      ? sourceConclusion(focusEvidence, now)
-      : overallConclusion(row, now);
+    const conclusion = evaluateTeacherFocusConclusion(row, { now })
+      || overallConclusion(row, now);
     return conclusion.attempts > 0
       && !conclusion.confidence.sufficient
       && Number.isFinite(conclusion.accuracy)
@@ -178,13 +187,13 @@ export function buildTeacherTodayBriefing(
         return {
           id: row.id,
           name: row.name,
-          title: "First assessment due",
-          evidence: "No scored answers yet.",
+          title: "First Skills check due",
+          evidence: "No Skills answers saved yet.",
           explanation: {
-          evidence: "No scored answers have been saved for this student.",
-            dependency: "A first assessment helps you choose the right starting skill.",
+            evidence: "No Skills answers have been saved for this student. Other assessments and practice are shown separately.",
+            dependency: "A first Skills check helps you choose the right starting skill.",
             confidence: "No learning level is guessed before the first result.",
-            unlock: "The first saved assessment gives you a starting point for later progress."
+            unlock: "The first saved Skills answers give you a starting point for later progress."
           }
         };
       }
@@ -235,7 +244,7 @@ export function buildTeacherTodayBriefing(
   // is one fact, not 25 rows. The UI collapses to a single line and one button.
   const allFirstCheckDue = rows.length > 0
     && due.length === rows.length
-    && due.every(row => row.title === "First assessment due");
+    && due.every(row => row.title === "First Skills check due");
 
   return {
     attention,

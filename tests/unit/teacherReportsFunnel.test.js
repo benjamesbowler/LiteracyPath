@@ -75,6 +75,16 @@ test("batch EL report downloads are offered directly in the who step", () => {
   assert.match(html, /one ZIP/);
 });
 
+test("the current class summary has one direct shortcut while class ownership and roster completeness remain required", () => {
+  assert.match(render("#teacher/reports?class=class-a"), />Open Audit Class A summary<\/button>/);
+  assert.doesNotMatch(render("#teacher/reports?class=unknown", {
+    selectedClassId: "unknown"
+  }), />Open .* summary<\/button>/);
+  assert.doesNotMatch(render("#teacher/reports?class=class-a", {
+    studentListReadState: { status: "error", classId: "class-a", error: "Unavailable" }
+  }), />Open .* summary<\/button>/);
+});
+
 test("choosing the whole class leads to the class report on the same page", () => {
   const html = render("#teacher/reports?class=class-a&who=class&show=1");
   assert.match(html, />Whole class<\/p>|Whole class<\/p>/);

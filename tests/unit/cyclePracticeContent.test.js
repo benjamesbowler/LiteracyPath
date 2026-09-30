@@ -13,6 +13,7 @@ import {
 import { resolveCyclePracticeAudio } from '../../src/components/cycle-practice/cyclePracticeAudio.js';
 import { taughtCycleHighFrequencyWords } from '../../src/utils/cyclePracticeVariation.js';
 import { CYCLE_WORD_BUILD_INVENTORY, CYCLE_WORD_BUILD_IMAGE_HOLDOUTS } from '../../src/data/cycleWordBuildInventory.js';
+import { getChildWordAsset } from '../../src/data/childAssets.js';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const cycles = elSkillsBlockCycles.filter(cycle => cycle.cycleNumber);
@@ -61,6 +62,23 @@ test('every authored question and picture choice uses real local media and a rec
       if (choice.audio) assert.ok(exists(choice.audio), `${round.id}: choice audio ${choice.value}`);
     }
   }
+});
+
+test('reported picture contrasts use the inspected isolated cohort through the existing word resolver', () => {
+  const words = ['monkey', 'moon', 'mountain', 'drum', 'tiger'];
+  const seen = new Set();
+  for (const word of words) {
+    const path = `/images/child-mode/initial-sounds/reviewed/${word}.webp`;
+    assert.equal(getChildWordAsset(word).image, path);
+    assert.ok(exists(path));
+  }
+  for (const rows of Object.values(buildCyclePracticePools(cycles[1], 'picture-cohort'))) for (const round of rows) {
+    for (const choice of round.choices || []) if (words.includes(choice.value) && choice.image) {
+      assert.equal(choice.image, getChildWordAsset(choice.value).image, `${round.id}: ${choice.value}`);
+      seen.add(choice.value);
+    }
+  }
+  for (const word of ['monkey', 'moon', 'mountain', 'drum']) assert.ok(seen.has(word), word);
 });
 
 test('beginning sounds, endings, and rimes have exactly one defensible picture answer', () => {
@@ -326,5 +344,6 @@ test('all 27 Cycle Check decks retain a stable contract after direct-activity an
   // Final-phoneme exceptions and /kw/, /ks/ overlaps remove false-negative
   // distractors. The assigned target scope and independent check stay fixed.
   const hashes = cycles.map(cycle => createHash('sha256').update(JSON.stringify(buildCyclePracticePlan(cycle, 'check-contract', 0, true).rounds)).digest('hex'));
-  assert.equal(createHash('sha256').update(hashes.join('|')).digest('hex'), '61b2e10edacd216ff5c555a3d6471b34750c2c1cab62306f4e8fad992151f61c');
+  // Approved illustration-cohort paths changed; targets, answers and evidence contracts are preserved.
+  assert.equal(createHash('sha256').update(hashes.join('|')).digest('hex'), '3490b12190bf69510ce17a6c7ead52f275f89b295248bee6d003edd7a5e05bdd');
 });

@@ -35,7 +35,22 @@ export const CYCLE_PRACTICE_FEEDBACK = Object.freeze({
   readyForCheck: "Let's try a few by yourself."
 });
 
+// Reusable recorded phrases are joined to the exact authored word and phoneme.
+// They are only delivered after a practice response, never in the Cycle Check.
+export const CYCLE_PRACTICE_CORRECTIONS = Object.freeze({
+  differentSound: "That is a different sound.",
+  firstSound: "Listen to its first sound.",
+  endingSound: "Listen to its ending sound.",
+  targetSound: "Now listen for this sound.",
+  differentWord: "That is a different word.",
+  targetWord: "Now listen for this word.",
+  rhyme: "Listen to the endings of these words.",
+  wordBuild: "Listen to the word. Match the next sound.",
+  beats: "Listen. Tap once for each beat."
+});
+
 export const CYCLE_PRACTICE_AUDIO_TEXTS = Object.freeze([...new Set([
   ...Object.values(CYCLE_PRACTICE_INSTRUCTIONS),
-  ...Object.values(CYCLE_PRACTICE_FEEDBACK)
+  ...Object.values(CYCLE_PRACTICE_FEEDBACK),
+  ...Object.values(CYCLE_PRACTICE_CORRECTIONS)
 ])]);

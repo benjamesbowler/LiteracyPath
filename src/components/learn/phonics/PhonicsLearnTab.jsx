@@ -66,6 +66,8 @@ function PhonicsLearnContent({
   lockedToLetters = false,
   lockedGameId = null,
   onLockedGameAvailabilityChange = null,
+  teachingCycleId = "",
+  confirmedPlacement = null,
   progressScopeKey = "default"
 }) {
   const exactGameLock = lockedGameId !== null;
@@ -215,7 +217,7 @@ function PhonicsLearnContent({
           <IslandIcon type="letters" />
           <span className="phonics-island-label">
             <span>Letters</span>
-            <small>{completedLettersCount} of 26 complete</small>
+            <small>Five rounds for each letter</small>
           </span>
         </button>
         {!lockedToLetters && (
@@ -244,6 +246,8 @@ function PhonicsLearnContent({
         <PhonicsAlphabetPicker
           progress={practiceStatuses}
           rounds={letterPractice}
+          teachingCycleId={teachingCycleId}
+          confirmedPlacement={confirmedPlacement}
           onSelectLetter={handleSelectLetter}
         />
       )}

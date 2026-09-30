@@ -172,6 +172,10 @@ function ReadingLibrarySurface() {
       quarantinedBookIds={[]}
       publicationStatus="ready"
       guidedReadingRecords={records}
+      studentProgress={PREVIEW_PARAMS.has("placementCycle") ? {
+        elPlacement: { anchorCycle: Number(PREVIEW_PARAMS.get("placementCycle")), sourceAttemptId: "synthetic-confirmed-placement" }
+      } : null}
+      recommendationEvidenceReady={PREVIEW_PARAMS.get("evidenceReady") !== "0"}
       renderReader={({ bookId, onExit }) => (
         <PreviewShell active="books">
           <GuidedReadingPage
@@ -236,6 +240,10 @@ function Surface() {
               initialIsland={PREVIEW_PARAMS.get("island") || "letters"}
               initialStep={Number(PREVIEW_PARAMS.get("step")) || 1}
               lockedToLetters={lockedToLetters}
+              teachingCycleId={PREVIEW_PARAMS.get("teachingCycle") || ""}
+              confirmedPlacement={PREVIEW_PARAMS.has("placementCycle") ? {
+                anchorCycle: Number(PREVIEW_PARAMS.get("placementCycle")), sourceAttemptId: "synthetic-confirmed-placement"
+              } : null}
               progressScopeKey={PREVIEW_SCOPE}
             />
           </div>

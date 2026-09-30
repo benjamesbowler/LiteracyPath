@@ -2705,10 +2705,9 @@
   }
 
   .kg-stage .kg-books-head > .kg-segment-tray {
-    display: grid;
-    grid-column: 2;
+    display: flex;
+    grid-column: 2 / -1;
     grid-row: 1;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
     width: 100%;
     min-width: 0;
     height: 58px;
@@ -2716,6 +2715,7 @@
   }
 
   .kg-stage .kg-books-head .kg-segment {
+    flex: 0 0 auto;
     justify-content: center;
     min-width: 0;
     height: 56px;

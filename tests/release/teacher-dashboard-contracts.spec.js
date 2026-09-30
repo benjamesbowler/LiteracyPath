@@ -215,7 +215,7 @@ test("@teacher-dashboard-data @teacher-class-progress @teacher-evidence-basis @t
 
   // Essential learning fields are fixed; sign-in readiness stays visible
   // beneath the student's name rather than becoming a hideable column.
-  for (const column of ["Student", "Current focus", "Accuracy", "Status", "Last active", "Actions"]) {
+  for (const column of ["Student", "Current focus", "Focus accuracy", "Focus status", "Last active", "Actions"]) {
     await expect(roster.getByRole("columnheader", { name: column, exact: true })).toBeVisible();
   }
   await expect(roster.locator("tbody > tr")).toHaveCount(10);

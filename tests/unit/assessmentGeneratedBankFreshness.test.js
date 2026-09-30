@@ -7,6 +7,7 @@ import { skillBlueprints } from "../../src/content/blueprints/skillBlueprints.js
 import {
   AUTHORING_DIR,
   BANKS_DIR,
+  ROOT,
   expandBank,
   generatedBankSource,
   makeImageResolver
@@ -29,5 +30,15 @@ test("every published v3 bank exactly matches its authoritative authoring source
       generatedBankSource(skillId, questions),
       `${skillId} generated bank is stale; run node tools/assessmentRebuild/gate.mjs --write`
     );
+  }
+});
+
+test("new child-practice pictures cannot silently replace reviewed independent assessment media", () => {
+  const resolver = makeImageResolver();
+  for (const word of ["monkey", "moon", "mountain", "drum", "tiger"]) {
+    assert.ok(fs.existsSync(path.join(
+      ROOT, "public/images/child-mode/initial-sounds/reviewed", `${word}.webp`
+    )), `${word} child-practice replacement must exist for this regression`);
+    assert.match(resolver(word), /^\/images\/assessment\//, `${word} keeps its explicitly reviewed assessment source`);
   }
 });

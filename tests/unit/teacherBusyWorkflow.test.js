@@ -92,7 +92,7 @@ test("Students defaults to a scannable roster and opens one layer at a time", as
   assert.doesNotMatch(students, /Re-engage quiet readers|low attainment|highest current total/);
   assert.doesNotMatch(students, /No practice yet|<option value="not-started">Not started/);
   assert.match(students, /No scored answers yet/);
-  assert.match(students, /Run first assessments/);
+  assert.match(students, /Run first Skills checks/);
   assert.match(students, /<strong>Current focus:<\/strong>/);
   // The roster is a grid, so every table part states its role explicitly:
   // changing a table element's display drops the implicit one.
@@ -442,22 +442,17 @@ test("accessibility settings show save progress and failure inside the modal", a
   assert.doesNotMatch(dialog, /if \(saved !== false\) onClose/);
 });
 
-test("Sound Seekers practice assignment and clear actions report strict save outcomes", async () => {
+test("earlier Sound Seekers targets remain history and cannot masquerade as current-game assignments", async () => {
   const students = await source("src/components/TeacherStudentsPage.jsx");
   const panel = students.slice(
     students.indexOf("function QuestHeatPanel"),
     students.indexOf("// STUDENTS.")
   );
 
-  assert.match(panel, /const \[assignmentFeedback, setAssignmentFeedback\] = useState\(null\);/);
-  assert.match(panel, /const saved = await onAssign\?\.\(selected\);/);
-  assert.match(panel, /if \(saved !== true\)/);
-  assert.match(panel, /const cleared = await onClear\?\.\(\);/);
-  assert.match(panel, /if \(cleared !== true\)/);
-  assert.match(panel, /finally \{\s*setBusy\(false\);\s*\}/);
-  assert.match(panel, /We couldn't save this practice assignment\. Nothing changed/);
-  assert.match(panel, /We couldn't clear this practice assignment\. The saved assignment is unchanged/);
-  assert.match(panel, /<ActionFeedback className="quest-heat-feedback"/);
+  assert.doesNotMatch(panel, /onAssign|onClear|Assign practice|function assign|function clear/);
+  assert.match(panel, /Earlier trail history/);
+  assert.match(panel, /not used by the current game/);
+  assert.match(panel, /Print practice pack/);
 });
 
 test("a failed reduced-choice save stays in the student dialog with an inline error", async () => {

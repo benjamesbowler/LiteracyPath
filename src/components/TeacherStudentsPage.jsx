@@ -54,6 +54,7 @@ import {
   latestMetricUpdate,
   needsSupportConclusion,
   rosterMatchesStatusFilter,
+  soundSeekersPracticeSummary,
   summariseSkillStatuses,
   useTeacherSetupState,
   useTeacherStudentRows
@@ -352,14 +353,9 @@ function LoginCardPrintRoute({
   );
 }
 
-// THE SOUND HEAT MAP + PRACTICE-ASSIGN.
-//
-// One tile per grapheme, in the order the trail teaches them, coloured by the
-// honest buckets (got it / almost there / needs re-teaching / not met yet) —
-// and tappable: pick up to six sounds, press Assign, and that student's Free
-// Roam serves exactly those sounds next session (questReviewMode reads the
-// assignment out of the phonics_quest payload). This pair of features is the
-// mode's whole commercial argument made visible: evidence in, action out.
+// Earlier trail records remain available as history and as a source for
+// printable teaching materials. The current 3D game does not consume those
+// retired target assignments; its participation summary is rendered separately.
 //
 // A tile's colour used to be the only thing that carried its status, with the
 // explanation in a `title` a tablet can never show. The status now rides in the
@@ -401,11 +397,21 @@ function printStudentPracticePack({ report, studentName, targets = [] }) {
   }
 }
 
-function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
+function SoundSeekersPracticeSummary({ report }) {
+  const practice = soundSeekersPracticeSummary(report);
+  if (!practice) return null;
+  return (
+    <div className="teacher-quest-cell" data-sound-seekers-evidence="practice">
+      <strong>{practice.label}</strong>
+      <span>{practice.progress}</span>
+      <small>{countPhrase(practice.responses, "practice response")} · supported practice, separate from Skills results</small>
+    </div>
+  );
+}
+
+function QuestHeatPanel({ report, studentName }) {
   const [selected, setSelected] = useState([]);
-  const [busy, setBusy] = useState(false);
   const [packNote, setPackNote] = useState("");
-  const [assignmentFeedback, setAssignmentFeedback] = useState(null);
   const tiles = report?.heat || [];
   const assignment = report?.assignment || null;
 
@@ -415,80 +421,23 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
       : current.length >= 6 ? current : [...current, id]);
   }
 
-  async function assign() {
-    if (!selected.length || busy) return;
-    setBusy(true);
-    setAssignmentFeedback({ kind: "pending", message: "Saving this practice assignment…" });
-    try {
-      const saved = await onAssign?.(selected);
-      if (saved !== true) {
-        setAssignmentFeedback({
-          kind: "error",
-          message: "We couldn't save this practice assignment. Nothing changed. Try again."
-        });
-        return;
-      }
-      setSelected([]);
-      setAssignmentFeedback({
-        kind: "success",
-        message: `Practice assigned to ${studentName}.`
-      });
-    } catch (error) {
-      console.error("Could not save the student's practice assignment.", error);
-      setAssignmentFeedback({
-        kind: "error",
-        message: "We couldn't save this practice assignment. Nothing changed. Try again."
-      });
-    } finally {
-      setBusy(false);
-    }
-  }
-
-  async function clear() {
-    if (busy) return;
-    setBusy(true);
-    setAssignmentFeedback({ kind: "pending", message: "Clearing this practice assignment…" });
-    try {
-      const cleared = await onClear?.();
-      if (cleared !== true) {
-        setAssignmentFeedback({
-          kind: "error",
-          message: "We couldn't clear this practice assignment. The saved assignment is unchanged."
-        });
-        return;
-      }
-      setAssignmentFeedback({
-        kind: "success",
-        message: `Practice assignment cleared for ${studentName}.`
-      });
-    } catch (error) {
-      console.error("Could not clear the student's practice assignment.", error);
-      setAssignmentFeedback({
-        kind: "error",
-        message: "We couldn't clear this practice assignment. The saved assignment is unchanged."
-      });
-    } finally {
-      setBusy(false);
-    }
-  }
-
   function printPack() {
     setPackNote(printStudentPracticePack({ report, studentName, targets: selected }));
   }
 
-  if (!tiles.length) return <p className="muted-text">No sound map yet — the trail builds one from the first session.</p>;
+  if (!tiles.length) return <p className="muted-text">No earlier trail sound map is recorded.</p>;
 
   const counts = report?.buckets || {};
   return (
     <div className="quest-heat-panel">
       <div className="quest-heat-head">
-        <strong>{studentName}&rsquo;s sounds</strong>
+        <strong>{studentName}&rsquo;s earlier trail sounds</strong>
         <MetricDefinition
           metricId="accuracy"
           label="Sound status"
           counts="Each tile is one sound, with its status: got it, almost there, needs re-teaching, or not met yet. Status comes from correct answers out of scored answers for that sound."
-          timeWindow="All saved Sound Seekers play for this student."
-          excludes="Sounds this student has not met yet — those show as not met, not as a low score."
+          timeWindow="Saved earlier trail records, before the current Sound Seekers game."
+          excludes="Current woodland/campaign practice and formal Skills results."
         />
         <span className="quest-heat-legend" aria-hidden="true">
           <em className="is-got-it">Got it {counts.gotIt ?? 0}</em>
@@ -497,7 +446,8 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
           <em className="is-unseen">Not met yet</em>
         </span>
       </div>
-      <div className="quest-heat-grid" role="group" aria-label={`Sound learning status for ${studentName}. Tap sounds to build a practice assignment.`}>
+      <p className="muted-text">Earlier trail history. These targets are not assignments for the current game. Tap sounds to print a teacher-led practice pack.</p>
+      <div className="quest-heat-grid" role="group" aria-label={`Earlier trail sounds for ${studentName}. Tap sounds to build a printable practice pack.`}>
         {tiles.map(tile => (
           <button
             key={tile.id}
@@ -516,23 +466,13 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
       <div className="quest-heat-actions">
         {assignment ? (
           <span className="quest-heat-assigned">
-            Assigned: <strong>{assignment.targets.join(", ")}</strong>
-            <button className="text-button" type="button" disabled={busy} onClick={clear}>Clear</button>
+            Earlier saved targets: <strong>{assignment.targets.join(", ")}</strong> · not used by the current game
           </span>
-        ) : <span className="muted-text">Tap sounds, then assign them as this student&rsquo;s next practice.</span>}
-        <button
-          className="lp-button lp-button-secondary"
-          type="button"
-          disabled={!selected.length || busy}
-          onClick={assign}
-        >
-          {busy ? "Saving..." : selected.length ? `Assign ${selected.length} sound${selected.length === 1 ? "" : "s"}` : "Assign practice"}
-        </button>
+        ) : <span className="muted-text">Tap sounds to choose the printed pack's focus.</span>}
         <button className="lp-button lp-button-secondary" type="button" onClick={printPack}>
           {selected.length ? `Print pack (${selected.length} sound${selected.length === 1 ? "" : "s"})` : "Print practice pack"}
         </button>
       </div>
-      <ActionFeedback className="quest-heat-feedback" feedback={assignmentFeedback} />
       {packNote && <p className="muted-text quest-heat-note" role="status">{packNote}</p>}
     </div>
   );
@@ -557,8 +497,6 @@ export function TeacherStudentsPage({
   archivedStudentList = [],
   loadingStudents = false,
   loadStudents,
-  assignQuestPractice,
-  clearQuestPractice,
   setReducedChoiceMode,
   setAccessibilitySettings,
   onLoadStudent,
@@ -965,10 +903,10 @@ export function TeacherStudentsPage({
     : !selectedStudentResultsAvailable
       ? "Some saved results could not be loaded, so no summary is shown."
       : selectedStudentRow.currentAnswered === 0
-        ? "No scored answers yet. A first assessment gives you a starting point."
-        : selectedStudentRow.learningConclusion?.ready
-          ? `Working on ${selectedStudentRow.currentSkill}. ${countPhrase(selectedStudentRow.currentAnswered, "saved answer")} in the last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`
-          : `${countPhrase(selectedStudentRow.currentAnswered, "saved answer")} so far. Too few for a learning judgement.`;
+        ? "No Skills answers yet. A first Skills check gives you a starting point."
+        : selectedStudentRow.focusLearningConclusion?.ready
+          ? `${selectedStudentRow.focusLearningConclusion.status.label} in ${selectedStudentRow.currentSkill}. ${countPhrase(selectedStudentRow.focusLearningConclusion.attempts, "saved answer")} for this skill in the last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`
+          : `Working on ${selectedStudentRow.currentSkill}. ${selectedStudentRow.focusLearningConclusion.status.label} for this skill.`;
   // ── Action cards: turn roster data into one-click next steps ──────────────
   const actionCards = useMemo(() => {
     const cards = [];
@@ -1018,7 +956,7 @@ export function TeacherStudentsPage({
         id: "nudge",
         tone: "info",
         title: inactive.some(row => row.answered === 0)
-          ? "Run first assessments"
+          ? "Run first Skills checks"
           : "Follow up with students who have not practised recently",
         detail: `${inactiveNames} ${inactive.length === 1 ? "has" : "have"} no scored answers or no recent saved activity.`,
         explanation: {
@@ -2258,8 +2196,8 @@ export function TeacherStudentsPage({
                     </span>
                   </th>
                   <th scope="col" role="columnheader">Current focus</th>
-                  <th scope="col" role="columnheader">Accuracy</th>
-                  <th scope="col" role="columnheader">Status</th>
+                  <th scope="col" role="columnheader">Focus accuracy</th>
+                  <th scope="col" role="columnheader">Focus status</th>
                   <th scope="col" role="columnheader">Last active</th>
                   <th scope="col" role="columnheader">Actions</th>
                   {enabledRosterColumns.has("progress") && <th scope="col" role="columnheader">Progress</th>}
@@ -2322,24 +2260,24 @@ export function TeacherStudentsPage({
                     {/* Accuracy and learning status are deliberately two columns.
                         A student with too few saved answers shows an em dash here
                         and their real state in the pill — never 0%. */}
-                    <td data-label="Accuracy" role="cell" className="teacher-roster-accuracy">
+                    <td data-label="Focus accuracy" role="cell" className="teacher-roster-accuracy">
                       {resultsAvailable ? (
-                        row.learningConclusion?.ready ? (
+                        row.focusLearningConclusion?.ready ? (
                           <MetricFigure
-                            denominator={`${countPhrase(row.currentAnswered, "scored answer")} from the last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`}
+                            denominator={`${countPhrase(row.focusLearningConclusion.attempts, "scored answer")} on ${row.currentSkill} from the last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`}
                             dateRange={`The last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`}
                             metricId="accuracy"
-                            updatedAt={row.currentLastActive}
+                            updatedAt={row.focusEvidence?.lastActive}
                           >
-                            {`${row.learningConclusion.accuracy}%`}
+                            {`${row.focusLearningConclusion.accuracy}%`}
                           </MetricFigure>
                         ) : <span aria-label="No accuracy yet">—</span>
                       ) : <span className="muted-text">Results unavailable</span>}
                     </td>
-                    <td data-label="Status" role="cell">
-                      <span className={`teacher-status-pill is-${row.learningConclusion?.status?.id || "not_checked"}`}>
+                    <td data-label="Focus status" role="cell">
+                      <span className={`teacher-status-pill is-${row.focusLearningConclusion?.status?.id || "not_checked"}`}>
                         {resultsAvailable
-                          ? accuracyConclusion({ ...row, learningConclusion: { ...row.learningConclusion, ready: false } })
+                          ? row.focusLearningConclusion.status.label
                           : "Results unavailable"}
                       </span>
                     </td>
@@ -2382,6 +2320,8 @@ export function TeacherStudentsPage({
                     {enabledRosterColumns.has("sound-seekers") && <td data-label="Sound Seekers" role="cell">
                       {!resultsAvailable
                         ? <span className="muted-text">Results unavailable</span>
+                        : soundSeekersPracticeSummary(row.soundSeekers)
+                          ? <SoundSeekersPracticeSummary report={row.soundSeekers} />
                         : row.soundSeekers?.sessions || row.soundSeekers?.stopsCompleted > 0 ? (
                         <div className="teacher-quest-cell">
                           <strong>
@@ -2389,11 +2329,11 @@ export function TeacherStudentsPage({
                               metricId="trails"
                               updatedAt={row.soundSeekers.syncedAt || row.lastActive}
                             >
-                              {progressPhrase(row.soundSeekers.stopsCompleted, 40)} trails
+                              {progressPhrase(row.soundSeekers.stopsCompleted, 40)} earlier trails
                             </MetricFigure>
                           </strong>
                           <span>{row.soundSeekers.stonesLit} sounds lit · {row.soundSeekers.timeOnTask}</span>
-                          <small>{row.soundSeekers.currentFocus?.length ? `Needs re-teaching: ${row.soundSeekers.currentFocus.slice(0, 3).join(", ")}` : "Building first sound profile"}</small>
+                          <small>Earlier trail history · separate from current game practice and Skills results</small>
                         </div>
                       ) : <span className="muted-text">Not started</span>}
                     </td>}
@@ -2506,6 +2446,15 @@ export function TeacherStudentsPage({
                   </MetricFigure>
                 ) : "Results unavailable"}
               </p>
+              {selectedStudentResultsAvailable && (
+                <p className="teacher-student-panel-summary">
+                  <strong>Across skills:</strong>{" "}
+                  {selectedStudentRow.learningConclusion.status.label}.
+                  {!selectedStudentRow.learningConclusion.ready && selectedStudentRow.currentAnswered > 0
+                    ? ` ${selectedStudentRow.learningConclusion.reason}. A named-skill result can be ready before a whole-learner summary.`
+                    : " This broader summary uses results across skills."}
+                </p>
+              )}
               <button className="text-button" type="button" onClick={onClearStudent}>
                 Close student details
               </button>
@@ -2546,7 +2495,7 @@ export function TeacherStudentsPage({
                   type="button"
                   onClick={() => onOpenGuidedReading?.(selectedStudentRow)}
                 >
-                  Open guided reading — Level C
+                  Open guided reading
                 </button>
                 <button
                   className="lp-button lp-button-secondary"
@@ -2555,7 +2504,7 @@ export function TeacherStudentsPage({
                 >
                   Open report
                 </button>
-                <button
+                {selectedStudentRow.soundSeekers?.heat?.length > 0 && <button
                   className="lp-button teacher-panel-ghost"
                   type="button"
                   onClick={() => setPanelPackNote(printStudentPracticePack({
@@ -2564,7 +2513,7 @@ export function TeacherStudentsPage({
                   }))}
                 >
                   Print practice pack
-                </button>
+                </button>}
               </div>
               {panelPackNote && (
                 <p className="muted-text teacher-student-panel-note" role="status">{panelPackNote}</p>
@@ -2687,13 +2636,15 @@ export function TeacherStudentsPage({
                     <dd>
                       {!selectedStudentResultsAvailable
                         ? "Results unavailable"
+                        : soundSeekersPracticeSummary(selectedStudentRow.soundSeekers)
+                          ? <SoundSeekersPracticeSummary report={selectedStudentRow.soundSeekers} />
                         : selectedStudentRow.soundSeekers?.sessions || selectedStudentRow.soundSeekers?.stopsCompleted > 0
                         ? (
                           <MetricFigure
                             metricId="trails"
                             updatedAt={selectedStudentRow.soundSeekers.syncedAt || selectedStudentRow.lastActive}
                           >
-                            {progressPhrase(selectedStudentRow.soundSeekers.stopsCompleted, 40)} trails · {selectedStudentRow.soundSeekers.stonesLit} sounds lit
+                            {progressPhrase(selectedStudentRow.soundSeekers.stopsCompleted, 40)} earlier trails · {selectedStudentRow.soundSeekers.stonesLit} sounds lit
                           </MetricFigure>
                         )
                         : "Not started"}
@@ -2717,7 +2668,7 @@ export function TeacherStudentsPage({
                     Student settings
                   </button>
                 </div>
-                {selectedStudentResultsAvailable && selectedStudentRow.soundSeekers && (
+                {selectedStudentResultsAvailable && selectedStudentRow.soundSeekers?.heat?.length > 0 && (
                   <div className="teacher-student-panel-heat">
                     <button
                       className="text-button"
@@ -2729,17 +2680,13 @@ export function TeacherStudentsPage({
                       ))}
                     >
                       {heatOpenId === selectedStudentRow.id
-                        ? "Hide sound map"
-                        : selectedStudentRow.soundSeekers.assignment
-                          ? "Sound map · practice assigned"
-                          : "Sound map"}
+                        ? "Hide earlier trail history"
+                        : "Earlier trail history"}
                     </button>
                     {heatOpenId === selectedStudentRow.id && (
                       <QuestHeatPanel
                         report={selectedStudentRow.soundSeekers}
                         studentName={selectedStudentRow.name}
-                        onAssign={targets => assignQuestPractice?.(selectedStudentRow.id, targets)}
-                        onClear={() => clearQuestPractice?.(selectedStudentRow.id)}
                       />
                     )}
                   </div>

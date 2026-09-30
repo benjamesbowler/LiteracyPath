@@ -1392,20 +1392,26 @@ function ClassReportStatusSplit({ model }) {
     .filter(Boolean);
   if (!cards.length) return null;
   return (
-    <section className="teacher-class-report-split" aria-label="Class status split">
-      {cards.map(card => (
-        <article
-          className={`teacher-class-report-split-card ${card.statusId}`}
-          key={card.statusId}
-        >
-          <span className="teacher-class-report-split-label">{card.label}</span>
-          <strong className="teacher-class-report-split-count">{card.count}</strong>
-          <p className="teacher-class-report-split-note">
-            {TEACHER_COPY.reports.classStatusNotes[card.statusId]}
-          </p>
-        </article>
-      ))}
-    </section>
+    <>
+      <p className="muted-text">
+        Across skills: these whole-learner statuses require results from more than one skill.
+        A current-focus result can be ready before this broader summary.
+      </p>
+      <section className="teacher-class-report-split" aria-label="Whole-learner class status split">
+        {cards.map(card => (
+          <article
+            className={`teacher-class-report-split-card ${card.statusId}`}
+            key={card.statusId}
+          >
+            <span className="teacher-class-report-split-label">{card.label}</span>
+            <strong className="teacher-class-report-split-count">{card.count}</strong>
+            <p className="teacher-class-report-split-note">
+              {TEACHER_COPY.reports.classStatusNotes[card.statusId]}
+            </p>
+          </article>
+        ))}
+      </section>
+    </>
   );
 }
 

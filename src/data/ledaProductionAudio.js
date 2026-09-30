@@ -8,6 +8,7 @@ import { ASSESSMENT_LEDA_GAP_AUDIO_BY_ROLE } from "./generated/assessmentLedaGap
 import { LEDA_PRODUCTION_VOICE } from "./ledaProductionVoice.js";
 import { CHILD_WORD_AUDIO_OVERRIDES } from "./childWordAudioOverrides.js";
 import { normalizeLedaAudioText } from "./normalizeLedaAudioText.js";
+import { STUDENT_SUPPORT_AUDIO } from './generated/studentSupportAudio.generated.js';
 
 export { LEDA_PRODUCTION_AUDIO_ROLES, LEDA_PRODUCTION_VOICE };
 export { normalizeLedaAudioText } from "./normalizeLedaAudioText.js";
@@ -31,6 +32,7 @@ export function getLedaProductionAudioPath(
   const normalized = normalizeLedaAudioText(text);
   if (!normalized) return "";
   for (const role of roles || []) {
+    if (role === 'instruction' && STUDENT_SUPPORT_AUDIO[normalized]) return STUDENT_SUPPORT_AUDIO[normalized];
     // Exact repairs in the supplemental assessment map can replace an older
     // production recording with a new URL, including shared instruction roles.
     const path = ASSESSMENT_LEDA_GAP_AUDIO_BY_ROLE[role]?.[normalized] || (role === "supplemental"

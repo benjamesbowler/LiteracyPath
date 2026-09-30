@@ -82,8 +82,9 @@ test("only stars and coins are countable in the child home", () => {
 test("every displayed value is read from real student state, never a mock figure", () => {
   // The hero: which activity, and the exact stop inside it.
   assert.match(code, /selectStudentHomeRecommendation\(\{/);
-  assert.match(code, /currentStopIndex\(progress\.soundSeekers\)/);
-  assert.match(code, /stopAtIndex\(index\)/);
+  assert.match(code, /woodlandHomeSummary\(progress\.soundSeekers\)\.next/);
+  assert.match(code, /woodlandChapterStorageKey\(scopeKey\)/);
+  assert.doesNotMatch(code, /currentStopIndex|stopAtIndex/);
   assert.match(code, /mission\.book\?\.title/);
   assert.match(code, /mission\.game\?\.title/);
   // The daily stops: the same mission state the rest of the app writes.

@@ -1,4 +1,5 @@
 import { getChildWordAsset } from '../../data/childAssets.js';
+import { curatedChildWordImageOverrides } from '../../data/childWordImageOverrides.js';
 import { findAssessmentMediaCandidates } from '../../data/assessmentMediaRegistry.js';
 import { assessmentImageStyleBlockedPaths } from '../../data/assessmentImageStyleBlocklist.js';
 import { imageQaReviewBlockedPaths } from '../../data/generated/imageQaReviewBlocklist.generated.js';
@@ -107,7 +108,14 @@ export function cycleWordAudio(word) {
 }
 function picture(word) {
   if (!isCyclePictureWordEligible(word)) return null;
-  const image = cycleWordImage(word), audio = cycleWordAudio(word);
+  // Comparable picture choices use the owned white-background illustration
+  // cohort, rather than mixing old full-scene cards with isolated objects.
+  // Keep the registry's semantic overrides and quarantine decisions intact.
+  const curated = curatedChildWordImageOverrides[word];
+  const image = (allowedImage(curated) ? curated : '') || findAssessmentMediaCandidates({ word, mediaType: 'image', role: 'target_object' })
+    .map(item => item.path).find(path => path.startsWith('/media/initial-sounds/images/') && allowedImage(path))
+    || cycleWordImage(word);
+  const audio = cycleWordAudio(word);
   return image && audio ? { id: word, label: word, value: word, image, audio } : null;
 }
 function randomFor(seed) {
@@ -156,7 +164,7 @@ const STATIONS = {
 function roundBase(cycle, mechanicId, targetWord, extra = {}) {
   const [stationId, stationTitle, construct] = STATIONS[mechanicId];
   const media = picture(targetWord);
-  return { id: `${cycle.id}:${mechanicId}:${targetWord}:${extra.targetGrapheme || extra.variant || ''}`, mechanicId, construct, stationId, stationTitle, instructionKey: mechanicId, targetWord, image: media?.image || cycleWordImage(targetWord), audio: media?.audio || cycleWordAudio(targetWord), checkEligible: mechanicId !== 'letterTrace', audioRequired: true, ...extra };
+  return { id: `${cycle.id}:${mechanicId}:${targetWord}:${extra.targetGrapheme || extra.variant || ''}`, mechanicId, construct, stationId, stationTitle, instructionKey: mechanicId, targetWord, image: mechanicId === 'wordBuild' || extra.decodableWord ? cycleWordImage(targetWord) : media?.image || cycleWordImage(targetWord), audio: media?.audio || cycleWordAudio(targetWord), checkEligible: mechanicId !== 'letterTrace', audioRequired: true, ...extra };
 }
 function soundChoices(grapheme, taught, seed, count = 3) {
   const others = shuffled(taught.filter(g => !cycleSoundsEquivalent(g, grapheme) && getPreferredPhonemeAudioPath(g)), seed);
@@ -195,7 +203,7 @@ export function buildCyclePracticePools(cycle, seed, check = false) {
           const contrastWords = shuffled(picturePool.filter(w => cycleSoundMatches(w, other, position) && !cycleSoundMatches(w, grapheme, position)), `${cycle.id}:contrast:${word}`);
           const sortedWords = sameWords.length ? [word, sameWords[0], contrastWords[0]] : [word, ...contrastWords.slice(0, 2)];
           if (sortedWords.length !== 3 || sortedWords.some(w => !w)) continue;
-          const objects = sortedWords.map(w => ({ word: w, image: cycleWordImage(w), audio: cycleWordAudio(w), answer: cycleSoundMatches(w, grapheme, position) ? grapheme : other }));
+          const objects = sortedWords.map(w => ({ word: w, image: picture(w).image, audio: cycleWordAudio(w), answer: cycleSoundMatches(w, grapheme, position) ? grapheme : other }));
           const candidate = roundBase(cycle, 'soundSort', word, { ...common, instructionKey: endingPart ? 'sortEndingPart' : position === 'ending' ? 'sortEndingSound' : 'sortFirstSound', choices: bins, objects, answer: grapheme, construct: endingPart ? 'ending_pattern_classification' : position === 'ending' ? 'ending_sound_classification' : 'initial_sound_classification' });
           const key = cyclePracticeSemanticKey(candidate);
           // A scarce ending such as ung still needs its own learning turn.

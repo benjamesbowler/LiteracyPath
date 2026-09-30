@@ -22,7 +22,8 @@ import {
   saveStudentProfile,
   setCompanion
 } from "./utils/studentProfile.js";
-import { localProgressStorageKey } from "./utils/progressKeys.js";
+import { freshChapter } from "../demos/sound-seekers/src/chapter/progress.js";
+import { localProgressStorageKey, woodlandChapterStorageKey } from "./utils/progressKeys.js";
 import { markMissionDone } from "./utils/dailyMission.js";
 
 const PREVIEW_SCOPE = "student-home-preview";
@@ -40,7 +41,7 @@ if (PREVIEW_SCENARIO === "reduced-choice") {
   });
 }
 
-if (PREVIEW_SCENARIO === "continuation") {
+if (["continuation", "card-states"].includes(PREVIEW_SCENARIO)) {
   const now = new Date();
   const day = [
     now.getFullYear(),
@@ -59,14 +60,11 @@ if (PREVIEW_SCENARIO === "continuation") {
       celebratedSteps: ["quest", "book", "game"]
     })
   );
-  window.localStorage.setItem(
-    localProgressStorageKey("phonics_quest", PREVIEW_SCOPE),
-    JSON.stringify({
-      trail: {
-        stopsDone: Array.from({ length: 38 }, (_, index) => `s${index + 1}`)
-      }
-    })
-  );
+  const chapter = freshChapter(61);
+  for (const id of ['picnic', 'brook', 'garden']) chapter.jobs[id] = { act: 3, round: 0, built: '', used: [], pending: false };
+  chapter.active = 'parcels'; chapter.attempts = 72;
+  window.localStorage.setItem(woodlandChapterStorageKey(PREVIEW_SCOPE), JSON.stringify(chapter));
+
 }
 
 if (PREVIEW_SCENARIO === "card-states") {
@@ -85,9 +83,10 @@ if (PREVIEW_SCENARIO === "card-states") {
   window.localStorage.setItem(
     localProgressStorageKey("el_quest", PREVIEW_SCOPE),
     JSON.stringify({
+      schemaVersion: 2, progressEpoch: 2,
       cycles: {
-        cycle1: { stars: 3 },
-        cycle2: { stations: { first: true } }
+        "cycle-1": { stars: 3 },
+        "cycle-2": { stations: { first: true } }
       }
     })
   );

@@ -6,8 +6,9 @@ const checkpoint = () => ({ act: 0, round: 0, built: '', used: [], pending: fals
 export function freshChapter(seed = Math.floor(Math.random() * 0x7fffffff)) {
   return { version: 1, seed, active: 'picnic', jobs: Object.fromEntries(PROJECTS.map(p => [p.id, checkpoint()])),
     mode: 'explore', rewardAct: null, complete: false, position: { ...START }, fireflies: [], seconds: 0, attempts: 0,
-    settings: { muted: false, reduced: false, low: false } };
+    resetEpoch: 0, updatedAt: '', lastAnsweredAt: '', settings: { muted: false, reduced: false, low: false } };
 }
+export function restartChapter(seed, now = Date.now()) { return { ...freshChapter(seed), resetEpoch: now }; }
 export const available = (p, id) => PROJECTS.find(job => job.id === id)?.needs.every(need => p.jobs[need].act === 3) || false;
 export const currentAct = p => ACTS.find(a => a.projectId === p.active && a.actIndex === Math.min(2, p.jobs[p.active].act));
 export const currentRound = p => activityDeck(currentAct(p), p.seed)[p.jobs[p.active].round];
@@ -25,7 +26,7 @@ export function judgeChoice(p, choiceId) {
   const built = correct && round.kind === 'build' ? job.built + choice.label : job.built;
   const used = correct && round.kind === 'build' ? [...job.used, choiceId] : job.used;
   const finished = correct && (round.kind !== 'build' || built.length === round.word.length);
-  return { accepted: true, correct, finished, progress: { ...p, attempts: p.attempts + 1, jobs: {
+  return { accepted: true, correct, finished, progress: { ...p, attempts: p.attempts + 1, lastAnsweredAt: new Date().toISOString(), jobs: {
     ...p.jobs, [p.active]: { ...job, built, used, pending: finished },
   } } };
 }
@@ -74,6 +75,8 @@ export function parseChapter(raw) {
     if (Number.isFinite(data.position?.x) && Number.isFinite(data.position?.z) && canWalk(data.position.x, data.position.z, movementStage)) p.position = { x: data.position.x, z: data.position.z };
     p.fireflies = Array.isArray(data.fireflies) ? [...new Set(data.fireflies.filter(i => Number.isInteger(i) && i >= 0 && i < 5))] : [];
     for (const key of ['seconds', 'attempts']) p[key] = Number.isFinite(data[key]) ? Math.max(0, Math.floor(data[key])) : 0;
+    p.resetEpoch = Number.isFinite(data.resetEpoch) ? Math.max(0, Math.floor(data.resetEpoch)) : 0;
+    for (const key of ['updatedAt', 'lastAnsweredAt']) p[key] = Number.isFinite(Date.parse(data[key])) ? new Date(data[key]).toISOString() : '';
     for (const key of ['muted', 'reduced', 'low']) p.settings[key] = data.settings?.[key] === true;
     return settleChapter(p);
   } catch { return null; }

@@ -1189,8 +1189,9 @@ export function ElSkillsQuest({
     const checkLocked = practiceDone < 4 && !cycleFinished;
     const nextStation = cycleStations.find(station => station.id !== "check" && !station.optional && !stationDone(station.id))
       || (!checkLocked ? cycleStations.find(station => station.id === "check") : null);
-    const completedCount = cycleStations.filter(station => stationDone(station.id)).length;
-    const completionPercent = Math.round((completedCount / Math.max(1, cycleStations.length)) * 100);
+    const mainStations = cycleStations.filter(station => !station.optional);
+    const completedCount = mainStations.filter(station => stationDone(station.id)).length;
+    const completionPercent = Math.round((completedCount / Math.max(1, mainStations.length)) * 100);
 
     return (
       <main
@@ -1213,8 +1214,8 @@ export function ElSkillsQuest({
               </p>}
             </div>
             <div className="sbq-cycle-head-actions">
-              <div className="sbq-cycle-progress" aria-label={`${completedCount} of ${cycleStations.length} stations complete`}>
-                <span><strong>{completedCount}</strong> of {cycleStations.length} complete</span>
+              <div className="sbq-cycle-progress" aria-label={`${completedCount} of ${mainStations.length} main stations complete. Extra games are optional.`}>
+                <span><strong>{completedCount}</strong> of {mainStations.length} main games</span>
                 <span className="sbq-cycle-progress-track" aria-hidden="true">
                   <span style={{ width: `${completionPercent}%` }} />
                 </span>
@@ -1261,10 +1262,10 @@ export function ElSkillsQuest({
                       />
                     </span>
                     <span className="sbq-station-step" aria-hidden="true">
-                      {done ? "✓" : locked ? <StationLockIcon /> : index + 1}
+                      {done ? "✓" : locked ? <StationLockIcon /> : station.optional ? "+" : mainStations.findIndex(main => main.id === station.id) + 1}
                     </span>
                     <span className="sbq-station-copy">
-                      <strong>{station.title}</strong>
+                      <strong>{station.title}{station.optional ? " · Extra" : ""}</strong>
                       <em>{stateCopy}</em>
                     </span>
                     {isNext && <span className="sbq-station-go" aria-hidden="true">&#8594;</span>}

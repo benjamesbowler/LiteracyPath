@@ -34,7 +34,7 @@ export async function createWorld(host, callbacks, settings={}) {
   const landmarks=settings.landmarks||LANDMARKS, roads=settings.roads||[PATH];
   const walkStage=()=>settings.chapter?(restored.brook===3?2:0):mission;
   let restored={picnic:0,brook:0,garden:0,parcels:0,tree:0}, decor=null;
-  let disposed=false,paused=true,phase='title',mission=0,reduce=!!settings.reduced,low=!!settings.low;
+  let disposed=false,paused=true,phase='title',mission=0,reduce=!!settings.reduced,low=!!settings.low,dirty=true;
   const renderer=createRenderer(THREE,{pixelRatioCap:low?1:1.6,toneMappingExposure:1.13,shadowMap:true,powerPreference:'high-performance'});
   renderer.shadowMap.type=THREE.PCFSoftShadowMap;
   renderer.domElement.setAttribute('aria-label','Woodland. Tap the ground to walk. Use arrow keys or W A S D to explore.');
@@ -104,10 +104,14 @@ export async function createWorld(host, callbacks, settings={}) {
   renderer.domElement.addEventListener('pointerdown',onGround);
   function lost(event){event.preventDefault();callbacks.failure?.(new Error('Graphics paused. Your journey is saved.'));}
   renderer.domElement.addEventListener('webglcontextlost',lost);
-  const resize=()=>{const {width,height}=host.getBoundingClientRect();renderer.setSize(Math.max(1,width),Math.max(1,height));camera.aspect=width/Math.max(1,height);camera.updateProjectionMatrix();};
+  const resize=()=>{const {width,height}=host.getBoundingClientRect();renderer.setSize(Math.max(1,width),Math.max(1,height));camera.aspect=width/Math.max(1,height);camera.updateProjectionMatrix();dirty=true;};
   const observer=new ResizeObserver(resize);observer.observe(host);resize();
   function update(now){
-    if(disposed)return;frame=requestAnimationFrame(update);const actualDt=last?(now-last)/1000:0;frameAverage+=((actualDt||.0167)*1000-frameAverage)*.025;const dt=Math.min(actualDt,.08);last=now;if(!paused||phase==='title')t+=dt;
+    if(disposed)return;frame=requestAnimationFrame(update);
+    // Reduced-motion menus are still scenes. Repaint after a change rather than
+    // continuously submitting the identical scene to a mobile/software GPU.
+    if(reduce&&(paused||phase!=='explore')&&!dirty){last=now;return;}
+    dirty=false;const actualDt=last?(now-last)/1000:0;frameAverage+=((actualDt||.0167)*1000-frameAverage)*.025;const dt=Math.min(actualDt,.08);last=now;if(!paused||phase==='title')t+=dt;
     if(!paused&&phase==='explore'){
       let dx=input.x,dz=input.z;
       if(destination&&!dx&&!dz){const len=Math.hypot(destination.x-player.x,destination.z-player.z);if(len<.25){destination=routeQueue.shift()||null;clickRing.visible=false;}else{dx=(destination.x-player.x)/len;dz=(destination.z-player.z)/len;}}
@@ -117,7 +121,7 @@ export async function createWorld(host, callbacks, settings={}) {
       acc+=dt;while(acc>=1/60){movePlayer(player,move,1/60,walkStage(),obstacles);acc-=1/60;}
       for(let i=0;i<FIREFLIES.length;i++)if(!collected.includes(i)&&Math.hypot(player.x-FIREFLIES[i].x,player.z-FIREFLIES[i].z)<1.35){collected.push(i);callbacks.collect?.(i);burstTime=t;}
     }else acc=0;
-    if(hero){hero.position.set(player.x,.02,player.z);const speed=Math.hypot(player.vx,player.vz);if(speed>.2&&!paused&&phase==='explore'){const angle=Math.atan2(player.vx,player.vz);hero.rotation.y+=Math.atan2(Math.sin(angle-hero.rotation.y),Math.cos(angle-hero.rotation.y))*Math.min(1,dt*12);}setAnimation(phase==='complete'||phase==='reward'?'Celebrate':speed>.3&&!paused&&phase==='explore'?'Walk':'Idle');if(!paused||phase==='title'){mixer.timeScale=actionName==='Walk'?Math.max(.75,speed/4):1;mixer.update(dt);residentMixers.forEach(m=>m.update(dt));}}
+    if(hero){hero.position.set(player.x,.02,player.z);const speed=Math.hypot(player.vx,player.vz);if(speed>.2&&!paused&&phase==='explore'){const angle=Math.atan2(player.vx,player.vz);hero.rotation.y+=Math.atan2(Math.sin(angle-hero.rotation.y),Math.cos(angle-hero.rotation.y))*Math.min(1,dt*12);}setAnimation(phase==='complete'||phase==='reward'?'Celebrate':speed>.3&&!paused&&phase==='explore'?'Walk':'Idle');if(!paused||phase==='title'){mixer.timeScale=actionName==='Walk'?Math.max(.75,speed/4):1;mixer.update(reduce?0:dt);residentMixers.forEach(m=>m.update(reduce?0:dt));}}
     const target=landmarks[Math.min(mission,landmarks.length-1)];marker.position.set(target.x,0,target.z);marker.visible=phase==='explore';ring.scale.setScalar(reduce?1:1+Math.sin(t*2)*.06);
     for(let i=0;i<stones.length;i++)stones[i].visible=(settings.chapter?restored.brook===3||restored.brook>=1&&i<3||restored.brook>=2&&i<5:mission>=2)||i===0||i===5;
     packedTokens.forEach(token=>{token.visible=settings.chapter?restored.picnic>=1:mission>=1;});
@@ -139,8 +143,8 @@ export async function createWorld(host, callbacks, settings={}) {
   }
   frame=requestAnimationFrame(update);
   return {
-    setState(state){restored=state.repairs||restored;decor?.update(restored);if(settings.chapter){const active=landmarks[Math.min(state.mission,landmarks.length-1)];for(const [id,model] of Object.entries(residents)){const follows=id==='woolly'&&['picnic','parcels'].includes(active.projectId)||id==='splashy'&&active.projectId==='brook'||id==='clucky'&&active.projectId==='garden';if(state.phase==='complete'){const i=['woolly','splashy','clucky'].indexOf(id);model.position.set(-2+i*3,0,-29);model.rotation.y=.3;}else if(follows){model.position.set(active.x-2.3,0,active.z-1.3);model.rotation.y=.4;}else{const home=model.userData.home;model.position.set(home.x,0,home.z);model.rotation.y=.4;}}}phase=state.phase;paused=state.paused;renderer.domElement.tabIndex=phase==='explore'&&!paused?0:-1;mission=state.mission;collected=[...state.fireflies];reduce=state.reduced;low=state.low;sun.castShadow=!low;renderer.setPixelRatio(Math.min(devicePixelRatio,low?1:1.6));if(paused){input.x=input.z=0;player.vx=player.vz=0;destination=null;}},
-    restore(position){player.x=position.x;player.z=position.z;player.vx=player.vz=0;input.x=input.z=0;destination=null;routeQueue=[];clickRing.visible=false;acc=0;},
+    setState(state){dirty=true;restored=state.repairs||restored;decor?.update(restored);if(settings.chapter){const active=landmarks[Math.min(state.mission,landmarks.length-1)];for(const [id,model] of Object.entries(residents)){const follows=id==='woolly'&&['picnic','parcels'].includes(active.projectId)||id==='splashy'&&active.projectId==='brook'||id==='clucky'&&active.projectId==='garden';if(state.phase==='complete'){const i=['woolly','splashy','clucky'].indexOf(id);model.position.set(-2+i*3,0,-29);model.rotation.y=.3;}else if(follows){model.position.set(active.x-2.3,0,active.z-1.3);model.rotation.y=.4;}else{const home=model.userData.home;model.position.set(home.x,0,home.z);model.rotation.y=.4;}}}phase=state.phase;paused=state.paused;renderer.domElement.tabIndex=phase==='explore'&&!paused?0:-1;mission=state.mission;collected=[...state.fireflies];reduce=state.reduced;low=state.low;sun.castShadow=!low;const pixelRatio=Math.min(devicePixelRatio,low?1:1.6);if(renderer.getPixelRatio()!==pixelRatio)renderer.setPixelRatio(pixelRatio);if(paused){input.x=input.z=0;player.vx=player.vz=0;destination=null;}},
+    restore(position){dirty=true;player.x=position.x;player.z=position.z;player.vx=player.vz=0;input.x=input.z=0;destination=null;routeQueue=[];clickRing.visible=false;acc=0;},
     move(x,z){input.x=x;input.z=z;},
     guide(){const goal=landmarks[Math.min(mission,landmarks.length-1)];if(settings.route){routeQueue=settings.route(player,goal,walkStage(),obstacles);destination=routeQueue.shift()||null;return;}const index=PATH.reduce((best,p,i)=>Math.hypot(p[0]-player.x,p[1]-player.z)<Math.hypot(PATH[best][0]-player.x,PATH[best][1]-player.z)?i:best,0);const goalIndex=PATH.findIndex(p=>Math.hypot(p[0]-goal.x,p[1]-goal.z)<1);const points=index<=goalIndex?PATH.slice(index,goalIndex+1):PATH.slice(goalIndex,index+1).reverse();routeQueue=points.map(p=>({x:p[0],z:p[1]}));destination=routeQueue.shift()||{x:goal.x,z:goal.z};},
     burst(){burstTime=t;},

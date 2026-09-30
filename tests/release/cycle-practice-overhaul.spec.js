@@ -4,6 +4,7 @@ import { expect, test } from "@playwright/test";
 import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
 import { buildCyclePlan, cycleStorageKey } from "../../src/components/cycle-practice/cyclePracticeState.js";
 import { resolveCyclePracticeAudio } from "../../src/components/cycle-practice/cyclePracticeAudio.js";
+import { cyclePracticeCorrection } from "../../src/components/cycle-practice/cyclePracticeCorrections.js";
 import { cyclePracticeReadiness } from "../../src/components/cycle-practice/cyclePracticeContent.js";
 import { CYCLE_ACTIVITY_REVISION, CYCLE_PRACTICE_VERSION, cycleQuestionRecord } from "../../src/policy/cyclePracticePolicy.js";
 
@@ -120,6 +121,52 @@ async function choose(page, round, correct = true) {
   const choice = round.choices.find(item => (String(item.value) === String(round.answer)) === correct);
   if (round.mechanicId === "soundSort") await page.getByRole("button", { name: `Put ${round.targetWord} in ${choice.label || choice.value}`, exact: true }).click();
   else await page.getByRole("button", { name: choice.label || String(choice.value), exact: true }).click();
+}
+
+test("a supported retry retains its target and choices while the exact recorded correction stays available", async ({ page }) => {
+  const index = plan.findIndex(round => round.mechanicId === "pictureSound");
+  const round = plan[index];
+  const wrong = round.choices.find(choice => String(choice.value) !== String(round.answer));
+  const correction = cyclePracticeCorrection(round, { selected: wrong.value });
+  await startAt(page, { practiceIndex: index });
+  const choices = await page.locator(".cycle-answer").allTextContents();
+  await choose(page, round, false);
+  await ready(page);
+  await expect(page.locator(".cycle-feedback")).toContainText(correction.text);
+  await expect(page.getByRole("button", { name: "Hear the hint again", exact: true })).toBeEnabled();
+  await page.waitForTimeout(1000);
+  await expect(page.locator(".cycle-feedback")).toContainText(correction.text);
+  expect((await saved(page)).practiceIndex).toBe(index);
+  expect(await page.locator(".cycle-answer").allTextContents()).toEqual(choices);
+  await page.getByRole("button", { name: "Hear the hint again", exact: true }).click();
+  await expect.poll(() => page.evaluate(sources => sources.every(source => window.__cycleAudio.played.filter(event => event.src === source).length >= 2), correction.sequence)).toBe(true);
+  await choose(page, round);
+  await expect.poll(async () => (await saved(page)).practiceIndex).toBe(index + 1);
+  await expect(page.getByRole("button", { name: "Hear the hint again", exact: true })).toHaveCount(0);
+});
+
+test("an independent wrong response keeps neutral feedback and moves on without a correction hint", async ({ page }) => {
+  const index = check.findIndex(round => round.mechanicId === "pictureSound");
+  await startAt(page, { mode: "assessment", assessmentIndex: index, practiceRecords: completedCoverage, frozenPracticeSeconds: 1800,
+    clock: { activePracticeSeconds: 1800, sessionElapsedSeconds: 1800, checkSeconds: 0 } });
+  await page.evaluate(() => { window.__cycleAudio.duration = 500; });
+  await choose(page, check[index], false);
+  await expect(page.locator(".cycle-feedback")).toContainText("Not quite");
+  await expect(page.getByRole("button", { name: "Hear the hint again", exact: true })).toHaveCount(0);
+  await expect.poll(async () => (await saved(page)).assessmentIndex).toBe(index + 1);
+  expect((await saved(page)).assessmentRecords[0].responseStatus).toBe("incorrect");
+});
+
+for (const word of ["monkey", "moon", "mountain", "drum"]) {
+  test(`${word} resolves its inspected isolated picture in the actual practice choices`, async ({ page }, info) => {
+    const index = plan.findIndex(round => round.choices?.some(choice => choice.value === word && choice.image));
+    expect(index).toBeGreaterThanOrEqual(0);
+    await startAt(page, { practiceIndex: index });
+    const picture = page.locator(`.cycle-answer img[alt="${word}"]`);
+    await expect(picture).toHaveAttribute("src", `/images/child-mode/initial-sounds/reviewed/${word}.webp`);
+    await expect.poll(() => picture.evaluate(image => image.complete && image.naturalWidth === 768)).toBe(true);
+    await page.screenshot({ path: info.outputPath(`${word}-practice-choice.png`) });
+  });
 }
 
 for (const mechanic of ["pictureSound", "letterMatch", "rhymeMatch", "wordBuild", "soundSort", "letterTrace"]) {

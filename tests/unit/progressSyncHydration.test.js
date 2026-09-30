@@ -21,6 +21,9 @@ import {
 } from "../../src/utils/adventureMapLocalProgress.js";
 import { readProgressQueueRecords } from "../../src/utils/progressQueue.js";
 import { localProgressStorageKey } from "../../src/utils/progressKeys.js";
+import { localProgressStorageKeyForRow, woodlandChapterStorageKey } from '../../src/utils/progressKeys.js';
+import { freshChapter, currentRound, judgeChoice } from '../../demos/sound-seekers/src/chapter/progress.js';
+import { WOODLAND_PROGRESS_ROW, encodeWoodlandProgress } from '../../src/features/soundSeekers/woodlandProgress.js';
 
 function memoryStorage() {
   const values = new Map();
@@ -111,6 +114,27 @@ function installHydrationBrowser(t) {
   });
   return { storage, events };
 }
+
+test('authenticated woodland hydration restores the exact learner checkpoint without touching another learner or legacy history', async t => {
+  const {storage,events}=installHydrationBrowser(t);
+  let chapter=freshChapter(81);chapter.active='brook';chapter.jobs.brook.act=1;
+  const round=currentRound(chapter);
+  chapter=judgeChoice(chapter,round.choices.find(choice=>choice.label===round.word[0]).id).progress;
+  chapter.updatedAt='2026-09-30T10:00:00.000Z';
+  const other=woodlandChapterStorageKey('other');storage.setItem(other,'other learner bytes');
+  const legacy=localProgressStorageKey('phonics_quest','woodland-one');storage.setItem(legacy,'retained history');
+  await hydrateCloudProgress({mode:'student',studentId:'woodland-one',token:'synthetic-valid-session',client:progressClient([
+    {area:'phonics_quest',key:WOODLAND_PROGRESS_ROW,payload:encodeWoodlandProgress(chapter)}
+  ])});
+  const restored=JSON.parse(storage.getItem(woodlandChapterStorageKey('woodland-one')));
+  assert.equal(restored.jobs.brook.built,round.word[0]);
+  assert.equal(restored.seed,81);
+  assert.equal(restored.lastAnsweredAt,chapter.lastAnsweredAt);
+  assert.ok(storage.getItem(localProgressStorageKeyForRow('phonics_quest',WOODLAND_PROGRESS_ROW,'woodland-one')));
+  assert.equal(storage.getItem(other),'other learner bytes');
+  assert.equal(storage.getItem(legacy),'retained history');
+  assert.ok(events.some(event=>event.type==='lp-progress-hydrated'));
+});
 
 test("student progress reads can use the session's validated client", async () => {
   const rows = [{ area: "el_quest", key: "__all__", payload: { cycles: {} } }];

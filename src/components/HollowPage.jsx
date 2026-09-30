@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { computeTreasury } from "../utils/treasureTrail.js";
 import {
   computeHollow, canBuy, findCatalogItem,
@@ -18,8 +18,10 @@ import {
 } from "../utils/studentProfile.js";
 import { playStarChime } from "../utils/audio/gameSfx.js";
 import { CoinIcon, BerryIcon, SparkIcon } from "./shared/CurrencyIcons.jsx";
-import { BookOpenText, GameController, MapTrifold, Toolbox } from "@phosphor-icons/react";
+import { BookOpenText, GameController, MapTrifold, SpeakerHigh, Toolbox } from "@phosphor-icons/react";
 import { lockedItemAffordance } from "../policy/lockedItemAffordance.js";
+import { hollowNextAction } from "../policy/hollowNextActionPolicy.js";
+import { speakStudentRailLabel } from "../policy/studentRailPolicy.js";
 
 // My Hollow - Rewards V2. A GAME ROOM, not a webpage: one slim top bar
 // (title + tabs + wallet) and a stage that fills the rest of the screen.
@@ -36,7 +38,8 @@ function hideOnError(event) {
 // everything is "above the fold". The fallback is sized in PIXELS from the
 // box size (a %-of-font-size fallback rendered as a microscopic emoji).
 function ItemArt({ id, stage, size = 52 }) {
-  const file = stage ? `${id}-s${stage}` : id;
+  const artId = id === WELCOME_EGG.id ? "egg-bronze" : id;
+  const file = stage ? `${artId}-s${stage}` : artId;
   return (
     <span className="hollow-art" style={{ width: size, height: size }} aria-hidden="true">
       <span className="hollow-art-fallback" data-art-id={id} />
@@ -159,7 +162,7 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
     return computeTreasury(scope);
   }, [scope, hydrationTick]);
   // eslint-disable-next-line react-hooks/exhaustive-deps -- ledgerVersion re-reads after every purchase/feed/layout change
-  const ledger = useMemo(() => loadHollowLedger(scope), [scope, ledgerVersion]);
+  const ledger = useMemo(() => { void hydrationTick; return loadHollowLedger(scope); }, [scope, ledgerVersion, hydrationTick]);
   const hollow = useMemo(() => computeHollow(ledger, treasury.breakdown), [ledger, treasury]);
   const [companion, setCompanionState] = useState(() => getCompanion(scope));
   const [tab, setTab] = useState("hollow");
@@ -167,14 +170,21 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   const [shelf, setShelf] = useState("caravan");
   const [marketPage, setMarketPage] = useState(0);
   const [pickingSpot, setPickingSpot] = useState(null);
+  const pickerRef = useRef(null);
+  const pickerTriggerRef = useRef(null);
   const [pickingWorld, setPickingWorld] = useState(false);
   const [hatched, setHatched] = useState(null);
   const [guidePickerOpen, setGuidePickerOpen] = useState(false);
   const [guideNotice, setGuideNotice] = useState("");
+  const [speechStatus, setSpeechStatus] = useState("");
   const [theme, setTheme] = useState(() => loadStudentProfile(scope).denTheme || "meadow");
   // Admin-placed spot positions (Admin → Hollow Spots). Cached first so the
   // room never renders with the wrong spots for a frame, then refreshed.
   const [spotOverride, setSpotOverride] = useState(() => getCachedHollowOverride());
+
+  function closePlacementPicker() {
+    setPickingSpot(null);
+  }
 
   useEffect(() => {
     let alive = true;
@@ -287,6 +297,18 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   const activeTheme = DEN_THEMES.find(t => t.id === theme && isDenThemeUnlocked(t, treasury.gems)) || DEN_THEMES[0];
   const placedIds = new Set(Object.values(hollow.slots));
   const placeable = hollow.ownedHollowItems.filter(i => !placedIds.has(i.id));
+  useEffect(() => {
+    if (pickingSpot) {
+      pickerRef.current?.querySelector("button:not([disabled])")?.focus();
+    } else if (pickerTriggerRef.current) {
+      const trigger = pickerTriggerRef.current;
+      const returnTo = trigger.disabled
+        ? trigger.closest(".hollow-room")?.querySelector("[data-child-primary]")
+        : trigger;
+      returnTo?.focus();
+      pickerTriggerRef.current = null;
+    }
+  }, [pickingSpot, placeable.length]);
   const nextExpansion = EXPANSIONS.find(e => !hollow.ownedIds.has(e.id));
   const hungry = hollow.beasties.filter(b => b.growth.next && hollow.berries > 0).length;
   const welcomeEggWaiting = !ledger.purchases.some(p => p?.item === WELCOME_EGG.id);
@@ -334,9 +356,34 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
     }] : [])
   ];
   const room = rooms[Math.min(roomIndex, rooms.length - 1)];
-  const recommendedSpotId = room?.kind === "open"
-    ? room.spots.find(spot => !hollow.slots[spot.spotId])?.spotId || ""
-    : "";
+  const nextAction = hollowNextAction({
+    placeable,
+    spots: room?.kind === "open" ? room.spots : [],
+    slots: hollow.slots,
+    welcomeEggWaiting
+  });
+  const recommendedSpotId = nextAction.spotId || "";
+
+  function openMarket() {
+    setPickingSpot(null);
+    setPickingWorld(false);
+    setTab("market");
+    setShelf("home");
+    setMarketPage(0);
+  }
+
+  function followEmptyAction() {
+    if (welcomeEggWaiting) {
+      setPickingSpot(null);
+      grant(WELCOME_EGG);
+    } else openMarket();
+  }
+
+  function hearNextAction() {
+    setSpeechStatus(speakStudentRailLabel(nextAction.instruction)
+      ? "Reading it out."
+      : "Sound is unavailable. You can still follow the words and picture.");
+  }
 
   const earnWays = [
     { icon: SparkIcon, label: "Quest star", coins: COIN_RATES.questStar, berries: 0 },
@@ -364,10 +411,11 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
         type="button"
         className={`hollow-spot empty${spot.spotId === recommendedSpotId ? " recommended" : ""}`}
         style={style}
-        aria-label={spot.spotId === recommendedSpotId
+        disabled={!placeable.length}
+        aria-label={!placeable.length ? "Empty display spot" : spot.spotId === recommendedSpotId
           ? "Empty spot - add something. Recommended next."
           : "Empty spot - add something"}
-        onClick={() => setPickingSpot({ id: spot.spotId, x: spot.x, y: spot.y })}
+        onClick={event => { pickerTriggerRef.current = event.currentTarget; setPickingSpot({ id: spot.spotId, x: spot.x, y: spot.y }); }}
         data-child-primary={spot.spotId === recommendedSpotId ? "" : undefined}
         data-child-emphasis={spot.spotId === recommendedSpotId ? "primary" : "choice"}
       >
@@ -386,16 +434,21 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
       top: pickingSpot.y > 50 ? `${pickingSpot.y - 32}%` : `${pickingSpot.y + 20}%`
     };
     return (
-      <div className="hollow-picker" style={style} role="dialog" aria-label="Choose something to place">
+      <div ref={pickerRef} className="hollow-picker" style={style} role="dialog" aria-label="Choose something to place" onKeyDown={event => { if (event.key === "Escape") closePlacementPicker(); }}>
         {placeable.length === 0
-          ? <p className="hollow-picker-empty">Nothing left to place - the Market has plenty!</p>
+          ? <div className="hollow-picker-empty">
+              <ItemArt id={welcomeEggWaiting ? "egg-welcome" : everydayHollow[0]?.id || "egg-welcome"} size={52} />
+              <p>{welcomeEggWaiting ? "Your gift is waiting." : "Find something at the Market."}</p>
+              <button type="button" className="hollow-buy" onClick={followEmptyAction} data-child-primary="" data-child-emphasis="primary"><span data-child-emphasis-cue="">{welcomeEggWaiting ? "Open your gift" : "Visit the Market"}</span></button>
+              <button type="button" className="hollow-pick hollow-hear" aria-label="Hear what to do next" onClick={hearNextAction}><SpeakerHigh size={22} aria-hidden="true" /></button>
+            </div>
           : placeable.map(item => (
             <button key={item.id} type="button" className="hollow-pick" title={item.name} onClick={() => placeItem(pickingSpot.id, item.id)}>
               <ItemArt id={item.id} size={52} />
               <span>{item.name}</span>
             </button>
           ))}
-        <button type="button" className="hollow-pick cancel" onClick={() => setPickingSpot(null)}>✕</button>
+        <button type="button" className="hollow-pick cancel" aria-label="Close placement choices" onClick={closePlacementPicker}>✕</button>
       </div>
     );
   }
@@ -474,14 +527,19 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
                   </aside>
                 )}
                 {renderPicker()}
-                <p className="hollow-room-hint" data-child-instruction="">Tap a glow to place something.</p>
+                {!recommendedSpotId && !pickingSpot && <aside className="hollow-room-next" aria-label="Your next Hollow action">
+                  <ItemArt id={welcomeEggWaiting ? "egg-welcome" : everydayHollow[0]?.id || "egg-welcome"} size={52} />
+                  <button type="button" className="hollow-buy" onClick={followEmptyAction} data-child-primary="" data-child-emphasis="primary">
+                    <span data-child-emphasis-cue="">{nextAction.label}</span>
+                  </button>
+                  <button type="button" className="hollow-pick hollow-hear" aria-label="Hear what to do next" onClick={hearNextAction}><SpeakerHigh size={22} aria-hidden="true" /></button>
+                </aside>}
+                <p className="hollow-room-hint" data-child-instruction="">{nextAction.instruction}</p>
                 <button
                   type="button"
                   className="hollow-world-button"
                   onClick={() => setPickingWorld(v => !v)}
-                  data-child-primary={!recommendedSpotId ? "" : undefined}
-                  data-child-emphasis={!recommendedSpotId ? "primary" : "choice"}
-                  data-child-emphasis-cue={!recommendedSpotId ? "" : undefined}
+                  data-child-emphasis="choice"
                 >
                   <span className="hollow-world-glyph" aria-hidden="true" />
                   World
@@ -751,6 +809,7 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
           </div>
         )}
       </section>
+      <p className="sr-only" role="status">{speechStatus}</p>
 
       {hatched && (
         <div className="hollow-hatch-overlay" role="dialog" aria-label={`Your egg hatched a ${hatched.name}`}>

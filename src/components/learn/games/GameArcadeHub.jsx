@@ -13,6 +13,9 @@ import { ProgressStars } from "./shared/ProgressStars.jsx";
 import { SoundToggle } from "./shared/SoundToggle.jsx";
 import { GamePlayer } from "./GamePlayer.jsx";
 import { LEARN_GAMES } from "./games/index.js";
+import { arcadeRecommendation } from "./arcadeRecommendation.js";
+import { getLedaInstructionAudioPath } from "../../../data/ledaProductionAudio.js";
+import { playCueAudio, stopCueAudio } from "../../../utils/audio/cuePlayer.js";
 import { ChildRecommendationExplanation } from "../../recommendations/RecommendationExplanation.jsx";
 import "../../../styles/learn-games.css";
 import "../../../styles/arcade-dark.css";
@@ -147,6 +150,8 @@ export function GameArcadeHub({
   leaderboardClient = supabase,
   leaderboardStudentToken,
   progressScopeKey = "default",
+  currentCycleId = "",
+  recommendedSkill = "",
   lockedGameId = null,
   onLockedGameAvailabilityChange = null
 }) {
@@ -172,6 +177,7 @@ export function GameArcadeHub({
     } catch { /* ignore */ }
     return null;
   });
+  useEffect(() => () => stopCueAudio(), [activeGame]);
   const [leaderboardRefresh, setLeaderboardRefresh] = useState(0);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [leaderboardStatus, setLeaderboardStatus] = useState({ state: "hidden", count: 0 });
@@ -180,13 +186,13 @@ export function GameArcadeHub({
 
   const handleLeaderboardStatus = useCallback((state, count) => {
     setLeaderboardStatus({ state, count });
-  }, []);
+  }, [setLeaderboardStatus]);
 
   const closeLeaderboard = useCallback(() => {
     setShowLeaderboard(false);
     setLeaderboardStatus({ state: "hidden", count: 0 });
     window.requestAnimationFrame(() => leaderboardTriggerRef.current?.focus());
-  }, []);
+  }, [setShowLeaderboard, setLeaderboardStatus]);
 
   useEffect(() => {
     if (!showLeaderboard) return undefined;
@@ -213,8 +219,7 @@ export function GameArcadeHub({
   const totals = useMemo(() => {
     const arcade = arcadeGames();
     const completed = arcade.filter(game => (getLearnGameProgress(progress, game.id).stars || 0) > 0).length;
-    const points = arcade.reduce((sum, game) => sum + (getLearnGameProgress(progress, game.id).highScore || 0), 0);
-    return { completed, points };
+    return { completed };
   }, [progress]);
 
   useEffect(() => {
@@ -238,9 +243,8 @@ export function GameArcadeHub({
     ? [{ id: "assigned", label: "Your game", games: lockedGame ? [lockedGame] : [] }]
     : tabsFor();
   const visibleGames = (tabs.find(entry => entry.id === tab) || tabs[0])?.games || [];
-  const recommendedGame = visibleGames.find(game => (
-    (getLearnGameProgress(progress, game.id).stars || 0) === 0
-  )) || visibleGames[0];
+  const recommendation = arcadeRecommendation({ games: visibleGames, progress, currentCycleId, recommendedSkill, assignedGameId: normalizedLockedGameId });
+  const recommendedGame = recommendation.game;
   const displayedActiveGame = exactGameLock
     ? activeGame?.id === lockedGame?.id ? lockedGame : null
     : activeGame;
@@ -297,9 +301,7 @@ export function GameArcadeHub({
                 <strong>Why this one?</strong>{" "}
                 <ChildRecommendationExplanation
                   surface="arcade"
-                  reason={(getLearnGameProgress(progress, recommendedGame.id).stars || 0) > 0
-                    ? "You have played every game here, so this one is ready to replay."
-                    : "This is the next game here that you have not played yet."}
+                  reason={recommendation.reason}
                 />
               </p>
             )}
@@ -323,6 +325,11 @@ export function GameArcadeHub({
               onToggle={() => setSoundEnabled(!progress.soundEnabled)}
               showLabel
             />
+            {recommendedGame && <button type="button" className="lg-arcade-reason-replay" aria-label="Hear why this game is suggested" title="Hear why"
+              onClick={() => { stopCueAudio(); playCueAudio(getLedaInstructionAudioPath(recommendation.reason)); }}>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Zm12-1c2 2 2 6 0 8m3-11c4 4 4 10 0 14" /></svg>
+              <span>Why?</span>
+            </button>}
           </div>
         </div>
 
@@ -386,7 +393,7 @@ export function GameArcadeHub({
                 )}
                 <span className="lg-game-tile-foot">
                   <ProgressStars stars={gameProgress.stars || 0} />
-                  {journeyCount !== null ? <em className="lg-game-tile-score">{journeyCount} / 12 trails</em> : gameProgress.highScore ? <em className="lg-game-tile-score">{gameProgress.highScore}</em> : null}
+                  {journeyCount !== null && <em className="lg-game-tile-score">{journeyCount} / {ARCADE_JOURNEYS[game.id].chapterCount} trails</em>}
                 </span>
               </button>
             );
@@ -396,8 +403,7 @@ export function GameArcadeHub({
 
       {/* Slim bottom banner: points + high-score board */}
       {!exactGameLock && <div className="lg-arcade-bottomband" data-child-progress="">
-        <span className="lg-arcade-points"><strong>{totals.points}</strong> points</span>
-        <span className="lg-arcade-played">{totals.completed} of {arcadeGames().length} games played</span>
+        <span className="lg-arcade-played">{totals.completed} of {arcadeGames().length} games with stars</span>
         {leaderboardAvailable && (
           <button
             ref={leaderboardTriggerRef}

@@ -12,7 +12,10 @@ import {
   evaluateLearningConclusion
 } from "../../policy/learningPolicy.js";
 import { normalizeLearnerAccessibilitySettings } from "../../accessibility/learnerAccessibility.js";
-import { TEACHER_TODAY_POLICY } from "../../utils/teacherTodayBriefing.js";
+import {
+  TEACHER_TODAY_POLICY,
+  evaluateTeacherFocusConclusion
+} from "../../utils/teacherTodayBriefing.js";
 import { TEACHER_COPY } from "../../copy/teacherCopy.js";
 
 // Derived, never re-typed: the roster's quiet-student filter and Today's
@@ -74,8 +77,27 @@ export function accuracyConclusion(row) {
 }
 
 export function needsSupportConclusion(row) {
-  return row?.learningConclusion?.ready
-    && row.learningConclusion.status.id === LEARNING_STATUS_IDS.NEEDS_SUPPORT;
+  const conclusion = row?.focusLearningConclusion || row?.learningConclusion;
+  return conclusion?.ready
+    && conclusion.status.id === LEARNING_STATUS_IDS.NEEDS_SUPPORT;
+}
+
+export function soundSeekersPracticeSummary(report) {
+  const campaign = report?.campaign;
+  const practice = campaign || report?.woodland;
+  if (!practice) return null;
+  const count = value => Math.max(0, Math.floor(Number(value) || 0));
+  const progress = (completed, total, label) => Number(total) > 0
+    ? `${count(completed)} of ${count(total)} ${label}`
+    : `${count(completed)} ${label} completed`;
+  return {
+    label: campaign ? "Campaign practice" : "Woodland practice",
+    progress: campaign
+      ? `${progress(practice.stagesCompleted, practice.totalStages, "stages")} · ${progress(practice.missionsCompleted, practice.totalMissions, "missions")}`
+      : progress(practice.projectsCompleted, practice.totalProjects, "projects"),
+    responses: count(practice.attempts),
+    lastActiveAt: practice.lastActiveAt || null
+  };
 }
 
 // The roster's status filter, as a pure function, so the quiet-student rule can
@@ -240,7 +262,7 @@ export function rememberSetupComplete(classId) {
 // One reading of the roster, shared by both pages. Kept pure as well as hooked
 // so the activity contract can be tested without a browser: creating or
 // renaming a student is not learning activity.
-export function buildTeacherStudentRows({ studentList = [], classDashboard = [] } = {}) {
+export function buildTeacherStudentRows({ studentList = [], classDashboard = [], now = new Date() } = {}) {
   const dashboardById = new Map(classDashboard.map(row => [row.id, row]));
   return studentList.map(student => {
       const hasDashboardRow = dashboardById.has(student.id);
@@ -282,6 +304,7 @@ export function buildTeacherStudentRows({ studentList = [], classDashboard = [] 
         )
       };
       const conclusion = evaluateLearningConclusion({
+        scope: LEARNING_CONCLUSION_SCOPES.GENERAL,
         accuracy: normalized.currentAccuracy,
         attempts: normalized.currentAnswered,
         skillDiversity: Array.isArray(normalized.currentEvidenceSkills)
@@ -289,7 +312,8 @@ export function buildTeacherStudentRows({ studentList = [], classDashboard = [] 
           : normalized.currentSkill && normalized.currentSkill !== "Not started"
             ? 1
             : 0,
-        observedAt: normalized.currentLastActive
+        observedAt: normalized.currentLastActive,
+        now
       });
       normalized.learningConclusion = normalized.evidenceReadStatus === "complete"
         ? conclusion
@@ -301,6 +325,23 @@ export function buildTeacherStudentRows({ studentList = [], classDashboard = [] 
             label: "Not enough results"
           },
           reason: "Some saved results could not be loaded."
+        };
+      const focusConclusion = evaluateTeacherFocusConclusion(normalized, { now })
+        || evaluateLearningConclusion({
+          scope: LEARNING_CONCLUSION_SCOPES.SKILL,
+          accuracy: null,
+          attempts: 0,
+          skillDiversity: 0,
+          observedAt: null,
+          now
+        });
+      normalized.focusLearningConclusion = normalized.evidenceReadStatus === "complete"
+        ? focusConclusion
+        : {
+          ...focusConclusion,
+          ready: false,
+          status: normalized.learningConclusion.status,
+          reason: normalized.learningConclusion.reason
         };
       return normalized;
     });

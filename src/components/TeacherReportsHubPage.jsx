@@ -294,6 +294,11 @@ export function TeacherReportsHubPage({
     onClearStudent?.();
   }
 
+  function openCurrentClassSummary() {
+    chooseWholeClass();
+    setShowing(true);
+  }
+
   function chooseStudent(row) {
     setBatchMode(false);
     setWho("student");
@@ -340,6 +345,15 @@ export function TeacherReportsHubPage({
             Choose a class and who the report is for. Start with the short summary;
             detailed reading and practice reports stay one tap away.
           </p>
+          {hasClass && rosterRead.complete && !(wholeClass && showing) && (
+            <button
+              className="lp-button lp-button-primary"
+              type="button"
+              onClick={openCurrentClassSummary}
+            >
+              Open {verifiedClassName || "current class"} summary
+            </button>
+          )}
         </div>
       </section>
 
@@ -615,6 +629,20 @@ export function TeacherReportsHubPage({
               aria-labelledby="teacher-funnel-report-title"
               className="teacher-funnel-report"
             >
+              <div className="teacher-funnel-report-actions">
+                <button className="lp-button lp-button-secondary" type="button" onClick={() => {
+                  setShowing(false);
+                  setEditingStep(1);
+                }}>Change class</button>
+                <button className="lp-button lp-button-secondary" type="button" onClick={() => {
+                  setShowing(false);
+                  setEditingStep(2);
+                }}>Change learner or class summary</button>
+                {!wholeClass && <button className="lp-button lp-button-secondary" type="button" onClick={() => {
+                  setShowing(false);
+                  setEditingStep(3);
+                }}>Change report</button>}
+              </div>
               <h3 id="teacher-funnel-report-title" ref={reportHeadingRef} tabIndex="-1">
                 {wholeClass ? `${verifiedClassName || "This class"} · class report` : `${selectedStudentName} · ${styleAnswer}`}
               </h3>

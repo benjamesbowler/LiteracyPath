@@ -19,6 +19,8 @@ import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
 import { CYCLE_PRACTICE_AUDIO_METADATA } from "../../src/data/generated/cyclePracticeInstructionAudio.generated.js";
 import { AUDIO_QUEST_PATHS } from "../../src/data/generated/audioQuestPaths.generated.js";
 import { normalizeLedaAudioText } from "../../src/data/ledaProductionAudio.js";
+import { cyclePracticeCorrection } from "../../src/components/cycle-practice/cyclePracticeCorrections.js";
+import { getPreferredPhonemeAudioPath } from "../../src/data/phonemeAudioBank.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 
@@ -58,6 +60,42 @@ test("independent-check feedback describes moving on while practice feedback off
   assert.equal(CYCLE_PRACTICE_FEEDBACK.retry, "Try again. Listen carefully.");
   assert.ok(getCyclePracticeFeedbackAudio("notQuite"));
   assert.notEqual(getCyclePracticeFeedbackAudio("notQuite"), getCyclePracticeFeedbackAudio("retry"));
+});
+
+test("practice sound correction contrasts the chosen picture with the original target using recorded clips", () => {
+  const apple = getCyclePracticeWordAudio("apple");
+  const m = getPreferredPhonemeAudioPath("m");
+  const round = { mechanicId: "pictureSound", targetGrapheme: "m", soundAudio: m, answer: "moon",
+    choices: [{ value: "apple", audio: apple }, { value: "moon", audio: getCyclePracticeWordAudio("moon") }] };
+  const correction = cyclePracticeCorrection(round, { selected: "apple" });
+  assert.equal(correction.text, "Apple starts with /a/. Find /m/.");
+  assert.equal(correction.sequence[0], apple);
+  assert.ok(correction.sequence.includes(getPreferredPhonemeAudioPath("a")));
+  assert.equal(correction.sequence.at(-1), m);
+  for (const source of correction.sequence) assert.ok(AUDIO_QUEST_PATHS.has(source), source);
+  assert.equal(round.answer, "moon");
+});
+
+test("sorting correction uses the current object's answer rather than the round's original sound", () => {
+  const correction = cyclePracticeCorrection({ mechanicId: "soundSort", targetGrapheme: "m", targetWord: "sun",
+    answer: "s", audio: getCyclePracticeWordAudio("sun"), soundAudio: getPreferredPhonemeAudioPath("m"),
+    choices: [{ value: "m", audio: getPreferredPhonemeAudioPath("m") }] }, { selected: "m" });
+  assert.equal(correction.text, "Sun starts with /s/. Put it with /s/.");
+  assert.equal(correction.sequence.at(-1), getPreferredPhonemeAudioPath("s"));
+});
+
+test("rhyme and spelling retries model the actual contrast while independent checks stay neutral", () => {
+  const rhyme = { mechanicId: "rhymeMatch", targetWord: "cat", answer: "hat", audio: getCyclePracticeWordAudio("cat"),
+    choices: [{ value: "sun", audio: getCyclePracticeWordAudio("sun") }, { value: "hat", audio: getCyclePracticeWordAudio("hat") }] };
+  const correction = cyclePracticeCorrection(rhyme, { selected: "sun" });
+  assert.equal(correction.text, "Sun and cat have different endings. Listen to hat and cat.");
+  assert.deepEqual(correction.sequence.slice(-2), [getCyclePracticeWordAudio("hat"), getCyclePracticeWordAudio("cat")]);
+  const spelling = cyclePracticeCorrection({ mechanicId: "wordBuild", targetWord: "cat", answer: ["c", "a", "t"],
+    audio: getCyclePracticeWordAudio("cat") }, { selected: ["c", "i"] });
+  assert.equal(spelling.text, "In cat, listen for /a/ next.");
+  assert.equal(spelling.sequence.at(-1), getPreferredPhonemeAudioPath("a"));
+  assert.deepEqual(cyclePracticeCorrection(rhyme, { selected: "sun" }, "assessment"),
+    { text: "Not quite", sequence: [getCyclePracticeFeedbackAudio("notQuite")] });
 });
 
 test("sound-picture instructions play the sound without announcing the correct picture", () => {

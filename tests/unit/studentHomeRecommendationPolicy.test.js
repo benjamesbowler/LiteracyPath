@@ -1,3 +1,4 @@
+import { freshChapter } from "../../demos/sound-seekers/src/chapter/progress.js";
 import assert from "node:assert/strict";
 import test from "node:test";
 
@@ -134,57 +135,27 @@ test("continuation CTA names the selected daily activity and remaining tasks", (
   assert.equal(continuation.goal, "daily mission tasks");
 });
 
-test("Sound Seekers continuation uses unique valid trail evidence", () => {
-  const soundSeekersProgress = {
-    trail: {
-      stopsDone: [
-        ...Array.from({ length: 38 }, (_, index) => `s${index + 1}`),
-        "s38",
-        "s41",
-        "not-a-trail"
-      ]
-    }
-  };
-  const continuation = buildStudentHomeContinuation({
-    activity: { id: "sound-seekers", title: "Sound Seekers" },
-    soundSeekersProgress
-  });
-
-  assert.equal(countCompletedSoundSeekersTrails(soundSeekersProgress), 38);
-  assert.equal(continuation.label, "Continue Sound Seekers — 2 trails left");
+test("Sound Seekers Home ignores retired trail assignments and counts current woodland projects", () => {
+  const old = { assignment: { targets: ["m", "s"] }, trail: { stopsDone: ["s1", "s1", "s2", "s41"] } };
+  assert.equal(countCompletedSoundSeekersTrails(old), 2, "historical reporting still recognises valid anchors");
+  assert.deepEqual(buildStudentHomeCardState("sound-seekers", { soundSeekers: old }), { label: "New", tone: "new", progressText: "" });
+  const chapter = freshChapter(61);
+  for (const id of ['picnic', 'brook', 'garden']) chapter.jobs[id] = { act: 3, round: 0, built: '', used: [], pending: false };
+  chapter.active = 'parcels'; chapter.attempts = 72;
+  const continuation = buildStudentHomeContinuation({ activity: { id: "sound-seekers" }, soundSeekersProgress: chapter });
+  assert.equal(continuation.label, "Continue Sound Seekers — 2 projects left");
   assert.equal(continuation.remaining, 2);
-  assert.equal(continuation.goal, "Sound Seekers trails");
+  assert.equal(continuation.goal, "Woodland projects");
+  assert.deepEqual(buildStudentHomeCardState("sound-seekers", { soundSeekers: chapter }), { label: "Continue", tone: "continue", progressText: "3 of 5 woodland projects" });
 });
 
-test("Sound Seekers completion never reports a negative remainder", () => {
-  const continuation = buildStudentHomeContinuation({
-    activity: { id: "sound-seekers", title: "Sound Seekers" },
-    soundSeekersProgress: {
-      trail: {
-        stopsDone: Array.from({ length: 40 }, (_, index) => `s${index + 1}`)
-      }
-    }
-  });
-
-  assert.equal(continuation.label, "Replay Sound Seekers — trail complete");
+test("Sound Seekers completion names the completed current woodland", () => {
+  const chapter = freshChapter(7);
+  for (const job of Object.values(chapter.jobs)) job.act = 3;
+  chapter.complete = true;
+  const continuation = buildStudentHomeContinuation({ activity: { id: "sound-seekers" }, soundSeekersProgress: chapter });
+  assert.equal(continuation.label, "Replay Sound Seekers — woodland complete");
   assert.equal(continuation.remaining, 0);
-});
-
-test("teacher-picked Sound Seekers state wins while preserving a child-safe progress marker", () => {
-  const state = buildStudentHomeCardState("sound-seekers", {
-    soundSeekers: {
-      assignment: { targets: ["m", "s", "m"] },
-      trail: {
-        stopsDone: Array.from({ length: 38 }, (_, index) => `s${index + 1}`)
-      }
-    }
-  });
-
-  assert.deepEqual(state, {
-    label: "Teacher picked",
-    tone: "teacher",
-    progressText: "38 of 40 trails"
-  });
 });
 
 test("card state distinguishes Continue from New without child-facing scores", () => {

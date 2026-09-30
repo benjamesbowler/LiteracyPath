@@ -3,6 +3,10 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { CHILD_COPY } from "../src/copy/childCopy.js";
+import { CHILD_READING_PURPOSE_COPY } from '../src/policy/literacyExperiencePolicy.js';
+import { LETTER_PRACTICE_RECOMMENDATION_COPY } from '../src/policy/letterPracticeRecommendation.js';
+import { HOLLOW_NEXT_ACTION_COPY } from '../src/policy/hollowNextActionPolicy.js';
+import { PROJECTS } from '../demos/sound-seekers/src/chapter/content.js';
 import {
   STUDENT_HOME_ACTIVITY_TITLES,
   STUDENT_HOME_COPY,
@@ -43,6 +47,11 @@ export function getStudentNavigationAudioTexts() {
   const bookTitles = [...new Set(guidedReadingBooks.map(book => book.title))];
   const gameTitles = [...new Set(GAME_LIST.map(game => game.title))];
   return [...new Set([
+    ...Object.values(CHILD_READING_PURPOSE_COPY),
+    ...Object.values(LETTER_PRACTICE_RECOMMENDATION_COPY),
+    ...Object.values(HOLLOW_NEXT_ACTION_COPY),
+    ...PROJECTS.flatMap(project => project.acts.map(act => act.title)),
+    'The woodland is ready for the Pals.',
     ...[STUDENT_RAIL_HOME, ...STUDENT_RAIL_DESTINATIONS, ...STUDENT_TAB_BAR].map(item => item.label),
     ...Object.values(STUDENT_HOME_ACTIVITY_TITLES),
     ...[undefined, { label: "Continue" }, { label: "Teacher picked" }].map(homeHeroInstruction),

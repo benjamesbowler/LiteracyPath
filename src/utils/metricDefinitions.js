@@ -98,17 +98,17 @@ export const METRIC_DEFINITIONS = Object.freeze({
   }),
   active: Object.freeze({
     id: "active",
-    label: "Active",
-    counts: "Students with a saved answer or saved Sound Seekers play.",
+    label: "Saved activity",
+    counts: "Students with a saved Skills answer or a recorded Sound Seekers activity date. Only activity received by this dashboard is counted.",
     timeWindow: "Today when the figure says today; otherwise the period shown beside it.",
-    excludes: "Students without saved activity in that period."
+    excludes: "Unsaved play, device-only checkpoints, and books or other practice that do not send an activity date to this dashboard."
   }),
   started: Object.freeze({
     id: "started",
-    label: "Started",
-    counts: "Students with at least one saved answer.",
-    timeWindow: "All saved activity for the selected class.",
-    excludes: "Students with no saved answers."
+    label: "Skills answers saved",
+    counts: "Students with at least one saved Skills answer.",
+    timeWindow: "All saved Skills answers for the selected class, including older answers.",
+    excludes: "EL assessments, game participation, reading and other practice. This count does not establish mastery."
   }),
   "current-skill": Object.freeze({
     id: "current-skill",

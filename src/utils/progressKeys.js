@@ -50,6 +50,7 @@ export function localProgressStorageKey(area, scopeKey) {
 // hydrated into a legacy record or survive deletion of its learner.
 export function localProgressStorageKeyForRow(area, key, scopeKey) {
   const base = localProgressStorageKey(area, scopeKey);
+  if (area === 'phonics_quest' && key === 'woodland_homecoming_v1') return `${woodlandChapterStorageKey(scopeKey)}:cloud-v1`;
   return base && area === "phonics_quest" && key === "sound_seekers_v3" ? `${base}:v3:campaign-v1` : base;
 }
 
@@ -66,7 +67,7 @@ export function localProgressStorageKeysForArea(area, scopeKey) {
   const base = localProgressStorageKey(area, scopeKey);
   if (!base) return [];
   if (area === "phonics_letters") return [base, `${base}:practice-session-v1`];
-  return area === "phonics_quest" ? [base, `${base}:v3`, localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey), `${localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey)}:position-v1`, `${localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey)}:live-v1`, woodlandChapterStorageKey(scopeKey || "default")] : [base];
+  return area === "phonics_quest" ? [base, `${base}:v3`, localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey), `${localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey)}:position-v1`, `${localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey)}:live-v1`, woodlandChapterStorageKey(scopeKey || "default"), localProgressStorageKeyForRow(area, 'woodland_homecoming_v1', scopeKey || 'default')] : [base];
 }
 
 // Every localStorage key that holds progress for one student.

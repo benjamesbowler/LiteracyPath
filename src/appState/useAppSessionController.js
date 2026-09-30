@@ -1,3 +1,4 @@
+import { WOODLAND_PROGRESS_ROW, woodlandParticipation } from '../features/soundSeekers/woodlandProgress.js';
 /* eslint-disable react-hooks/exhaustive-deps -- Context values preserve App's original effect contracts during staged controller extraction. */
 import { useEffect, useEffectEvent, useLayoutEffect, useRef, useState } from "react";
 import { isSupabaseConfigured, supabase } from "../supabaseClient.js";
@@ -3128,9 +3129,9 @@ export function useAppSessionController(context) {
       "Dashboard Sound Seekers",
       () => selectAllRows(() => supabase
         .table("student_progress")
-        .select("student_id, payload, updated_at")
+        .select("student_id, key, payload, updated_at")
         .eq("area", "phonics_quest")
-        .eq("key", "__all__")
+        .in("key", ["__all__", WOODLAND_PROGRESS_ROW])
         .in("student_id", studentIds)),
       { data: [], truncated: false }
     );
@@ -3203,12 +3204,16 @@ export function useAppSessionController(context) {
     const assessmentAttemptRows = assessmentAttemptsResult.data || [];
     const soundSeekerRows = soundSeekersResult.data || [];
     const profileRows = profilesResult.data || [];
-    const soundSeekersByStudent = new Map(
-      soundSeekerRows.map(row => [row.student_id, {
-        ...buildQuestMasteryReport(row.payload || {}),
-        syncedAt: row.updated_at || ""
-      }])
-    );
+    const soundSeekersByStudent = new Map();
+    for (const row of soundSeekerRows) {
+      const previous = soundSeekersByStudent.get(row.student_id) || {};
+      if (row.key === WOODLAND_PROGRESS_ROW) {
+        const woodland = woodlandParticipation(row.payload);
+        soundSeekersByStudent.set(row.student_id, { ...previous, woodland, lastActiveAt: woodland?.lastActiveAt || previous.lastActiveAt || "" });
+      } else {
+        soundSeekersByStudent.set(row.student_id, { ...buildQuestMasteryReport(row.payload || {}), ...previous, legacySyncedAt: row.updated_at || "" });
+      }
+    }
     const profilesByStudent = new Map(
       profileRows.map(row => [row.student_id, row.payload || {}])
     );
@@ -3305,7 +3310,7 @@ export function useAppSessionController(context) {
         const lastAnswer =
           studentAnswers[studentAnswers.length - 1];
         const soundSeekers = soundSeekersByStudent.get(student.id) || null;
-        const lastActive = [lastAnswer?.answered_at, soundSeekers?.lastActiveAt, soundSeekers?.syncedAt]
+        const lastActive = [lastAnswer?.answered_at, soundSeekers?.lastActiveAt]
           .filter(Boolean)
           .sort()
           .at(-1) || null;

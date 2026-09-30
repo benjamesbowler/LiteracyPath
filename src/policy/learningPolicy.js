@@ -1,8 +1,8 @@
 import {
-  SOUND_SEEKERS_TRAIL_COUNT,
   isSoundSeekersTrailId
 } from "../data/soundSeekersContract.js";
 import { getLetterPracticeProgress } from "../utils/letterPracticeProgress.js";
+import { woodlandHomeSummary } from '../features/soundSeekers/woodlandProgress.js';
 
 /**
  * Canonical learning-policy owner.
@@ -488,17 +488,8 @@ function stateResult(label, progressText = "") {
 
 export function buildStudentHomeCardState(activityId, progress = {}) {
   if (activityId === "sound-seekers") {
-    const completed = countCompletedSoundSeekersTrails(progress.soundSeekers);
-    const assignmentTargets = Array.isArray(progress.soundSeekers?.assignment?.targets)
-      ? [...new Set(progress.soundSeekers.assignment.targets.filter(Boolean))]
-      : [];
-    const progressText = completed > 0
-      ? `${completed} of ${SOUND_SEEKERS_TRAIL_COUNT} trails`
-      : assignmentTargets.length > 0
-        ? pluralized(assignmentTargets.length, "sound")
-        : "";
-    if (assignmentTargets.length > 0) return stateResult("Teacher picked", progressText);
-    return stateResult(completed > 0 ? "Continue" : "New", progressText);
+    const chapter = woodlandHomeSummary(progress.soundSeekers);
+    return stateResult(chapter.started ? 'Continue' : 'New', chapter.started ? `${chapter.completed} of 5 woodland projects` : '');
   }
 
   if (activityId === "phonics-learning") {
@@ -612,14 +603,13 @@ export function buildStudentHomeContinuation({
   }
 
   if (activity.id === "sound-seekers") {
-    const completed = countCompletedSoundSeekersTrails(soundSeekersProgress);
-    const remaining = Math.max(0, SOUND_SEEKERS_TRAIL_COUNT - completed);
+    const { remaining } = woodlandHomeSummary(soundSeekersProgress);
     return {
       label: remaining > 0
-        ? `Continue Sound Seekers — ${pluralized(remaining, "trail")} left`
-        : "Replay Sound Seekers — trail complete",
+        ? `Continue Sound Seekers — ${pluralized(remaining, "project")} left`
+        : "Replay Sound Seekers — woodland complete",
       remaining,
-      goal: "Sound Seekers trails"
+      goal: "Woodland projects"
     };
   }
 

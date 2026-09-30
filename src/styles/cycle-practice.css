@@ -126,6 +126,9 @@
 .cycle-sort-bin[aria-pressed="true"] { outline: 5px solid #276c82; outline-offset: 4px; }
 .cycle-feedback { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; gap: 16px; min-height: 42px; pointer-events: none; white-space: nowrap; }
 .cycle-feedback.is-visible { min-height: 58px; padding: 10px 24px; border: 4px solid #fff; border-radius: 24px; background: #fff4d5; color: #71481c; box-shadow: 0 5px 0 #b5985e; font-size: 23px; font-weight: 850; animation: cycle-letter-arrive .2s ease-out; }
+.cycle-feedback.is-visible { max-width: calc(100% - 24px); white-space: normal; text-align: center; line-height: 1.3; font-size: clamp(15px, 1.65vw, 21px); gap: 10px; }
+.cycle-feedback > svg { flex-shrink: 0; }
+.cycle-feedback-hear { pointer-events: auto; display: grid; place-items: center; flex: 0 0 56px; width: 56px; height: 56px; min-height: 56px; border: 1px solid #a4b591; border-radius: 50%; background: #fffdf0; color: #294c37; }
 .cycle-feedback svg { width: 30px; height: 30px; }
 [data-feedback="correct"] .cycle-feedback { color: #1e6845; background: #e8ffc7; box-shadow: 0 5px 0 #73a764; }
 [data-feedback="correct"] .cycle-feedback svg:last-child { color: #e3ae1e; }
@@ -432,6 +435,8 @@
 .cycle-practice-page.woodland-activity .cycle-answer--word,
 .woodland-activity .cycle-letter-block { background: var(--wa-cream); color: var(--wa-ink); border: 4px solid var(--wa-edge); border-radius: 48% 52% 45% 55% / 54% 46% 54% 46%; box-shadow: 0 8px 0 var(--wa-shadow), 0 13px 20px #29443418; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
 .woodland-activity .cycle-answer--picture .cycle-picture { border-radius: 0; }
+.woodland-activity .cycle-answer--picture { background: #fff; }
+.woodland-activity .cycle-answer--picture .cycle-picture { object-fit: contain; object-position: center; mix-blend-mode: normal; }
 .woodland-activity .cycle-answer--picture::after { display: none; }
 .woodland-activity .cycle-picture-hear { background: #f9f8df; color: var(--wa-ink); border: 1px solid #c6cdab; box-shadow: 0 3px 0 #aab68f; }
 .woodland-activity .cycle-picture-model,

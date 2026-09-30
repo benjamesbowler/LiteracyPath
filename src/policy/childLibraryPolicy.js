@@ -201,10 +201,10 @@ export function windowBooks(books = [], page = 0, slots = BOOK_SHELF_SLOTS) {
 /**
  * Both shelves, already windowed and starred.
  *
- * Shelf one is the child's own level, ordered by the app's existing
+ * Shelf one is the selected browsing level, ordered by the app's existing
  * recommender when one is supplied. Shelf two is what they have finished, most
  * recent first — and when they have finished nothing it becomes MORE OF THEIR
- * LEVEL rather than an empty row, because a shelf with nothing on it is a hole
+ * BROWSING LEVEL rather than an empty row, because a shelf with nothing on it is a hole
  * in the screen, not a design.
  */
 export function buildBookShelves({
@@ -263,7 +263,7 @@ export function buildBookShelves({
 
   const first = shelf(
     "just-right",
-    level === "READ_ALOUD" ? "Read Together" : "Just right for you",
+    level === "READ_ALOUD" ? "Read Together" : "Books to try",
     level === "READ_ALOUD" ? "Listen and read with a grown-up" : `Level ${level}`,
     "rgba(111, 179, 95, .85)",
     justRightPool,

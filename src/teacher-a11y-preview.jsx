@@ -301,6 +301,28 @@ function Dashboard({ page }) {
   const [newClassName, setNewClassName] = useState("");
   const [dashboardRows, setDashboardRows] = useState(() => previewProgressRows.map(row => ({
     ...row,
+    ...(params.has("focus-evidence") ? {
+      lastActive: new Date().toISOString(),
+      currentLastActive: new Date().toISOString(),
+      currentAnswered: row.answered,
+      currentAccuracy: row.accuracy,
+      currentEvidenceSkills: [row.currentSkill],
+      focusEvidence: {
+        skill: row.currentSkill,
+        answered: row.answered,
+        accuracy: row.accuracy,
+        lastActive: new Date().toISOString()
+      }
+    } : {}),
+    ...(params.has("sound-seekers-practice") ? {
+      soundSeekers: {
+        ...row.soundSeekers,
+        [params.get("sound-seekers-practice") === "campaign" ? "campaign" : "woodland"]:
+          params.get("sound-seekers-practice") === "campaign"
+            ? { practiceOnly: true, stagesCompleted: 3, totalStages: 30, missionsCompleted: 15, totalMissions: 150, attempts: 45 }
+            : { practiceOnly: true, projectsCompleted: 2, totalProjects: 5, attempts: 14 }
+      }
+    } : {}),
     accessibilitySettings: learnerAccessibilityFromProfile(loadStudentProfile(row.id))
   })));
 
@@ -926,7 +948,7 @@ function Surface() {
     case "worksheets":
       return <WorksheetGeneratorPage className="Audit Class A" onBack={noop} />;
     case "present":
-      return <PresentPage className="Audit Class A" currentCycleId={params.get("cycle") || "cycle-3"} onBack={() => { window.location.search = "?surface=resources"; }} />;
+      return <PresentPage classId={params.get("workspace-class") || classId} className="Audit Class A" currentCycleId={params.get("cycle") || "cycle-3"} onBack={() => { window.location.search = "?surface=resources"; }} />;
     case "settings":
       return <Settings />;
     case "report":

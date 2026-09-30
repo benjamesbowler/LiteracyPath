@@ -1340,7 +1340,10 @@ export function buildImageIndex() {
         // Child-game vocabulary has its own visual review. Adding a picture
         // there must not silently replace a committed, reviewed assessment
         // stimulus through this filename search; author it explicitly instead.
-        if (full === path.join(ROOT, "public/images/child-mode/vocabulary")) continue;
+        if ([
+          "public/images/child-mode/vocabulary",
+          "public/images/child-mode/initial-sounds/reviewed"
+        ].some(relative => full === path.join(ROOT, relative))) continue;
         walk(full);
         continue;
       }

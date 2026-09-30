@@ -1,4 +1,5 @@
 import { mergeCampaignProgress } from "../features/soundSeekers/v3/engine/campaignProgress.js";
+import { WOODLAND_PROGRESS_ROW, mergeWoodlandProgress } from '../features/soundSeekers/woodlandProgress.js';
 import { MUSIC_PREFERENCE_VERSION, normalizeAudioPreferences } from "./audio/audioPreferences.js";
 import { mergePracticeProgressValue, mergePracticeProgressRecords } from "./practiceCompletionRecords.js";
 // Pure merge rules for hydrating cloud progress into local storage.
@@ -378,6 +379,7 @@ export function reconcileQuestSaveWithStored(writer, stored) {
 // `existing` is the current local value for that storage key. Pure + testable.
 export function computeHydratedValue(area, key, existing, payload, { scopeKey } = {}) {
   const base = existing && typeof existing === "object" ? existing : {};
+  if (area === 'phonics_quest' && key === WOODLAND_PROGRESS_ROW) return mergeWoodlandProgress(base, payload);
 
   if (area === "phonics_quest" && (key === "sound_seekers_v3" || base.campaign || payload?.campaign)) {
     if (!scopeKey) throw new Error("Campaign hydration requires an explicit learner scope");

@@ -7,6 +7,7 @@ import { createPortal } from "react-dom";
 import { GAME_LIST } from "../../../data/learnGamesData";
 import { cancelSpeech, hasRecordedSpeech, speak } from "../../../utils/learnGamesAudio";
 import { cancelGameSfx } from "../../../utils/audio/gameSfx";
+import { stopCueAudio } from "../../../utils/audio/cuePlayer.js";
 import { startGameMusic, stopGameMusic } from "../../../utils/audio/gameMusic.js";
 import {
   clearActiveLearnGamesProgressScope,
@@ -52,6 +53,10 @@ function GuideIcon() {
       <circle cx="12" cy="12" r="9" />
     </svg>
   );
+}
+
+function PauseIcon() {
+  return <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14" /></svg>;
 }
 
 // A render throw inside a game must never unmount the whole app. Swap in a
@@ -113,6 +118,7 @@ export function GamePlayer({
   const [score, setScore] = useState(0);
   const [showQuit, setShowQuit] = useState(false);
   const [showGuide, setShowGuide] = useState(false);
+  const [showPause, setShowPause] = useState(false);
   const [completed, setCompleted] = useState(false);
   const [completionResult, setCompletionResult] = useState(null);
   const [saveRecovery, setSaveRecovery] = useState(false);
@@ -142,13 +148,16 @@ export function GamePlayer({
   const closeGuideRef = useRef(null);
   const completionActionRef = useRef(null);
   const retrySaveRef = useRef(null);
+  const resumePauseRef = useRef(null);
   const GameComponent = LEARN_GAMES[game.id];
   const world = worldForDifficulty(difficulty);
   const scene = sceneForKey(world, game.id);
   const activeGameSurfaceName = gameFullscreenSurfaceName(game);
   const premiumProfile = premiumProfileForGame(game.id);
   const hasPremiumCompletionOverlay = Boolean(completionResult && premiumProfile && premiumProfile.completionPresentation !== "engine");
-  const hasBlockingOverlay = startLevel === null || showQuit || showGuide || hasPremiumCompletionOverlay || saveRecovery;
+  const hasBlockingOverlay = startLevel === null || showQuit || showGuide || showPause || hasPremiumCompletionOverlay || saveRecovery;
+  const blockingRef = useRef(hasBlockingOverlay);
+  useEffect(() => { blockingRef.current = hasBlockingOverlay; }, [hasBlockingOverlay]);
   const hasEngineOwnedCompletion = Boolean(completionResult && !hasPremiumCompletionOverlay);
 
   useEffect(() => {
@@ -183,23 +192,27 @@ export function GamePlayer({
   useEffect(() => {
     // Sound Beat runs its own BPM-synced music engine; the fixed-tempo loop
     // would play on top of it, so the generic track is skipped for that game.
-    if (musicEnabled && game.id !== "sound-beat") startGameMusic(game.id, { fallbackWorldId: world.id });
+    if (musicEnabled && !hasBlockingOverlay && game.id !== "sound-beat") startGameMusic(game.id, { fallbackWorldId: world.id });
     else stopGameMusic();
     return () => stopGameMusic();
-  }, [musicEnabled, world.id, game.id]);
+  }, [musicEnabled, world.id, game.id, hasBlockingOverlay]);
 
   // Freeze the running game while the quit dialog is open or the tab is
   // backgrounded, so a child never loses hearts/words they can't see.
   useEffect(() => {
-    if (showQuit || showGuide || saveRecovery || document.hidden) engineRef.current?.pause?.();
+    const pauseAudio = () => { cancelSpeech(); stopCueAudio(); cancelGameSfx(); stopGameMusic(); };
+    if (hasBlockingOverlay || document.hidden) { engineRef.current?.pause?.(); pauseAudio(); }
     else engineRef.current?.resume?.();
     const onVis = () => {
-      if (document.hidden) engineRef.current?.pause?.();
-      else if (!showQuit && !showGuide && !pendingResultRef.current) engineRef.current?.resume?.();
+      if (document.hidden) { engineRef.current?.pause?.(); pauseAudio(); }
+      else if (!hasBlockingOverlay && !pendingResultRef.current) {
+        engineRef.current?.resume?.();
+        if (musicEnabled && game.id !== "sound-beat") startGameMusic(game.id, { fallbackWorldId: world.id });
+      }
     };
     document.addEventListener("visibilitychange", onVis);
     return () => document.removeEventListener("visibilitychange", onVis);
-  }, [showQuit, showGuide, saveRecovery]);
+  }, [hasBlockingOverlay, musicEnabled, game.id, world.id]);
 
   // Closes the player, first firing any held mission return from this
   // session's win (see handleComplete) so the celebration is never cut off.
@@ -250,6 +263,10 @@ export function GamePlayer({
   }, [showGuide]);
 
   useEffect(() => {
+    if (showPause) resumePauseRef.current?.focus();
+  }, [showPause]);
+
+  useEffect(() => {
     if (hasPremiumCompletionOverlay) completionActionRef.current?.focus();
   }, [hasPremiumCompletionOverlay]);
 
@@ -294,7 +311,7 @@ export function GamePlayer({
     };
     document.addEventListener("keydown", onKeyDown, true);
     return () => document.removeEventListener("keydown", onKeyDown, true);
-  }, [completionResult, showGuide, showQuit, startLevel]);
+  }, [completionResult, showGuide, showQuit, showPause, startLevel]);
 
   // Esc mirrors the close button: opens the quit prompt during play, closes
   // it when open, and leaves directly once the game is complete. The resume
@@ -309,14 +326,15 @@ export function GamePlayer({
         return;
       }
       if (startLevel === null) return;
-      if (showGuide) setShowGuide(false);
+      if (showPause) setShowPause(false);
+      else if (showGuide) setShowGuide(false);
       else if (showQuit) setShowQuit(false);
       else if (completed) closePlayer();
       else setShowQuit(true);
     };
     window.addEventListener("keydown", onKeyDown, true);
     return () => window.removeEventListener("keydown", onKeyDown, true);
-  }, [showGuide, showQuit, completed, startLevel, closePlayer]);
+  }, [showGuide, showQuit, showPause, completed, startLevel, closePlayer]);
 
   function retryResultSave() {
     const pending = pendingResultRef.current;
@@ -461,6 +479,17 @@ export function GamePlayer({
     setResumePoint(null);
   }
 
+  function restartCurrentRun() {
+    if (pendingResultRef.current) return false;
+    cancelSpeech(); stopCueAudio(); cancelGameSfx(); engineRef.current?.pause?.();
+    clearGameCheckpoint(progressScopeKey, game.id, difficulty);
+    engineRef.current = null;
+    handleSessionStart();
+    setResumePoint(null); setSessionSeed(previous => newGameSeed(previous)); setStartLevel(0);
+    setRunIndex(index => index + 1); setShowPause(false);
+    return true;
+  }
+
   const handleProgressUpdate = useCallback((current, total) => {
     if (pendingResultRef.current) return;
     const next = {
@@ -516,7 +545,7 @@ export function GamePlayer({
       <header className="lg-game-player-header" inert={hasBlockingOverlay || hasEngineOwnedCompletion ? true : undefined}>
         <div className="lg-game-title-chip">
           <strong>{game.title}</strong>
-          <span>{journey ? `${journey.label} ${journey.index+1} / ${journey.total}` : difficulty}</span>
+          <span>{journey ? `${journey.label} ${journey.index+1}` : difficulty}</span>
         </div>
         <div className="lg-game-player-center">
           {premiumProfile && <p className="lg-game-mission">{premiumProfile.mission}</p>}
@@ -526,8 +555,10 @@ export function GamePlayer({
           </div>
         </div>
         <div className="lg-game-player-actions">
-          <span className="lg-game-score">{score} pts</span>
           <span className="lg-sr-only" role="status">{scoreAnnouncement}</span>
+          <button type="button" className="lg-game-pause" onClick={() => setShowPause(true)} aria-label={`Pause ${game.title}`} title="Pause game">
+            <PauseIcon /><span>Pause</span>
+          </button>
           {premiumProfile && (
             <button
               type="button"
@@ -540,11 +571,7 @@ export function GamePlayer({
             </button>
           )}
           <SoundToggle enabled={soundEnabled} onToggle={() => onSoundEnabledChange(!soundEnabled)} />
-          <MusicToggle
-            className="lg-sound-toggle"
-            enabled={musicEnabled}
-            onToggle={() => onMusicEnabledChange?.(!musicEnabled)}
-          />
+          <MusicToggle className="lg-sound-toggle" enabled={musicEnabled} onToggle={() => onMusicEnabledChange?.(!musicEnabled)} />
           <button
             type="button"
             className="lg-game-close"
@@ -587,7 +614,7 @@ export function GamePlayer({
                 onEngineReady={api => {
                   engineRef.current = api;
                   onGameEngineReady?.(api);
-                  if (pendingResultRef.current) api?.pause?.();
+                  if (pendingResultRef.current || blockingRef.current || document.hidden) api?.pause?.();
                 }}
                 onExit={closePlayer}
                 isSoundEnabled={soundEnabled}
@@ -597,6 +624,23 @@ export function GamePlayer({
           </Suspense>
         </GameErrorBoundary>
       </main>
+
+      {showPause && <div ref={blockingDialogRef} className="lg-game-confirm lg-game-pause-panel" role="dialog" aria-modal="true" aria-label={`${game.title} paused`}>
+        <div>
+          <h2>Game paused</h2>
+          <p>{premiumProfile?.mission || game.description}</p>
+          <div className="lg-game-audio-settings" role="group" aria-label="Audio settings">
+            <SoundToggle enabled={soundEnabled} onToggle={() => onSoundEnabledChange(!soundEnabled)} showLabel />
+            <MusicToggle className="lg-sound-toggle lg-audio-toggle-labelled" enabled={musicEnabled} showLabel onToggle={() => onMusicEnabledChange?.(!musicEnabled)} />
+          </div>
+          <div className="lg-game-pause-actions">
+            <button type="button" className="primary" ref={resumePauseRef} onClick={() => setShowPause(false)}>Resume game</button>
+            {premiumProfile && <button type="button" onClick={() => { setShowPause(false); setShowGuide(true); }}>How to play</button>}
+            <button type="button" onClick={restartCurrentRun}>Start this {journey?.label.toLowerCase() || 'game'} over</button>
+          </div>
+          <p className="lg-game-pause-note">Your saved stars stay safe.</p>
+        </div>
+      </div>}
 
       {resumePoint && startLevel === null && (
         <div
@@ -671,7 +715,7 @@ export function GamePlayer({
           aria-label={`${game.title} mission guide`}
         >
           <div>
-            <span className="lg-premium-guide-kicker">Mission · v{premiumProfile.version}</span>
+            <span className="lg-premium-guide-kicker">How to play</span>
             <h2>{premiumProfile.mission}</h2>
             {journey && <p>{journey.name} · {journey.label} {journey.index+1} of {journey.total}. Your place is saved as you play.</p>}
             <dl>

@@ -21,11 +21,11 @@ test("A2.4 every student activity has a seeded child-safe card state", async ({ 
   await expect(readingLibrary).toHaveAttribute("data-progress-marker", "1 book read");
 
   const soundSeekers = home.locator('[data-continuation-activity="sound-seekers"]');
-  await expect(soundSeekers).toHaveAttribute("data-learning-state", "Teacher picked");
-  await expect(soundSeekers).toHaveAttribute("data-progress-marker", "38 of 40 trails");
+  await expect(soundSeekers).toHaveAttribute("data-learning-state", "Continue");
+  await expect(soundSeekers).toHaveAttribute("data-progress-marker", "3 of 5 woodland projects");
   await expect(home.locator('[data-learning-state="New"]')).toHaveCount(4);
   await expect(home.locator("[data-child-instruction]"))
-    .toHaveText("Your teacher picked this");
+    .toHaveText("Carry on where you stopped");
   await expect(home.locator("[data-learning-state-label]", { hasText: "New" }))
     .toHaveCount(0);
 

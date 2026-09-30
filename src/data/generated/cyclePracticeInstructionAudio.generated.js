@@ -37,6 +37,10 @@ export const CYCLE_PRACTICE_INSTRUCTION_AUDIO = Object.freeze({
   "let's play": "/audio/production/en-US/instruction/let-s-play-69b71c191a.mp3",
   "let's try a few by yourself": "/audio/production/en-US/instruction/let-s-try-a-few-by-yourself-718350b83a.mp3",
   "let's try saving again": "/audio/production/en-US/instruction/let-s-try-saving-again-4b210071ef.mp3",
+  "listen to its ending sound": "/audio/production/en-US/instruction/listen-to-its-ending-sound-b3d3cafa1a.mp3",
+  "listen to its first sound": "/audio/production/en-US/instruction/listen-to-its-first-sound-3c8a3eac2e.mp3",
+  "listen to the endings of these words": "/audio/production/en-US/instruction/listen-to-the-endings-of-these-words-21960f3783.mp3",
+  "listen to the word. match the next sound": "/audio/production/en-US/instruction/listen-to-the-word-match-the-next-sound-631f7b4d13.mp3",
   "listen. cupcake. take away cake. tap what is left": "/audio/production/en-US/instruction/listen-cupcake-take-away-cake-tap-what-is-left-2387dacf32.mp3",
   "listen. cupcake. take away cup. tap what is left": "/audio/production/en-US/instruction/listen-cupcake-take-away-cup-tap-what-is-left-1598a68d3b.mp3",
   "listen. football. take away ball. tap what is left": "/audio/production/en-US/instruction/listen-football-take-away-ball-tap-what-is-left-7e1e4c549d.mp3",
@@ -53,6 +57,7 @@ export const CYCLE_PRACTICE_INSTRUCTION_AUDIO = Object.freeze({
   "listen. sunflower. take away flower. tap what is left": "/audio/production/en-US/instruction/listen-sunflower-take-away-flower-tap-what-is-left-24cbe67e4e.mp3",
   "listen. sunflower. take away sun. tap what is left": "/audio/production/en-US/instruction/listen-sunflower-take-away-sun-tap-what-is-left-5dcb14c5d2.mp3",
   "listen. tap how many beats": "/audio/production/en-US/instruction/listen-tap-how-many-beats-967e00ec8c.mp3",
+  "listen. tap once for each beat": "/audio/production/en-US/instruction/listen-tap-once-for-each-beat-9cace18eaf.mp3",
   "listen. tap the letter to change. then tap the new letter": "/audio/production/en-US/instruction/listen-tap-the-letter-to-change-then-tap-the-new-letter-4a5057d4fb.mp3",
   "listen. tap the letters that make this ending": "/audio/production/en-US/instruction/listen-tap-the-letters-that-make-this-ending-044111c36e.mp3",
   "listen. tap the letters that make this sound": "/audio/production/en-US/instruction/listen-tap-the-letters-that-make-this-sound-36b0c28f67.mp3",
@@ -71,6 +76,8 @@ export const CYCLE_PRACTICE_INSTRUCTION_AUDIO = Object.freeze({
   "milk comes from a cow": "/audio/production/en-US/instruction/milk-comes-from-a-cow-76e58b7764.mp3",
   "no milk in the cup": "/audio/production/en-US/instruction/no-milk-in-the-cup-13c3847ac4.mp3",
   "not quite. let's try the next one": "/audio/production/en-US/instruction/not-quite-let-s-try-the-next-one-eb9bbf16f2.mp3",
+  "now listen for this sound": "/audio/production/en-US/instruction/now-listen-for-this-sound-3f1518c139.mp3",
+  "now listen for this word": "/audio/production/en-US/instruction/now-listen-for-this-word-569402b018.mp3",
   "one more apple": "/audio/production/en-US/instruction/one-more-apple-200223d534.mp3",
   "only one moon": "/audio/production/en-US/instruction/only-one-moon-c6e4b44131.mp3",
   "play with the ball again": "/audio/production/en-US/instruction/play-with-the-ball-again-e0aa312c50.mp3",
@@ -90,6 +97,8 @@ export const CYCLE_PRACTICE_INSTRUCTION_AUDIO = Object.freeze({
   "tap the letters. make the same word": "/audio/production/en-US/instruction/tap-the-letters-make-the-same-word-c6e39a820f.mp3",
   "tap the matching letter": "/audio/production/en-US/instruction/tap-the-matching-letter-7ae101ab9c.mp3",
   "tap the speaker. let's listen again": "/audio/production/en-US/instruction/tap-the-speaker-let-s-listen-again-479b8ac488.mp3",
+  "that is a different sound": "/audio/production/en-US/instruction/that-is-a-different-sound-cd9841dd6e.mp3",
+  "that is a different word": "/audio/production/en-US/instruction/that-is-a-different-word-45ab96f890.mp3",
   "that's right": "/audio/production/en-US/instruction/that-s-right-85a70fa114.mp3",
   "the bus goes to school": "/audio/production/en-US/instruction/the-bus-goes-to-school-7ec8460679.mp3",
   "the cat": "/audio/production/en-US/instruction/the-cat-d8aeb3acf0.mp3",
@@ -1209,6 +1218,54 @@ export const CYCLE_PRACTICE_AUDIO_METADATA = Object.freeze({
     "durationSeconds": 0.372333,
     "humanListening": "unknown"
   },
+  "listen to its ending sound": {
+    "text": "Listen to its ending sound.",
+    "role": "instruction",
+    "audio": "/audio/production/en-US/instruction/listen-to-its-ending-sound-b3d3cafa1a.mp3",
+    "voice": "en-US-Chirp3-HD-Leda",
+    "provider": "Google Cloud Text-to-Speech",
+    "aiGenerated": true,
+    "reused": false,
+    "sha256": "88a31b6131c3a2ee31b140000f268a709e5905a9c03e9d5990be4f44e5ab38bf",
+    "durationSeconds": 2.603333,
+    "humanListening": "unknown"
+  },
+  "listen to its first sound": {
+    "text": "Listen to its first sound.",
+    "role": "instruction",
+    "audio": "/audio/production/en-US/instruction/listen-to-its-first-sound-3c8a3eac2e.mp3",
+    "voice": "en-US-Chirp3-HD-Leda",
+    "provider": "Google Cloud Text-to-Speech",
+    "aiGenerated": true,
+    "reused": false,
+    "sha256": "42fbe89543167a06f504de490b4c514cb9016bd588cff45cc7622f78fd680f9c",
+    "durationSeconds": 1.849342,
+    "humanListening": "unknown"
+  },
+  "listen to the endings of these words": {
+    "text": "Listen to the endings of these words.",
+    "role": "instruction",
+    "audio": "/audio/production/en-US/instruction/listen-to-the-endings-of-these-words-21960f3783.mp3",
+    "voice": "en-US-Chirp3-HD-Leda",
+    "provider": "Google Cloud Text-to-Speech",
+    "aiGenerated": true,
+    "reused": false,
+    "sha256": "53c06851d95d90e3c25dc88f6a49a235ecb8a191e0a44bbf5374c98ab23caf72",
+    "durationSeconds": 2.255329,
+    "humanListening": "unknown"
+  },
+  "listen to the word. match the next sound": {
+    "text": "Listen to the word. Match the next sound.",
+    "role": "instruction",
+    "audio": "/audio/production/en-US/instruction/listen-to-the-word-match-the-next-sound-631f7b4d13.mp3",
+    "voice": "en-US-Chirp3-HD-Leda",
+    "provider": "Google Cloud Text-to-Speech",
+    "aiGenerated": true,
+    "reused": false,
+    "sha256": "bcb61fe547a3e8c09302e910136be4d6a8b410ff5b275f99642b7898837ce291",
+    "durationSeconds": 2.951338,
+    "humanListening": "unknown"
+  },
   "listen. cupcake. take away cake. tap what is left": {
     "text": "Listen. cupcake. Take away cake. Tap what is left.",
     "role": "instruction",
@@ -1399,6 +1456,18 @@ export const CYCLE_PRACTICE_AUDIO_METADATA = Object.freeze({
     "reused": false,
     "sha256": "5bc2d2b09c12f32240477bdf8aacfa3d527644fe9c09f02150a7dd56875e0f43",
     "durationSeconds": 3.125329,
+    "humanListening": "unknown"
+  },
+  "listen. tap once for each beat": {
+    "text": "Listen. Tap once for each beat.",
+    "role": "instruction",
+    "audio": "/audio/production/en-US/instruction/listen-tap-once-for-each-beat-9cace18eaf.mp3",
+    "voice": "en-US-Chirp3-HD-Leda",
+    "provider": "Google Cloud Text-to-Speech",
+    "aiGenerated": true,
+    "reused": false,
+    "sha256": "2029236d71948173c1e8029a3c9294fddc36d20cdf32f2fd12100d3f2c79a13d",
+    "durationSeconds": 3.299342,
     "humanListening": "unknown"
   },
   "listen. tap the letter to change. then tap the new letter": {
@@ -1735,6 +1804,30 @@ export const CYCLE_PRACTICE_AUDIO_METADATA = Object.freeze({
     "reused": false,
     "sha256": "265f5b7da6d71fb92f801848f2deff7e301668b01fd23221fa7f55d800d8201d",
     "durationSeconds": 2.313333,
+    "humanListening": "unknown"
+  },
+  "now listen for this sound": {
+    "text": "Now listen for this sound.",
+    "role": "instruction",
+    "audio": "/audio/production/en-US/instruction/now-listen-for-this-sound-3f1518c139.mp3",
+    "voice": "en-US-Chirp3-HD-Leda",
+    "provider": "Google Cloud Text-to-Speech",
+    "aiGenerated": true,
+    "reused": false,
+    "sha256": "7fa0b931af7e46ca1d8fb0d5e296001fdd2992ce79a675ab0e0c6c260769bd89",
+    "durationSeconds": 1.965329,
+    "humanListening": "unknown"
+  },
+  "now listen for this word": {
+    "text": "Now listen for this word.",
+    "role": "instruction",
+    "audio": "/audio/production/en-US/instruction/now-listen-for-this-word-569402b018.mp3",
+    "voice": "en-US-Chirp3-HD-Leda",
+    "provider": "Google Cloud Text-to-Speech",
+    "aiGenerated": true,
+    "reused": false,
+    "sha256": "f1505a110d190016061f13796b6c215f4b0da9742cb6d175645af5f85299cfcd",
+    "durationSeconds": 1.675329,
     "humanListening": "unknown"
   },
   "octagon": {
@@ -2215,6 +2308,30 @@ export const CYCLE_PRACTICE_AUDIO_METADATA = Object.freeze({
     "reused": true,
     "sha256": "fca23c539118603eed370f40f0ba709639770e96930e7a19c24a8babe57c9864",
     "durationSeconds": 0.804333,
+    "humanListening": "unknown"
+  },
+  "that is a different sound": {
+    "text": "That is a different sound.",
+    "role": "instruction",
+    "audio": "/audio/production/en-US/instruction/that-is-a-different-sound-cd9841dd6e.mp3",
+    "voice": "en-US-Chirp3-HD-Leda",
+    "provider": "Google Cloud Text-to-Speech",
+    "aiGenerated": true,
+    "reused": false,
+    "sha256": "e425acd93fe7e647824dbdb0e8851f365d221182df9c8bc3175fb5ae9fe271c9",
+    "durationSeconds": 1.501338,
+    "humanListening": "unknown"
+  },
+  "that is a different word": {
+    "text": "That is a different word.",
+    "role": "instruction",
+    "audio": "/audio/production/en-US/instruction/that-is-a-different-word-45ab96f890.mp3",
+    "voice": "en-US-Chirp3-HD-Leda",
+    "provider": "Google Cloud Text-to-Speech",
+    "aiGenerated": true,
+    "reused": false,
+    "sha256": "4151137d0e5373bb5d13cce9bcc6127851d080430f55305cfa053cfcd2dabc91",
+    "durationSeconds": 1.501338,
     "humanListening": "unknown"
   },
   "that's right": {

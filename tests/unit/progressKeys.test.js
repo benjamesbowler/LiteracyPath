@@ -27,7 +27,7 @@ test("every progress area maps to a non-empty, student-scoped key", () => {
 
 test("localProgressKeysForStudent includes active and retired keys for privacy cleanup", () => {
   const keys = localProgressKeysForStudent("stu-123");
-  assert.equal(keys.length, PROGRESS_AREAS.length + RETIRED_PROGRESS_AREAS.length + 6);
+  assert.equal(keys.length, PROGRESS_AREAS.length + RETIRED_PROGRESS_AREAS.length + 7);
   assert.equal(new Set(keys).size, keys.length, "keys should be unique");
 });
 
@@ -35,7 +35,7 @@ test("local learner cleanup includes device-only onboarding preferences without 
   const keys = localLearnerDataKeysForStudent("stu-123");
   assert.equal(
     keys.length,
-    PROGRESS_AREAS.length + RETIRED_PROGRESS_AREAS.length + 6 + LOCAL_STUDENT_PREFERENCE_AREAS.length
+    PROGRESS_AREAS.length + RETIRED_PROGRESS_AREAS.length + 7 + LOCAL_STUDENT_PREFERENCE_AREAS.length
   );
   assert.ok(keys.includes(localStudentPreferenceStorageKey("welcome_guide", "stu-123")));
   assert.equal(PROGRESS_AREAS.includes("welcome_guide"), false);
@@ -78,6 +78,6 @@ test("campaign row hydration uses a protected key and privacy cleanup includes b
   assert.equal(key, "lp-quest:child:v3:campaign-v1");
   assert.ok(localProgressKeysForStudent("child").includes(key));
   assert.ok(localLearnerDataKeysForStudent("child").includes(key));
-  assert.deepEqual(localProgressStorageKeysForArea("phonics_quest", "child"), ["lp-quest:child", "lp-quest:child:v3", key, `${key}:position-v1`, `${key}:live-v1`, woodlandChapterStorageKey("child")]);
+  assert.deepEqual(localProgressStorageKeysForArea("phonics_quest", "child"), ["lp-quest:child", "lp-quest:child:v3", key, `${key}:position-v1`, `${key}:live-v1`, woodlandChapterStorageKey("child"), `${woodlandChapterStorageKey("child")}:cloud-v1`]);
   assert.equal(localProgressStorageKeyForRow("phonics_quest", "__all__", "child"), "lp-quest:child");
 });
